@@ -25,7 +25,7 @@
     "devDependencies": {
         "dtslint": "github:Microsoft/dtslint#production",
         "types-publisher": "github:Microsoft/types-publisher#production",
-        "prettier": "^1.16.4",
+        "prettier": "1.16.4",
         "pretty-quick": "^1.10.0"
     },
     "dependencies": {}
