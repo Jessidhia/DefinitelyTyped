@@ -18,11 +18,15 @@
         "compile-scripts": "tsc -p scripts",
         "not-needed": "node scripts/not-needed.js",
         "test": "node node_modules/types-publisher/bin/tester/test.js --run-from-definitely-typed",
-        "lint": "dtslint types"
+        "lint": "dtslint types",
+        "prettier": "pretty-quick",
+        "prettier-all": "prettier \"**/*.{md,MD,json,ts{x,},{m,}js{x,},html,css,xml,y{a,}ml}\""
     },
     "devDependencies": {
         "dtslint": "github:Microsoft/dtslint#production",
-        "types-publisher": "github:Microsoft/types-publisher#production"
+        "types-publisher": "github:Microsoft/types-publisher#production",
+        "prettier": "^1.16.4",
+        "pretty-quick": "^1.10.0"
     },
     "dependencies": {}
 }
