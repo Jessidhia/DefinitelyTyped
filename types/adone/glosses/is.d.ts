@@ -74,7 +74,11 @@ declare namespace adone {
         /**
          * Checks whether the first string is a substring of the second string from the given offset
          */
-        export function substring(substring: string, string: string, offset?: number): boolean;
+        export function substring(
+            substring: string,
+            string: string,
+            offset?: number
+        ): boolean;
 
         /**
          * Checks whether `string` starts from `prefix`
@@ -135,7 +139,11 @@ declare namespace adone {
         /**
          * Checks whether the given object conforms to `schema`.
          */
-        export function conforms(obj: object, schema: object, strict?: boolean): boolean;
+        export function conforms(
+            obj: object,
+            schema: object,
+            strict?: boolean
+        ): boolean;
 
         /**
          * Checks whether the given object is like an array, i.e. it is not a primitive, not a function and has length
@@ -145,7 +153,12 @@ declare namespace adone {
         /**
          * Checks whether the given array has the given value
          */
-        export function inArray<T>(value: T, array: any[], offset?: number, comparator?: (a: T, b: T) => boolean): boolean;
+        export function inArray<T>(
+            value: T,
+            array: any[],
+            offset?: number,
+            comparator?: (a: T, b: T) => boolean
+        ): boolean;
 
         /**
          * Checks whether the given objects has same type
@@ -233,7 +246,9 @@ declare namespace adone {
         /**
          * Checks whether the given object is an async function
          */
-        export function asyncFunction(obj: any): obj is (...args: any[]) => Promise<any>;
+        export function asyncFunction(
+            obj: any
+        ): obj is (...args: any[]) => Promise<any>;
 
         /**
          * Checks whether the given object is a promise
@@ -340,12 +355,16 @@ declare namespace adone {
         /**
          * Checks whether the given object is a fast local map stream
          */
-        export function fastLocalMapStream(obj: any): obj is adone.fast.I.LocalMapStream<any>;
+        export function fastLocalMapStream(
+            obj: any
+        ): obj is adone.fast.I.LocalMapStream<any>;
 
         /**
          * Checks whether the given object is a fast local stream
          */
-        export function fastLocalStream(obj: any): obj is adone.fast.I.LocalStream<any>;
+        export function fastLocalStream(
+            obj: any
+        ): obj is adone.fast.I.LocalStream<any>;
 
         /**
          * Checks whether the given object is a fast stream
@@ -405,12 +424,18 @@ declare namespace adone {
         /**
          * Checks whether the given netron interface has `name` method
          */
-        export function netronIMethod(netronInterface: object, name: string): boolean;
+        export function netronIMethod(
+            netronInterface: object,
+            name: string
+        ): boolean;
 
         /**
          * Checks whether the given netron interface has `name` property
          */
-        export function netronIProperty(netronInterface: any, name: string): boolean;
+        export function netronIProperty(
+            netronInterface: any,
+            name: string
+        ): boolean;
 
         /**
          * Checks whether the given object is a netron stub
@@ -490,17 +515,26 @@ declare namespace adone {
         /**
          * Checks whether the given string is an IPv4 address
          */
-        export function ip4(str: string, options?: adone.regex.I.IP.Options): boolean;
+        export function ip4(
+            str: string,
+            options?: adone.regex.I.IP.Options
+        ): boolean;
 
         /**
          * Checks whether the given string is an IPv6 address
          */
-        export function ip6(str: string, options?: adone.regex.I.IP.Options): boolean;
+        export function ip6(
+            str: string,
+            options?: adone.regex.I.IP.Options
+        ): boolean;
 
         /**
          * Checks whether the given string is IPv4 or IPv6 address
          */
-        export function ip(str: string, options?: adone.regex.I.IP.Options): boolean;
+        export function ip(
+            str: string,
+            options?: adone.regex.I.IP.Options
+        ): boolean;
 
         /**
          * Checks whether the given object is an array buffer
@@ -579,59 +613,65 @@ declare namespace adone {
         /**
          * Checks whether the given object(string) is a url
          */
-        export function url(obj: any, options?: I.FQDNOptions & {
-            /**
-             * List of valid protocols.
-             * Used when requireValidProtocol is `true`.
-             * Default ["http", "https", "ftp"]
-             */
-            protocols?: string[],
+        export function url(
+            obj: any,
+            options?: I.FQDNOptions & {
+                /**
+                 * List of valid protocols.
+                 * Used when requireValidProtocol is `true`.
+                 * Default ["http", "https", "ftp"]
+                 */
+                protocols?: string[];
 
-            /**
-             * Whether to require protocol, default `true`
-             */
-            requireProtocol?: boolean,
+                /**
+                 * Whether to require protocol, default `true`
+                 */
+                requireProtocol?: boolean;
 
-            /**
-             * Whether to require host, default `true`
-             */
-            requireHost?: boolean,
+                /**
+                 * Whether to require host, default `true`
+                 */
+                requireHost?: boolean;
 
-            /**
-             * Whether to require valid protocol defined in `protocols` options, default `true`
-             */
-            requireValidProtocol?: boolean,
+                /**
+                 * Whether to require valid protocol defined in `protocols` options, default `true`
+                 */
+                requireValidProtocol?: boolean;
 
-            /**
-             * Whether to allow urls like "//example.com", default `false`
-             */
-            allowProtocolRelativeUrls?: boolean
-        }): obj is string;
+                /**
+                 * Whether to allow urls like "//example.com", default `false`
+                 */
+                allowProtocolRelativeUrls?: boolean;
+            }
+        ): obj is string;
 
         /**
          * Checks whether the given object(string) is a valid email address
          */
-        export function email(obj: any, options?: {
-            /**
-             * Whether to allow email addresses with display names ("Name <local@domain>"")
-             */
-            allowDisplayName?: boolean,
+        export function email(
+            obj: any,
+            options?: {
+                /**
+                 * Whether to allow email addresses with display names ("Name <local@domain>"")
+                 */
+                allowDisplayName?: boolean;
 
-            /**
-             * Whether to require display name
-             */
-            requireDisplayName?: boolean,
+                /**
+                 * Whether to require display name
+                 */
+                requireDisplayName?: boolean;
 
-            /**
-             * Whether to allow UTF8 characters in the local part
-             */
-            allowUtf8LocalPart?: boolean,
+                /**
+                 * Whether to allow UTF8 characters in the local part
+                 */
+                allowUtf8LocalPart?: boolean;
 
-            /**
-             * Whether to require top-level domain, default `true`
-             */
-            requireTld?: boolean
-        }): obj is string;
+                /**
+                 * Whether to require top-level domain, default `true`
+                 */
+                requireTld?: boolean;
+            }
+        ): obj is string;
 
         /**
          * Checks whether the given object is a valid UUIDv1 identifier

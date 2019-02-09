@@ -4,18 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { StoryDecorator } from '@storybook/react';
+import { StoryDecorator } from "@storybook/react";
 
 export type ViewportName = string;
 
 export interface ViewportProperties {
     name: ViewportName;
     styles: {
-        width?: string,
-        height?: string,
-        [styleName: string]: any,
+        width?: string;
+        height?: string;
+        [styleName: string]: any;
     };
-    type?: 'desktop' | 'tablet' | 'mobile' | string;
+    type?: "desktop" | "tablet" | "mobile" | string;
 }
 export interface ViewportDecoratorOptions {
     /**

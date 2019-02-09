@@ -11,7 +11,7 @@ viewport.set("mobile");
 viewport.reset();
 
 // Load entire webpages for testing:
-viewport.load("/path/to/fixture.html", () => console.log('done'));
+viewport.load("/path/to/fixture.html", () => console.log("done"));
 
 // Run tests for mobile, tablet and screen
 viewport.each(name => {

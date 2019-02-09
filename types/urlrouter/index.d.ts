@@ -5,21 +5,18 @@
 
 /// <reference types="node" />
 
-
 import http = require("http");
 
-declare function UrlRouterInternal(handler: (app: UrlRouterInternal.App) => void): UrlRouterInternal.HttpHandler;
+declare function UrlRouterInternal(
+    handler: (app: UrlRouterInternal.App) => void
+): UrlRouterInternal.HttpHandler;
 
 declare namespace UrlRouterInternal {
-
-
     interface ServerRequest extends http.IncomingMessage {
         params: any;
     }
 
-    interface ServerResponse extends http.ServerResponse {
-
-    }
+    interface ServerResponse extends http.ServerResponse {}
 
     interface App {
         // https://github.com/visionmedia/node-methods/blob/master/index.js
@@ -55,7 +52,11 @@ declare namespace UrlRouterInternal {
     interface Options {
         paramsName?: string;
         pageNotFound?: (req: ServerRequest, res: ServerResponse) => void;
-        errorHandler?: (err: Error, req: ServerRequest, res: ServerResponse) => void;
+        errorHandler?: (
+            err: Error,
+            req: ServerRequest,
+            res: ServerResponse
+        ) => void;
     }
 
     function _UrlRouterfunc(handler: (app: App) => void, options?: any): void;

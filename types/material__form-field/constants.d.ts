@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-  ROOT: 'mdc-form-field';
+    ROOT: "mdc-form-field";
 }
 
 export interface strings extends MDCStrings {
-    LABEL_SELECTOR: '.mdc-form-field > label';
+    LABEL_SELECTOR: ".mdc-form-field > label";
 }

@@ -4,7 +4,7 @@
 //                 Naveen Kumar Sangi <https://github.com/nkprince007>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import 'node';
+import "node";
 
 export as namespace UTIF;
 
@@ -55,7 +55,12 @@ export function toRGBA8(ifd: IFD): Uint8Array;
  * @param h Height of the image.
  * @param metadata [optional] The image file directory which should be encoded.
  */
-export function encodeImage(rgba: Uint8Array, w: number, h: number, metadata?: IFD): ArrayBuffer;
+export function encodeImage(
+    rgba: Uint8Array,
+    w: number,
+    h: number,
+    metadata?: IFD
+): ArrayBuffer;
 
 /**
  * Returns ArrayBuffer of binary data which can be used to encode EXIF data.

@@ -7,13 +7,25 @@
 export = jid;
 
 declare function jid(address: string): jid.JID;
-declare function jid(local: string | undefined, domain: string, resource?: string): jid.JID;
+declare function jid(
+    local: string | undefined,
+    domain: string,
+    resource?: string
+): jid.JID;
 
 declare namespace jid {
     function jid(address: string): JID;
-    function jid(local: string | undefined, domain: string, resource?: string): JID;
+    function jid(
+        local: string | undefined,
+        domain: string,
+        resource?: string
+    ): JID;
 
-    function createJID(local: string | undefined, domain: string, resource?: string): JID;
+    function createJID(
+        local: string | undefined,
+        domain: string,
+        resource?: string
+    ): JID;
     function equal(a: JID, b: JID): boolean;
     function detectEscape(local?: string): boolean;
     function escapeLocal(local: string): string;
@@ -25,7 +37,11 @@ declare namespace jid {
         domain: string;
         resource: string;
 
-        constructor(local: string | undefined, domain: string, resource?: string);
+        constructor(
+            local: string | undefined,
+            domain: string,
+            resource?: string
+        );
 
         toString(unescape?: boolean): string;
 

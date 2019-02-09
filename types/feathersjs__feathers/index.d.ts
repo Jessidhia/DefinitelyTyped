@@ -9,8 +9,8 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import * as self from '@feathersjs/feathers';
+import { EventEmitter } from "events";
+import * as self from "@feathersjs/feathers";
 
 // tslint:disable-next-line no-unnecessary-generics
 declare const feathers: (<T = any>() => Application<T>) & typeof self;
@@ -31,12 +31,12 @@ export interface PaginationOptions {
     max: number;
 }
 
-export type ClientSideParams = Pick<Params, 'query' | 'paginate'>;
+export type ClientSideParams = Pick<Params, "query" | "paginate">;
 export type ServerSideParams = Params;
 
 export interface Params {
     query?: Query;
-    paginate?: false | Pick<PaginationOptions, 'max'>;
+    paginate?: false | Pick<PaginationOptions, "max">;
 
     [key: string]: any; // (JL) not sure if we want this
 }
@@ -49,9 +49,11 @@ export interface Paginated<T> {
 }
 
 // tslint:disable-next-line void-return
-export type Hook = (hook: HookContext) => (Promise<HookContext | SkipSymbol | void> | HookContext | SkipSymbol | void);
+export type Hook = (
+    hook: HookContext
+) => Promise<HookContext | SkipSymbol | void> | HookContext | SkipSymbol | void;
 
-export type SkipSymbol = symbol | '__feathersSkipHooks';
+export type SkipSymbol = symbol | "__feathersSkipHooks";
 
 export interface HookContext<T = any> {
     /**
@@ -143,7 +145,10 @@ export interface ServiceMethods<T> {
 
     get(id: Id, params?: Params): Promise<T>;
 
-    create(data: Partial<T> | Array<Partial<T>>, params?: Params): Promise<T | T[]>;
+    create(
+        data: Partial<T> | Array<Partial<T>>,
+        params?: Params
+    ): Promise<T | T[]>;
 
     update(id: NullableId, data: T, params?: Params): Promise<T>;
 
@@ -168,7 +173,9 @@ export interface ServiceAddons<T> extends EventEmitter {
     hooks(hooks: Partial<HooksObject>): this;
 }
 
-export type Service<T> = ServiceOverloads<T> & ServiceAddons<T> & ServiceMethods<T>;
+export type Service<T> = ServiceOverloads<T> &
+    ServiceAddons<T> &
+    ServiceMethods<T>;
 
 export interface Application<ServiceTypes = any> extends EventEmitter {
     get(name: string): any;
@@ -189,11 +196,17 @@ export interface Application<ServiceTypes = any> extends EventEmitter {
 
     setup(server?: any): this;
 
-    service<L extends keyof ServiceTypes>(location: L): Service<ServiceTypes[L]>;
+    service<L extends keyof ServiceTypes>(
+        location: L
+    ): Service<ServiceTypes[L]>;
 
     service(location: string): Service<any>;
 
-    use(path: string, service: Partial<ServiceMethods<any> & SetupMethod> | Application, options?: any): this;
+    use(
+        path: string,
+        service: Partial<ServiceMethods<any> & SetupMethod> | Application,
+        options?: any
+    ): this;
 
     version: string;
 }

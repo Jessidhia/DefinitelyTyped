@@ -102,11 +102,7 @@ declare class telebot {
         opt?: any
     ): boolean;
 
-    event(
-        types: string | string[],
-        data: any,
-        self?: any
-    ): Promise<any>;
+    event(types: string | string[], data: any, self?: any): Promise<any>;
 
     cleanEvent(type: string): boolean;
 
@@ -155,10 +151,7 @@ declare class telebot {
         opt?: { notification?: boolean }
     ): any;
 
-    deleteMessage(
-        chat_id: number | string,
-        from_message_id: number
-    ): boolean;
+    deleteMessage(chat_id: number | string, from_message_id: number): boolean;
 
     sendPhoto(
         chat_id: number | string,
@@ -260,7 +253,11 @@ declare class telebot {
     sendLocation(
         chat_id: number | string,
         coords: [number, number],
-        opt?: { replyToMessage?: number; replyMarkup?: any; notification?: boolean }
+        opt?: {
+            replyToMessage?: number;
+            replyMarkup?: any;
+            notification?: boolean;
+        }
     ): any;
 
     sendVenue(
@@ -281,7 +278,11 @@ declare class telebot {
         number: string,
         firstName: string,
         lastName?: string,
-        opt?: { replyToMessage?: number; replyMarkup?: any; notification?: boolean }
+        opt?: {
+            replyToMessage?: number;
+            replyMarkup?: any;
+            notification?: boolean;
+        }
     ): any;
 
     sendAction(chat_id: number | string, action: string): boolean;
@@ -289,7 +290,11 @@ declare class telebot {
     sendGame(
         chat_id: number | string,
         game_short_name: string,
-        opt?: { replyToMessage?: number; replyMarkup?: any; notification?: boolean }
+        opt?: {
+            replyToMessage?: number;
+            replyMarkup?: any;
+            notification?: boolean;
+        }
     ): any;
 
     setGameScore(
@@ -355,41 +360,47 @@ declare class telebot {
     unbanChatMember(chat_id: number | string, user_id: number): boolean;
 
     editMessageText(
-        config: {
-            chatId: number | string;
-            messageId: number;
-            inlineMsgId?: number;
-        }|{
-            chatId?: number | string;
-            messageId?: number;
-            inlineMsgId: number;
-        },
+        config:
+            | {
+                  chatId: number | string;
+                  messageId: number;
+                  inlineMsgId?: number;
+              }
+            | {
+                  chatId?: number | string;
+                  messageId?: number;
+                  inlineMsgId: number;
+              },
         text: string
     ): any | boolean;
 
     editMessageCaption(
-        config: {
-            chatId: number | string;
-            messageId: number;
-            inlineMsgId?: number;
-        }|{
-            chatId?: number | string;
-            messageId?: number;
-            inlineMsgId: number;
-        },
+        config:
+            | {
+                  chatId: number | string;
+                  messageId: number;
+                  inlineMsgId?: number;
+              }
+            | {
+                  chatId?: number | string;
+                  messageId?: number;
+                  inlineMsgId: number;
+              },
         caption: string
     ): any | boolean;
 
     editMessageReplyMarkup(
-        config: {
-            chatId: number | string;
-            messageId: number;
-            inlineMsgId?: number;
-        }|{
-            chatId?: number | string;
-            messageId?: number;
-            inlineMsgId: number;
-        },
+        config:
+            | {
+                  chatId: number | string;
+                  messageId: number;
+                  inlineMsgId?: number;
+              }
+            | {
+                  chatId?: number | string;
+                  messageId?: number;
+                  inlineMsgId: number;
+              },
         replyMarkup: any
     ): any | boolean;
 

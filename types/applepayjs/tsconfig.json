@@ -2,23 +2,15 @@
     "compilerOptions": {
         "baseUrl": "../",
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "dom",
-            "es6"
-        ],
+        "lib": ["dom", "es6"],
         "module": "commonjs",
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noEmit": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": []
     },
-    "files": [
-        "index.d.ts",
-        "applepayjs-tests.ts"
-    ]
+    "files": ["index.d.ts", "applepayjs-tests.ts"]
 }

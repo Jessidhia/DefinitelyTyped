@@ -5,9 +5,9 @@ let slug: string;
 // Examples from https://github.com/pid/speakingurl#usage
 
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !");
-slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", '*');
+slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", "*");
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
-    separator: '_'
+    separator: "_"
 });
 slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
     uric: true
@@ -25,70 +25,83 @@ slug = getSlug("Schöner Titel läßt grüßen!? Bel été !", {
     maintainCase: true
 });
 slug = getSlug("Äpfel & Birnen!", {
-    lang: 'de'
+    lang: "de"
 });
 slug = getSlug("မြန်မာ သာဓက", {
-    lang: 'my'
+    lang: "my"
 });
-slug = getSlug('މިއަދަކީ ހދ ރީތި ދވހކވ', {
-    lang: 'dv'
+slug = getSlug("މިއަދަކީ ހދ ރީތި ދވހކވ", {
+    lang: "dv"
 });
 slug = getSlug("Apple & Pear!", {
-    lang: 'en' // lang: "en" is default, just to clarify
+    lang: "en" // lang: "en" is default, just to clarify
 });
-slug = getSlug('Foo & Bar * Baz', {
+slug = getSlug("Foo & Bar * Baz", {
     custom: {
-        '&': ' doo '
+        "&": " doo "
     },
     uric: true
 });
-slug = getSlug('Foo ♥ Bar');
-slug = getSlug('Foo & Bar | (Baz) * Doo', {
+slug = getSlug("Foo ♥ Bar");
+slug = getSlug("Foo & Bar | (Baz) * Doo", {
     custom: {
-        '*': 'Boo'
+        "*": "Boo"
     },
     mark: true
 });
-slug = getSlug('Foo and Bar or Baz', {
+slug = getSlug("Foo and Bar or Baz", {
     custom: {
-        and: 'und',
-        or: ''
+        and: "und",
+        or: ""
     }
 });
-slug = getSlug('[Knöpfe]', {
-    custom: [
-        '[',
-        ']'
-    ]
+slug = getSlug("[Knöpfe]", {
+    custom: ["[", "]"]
 });
-slug = getSlug('NEXUS4 only $299');
-slug = getSlug('NEXUS4 only €299', {
+slug = getSlug("NEXUS4 only $299");
+slug = getSlug("NEXUS4 only €299", {
     maintainCase: true
 });
-slug = getSlug('Don\'t drink and drive', {
+slug = getSlug("Don't drink and drive", {
     titleCase: true
 });
-slug = getSlug('Don\'t drink and drive', {
-    titleCase: ['and']
+slug = getSlug("Don't drink and drive", {
+    titleCase: ["and"]
 });
-slug = getSlug('Foo & Bar ♥ Foo < Bar', {
+slug = getSlug("Foo & Bar ♥ Foo < Bar", {
     lang: false
 });
-slug = getSlug('Foo & Bar ♥ Foo < Bar', {
+slug = getSlug("Foo & Bar ♥ Foo < Bar", {
     symbols: false
 });
-slug = getSlug('ä♥ä', {
-    lang: 'tr',
+slug = getSlug("ä♥ä", {
+    lang: "tr",
     symbols: false
 });
 
 const options = {
     titleCase: [
-        "a", "an", "and", "as", "at", "but",
-        "by", "en", "for", "if", "in", "nor",
-        "of", "on", "or", "per", "the", "to", "vs"
+        "a",
+        "an",
+        "and",
+        "as",
+        "at",
+        "but",
+        "by",
+        "en",
+        "for",
+        "if",
+        "in",
+        "nor",
+        "of",
+        "on",
+        "or",
+        "per",
+        "the",
+        "to",
+        "vs"
     ]
 };
 
 const mySlug = getSlug.createSlug(options);
-slug = mySlug('welcome to the jungle');
+slug = mySlug("welcome to the jungle");

@@ -4,7 +4,7 @@ import { ColorPickerProps, Color } from "../../..";
 export interface BlockPickerProps extends ColorPickerProps<BlockPicker> {
     colors?: string[];
     width?: string;
-    triangle?: 'hide' | 'top';
+    triangle?: "hide" | "top";
     onSwatchHover?(color: Color, event: MouseEvent): void;
 }
 

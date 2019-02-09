@@ -1,26 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "pretty-bytes": [ "pretty-bytes/v4" ]
+            "pretty-bytes": ["pretty-bytes/v4"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "pretty-bytes-tests.ts"
-    ]
+    "files": ["index.d.ts", "pretty-bytes-tests.ts"]
 }

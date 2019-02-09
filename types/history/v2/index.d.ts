@@ -8,7 +8,9 @@ export as namespace History;
 export type Action = string;
 export type BeforeUnloadHook = () => string | boolean;
 export type CreateHistory<T> = (options?: HistoryOptions) => T;
-export type CreateHistoryEnhancer<T, E> = (createHistory: CreateHistory<T>) => CreateHistory<T & E>;
+export type CreateHistoryEnhancer<T, E> = (
+    createHistory: CreateHistory<T>
+) => CreateHistory<T & E>;
 
 export interface History {
     listenBefore(hook: TransitionHook): () => void;
@@ -22,11 +24,20 @@ export interface History {
     createKey(): LocationKey;
     createPath(path: LocationDescriptor): Path;
     createHref(path: LocationDescriptor): Href;
-    createLocation(path?: LocationDescriptor, action?: Action, key?: LocationKey): Location;
-    getCurrentLocation: () => Location
+    createLocation(
+        path?: LocationDescriptor,
+        action?: Action,
+        key?: LocationKey
+    ): Location;
+    getCurrentLocation: () => Location;
 
     /** @deprecated use a location descriptor instead */
-    createLocation(path?: Path, state?: LocationState, action?: Action, key?: LocationKey): Location;
+    createLocation(
+        path?: Path,
+        state?: LocationState,
+        action?: Action,
+        key?: LocationKey
+    ): Location;
     /** @deprecated use location.key to save state instead */
     pushState(state: LocationState, path: Path): void;
     /** @deprecated use location.key to save state instead */
@@ -44,7 +55,10 @@ export type HistoryOptions = {
     finishTransition?: (nextLocation: Location) => boolean;
     saveState?: (key: LocationKey, state: LocationState) => void;
     go?: (n: number) => void;
-    getUserConfirmation?: (message: string, callback: (result: boolean) => void) => void;
+    getUserConfirmation?: (
+        message: string,
+        callback: (result: boolean) => void
+    ) => void;
     keyLength?: number;
     queryKey?: string | boolean;
     stringifyQuery?: (obj: any) => string;
@@ -52,7 +66,7 @@ export type HistoryOptions = {
     basename?: string;
     entries?: string | [any];
     current?: number;
-}
+};
 
 export type Location = {
     pathname: Pathname;
@@ -76,12 +90,15 @@ export namespace History {
     export type LocationKey = string;
     export type LocationListener = (location: Location) => void;
     export type LocationState = any;
-    export type Path = string // Pathname + QueryString;
+    export type Path = string; // Pathname + QueryString;
     export type Pathname = string;
     export type Query = any;
     export type QueryString = string;
     export type Search = string;
-    export type TransitionHook = (location: Location, callback: (result: any) => void) => any
+    export type TransitionHook = (
+        location: Location,
+        callback: (result: any) => void
+    ) => any;
     export type Href = string;
 }
 // Back-compat aliases
@@ -102,12 +119,19 @@ export interface HistoryBeforeUnload {
 }
 
 export interface HistoryQueries {
-    pushState(state: LocationState, pathname: Pathname | Path, query?: Query): void;
-    replaceState(state: LocationState, pathname: Pathname | Path, query?: Query): void;
+    pushState(
+        state: LocationState,
+        pathname: Pathname | Path,
+        query?: Query
+    ): void;
+    replaceState(
+        state: LocationState,
+        pathname: Pathname | Path,
+        query?: Query
+    ): void;
     createPath(path: Path, query?: Query): Path;
     createHref(path: Path, query?: Query): Href;
 }
-
 
 // Global usage, without modules, needs the small trick, because lib.d.ts
 // already has `history` and `History` global definitions:
@@ -116,10 +140,19 @@ export interface Module {
     createHistory: CreateHistory<History>;
     createHashHistory: CreateHistory<History>;
     createMemoryHistory: CreateHistory<History>;
-    createLocation(path?: Path, state?: LocationState, action?: Action, key?: LocationKey): Location;
+    createLocation(
+        path?: Path,
+        state?: LocationState,
+        action?: Action,
+        key?: LocationKey
+    ): Location;
     useBasename<T>(createHistory: CreateHistory<T>): CreateHistory<T>;
-    useBeforeUnload<T>(createHistory: CreateHistory<T>): CreateHistory<T & HistoryBeforeUnload>;
-    useQueries<T>(createHistory: CreateHistory<T>): CreateHistory<T & HistoryQueries>;
+    useBeforeUnload<T>(
+        createHistory: CreateHistory<T>
+    ): CreateHistory<T & HistoryBeforeUnload>;
+    useQueries<T>(
+        createHistory: CreateHistory<T>
+    ): CreateHistory<T & HistoryQueries>;
     actions: {
         PUSH: string;
         REPLACE: string;

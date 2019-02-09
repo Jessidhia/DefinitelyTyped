@@ -14,7 +14,11 @@ export = set;
  * @param prop The property to set.
  * @param value The value to set on `object[prop]`
  */
-declare function set<T, K extends keyof T>(object: T, prop: K, value: T[K]): void;
+declare function set<T, K extends keyof T>(
+    object: T,
+    prop: K,
+    value: T[K]
+): void;
 /**
  * @param object The object to set `value` on
  * @param prop The property to set. Dot-notation may be used.

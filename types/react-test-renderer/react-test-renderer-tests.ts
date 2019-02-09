@@ -1,8 +1,8 @@
 import React = require("react");
 import { act, create, ReactTestInstance } from "react-test-renderer";
-import { createRenderer } from 'react-test-renderer/shallow';
+import { createRenderer } from "react-test-renderer/shallow";
 
-class TestComponent extends React.Component { }
+class TestComponent extends React.Component {}
 
 const renderer = create(React.createElement("div"), {
     createNodeMock: (el: React.ReactElement<any>) => {
@@ -14,7 +14,7 @@ const json = renderer.toJSON();
 if (json) {
     json.type = "t";
     json.props = {
-        prop1: "p",
+        prop1: "p"
     };
     json.children = [json];
 }
@@ -23,7 +23,7 @@ const tree = renderer.toTree();
 if (tree) {
     tree.type = "t";
     tree.props = {
-        prop1: "p",
+        prop1: "p"
     };
     tree.children = [tree];
     tree.rendered = tree;
@@ -41,7 +41,7 @@ function testInstance(inst: ReactTestInstance) {
     inst.parent = instance;
     inst.parent = null;
     inst.props = {
-        prop1: "p",
+        prop1: "p"
     };
     inst.type = "a";
     testInstance(inst.find(n => n.type === "a"));

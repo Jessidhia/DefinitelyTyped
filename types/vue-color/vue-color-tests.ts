@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from "vue";
 import {
     Material,
     Compact,
@@ -7,20 +7,20 @@ import {
     Sketch,
     Chrome,
     Photoshop
-} from 'vue-color';
+} from "vue-color";
 
-const colors = '#194d33';
+const colors = "#194d33";
 
 new Vue({
-    el: '#app',
+    el: "#app",
     components: {
-        'material-picker': Material,
-        'compact-picker': Compact,
-        'swatches-picker': Swatches,
-        'slider-picker': Slider,
-        'sketch-picker': Sketch,
-        'chrome-picker': Chrome,
-        'photoshop-picker': Photoshop
+        "material-picker": Material,
+        "compact-picker": Compact,
+        "swatches-picker": Swatches,
+        "slider-picker": Slider,
+        "sketch-picker": Sketch,
+        "chrome-picker": Chrome,
+        "photoshop-picker": Photoshop
     },
     template: `
         <material-picker v-model="colors"></material-picker>

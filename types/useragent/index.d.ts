@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace Useragent {
-
     export class Agent {
         family: string;
         major: string;
@@ -22,7 +21,13 @@ declare namespace Useragent {
          * @param patch Patch version of the browser
          * @param source The actual user agent string
          */
-        constructor(family?: string, major?: string, minor?: string, patch?: string, source?: string);
+        constructor(
+            family?: string,
+            major?: string,
+            minor?: string,
+            patch?: string,
+            source?: string
+        );
 
         /**
          * Generates a string output of the parsed user agent.
@@ -65,7 +70,12 @@ declare namespace Useragent {
          * @param minor Minor version of the os
          * @param patch Patch version of the os
          */
-        constructor(family?: string, major?: string, minor?: string, patch?: string);
+        constructor(
+            family?: string,
+            major?: string,
+            minor?: string,
+            patch?: string
+        );
 
         /**
          * Generates a stringified version of the Operating System.
@@ -101,7 +111,12 @@ declare namespace Useragent {
          * @param minor Minor version of the device
          * @param patch Patch version of the device
          */
-        constructor(family?: string, major?: string, minor?: string, patch?: string);
+        constructor(
+            family?: string,
+            major?: string,
+            minor?: string,
+            patch?: string
+        );
 
         /**
          * Generates a stringified version of the Device.
@@ -130,7 +145,7 @@ declare namespace Useragent {
      * @param jsAgent Optional UA from js to detect chrome frame
      */
     export function parse(userAgent?: string, jsAgent?: string): Agent;
-    
+
     /**
      * If you are doing a lot of lookups you might want to cache the results of the parsed user agent string instead, in memory.
      * @param userAgent The user agent string
@@ -160,14 +175,18 @@ declare namespace Useragent {
      * Transform a JSON object back to a valid userAgent string
      * @param obj A JSON object or stringified JSON object
      */
-    export function fromJSON(obj: string | {
-        family: string;
-        major: string;
-        minor: string;
-        patch: string;
-        device?: string;
-        os?: string;
-    }): Agent;
+    export function fromJSON(
+        obj:
+            | string
+            | {
+                  family: string;
+                  major: string;
+                  minor: string;
+                  patch: string;
+                  device?: string;
+                  os?: string;
+              }
+    ): Agent;
 
     /**
      * Library version

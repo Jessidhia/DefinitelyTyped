@@ -4,12 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ExtensionDefinition } from 'jsreport-core';
+import { ExtensionDefinition } from "jsreport-core";
 
-declare module 'jsreport-core' {
-	interface Template {
-		recipe: 'html-embedded-in-docx' | string;
-	}
+declare module "jsreport-core" {
+    interface Template {
+        recipe: "html-embedded-in-docx" | string;
+    }
 }
 
 declare function JsReportHtmlEmbeddedInDocx(): ExtensionDefinition;

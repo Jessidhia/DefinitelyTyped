@@ -5,12 +5,24 @@
 // TypeScript Version: 2.2
 
 export function render(name: string, context?: object): string;
-export function render(name: string, context?: object, callback?: (err: any, res: string) => any): void;
+export function render(
+    name: string,
+    context?: object,
+    callback?: (err: any, res: string) => any
+): void;
 
 export function renderString(src: string, context: object): string;
-export function renderString(src: string, context: object, callback?: (err: any, res: string) => any): void;
+export function renderString(
+    src: string,
+    context: object,
+    callback?: (err: any, res: string) => any
+): void;
 
-export function compile(src: string, env?: Environment, callback?: (err: any, res: Template) => any): Template;
+export function compile(
+    src: string,
+    env?: Environment,
+    callback?: (err: any, res: Template) => any
+): Template;
 
 export function precompile(path: string, opts?: PrecompileOptions): string;
 export function precompileString(src: string, opts?: PrecompileOptions): string;
@@ -22,7 +34,10 @@ export interface PrecompileOptions {
     env?: Environment;
     include?: string[];
     exclude?: string[];
-    wrapper?(templates: { name: string, template: string }, opts: PrecompileOptions): string;
+    wrapper?(
+        templates: { name: string; template: string },
+        opts: PrecompileOptions
+    ): string;
 }
 
 export class Template {
@@ -32,7 +47,10 @@ export class Template {
 }
 
 export function configure(options: ConfigureOptions): Environment;
-export function configure(path: string | string[], options?: ConfigureOptions): Environment;
+export function configure(
+    path: string | string[],
+    options?: ConfigureOptions
+): Environment;
 
 export interface ConfigureOptions {
     autoescape?: boolean;
@@ -42,17 +60,17 @@ export interface ConfigureOptions {
     watch?: boolean;
     noCache?: boolean;
     web?: {
-        useCache?: boolean,
-        async?: boolean
+        useCache?: boolean;
+        async?: boolean;
     };
     express?: object;
     tags?: {
-        blockStart?: string,
-        blockEnd?: string,
-        variableStart?: string,
-        variableEnd?: string,
-        commentStart?: string,
-        commentEnd?: string
+        blockStart?: string;
+        blockEnd?: string;
+        variableStart?: string;
+        variableEnd?: string;
+        commentStart?: string;
+        commentEnd?: string;
     };
 }
 
@@ -63,12 +81,24 @@ export class Environment {
 
     constructor(loader?: ILoader | ILoader[] | null, opts?: ConfigureOptions);
     render(name: string, context?: object): string;
-    render(name: string, context?: object, callback?: (err: any, res: string) => any): void;
+    render(
+        name: string,
+        context?: object,
+        callback?: (err: any, res: string) => any
+    ): void;
 
     renderString(name: string, context: object): string;
-    renderString(name: string, context: object, callback?: (err: any, res: string) => any): void;
+    renderString(
+        name: string,
+        context: object,
+        callback?: (err: any, res: string) => any
+    ): void;
 
-    addFilter(name: string, func: (...args: any[]) => any, async?: boolean): void;
+    addFilter(
+        name: string,
+        func: (...args: any[]) => any,
+        async?: boolean
+    ): void;
     getFilter(name: string): void;
 
     addExtension(name: string, ext: Extension): void;
@@ -79,7 +109,11 @@ export class Environment {
     addGlobal(name: string, value: any): void;
 
     getTemplate(name: string, eagerCompile?: boolean): Template;
-    getTemplate(name: string, eagerCompile?: boolean, callback?: (err: any, templ: Template) => Template): void;
+    getTemplate(
+        name: string,
+        eagerCompile?: boolean,
+        callback?: (err: any, templ: Template) => Template
+    ): void;
 
     express(app: object): void;
 }
@@ -95,7 +129,10 @@ export function installJinjaCompat(): void;
 export interface ILoader {
     async?: boolean;
     getSource(name: string): LoaderSource;
-    getSource(name: string, callback: (err?: any, result?: LoaderSource) => void): void;
+    getSource(
+        name: string,
+        callback: (err?: any, result?: LoaderSource) => void
+    ): void;
     extend?(extender: ILoader): ILoader;
 }
 
@@ -126,7 +163,10 @@ export interface FileSystemLoaderOptions {
 export class FileSystemLoader extends Loader implements ILoader {
     init(searchPaths: string[], opts: any): void;
     getSource(name: string): LoaderSource;
-    constructor(searchPaths?: string | string[], opts?: FileSystemLoaderOptions);
+    constructor(
+        searchPaths?: string | string[],
+        opts?: FileSystemLoaderOptions
+    );
 }
 
 export class WebLoader extends Loader implements ILoader {

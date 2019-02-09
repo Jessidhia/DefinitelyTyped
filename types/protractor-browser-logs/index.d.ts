@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as webdriver from 'selenium-webdriver';
+import * as webdriver from "selenium-webdriver";
 import Entry = webdriver.logging.Entry;
-import { ProtractorBrowser } from 'protractor/built';
+import { ProtractorBrowser } from "protractor/built";
 
 export interface BrowserLogOptions {
     reporters?: Array<(entries: Entry[]) => void>;
@@ -21,13 +21,22 @@ export interface BrowserLogs {
     INFO: matchPredicateFunction;
     LOG: matchPredicateFunction;
 
-    or(a: matchPredicateFunction, b: matchPredicateFunction): matchPredicateFunction;
-    and(a: matchPredicateFunction, b: matchPredicateFunction): matchPredicateFunction;
+    or(
+        a: matchPredicateFunction,
+        b: matchPredicateFunction
+    ): matchPredicateFunction;
+    and(
+        a: matchPredicateFunction,
+        b: matchPredicateFunction
+    ): matchPredicateFunction;
     reset(): void;
     logs(): Entry[];
     verify(): void;
-    ignore(... matches: matchPredicate[]): matchPredicateFunction[];
-    expect(... matches: matchPredicate[]): matchPredicateFunction[];
+    ignore(...matches: matchPredicate[]): matchPredicateFunction[];
+    expect(...matches: matchPredicate[]): matchPredicateFunction[];
 }
 
-export default function browserLogs(browser: ProtractorBrowser, options?: BrowserLogOptions): BrowserLogs;
+export default function browserLogs(
+    browser: ProtractorBrowser,
+    options?: BrowserLogOptions
+): BrowserLogs;

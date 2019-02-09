@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings, numbers } from './constants';
-import MDCTextFieldAdapter, { FoundationMapType } from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings, numbers } from "./constants";
+import MDCTextFieldAdapter, { FoundationMapType } from "./adapter";
 
-export default class MDCTextFieldFoundation extends MDCFoundation<MDCTextFieldAdapter> {
+export default class MDCTextFieldFoundation extends MDCFoundation<
+    MDCTextFieldAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;
@@ -32,7 +34,10 @@ export default class MDCTextFieldFoundation extends MDCFoundation<MDCTextFieldAd
 
     static readonly defaultAdapter: MDCTextFieldAdapter;
 
-    constructor(adapter: MDCTextFieldAdapter, foundationMap?: FoundationMapType);
+    constructor(
+        adapter: MDCTextFieldAdapter,
+        foundationMap?: FoundationMapType
+    );
 
     /**
      * Handles user interactions with the Text Field.

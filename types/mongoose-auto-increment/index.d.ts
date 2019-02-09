@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Connection, Schema, Mongoose } from 'mongoose';
+import { Connection, Schema, Mongoose } from "mongoose";
 
 /**
  * Initialize plugin by creating counter collection in database.

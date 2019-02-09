@@ -6,4 +6,4 @@ toStyle({}); // $ExpectError
 
 toStyle(1); // $ExpectError
 
-toStyle(''); // $ExpectType CSSStyleDeclaration
+toStyle(""); // $ExpectType CSSStyleDeclaration

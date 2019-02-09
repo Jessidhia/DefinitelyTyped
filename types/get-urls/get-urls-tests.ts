@@ -1,7 +1,7 @@
-import getUrls = require('get-urls');
+import getUrls = require("get-urls");
 
 const text =
-    'Lorem ipsum dolor sit amet, //sindresorhus.com consectetuer adipiscing http://yeoman.io elit.';
+    "Lorem ipsum dolor sit amet, //sindresorhus.com consectetuer adipiscing http://yeoman.io elit.";
 
 // $ExpectType Set<string>
 getUrls(text);
@@ -10,7 +10,7 @@ getUrls(text);
 getUrls(text, { extractFromQueryString: true });
 
 // $ExpectType Set<string>
-getUrls(text, { exclude: ['foo'] });
+getUrls(text, { exclude: ["foo"] });
 
 // $ExpectType Set<string>
-getUrls(text, { defaultProtocol: 'ftp' });
+getUrls(text, { defaultProtocol: "ftp" });

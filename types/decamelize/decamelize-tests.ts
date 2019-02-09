@@ -1,4 +1,4 @@
-import decamelize = require('decamelize');
+import decamelize = require("decamelize");
 
-decamelize('unicornRainbow');
-decamelize('unicornRainbow', '-');
+decamelize("unicornRainbow");
+decamelize("unicornRainbow", "-");

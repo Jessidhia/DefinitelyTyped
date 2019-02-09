@@ -31,8 +31,18 @@ declare namespace __WebpackModuleApi {
          *
          * This creates a chunk. The chunk can be named. If a chunk with this name already exists, the dependencies are merged into that chunk and that chunk is used.
          */
-        ensure(paths: string[], callback: (require: NodeRequire) => void, errorCallback?: (error: any) => void, chunkName?: string): void;
-        context(path: string, deep?: boolean, filter?: RegExp, mode?: "sync" | "eager" | "weak" | "lazy" | "lazy-once"): RequireContext;
+        ensure(
+            paths: string[],
+            callback: (require: NodeRequire) => void,
+            errorCallback?: (error: any) => void,
+            chunkName?: string
+        ): void;
+        context(
+            path: string,
+            deep?: boolean,
+            filter?: RegExp,
+            mode?: "sync" | "eager" | "weak" | "lazy" | "lazy-once"
+        ): RequireContext;
         /**
          * Returns the module id of a dependency. The call is sync. No request to the server is fired. The compiler ensures that the dependency is available.
          *
@@ -52,7 +62,7 @@ declare namespace __WebpackModuleApi {
          */
         cache: {
             [id: string]: any;
-        }
+        };
     }
 
     interface Module {
@@ -66,7 +76,7 @@ declare namespace __WebpackModuleApi {
         children: any[];
         hot?: Hot;
     }
-    type ModuleId = string|number;
+    type ModuleId = string | number;
 
     interface Hot {
         /**
@@ -74,7 +84,10 @@ declare namespace __WebpackModuleApi {
          * @param dependencies
          * @param callback
          */
-        accept(dependencies: string[], callback: (updatedDependencies: ModuleId[]) => void): void;
+        accept(
+            dependencies: string[],
+            callback: (updatedDependencies: ModuleId[]) => void
+        ): void;
         /**
          * Accept code updates for the specified dependencies. The callback is called when dependencies were replaced.
          * @param dependency
@@ -135,7 +148,10 @@ declare namespace __WebpackModuleApi {
          * @param autoApply
          * @param callback
          */
-        check(autoApply: boolean, callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        check(
+            autoApply: boolean,
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * Throws an exceptions if status() is not idle.
          * Check all currently loaded modules for updates and apply updates if found.
@@ -143,20 +159,27 @@ declare namespace __WebpackModuleApi {
          * The callback will be called with all modules that will be disposed on apply().
          * @param callback
          */
-        check(callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        check(
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * If status() != "ready" it throws an error.
          * Continue the update process.
          * @param options
          * @param callback
          */
-        apply(options: AcceptOptions, callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        apply(
+            options: AcceptOptions,
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * If status() != "ready" it throws an error.
          * Continue the update process.
          * @param callback
          */
-        apply(callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        apply(
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * Return one of idle, check, watch, watch-delay, prepare, ready, dispose, apply, abort or fail.
          */
@@ -186,8 +209,8 @@ declare namespace __WebpackModuleApi {
         autoApply?: boolean;
     }
     /**
-    * Inside env you can pass any variable
-    */
+     * Inside env you can pass any variable
+     */
     interface NodeProcess {
         env?: any;
     }
@@ -197,8 +220,7 @@ declare namespace __WebpackModuleApi {
     type RequireLambda = __Require1 & __Require2;
 }
 
-interface NodeRequire extends __WebpackModuleApi.RequireFunction {
-}
+interface NodeRequire extends __WebpackModuleApi.RequireFunction {}
 
 declare var require: NodeRequire;
 
@@ -225,7 +247,10 @@ declare var __webpack_require__: any;
  * @param chunkId The id for the chunk to load.
  * @param callback A callback function called once the chunk is loaded.
  */
-declare var __webpack_chunk_load__: (chunkId: any, callback: (require: __WebpackModuleApi.RequireLambda) => void) => void;
+declare var __webpack_chunk_load__: (
+    chunkId: any,
+    callback: (require: __WebpackModuleApi.RequireLambda) => void
+) => void;
 
 /**
  * Access to the internal object of all modules.
@@ -254,8 +279,8 @@ interface NodeModule extends __WebpackModuleApi.Module {}
 declare var module: NodeModule;
 
 /**
-* Declare process variable
-*/
+ * Declare process variable
+ */
 declare namespace NodeJS {
     interface Process extends __WebpackModuleApi.NodeProcess {}
 }

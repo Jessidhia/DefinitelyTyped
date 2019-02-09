@@ -13,9 +13,7 @@ const AsyncStorage: any = {};
 
 const rootReducer: Reducer<any> = (state: any, action: any) => state;
 
-const reducer = compose(
-    mergePersistedState()
-)(rootReducer);
+const reducer = compose(mergePersistedState())(rootReducer);
 
 const storageAsyncStorage = adapterAsyncStorage(AsyncStorage);
 const storageLocalStorage = adapterLocalStorage(window.localStorage);

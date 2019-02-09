@@ -3,7 +3,11 @@
 // Definitions by: Tristan Jones <https://github.com/jonestristand>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export type OptionType = string | number | RegExp | ((input: string) => boolean);
+export type OptionType =
+    | string
+    | number
+    | RegExp
+    | ((input: string) => boolean);
 
 export interface BasicOptions {
     prompt?: any;
@@ -43,20 +47,40 @@ export function setDefaultOptions(options?: BasicOptions): BasicOptions;
 
 // Utility Functions
 export function questionEMail(query?: any, options?: BasicOptions): string;
-export function questionNewPassword(query?: any, options?: BasicOptions): string;
+export function questionNewPassword(
+    query?: any,
+    options?: BasicOptions
+): string;
 export function questionInt(query?: any, options?: BasicOptions): number;
 export function questionFloat(query?: any, options?: BasicOptions): number;
 export function questionPath(query?: any, options?: BasicOptions): string;
 
-export function promptCL(commandHandler?: { [id: string]: (...args: string[]) => void } | ((command: string, ...args: string[]) => void), options?: BasicOptions): string[];
-export function promptLoop(inputHandler: (value: string) => boolean, options?: BasicOptions): void;
-export function promptCLLoop(commandHandler?: { [id: string]: (...args: string[]) => boolean | void } | ((command: string, ...args: string[]) => boolean | void), options?: BasicOptions): void;
+export function promptCL(
+    commandHandler?:
+        | { [id: string]: (...args: string[]) => void }
+        | ((command: string, ...args: string[]) => void),
+    options?: BasicOptions
+): string[];
+export function promptLoop(
+    inputHandler: (value: string) => boolean,
+    options?: BasicOptions
+): void;
+export function promptCLLoop(
+    commandHandler?:
+        | { [id: string]: (...args: string[]) => boolean | void }
+        | ((command: string, ...args: string[]) => boolean | void),
+    options?: BasicOptions
+): void;
 export function promptSimShell(options?: BasicOptions): string;
 
 export function keyInYN(query?: any, options?: BasicOptions): boolean | string;
 export function keyInYNStrict(query?: any, options?: BasicOptions): boolean;
 export function keyInPause(query?: any, options?: BasicOptions): void;
-export function keyInSelect(items: string[], query?: any, options?: BasicOptions): number;
+export function keyInSelect(
+    items: string[],
+    query?: any,
+    options?: BasicOptions
+): number;
 
 export function getRawInput(): string;
 
@@ -80,7 +104,9 @@ export function setMask(value: string): void;
 /**
  * @deprecated Use the print option instead: readlineSync.setDefaultOptions({print: value});
  */
-export function setPrint(value: (display: string, encoding: string) => void): void;
+export function setPrint(
+    value: (display: string, encoding: string) => void
+): void;
 
 /**
  * @deprecated Use the prompt option instead: readlineSync.setDefaultOptions({prompt: value});

@@ -7,29 +7,42 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import express = require('express');
-import unless = require('express-unless');
+import express = require("express");
+import unless = require("express-unless");
 
 export = jwt;
 
 declare function jwt(options: jwt.Options): jwt.RequestHandler;
 declare namespace jwt {
-    export type secretType = string | Buffer
+    export type secretType = string | Buffer;
     export type ErrorCode =
-        "revoked_token" |
-        "invalid_token" |
-        "credentials_bad_scheme" |
-        "credentials_bad_format" |
-        "credentials_required"
+        | "revoked_token"
+        | "invalid_token"
+        | "credentials_bad_scheme"
+        | "credentials_bad_format"
+        | "credentials_required";
 
     export interface SecretCallbackLong {
-        (req: express.Request, header: any, payload: any, done: (err: any, secret?: secretType) => void): void;
+        (
+            req: express.Request,
+            header: any,
+            payload: any,
+            done: (err: any, secret?: secretType) => void
+        ): void;
     }
     export interface SecretCallback {
-        (req: express.Request, payload: any, done: (err: any, secret?: secretType) => void): void;
+        (
+            req: express.Request,
+            payload: any,
+            done: (err: any, secret?: secretType) => void
+        ): void;
     }
     export interface IsRevokedCallback {
-        (req: express.Request, payload: any, done: (err: any, revoked?: boolean) => void): void;
+        (
+            req: express.Request,
+            payload: any,
+            done: (err: any, revoked?: boolean) => void
+        ): void;
     }
     export interface GetTokenCallback {
         (req: express.Request): any;
@@ -48,10 +61,10 @@ declare namespace jwt {
         unless: typeof unless;
     }
 
-    export class UnauthorizedError extends Error  {
+    export class UnauthorizedError extends Error {
         status: number;
         message: string;
-        name: 'UnauthorizedError';
+        name: "UnauthorizedError";
         code: ErrorCode;
         inner: { message: string };
 

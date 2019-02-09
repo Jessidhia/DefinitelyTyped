@@ -1,4 +1,4 @@
-import intoStream = require('into-stream');
+import intoStream = require("into-stream");
 
 function iterableFrom(arr: any[]) {
     return {
@@ -11,14 +11,14 @@ function iterableFrom(arr: any[]) {
     };
 }
 
-intoStream('unicorn').pipe(process.stdout);
-intoStream('unicorn'.split('')).pipe(process.stdout);
-intoStream(iterableFrom('unicorn'.split(''))).pipe(process.stdout);
-intoStream(new Buffer('unicorn')).pipe(process.stdout);
-intoStream(Promise.resolve('unicorn')).pipe(process.stdout);
+intoStream("unicorn").pipe(process.stdout);
+intoStream("unicorn".split("")).pipe(process.stdout);
+intoStream(iterableFrom("unicorn".split(""))).pipe(process.stdout);
+intoStream(new Buffer("unicorn")).pipe(process.stdout);
+intoStream(Promise.resolve("unicorn")).pipe(process.stdout);
 
-const f = {foo: true};
-const f2 = [{foo: true}, {bar: true}];
+const f = { foo: true };
+const f2 = [{ foo: true }, { bar: true }];
 intoStream.obj(f).pipe(process.stdout);
 intoStream.obj(f2).pipe(process.stdout);
 intoStream.obj(iterableFrom(f2)).pipe(process.stdout);

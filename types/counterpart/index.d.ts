@@ -4,11 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-type NotFoundHandler = (locale: string, key: string, fallback: string, scope: string) => void;
+type NotFoundHandler = (
+    locale: string,
+    key: string,
+    fallback: string,
+    scope: string
+) => void;
 type LocaleChangeHandler = (newLocale: string, oldLocale: string) => void;
 
 interface Counterpart {
-    (key: string|string[], options?: object): string;
+    (key: string | string[], options?: object): string;
 
     setSeparator(value: string): string;
     onTranslationNotFound(callback: NotFoundHandler): void;
@@ -18,10 +23,12 @@ interface Counterpart {
     setLocale(value: string): string;
     onLocaleChange(callback: LocaleChangeHandler): void;
     offLocaleChange(callback: LocaleChangeHandler): void;
-    setFallbackLocale(value: string|string[]): void;
+    setFallbackLocale(value: string | string[]): void;
     registerTranslations(locale: string, data: object): void;
     registerInterpolations(data: object): void;
-    setKeyTransformer(callback: (value: string, options: object) => string): string;
+    setKeyTransformer(
+        callback: (value: string, options: object) => string
+    ): string;
     localize(date: Date, options: object): string;
     Instance: Counterpart;
     Translator: Counterpart;

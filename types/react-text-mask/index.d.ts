@@ -41,7 +41,7 @@ export default class MaskedInput extends React.Component<
     MaskedInputProps,
     any
 > {
-  inputElement: HTMLElement;
+    inputElement: HTMLElement;
 }
 
 export function conformToMask(

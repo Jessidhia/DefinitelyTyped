@@ -103,7 +103,7 @@ declare namespace lunr {
          */
         metadataWhitelist: string[];
 
-        constructor()
+        constructor();
 
         /**
          * Sets the document field used as the document reference. Every document must have this field.
@@ -306,7 +306,7 @@ declare namespace lunr {
         /**
          * @param attrs The attributes of the built search index.
          */
-        constructor(attrs: Index.Attributes)
+        constructor(attrs: Index.Attributes);
 
         /**
          * Performs a search against the index using lunr query syntax.
@@ -371,7 +371,7 @@ declare namespace lunr {
          * @param field - The field in which the term was found
          * @param metadata - The metadata recorded about this term in this field
          */
-        constructor(term: string, field: string, metadata: object)
+        constructor(term: string, field: string, metadata: object);
 
         /**
          * An instance of lunr.MatchData will be created for every term that matches a
@@ -437,7 +437,7 @@ declare namespace lunr {
      * is not necessary.
      */
     class Pipeline {
-        constructor()
+        constructor();
 
         /**
          * Register a function with the pipeline.
@@ -599,7 +599,7 @@ declare namespace lunr {
         /**
          * @param allFields An array of all available fields in a lunr.Index.
          */
-        constructor(allFields: string[])
+        constructor(allFields: string[]);
 
         /**
          * Adds a {@link lunr.Query~Clause} to this query.
@@ -644,7 +644,7 @@ declare namespace lunr {
         start: number;
         end: number;
 
-        constructor(message: string, start: string, end: string)
+        constructor(message: string, start: string, end: string);
     }
 
     /**
@@ -705,7 +705,7 @@ declare namespace lunr {
          * @param [str=''] - The string token being wrapped.
          * @param [metadata={}] - Metadata associated with this token.
          */
-        constructor(str: string, metadata: object)
+        constructor(str: string, metadata: object);
 
         /**
          * Returns the token string that is being wrapped by this object.
@@ -754,7 +754,7 @@ declare namespace lunr {
      * This helps to reduce the space used for storing the token set.
      */
     class TokenSet {
-        constructor()
+        constructor();
 
         /**
          * Creates a TokenSet instance from the given sorted array of words.
@@ -901,7 +901,7 @@ declare namespace lunr {
         /**
          * @param [elements] - The flat list of element index and element value pairs.
          */
-        constructor(elements: number[])
+        constructor(elements: number[]);
 
         /**
          * Calculates the position within the vector to insert a given index.

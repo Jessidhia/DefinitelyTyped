@@ -3,7 +3,7 @@ import { createRunner } from "atom-mocha-test-runner";
 import defaultMochaRunner = require("atom-mocha-test-runner");
 
 const extraOptions = {
-    testSuffixes: ["-spec.js", "-spec.coffee"],
+    testSuffixes: ["-spec.js", "-spec.coffee"]
 };
 
 function mochaSetup(mocha: Mocha) {
@@ -18,7 +18,7 @@ testRunner = createRunner({
     globalAtom: true,
     htmlTitle: "Test Title",
     reporter: "dot",
-    testSuffixes: ["test.file"],
+    testSuffixes: ["test.file"]
 });
 
 declare const atom: AtomEnvironment;
@@ -31,7 +31,7 @@ async function runTests(): Promise<number> {
         logFile: "/var/log",
         headless: false,
         buildDefaultApplicationDelegate: () => blob,
-        buildAtomEnvironment: () => atom,
+        buildAtomEnvironment: () => atom
     };
 
     num = await defaultMochaRunner(runnerArgs);

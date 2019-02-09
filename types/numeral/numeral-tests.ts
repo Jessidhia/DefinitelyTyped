@@ -1,12 +1,10 @@
-
-
-var valueFormat: string = numeral(1000).format('0,0');
+var valueFormat: string = numeral(1000).format("0,0");
 // '1,000'
 
-var valueUnformat: number = numeral().unformat('($10,000.00)');
+var valueUnformat: number = numeral().unformat("($10,000.00)");
 // '-10000'
 
-var valueFormatFloor: string = numeral(1.357).format('0.00', Math.floor);
+var valueFormatFloor: string = numeral(1.357).format("0.00", Math.floor);
 // '1.35'
 
 var value3: Numeral = numeral(1000);
@@ -14,7 +12,7 @@ var added: Numeral = value3.add(10);
 // 1010
 
 var value4: Numeral = numeral(1000);
-var formatValue4a: string = value4.format('0,0');
+var formatValue4a: string = value4.format("0,0");
 // '1,000'
 var formatValue4b: number = value4.value();
 // 1000
@@ -30,8 +28,8 @@ var difference = value6.difference(value);
 // 900
 
 var value7: Numeral = numeral(0);
-numeral.zeroFormat('N/A');
-var zeroString: string = value7.format('0.0');
+numeral.zeroFormat("N/A");
+var zeroString: string = value7.format("0.0");
 // 'N/A'
 
 var a: Numeral = numeral(1000);
@@ -45,65 +43,63 @@ var bVal: number = b.value();
 var cVal: number = c.add(10).value();
 // 1010
 
-
 // Formats
-numeral.register('format', 'percentage', {
+numeral.register("format", "percentage", {
     regexps: {
         format: /(%)/,
         unformat: /(%)/
     },
     format: function(value, format, roundingFunction) {
-        return 'foo';
+        return "foo";
     },
     unformat: function(string) {
         return 123;
     }
 });
 
-var customFormatted = numeral().format('0%');
-
+var customFormatted = numeral().format("0%");
 
 // Locales
 // load a locale
-numeral.register('locale', 'fr', {
+numeral.register("locale", "fr", {
     delimiters: {
-        thousands: ' ',
-        decimal: ','
+        thousands: " ",
+        decimal: ","
     },
     abbreviations: {
-        thousand: 'k',
-        million: 'm',
-        billion: 'b',
-        trillion: 't'
+        thousand: "k",
+        million: "m",
+        billion: "b",
+        trillion: "t"
     },
-    ordinal : function (number) {
-        return number === 1 ? 'er' : 'ème';
+    ordinal: function(number) {
+        return number === 1 ? "er" : "ème";
     },
     currency: {
-        symbol: '€'
+        symbol: "€"
     }
 });
 
 // switch between locales
-numeral.locale('fr');
+numeral.locale("fr");
 
 // return the current locale
 numeral.locale();
 // 'fr'
 
 // return the current locale data
-numeral.localeData()
+numeral.localeData();
 
 // return a specific locale data
-const localeData = numeral.localeData('es')
+const localeData = numeral.localeData("es");
 
 // test accessing locale data
-const currencySymbol = localeData.currency.symbol
-const billionShorthand = localeData.abbreviations.billion
-const decimalDelimiter = localeData.delimiters.decimal
-const ordinalResult = localeData.ordinal(2)
+const currencySymbol = localeData.currency.symbol;
+const billionShorthand = localeData.abbreviations.billion;
+const decimalDelimiter = localeData.delimiters.decimal;
+const ordinalResult = localeData.ordinal(2);
 
 // test changing an option
-numeral.options.scalePercentBy100 = false
-numeral(50).format('0%')
+numeral.options.scalePercentBy100 = false;
+numeral(50).format("0%");
 // '50%'

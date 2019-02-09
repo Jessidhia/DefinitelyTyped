@@ -1,11 +1,11 @@
-import * as fingerprint2 from 'fingerprintjs2';
+import * as fingerprint2 from "fingerprintjs2";
 
 function defaultCallback(components: fingerprint2.Component[]) {}
 function v18Callback(murmur: string, components: fingerprint2.V18Component[]) {}
 
 function test_x64hash128() {
     // $ExpectType string
-    fingerprint2.x64hash128('abc', 99);
+    fingerprint2.x64hash128("abc", 99);
 }
 
 function test_get_default_settings() {
@@ -38,8 +38,8 @@ function test_get_audio_options() {
     const options: fingerprint2.Options = {
         audio: {
             timeout: 10,
-            excludeIOS11: true,
-        },
+            excludeIOS11: true
+        }
     };
     fingerprint2.get(options, defaultCallback);
 }
@@ -47,11 +47,11 @@ function test_get_audio_options() {
 function test_get_fonts_options() {
     const options: fingerprint2.Options = {
         fonts: {
-            swfContainerId: 'swfContainerId',
-            swfPath: 'pathToSwf',
-            userDefinedFonts: ['font1', 'font2'],
-            extendedJsFonts: true,
-        },
+            swfContainerId: "swfContainerId",
+            swfPath: "pathToSwf",
+            userDefinedFonts: ["font1", "font2"],
+            extendedJsFonts: true
+        }
     };
     fingerprint2.get(options, defaultCallback);
 }
@@ -59,8 +59,8 @@ function test_get_fonts_options() {
 function test_get_screen_options() {
     const options: fingerprint2.Options = {
         screen: {
-            detectScreenOrientation: true,
-        },
+            detectScreenOrientation: true
+        }
     };
     fingerprint2.get(options, defaultCallback);
 }
@@ -69,8 +69,8 @@ function test_get_plugins_options() {
     const options: fingerprint2.Options = {
         plugins: {
             sortPluginsFor: [/foo/i],
-            excludeIE: true,
-        },
+            excludeIE: true
+        }
     };
     fingerprint2.get(options, defaultCallback);
 }
@@ -79,18 +79,18 @@ function test_get_extraComponents_options() {
     const options: fingerprint2.Options = {
         extraComponents: [
             {
-                key: 'foo',
+                key: "foo",
                 getData(done, options) {
                     // $ExpectType (value: any) => void
                     done;
                     // $ExpectType Options
                     options;
 
-                    done('foo');
+                    done("foo");
                 },
-                pauseBefore: false,
-            },
-        ],
+                pauseBefore: false
+            }
+        ]
     };
     fingerprint2.get(options, defaultCallback);
 }

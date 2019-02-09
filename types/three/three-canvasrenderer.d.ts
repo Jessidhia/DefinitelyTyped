@@ -33,7 +33,7 @@ export class CanvasRenderer implements Renderer {
     autoClear: boolean;
     sortObjects: boolean;
     sortElements: boolean;
-    info: {render: {vertices: number; faces: number;};};
+    info: { render: { vertices: number; faces: number } };
 
     supportsVertexTextures(): void;
 

@@ -1,22 +1,22 @@
 import {
-	hookRequire,
-	hookCreateScript,
-	unhookCreateScript,
-	hookRunInThisContext,
-	unhookRunInThisContext,
-	unloadRequireCache
-} from 'istanbul-lib-hook';
+    hookRequire,
+    hookCreateScript,
+    unhookCreateScript,
+    hookRunInThisContext,
+    unhookRunInThisContext,
+    unloadRequireCache
+} from "istanbul-lib-hook";
 
 const matcher = (filename: string) => true;
-const transformer = (code: string, filepath: string) => 'foo';
+const transformer = (code: string, filepath: string) => "foo";
 
 hookRequire(matcher, transformer);
 hookRequire(matcher, transformer, {});
 hookRequire(matcher, transformer, { verbose: true });
 
 const retVal = hookRequire(matcher, transformer, {
-	extensions: ['.js'],
-	postLoadHook: (filename: string) => {}
+    extensions: [".js"],
+    postLoadHook: (filename: string) => {}
 });
 retVal();
 

@@ -12,6 +12,8 @@ export interface Options {
     limit?: number;
 }
 
-export function decorateAction(decorators: DecoratorFunction[]): (name: string, options?: Options) => HandlerFunction;
+export function decorateAction(
+    decorators: DecoratorFunction[]
+): (name: string, options?: Options) => HandlerFunction;
 export function configureActions(options: Options): undefined;
 export function action(name: string): HandlerFunction;

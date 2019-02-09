@@ -109,7 +109,11 @@ export class Client {
     get(key: string): Promise<{ value: Buffer; flags: Buffer }>;
     get(
         key: string,
-        callback: (err: Error | null, value: Buffer | null, flags: Buffer | null) => void
+        callback: (
+            err: Error | null,
+            value: Buffer | null,
+            flags: Buffer | null
+        ) => void
     ): void;
 
     /**
@@ -129,7 +133,11 @@ export class Client {
      * @param options
      * @param callback
      */
-    set(key: string, value: string | Buffer, options: { expires?: number }): Promise<boolean>;
+    set(
+        key: string,
+        value: string | Buffer,
+        options: { expires?: number }
+    ): Promise<boolean>;
     set(
         key: string,
         value: string | Buffer,
@@ -155,7 +163,11 @@ export class Client {
      * @param options
      * @param callback
      */
-    add(key: string, value: string | Buffer, options: { expires?: number }): Promise<boolean>;
+    add(
+        key: string,
+        value: string | Buffer,
+        options: { expires?: number }
+    ): Promise<boolean>;
     add(
         key: string,
         value: string | Buffer,
@@ -181,7 +193,11 @@ export class Client {
      * @param options
      * @param callback
      */
-    replace(key: string, value: string | Buffer, options: { expires?: number }): Promise<boolean>;
+    replace(
+        key: string,
+        value: string | Buffer,
+        options: { expires?: number }
+    ): Promise<boolean>;
     replace(
         key: string,
         value: string | Buffer,
@@ -202,7 +218,10 @@ export class Client {
      * @param callback
      */
     delete(key: string): Promise<boolean>;
-    delete(key: string, callback: (err: Error | null, success: boolean | null) => void): void;
+    delete(
+        key: string,
+        callback: (err: Error | null, success: boolean | null) => void
+    ): void;
 
     /**
      * INCREMENT
@@ -231,7 +250,11 @@ export class Client {
         key: string,
         amount: number,
         options: { initial?: number; expires?: number },
-        callback: (err: Error | null, success: boolean | null, value?: number | null) => void
+        callback: (
+            err: Error | null,
+            success: boolean | null,
+            value?: number | null
+        ) => void
     ): void;
 
     /**
@@ -261,7 +284,11 @@ export class Client {
         key: string,
         amount: number,
         options: { initial?: number; expires?: number },
-        callback: (err: Error | null, success: boolean | null, value?: number | null) => void
+        callback: (
+            err: Error | null,
+            success: boolean | null,
+            value?: number | null
+        ) => void
     ): void;
 
     /**
@@ -334,7 +361,9 @@ export class Client {
      * @param callback
      */
     flush(): Promise<Record<string, boolean>>;
-    flush(callback: (err: Error | null, results: Record<string, boolean>) => void): void;
+    flush(
+        callback: (err: Error | null, results: Record<string, boolean>) => void
+    ): void;
 
     /**
      * STATS_WITH_KEY
@@ -351,7 +380,11 @@ export class Client {
      */
     statsWithKey(
         key: string,
-        callback?: (err: Error | null, server: string, stats: Record<string, string> | null) => void
+        callback?: (
+            err: Error | null,
+            server: string,
+            stats: Record<string, string> | null
+        ) => void
     ): void;
 
     /**
@@ -367,7 +400,11 @@ export class Client {
      * @param callback
      */
     stats(
-        callback?: (err: Error | null, server: string, stats: Record<string, string> | null) => void
+        callback?: (
+            err: Error | null,
+            server: string,
+            stats: Record<string, string> | null
+        ) => void
     ): void;
 
     /**
@@ -385,7 +422,11 @@ export class Client {
      * @param callback
      */
     resetStats(
-        callback?: (err: Error | null, server: string, stats: Record<string, string> | null) => void
+        callback?: (
+            err: Error | null,
+            server: string,
+            stats: Record<string, string> | null
+        ) => void
     ): void;
 
     /**

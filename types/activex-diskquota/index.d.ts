@@ -14,26 +14,26 @@ declare namespace DiskQuotaTypeLibrary {
         dqAcctResolved = 0,
         dqAcctUnavailable = 1,
         dqAcctUnknown = 4,
-        dqAcctUnresolved = 5,
+        dqAcctUnresolved = 5
     }
 
     // tslint:disable-next-line no-const-enum
     const enum QuotaStateConstants {
         dqStateDisable = 0,
         dqStateEnforce = 2,
-        dqStateTrack = 1,
+        dqStateTrack = 1
     }
 
     // tslint:disable-next-line no-const-enum
     const enum UserNameResolutionConstants {
         dqResolveAsync = 2,
         dqResolveNone = 0,
-        dqResolveSync = 1,
+        dqResolveSync = 1
     }
 
     /** Automation interface for DiskQuotaUser */
     class DIDiskQuotaUser {
-        private 'DiskQuotaTypeLibrary.DIDiskQuotaUser_typekey': DIDiskQuotaUser;
+        private "DiskQuotaTypeLibrary.DIDiskQuotaUser_typekey": DIDiskQuotaUser;
         private constructor();
 
         /** Name of user's account container */
@@ -75,7 +75,7 @@ declare namespace DiskQuotaTypeLibrary {
 
     /** Microsoft Disk Quota */
     class DiskQuotaControl {
-        private 'DiskQuotaTypeLibrary.DiskQuotaControl_typekey': DiskQuotaControl;
+        private "DiskQuotaTypeLibrary.DiskQuotaControl_typekey": DiskQuotaControl;
         private constructor();
 
         /** Add a user quota entry by Name */
@@ -136,14 +136,22 @@ declare namespace DiskQuotaTypeLibrary {
 
 interface ActiveXObject {
     on(
-        obj: DiskQuotaTypeLibrary.DiskQuotaControl, event: 'OnUserNameChanged', argNames: ['pUser'], handler: (
-            this: DiskQuotaTypeLibrary.DiskQuotaControl, parameter: {readonly pUser: DiskQuotaTypeLibrary.DIDiskQuotaUser}) => void): void;
+        obj: DiskQuotaTypeLibrary.DiskQuotaControl,
+        event: "OnUserNameChanged",
+        argNames: ["pUser"],
+        handler: (
+            this: DiskQuotaTypeLibrary.DiskQuotaControl,
+            parameter: { readonly pUser: DiskQuotaTypeLibrary.DIDiskQuotaUser }
+        ) => void
+    ): void;
 }
 
 interface ActiveXObjectNameMap {
-    'Microsoft.DiskQuota': DiskQuotaTypeLibrary.DiskQuotaControl;
+    "Microsoft.DiskQuota": DiskQuotaTypeLibrary.DiskQuotaControl;
 }
 
 interface EnumeratorConstructor {
-    new(col: DiskQuotaTypeLibrary.DiskQuotaControl): Enumerator<DiskQuotaTypeLibrary.DIDiskQuotaUser>;
+    new (col: DiskQuotaTypeLibrary.DiskQuotaControl): Enumerator<
+        DiskQuotaTypeLibrary.DIDiskQuotaUser
+    >;
 }

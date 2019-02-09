@@ -36,7 +36,7 @@ declare namespace microsoftTeams {
         Edu = 1,
         Class = 2,
         Plc = 3,
-        Staff = 4,
+        Staff = 4
     }
     interface TabInstanceParameters {
         /**
@@ -63,13 +63,17 @@ declare namespace microsoftTeams {
      * Only one handler can be registered at a time. A subsequent registration replaces an existing registration.
      * @param handler The handler to invoke when the user changes their theme.
      */
-    function registerOnThemeChangeHandler(handler: (theme: string) => void): void;
+    function registerOnThemeChangeHandler(
+        handler: (theme: string) => void
+    ): void;
     /**
      * Registers a handler for changes from or to full-screen view for a tab.
      * Only one handler can be registered at a time. A subsequent registration replaces an existing registration.
      * @param handler The handler to invoke when the user toggles full-screen view for a tab.
      */
-    function registerFullScreenHandler(handler: (isFullScreen: boolean) => void): void;
+    function registerFullScreenHandler(
+        handler: (isFullScreen: boolean) => void
+    ): void;
     /**
      * Navigates the frame to a new cross-domain URL. The domain of this URL must match at least one of the
      * valid domains specified in the validDomains block of the manifest; otherwise, an exception will be
@@ -85,13 +89,19 @@ declare namespace microsoftTeams {
      * @param callback The callback to invoke when the {@link TabInstanceParameters} object is retrieved.
      * @param tabInstanceParameters OPTIONAL Flags that specify whether to scope call to favorite teams or channels.
      */
-    function getTabInstances(callback: (tabInfo: TabInformation) => void, tabInstanceParameters?: TabInstanceParameters): void;
+    function getTabInstances(
+        callback: (tabInfo: TabInformation) => void,
+        tabInstanceParameters?: TabInstanceParameters
+    ): void;
     /**
      * Allows an app to retrieve the most recently used tabs for this user.
      * @param callback The callback to invoke when the {@link TabInformation} object is retrieved.
      * @param tabInstanceParameters OPTIONAL Ignored, kept for future use
      */
-    function getMruTabInstances(callback: (tabInfo: TabInformation) => void, tabInstanceParameters?: TabInstanceParameters): void;
+    function getMruTabInstances(
+        callback: (tabInfo: TabInformation) => void,
+        tabInstanceParameters?: TabInstanceParameters
+    ): void;
     /**
      * Shares a deep link that a user can use to navigate back to a specific state in this page.
      * @param deepLinkParameters ID and label for the link and fallback URL.
@@ -139,7 +149,9 @@ declare namespace microsoftTeams {
          * Only one handler may be registered at a time. Subsequent registrations will override the first.
          * @param handler The handler to invoke when the user selects the remove button.
          */
-        function registerOnRemoveHandler(handler: (evt: RemoveEvent) => void): void;
+        function registerOnRemoveHandler(
+            handler: (evt: RemoveEvent) => void
+        ): void;
         interface Settings {
             /**
              * A suggested display name for the new content.
@@ -195,7 +207,9 @@ declare namespace microsoftTeams {
          * Initiates an authentication request, which opens a new window with the specified settings.
          * @param authenticateParameters A set of values that configure the authentication pop-up.
          */
-        function authenticate(authenticateParameters: AuthenticateParameters): void;
+        function authenticate(
+            authenticateParameters: AuthenticateParameters
+        ): void;
         /**
          * Requests an Azure AD token to be issued on behalf of the app. The token is acquired from the cache
          * if it is not expired. Otherwise a request is sent to Azure AD to obtain a new token.

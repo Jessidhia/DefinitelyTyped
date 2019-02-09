@@ -1,7 +1,16 @@
 import {
-    Feature, FeatureCollection, GeometryCollection, LineString,
-    MultiLineString, MultiPoint, MultiPolygon, Point, Polygon, GeoJsonGeometryTypes,
-    GeoJsonTypes, GeometryObject
+    Feature,
+    FeatureCollection,
+    GeometryCollection,
+    LineString,
+    MultiLineString,
+    MultiPoint,
+    MultiPolygon,
+    Point,
+    Polygon,
+    GeoJsonGeometryTypes,
+    GeoJsonTypes,
+    GeometryObject
 } from "geojson";
 
 let featureCollection: FeatureCollection = {
@@ -40,7 +49,13 @@ let featureCollection: FeatureCollection = {
             geometry: {
                 type: "Polygon",
                 coordinates: [
-                    [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]
+                    [
+                        [100.0, 0.0],
+                        [101.0, 0.0],
+                        [101.0, 1.0],
+                        [100.0, 1.0],
+                        [100.0, 0.0]
+                    ]
                 ]
             },
             properties: {
@@ -53,10 +68,10 @@ let featureCollection: FeatureCollection = {
     ]
 };
 
-featureCollection.type;  // $ExpectType "FeatureCollection"
-featureCollection.features[0].type;  // $ExpectType "Feature"
-featureCollection.features[0].geometry;  // $ExpectType Geometry
-featureCollection.features[0].geometry.type;  // $ExpectType "Point" | "MultiPoint" | "LineString" | "MultiLineString" | "Polygon" | "MultiPolygon" | "GeometryCollection"
+featureCollection.type; // $ExpectType "FeatureCollection"
+featureCollection.features[0].type; // $ExpectType "Feature"
+featureCollection.features[0].geometry; // $ExpectType Geometry
+featureCollection.features[0].geometry.type; // $ExpectType "Point" | "MultiPoint" | "LineString" | "MultiLineString" | "Polygon" | "MultiPolygon" | "GeometryCollection"
 
 declare let geometryTypes: GeoJsonGeometryTypes;
 geometryTypes; // $ExpectType "Point" | "MultiPoint" | "LineString" | "MultiLineString" | "Polygon" | "MultiPolygon" | "GeometryCollection"
@@ -76,10 +91,10 @@ const featureWithPolygon: Feature<Polygon> = {
     properties: null
 };
 
-featureWithPolygon.type;  // $ExpectType "Feature"
-featureWithPolygon.geometry;  // $ExpectType Polygon
-featureWithPolygon.geometry.type;  // $ExpectType "Polygon"
-featureWithPolygon.geometry.coordinates;  // $ExpectType number[][][]
+featureWithPolygon.type; // $ExpectType "Feature"
+featureWithPolygon.geometry; // $ExpectType Polygon
+featureWithPolygon.geometry.type; // $ExpectType "Polygon"
+featureWithPolygon.geometry.coordinates; // $ExpectType number[][][]
 
 const point: Point = {
     type: "Point",
@@ -116,18 +131,37 @@ const multiPoint: MultiPoint = {
 
 const multiLineString: MultiLineString = {
     type: "MultiLineString",
-    coordinates: [
-        [[100.0, 0.0], [101.0, 1.0]],
-        [[102.0, 2.0], [103.0, 3.0]]
-    ]
+    coordinates: [[[100.0, 0.0], [101.0, 1.0]], [[102.0, 2.0], [103.0, 3.0]]]
 };
 
 const multiPolygon: MultiPolygon = {
     type: "MultiPolygon",
     coordinates: [
-        [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
-        [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
-        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
+        [
+            [
+                [102.0, 2.0],
+                [103.0, 2.0],
+                [103.0, 3.0],
+                [102.0, 3.0],
+                [102.0, 2.0]
+            ]
+        ],
+        [
+            [
+                [100.0, 0.0],
+                [101.0, 0.0],
+                [101.0, 1.0],
+                [100.0, 1.0],
+                [100.0, 0.0]
+            ],
+            [
+                [100.2, 0.2],
+                [100.8, 0.2],
+                [100.8, 0.8],
+                [100.2, 0.8],
+                [100.2, 0.2]
+            ]
+        ]
     ]
 };
 
@@ -151,7 +185,7 @@ let feature: Feature<GeometryObject> = {
     properties: null
 };
 
-feature.properties;  // $ExpectType GeoJsonProperties
+feature.properties; // $ExpectType GeoJsonProperties
 
 feature = {
     type: "Feature",
@@ -191,27 +225,33 @@ featureCollection = {
             type: "Feature",
             geometry: lineString,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: polygon,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: polygonWithHole,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: multiPoint,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: multiLineString,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: multiPolygon,
             properties: { test: "OK" }
-        }, {
+        },
+        {
             type: "Feature",
             geometry: geometryCollection,
             properties: { test: "OK" }
@@ -234,7 +274,11 @@ const pt: Feature<Point> = {
 };
 
 if (pt.properties) {
-    if (pt.properties.foo == null || pt.properties.hello == null || pt.properties[1] == null) {
+    if (
+        pt.properties.foo == null ||
+        pt.properties.hello == null ||
+        pt.properties[1] == null
+    ) {
         throw TypeError("Properties should not be null or undefined.");
     }
 } else {
@@ -293,7 +337,7 @@ const featureGeometryNull: Feature<null, TestProperty> = {
     geometry: null
 };
 
-featureGeometryNull.properties.foo;  // $ExpectType "bar" | "baz"
+featureGeometryNull.properties.foo; // $ExpectType "bar" | "baz"
 
 const featureNoNull: Feature<Point, TestProperty> = {
     type: "Feature",
@@ -301,33 +345,47 @@ const featureNoNull: Feature<Point, TestProperty> = {
     geometry: point
 };
 
-featureNoNull.geometry.type;  // $ExpectType "Point"
+featureNoNull.geometry.type; // $ExpectType "Point"
 
 const collectionAllNull: FeatureCollection<null, null> = {
     type: "FeatureCollection",
-    features: [featureAllNull],
+    features: [featureAllNull]
 };
 
-const collectionMaybeNull: FeatureCollection<Point | null, TestProperty | null> = {
+const collectionMaybeNull: FeatureCollection<
+    Point | null,
+    TestProperty | null
+> = {
     type: "FeatureCollection",
-    features: [featureAllNull, featurePropertyNull, featureGeometryNull, featureNoNull],
+    features: [
+        featureAllNull,
+        featurePropertyNull,
+        featureGeometryNull,
+        featureNoNull
+    ]
 };
 
-const collectionPropertyMaybeNull: FeatureCollection<Point, TestProperty | null> = {
+const collectionPropertyMaybeNull: FeatureCollection<
+    Point,
+    TestProperty | null
+> = {
     type: "FeatureCollection",
-    features: [featurePropertyNull, featureNoNull],
+    features: [featurePropertyNull, featureNoNull]
 };
 
-const collectionGeometryMaybeNull: FeatureCollection<Point | null, TestProperty> = {
+const collectionGeometryMaybeNull: FeatureCollection<
+    Point | null,
+    TestProperty
+> = {
     type: "FeatureCollection",
-    features: [featureGeometryNull, featureNoNull],
+    features: [featureGeometryNull, featureNoNull]
 };
 
-collectionGeometryMaybeNull.features[0].geometry;  // $ExpectType Point | null
+collectionGeometryMaybeNull.features[0].geometry; // $ExpectType Point | null
 
 const collectionNoNull: FeatureCollection<Point, TestProperty> = {
     type: "FeatureCollection",
-    features: [featureNoNull],
+    features: [featureNoNull]
 };
 
 const collectionDefault: FeatureCollection = {
@@ -335,8 +393,8 @@ const collectionDefault: FeatureCollection = {
     features: []
 };
 
-collectionDefault.features[0].geometry;  // $ExpectType Geometry
-collectionDefault.features[0].properties!.foo;  // $ExpectType any
+collectionDefault.features[0].geometry; // $ExpectType Geometry
+collectionDefault.features[0].properties!.foo; // $ExpectType any
 
 isNull = featureAllNull.geometry;
 isPoint = featurePropertyNull.geometry;

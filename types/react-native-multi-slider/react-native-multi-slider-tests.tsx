@@ -6,7 +6,7 @@ class SliderTest extends React.Component {
     getInitialState() {
         return {
             sliderOneChanging: false,
-            sliderOneValue: [ 5 ],
+            sliderOneValue: [5]
         };
     }
 
@@ -29,37 +29,37 @@ class SliderTest extends React.Component {
         return (
             <React.Fragment>
                 <MultiSlider
-                    values={[ 5 ]}
+                    values={[5]}
                     sliderLength={280}
                     onValuesChangeStart={this.SliderOneValuesChangeStart}
                     onValuesChange={this.SliderOneValuesChange}
                     onValuesChangeFinish={this.SliderOneValuesChangeFinish}
                 />
 
-                <MultiSlider values={[ 3, 7 ]} sliderLength={280} />
+                <MultiSlider values={[3, 7]} sliderLength={280} />
 
                 <MultiSlider
                     selectedStyle={{
-                        backgroundColor: "gold",
+                        backgroundColor: "gold"
                     }}
                     unselectedStyle={{
-                        backgroundColor: "silver",
+                        backgroundColor: "silver"
                     }}
-                    values={[ 5 ]}
+                    values={[5]}
                     containerStyle={{
-                        height: 40,
+                        height: 40
                     }}
                     trackStyle={{
                         height: 10,
-                        backgroundColor: "red",
+                        backgroundColor: "red"
                     }}
                     touchDimensions={{
                         height: 40,
                         width: 40,
                         borderRadius: 20,
-                        slipDisplacement: 40,
+                        slipDisplacement: 40
                     }}
-                    customMarker={(props) => <View {...props} />}
+                    customMarker={props => <View {...props} />}
                     sliderLength={280}
                 />
             </React.Fragment>

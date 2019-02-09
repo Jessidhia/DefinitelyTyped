@@ -20,12 +20,15 @@
  * limitations under the License.
  */
 
-import { MDCComponent } from 'material__base';
-import MDCGridListAdapter from './adapter';
-import MDCGridListFoundation from './foundation';
+import { MDCComponent } from "material__base";
+import MDCGridListAdapter from "./adapter";
+import MDCGridListFoundation from "./foundation";
 
 export { MDCGridListAdapter, MDCGridListFoundation };
 
-export class MDCGridList extends MDCComponent<MDCGridListAdapter, MDCGridListFoundation> {
+export class MDCGridList extends MDCComponent<
+    MDCGridListAdapter,
+    MDCGridListFoundation
+> {
     static attachTo(root: Element): MDCGridList;
 }

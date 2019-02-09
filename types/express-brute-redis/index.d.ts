@@ -24,7 +24,12 @@ declare class express_brute_redis {
     /**
      * @summary Sets a key in Redis storage.
      */
-    set(key: string, value: string, lifetime?: number, callback?: (sender: express_brute_redis) => void): void;
+    set(
+        key: string,
+        value: string,
+        lifetime?: number,
+        callback?: (sender: express_brute_redis) => void
+    ): void;
 
     /**
      * @summary Gets a key in Redis storage.
@@ -34,7 +39,11 @@ declare class express_brute_redis {
     /**
      * @summary Resets a key in Redis storage.
      */
-    reset(key: string, callback?: (err: Error, data: any) => void, ...args: any[]): void;
+    reset(
+        key: string,
+        callback?: (err: Error, data: any) => void,
+        ...args: any[]
+    ): void;
 }
 
 export = express_brute_redis;

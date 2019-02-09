@@ -44,23 +44,45 @@ declare namespace _Readable {
 
     // ==== destroy ====
     interface Destroy {
-        destroy(this: Readable | Writable, error: Error | null, callback?: (error: Error | null) => void): Readable | Writable;
+        destroy(
+            this: Readable | Writable,
+            error: Error | null,
+            callback?: (error: Error | null) => void
+        ): Readable | Writable;
         undestroy(this: Readable | Writable): void;
     }
 
     // ==== _stream_duplex ====
-    type DuplexOptions = ReadableOptions & WritableOptions & {
-        allowHalfOpen?: boolean;
-        readable?: boolean;
-        writable?: boolean;
-        read?(this: Duplex, size: number): void;
-        write?(this: Duplex, chunk: any, encoding: string, callback: (error?: Error | null) => void): void;
-        writev?(this: Duplex, chunks: Array<{ chunk: any, encoding: string }>, callback: (error?: Error | null) => void): void;
-        final?(this: Duplex, callback: (error?: Error | null) => void): void;
-        destroy?(this: Duplex, error: Error | null, callback: (error: Error | null) => void): void;
-    };
+    type DuplexOptions = ReadableOptions &
+        WritableOptions & {
+            allowHalfOpen?: boolean;
+            readable?: boolean;
+            writable?: boolean;
+            read?(this: Duplex, size: number): void;
+            write?(
+                this: Duplex,
+                chunk: any,
+                encoding: string,
+                callback: (error?: Error | null) => void
+            ): void;
+            writev?(
+                this: Duplex,
+                chunks: Array<{ chunk: any; encoding: string }>,
+                callback: (error?: Error | null) => void
+            ): void;
+            final?(
+                this: Duplex,
+                callback: (error?: Error | null) => void
+            ): void;
+            destroy?(
+                this: Duplex,
+                error: Error | null,
+                callback: (error: Error | null) => void
+            ): void;
+        };
 
-    class Duplex extends Writable implements /*extends*/_Readable, stream.Duplex {
+    class Duplex extends Writable
+        implements /*extends*/ _Readable, stream.Duplex {
         allowHalfOpen: boolean;
         destroyed: boolean;
         // Readable
@@ -79,9 +101,15 @@ declare namespace _Readable {
         unshift(chunk: any): boolean;
         wrap(oldStream: NodeJS.ReadableStream): this;
         push(chunk: any, encoding?: string): boolean;
-        _destroy(err: Error | null, callback: (error: Error | null) => void): void;
+        _destroy(
+            err: Error | null,
+            callback: (error: Error | null) => void
+        ): void;
         destroy(err?: Error, callback?: (error: Error | null) => void): this;
-        pipe<S extends NodeJS.WritableStream>(dest: S, pipeOpts?: { end?: boolean }): S;
+        pipe<S extends NodeJS.WritableStream>(
+            dest: S,
+            pipeOpts?: { end?: boolean }
+        ): S;
         addListener(ev: string | symbol, fn: (...args: any[]) => void): this;
         on(ev: string | symbol, fn: (...args: any[]) => void): this;
 
@@ -96,7 +124,11 @@ declare namespace _Readable {
     class PassThrough extends Transform implements stream.PassThrough {
         constructor(options?: TransformOptions);
 
-        _transform<T>(chunk: T, encoding: string | null | undefined, callback: (error: any, data: T) => void): void;
+        _transform<T>(
+            chunk: T,
+            encoding: string | null | undefined,
+            callback: (error: any, data: T) => void
+        ): void;
     }
 
     // ==== _stream_readable ====
@@ -137,7 +169,11 @@ declare namespace _Readable {
 
     type ReadableOptions = ReadableStateOptions & {
         read?(this: _Readable, size: number): void;
-        destroy?(this: _Readable, error: Error | null, callback: (error: Error | null) => void): void;
+        destroy?(
+            this: _Readable,
+            error: Error | null,
+            callback: (error: Error | null) => void
+        ): void;
     };
 
     class Readable extends _Readable {
@@ -147,17 +183,39 @@ declare namespace _Readable {
     // ==== _stream_transform ====
     type TransformOptions = DuplexOptions & {
         read?(this: Transform, size: number): void;
-        write?(this: Transform, chunk: any, encoding: string, callback: (error?: Error | null) => void): void;
-        writev?(this: Transform, chunks: Array<{ chunk: any, encoding: string }>, callback: (error?: Error | null) => void): void;
+        write?(
+            this: Transform,
+            chunk: any,
+            encoding: string,
+            callback: (error?: Error | null) => void
+        ): void;
+        writev?(
+            this: Transform,
+            chunks: Array<{ chunk: any; encoding: string }>,
+            callback: (error?: Error | null) => void
+        ): void;
         final?(this: Transform, callback: (error?: Error | null) => void): void;
-        destroy?(this: Transform, error: Error | null, callback: (error: Error | null) => void): void;
-        transform?(this: Transform, chunk: any, encoding: string, callback: (error?: Error, data?: any) => void): void;
+        destroy?(
+            this: Transform,
+            error: Error | null,
+            callback: (error: Error | null) => void
+        ): void;
+        transform?(
+            this: Transform,
+            chunk: any,
+            encoding: string,
+            callback: (error?: Error, data?: any) => void
+        ): void;
         flush?(this: Transform, callback: (er: any, data: any) => void): void;
     };
 
     class Transform extends Duplex implements stream.Transform {
         _transformState: {
-            afterTransform: (this: Transform, er: any, data: any) => void | boolean;
+            afterTransform: (
+                this: Transform,
+                er: any,
+                data: any
+            ) => void | boolean;
             needTransform: boolean;
             transforming: boolean;
             writecb: ((err: any) => any) | null;
@@ -167,7 +225,11 @@ declare namespace _Readable {
 
         constructor(options?: TransformOptions);
 
-        _transform(chunk: any, encoding: string, callback: (error?: Error, data?: any) => void): void;
+        _transform(
+            chunk: any,
+            encoding: string,
+            callback: (error?: Error, data?: any) => void
+        ): void;
         _flush(callback: (error?: Error, data?: any) => void): void;
     }
 
@@ -229,9 +291,22 @@ declare namespace _Readable {
     }
 
     type WritableOptions = WritableStateOptions & {
-        write?(this: Writable, chunk: any, encoding: string, callback: (error?: Error | null) => void): void;
-        writev?(this: Writable, chunk: ArrayLike<{ chunk: any; encoding: string }>, callback: (error?: Error | null) => void): void;
-        destroy?(this: Writable, error: Error | null, callback: (error: Error | null) => void): void;
+        write?(
+            this: Writable,
+            chunk: any,
+            encoding: string,
+            callback: (error?: Error | null) => void
+        ): void;
+        writev?(
+            this: Writable,
+            chunk: ArrayLike<{ chunk: any; encoding: string }>,
+            callback: (error?: Error | null) => void
+        ): void;
+        destroy?(
+            this: Writable,
+            error: Error | null,
+            callback: (error: Error | null) => void
+        ): void;
         final?(this: Writable, callback: (error?: Error | null) => void): void;
     };
 

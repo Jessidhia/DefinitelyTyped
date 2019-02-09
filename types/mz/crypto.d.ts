@@ -10,11 +10,30 @@
 import * as crypto from "crypto";
 export * from "crypto";
 
-export function pbkdf2(password: string | Buffer, salt: string | Buffer, iterations: number, keylen: number, digest: string, callback: (err: Error, derivedKey: Buffer) => any): void;
-export function pbkdf2(password: string | Buffer, salt: string | Buffer, iterations: number, keylen: number, digest?: string): Promise<Buffer>;
+export function pbkdf2(
+    password: string | Buffer,
+    salt: string | Buffer,
+    iterations: number,
+    keylen: number,
+    digest: string,
+    callback: (err: Error, derivedKey: Buffer) => any
+): void;
+export function pbkdf2(
+    password: string | Buffer,
+    salt: string | Buffer,
+    iterations: number,
+    keylen: number,
+    digest?: string
+): Promise<Buffer>;
 
-export function randomBytes(size: number, callback: (err: Error, buf: Buffer) => void): void;
+export function randomBytes(
+    size: number,
+    callback: (err: Error, buf: Buffer) => void
+): void;
 export function randomBytes(size: number): Promise<Buffer>;
 
-export function pseudoRandomBytes(size: number, callback: (err: Error, buf: Buffer) => void): void;
+export function pseudoRandomBytes(
+    size: number,
+    callback: (err: Error, buf: Buffer) => void
+): void;
 export function pseudoRandomBytes(size: number): Promise<Buffer>;

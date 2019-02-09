@@ -4,14 +4,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-export = angulartics;//AMD/Require module support
-export as namespace angulartics;//UMD module support
+export = angulartics; //AMD/Require module support
+export as namespace angulartics; //UMD module support
 declare namespace angulartics {
-
     interface IAngularticsStatic {
-        waitForVendorApi(objectName: string, delay: number, containsField?: any, registerFn?: any, onTimeout?: boolean): void;
+        waitForVendorApi(
+            objectName: string,
+            delay: number,
+            containsField?: any,
+            registerFn?: any,
+            onTimeout?: boolean
+        ): void;
     }
 
     interface IAnalyticsService {
@@ -38,45 +43,57 @@ declare namespace angulartics {
         trackStates(value: boolean): void;
         trackRoutes(value: boolean): void;
         excludeRoutes(value: string[]): void;
-        queryKeysWhitelist(keys: string[]): void
-        queryKeysBlacklist(keys: string[]): void
+        queryKeysWhitelist(keys: string[]): void;
+        queryKeysBlacklist(keys: string[]): void;
         firstPageview(value: boolean): void;
         withBase(value: boolean): void;
         withAutoBase(value: boolean): void;
         trackExceptions(value: boolean): void;
         developerMode(value: boolean): void;
 
-        registerPageTrack(callback: (path: string, location?: angular.ILocationService) => any): void;
-        registerEventTrack(callback: (eventName: string, properties?: any) => any): void;
+        registerPageTrack(
+            callback: (path: string, location?: angular.ILocationService) => any
+        ): void;
+        registerEventTrack(
+            callback: (eventName: string, properties?: any) => any
+        ): void;
         registerTransactionTrack(callback: any): void;
         registerSetAlias(callback: (alias: string) => any): void;
         registerSetUsername(callback: (username: string) => any): void;
         registerSetUserProperties(callback: (userProperties: any) => any): void;
-        registerSetUserPropertiesOnce(callback: (userProperties: any) => any): void;
-        registerSetSuperProperties(callback: (superProperties: any) => any): void;
-        registerSetSuperPropertiesOnce(callback: (superProperties: any) => any): void;
-        registerIncrementProperty(callback: (property: string, value?: any) => any): void;
+        registerSetUserPropertiesOnce(
+            callback: (userProperties: any) => any
+        ): void;
+        registerSetSuperProperties(
+            callback: (superProperties: any) => any
+        ): void;
+        registerSetSuperPropertiesOnce(
+            callback: (superProperties: any) => any
+        ): void;
+        registerIncrementProperty(
+            callback: (property: string, value?: any) => any
+        ): void;
         registerUserTimings(callback: (properties: any) => any): void;
         registerClearCookies(callback: any): void;
 
         settings: {
             pageTracking: {
-                autoTrackingVirtualPages: boolean,
-                autoTrackingFirstPage: boolean,
-                trackRelativePath: boolean,
-                trackRoutes: boolean,
-                trackStates: boolean,
-                autoBasePath: boolean,
-                basePath: string,
-                excludedRoutes: string[],
-                queryKeysWhitelisted: string[],
-                queryKeysBlacklisted: string[]
-            },
-            eventTracking: {},
-            bufferFlushDelay: number,
-            trackExceptions: boolean,
-            optOut: boolean,
-            developerMode: boolean
+                autoTrackingVirtualPages: boolean;
+                autoTrackingFirstPage: boolean;
+                trackRelativePath: boolean;
+                trackRoutes: boolean;
+                trackStates: boolean;
+                autoBasePath: boolean;
+                basePath: string;
+                excludedRoutes: string[];
+                queryKeysWhitelisted: string[];
+                queryKeysBlacklisted: string[];
+            };
+            eventTracking: {};
+            bufferFlushDelay: number;
+            trackExceptions: boolean;
+            optOut: boolean;
+            developerMode: boolean;
         };
     }
 }

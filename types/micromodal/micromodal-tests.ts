@@ -1,10 +1,14 @@
-import MicroModal, { MicroModalConfig } from 'micromodal';
+import MicroModal, { MicroModalConfig } from "micromodal";
 
 const config: MicroModalConfig = {
-    onShow: (modal) => { console.log(modal!.id); },
-    onClose: (modal) => { console.log(modal!.id); },
-    openTrigger: 'data-modal-open',
-    closeTrigger: 'data-modal-close',
+    onShow: modal => {
+        console.log(modal!.id);
+    },
+    onClose: modal => {
+        console.log(modal!.id);
+    },
+    openTrigger: "data-modal-open",
+    closeTrigger: "data-modal-close",
     disableScroll: true,
     disableFocus: true,
     awaitCloseAnimation: true,
@@ -13,6 +17,6 @@ const config: MicroModalConfig = {
 
 MicroModal.init(config);
 
-MicroModal.show('my-modal');
+MicroModal.show("my-modal");
 
 MicroModal.close();

@@ -4,21 +4,21 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export const app: {
-    app: any,
-    BrowserWindow: any,
-    dialog: any,
+    app: any;
+    BrowserWindow: any;
+    dialog: any;
 };
 
 export const is: {
-    macos: boolean,
-    linux: boolean,
-    windows: boolean,
-    main: boolean,
-    renderer: boolean,
-    development: boolean,
-    usingAsar: boolean,
-    macAppStore: boolean,
-    windowsStore: boolean,
+    macos: boolean;
+    linux: boolean;
+    windows: boolean;
+    main: boolean;
+    renderer: boolean;
+    development: boolean;
+    usingAsar: boolean;
+    macAppStore: boolean;
+    windowsStore: boolean;
 };
 
 export const appReady: Promise<void>;

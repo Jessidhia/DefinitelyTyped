@@ -5,9 +5,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import * as React from 'react';
-import * as MapboxGL from 'mapbox-gl';
-import * as GeoJSON from 'geojson';
+import * as React from "react";
+import * as MapboxGL from "mapbox-gl";
+import * as GeoJSON from "geojson";
 
 export interface ViewState {
     latitude: number;
@@ -69,7 +69,10 @@ export interface QueryRenderedFeaturesParams {
 
 export class StaticMap extends React.Component<StaticMapProps> {
     getMap(): MapboxGL.Map;
-    queryRenderedFeatures(geometry?: MapboxGL.PointLike | MapboxGL.PointLike[], parameters?: QueryRenderedFeaturesParams): Array<GeoJSON.Feature<GeoJSON.GeometryObject>>;
+    queryRenderedFeatures(
+        geometry?: MapboxGL.PointLike | MapboxGL.PointLike[],
+        parameters?: QueryRenderedFeaturesParams
+    ): Array<GeoJSON.Feature<GeoJSON.GeometryObject>>;
 }
 
 export interface ExtraState {
@@ -135,7 +138,9 @@ export class MapState {
     rotate(input: { deltaScaleX?: number; deltaScaleY?: number }): MapState;
     rotateEnd(): MapState;
     zoomStart(input: PositionInput): MapState;
-    zoom(input: PositionInput & { scale: number; startPos?: [number, number] }): MapState;
+    zoom(
+        input: PositionInput & { scale: number; startPos?: [number, number] }
+    ): MapState;
     zoomEnd(): MapState;
 }
 
@@ -169,7 +174,11 @@ export class MapController implements BaseMapController {
     getMapState(overrides: Partial<MapState>): MapState;
     setOptions(options: MapControllerOptions): void;
     setState(newState: MapState): void;
-    updateViewport(newMapState: MapState, extraProps: any, extraState: ExtraState): void;
+    updateViewport(
+        newMapState: MapState,
+        extraProps: any,
+        extraState: ExtraState
+    ): void;
 }
 
 export interface PointerEvent {
@@ -247,7 +256,10 @@ export interface InteractiveMapProps extends StaticMapProps {
 
 export class InteractiveMap extends React.Component<InteractiveMapProps> {
     getMap(): MapboxGL.Map;
-    queryRenderedFeatures(geometry?: MapboxGL.PointLike | MapboxGL.PointLike[], parameters?: QueryRenderedFeaturesParams): Array<GeoJSON.Feature<GeoJSON.GeometryObject>>;
+    queryRenderedFeatures(
+        geometry?: MapboxGL.PointLike | MapboxGL.PointLike[],
+        parameters?: QueryRenderedFeaturesParams
+    ): Array<GeoJSON.Feature<GeoJSON.GeometryObject>>;
 }
 
 export default InteractiveMap;
@@ -259,7 +271,9 @@ export interface BaseControlProps {
     captureDoubleClick?: boolean;
 }
 
-export class BaseControl<T extends BaseControlProps> extends React.Component<T> {}
+export class BaseControl<T extends BaseControlProps> extends React.Component<
+    T
+> {}
 
 export interface DragEvent {
     lngLat: [number, number];
@@ -290,7 +304,15 @@ export interface PopupProps extends BaseControlProps {
     tipSize?: number;
     closeButton?: boolean;
     closeOnClick?: boolean;
-    anchor?: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'right';
+    anchor?:
+        | "top"
+        | "top-left"
+        | "top-right"
+        | "bottom"
+        | "bottom-left"
+        | "bottom-right"
+        | "left"
+        | "right";
     dynamicPosition?: boolean;
     sortByDepth?: boolean;
     onClose?: () => void;

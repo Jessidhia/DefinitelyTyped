@@ -6,4 +6,6 @@
 
 export = pSeries;
 
-declare function pSeries<T>(tasks: Iterable<() => Promise<T> | T>): Promise<T[]>;
+declare function pSeries<T>(
+    tasks: Iterable<() => Promise<T> | T>
+): Promise<T[]>;

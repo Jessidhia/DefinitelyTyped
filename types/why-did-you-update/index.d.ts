@@ -7,9 +7,12 @@
 /// <reference types="react" />
 
 declare module "why-did-you-update" {
-	interface Options {
-		include?: RegExp;
-		exclude?: RegExp;
-	}
-	export function whyDidYouUpdate(react: typeof React, options?: Options): void;
+    interface Options {
+        include?: RegExp;
+        exclude?: RegExp;
+    }
+    export function whyDidYouUpdate(
+        react: typeof React,
+        options?: Options
+    ): void;
 }

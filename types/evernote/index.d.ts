@@ -4,30 +4,35 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Thrift } from 'thrift';
+import { Thrift } from "thrift";
 
 declare namespace Evernote {
     interface Callback<T> {
-        (err: EDAMUserException | EDAMSystemException | EDAMNotFoundException, v: T): void
+        (
+            err:
+                | EDAMUserException
+                | EDAMSystemException
+                | EDAMNotFoundException,
+            v: T
+        ): void;
     }
 
     interface ClientConfig {
-        consumerKey?: string
-        consumerSecret?: string
-        sandbox?: boolean
-        token?: string
-        serviceHost?: string
-        additionalHeaders?: { [k: string]: string }
-        secret?: string
+        consumerKey?: string;
+        consumerSecret?: string;
+        sandbox?: boolean;
+        token?: string;
+        serviceHost?: string;
+        additionalHeaders?: { [k: string]: string };
+        secret?: string;
     }
 
     class Client {
-        static "new": (config: ClientConfig) => Client
+        static "new": (config: ClientConfig) => Client;
         constructor(config: ClientConfig);
         getNoteStore(): NoteStoreClient;
         getUserStore(): UserStoreClient;
     }
-
 
     /**
      * Numeric codes indicating the type of error that occurred on the
@@ -80,25 +85,25 @@ declare namespace Evernote {
      * </dl>
      */
     enum EDAMErrorCode {
-        'UNKNOWN' = 1,
-        'BAD_DATA_FORMAT' = 2,
-        'PERMISSION_DENIED' = 3,
-        'INTERNAL_ERROR' = 4,
-        'DATA_REQUIRED' = 5,
-        'LIMIT_REACHED' = 6,
-        'QUOTA_REACHED' = 7,
-        'INVALID_AUTH' = 8,
-        'AUTH_EXPIRED' = 9,
-        'DATA_CONFLICT' = 10,
-        'ENML_VALIDATION' = 11,
-        'SHARD_UNAVAILABLE' = 12,
-        'LEN_TOO_SHORT' = 13,
-        'LEN_TOO_LONG' = 14,
-        'TOO_FEW' = 15,
-        'TOO_MANY' = 16,
-        'UNSUPPORTED_OPERATION' = 17,
-        'TAKEN_DOWN' = 18,
-        'RATE_LIMIT_REACHED' = 19,
+        "UNKNOWN" = 1,
+        "BAD_DATA_FORMAT" = 2,
+        "PERMISSION_DENIED" = 3,
+        "INTERNAL_ERROR" = 4,
+        "DATA_REQUIRED" = 5,
+        "LIMIT_REACHED" = 6,
+        "QUOTA_REACHED" = 7,
+        "INVALID_AUTH" = 8,
+        "AUTH_EXPIRED" = 9,
+        "DATA_CONFLICT" = 10,
+        "ENML_VALIDATION" = 11,
+        "SHARD_UNAVAILABLE" = 12,
+        "LEN_TOO_SHORT" = 13,
+        "LEN_TOO_LONG" = 14,
+        "TOO_FEW" = 15,
+        "TOO_MANY" = 16,
+        "UNSUPPORTED_OPERATION" = 17,
+        "TAKEN_DOWN" = 18,
+        "RATE_LIMIT_REACHED" = 19
     }
 
     /**
@@ -122,7 +127,7 @@ declare namespace Evernote {
         errorCode: EDAMErrorCode;
         parameter: string;
 
-        constructor(args?: { errorCode: EDAMErrorCode; parameter?: string; });
+        constructor(args?: { errorCode: EDAMErrorCode; parameter?: string });
     }
 
     /**
@@ -144,7 +149,11 @@ declare namespace Evernote {
         message: string;
         rateLimitDuration: number;
 
-        constructor(args?: { errorCode: EDAMErrorCode; message?: string; rateLimitDuration?: number; });
+        constructor(args?: {
+            errorCode: EDAMErrorCode;
+            message?: string;
+            rateLimitDuration?: number;
+        });
     }
 
     /**
@@ -164,7 +173,7 @@ declare namespace Evernote {
         identifier: string;
         key: string;
 
-        constructor(args?: { identifier?: string; key?: string; });
+        constructor(args?: { identifier?: string; key?: string });
     }
     /**
      * Minimum length of any string-based attribute, in Unicode chars
@@ -992,7 +1001,10 @@ declare namespace Evernote {
          *     structure for an explanation of the fields that clients can pass to
          *     the service.
          */
-        getSyncStateWithMetrics(clientMetrics: ClientUsageMetrics, cb: Callback<SyncState>): void;
+        getSyncStateWithMetrics(
+            clientMetrics: ClientUsageMetrics,
+            cb: Callback<SyncState>
+        ): void;
 
         /**
          * Asks the NoteStore to provide the state of the account in order of
@@ -1027,7 +1039,12 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getFilteredSyncChunk(afterUSN: number, maxEntries: number, filter: SyncChunkFilter, cb: Callback<SyncState>): void;
+        getFilteredSyncChunk(
+            afterUSN: number,
+            maxEntries: number,
+            filter: SyncChunkFilter,
+            cb: Callback<SyncState>
+        ): void;
 
         /**
          * Asks the NoteStore to provide information about the status of a linked
@@ -1050,7 +1067,10 @@ declare namespace Evernote {
          *     This structure should contain identifying information and permissions
          *     to access the notebook in question.
          */
-        getLinkedNotebookSyncState(linkedNotebook: LinkedNotebook, cb: Callback<SyncState>): void;
+        getLinkedNotebookSyncState(
+            linkedNotebook: LinkedNotebook,
+            cb: Callback<SyncState>
+        ): void;
 
         /**
          * Asks the NoteStore to provide information about the contents of a linked
@@ -1116,7 +1136,13 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getLinkedNotebookSyncChunk(linkedNotebook: LinkedNotebook, afterUSN: number, maxEntries: number, fullSyncOnly: boolean, cb: Callback<SyncChunk>): void;
+        getLinkedNotebookSyncChunk(
+            linkedNotebook: LinkedNotebook,
+            afterUSN: number,
+            maxEntries: number,
+            fullSyncOnly: boolean,
+            cb: Callback<SyncChunk>
+        ): void;
 
         /**
          * Returns a list of all of the notebooks in the account.
@@ -1515,7 +1541,12 @@ declare namespace Evernote {
         /**
          * DEPRECATED. Use findNotesMetadata.
          */
-        findNotes(filter: NoteFilter, offset: number, maxNotes: number, cb: Callback<NoteList>): void;
+        findNotes(
+            filter: NoteFilter,
+            offset: number,
+            maxNotes: number,
+            cb: Callback<NoteList>
+        ): void;
 
         /**
          * Finds the position of a note within a sorted subset of all of the user's
@@ -1558,7 +1589,11 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        findNoteOffset(filter: NoteFilter, guid: string, cb: Callback<number>): void;
+        findNoteOffset(
+            filter: NoteFilter,
+            guid: string,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Used to find the high-level information about a set of the notes from a
@@ -1614,7 +1649,13 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        findNotesMetadata(filter: NoteFilter, offset: number, maxNotes: number, resultSpec: NotesMetadataResultSpec, cb: Callback<NotesMetadataList>): void;
+        findNotesMetadata(
+            filter: NoteFilter,
+            offset: number,
+            maxNotes: number,
+            resultSpec: NotesMetadataResultSpec,
+            cb: Callback<NotesMetadataList>
+        ): void;
 
         /**
          * This function is used to determine how many notes are found for each
@@ -1651,7 +1692,11 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        findNoteCounts(filter: NoteFilter, withTrash: boolean, cb: Callback<NoteCollectionCounts>): void;
+        findNoteCounts(
+            filter: NoteFilter,
+            withTrash: boolean,
+            cb: Callback<NoteCollectionCounts>
+        ): void;
 
         /**
          * Returns the current state of the note in the service with the provided
@@ -1695,7 +1740,14 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getNote(guid: string, withContent: boolean, withResourcesData: boolean, withResourcesRecognition: boolean, withResourcesAlternateData: boolean, cb: Callback<Note>): void;
+        getNote(
+            guid: string,
+            withContent: boolean,
+            withResourcesData: boolean,
+            withResourcesRecognition: boolean,
+            withResourcesAlternateData: boolean,
+            cb: Callback<Note>
+        ): void;
 
         /**
          * Get all of the application data for the note identified by GUID,
@@ -1716,20 +1768,33 @@ declare namespace Evernote {
          *     <li> "NoteAttributes.applicationData.key" - note not found, by key</li>
          * </ul>
          */
-        getNoteApplicationDataEntry(guid: string, key: string, cb: Callback<string>): void;
+        getNoteApplicationDataEntry(
+            guid: string,
+            key: string,
+            cb: Callback<string>
+        ): void;
 
         /**
          * Update, or create, an entry in the applicationData map for
          * the note identified by guid.
          */
-        setNoteApplicationDataEntry(guid: string, key: string, value: string, cb: Callback<number>): void;
+        setNoteApplicationDataEntry(
+            guid: string,
+            key: string,
+            value: string,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Remove an entry identified by 'key' from the applicationData map for
          * the note identified by 'guid'. Silently ignores an unset of a
          * non-existing key.
          */
-        unsetNoteApplicationDataEntry(guid: string, key: string, cb: Callback<number>): void;
+        unsetNoteApplicationDataEntry(
+            guid: string,
+            key: string,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Returns XHTML contents of the note with the provided GUID.
@@ -1787,7 +1852,12 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getNoteSearchText(guid: string, noteOnly: boolean, tokenizeForIndexing: boolean, cb: Callback<string>): void;
+        getNoteSearchText(
+            guid: string,
+            noteOnly: boolean,
+            tokenizeForIndexing: boolean,
+            cb: Callback<string>
+        ): void;
 
         /**
          * Returns a block of the extracted plain text contents of the resource with
@@ -2106,7 +2176,11 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        copyNote(noteGuid: string, toNotebookGuid: string, cb: Callback<Note>): void;
+        copyNote(
+            noteGuid: string,
+            toNotebookGuid: string,
+            cb: Callback<Note>
+        ): void;
 
         /**
          * Returns a list of the prior versions of a particular note that are
@@ -2177,7 +2251,14 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getNoteVersion(noteGuid: string, updateSequenceNum: number, withResourcesData: boolean, withResourcesRecognition: boolean, withResourcesAlternateData: boolean, cb: Callback<Note>): void;
+        getNoteVersion(
+            noteGuid: string,
+            updateSequenceNum: number,
+            withResourcesData: boolean,
+            withResourcesRecognition: boolean,
+            withResourcesAlternateData: boolean,
+            cb: Callback<Note>
+        ): void;
 
         /**
          * Returns the current state of the resource in the service with the
@@ -2216,7 +2297,14 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getResource(guid: string, withData: boolean, withRecognition: boolean, withAttributes: boolean, withAlternateData: boolean, cb: Callback<Resource>): void;
+        getResource(
+            guid: string,
+            withData: boolean,
+            withRecognition: boolean,
+            withAttributes: boolean,
+            withAlternateData: boolean,
+            cb: Callback<Resource>
+        ): void;
 
         /**
          * Get all of the application data for the Resource identified by GUID,
@@ -2237,19 +2325,32 @@ declare namespace Evernote {
          *     <li> "ResourceAttributes.applicationData.key" - Resource not found, by key</li>
          * </ul>
          */
-        getResourceApplicationDataEntry(guid: string, key: string, cb: Callback<string>): void;
+        getResourceApplicationDataEntry(
+            guid: string,
+            key: string,
+            cb: Callback<string>
+        ): void;
 
         /**
          * Update, or create, an entry in the applicationData map for
          * the Resource identified by guid.
          */
-        setResourceApplicationDataEntry(guid: string, key: string, value: string, cb: Callback<number>): void;
+        setResourceApplicationDataEntry(
+            guid: string,
+            key: string,
+            value: string,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Remove an entry identified by 'key' from the applicationData map for
          * the Resource identified by 'guid'.
          */
-        unsetResourceApplicationDataEntry(guid: string, key: string, cb: Callback<number>): void;
+        unsetResourceApplicationDataEntry(
+            guid: string,
+            key: string,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Submit a set of changes to a resource to the service.    This can be used
@@ -2367,7 +2468,14 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getResourceByHash(noteGuid: string, contentHash: string, withData: boolean, withRecognition: boolean, withAlternateData: boolean, cb: Callback<Resource>): void;
+        getResourceByHash(
+            noteGuid: string,
+            contentHash: string,
+            withData: boolean,
+            withRecognition: boolean,
+            withAlternateData: boolean,
+            cb: Callback<Resource>
+        ): void;
 
         /**
          * Returns the binary contents of the recognition index for the resource
@@ -2441,7 +2549,10 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        getResourceAttributes(guid: string, cb: Callback<ResourceAttributes>): void;
+        getResourceAttributes(
+            guid: string,
+            cb: Callback<ResourceAttributes>
+        ): void;
 
         /**
          * <p>
@@ -2477,7 +2588,11 @@ declare namespace Evernote {
          *         down for the requester because of an IP-based country lookup.</li>
          * </ul>
          */
-        getPublicNotebook(userId: number, publicUri: string, cb: Callback<Notebook>): void;
+        getPublicNotebook(
+            userId: number,
+            publicUri: string,
+            cb: Callback<Notebook>
+        ): void;
 
         /**
          * Used to construct a shared notebook object. The constructed notebook will
@@ -2511,7 +2626,10 @@ declare namespace Evernote {
          *     </li>
          *     </ul>
          */
-        createSharedNotebook(sharedNotebook: SharedNotebook, cb: Callback<SharedNotebook>): void;
+        createSharedNotebook(
+            sharedNotebook: SharedNotebook,
+            cb: Callback<SharedNotebook>
+        ): void;
 
         /**
          * Update a SharedNotebook object.
@@ -2542,7 +2660,10 @@ declare namespace Evernote {
          *     <li>SharedNotebook.id - if no shared notebook with the specified ID was found.
          *     </ul>
          */
-        updateSharedNotebook(sharedNotebook: SharedNotebook, cb: Callback<number>): void;
+        updateSharedNotebook(
+            sharedNotebook: SharedNotebook,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Set values for the recipient settings associated with a shared notebook.    Having
@@ -2573,7 +2694,11 @@ declare namespace Evernote {
          *             recipientSettings parameter.
          * </ul>
          */
-        setSharedNotebookRecipientSettings(sharedNotebookId: number, recipientSettings: SharedNotebookRecipientSettings, cb: Callback<number>): void;
+        setSharedNotebookRecipientSettings(
+            sharedNotebookId: number,
+            recipientSettings: SharedNotebookRecipientSettings,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Send a reminder message to some or all of the email addresses that a notebook has been
@@ -2606,7 +2731,12 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        sendMessageToSharedNotebookMembers(notebookGuid: string, messageText: string, recipients: string[], cb: Callback<number>): void;
+        sendMessageToSharedNotebookMembers(
+            notebookGuid: string,
+            messageText: string,
+            recipients: string[],
+            cb: Callback<number>
+        ): void;
 
         /**
          * Lists the collection of shared notebooks for all notebooks in the
@@ -2632,7 +2762,10 @@ declare namespace Evernote {
          * @return
          *     The account's update sequence number.
          */
-        expungeSharedNotebooks(sharedNotebookIds: number[], cb: Callback<number>): void;
+        expungeSharedNotebooks(
+            sharedNotebookIds: number[],
+            cb: Callback<number>
+        ): void;
 
         /**
          * Asks the service to make a linked notebook with the provided name, username
@@ -2665,7 +2798,10 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        createLinkedNotebook(linkedNotebook: LinkedNotebook, cb: Callback<LinkedNotebook>): void;
+        createLinkedNotebook(
+            linkedNotebook: LinkedNotebook,
+            cb: Callback<LinkedNotebook>
+        ): void;
 
         /**
          * @param linkedNotebook
@@ -2679,7 +2815,10 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        updateLinkedNotebook(linkedNotebook: LinkedNotebook, cb: Callback<number>): void;
+        updateLinkedNotebook(
+            linkedNotebook: LinkedNotebook,
+            cb: Callback<number>
+        ): void;
 
         /**
          * Returns a list of linked notebooks
@@ -2740,7 +2879,10 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        authenticateToSharedNotebook(shareKey: string, cb: Callback<AuthenticationResult>): void;
+        authenticateToSharedNotebook(
+            shareKey: string,
+            cb: Callback<AuthenticationResult>
+        ): void;
 
         /**
          * This function is used to retrieve extended information about a shared
@@ -2913,7 +3055,11 @@ declare namespace Evernote {
          *     </ul>
          * </ul>
          */
-        authenticateToSharedNote(guid: string, noteKey: string, cb: Callback<AuthenticationResult>): void;
+        authenticateToSharedNote(
+            guid: string,
+            noteKey: string,
+            cb: Callback<AuthenticationResult>
+        ): void;
 
         /**
          * Identify related entities on the service, such as notes,
@@ -2960,7 +3106,11 @@ declare namespace Evernote {
          *     </li>
          * </ul>
          */
-        findRelated(query: RelatedQuery, resultSpec: RelatedResultSpec, cb: Callback<RelatedResult>): void;
+        findRelated(
+            query: RelatedQuery,
+            resultSpec: RelatedResultSpec,
+            cb: Callback<RelatedResult>
+        ): void;
     }
     /**
      *    This structure encapsulates the information about the state of the
@@ -3007,7 +3157,12 @@ declare namespace Evernote {
         updateCount: number;
         uploaded: number;
 
-        constructor(args?: { currentTime: number; fullSyncBefore: number; updateCount: number; uploaded?: number; });
+        constructor(args?: {
+            currentTime: number;
+            fullSyncBefore: number;
+            updateCount: number;
+            uploaded?: number;
+        });
     }
 
     /**
@@ -3133,7 +3288,22 @@ declare namespace Evernote {
         linkedNotebooks: LinkedNotebook[];
         expungedLinkedNotebooks: string[];
 
-        constructor(args?: { currentTime: number; chunkHighUSN?: number; updateCount: number; notes?: Note[]; notebooks?: Notebook[]; tags?: Tag[]; searches?: SavedSearch[]; resources?: Resource[]; expungedNotes?: string[]; expungedNotebooks?: string[]; expungedTags?: string[]; expungedSearches?: string[]; linkedNotebooks?: LinkedNotebook[]; expungedLinkedNotebooks?: string[]; });
+        constructor(args?: {
+            currentTime: number;
+            chunkHighUSN?: number;
+            updateCount: number;
+            notes?: Note[];
+            notebooks?: Notebook[];
+            tags?: Tag[];
+            searches?: SavedSearch[];
+            resources?: Resource[];
+            expungedNotes?: string[];
+            expungedNotebooks?: string[];
+            expungedTags?: string[];
+            expungedSearches?: string[];
+            linkedNotebooks?: LinkedNotebook[];
+            expungedLinkedNotebooks?: string[];
+        });
     }
 
     /**
@@ -3245,7 +3415,21 @@ declare namespace Evernote {
         includeNoteResourceApplicationDataFullMap: boolean;
         requireNoteContentClass: string;
 
-        constructor(args?: { includeNotes?: boolean; includeNoteResources?: boolean; includeNoteAttributes?: boolean; includeNotebooks?: boolean; includeTags?: boolean; includeSearches?: boolean; includeResources?: boolean; includeLinkedNotebooks?: boolean; includeExpunged?: boolean; includeNoteApplicationDataFullMap?: boolean; includeResourceApplicationDataFullMap?: boolean; includeNoteResourceApplicationDataFullMap?: boolean; requireNoteContentClass?: string; });
+        constructor(args?: {
+            includeNotes?: boolean;
+            includeNoteResources?: boolean;
+            includeNoteAttributes?: boolean;
+            includeNotebooks?: boolean;
+            includeTags?: boolean;
+            includeSearches?: boolean;
+            includeResources?: boolean;
+            includeLinkedNotebooks?: boolean;
+            includeExpunged?: boolean;
+            includeNoteApplicationDataFullMap?: boolean;
+            includeResourceApplicationDataFullMap?: boolean;
+            includeNoteResourceApplicationDataFullMap?: boolean;
+            requireNoteContentClass?: string;
+        });
     }
 
     /**
@@ -3321,7 +3505,16 @@ declare namespace Evernote {
         inactive: boolean;
         emphasized: string;
 
-        constructor(args?: { order?: number; ascending?: boolean; words?: string; notebookGuid?: string; tagGuids?: string[]; timeZone?: string; inactive?: boolean; emphasized?: string; });
+        constructor(args?: {
+            order?: number;
+            ascending?: boolean;
+            words?: string;
+            notebookGuid?: string;
+            tagGuids?: string[];
+            timeZone?: string;
+            inactive?: boolean;
+            emphasized?: string;
+        });
     }
 
     /**
@@ -3382,7 +3575,14 @@ declare namespace Evernote {
         searchedWords: string[];
         updateCount: number;
 
-        constructor(args?: { startIndex: number; totalNotes: number; notes: Note[]; stoppedWords?: string[]; searchedWords?: string[]; updateCount?: number; });
+        constructor(args?: {
+            startIndex: number;
+            totalNotes: number;
+            notes: Note[];
+            stoppedWords?: string[];
+            searchedWords?: string[];
+            updateCount?: number;
+        });
     }
 
     /**
@@ -3422,7 +3622,20 @@ declare namespace Evernote {
         largestResourceMime: string;
         largestResourceSize: number;
 
-        constructor(args?: { guid: string; title?: string; contentLength?: number; created?: number; updated?: number; deleted?: number; updateSequenceNum?: number; notebookGuid?: string; tagGuids?: string[]; attributes?: NoteAttributes; largestResourceMime?: string; largestResourceSize?: number; });
+        constructor(args?: {
+            guid: string;
+            title?: string;
+            contentLength?: number;
+            created?: number;
+            updated?: number;
+            deleted?: number;
+            updateSequenceNum?: number;
+            notebookGuid?: string;
+            tagGuids?: string[];
+            attributes?: NoteAttributes;
+            largestResourceMime?: string;
+            largestResourceSize?: number;
+        });
     }
 
     /**
@@ -3487,7 +3700,14 @@ declare namespace Evernote {
         searchedWords: string[];
         updateCount: number;
 
-        constructor(args?: { startIndex: number; totalNotes: number; notes: NoteMetadata[]; stoppedWords?: string[]; searchedWords?: string[]; updateCount?: number; });
+        constructor(args?: {
+            startIndex: number;
+            totalNotes: number;
+            notes: NoteMetadata[];
+            stoppedWords?: string[];
+            searchedWords?: string[];
+            updateCount?: number;
+        });
     }
 
     /**
@@ -3516,7 +3736,19 @@ declare namespace Evernote {
         includeLargestResourceMime: boolean;
         includeLargestResourceSize: boolean;
 
-        constructor(args?: { includeTitle?: boolean; includeContentLength?: boolean; includeCreated?: boolean; includeUpdated?: boolean; includeDeleted?: boolean; includeUpdateSequenceNum?: boolean; includeNotebookGuid?: boolean; includeTagGuids?: boolean; includeAttributes?: boolean; includeLargestResourceMime?: boolean; includeLargestResourceSize?: boolean; });
+        constructor(args?: {
+            includeTitle?: boolean;
+            includeContentLength?: boolean;
+            includeCreated?: boolean;
+            includeUpdated?: boolean;
+            includeDeleted?: boolean;
+            includeUpdateSequenceNum?: boolean;
+            includeNotebookGuid?: boolean;
+            includeTagGuids?: boolean;
+            includeAttributes?: boolean;
+            includeLargestResourceMime?: boolean;
+            includeLargestResourceSize?: boolean;
+        });
     }
 
     /**
@@ -3546,11 +3778,15 @@ declare namespace Evernote {
      *    </dl>
      */
     class NoteCollectionCounts {
-        notebookCounts: { [k: string]: number; };
-        tagCounts: { [k: string]: number; };
+        notebookCounts: { [k: string]: number };
+        tagCounts: { [k: string]: number };
         trashCount: number;
 
-        constructor(args?: { notebookCounts?: { [k: string]: number; }; tagCounts?: { [k: string]: number; }; trashCount?: number; });
+        constructor(args?: {
+            notebookCounts?: { [k: string]: number };
+            tagCounts?: { [k: string]: number };
+            trashCount?: number;
+        });
     }
 
     /**
@@ -3609,7 +3845,14 @@ declare namespace Evernote {
         subject: string;
         message: string;
 
-        constructor(args?: { guid?: string; note?: Note; toAddresses?: string[]; ccAddresses?: string[]; subject?: string; message?: string; });
+        constructor(args?: {
+            guid?: string;
+            note?: Note;
+            toAddresses?: string[];
+            ccAddresses?: string[];
+            subject?: string;
+            message?: string;
+        });
     }
 
     /**
@@ -3650,7 +3893,12 @@ declare namespace Evernote {
         saved: number;
         title: string;
 
-        constructor(args?: { updateSequenceNum: number; updated: number; saved: number; title: string; });
+        constructor(args?: {
+            updateSequenceNum: number;
+            updated: number;
+            saved: number;
+            title: string;
+        });
     }
 
     /**
@@ -3679,7 +3927,7 @@ declare namespace Evernote {
     class ClientUsageMetrics {
         sessions: number;
 
-        constructor(args?: { sessions?: number; });
+        constructor(args?: { sessions?: number });
     }
 
     /**
@@ -3719,7 +3967,12 @@ declare namespace Evernote {
         filter: NoteFilter;
         referenceUri: string;
 
-        constructor(args?: { noteGuid?: string; plainText?: string; filter?: NoteFilter; referenceUri?: string; });
+        constructor(args?: {
+            noteGuid?: string;
+            plainText?: string;
+            filter?: NoteFilter;
+            referenceUri?: string;
+        });
     }
 
     /**
@@ -3758,7 +4011,12 @@ declare namespace Evernote {
         tags: Tag[];
         containingNotebooks: NotebookDescriptor[];
 
-        constructor(args?: { notes?: Note[]; notebooks?: Notebook[]; tags?: Tag[]; containingNotebooks?: NotebookDescriptor[]; });
+        constructor(args?: {
+            notes?: Note[];
+            notebooks?: Notebook[];
+            tags?: Tag[];
+            containingNotebooks?: NotebookDescriptor[];
+        });
     }
 
     /**
@@ -3808,7 +4066,13 @@ declare namespace Evernote {
         writableNotebooksOnly: boolean;
         includeContainingNotebooks: boolean;
 
-        constructor(args?: { maxNotes?: number; maxNotebooks?: number; maxTags?: number; writableNotebooksOnly?: boolean; includeContainingNotebooks?: boolean; });
+        constructor(args?: {
+            maxNotes?: number;
+            maxNotebooks?: number;
+            maxTags?: number;
+            writableNotebooksOnly?: boolean;
+            includeContainingNotebooks?: boolean;
+        });
     }
     /**
      * This enumeration defines the possible permission levels for a user.
@@ -3816,12 +4080,12 @@ declare namespace Evernote {
      * will have a level of PREMIUM.
      */
     enum PrivilegeLevel {
-        'NORMAL' = 1,
-        'PREMIUM' = 3,
-        'VIP' = 5,
-        'MANAGER' = 7,
-        'SUPPORT' = 8,
-        'ADMIN' = 9,
+        "NORMAL" = 1,
+        "PREMIUM" = 3,
+        "VIP" = 5,
+        "MANAGER" = 7,
+        "SUPPORT" = 8,
+        "ADMIN" = 9
     }
 
     /**
@@ -3829,8 +4093,8 @@ declare namespace Evernote {
      * Currently, only the USER query format is supported.
      */
     enum QueryFormat {
-        'USER' = 1,
-        'SEXP' = 2,
+        "USER" = 1,
+        "SEXP" = 2
     }
 
     /**
@@ -3838,11 +4102,11 @@ declare namespace Evernote {
      * they are returned from a search result.
      */
     enum NoteSortOrder {
-        'CREATED' = 1,
-        'UPDATED' = 2,
-        'RELEVANCE' = 3,
-        'UPDATE_SEQUENCE_NUMBER' = 4,
-        'TITLE' = 5,
+        "CREATED" = 1,
+        "UPDATED" = 2,
+        "RELEVANCE" = 3,
+        "UPDATE_SEQUENCE_NUMBER" = 4,
+        "TITLE" = 5
     }
 
     /**
@@ -3867,12 +4131,12 @@ declare namespace Evernote {
      *     or user cancelation. No more attempts will be made to activate the account.
      */
     enum PremiumOrderStatus {
-        'NONE' = 0,
-        'PENDING' = 1,
-        'ACTIVE' = 2,
-        'FAILED' = 3,
-        'CANCELLATION_PENDING' = 4,
-        'CANCELED' = 5,
+        "NONE" = 0,
+        "PENDING" = 1,
+        "ACTIVE" = 2,
+        "FAILED" = 3,
+        "CANCELLATION_PENDING" = 4,
+        "CANCELED" = 5
     }
 
     /**
@@ -3905,12 +4169,12 @@ declare namespace Evernote {
      * rights to publish and unpublish the notebook from the library.
      */
     enum SharedNotebookPrivilegeLevel {
-        'READ_NOTEBOOK' = 0,
-        'MODIFY_NOTEBOOK_PLUS_ACTIVITY' = 1,
-        'READ_NOTEBOOK_PLUS_ACTIVITY' = 2,
-        'GROUP' = 3,
-        'FULL_ACCESS' = 4,
-        'BUSINESS_FULL_ACCESS' = 5,
+        "READ_NOTEBOOK" = 0,
+        "MODIFY_NOTEBOOK_PLUS_ACTIVITY" = 1,
+        "READ_NOTEBOOK_PLUS_ACTIVITY" = 2,
+        "GROUP" = 3,
+        "FULL_ACCESS" = 4,
+        "BUSINESS_FULL_ACCESS" = 5
     }
 
     /**
@@ -3923,9 +4187,9 @@ declare namespace Evernote {
      * GROUP_OWNER: The user is the owner of the group.
      */
     enum SponsoredGroupRole {
-        'GROUP_MEMBER' = 1,
-        'GROUP_ADMIN' = 2,
-        'GROUP_OWNER' = 3,
+        "GROUP_MEMBER" = 1,
+        "GROUP_ADMIN" = 2,
+        "GROUP_OWNER" = 3
     }
 
     /**
@@ -3936,8 +4200,8 @@ declare namespace Evernote {
      * NORMAL: The user is a regular user within the Evernote Business account.
      */
     enum BusinessUserRole {
-        'ADMIN' = 1,
-        'NORMAL' = 2,
+        "ADMIN" = 1,
+        "NORMAL" = 2
     }
 
     /**
@@ -3954,8 +4218,8 @@ declare namespace Evernote {
      * NO_SHARED_NOTEBOOKS: No shared notebooks are applicable to the operation.
      */
     enum SharedNotebookInstanceRestrictions {
-        'ONLY_JOINED_OR_PREVIEW' = 1,
-        'NO_SHARED_NOTEBOOKS' = 2,
+        "ONLY_JOINED_OR_PREVIEW" = 1,
+        "NO_SHARED_NOTEBOOKS" = 2
     }
 
     /**
@@ -3969,8 +4233,8 @@ declare namespace Evernote {
      *     days when there is a reminder.
      */
     enum ReminderEmailConfig {
-        'DO_NOT_SEND' = 1,
-        'SEND_DAILY_EMAIL' = 2,
+        "DO_NOT_SEND" = 1,
+        "SEND_DAILY_EMAIL" = 2
     }
 
     /**
@@ -4006,7 +4270,7 @@ declare namespace Evernote {
         size: number;
         body: string;
 
-        constructor(args?: { bodyHash?: string; size?: number; body?: string; });
+        constructor(args?: { bodyHash?: string; size?: number; body?: string });
     }
 
     /**
@@ -4221,7 +4485,39 @@ declare namespace Evernote {
         useEmailAutoFiling: boolean;
         reminderEmailConfig: ReminderEmailConfig;
 
-        constructor(args?: { defaultLocationName?: string; defaultLatitude?: number; defaultLongitude?: number; preactivation?: boolean; viewedPromotions?: string[]; incomingEmailAddress?: string; recentMailedAddresses?: string[]; comments?: string; dateAgreedToTermsOfService?: number; maxReferrals?: number; referralCount?: number; refererCode?: string; sentEmailDate?: number; sentEmailCount?: number; dailyEmailLimit?: number; emailOptOutDate?: number; partnerEmailOptInDate?: number; preferredLanguage?: string; preferredCountry?: string; clipFullPage?: boolean; twitterUserName?: string; twitterId?: string; groupName?: string; recognitionLanguage?: string; referralProof?: string; educationalDiscount?: boolean; businessAddress?: string; hideSponsorBilling?: boolean; taxExempt?: boolean; useEmailAutoFiling?: boolean; reminderEmailConfig?: ReminderEmailConfig; });
+        constructor(args?: {
+            defaultLocationName?: string;
+            defaultLatitude?: number;
+            defaultLongitude?: number;
+            preactivation?: boolean;
+            viewedPromotions?: string[];
+            incomingEmailAddress?: string;
+            recentMailedAddresses?: string[];
+            comments?: string;
+            dateAgreedToTermsOfService?: number;
+            maxReferrals?: number;
+            referralCount?: number;
+            refererCode?: string;
+            sentEmailDate?: number;
+            sentEmailCount?: number;
+            dailyEmailLimit?: number;
+            emailOptOutDate?: number;
+            partnerEmailOptInDate?: number;
+            preferredLanguage?: string;
+            preferredCountry?: string;
+            clipFullPage?: boolean;
+            twitterUserName?: string;
+            twitterId?: string;
+            groupName?: string;
+            recognitionLanguage?: string;
+            referralProof?: string;
+            educationalDiscount?: boolean;
+            businessAddress?: string;
+            hideSponsorBilling?: boolean;
+            taxExempt?: boolean;
+            useEmailAutoFiling?: boolean;
+            reminderEmailConfig?: ReminderEmailConfig;
+        });
     }
 
     /**
@@ -4337,7 +4633,31 @@ declare namespace Evernote {
         unitDiscount: number;
         nextChargeDate: number;
 
-        constructor(args?: { uploadLimit?: number; uploadLimitEnd?: number; uploadLimitNextMonth?: number; premiumServiceStatus?: PremiumOrderStatus; premiumOrderNumber?: string; premiumCommerceService?: string; premiumServiceStart?: number; premiumServiceSKU?: string; lastSuccessfulCharge?: number; lastFailedCharge?: number; lastFailedChargeReason?: string; nextPaymentDue?: number; premiumLockUntil?: number; updated?: number; premiumSubscriptionNumber?: string; lastRequestedCharge?: number; currency?: string; unitPrice?: number; businessId?: number; businessName?: string; businessRole?: BusinessUserRole; unitDiscount?: number; nextChargeDate?: number; });
+        constructor(args?: {
+            uploadLimit?: number;
+            uploadLimitEnd?: number;
+            uploadLimitNextMonth?: number;
+            premiumServiceStatus?: PremiumOrderStatus;
+            premiumOrderNumber?: string;
+            premiumCommerceService?: string;
+            premiumServiceStart?: number;
+            premiumServiceSKU?: string;
+            lastSuccessfulCharge?: number;
+            lastFailedCharge?: number;
+            lastFailedChargeReason?: string;
+            nextPaymentDue?: number;
+            premiumLockUntil?: number;
+            updated?: number;
+            premiumSubscriptionNumber?: string;
+            lastRequestedCharge?: number;
+            currency?: string;
+            unitPrice?: number;
+            businessId?: number;
+            businessName?: string;
+            businessRole?: BusinessUserRole;
+            unitDiscount?: number;
+            nextChargeDate?: number;
+        });
     }
 
     /**
@@ -4368,7 +4688,12 @@ declare namespace Evernote {
         role: BusinessUserRole;
         email: string;
 
-        constructor(args?: { businessId?: number; businessName?: string; role?: BusinessUserRole; email?: string; });
+        constructor(args?: {
+            businessId?: number;
+            businessName?: string;
+            role?: BusinessUserRole;
+            email?: string;
+        });
     }
 
     /**
@@ -4435,7 +4760,19 @@ declare namespace Evernote {
         sponsoredGroupRole: SponsoredGroupRole;
         premiumUpgradable: boolean;
 
-        constructor(args?: { currentTime: number; premium: boolean; premiumRecurring: boolean; premiumExpirationDate?: number; premiumExtendable: boolean; premiumPending: boolean; premiumCancellationPending: boolean; canPurchaseUploadAllowance: boolean; sponsoredGroupName?: string; sponsoredGroupRole?: SponsoredGroupRole; premiumUpgradable?: boolean; });
+        constructor(args?: {
+            currentTime: number;
+            premium: boolean;
+            premiumRecurring: boolean;
+            premiumExpirationDate?: number;
+            premiumExtendable: boolean;
+            premiumPending: boolean;
+            premiumCancellationPending: boolean;
+            canPurchaseUploadAllowance: boolean;
+            sponsoredGroupName?: string;
+            sponsoredGroupRole?: SponsoredGroupRole;
+            premiumUpgradable?: boolean;
+        });
     }
 
     /**
@@ -4558,7 +4895,23 @@ declare namespace Evernote {
         premiumInfo: PremiumInfo;
         businessUserInfo: BusinessUserInfo;
 
-        constructor(args?: { id?: number; username?: string; email?: string; name?: string; timezone?: string; privilege?: PrivilegeLevel; created?: number; updated?: number; deleted?: number; active?: boolean; shardId?: string; attributes?: UserAttributes; accounting?: Accounting; premiumInfo?: PremiumInfo; businessUserInfo?: BusinessUserInfo; });
+        constructor(args?: {
+            id?: number;
+            username?: string;
+            email?: string;
+            name?: string;
+            timezone?: string;
+            privilege?: PrivilegeLevel;
+            created?: number;
+            updated?: number;
+            deleted?: number;
+            active?: boolean;
+            shardId?: string;
+            attributes?: UserAttributes;
+            accounting?: Accounting;
+            premiumInfo?: PremiumInfo;
+            businessUserInfo?: BusinessUserInfo;
+        });
     }
 
     /**
@@ -4613,7 +4966,12 @@ declare namespace Evernote {
         parentGuid: string;
         updateSequenceNum: number;
 
-        constructor(args?: { guid?: string; name?: string; parentGuid?: string; updateSequenceNum?: number; });
+        constructor(args?: {
+            guid?: string;
+            name?: string;
+            parentGuid?: string;
+            updateSequenceNum?: number;
+        });
     }
 
     /**
@@ -4647,9 +5005,12 @@ declare namespace Evernote {
      */
     class LazyMap {
         keysOnly: string[];
-        fullMap: { [k: string]: string; };
+        fullMap: { [k: string]: string };
 
-        constructor(args?: { keysOnly?: string[]; fullMap?: { [k: string]: string; }; });
+        constructor(args?: {
+            keysOnly?: string[];
+            fullMap?: { [k: string]: string };
+        });
     }
 
     /**
@@ -4747,7 +5108,20 @@ declare namespace Evernote {
         attachment: boolean;
         applicationData: LazyMap;
 
-        constructor(args?: { sourceURL?: string; timestamp?: number; latitude?: number; longitude?: number; altitude?: number; cameraMake?: string; cameraModel?: string; clientWillIndex?: boolean; recoType?: string; fileName?: string; attachment?: boolean; applicationData?: LazyMap; });
+        constructor(args?: {
+            sourceURL?: string;
+            timestamp?: number;
+            latitude?: number;
+            longitude?: number;
+            altitude?: number;
+            cameraMake?: string;
+            cameraModel?: string;
+            clientWillIndex?: boolean;
+            recoType?: string;
+            fileName?: string;
+            attachment?: boolean;
+            applicationData?: LazyMap;
+        });
     }
 
     /**
@@ -4844,7 +5218,20 @@ declare namespace Evernote {
         updateSequenceNum: number;
         alternateData: Data;
 
-        constructor(args?: { guid?: string; noteGuid?: string; data?: Data; mime?: string; width?: number; height?: number; duration?: number; active?: boolean; recognition?: Data; attributes?: ResourceAttributes; updateSequenceNum?: number; alternateData?: Data; });
+        constructor(args?: {
+            guid?: string;
+            noteGuid?: string;
+            data?: Data;
+            mime?: string;
+            width?: number;
+            height?: number;
+            duration?: number;
+            active?: boolean;
+            recognition?: Data;
+            attributes?: ResourceAttributes;
+            updateSequenceNum?: number;
+            alternateData?: Data;
+        });
     }
 
     /**
@@ -5036,11 +5423,31 @@ declare namespace Evernote {
         contentClass: string;
         applicationData: LazyMap;
         lastEditedBy: string;
-        classifications: { [k: string]: string; };
+        classifications: { [k: string]: string };
         creatorId: number;
         lastEditorId: number;
 
-        constructor(args?: { subjectDate?: number; latitude?: number; longitude?: number; altitude?: number; author?: string; source?: string; sourceURL?: string; sourceApplication?: string; shareDate?: number; reminderOrder?: number; reminderDoneTime?: number; reminderTime?: number; placeName?: string; contentClass?: string; applicationData?: LazyMap; lastEditedBy?: string; classifications?: { [k: string]: string; }; creatorId?: number; lastEditorId?: number; });
+        constructor(args?: {
+            subjectDate?: number;
+            latitude?: number;
+            longitude?: number;
+            altitude?: number;
+            author?: string;
+            source?: string;
+            sourceURL?: string;
+            sourceApplication?: string;
+            shareDate?: number;
+            reminderOrder?: number;
+            reminderDoneTime?: number;
+            reminderTime?: number;
+            placeName?: string;
+            contentClass?: string;
+            applicationData?: LazyMap;
+            lastEditedBy?: string;
+            classifications?: { [k: string]: string };
+            creatorId?: number;
+            lastEditorId?: number;
+        });
     }
 
     /**
@@ -5189,7 +5596,23 @@ declare namespace Evernote {
         attributes: NoteAttributes;
         tagNames: string[];
 
-        constructor(args?: { guid?: string; title?: string; content?: string; contentHash?: string; contentLength?: number; created?: number; updated?: number; deleted?: number; active?: boolean; updateSequenceNum?: number; notebookGuid?: string; tagGuids?: string[]; resources?: Resource[]; attributes?: NoteAttributes; tagNames?: string[]; });
+        constructor(args?: {
+            guid?: string;
+            title?: string;
+            content?: string;
+            contentHash?: string;
+            contentLength?: number;
+            created?: number;
+            updated?: number;
+            deleted?: number;
+            active?: boolean;
+            updateSequenceNum?: number;
+            notebookGuid?: string;
+            tagGuids?: string[];
+            resources?: Resource[];
+            attributes?: NoteAttributes;
+            tagNames?: string[];
+        });
     }
 
     /**
@@ -5239,7 +5662,12 @@ declare namespace Evernote {
         ascending: boolean;
         publicDescription: string;
 
-        constructor(args?: { uri?: string; order?: NoteSortOrder; ascending?: boolean; publicDescription?: string; });
+        constructor(args?: {
+            uri?: string;
+            order?: NoteSortOrder;
+            ascending?: boolean;
+            publicDescription?: string;
+        });
     }
 
     /**
@@ -5276,7 +5704,11 @@ declare namespace Evernote {
         privilege: SharedNotebookPrivilegeLevel;
         recommended: boolean;
 
-        constructor(args?: { notebookDescription?: string; privilege?: SharedNotebookPrivilegeLevel; recommended?: boolean; });
+        constructor(args?: {
+            notebookDescription?: string;
+            privilege?: SharedNotebookPrivilegeLevel;
+            recommended?: boolean;
+        });
     }
 
     /**
@@ -5301,7 +5733,11 @@ declare namespace Evernote {
         includePersonalLinkedNotebooks: boolean;
         includeBusinessLinkedNotebooks: boolean;
 
-        constructor(args?: { includeAccount?: boolean; includePersonalLinkedNotebooks?: boolean; includeBusinessLinkedNotebooks?: boolean; });
+        constructor(args?: {
+            includeAccount?: boolean;
+            includePersonalLinkedNotebooks?: boolean;
+            includeBusinessLinkedNotebooks?: boolean;
+        });
     }
 
     /**
@@ -5367,7 +5803,14 @@ declare namespace Evernote {
         updateSequenceNum: number;
         scope: SavedSearchScope;
 
-        constructor(args?: { guid?: string; name?: string; query?: string; format?: QueryFormat; updateSequenceNum?: number; scope?: SavedSearchScope; });
+        constructor(args?: {
+            guid?: string;
+            name?: string;
+            query?: string;
+            format?: QueryFormat;
+            updateSequenceNum?: number;
+            scope?: SavedSearchScope;
+        });
     }
 
     /**
@@ -5402,7 +5845,10 @@ declare namespace Evernote {
         reminderNotifyEmail: boolean;
         reminderNotifyInApp: boolean;
 
-        constructor(args?: { reminderNotifyEmail?: boolean; reminderNotifyInApp?: boolean; });
+        constructor(args?: {
+            reminderNotifyEmail?: boolean;
+            reminderNotifyInApp?: boolean;
+        });
     }
 
     /**
@@ -5482,7 +5928,21 @@ declare namespace Evernote {
         allowPreview: boolean;
         recipientSettings: SharedNotebookRecipientSettings;
 
-        constructor(args?: { id?: number; userId?: number; notebookGuid?: string; email?: string; notebookModifiable?: boolean; requireLogin?: boolean; serviceCreated?: number; serviceUpdated?: number; shareKey?: string; username?: string; privilege?: SharedNotebookPrivilegeLevel; allowPreview?: boolean; recipientSettings?: SharedNotebookRecipientSettings; });
+        constructor(args?: {
+            id?: number;
+            userId?: number;
+            notebookGuid?: string;
+            email?: string;
+            notebookModifiable?: boolean;
+            requireLogin?: boolean;
+            serviceCreated?: number;
+            serviceUpdated?: number;
+            shareKey?: string;
+            username?: string;
+            privilege?: SharedNotebookPrivilegeLevel;
+            allowPreview?: boolean;
+            recipientSettings?: SharedNotebookRecipientSettings;
+        });
     }
 
     /**
@@ -5610,7 +6070,28 @@ declare namespace Evernote {
         updateWhichSharedNotebookRestrictions: SharedNotebookInstanceRestrictions;
         expungeWhichSharedNotebookRestrictions: SharedNotebookInstanceRestrictions;
 
-        constructor(args?: { noReadNotes?: boolean; noCreateNotes?: boolean; noUpdateNotes?: boolean; noExpungeNotes?: boolean; noShareNotes?: boolean; noEmailNotes?: boolean; noSendMessageToRecipients?: boolean; noUpdateNotebook?: boolean; noExpungeNotebook?: boolean; noSetDefaultNotebook?: boolean; noSetNotebookStack?: boolean; noPublishToPublic?: boolean; noPublishToBusinessLibrary?: boolean; noCreateTags?: boolean; noUpdateTags?: boolean; noExpungeTags?: boolean; noSetParentTag?: boolean; noCreateSharedNotebooks?: boolean; updateWhichSharedNotebookRestrictions?: SharedNotebookInstanceRestrictions; expungeWhichSharedNotebookRestrictions?: SharedNotebookInstanceRestrictions; });
+        constructor(args?: {
+            noReadNotes?: boolean;
+            noCreateNotes?: boolean;
+            noUpdateNotes?: boolean;
+            noExpungeNotes?: boolean;
+            noShareNotes?: boolean;
+            noEmailNotes?: boolean;
+            noSendMessageToRecipients?: boolean;
+            noUpdateNotebook?: boolean;
+            noExpungeNotebook?: boolean;
+            noSetDefaultNotebook?: boolean;
+            noSetNotebookStack?: boolean;
+            noPublishToPublic?: boolean;
+            noPublishToBusinessLibrary?: boolean;
+            noCreateTags?: boolean;
+            noUpdateTags?: boolean;
+            noExpungeTags?: boolean;
+            noSetParentTag?: boolean;
+            noCreateSharedNotebooks?: boolean;
+            updateWhichSharedNotebookRestrictions?: SharedNotebookInstanceRestrictions;
+            expungeWhichSharedNotebookRestrictions?: SharedNotebookInstanceRestrictions;
+        });
     }
 
     /**
@@ -5747,7 +6228,22 @@ declare namespace Evernote {
         contact: User;
         restrictions: NotebookRestrictions;
 
-        constructor(args?: { guid?: string; name?: string; updateSequenceNum?: number; defaultNotebook?: boolean; serviceCreated?: number; serviceUpdated?: number; publishing?: Publishing; published?: boolean; stack?: string; sharedNotebookIds?: number[]; sharedNotebooks?: SharedNotebook[]; businessNotebook?: BusinessNotebook; contact?: User; restrictions?: NotebookRestrictions; });
+        constructor(args?: {
+            guid?: string;
+            name?: string;
+            updateSequenceNum?: number;
+            defaultNotebook?: boolean;
+            serviceCreated?: number;
+            serviceUpdated?: number;
+            publishing?: Publishing;
+            published?: boolean;
+            stack?: string;
+            sharedNotebookIds?: number[];
+            sharedNotebooks?: SharedNotebook[];
+            businessNotebook?: BusinessNotebook;
+            contact?: User;
+            restrictions?: NotebookRestrictions;
+        });
     }
 
     /**
@@ -5835,7 +6331,19 @@ declare namespace Evernote {
         stack: string;
         businessId: number;
 
-        constructor(args?: { shareName?: string; username?: string; shardId?: string; shareKey?: string; uri?: string; guid?: string; updateSequenceNum?: number; noteStoreUrl?: string; webApiUrlPrefix?: string; stack?: string; businessId?: number; });
+        constructor(args?: {
+            shareName?: string;
+            username?: string;
+            shardId?: string;
+            shareKey?: string;
+            uri?: string;
+            guid?: string;
+            updateSequenceNum?: number;
+            noteStoreUrl?: string;
+            webApiUrlPrefix?: string;
+            stack?: string;
+            businessId?: number;
+        });
     }
 
     /**
@@ -5874,7 +6382,13 @@ declare namespace Evernote {
         hasSharedNotebook: boolean;
         joinedUserCount: number;
 
-        constructor(args?: { guid?: string; notebookDisplayName?: string; contactName?: string; hasSharedNotebook?: boolean; joinedUserCount?: number; });
+        constructor(args?: {
+            guid?: string;
+            notebookDisplayName?: string;
+            contactName?: string;
+            hasSharedNotebook?: boolean;
+            joinedUserCount?: number;
+        });
     }
 
     /**
@@ -5958,7 +6472,12 @@ declare namespace Evernote {
          *     client.    This should be the current value of the EDAM_VERSION_MINOR
          *     constant for the client.
          */
-        checkVersion(clientName: string, edamVersionMajor: number, edamVersionMinor: number, cb: Callback<boolean>): void;
+        checkVersion(
+            clientName: string,
+            edamVersionMajor: number,
+            edamVersionMinor: number,
+            cb: Callback<boolean>
+        ): void;
 
         /**
          * This provides bootstrap information to the client. Various bootstrap
@@ -6046,7 +6565,6 @@ declare namespace Evernote {
          */
         getPublicUserInfo(username: string, cb: Callback<PublicUserInfo>): void;
 
-
         /**
          * Returns the URL that should be used to talk to the NoteStore for the
          * account represented by the provided authenticationToken.
@@ -6102,7 +6620,14 @@ declare namespace Evernote {
         noteStoreUrl: string;
         webApiUrlPrefix: string;
 
-        constructor(args?: { userId: number; shardId: string; privilege?: PrivilegeLevel; username?: string; noteStoreUrl?: string; webApiUrlPrefix?: string; });
+        constructor(args?: {
+            userId: number;
+            shardId: string;
+            privilege?: PrivilegeLevel;
+            username?: string;
+            noteStoreUrl?: string;
+            webApiUrlPrefix?: string;
+        });
     }
 
     /**
@@ -6185,7 +6710,17 @@ declare namespace Evernote {
         secondFactorRequired: boolean;
         secondFactorDeliveryHint: string;
 
-        constructor(args?: { currentTime: number; authenticationToken: string; expiration: number; user?: User; publicUserInfo?: PublicUserInfo; noteStoreUrl?: string; webApiUrlPrefix?: string; secondFactorRequired?: boolean; secondFactorDeliveryHint?: string; });
+        constructor(args?: {
+            currentTime: number;
+            authenticationToken: string;
+            expiration: number;
+            user?: User;
+            publicUserInfo?: PublicUserInfo;
+            noteStoreUrl?: string;
+            webApiUrlPrefix?: string;
+            secondFactorRequired?: boolean;
+            secondFactorDeliveryHint?: string;
+        });
     }
 
     /**
@@ -6262,7 +6797,21 @@ declare namespace Evernote {
         enableLinkedInSharing: boolean;
         enablePublicNotebooks: boolean;
 
-        constructor(args?: { serviceHost: string; marketingUrl: string; supportUrl: string; accountEmailDomain: string; enableFacebookSharing?: boolean; enableGiftSubscriptions?: boolean; enableSupportTickets?: boolean; enableSharedNotebooks?: boolean; enableSingleNoteSharing?: boolean; enableSponsoredAccounts?: boolean; enableTwitterSharing?: boolean; enableLinkedInSharing?: boolean; enablePublicNotebooks?: boolean; });
+        constructor(args?: {
+            serviceHost: string;
+            marketingUrl: string;
+            supportUrl: string;
+            accountEmailDomain: string;
+            enableFacebookSharing?: boolean;
+            enableGiftSubscriptions?: boolean;
+            enableSupportTickets?: boolean;
+            enableSharedNotebooks?: boolean;
+            enableSingleNoteSharing?: boolean;
+            enableSponsoredAccounts?: boolean;
+            enableTwitterSharing?: boolean;
+            enableLinkedInSharing?: boolean;
+            enablePublicNotebooks?: boolean;
+        });
     }
 
     /**
@@ -6283,7 +6832,7 @@ declare namespace Evernote {
         name: string;
         settings: BootstrapSettings;
 
-        constructor(args?: { name: string; settings: BootstrapSettings; });
+        constructor(args?: { name: string; settings: BootstrapSettings });
     }
 
     /**
@@ -6299,7 +6848,7 @@ declare namespace Evernote {
     class BootstrapInfo {
         profiles: BootstrapProfile[];
 
-        constructor(args?: { profiles: BootstrapProfile[]; });
+        constructor(args?: { profiles: BootstrapProfile[] });
     }
 
     /**
@@ -6315,5 +6864,4 @@ declare namespace Evernote {
      * beginning of a session to confirm that they are not out of date.
      */
     var EDAM_VERSION_MINOR: number;
-
 }

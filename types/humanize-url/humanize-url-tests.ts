@@ -1,4 +1,4 @@
-import humanizeUrl = require('humanize-url');
+import humanizeUrl = require("humanize-url");
 
 // $ExpectType string
-humanizeUrl('https://www.sindresorhus.com/');
+humanizeUrl("https://www.sindresorhus.com/");

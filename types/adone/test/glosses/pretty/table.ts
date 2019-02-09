@@ -1,7 +1,5 @@
 namespace adoneTests.pretty.table {
-    const {
-        table
-    } = adone.pretty;
+    const { table } = adone.pretty;
 
     let str: string;
 
@@ -59,119 +57,153 @@ namespace adoneTests.pretty.table {
         model: []
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            align: "center"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            format: "%s"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            format(val: any, item: object) {
-                return "2";
+        model: [
+            {
+                id: "ads",
+                align: "center"
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            handle(item: object) {
-                return "a";
+        model: [
+            {
+                id: "ads",
+                format: "%s"
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            header: "he"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            maxWidth: "100%"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            maxWidth: 100
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            style: "asd"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            style(val: any, str: string) {
-                return "1";
+        model: [
+            {
+                id: "ads",
+                format(val: any, item: object) {
+                    return "2";
+                }
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            width: 100
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            width: "100%"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: "soft"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: "hard"
-        }]
-    });
-    str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: {
-                countAnsiEscapeCodes: true
+        model: [
+            {
+                id: "ads",
+                handle(item: object) {
+                    return "a";
+                }
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: {
-                join: true
+        model: [
+            {
+                id: "ads",
+                header: "he"
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: {
-                mode: "soft"
+        model: [
+            {
+                id: "ads",
+                maxWidth: "100%"
             }
-        }]
+        ]
     });
     str = table([], {
-        model: [{
-            id: "ads",
-            wordwrap: {
-                mode: "hard"
+        model: [
+            {
+                id: "ads",
+                maxWidth: 100
             }
-        }]
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                style: "asd"
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                style(val: any, str: string) {
+                    return "1";
+                }
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                width: 100
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                width: "100%"
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: "soft"
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: "hard"
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: {
+                    countAnsiEscapeCodes: true
+                }
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: {
+                    join: true
+                }
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: {
+                    mode: "soft"
+                }
+            }
+        ]
+    });
+    str = table([], {
+        model: [
+            {
+                id: "ads",
+                wordwrap: {
+                    mode: "hard"
+                }
+            }
+        ]
     });
 }

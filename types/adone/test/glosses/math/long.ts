@@ -1,8 +1,6 @@
 namespace mathTests.longTests {
     const {
-        math: {
-            Long
-        }
+        math: { Long }
     } = adone;
 
     new Long();

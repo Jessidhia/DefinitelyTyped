@@ -7,50 +7,80 @@ export function parseSVG(input: string): Command[];
 export function makeAbsolute(commands: Command[]): Command[];
 
 export interface Command {
-    code: 'm' | 'M' | 'l' | 'L' | 'h' | 'H' | 'v' | 'V' | 'c' | 'C' | 's' | 'S' | 'q' | 'Q' | 't' | 'T' | 'a' | 'A' | 'z' | 'Z';
-    command: 'moveto' | 'lineto' | 'horizontal lineto' | 'vertical lineto' | 'curveto' | 'smooth curveto' | 'quadratic curveto' | 'smooth quadratic curveto' | 'elliptical arc' | 'closepath';
+    code:
+        | "m"
+        | "M"
+        | "l"
+        | "L"
+        | "h"
+        | "H"
+        | "v"
+        | "V"
+        | "c"
+        | "C"
+        | "s"
+        | "S"
+        | "q"
+        | "Q"
+        | "t"
+        | "T"
+        | "a"
+        | "A"
+        | "z"
+        | "Z";
+    command:
+        | "moveto"
+        | "lineto"
+        | "horizontal lineto"
+        | "vertical lineto"
+        | "curveto"
+        | "smooth curveto"
+        | "quadratic curveto"
+        | "smooth quadratic curveto"
+        | "elliptical arc"
+        | "closepath";
     relative?: boolean;
 }
 
 export interface MoveToCommand {
-    code: 'm' | 'M';
-    command: 'moveto';
+    code: "m" | "M";
+    command: "moveto";
     relative?: boolean;
     x: number;
     y: number;
 }
 
 export interface LineToCommand {
-    code: 'l' | 'L';
-    command: 'lineto';
+    code: "l" | "L";
+    command: "lineto";
     relative?: boolean;
     x: number;
     y: number;
 }
 
 export interface HorizontalLineToCommand {
-    code: 'h' | 'H';
-    command: 'horizontal lineto';
+    code: "h" | "H";
+    command: "horizontal lineto";
     relative?: boolean;
     x: number;
 }
 
 export interface VerticalLineToCommand {
-    code: 'v' | 'V';
-    command: 'vertical lineto';
+    code: "v" | "V";
+    command: "vertical lineto";
     relative?: boolean;
     y: number;
 }
 
 export interface ClosePathCommand {
-    code: 'z' | 'Z';
-    command: 'closepath';
+    code: "z" | "Z";
+    command: "closepath";
     relative?: boolean;
 }
 
 export interface CurveToCommand {
-    code: 'c' | 'C';
-    command: 'curveto';
+    code: "c" | "C";
+    command: "curveto";
     relative?: boolean;
     x1: number;
     y1: number;
@@ -61,8 +91,8 @@ export interface CurveToCommand {
 }
 
 export interface SmoothCurveToCommand {
-    code: 's' | 'S';
-    command: 'smooth curveto';
+    code: "s" | "S";
+    command: "smooth curveto";
     relative?: boolean;
     x2: number;
     y2: number;
@@ -71,8 +101,8 @@ export interface SmoothCurveToCommand {
 }
 
 export interface QuadraticCurveToCommand {
-    code: 'q' | 'Q';
-    command: 'quadratic curveto';
+    code: "q" | "Q";
+    command: "quadratic curveto";
     relative?: boolean;
     x1: number;
     y1: number;
@@ -81,16 +111,16 @@ export interface QuadraticCurveToCommand {
 }
 
 export interface SmoothQuadraticCurveToCommand {
-    code: 't' | 'T';
-    command: 'smooth quadratic curveto';
+    code: "t" | "T";
+    command: "smooth quadratic curveto";
     relative?: boolean;
     x: number;
     y: number;
 }
 
 export interface EllipticalArcCommand {
-    code: 'a' | 'A';
-    command: 'elliptical arc';
+    code: "a" | "A";
+    command: "elliptical arc";
     relative?: boolean;
     rx: number;
     ry: number;

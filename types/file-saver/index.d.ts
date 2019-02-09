@@ -12,7 +12,11 @@ declare namespace FileSaver {
      * @param filename - The optional name of the file to be downloaded. If omitted, the name used in the file data will be used. If none is provided "download" will be used.
      * @param disableAutoBOM - Optional & defaults to `false`. Set to `true` if you want FileSaver.js to automatically provide Unicode text encoding hints
      */
-    function saveAs(data: Blob | string, filename?: string, disableAutoBOM?: boolean): void;
+    function saveAs(
+        data: Blob | string,
+        filename?: string,
+        disableAutoBOM?: boolean
+    ): void;
 }
 
 declare global {

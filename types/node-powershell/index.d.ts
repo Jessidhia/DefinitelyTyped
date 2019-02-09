@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-declare module 'node-powershell' {
+declare module "node-powershell" {
     module NodePowershell {
         export interface ShellOptions {
             /**
@@ -63,7 +63,10 @@ declare module 'node-powershell' {
          * @param {array} optional - {name: ‘’, value: ‘’} - {name: value} - ‘switch’
          * @returns Every command currently in the pipeline.
          */
-        addCommand(command: string, params?: string[] | { [key: string]: string }[]): Promise<string[]>;
+        addCommand(
+            command: string,
+            params?: string[] | { [key: string]: string }[]
+        ): Promise<string[]>;
 
         /**
          * Runs the commands of the shell object pipeline.

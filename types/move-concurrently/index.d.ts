@@ -7,7 +7,11 @@
 /**
  * Recursively moves from to to and resolves its promise when finished. If to already exists then the promise will be rejected with an EEXIST error.
  */
-declare function move<T extends PromiseLike<void> = Promise<void>>(from: string, to: string, opts?: move.Options<T>): T;
+declare function move<T extends PromiseLike<void> = Promise<void>>(
+    from: string,
+    to: string,
+    opts?: move.Options<T>
+): T;
 
 declare namespace move {
     interface Options<T extends PromiseLike<void> = Promise<void>> {

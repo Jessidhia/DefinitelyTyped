@@ -27,7 +27,14 @@ export class BigInteger {
     F2: number;
 
     // am: Compute w_j += (x*this_i), propagate carries,
-    am(i: number, x: number, w: BigInteger, j: number, c: number, n: number): number;
+    am(
+        i: number,
+        x: number,
+        w: BigInteger,
+        j: number,
+        c: number,
+        n: number
+    ): number;
 
     // (protected) copy this to r
     copyTo(r: BigInteger): void;
@@ -133,7 +140,11 @@ export class BigInteger {
     max(a: BigInteger): BigInteger;
 
     // (protected) r = this op a (bitwise)
-    bitwiseTo(a: BigInteger, op: (x: number, y: number) => number, r: BigInteger): void;
+    bitwiseTo(
+        a: BigInteger,
+        op: (x: number, y: number) => number,
+        r: BigInteger
+    ): void;
 
     // (public) this & a
     and(a: BigInteger): BigInteger;
@@ -172,10 +183,10 @@ export class BigInteger {
     setBit(n: number): BigInteger;
 
     // (public) this & ~(1<<n)
-    clearBit(n: number): BigInteger
+    clearBit(n: number): BigInteger;
 
     // (public) this ^ (1<<n)
-    flipBit(n: number): BigInteger
+    flipBit(n: number): BigInteger;
 
     // (protected) r = this + a
     addTo(a: BigInteger, r: BigInteger): void;

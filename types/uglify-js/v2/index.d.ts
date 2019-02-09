@@ -5,8 +5,7 @@
 
 /// <reference types="source-map" />
 
-
-import * as MOZ_SourceMap from 'source-map';
+import * as MOZ_SourceMap from "source-map";
 
 declare namespace UglifyJS {
     interface Tokenizer {
@@ -90,7 +89,7 @@ declare namespace UglifyJS {
         fromString?: boolean;
         warnings?: boolean;
         mangle?: Object;
-        output?: MinifyOutput,
+        output?: MinifyOutput;
         compress?: Object;
     }
 
@@ -99,8 +98,10 @@ declare namespace UglifyJS {
         map: string;
     }
 
-    function minify(files: string | Array<string>, options?: MinifyOptions): MinifyOutput;
-
+    function minify(
+        files: string | Array<string>,
+        options?: MinifyOptions
+    ): MinifyOutput;
 
     interface ParseOptions {
         // Default is false
@@ -118,7 +119,6 @@ declare namespace UglifyJS {
      * Perhaps you should read about the AST first.
      */
     function parse(code: string, options?: ParseOptions): AST_Toplevel;
-
 
     interface BeautifierOptions {
         /**
@@ -206,7 +206,7 @@ declare namespace UglifyJS {
         indentation(): number;
 
         // return the width of the current line text minus indentation.
-        current_width(): number
+        current_width(): number;
 
         // Return true if current_width() is bigger than options.width (assuming options.width is non-null, non-zero).
         should_break(): boolean;
@@ -302,7 +302,6 @@ declare namespace UglifyJS {
      */
     function OutputStream(options?: BeautifierOptions): OutputStream;
 
-
     interface SourceMapOptions {
         /**
          * The compressed file name
@@ -324,7 +323,14 @@ declare namespace UglifyJS {
     }
 
     interface SourceMap {
-        add(source: string, gen_line: number, gen_col: number, orig_line: number, orig_col: number, name?: string): void;
+        add(
+            source: string,
+            gen_line: number,
+            gen_col: number,
+            orig_line: number,
+            orig_col: number,
+            name?: string
+        ): void;
         get(): MOZ_SourceMap.SourceMapGenerator;
         toString(): string;
     }
@@ -335,7 +341,6 @@ declare namespace UglifyJS {
      * and make it available via the global MOZ_SourceMap variable.
      */
     function SourceMap(options?: SourceMapOptions): SourceMap;
-
 
     interface CompressorOptions {
         // Join consecutive statemets with the “comma operator”
@@ -401,10 +406,8 @@ declare namespace UglifyJS {
      */
     function Compressor(options?: CompressorOptions): AST_Toplevel;
 
-
     // TODO
-    interface TreeWalker {
-    }
+    interface TreeWalker {}
 
     type visitor = (node: AST_Node, descend: Function) => boolean;
 
@@ -414,10 +417,8 @@ declare namespace UglifyJS {
      */
     function TreeWalker(visitor: visitor): TreeWalker;
 
-
     // TODO
-    interface TreeTransformer extends TreeWalker {
-    }
+    interface TreeTransformer extends TreeWalker {}
 
     /**
      * The tree transformer is a special case of a tree walker.

@@ -1,5 +1,15 @@
 // common
-import { glMatrix, vec2, mat2, mat3, mat4, vec3, vec4, mat2d, quat } from "gl-matrix";
+import {
+    glMatrix,
+    vec2,
+    mat2,
+    mat3,
+    mat4,
+    vec3,
+    vec4,
+    mat2d,
+    quat
+} from "gl-matrix";
 
 var outVal: number;
 var outBool: boolean;
@@ -19,8 +29,42 @@ let mat2dA = mat2d.fromValues(1, 2, 3, 4, 5, 6);
 let mat2dB = mat2d.fromValues(1, 2, 3, 4, 5, 6);
 let mat3A = mat3.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9);
 let mat3B = mat3.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9);
-let mat4A = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-let mat4B = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+let mat4A = mat4.fromValues(
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
+let mat4B = mat4.fromValues(
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
 let quatA = quat.fromValues(1, 2, 3, 4);
 let quatB = quat.fromValues(5, 6, 7, 8);
 
@@ -207,8 +251,8 @@ outMat2 = mat2.subtract(outMat2, mat2A, mat2B);
 outMat2 = mat2.sub(outMat2, mat2A, mat2B);
 outBool = mat2.exactEquals(mat2A, mat2B);
 outBool = mat2.equals(mat2A, mat2B);
-outMat2 = mat2.multiplyScalar (outMat2, mat2A, 2);
-outMat2 = mat2.multiplyScalarAndAdd (outMat2, mat2A, mat2B, 2);
+outMat2 = mat2.multiplyScalar(outMat2, mat2A, 2);
+outMat2 = mat2.multiplyScalarAndAdd(outMat2, mat2A, mat2B, 2);
 
 // mat2d
 outMat2d = mat2d.create();
@@ -232,8 +276,8 @@ outVal = mat2d.frob(mat2dA);
 outMat2d = mat2d.add(outMat2d, mat2dA, mat2dB);
 outMat2d = mat2d.subtract(outMat2d, mat2dA, mat2dB);
 outMat2d = mat2d.sub(outMat2d, mat2dA, mat2dB);
-outMat2d = mat2d.multiplyScalar (outMat2d, mat2dA, 2);
-outMat2d = mat2d.multiplyScalarAndAdd (outMat2d, mat2dA, mat2dB, 2);
+outMat2d = mat2d.multiplyScalar(outMat2d, mat2dA, 2);
+outMat2d = mat2d.multiplyScalarAndAdd(outMat2d, mat2dA, mat2dB, 2);
 outBool = mat2d.exactEquals(mat2dA, mat2dB);
 outBool = mat2d.equals(mat2dA, mat2dB);
 
@@ -252,7 +296,7 @@ outVal = mat3.determinant(mat3A);
 outMat3 = mat3.multiply(outMat3, mat3A, mat3B);
 outMat3 = mat3.mul(outMat3, mat3A, mat3B);
 outMat3 = mat3.translate(outMat3, mat3A, vec2A);
-outMat3 = mat3.rotate(outMat3, mat3A, Math.PI/2);
+outMat3 = mat3.rotate(outMat3, mat3A, Math.PI / 2);
 outMat3 = mat3.scale(outMat3, mat3A, vec2A);
 outMat3 = mat3.fromTranslation(outMat3, vec2A);
 outMat3 = mat3.fromRotation(outMat3, Math.PI);
@@ -265,8 +309,8 @@ outVal = mat3.frob(mat3A);
 outMat3 = mat3.add(outMat3, mat3A, mat3B);
 outMat3 = mat3.subtract(outMat3, mat3A, mat3B);
 outMat3 = mat3.sub(outMat3, mat3A, mat3B);
-outMat3 = mat3.multiplyScalar (outMat3, mat3A, 2);
-outMat3 = mat3.multiplyScalarAndAdd (outMat3, mat3A, mat3B, 2);
+outMat3 = mat3.multiplyScalar(outMat3, mat3A, 2);
+outMat3 = mat3.multiplyScalarAndAdd(outMat3, mat3A, mat3B, 2);
 outBool = mat3.exactEquals(mat3A, mat3B);
 outBool = mat3.equals(mat3A, mat3B);
 outMat3 = mat3.projection(outMat3, 100, 100);
@@ -275,8 +319,43 @@ outMat3 = mat3.projection(outMat3, 100, 100);
 outMat4 = mat4.create();
 outMat4 = mat4.clone(mat4A);
 outMat4 = mat4.copy(outMat4, mat4A);
-outMat4 = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-outMat4 = mat4.set(outMat4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+outMat4 = mat4.fromValues(
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
+outMat4 = mat4.set(
+    outMat4,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
 outMat4 = mat4.identity(outMat4);
 outMat4 = mat4.transpose(outMat4, mat4A);
 outMat4Null = mat4.invert(outMat4, mat4A);
@@ -301,11 +380,27 @@ outVec3 = mat4.getTranslation(outVec3, mat4A);
 outVec3 = mat4.getScaling(outVec3, mat4A);
 outQuat = mat4.getRotation(outQuat, mat4A);
 outMat4 = mat4.fromRotationTranslationScale(outMat4, quatA, vec3A, vec3B);
-outMat4 = mat4.fromRotationTranslationScaleOrigin(outMat4, quatA, vec3A, vec3B, vec3A);
+outMat4 = mat4.fromRotationTranslationScaleOrigin(
+    outMat4,
+    quatA,
+    vec3A,
+    vec3B,
+    vec3A
+);
 outMat4 = mat4.fromQuat(outMat4, quatB);
 outMat4 = mat4.frustum(outMat4, -1, 1, -1, 1, -1, 1);
 outMat4 = mat4.perspective(outMat4, Math.PI, 1, 0, 1);
-outMat4 = mat4.perspectiveFromFieldOfView(outMat4, {upDegrees:Math.PI, downDegrees:-Math.PI, leftDegrees:-Math.PI, rightDegrees:Math.PI}, 1, 0);
+outMat4 = mat4.perspectiveFromFieldOfView(
+    outMat4,
+    {
+        upDegrees: Math.PI,
+        downDegrees: -Math.PI,
+        leftDegrees: -Math.PI,
+        rightDegrees: Math.PI
+    },
+    1,
+    0
+);
 outMat4 = mat4.ortho(outMat4, -1, 1, -1, 1, -1, 1);
 outMat4 = mat4.lookAt(outMat4, vec3A, vec3B, vec3A);
 outMat4 = mat4.targetTo(outMat4, vec3A, vec3B, vec3A);
@@ -314,8 +409,8 @@ outVal = mat4.frob(mat4A);
 outMat4 = mat4.add(outMat4, mat4A, mat4B);
 outMat4 = mat4.subtract(outMat4, mat4A, mat4B);
 outMat4 = mat4.sub(outMat4, mat4A, mat4B);
-outMat4 = mat4.multiplyScalar (outMat4, mat4A, 2);
-outMat4 = mat4.multiplyScalarAndAdd (outMat4, mat4A, mat4B, 2);
+outMat4 = mat4.multiplyScalar(outMat4, mat4A, 2);
+outMat4 = mat4.multiplyScalarAndAdd(outMat4, mat4A, mat4B, 2);
 outBool = mat4.exactEquals(mat4A, mat4B);
 outBool = mat4.equals(mat4A, mat4B);
 
@@ -330,7 +425,7 @@ outQuat = quat.identity(outQuat);
 outQuat = quat.rotationTo(outQuat, vec3A, vec3B);
 outQuat = quat.setAxes(outQuat, vec3A, vec3B, vec3A);
 outQuat = quat.setAxisAngle(outQuat, vec3A, Math.PI * 0.5);
-outVal = quat.getAxisAngle (outVec3, quatA);
+outVal = quat.getAxisAngle(outVec3, quatA);
 outQuat = quat.add(outQuat, quatA, quatB);
 outQuat = quat.multiply(outQuat, quatA, quatB);
 outQuat = quat.mul(outQuat, quatA, quatB);
@@ -366,15 +461,15 @@ outBool = glMatrix.equals(1, -1);
 outVal = glMatrix.toRadian(10);
 
 // common
-import _glMatrix = require('gl-matrix/src/gl-matrix/common');
-import _vec2 = require('gl-matrix/src/gl-matrix/vec2');
-import _vec3 = require('gl-matrix/src/gl-matrix/vec3');
-import _vec4 = require('gl-matrix/src/gl-matrix/vec4');
-import _mat2 = require('gl-matrix/src/gl-matrix/mat2');
-import _mat2d = require('gl-matrix/src/gl-matrix/mat2d');
-import _mat3 = require('gl-matrix/src/gl-matrix/mat3');
-import _mat4 = require('gl-matrix/src/gl-matrix/mat4');
-import _quat = require('gl-matrix/src/gl-matrix/quat');
+import _glMatrix = require("gl-matrix/src/gl-matrix/common");
+import _vec2 = require("gl-matrix/src/gl-matrix/vec2");
+import _vec3 = require("gl-matrix/src/gl-matrix/vec3");
+import _vec4 = require("gl-matrix/src/gl-matrix/vec4");
+import _mat2 = require("gl-matrix/src/gl-matrix/mat2");
+import _mat2d = require("gl-matrix/src/gl-matrix/mat2d");
+import _mat3 = require("gl-matrix/src/gl-matrix/mat3");
+import _mat4 = require("gl-matrix/src/gl-matrix/mat4");
+import _quat = require("gl-matrix/src/gl-matrix/quat");
 
 vecArray = new Float32Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
 
@@ -571,8 +666,8 @@ outMat2 = _mat2.subtract(outMat2, mat2A, mat2B);
 outMat2 = _mat2.sub(outMat2, mat2A, mat2B);
 outBool = _mat2.exactEquals(mat2A, mat2B);
 outBool = _mat2.equals(mat2A, mat2B);
-outMat2 = _mat2.multiplyScalar (outMat2, mat2A, 2);
-outMat2 = _mat2.multiplyScalarAndAdd (outMat2, mat2A, mat2B, 2);
+outMat2 = _mat2.multiplyScalar(outMat2, mat2A, 2);
+outMat2 = _mat2.multiplyScalarAndAdd(outMat2, mat2A, mat2B, 2);
 
 // _mat2d
 outMat2d = _mat2d.create();
@@ -596,8 +691,8 @@ outVal = _mat2d.frob(mat2dA);
 outMat2d = _mat2d.add(outMat2d, mat2dA, mat2dB);
 outMat2d = _mat2d.subtract(outMat2d, mat2dA, mat2dB);
 outMat2d = _mat2d.sub(outMat2d, mat2dA, mat2dB);
-outMat2d = _mat2d.multiplyScalar (outMat2d, mat2dA, 2);
-outMat2d = _mat2d.multiplyScalarAndAdd (outMat2d, mat2dA, mat2dB, 2);
+outMat2d = _mat2d.multiplyScalar(outMat2d, mat2dA, 2);
+outMat2d = _mat2d.multiplyScalarAndAdd(outMat2d, mat2dA, mat2dB, 2);
 outBool = _mat2d.exactEquals(mat2dA, mat2dB);
 outBool = _mat2d.equals(mat2dA, mat2dB);
 
@@ -616,7 +711,7 @@ outVal = _mat3.determinant(mat3A);
 outMat3 = _mat3.multiply(outMat3, mat3A, mat3B);
 outMat3 = _mat3.mul(outMat3, mat3A, mat3B);
 outMat3 = _mat3.translate(outMat3, mat3A, vec2A);
-outMat3 = _mat3.rotate(outMat3, mat3A, Math.PI/2);
+outMat3 = _mat3.rotate(outMat3, mat3A, Math.PI / 2);
 outMat3 = _mat3.scale(outMat3, mat3A, vec2A);
 outMat3 = _mat3.fromTranslation(outMat3, vec2A);
 outMat3 = _mat3.fromRotation(outMat3, Math.PI);
@@ -629,8 +724,8 @@ outVal = _mat3.frob(mat3A);
 outMat3 = _mat3.add(outMat3, mat3A, mat3B);
 outMat3 = _mat3.subtract(outMat3, mat3A, mat3B);
 outMat3 = _mat3.sub(outMat3, mat3A, mat3B);
-outMat3 = _mat3.multiplyScalar (outMat3, mat3A, 2);
-outMat3 = _mat3.multiplyScalarAndAdd (outMat3, mat3A, mat3B, 2);
+outMat3 = _mat3.multiplyScalar(outMat3, mat3A, 2);
+outMat3 = _mat3.multiplyScalarAndAdd(outMat3, mat3A, mat3B, 2);
 outBool = _mat3.exactEquals(mat3A, mat3B);
 outBool = _mat3.equals(mat3A, mat3B);
 
@@ -638,8 +733,43 @@ outBool = _mat3.equals(mat3A, mat3B);
 outMat4 = _mat4.create();
 outMat4 = _mat4.clone(mat4A);
 outMat4 = _mat4.copy(outMat4, mat4A);
-outMat4 = _mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-outMat4 = _mat4.set(outMat4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+outMat4 = _mat4.fromValues(
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
+outMat4 = _mat4.set(
+    outMat4,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+);
 outMat4 = _mat4.identity(outMat4);
 outMat4 = _mat4.transpose(outMat4, mat4A);
 outMat4Null = _mat4.invert(outMat4, mat4A);
@@ -664,11 +794,27 @@ outVec3 = _mat4.getTranslation(outVec3, mat4A);
 outVec3 = _mat4.getScaling(outVec3, mat4A);
 outQuat = _mat4.getRotation(outQuat, mat4A);
 outMat4 = _mat4.fromRotationTranslationScale(outMat4, quatA, vec3A, vec3B);
-outMat4 = _mat4.fromRotationTranslationScaleOrigin(outMat4, quatA, vec3A, vec3B, vec3A);
+outMat4 = _mat4.fromRotationTranslationScaleOrigin(
+    outMat4,
+    quatA,
+    vec3A,
+    vec3B,
+    vec3A
+);
 outMat4 = _mat4.fromQuat(outMat4, quatB);
 outMat4 = _mat4.frustum(outMat4, -1, 1, -1, 1, -1, 1);
 outMat4 = _mat4.perspective(outMat4, Math.PI, 1, 0, 1);
-outMat4 = _mat4.perspectiveFromFieldOfView(outMat4, {upDegrees:Math.PI, downDegrees:-Math.PI, leftDegrees:-Math.PI, rightDegrees:Math.PI}, 1, 0);
+outMat4 = _mat4.perspectiveFromFieldOfView(
+    outMat4,
+    {
+        upDegrees: Math.PI,
+        downDegrees: -Math.PI,
+        leftDegrees: -Math.PI,
+        rightDegrees: Math.PI
+    },
+    1,
+    0
+);
 outMat4 = _mat4.ortho(outMat4, -1, 1, -1, 1, -1, 1);
 outMat4 = _mat4.lookAt(outMat4, vec3A, vec3B, vec3A);
 outMat4 = _mat4.targetTo(outMat4, vec3A, vec3B, vec3A);
@@ -677,8 +823,8 @@ outVal = _mat4.frob(mat4A);
 outMat4 = _mat4.add(outMat4, mat4A, mat4B);
 outMat4 = _mat4.subtract(outMat4, mat4A, mat4B);
 outMat4 = _mat4.sub(outMat4, mat4A, mat4B);
-outMat4 = _mat4.multiplyScalar (outMat4, mat4A, 2);
-outMat4 = _mat4.multiplyScalarAndAdd (outMat4, mat4A, mat4B, 2);
+outMat4 = _mat4.multiplyScalar(outMat4, mat4A, 2);
+outMat4 = _mat4.multiplyScalarAndAdd(outMat4, mat4A, mat4B, 2);
 outBool = _mat4.exactEquals(mat4A, mat4B);
 outBool = _mat4.equals(mat4A, mat4B);
 
@@ -693,7 +839,7 @@ outQuat = _quat.identity(outQuat);
 outQuat = _quat.rotationTo(outQuat, vec3A, vec3B);
 outQuat = _quat.setAxes(outQuat, vec3A, vec3B, vec3A);
 outQuat = _quat.setAxisAngle(outQuat, vec3A, Math.PI * 0.5);
-outVal = _quat.getAxisAngle (outVec3, quatA);
+outVal = _quat.getAxisAngle(outVec3, quatA);
 outQuat = _quat.add(outQuat, quatA, quatB);
 outQuat = _quat.multiply(outQuat, quatA, quatB);
 outQuat = _quat.mul(outQuat, quatA, quatB);

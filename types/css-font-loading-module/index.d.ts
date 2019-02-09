@@ -3,8 +3,8 @@
 // Definitions by: slikts <https://github.com/slikts>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export type FontFaceLoadStatus = 'unloaded' | 'loading' | 'loaded' | 'error';
-export type FontFaceSetLoadStatus = 'loading' | 'loaded';
+export type FontFaceLoadStatus = "unloaded" | "loading" | "loaded" | "error";
+export type FontFaceSetLoadStatus = "loading" | "loaded";
 export type BinaryData = ArrayBuffer | ArrayBufferView;
 export type EventHandler = (event: Event) => void;
 
@@ -39,7 +39,11 @@ export interface FontFaceSet extends Set<FontFace> {
 
 declare global {
     class FontFace {
-        constructor(family: string, source: string | BinaryData, descriptors?: FontFaceDescriptors);
+        constructor(
+            family: string,
+            source: string | BinaryData,
+            descriptors?: FontFaceDescriptors
+        );
         load(): Promise<FontFace>;
 
         family: string;

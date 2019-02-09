@@ -27,16 +27,41 @@ declare class SCBroker extends EventEmitter {
 
     constructor(options?: { run?: () => void });
 
-    on(event: "subscribe" | "unsubscribe", listener: (channel: string) => void): this;
+    on(
+        event: "subscribe" | "unsubscribe",
+        listener: (channel: string) => void
+    ): this;
     on(event: "publish", listener: (channel: string, data: any) => void): this;
-    on(event: "masterMessage", listener: (data: any, respond: (err: Error | null, responseData: any) => void) => void): this;
-    on(event: "message", listener: (message: any, respond: (err: Error | null, responseData: any) => void) => void): this;
+    on(
+        event: "masterMessage",
+        listener: (
+            data: any,
+            respond: (err: Error | null, responseData: any) => void
+        ) => void
+    ): this;
+    on(
+        event: "message",
+        listener: (
+            message: any,
+            respond: (err: Error | null, responseData: any) => void
+        ) => void
+    ): this;
     on(event: "warning", listener: (err: Error) => void): this;
 
     publish(channel: string, message: any): void;
     run(): void;
-    exec(query: (dataMap: FlexiMap, dataExpirer: ExpiryManager, subscriptions: Subscriptions) => any, baseKey?: KeyChain): any;
-    sendToMaster(data: any, callback?: (err: Error | null, responseData: any) => void): void;
+    exec(
+        query: (
+            dataMap: FlexiMap,
+            dataExpirer: ExpiryManager,
+            subscriptions: Subscriptions
+        ) => any,
+        baseKey?: KeyChain
+    ): any;
+    sendToMaster(
+        data: any,
+        callback?: (err: Error | null, responseData: any) => void
+    ): void;
 }
 
 declare namespace SCBroker {

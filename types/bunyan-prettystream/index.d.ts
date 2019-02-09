@@ -5,7 +5,6 @@
 
 /// <reference types="node" />
 
-
 import stream = require("stream");
 declare class PrettyStream extends stream.Writable {
     /**
@@ -24,6 +23,9 @@ declare class PrettyStream extends stream.Writable {
      *                    stream when this stream emits `end`, defaults to `true`.
      * @return The `destination` stream.
      */
-    pipe<T extends NodeJS.WritableStream>(destination: T, options?: { end?: boolean; }): T;
+    pipe<T extends NodeJS.WritableStream>(
+        destination: T,
+        options?: { end?: boolean }
+    ): T;
 }
 export = PrettyStream;

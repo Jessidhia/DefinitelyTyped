@@ -46,12 +46,16 @@ declare namespace ReactCountUp {
             reset(): void;
             update(): void;
         }): void;
-        onPauseResume?(): (
-            providedFn: { reset(): void; start(): void; update(): void }
-        ) => void;
-        onReset?(): (
-            providedFn: { pauseResume(): void; start(): void; update(): void }
-        ) => void;
+        onPauseResume?(): (providedFn: {
+            reset(): void;
+            start(): void;
+            update(): void;
+        }) => void;
+        onReset?(): (providedFn: {
+            pauseResume(): void;
+            start(): void;
+            update(): void;
+        }) => void;
         onUpdate?(providedFn: {
             pauseResume(): void;
             reset(): void;

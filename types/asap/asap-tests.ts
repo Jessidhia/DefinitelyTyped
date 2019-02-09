@@ -14,9 +14,11 @@ function f(): void {
 asap(f);
 
 // $ExpectType void
-asap((): void => {
-    "'arrow' invoked";
-});
+asap(
+    (): void => {
+        "'arrow' invoked";
+    }
+);
 
 // $ExpectType void
 asap(new Callable());
@@ -25,9 +27,11 @@ asap(new Callable());
 rawAsap(f);
 
 // $ExpectType void
-rawAsap((): void => {
-    "'arrow' invoked";
-});
+rawAsap(
+    (): void => {
+        "'arrow' invoked";
+    }
+);
 
 // $ExpectType void
 rawAsap(new Callable());

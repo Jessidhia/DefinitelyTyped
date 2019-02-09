@@ -5,8 +5,8 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node" />
-import File = require('vinyl');
-import { Logger } from 'winston';
+import File = require("vinyl");
+import { Logger } from "winston";
 
 declare namespace sprite {
     interface SVGSpriterConstructor extends NodeJS.EventEmitter {
@@ -139,7 +139,10 @@ declare namespace sprite {
         /**
          * List of transformations / optimizations
          */
-        transform?: (string | CustomConfigurationTransform | CustomCallbackTransform)[];
+        transform?: (
+            | string
+            | CustomConfigurationTransform
+            | CustomCallbackTransform)[];
         /**
          * Path to YAML file with meta / accessibility data
          */
@@ -160,7 +163,7 @@ declare namespace sprite {
     interface CustomConfigurationTransform {
         [transformationName: string]: {
             plugins?: { [transformationName: string]: boolean }[];
-        }
+        };
     }
 
     /**
@@ -175,7 +178,7 @@ declare namespace sprite {
              * @param callback Callback
              */
             (shape: any, sprite: SVGSpriter, callback: Function): any;
-        }
+        };
     }
 
     interface Svg {

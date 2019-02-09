@@ -4,20 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { AnyAction, Store, Dispatch } from 'redux';
+import { AnyAction, Store, Dispatch } from "redux";
 
-export function createMockStore(
-  state?: any
-): mockStore<any>;
+export function createMockStore(state?: any): mockStore<any>;
 
 export function createMockDispatch(): mockDispatch<any>;
 
 export interface mockStore<S> extends Store<S>, mockDispatch<S> {}
 
 export interface mockDispatch<S> {
-  dispatch: Dispatch<S>;
-  getActions: () => AnyAction[];
-  getAction: (type: any) => AnyAction | undefined;
-  isActionTypeDispatched: (type: any) => boolean;
-  isActionDispatched: (action: AnyAction) => boolean;
+    dispatch: Dispatch<S>;
+    getActions: () => AnyAction[];
+    getAction: (type: any) => AnyAction | undefined;
+    isActionTypeDispatched: (type: any) => boolean;
+    isActionDispatched: (action: AnyAction) => boolean;
 }

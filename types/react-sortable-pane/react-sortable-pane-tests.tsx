@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { SortablePane, Pane } from 'react-sortable-pane';
+import * as React from "react";
+import { SortablePane, Pane } from "react-sortable-pane";
 
 export default () => {
     return (

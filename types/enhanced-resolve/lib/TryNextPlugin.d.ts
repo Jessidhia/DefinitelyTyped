@@ -1,4 +1,4 @@
-import Resolver = require('./Resolver');
+import Resolver = require("./Resolver");
 declare class TryNextPlugin {
     source: string;
     message: string | null;

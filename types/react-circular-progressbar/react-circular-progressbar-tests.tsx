@@ -1,7 +1,7 @@
-import CircularProgressbar from 'react-circular-progressbar';
+import CircularProgressbar from "react-circular-progressbar";
 
-import * as React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import { render } from "react-dom";
 
 declare const container: Element;
 
@@ -10,7 +10,7 @@ render(
         <CircularProgressbar
             className="testing"
             percentage={55}
-            text={'55%'}
+            text={"55%"}
             strokeWidth={16}
         />
         <CircularProgressbar
@@ -20,5 +20,5 @@ render(
             strokeWidth={16}
         />
     </div>,
-    container,
+    container
 );

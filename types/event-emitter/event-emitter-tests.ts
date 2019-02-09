@@ -22,8 +22,15 @@ allOff(emitter1);
 hasListeners(emitter1);
 hasListeners(emitter1, "test");
 
-const eePipe1: EmitterPipe = pipe(emitter1, emitter2);
-const eePipe2: EmitterPipe = pipe(emitter1, emitter2, "foo");
+const eePipe1: EmitterPipe = pipe(
+    emitter1,
+    emitter2
+);
+const eePipe2: EmitterPipe = pipe(
+    emitter1,
+    emitter2,
+    "foo"
+);
 
 eePipe1.close();
 

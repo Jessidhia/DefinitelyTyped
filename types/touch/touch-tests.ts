@@ -1,4 +1,4 @@
-import touch = require('touch');
+import touch = require("touch");
 
 // type value definitions
 const boolVal = true;
@@ -29,17 +29,17 @@ opts.closeAfter = boolVal;
 
 let str: string;
 // touch API tests
-touch(strVal, (e) => console.log(e));
-touch(strVal, opts, (e) => console.log(e));
-touch(strVal, opts, (e) => 'hi').then(s => str = s);
+touch(strVal, e => console.log(e));
+touch(strVal, opts, e => console.log(e));
+touch(strVal, opts, e => "hi").then(s => (str = s));
 
 touch.sync(strVal);
 touch.sync(strVal, opts);
 
 // ftouch API tests
-touch.ftouch(numVal, (e) => console.log(e));
-touch.ftouch(numVal, opts, (e) => console.log(e));
-touch.ftouch(numVal, opts, (e) => 'hi').then(s => str = s);
+touch.ftouch(numVal, e => console.log(e));
+touch.ftouch(numVal, opts, e => console.log(e));
+touch.ftouch(numVal, opts, e => "hi").then(s => (str = s));
 
 touch.ftouchSync(numVal);
 touch.ftouchSync(numVal, opts);

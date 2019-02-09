@@ -7,5 +7,7 @@ declare namespace DomHelpersOffset {
     }
 }
 
-declare const DomHelpersOffset: (element: Element) => DomHelpersOffset.DomHelpersRect;
+declare const DomHelpersOffset: (
+    element: Element
+) => DomHelpersOffset.DomHelpersRect;
 export = DomHelpersOffset;

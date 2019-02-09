@@ -1,7 +1,7 @@
 import throng = require("throng");
 
-function masterFunction() { }
-function startFunction(id: number) { }
+function masterFunction() {}
+function startFunction(id: number) {}
 
 throng((id: number) => {});
 

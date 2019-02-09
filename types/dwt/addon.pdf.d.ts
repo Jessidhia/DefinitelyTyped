@@ -22,9 +22,14 @@ interface PDF {
      * The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    Download(remoteFile: string,
+    Download(
+        remoteFile: string,
         optionalAsyncSuccessFunc?: () => void,
-        optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      *  Input the password to decrypt PDF files using PDF Rasterizer add-on.
@@ -40,7 +45,9 @@ interface PDF {
      * @param {EnumDWT_ConvertMode | EnumDWT_ConverMode} convertMode Specifies the image convert mode.
      * @return {boolean}
      */
-    SetConvertMode(convertMode: EnumDWT_ConvertMode | EnumDWT_ConverMode): boolean;
+    SetConvertMode(
+        convertMode: EnumDWT_ConvertMode | EnumDWT_ConverMode
+    ): boolean;
 
     /**
      *  Set the output resolution for the PDF Rasterizer in Dynamic Web TWAIN.

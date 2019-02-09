@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import * as ReactRouter from 'react-router';
-import * as Redux from 'redux';
-import * as H from 'history';
+import * as React from "react";
+import * as ReactRouter from "react-router";
+import * as Redux from "redux";
+import * as H from "history";
 
 import routerStateReducer from "./lib/routerStateReducer";
 import ReduxRouter from "./lib/ReduxRouter";
@@ -40,4 +40,3 @@ export {
     goBack,
     goForward
 };
-

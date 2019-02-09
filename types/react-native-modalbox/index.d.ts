@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import * as React from "react";
+import { StyleProp, ViewStyle } from "react-native";
 
 export interface ModalProps {
     /**
@@ -63,7 +63,7 @@ export interface ModalProps {
      * Default is center
      *
      */
-    position?: 'top' | 'center' | 'bottom' | string;
+    position?: "top" | "center" | "bottom" | string;
 
     /**
      * The direction modal enters from
@@ -71,7 +71,7 @@ export interface ModalProps {
      * Default is bottom
      *
      */
-    entry?: 'top' | 'bottom' | string;
+    entry?: "top" | "bottom" | string;
 
     /**
      * If a backdrop is displayed behind the modal

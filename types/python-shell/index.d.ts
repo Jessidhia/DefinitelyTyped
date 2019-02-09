@@ -36,5 +36,12 @@ export interface InstanceOptions {
     args?: any[];
 }
 
-export function run(scriptName: string, RunOptions: RunOptions, callback: (err: Error, results?: any) => void): void;
-export function run(scriptName: string, callback: (err: Error, results?: any) => void): void;
+export function run(
+    scriptName: string,
+    RunOptions: RunOptions,
+    callback: (err: Error, results?: any) => void
+): void;
+export function run(
+    scriptName: string,
+    callback: (err: Error, results?: any) => void
+): void;

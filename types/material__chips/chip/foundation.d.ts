@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCChipAdapter from './adapter';
-import { cssClasses, strings } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCChipAdapter from "./adapter";
+import { cssClasses, strings } from "./constants";
 
 export default class MDCChipFoundation extends MDCFoundation<MDCChipAdapter> {
     static readonly strings: strings;

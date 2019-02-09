@@ -13,8 +13,9 @@ declare module "connect-redis" {
     import * as session from "express-session";
     import * as redis from "redis";
 
-
-    function s(options: (options?: session.SessionOptions) => express.RequestHandler): s.RedisStore;
+    function s(
+        options: (options?: session.SessionOptions) => express.RequestHandler
+    ): s.RedisStore;
 
     namespace s {
         interface RedisStore extends session.Store {

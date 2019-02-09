@@ -30,14 +30,19 @@ export interface CombinedActionType {
     _dummy: undefined;
 }
 
-export type ReducerMapValue<State, Payload> = Reducer<State, Payload> | ReducerNextThrow<State, Payload> | ReducerMap<State, Payload>;
+export type ReducerMapValue<State, Payload> =
+    | Reducer<State, Payload>
+    | ReducerNextThrow<State, Payload>
+    | ReducerMap<State, Payload>;
 
 export interface ReducerMap<State, Payload> {
     [actionType: string]: ReducerMapValue<State, Payload>;
 }
 
 export interface ReducerMapMeta<State, Payload, Meta> {
-    [actionType: string]: ReducerMeta<State, Payload, Meta> | ReducerNextThrowMeta<State, Payload, Meta>;
+    [actionType: string]:
+        | ReducerMeta<State, Payload, Meta>
+        | ReducerNextThrowMeta<State, Payload, Meta>;
 }
 
 export interface ReducerNextThrow<State, Payload> {
@@ -51,27 +56,40 @@ export interface ReducerNextThrowMeta<State, Payload, Meta> {
 }
 
 export type BaseActionFunctions<TAction> =
-    ActionFunction0<TAction> |
-    ActionFunction1<any, TAction> |
-    ActionFunction2<any, any, TAction> |
-    ActionFunction3<any, any, any, TAction> |
-    ActionFunction4<any, any, any, any, TAction> |
-    ActionFunctionAny<TAction>;
+    | ActionFunction0<TAction>
+    | ActionFunction1<any, TAction>
+    | ActionFunction2<any, any, TAction>
+    | ActionFunction3<any, any, any, TAction>
+    | ActionFunction4<any, any, any, any, TAction>
+    | ActionFunctionAny<TAction>;
 
 export type ActionFunctions<Payload> = BaseActionFunctions<Action<Payload>>;
 
-export type ActionWithMetaFunctions<Payload, Meta> = BaseActionFunctions<ActionMeta<Payload, Meta>>;
+export type ActionWithMetaFunctions<Payload, Meta> = BaseActionFunctions<
+    ActionMeta<Payload, Meta>
+>;
 
-export type Reducer<State, Payload> = (state: State, action: Action<Payload>) => State;
+export type Reducer<State, Payload> = (
+    state: State,
+    action: Action<Payload>
+) => State;
 
-export type ReducerMeta<State, Payload, Meta> = (state: State, action: ActionMeta<Payload, Meta>) => State;
+export type ReducerMeta<State, Payload, Meta> = (
+    state: State,
+    action: ActionMeta<Payload, Meta>
+) => State;
 
 /** argument inferring borrowed from lodash definitions */
 export type ActionFunction0<R> = () => R;
 export type ActionFunction1<T1, R> = (t1: T1) => R;
 export type ActionFunction2<T1, T2, R> = (t1: T1, t2: T2) => R;
 export type ActionFunction3<T1, T2, T3, R> = (t1: T1, t2: T2, t3: T3) => R;
-export type ActionFunction4<T1, T2, T3, T4, R> = (t1: T1, t2: T2, t3: T3, t4: T4) => R;
+export type ActionFunction4<T1, T2, T3, T4, R> = (
+    t1: T1,
+    t2: T2,
+    t3: T3,
+    t4: T4
+) => R;
 export type ActionFunctionAny<R> = (...args: any[]) => R;
 
 // https://github.com/redux-utilities/redux-actions/blob/v2.3.0/src/createAction.js#L6
@@ -151,8 +169,13 @@ export function handleAction<State, Payload>(
 ): Reducer<State, Payload>;
 
 export function handleAction<State, Payload, Meta>(
-    actionType: string | ActionWithMetaFunctions<Payload, Meta> | CombinedActionType,
-    reducer: ReducerMeta<State, Payload, Meta> | ReducerNextThrowMeta<State, Payload, Meta>,
+    actionType:
+        | string
+        | ActionWithMetaFunctions<Payload, Meta>
+        | CombinedActionType,
+    reducer:
+        | ReducerMeta<State, Payload, Meta>
+        | ReducerNextThrowMeta<State, Payload, Meta>,
     initialState: State
 ): Reducer<State, Payload>;
 
@@ -180,26 +203,28 @@ export function handleActions<State, Payload, Meta>(
 ): ReducerMeta<State, Payload, Meta>;
 
 // https://github.com/redux-utilities/redux-actions/blob/v2.3.0/src/combineActions.js#L21
-export function combineActions(...actionTypes: Array<ActionFunctions<any> | string | symbol>): CombinedActionType;
+export function combineActions(
+    ...actionTypes: Array<ActionFunctions<any> | string | symbol>
+): CombinedActionType;
 
 export interface ActionMap<Payload, Meta> {
     [actionType: string]:
-    ActionMap<Payload, Meta> |
-    ActionFunctionAny<Payload> |
-    [ActionFunctionAny<Payload>, ActionFunctionAny<Meta>] |
-    undefined;
+        | ActionMap<Payload, Meta>
+        | ActionFunctionAny<Payload>
+        | [ActionFunctionAny<Payload>, ActionFunctionAny<Meta>]
+        | undefined;
 }
 
 export function createActions<Payload>(
     actionMapOrIdentityAction: ActionMap<Payload, any> | string,
     ...identityActions: Array<string | Options>
 ): {
-    [actionName: string]: ActionFunctionAny<Action<Payload>>
+    [actionName: string]: ActionFunctionAny<Action<Payload>>;
 };
 
 export function createActions(
     actionMapOrIdentityAction: ActionMap<any, any> | string,
     ...identityActions: Array<string | Options>
 ): {
-    [actionName: string]: ActionFunctionAny<Action<any>>
+    [actionName: string]: ActionFunctionAny<Action<any>>;
 };

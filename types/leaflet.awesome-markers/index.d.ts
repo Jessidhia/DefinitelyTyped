@@ -6,7 +6,7 @@
 
 import * as Leaflet from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     namespace AwesomeMarkers {
         const version: string;
 
@@ -19,17 +19,26 @@ declare module 'leaflet' {
             /**
              * Select de icon library. 'fa' for font-awesome or 'glyphicon' for bootstrap 3.
              */
-            prefix?: 'fa' | 'glyphicon';
+            prefix?: "fa" | "glyphicon";
 
             /**
              * Color of the marker
              */
-            markerColor?: 'red' | 'darkred' | 'orange' | 'green' | 'darkgreen' | 'blue' | 'purple' | 'darkpurple' | 'cadetblue';
+            markerColor?:
+                | "red"
+                | "darkred"
+                | "orange"
+                | "green"
+                | "darkgreen"
+                | "blue"
+                | "purple"
+                | "darkpurple"
+                | "cadetblue";
 
             /**
              * Color of the icon. 'white', 'black' or css code (hex, rgba etc).
              */
-            iconColor?: 'white' | 'black' | string;
+            iconColor?: "white" | "black" | string;
 
             /**
              * Make the icon spin. true or false. Font-awesome required

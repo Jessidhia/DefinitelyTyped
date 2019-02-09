@@ -6,4 +6,6 @@ export interface Middleware {
     renderRouteComponent?(previous: RouteComponent, props: any): RouteComponent;
 }
 
-export default function applyRouterMiddleware(...middlewares: Middleware[]): (renderProps: any) => RouterContext;
+export default function applyRouterMiddleware(
+    ...middlewares: Middleware[]
+): (renderProps: any) => RouterContext;

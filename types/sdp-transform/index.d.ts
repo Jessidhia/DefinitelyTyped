@@ -9,12 +9,16 @@
 export function write(description: SessionDescription): string;
 export function parse(description: string): SessionDescription;
 export function parsePayloads(payloads: string): number[];
-export function parseRemoteCandidates(candidates: string): Array<{
+export function parseRemoteCandidates(
+    candidates: string
+): Array<{
     component: number;
     ip: string;
     port: number;
 }>;
-export function parseSimulcastStreamList(streams: string): Array<{
+export function parseSimulcastStreamList(
+    streams: string
+): Array<{
     scid: number | string;
     paused: boolean;
 }>;
@@ -24,14 +28,18 @@ export interface ParamMap {
 export function parseParams(params: string): ParamMap;
 export function parseImageAttributes(params: string): ParamMap[];
 
-export interface MediaDescription extends SharedDescriptionFields, MediaAttributes {}
+export interface MediaDescription
+    extends SharedDescriptionFields,
+        MediaAttributes {}
 
 /**
  * Descriptor fields that exist only at the session level (before an m= block).
  *
  * See the SDP grammar for more details: https://tools.ietf.org/html/rfc4566#section-9
  */
-export interface SessionDescription extends SharedDescriptionFields, SessionAttributes {
+export interface SessionDescription
+    extends SharedDescriptionFields,
+        SessionAttributes {
     version?: number;
     // o=
     origin?: {
@@ -59,12 +67,14 @@ export interface SessionDescription extends SharedDescriptionFields, SessionAttr
     // r=
     repeats?: string;
     // m=
-    media: Array<{
-        type: string;
-        port: number;
-        protocol: string;
-        payloads?: string;
-    } & MediaDescription>;
+    media: Array<
+        {
+            type: string;
+            port: number;
+            protocol: string;
+            payloads?: string;
+        } & MediaDescription
+    >;
 }
 
 /**
@@ -77,7 +87,7 @@ export interface SharedAttributes {
     // a=recvonly
     // a=sendonly
     // a=inactive
-    direction?: 'sendrecv' | 'recvonly' | 'sendonly' | 'inactive';
+    direction?: "sendrecv" | "recvonly" | "sendonly" | "inactive";
     // a=control
     control?: string;
     // a=extmap
@@ -98,7 +108,7 @@ export interface SharedAttributes {
     };
     // a=source-filter: incl IN IP4 239.5.2.31 10.1.15.5
     sourceFilter?: {
-        filterMode: 'excl' | 'incl';
+        filterMode: "excl" | "incl";
         netType: string;
         addressTypes: string;
         destAddress: string;
@@ -189,8 +199,8 @@ export interface MediaAttributes extends SharedAttributes {
         rport: number;
         tcptype: string;
         generation: number;
-        'network-id'?: number;
-        'network-cost'?: number;
+        "network-id"?: number;
+        "network-cost"?: number;
     }>;
     // a=end-of-candidates
     endOfCandidates?: string;
@@ -259,7 +269,7 @@ export interface SharedDescriptionFields {
     };
     // b=AS:4000
     bandwidth?: {
-        type: 'TIAS' | 'AS' | 'CT' | 'RR' | 'RS';
+        type: "TIAS" | "AS" | "CT" | "RR" | "RS";
         limit: number | string;
     };
 }

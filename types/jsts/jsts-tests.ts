@@ -1,6 +1,4 @@
-
-
-import * as jsts from 'jsts';
+import * as jsts from "jsts";
 
 var str: string;
 var n: number;

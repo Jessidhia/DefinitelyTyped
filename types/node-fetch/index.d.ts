@@ -51,7 +51,7 @@ export interface RequestInit {
 }
 
 export type RequestContext =
-    "audio"
+    | "audio"
     | "beacon"
     | "cspreport"
     | "download"
@@ -89,7 +89,7 @@ export type RequestRedirect = "error" | "follow" | "manual";
 export type RequestCredentials = "omit" | "include" | "same-origin";
 
 export type RequestCache =
-    "default"
+    | "default"
     | "force-cache"
     | "no-cache"
     | "no-store"
@@ -156,7 +156,7 @@ export class Response extends Body {
 }
 
 export type ResponseType =
-    "basic"
+    | "basic"
     | "cors"
     | "default"
     | "error"
@@ -170,7 +170,12 @@ export interface ResponseInit {
 }
 
 export type HeaderInit = Headers | string[];
-export type BodyInit = ArrayBuffer | ArrayBufferView | NodeJS.ReadableStream | string | URLSearchParams;
+export type BodyInit =
+    | ArrayBuffer
+    | ArrayBufferView
+    | NodeJS.ReadableStream
+    | string
+    | URLSearchParams;
 export type RequestInfo = string | Request;
 
 declare function fetch(

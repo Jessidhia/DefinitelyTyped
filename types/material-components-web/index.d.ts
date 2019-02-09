@@ -20,32 +20,32 @@
  * limitations under the License.
  */
 
-import autoInit from 'material__auto-init';
-import * as base from 'material__base';
-import * as checkbox from 'material__checkbox';
-import * as chips from 'material__chips';
-import * as dialog from 'material__dialog';
-import * as dom from 'material__dom';
-import * as drawer from 'material__drawer';
-import * as floatingLabel from 'material__floating-label';
-import * as formField from 'material__form-field';
-import * as gridList from 'material__grid-list';
-import * as iconToggle from 'material__icon-toggle';
-import * as linearProgress from 'material__linear-progress';
-import * as lineRipple from 'material__line-ripple';
-import * as list from 'material__list';
-import * as menu from 'material__menu';
-import * as notchedOutline from 'material__notched-outline';
-import * as radio from 'material__radio';
-import * as ripple from 'material__ripple';
-import * as select from 'material__select';
-import * as selectionControl from 'material__selection-control';
-import * as slider from 'material__slider';
-import * as snackbar from 'material__snackbar';
-import * as tabs from 'material__tabs';
-import * as textField from 'material__textfield';
-import * as toolbar from 'material__toolbar';
-import * as topAppBar from 'material__top-app-bar';
+import autoInit from "material__auto-init";
+import * as base from "material__base";
+import * as checkbox from "material__checkbox";
+import * as chips from "material__chips";
+import * as dialog from "material__dialog";
+import * as dom from "material__dom";
+import * as drawer from "material__drawer";
+import * as floatingLabel from "material__floating-label";
+import * as formField from "material__form-field";
+import * as gridList from "material__grid-list";
+import * as iconToggle from "material__icon-toggle";
+import * as linearProgress from "material__linear-progress";
+import * as lineRipple from "material__line-ripple";
+import * as list from "material__list";
+import * as menu from "material__menu";
+import * as notchedOutline from "material__notched-outline";
+import * as radio from "material__radio";
+import * as ripple from "material__ripple";
+import * as select from "material__select";
+import * as selectionControl from "material__selection-control";
+import * as slider from "material__slider";
+import * as snackbar from "material__snackbar";
+import * as tabs from "material__tabs";
+import * as textField from "material__textfield";
+import * as toolbar from "material__toolbar";
+import * as topAppBar from "material__top-app-bar";
 // Export all components.
 export {
     autoInit,

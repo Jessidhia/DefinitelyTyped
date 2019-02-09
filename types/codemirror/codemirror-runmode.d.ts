@@ -8,7 +8,6 @@
 import * as CodeMirror from "codemirror";
 
 declare module "codemirror" {
-
     /**
      * Runs a CodeMirror mode over text without opening an editor instance.
      *
@@ -20,5 +19,10 @@ declare module "codemirror" {
      *               tokens will be converted to span elements as in an editor,
      *               and inserted into the node (through innerHTML).
      */
-    function runMode(text: string, modespec: any, callback: (HTMLElement | ((text: string, style: string | null) => void)), options? : { tabSize?: number; state?: any; }): void;
+    function runMode(
+        text: string,
+        modespec: any,
+        callback: HTMLElement | ((text: string, style: string | null) => void),
+        options?: { tabSize?: number; state?: any }
+    ): void;
 }

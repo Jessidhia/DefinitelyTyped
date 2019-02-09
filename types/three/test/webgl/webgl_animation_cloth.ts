@@ -31,11 +31,8 @@
 
     pins = pinsFormation[1];
 
-
     function togglePins() {
-
         pins = pinsFormation[~~(Math.random() * pinsFormation.length)];
-
     }
 
     if (!Detector.webgl) Detector.addGetWebGLMessage();
@@ -49,15 +46,14 @@
     var sphere: THREE.Mesh;
     var object: THREE.Mesh;
     var arrow: THREE.ArrowHelper;
-    var light:  THREE.DirectionalLight;
+    var light: THREE.DirectionalLight;
     var rotate = true;
 
     init();
     animate();
 
     function init() {
-
-        container = document.createElement('div');
+        container = document.createElement("div");
         document.body.appendChild(container);
 
         // scene
@@ -68,7 +64,12 @@
 
         // camera
 
-        camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 10000);
+        camera = new THREE.PerspectiveCamera(
+            30,
+            window.innerWidth / window.innerHeight,
+            1,
+            10000
+        );
         camera.position.y = 50;
         camera.position.z = 1500;
         scene.add(camera);
@@ -101,20 +102,36 @@
 
         // cloth material
 
-        var clothTexture = THREE.ImageUtils.loadTexture('textures/patterns/circuit_pattern.png');
+        var clothTexture = THREE.ImageUtils.loadTexture(
+            "textures/patterns/circuit_pattern.png"
+        );
         clothTexture.wrapS = clothTexture.wrapT = THREE.RepeatWrapping;
         clothTexture.anisotropy = 16;
 
-        var clothMaterial = new THREE.MeshPhongMaterial({ alphaTest: 0.5, color: 0xffffff, specular: 0x030303, emissive: 0x111111, shininess: 10, map: clothTexture, side: THREE.DoubleSide });
+        var clothMaterial = new THREE.MeshPhongMaterial({
+            alphaTest: 0.5,
+            color: 0xffffff,
+            specular: 0x030303,
+            emissive: 0x111111,
+            shininess: 10,
+            map: clothTexture,
+            side: THREE.DoubleSide
+        });
 
         // cloth geometry
-        clothGeometry = new THREE.ParametricGeometry(clothFunction, cloth.w, cloth.h);
+        clothGeometry = new THREE.ParametricGeometry(
+            clothFunction,
+            cloth.w,
+            cloth.h
+        );
         //clothGeometry.dynamic = true;
         clothGeometry.computeFaceNormals();
 
         var uniforms = { texture: { value: clothTexture } };
-        var vertexShader = document.getElementById('vertexShaderDepth').textContent;
-        var fragmentShader = document.getElementById('fragmentShaderDepth').textContent;
+        var vertexShader = document.getElementById("vertexShaderDepth")
+            .textContent;
+        var fragmentShader = document.getElementById("fragmentShaderDepth")
+            .textContent;
 
         // cloth mesh
 
@@ -138,29 +155,47 @@
 
         // arrow
 
-        arrow = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 50, 0xff0000);
+        arrow = new THREE.ArrowHelper(
+            new THREE.Vector3(0, 1, 0),
+            new THREE.Vector3(0, 0, 0),
+            50,
+            0xff0000
+        );
         arrow.position.set(-200, 0, -200);
         // scene.add( arrow );
 
         // ground
 
-        var groundTexture = THREE.ImageUtils.loadTexture("textures/terrain/grasslight-big.jpg");
+        var groundTexture = THREE.ImageUtils.loadTexture(
+            "textures/terrain/grasslight-big.jpg"
+        );
         groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
         groundTexture.repeat.set(25, 25);
         groundTexture.anisotropy = 16;
 
-        var groundMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x111111, map: groundTexture });
+        var groundMaterial = new THREE.MeshPhongMaterial({
+            color: 0xffffff,
+            specular: 0x111111,
+            map: groundTexture
+        });
 
-        var mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(20000, 20000), groundMaterial);
+        var mesh = new THREE.Mesh(
+            new THREE.PlaneBufferGeometry(20000, 20000),
+            groundMaterial
+        );
         mesh.position.y = -250;
-        mesh.rotation.x = - Math.PI / 2;
+        mesh.rotation.x = -Math.PI / 2;
         mesh.receiveShadow = true;
         scene.add(mesh);
 
         // poles
 
         var poleGeo = new THREE.BoxGeometry(5, 375, 5);
-        var poleMat = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x111111, shininess: 100 });
+        var poleMat = new THREE.MeshPhongMaterial({
+            color: 0xffffff,
+            specular: 0x111111,
+            shininess: 100
+        });
 
         var mesh = new THREE.Mesh(poleGeo, poleMat);
         mesh.position.x = -125;
@@ -219,52 +254,51 @@
 
         //
 
-        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener("resize", onWindowResize, false);
 
-        sphere.visible = !true
-
-			}
+        sphere.visible = !true;
+    }
 
     //
 
     function onWindowResize() {
-
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-
     }
 
     //
 
     function animate() {
-
         requestAnimationFrame(animate);
 
         var time = Date.now();
 
         windStrength = Math.cos(time / 7000) * 20 + 40;
-        windForce.set(Math.sin(time / 2000), Math.cos(time / 3000), Math.sin(time / 1000)).normalize().multiplyScalar(windStrength);
+        windForce
+            .set(
+                Math.sin(time / 2000),
+                Math.cos(time / 3000),
+                Math.sin(time / 1000)
+            )
+            .normalize()
+            .multiplyScalar(windStrength);
         arrow.setLength(windStrength);
         arrow.setDirection(windForce);
 
         simulate(time);
         render();
         stats.update();
-
     }
 
     function render() {
-
         var timer = Date.now() * 0.0002;
 
         var p = cloth.particles;
 
         for (var i = 0, il = p.length; i < il; i++) {
-
             clothGeometry.vertices[i].copy(p[i].position);
-
         }
 
         clothGeometry.computeFaceNormals();
@@ -276,15 +310,12 @@
         sphere.position.copy(ballPosition);
 
         if (rotate) {
-
             camera.position.x = Math.cos(timer) * 1500;
             camera.position.z = Math.sin(timer) * 1500;
-
         }
 
         camera.lookAt(scene.position);
 
         renderer.render(scene, camera);
-
     }
-}
+};

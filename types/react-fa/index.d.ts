@@ -4,7 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, ComponentClass, HTMLProps, StatelessComponent, ReactElement } from "react";
+import {
+    Component,
+    ComponentClass,
+    HTMLProps,
+    StatelessComponent,
+    ReactElement
+} from "react";
 
 // fake intermediate interface to remove typing on size, as the typing
 // is overrided by react-fa

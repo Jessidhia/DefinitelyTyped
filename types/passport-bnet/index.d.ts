@@ -4,11 +4,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Strategy as OAuth2Strategy, VerifyFunction, VerifyFunctionWithRequest, _StrategyOptionsBase } from 'passport-oauth2';
+import {
+    Strategy as OAuth2Strategy,
+    VerifyFunction,
+    VerifyFunctionWithRequest,
+    _StrategyOptionsBase
+} from "passport-oauth2";
 
 declare class BnetStrategy extends OAuth2Strategy {
     constructor(options: BnetStrategy.StrategyOptions, verify: VerifyFunction);
-    constructor(options: BnetStrategy.StrategyOptionsWithRequest, verify: VerifyFunctionWithRequest);
+    constructor(
+        options: BnetStrategy.StrategyOptionsWithRequest,
+        verify: VerifyFunctionWithRequest
+    );
 }
 
 declare namespace BnetStrategy {

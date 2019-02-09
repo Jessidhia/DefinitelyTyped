@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import { ITest, ITestDefinition, ITestCallbackContext } from 'mocha';
+import { ITest, ITestDefinition, ITestCallbackContext } from "mocha";
 
 /**
  * This function takes an array collections of parameters to be used in
@@ -39,12 +39,18 @@ interface ForEachITestDefinition {
      *     callback?: (this, ...args, done?: MochaDone)
      * Additionally, Mocha does not export its MochaDone interface.
      */
-    (expectation: string, callback?:
-        (this: ITestCallbackContext, ...args: any[]) => any): ITest;
-    only(expectation: string, callback?:
-        (this: ITestCallbackContext, ...args: any[]) => any): ITest;
-    skip(expectation: string, callback?:
-        (this: ITestCallbackContext, ...args: any[]) => any): ITest;
+    (
+        expectation: string,
+        callback?: (this: ITestCallbackContext, ...args: any[]) => any
+    ): ITest;
+    only(
+        expectation: string,
+        callback?: (this: ITestCallbackContext, ...args: any[]) => any
+    ): ITest;
+    skip(
+        expectation: string,
+        callback?: (this: ITestCallbackContext, ...args: any[]) => any
+    ): ITest;
 }
 
 export = forEach;

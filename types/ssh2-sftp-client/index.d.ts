@@ -6,8 +6,8 @@
 //                 Michael Pertl <https://github.com/viamuli>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as ssh2 from 'ssh2';
-import * as ssh2Stream from 'ssh2-streams';
+import * as ssh2 from "ssh2";
+import * as ssh2Stream from "ssh2-streams";
 
 export = sftp;
 
@@ -20,13 +20,30 @@ declare class sftp {
 
     stat(remotePath: string): Promise<sftp.FileStats>;
 
-    get(remoteFilePath: string, useCompression?: boolean, encoding?: string | null): Promise<NodeJS.ReadableStream>;
+    get(
+        remoteFilePath: string,
+        useCompression?: boolean,
+        encoding?: string | null
+    ): Promise<NodeJS.ReadableStream>;
 
-    fastGet(remoteFilePath: string, localPath: string, options?: ssh2Stream.TransferOptions): Promise<string>;
+    fastGet(
+        remoteFilePath: string,
+        localPath: string,
+        options?: ssh2Stream.TransferOptions
+    ): Promise<string>;
 
-    put(input: string | Buffer | NodeJS.ReadableStream, remoteFilePath: string, useCompression?: boolean, encoding?: string): Promise<void>;
+    put(
+        input: string | Buffer | NodeJS.ReadableStream,
+        remoteFilePath: string,
+        useCompression?: boolean,
+        encoding?: string
+    ): Promise<void>;
 
-    fastPut(localPath: string, emoteFilePath: string, options?: ssh2Stream.TransferOptions): Promise<string>;
+    fastPut(
+        localPath: string,
+        emoteFilePath: string,
+        options?: ssh2Stream.TransferOptions
+    ): Promise<string>;
 
     mkdir(remoteFilePath: string, recursive?: boolean): Promise<void>;
 

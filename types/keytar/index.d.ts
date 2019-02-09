@@ -3,7 +3,6 @@
 // Definitions by: Milan Burda <https://github.com/miniak>, Brendan Forster <https://github.com/shiftkey>, Hari Juturu <https://github.com/juturu>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 /**
  * Get the stored password for the service and account.
  *
@@ -12,7 +11,10 @@
  *
  * @returns A promise for the password string.
  */
-export declare function getPassword(service: string, account: string): Promise<string | null>;
+export declare function getPassword(
+    service: string,
+    account: string
+): Promise<string | null>;
 
 /**
  * Add the password for the service and account to the keychain.
@@ -23,7 +25,11 @@ export declare function getPassword(service: string, account: string): Promise<s
  *
  * @returns A promise for the set password completion.
  */
-export declare function setPassword(service: string, account: string, password: string): Promise<void>;
+export declare function setPassword(
+    service: string,
+    account: string,
+    password: string
+): Promise<void>;
 
 /**
  * Delete the stored password for the service and account.
@@ -33,7 +39,10 @@ export declare function setPassword(service: string, account: string, password: 
  *
  * @returns A promise for the deletion status. True on success.
  */
-export declare function deletePassword(service: string, account: string): Promise<boolean>;
+export declare function deletePassword(
+    service: string,
+    account: string
+): Promise<boolean>;
 
 /**
  * Find a password for the service in the keychain.

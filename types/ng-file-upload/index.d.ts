@@ -6,12 +6,12 @@
 // TypeScript Version: 2.3
 
 /// <reference types="angular" />
-import * as angular from 'angular';
+import * as angular from "angular";
 
 declare var angularFileUploadDefaultExport: string;
 export = angularFileUploadDefaultExport;
 
-declare module 'angular' {
+declare module "angular" {
     export namespace angularFileUpload {
         interface ImageDimensions {
             height: number;
@@ -97,7 +97,7 @@ declare module 'angular' {
              */
             ngfValidateForce?: boolean;
         }
-        
+
         interface ResizeIfFunction {
             (width: number, height: number): boolean;
         }
@@ -123,7 +123,9 @@ declare module 'angular' {
              * @param  {Array<File>}
              * @return {angular.IPromise}
              */
-            base64DataUrl(files: File | Array<File>): angular.IPromise<Array<string> | string>;
+            base64DataUrl(
+                files: File | Array<File>
+            ): angular.IPromise<Array<string> | string>;
             /**
              * Convert the file to blob url object or base64 data url based on boolean disallowObjectUrl value
              *
@@ -131,7 +133,10 @@ declare module 'angular' {
              * @param  {boolean} [disallowObjectUrl]
              * @return {angular.IPromise<string>}
              */
-            dataUrl(file: File, disallowObjectUrl?: boolean): angular.IPromise<Blob | string>;
+            dataUrl(
+                file: File,
+                disallowObjectUrl?: boolean
+            ): angular.IPromise<Blob | string>;
             /**
              * Alternative way of uploading, send the file binary with the file's content-type.
              * Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed.
@@ -201,7 +206,10 @@ declare module 'angular' {
              * @param  {boolean} [centerCrop]
              * @return {angular.IPromise<string>}
              */
-            resize(file: File, options: FileResizeOptions): angular.IPromise<File>;
+            resize(
+                file: File,
+                options: FileResizeOptions
+            ): angular.IPromise<File>;
             /**
              * Set the default values for ngf-select and ngf-drop directives
              *
@@ -224,7 +232,9 @@ declare module 'angular' {
              * @return {IUploadPromise<T>}
              */
             abort(): IUploadPromise<T>;
-            progress(callback: (event: IFileProgressEvent) => void): IUploadPromise<T>;
+            progress(
+                callback: (event: IFileProgressEvent) => void
+            ): IUploadPromise<T>;
             /**
              * Access or attach event listeners to the underlying XMLHttpRequest
              *

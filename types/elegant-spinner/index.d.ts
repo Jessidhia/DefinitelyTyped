@@ -8,5 +8,5 @@ export = elegantSpinner;
 declare function elegantSpinner(): () => string;
 
 declare namespace elegantSpinner {
-  const frames: ReadonlyArray<string>;
+    const frames: ReadonlyArray<string>;
 }

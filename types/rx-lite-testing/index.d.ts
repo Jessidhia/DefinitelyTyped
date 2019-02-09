@@ -11,8 +11,16 @@ declare namespace Rx {
         createHotObservable<T>(...records: Recorded[]): Observable<T>;
         createObserver<T>(): MockObserver<T>;
 
-        startWithTiming<T>(create: () => Observable<T>, createdAt: number, subscribedAt: number, disposedAt: number): MockObserver<T>;
-        startWithDispose<T>(create: () => Observable<T>, disposedAt: number): MockObserver<T>;
+        startWithTiming<T>(
+            create: () => Observable<T>,
+            createdAt: number,
+            subscribedAt: number,
+            disposedAt: number
+        ): MockObserver<T>;
+        startWithDispose<T>(
+            create: () => Observable<T>,
+            disposedAt: number
+        ): MockObserver<T>;
         startWithCreate<T>(create: () => Observable<T>): MockObserver<T>;
     }
 
@@ -21,7 +29,11 @@ declare namespace Rx {
     };
 
     class Recorded {
-        constructor(time: number, value: any, equalityComparer?: (x: any, y: any) => boolean);
+        constructor(
+            time: number,
+            value: any,
+            equalityComparer?: (x: any, y: any) => boolean
+        );
         equals(other: Recorded): boolean;
         toString(): string;
         time: number;

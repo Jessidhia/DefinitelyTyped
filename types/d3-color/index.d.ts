@@ -16,7 +16,12 @@
 /**
  * Type allowing for color objects from a specified color space
  */
-export type ColorSpaceObject = RGBColor | HSLColor | LabColor | HCLColor | CubehelixColor;
+export type ColorSpaceObject =
+    | RGBColor
+    | HSLColor
+    | LabColor
+    | HCLColor
+    | CubehelixColor;
 
 /**
  * A helper interface of methods common to color objects (including colors defined outside the d3-color standard module,

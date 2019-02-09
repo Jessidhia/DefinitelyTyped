@@ -54,7 +54,8 @@ class SomeCommand extends core.Command {
 
 // core/editor/utils/dataapimixin =============================================
 
-class DataApiEditor extends core.editor.Editor implements core.editor.utils.DataApi {
+class DataApiEditor extends core.editor.Editor
+    implements core.editor.utils.DataApi {
     // mixin by DataApiMixin
     getData: () => string;
     setData: (data: string) => void;
@@ -67,7 +68,8 @@ str = dataApiEditor.getData();
 
 // core/editor/utils/elementapimixin ==========================================
 
-class ElementApiEditor extends core.editor.Editor implements core.editor.utils.ElementApi {
+class ElementApiEditor extends core.editor.Editor
+    implements core.editor.utils.ElementApi {
     // mixin by ElementApiMixin
     readonly sourceElement: HTMLElement;
     updateSourceElement: () => void;
@@ -120,7 +122,7 @@ core.editor.Editor.defaultConfig = {
 };
 
 editor = new core.editor.Editor();
-editor = new core.editor.Editor({language: "pl"});
+editor = new core.editor.Editor({ language: "pl" });
 
 editor.destroy();
 editor.destroy().then(() => {
@@ -203,12 +205,12 @@ keystrokes = new core.EditingKeystrokeHandler(editor);
 
 editor = keystrokes.editor;
 
-keystrokes.press({keyCode: 123});
+keystrokes.press({ keyCode: 123 });
 
 keystrokes.set("Ctrl+A", "foo");
 keystrokes.set(["shift", "33"], "foo");
-keystrokes.set(["ctrl", "A"], "foo", {priority: 10});
-keystrokes.set(["ctrl", "A"], "foo", {priority: "high"});
+keystrokes.set(["ctrl", "A"], "foo", { priority: 10 });
+keystrokes.set(["ctrl", "A"], "foo", { priority: "high" });
 keystrokes.set(["ctrl", "A"], () => console.log("key"));
 keystrokes.set(["ctrl", "A"], (keyEvtData, cancel) => {
     console.log(keyEvtData.keyCode);
@@ -256,9 +258,15 @@ class MyPluginAll extends core.Plugin<string> {
         return [MyPlugin, MyPluginMini];
     }
 
-    afterInit() {return Math.random() ? null : Promise.resolve("resolved"); }
-    destroy() {return Math.random() ? null : Promise.resolve("destroy"); }
-    init() {return Math.random() ? null : Promise.resolve("init"); }
+    afterInit() {
+        return Math.random() ? null : Promise.resolve("resolved");
+    }
+    destroy() {
+        return Math.random() ? null : Promise.resolve("destroy");
+    }
+    init() {
+        return Math.random() ? null : Promise.resolve("init");
+    }
 }
 
 plugin = new MyPlugin(editor);
@@ -297,32 +305,33 @@ pluginCollectionStr = new core.PluginCollection(editor, [MyPluginAll]);
 // $ExpectError
 pluginCollectionStr = new core.PluginCollection(editor, [MyPlugin]);
 
-const aColl = new core.PluginCollection<MyPluginAll | MyPluginMini>(editor, [MyPluginAll, MyPluginMini]);
+const aColl = new core.PluginCollection<MyPluginAll | MyPluginMini>(editor, [
+    MyPluginAll,
+    MyPluginMini
+]);
 
 const myColl = new core.PluginCollection(editor, [MyPlugin]);
 
 const myCollArray = Array.from(myColl);
 myPlugins = myCollArray.map(entry => entry[1]);
-myPlugin = new (myCollArray[0][0])(editor);
+myPlugin = new myCollArray[0][0](editor);
 
-myColl.destroy()
-    .then(destroyedPlugins => {
-        num = destroyedPlugins.length;
-        const plugin = destroyedPlugins[0];
-        editor = plugin.editor;
-        plugin.init!();
-        plugin.destroy();
-        str = plugin.myMethod();
-    });
+myColl.destroy().then(destroyedPlugins => {
+    num = destroyedPlugins.length;
+    const plugin = destroyedPlugins[0];
+    editor = plugin.editor;
+    plugin.init!();
+    plugin.destroy();
+    str = plugin.myMethod();
+});
 
 myPluginMaybe = myColl.get("A");
 myPluginMaybe = myColl.get(MyPlugin);
 
-myColl.load([MyPlugin, "A"])
-    .then((loadedPlugins) => {
-        const plugin = loadedPlugins[0];
-        editor = plugin.editor;
-        str = plugin.myMethod();
-    });
+myColl.load([MyPlugin, "A"]).then(loadedPlugins => {
+    const plugin = loadedPlugins[0];
+    editor = plugin.editor;
+    str = plugin.myMethod();
+});
 
 myColl.load([MyPlugin, "A"], [MyPlugin, "A"]);

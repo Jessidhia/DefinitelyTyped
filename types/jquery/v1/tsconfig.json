@@ -1,29 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": false,
         "noImplicitThis": false,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "jquery": [
-                "jquery/v1"
-            ]
+            "jquery": ["jquery/v1"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "jquery-tests.ts"
-    ]
+    "files": ["index.d.ts", "jquery-tests.ts"]
 }

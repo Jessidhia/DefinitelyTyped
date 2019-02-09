@@ -3,12 +3,14 @@
 // Definitions by: alibaba ali-Kos <https://github.com/ali-Kos>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
-import * as React from 'react';
+import * as React from "react";
 
 type ReactComponent<P = any, S = any> = React.ComponentClass<P, S>;
 
 interface Util {
-    getActionType: (action: string) => { namespace: string | null; type: string };
+    getActionType: (
+        action: string
+    ) => { namespace: string | null; type: string };
 }
 
 interface WrapperConfig {
@@ -40,7 +42,11 @@ export interface KosModel<T = any> {
         [key: string]: (state: T, { payload }: { payload: T }) => void;
     };
     asyncs: {
-        [key: string]: (dispatch: KosDispatch, getState: GetKosState<T>, action: Action) => void;
+        [key: string]: (
+            dispatch: KosDispatch,
+            getState: GetKosState<T>,
+            action: Action
+        ) => void;
     };
     setup?: (dispatch: KosDispatch, getState: GetKosState<T>) => void;
     getAsync?: (

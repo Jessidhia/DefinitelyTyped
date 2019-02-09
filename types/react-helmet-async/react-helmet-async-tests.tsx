@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { renderToString } from 'react-dom/server';
-import Helmet, { HelmetProvider, PopulatedContext } from 'react-helmet-async';
+import * as React from "react";
+import { renderToString } from "react-dom/server";
+import Helmet, { HelmetProvider, PopulatedContext } from "react-helmet-async";
 
 const helmetContext = {};
 

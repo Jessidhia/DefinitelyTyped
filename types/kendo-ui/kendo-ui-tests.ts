@@ -2,7 +2,7 @@ var is = {
     string: (msg: string) => {
         return true;
     }
-}
+};
 
 // TreeView
 $(() => {

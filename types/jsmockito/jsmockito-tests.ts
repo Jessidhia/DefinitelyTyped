@@ -1,25 +1,37 @@
-
-
 function test_version() {
     var version: string = JsMockito.version;
 }
 
 // JsMockito.JsMockitoStubBuilder
 
-
 function test_then() {
-    new JsMockito.JsMockitoStubBuilder().then(function () {});
-    new JsMockito.JsMockitoStubBuilder().then(function () {}, function () {}, function () {});
+    new JsMockito.JsMockitoStubBuilder().then(function() {});
+    new JsMockito.JsMockitoStubBuilder().then(
+        function() {},
+        function() {},
+        function() {}
+    );
 }
 
 function test_thenReturn() {
     new JsMockito.JsMockitoStubBuilder().thenReturn(1);
-    new JsMockito.JsMockitoStubBuilder().thenReturn("two", [3, 4], {5: 6}, function (seven: number) {return seven;});
+    new JsMockito.JsMockitoStubBuilder().thenReturn(
+        "two",
+        [3, 4],
+        { 5: 6 },
+        function(seven: number) {
+            return seven;
+        }
+    );
 }
 
 function test_thenThrow() {
     new JsMockito.JsMockitoStubBuilder().thenThrow(new Error());
-    new JsMockito.JsMockitoStubBuilder().thenThrow(new EvalError(), new RangeError(), new ReferenceError());
+    new JsMockito.JsMockitoStubBuilder().thenThrow(
+        new EvalError(),
+        new RangeError(),
+        new ReferenceError()
+    );
 }
 
 // JsMockito
@@ -29,7 +41,9 @@ function test_JsMockito_isMock() {
 }
 
 function test_JsMockito_when() {
-    JsMockito.when(new TestClass()).test().thenReturn(true);
+    JsMockito.when(new TestClass())
+        .test()
+        .thenReturn(true);
 }
 
 function test_JsMockito_verify() {
@@ -39,12 +53,20 @@ function test_JsMockito_verify() {
 
 function test_JsMockito_verifyZeroInteractions() {
     JsMockito.verifyZeroInteractions(new TestClass());
-    JsMockito.verifyZeroInteractions(new TestClass(), new TestClass(), new TestClass());
+    JsMockito.verifyZeroInteractions(
+        new TestClass(),
+        new TestClass(),
+        new TestClass()
+    );
 }
 
 function test_JsMockito_verifyNoMoreInteractions() {
     JsMockito.verifyNoMoreInteractions(new TestClass());
-    JsMockito.verifyNoMoreInteractions(new TestClass(), new TestClass(), new TestClass());
+    JsMockito.verifyNoMoreInteractions(
+        new TestClass(),
+        new TestClass(),
+        new TestClass()
+    );
 }
 
 function test_JsMockito_spy() {
@@ -70,11 +92,17 @@ function test_JsMockito_Verifiers_never() {
 }
 
 function test_JsMockito_Verifiers_zeroInteractions() {
-    JsMockito.verify(new TestClass(), JsMockito.Verifiers.zeroInteractions()).test();
+    JsMockito.verify(
+        new TestClass(),
+        JsMockito.Verifiers.zeroInteractions()
+    ).test();
 }
 
 function test_JsMockito_Verifiers_noMoreInteractions() {
-    JsMockito.verify(new TestClass(), JsMockito.Verifiers.noMoreInteractions()).test();
+    JsMockito.verify(
+        new TestClass(),
+        JsMockito.Verifiers.noMoreInteractions()
+    ).test();
 }
 
 function test_JsMockito_Verifiers_times() {
@@ -126,7 +154,9 @@ function test_isMock() {
 }
 
 function test_when() {
-    when(new TestClass()).test().thenReturn(true);
+    when(new TestClass())
+        .test()
+        .thenReturn(true);
 }
 
 function test_verify() {
@@ -192,6 +222,4 @@ declare class TestClass {
     test(): any;
 }
 
-declare class TestVerifier implements JsMockito.Verifier {
-
-}
+declare class TestVerifier implements JsMockito.Verifier {}

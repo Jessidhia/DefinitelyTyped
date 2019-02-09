@@ -8,18 +8,18 @@
 
 import {
     Handler as SwToolboxHanlder,
-    Options as SwToolboxOptions,
-} from 'sw-toolbox';
+    Options as SwToolboxOptions
+} from "sw-toolbox";
 
 export type Handler =
-    | 'networkFirst'
-    | 'cacheFirst'
-    | 'fastest'
-    | 'cacheOnly'
-    | 'networkOnly'
+    | "networkFirst"
+    | "cacheFirst"
+    | "fastest"
+    | "cacheOnly"
+    | "networkOnly"
     | SwToolboxHanlder;
 
-export type Method = 'get' | 'post' | 'put' | 'delete' | 'head';
+export type Method = "get" | "post" | "put" | "delete" | "head";
 
 export interface Options {
     cacheId?: string;
@@ -32,7 +32,7 @@ export interface Options {
     handleFetch?: boolean;
     ignoreUrlParametersMatching?: RegExp[];
     importScripts?: string[];
-    logger?: Console['log'];
+    logger?: Console["log"];
     maximumFileSizeToCacheInBytes?: number;
     navigateFallback?: string;
     navigateFallbackWhitelist?: RegExp[];
@@ -57,14 +57,14 @@ export type Generate = (
     options?: Options,
     callback?: (
         error: NodeJS.ErrnoException,
-        serviceWorkerString: string,
-    ) => void,
+        serviceWorkerString: string
+    ) => void
 ) => Promise<string>;
 
 export type Write = (
     filePath: string,
     options?: Options,
-    callback?: (error: NodeJS.ErrnoException) => void,
+    callback?: (error: NodeJS.ErrnoException) => void
 ) => Promise<string>;
 
 export const generate: Generate;

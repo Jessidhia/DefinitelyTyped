@@ -25,14 +25,23 @@ async function main(): Promise<void> {
         console.log(module);
 
         // Generate local module
-        fs.writeFileSync(path.join("..", `${module}.d.ts`), `import { ${module} } from "./index";\nexport = ${module};\n`);
+        fs.writeFileSync(
+            path.join("..", `${module}.d.ts`),
+            `import { ${module} } from "./index";\nexport = ${module};\n`
+        );
 
         // Generate `lodash.foo` module
         if (!notOnNpm.has(module)) {
             const dir = path.join("..", "..", `lodash.${module.toLowerCase()}`);
             ensureDir(dir);
-            fs.writeFileSync(path.join(dir, "index.d.ts"), await globalDefinitionText(module));
-            fs.writeFileSync(path.join(dir, "tsconfig.json"), lodashDotFooTsconfig());
+            fs.writeFileSync(
+                path.join(dir, "index.d.ts"),
+                await globalDefinitionText(module)
+            );
+            fs.writeFileSync(
+                path.join(dir, "tsconfig.json"),
+                lodashDotFooTsconfig()
+            );
             fs.writeFileSync(path.join(dir, "tslint.json"), tslint());
         }
     }
@@ -49,9 +58,13 @@ async function globalDefinitionText(moduleName: string): Promise<string> {
     const url = `http://registry.npmjs.org/${fullName.toLowerCase()}`;
     const npmInfo = JSON.parse(await loadString(url));
     const fullVersion = npmInfo["dist-tags"].latest;
-    const majorMinor = fullVersion.split(".").slice(0, 2).join(".");
+    const majorMinor = fullVersion
+        .split(".")
+        .slice(0, 2)
+        .join(".");
 
-    return `
+    return (
+        `
 // Type definitions for ${fullName} ${majorMinor}
 // Project: http://lodash.com/
 // Definitions by: Brian Zengel <https://github.com/bczengel>, Ilya Mochalov <https://github.com/chrootsu>, Stepan Mikhaylyuk <https://github.com/stepancar>
@@ -62,45 +75,50 @@ async function globalDefinitionText(moduleName: string): Promise<string> {
 
 import { ${moduleName} } from "lodash";
 export = ${moduleName};
-`.trim() + "\n";
+`.trim() + "\n"
+    );
 }
 
 function compilerOptions(): object {
     return {
-        "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
-        "types": [],
-        "noEmit": true,
-        "forceConsistentCasingInFileNames": true
+        module: "commonjs",
+        lib: ["es6"],
+        noImplicitAny: true,
+        noImplicitThis: true,
+        strictNullChecks: true,
+        strictFunctionTypes: true,
+        baseUrl: "../",
+        typeRoots: ["../"],
+        types: [],
+        noEmit: true,
+        forceConsistentCasingInFileNames: true
     };
 }
 
 function lodashTsconfig(moduleNames: ReadonlyArray<string>): string {
-    return JSON.stringify({
-        compilerOptions: compilerOptions(),
-        files: [
-            "index.d.ts",
-            "lodash-tests.ts",
-            ...moduleNames.map(m => `${m}.d.ts`),
-        ]
-    }, undefined, 4);
+    return JSON.stringify(
+        {
+            compilerOptions: compilerOptions(),
+            files: [
+                "index.d.ts",
+                "lodash-tests.ts",
+                ...moduleNames.map(m => `${m}.d.ts`)
+            ]
+        },
+        undefined,
+        4
+    );
 }
 
 function lodashDotFooTsconfig(): string {
-    return JSON.stringify({
-        compilerOptions: compilerOptions(),
-        files: ["index.d.ts"],
-    }, undefined, 4);
+    return JSON.stringify(
+        {
+            compilerOptions: compilerOptions(),
+            files: ["index.d.ts"]
+        },
+        undefined,
+        4
+    );
 }
 
 function tslint(): string {
@@ -109,15 +127,21 @@ function tslint(): string {
 
 function loadString(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        get(url, (res) => {
+        get(url, res => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`))
+                return reject(
+                    new Error(
+                        `HTTP Error ${res.statusCode}: ${
+                            STATUS_CODES[res.statusCode || 500]
+                        } for ${url}`
+                    )
+                );
             }
-            let rawData = ""
-            res.on("data", chunk => rawData += chunk)
-            res.on("end", () => resolve(rawData))
-        }).on("error", e => reject(e))
-    })
+            let rawData = "";
+            res.on("data", chunk => (rawData += chunk));
+            res.on("end", () => resolve(rawData));
+        }).on("error", e => reject(e));
+    });
 }
 
 function modulesNotOnNpm(): string[] {
@@ -132,7 +156,7 @@ function modulesNotOnNpm(): string[] {
         "noConflict",
         "runInContext",
         "tap",
-        "thru",
+        "thru"
     ];
 }
 

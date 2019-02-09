@@ -27,7 +27,7 @@ wsNewed.empty();
 
 // - create an instance with plugins
 class SamplePlugin {
-    constructor(params: object, ws: WaveSurfer) { }
+    constructor(params: object, ws: WaveSurfer) {}
     static create(params: object): WaveSurfer.PluginDefinition {
         return {
             name: "samplePlugin",
@@ -35,9 +35,11 @@ class SamplePlugin {
             params
         };
     }
-    init(): void { }
-    destroy(): void { }
-    foo(): void { console.log('foo'); }
+    init(): void {}
+    destroy(): void {}
+    foo(): void {
+        console.log("foo");
+    }
 }
 const wsWithPlugins = WaveSurfer.create({
     container: "#waveform",

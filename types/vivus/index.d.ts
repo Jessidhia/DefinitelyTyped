@@ -18,7 +18,11 @@ declare class Vivus {
      * @param options
      * @param callback Callback to call at the end of the animation
      */
-    constructor(element: string | HTMLElement, options?: Vivus.VivusOptions, callback?: (vivusInstance: Vivus) => void);
+    constructor(
+        element: string | HTMLElement,
+        options?: Vivus.VivusOptions,
+        callback?: (vivusInstance: Vivus) => void
+    );
 
     /**
      * Plays the animation with the speed given in parameter.
@@ -54,7 +58,7 @@ declare class Vivus {
     /**
      * Get the status of the animation between start, progress, end.
      */
-    getStatus(): 'start' | 'progress' | 'end';
+    getStatus(): "start" | "progress" | "end";
 
     /**
      * Reset the SVG but make the instance out of order.
@@ -71,7 +75,13 @@ declare namespace Vivus {
          * Can be `'delayed'`, `'sync'`, `'oneByOne'`, `'script'`, `'scenario'`, or `'scenario-sync'`.
          * (default: `'delayed'`)
          */
-        type?: 'delayed' | 'sync' | 'oneByOne' | 'script' | 'scenario' | 'scenario-sync';
+        type?:
+            | "delayed"
+            | "sync"
+            | "oneByOne"
+            | "script"
+            | "scenario"
+            | "scenario-sync";
         /**
          * Link to the SVG to animate.
          * If set, Vivus will create an object tag and append it to the DOM element given to the constructor.
@@ -88,7 +98,7 @@ declare namespace Vivus {
          * Can be `'inViewport'`, `'manual'`, or `'autostart'`
          * (default: `'inViewport'`)
          */
-        start?: 'inViewport' | 'manual' | 'autostart';
+        start?: "inViewport" | "manual" | "autostart";
         /**
          * 	Time between the drawing of first and last path, in frames (only for `delayed` animations).
          */

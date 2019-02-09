@@ -1,15 +1,15 @@
-import * as parser from 'socket.io-parser';
+import * as parser from "socket.io-parser";
 const encoder = new parser.Encoder();
 const packet = {
     type: parser.EVENT,
-    data: 'test-packet',
-    id: 13,
+    data: "test-packet",
+    id: 13
 };
 encoder.encode(packet, encodedPackets => {
     const decoder = new parser.Decoder();
-    decoder.on('decoded', decodedPacket => {
+    decoder.on("decoded", decodedPacket => {
         decodedPacket.type === parser.EVENT;
-        decodedPacket.data === 'test-packet';
+        decodedPacket.data === "test-packet";
         decodedPacket.id === 13;
     });
 
@@ -21,11 +21,11 @@ encoder.encode(packet, encodedPackets => {
 const packet2 = {
     type: parser.BINARY_EVENT,
     data: { i: new Buffer(1234), j: new Blob([new ArrayBuffer(2)]) },
-    id: 15,
+    id: 15
 };
 encoder.encode(packet2, encodedPackets => {
     const decoder = new parser.Decoder();
-    decoder.on('decoded', decodedPacket => {
+    decoder.on("decoded", decodedPacket => {
         decodedPacket.type === parser.BINARY_EVENT;
         Buffer.isBuffer(decodedPacket.data.i); // $ExpectType boolean
         Buffer.isBuffer(decodedPacket.data.j); // $ExpectType boolean

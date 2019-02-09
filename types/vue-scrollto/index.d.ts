@@ -45,7 +45,7 @@ declare class VueScrollTo {
     scrollTo: VueScrollTo.VueStatic;
 }
 
-declare module 'vue/types/vue' {
+declare module "vue/types/vue" {
     interface Vue {
         $scrollTo: VueScrollTo.VueStatic;
     }

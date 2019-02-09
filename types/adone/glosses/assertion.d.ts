@@ -52,7 +52,12 @@ declare namespace adone {
                 /**
                  * Throws an AssertionError, like node.js
                  */
-                fail(actual?: any, expected?: any, message?: string, operator?: any): void;
+                fail(
+                    actual?: any,
+                    expected?: any,
+                    message?: string,
+                    operator?: any
+                ): void;
                 /**
                  * Asserts that value is truthy
                  */
@@ -76,7 +81,11 @@ declare namespace adone {
                 /**
                  * Asserts strict inequality
                  */
-                notStrictEqual(actual: any, expected: any, message?: string): void;
+                notStrictEqual(
+                    actual: any,
+                    expected: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that actual is deeply equal to expected
                  */
@@ -84,15 +93,27 @@ declare namespace adone {
                 /**
                  * Asserts that actual is deeply equal to expected
                  */
-                deepStrictEqual(actual: any, expected: any, message?: string): void;
+                deepStrictEqual(
+                    actual: any,
+                    expected: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that actual and expected have the same length and the same members (===)
                  */
-                equalArrays(actual: any[], expected: any[], message?: string): void;
+                equalArrays(
+                    actual: any[],
+                    expected: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that actual is not deeply equal to expected
                  */
-                notDeepEqual(actual: any, expected: any, message?: string): void;
+                notDeepEqual(
+                    actual: any,
+                    expected: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that value > above
                  */
@@ -217,16 +238,28 @@ declare namespace adone {
                 /**
                  * Assert that value's type is not `type`
                  */
-                notTypeOf(value: any, type: PossibleTypes, message?: string): void;
+                notTypeOf(
+                    value: any,
+                    type: PossibleTypes,
+                    message?: string
+                ): void;
                 notTypeOf(value: any, type: string, message?: string): void;
                 /**
                  * Asserts that value is an instance of constructor
                  */
-                instanceOf(value: any, constructor: object, message?: string): void;
+                instanceOf(
+                    value: any,
+                    constructor: object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that value is not an instance of constructor
                  */
-                notInstanceOf(value: any, constructor: object, message?: string): void;
+                notInstanceOf(
+                    value: any,
+                    constructor: object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected includes inc
                  */
@@ -236,49 +269,97 @@ declare namespace adone {
                  * Asserts that expected does not include inc
                  */
                 notInclude<T>(expected: T[], inc: T, message?: string): void;
-                notInclude(expected: string, inc: string, message?: string): void;
+                notInclude(
+                    expected: string,
+                    inc: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected includes inc
                  */
                 deepInclude<T>(expected: T[], inc: T, message?: string): void;
-                deepInclude(expected: string, inc: string, message?: string): void;
+                deepInclude(
+                    expected: string,
+                    inc: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected does not include inc
                  */
-                notDeepInclude<T>(expected: T[], inc: T, message?: string): void;
-                notDeepInclude(expected: string, inc: string, message?: string): void;
+                notDeepInclude<T>(
+                    expected: T[],
+                    inc: T,
+                    message?: string
+                ): void;
+                notDeepInclude(
+                    expected: string,
+                    inc: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected includes inc
                  */
-                nestedInclude(expected: object, inc: object, message?: string): void;
+                nestedInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected does not include inc
                  */
-                notNestedInclude(expected: object, inc: object, message?: string): void;
+                notNestedInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected includes inc
                  */
-                deepNestedInclude(expected: object, inc: object, message?: string): void;
+                deepNestedInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected includes inc
                  */
-                notDeepNestedInclude(expected: object, inc: object, message?: string): void;
+                notDeepNestedInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected includes inc
                  */
-                ownInclude(expected: object, inc: object, message?: string): void;
+                ownInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected does not include inc
                  */
-                notOwnInclude(expected: object, inc: object, message?: string): void;
+                notOwnInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected includes inc
                  */
-                deepOwnInclude(expected: object, inc: object, message?: string): void;
+                deepOwnInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Assert that expected does not include inc
                  */
-                notDeepOwnInclude(expected: object, inc: object, message?: string): void;
+                notDeepOwnInclude(
+                    expected: object,
+                    inc: object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected matches the regular expression regExp
                  */
@@ -290,75 +371,159 @@ declare namespace adone {
                 /**
                  * Asserts that object has a property named `property`
                  */
-                property(object: object, property: string, message?: string): void;
+                property(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property`
                  */
-                notProperty(object: object, property: string, message?: string): void;
+                notProperty(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has a property named `property` with value `value` (===)
                  */
-                propertyVal(object: object, property: string, value: any, message?: string): void;
+                propertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property` with value `value` (===)
                  */
-                notPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has a property named `property` with a value `value`
                  */
-                deepPropertyVal(object: object, property: string, value: any, message?: string): void;
+                deepPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property` with value `value`
                  */
-                notDeepPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notDeepPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has an owned property named `property`
                  */
-                ownProperty(object: object, property: string, message?: string): void;
+                ownProperty(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have an owned property named `property`
                  */
-                notOwnProperty(object: object, property: string, message?: string): void;
+                notOwnProperty(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has an owned property named `property` with value `value`(===)
                  */
-                ownPropertyVal(object: object, property: string, value: any, message?: string): void;
+                ownPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have an owned property named `property` with value `value`(===)
                  */
-                notOwnPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notOwnPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has an owned property named `property` with value `value`
                  */
-                deepOwnPropertyVal(object: object, property: string, value: any, message?: string): void;
+                deepOwnPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have an owned property named `property` with value `value`(===)
                  */
-                notDeepOwnPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notDeepOwnPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has a property named `property`
                  */
-                nestedProperty(object: object, property: string, message?: string): void;
+                nestedProperty(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property`
                  */
-                notNestedProperty(object: object, property: string, message?: string): void;
+                notNestedProperty(
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has a property named `property` with value `value`(===)
                  */
-                nestedPropertyVal(object: object, property: string, value: any, message?: string): void;
+                nestedPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property` with value `value`(===)
                  */
-                notNestedPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notNestedPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has a property named `property` with value `value`
                  */
-                deepNestedPropertyVal(object: object, property: string, value: any, message?: string): void;
+                deepNestedPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have a property named `property` with value `value`
                  */
-                notDeepNestedPropertyVal(object: object, property: string, value: any, message?: string): void;
+                notDeepNestedPropertyVal(
+                    object: object,
+                    property: string,
+                    value: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that expected has a length property with value `length`
                  */
@@ -366,70 +531,155 @@ declare namespace adone {
                 /**
                  * Asserts that object has at least one key from `keys`
                  */
-                hasAnyKeys(object: object, keys: string | string[] | object, message?: string): void;
+                hasAnyKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has all and only all of the keys provided
                  */
-                hasAllKeys(object: object, keys: string | string[] | object, message?: string): void;
+                hasAllKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has all the keys provided but maybe more
                  */
-                containsAllKeys(object: object, keys: string | string[] | object, message?: string): void;
+                containsAllKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have any provided key
                  */
-                doesNotHaveAnyKeys(object: object, keys: string | string[] | object, message?: string): void;
+                doesNotHaveAnyKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have all the keys provided
                  */
-                doesNotHaveAllKeys(object: object, keys: string | string[] | object, message?: string): void;
+                doesNotHaveAllKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has at least one of the keys provided
                  */
-                hasAnyDeepKeys(object: object, keys: string | string[] | object, message?: string): void;
+                hasAnyDeepKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has all and only all of the keys provided
                  */
-                hasAllDeepKeys(object: object, keys: string | string[] | object, message?: string): void;
+                hasAllDeepKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object has all the keys provided but maybe more
                  */
-                containsAllDeepKeys(object: object, keys: string | string[] | object, message?: string): void;
+                containsAllDeepKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have any provided key
                  */
-                doesNotHaveAnyDeepKeys(object: object, keys: string | string[] | object, message?: string): void;
+                doesNotHaveAnyDeepKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that object does not have all the keys provided
                  */
-                doesNotHaveAllDeepKeys(object: object, keys: string | string[] | object, message?: string): void;
+                doesNotHaveAllDeepKeys(
+                    object: object,
+                    keys: string | string[] | object,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function or an async functions throws an error
                  */
-                throws(fn: () => void, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): any;
-                throws(fn: () => Promise<void>, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): Promise<any>;
+                throws(
+                    fn: () => void,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): any;
+                throws(
+                    fn: () => Promise<void>,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): Promise<any>;
                 /**
                  * Asserts that a function or an async functions throws an error
                  */
-                throw(fn: () => void, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): any;
-                throw(fn: () => Promise<void>, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): Promise<any>;
+                throw(
+                    fn: () => void,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): any;
+                throw(
+                    fn: () => Promise<void>,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): Promise<any>;
                 /**
                  * Asserts that a function or an async function does not throw an error
                  */
-                doesNotThrow(fn: () => Promise<void>, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): Promise<any>;
-                doesNotThrow(fn: () => void, errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): any;
+                doesNotThrow(
+                    fn: () => Promise<void>,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): Promise<any>;
+                doesNotThrow(
+                    fn: () => void,
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): any;
                 /**
                  * Compares two values using operator
                  */
-                operator(value: any, operator: string, val2: any, message?: string): void;
+                operator(
+                    value: any,
+                    operator: string,
+                    val2: any,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that actual is expected +/- delta
                  */
-                closeTo(actual: number, expected: number, delta: number, message?: string): void;
+                closeTo(
+                    actual: number,
+                    expected: number,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that actual is expect +/- delta
                  */
-                approximately(actual: number, expected: number, delta: number, message?: string): void;
+                approximately(
+                    actual: number,
+                    expected: number,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays have the same members in any order (===)
                  */
@@ -437,63 +687,123 @@ declare namespace adone {
                 /**
                  * Asserts that arrays do not have the same members in any order (===)
                  */
-                notSameMembers(set1: any[], set2: any[], message?: string): void;
+                notSameMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays have the same members in any order
                  */
-                sameDeepMembers(set1: any[], set2: any[], message?: string): void;
+                sameDeepMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays do not have the same members in any order
                  */
-                notSameDeepMembers(set1: any[], set2: any[], message?: string): void;
+                notSameDeepMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays have the same members in the same order (===)
                  */
-                sameOrderedMembers(set1: any[], set2: any[], message?: string): void;
+                sameOrderedMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays do not have the same members in the same order (===)
                  */
-                notSameOrderedMembers(set1: any[], set2: any[], message?: string): void;
+                notSameOrderedMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays have the same members in the same order
                  */
-                sameDeepOrderedMembers(set1: any[], set2: any[], message?: string): void;
+                sameDeepOrderedMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that arrays do not have the same members in the same order
                  */
-                notSameDeepOrderedMembers(set1: any[], set2: any[], message?: string): void;
+                notSameDeepOrderedMembers(
+                    set1: any[],
+                    set2: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is included in superset in any order (===)
                  */
-                includeMembers(superset: any[], subset: any[], message?: string): void;
+                includeMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is not included in superset in any order (===)
                  */
-                notIncludeMembers(superset: any[], subset: any[], message?: string): void;
+                notIncludeMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is included in superset in any order
                  */
-                includeDeepMembers(superset: any[], subset: any[], message?: string): void;
+                includeDeepMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is not included in superset in any order
                  */
-                notIncludeDeepMembers(superset: any[], subset: any[], message?: string): void;
+                notIncludeDeepMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is included in superset in the same order (===)
                  */
-                includeOrderedMembers(superset: any[], subset: any[], message?: string): void;
+                includeOrderedMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is not included in superset in the same order (===)
                  */
-                notIncludeOrderedMembers(superset: any[], subset: any[], message?: string): void;
+                notIncludeOrderedMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is included in superset in the same order
                  */
-                includeDeepOrderedMembers(superset: any[], subset: any[], message?: string): void;
+                includeDeepOrderedMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that subset is not included in superset in the same order
                  */
-                notIncludeDeepOrderedMembers(superset: any[], subset: any[], message?: string): void;
+                notIncludeDeepOrderedMembers(
+                    superset: any[],
+                    subset: any[],
+                    message?: string
+                ): void;
                 /**
                  * Asserts that list includes inList
                  */
@@ -501,55 +811,127 @@ declare namespace adone {
                 /**
                  * Asserts that a function changes the value of a property
                  */
-                changes(fn: () => void, object: object, property: string, message?: string): void;
+                changes(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function changes the value of a property by delta
                  */
-                changesBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                changesBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not changes the value of a property
                  */
-                doesNotChange(fn: () => void, object: object, property: string, message?: string): void;
+                doesNotChange(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not change the value of a property or of a function’s return value by delta
                  */
-                changesButNotBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                changesButNotBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function increases a numeric object property
                  */
-                increases(fn: () => void, object: object, property: string, message?: string): void;
+                increases(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function increases a numeric object property or a function’s return value by delta
                  */
-                increasesBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                increasesBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not increase a numeric object property
                  */
-                doesNotIncrease(fn: () => void, object: object, property: string, message?: string): void;
+                doesNotIncrease(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not increase a numeric object property or function’s return value by delta
                  */
-                increasesButNotBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                increasesButNotBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function decreases the value of a property
                  */
-                decreases(fn: () => void, object: object, property: string, message?: string): void;
+                decreases(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function decreases the value of a property by delta
                  */
-                decreasesBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                decreasesBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not decrease the value of a property
                  */
-                doesNotDecrease(fn: () => void, object: object, property: string, message?: string): void;
+                doesNotDecrease(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not decrease the value of a property or a function's return value by delta
                  */
-                doesNotDecreaseBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                doesNotDecreaseBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Asserts that a function does not decreases a numeric object property or a function’s return value by delta
                  */
-                decreasesButNotBy(fn: () => void, object: object, property: string, delta: number, message?: string): void;
+                decreasesButNotBy(
+                    fn: () => void,
+                    object: object,
+                    property: string,
+                    delta: number,
+                    message?: string
+                ): void;
                 /**
                  * Throws an error if value is truthy
                  */
@@ -591,7 +973,12 @@ declare namespace adone {
             interface ExpectFunction {
                 (value: shani.util.I.Spy, message?: string): MockAssertions;
                 (value: any, message?: string): Assertion;
-                fail(actual: any, expected: any, message?: string, operator?: any): void;
+                fail(
+                    actual: any,
+                    expected: any,
+                    message?: string,
+                    operator?: any
+                ): void;
             }
 
             interface LanguageChains {
@@ -794,15 +1181,27 @@ declare namespace adone {
                 /**
                  * Asserts that the target has its own property name `name` with value `value`
                  */
-                haveOwnProperty(name: string, value?: any, message?: string): this;
+                haveOwnProperty(
+                    name: string,
+                    value?: any,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the target has its own property descriptor with name `name` and value `value`
                  */
-                ownPropertyDescriptor(name: string, descriptor?: object, message?: string): this;
+                ownPropertyDescriptor(
+                    name: string,
+                    descriptor?: object,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the target has its own property descriptor with name `name` and value `value`
                  */
-                haveOwnPropertyDescriptor(name: string, descriptor?: object, message?: string): this;
+                haveOwnPropertyDescriptor(
+                    name: string,
+                    descriptor?: object,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the target's property length equal to n
                  */
@@ -836,11 +1235,19 @@ declare namespace adone {
                 /**
                  * Assert that the target throws an error
                  */
-                throw(errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): this;
+                throw(
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): this;
                 /**
                  * Assert that the target throws an error
                  */
-                throws(errorLike?: object, errMsgMatcher?: string | RegExp, message?: string): this;
+                throws(
+                    errorLike?: object,
+                    errMsgMatcher?: string | RegExp,
+                    message?: string
+                ): this;
                 /**
                  * Assert that the target throws an error
                  */
@@ -868,11 +1275,19 @@ declare namespace adone {
                 /**
                  * Asserts that the target is expected +/- delta
                  */
-                closeTo(expected: number, delta: number, message?: string): this;
+                closeTo(
+                    expected: number,
+                    delta: number,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the target is expected +/- delta
                  */
-                approximately(expected: number, delta: number, message?: string): this;
+                approximately(
+                    expected: number,
+                    delta: number,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the target array has the same members as the given
                  */
@@ -888,7 +1303,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation changes subject's property
                  */
-                change(subject: object, property: string, message?: string): this;
+                change(
+                    subject: object,
+                    property: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that fn returns a different value after the target's invokation than before
                  */
@@ -896,7 +1315,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation changes subject's property
                  */
-                changes(subject: object, property: string, message?: string): this;
+                changes(
+                    subject: object,
+                    property: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that fn returns a greater number after the target's invokation than before
                  */
@@ -904,7 +1327,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation increases subject's property
                  */
-                increase(subject: object, property?: string, message?: string): this;
+                increase(
+                    subject: object,
+                    property?: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that fn returns a greater number after the target's invokation than before
                  */
@@ -912,7 +1339,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation increases subject's property
                  */
-                increases(subject: object, property?: string, message?: string): this;
+                increases(
+                    subject: object,
+                    property?: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that fn returns a lesser number after the target's invokation than before
                  */
@@ -920,7 +1351,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation decreases subject's property
                  */
-                decrease(subject: object, property?: string, message?: string): this;
+                decrease(
+                    subject: object,
+                    property?: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that fn returns a lesser number after the target's invokation than before
                  */
@@ -928,7 +1363,11 @@ declare namespace adone {
                 /**
                  * Asserts that the target's invokation decreases subject's property
                  */
-                decreases(subject: object, property?: string, message?: string): this;
+                decreases(
+                    subject: object,
+                    property?: string,
+                    message?: string
+                ): this;
                 /**
                  * Asserts that the value was decreased/increased by delta
                  */
@@ -1020,7 +1459,7 @@ declare namespace adone {
         }
 
         class AssertionError extends error.Exception {
-            constructor(message?: string, props?: object, ssf?: object)
+            constructor(message?: string, props?: object, ssf?: object);
         }
 
         const config: I.Config;

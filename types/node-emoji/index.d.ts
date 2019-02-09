@@ -1354,7 +1354,11 @@ export interface Emoji {
     key: string;
 }
 
-export function emojify(str: string, on_missing?: (emoji_name: string) => string, format?: (code: string, name: string) => string): string;
+export function emojify(
+    str: string,
+    on_missing?: (emoji_name: string) => string,
+    format?: (code: string, name: string) => string
+): string;
 export function get(emoji: string): string;
 export function random(): Emoji;
 export function search(searchTerm: string): Emoji[];
@@ -1363,4 +1367,8 @@ export function unemojify(str: string): string;
 export function find(emoji: string): Emoji;
 export function hasEmoji(str: string): boolean;
 export function strip(str: string): string;
-export function replace(str: string, replacement: ((emoji: Emoji) => string) | string, cleanSpaces?: boolean): string;
+export function replace(
+    str: string,
+    replacement: ((emoji: Emoji) => string) | string,
+    cleanSpaces?: boolean
+): string;

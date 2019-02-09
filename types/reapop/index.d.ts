@@ -4,15 +4,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Dispatch } from 'redux';
+import * as React from "react";
+import { Dispatch } from "redux";
 /**
  * Add a notification (thunk action creator)
  *
  * We use a thunk here to create an ADD_NOTIFICATION action
  * and only return the notification object.
  */
-export function addNotification(notification: Notification): (dispatch: Dispatch<any>) => Notification;
+export function addNotification(
+    notification: Notification
+): (dispatch: Dispatch<any>) => Notification;
 
 /**
  * Update a notification (thunk action creator)
@@ -20,24 +22,30 @@ export function addNotification(notification: Notification): (dispatch: Dispatch
  * We use a thunk here to create an UPDATE_NOTIFICATION action
  * and only return the notification object.
  */
-export function updateNotification(notification: Notification): (dispatch: Dispatch<any>) => Notification;
+export function updateNotification(
+    notification: Notification
+): (dispatch: Dispatch<any>) => Notification;
 
 /**
  * Remove a notification (action creator)
  */
-export function removeNotification(notification: Notification): {type: string; payload: Notification};
+export function removeNotification(
+    notification: Notification
+): { type: string; payload: Notification };
 
 /**
  * Remove all notifications (action creator)
  */
-export function removeNotifications(): {type: string};
+export function removeNotifications(): { type: string };
 
 // Action creators
 interface Actions {
     addNotification(notification: Notification): Notification;
     updateNotification(notification: Notification): Notification;
-    removeNotification(notification: Notification): {type: string; payload: Notification};
-    removeNotifications(): {type: string};
+    removeNotification(
+        notification: Notification
+    ): { type: string; payload: Notification };
+    removeNotifications(): { type: string };
 }
 export const actions: Actions;
 
@@ -46,7 +54,11 @@ type ADD_NOTIFICATION = string;
 type UPDATE_NOTIFICATION = string;
 type REMOVE_NOTIFICATION = string;
 type REMOVE_NOTIFICATIONS = string;
-type ActionTypes = ADD_NOTIFICATION | UPDATE_NOTIFICATION | REMOVE_NOTIFICATION | REMOVE_NOTIFICATIONS;
+type ActionTypes =
+    | ADD_NOTIFICATION
+    | UPDATE_NOTIFICATION
+    | REMOVE_NOTIFICATION
+    | REMOVE_NOTIFICATIONS;
 
 interface Types {
     ADD_NOTIFICATION: ADD_NOTIFICATION;
@@ -57,7 +69,12 @@ interface Types {
 export const types: Types;
 
 // Reducers
-export function reducer(defaultNotification?: Notification): (state: Notification[], notification: {type: ActionTypes; payload: any}) => Notification[];
+export function reducer(
+    defaultNotification?: Notification
+): (
+    state: Notification[],
+    notification: { type: ActionTypes; payload: any }
+) => Notification[];
 
 // Constants
 type DEFAULT_STATUS = string;
@@ -65,7 +82,12 @@ type INFO_STATUS = string;
 type SUCCESS_STATUS = string;
 type WARNING_STATUS = string;
 type ERROR_STATUS = string;
-type STATUSES = DEFAULT_STATUS | INFO_STATUS | SUCCESS_STATUS | WARNING_STATUS | ERROR_STATUS;
+type STATUSES =
+    | DEFAULT_STATUS
+    | INFO_STATUS
+    | SUCCESS_STATUS
+    | WARNING_STATUS
+    | ERROR_STATUS;
 
 interface STATUS_TYPES {
     default: DEFAULT_STATUS;
@@ -84,7 +106,15 @@ type BOTTOM = string;
 type BOTTOM_CENTER = string;
 type BOTTOM_LEFT_POSITION = string;
 type BOTTOM_RIGHT_POSITION = string;
-type POSITION = TOP | TOP_CENTER | TOP_LEFT_POSITION | TOP_RIGHT_POSITION | BOTTOM | BOTTOM_CENTER | BOTTOM_LEFT_POSITION | BOTTOM_RIGHT_POSITION;
+type POSITION =
+    | TOP
+    | TOP_CENTER
+    | TOP_LEFT_POSITION
+    | TOP_RIGHT_POSITION
+    | BOTTOM
+    | BOTTOM_CENTER
+    | BOTTOM_LEFT_POSITION
+    | BOTTOM_RIGHT_POSITION;
 
 interface POSITIONS_TYPES {
     top: TOP;
@@ -105,12 +135,12 @@ interface Button {
 }
 
 export interface Notification {
-    id?: string|number;
+    id?: string | number;
     title?: string;
     message?: string;
     image?: string;
-    status?: string|number|STATUSES;
-    position?: string|POSITION;
+    status?: string | number | STATUSES;
+    position?: string | POSITION;
     dismissible?: boolean;
     dismissAfter?: number;
     closeButton?: boolean;
@@ -161,5 +191,8 @@ export interface NotificationSystemProps {
     filter?(notification: Notification): boolean;
 }
 
-declare class NotificationSystem extends React.Component<NotificationSystemProps, any> {}
+declare class NotificationSystem extends React.Component<
+    NotificationSystemProps,
+    any
+> {}
 export default NotificationSystem;

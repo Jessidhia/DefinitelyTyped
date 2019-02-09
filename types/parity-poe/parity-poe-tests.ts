@@ -1,8 +1,14 @@
-import { formatInbound, parseInbound, formatOutbound, parseOutbound, POEMessage } from "parity-poe";
+import {
+    formatInbound,
+    parseInbound,
+    formatOutbound,
+    parseOutbound,
+    POEMessage
+} from "parity-poe";
 
 const buffer = new Buffer("test");
 const message: POEMessage = {
-    messageType: 'A'
+    messageType: "A"
 };
 
 /**
@@ -14,7 +20,7 @@ formatInbound(message);
 
 // Invalid type
 // $ExpectError
-formatInbound('');
+formatInbound("");
 
 // $ExpectError
 formatInbound({});
@@ -32,7 +38,7 @@ parseInbound(buffer);
 
 // Invalid type
 // $ExpectError
-parseInbound('');
+parseInbound("");
 
 /**
  * formatOutbound tests
@@ -43,7 +49,7 @@ formatOutbound(message);
 
 // Invalid type
 // $ExpectError
-formatOutbound('');
+formatOutbound("");
 
 // $ExpectError
 formatOutbound({});
@@ -61,4 +67,4 @@ parseOutbound(buffer);
 
 // Invalid type
 // $ExpectError
-parseOutbound('');
+parseOutbound("");

@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace google {
-
     function load(visualization: string, version: string, packages: any): void;
     function setOnLoadCallback(handler: Function): void;
     function setOnLoadCallback(handler: () => void): void;
@@ -17,7 +16,6 @@ declare namespace google {
 
     // https://developers.google.com/chart/interactive/docs/reference
     namespace visualization {
-
         export interface ChartSpecs {
             chartType: string;
             container?: HTMLElement;
@@ -44,7 +42,7 @@ declare namespace google {
             constructor(spec?: ChartSpecs);
             draw(container_ref?: HTMLElement): void;
             toJSON(): string;
-            clone():ChartWrapper;
+            clone(): ChartWrapper;
             getDataSourceUrl(): string;
             getDataTable(): DataTable;
             getChartType(): string;
@@ -95,7 +93,11 @@ declare namespace google {
             getFormattedValue(rowIndex: number, columnIndex: number): string;
             getNumberOfColumns(): number;
             getNumberOfRows(): number;
-            getProperty(rowIndex: number, columnIndex: number, name: string): any;
+            getProperty(
+                rowIndex: number,
+                columnIndex: number,
+                name: string
+            ): any;
             getProperties(rowIndex: number, columnIndex: number): Properties;
             getRowProperties(rowIndex: number): Properties;
             getRowProperty(rowIndex: number, name: string): Properties;
@@ -106,7 +108,12 @@ declare namespace google {
             getTableProperties(): Properties;
             getTableProperty(name: string): any;
             getValue(rowIndex: number, columnIndex: number): any;
-            insertColumn(columnIndex: number, type: string, label?: string, id?: string): void;
+            insertColumn(
+                columnIndex: number,
+                type: string,
+                label?: string,
+                id?: string
+            ): void;
             insertRows(rowIndex: number, numberOfEmptyRows: number): void;
             insertRows(rowIndex: number, rows: DataObjectCell[][]): void;
             insertRows(rowIndex: number, rows: any[][]): void;
@@ -114,13 +121,39 @@ declare namespace google {
             removeColumns(columnIndex: number, numberOfColumns: number): void;
             removeRow(rowIndex: number): void;
             removeRows(rowIndex: number, numberOfRows: number): void;
-            setCell(rowIndex: number, columnIndex: number, value?: any, formattedValue?: string, properties?: Properties): void;
+            setCell(
+                rowIndex: number,
+                columnIndex: number,
+                value?: any,
+                formattedValue?: string,
+                properties?: Properties
+            ): void;
             setColumnLabel(columnIndex: number, label: string): void;
-            setColumnProperty(columnIndex: number, name: string, value: any): void;
-            setColumnProperties(columnIndex: number, properties: Properties): void;
-            setFormattedValue(rowIndex: number, columnIndex: number, formattedValue: string | null): void;
-            setProperty(rowIndex: number, columnIndex: number, name: string, value: any): void;
-            setProperties(rowIndex: number, columnIndex: number, properties: Properties): void;
+            setColumnProperty(
+                columnIndex: number,
+                name: string,
+                value: any
+            ): void;
+            setColumnProperties(
+                columnIndex: number,
+                properties: Properties
+            ): void;
+            setFormattedValue(
+                rowIndex: number,
+                columnIndex: number,
+                formattedValue: string | null
+            ): void;
+            setProperty(
+                rowIndex: number,
+                columnIndex: number,
+                name: string,
+                value: any
+            ): void;
+            setProperties(
+                rowIndex: number,
+                columnIndex: number,
+                properties: Properties
+            ): void;
             setRowProperty(rowIndex: number, name: string, value: any): void;
             setRowProperties(rowIndex: number, properties: Properties): void;
             setTableProperty(name: string, value: any): void;
@@ -134,7 +167,7 @@ declare namespace google {
         }
 
         export interface Properties {
-            [property: string]: any
+            [property: string]: any;
         }
 
         export interface SortByColumn {
@@ -192,7 +225,10 @@ declare namespace google {
             maxValue?: any;
         }
 
-        function arrayToDataTable(data: any[], firstRowIsData?: boolean): DataTable;
+        function arrayToDataTable(
+            data: any[],
+            firstRowIsData?: boolean
+        ): DataTable;
 
         //#endregion
         //#region Query
@@ -205,14 +241,14 @@ declare namespace google {
 
             setRefreshInterval(intervalSeconds: number): void;
             setTimeout(timeoutSeconds: number): void;
-            setQuery(queryString:string): void;
+            setQuery(queryString: string): void;
 
             send(callback: (response: QueryResponse) => void): void;
         }
 
         export interface QueryOptions {
-            sendMethod?: string,
-            makeRequestParams?: Object
+            sendMethod?: string;
+            makeRequestParams?: Object;
         }
 
         //#endregion
@@ -249,7 +285,11 @@ declare namespace google {
             getFormattedValue(rowIndex: number, columnIndex: number): string;
             getNumberOfColumns(): number;
             getNumberOfRows(): number;
-            getProperty(rowIndex: number, columnIndex: number, name: string): any;
+            getProperty(
+                rowIndex: number,
+                columnIndex: number,
+                name: string
+            ): any;
             getProperties(rowIndex: number, columnIndex: number): Properties;
             getRowProperty(rowIndex: number, name: string): Properties;
             getSortedRows(sortColumn: number): number[];
@@ -307,7 +347,7 @@ declare namespace google {
             enableRegionInteractivity?: boolean;
             height?: number;
             keepAspectRatio?: boolean;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             region?: string;
             magnifyingGlass?: GeoChartMagnifyingGlass;
             markerOpacity?: number;
@@ -367,7 +407,7 @@ declare namespace google {
                 x2: string;
                 y2: string;
                 useObjectBoundingBoxUnits?: boolean;
-            }
+            };
         }
 
         export interface ChartTextStyle {
@@ -385,13 +425,13 @@ declare namespace google {
             focused?: {
                 color?: string;
                 opacity?: number;
-            }
+            };
             opacity?: number;
             orientation?: string;
             selected?: {
                 color?: string;
                 opacity?: number;
-            }
+            };
             trigger?: string;
         }
 
@@ -420,8 +460,14 @@ declare namespace google {
             height?: number | string;
         }
 
-        export type ChartLegendPosition = 'bottom' | 'left' | 'in' | 'none' | 'right' | 'top';
-        export type ChartLegendAlignment = 'start' | 'center' | 'end';
+        export type ChartLegendPosition =
+            | "bottom"
+            | "left"
+            | "in"
+            | "none"
+            | "right"
+            | "top";
+        export type ChartLegendAlignment = "start" | "center" | "end";
         export interface ChartLegend {
             alignment?: ChartLegendAlignment;
             maxLines?: number;
@@ -543,7 +589,10 @@ declare namespace google {
 
         // https://developers.google.com/chart/interactive/docs/gallery/scatterchart
         export class ScatterChart extends CoreChartBase {
-            draw(data: DataTable | DataView, options?: ScatterChartOptions): void;
+            draw(
+                data: DataTable | DataView,
+                options?: ScatterChartOptions
+            ): void;
         }
 
         export interface ScatterChartOptions {
@@ -564,7 +613,7 @@ declare namespace google {
             forceIFrame?: boolean;
             hAxis?: ChartAxis;
             height?: number;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             lineWidth?: number;
             pointSize?: number;
             selectionMode?: string;
@@ -603,10 +652,10 @@ declare namespace google {
             fontName?: string;
             hAxis?: ChartAxis;
             height?: number;
-            isStacked?: boolean | 'percent' | 'relative' | 'absolute';
-            legend?: ChartLegend | 'none';
+            isStacked?: boolean | "percent" | "relative" | "absolute";
+            legend?: ChartLegend | "none";
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -646,13 +695,13 @@ declare namespace google {
             hAxis?: ChartAxis;
             height?: number;
             interpolateNulls?: boolean;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             lineWidth?: number;
             min?: number;
             orientation?: string;
             pointSize?: number;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -685,8 +734,8 @@ declare namespace google {
             hAxes?: any;
             hAxis?: ChartAxis;
             height?: number;
-            isStacked?: boolean | 'percent' | 'relative' | 'absolute';
-            legend?: ChartLegend | 'none';
+            isStacked?: boolean | "percent" | "relative" | "absolute";
+            legend?: ChartLegend | "none";
             reverseCategories?: boolean;
             series?: any;
             theme?: string;
@@ -729,8 +778,8 @@ declare namespace google {
             histogram?: HistogramHistogramOptions;
             height?: number;
             interpolateNulls?: boolean;
-            isStacked?: boolean | 'percent' | 'relative' | 'absolute';
-            legend?: ChartLegend | 'none';
+            isStacked?: boolean | "percent" | "relative" | "absolute";
+            legend?: ChartLegend | "none";
             orientation?: string;
             reverseCategories?: boolean;
             series?: any;
@@ -778,13 +827,13 @@ declare namespace google {
             hAxis?: ChartAxis;
             height?: number;
             interpolateNulls?: boolean;
-            isStacked?: boolean | 'percent' | 'relative' | 'absolute';
-            legend?: ChartLegend | 'none';
+            isStacked?: boolean | "percent" | "relative" | "absolute";
+            legend?: ChartLegend | "none";
             lineWidth?: number;
             orientation?: string;
             pointSize?: number;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -800,18 +849,19 @@ declare namespace google {
         //#region AnnotationChart
 
         // https://developers.google.com/chart/interactive/docs/gallery/annotationchart
-        export class AnnotationChart extends CoreChartBase
-        {
-            draw(data: DataTable | DataView, options: AnnotationChartOptions): void;
+        export class AnnotationChart extends CoreChartBase {
+            draw(
+                data: DataTable | DataView,
+                options: AnnotationChartOptions
+            ): void;
             setVisibleChartRange(start: Date, end: Date): void;
-            getVisibleChartRange(): {start: Date; end: Date };
+            getVisibleChartRange(): { start: Date; end: Date };
             hideDataColumns(columnIndexes: number | number[]): void;
             showDataColumns(columnIndexes: number | number[]): void;
         }
 
         // https://developers.google.com/chart/interactive/docs/gallery/annotationchart#Configuration_Options
-        export interface AnnotationChartOptions
-        {
+        export interface AnnotationChartOptions {
             allowHtml?: boolean;
             allValuesSuffix?: string;
             annotationsWidth?: number;
@@ -826,7 +876,7 @@ declare namespace google {
             displayRangeSelector?: boolean;
             displayZoomButtons?: boolean;
             fill?: number;
-            legendPosition?: 'sameRow' | 'newRow';
+            legendPosition?: "sameRow" | "newRow";
             max?: number;
             min?: number;
             numberFormats?: any;
@@ -843,7 +893,10 @@ declare namespace google {
 
         // https://developers.google.com/chart/interactive/docs/gallery/areachart
         export class SteppedAreaChart extends CoreChartBase {
-            draw(data: DataTable | DataView, options: SteppedAreaChartOptions): void;
+            draw(
+                data: DataTable | DataView,
+                options: SteppedAreaChartOptions
+            ): void;
         }
 
         // https://developers.google.com/chart/interactive/docs/gallery/steppedareachart#configuration-options
@@ -863,10 +916,10 @@ declare namespace google {
             hAxis?: ChartAxis;
             height?: number;
             interpolateNulls?: boolean;
-            isStacked?: boolean | 'percent' | 'relative' | 'absolute';
-            legend?: ChartLegend | 'none';
+            isStacked?: boolean | "percent" | "relative" | "absolute";
+            legend?: ChartLegend | "none";
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -896,7 +949,7 @@ declare namespace google {
             fontName?: string;
             height?: number;
             is3D?: boolean;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             pieHole?: number;
             pieSliceBorderColor?: string;
             pieSliceText?: string;
@@ -918,7 +971,10 @@ declare namespace google {
 
         // https://developers.google.com/chart/interactive/docs/gallery/scatterchart
         export class BubbleChart extends CoreChartBase {
-            draw(data: DataTable | DataView, options?: BubbleChartOptions): void;
+            draw(
+                data: DataTable | DataView,
+                options?: BubbleChartOptions
+            ): void;
         }
 
         export interface BubbleChartOptions {
@@ -936,7 +992,7 @@ declare namespace google {
             forceIFrame?: boolean;
             hAxis?: ChartAxis;
             height?: number;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             selectionMode?: string;
             series?: any;
             sizeAxis?: ChartSizeAxis;
@@ -1064,7 +1120,7 @@ declare namespace google {
                 rowLabelStyle?: LabelStyle;
                 showRowLabels?: boolean;
                 singleColor?: string;
-            }
+            };
             width?: number;
         }
 
@@ -1079,7 +1135,10 @@ declare namespace google {
 
         // https://developers.google.com/chart/interactive/docs/gallery/candlestickchart
         export class CandlestickChart extends CoreChartBase {
-            draw(data: DataTable | DataView, options: CandlestickChartOptions): void;
+            draw(
+                data: DataTable | DataView,
+                options: CandlestickChartOptions
+            ): void;
         }
 
         // https://developers.google.com/chart/interactive/docs/gallery/candlestickchart#Configuration_Options
@@ -1098,10 +1157,10 @@ declare namespace google {
             fontName?: string;
             hAxis?: ChartAxis;
             height?: number;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             orientation?: string;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -1145,7 +1204,7 @@ declare namespace google {
             height?: number;
             interpolateNulls?: boolean;
             isStacked?: boolean;
-            legend?: ChartLegend | 'none';
+            legend?: ChartLegend | "none";
             lineDashStyle?: number[];
             lineWidth?: number;
             orientation?: string;
@@ -1153,7 +1212,7 @@ declare namespace google {
             pointSize?: number;
             pointsVisible?: boolean;
             reverseCategories?: boolean;
-            selectionMode?: string;// single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             seriesType?: string;
             theme?: string;
@@ -1170,13 +1229,33 @@ declare namespace google {
         //#region Events
 
         namespace events {
-            function addListener(visualization: any, eventName: string, callback: Function): any;
-            function addListener(visualization: any, eventName: string, callback: (...args: any[]) => void): any;
-            function addOneTimeListener(visualization: any, eventName: string, callback: Function): any;
-            function addOneTimeListener(visualization: any, eventName: string, callback: (...args: any[]) => void): any;
+            function addListener(
+                visualization: any,
+                eventName: string,
+                callback: Function
+            ): any;
+            function addListener(
+                visualization: any,
+                eventName: string,
+                callback: (...args: any[]) => void
+            ): any;
+            function addOneTimeListener(
+                visualization: any,
+                eventName: string,
+                callback: Function
+            ): any;
+            function addOneTimeListener(
+                visualization: any,
+                eventName: string,
+                callback: (...args: any[]) => void
+            ): any;
             function removeListener(listener: any): void;
             function removeAllListeners(visualization: any): void;
-            function trigger(visualization: any, eventName: string, args?: any): void;
+            function trigger(
+                visualization: any,
+                eventName: string,
+                args?: any
+            ): void;
         }
 
         //#endregion
@@ -1271,7 +1350,13 @@ declare namespace google {
              * @param fromBgColor - The background color for cells holding values at the low end of the gradient. Values can be either '#RRGGBB' values or defined color constants, (example: '#FF0000' or 'red').
              * @param toBgColor - The background color for cells holding values at the high end of the gradient. Values can be either '#RRGGBB' values or defined color constants, (example: '#FF0000' or 'red').
              */
-            addGradientRange(from: any, to: any, color: string, fromBgColor: string, toBgColor: string): void;
+            addGradientRange(
+                from: any,
+                to: any,
+                color: string,
+                fromBgColor: string,
+                toBgColor: string
+            ): void;
         }
 
         export interface DateFormatOptions {
@@ -1371,7 +1456,11 @@ declare namespace google {
              * @param srcColumnIndices - An array of one or more (zero-based) column indices to pull as the sources from the underlying DataTable. This will be used as a data source for the pattern parameter in the constructor. The column numbers do not have to be in sorted order.
              * @param opt_dstColumnIndex - The destination column to place the output of the pattern manipulation. If not specified, the first element in srcColumIndices will be used as the destination.
              */
-            format(dataTable: DataTable, srcColumnIndices: number[], opt_dstColumnIndex?: number): void;
+            format(
+                dataTable: DataTable,
+                srcColumnIndices: number[],
+                opt_dstColumnIndex?: number
+            ): void;
         }
 
         //#endregion

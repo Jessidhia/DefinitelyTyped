@@ -15,7 +15,10 @@ declare namespace M {
         /**
          * Init Sidenavs
          */
-        static init(els: MElements, options?: Partial<SidenavOptions>): Sidenav[];
+        static init(
+            els: MElements,
+            options?: Partial<SidenavOptions>
+        ): Sidenav[];
 
         /**
          * Opens Sidenav
@@ -51,7 +54,7 @@ declare namespace M {
          * Side of screen on which Sidenav appears
          * @default 'left'
          */
-        edge: 'left' | 'right';
+        edge: "left" | "right";
 
         /**
          * Allow swipe gestures to open/close Sidenav
@@ -94,6 +97,8 @@ declare namespace M {
 }
 
 interface JQuery {
-    sidenav(method: keyof Pick<M.Sidenav, "open" | "close" | "destroy">): JQuery;
+    sidenav(
+        method: keyof Pick<M.Sidenav, "open" | "close" | "destroy">
+    ): JQuery;
     sidenav(options?: Partial<M.SidenavOptions>): JQuery;
 }

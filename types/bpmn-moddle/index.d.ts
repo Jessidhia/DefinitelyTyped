@@ -95,7 +95,7 @@ declare namespace BPMNModdle {
     interface Monitoring extends BaseElement {}
 
     // tslint:disable-next-line:no-empty-interface
-   interface Performer extends ResourceRole {}
+    interface Performer extends ResourceRole {}
     interface Process extends FlowElementsContainer, CallableElement {
         processType: string;
         isClosed: boolean;

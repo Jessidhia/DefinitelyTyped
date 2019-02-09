@@ -1,13 +1,13 @@
 import * as materialize from "materialize-css";
 
-const elem = document.querySelector('.whatever')!;
+const elem = document.querySelector(".whatever")!;
 
 // $ExpectType Autocomplete
 const _autocomplete = new M.Autocomplete(elem);
 // $ExpectType Autocomplete
 const el = M.Autocomplete.init(elem);
 // $ExpectType Autocomplete[]
-const els = M.Autocomplete.init(document.querySelectorAll('.whatever'));
+const els = M.Autocomplete.init(document.querySelectorAll(".whatever"));
 
 // $ExpectType Autocomplete
 new materialize.Autocomplete(elem);

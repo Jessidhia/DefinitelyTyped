@@ -4,26 +4,26 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ControlOptions, Control as LControl } from 'leaflet';
+import { ControlOptions, Control as LControl } from "leaflet";
 
-declare module 'leaflet' {
-  interface MapOptions {
-    panControl?: boolean;
-  }
-
-  namespace control {
-    function pan(options?: Control.PanControlOptions): Control.Pan;
-  }
-
-  namespace Control {
-    interface PanControlOptions extends ControlOptions {
-      panOffset?: number;
+declare module "leaflet" {
+    interface MapOptions {
+        panControl?: boolean;
     }
 
-    class Pan extends LControl {
-      options: PanControlOptions;
-
-      constructor(options?: PanControlOptions);
+    namespace control {
+        function pan(options?: Control.PanControlOptions): Control.Pan;
     }
-  }
+
+    namespace Control {
+        interface PanControlOptions extends ControlOptions {
+            panOffset?: number;
+        }
+
+        class Pan extends LControl {
+            options: PanControlOptions;
+
+            constructor(options?: PanControlOptions);
+        }
+    }
 }

@@ -1,10 +1,10 @@
-import * as jsonfile from 'jsonfile';
+import * as jsonfile from "jsonfile";
 
-const file = '/tmp/data.json';
-const obj = { name: 'JP' };
+const file = "/tmp/data.json";
+const obj = { name: "JP" };
 
 // $ExpectType void
-jsonfile.readFile(file, { encoding: 'utf8', throws: true }, (err, obj) => {
+jsonfile.readFile(file, { encoding: "utf8", throws: true }, (err, obj) => {
     // $ExpectType ErrnoException | null
     err;
     // $ExpectType any
@@ -23,14 +23,14 @@ jsonfile.readFile(file).then(obj => {
     // $ExpectType any
     obj;
 });
-jsonfile.readFile(file, { encoding: 'utf8', throws: true }).then(obj => {
+jsonfile.readFile(file, { encoding: "utf8", throws: true }).then(obj => {
     // $ExpectType any
     obj;
 });
 
 // $ExpectType any
 jsonfile.readFileSync(file);
-jsonfile.readFileSync(file, { encoding: 'utf8', throws: true });
+jsonfile.readFileSync(file, { encoding: "utf8", throws: true });
 
 // $ExpectType void
 jsonfile.writeFile(file, obj, err => {
@@ -45,13 +45,13 @@ jsonfile.writeFile(file, obj, { spaces: 2 }, err => {
 });
 
 // $ExpectType void
-jsonfile.writeFile(file, obj, { spaces: 2, EOL: '\r\n' }, err => {
+jsonfile.writeFile(file, obj, { spaces: 2, EOL: "\r\n" }, err => {
     // $ExpectType ErrnoException
     err;
 });
 
 // $ExpectType void
-jsonfile.writeFile(file, obj, { flag: 'a' }, err => {
+jsonfile.writeFile(file, obj, { flag: "a" }, err => {
     // $ExpectType ErrnoException
     err;
 });
@@ -59,9 +59,9 @@ jsonfile.writeFile(file, obj, { flag: 'a' }, err => {
 // $ExpectType Promise<void>
 jsonfile.writeFile(file, obj);
 // $ExpectType Promise<void>
-jsonfile.writeFile(file, obj, { flag: 'a' });
+jsonfile.writeFile(file, obj, { flag: "a" });
 
 jsonfile.writeFileSync(file, obj);
 jsonfile.writeFileSync(file, obj, { spaces: 2 });
-jsonfile.writeFileSync(file, obj, { spaces: 2, EOL: '\r\n' });
-jsonfile.writeFileSync(file, obj, { flag: 'a' });
+jsonfile.writeFileSync(file, obj, { spaces: 2, EOL: "\r\n" });
+jsonfile.writeFileSync(file, obj, { flag: "a" });

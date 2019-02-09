@@ -11,13 +11,16 @@ export interface BaseFieldArrayProps<P = {}> {
     rerenderOnEveryChange?: boolean;
 }
 
-export interface GenericFieldArray<Field, P = {}> extends Component<BaseFieldArrayProps<P> & Partial<P>> {
+export interface GenericFieldArray<Field, P = {}>
+    extends Component<BaseFieldArrayProps<P> & Partial<P>> {
     name: string;
     valid: boolean;
     getRenderedComponent(): Component<WrappedFieldArrayProps<Field> & P>;
 }
 
-export class FieldArray<P = {}> extends Component<BaseFieldArrayProps<P> & Partial<P>> implements GenericFieldArray<any, P> {
+export class FieldArray<P = {}>
+    extends Component<BaseFieldArrayProps<P> & Partial<P>>
+    implements GenericFieldArray<any, P> {
     name: string;
     valid: boolean;
     getRenderedComponent(): Component<WrappedFieldArrayProps<any> & P>;
@@ -28,7 +31,11 @@ export interface WrappedFieldArrayProps<FieldValue> {
     meta: FieldArrayMetaProps;
 }
 
-export type FieldIterate<FieldValue, R = void> = (name: string, index: number, fields: FieldArrayFieldsProps<FieldValue>) => R;
+export type FieldIterate<FieldValue, R = void> = (
+    name: string,
+    index: number,
+    fields: FieldArrayFieldsProps<FieldValue>
+) => R;
 
 export interface FieldArrayFieldsProps<FieldValue> {
     forEach(callback: FieldIterate<FieldValue>): void;

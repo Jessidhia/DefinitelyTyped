@@ -26,29 +26,32 @@
 
 import * as Koa from "koa";
 
-declare function views(dir: string, opts?: {
-    /*
-    * default extension for your views
-    */
-    extension?: string,
-    /*
-    * these options will get passed to the view engine
-    */
-    options?: any,
-    /*
-    * map a file extension to an engine
-    */
-    map?: any,
-    /*
-    * replace consolidate as default engine source
-    */
-    engineSource?: any,
-}): Koa.Middleware;
-declare namespace views { }
+declare function views(
+    dir: string,
+    opts?: {
+        /*
+         * default extension for your views
+         */
+        extension?: string;
+        /*
+         * these options will get passed to the view engine
+         */
+        options?: any;
+        /*
+         * map a file extension to an engine
+         */
+        map?: any;
+        /*
+         * replace consolidate as default engine source
+         */
+        engineSource?: any;
+    }
+): Koa.Middleware;
+declare namespace views {}
 
 export = views;
 
-declare module 'koa' {
+declare module "koa" {
     interface Context {
         render(viewPath: string, locals?: any): Promise<void>;
     }

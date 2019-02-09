@@ -1,18 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "jsx": "react",
         "types": [],
         "noEmit": true,
@@ -53,8 +48,8 @@
         "lib/Select.d.ts",
         "test/data.ts",
         "test/styled-components.tsx",
-		"test/AtlaskitDummy.ts",
-		"test/ChronoNodeDummy.ts",
+        "test/AtlaskitDummy.ts",
+        "test/ChronoNodeDummy.ts",
         "test/examples/AccessingInternals.tsx",
         "test/examples/AnimatedMulti.tsx",
         "test/examples/AsyncCallbacks.tsx",

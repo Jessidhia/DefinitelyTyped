@@ -1,25 +1,16 @@
 {
-    "files": [
-        "index.d.ts",
-        "node-tests.ts"
-    ],
+    "files": ["index.d.ts", "node-tests.ts"],
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "node": [
-                "node/v7"
-            ]
+            "node": ["node/v7"]
         },
         "types": [],
         "noEmit": true,

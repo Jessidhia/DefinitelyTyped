@@ -1,19 +1,23 @@
 class EmployeesFactory {
-    static $inject = ['$rootScope', 'Hub', '$timeout'];
+    static $inject = ["$rootScope", "Hub", "$timeout"];
     private readonly hub: ngSignalr.Hub;
     public all: Array<Employee>;
 
-    constructor($rootScope: ng.IRootScopeService, Hub: ngSignalr.HubFactory, $timeout: ng.ITimeoutService) {
+    constructor(
+        $rootScope: ng.IRootScopeService,
+        Hub: ngSignalr.HubFactory,
+        $timeout: ng.ITimeoutService
+    ) {
         // declaring the hub connection
-        this.hub = new Hub('employee', {
+        this.hub = new Hub("employee", {
             // client-side methods
             listeners: {
-                'lockEmployee': (id: number) => {
+                lockEmployee: (id: number) => {
                     var employee = this.find(id);
                     employee.Locked = true;
                     $rootScope.$apply();
                 },
-                'unlockEmployee': (id: number) => {
+                unlockEmployee: (id: number) => {
                     var employee = this.find(id);
                     employee.Locked = false;
                     $rootScope.$apply();
@@ -21,11 +25,11 @@ class EmployeesFactory {
             },
 
             // server-side methods
-            methods: ['lock', 'unlock'],
+            methods: ["lock", "unlock"],
 
             // query params sent on initial connection
-            queryParams:{
-                    'token': 'exampletoken'
+            queryParams: {
+                token: "exampletoken"
             },
 
             // handle connection error
@@ -49,13 +53,13 @@ class EmployeesFactory {
 
     public edit = (employee: Employee) => {
         employee.Edit = true;
-        this.hub.invoke('lock', employee.Id);
+        this.hub.invoke("lock", employee.Id);
     };
 
     public done = (employee: Employee) => {
         employee.Edit = false;
-        this.hub.invoke('unlock', employee.Id);
-    }
+        this.hub.invoke("unlock", employee.Id);
+    };
 }
 
 interface Employee {
@@ -67,6 +71,4 @@ interface Employee {
     Locked: boolean;
 }
 
-angular
-    .module('app', ['SignalR'])
-    .factory('Employees', EmployeesFactory);
+angular.module("app", ["SignalR"]).factory("Employees", EmployeesFactory);

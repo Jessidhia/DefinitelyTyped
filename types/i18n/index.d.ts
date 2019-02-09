@@ -170,7 +170,11 @@ declare namespace i18n {
      * @param response - Current express response
      * @param next - Callback to continue process
      */
-    function init(request: Express.Request, response: Express.Response, next?: () => void): void;
+    function init(
+        request: Express.Request,
+        response: Express.Response,
+        next?: () => void
+    ): void;
 
     //#region __()
 
@@ -179,14 +183,20 @@ declare namespace i18n {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    function __(phraseOrOptions: string | TranslateOptions, ...replace: string[]): string;
+    function __(
+        phraseOrOptions: string | TranslateOptions,
+        ...replace: string[]
+    ): string;
     /**
      * Translate the given phrase using locale configuration
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    function __(phraseOrOptions: string | TranslateOptions, replacements: Replacements): string;
+    function __(
+        phraseOrOptions: string | TranslateOptions,
+        replacements: Replacements
+    ): string;
 
     //#endregion
 
@@ -206,7 +216,11 @@ declare namespace i18n {
      * @param count - The number which allow to select from plural to singular
      * @returns The translated phrase
      */
-    function __n(singular: string, plural: string, count: number | string): string;
+    function __n(
+        singular: string,
+        plural: string,
+        count: number | string
+    ): string;
 
     //#endregion
 
@@ -217,14 +231,20 @@ declare namespace i18n {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    function __mf(phraseOrOptions: string | TranslateOptions, ...replace: any[]): string;
+    function __mf(
+        phraseOrOptions: string | TranslateOptions,
+        ...replace: any[]
+    ): string;
     /**
      * Translate the given phrase using locale configuration and MessageFormat
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    function __mf(phraseOrOptions: string | TranslateOptions, replacements: Replacements): string;
+    function __mf(
+        phraseOrOptions: string | TranslateOptions,
+        replacements: Replacements
+    ): string;
 
     //#endregion
 
@@ -264,7 +284,11 @@ declare namespace i18n {
      * @param [inheritance=false] - Disables inheritance if true
      */
     // tslint:disable-next-line:unified-signatures
-    function setLocale(requestOrResponse: Express.Request | Express.Response, locale: string, inheritance?: boolean): void;
+    function setLocale(
+        requestOrResponse: Express.Request | Express.Response,
+        locale: string,
+        inheritance?: boolean
+    ): void;
     /**
      * Change the current active locale for specified response
      * @param objects - The object(s) to change locale on
@@ -272,7 +296,11 @@ declare namespace i18n {
      * @param [inheritance=false] - Disables inheritance if true
      */
     // tslint:disable-next-line:unified-signatures
-    function setLocale(objects: any | any[], locale: string, inheritance?: boolean): void;
+    function setLocale(
+        objects: any | any[],
+        locale: string,
+        inheritance?: boolean
+    ): void;
 
     /**
      * Get the current active locale for specified request
@@ -307,7 +335,10 @@ declare namespace i18n {
      * @param [locale] - The locale to get catalog for
      * @returns The current locale catalog for the specified request
      */
-    function getCatalog(request: Express.Request, locale?: string): LocaleCatalog;
+    function getCatalog(
+        request: Express.Request,
+        locale?: string
+    ): LocaleCatalog;
 
     //#endregion
 
@@ -333,14 +364,20 @@ interface i18nAPI {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    __(phraseOrOptions: string | i18n.TranslateOptions, ...replace: string[]): string;
+    __(
+        phraseOrOptions: string | i18n.TranslateOptions,
+        ...replace: string[]
+    ): string;
     /**
      * Translate the given phrase using locale configuration
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    __(phraseOrOptions: string | i18n.TranslateOptions, replacements: i18n.Replacements): string;
+    __(
+        phraseOrOptions: string | i18n.TranslateOptions,
+        replacements: i18n.Replacements
+    ): string;
 
     //#endregion
 
@@ -371,14 +408,20 @@ interface i18nAPI {
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @returns The translated phrase
      */
-    __mf(phraseOrOptions: string | i18n.TranslateOptions, ...replace: any[]): string;
+    __mf(
+        phraseOrOptions: string | i18n.TranslateOptions,
+        ...replace: any[]
+    ): string;
     /**
      * Translate the given phrase using locale configuration and MessageFormat
      * @param phraseOrOptions - The phrase to translate or options for translation
      * @param replacements - An object containing replacements
      * @returns The translated phrase
      */
-    __mf(phraseOrOptions: string | i18n.TranslateOptions, replacements: i18n.Replacements): string;
+    __mf(
+        phraseOrOptions: string | i18n.TranslateOptions,
+        replacements: i18n.Replacements
+    ): string;
 
     //#endregion
 

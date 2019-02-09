@@ -7,7 +7,7 @@ menu.mmenu(
     // options
     {
         extensions: [],
-        navbar:  {
+        navbar: {
             add: true,
             title: "Menu",
             titleLink: "parent"
@@ -34,7 +34,6 @@ menu.mmenu(
         transitionDuration: 400
     }
 );
-
 
 // --------------------------------------------------------
 // ------------------- TEST MMENU API ---------------------
@@ -66,7 +65,7 @@ api.bind("init", function(panel) {
 
 api.openPanel(myPanel);
 api.bind("openPanel", function(panel) {
-    console.log("This panel is now opened ",  panel);
+    console.log("This panel is now opened ", panel);
 });
 
 api.setSelected(listItem, true);

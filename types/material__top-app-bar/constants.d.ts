@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    FIXED_CLASS: 'mdc-top-app-bar--fixed';
-    FIXED_SCROLLED_CLASS: 'mdc-top-app-bar--fixed-scrolled';
-    SHORT_CLASS: 'mdc-top-app-bar--short';
-    SHORT_HAS_ACTION_ITEM_CLASS: 'mdc-top-app-bar--short-has-action-item';
-    SHORT_COLLAPSED_CLASS: 'mdc-top-app-bar--short-collapsed';
+    FIXED_CLASS: "mdc-top-app-bar--fixed";
+    FIXED_SCROLLED_CLASS: "mdc-top-app-bar--fixed-scrolled";
+    SHORT_CLASS: "mdc-top-app-bar--short";
+    SHORT_HAS_ACTION_ITEM_CLASS: "mdc-top-app-bar--short-has-action-item";
+    SHORT_COLLAPSED_CLASS: "mdc-top-app-bar--short-collapsed";
 }
 
 export interface numbers extends MDCNumbers {
@@ -30,9 +30,9 @@ export interface numbers extends MDCNumbers {
 }
 
 export interface strings extends MDCStrings {
-    ACTION_ITEM_SELECTOR: '.mdc-top-app-bar__action-item';
-    NAVIGATION_EVENT: 'MDCTopAppBar:nav';
-    NAVIGATION_ICON_SELECTOR: '.mdc-top-app-bar__navigation-icon';
-    ROOT_SELECTOR: '.mdc-top-app-bar';
-    TITLE_SELECTOR: '.mdc-top-app-bar__title';
+    ACTION_ITEM_SELECTOR: ".mdc-top-app-bar__action-item";
+    NAVIGATION_EVENT: "MDCTopAppBar:nav";
+    NAVIGATION_ICON_SELECTOR: ".mdc-top-app-bar__navigation-icon";
+    ROOT_SELECTOR: ".mdc-top-app-bar";
+    TITLE_SELECTOR: ".mdc-top-app-bar__title";
 }

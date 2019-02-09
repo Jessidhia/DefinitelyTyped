@@ -20,4 +20,8 @@ export interface NextConfig {
     [key: string]: any;
 }
 
-export default function(phase: string, dir: string, customConfig?: NextConfig): NextConfig;
+export default function(
+    phase: string,
+    dir: string,
+    customConfig?: NextConfig
+): NextConfig;

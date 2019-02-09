@@ -29,12 +29,12 @@ declare var LokiOps: {
     $lt(a: any, b: any): boolean;
     $lte(a: any, b: any): boolean;
     /** ex : coll.find({'orderCount': {$between: [10, 50]}}); */
-    $between(a: any, vals: any/*[any, any]*/): boolean;
+    $between(a: any, vals: any /*[any, any]*/): boolean;
     $jgt(a: any, b: any): boolean;
     $jgte(a: any, b: any): boolean;
     $jlt(a: any, b: any): boolean;
     $jlte(a: any, b: any): boolean;
-    $jbetween(a: any, vals: any/*[any, any]*/): boolean;
+    $jbetween(a: any, vals: any /*[any, any]*/): boolean;
     $in(a: any, b: any): boolean;
     $nin(a: any, b: any): boolean;
     $keyin(a: any, b: any): boolean;
@@ -66,21 +66,23 @@ declare type LokiOps = typeof LokiOps;
  * those 2nd pass filter functions should be similar to LokiOps functions, accepting 2 vals to compare.
  */
 declare var indexedOps: {
-    $eq: LokiOps["$eq"],
-    $aeq: true,
-    $dteq: true,
-    $gt: true,
-    $gte: true,
-    $lt: true,
-    $lte: true,
-    $in: true,
-    $between: true
+    $eq: LokiOps["$eq"];
+    $aeq: true;
+    $dteq: true;
+    $gt: true;
+    $gte: true;
+    $lt: true;
+    $lte: true;
+    $in: true;
+    $between: true;
 };
-
 
 type PartialModel<E, T> = { [P in keyof E]?: T | E[P] };
 
-type LokiQuery<E> = PartialModel<E & { $and: any; $or: any }, { [Y in keyof LokiOps]?: any }>;
+type LokiQuery<E> = PartialModel<
+    E & { $and: any; $or: any },
+    { [Y in keyof LokiOps]?: any }
+>;
 
 interface LokiObj {
     $loki: number;
@@ -92,8 +94,6 @@ interface LokiObj {
     };
 }
 
-
-
 /**
  * LokiEventEmitter is a minimalist version of EventEmitter. It enables any
  * constructor that inherits EventEmitter to emit events and trigger
@@ -102,7 +102,6 @@ interface LokiObj {
  * @constructor LokiEventEmitter
  */
 declare class LokiEventEmitter {
-
     /**
      * @prop events - a hashmap, with each property being an array of callbacks
      */
@@ -121,7 +120,10 @@ declare class LokiEventEmitter {
      * @param listener - callback function of listener to attach
      * @returns the index of the callback in the array of listeners for a particular event
      */
-    on<F extends (...args: any[]) => any>(eventName: string | string[], listener: F): F;
+    on<F extends (...args: any[]) => any>(
+        eventName: string | string[],
+        listener: F
+    ): F;
 
     /**
      * emit(eventName, data) - emits a particular event
@@ -146,16 +148,16 @@ declare class LokiEventEmitter {
      * @param eventName - the name(s) of the event(s) which the listener is attached to
      * @param listener - the listener callback function to remove from emitter
      */
-    public removeListener(eventName: string | string[], listener: (...args: any[]) => any): void;
+    public removeListener(
+        eventName: string | string[],
+        listener: (...args: any[]) => any
+    ): void;
 }
-
-
 
 interface LokiConstructorOptions {
     verbose: boolean;
     env: "NATIVESCRIPT" | "NODEJS" | "CORDOVA" | "BROWSER" | "NA";
 }
-
 
 interface LokiConfigOptions {
     adapter: LokiPersistenceAdapter | null;
@@ -170,9 +172,19 @@ interface LokiConfigOptions {
     throttledSaves: boolean;
 }
 
-
-type DeserializeOptions = { partitioned?: boolean; delimited: false; delimiter?: string; partition?: number } | { partitioned?: boolean; delimited?: true; delimiter: string; partition?: number };
-
+type DeserializeOptions =
+    | {
+          partitioned?: boolean;
+          delimited: false;
+          delimiter?: string;
+          partition?: number;
+      }
+    | {
+          partitioned?: boolean;
+          delimited?: true;
+          delimiter: string;
+          partition?: number;
+      };
 
 interface ThrottledSaveDrainOptions {
     recursiveWait: boolean;
@@ -181,9 +193,20 @@ interface ThrottledSaveDrainOptions {
     started: number;
 }
 
-
 interface Transform {
-    type: "find" | "where" | "simplesort" | "compoundsort" | "sort" | "limit" | "offset" | "map" | "eqJoin" | "mapReduce" | "update" | "remove";
+    type:
+        | "find"
+        | "where"
+        | "simplesort"
+        | "compoundsort"
+        | "sort"
+        | "limit"
+        | "offset"
+        | "map"
+        | "eqJoin"
+        | "mapReduce"
+        | "update"
+        | "remove";
     value?: any;
     property?: string;
     desc?: boolean;
@@ -196,14 +219,15 @@ interface Transform {
     reduceFunction?: any;
 }
 
-
 /**
  * Loki: The main database class
  * @implements LokiEventEmitter
  */
 declare class Loki extends LokiEventEmitter {
     collections: Collection<any>[];
-    options: Partial<LokiConstructorOptions> & LokiConfigOptions & Partial<ThrottledSaveDrainOptions>;
+    options: Partial<LokiConstructorOptions> &
+        LokiConfigOptions &
+        Partial<ThrottledSaveDrainOptions>;
     filename: string;
     name?: string;
     databaseVersion: number;
@@ -212,7 +236,13 @@ declare class Loki extends LokiEventEmitter {
     autosaveInterval: number;
     autosaveHandle: number | null;
     persistenceAdapter: LokiPersistenceAdapter | null | undefined;
-    persistenceMethod: "fs" | "localStorage" | "memory" | "adapter" | null | undefined;
+    persistenceMethod:
+        | "fs"
+        | "localStorage"
+        | "memory"
+        | "adapter"
+        | null
+        | undefined;
     throttledCallbacks: ((err?: any) => void)[];
     throttledSavePending: boolean;
     throttledSaves: boolean;
@@ -234,7 +264,12 @@ declare class Loki extends LokiEventEmitter {
      * @param [options.throttledSaves=true] - debounces multiple calls to to saveDatabase reducing number of disk I/O operations
                                             and guaranteeing proper serialization of the calls.
      */
-    constructor(filename: string, options?: Partial<LokiConstructorOptions> & Partial<LokiConfigOptions> & Partial<ThrottledSaveDrainOptions>);
+    constructor(
+        filename: string,
+        options?: Partial<LokiConstructorOptions> &
+            Partial<LokiConfigOptions> &
+            Partial<ThrottledSaveDrainOptions>
+    );
 
     // experimental support for browserify's abstract syntax scan to pick up dependency of indexed adapter.
     // Hopefully, once this hits npm a browserify require of lokijs should scan the main file and detect this indexed adapter reference.
@@ -255,7 +290,11 @@ declare class Loki extends LokiEventEmitter {
      * @param options.destructureDelimiter - string delimiter used for destructured serialization
      * @param initialConfig - (internal) true is passed when loki ctor is invoking
      */
-    public configureOptions(options?: Partial<LokiConfigOptions> & Partial<ThrottledSaveDrainOptions>, initialConfig?: boolean): void;
+    public configureOptions(
+        options?: Partial<LokiConfigOptions> &
+            Partial<ThrottledSaveDrainOptions>,
+        initialConfig?: boolean
+    ): void;
 
     /**
      * Copies 'this' database into a new Loki instance. Object references are shared to make lightweight.
@@ -280,7 +319,10 @@ declare class Loki extends LokiEventEmitter {
      * @param options.ttlInterval - time interval for clearing out 'aged' documents; not set by default.
      * @returns a reference to the collection which was just added
      */
-    public addCollection<F extends object = any>(name: string, options?: Partial<CollectionOptions<F>>): Collection<F>;
+    public addCollection<F extends object = any>(
+        name: string,
+        options?: Partial<CollectionOptions<F>>
+    ): Collection<F>;
 
     public loadCollection(collection: Collection<any>): void;
 
@@ -289,7 +331,9 @@ declare class Loki extends LokiEventEmitter {
      * @param collectionName - name of collection to look up
      * @returns Reference to collection in database by that name, or null if not found
      */
-    public getCollection<F extends object = any>(collectionName: string): Collection<F>;
+    public getCollection<F extends object = any>(
+        collectionName: string
+    ): Collection<F>;
 
     /**
      * Renames an existing loki collection
@@ -312,7 +356,17 @@ declare class Loki extends LokiEventEmitter {
     /**
      * serializeReplacer - used to prevent certain properties from being serialized
      */
-    public serializeReplacer(key: "autosaveHandle" | "persistenceAdapter" | "constraints" | "ttl" | "throttledSavePending" | "throttledCallbacks" | string, value: any): any;
+    public serializeReplacer(
+        key:
+            | "autosaveHandle"
+            | "persistenceAdapter"
+            | "constraints"
+            | "ttl"
+            | "throttledSavePending"
+            | "throttledCallbacks"
+            | string,
+        value: any
+    ): any;
 
     /**
      * Serialize database to a string which can be loaded via {@link Loki#loadJSON}
@@ -320,10 +374,18 @@ declare class Loki extends LokiEventEmitter {
      * @returns Stringified representation of the loki database.
      */
     public serialize(): string;
-    public serialize(options: { serializationMethod?: "normal" | "pretty" }): string;
-    public serialize(options: { serializationMethod: "destructured" }): string[];
-    public serialize(options?: { serializationMethod?: string | null }): string | string[];
-    public serialize(options?: { serializationMethod?: string | null }): string | string[];
+    public serialize(options: {
+        serializationMethod?: "normal" | "pretty";
+    }): string;
+    public serialize(options: {
+        serializationMethod: "destructured";
+    }): string[];
+    public serialize(options?: {
+        serializationMethod?: string | null;
+    }): string | string[];
+    public serialize(options?: {
+        serializationMethod?: string | null;
+    }): string | string[];
 
     // alias of serialize
     public toJson: Loki["serialize"];
@@ -342,7 +404,12 @@ declare class Loki extends LokiEventEmitter {
      *
      * @returns A custom, restructured aggregation of independent serializations.
      */
-    public serializeDestructured(options?: { delimited?: boolean; delimiter?: string; partitioned?: boolean; partition?: number; }): string | string[];
+    public serializeDestructured(options?: {
+        delimited?: boolean;
+        delimiter?: string;
+        partitioned?: boolean;
+        partition?: number;
+    }): string | string[];
 
     /**
      * Collection level utility method to serialize a collection in a 'destructured' format
@@ -354,7 +421,11 @@ declare class Loki extends LokiEventEmitter {
      *
      * @returns A custom, restructured aggregation of independent serializations for a single collection.
      */
-    public serializeCollection(options?: { delimited?: boolean; collectionIndex?: number; delimiter?: string }): string | string[];
+    public serializeCollection(options?: {
+        delimited?: boolean;
+        collectionIndex?: number;
+        delimiter?: string;
+    }): string | string[];
 
     /**
      * Database level destructured JSON deserialization routine to minimize memory overhead.
@@ -371,7 +442,10 @@ declare class Loki extends LokiEventEmitter {
      *
      * @returns An object representation of the deserialized database, not yet applied to 'this' db or document array
      */
-    public deserializeDestructured(destructuredSource: string | string[] | null, options?: DeserializeOptions): any;
+    public deserializeDestructured(
+        destructuredSource: string | string[] | null,
+        options?: DeserializeOptions
+    ): any;
 
     /**
      * Collection level utility function to deserializes a destructured collection.
@@ -383,7 +457,14 @@ declare class Loki extends LokiEventEmitter {
      *
      * @returns an array of documents to attach to collection.data.
      */
-    public deserializeCollection(destructuredSource: string | string[], options?: { partitioned?: boolean; delimited?: boolean; delimiter?: string; }): any[];
+    public deserializeCollection(
+        destructuredSource: string | string[],
+        options?: {
+            partitioned?: boolean;
+            delimited?: boolean;
+            delimiter?: string;
+        }
+    ): any[];
 
     /**
      * Inflates a loki database from a serialized JSON string
@@ -392,7 +473,21 @@ declare class Loki extends LokiEventEmitter {
      * @param [options] - apply or override collection level settings
      * @param [options.serializationMethod] - the serialization format to deserialize
      */
-    public loadJSON(serializedDb: string, options?: { serializationMethod?: "normal" | "pretty" | "destructured" | null } & { retainDirtyFlags?: boolean; throttledSaves?: boolean;[collName: string]: any | { proto?: any; inflate?: (src: object, dest?: object) => void } }): void;
+    public loadJSON(
+        serializedDb: string,
+        options?: {
+            serializationMethod?: "normal" | "pretty" | "destructured" | null;
+        } & {
+            retainDirtyFlags?: boolean;
+            throttledSaves?: boolean;
+            [collName: string]:
+                | any
+                | {
+                      proto?: any;
+                      inflate?: (src: object, dest?: object) => void;
+                  };
+        }
+    ): void;
 
     /**
      * Inflates a loki database from a JS object
@@ -401,8 +496,24 @@ declare class Loki extends LokiEventEmitter {
      * @param options - apply or override collection level settings
      * @param options.retainDirtyFlags - whether collection dirty flags will be preserved
      */
-    public loadJSONObject(dbObject: { name?: string; throttledSaves: boolean; collections: Collection<any>[]; databaseVersion: number },
-        options?: { retainDirtyFlags?: boolean; throttledSaves?: boolean;[collName: string]: any | { proto?: any; inflate?: (src: object, dest?: object) => void } }): void;
+    public loadJSONObject(
+        dbObject: {
+            name?: string;
+            throttledSaves: boolean;
+            collections: Collection<any>[];
+            databaseVersion: number;
+        },
+        options?: {
+            retainDirtyFlags?: boolean;
+            throttledSaves?: boolean;
+            [collName: string]:
+                | any
+                | {
+                      proto?: any;
+                      inflate?: (src: object, dest?: object) => void;
+                  };
+        }
+    ): void;
 
     /**
      * Emits the close event. In autosave scenarios, if the database is dirty, this will save and disable timer.
@@ -430,7 +541,9 @@ declare class Loki extends LokiEventEmitter {
      * @returns array of changes
      * @see private method createChange() in Collection
      */
-    public generateChangesNotification(arrayOfCollectionNames?: string[] | null): CollectionChange[];
+    public generateChangesNotification(
+        arrayOfCollectionNames?: string[] | null
+    ): CollectionChange[];
 
     /**
      * (Changes API) - stringify changes for network transmission
@@ -452,7 +565,10 @@ declare class Loki extends LokiEventEmitter {
      * @param [options.recursiveWaitLimit] - (default: false) limit our recursive waiting to a duration
      * @param [options.recursiveWaitLimitDelay] - (default: 2000) cutoff in ms to stop recursively re-draining
      */
-    public throttledSaveDrain(callback: (result?: boolean) => void, options?: Partial<ThrottledSaveDrainOptions>): void;
+    public throttledSaveDrain(
+        callback: (result?: boolean) => void,
+        options?: Partial<ThrottledSaveDrainOptions>
+    ): void;
 
     /**
      * Internal load logic, decoupled from throttling/contention logic
@@ -460,7 +576,10 @@ declare class Loki extends LokiEventEmitter {
      * @param [options] - not currently used (remove or allow overrides?)
      * @param [callback] - (Optional) user supplied async callback / error handler
      */
-    public loadDatabaseInternal(options?: any, callback?: (err?: any, data?: any) => void): void;
+    public loadDatabaseInternal(
+        options?: any,
+        callback?: (err?: any, data?: any) => void
+    ): void;
 
     /**
      * Handles manually loading from file system, local storage, or adapter (such as indexeddb)
@@ -485,7 +604,10 @@ declare class Loki extends LokiEventEmitter {
      *   }
      * });
      */
-    public loadDatabase(options?: Partial<ThrottledSaveDrainOptions>, callback?: (err: any) => void): void;
+    public loadDatabase(
+        options?: Partial<ThrottledSaveDrainOptions>,
+        callback?: (err: any) => void
+    ): void;
 
     /**
      * Internal save logic, decoupled from save throttling logic
@@ -524,8 +646,14 @@ declare class Loki extends LokiEventEmitter {
      * @param callback - (Optional) user supplied async callback / error handler
      */
     public deleteDatabase(callback: (err?: any, data?: any) => void): void;
-    public deleteDatabase(options?: null, callback?: (err?: any, data?: any) => void): void;
-    public deleteDatabase(options?: ((err?: any, data?: any) => void) | null, callback?: (err?: any, data?: any) => void): void;
+    public deleteDatabase(
+        options?: null,
+        callback?: (err?: any, data?: any) => void
+    ): void;
+    public deleteDatabase(
+        options?: ((err?: any, data?: any) => void) | null,
+        callback?: (err?: any, data?: any) => void
+    ): void;
 
     /**
      * autosaveDirty - check whether any collections are 'dirty' meaning we need to save (entire) database
@@ -555,26 +683,34 @@ declare class Loki extends LokiEventEmitter {
     public autosaveDisable(): void;
 }
 
-
-
 /*------------------+
 | PERSISTENCE       |
 -------------------*/
 
 /** there are two build in persistence adapters for internal use
-    * fs             for use in Nodejs type environments
-    * localStorage   for use in browser environment
-    * defined as helper classes here so its easy and clean to use
-    */
+ * fs             for use in Nodejs type environments
+ * localStorage   for use in browser environment
+ * defined as helper classes here so its easy and clean to use
+ */
 
 interface LokiPersistenceAdapter {
     mode?: string;
     loadDatabase(dbname: string, callback: (value: any) => void): void;
-    deleteDatabase?(dbnameOrOptions: any, callback: (err?: Error | null, data?: any) => void): void;
-    exportDatabase?(dbname: string, dbref: Loki, callback: (err: Error | null) => void): void;
-    saveDatabase?(dbname: string, dbstring: any, callback: (err?: Error | null) => void): void;
+    deleteDatabase?(
+        dbnameOrOptions: any,
+        callback: (err?: Error | null, data?: any) => void
+    ): void;
+    exportDatabase?(
+        dbname: string,
+        dbref: Loki,
+        callback: (err: Error | null) => void
+    ): void;
+    saveDatabase?(
+        dbname: string,
+        dbstring: any,
+        callback: (err?: Error | null) => void
+    ): void;
 }
-
 
 /**
  * In in-memory persistence adapter for an in-memory database.
@@ -586,7 +722,9 @@ interface LokiPersistenceAdapter {
  * @constructor LokiMemoryAdapter
  */
 declare class LokiMemoryAdapter implements LokiPersistenceAdapter {
-    hashStore: { [name: string]: { savecount: number; lastsave: Date; value: string } };
+    hashStore: {
+        [name: string]: { savecount: number; lastsave: Date; value: string };
+    };
     options: { asyncResponses?: boolean; asyncTimeout?: number };
 
     constructor(options?: { asyncResponses?: boolean; asyncTimeout?: number });
@@ -607,7 +745,11 @@ declare class LokiMemoryAdapter implements LokiPersistenceAdapter {
      * @param dbname - name of the database (filename/keyname)
      * @param callback - adapter callback to return load result to caller
      */
-    public saveDatabase(dbname: string, dbstring: any, callback: (err?: Error | null) => void): void;
+    public saveDatabase(
+        dbname: string,
+        dbstring: any,
+        callback: (err?: Error | null) => void
+    ): void;
 
     /**
      * Deletes a database from its in-memory store.
@@ -615,17 +757,17 @@ declare class LokiMemoryAdapter implements LokiPersistenceAdapter {
      * @param dbname - name of the database (filename/keyname)
      * @param callback - function to call when done
      */
-    public deleteDatabase(dbname: string, callback: (err?: Error | null) => void): void;
+    public deleteDatabase(
+        dbname: string,
+        callback: (err?: Error | null) => void
+    ): void;
 }
-
-
 
 interface PageIterator {
     collection: number;
     pageIndex: number;
     docIndex: number;
 }
-
 
 /**
  * An adapter for adapters.  Converts a non reference mode adapter into a reference mode adapter
@@ -647,13 +789,16 @@ interface PageIterator {
 declare class LokiPartitioningAdapter implements LokiPersistenceAdapter {
     mode: string;
     dbref: Loki | null;
-    dbname: string
+    dbname: string;
     adapter: LokiPersistenceAdapter | null;
     options: { paging?: boolean; pageSize?: number; delimiter?: string };
     pageIterator: PageIterator | {};
     dirtyPartitions: number[] | undefined;
 
-    constructor(adapter: LokiPersistenceAdapter, options?: { paging?: boolean; pageSize?: number; delimiter?: string });
+    constructor(
+        adapter: LokiPersistenceAdapter,
+        options?: { paging?: boolean; pageSize?: number; delimiter?: string }
+    );
 
     /**
      * Loads a database which was partitioned into several key/value saves.
@@ -662,7 +807,10 @@ declare class LokiPartitioningAdapter implements LokiPersistenceAdapter {
      * @param dbname - name of the database (filename/keyname)
      * @param callback - adapter callback to return load result to caller
      */
-    public loadDatabase(dbname: string, callback: (dbOrErr: Loki | null | Error) => void): void;
+    public loadDatabase(
+        dbname: string,
+        callback: (dbOrErr: Loki | null | Error) => void
+    ): void;
 
     /**
      * Used to sequentially load each collection partition, one at a time.
@@ -687,7 +835,11 @@ declare class LokiPartitioningAdapter implements LokiPersistenceAdapter {
      * @param dbref - reference to database which we will partition and save.
      * @param callback - adapter callback to return load result to caller
      */
-    public exportDatabase(dbname: string, dbref: Loki, callback: (err: Error | null) => void): void;
+    public exportDatabase(
+        dbname: string,
+        dbref: Loki,
+        callback: (err: Error | null) => void
+    ): void;
 
     /**
      * Helper method used internally to save each dirty collection, one at a time.
@@ -704,14 +856,11 @@ declare class LokiPartitioningAdapter implements LokiPersistenceAdapter {
     public saveNextPage(callback: (err: Error | null) => void): void;
 }
 
-
-
 /**
  * A loki persistence adapter which persists using node fs module
  * @constructor LokiFsAdapter
  */
 declare class LokiFsAdapter implements LokiPersistenceAdapter {
-
     constructor();
 
     /**
@@ -719,7 +868,10 @@ declare class LokiFsAdapter implements LokiPersistenceAdapter {
      * @param dbname - the filename of the database to load
      * @param callback - the callback to handle the result
      */
-    public loadDatabase(dbname: string, callback: (data: any | Error) => void): void;
+    public loadDatabase(
+        dbname: string,
+        callback: (data: any | Error) => void
+    ): void;
 
     /**
      * saveDatabase() - save data to file, will throw an error if the file can't be saved
@@ -727,7 +879,11 @@ declare class LokiFsAdapter implements LokiPersistenceAdapter {
      * @param dbname - the filename of the database to load
      * @param callback - the callback to handle the result
      */
-    public saveDatabase(dbname: string, dbstring: string | Uint8Array, callback: (err?: Error | null) => void): void;
+    public saveDatabase(
+        dbname: string,
+        dbstring: string | Uint8Array,
+        callback: (err?: Error | null) => void
+    ): void;
 
     /**
      * deleteDatabase() - delete the database file, will throw an error if the
@@ -735,23 +891,26 @@ declare class LokiFsAdapter implements LokiPersistenceAdapter {
      * @param dbname - the filename of the database to delete
      * @param callback - the callback to handle the result
      */
-    public deleteDatabase(dbname: string, callback: (err?: Error | null) => void): void;
+    public deleteDatabase(
+        dbname: string,
+        callback: (err?: Error | null) => void
+    ): void;
 }
-
-
 
 /**
  * A loki persistence adapter which persists to web browser's local storage object
  * @constructor LokiLocalStorageAdapter
  */
 declare class LokiLocalStorageAdapter {
-
     /**
      * loadDatabase() - Load data from localstorage
      * @param dbname - the name of the database to load
      * @param callback - the callback to handle the result
      */
-    public loadDatabase(dbname: string, callback: (dataOrError: any | Error) => void): void;
+    public loadDatabase(
+        dbname: string,
+        callback: (dataOrError: any | Error) => void
+    ): void;
 
     /**
      * saveDatabase() - save data to localstorage, will throw an error if the file can't be saved
@@ -759,7 +918,11 @@ declare class LokiLocalStorageAdapter {
      * @param dbname - the filename of the database to load
      * @param callback - the callback to handle the result
      */
-    public saveDatabase(dbname: string, dbstring: string, callback: (err?: Error | null) => void): void;
+    public saveDatabase(
+        dbname: string,
+        dbstring: string,
+        callback: (err?: Error | null) => void
+    ): void;
 
     /**
      * deleteDatabase() - delete the database from localstorage, will throw an error if it
@@ -767,17 +930,24 @@ declare class LokiLocalStorageAdapter {
      * @param dbname - the filename of the database to delete
      * @param callback - the callback to handle the result
      */
-    public deleteDatabase(dbname: string, callback: (err?: Error | null) => void): void;
+    public deleteDatabase(
+        dbname: string,
+        callback: (err?: Error | null) => void
+    ): void;
 }
-
-
 
 interface GetDataOptions {
     forceClones: boolean;
-    forceCloneMethod: ("parse-stringify" | "jquery-extend-deep" | "shallow" | "shallow-assign" | "shallow-recurse-objects") | null;
+    forceCloneMethod:
+        | (
+              | "parse-stringify"
+              | "jquery-extend-deep"
+              | "shallow"
+              | "shallow-assign"
+              | "shallow-recurse-objects")
+        | null;
     removeMeta: boolean;
 }
-
 
 interface SimplesortOptions {
     desc: boolean;
@@ -855,7 +1025,10 @@ declare class Resultset<E extends object> {
      * @param parameters - (Optional) object property hash of parameters, if the transform requires them.
      * @returns either (this) resultset or a clone of of this resultset (depending on steps)
      */
-    public transform(transform: string | string[] | Transform[], parameters?: object): Resultset<any>;
+    public transform(
+        transform: string | string[] | Transform[],
+        parameters?: object
+    ): Resultset<any>;
 
     /**
      * User supplied compare function is provided two documents to compare. (chainable)
@@ -883,7 +1056,10 @@ declare class Resultset<E extends object> {
      * @param [options.useJavascriptSorting] - whether results are sorted via basic javascript sort.
      * @returns Reference to this resultset, sorted, for future chain operations.
      */
-    public simplesort(propname: keyof E, options?: boolean | Partial<SimplesortOptions>): this;
+    public simplesort(
+        propname: keyof E,
+        options?: boolean | Partial<SimplesortOptions>
+    ): this;
 
     /**
      * Allows sorting a resultset based on multiple columns.
@@ -984,7 +1160,10 @@ declare class Resultset<E extends object> {
      * @param reduceFunction - this function accepts many (array of map outputs) and returns single value
      * @returns The output of your reduceFunction
      */
-    public mapReduce<U, R>(mapFunction: (value: E, index: number, array: E[]) => U, reduceFunction: (ary: U[]) => R): R;
+    public mapReduce<U, R>(
+        mapFunction: (value: E, index: number, array: E[]) => U,
+        reduceFunction: (ary: U[]) => R
+    ): R;
 
     /**
      * eqJoin() - Left joining two sets of data. Join keys can be defined or calculated properties
@@ -1015,17 +1194,17 @@ declare class Resultset<E extends object> {
      * @param [dataOptions.forceClones] - forcing the return of cloned objects to your map object
      * @param [dataOptions.forceCloneMethod] - Allows overriding the default or collection specified cloning method.
      */
-    public map<U extends object>(mapFun: (value: E, index: number, array: E[]) => U, dataOptions?: Partial<GetDataOptions>): Resultset<U>;
+    public map<U extends object>(
+        mapFun: (value: E, index: number, array: E[]) => U,
+        dataOptions?: Partial<GetDataOptions>
+    ): Resultset<U>;
 }
-
-
 
 interface DynamicViewOptions {
     persistent: boolean;
     sortPriority: "active" | "passive";
     minRebuildInterval: number;
 }
-
 
 /**
  * DynamicView class is a versatile 'live' view class which can have filters and sorts applied.
@@ -1048,7 +1227,11 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
     resultdata: (E & LokiObj)[];
     resultsdirty: boolean;
     cachedresultset: Resultset<E> | null;
-    filterPipeline: { type: "find" | "where", val: any; uid?: string | number }[];
+    filterPipeline: {
+        type: "find" | "where";
+        val: any;
+        uid?: string | number;
+    }[];
     sortFunction: ((a: E & LokiObj, b: E & LokiObj) => number) | null;
     sortCriteria: [keyof E, boolean][] | null;
     sortDirty: boolean;
@@ -1063,7 +1246,11 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param [options.minRebuildInterval] - minimum rebuild interval (need clarification to docs here)
      * @see {@link Collection#addDynamicView} to construct instances of DynamicView
      */
-    constructor(collection: Collection<E>, name: string, options?: Partial<DynamicViewOptions>);
+    constructor(
+        collection: Collection<E>,
+        name: string,
+        options?: Partial<DynamicViewOptions>
+    );
 
     /**
      * rematerialize() - internally used immediately after deserialization (loading)
@@ -1086,7 +1273,10 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param [parameters] - optional parameters (if optional transform requires them)
      * @returns A copy of the internal resultset for branched queries.
      */
-    public branchResultset(transform: string | string[] | Transform[], parameters?: object): Resultset<any>;
+    public branchResultset(
+        transform: string | string[] | Transform[],
+        parameters?: object
+    ): Resultset<any>;
 
     /**
      * toJSON() - Override of toJSON to avoid circular references
@@ -1113,7 +1303,9 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param comparefun - a javascript compare function used for sorting
      * @returns this DynamicView object, for further chain ops.
      */
-    public applySort(comparefun: (a: E & LokiObj, b: E & LokiObj) => number): this;
+    public applySort(
+        comparefun: (a: E & LokiObj, b: E & LokiObj) => number
+    ): this;
 
     /**
      * applySimpleSort() - Used to specify a property used for view translation.
@@ -1128,7 +1320,10 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param [options.useJavascriptSorting] - whether results are sorted via basic javascript sort.
      * @returns this DynamicView object, for further chain ops.
      */
-    public applySimpleSort(propname: keyof E,  options?: boolean | Partial<SimplesortOptions>): this;
+    public applySimpleSort(
+        propname: keyof E,
+        options?: boolean | Partial<SimplesortOptions>
+    ): this;
 
     /**
      * applySortCriteria() - Allows sorting a resultset based on multiple columns.
@@ -1181,7 +1376,11 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      *
      * @param filter - The filter object. Refer to applyFilter() for extra details.
      */
-    public _addFilter(filter: { type: "find" | "where", val: any; uid?: string | number }): void;
+    public _addFilter(filter: {
+        type: "find" | "where";
+        val: any;
+        uid?: string | number;
+    }): void;
 
     /**
      * reapplyFilters() - Reapply all the filters in the current pipeline.
@@ -1197,7 +1396,11 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      *    The object is in the format { 'type': filter_type, 'val', filter_param, 'uid', optional_filter_id }
      * @returns this DynamicView object, for further chain ops.
      */
-    public applyFilter(filter: { type: "find" | "where", val: any; uid?: string | number }): this;
+    public applyFilter(filter: {
+        type: "find" | "where";
+        val: any;
+        uid?: string | number;
+    }): this;
 
     /**
      * applyFind() - Adds or updates a mongo-style query option in the DynamicView filter pipeline
@@ -1261,7 +1464,10 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
     /**
      * performSortPhase() - invoked synchronously or asynchronously to perform final sort phase (if needed)
      */
-    public performSortPhase(options?: { persistent?: boolean; suppressRebuildEvent?: boolean }): void;
+    public performSortPhase(options?: {
+        persistent?: boolean;
+        suppressRebuildEvent?: boolean;
+    }): void;
 
     /**
      * evaluateDocument() - internal method for (re)evaluating document inclusion.
@@ -1271,7 +1477,6 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param [isNew] - true if the document was just added to the collection.
      */
     public evaluateDocument(objIndex: number | string, isNew?: boolean): void;
-
 
     /**
      * removeDocument() - internal function called on collection.delete()
@@ -1285,17 +1490,17 @@ declare class DynamicView<E extends object> extends LokiEventEmitter {
      * @param reduceFunction - this function accepts many (array of map outputs) and returns single value
      * @returns The output of your reduceFunction
      */
-    public mapReduce<U, R>(mapFunction: (value: E, index: number, array: E[]) => U, reduceFunction: (ary: U[]) => R): R;
+    public mapReduce<U, R>(
+        mapFunction: (value: E, index: number, array: E[]) => U,
+        reduceFunction: (ary: U[]) => R
+    ): R;
 }
-
-
 
 interface BinaryIndex {
     name: string;
     dirty: boolean;
     values: number[];
 }
-
 
 interface CollectionOptions<E> {
     disableMeta: boolean;
@@ -1305,7 +1510,12 @@ interface CollectionOptions<E> {
     asyncListeners: boolean;
     autoupdate: boolean;
     clone: boolean;
-    cloneMethod: ("parse-stringify" | "jquery-extend-deep" | "shallow" | "shallow-assign" | "shallow-recurse-objects");
+    cloneMethod:
+        | "parse-stringify"
+        | "jquery-extend-deep"
+        | "shallow"
+        | "shallow-assign"
+        | "shallow-recurse-objects";
     serializableIndices: boolean;
     transactional: boolean;
     ttl: number;
@@ -1315,7 +1525,6 @@ interface CollectionOptions<E> {
     indices: (keyof E) | (keyof E)[];
 }
 
-
 interface CollectionChange {
     name: string;
     operation: string;
@@ -1323,9 +1532,9 @@ interface CollectionChange {
 }
 
 interface CheckIndexOptions {
-  randomSampling: boolean;
-  randomSamplingFactor: number;
-  repair: boolean;
+    randomSampling: boolean;
+    randomSamplingFactor: number;
+    repair: boolean;
 }
 
 /**
@@ -1346,17 +1555,24 @@ declare class Collection<E extends object> extends LokiEventEmitter {
     cachedBinaryIndex: { [P in keyof E]: BinaryIndex } | null;
     cachedData: E[] | null;
     changes: CollectionChange[];
-    cloneMethod: ("parse-stringify" | "jquery-extend-deep" | "shallow" | "shallow-assign" | "shallow-recurse-objects") | null;
+    cloneMethod:
+        | (
+              | "parse-stringify"
+              | "jquery-extend-deep"
+              | "shallow"
+              | "shallow-assign"
+              | "shallow-recurse-objects")
+        | null;
     cloneObjects: boolean;
     constraints: {
         unique: { [P in keyof E]: UniqueIndex<E> };
-        exact: { [P in keyof E]: ExactIndex<E> }
+        exact: { [P in keyof E]: ExactIndex<E> };
     };
     disableChangesApi: boolean;
     disableDeltaChangesApi: boolean;
     DynamicViews: DynamicView<object>[];
     idIndex: number[];
-    ttl: { age: any; ttlInterval: any; daemon: any; };
+    ttl: { age: any; ttlInterval: any; daemon: any };
     maxId: number;
     uniqueNames: (keyof E)[];
     transforms: { [name: string]: Transform[] };
@@ -1368,7 +1584,6 @@ declare class Collection<E extends object> extends LokiEventEmitter {
     getChangeDelta: (obj: any, old?: any) => any;
     getObjectDelta: (oldObject: any, newObject?: any) => any;
     setChangesApi: (enabled?: boolean) => void;
-
 
     /**
      * @param name - collection name
@@ -1467,7 +1682,9 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * Will allow reconfiguring certain collection options.
      * @param [options.adaptiveBinaryIndices] - collection indices will be actively rebuilt rather than lazily
      */
-    public configureOptions(options?: { adaptiveBinaryIndices?: boolean }): void;
+    public configureOptions(options?: {
+        adaptiveBinaryIndices?: boolean;
+    }): void;
 
     /**
      * Ensure binary index on a certain field
@@ -1475,7 +1692,7 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param [force] - (Optional) flag indicating whether to construct index immediately
      */
     public ensureIndex(property: keyof E, force?: boolean): void;
-    
+
     /**
      * Perform checks to determine validity/consistency of all binary indices
      * @param [options] - optional configuration object
@@ -1484,7 +1701,7 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param [options.repair] - whether to fix problems if they are encountered
      */
     public checkAllIndexes(options?: Partial<CheckIndexOptions>): string[];
-    
+
     /**
      * Perform checks to determine validity/consistency of a binary index
      * @param property - name of the binary-indexed property to check
@@ -1493,7 +1710,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param [options.randomSamplingFactor] - percentage of total rows to randomly sample
      * @param [options.repair] - whether to fix problems if they are encountered
      */
-    public checkIndex(property: keyof E, options?: Partial<CheckIndexOptions>): boolean;
+    public checkIndex(
+        property: keyof E,
+        options?: Partial<CheckIndexOptions>
+    ): boolean;
 
     public getSequencedIndexValues(property: string): string;
 
@@ -1540,7 +1760,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      *
      * var results = pview.data();
      */
-    public addDynamicView(name: string, options?: Partial<DynamicViewOptions>): DynamicView<E>;
+    public addDynamicView(
+        name: string,
+        options?: Partial<DynamicViewOptions>
+    ): DynamicView<E>;
 
     /**
      * Remove a dynamic view from the collection
@@ -1562,7 +1785,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param filterObject - 'mongo-like' query object (or deprecated filterFunction mode)
      * @param updateFunction - update function to run against filtered documents
      */
-    public findAndUpdate(filterObject: ((data: E) => boolean) | LokiQuery<E & LokiObj>, updateFunction: (obj: E & LokiObj) => any): void;
+    public findAndUpdate(
+        filterObject: ((data: E) => boolean) | LokiQuery<E & LokiObj>,
+        updateFunction: (obj: E & LokiObj) => any
+    ): void;
 
     /**
      * Applies a 'mongo-like' find query object removes all documents which match that filter.
@@ -1626,14 +1852,21 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param filterFunction - filter function whose results will execute update
      * @param updateFunction - update function to run against filtered documents
      */
-    public updateWhere(filterFunction: (data: E) => boolean, updateFunction: (obj: E & LokiObj) => any): void;
+    public updateWhere(
+        filterFunction: (data: E) => boolean,
+        updateFunction: (obj: E & LokiObj) => any
+    ): void;
 
     /**
      * Remove all documents matching supplied filter function.
      * For 'mongo-like' querying you should migrate to [findAndRemove()]{@link Collection#findAndRemove}.
      * @param query - query object to filter on
      */
-    public removeWhere(query: ((value: E, index: number, array: E[]) => boolean) | LokiQuery<E & LokiObj>): void;
+    public removeWhere(
+        query:
+            | ((value: E, index: number, array: E[]) => boolean)
+            | LokiQuery<E & LokiObj>
+    ): void;
 
     public removeDataOnly(): void;
 
@@ -1659,7 +1892,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      */
     public get(id: number): E & LokiObj;
     public get(id: number, returnPosition: true): [E & LokiObj, number];
-    public get(id: number, returnPosition?: boolean): (E & LokiObj) | [E & LokiObj, number] | null;
+    public get(
+        id: number,
+        returnPosition?: boolean
+    ): (E & LokiObj) | [E & LokiObj, number] | null;
 
     /**
      * Perform binary range lookup for the data[dataPosition][binaryIndexName] property value
@@ -1668,28 +1904,41 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param dataPosition : coll.data array index/position
      * @param binaryIndexName : index to search for dataPosition in
      */
-    public getBinaryIndexPosition(dataPosition: number, binaryIndexName: keyof E): number | null;
+    public getBinaryIndexPosition(
+        dataPosition: number,
+        binaryIndexName: keyof E
+    ): number | null;
 
     /**
      * Adaptively insert a selected item to the index.
      * @param dataPosition : coll.data array index/position
      * @param binaryIndexName : index to search for dataPosition in
      */
-    public adaptiveBinaryIndexInsert(dataPosition: number, binaryIndexName: keyof E): void;
+    public adaptiveBinaryIndexInsert(
+        dataPosition: number,
+        binaryIndexName: keyof E
+    ): void;
 
     /**
      * Adaptively update a selected item within an index.
      * @param dataPosition : coll.data array index/position
      * @param binaryIndexName : index to search for dataPosition in
      */
-    public adaptiveBinaryIndexUpdate(dataPosition: number, binaryIndexName: keyof E): void;
+    public adaptiveBinaryIndexUpdate(
+        dataPosition: number,
+        binaryIndexName: keyof E
+    ): void;
 
     /**
      * Adaptively remove a selected item from the index.
      * @param dataPosition : coll.data array index/position
      * @param binaryIndexName : index to search for dataPosition in
      */
-    public adaptiveBinaryIndexRemove(dataPosition: number, binaryIndexName: keyof E, removedFromIndexOnly?: boolean): void;
+    public adaptiveBinaryIndexRemove(
+        dataPosition: number,
+        binaryIndexName: keyof E,
+        removedFromIndexOnly?: boolean
+    ): void;
 
     /**
      * Internal method used for index maintenance and indexed searching.
@@ -1705,7 +1954,11 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param val - value to find within index
      * @param [adaptive] - if true, we will return insert position
      */
-    public calculateRangeStart(prop: keyof E, val: any, adaptive?: boolean): number;
+    public calculateRangeStart(
+        prop: keyof E,
+        val: any,
+        adaptive?: boolean
+    ): number;
 
     /**
      * Internal method used for indexed $between.  Given a prop (index name), and a value
@@ -1723,7 +1976,20 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param val - value to use for range calculation.
      * @returns [start, end] index array positions
      */
-    public calculateRange(op: ("$eq" | "$aeq" | "$dteq" | "$gt" | "$gte" | "$lt" | "$lte" | "$between" | "$in"), prop: keyof E, val: any): number[];
+    public calculateRange(
+        op:
+            | "$eq"
+            | "$aeq"
+            | "$dteq"
+            | "$gt"
+            | "$gte"
+            | "$lt"
+            | "$lte"
+            | "$between"
+            | "$in",
+        prop: keyof E,
+        val: any
+    ): number[];
 
     /**
      * Retrieve doc by Unique index
@@ -1733,8 +1999,14 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      */
     public by(field: keyof E): (value: any) => E | undefined;
     public by(field: keyof E, value: any): E | undefined;
-    public by(field: keyof E, value?: any): E | ((value: any) => E | undefined) | undefined;
-    public by(field: keyof E, value?: any): E | ((value: any) => E | undefined) | undefined;
+    public by(
+        field: keyof E,
+        value?: any
+    ): E | ((value: any) => E | undefined) | undefined;
+    public by(
+        field: keyof E,
+        value?: any
+    ): E | ((value: any) => E | undefined) | undefined;
 
     /**
      * Find one object by index property, by property equal to value
@@ -1752,7 +2024,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @returns (this) resultset, or data array if any map or join functions where called
      */
     public chain(): Resultset<E & LokiObj>;
-    public chain(transform?: string | string[] | Transform[], parameters?: object): Resultset<any>;
+    public chain(
+        transform?: string | string[] | Transform[],
+        parameters?: object
+    ): Resultset<any>;
 
     /**
      * Find method, api is similar to mongodb.
@@ -1804,7 +2079,10 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * @param reduceFunction - function to use as reduce function
      * @returns The result of your mapReduce operation
      */
-    public mapReduce<U, R>(mapFunction: (value: E, index: number, array: E[]) => U, reduceFunction: (ary: U[]) => R): R;
+    public mapReduce<U, R>(
+        mapFunction: (value: E, index: number, array: E[]) => U,
+        reduceFunction: (ary: U[]) => R
+    ): R;
 
     /**
      * Join two collections on specified properties
@@ -1843,7 +2121,6 @@ declare class Collection<E extends object> extends LokiEventEmitter {
      * a collection of objects recording the changes applied through a commmitStage
      */
     public commitLog: { timestamp: number; message: string; data: any }[];
-
 
     /**
      * (Staging API) create a copy of an object and insert it into a stage
@@ -1897,8 +2174,6 @@ declare class Collection<E extends object> extends LokiEventEmitter {
     public median(field: string): number;
 }
 
-
-
 declare class KeyValueStore {
     keys: any[];
     values: any[];
@@ -1916,16 +2191,14 @@ declare class KeyValueStore {
     public get(key: any): any[];
 }
 
-
-
 declare class UniqueIndex<E extends object> {
     field: keyof E;
-    keyMap: { [fieldValue: string]: E/*{ $loki: number }*/ | undefined };
+    keyMap: { [fieldValue: string]: E /*{ $loki: number }*/ | undefined };
     lokiMap: { [$loki: number]: string | number | undefined };
 
     constructor(uniqueField: keyof E);
 
-    public set(obj: E/*{ $loki: number }*/): void;
+    public set(obj: E /*{ $loki: number }*/): void;
 
     public get(key: string | number): E | undefined;
 
@@ -1936,14 +2209,12 @@ declare class UniqueIndex<E extends object> {
      * @param  {Object} obj Original document object
      * @param  {Object} doc New document object (likely the same as obj)
      */
-    public update(obj: E/*{ $loki: number }*/, doc: any): void;
+    public update(obj: E /*{ $loki: number }*/, doc: any): void;
 
     public remove(key: string): void;
 
     public clear(): void;
 }
-
-
 
 declare class ExactIndex<E extends object> {
     field: keyof E;
@@ -1963,8 +2234,6 @@ declare class ExactIndex<E extends object> {
     // clear will zap the index
     public clear(key?: null): void;
 }
-
-
 
 declare class SortedIndex {
     field: string;
@@ -2006,15 +2275,13 @@ declare class SortedIndex {
     public clear(): void;
 }
 
-
 // type aliases to allow the nested classes inside LokiConstructor to extend classes sharing them same name(s) as themselves
-declare class _Collection<E extends object> extends Collection<E> { }
-declare class _KeyValueStore extends KeyValueStore { }
-declare class _LokiMemoryAdapter extends LokiMemoryAdapter { }
-declare class _LokiPartitioningAdapter extends LokiPartitioningAdapter { }
-declare class _LokiLocalStorageAdapter extends LokiLocalStorageAdapter { }
-declare class _LokiFsAdapter extends LokiFsAdapter { }
-
+declare class _Collection<E extends object> extends Collection<E> {}
+declare class _KeyValueStore extends KeyValueStore {}
+declare class _LokiMemoryAdapter extends LokiMemoryAdapter {}
+declare class _LokiPartitioningAdapter extends LokiPartitioningAdapter {}
+declare class _LokiLocalStorageAdapter extends LokiLocalStorageAdapter {}
+declare class _LokiFsAdapter extends LokiFsAdapter {}
 
 /**
  * LokiJS
@@ -2022,12 +2289,17 @@ declare class _LokiFsAdapter extends LokiFsAdapter { }
  * @author Joe Minichino <joe.minichino@gmail.com>
  */
 declare class LokiConstructor extends Loki {
-    constructor(filename: string, options?: Partial<LokiConstructorOptions> & Partial<LokiConfigOptions> & Partial<ThrottledSaveDrainOptions>);
+    constructor(
+        filename: string,
+        options?: Partial<LokiConstructorOptions> &
+            Partial<LokiConfigOptions> &
+            Partial<ThrottledSaveDrainOptions>
+    );
 }
 declare module LokiConstructor {
     export var persistenceAdapters: {
-        fs: _LokiFsAdapter,
-        localStorage: _LokiLocalStorageAdapter
+        fs: _LokiFsAdapter;
+        localStorage: _LokiLocalStorageAdapter;
     };
 
     export function aeq(prop1: any, prop2: any): boolean;
@@ -2038,17 +2310,17 @@ declare module LokiConstructor {
 
     export var LokiOps: LokiOps;
 
-    export class Collection<E extends object = any> extends _Collection<E> { }
+    export class Collection<E extends object = any> extends _Collection<E> {}
 
-    export class KeyValueStore extends _KeyValueStore { }
+    export class KeyValueStore extends _KeyValueStore {}
 
-    export class LokiMemoryAdapter extends _LokiMemoryAdapter { }
+    export class LokiMemoryAdapter extends _LokiMemoryAdapter {}
 
-    export class LokiPartitioningAdapter extends _LokiPartitioningAdapter { }
+    export class LokiPartitioningAdapter extends _LokiPartitioningAdapter {}
 
-    export class LokiLocalStorageAdapter extends _LokiLocalStorageAdapter { }
+    export class LokiLocalStorageAdapter extends _LokiLocalStorageAdapter {}
 
-    export class LokiFsAdapter extends _LokiFsAdapter { }
+    export class LokiFsAdapter extends _LokiFsAdapter {}
 }
 
 declare module "lokijs" {

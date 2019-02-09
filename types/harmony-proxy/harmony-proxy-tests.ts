@@ -1,5 +1,3 @@
-
-
 import * as Proxy from "harmony-proxy";
 
 interface IKatana {
@@ -23,5 +21,5 @@ let handler = {
 
 let katana = new Katana();
 
-let katanaProxy =  new Proxy<IKatana>(katana, handler);
+let katanaProxy = new Proxy<IKatana>(katana, handler);
 katanaProxy.use();

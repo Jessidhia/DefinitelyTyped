@@ -33,11 +33,19 @@ export interface Options {
     logFile?: string;
     outFile?: string;
     errFile?: string;
-    parser?(command: string, args: string[]): { command: string, args: string[] };
+    parser?(
+        command: string,
+        args: string[]
+    ): { command: string; args: string[] };
 }
 
 export function start(script: string | string[], options?: Options): Monitor;
-export function kill(pid: number, killTree?: boolean, signal?: string, callback?: () => any): void;
+export function kill(
+    pid: number,
+    killTree?: boolean,
+    signal?: string,
+    callback?: () => any
+): void;
 export function checkProcess(pid: number): boolean;
 export const version: string;
 
@@ -89,5 +97,8 @@ export class Monitor extends NodeJS.EventEmitter {
      * @param command - Command string to parse
      * @param args - Additional default arguments
      */
-    parseCommand(command: string, args?: string[]): (false | { command: string, args?: string[]});
+    parseCommand(
+        command: string,
+        args?: string[]
+    ): false | { command: string; args?: string[] };
 }

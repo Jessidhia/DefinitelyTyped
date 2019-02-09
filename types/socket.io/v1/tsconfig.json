@@ -1,26 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "socket.io": [ "socket.io/v1" ]
+            "socket.io": ["socket.io/v1"]
         }
     },
-    "files": [
-        "index.d.ts",
-        "socket.io-tests.ts"
-    ]
+    "files": ["index.d.ts", "socket.io-tests.ts"]
 }

@@ -52,7 +52,11 @@ declare namespace jest {
     /** Returns whether the given function is a mock function. */
     function isMockFunction(fn: any): fn is Mock<any>;
     /** Mocks a module with an auto-mocked version when it is being required. */
-    function mock(moduleName: string, factory?: any, options?: MockOptions): typeof jest;
+    function mock(
+        moduleName: string,
+        factory?: any,
+        options?: MockOptions
+    ): typeof jest;
     /** Resets the module registry - the cache of all required modules. This is useful to isolate modules where local state might conflict between tests. */
     function resetModuleRegistry(): typeof jest;
     /** Resets the module registry - the cache of all required modules. This is useful to isolate modules where local state might conflict between tests. */
@@ -86,7 +90,7 @@ declare namespace jest {
     }
 
     interface DoneCallback {
-        (...args: any[]): any
+        (...args: any[]): any;
         fail(error?: string | { message: string }): any;
     }
 
@@ -106,7 +110,7 @@ declare namespace jest {
     }
 
     interface Describe {
-        (name: string, fn: EmptyFunction): void
+        (name: string, fn: EmptyFunction): void;
         only: Describe;
         skip: Describe;
     }
@@ -122,7 +126,7 @@ declare namespace jest {
         toBeFalsy(): void;
         toBeGreaterThan(expected: number): void;
         toBeGreaterThanOrEqual(expected: number): void;
-        toBeInstanceOf(expected: any): void
+        toBeInstanceOf(expected: any): void;
         toBeLessThan(expected: number): void;
         toBeLessThanOrEqual(expected: number): void;
         toBeNull(): void;
@@ -144,7 +148,7 @@ declare namespace jest {
     }
 
     interface Constructable {
-        new (...args: any[]): any
+        new (...args: any[]): any;
     }
 
     interface Mock<T> extends Function {
@@ -185,7 +189,9 @@ declare namespace jasmine {
     function createSpyObj(baseName: string, methodNames: any[]): any;
     function createSpyObj<T>(baseName: string, methodNames: any[]): T;
     function pp(value: any): string;
-    function addCustomEqualityTester(equalityTester: CustomEqualityTester): void;
+    function addCustomEqualityTester(
+        equalityTester: CustomEqualityTester
+    ): void;
     function addMatchers(matchers: CustomMatcherFactories): void;
     function stringMatching(value: string | RegExp): Any;
 
@@ -211,7 +217,11 @@ declare namespace jasmine {
 
     interface ObjectContaining {
         new (sample: any): any;
-        jasmineMatches(other: any, mismatchKeys: any[], mismatchValues: any[]): boolean;
+        jasmineMatches(
+            other: any,
+            mismatchKeys: any[],
+            mismatchValues: any[]
+        ): boolean;
         jasmineToString(): string;
     }
 
@@ -220,7 +230,7 @@ declare namespace jasmine {
         identity: string;
         and: SpyAnd;
         calls: Calls;
-        mostRecentCall: { args: any[]; };
+        mostRecentCall: { args: any[] };
         argsForCall: any[];
         wasCalled: boolean;
     }
@@ -273,13 +283,29 @@ declare namespace jasmine {
     }
 
     interface CustomMatcherFactory {
-        (util: MatchersUtil, customEqualityTesters: Array<CustomEqualityTester>): CustomMatcher;
+        (
+            util: MatchersUtil,
+            customEqualityTesters: Array<CustomEqualityTester>
+        ): CustomMatcher;
     }
 
     interface MatchersUtil {
-        equals(a: any, b: any, customTesters?: Array<CustomEqualityTester>): boolean;
-        contains<T>(haystack: ArrayLike<T> | string, needle: any, customTesters?: Array<CustomEqualityTester>): boolean;
-        buildFailureMessage(matcherName: string, isNot: boolean, actual: any, ...expected: Array<any>): string;
+        equals(
+            a: any,
+            b: any,
+            customTesters?: Array<CustomEqualityTester>
+        ): boolean;
+        contains<T>(
+            haystack: ArrayLike<T> | string,
+            needle: any,
+            customTesters?: Array<CustomEqualityTester>
+        ): boolean;
+        buildFailureMessage(
+            matcherName: string,
+            isNot: boolean,
+            actual: any,
+            ...expected: Array<any>
+        ): string;
     }
 
     interface CustomEqualityTester {

@@ -1,7 +1,11 @@
 export class MDCListAdapter {
     getListItemCount(): number;
     getFocusedElementIndex(): number;
-    setAttributeForElementIndex(index: number, attribute: string, value: string): void;
+    setAttributeForElementIndex(
+        index: number,
+        attribute: string,
+        value: string
+    ): void;
     removeAttributeForElementIndex(index: number, attribute: string): void;
     addClassForElementIndex(index: number, className: string): void;
     removeClassForElementIndex(index: number, className: string): void;
@@ -15,7 +19,10 @@ export class MDCListAdapter {
      * Sets the tabindex to the value specified for all button/a element children of
      * the list item at the index specified.
      */
-    setTabIndexForListItemChildren(listItemIndex: number, tabIndexValue: number): void;
+    setTabIndexForListItemChildren(
+        listItemIndex: number,
+        tabIndexValue: number
+    ): void;
 
     /**
      * If the given element has an href, follows the link.

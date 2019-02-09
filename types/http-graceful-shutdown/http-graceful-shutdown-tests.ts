@@ -1,4 +1,4 @@
-import GracefulShutdown = require('http-graceful-shutdown');
+import GracefulShutdown = require("http-graceful-shutdown");
 import * as http from "http";
 import * as https from "https";
 
@@ -7,11 +7,11 @@ const opts: GracefulShutdown.Options = {
     timeout: 1337,
     development: false,
     onShutdown: () => {
-        console.log('fake shutdown handler');
+        console.log("fake shutdown handler");
         return Promise.resolve();
     },
     finally: () => {
-        console.log('fake finally handler');
+        console.log("fake finally handler");
     }
 };
 
@@ -19,12 +19,15 @@ const httpServer = http.createServer((req, res) => {
     res.end();
 });
 
-const httpsServer = https.createServer({
-    key: new Buffer('foo'),
-    cert: new Buffer('bar')
-}, (req, res) => {
-    res.end();
-});
+const httpsServer = https.createServer(
+    {
+        key: new Buffer("foo"),
+        cert: new Buffer("bar")
+    },
+    (req, res) => {
+        res.end();
+    }
+);
 
 GracefulShutdown(httpServer, opts);
 GracefulShutdown(httpsServer, opts);

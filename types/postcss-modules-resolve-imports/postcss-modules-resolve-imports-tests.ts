@@ -10,7 +10,7 @@ const ap2: Transformer = resolveImports({
     icssExports: false,
     resolve: {
         alias: {
-            lib: path.resolve(__dirname, "lib"),
+            lib: path.resolve(__dirname, "lib")
         },
         extensions: [".css"],
         modules: [path.resolve(__dirname, "lib")],

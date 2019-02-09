@@ -7,10 +7,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Request } from 'express';
-import { Strategy } from 'passport';
-import { OAuth2 } from 'oauth';
-import { OutgoingHttpHeaders } from 'http';
+import { Request } from "express";
+import { Strategy } from "passport";
+import { OAuth2 } from "oauth";
+import { OutgoingHttpHeaders } from "http";
 
 declare class OAuth2Strategy extends Strategy {
     name: string;
@@ -22,12 +22,21 @@ declare class OAuth2Strategy extends Strategy {
      */
     protected _oauth2: OAuth2;
 
-    constructor(options: OAuth2Strategy.StrategyOptions, verify: OAuth2Strategy.VerifyFunction);
-    constructor(options: OAuth2Strategy.StrategyOptionsWithRequest, verify: OAuth2Strategy.VerifyFunctionWithRequest);
+    constructor(
+        options: OAuth2Strategy.StrategyOptions,
+        verify: OAuth2Strategy.VerifyFunction
+    );
+    constructor(
+        options: OAuth2Strategy.StrategyOptionsWithRequest,
+        verify: OAuth2Strategy.VerifyFunctionWithRequest
+    );
 
     authenticate(req: Request, options?: any): void;
 
-    userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void): void;
+    userProfile(
+        accessToken: string,
+        done: (err?: Error | null, profile?: any) => void
+    ): void;
     authorizationParams(options: any): object;
     tokenParams(options: any): object;
     parseErrorResponse(body: any, status: number): Error | null;
@@ -41,24 +50,69 @@ declare namespace OAuth2Strategy {
     }
 
     type StateStoreStoreCallback = (err: Error | null, state: any) => void;
-    type StateStoreVerifyCallback = (err: Error, ok: boolean, state: any) => void;
+    type StateStoreVerifyCallback = (
+        err: Error,
+        ok: boolean,
+        state: any
+    ) => void;
 
     interface StateStore {
         store(req: Request, callback: StateStoreStoreCallback): void;
-        store(req: Request, meta: Metadata, callback: StateStoreStoreCallback): void;
+        store(
+            req: Request,
+            meta: Metadata,
+            callback: StateStoreStoreCallback
+        ): void;
 
-        verify(req: Request, state: string, callback: StateStoreVerifyCallback): void;
-        verify(req: Request, state: string, meta: Metadata, callback: StateStoreVerifyCallback): void;
+        verify(
+            req: Request,
+            state: string,
+            callback: StateStoreVerifyCallback
+        ): void;
+        verify(
+            req: Request,
+            state: string,
+            meta: Metadata,
+            callback: StateStoreVerifyCallback
+        ): void;
     }
 
-    type VerifyCallback = (err?: Error | null, user?: object, info?: object) => void;
+    type VerifyCallback = (
+        err?: Error | null,
+        user?: object,
+        info?: object
+    ) => void;
 
     type VerifyFunction =
-        ((accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
-        ((accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
+        | ((
+              accessToken: string,
+              refreshToken: string,
+              profile: any,
+              verified: VerifyCallback
+          ) => void)
+        | ((
+              accessToken: string,
+              refreshToken: string,
+              results: any,
+              profile: any,
+              verified: VerifyCallback
+          ) => void);
     type VerifyFunctionWithRequest =
-        ((req: Request, accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
-        ((req: Request, accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
+        | ((
+              req: Request,
+              accessToken: string,
+              refreshToken: string,
+              profile: any,
+              verified: VerifyCallback
+          ) => void)
+        | ((
+              req: Request,
+              accessToken: string,
+              refreshToken: string,
+              results: any,
+              profile: any,
+              verified: VerifyCallback
+          ) => void);
 
     interface _StrategyOptionsBase {
         authorizationURL: string;
@@ -84,14 +138,24 @@ declare namespace OAuth2Strategy {
     const Strategy: typeof OAuth2Strategy;
 
     class TokenError extends Error {
-        constructor(message: string | undefined, code: string, uri?: string, status?: number);
+        constructor(
+            message: string | undefined,
+            code: string,
+            uri?: string,
+            status?: number
+        );
         code: string;
         uri?: string;
         status: number;
     }
 
     class AuthorizationError extends Error {
-        constructor(message: string | undefined, code: string, uri?: string, status?: number);
+        constructor(
+            message: string | undefined,
+            code: string,
+            uri?: string,
+            status?: number
+        );
         code: string;
         uri?: string;
         status: number;

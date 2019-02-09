@@ -9,6 +9,6 @@ const versions = [
     "4.1.3",
     "2.3.1",
     "10.5.5",
-    "11.3.0",
+    "11.3.0"
 ];
 versions.sort(SemverCompare).join("\n");

@@ -9,7 +9,6 @@
 /// <reference types="tinycolor2"/>
 
 interface JQuery {
-
     /**
      * Shows the colorpicker.
      */
@@ -21,11 +20,11 @@ interface JQuery {
     spectrum(methodName: "hide"): JQuery;
 
     /**
-    * Toggles the colorpicker.
-    *
-    * Warning: If you are calling toggle from a click handler,
-    *   make sure you return false to prevent the colorpicker from immediately hiding after it is toggled.
-    */
+     * Toggles the colorpicker.
+     *
+     * Warning: If you are calling toggle from a click handler,
+     *   make sure you return false to prevent the colorpicker from immediately hiding after it is toggled.
+     */
     spectrum(methodName: "toggle"): JQuery;
 
     /**
@@ -86,7 +85,11 @@ interface JQuery {
      * @param optionName- the option to set.
      * @param newOptionvalue- the new value for the option.
      */
-    spectrum(methodName: "option", optionName?: string, newOptionValue?: any): JQuery;
+    spectrum(
+        methodName: "option",
+        optionName?: string,
+        newOptionValue?: any
+    ): JQuery;
 
     /**
      * Calls the method.
@@ -102,18 +105,28 @@ interface JQuery {
     /**
      * Called at the beginning of a drag event on either hue slider, alpha slider, or main color picker areas.
      */
-    on(events: "dragstart.spectrum", handler: (eventObject: JQueryEventObject, color: tinycolor.Instance) => any): JQuery;
+    on(
+        events: "dragstart.spectrum",
+        handler: (
+            eventObject: JQueryEventObject,
+            color: tinycolor.Instance
+        ) => any
+    ): JQuery;
 
     /**
      * Called at the end of a drag event on either hue slider, alpha slider, or main color picker areas.
      */
-    on(events: "dragstop.spectrum", handler: (eventObject: JQueryEventObject, color: tinycolor.Instance) => any): JQuery;
+    on(
+        events: "dragstop.spectrum",
+        handler: (
+            eventObject: JQueryEventObject,
+            color: tinycolor.Instance
+        ) => any
+    ): JQuery;
 }
 
 declare namespace Spectrum {
-
     interface Options {
-
         /**
          * The initial color can be set with the color option.
          * if you don't pass in a color, Spectrum will use the value attribute on the input.
@@ -250,7 +263,7 @@ declare namespace Spectrum {
          * Changing this can help resolve issues with opening the colorpicker in a modal dialog
          * or fixed position container, for instance.
          */
-        appendTo?: any //same as JQuery appendTo : JQuery| any[] | Element| string
+        appendTo?: any; //same as JQuery appendTo : JQuery| any[] | Element| string
 
         /**
          * Sets the max size for the palette.

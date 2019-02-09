@@ -7,12 +7,16 @@
 import * as React from "react";
 
 declare namespace NotificationSystem {
-
     export interface System extends React.Component<Attributes, State> {
         addNotification(notification: Notification): Notification;
-        removeNotification(uidOrNotification: number | string | Notification): void;
+        removeNotification(
+            uidOrNotification: number | string | Notification
+        ): void;
         clearNotifications(): void;
-        editNotification(uidOrNotification: number | string | Notification, newNotification: Notification): void;
+        editNotification(
+            uidOrNotification: number | string | Notification,
+            newNotification: Notification
+        ): void;
     }
 
     export type CallBackFunction = (notification: Notification) => void;
@@ -76,10 +80,11 @@ declare namespace NotificationSystem {
     }
 
     export interface State {
-        notifications: Notification[]
+        notifications: Notification[];
     }
 }
 
-
-declare var NotificationSystem: React.ClassicComponentClass<NotificationSystem.Attributes>;
+declare var NotificationSystem: React.ClassicComponentClass<
+    NotificationSystem.Attributes
+>;
 export = NotificationSystem;

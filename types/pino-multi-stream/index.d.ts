@@ -8,8 +8,8 @@ import {
     Logger as PinoLogger,
     Level as PinoLevel,
     stdSerializers as pinoStdSerializers
-} from 'pino';
-import stream = require('stream');
+} from "pino";
+import stream = require("stream");
 
 declare namespace pinoms {
     type Streams = Array<{ stream: NodeJS.WritableStream; level?: Level }>;

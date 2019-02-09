@@ -2,22 +2,31 @@ import * as React from "react";
 import Geosuggest, { Suggest, Styles } from "react-geosuggest";
 
 const fixtures = [
-    {label: "New York", location: new google.maps.LatLng(40.7033127, -73.979681)},
-    {label: "Rio", location: new google.maps.LatLng(-22.066452, -42.9232368)},
-    {label: "Tokyo", location: new google.maps.LatLng(35.673343, 139.710388)},
+    {
+        label: "New York",
+        location: new google.maps.LatLng(40.7033127, -73.979681)
+    },
+    { label: "Rio", location: new google.maps.LatLng(-22.066452, -42.9232368) },
+    { label: "Tokyo", location: new google.maps.LatLng(35.673343, 139.710388) }
 ];
 
 const styles: Styles = {
-    input: {color: "blue"},
-    suggests: {width: 4},
-    suggestItem: {display: "flex"},
+    input: { color: "blue" },
+    suggests: { width: 4 },
+    suggestItem: { display: "flex" }
 };
 
 function onFocus() {}
 function onActivateSuggest(suggest: Suggest) {}
-function getSuggestLabel(suggest: google.maps.places.AutocompletePrediction) { return 'label'; }
-function renderSuggestItem(suggest: google.maps.places.AutocompletePrediction) { return <div>HELLO WORLD</div>; }
-function skipSuggest(suggest: google.maps.places.AutocompletePrediction) { return false; }
+function getSuggestLabel(suggest: google.maps.places.AutocompletePrediction) {
+    return "label";
+}
+function renderSuggestItem(suggest: google.maps.places.AutocompletePrediction) {
+    return <div>HELLO WORLD</div>;
+}
+function skipSuggest(suggest: google.maps.places.AutocompletePrediction) {
+    return false;
+}
 function onBlur(value: string) {}
 function onKeyDown(event: any) {}
 function onKeyPress(event: any) {}
@@ -61,7 +70,7 @@ class ReactGeosuggest extends React.Component {
                     queryDelay={250}
                     minLength={2}
                     radius={20}
-                    ref={el => this.geosuggest = el}
+                    ref={el => (this.geosuggest = el)}
                     renderSuggestItem={renderSuggestItem}
                     skipSuggest={skipSuggest}
                     style={styles}
@@ -73,7 +82,9 @@ class ReactGeosuggest extends React.Component {
                 />
 
                 <button onClick={this.geosuggest.focus}>Focus</button>
-                <button onClick={this.geosuggest.update("New Zealand")}>Update</button>
+                <button onClick={this.geosuggest.update("New Zealand")}>
+                    Update
+                </button>
                 <button onClick={this.geosuggest.clear}>Clear</button>
             </div>
         );

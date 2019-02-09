@@ -4,13 +4,13 @@ Dinero.globalExchangeRatesApi = {
     endpoint: "https://yourexchangerates.api/latest?base={{from}}",
     propertyPath: "data.rates.{{to}}",
     headers: {
-        "user-key": "xxxxxxxxx",
-    },
+        "user-key": "xxxxxxxxx"
+    }
 };
 Dinero.globalExchangeRatesApi = {
     endpoint: "https://yourexchangerates.api/latest?base={{from}}",
     propertyPath: "data.rates.{{to}}",
-    roundingMode: "HALF_UP",
+    roundingMode: "HALF_UP"
 };
 
 Dinero();
@@ -43,9 +43,9 @@ dinero.convert("XBT", {
     endpoint: "https://yourexchangerates.api/latest?base={{from}}",
     propertyPath: "data.rates.{{to}}",
     headers: {
-        "user-key": "xxxxxxxxx",
+        "user-key": "xxxxxxxxx"
     },
-    roundingMode: "HALF_UP",
+    roundingMode: "HALF_UP"
 });
 boolean = dinero.equalsTo(Dinero({ amount: 500, currency: "EUR" }));
 boolean = dinero.lessThan(Dinero({ amount: 800 }));
@@ -67,5 +67,5 @@ number = dinero.toRoundedUnit(1, "HALF_EVEN");
 dineroObject = dinero.toObject();
 dineroArr = Dinero.normalizePrecision([
     Dinero({ amount: 100, precision: 2 }),
-    Dinero({ amount: 1000, precision: 3 }),
+    Dinero({ amount: 1000, precision: 3 })
 ]);

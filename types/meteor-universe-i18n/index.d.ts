@@ -13,23 +13,58 @@ declare module "meteor/universe:i18n" {
 
     namespace i18n {
         // component functions
-        function createComponent(translator?: Translator, locale?: string, reactjs?: React.ReactInstance, type?: any): new () => React.Component<ReactComponentProps>;
+        function createComponent(
+            translator?: Translator,
+            locale?: string,
+            reactjs?: React.ReactInstance,
+            type?: any
+        ): new () => React.Component<ReactComponentProps>;
 
         // translator functions
-        function createTranslator(namespace: string, options?: TranslaterOptions): Translator;
-        function createReactiveTranslator(namespace: string, locale: string): new () => React.Component;
+        function createTranslator(
+            namespace: string,
+            options?: TranslaterOptions
+        ): Translator;
+        function createReactiveTranslator(
+            namespace: string,
+            locale: string
+        ): new () => React.Component;
 
         // translation setter / getter functions
-        function addTranslation(locale: string, namespace: string, translation: string): void;
+        function addTranslation(
+            locale: string,
+            namespace: string,
+            translation: string
+        ): void;
         // tslint:disable-next-line unified-signatures
-        function addTranslation(locale: string, namespace: string, key: string, translation: string): void;
+        function addTranslation(
+            locale: string,
+            namespace: string,
+            key: string,
+            translation: string
+        ): void;
         function addTranslations(locale: string, translationsMap: {}): void;
-        function addTranslations(locale: string, namespace: string, translationsMap: {}): void;
-        function getTranslation(key: string, params?: GetTranslationParams): string;
-        function getTranslation(namespace: string, key: string, params: GetTranslationParams): string;
+        function addTranslations(
+            locale: string,
+            namespace: string,
+            translationsMap: {}
+        ): void;
+        function getTranslation(
+            key: string,
+            params?: GetTranslationParams
+        ): string;
+        function getTranslation(
+            namespace: string,
+            key: string,
+            params: GetTranslationParams
+        ): string;
         function getTranslation(...key: string[]): string;
         function __(key: string, params?: GetTranslationParams): string;
-        function __(namespace: string, key: string, params: GetTranslationParams): string;
+        function __(
+            namespace: string,
+            key: string,
+            params: GetTranslationParams
+        ): string;
         function __(...key: string[]): string;
         function getTranslations(namespace: string, locale?: string): string[];
 
@@ -40,18 +75,27 @@ declare module "meteor/universe:i18n" {
         function parseNumber(number: string, locale?: string): string;
 
         // locale setter / getter
-        function setLocale(locale: string, params?: LocateParams): Promise<void>;
-        function setLocaleOnConnection(locale: string, connectionId?: number): void;
+        function setLocale(
+            locale: string,
+            params?: LocateParams
+        ): Promise<void>;
+        function setLocaleOnConnection(
+            locale: string,
+            connectionId?: number
+        ): void;
         function getLocale(): string;
         function loadLocale(locale: string, params?: LoadLocaleParams): void;
 
         // executes function in the locale context,
         // it means that every default locale used inside a called function will be set to a passed locale
         // keep in mind that locale must be loaded first (if it is not bundled)
-        function runWithLocale(locale: string, func: (...keys: any[]) => void): void;
+        function runWithLocale(
+            locale: string,
+            func: (...keys: any[]) => void
+        ): void;
 
         // language getters
-        function getLanguages(type?: 'code' | 'name' | 'nativeNames'): string[];
+        function getLanguages(type?: "code" | "name" | "nativeNames"): string[];
         function getLanguageName(locale?: string): string;
         function getLanguageNativeName(locale?: string): string;
 
@@ -61,7 +105,10 @@ declare module "meteor/universe:i18n" {
 
         // others
         function isRTL(locale?: string): boolean;
-        function getAllKeysForLocale(locale?: string, excactlyThis?: boolean): string[];
+        function getAllKeysForLocale(
+            locale?: string,
+            excactlyThis?: boolean
+        ): string[];
 
         // events
         function onChangeLocale(callback: (locale: string) => void): void;

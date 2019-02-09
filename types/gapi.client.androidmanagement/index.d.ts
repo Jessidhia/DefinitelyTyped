@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Android Management API v1 */
     function load(name: "androidmanagement", version: "v1"): PromiseLike<void>;
-    function load(name: "androidmanagement", version: "v1", callback: () => any): void;
+    function load(
+        name: "androidmanagement",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const enterprises: androidmanagement.EnterprisesResource;
 

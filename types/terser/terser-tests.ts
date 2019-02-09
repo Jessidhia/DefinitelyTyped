@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { OutputQuoteStyle, minify } from 'terser';
+import { OutputQuoteStyle, minify } from "terser";
 
 let code: any;
 
@@ -29,5 +29,5 @@ const output = minify(code, {
 });
 
 if (output.warnings) {
-    output.warnings.filter(x => x === 'Dropping unused variable');
+    output.warnings.filter(x => x === "Dropping unused variable");
 }

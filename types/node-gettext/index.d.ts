@@ -5,17 +5,37 @@
 // TypeScript Version: 2.2
 export = GetText;
 declare class GetText {
-    constructor(options?: { debug: boolean; });
+    constructor(options?: { debug: boolean });
     addTranslations(locale: string, domain: string, translations: object): void;
     dgettext(domain: string, msgid: string): string;
-    dngettext(domain: string, msgid: string, msgidPlural: string, count: number): string;
-    dnpgettext(domain: string, msgctxt: string, msgid: string, msgidPlural: string, count: number): string;
+    dngettext(
+        domain: string,
+        msgid: string,
+        msgidPlural: string,
+        count: number
+    ): string;
+    dnpgettext(
+        domain: string,
+        msgctxt: string,
+        msgid: string,
+        msgidPlural: string,
+        count: number
+    ): string;
     dpgettext(domain: string, msgctxt: string, msgid: string): string;
     emit(eventName: string, eventData: any): void;
-    getComment(domain: string, msgctxt: string, msgid: string): object | boolean;
+    getComment(
+        domain: string,
+        msgctxt: string,
+        msgid: string
+    ): object | boolean;
     gettext(msgid: string): string;
     ngettext(msgid: string, msgidPlural: string, count: number): string;
-    npgettext(msgctxt: string, msgid: string, msgidPlural: string, count: number): string;
+    npgettext(
+        msgctxt: string,
+        msgid: string,
+        msgidPlural: string,
+        count: number
+    ): string;
     off(eventName: string, callback: (params: any) => void): string;
     on(eventName: string, callback: (params: any) => void): void;
     pgettext(msgctxt: string, msgid: string): string;

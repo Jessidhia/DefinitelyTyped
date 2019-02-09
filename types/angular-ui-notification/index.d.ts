@@ -6,14 +6,14 @@
 
 /// <reference types="angular" />
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     export namespace uiNotification {
-        type XPosition = 'right' | 'left' | 'center';
-        type YPosition = 'top' | 'bottom';
+        type XPosition = "right" | "left" | "center";
+        type YPosition = "top" | "bottom";
 
-        type MessageType = 'primary' | 'info' | 'success' | 'warning' | 'error';
+        type MessageType = "primary" | "info" | "success" | "warning" | "error";
 
         interface IGlobalMessageOptions {
             delay?: number;
@@ -61,7 +61,9 @@ declare module 'angular' {
 
             clearAll(): void;
 
-            (message: Message, type?: MessageType): IPromise<INotificationScope>;
+            (message: Message, type?: MessageType): IPromise<
+                INotificationScope
+            >;
         }
     }
 }

@@ -1,9 +1,8 @@
-
 /// <reference types="node" />
 
-import clc = require('cli-color');
-import ansiTrim = require('cli-color/trim');
-import setupThrobber = require('cli-color/throbber');
+import clc = require("cli-color");
+import ansiTrim = require("cli-color/trim");
+import setupThrobber = require("cli-color/throbber");
 
 var text: string;
 var color: number;
@@ -13,17 +12,27 @@ var n: number;
 var period: number;
 
 // Test cli-color
-text = clc('foo');
-text = clc('foo', 42, { toString: () => 'bar' });
+text = clc("foo");
+text = clc("foo", 42, { toString: () => "bar" });
 
 text = clc.bold.italic.underline.blink.inverse.strike(text);
 text = clc.black.red.green.yellow.blue.magenta.cyan.white(text);
-text = clc.bgBlack.bgRed.bgGreen.bgYellow.bgBlack.bgMagenta.bgCyan.bgWhite(text);
-text = clc.blackBright.redBright.greenBright.yellowBright.blueBright.magentaBright.cyanBright.whiteBright(text);
-text = clc.bgBlackBright.bgRedBright.bgGreenBright.bgYellowBright.bgBlueBright.bgMagentaBright.bgCyanBright.bgWhiteBright(text);
+text = clc.bgBlack.bgRed.bgGreen.bgYellow.bgBlack.bgMagenta.bgCyan.bgWhite(
+    text
+);
+text = clc.blackBright.redBright.greenBright.yellowBright.blueBright.magentaBright.cyanBright.whiteBright(
+    text
+);
+text = clc.bgBlackBright.bgRedBright.bgGreenBright.bgYellowBright.bgBlueBright.bgMagentaBright.bgCyanBright.bgWhiteBright(
+    text
+);
 text = clc.xterm(color).bgXterm(color)(text);
 
-text = clc.bold.red.bgGreen.yellowBright.bgBlueBright.xterm(color)(text, text, text);
+text = clc.bold.red.bgGreen.yellowBright.bgBlueBright.xterm(color)(
+    text,
+    text,
+    text
+);
 
 text = clc.move(x, y);
 text = clc.moveTo(x, y);
@@ -48,7 +57,11 @@ text = ansiTrim(clc.red(text));
 var throbber: setupThrobber.Throbber;
 
 throbber = setupThrobber(process.stdout.write.bind(process.stdout), period);
-throbber = setupThrobber(process.stdout.write.bind(process.stdout), period, clc.red);
+throbber = setupThrobber(
+    process.stdout.write.bind(process.stdout),
+    period,
+    clc.red
+);
 
 throbber.start();
 throbber.stop();

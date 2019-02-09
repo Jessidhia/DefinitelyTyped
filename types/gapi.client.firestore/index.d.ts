@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Cloud Firestore API v1beta1 */
     function load(name: "firestore", version: "v1beta1"): PromiseLike<void>;
-    function load(name: "firestore", version: "v1beta1", callback: () => any): void;
+    function load(
+        name: "firestore",
+        version: "v1beta1",
+        callback: () => any
+    ): void;
 
     const projects: firestore.ProjectsResource;
 

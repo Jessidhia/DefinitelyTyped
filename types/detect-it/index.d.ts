@@ -3,19 +3,19 @@
 // Definitions by: Thomas Tilkema <https://github.com/thomastilkema>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import detectHover from 'detect-hover';
-import detectPassiveEvents from 'detect-passive-events';
-import detectPointer from 'detect-pointer';
-import detectTouchEvents from 'detect-touch-events';
+import detectHover from "detect-hover";
+import detectPassiveEvents from "detect-passive-events";
+import detectPointer from "detect-pointer";
+import detectTouchEvents from "detect-touch-events";
 
 interface detectIt {
-    deviceType: 'hybrid' | 'mouseOnly' | 'touchOnly';
+    deviceType: "hybrid" | "mouseOnly" | "touchOnly";
     hasMouse: boolean;
     hasTouch: boolean;
     maxTouchPoints: number;
     passiveEvents: boolean;
-    primaryHover: 'hover' | 'none';
-    primaryPointer: 'coarse' | 'fine' | 'none';
+    primaryHover: "hover" | "none";
+    primaryPointer: "coarse" | "fine" | "none";
 
     state: state;
 

@@ -1,14 +1,14 @@
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
-import { Transport, TransportOptions } from '..';
+import { Transport, TransportOptions } from "..";
 
-import * as shared from './shared';
+import * as shared from "./shared";
 
-import Mail = require('./mailer');
-import MailMessage = require('./mailer/mail-message');
-import MimeNode = require('./mime-node');
+import Mail = require("./mailer");
+import MailMessage = require("./mailer/mail-message");
+import MimeNode = require("./mime-node");
 
 declare namespace JSONTransport {
     type MailOptions = Mail.Options;
@@ -40,7 +40,13 @@ declare class JSONTransport implements Transport {
     constructor(options: JSONTransport.Options);
 
     /** Compiles a mailcomposer message and forwards it to handler that sends it */
-    send(mail: MailMessage, callback: (err: Error | null, info: JSONTransport.SentMessageInfo) => void): void;
+    send(
+        mail: MailMessage,
+        callback: (
+            err: Error | null,
+            info: JSONTransport.SentMessageInfo
+        ) => void
+    ): void;
 }
 
 export = JSONTransport;

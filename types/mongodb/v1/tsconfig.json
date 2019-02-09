@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "mongodb": [
-                "mongodb/v1"
-            ]
+            "mongodb": ["mongodb/v1"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "mongodb-tests.ts"
-    ]
+    "files": ["index.d.ts", "mongodb-tests.ts"]
 }

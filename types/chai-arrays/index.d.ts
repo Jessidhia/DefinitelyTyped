@@ -7,7 +7,10 @@
 
 declare global {
     namespace Chai {
-        interface Assertion extends LanguageChains, NumericComparison, TypeComparison {
+        interface Assertion
+            extends LanguageChains,
+                NumericComparison,
+                TypeComparison {
             array(): Assertion;
             ofSize(size: number): Assertion;
             equalTo(arr: any[]): Assertion;

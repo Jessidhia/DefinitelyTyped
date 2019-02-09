@@ -33,7 +33,10 @@ declare namespace DineroFactory {
         divide(divisor: number, roundingMode?: RoundingMode): Dinero;
         percentage(percentage: number): Dinero;
         allocate(ratios: number[]): Dinero[];
-        convert(currency: string, options?: ExchangeRatesApiOptions): Promise<Dinero>;
+        convert(
+            currency: string,
+            options?: ExchangeRatesApiOptions
+        ): Promise<Dinero>;
         equalsTo(comparator: Dinero): boolean;
         lessThan(comparator: Dinero): boolean;
         lessThanOrEqual(comparator: Dinero): boolean;

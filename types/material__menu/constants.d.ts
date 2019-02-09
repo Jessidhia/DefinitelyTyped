@@ -15,21 +15,21 @@
  * limitations under the License.
  */
 
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ROOT: 'mdc-menu';
-    OPEN: 'mdc-menu--open';
-    ANIMATING_OPEN: 'mdc-menu--animating-open';
-    ANIMATING_CLOSED: 'mdc-menu--animating-closed';
-    SELECTED_LIST_ITEM: 'mdc-list-item--selected';
+    ROOT: "mdc-menu";
+    OPEN: "mdc-menu--open";
+    ANIMATING_OPEN: "mdc-menu--animating-open";
+    ANIMATING_CLOSED: "mdc-menu--animating-closed";
+    SELECTED_LIST_ITEM: "mdc-list-item--selected";
 }
 
 export interface strings extends MDCStrings {
-    ITEMS_SELECTOR: '.mdc-menu__items';
-    SELECTED_EVENT: 'MDCMenu:selected';
-    CANCEL_EVENT: 'MDCMenu:cancel';
-    ARIA_DISABLED_ATTR: 'aria-disabled';
+    ITEMS_SELECTOR: ".mdc-menu__items";
+    SELECTED_EVENT: "MDCMenu:selected";
+    CANCEL_EVENT: "MDCMenu:cancel";
+    ARIA_DISABLED_ATTR: "aria-disabled";
 }
 
 export interface numbers extends MDCNumbers {

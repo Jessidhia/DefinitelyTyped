@@ -3,15 +3,15 @@ import {
     RadialGaugeOptions,
     LinearGauge,
     RadialGauge
-} from 'canvas-gauges';
+} from "canvas-gauges";
 
 let linearOptions: LinearGaugeOptions = {
-    renderTo: document.createElement('canvas'),
-    fontNumbersStyle: 'italic'
+    renderTo: document.createElement("canvas"),
+    fontNumbersStyle: "italic"
 };
 let radialOptions: RadialGaugeOptions = {
-    renderTo: 'gauge-id',
-    fontNumbersWeight: 'bold'
+    renderTo: "gauge-id",
+    fontNumbersWeight: "bold"
 };
 
 new LinearGauge(linearOptions);

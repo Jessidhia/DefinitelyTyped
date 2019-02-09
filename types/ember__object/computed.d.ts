@@ -1,4 +1,4 @@
-import { computed } from '@ember/object';
+import { computed } from "@ember/object";
 
 /**
  * A computed property transforms an objects function into a property.

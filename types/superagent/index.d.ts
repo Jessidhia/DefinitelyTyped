@@ -12,10 +12,10 @@
 
 /// <reference types="node" />
 
-import * as fs from 'fs';
-import * as https from 'https';
-import * as stream from 'stream';
-import * as cookiejar from 'cookiejar';
+import * as fs from "fs";
+import * as https from "https";
+import * as stream from "stream";
+import * as cookiejar from "cookiejar";
 
 type CallbackHandler = (err: any, res: request.Response) => void;
 
@@ -23,11 +23,20 @@ type Serializer = (obj: any) => string;
 
 type BrowserParser = (str: string) => any;
 
-type NodeParser = (res: request.Response, callback: (err: Error | null, body: any) => void) => void;
+type NodeParser = (
+    res: request.Response,
+    callback: (err: Error | null, body: any) => void
+) => void;
 
 type Parser = BrowserParser | NodeParser;
 
-type MultipartValueSingle = Blob | Buffer | fs.ReadStream | string | boolean | number;
+type MultipartValueSingle =
+    | Blob
+    | Buffer
+    | fs.ReadStream
+    | string
+    | boolean
+    | number;
 
 type MultipartValue = MultipartValueSingle | MultipartValueSingle[];
 
@@ -100,7 +109,7 @@ declare namespace request {
         files: any;
         forbidden: boolean;
         get(header: string): string;
-        get(header: 'Set-Cookie'): string[];
+        get(header: "Set-Cookie"): string[];
         header: any;
         info: boolean;
         links: object;
@@ -121,9 +130,17 @@ declare namespace request {
     interface Request extends Promise<Response> {
         abort(): void;
         accept(type: string): this;
-        attach(field: string, file: MultipartValueSingle, options?: string | { filename?: string; contentType?: string }): this;
-        auth(user: string, pass: string, options?: { type: 'basic' | 'auto' }): this;
-        auth(token: string, options: { type: 'bearer' }): this;
+        attach(
+            field: string,
+            file: MultipartValueSingle,
+            options?: string | { filename?: string; contentType?: string }
+        ): this;
+        auth(
+            user: string,
+            pass: string,
+            options?: { type: "basic" | "auto" }
+        ): this;
+        auth(token: string, options: { type: "bearer" }): this;
         buffer(val?: boolean): this;
         ca(cert: Buffer): this;
         cert(cert: Buffer | string): this;
@@ -134,12 +151,12 @@ declare namespace request {
         get(field: string): string;
         key(cert: Buffer | string): this;
         ok(callback: (res: Response) => boolean): this;
-        on(name: 'error', handler: (err: any) => void): this;
-        on(name: 'progress', handler: (event: ProgressEvent) => void): this;
+        on(name: "error", handler: (err: any) => void): this;
+        on(name: "progress", handler: (event: ProgressEvent) => void): this;
         on(name: string, handler: (event: any) => void): this;
         parse(parser: Parser): this;
         part(): this;
-        pfx(cert: Buffer | string | { pfx: Buffer, passphrase: string }): this;
+        pfx(cert: Buffer | string | { pfx: Buffer; passphrase: string }): this;
         pipe(stream: NodeJS.WritableStream, options?: object): stream.Writable;
         query(val: object | string): this;
         redirects(n: number): this;
@@ -149,8 +166,8 @@ declare namespace request {
         serialize(serializer: Serializer): this;
         set(field: object): this;
         set(field: string, val: string): this;
-        set(field: 'Cookie', val: string[]): this;
-        timeout(ms: number | { deadline?: number, response?: number }): this;
+        set(field: "Cookie", val: string[]): this;
+        timeout(ms: number | { deadline?: number; response?: number }): this;
         type(val: string): this;
         unset(field: string): this;
         use(fn: Plugin): this;
@@ -161,7 +178,7 @@ declare namespace request {
     type Plugin = (req: SuperAgentRequest) => void;
 
     interface ProgressEvent {
-        direction: 'download' | 'upload';
+        direction: "download" | "upload";
         loaded: number;
         percent?: number;
         total?: number;

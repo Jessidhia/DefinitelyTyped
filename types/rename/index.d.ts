@@ -7,15 +7,19 @@
 
 export = Rename;
 
-declare function Rename(filepath: string | Rename.FileObject, transformer: Rename.Transformer): Rename.FilePath;
+declare function Rename(
+    filepath: string | Rename.FileObject,
+    transformer: Rename.Transformer
+): Rename.FilePath;
 
 declare namespace Rename {
-    interface FileObject { // using package's terminology
+    interface FileObject {
+        // using package's terminology
         dirname?: string;
         basename?: string;
         extname?: string;
         path?: string;
-        hash?: string;          // not populated by package
+        hash?: string; // not populated by package
     }
 
     interface Specification {
@@ -26,11 +30,9 @@ declare namespace Rename {
         extname?: string;
     }
 
-    type FilePath = string
-        | Specification;
+    type FilePath = string | Specification;
 
-    type Transformer = ((spec: FileObject) => FilePath)
-        | FilePath;
+    type Transformer = ((spec: FileObject) => FilePath) | FilePath;
 
     function parse(filename: string): FileObject;
 

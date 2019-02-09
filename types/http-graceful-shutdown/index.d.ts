@@ -8,7 +8,10 @@
 import { Server as HttpServer } from "http";
 import { Server as HttpsServer } from "https";
 
-declare function GracefulShutdown(server: HttpServer | HttpsServer, options?: GracefulShutdown.Options): void;
+declare function GracefulShutdown(
+    server: HttpServer | HttpsServer,
+    options?: GracefulShutdown.Options
+): void;
 
 declare namespace GracefulShutdown {
     interface Options {

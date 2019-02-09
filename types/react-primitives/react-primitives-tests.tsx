@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     Animated,
     Dimensions,
@@ -10,12 +10,12 @@ import {
     Touchable,
     View,
     StyleSheet
-} from 'react-primitives';
+} from "react-primitives";
 
 const { Image: AnimatedImage } = Animated;
 
-const { width, height } = Dimensions.get('window');
-const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
+const { width, height } = Dimensions.get("window");
+const { width: screenWidth, height: screenHeight } = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
     container: {
@@ -49,8 +49,8 @@ export default class Component extends React.Component<{}, State> {
             duration: 10000,
             easing: Easing.cubic
         }).start();
-        if (Platform.OS === 'sketch') {
-            console.log('The Platform is sketch');
+        if (Platform.OS === "sketch") {
+            console.log("The Platform is sketch");
         }
     }
 
@@ -66,11 +66,11 @@ export default class Component extends React.Component<{}, State> {
                 </View>
                 <AnimatedImage
                     style={[styles.image, { opacity }]}
-                    source={{ uri: 'source' }}
+                    source={{ uri: "source" }}
                 />
-                <Image style={styles.image} source={{ uri: 'source' }} />
+                <Image style={styles.image} source={{ uri: "source" }} />
                 <Text style={styles.text}>Hii</Text>
-                {Platform.OS === 'ios' && (
+                {Platform.OS === "ios" && (
                     <View>
                         <Text>IOS Specific Text!</Text>
                     </View>

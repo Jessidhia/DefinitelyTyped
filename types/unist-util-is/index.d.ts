@@ -6,7 +6,7 @@
 
 /// <reference types='node' />
 
-import * as Unist from 'unist';
+import * as Unist from "unist";
 
 declare namespace unistUtilIs {
     /**
@@ -14,7 +14,11 @@ declare namespace unistUtilIs {
      * @param index Position of node in parent
      * @param parent Parent of node
      */
-    type TestFunction = (node: unknown, index?: number, parent?: Unist.Parent) => boolean | void;
+    type TestFunction = (
+        node: unknown,
+        index?: number,
+        parent?: Unist.Parent
+    ) => boolean | void;
     type Test = TestFunction | Partial<Unist.Node> | string | null;
 }
 
@@ -31,6 +35,12 @@ declare namespace unistUtilIs {
  * @param context Context object to invoke `test` with
  * @returns Whether test passed and `node` is a `Node` (object with `type` set to non-empty `string`).
  */
-declare function unistUtilIs(test: unistUtilIs.Test | unistUtilIs.Test[], node: unknown, index?: number, parent?: Unist.Parent, context?: any): boolean;
+declare function unistUtilIs(
+    test: unistUtilIs.Test | unistUtilIs.Test[],
+    node: unknown,
+    index?: number,
+    parent?: Unist.Parent,
+    context?: any
+): boolean;
 
 export = unistUtilIs;

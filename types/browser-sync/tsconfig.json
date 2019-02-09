@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
         "paths": {
-            "micromatch": [
-                "micromatch/v2"
-            ]
+            "micromatch": ["micromatch/v2"]
         },
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "browser-sync-tests.ts"
-    ]
+    "files": ["index.d.ts", "browser-sync-tests.ts"]
 }

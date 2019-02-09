@@ -5,7 +5,7 @@
 
 // TypeScript Version: 2.2
 
-import StandardError = require('standard-error');
+import StandardError = require("standard-error");
 
 export = HttpError;
 

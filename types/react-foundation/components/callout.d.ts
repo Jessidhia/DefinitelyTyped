@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { CalloutColors, CalloutSizes } from '../enums';
-import { FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { CalloutColors, CalloutSizes } from "../enums";
+import { FlexboxPropTypes } from "../utils";
 /**
  * Callout component.
  * http://foundation.zurb.com/sites/docs/callout.html
@@ -10,7 +10,9 @@ import { FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const Callout: React.StatelessComponent<CalloutProps>;
-export interface CalloutProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLDivElement> {
+export interface CalloutProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLDivElement> {
     color?: CalloutColors;
     size?: CalloutSizes;
 }

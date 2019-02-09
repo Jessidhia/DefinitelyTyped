@@ -25,7 +25,10 @@ declare namespace NewRelic {
          *   The key will report to Insights as its own PageAction attribute with the specified values.
          * @see https://docs.newrelic.com/docs/browser/new-relic-browser/browser-agent-spa-api/add-page-action
          */
-        addPageAction(name: string, attributes: { [key: string]: string | number }): void;
+        addPageAction(
+            name: string,
+            attributes: { [key: string]: string | number }
+        ): void;
 
         /**
          * Adds a JavaScript object with a custom name, start time, etc. to an in-progress session trace.

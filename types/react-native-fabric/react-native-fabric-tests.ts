@@ -1,7 +1,7 @@
-import { Answers, Crashlytics } from 'react-native-fabric';
+import { Answers, Crashlytics } from "react-native-fabric";
 
-Answers.logSearch('query');
-Answers.logCustom('event', { customKey: 0 });
+Answers.logSearch("query");
+Answers.logCustom("event", { customKey: 0 });
 
 Crashlytics.crash();
-Crashlytics.setUserName('name');
+Crashlytics.setUserName("name");

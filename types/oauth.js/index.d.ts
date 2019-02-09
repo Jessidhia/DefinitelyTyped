@@ -4,14 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace OAuth {
-
     /** An Array of name-value pairs [[name, value], [name2, value2]]. */
     type ParameterList = [string, string][];
 
     /** A map {name: value, name2: value2}. */
-    type ParameterMap = { [name: string]: string; };
+    type ParameterMap = { [name: string]: string };
 
-    type ParameterListOrMap = ParameterList|ParameterMap;
+    type ParameterListOrMap = ParameterList | ParameterMap;
 
     /**
      * An OAuth message is represented as an object like this:
@@ -87,7 +86,10 @@ declare namespace OAuth {
 
     function setParameter(message: Message, name: string, value: string): void;
 
-    function setParameters(message: Message, parameters: ParameterListOrMap): void;
+    function setParameters(
+        message: Message,
+        parameters: ParameterListOrMap
+    ): void;
     function setParameters(message: Message, parameters: string): void;
 
     /**
@@ -109,7 +111,10 @@ declare namespace OAuth {
     function addToURL(url: string, parameters: ParameterListOrMap): string;
 
     /** Construct the value of the Authorization header for an HTTP request. */
-    function getAuthorizationHeader(realm: string, parameters: ParameterListOrMap): string;
+    function getAuthorizationHeader(
+        realm: string,
+        parameters: ParameterListOrMap
+    ): string;
     function getAuthorizationHeader(realm: string, parameters: string): string;
 
     /** Correct the time using a parameter from the URL from which the last script was loaded. */
@@ -149,7 +154,7 @@ declare namespace OAuth {
         newMethod(name: string, accessor: Accessor): SignatureMethod;
 
         /** A map from signature method name to constructor. */
-        REGISTERED: { [name: string]: { new (): SignatureMethod }; };
+        REGISTERED: { [name: string]: { new (): SignatureMethod } };
 
         /**
          * Subsequently, the given constructor will be used for the named methods.
@@ -157,13 +162,18 @@ declare namespace OAuth {
          * The resulting object should usually implement getSignature(baseString).
          * You can easily define such a constructor by calling makeSubclass method.
          */
-        registerMethodClass(names: string[], classConstructor: { new(): SignatureMethod }): void;
+        registerMethodClass(
+            names: string[],
+            classConstructor: { new (): SignatureMethod }
+        ): void;
 
         /**
          * Create a subclass of OAuth.SignatureMethod, with the given getSignature function.
          * @param getSignatureFunction
          */
-        makeSubclass(getSignatureFunction: (baseString: string) => string): { new(): SignatureMethod };
+        makeSubclass(
+            getSignatureFunction: (baseString: string) => string
+        ): { new (): SignatureMethod };
 
         /**
          * Generate a signature base string from a Message object.
@@ -192,6 +202,4 @@ declare namespace OAuth {
     }
 
     var SignatureMethod: SignatureMethodStatic;
-
 }
-

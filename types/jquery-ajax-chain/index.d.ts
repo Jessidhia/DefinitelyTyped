@@ -7,25 +7,23 @@
 /// <reference types="jquery" />
 
 declare namespace ajaxChain {
-
     /**
      * Static members of JQueryAjaxChain
      */
     interface JQueryAjaxChainStatic {
-
-        new (): JQueryAjaxChain
-
+        new (): JQueryAjaxChain;
     }
 
     /**
      * Instance members of JQueryAjaxChain
      */
     interface JQueryAjaxChain extends JQueryPromise<any> {
-
         /**
          * Enqueues one or more configuration objects for later processing.
          */
-        enqueue(confObj: AjaxChainConfiguration | AjaxChainConfiguration[]): JQueryAjaxChain;
+        enqueue(
+            confObj: AjaxChainConfiguration | AjaxChainConfiguration[]
+        ): JQueryAjaxChain;
         /**
          * Sequentially and synchronously dequeues the configuration objects enqueued via enqueue() method
          * in the order they were added, triggering the related Ajax calls.
@@ -35,14 +33,12 @@ declare namespace ajaxChain {
          * Clears the currently queued configuration objects.
          */
         clearQueue(): JQueryAjaxChain;
-
     }
 
     /**
      * A set of key/value pairs that configure the AjaxChain request; 'ajaxSettings' is mandatory.
      */
     interface AjaxChainConfiguration {
-
         /**
          * jQuery $.ajax method settings (required).
          */
@@ -83,16 +79,12 @@ declare namespace ajaxChain {
          * Returning a truthy value prevents the queue from being halted in case of Ajax error (optional).
          */
         isSkippable?: (response: any) => Boolean;
-
     }
-
 }
 
 interface JQueryStatic {
-
     /**
      * JQueryAjaxChain constructor
      */
     AjaxChain: ajaxChain.JQueryAjaxChainStatic;
-
 }

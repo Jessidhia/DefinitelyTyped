@@ -1,8 +1,8 @@
-import { Ber, BerReader, BerWriter } from 'asn1';
+import { Ber, BerReader, BerWriter } from "asn1";
 
 let buf: Buffer = Buffer.alloc(0);
 let bool = false;
-let str = '';
+let str = "";
 let num = 0;
 let numOrNull: number | null = 0;
 const roStrArray: ReadonlyArray<string> = [str];
@@ -27,8 +27,8 @@ num = reader._readTag(num);
 
 let writer = new BerWriter();
 writer = new BerWriter({
-	size: num,
-	growthFactor: num,
+    size: num,
+    growthFactor: num
 });
 
 buf = writer.buffer;

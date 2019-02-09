@@ -39,7 +39,7 @@ export class Integrity {
 
     toJSON(): string;
 
-    toString(opts?: { strict?: boolean, sep?: string }): string;
+    toString(opts?: { strict?: boolean; sep?: string }): string;
 
     concat(
         integrity: string | IntegrityLike | HashLike,
@@ -50,10 +50,15 @@ export class Integrity {
 
     match(
         integrity: string | IntegrityLike | HashLike,
-        opts?: { strict?: boolean, pickAlgorithm?: (algo1: string, algo2: string) => string }
+        opts?: {
+            strict?: boolean;
+            pickAlgorithm?: (algo1: string, algo2: string) => string;
+        }
     ): Hash | false;
 
-    pickAlgorithm(opts?: { pickAlgorithm?: (algo1: string, algo2: string) => string }): string;
+    pickAlgorithm(opts?: {
+        pickAlgorithm?: (algo1: string, algo2: string) => string;
+    }): string;
 }
 
 export function parse(
@@ -63,64 +68,80 @@ export function parse(
 
 export function parse(
     sri: string | IntegrityLike | HashLike,
-    opts?: { single: true, strict?: boolean }
+    opts?: { single: true; strict?: boolean }
 ): Hash;
 
 export function stringify(
     obj: string | IntegrityLike | HashLike,
-    opts?: { strict?: boolean, sep?: string }
+    opts?: { strict?: boolean; sep?: string }
 ): string;
 
 export function fromHex(
     hexDigest: string,
     algorithm: string,
-    opts?: { strict?: boolean, options?: ReadonlyArray<string> }
+    opts?: { strict?: boolean; options?: ReadonlyArray<string> }
 ): IntegrityMap;
 
 export function fromHex(
     hexDigest: string,
     algorithm: string,
-    opts?: { single: true, strict?: boolean, options?: ReadonlyArray<string> }
+    opts?: { single: true; strict?: boolean; options?: ReadonlyArray<string> }
 ): Hash;
 
 export function fromData(
     data: string | Buffer | NodeJS.TypedArray | DataView,
-    opts?: { strict?: boolean, options?: ReadonlyArray<string>, algorithms?: ReadonlyArray<string> }
+    opts?: {
+        strict?: boolean;
+        options?: ReadonlyArray<string>;
+        algorithms?: ReadonlyArray<string>;
+    }
 ): IntegrityMap;
 
 export function fromStream(
     stream: Readable,
-    opts?: { strict?: boolean, options?: ReadonlyArray<string>, algorithms?: ReadonlyArray<string>, Promise?: PromiseConstructorLike }
+    opts?: {
+        strict?: boolean;
+        options?: ReadonlyArray<string>;
+        algorithms?: ReadonlyArray<string>;
+        Promise?: PromiseConstructorLike;
+    }
 ): PromiseLike<IntegrityMap>;
 
 export function checkData(
     data: string | Buffer | NodeJS.TypedArray,
     sri: string | IntegrityLike | HashLike,
-    opts?: { strict?: boolean, error?: boolean, size?: number, pickAlgorithm?: (algo1: string, algo2: string) => string }
+    opts?: {
+        strict?: boolean;
+        error?: boolean;
+        size?: number;
+        pickAlgorithm?: (algo1: string, algo2: string) => string;
+    }
 ): Hash | false;
 
 export function checkStream(
     stream: Readable,
     sri: string | IntegrityLike | HashLike,
     opts?: {
-        strict?: boolean,
-        options?: ReadonlyArray<string>,
-        size?: number,
-        pickAlgorithm?: (algo1: string, algo2: string) => string,
-        Promise?: PromiseConstructorLike
+        strict?: boolean;
+        options?: ReadonlyArray<string>;
+        size?: number;
+        pickAlgorithm?: (algo1: string, algo2: string) => string;
+        Promise?: PromiseConstructorLike;
     }
 ): PromiseLike<Hash>;
 
-export function integrityStream(
-    opts?: {
-        single?: boolean,
-        strict?: boolean,
-        options?: ReadonlyArray<string>,
-        algorithms?: ReadonlyArray<string>,
-        integrity?: string | IntegrityLike | HashLike,
-        size?: number,
-        pickAlgorithm?: (algo1: string, algo2: string) => string,
-    }
-): Transform;
+export function integrityStream(opts?: {
+    single?: boolean;
+    strict?: boolean;
+    options?: ReadonlyArray<string>;
+    algorithms?: ReadonlyArray<string>;
+    integrity?: string | IntegrityLike | HashLike;
+    size?: number;
+    pickAlgorithm?: (algo1: string, algo2: string) => string;
+}): Transform;
 
-export function create(opts?: { strict?: boolean, options?: ReadonlyArray<string>, algorithms?: ReadonlyArray<string> }): CryptoHash;
+export function create(opts?: {
+    strict?: boolean;
+    options?: ReadonlyArray<string>;
+    algorithms?: ReadonlyArray<string>;
+}): CryptoHash;

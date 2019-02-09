@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Ad Experience Report API v1 */
     function load(name: "adexperiencereport", version: "v1"): PromiseLike<void>;
-    function load(name: "adexperiencereport", version: "v1", callback: () => any): void;
+    function load(
+        name: "adexperiencereport",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const sites: adexperiencereport.SitesResource;
 

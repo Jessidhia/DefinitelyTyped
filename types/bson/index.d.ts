@@ -20,7 +20,8 @@ export interface SerializeOptions extends CommonSerializeOptions {
     minInternalBufferSize?: number;
 }
 
-export interface SerializeWithBufferAndIndexOptions extends CommonSerializeOptions {
+export interface SerializeWithBufferAndIndexOptions
+    extends CommonSerializeOptions {
     /** {default:0}, the index in the buffer where we wish to start serializing into. */
     index?: number;
 }
@@ -52,10 +53,9 @@ export interface CalculateObjectSizeOptions {
 }
 
 export class BSON {
-
     /**
      * Serialize a Javascript object.
-     * 
+     *
      * @param object The Javascript object to serialize.
      * @param options Serialize options.
      * @return The Buffer object containing the serialized object.
@@ -64,17 +64,21 @@ export class BSON {
 
     /**
      * Serialize a Javascript object using a predefined Buffer and index into the buffer, useful when pre-allocating the space for serialization.
-     * 
+     *
      * @param object The Javascript object to serialize.
      * @param buffer The Buffer you pre-allocated to store the serialized BSON object.
      * @param options Serialize options.
      * @returns The index pointing to the last written byte in the buffer
      */
-    serializeWithBufferAndIndex(object: any, buffer: Buffer, options?: SerializeWithBufferAndIndexOptions): number;
+    serializeWithBufferAndIndex(
+        object: any,
+        buffer: Buffer,
+        options?: SerializeWithBufferAndIndexOptions
+    ): number;
 
     /**
      * Deserialize data as BSON.
-     * 
+     *
      * @param buffer The buffer containing the serialized set of BSON documents.
      * @param options Deserialize options.
      * @returns The deserialized Javascript Object.
@@ -88,11 +92,14 @@ export class BSON {
      * @param {CalculateObjectSizeOptions} Options
      * @return {Number} returns the number of bytes the BSON object will take up.
      */
-    calculateObjectSize(object: any, options?: CalculateObjectSizeOptions): number;
+    calculateObjectSize(
+        object: any,
+        options?: CalculateObjectSizeOptions
+    ): number;
 
     /**
      * Deserialize stream data as BSON documents.
-     * 
+     *
      * @param data The buffer containing the serialized set of BSON documents.
      * @param startIndex The start index in the data Buffer where the deserialization is to start.
      * @param numberOfDocuments Number of documents to deserialize
@@ -109,12 +116,10 @@ export class BSON {
         docStartIndex: number,
         options?: DeserializeOptions
     ): number;
-
 }
 
 /** A class representation of the BSON Binary type. */
 export class Binary {
-
     static readonly SUBTYPE_DEFAULT: number;
     static readonly SUBTYPE_FUNCTION: number;
     static readonly SUBTYPE_BYTE_ARRAY: number;
@@ -148,7 +153,6 @@ export class Binary {
 
 /** A class representation of the BSON Code type. */
 export class Code {
-
     /**
      * @param code A string or function.
      * @param scope An optional scope for the function.
@@ -157,7 +161,6 @@ export class Code {
 
     readonly code: string | Function;
     readonly scope?: any;
-
 }
 
 /**
@@ -203,7 +206,6 @@ export class Int32 {
  * with 'Long' replaced by 'Timestamp' (changed to inheritance in js-node@2.0.0)
  */
 declare class LongLike<T> {
-
     /**
      * @param low The low (signed) 32 bits.
      * @param high The high (signed) 32 bits.
@@ -287,7 +289,6 @@ declare class LongLike<T> {
     toString(radix?: number): string;
     /** Returns the bitwise-XOR of `this` and the given `other`. */
     xor(other: T): T;
-
 }
 
 /**
@@ -296,7 +297,6 @@ declare class LongLike<T> {
  * implementation is derived from LongLib in GWT.
  */
 export class Long extends LongLike<Long> {
-
     static readonly MAX_VALUE: Long;
     static readonly MIN_VALUE: Long;
     static readonly NEG_ONE: Long;
@@ -318,12 +318,10 @@ export class Long extends LongLike<Long> {
      * @param opt_radix The radix in which the text is written. {default:10}
      */
     static fromString(s: string, opt_radix?: number): Long;
-
 }
 
 /** A class representation of the BSON Decimal128 type. */
 export class Decimal128 {
-
     /** Create a Decimal128 instance from a string representation. */
     static fromString(s: string): Decimal128;
 
@@ -406,12 +404,10 @@ export { ObjectID as ObjectId };
 
 /** A class representation of the BSON RegExp type. */
 export class BSONRegExp {
-
     constructor(pattern: string, options: string);
 
     readonly pattern: string;
     readonly options: string;
-
 }
 
 /**
@@ -419,17 +415,14 @@ export class BSONRegExp {
  * @deprecated
  */
 export class Symbol {
-
     constructor(value: string);
 
     /** Access the wrapped string value. */
     valueOf(): string;
-
 }
 
 /** A class representation of the BSON Timestamp type. */
 export class Timestamp extends LongLike<Timestamp> {
-
     static readonly MAX_VALUE: Timestamp;
     static readonly MIN_VALUE: Timestamp;
     static readonly NEG_ONE: Timestamp;
@@ -451,5 +444,4 @@ export class Timestamp extends LongLike<Timestamp> {
      * @param opt_radix The radix in which the text is written. {default:10}
      */
     static fromString(str: string, opt_radix?: number): Timestamp;
-
 }

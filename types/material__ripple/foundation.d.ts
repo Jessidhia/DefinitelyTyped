@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCRippleAdapter from './adapter';
-import { cssClasses, strings, numbers } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCRippleAdapter from "./adapter";
+import { cssClasses, strings, numbers } from "./constants";
 
-export default class MDCRippleFoundation extends MDCFoundation<MDCRippleAdapter> {
+export default class MDCRippleFoundation extends MDCFoundation<
+    MDCRippleAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

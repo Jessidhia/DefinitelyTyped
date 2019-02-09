@@ -9,7 +9,9 @@ interface DomHelpersAnimationArgs {
 /**
  * Programmatically start css transitions
  */
-declare function _animate(args: DomHelpersAnimationArgs): { cancel: () => void };
+declare function _animate(
+    args: DomHelpersAnimationArgs
+): { cancel: () => void };
 declare function _animate(
     element: Element,
     properties: { [key: string]: any },

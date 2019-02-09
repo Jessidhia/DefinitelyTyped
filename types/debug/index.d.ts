@@ -7,7 +7,7 @@
 //                 Nicolas Penin <https://github.com/npenin>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare var debug: debug.Debug & {debug: debug.Debug, default: debug.Debug};
+declare var debug: debug.Debug & { debug: debug.Debug; default: debug.Debug };
 
 export = debug;
 export as namespace debug;

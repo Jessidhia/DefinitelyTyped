@@ -1,7 +1,7 @@
-import { Tree } from './tree';
-import { Oid } from './oid';
-import { Blob } from './blob';
-import { Repository } from './repository';
+import { Tree } from "./tree";
+import { Oid } from "./oid";
+import { Blob } from "./blob";
+import { Repository } from "./repository";
 
 export namespace TreeEntry {
     const enum FILEMODE {

@@ -1,4 +1,4 @@
-import * as nj from 'numjs';
+import * as nj from "numjs";
 
 const a = nj.abs(2);
 

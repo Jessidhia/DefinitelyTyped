@@ -1,7 +1,7 @@
-import leven = require('leven');
+import leven = require("leven");
 
-leven('baz', 'bar');
+leven("baz", "bar");
 // => "1"
 
-leven('foo', 'bar');
+leven("foo", "bar");
 // => "3"

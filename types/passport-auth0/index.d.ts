@@ -6,8 +6,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import passport = require('passport');
-import express = require('express');
+import passport = require("passport");
+import express = require("express");
 
 export interface Profile extends passport.Profile {
     id: string;
@@ -66,7 +66,10 @@ export type VerifyFunctionWithRequest = (
 ) => void;
 
 export class Strategy extends passport.Strategy {
-    constructor(options: StrategyOptionWithRequest, verify: VerifyFunctionWithRequest);
+    constructor(
+        options: StrategyOptionWithRequest,
+        verify: VerifyFunctionWithRequest
+    );
     constructor(options: StrategyOption, verify: VerifyFunction);
 
     name: string;

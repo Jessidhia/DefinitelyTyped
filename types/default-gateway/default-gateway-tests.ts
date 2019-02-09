@@ -1,4 +1,4 @@
-import * as defaultGateway from 'default-gateway';
+import * as defaultGateway from "default-gateway";
 
 defaultGateway.v4().then(result => {
     result; // $ExpectType Gateway

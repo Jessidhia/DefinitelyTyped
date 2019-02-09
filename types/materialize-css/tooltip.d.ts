@@ -15,7 +15,10 @@ declare namespace M {
         /**
          * Init Tooltips
          */
-        static init(els: MElements, options?: Partial<TooltipOptions>): Tooltip[];
+        static init(
+            els: MElements,
+            options?: Partial<TooltipOptions>
+        ): Tooltip[];
 
         /**
          * Show tooltip.
@@ -79,7 +82,7 @@ declare namespace M {
          * Set the direction of the tooltip.
          * @default 'bottom'
          */
-        position: 'top' | 'right' | 'bottom' | 'left';
+        position: "top" | "right" | "bottom" | "left";
 
         /**
          * Amount in px that the tooltip moves during its transition.
@@ -90,6 +93,8 @@ declare namespace M {
 }
 
 interface JQuery {
-    tooltip(method: keyof Pick<M.Tooltip, "open" | "close" | "destroy">): JQuery;
+    tooltip(
+        method: keyof Pick<M.Tooltip, "open" | "close" | "destroy">
+    ): JQuery;
     tooltip(options?: Partial<M.TooltipOptions>): JQuery;
 }

@@ -81,25 +81,25 @@ declare namespace pc {
      * @name pc.FOG_NONE
      * @description No fog is applied to the scene.
      */
-    const FOG_NONE: 'none';
+    const FOG_NONE: "none";
     /**
      * @enum pc.FOG
      * @name pc.FOG_LINEAR
      * @description Fog rises linearly from zero to 1 between a start and end depth.
      */
-    const FOG_LINEAR: 'linear';
+    const FOG_LINEAR: "linear";
     /**
      * @enum pc.FOG
      * @name pc.FOG_EXP
      * @description Fog rises according to an exponential curve controlled by a density value.
      */
-    const FOG_EXP: 'exp';
+    const FOG_EXP: "exp";
     /**
      * @enum pc.FOG
      * @name pc.FOG_EXP2
      * @description Fog rises according to an exponential curve controlled by a density value.
      */
-    const FOG_EXP2: 'exp2';
+    const FOG_EXP2: "exp2";
 
     const FRESNEL_NONE: 0;
     const FRESNEL_SCHLICK: 2;
@@ -235,7 +235,7 @@ declare namespace pc {
 
     const VIEW_CENTER: 0;
     const VIEW_LEFT: 1;
-    const VIEW_RIGHT: 2
+    const VIEW_RIGHT: 2;
 
     /**
      * @name pc.Scene

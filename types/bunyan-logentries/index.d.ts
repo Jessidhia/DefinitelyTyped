@@ -12,4 +12,6 @@ interface StreamOptions {
     token: string;
 }
 
-export declare function createStream(options: StreamOptions): NodeJS.WritableStream;
+export declare function createStream(
+    options: StreamOptions
+): NodeJS.WritableStream;

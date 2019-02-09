@@ -4,18 +4,22 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace GravatarModule {
-  type Options = {
-    d?: string
-    default?: string
-    f?: string
-    forcedefault?: string
-    r?: string
-    rating?: string
-    s?: string
-    size?: string
-  }
+    type Options = {
+        d?: string;
+        default?: string;
+        f?: string;
+        forcedefault?: string;
+        r?: string;
+        rating?: string;
+        s?: string;
+        size?: string;
+    };
 
-  function url(email: string, options?: Options, forceProtocol?: boolean): string;
+    function url(
+        email: string,
+        options?: Options,
+        forceProtocol?: boolean
+    ): string;
 }
 
 export = GravatarModule;

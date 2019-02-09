@@ -18,7 +18,11 @@ declare module "codemirror" {
     and return a {list, from, to} object, where list is an array of strings or objects (the completions), and
     from and to give the start and end of the token that is being completed as {line, ch} objects. An optional
     selectedHint property (an integer) can be added to the completion object to control the initially selected hint. */
-    function showHint(cm: CodeMirror.Editor, hinter?: HintFunction, options?: ShowHintOptions): void;
+    function showHint(
+        cm: CodeMirror.Editor,
+        hinter?: HintFunction,
+        options?: ShowHintOptions
+    ): void;
 
     interface Hints {
         from: Position;
@@ -41,8 +45,14 @@ declare module "codemirror" {
 
     interface Editor {
         /** An extension of the existing CodeMirror typings for the Editor.on("keyup", func) syntax */
-        on(eventName: string, handler: (doc: CodeMirror.Doc, event: any) => void): void;
-        off(eventName: string, handler: (doc: CodeMirror.Doc, event: any) => void): void;
+        on(
+            eventName: string,
+            handler: (doc: CodeMirror.Doc, event: any) => void
+        ): void;
+        off(
+            eventName: string,
+            handler: (doc: CodeMirror.Doc, event: any) => void
+        ): void;
         showHint: (options: ShowHintOptions) => void;
     }
 

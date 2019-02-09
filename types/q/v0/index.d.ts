@@ -24,7 +24,10 @@ declare function Q(): Q.Promise<void>;
 declare namespace Q {
     type IWhenable<T> = IPromise<T> | T;
     interface IPromise<T> {
-        then<U>(onFulfill?: (value: T) => IWhenable<U>, onReject?: (error: any) => IWhenable<U>): IPromise<U>;
+        then<U>(
+            onFulfill?: (value: T) => IWhenable<U>,
+            onReject?: (error: any) => IWhenable<U>
+        ): IPromise<U>;
     }
 
     interface Deferred<T> {
@@ -52,14 +55,21 @@ declare namespace Q {
         /**
          * The then method from the Promises/A+ specification, with an additional progress handler.
          */
-        then<U>(onFulfill?: (value: T) => IWhenable<U>, onReject?: (error: any) => IWhenable<U>, onProgress?: Function): Promise<U>;
+        then<U>(
+            onFulfill?: (value: T) => IWhenable<U>,
+            onReject?: (error: any) => IWhenable<U>,
+            onProgress?: Function
+        ): Promise<U>;
 
         /**
          * Like then, but "spreads" the array into a variadic fulfillment handler. If any of the promises in the array are rejected, instead calls onRejected with the first rejected promise's rejection reason.
          *
          * This is especially useful in conjunction with all
          */
-        spread<U>(onFulfill: (...args: any[]) => IWhenable<U>, onReject?: (reason: any) => IWhenable<U>): Promise<U>;
+        spread<U>(
+            onFulfill: (...args: any[]) => IWhenable<U>,
+            onReject?: (reason: any) => IWhenable<U>
+        ): Promise<U>;
 
         fail<U>(onRejected: (reason: any) => IWhenable<U>): Promise<U>;
 
@@ -82,7 +92,11 @@ declare namespace Q {
          *
          * The Golden Rule of done vs. then usage is: either return your promise to someone else, or if the chain ends with you, call done to terminate it.
          */
-        done(onFulfilled?: (value: T) => any, onRejected?: (reason: any) => any, onProgress?: (progress: any) => any): void;
+        done(
+            onFulfilled?: (value: T) => any,
+            onRejected?: (reason: any) => any,
+            onProgress?: (progress: any) => any
+        ): void;
 
         /**
          * If callback is a function, assumes it's a Node.js-style callback, and calls it as either callback(rejectionReason) when/if promise becomes rejected, or as callback(null, fulfillmentValue) when/if promise becomes fulfilled. If callback is not a function, simply returns promise.
@@ -167,19 +181,46 @@ declare namespace Q {
          */
         inspect(): PromiseState<T>;
 
-        all<A, B, C, D, E, F>(this: Promise<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>, IWhenable<E>, IWhenable<F>]>): Promise<[A, B, C, D, E, F]>;
+        all<A, B, C, D, E, F>(
+            this: Promise<
+                [
+                    IWhenable<A>,
+                    IWhenable<B>,
+                    IWhenable<C>,
+                    IWhenable<D>,
+                    IWhenable<E>,
+                    IWhenable<F>
+                ]
+            >
+        ): Promise<[A, B, C, D, E, F]>;
         /**
          * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
          */
-        all<A, B, C, D, E>(this: Promise<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>, IWhenable<E>]>): Promise<[A, B, C, D, E]>;
+        all<A, B, C, D, E>(
+            this: Promise<
+                [
+                    IWhenable<A>,
+                    IWhenable<B>,
+                    IWhenable<C>,
+                    IWhenable<D>,
+                    IWhenable<E>
+                ]
+            >
+        ): Promise<[A, B, C, D, E]>;
         /**
          * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
          */
-        all<A, B, C, D>(this: Promise<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>]>): Promise<[A, B, C, D]>;
+        all<A, B, C, D>(
+            this: Promise<
+                [IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>]
+            >
+        ): Promise<[A, B, C, D]>;
         /**
          * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
          */
-        all<A, B, C>(this: Promise<[IWhenable<A>, IWhenable<B>, IWhenable<C>]>): Promise<[A, B, C]>;
+        all<A, B, C>(
+            this: Promise<[IWhenable<A>, IWhenable<B>, IWhenable<C>]>
+        ): Promise<[A, B, C]>;
         /**
          * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
          */
@@ -203,7 +244,12 @@ declare namespace Q {
     export function when<T>(value: IWhenable<T>): Promise<T>;
 
     // If a non-promise value is provided, it will not reject or progress
-    export function when<T, U>(value: IWhenable<T>, onFulfilled: (val: T) => IWhenable<U>, onRejected?: (reason: any) => IWhenable<U>, onProgress?: (progress: any) => any): Promise<U>;
+    export function when<T, U>(
+        value: IWhenable<T>,
+        onFulfilled: (val: T) => IWhenable<U>,
+        onRejected?: (reason: any) => IWhenable<U>,
+        onProgress?: (progress: any) => any
+    ): Promise<U>;
 
     /**
      * Currently "impossible" (and I use the term loosely) to implement due to TypeScript limitations as it is now.
@@ -211,47 +257,127 @@ declare namespace Q {
      */
     // export function try(method: Function, ...args: any[]): Promise<any>;
 
-    export function fbind<T>(method: (...args: any[]) => IWhenable<T>, ...args: any[]): (...args: any[]) => Promise<T>;
+    export function fbind<T>(
+        method: (...args: any[]) => IWhenable<T>,
+        ...args: any[]
+    ): (...args: any[]) => Promise<T>;
 
-    export function fcall<T>(method: (...args: any[]) => T, ...args: any[]): Promise<T>;
+    export function fcall<T>(
+        method: (...args: any[]) => T,
+        ...args: any[]
+    ): Promise<T>;
 
-    export function send<T>(obj: any, functionName: string, ...args: any[]): Promise<T>;
-    export function invoke<T>(obj: any, functionName: string, ...args: any[]): Promise<T>;
-    export function mcall<T>(obj: any, functionName: string, ...args: any[]): Promise<T>;
+    export function send<T>(
+        obj: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
+    export function invoke<T>(
+        obj: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
+    export function mcall<T>(
+        obj: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
 
-    export function denodeify<T>(nodeFunction: Function, ...args: any[]): (...args: any[]) => Promise<T>;
-    export function nbind<T>(nodeFunction: Function, thisArg: any, ...args: any[]): (...args: any[]) => Promise<T>;
-    export function nfbind<T>(nodeFunction: Function, ...args: any[]): (...args: any[]) => Promise<T>;
-    export function nfcall<T>(nodeFunction: Function, ...args: any[]): Promise<T>;
+    export function denodeify<T>(
+        nodeFunction: Function,
+        ...args: any[]
+    ): (...args: any[]) => Promise<T>;
+    export function nbind<T>(
+        nodeFunction: Function,
+        thisArg: any,
+        ...args: any[]
+    ): (...args: any[]) => Promise<T>;
+    export function nfbind<T>(
+        nodeFunction: Function,
+        ...args: any[]
+    ): (...args: any[]) => Promise<T>;
+    export function nfcall<T>(
+        nodeFunction: Function,
+        ...args: any[]
+    ): Promise<T>;
     export function nfapply<T>(nodeFunction: Function, args: any[]): Promise<T>;
 
-    export function ninvoke<T>(nodeModule: any, functionName: string, ...args: any[]): Promise<T>;
-    export function npost<T>(nodeModule: any, functionName: string, args: any[]): Promise<T>;
-    export function nsend<T>(nodeModule: any, functionName: string, ...args: any[]): Promise<T>;
-    export function nmcall<T>(nodeModule: any, functionName: string, ...args: any[]): Promise<T>;
+    export function ninvoke<T>(
+        nodeModule: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
+    export function npost<T>(
+        nodeModule: any,
+        functionName: string,
+        args: any[]
+    ): Promise<T>;
+    export function nsend<T>(
+        nodeModule: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
+    export function nmcall<T>(
+        nodeModule: any,
+        functionName: string,
+        ...args: any[]
+    ): Promise<T>;
 
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
-    export function all<A, B, C, D, E, F>(promises: IWhenable<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>, IWhenable<E>, IWhenable<F>]>): Promise<[A, B, C, D, E, F]>;
+    export function all<A, B, C, D, E, F>(
+        promises: IWhenable<
+            [
+                IWhenable<A>,
+                IWhenable<B>,
+                IWhenable<C>,
+                IWhenable<D>,
+                IWhenable<E>,
+                IWhenable<F>
+            ]
+        >
+    ): Promise<[A, B, C, D, E, F]>;
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
-    export function all<A, B, C, D, E>(promises: IWhenable<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>, IWhenable<E>]>): Promise<[A, B, C, D, E]>;
+    export function all<A, B, C, D, E>(
+        promises: IWhenable<
+            [
+                IWhenable<A>,
+                IWhenable<B>,
+                IWhenable<C>,
+                IWhenable<D>,
+                IWhenable<E>
+            ]
+        >
+    ): Promise<[A, B, C, D, E]>;
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
-    export function all<A, B, C, D>(promises: IWhenable<[IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>]>): Promise<[A, B, C, D]>;
+    export function all<A, B, C, D>(
+        promises: IWhenable<
+            [IWhenable<A>, IWhenable<B>, IWhenable<C>, IWhenable<D>]
+        >
+    ): Promise<[A, B, C, D]>;
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
-    export function all<A, B, C>(promises: IWhenable<[IWhenable<A>, IWhenable<B>, IWhenable<C>]>): Promise<[A, B, C]>;
+    export function all<A, B, C>(
+        promises: IWhenable<[IWhenable<A>, IWhenable<B>, IWhenable<C>]>
+    ): Promise<[A, B, C]>;
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
-    export function all<A, B>(promises: IWhenable<[IPromise<A>, IPromise<B>]>): Promise<[A, B]>;
-    export function all<A, B>(promises: IWhenable<[A, IPromise<B>]>): Promise<[A, B]>;
-    export function all<A, B>(promises: IWhenable<[IPromise<A>, B]>): Promise<[A, B]>;
+    export function all<A, B>(
+        promises: IWhenable<[IPromise<A>, IPromise<B>]>
+    ): Promise<[A, B]>;
+    export function all<A, B>(
+        promises: IWhenable<[A, IPromise<B>]>
+    ): Promise<[A, B]>;
+    export function all<A, B>(
+        promises: IWhenable<[IPromise<A>, B]>
+    ): Promise<[A, B]>;
     export function all<A, B>(promises: IWhenable<[A, B]>): Promise<[A, B]>;
     /**
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
@@ -259,27 +385,39 @@ declare namespace Q {
     export function all<T>(promises: IWhenable<IWhenable<T>[]>): Promise<T[]>;
 
     /**
-    * Returns a promise for the first of an array of promises to become settled.
-    */
+     * Returns a promise for the first of an array of promises to become settled.
+     */
     export function race<T>(promises: IWhenable<T>[]): Promise<T>;
 
     /**
      * Returns a promise that is fulfilled with an array of promise state snapshots, but only after all the original promises have settled, i.e. become either fulfilled or rejected.
      */
-    export function allSettled<T>(promises: IWhenable<IWhenable<T>[]>): Promise<PromiseState<T>[]>;
+    export function allSettled<T>(
+        promises: IWhenable<IWhenable<T>[]>
+    ): Promise<PromiseState<T>[]>;
 
-    export function allResolved<T>(promises: IWhenable<IWhenable<T>[]>): Promise<Promise<T>[]>;
+    export function allResolved<T>(
+        promises: IWhenable<IWhenable<T>[]>
+    ): Promise<Promise<T>[]>;
 
     /**
      * Like then, but "spreads" the array into a variadic fulfillment handler. If any of the promises in the array are rejected, instead calls onRejected with the first rejected promise's rejection reason.
      * This is especially useful in conjunction with all.
      */
-    export function spread<T, U>(promises: IWhenable<T>[], onFulfilled: (...args: T[]) => IWhenable<U>, onRejected?: (reason: any) => IWhenable<U>): Promise<U>;
+    export function spread<T, U>(
+        promises: IWhenable<T>[],
+        onFulfilled: (...args: T[]) => IWhenable<U>,
+        onRejected?: (reason: any) => IWhenable<U>
+    ): Promise<U>;
 
     /**
      * Returns a promise that will have the same result as promise, except that if promise is not fulfilled or rejected before ms milliseconds, the returned promise will be rejected with an Error with the given message. If message is not supplied, the message will be "Timed out after " + ms + " ms".
      */
-    export function timeout<T>(promise: Promise<T>, ms: number, message?: string): Promise<T>;
+    export function timeout<T>(
+        promise: Promise<T>,
+        ms: number,
+        message?: string
+    ): Promise<T>;
 
     /**
      * Returns a promise that will have the same result as promise, but will only be fulfilled or rejected after at least ms milliseconds have passed.
@@ -292,7 +430,7 @@ declare namespace Q {
     /**
      * Returns a promise that will be fulfilled with undefined after at least ms milliseconds have passed.
      */
-    export function delay(ms: number): Promise <void>;
+    export function delay(ms: number): Promise<void>;
     /**
      * Returns whether a given promise is in the fulfilled state. When the static version is used on non-promises, the result is always true.
      */
@@ -321,14 +459,22 @@ declare namespace Q {
      */
     export function reject<T>(reason?: any): Promise<T>;
 
-    export function Promise<T>(resolver: (resolve: (val: IWhenable<T>) => void , reject: (reason: any) => void , notify: (progress: any) => void ) => void ): Promise<T>;
+    export function Promise<T>(
+        resolver: (
+            resolve: (val: IWhenable<T>) => void,
+            reject: (reason: any) => void,
+            notify: (progress: any) => void
+        ) => void
+    ): Promise<T>;
 
     /**
      * Creates a new version of func that accepts any combination of promise and non-promise values, converting them to their fulfillment values before calling the original func. The returned version also always returns a promise: if func does a return or throw, then Q.promised(func) will return fulfilled or rejected promise, respectively.
      *
      * This can be useful for creating functions that accept either promises or non-promise values, and for ensuring that the function always returns a promise even in the face of unintentional thrown exceptions.
      */
-    export function promised<T>(callback: (...args: any[]) => T): (...args: any[]) => Promise<T>;
+    export function promised<T>(
+        callback: (...args: any[]) => T
+    ): (...args: any[]) => Promise<T>;
 
     /**
      * Returns whether the given value is a Q promise.
@@ -354,7 +500,9 @@ declare namespace Q {
     /**
      * This is an experimental tool for converting a generator function into a deferred function. This has the potential of reducing nested callbacks in engines that support yield.
      */
-    export function async<T>(generatorFunction: any): (...args: any[]) => Promise<T>;
+    export function async<T>(
+        generatorFunction: any
+    ): (...args: any[]) => Promise<T>;
     export function nextTick(callback: Function): void;
 
     /**
@@ -374,10 +522,10 @@ declare namespace Q {
      */
     export function resolve<T>(object: IWhenable<T>): Promise<T>;
 
-	/**
-	 * Resets the global "Q" variable to the value it has before Q was loaded.
-	 * This will either be undefined if there was no version or the version of Q which was already loaded before.
-	 * @returns { The last version of Q. }
-	 */
-	export function noConflict(): typeof Q;
+    /**
+     * Resets the global "Q" variable to the value it has before Q was loaded.
+     * This will either be undefined if there was no version or the version of Q which was already loaded before.
+     * @returns { The last version of Q. }
+     */
+    export function noConflict(): typeof Q;
 }

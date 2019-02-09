@@ -1,4 +1,6 @@
-import feathers, { Application } from '@feathersjs/feathers';
-import feathersAuthenticationLocal from '@feathersjs/authentication-local';
+import feathers, { Application } from "@feathersjs/feathers";
+import feathersAuthenticationLocal from "@feathersjs/authentication-local";
 
-const app: Application<{}> = feathers().configure(feathersAuthenticationLocal());
+const app: Application<{}> = feathers().configure(
+    feathersAuthenticationLocal()
+);

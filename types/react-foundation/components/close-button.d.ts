@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { FlexboxPropTypes } from "../utils";
 /**
  * Close button component.
  * http://foundation.zurb.com/sites/docs/close-button.html
@@ -9,5 +9,6 @@ import { FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const CloseButton: React.StatelessComponent<CloseButtonProps>;
-export interface CloseButtonProps extends FlexboxPropTypes, React.ButtonHTMLAttributes<HTMLButtonElement> {
-}
+export interface CloseButtonProps
+    extends FlexboxPropTypes,
+        React.ButtonHTMLAttributes<HTMLButtonElement> {}

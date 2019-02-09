@@ -10,7 +10,10 @@ export interface TransformableInfo {
     [key: string]: any;
 }
 
-export type TransformFunction = (info: TransformableInfo, opts?: any) => TransformableInfo | boolean;
+export type TransformFunction = (
+    info: TransformableInfo,
+    opts?: any
+) => TransformableInfo | boolean;
 export type Colors = { [key: string]: string | string[] }; // tslint:disable-line interface-over-type-literal
 export type FormatWrap = (opts?: any) => Format;
 
@@ -43,7 +46,9 @@ export namespace format {
     function logstash(opts?: object): Format;
     function padLevels(opts?: object): Format;
     function prettyPrint(opts?: object): Format;
-    function printf(templateFunction: (info: TransformableInfo) => string): Format;
+    function printf(
+        templateFunction: (info: TransformableInfo) => string
+    ): Format;
     function simple(opts?: object): Format;
     function splat(opts?: object): Format;
     function timestamp(opts?: object): Format;

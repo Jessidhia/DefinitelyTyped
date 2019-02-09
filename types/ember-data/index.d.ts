@@ -6,15 +6,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Ember from 'ember';
-import Evented from '@ember/object/evented';
-import ObjectProxy from '@ember/object/proxy';
-import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
-import RSVP from 'rsvp';
-import TransformRegistry from 'ember-data/types/registries/transform';
-import ModelRegistry from 'ember-data/types/registries/model';
-import SerializerRegistry from 'ember-data/types/registries/serializer';
-import AdapterRegistry from 'ember-data/types/registries/adapter';
+import Ember from "ember";
+import Evented from "@ember/object/evented";
+import ObjectProxy from "@ember/object/proxy";
+import PromiseProxyMixin from "@ember/object/promise-proxy-mixin";
+import RSVP from "rsvp";
+import TransformRegistry from "ember-data/types/registries/transform";
+import ModelRegistry from "ember-data/types/registries/model";
+import SerializerRegistry from "ember-data/types/registries/serializer";
+import AdapterRegistry from "ember-data/types/registries/adapter";
 
 type AttributesFor<Model> = keyof Model; // TODO: filter to attr properties only (TS 2.8)
 type RelationshipsFor<Model> = keyof Model; // TODO: filter to hasMany/belongsTo properties only (TS 2.8)
@@ -31,7 +31,7 @@ interface AttributeMeta<Model extends DS.Model> {
 }
 interface RelationshipMeta<Model extends DS.Model> {
     key: RelationshipsFor<Model>;
-    kind: 'belongsTo' | 'hasMany';
+    kind: "belongsTo" | "hasMany";
     type: keyof ModelRegistry;
     options: object;
     name: string;
@@ -993,14 +993,14 @@ export namespace DS {
         belongsTo<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options?: {}
-        ): Snapshot<K>['record'][L] | string | null | undefined;
+        ): Snapshot<K>["record"][L] | string | null | undefined;
         /**
          * Returns the current value of a hasMany relationship.
          */
         hasMany<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options?: { ids: false }
-        ): Array<Snapshot<K>['record'][L]> | undefined;
+        ): Array<Snapshot<K>["record"][L]> | undefined;
         hasMany<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options: { ids: true }
@@ -2171,28 +2171,28 @@ export namespace DS {
 
 export default DS;
 
-declare module '@ember/routing/route' {
+declare module "@ember/routing/route" {
     export default interface Route {
         store: DS.Store;
     }
 }
-declare module '@ember/controller' {
+declare module "@ember/controller" {
     export default interface Controller {
         store: DS.Store;
     }
 }
-declare module '@ember/debug/data-adapter' {
+declare module "@ember/debug/data-adapter" {
     export default interface DataAdapter {
         store: DS.Store;
     }
 }
-declare module '@ember/service' {
+declare module "@ember/service" {
     interface Registry {
         store: DS.Store;
     }
 }
 
-declare module 'ember-test-helpers' {
+declare module "ember-test-helpers" {
     interface TestContext {
         store: DS.Store;
     }

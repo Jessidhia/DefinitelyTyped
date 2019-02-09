@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Options as SwPrecacheOptions } from 'sw-precache';
-import { Plugin } from 'webpack';
+import { Options as SwPrecacheOptions } from "sw-precache";
+import { Plugin } from "webpack";
 
 // workaround to override parent types
 interface _Options extends SwPrecacheOptions {

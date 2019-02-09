@@ -15,29 +15,53 @@ declare namespace gsap {
         smoothChildTiming: boolean;
 
         /** Adds a TweenLite, TweenMax, TimelineLite, or TimelineMax instance to the timeline at a specific time. */
-        add(child: any, position?: any, align?: string, stagger?: number): SimpleTimeline;
+        add(
+            child: any,
+            position?: any,
+            align?: string,
+            stagger?: number
+        ): SimpleTimeline;
 
         /** renders */
-        render(time: number, suppressEvents?: boolean, force?: boolean): SimpleTimeline;
+        render(
+            time: number,
+            suppressEvents?: boolean,
+            force?: boolean
+        ): SimpleTimeline;
     }
 
     class TimelineLite extends SimpleTimeline {
         constructor(vars?: {});
 
         /** Adds a tween, timeline, callback, or label (or an array of them) to the timeline. */
-        add(value: any, position?: any, align?: string, stagger?: number): TimelineLite;
+        add(
+            value: any,
+            position?: any,
+            align?: string,
+            stagger?: number
+        ): TimelineLite;
 
         /** Adds a label to the timeline, making it easy to mark important positions/times. */
         addLabel(label: string, position: any): TimelineLite;
 
         /** Inserts a special callback that pauses playback of the timeline at a particular time or label. */
-        addPause(position?: any, callback?: () => void, params?: any[], scope?: any): TimelineLite;
+        addPause(
+            position?: any,
+            callback?: () => void,
+            params?: any[],
+            scope?: any
+        ): TimelineLite;
 
         /**
          * Adds a callback to the end of the timeline (or elsewhere using the "position" parameter) - this is a convenience method that accomplishes exactly the same thing as
          * add( TweenLite.delayedCall(...) ) but with less code.
          */
-        call(callback: () => void, params?: any[], scope?: any, position?: any): TimelineLite;
+        call(
+            callback: () => void,
+            params?: any[],
+            scope?: any,
+            position?: any
+        ): TimelineLite;
 
         /** Empties the timeline of all tweens, timelines, and callbacks (and optionally labels too). */
         clear(labels?: boolean): TimelineLite;
@@ -55,13 +79,29 @@ declare namespace gsap {
          * Adds a TweenLite.from() tween to the end of the timeline (or elsewhere using the "position" parameter) - this is a convenience method that accomplishes exactly the same thing as
          * add( TweenLite.from(...) ) but with less code.
          */
-        from(target: {}, duration: number, vars: {}, position?: any): TimelineLite;
+        from(
+            target: {},
+            duration: number,
+            vars: {},
+            position?: any
+        ): TimelineLite;
 
         /** Adds a TweenLite.fromTo() tween to the end of the timeline - this is a convenience method that accomplishes exactly the same thing as add( TweenLite.fromTo(...) ) but with less code. */
-        fromTo(target: {}, duration: number, fromVars: {}, toVars: {}, position?: any): TimelineLite;
+        fromTo(
+            target: {},
+            duration: number,
+            fromVars: {},
+            toVars: {},
+            position?: any
+        ): TimelineLite;
 
         /** Returns an array containing all the tweens and/or timelines nested in this timeline. */
-        getChildren(nested?: boolean, tweens?: boolean, timelines?: boolean, ignoreBeforeTime?: number): Array<Tween | Timeline>;
+        getChildren(
+            nested?: boolean,
+            tweens?: boolean,
+            timelines?: boolean,
+            ignoreBeforeTime?: number
+        ): Array<Tween | Timeline>;
 
         /** Returns the time associated with a particular label. */
         getLabelTime(label: string): number;
@@ -94,7 +134,11 @@ declare namespace gsap {
         set(target: {}, vars: {}, position?: any): TimelineLite;
 
         /** Shifts the startTime of the timeline's children by a certain amount and optionally adjusts labels too. */
-        shiftChildren(amount: number, adjustLabels?: boolean, ignoreBeforeTime?: number): TimelineLite;
+        shiftChildren(
+            amount: number,
+            adjustLabels?: boolean,
+            ignoreBeforeTime?: number
+        ): TimelineLite;
 
         /**
          * Tweens an array of targets from a common set of destination values (using the current values as the destination), but staggers their start times by a specified amount of time,
@@ -146,7 +190,12 @@ declare namespace gsap {
          * Adds a TweenLite.to() tween to the end of the timeline (or elsewhere using the "position" parameter) - this is a convenience method that accomplishes exactly the same thing as
          * add( TweenLite.to(...) ) but with less code.
          */
-        to(target: {}, duration: number, vars: {}, position?: any): TimelineLite;
+        to(
+            target: {},
+            duration: number,
+            vars: {},
+            position?: any
+        ): TimelineLite;
         usesFrames(): boolean;
 
         /** If true, the timeline's timing mode is frames-based instead of seconds. */
@@ -156,10 +205,19 @@ declare namespace gsap {
     class TimelineMax extends TimelineLite {
         constructor(vars?: {});
 
-        addCallback(callback: () => void, position: any, params?: any[], scope?: any): TimelineMax;
+        addCallback(
+            callback: () => void,
+            position: any,
+            params?: any[],
+            scope?: any
+        ): TimelineMax;
         currentLabel(): string;
         currentLabel(value: string): TimelineMax;
-        getActive(nested?: boolean, tweens?: boolean, timelines?: boolean): Tween | Timeline[];
+        getActive(
+            nested?: boolean,
+            tweens?: boolean,
+            timelines?: boolean
+        ): Tween | Timeline[];
         getLabelAfter(time: number): string;
         getLabelBefore(time: number): string;
         getLabelsArray(): Array<{ name: string; time: number }>;

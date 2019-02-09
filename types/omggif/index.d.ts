@@ -41,7 +41,14 @@ export class GifWriter {
 
     constructor(buf: Buffer, width: number, height: number, gopts?: GifOptions);
 
-    addFrame(x: number, y: number, w: number, h: number, indexed_pixels: number[], opts?: FrameOptions): number;
+    addFrame(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        indexed_pixels: number[],
+        opts?: FrameOptions
+    ): number;
     end(): number;
     getOutputBuffer(): Buffer;
     getOutputBufferPosition(): number;

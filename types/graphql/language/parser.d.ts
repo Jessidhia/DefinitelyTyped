@@ -67,7 +67,10 @@ export interface ParseOptions {
  * Given a GraphQL source, parses it into a Document.
  * Throws GraphQLError if a syntax error is encountered.
  */
-export function parse(source: string | Source, options?: ParseOptions): DocumentNode;
+export function parse(
+    source: string | Source,
+    options?: ParseOptions
+): DocumentNode;
 
 /**
  * Given a string containing a GraphQL value, parse the AST for that value.
@@ -76,7 +79,10 @@ export function parse(source: string | Source, options?: ParseOptions): Document
  * This is useful within tools that operate upon GraphQL Values directly and
  * in isolation of complete GraphQL documents.
  */
-export function parseValue(source: string | Source, options?: ParseOptions): ValueNode;
+export function parseValue(
+    source: string | Source,
+    options?: ParseOptions
+): ValueNode;
 
 /**
  * Given a string containing a GraphQL Type (ex. `[Int!]`), parse the AST for
@@ -88,7 +94,10 @@ export function parseValue(source: string | Source, options?: ParseOptions): Val
  *
  * Consider providing the results to the utility function: typeFromAST().
  */
-export function parseType(source: string | Source, options?: ParseOptions): TypeNode;
+export function parseType(
+    source: string | Source,
+    options?: ParseOptions
+): TypeNode;
 
 export function parseConstValue<TOptions>(lexer: Lexer<TOptions>): ValueNode;
 

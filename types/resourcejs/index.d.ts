@@ -13,10 +13,15 @@ declare function resourcejs(
     app: express.Application,
     route: string,
     modelName: string,
-    model: mongoose.Model<mongoose.Document>): resourcejs.ResourceEndpoint;
+    model: mongoose.Model<mongoose.Document>
+): resourcejs.ResourceEndpoint;
 
 declare namespace resourcejs {
-    type HttpHandler = (req: Request, res: Response, next: express.NextFunction) => void;
+    type HttpHandler = (
+        req: Request,
+        res: Response,
+        next: express.NextFunction
+    ) => void;
 
     type MethodBuild<T> = (options?: T) => ResourceEndpoint;
 
@@ -60,7 +65,8 @@ declare namespace resourcejs {
             path: string,
             callback: (...args: any[]) => any,
             last: (...args: any[]) => any,
-            options: object) => any;
+            options: object
+        ) => any;
 
         respond: HttpHandler;
         setResponse: HttpHandler;

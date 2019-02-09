@@ -8,7 +8,7 @@
 // ES2015 Promises. They have been tweaked to support RSVP's extensions to the
 // Promises A+ spec and the additional helper functions it supplies.
 
-declare module 'rsvp' {
+declare module "rsvp" {
     namespace RSVP {
         // All the Promise methods essentially flatten existing promises, so that
         // you don't end up with `Promise<Promise<Promise<string>>>` if you happen
@@ -18,9 +18,9 @@ declare module 'rsvp' {
 
         // RSVP supplies status for promises in certain places.
         enum State {
-            fulfilled = 'fulfilled',
-            rejected = 'rejected',
-            pending = 'pending',
+            fulfilled = "fulfilled",
+            rejected = "rejected",
+            pending = "pending"
         }
 
         type Resolved<T> = {
@@ -56,10 +56,10 @@ declare module 'rsvp' {
 
         interface ObjectWithEventMixins {
             on(
-                eventName: 'created' | 'chained' | 'fulfilled' | 'rejected',
+                eventName: "created" | "chained" | "fulfilled" | "rejected",
                 listener: (event: InstrumentEvent) => void
             ): void;
-            on(eventName: 'error', errorHandler: (reason: any) => void): void;
+            on(eventName: "error", errorHandler: (reason: any) => void): void;
             on(eventName: string, callback: (value: any) => void): void;
             off(eventName: string, callback?: (value: any) => void): void;
             trigger(eventName: string, options?: any, label?: string): void;
@@ -71,10 +71,13 @@ declare module 'rsvp' {
 
             /** Registers a callback to be executed when `eventName` is triggered */
             static on(
-                eventName: 'created' | 'chained' | 'fulfilled' | 'rejected',
+                eventName: "created" | "chained" | "fulfilled" | "rejected",
                 listener: (event: InstrumentEvent) => void
             ): void;
-            static on(eventName: 'error', errorHandler: (reason: any) => void): void;
+            static on(
+                eventName: "error",
+                errorHandler: (reason: any) => void
+            ): void;
             static on(eventName: string, callback: (value: any) => void): void;
 
             /**
@@ -83,7 +86,10 @@ declare module 'rsvp' {
              * If you don't pass a `callback` argument to `off`, ALL callbacks for the
              * event will not be executed when the event fires.
              */
-            static off(eventName: string, callback?: (value: any) => void): void;
+            static off(
+                eventName: string,
+                callback?: (value: any) => void
+            ): void;
 
             /**
              * Use `trigger` to fire custom events.
@@ -91,7 +97,11 @@ declare module 'rsvp' {
              * You can also pass a value as a second argument to `trigger` that will be
              * passed as an argument to all event listeners for the event
              */
-            static trigger(eventName: string, options?: any, label?: string): void;
+            static trigger(
+                eventName: string,
+                options?: any,
+                label?: string
+            ): void;
         }
 
         class Promise<T> implements PromiseLike<T> {
@@ -111,13 +121,22 @@ declare module 'rsvp' {
             ): RSVP.Promise<T>;
 
             then<TResult1 = T, TResult2 = never>(
-                onFulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null,
-                onRejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null,
+                onFulfilled?:
+                    | ((value: T) => TResult1 | PromiseLike<TResult1>)
+                    | undefined
+                    | null,
+                onRejected?:
+                    | ((reason: any) => TResult2 | PromiseLike<TResult2>)
+                    | undefined
+                    | null,
                 label?: string
             ): RSVP.Promise<TResult1 | TResult2>;
 
             catch<TResult = never>(
-                onRejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null,
+                onRejected?:
+                    | ((reason: any) => TResult | PromiseLike<TResult>)
+                    | undefined
+                    | null,
                 label?: string
             ): RSVP.Promise<T | TResult>;
 
@@ -155,11 +174,28 @@ declare module 'rsvp' {
                 label?: string
             ): RSVP.Promise<[T1, T2, T3, T4, T5, T6, T7, T8, T9]>;
             static all<T1, T2, T3, T4, T5, T6, T7, T8>(
-                values: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>, Arg<T8>],
+                values: [
+                    Arg<T1>,
+                    Arg<T2>,
+                    Arg<T3>,
+                    Arg<T4>,
+                    Arg<T5>,
+                    Arg<T6>,
+                    Arg<T7>,
+                    Arg<T8>
+                ],
                 label?: string
             ): RSVP.Promise<[T1, T2, T3, T4, T5, T6, T7, T8]>;
             static all<T1, T2, T3, T4, T5, T6, T7>(
-                values: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>],
+                values: [
+                    Arg<T1>,
+                    Arg<T2>,
+                    Arg<T3>,
+                    Arg<T4>,
+                    Arg<T5>,
+                    Arg<T6>,
+                    Arg<T7>
+                ],
                 label?: string
             ): RSVP.Promise<[T1, T2, T3, T4, T5, T6, T7]>;
             static all<T1, T2, T3, T4, T5, T6>(
@@ -178,8 +214,14 @@ declare module 'rsvp' {
                 values: [Arg<T1>, Arg<T2>, Arg<T3>],
                 label?: string
             ): RSVP.Promise<[T1, T2, T3]>;
-            static all<T1, T2>(values: [Arg<T1>, Arg<T2>], label?: string): Promise<[T1, T2]>;
-            static all<T>(values: (Arg<T>)[], label?: string): RSVP.Promise<T[]>;
+            static all<T1, T2>(
+                values: [Arg<T1>, Arg<T2>],
+                label?: string
+            ): Promise<[T1, T2]>;
+            static all<T>(
+                values: (Arg<T>)[],
+                label?: string
+            ): RSVP.Promise<T[]>;
 
             static race<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
                 values: [
@@ -211,11 +253,28 @@ declare module 'rsvp' {
                 label?: string
             ): RSVP.Promise<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9>;
             static race<T1, T2, T3, T4, T5, T6, T7, T8>(
-                values: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>, Arg<T8>],
+                values: [
+                    Arg<T1>,
+                    Arg<T2>,
+                    Arg<T3>,
+                    Arg<T4>,
+                    Arg<T5>,
+                    Arg<T6>,
+                    Arg<T7>,
+                    Arg<T8>
+                ],
                 label?: string
             ): RSVP.Promise<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8>;
             static race<T1, T2, T3, T4, T5, T6, T7>(
-                values: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>],
+                values: [
+                    Arg<T1>,
+                    Arg<T2>,
+                    Arg<T3>,
+                    Arg<T4>,
+                    Arg<T5>,
+                    Arg<T6>,
+                    Arg<T7>
+                ],
                 label?: string
             ): RSVP.Promise<T1 | T2 | T3 | T4 | T5 | T6 | T7>;
             static race<T1, T2, T3, T4, T5, T6>(
@@ -234,7 +293,10 @@ declare module 'rsvp' {
                 values: [Arg<T1>, Arg<T2>, Arg<T3>],
                 label?: string
             ): RSVP.Promise<T1 | T2 | T3>;
-            static race<T1, T2>(values: [Arg<T1>, Arg<T2>], label?: string): RSVP.Promise<T1 | T2>;
+            static race<T1, T2>(
+                values: [Arg<T1>, Arg<T2>],
+                label?: string
+            ): RSVP.Promise<T1 | T2>;
             static race<T>(values: (Arg<T>)[], label?: string): RSVP.Promise<T>;
 
             static reject(reason?: any, label?: string): RSVP.Promise<never>;
@@ -279,7 +341,10 @@ declare module 'rsvp' {
         ): (arg1: A) => RSVP.Promise<T1>;
 
         function denodeify<T1, T2, A>(
-            nodeFunc: (arg1: A, callback: (err: any, data1: T1, data2: T2) => void) => void,
+            nodeFunc: (
+                arg1: A,
+                callback: (err: any, data1: T1, data2: T2) => void
+            ) => void,
             options?: false
         ): (arg1: A) => RSVP.Promise<T1>;
 
@@ -297,7 +362,10 @@ declare module 'rsvp' {
         ): (arg1: A) => RSVP.Promise<[T1, T2, T3]>;
 
         function denodeify<T1, T2, A>(
-            nodeFunc: (arg1: A, callback: (err: any, data1: T1, data2: T2) => void) => void,
+            nodeFunc: (
+                arg1: A,
+                callback: (err: any, data1: T1, data2: T2) => void
+            ) => void,
             options: true
         ): (arg1: A) => RSVP.Promise<[T1, T2]>;
 
@@ -306,16 +374,31 @@ declare module 'rsvp' {
             options: true
         ): (arg1: A) => RSVP.Promise<[T]>;
 
-        function denodeify<T1, T2, T3, A, K1 extends string, K2 extends string, K3 extends string>(
+        function denodeify<
+            T1,
+            T2,
+            T3,
+            A,
+            K1 extends string,
+            K2 extends string,
+            K3 extends string
+        >(
             nodeFunc: (
                 arg1: A,
                 callback: (err: any, data1: T1, data2: T2, data3: T3) => void
             ) => void,
             options: [K1, K2, K3]
-        ): (arg1: A) => RSVP.Promise<{ [K in K1]: T1 } & { [K in K2]: T2 } & { [K in K3]: T3 }>;
+        ): (
+            arg1: A
+        ) => RSVP.Promise<
+            { [K in K1]: T1 } & { [K in K2]: T2 } & { [K in K3]: T3 }
+        >;
 
         function denodeify<T1, T2, A, K1 extends string, K2 extends string>(
-            nodeFunc: (arg1: A, callback: (err: any, data1: T1, data2: T2) => void) => void,
+            nodeFunc: (
+                arg1: A,
+                callback: (err: any, data1: T1, data2: T2) => void
+            ) => void,
             options: [K1, K2]
         ): (arg1: A) => RSVP.Promise<{ [K in K1]: T1 } & { [K in K2]: T2 }>;
 
@@ -325,7 +408,10 @@ declare module 'rsvp' {
         ): (arg1: A) => RSVP.Promise<{ [K in K1]: T }>;
 
         // ----- hash and hashSettled ----- //
-        function hash<T>(object: { [P in keyof T]: Arg<T[P]> }, label?: string): RSVP.Promise<T>;
+        function hash<T>(
+            object: { [P in keyof T]: Arg<T[P]> },
+            label?: string
+        ): RSVP.Promise<T>;
         function hashSettled<T>(
             object: { [P in keyof T]: Arg<T[P]> },
             label?: string
@@ -385,7 +471,16 @@ declare module 'rsvp' {
             ]
         >;
         function allSettled<T1, T2, T3, T4, T5, T6, T7, T8>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>, Arg<T8>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>,
+                Arg<T8>
+            ],
             label?: string
         ): RSVP.Promise<
             [
@@ -400,7 +495,15 @@ declare module 'rsvp' {
             ]
         >;
         function allSettled<T1, T2, T3, T4, T5, T6, T7>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>
+            ],
             label?: string
         ): RSVP.Promise<
             [
@@ -441,7 +544,14 @@ declare module 'rsvp' {
         function allSettled<T1, T2, T3, T4>(
             entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>],
             label?: string
-        ): RSVP.Promise<[PromiseState<T1>, PromiseState<T2>, PromiseState<T3>, PromiseState<T4>]>;
+        ): RSVP.Promise<
+            [
+                PromiseState<T1>,
+                PromiseState<T2>,
+                PromiseState<T3>,
+                PromiseState<T4>
+            ]
+        >;
         function allSettled<T1, T2, T3>(
             entries: [Arg<T1>, Arg<T2>, Arg<T3>],
             label?: string
@@ -450,7 +560,10 @@ declare module 'rsvp' {
             entries: [Arg<T1>, Arg<T2>],
             label?: string
         ): RSVP.Promise<[PromiseState<T1>, PromiseState<T2>]>;
-        function allSettled<T>(entries: Arg<T>[], label?: string): RSVP.Promise<[PromiseState<T>]>;
+        function allSettled<T>(
+            entries: Arg<T>[],
+            label?: string
+        ): RSVP.Promise<[PromiseState<T>]>;
 
         function map<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, U>(
             entries: [
@@ -465,7 +578,9 @@ declare module 'rsvp' {
                 Arg<T9>,
                 Arg<T10>
             ],
-            mapFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10) => U,
+            mapFn: (
+                item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10
+            ) => U,
             label?: string
         ): RSVP.Promise<Array<U> & { length: 10 }>;
 
@@ -485,12 +600,29 @@ declare module 'rsvp' {
             label?: string
         ): RSVP.Promise<Array<U> & { length: 9 }>;
         function map<T1, T2, T3, T4, T5, T6, T7, T8, U>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>, Arg<T8>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>,
+                Arg<T8>
+            ],
             mapFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8) => U,
             label?: string
         ): RSVP.Promise<Array<U> & { length: 8 }>;
         function map<T1, T2, T3, T4, T5, T6, T7, U>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>
+            ],
             mapFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7) => U,
             label?: string
         ): RSVP.Promise<Array<U> & { length: 7 }>;
@@ -538,9 +670,13 @@ declare module 'rsvp' {
                 Arg<T9>,
                 Arg<T10>
             ],
-            filterFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10) => boolean,
+            filterFn: (
+                item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10
+            ) => boolean,
             label?: string
-        ): RSVP.Promise<Array<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10>>;
+        ): RSVP.Promise<
+            Array<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10>
+        >;
         function filter<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
             entries: [
                 Arg<T1>,
@@ -553,16 +689,35 @@ declare module 'rsvp' {
                 Arg<T8>,
                 Arg<T9>
             ],
-            filterFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9) => boolean,
+            filterFn: (
+                item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9
+            ) => boolean,
             label?: string
         ): RSVP.Promise<Array<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9>>;
         function filter<T1, T2, T3, T4, T5, T6, T7, T8>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>, Arg<T8>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>,
+                Arg<T8>
+            ],
             filterFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8) => boolean,
             label?: string
         ): RSVP.Promise<Array<T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8>>;
         function filter<T1, T2, T3, T4, T5, T6, T7>(
-            entries: [Arg<T1>, Arg<T2>, Arg<T3>, Arg<T4>, Arg<T5>, Arg<T6>, Arg<T7>],
+            entries: [
+                Arg<T1>,
+                Arg<T2>,
+                Arg<T3>,
+                Arg<T4>,
+                Arg<T5>,
+                Arg<T6>,
+                Arg<T7>
+            ],
             filterFn: (item: T1 | T2 | T3 | T4 | T5 | T6 | T7) => boolean,
             label?: string
         ): RSVP.Promise<Array<T1 | T2 | T3 | T4 | T5 | T6 | T7>>;

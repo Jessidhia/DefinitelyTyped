@@ -4,20 +4,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, HTMLAttributes } from 'react';
+import { Component, HTMLAttributes } from "react";
 
 declare namespace TreeView {
-  interface TreeProps extends HTMLAttributes<HTMLDivElement> {
-    collapsed?: boolean;
-    defaultCollapsed?: boolean;
-    nodeLabel: React.ReactNode;
-    itemClassName?: string;
-    treeViewClassName?: string;
-    childrenClassName?: string;
-  }
+    interface TreeProps extends HTMLAttributes<HTMLDivElement> {
+        collapsed?: boolean;
+        defaultCollapsed?: boolean;
+        nodeLabel: React.ReactNode;
+        itemClassName?: string;
+        treeViewClassName?: string;
+        childrenClassName?: string;
+    }
 }
 
-declare class TreeView extends Component<TreeView.TreeProps, any> {
-}
+declare class TreeView extends Component<TreeView.TreeProps, any> {}
 
 export = TreeView;

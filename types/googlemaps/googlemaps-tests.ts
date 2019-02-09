@@ -13,20 +13,20 @@ let mapOptions: google.maps.MapOptions = {
     scrollwheel: true,
     styles: [
         {
-            elementType: 'geometry',
-            featureType: 'water',
+            elementType: "geometry",
+            featureType: "water",
             stylers: [
                 {
-                    color: '#00bdbd'
+                    color: "#00bdbd"
                 }
             ]
         },
         {
-            elementType: 'geometry',
-            featureType: 'landscape.man_made',
+            elementType: "geometry",
+            featureType: "landscape.man_made",
             stylers: [
                 {
-                    color: '#f7f1df'
+                    color: "#f7f1df"
                 }
             ]
         }
@@ -36,29 +36,35 @@ let mapOptions: google.maps.MapOptions = {
 
 /***** Create map *****/
 let map: google.maps.Map = new google.maps.Map(
-    document.getElementById('map'),
+    document.getElementById("map"),
     mapOptions
 );
 
 /***** Fitting map to bounds *****/
-map.fitBounds({
-    north: 10,
-    east: 10,
-    west: 10,
-    south: 10
-}, 50);
+map.fitBounds(
+    {
+        north: 10,
+        east: 10,
+        west: 10,
+        south: 10
+    },
+    50
+);
 
-map.fitBounds({
-    east: 10,
-    north: 10,
-    south: 10,
-    west: 10
-}, {
-    bottom: 100,
-    left: 150,
-    right: 150,
-    top: 50
-});
+map.fitBounds(
+    {
+        east: 10,
+        north: 10,
+        south: 10,
+        west: 10
+    },
+    {
+        bottom: 100,
+        left: 150,
+        right: 150,
+        top: 50
+    }
+);
 
 /***** Pan map to bounds *****/
 map.panToBounds({
@@ -66,34 +72,39 @@ map.panToBounds({
     east: 10,
     west: 10,
     south: 10
-})
-
-map.panToBounds({
-    north: 10,
-    east: 10,
-    west: 10,
-    south: 10
-}, 50)
-
-map.panToBounds({
-    east: 10,
-    north: 10,
-    south: 10,
-    west: 10
-}, {
-    bottom: 100,
-    left: 150,
-    right: 150,
-    top: 50
 });
 
+map.panToBounds(
+    {
+        north: 10,
+        east: 10,
+        west: 10,
+        south: 10
+    },
+    50
+);
+
+map.panToBounds(
+    {
+        east: 10,
+        north: 10,
+        south: 10,
+        west: 10
+    },
+    {
+        bottom: 100,
+        left: 150,
+        right: 150,
+        top: 50
+    }
+);
 
 /***** Data *****/
 
 new google.maps.Data();
 new google.maps.Data({ map: map });
 
-var latLng = new google.maps.LatLng(52.201203, -1.724370),
+var latLng = new google.maps.LatLng(52.201203, -1.72437),
     feature = new google.maps.Data.Feature(),
     geometry = new google.maps.Data.Geometry();
 
@@ -124,7 +135,9 @@ data.setStyle({
     cursor: "pointer",
     fillColor: "#79B55B",
     fillOpacity: 1,
-    icon: <google.maps.Icon>{ url: "//maps.google.com/mapfiles/ms/icons/blue.png" },
+    icon: <google.maps.Icon>{
+        url: "//maps.google.com/mapfiles/ms/icons/blue.png"
+    },
     shape: { coords: [1, 2, 3], type: "circle" },
     strokeColor: "#79B55B",
     strokeOpacity: 1,
@@ -137,35 +150,51 @@ data.setStyle({
 data.overrideStyle(feature, { visible: true });
 data.revertStyle(feature);
 
-data.addGeoJson({ "type": "Feature", "geometry": { "type": "Point", "coordinates": [59.327090, 18.103701] } });
 data.addGeoJson({
-    "type": "FeatureCollection",
-    "features": [{
-        "type": "Feature",
-        "properties": { "dymmy": "7", },
-        "geometry": {
-                "type": "Polygon",
-                "coordinates": [[[123.61, -22.14], [122.38, -21.73], [121.06, -21.69], [119.66, -22.22], [119.00, -23.40], [123.61, -22.14]]]
+    type: "Feature",
+    geometry: { type: "Point", coordinates: [59.32709, 18.103701] }
+});
+data.addGeoJson(
+    {
+        type: "FeatureCollection",
+        features: [
+            {
+                type: "Feature",
+                properties: { dymmy: "7" },
+                geometry: {
+                    type: "Polygon",
+                    coordinates: [
+                        [
+                            [123.61, -22.14],
+                            [122.38, -21.73],
+                            [121.06, -21.69],
+                            [119.66, -22.22],
+                            [119.0, -23.4],
+                            [123.61, -22.14]
+                        ]
+                    ]
+                }
             }
-        }],
-}, { idPropertyName: "Test feature" });
+        ]
+    },
+    { idPropertyName: "Test feature" }
+);
 
 data.loadGeoJson("http://magicGeoJsonSource.com");
 
-data.loadGeoJson(
-    "http://magicGeoJsonSource.com",
-    { idPropertyName: "test" });
+data.loadGeoJson("http://magicGeoJsonSource.com", { idPropertyName: "test" });
 
 data.loadGeoJson(
     "http://magicGeoJsonSource.com",
     { idPropertyName: "test" },
-    (features) => {
+    features => {
         for (var i = 0, len = features.length; i < len; i++) {
             console.log(features[i].getId());
         }
-    });
+    }
+);
 
-data.toGeoJson((feature) => { });
+data.toGeoJson(feature => {});
 
 var dataMouseEvent: google.maps.Data.MouseEvent = {
     feature: feature,
@@ -173,7 +202,7 @@ var dataMouseEvent: google.maps.Data.MouseEvent = {
     stop: (): void => {}
 };
 
-var addFeatureEvent : google.maps.Data.AddFeatureEvent = {
+var addFeatureEvent: google.maps.Data.AddFeatureEvent = {
     feature: feature
 };
 
@@ -181,10 +210,10 @@ var removeFeatureEvent: google.maps.Data.RemoveFeatureEvent = {
     feature: feature
 };
 
-var setGeometryEvent: google.maps.Data.SetGeometryEvent  = {
+var setGeometryEvent: google.maps.Data.SetGeometryEvent = {
     feature: feature,
     newGeometry: geometry,
-    oldGeometry: geometry,
+    oldGeometry: geometry
 };
 
 var setPropertyEvent: google.maps.Data.SetPropertyEvent = {
@@ -200,13 +229,16 @@ var removePropertyEvent: google.maps.Data.RemovePropertyEvent = {
     oldValue: {}
 };
 
-var lineString = new google.maps.Data.LineString([ { lat: 52.201203, lng: -1.724370 }, { lat: 52.201203, lng: -2.724370 }]);
+var lineString = new google.maps.Data.LineString([
+    { lat: 52.201203, lng: -1.72437 },
+    { lat: 52.201203, lng: -2.72437 }
+]);
 lineString.forEachLatLng(latLng => console.log(`${latLng.lat} ${latLng.lng}`));
 
-data.setDrawingMode('LineString');
+data.setDrawingMode("LineString");
 data.setDrawingMode(null);
 
-data.setControls(['Point', 'Polygon']);
+data.setControls(["Point", "Polygon"]);
 data.setControls(null);
 
 /***** Overlays *****/
@@ -221,48 +253,46 @@ var icon: google.maps.Icon = {
 
 /***** MapTypeStyle *****/
 
-var mapTypeStyle: google.maps.MapTypeStyle ={
-    featureType: 'all',
+var mapTypeStyle: google.maps.MapTypeStyle = {
+    featureType: "all"
 };
 
-var mapTypeStyle: google.maps.MapTypeStyle ={
-    featureType: 'administrative.country',
-    elementType: 'all',
-    stylers: [],
+var mapTypeStyle: google.maps.MapTypeStyle = {
+    featureType: "administrative.country",
+    elementType: "all",
+    stylers: []
 };
 
-var mapTypeStyle: google.maps.MapTypeStyle ={
-    featureType: 'landscape.natural',
-    elementType: 'geometry',
-    stylers: [],
+var mapTypeStyle: google.maps.MapTypeStyle = {
+    featureType: "landscape.natural",
+    elementType: "geometry",
+    stylers: []
 };
 
-var mapTypeStyle: google.maps.MapTypeStyle ={
-    featureType: 'poi.school',
-    elementType: 'labels',
-    stylers: [],
+var mapTypeStyle: google.maps.MapTypeStyle = {
+    featureType: "poi.school",
+    elementType: "labels",
+    stylers: []
 };
-
-
 
 /***** MARKERS *****/
 // https://developers.google.com/maps/documentation/javascript/markers
-map.setCenter({ lat: 59.332457, lng: 18.064790 });
+map.setCenter({ lat: 59.332457, lng: 18.06479 });
 // Marker with map and LatLngLiteral position
 let markerSimple = new google.maps.Marker({
     label: "A",
     position: { lat: 59.33555, lng: 18.029851 },
     map: map,
-    title: 'Hello World!'
+    title: "Hello World!"
 });
 
 // Marker without map and LatLng position
 let markerRemovable = new google.maps.Marker({
-    position: new google.maps.LatLng(59.337647,18.089950),
-    title:"Hello World!"
+    position: new google.maps.LatLng(59.337647, 18.08995),
+    title: "Hello World!"
 });
-markerRemovable.setMap(map);   // Add marker
-markerRemovable.setMap(null);  // Remove marker, should accept null
+markerRemovable.setMap(map); // Add marker
+markerRemovable.setMap(null); // Remove marker, should accept null
 
 // Marker with animation
 // The following example creates a marker in Stockholm, Sweden using a DROP
@@ -284,11 +314,9 @@ function toggleBounce() {
     }
 }
 
-
-
 /***** OverlayView *****/
 // https://developers.google.com/maps/documentation/javascript/customoverlays
-var div =  document.createElement('div');
+var div = document.createElement("div");
 class Overlay extends google.maps.OverlayView {
     public draw(): void {
         var panes = this.getPanes();
@@ -300,7 +328,7 @@ class Overlay extends google.maps.OverlayView {
         panes.overlayLayer.appendChild(div);
         panes.overlayMouseTarget.appendChild(div);
         panes.overlayShadow.appendChild(div);
-    };
+    }
 }
 var overlay = new Overlay();
 overlay.setMap(map);
@@ -308,10 +336,10 @@ overlay.setMap(map);
 /***** Rectangles *****/
 // https://developers.google.com/maps/documentation/javascript/examples/rectangle-simple
 var rectangle = new google.maps.Rectangle({
-    strokeColor: '#FF0000',
+    strokeColor: "#FF0000",
     strokeOpacity: 0.8,
     strokeWeight: 2,
-    fillColor: '#FF0000',
+    fillColor: "#FF0000",
     fillOpacity: 0.35,
     map: map,
     bounds: {
@@ -327,8 +355,8 @@ var rectangle = new google.maps.Rectangle({
 var circle1 = new google.maps.Circle({
     center: new google.maps.LatLng(59.327, 18.067),
     radius: 20,
-    fillColor: '#FF0000',
-    strokeColor: '#FF0000',
+    fillColor: "#FF0000",
+    strokeColor: "#FF0000",
     fillOpacity: 0.35,
     strokeOpacity: 0.5,
     strokeWeight: 1
@@ -336,39 +364,44 @@ var circle1 = new google.maps.Circle({
 
 // circleOptions with LatLngLiteral center
 var circle2 = new google.maps.Circle({
-    center: {lat: 59.327, lng: 18.067},
+    center: { lat: 59.327, lng: 18.067 },
     radius: 20,
-    fillColor: '#FF0000',
-    strokeColor: '#FF0000',
+    fillColor: "#FF0000",
+    strokeColor: "#FF0000",
     fillOpacity: 0.35,
     strokeOpacity: 0.5,
     strokeWeight: 1
 });
 
-
 /***** StreetViewPanorama *****/
 var panoramaOptions: google.maps.StreetViewPanoramaOptions = {
     zoom: 0,
-    pano: 'reception',
+    pano: "reception",
     scrollwheel: false,
-    mode: 'webgl',
+    mode: "webgl",
     disableDefaultUI: true,
     linksControl: true,
     visible: true,
     motionTracking: true,
     motionTrackingControl: true
 };
-var panorama = new google.maps.StreetViewPanorama(document.createElement("div"), panoramaOptions);
+var panorama = new google.maps.StreetViewPanorama(
+    document.createElement("div"),
+    panoramaOptions
+);
 
 // MVCObject method on StreetViewPanorama
 var panoramaEvent = panorama.addListener("pano_changed", () => {});
-
 
 /***** MVCArray *****/
 
 // MVCArray should be generic
 let mvcArrayStr = new google.maps.MVCArray<string>(["a", "b", "c"]);
-mvcArrayStr.forEach((elem: string, i: number): void => { elem.toUpperCase(); });
+mvcArrayStr.forEach(
+    (elem: string, i: number): void => {
+        elem.toUpperCase();
+    }
+);
 mvcArrayStr.getArray()[0].toUpperCase();
 mvcArrayStr.getAt(0).toUpperCase();
 mvcArrayStr.insertAt(2, "x");
@@ -380,32 +413,48 @@ mvcArrayStr.setAt(0, "z");
 /***** HeatMaps *****/
 
 let heatmap = new google.maps.visualization.HeatmapLayer({
-    data: [new google.maps.LatLng(37.782551, -122.445368), new google.maps.LatLng(37.782745, -122.444586), new google.maps.LatLng(37.782842, -122.443688)],
+    data: [
+        new google.maps.LatLng(37.782551, -122.445368),
+        new google.maps.LatLng(37.782745, -122.444586),
+        new google.maps.LatLng(37.782842, -122.443688)
+    ],
     map: map
 });
 
 // setData Should Accept MVCArray<LatLng>
-heatmap.setData(new google.maps.MVCArray<google.maps.LatLng>(
-    [new google.maps.LatLng(37.782551, -122.445368), new google.maps.LatLng(37.782745, -122.444586), new google.maps.LatLng(37.782842, -122.443688)]
-));
+heatmap.setData(
+    new google.maps.MVCArray<google.maps.LatLng>([
+        new google.maps.LatLng(37.782551, -122.445368),
+        new google.maps.LatLng(37.782745, -122.444586),
+        new google.maps.LatLng(37.782842, -122.443688)
+    ])
+);
 
 // getData Should return MVCArray<LatLng>
 let heatmapDataMvcLL = heatmap.getData<google.maps.LatLng>();
 console.log(heatmapDataMvcLL.getAt(0).lat()); // should not throw
 
 // setData Should Accept MVCArray<WeightedLocation>
-heatmap.setData(new google.maps.MVCArray<google.maps.visualization.WeightedLocation>([
-    { weight: 1, location: new google.maps.LatLng(37.782551, -122.445368) },
-    { weight: 2, location: new google.maps.LatLng(37.782745, -122.444586) },
-    { weight: 3, location: new google.maps.LatLng(37.782842, -122.443688) }
-]));
+heatmap.setData(
+    new google.maps.MVCArray<google.maps.visualization.WeightedLocation>([
+        { weight: 1, location: new google.maps.LatLng(37.782551, -122.445368) },
+        { weight: 2, location: new google.maps.LatLng(37.782745, -122.444586) },
+        { weight: 3, location: new google.maps.LatLng(37.782842, -122.443688) }
+    ])
+);
 
 // getData Should return MVCArray<LatLng>
-let heatmapDataWL = heatmap.getData<google.maps.visualization.WeightedLocation>();
+let heatmapDataWL = heatmap.getData<
+    google.maps.visualization.WeightedLocation
+>();
 console.log(heatmapDataWL.getAt(0).weight); // should not throw
 
 // setData Should Accept LatLng[]
-heatmap.setData([new google.maps.LatLng(37.782551, -122.445368), new google.maps.LatLng(37.782745, -122.444586), new google.maps.LatLng(37.782842, -122.443688)]);
+heatmap.setData([
+    new google.maps.LatLng(37.782551, -122.445368),
+    new google.maps.LatLng(37.782745, -122.444586),
+    new google.maps.LatLng(37.782842, -122.443688)
+]);
 
 // setData Should Accept WeightedLocation[]
 heatmap.setData([
@@ -416,36 +465,45 @@ heatmap.setData([
 /***** google.maps.places.PlacesService *****/
 let service = new google.maps.places.PlacesService(new HTMLDivElement());
 
-service.getDetails({
-    placeId: '-a1',
-    fields: ['name'],
-    sessionToken: new google.maps.places.AutocompleteSessionToken()
-}, (result, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.NOT_FOUND) {
-        return;
+service.getDetails(
+    {
+        placeId: "-a1",
+        fields: ["name"],
+        sessionToken: new google.maps.places.AutocompleteSessionToken()
+    },
+    (result, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.NOT_FOUND) {
+            return;
+        }
+
+        result.name; // $ExpectType string
     }
+);
 
-    result.name; // $ExpectType string
-})
+service.findPlaceFromQuery(
+    {
+        query: "Big Ben London",
+        fields: ["name"]
+    },
+    (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.ERROR) {
+            return;
+        }
 
-service.findPlaceFromQuery({
-    query: 'Big Ben London',
-    fields: ['name']
-}, (results, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.ERROR) {
-        return;
+        results[0].name; // $ExpectType string
     }
+);
 
-    results[0].name; // $ExpectType string
-});
+service.findPlaceFromPhoneNumber(
+    {
+        phoneNumber: "123456",
+        fields: ["name"]
+    },
+    (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.ERROR) {
+            return;
+        }
 
-service.findPlaceFromPhoneNumber({
-    phoneNumber: '123456',
-    fields: ['name']
-}, (results, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.ERROR) {
-        return;
+        results[0].name; // $ExpectType string
     }
-
-    results[0].name; // $ExpectType string
-});
+);

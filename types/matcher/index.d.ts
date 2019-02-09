@@ -5,10 +5,18 @@
 
 export = matcher;
 
-declare function matcher(inputs: string[], patterns: string[], options?: matcher.Options): string[];
+declare function matcher(
+    inputs: string[],
+    patterns: string[],
+    options?: matcher.Options
+): string[];
 
 declare namespace matcher {
-    function isMatch(input: string, pattern: string, options?: Options): boolean;
+    function isMatch(
+        input: string,
+        pattern: string,
+        options?: Options
+    ): boolean;
 
     interface Options {
         caseSensitive?: boolean;

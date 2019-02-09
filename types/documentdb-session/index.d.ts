@@ -8,7 +8,9 @@ import session = require("express-session");
 
 export = DocumentDBSession;
 
-declare function DocumentDBSession(expressSession: typeof session): DocumentDBStoreConstructor;
+declare function DocumentDBSession(
+    expressSession: typeof session
+): DocumentDBStoreConstructor;
 
 interface DocumentDBStoreConstructor {
     new (options: Options): session.Store;

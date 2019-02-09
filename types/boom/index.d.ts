@@ -8,7 +8,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
- export = Boom;
+export = Boom;
 /**
  * boom provides a set of utilities for returning HTTP errors. Each utility returns a Boom error response object (instance of Error) which includes the following properties:
  * @see {@link https://github.com/hapijs/boom#boom}
@@ -63,7 +63,7 @@ declare namespace Boom {
          * value is the header content. (Limited value type to string
          * https://github.com/hapijs/boom/issues/151 )
          */
-        headers: {[index: string]: string};
+        headers: { [index: string]: string };
         /**
          * payload - the formatted object used as the response payload (stringified).
          * Can be directly manipulated but any changes will be lost if reformat() is called.
@@ -94,7 +94,10 @@ declare namespace Boom {
      * @param options optional additional options
      * @see {@link https://github.com/hapijs/boom#boomifyerror-options}
      */
-    function boomify(error: Error, options?: { statusCode?: number, message?: string, override?: boolean }): Boom<null>;
+    function boomify(
+        error: Error,
+        options?: { statusCode?: number; message?: string; override?: boolean }
+    ): Boom<null>;
 
     /**
      * Identifies whether an error is a Boom object. Same as calling instanceof Boom.
@@ -129,9 +132,17 @@ declare namespace Boom {
      * If message is unset, the 'error' segment of the header will not be present and isMissing will be true on the error object.
      * @see {@link https://github.com/hapijs/boom#boomunauthorizedmessage-scheme-attributes}
      */
-    function unauthorized(message?: string, scheme?: string, attributes?: {[index: string]: string}): Boom<null>;
+    function unauthorized(
+        message?: string,
+        scheme?: string,
+        attributes?: { [index: string]: string }
+    ): Boom<null>;
     function unauthorized(message?: string, scheme?: string[]): Boom<null>;
-    function unauthorized(message?: null, scheme?: string, attributes?: {[index: string]: string} | string): Boom<null>;
+    function unauthorized(
+        message?: null,
+        scheme?: string,
+        attributes?: { [index: string]: string } | string
+    ): Boom<null>;
 
     /**
      * Returns a 402 Payment Required error
@@ -139,7 +150,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boompaymentrequiredmessage-data}
      */
-    function paymentRequired<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function paymentRequired<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 403 Forbidden error
@@ -164,7 +178,11 @@ declare namespace Boom {
      * @param allow optional string or array of strings (to be combined and separated by ', ') which is set to the 'Allow' header.
      * @see {@link https://github.com/hapijs/boom#boommethodnotallowedmessage-data-allow}
      */
-    function methodNotAllowed<Data = null>(message?: string, data?: Data, allow?: string | string[]): Boom<Data>;
+    function methodNotAllowed<Data = null>(
+        message?: string,
+        data?: Data,
+        allow?: string | string[]
+    ): Boom<Data>;
 
     /**
      * Returns a 406 Not Acceptable error
@@ -172,7 +190,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomnotacceptablemessage-data}
      */
-    function notAcceptable<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function notAcceptable<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 407 Proxy Authentication Required error
@@ -180,7 +201,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomproxyauthrequiredmessage-data}
      */
-    function proxyAuthRequired<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function proxyAuthRequired<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 408 Request Time-out error
@@ -188,7 +212,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomclienttimeoutmessage-data}
      */
-    function clientTimeout<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function clientTimeout<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 409 Conflict error
@@ -204,7 +231,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomresourcegonemessage-data}
      */
-    function resourceGone<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function resourceGone<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 411 Length Required error
@@ -212,7 +242,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomlengthrequiredmessage-data}
      */
-    function lengthRequired<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function lengthRequired<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 412 Precondition Failed error
@@ -220,7 +253,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boompreconditionfailedmessage-data}
      */
-    function preconditionFailed<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function preconditionFailed<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 413 Request Entity Too Large error
@@ -228,7 +264,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomentitytoolargemessage-data}
      */
-    function entityTooLarge<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function entityTooLarge<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 414 Request-URI Too Large error
@@ -244,7 +283,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomunsupportedmediatypemessage-data}
      */
-    function unsupportedMediaType<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function unsupportedMediaType<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 416 Requested Range Not Satisfiable error
@@ -252,7 +294,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomrangenotsatisfiablemessage-data}
      */
-    function rangeNotSatisfiable<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function rangeNotSatisfiable<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 417 Expectation Failed error
@@ -260,7 +305,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomexpectationfailedmessage-data}
      */
-    function expectationFailed<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function expectationFailed<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 418 I'm a Teapot error
@@ -292,7 +340,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomfaileddependencymessage-data}
      */
-    function failedDependency<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function failedDependency<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 428 Precondition Required error
@@ -300,7 +351,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boompreconditionrequiredmessage-data}
      */
-    function preconditionRequired<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function preconditionRequired<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 429 Too Many Requests error
@@ -308,7 +362,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomtoomanyrequestsmessage-data}
      */
-    function tooManyRequests<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function tooManyRequests<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 451 Unavailable For Legal Reasons error
@@ -326,7 +383,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boombadimplementationmessage-data---alias-internal}
      */
-    function badImplementation<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function badImplementation<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 500 Internal Server Error error
@@ -343,7 +403,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomnotimplementedmessage-data}
      */
-    function notImplemented<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function notImplemented<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 502 Bad Gateway error with your error message to the user
@@ -359,7 +422,10 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomserverunavailablemessage-data}
      */
-    function serverUnavailable<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function serverUnavailable<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 
     /**
      * Returns a 504 Gateway Time-out error with your error message to the user
@@ -367,5 +433,8 @@ declare namespace Boom {
      * @param data optional additional error data.
      * @see {@link https://github.com/hapijs/boom#boomgatewaytimeoutmessage-data}
      */
-    function gatewayTimeout<Data = null>(message?: string, data?: Data): Boom<Data>;
+    function gatewayTimeout<Data = null>(
+        message?: string,
+        data?: Data
+    ): Boom<Data>;
 }

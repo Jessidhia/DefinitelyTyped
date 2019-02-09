@@ -116,7 +116,19 @@ declare namespace b3 {
         /**
          * Initialization method.
          */
-        constructor({category, name, title, description, properties}?: {category?: string, name?: string, title?: string, description?: string, properties?: any});
+        constructor({
+            category,
+            name,
+            title,
+            description,
+            properties
+        }?: {
+            category?: string;
+            name?: string;
+            title?: string;
+            description?: string;
+            properties?: any;
+        });
 
         /**
          * This is the main method to propagate the tick signal to this node. This
@@ -211,7 +223,15 @@ declare namespace b3 {
         /**
          * Creates an instance of Action.
          */
-        constructor({name, title, properties}?: {name?: string, title?: string, properties?: any});
+        constructor({
+            name,
+            title,
+            properties
+        }?: {
+            name?: string;
+            title?: string;
+            properties?: any;
+        });
     }
 
     /**
@@ -412,7 +432,12 @@ declare namespace b3 {
          * the global memory.
          *
          */
-        set(key: string, value: string, treeScope: string, nodeScope: string): void;
+        set(
+            key: string,
+            value: string,
+            treeScope: string,
+            nodeScope: string
+        ): void;
 
         /**
          * Retrieves a value in the blackboard. If treeScope and nodeScope are
@@ -467,7 +492,17 @@ declare namespace b3 {
         /**
          * Creates an instance of Composite.
          */
-        constructor({children, name, title, properties}?: {children?: BaseNode[], name?: string, title?: string, properties?: any});
+        constructor({
+            children,
+            name,
+            title,
+            properties
+        }?: {
+            children?: BaseNode[];
+            name?: string;
+            title?: string;
+            properties?: any;
+        });
     }
 
     /**
@@ -479,7 +514,15 @@ declare namespace b3 {
         /**
          * Creates an instance of Condition.
          */
-        constructor({name, title, properties}?: {name?: string, title?: string, properties?: any});
+        constructor({
+            name,
+            title,
+            properties
+        }?: {
+            name?: string;
+            title?: string;
+            properties?: any;
+        });
     }
 
     /**
@@ -522,7 +565,17 @@ declare namespace b3 {
         /**
          * Creates an instance of Decorator.
          */
-        constructor({child, name, title, properties}?: {child?: BaseNode, name?: string, title?: string, properties?: any});
+        constructor({
+            child,
+            name,
+            title,
+            properties
+        }?: {
+            child?: BaseNode;
+            name?: string;
+            title?: string;
+            properties?: any;
+        });
     }
 
     /**
@@ -540,7 +593,7 @@ declare namespace b3 {
      * node state to the debug if the last is provided.
      *
      */
-     class Tick {
+    class Tick {
         /**
          * Initialization method.
          */
@@ -644,7 +697,7 @@ declare namespace b3 {
         /**
          * Creates an instance of Wait.
          */
-        constructor({milliseconds}?: {milliseconds?: number});
+        constructor({ milliseconds }?: { milliseconds?: number });
 
         /**
          * Open method.
@@ -668,7 +721,7 @@ declare namespace b3 {
         /**
          * Creates an instance of MemPriority.
          */
-        constructor({children}?: {children?: BaseNode[]});
+        constructor({ children }?: { children?: BaseNode[] });
 
         /**
          * Open method.
@@ -692,7 +745,7 @@ declare namespace b3 {
         /**
          * Creates an instance of MemSequence.
          */
-        constructor({children}?: {children?: BaseNode[]});
+        constructor({ children }?: { children?: BaseNode[] });
 
         /**
          * Open method.
@@ -715,7 +768,7 @@ declare namespace b3 {
         /**
          * Creates an instance of Priority.
          */
-        constructor({children}?: {children?: BaseNode[]});
+        constructor({ children }?: { children?: BaseNode[] });
 
         /**
          * Tick method.
@@ -733,7 +786,7 @@ declare namespace b3 {
         /**
          * Creates an instance of Sequence.
          */
-        constructor({children}?: {children?: BaseNode[]});
+        constructor({ children }?: { children?: BaseNode[] });
 
         /**
          * Tick method.
@@ -750,7 +803,7 @@ declare namespace b3 {
         /**
          * Creates an instance of Inverter.
          */
-        constructor({child}?: {child?: BaseNode});
+        constructor({ child }?: { child?: BaseNode });
 
         /**
          * Tick method.
@@ -774,7 +827,13 @@ declare namespace b3 {
          * - **child** (*BaseNode*) The child node.
          *
          */
-        constructor({child, maxLoop}?: {child?: BaseNode, maxLoop?: number});
+        constructor({
+            child,
+            maxLoop
+        }?: {
+            child?: BaseNode;
+            maxLoop?: number;
+        });
 
         /**
          * Open method.
@@ -802,7 +861,13 @@ declare namespace b3 {
          * - **child** (*BaseNode*) The child node.
          *
          */
-        constructor({maxTime, child}?: {maxTime?: number, child?: BaseNode});
+        constructor({
+            maxTime,
+            child
+        }?: {
+            maxTime?: number;
+            child?: BaseNode;
+        });
 
         /**
          * Open method.
@@ -829,7 +894,13 @@ declare namespace b3 {
          * - **child** (*BaseNode*) The child node.
          *
          */
-        constructor({maxLoop, child}?: {maxLoop?: number, child?: BaseNode});
+        constructor({
+            maxLoop,
+            child
+        }?: {
+            maxLoop?: number;
+            child?: BaseNode;
+        });
 
         /**
          * Open method.
@@ -856,7 +927,13 @@ declare namespace b3 {
          * - **child** (*BaseNode*) The child node.
          *
          */
-        constructor({maxLoop, child}?: {maxLoop?: number, child?: BaseNode});
+        constructor({
+            maxLoop,
+            child
+        }?: {
+            maxLoop?: number;
+            child?: BaseNode;
+        });
 
         /**
          * Open method.
@@ -883,7 +960,13 @@ declare namespace b3 {
          * - **child** (*BaseNode*) The child node.
          *
          */
-        constructor({maxLoop, child}?: {maxLoop?: number, child?: BaseNode});
+        constructor({
+            maxLoop,
+            child
+        }?: {
+            maxLoop?: number;
+            child?: BaseNode;
+        });
 
         /**
          * Open method.

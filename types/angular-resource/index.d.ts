@@ -7,9 +7,9 @@
 declare var _: string;
 export = _;
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     ///////////////////////////////////////////////////////////////////////////////
     // ngResource module (angular-resource.js)
     ///////////////////////////////////////////////////////////////////////////////
@@ -44,9 +44,24 @@ declare module 'angular' {
              * @param actions example: {update: { method: 'PUT' }, delete: deleteDescriptor } where deleteDescriptor: IActionDescriptor
              * @param options Hash with custom settings that should extend the default $resourceProvider behavior
              */
-            (url: string, paramDefaults?: any, actions?: IActionHash, options?: IResourceOptions): IResourceClass<IResource<any>>;
-            <T>(url: string, paramDefaults?: any, actions?: IActionHash, options?: IResourceOptions): IResourceClass<T>;
-            <T, U>(url: string, paramDefaults?: any, actions?: IActionHash, options?: IResourceOptions): U;
+            (
+                url: string,
+                paramDefaults?: any,
+                actions?: IActionHash,
+                options?: IResourceOptions
+            ): IResourceClass<IResource<any>>;
+            <T>(
+                url: string,
+                paramDefaults?: any,
+                actions?: IActionHash,
+                options?: IResourceOptions
+            ): IResourceClass<T>;
+            <T, U>(
+                url: string,
+                paramDefaults?: any,
+                actions?: IActionHash,
+                options?: IResourceOptions
+            ): U;
         }
 
         // Hash of action descriptors allows custom action names
@@ -74,8 +89,12 @@ declare module 'angular' {
             params?: any;
             url?: string;
             isArray?: boolean;
-            transformRequest?: IHttpRequestTransformer | IHttpRequestTransformer[];
-            transformResponse?: IHttpResponseTransformer | IHttpResponseTransformer[];
+            transformRequest?:
+                | IHttpRequestTransformer
+                | IHttpRequestTransformer[];
+            transformResponse?:
+                | IHttpResponseTransformer
+                | IHttpResponseTransformer[];
             headers?: any;
             cache?: boolean | ICacheObject;
             /**
@@ -98,7 +117,12 @@ declare module 'angular' {
             (params: Object): T;
             (success: Function, error?: Function): T;
             (params: Object, success: Function, error?: Function): T;
-            (params: Object, data: Object, success?: Function, error?: Function): T;
+            (
+                params: Object,
+                data: Object,
+                success?: Function,
+                error?: Function
+            ): T;
         }
 
         // Allow specify resource moethod which returns the array
@@ -107,8 +131,17 @@ declare module 'angular' {
             (): IResourceArray<T>;
             (params: Object): IResourceArray<T>;
             (success: Function, error?: Function): IResourceArray<T>;
-            (params: Object, success: Function, error?: Function): IResourceArray<T>;
-            (params: Object, data: Object, success?: Function, error?: Function): IResourceArray<T>;
+            (
+                params: Object,
+                success: Function,
+                error?: Function
+            ): IResourceArray<T>;
+            (
+                params: Object,
+                data: Object,
+                success?: Function,
+                error?: Function
+            ): IResourceArray<T>;
         }
 
         // Baseclass for everyresource with default actions.
@@ -129,7 +162,7 @@ declare module 'angular' {
         // Also, static calls always return the IResource (or IResourceArray) retrieved
         // https://github.com/angular/js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
         interface IResourceClass<T> {
-            new(dataOrParams?: any): T & IResource<T>;
+            new (dataOrParams?: any): T & IResource<T>;
             get: IResourceMethod<T>;
 
             query: IResourceArrayMethod<T>;
@@ -145,23 +178,46 @@ declare module 'angular' {
         // https://github.com/angular/js/blob/v1.2.0/src/ngResource/resource.js#L538-L546
         interface IResource<T> {
             $get(): IPromise<T>;
-            $get(params?: Object, success?: Function, error?: Function): IPromise<T>;
+            $get(
+                params?: Object,
+                success?: Function,
+                error?: Function
+            ): IPromise<T>;
             $get(success: Function, error?: Function): IPromise<T>;
 
             $query(): IPromise<IResourceArray<T>>;
-            $query(params?: Object, success?: Function, error?: Function): IPromise<IResourceArray<T>>;
-            $query(success: Function, error?: Function): IPromise<IResourceArray<T>>;
+            $query(
+                params?: Object,
+                success?: Function,
+                error?: Function
+            ): IPromise<IResourceArray<T>>;
+            $query(
+                success: Function,
+                error?: Function
+            ): IPromise<IResourceArray<T>>;
 
             $save(): IPromise<T>;
-            $save(params?: Object, success?: Function, error?: Function): IPromise<T>;
+            $save(
+                params?: Object,
+                success?: Function,
+                error?: Function
+            ): IPromise<T>;
             $save(success: Function, error?: Function): IPromise<T>;
 
             $remove(): IPromise<T>;
-            $remove(params?: Object, success?: Function, error?: Function): IPromise<T>;
+            $remove(
+                params?: Object,
+                success?: Function,
+                error?: Function
+            ): IPromise<T>;
             $remove(success: Function, error?: Function): IPromise<T>;
 
             $delete(): IPromise<T>;
-            $delete(params?: Object, success?: Function, error?: Function): IPromise<T>;
+            $delete(
+                params?: Object,
+                success?: Function,
+                error?: Function
+            ): IPromise<T>;
             $delete(success: Function, error?: Function): IPromise<T>;
 
             $cancelRequest(): void;
@@ -198,12 +254,17 @@ declare module 'angular' {
     /** extensions to base ng based on using angular-resource */
     interface IModule {
         /** creating a resource service factory */
-        factory(name: string, resourceServiceFactoryFunction: resource.IResourceServiceFactoryFunction<any>): IModule;
+        factory(
+            name: string,
+            resourceServiceFactoryFunction: resource.IResourceServiceFactoryFunction<
+                any
+            >
+        ): IModule;
     }
 
     namespace auto {
         interface IInjectorService {
-            get(name: '$resource'): resource.IResourceService;
+            get(name: "$resource"): resource.IResourceService;
         }
     }
 }

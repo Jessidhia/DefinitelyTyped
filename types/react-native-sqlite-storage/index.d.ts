@@ -9,10 +9,18 @@ export function DEBUG(isDebug: boolean): void;
 export function enablePromise(enablePromise: boolean): void;
 
 export function openDatabase(params: DatabaseParams): Promise<SQLiteDatabase>;
-export function openDatabase(params: DatabaseParams, success?: () => void, error?: (e: SQLError) => void): SQLiteDatabase;
+export function openDatabase(
+    params: DatabaseParams,
+    success?: () => void,
+    error?: (e: SQLError) => void
+): SQLiteDatabase;
 export function deleteDatabase(params: DatabaseParams): Promise<void>;
-export function deleteDatabase(params: DatabaseParams, success?: () => void, error?: (err: SQLError) => void): void;
-export type Location = 'default' | 'Library' | 'Documents';
+export function deleteDatabase(
+    params: DatabaseParams,
+    success?: () => void,
+    error?: (err: SQLError) => void
+): void;
+export type Location = "default" | "Library" | "Documents";
 export interface DatabaseOptionalParams {
     createFromLocation?: number | string;
     // Database encryption pass phrase
@@ -58,11 +66,25 @@ export interface SQLError {
     message: string;
 }
 
-export type StatementCallback = (transaction: Transaction, resultSet: ResultSet) => void;
-export type StatementErrorCallback = (transaction: Transaction, error: SQLError) => void;
+export type StatementCallback = (
+    transaction: Transaction,
+    resultSet: ResultSet
+) => void;
+export type StatementErrorCallback = (
+    transaction: Transaction,
+    error: SQLError
+) => void;
 export interface Transaction {
-    executeSql(sqlStatement: string, arguments?: any[]): Promise<[Transaction, ResultSet]>;
-    executeSql(sqlStatement: string, arguments?: any[], callback?: StatementCallback, errorCallback?: StatementErrorCallback): void;
+    executeSql(
+        sqlStatement: string,
+        arguments?: any[]
+    ): Promise<[Transaction, ResultSet]>;
+    executeSql(
+        sqlStatement: string,
+        arguments?: any[],
+        callback?: StatementCallback,
+        errorCallback?: StatementErrorCallback
+    ): void;
 }
 
 export type TransactionCallback = (transaction: Transaction) => void;
@@ -70,17 +92,41 @@ export type TransactionErrorCallback = (error: SQLError) => void;
 
 export interface SQLiteDatabase {
     transaction(scope: (tx: Transaction) => void): Promise<Transaction>;
-    transaction(scope: (tx: Transaction) => void, error?: TransactionErrorCallback, success?: TransactionCallback): void;
-    readTransaction(scope: (tx: Transaction) => void): Promise<TransactionCallback>;
-    readTransaction(scope: (tx: Transaction) => void, error?: TransactionErrorCallback, success?: TransactionCallback): void;
+    transaction(
+        scope: (tx: Transaction) => void,
+        error?: TransactionErrorCallback,
+        success?: TransactionCallback
+    ): void;
+    readTransaction(
+        scope: (tx: Transaction) => void
+    ): Promise<TransactionCallback>;
+    readTransaction(
+        scope: (tx: Transaction) => void,
+        error?: TransactionErrorCallback,
+        success?: TransactionCallback
+    ): void;
     close(): Promise<void>;
     close(success: () => void, error: (err: SQLError) => void): void;
     executeSql(statement: string, params?: any[]): Promise<[ResultSet]>;
-    executeSql(statement: string, params?: any[], success?: StatementCallback, error?: StatementErrorCallback): void;
+    executeSql(
+        statement: string,
+        params?: any[],
+        success?: StatementCallback,
+        error?: StatementErrorCallback
+    ): void;
 
     attach(nameToAttach: string, alias: string): Promise<void>;
-    attach(nameToAttach: string, alias: string, success?: () => void, error?: (err: SQLError) => void): void;
+    attach(
+        nameToAttach: string,
+        alias: string,
+        success?: () => void,
+        error?: (err: SQLError) => void
+    ): void;
 
     dettach(alias: string): Promise<void>;
-    dettach(alias: string, success?: () => void, error?: (err: SQLError) => void): void;
+    dettach(
+        alias: string,
+        success?: () => void,
+        error?: (err: SQLError) => void
+    ): void;
 }

@@ -1,4 +1,4 @@
-import getRange = require('get-range');
+import getRange = require("get-range");
 
 for (const i of getRange(4)) {
 }

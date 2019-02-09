@@ -41,11 +41,26 @@ interface ExpectPuppeteer {
     // We can't extend from it directly because some method names conflict in type-incompatible ways.
     toClick(selector: string, options?: ExpectToClickOptions): Promise<void>;
     toDisplayDialog(block: () => Promise<void>): Promise<Dialog>;
-    toFill(selector: string, value: string, options?: ExpectTimingActions): Promise<void>;
+    toFill(
+        selector: string,
+        value: string,
+        options?: ExpectTimingActions
+    ): Promise<void>;
     toMatch(selector: string, options?: ExpectTimingActions): Promise<void>;
-    toMatchElement(selector: string, options?: ExpectToClickOptions): Promise<void>;
-    toSelect(selector: string, valueOrText: string, options?: ExpectTimingActions): Promise<void>;
-    toUploadFile(selector: string, filePath: string, options?: ExpectTimingActions): Promise<void>;
+    toMatchElement(
+        selector: string,
+        options?: ExpectToClickOptions
+    ): Promise<void>;
+    toSelect(
+        selector: string,
+        valueOrText: string,
+        options?: ExpectTimingActions
+    ): Promise<void>;
+    toUploadFile(
+        selector: string,
+        filePath: string,
+        options?: ExpectTimingActions
+    ): Promise<void>;
 }
 
 declare global {
@@ -54,17 +69,44 @@ declare global {
         interface Matchers<R> {
             // These must all match the ExpectPuppeteer interface above.
             // We can't extend from it directly because some method names conflict in type-incompatible ways.
-            toClick(selector: string, options?: ExpectToClickOptions): Promise<void>;
+            toClick(
+                selector: string,
+                options?: ExpectToClickOptions
+            ): Promise<void>;
             toDisplayDialog(block: () => Promise<void>): Promise<Dialog>;
-            toFill(selector: string, value: string, options?: ExpectTimingActions): Promise<void>;
-            toFillForm(selector: string, value: { [key: string]: any}, options?: ExpectTimingActions): Promise<void>;
-            toMatch(selector: string, options?: ExpectTimingActions): Promise<void>;
-            toMatchElement(selector: string, options?: ExpectToClickOptions): Promise<void>;
-            toSelect(selector: string, valueOrText: string, options?: ExpectTimingActions): Promise<void>;
-            toUploadFile(selector: string, filePath: string, options?: ExpectTimingActions): Promise<void>;
+            toFill(
+                selector: string,
+                value: string,
+                options?: ExpectTimingActions
+            ): Promise<void>;
+            toFillForm(
+                selector: string,
+                value: { [key: string]: any },
+                options?: ExpectTimingActions
+            ): Promise<void>;
+            toMatch(
+                selector: string,
+                options?: ExpectTimingActions
+            ): Promise<void>;
+            toMatchElement(
+                selector: string,
+                options?: ExpectToClickOptions
+            ): Promise<void>;
+            toSelect(
+                selector: string,
+                valueOrText: string,
+                options?: ExpectTimingActions
+            ): Promise<void>;
+            toUploadFile(
+                selector: string,
+                filePath: string,
+                options?: ExpectTimingActions
+            ): Promise<void>;
         }
     }
 }
 
-declare function expectPuppeteer(instance: ElementHandle | Page): ExpectPuppeteer;
+declare function expectPuppeteer(
+    instance: ElementHandle | Page
+): ExpectPuppeteer;
 export = expectPuppeteer;

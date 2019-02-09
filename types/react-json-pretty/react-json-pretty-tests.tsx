@@ -9,8 +9,8 @@ export class Test extends React.Component {
 
         return (
             <div>
-                <JSONPretty json={ json } />
-                <JSONPretty json={ JSON.stringify(json) } />
+                <JSONPretty json={json} />
+                <JSONPretty json={JSON.stringify(json)} />
             </div>
         );
     }

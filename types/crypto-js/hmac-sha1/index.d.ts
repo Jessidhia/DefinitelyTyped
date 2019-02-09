@@ -1,3 +1,3 @@
-import { HmacSHA1 } from '../index';
+import { HmacSHA1 } from "../index";
 
 export = HmacSHA1;

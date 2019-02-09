@@ -1,29 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "iscroll": [
-                "iscroll/v4"
-            ]
+            "iscroll": ["iscroll/v4"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "iscroll-tests.ts"
-    ]
+    "files": ["index.d.ts", "iscroll-tests.ts"]
 }

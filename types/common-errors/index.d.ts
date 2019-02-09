@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as express from 'express';
+import * as express from "express";
 
 export type GenerateMessageMethod = () => string;
 
@@ -51,10 +51,10 @@ export namespace helpers {
     function generateClass(
         name: string,
         options?: {
-            extends?: Error,
-            globalize?: boolean,
-            args?: string[],
-            generateMessage?: GenerateMessageMethod
+            extends?: Error;
+            globalize?: boolean;
+            args?: string[];
+            generateMessage?: GenerateMessageMethod;
         }
     ): ErrorConstructor;
 }
@@ -65,13 +65,24 @@ export namespace middleware {
      * an error is thrown from an asynchronous context. Any error that would
      * have caused a crash is logged to stderr.
      */
-    function crashProtector(errorHandler: (err: Error, req: express.Request, res: express.Response) => void): void;
+    function crashProtector(
+        errorHandler: (
+            err: Error,
+            req: express.Request,
+            res: express.Response
+        ) => void
+    ): void;
 
     /**
      * Express middleware that translates common errors into HTTP status
      * codes and messages.
      */
-    function errorHandler(err: Error, req: express.Request, res: express.Response, next: express.NextFunction): void;
+    function errorHandler(
+        err: Error,
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+    ): void;
 }
 
 /**
@@ -556,7 +567,7 @@ export namespace io {
          * @param inner_error the Error instance that caused the current
          *                    error. Stack trace will be appended.
          */
-        constructor(message: string, inner_error?: Error)
+        constructor(message: string, inner_error?: Error);
     }
 
     /**

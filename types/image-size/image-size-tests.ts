@@ -8,19 +8,21 @@ console.log(dimensions.width, dimensions.height, dimensions.orientation);
 
 // Asynchronous
 sizeOf("images/funny-cats.png", (err, dimensions) => {
-  console.log(dimensions.width, dimensions.height, dimensions.orientation);
+    console.log(dimensions.width, dimensions.height, dimensions.orientation);
 });
 
 // From URL
 const imgUrl = "http://my-amazing-website.com/image.jpeg";
 const options = url.parse(imgUrl);
 
-http.get(options, (response) => {
-  const chunks: Buffer[] = [];
-  response.on("data", (chunk: Buffer) => {
-    chunks.push(chunk);
-  }).on("end", () => {
-    const buffer = Buffer.concat(chunks);
-    console.log(sizeOf(buffer));
-  });
+http.get(options, response => {
+    const chunks: Buffer[] = [];
+    response
+        .on("data", (chunk: Buffer) => {
+            chunks.push(chunk);
+        })
+        .on("end", () => {
+            const buffer = Buffer.concat(chunks);
+            console.log(sizeOf(buffer));
+        });
 });

@@ -3,8 +3,6 @@
 // Definitions by: jt000 <https://github.com/jt000>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 interface MockeryEnableArgs {
     useCleanCache?: boolean;
     warnOnReplace?: boolean;
@@ -17,7 +15,10 @@ export declare function disable(): void;
 export declare function registerMock(name: string, mock: any): void;
 export declare function deregisterMock(name: string): void;
 
-export declare function registerSubstitute(name: string, substitute: string): void;
+export declare function registerSubstitute(
+    name: string,
+    substitute: string
+): void;
 export declare function deregisterSubstitute(name: string): void;
 
 export declare function registerAllowable(name: string, unhook?: boolean): void;

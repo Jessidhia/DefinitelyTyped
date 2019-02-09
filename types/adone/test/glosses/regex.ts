@@ -1,7 +1,5 @@
 namespace adoneTests.regex {
-    const {
-        regex
-    } = adone;
+    const { regex } = adone;
 
     regex.ansi().test("a");
     regex.filename().test("a");

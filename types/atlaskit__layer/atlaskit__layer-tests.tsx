@@ -1,7 +1,7 @@
-import Layer from '@atlaskit/layer';
+import Layer from "@atlaskit/layer";
 
-import * as React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import { render } from "react-dom";
 
 declare const container: Element;
 
@@ -11,5 +11,5 @@ render(
         content={<h1>Hello, world!</h1>}
         autoFlip={false}
     />,
-    container,
+    container
 );

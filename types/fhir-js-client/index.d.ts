@@ -53,7 +53,12 @@ declare namespace FHIR {
              * @param done Function called once all the resources are fetched
              * @param fail Function called when an error occurs in the process
              */
-            drain(params: SearchParams, process: (entries: Entry[]) => any, done: () => any, fail: (error: any) => any): void;
+            drain(
+                params: SearchParams,
+                process: (entries: Entry[]) => any,
+                done: () => any,
+                fail: (error: any) => any
+            ): void;
 
             /**
              * GET BASEURL/{resourceType}?searchParams
@@ -75,7 +80,10 @@ declare namespace FHIR {
              * Resolve: (entries:Entry[],resolvedReferences:[index: string]: Resource) => { console.log(entries); console.log(resolvedReferences);}
              * Reject: (error:any) => { console.log(error); }
              */
-            fetchAllWithReferences(params: SearchParams, resolveParams: string[]): any;
+            fetchAllWithReferences(
+                params: SearchParams,
+                resolveParams: string[]
+            ): any;
 
             /**
              * GET BASEURL/_history?historyParams
@@ -546,7 +554,10 @@ declare namespace FHIR {
              * @param property  The name of the property which is a codable concept
              * Returns a function to which you can pass code values and get a filtered array of observations.
              */
-            byCodes(observations: Resource | Resource[], ...property: string[]): (...codes: string[]) => Resource[];
+            byCodes(
+                observations: Resource | Resource[],
+                ...property: string[]
+            ): (...codes: string[]) => Resource[];
 
             /**
              * Split a set of observations based on codable concept properties. eg. code
@@ -554,7 +565,10 @@ declare namespace FHIR {
              * @param property The name of the property which is a codable concept
              * Returns an object with code values as index and array of observations as values
              */
-            byCode(observations: Resource | Resource[], property: string): ObservationsByCode;
+            byCode(
+                observations: Resource | Resource[],
+                property: string
+            ): ObservationsByCode;
             /**
              * Helper method to convert units
              */
@@ -708,14 +722,20 @@ declare namespace FHIR {
              * @param callback Called once the SMART client is ready to be used.
              * @param errback Called when either the OAuth2 workflow has not been started on an error occured during the OAuth2 workflow.
              */
-            ready(callback?: (smart: SMARTClient) => void, errback?: (...args: any[]) => void): void;
+            ready(
+                callback?: (smart: SMARTClient) => void,
+                errback?: (...args: any[]) => void
+            ): void;
 
             /**
              * Initiate the OAuth2 authorization workflow
              * @param params OAuth2 Configuration
              * @param errback Method which is triggered when an error occurs during the OAuth2 authorization workflow
              */
-            authorize(params: OAuth2Configuration, errback?: (...args: any[]) => void): void;
+            authorize(
+                params: OAuth2Configuration,
+                errback?: (...args: any[]) => void
+            ): void;
 
             /**
              * Resolves the Authorization type of the FHIR server. Can be used to identify if a server supports SMART on FHIR.
@@ -723,7 +743,11 @@ declare namespace FHIR {
              * @param callback Callled once the authorization type is retrieved from the conformance statement.
              * @param errBack Called when an error occured while trying to fetch the conformance statement.
              */
-            resolveAuthType(fhirServiceUrl: string, callback?: (type: string) => void, errBack?: (type: string) => void): void;
+            resolveAuthType(
+                fhirServiceUrl: string,
+                callback?: (type: string) => void,
+                errBack?: (type: string) => void
+            ): void;
         }
     }
 

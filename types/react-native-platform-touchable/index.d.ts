@@ -5,7 +5,12 @@
 // TypeScript Version: 2.8
 
 import * as React from "react";
-import { BackgroundPropType, RippleBackgroundPropType, ThemeAttributeBackgroundPropType, TouchableWithoutFeedbackProps } from "react-native";
+import {
+    BackgroundPropType,
+    RippleBackgroundPropType,
+    ThemeAttributeBackgroundPropType,
+    TouchableWithoutFeedbackProps
+} from "react-native";
 
 export interface PlatformTouchableProps extends TouchableWithoutFeedbackProps {
     // TouchableOpacity (default iOS)
@@ -25,7 +30,10 @@ export class Touchable extends React.Component<PlatformTouchableProps> {
     // TouchableNativeFeedback (default Android)
     static SelectableBackground(): ThemeAttributeBackgroundPropType;
     static SelectableBackgroundBorderless(): ThemeAttributeBackgroundPropType;
-    static Ripple(color: string, borderless?: boolean): RippleBackgroundPropType;
+    static Ripple(
+        color: string,
+        borderless?: boolean
+    ): RippleBackgroundPropType;
     static canUseNativeForeground(): boolean;
 }
 

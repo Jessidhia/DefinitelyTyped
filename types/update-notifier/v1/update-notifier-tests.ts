@@ -3,14 +3,14 @@ import UpdateNotifier = require("update-notifier");
 let notifier = UpdateNotifier();
 
 if (notifier.update) {
-	notifier.notify();
+    notifier.notify();
 }
 
 console.log(notifier.update);
 
 // Also exposed as a class
 notifier = new UpdateNotifier.UpdateNotifier({
-	updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 1 week
+    updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 1 week
 });
 
 if (notifier.update) {
@@ -19,14 +19,14 @@ if (notifier.update) {
 
     // test all options
     notifier.notify({
-        message: 'Update available: ' + notifier.update.latest,
+        message: "Update available: " + notifier.update.latest,
         defer: false,
         boxenOpts: {
             padding: 1,
             margin: 1,
-            align: 'center',
-            borderColor: 'yellow',
-            borderStyle: 'round',
-        },
+            align: "center",
+            borderColor: "yellow",
+            borderStyle: "round"
+        }
     });
 }

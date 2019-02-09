@@ -6,7 +6,6 @@
 /// <reference types="filewriter" />
 
 interface LocalFileSystem {
-
     /**
      * Used for storage with no guarantee of persistence.
      */
@@ -24,7 +23,12 @@ interface LocalFileSystem {
      * @param successCallback The callback that is called when the user agent provides a filesystem.
      * @param errorCallback A callback that is called when errors happen, or when the request to obtain the filesystem is denied.
      */
-    requestFileSystem(type: number, size: number, successCallback: FileSystemCallback, errorCallback?: ErrorCallback): void;
+    requestFileSystem(
+        type: number,
+        size: number,
+        successCallback: FileSystemCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Allows the user to look up the Entry for a file or directory referred to by a local URL.
@@ -32,12 +36,21 @@ interface LocalFileSystem {
      * @param successCallback A callback that is called to report the Entry to which the supplied URL refers.
      * @param errorCallback A callback that is called when errors happen, or when the request to obtain the Entry is denied.
      */
-    resolveLocalFileSystemURL(url: string, successCallback: EntryCallback, errorCallback?: ErrorCallback): void;
+    resolveLocalFileSystemURL(
+        url: string,
+        successCallback: EntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * see requestFileSystem.
      */
-    webkitRequestFileSystem(type: number, size: number, successCallback: FileSystemCallback, errorCallback?: ErrorCallback): void;
+    webkitRequestFileSystem(
+        type: number,
+        size: number,
+        successCallback: FileSystemCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 }
 
 interface LocalFileSystemSync {
@@ -114,7 +127,6 @@ interface FileSystem {
 }
 
 interface Entry {
-
     /**
      * Entry is a file.
      */
@@ -130,7 +142,10 @@ interface Entry {
      * @param successCallback A callback that is called with the time of the last modification.
      * @param errorCallback ErrorCallback A callback that is called when errors happen.
      */
-    getMetadata(successCallback: MetadataCallback, errorCallback?: ErrorCallback): void;
+    getMetadata(
+        successCallback: MetadataCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * The name of the entry, excluding the path leading to it.
@@ -161,7 +176,12 @@ interface Entry {
      * A move of a file on top of an existing file must attempt to delete and replace that file.
      * A move of a directory on top of an existing empty directory must attempt to delete and replace that directory.
      */
-    moveTo(parent: DirectoryEntry, newName?: string, successCallback?: EntryCallback, errorCallback?: ErrorCallback): void;
+    moveTo(
+        parent: DirectoryEntry,
+        newName?: string,
+        successCallback?: EntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Copy an entry to a different location on the file system. It is an error to try to:
@@ -178,7 +198,12 @@ interface Entry {
      *
      * Directory copies are always recursive--that is, they copy all contents of the directory.
      */
-    copyTo(parent: DirectoryEntry, newName?: string, successCallback?: EntryCallback, errorCallback?: ErrorCallback): void;
+    copyTo(
+        parent: DirectoryEntry,
+        newName?: string,
+        successCallback?: EntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Returns a URL that can be used to identify this entry. Unlike the URN defined in [FILE-API-ED], it has no specific expiration; as it describes a location on disk, it should be valid at least as long as that location exists.
@@ -197,7 +222,10 @@ interface Entry {
      * @param successCallback A callback that is called to return the parent Entry.
      * @param errorCallback A callback that is called when errors happen.
      */
-    getParent(successCallback: DirectoryEntryCallback, errorCallback?: ErrorCallback): void;
+    getParent(
+        successCallback: DirectoryEntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 }
 
 /**
@@ -223,7 +251,12 @@ interface DirectoryEntry extends Entry {
      * @param successCallback A callback that is called to return the File selected or created.
      * @param errorCallback A callback that is called when errors happen.
      */
-    getFile(path: string, options?: Flags, successCallback?: FileEntryCallback, errorCallback?: ErrorCallback): void;
+    getFile(
+        path: string,
+        options?: Flags,
+        successCallback?: FileEntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Creates or looks up a directory.
@@ -240,14 +273,22 @@ interface DirectoryEntry extends Entry {
      * @param errorCallback A callback that is called when errors happen.
      *
      */
-    getDirectory(path: string, options?: Flags, successCallback?: DirectoryEntryCallback, errorCallback?: ErrorCallback): void;
+    getDirectory(
+        path: string,
+        options?: Flags,
+        successCallback?: DirectoryEntryCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Deletes a directory and all of its contents, if any. In the event of an error [e.g. trying to delete a directory that contains a file that cannot be removed], some of the contents of the directory may be deleted. It is an error to attempt to delete the root directory of a filesystem.
      * @param successCallback A callback that is called on success.
      * @param errorCallback A callback that is called when errors happen.
      */
-    removeRecursively(successCallback: VoidCallback, errorCallback?: ErrorCallback): void;
+    removeRecursively(
+        successCallback: VoidCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 }
 
 /**
@@ -265,7 +306,10 @@ interface DirectoryReader {
      * @param successCallback Called once per successful call to readEntries to deliver the next previously-unreported set of Entries in the associated Directory. If all Entries have already been returned from previous invocations of readEntries, successCallback must be called with a zero-length array as an argument.
      * @param errorCallback A callback indicating that there was an error reading from the Directory.
      */
-    readEntries(successCallback: EntriesCallback, errorCallback?: ErrorCallback): void;
+    readEntries(
+        successCallback: EntriesCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 }
 
 /**
@@ -277,7 +321,10 @@ interface FileEntry extends Entry {
      * @param successCallback A callback that is called with the new FileWriter.
      * @param errorCallback A callback that is called when errors happen.
      */
-    createWriter(successCallback: FileWriterCallback, errorCallback?: ErrorCallback): void;
+    createWriter(
+        successCallback: FileWriterCallback,
+        errorCallback?: ErrorCallback
+    ): void;
 
     /**
      * Returns a File that represents the current state of the file that this FileEntry represents.
@@ -368,7 +415,6 @@ interface VoidCallback {
 interface ErrorCallback {
     (err: DOMError): void;
 }
-
 
 /**
  * This interface represents a file system.
@@ -541,8 +587,6 @@ interface FileEntrySync extends EntrySync {
     file(): File;
 }
 
-interface Window extends LocalFileSystem, LocalFileSystemSync {
-}
+interface Window extends LocalFileSystem, LocalFileSystemSync {}
 
-interface WorkerGlobalScope extends LocalFileSystem, LocalFileSystemSync {
-}
+interface WorkerGlobalScope extends LocalFileSystem, LocalFileSystemSync {}

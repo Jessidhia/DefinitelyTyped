@@ -7,4 +7,4 @@ import {
     splitListItem,
     liftListItem,
     sinkListItem
-} from 'prosemirror-schema-list';
+} from "prosemirror-schema-list";

@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es2015"
-        ],
+        "lib": ["es2015"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "massive": [
-                "massive/v3"
-            ]
+            "massive": ["massive/v3"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "strictFunctionTypes": true
     },
-    "files": [
-        "index.d.ts",
-        "massive-tests.ts"
-    ]
+    "files": ["index.d.ts", "massive-tests.ts"]
 }

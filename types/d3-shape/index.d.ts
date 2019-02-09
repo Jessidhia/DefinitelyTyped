@@ -9,7 +9,7 @@
 
 // Last module patch version validated against: 1.3.3
 
-import { Path } from 'd3-path';
+import { Path } from "d3-path";
 
 declare global {
     interface CanvasRenderingContext2D {} // tslint:disable-line no-empty-interface
@@ -25,11 +25,34 @@ declare global {
  * Use `CanvasPathMethods` instead with TS <= 3.0 and `CanvasPath` with TS >= 3.1.
  */
 export interface CanvasPath_D3Shape {
-    arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+    arc(
+        x: number,
+        y: number,
+        radius: number,
+        startAngle: number,
+        endAngle: number,
+        anticlockwise?: boolean
+    ): void;
     arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
-    bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
+    bezierCurveTo(
+        cp1x: number,
+        cp1y: number,
+        cp2x: number,
+        cp2y: number,
+        x: number,
+        y: number
+    ): void;
     closePath(): void;
-    ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+    ellipse(
+        x: number,
+        y: number,
+        radiusX: number,
+        radiusY: number,
+        rotation: number,
+        startAngle: number,
+        endAngle: number,
+        anticlockwise?: boolean
+    ): void;
     lineTo(x: number, y: number): void;
     moveTo(x: number, y: number): void;
     quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
@@ -203,7 +226,9 @@ export interface Arc<This, Datum> {
      * @param radius An accessor function returning a number to be used as a radius. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the arc generator.
      */
-    cornerRadius(radius: (this: This, d: Datum, ...args: any[]) => number): this;
+    cornerRadius(
+        radius: (this: This, d: Datum, ...args: any[]) => number
+    ): this;
 
     /**
      * Returns the current start angle accessor, which defaults to a function returning the startAngle property
@@ -296,7 +321,9 @@ export interface Arc<This, Datum> {
      * @param angle An accessor function returning a number in radians to be used as an angle. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the arc generator.
      */
-    padAngle(angle: (this: This, d: Datum, ...args: any[]) => number | undefined): this;
+    padAngle(
+        angle: (this: This, d: Datum, ...args: any[]) => number | undefined
+    ): this;
 
     /**
      * Returns the current pad radius accessor, which defaults to null, indicating that the pad radius should be automatically computed as sqrt(innerRadius * innerRadius + outerRadius * outerRadius).
@@ -547,7 +574,9 @@ export interface Pie<This, Datum> {
      *
      * @param angle An angle accessor function, which is invoked once, being passed the same arguments and this context as the pie generator.
      */
-    startAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
+    startAngle(
+        angle: (this: This, data: Datum[], ...args: any[]) => number
+    ): this;
 
     /**
      * Returns the current end angle accessor, which defaults to a function returning a constant 2*pi.
@@ -581,7 +610,9 @@ export interface Pie<This, Datum> {
      *
      * @param angle An angle accessor function, which is invoked once, being passed the same arguments and this context as the pie generator.
      */
-    endAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
+    endAngle(
+        angle: (this: This, data: Datum[], ...args: any[]) => number
+    ): this;
 
     /**
      * Returns the current pad angle accessor, which defaults to a function returning a constant zero.
@@ -609,7 +640,9 @@ export interface Pie<This, Datum> {
      *
      * @param angle An angle accessor function, which is invoked once, being passed the same arguments and this context as the pie generator.
      */
-    padAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
+    padAngle(
+        angle: (this: This, data: Datum[], ...args: any[]) => number
+    ): this;
 }
 
 /**
@@ -1461,7 +1494,9 @@ export interface AreaRadial<Datum> {
      * @param radius An accessor function returning a value to be used for innerRadius. The accessor will be invoked for each defined element in the input data array,
      * being passed the element d, the index i, and the array data as three arguments.
      */
-    innerRadius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    innerRadius(
+        radius: (d: Datum, index: number, data: Datum[]) => number
+    ): this;
 
     /**
      * Returns the current outerRadius accessor or null. The default outerRadius accessor is a function returning the second element of a
@@ -1493,7 +1528,9 @@ export interface AreaRadial<Datum> {
      * @param radius An accessor function returning a value to be used for outerRadius. The accessor will be invoked for each defined element in the input data array,
      * being passed the element d, the index i, and the array data as three arguments.
      */
-    outerRadius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    outerRadius(
+        radius: (d: Datum, index: number, data: Datum[]) => number
+    ): this;
 
     /**
      * Returns the current defined accessor, which defaults to a function returning a constant boolean value of true.
@@ -1989,7 +2026,9 @@ export interface Link<This, LinkDatum, NodeDatum> {
      * @param source Source node accessor function. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the link generator. The default target accessor function returns a two element array [x, y].
      */
-    source(source: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum): this;
+    source(
+        source: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum
+    ): this;
 
     /**
      * Returns the current target node accessor function.
@@ -2002,7 +2041,9 @@ export interface Link<This, LinkDatum, NodeDatum> {
      * @param target Target node accessor function. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the link generator. The default target accessor function returns a two element array [x, y].
      */
-    target(target: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum): this;
+    target(
+        target: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum
+    ): this;
 
     /**
      * Returns the current x-accessor, which defaults to a function accepting an number array
@@ -2058,7 +2099,11 @@ export interface Link<This, LinkDatum, NodeDatum> {
  *
  * With the default settings the link generator accepts a link object conforming to the DefaultLinkObject interface.
  */
-export function linkHorizontal(): Link<any, DefaultLinkObject, [number, number]>;
+export function linkHorizontal(): Link<
+    any,
+    DefaultLinkObject,
+    [number, number]
+>;
 /**
  * Constructs a new link generator with horizontal tangents, for example, to visualize links in a tree diagram
  * rooted on the left edge of the display.
@@ -2070,7 +2115,11 @@ export function linkHorizontal(): Link<any, DefaultLinkObject, [number, number]>
  *
  * The second generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkHorizontal<LinkDatum, NodeDatum>(): Link<any, LinkDatum, NodeDatum>;
+export function linkHorizontal<LinkDatum, NodeDatum>(): Link<
+    any,
+    LinkDatum,
+    NodeDatum
+>;
 /**
  * Constructs a new link generator with horizontal tangents, for example, to visualize links in a tree diagram
  * rooted on the left edge of the display.
@@ -2084,7 +2133,11 @@ export function linkHorizontal<LinkDatum, NodeDatum>(): Link<any, LinkDatum, Nod
  *
  * The third generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkHorizontal<This, LinkDatum, NodeDatum>(): Link<This, LinkDatum, NodeDatum>;
+export function linkHorizontal<This, LinkDatum, NodeDatum>(): Link<
+    This,
+    LinkDatum,
+    NodeDatum
+>;
 
 /**
  * Constructs a new default link generator with vertical tangents, for example, to visualize links in a tree diagram
@@ -2104,7 +2157,11 @@ export function linkVertical(): Link<any, DefaultLinkObject, [number, number]>;
  *
  * The second generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkVertical<LinkDatum, NodeDatum>(): Link<any, LinkDatum, NodeDatum>;
+export function linkVertical<LinkDatum, NodeDatum>(): Link<
+    any,
+    LinkDatum,
+    NodeDatum
+>;
 /**
  * Constructs a new link generator with vertical tangents, for example, to visualize links in a tree diagram
  * rooted on the top edge of the display.
@@ -2118,7 +2175,11 @@ export function linkVertical<LinkDatum, NodeDatum>(): Link<any, LinkDatum, NodeD
  *
  * The third generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkVertical<This, LinkDatum, NodeDatum>(): Link<This, LinkDatum, NodeDatum>;
+export function linkVertical<This, LinkDatum, NodeDatum>(): Link<
+    This,
+    LinkDatum,
+    NodeDatum
+>;
 
 /**
  * A link generator for a radial coordinate system. The link shape generates a smooth cubic Bézier curve from a
@@ -2167,7 +2228,9 @@ export interface LinkRadial<This, LinkDatum, NodeDatum> {
      * @param source Source node accessor function. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the radial link generator. The default target accessor function returns a two element array [x, y].
      */
-    source(source: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum): this;
+    source(
+        source: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum
+    ): this;
 
     /**
      * Returns the current target node accessor function.
@@ -2180,7 +2243,9 @@ export interface LinkRadial<This, LinkDatum, NodeDatum> {
      * @param target Target node accessor function. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives the same arguments that were passed into the radial link generator. The default target accessor function returns a two element array [x, y].
      */
-    target(target: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum): this;
+    target(
+        target: (this: This, d: LinkDatum, ...args: any[]) => NodeDatum
+    ): this;
 
     /**
      * Returns the current angle accessor, which defaults to a function accepting an number array
@@ -2208,7 +2273,9 @@ export interface LinkRadial<This, LinkDatum, NodeDatum> {
      * @param radius Radius accessor function. The accessor function is invoked in the same "this" context as the generator was invoked in and
      * receives as its first argument a node object followed by all additional arguments that were passed into the radial link generator.
      */
-    radius(radius: (this: This, node: NodeDatum, ...args: any[]) => number): this;
+    radius(
+        radius: (this: This, node: NodeDatum, ...args: any[]) => number
+    ): this;
 
     /**
      * Returns the current rendering context, which defaults to null.
@@ -2235,7 +2302,11 @@ export interface LinkRadial<This, LinkDatum, NodeDatum> {
 /**
  * @deprecated Use LinkRadial interface
  */
-export type RadialLink<This, LinkDatum, NodeDatum> = LinkRadial<This, LinkDatum, NodeDatum>;
+export type RadialLink<This, LinkDatum, NodeDatum> = LinkRadial<
+    This,
+    LinkDatum,
+    NodeDatum
+>;
 
 /**
  * Constructs a new default link generator with radial tangents, for example, to visualize links in a tree diagram
@@ -2243,7 +2314,11 @@ export type RadialLink<This, LinkDatum, NodeDatum> = LinkRadial<This, LinkDatum,
  *
  * With the default settings the link generator accepts a link object conforming to the DefaultLinkObject interface.
  */
-export function linkRadial(): LinkRadial<any, DefaultLinkObject, [number, number]>;
+export function linkRadial(): LinkRadial<
+    any,
+    DefaultLinkObject,
+    [number, number]
+>;
 /**
  * Constructs a new link generator with radial tangents, for example, to visualize links in a tree diagram
  * rooted in the center of the display.
@@ -2255,7 +2330,11 @@ export function linkRadial(): LinkRadial<any, DefaultLinkObject, [number, number
  *
  * The second generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkRadial<LinkDatum, NodeDatum>(): LinkRadial<any, LinkDatum, NodeDatum>;
+export function linkRadial<LinkDatum, NodeDatum>(): LinkRadial<
+    any,
+    LinkDatum,
+    NodeDatum
+>;
 /**
  * Constructs a new link generator with radial tangents, for example, to visualize links in a tree diagram
  * rooted in the center of the display.
@@ -2269,7 +2348,11 @@ export function linkRadial<LinkDatum, NodeDatum>(): LinkRadial<any, LinkDatum, N
  *
  * The third generic corresponds to the datum type of the source/target node contained in the link object.
  */
-export function linkRadial<This, LinkDatum, NodeDatum>(): LinkRadial<This, LinkDatum, NodeDatum>;
+export function linkRadial<This, LinkDatum, NodeDatum>(): LinkRadial<
+    This,
+    LinkDatum,
+    NodeDatum
+>;
 
 // -----------------------------------------------------------------------------------
 // SYMBOLS
@@ -2581,7 +2664,9 @@ export interface Stack<This, Datum, Key> {
      * @param value A value accessor function which returns the numeric value for a given data element and key combination. The accessor function is invoked for each data element and key being passed
      * the datum, the key, index of the data element in the input data array, and the complete data array.
      */
-    value(value: (d: Datum, key: Key, i: number, data: Datum[]) => number): this;
+    value(
+        value: (d: Datum, key: Key, i: number, data: Datum[]) => number
+    ): this;
 
     /**
      * Returns the current order accessor, which defaults to stackOrderNone; this uses the order given by the key accessor.
@@ -2719,7 +2804,10 @@ export function stackOrderReverse(series: Series<any, any>): number[];
  * @param series A series generated by a stack generator.
  * @param order An array of numeric indexes representing the stack order.
  */
-export function stackOffsetExpand(series: Series<any, any>, order: number[]): void;
+export function stackOffsetExpand(
+    series: Series<any, any>,
+    order: number[]
+): void;
 
 /**
  * Positive values are stacked above zero, while negative values are stacked below zero.
@@ -2727,7 +2815,10 @@ export function stackOffsetExpand(series: Series<any, any>, order: number[]): vo
  * @param series A series generated by a stack generator.
  * @param order An array of numeric indexes representing the stack order.
  */
-export function stackOffsetDiverging(series: Series<any, any>, order: number[]): void;
+export function stackOffsetDiverging(
+    series: Series<any, any>,
+    order: number[]
+): void;
 
 /**
  * Applies a zero baseline.
@@ -2735,7 +2826,10 @@ export function stackOffsetDiverging(series: Series<any, any>, order: number[]):
  * @param series A series generated by a stack generator.
  * @param order An array of numeric indexes representing the stack order.
  */
-export function stackOffsetNone(series: Series<any, any>, order: number[]): void;
+export function stackOffsetNone(
+    series: Series<any, any>,
+    order: number[]
+): void;
 
 /**
  * Shifts the baseline down such that the center of the streamgraph is always at zero.
@@ -2743,7 +2837,10 @@ export function stackOffsetNone(series: Series<any, any>, order: number[]): void
  * @param series A series generated by a stack generator.
  * @param order An array of numeric indexes representing the stack order.
  */
-export function stackOffsetSilhouette(series: Series<any, any>, order: number[]): void;
+export function stackOffsetSilhouette(
+    series: Series<any, any>,
+    order: number[]
+): void;
 
 /**
  * Shifts the baseline so as to minimize the weighted wiggle of layers. This offset is recommended for streamgraphs in conjunction with the inside-out order.
@@ -2752,4 +2849,7 @@ export function stackOffsetSilhouette(series: Series<any, any>, order: number[])
  * @param series A series generated by a stack generator.
  * @param order An array of numeric indexes representing the stack order.
  */
-export function stackOffsetWiggle(series: Series<any, any>, order: number[]): void;
+export function stackOffsetWiggle(
+    series: Series<any, any>,
+    order: number[]
+): void;

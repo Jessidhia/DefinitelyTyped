@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { CoreOptions as RequestOptions } from 'request';
+import { CoreOptions as RequestOptions } from "request";
 
 export interface Config {
     token: string;
@@ -12,7 +12,7 @@ export interface Config {
     host?: string;
     maxRetries?: number;
     path?: string;
-    protocol?: 'http' | 'https';
+    protocol?: "http" | "https";
     port?: number;
     url?: string;
     level?: string;

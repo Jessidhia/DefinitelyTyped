@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
         "paths": {
-            "yargs": [
-                "yargs/v11"
-            ]
+            "yargs": ["yargs/v11"]
         },
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "yargs-tests.ts"
-    ]
+    "files": ["index.d.ts", "yargs-tests.ts"]
 }

@@ -1,29 +1,29 @@
 import {
-	createContext,
-	getDefaultWatermarks,
-	summarizers,
-	Watermarks
-} from 'istanbul-lib-report';
+    createContext,
+    getDefaultWatermarks,
+    summarizers,
+    Watermarks
+} from "istanbul-lib-report";
 
-import { CoverageMap } from 'istanbul-lib-coverage';
+import { CoverageMap } from "istanbul-lib-coverage";
 
 const watermarks: Watermarks = {
-	statements: [],
-	branches: [],
-	functions: [],
-	lines: []
+    statements: [],
+    branches: [],
+    functions: [],
+    lines: []
 };
 
 createContext();
 createContext({});
 const context = createContext({
-	dir: 'foo',
-	watermarks,
-	sourceFinder: (filepath: string) => ''
+    dir: "foo",
+    watermarks,
+    sourceFinder: (filepath: string) => ""
 });
 
 context.watermarks;
-context.sourceFinder('foo').trim();
+context.sourceFinder("foo").trim();
 
 const defaultMarks: Watermarks = getDefaultWatermarks();
 

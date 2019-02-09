@@ -189,7 +189,11 @@ interface ITimeEntry {
     /**
      * initialize TimeEntry plugin
      */
-    (configOrFnName?: ITimeEntryOptions | string, nameOrOption?: any, value?: any): any; // functions accessed with string key :/
+    (
+        configOrFnName?: ITimeEntryOptions | string,
+        nameOrOption?: any,
+        value?: any
+    ): any; // functions accessed with string key :/
 }
 
 interface ITimeEntryLocales {

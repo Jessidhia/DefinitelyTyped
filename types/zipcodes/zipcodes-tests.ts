@@ -1,28 +1,28 @@
-import * as ZipCodes from 'zipcodes';
+import * as ZipCodes from "zipcodes";
 
 const zipA: ZipCodes.ZipCode = {
-  zip: '90210',
-  latitude: 34.088808,
-  longitude: -118.406125,
-  city: 'Beverly Hills',
-  state: 'CA',
-  country: 'US'
+    zip: "90210",
+    latitude: 34.088808,
+    longitude: -118.406125,
+    city: "Beverly Hills",
+    state: "CA",
+    country: "US"
 };
 
 const zipB: ZipCodes.ZipCode = {
-  zip: '95015',
-  latitude: 37.323,
-  longitude: -122.0527,
-  city: 'Cupertino',
-  state: 'CA',
-  country: 'US'
+    zip: "95015",
+    latitude: 37.323,
+    longitude: -122.0527,
+    city: "Cupertino",
+    state: "CA",
+    country: "US"
 };
 
 ZipCodes.lookup(zipA.zip); // $ExpectType ZipCode | undefined
 
-ZipCodes.lookupByName('Cupertino', 'CA'); // $ExpectType ZipCode[]
+ZipCodes.lookupByName("Cupertino", "CA"); // $ExpectType ZipCode[]
 
-ZipCodes.lookupByState('CA'); // $ExpectType ZipCode[]
+ZipCodes.lookupByState("CA"); // $ExpectType ZipCode[]
 
 ZipCodes.distance(zipA.zip, zipB.zip); // $ExpectType number | null
 

@@ -13,9 +13,16 @@ export declare class PanInput implements IInputType {
     element: HTMLElement;
     private observer;
     private _direction;
-    static getDirectionByAngle(angle: number, thresholdAngle: number): DIRECTION;
+    static getDirectionByAngle(
+        angle: number,
+        thresholdAngle: number
+    ): DIRECTION;
     static getNextOffset(speeds: number[], deceleration: number): number[];
-    static useDirection(checkType: DIRECTION, direction: DIRECTION, userDirection?: DIRECTION): boolean;
+    static useDirection(
+        checkType: DIRECTION,
+        direction: DIRECTION,
+        userDirection?: DIRECTION
+    ): boolean;
     constructor(el: string | HTMLElement, options?: PanInputOption);
     mapAxes(axes: string[]): void;
     connect(observer: IInputTypeObserver): IInputType;

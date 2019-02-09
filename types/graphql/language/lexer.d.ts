@@ -10,7 +10,10 @@ import { syntaxError } from "../error";
  * EOF, after which the lexer will repeatedly return the same EOF token
  * whenever called.
  */
-export function createLexer<TOptions>(source: Source, options: TOptions): Lexer<TOptions>;
+export function createLexer<TOptions>(
+    source: Source,
+    options: TOptions
+): Lexer<TOptions>;
 
 /**
  * The return type of createLexer.

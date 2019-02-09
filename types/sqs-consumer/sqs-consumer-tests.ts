@@ -2,15 +2,15 @@ import Consumer = require("sqs-consumer");
 import { SQS } from "aws-sdk";
 
 const app = Consumer.create({
-    queueUrl: 'https://sqs.eu-west-1.amazonaws.com/account-id/queue-name',
+    queueUrl: "https://sqs.eu-west-1.amazonaws.com/account-id/queue-name",
     handleMessage(message, done) {
-    // do some work with `message`
+        // do some work with `message`
         done();
     }
 });
 
 const app2 = Consumer.create({
-    queueUrl: 'https://sqs.eu-west-1.amazonaws.com/account-id/queue-name',
+    queueUrl: "https://sqs.eu-west-1.amazonaws.com/account-id/queue-name",
     handleMessage(message, done) {
         done();
     },
@@ -23,20 +23,20 @@ const app2 = Consumer.create({
 
 // Test message handler.
 const handleMessage = (message: SQS.Message, done: Consumer.ConsumerDone) => {
-	done();
+    done();
 };
 
 const app3 = Consumer.create({
-	queueUrl: 'https://sqs.eu-west-1.amazonaws.com/account-id/queue-name',
-	handleMessage
+    queueUrl: "https://sqs.eu-west-1.amazonaws.com/account-id/queue-name",
+    handleMessage
 });
 
 const app4 = new Consumer({
-	queueUrl: 'https://sqs.eu-west-1.amazonaws.com/account-id/queue-name',
-	handleMessage
+    queueUrl: "https://sqs.eu-west-1.amazonaws.com/account-id/queue-name",
+    handleMessage
 });
 
-app.on('error', (err: any) => {
+app.on("error", (err: any) => {
     console.log(err.message);
 });
 

@@ -8,7 +8,4 @@ export { default as scrollSpy } from "./mixins/scroll-spy";
 import * as scroller from "./mixins/scroller";
 import * as animateScroll from "./mixins/animate-scroll";
 
-export {
-    animateScroll,
-    scroller
-};
+export { animateScroll, scroller };

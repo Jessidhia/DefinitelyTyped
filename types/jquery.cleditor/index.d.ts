@@ -22,7 +22,12 @@ interface CLEditor {
     change(handler: Function): CLEditor;
     clear(): CLEditor;
     disable(disabled: boolean): CLEditor;
-    execCommand(commands: string, value: any, useCSS?: boolean, button?: any): CLEditor;
+    execCommand(
+        commands: string,
+        value: any,
+        useCSS?: boolean,
+        button?: any
+    ): CLEditor;
     focus(): CLEditor;
     hidePopups(): CLEditor;
     refresh(): CLEditor;
@@ -60,8 +65,14 @@ interface JQueryCLEditorButtonDefinition {
     popupContent?: string;
     getEnabled?: (data: JQueryCLEditorButtonDefinitionEventData) => boolean;
     getPressed?: (data: JQueryCLEditorButtonDefinitionEventData) => boolean;
-    buttonClick?: (event: Event, data: JQueryCLEditorButtonDefinitionEventData) => boolean;
-    popupClick?: (event: Event, data: JQueryCLEditorButtonDefinitionEventData) => boolean;
+    buttonClick?: (
+        event: Event,
+        data: JQueryCLEditorButtonDefinitionEventData
+    ) => boolean;
+    popupClick?: (
+        event: Event,
+        data: JQueryCLEditorButtonDefinitionEventData
+    ) => boolean;
 }
 
 interface JQueryCLEditorButtonDefinitionEventData {
@@ -93,7 +104,7 @@ interface JQuery {
     /**
      * If the cleditor object does not exist for a matched textarea element,
      * it will be created using the default options combined with the supplied options.
-     * This is the core method for creating and selecting cleditor objects. 
+     * This is the core method for creating and selecting cleditor objects.
      */
     cleditor(options?: JQueryCLEditorOptions): CLEditor;
 }

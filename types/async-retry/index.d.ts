@@ -5,21 +5,24 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare function AsyncRetry<A>(
-	fn: AsyncRetry.RetryFunction<A>,
-	opts: AsyncRetry.Options
+    fn: AsyncRetry.RetryFunction<A>,
+    opts: AsyncRetry.Options
 ): Promise<A>;
 
 declare namespace AsyncRetry {
-	interface Options {
-		retries?: number;
-		factor?: number;
-		minTimeout?: number;
-		maxTimeout?: number;
-		randomize?: boolean;
-		onRetry?: (e: Error) => any;
-	}
+    interface Options {
+        retries?: number;
+        factor?: number;
+        minTimeout?: number;
+        maxTimeout?: number;
+        randomize?: boolean;
+        onRetry?: (e: Error) => any;
+    }
 
-	type RetryFunction<A> = (bail: (e: Error) => void, attempt: number) => A|Promise<A>;
+    type RetryFunction<A> = (
+        bail: (e: Error) => void,
+        attempt: number
+    ) => A | Promise<A>;
 }
 
 export = AsyncRetry;

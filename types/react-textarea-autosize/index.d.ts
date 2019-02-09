@@ -10,7 +10,8 @@ declare module "react-textarea-autosize" {
     /**
      * <TextareaAutosize/> properties
      */
-    export interface TextareaAutosizeProps extends React.HTMLProps<HTMLTextAreaElement> {
+    export interface TextareaAutosizeProps
+        extends React.HTMLProps<HTMLTextAreaElement> {
         /**
          * Current textarea value
          */
@@ -55,6 +56,7 @@ declare module "react-textarea-autosize" {
     /**
      * <TextareaAutosize/>
      */
-    export default class TextareaAutosize extends React.Component<TextareaAutosizeProps> { }
-
+    export default class TextareaAutosize extends React.Component<
+        TextareaAutosizeProps
+    > {}
 }

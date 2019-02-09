@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings, numbers } from './constants';
-import MDCTopAppBarAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings, numbers } from "./constants";
+import MDCTopAppBarAdapter from "./adapter";
 
-export default class MDCTopAppBarBaseFoundation extends MDCFoundation<MDCTopAppBarAdapter> {
+export default class MDCTopAppBarBaseFoundation extends MDCFoundation<
+    MDCTopAppBarAdapter
+> {
     static readonly strings: strings;
 
     static readonly cssClasses: cssClasses;

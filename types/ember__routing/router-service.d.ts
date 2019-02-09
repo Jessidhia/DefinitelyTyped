@@ -1,5 +1,5 @@
-import Transition from '@ember/routing/-private/transition';
-import Service from '@ember/service';
+import Transition from "@ember/routing/-private/transition";
+import Service from "@ember/service";
 
 // tslint:disable-next-line:strict-export-declare-modifiers
 type RouteModel = object | string | number;

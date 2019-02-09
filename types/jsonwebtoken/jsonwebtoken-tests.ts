@@ -28,7 +28,7 @@ token = jwt.sign(testObject, "shhhhh", { audience: "theAudience" });
 
 // sign with default (HMAC SHA256) and multiple audiences
 token = jwt.sign(testObject, "shhhhh", {
-    audience: ["audience1", "audience2"],
+    audience: ["audience1", "audience2"]
 });
 
 // sign with default (HMAC SHA256) and a keyid
@@ -44,12 +44,14 @@ const secret = { key: privKey.toString(), passphrase: "keypwd" };
 token = jwt.sign(testObject, secret, { algorithm: "RS256" }); // the algorithm option is mandatory in this case
 
 // sign asynchronously
-jwt.sign(testObject, cert, { algorithm: "RS256" }, (
-    err: Error,
-    token: string,
-) => {
-    console.log(token);
-});
+jwt.sign(
+    testObject,
+    cert,
+    { algorithm: "RS256" },
+    (err: Error, token: string) => {
+        console.log(token);
+    }
+);
 
 /**
  * jwt.verify
@@ -63,10 +65,10 @@ jwt.verify(token, "shhhhh", (err, decoded) => {
 });
 
 // use external time for verifying
-jwt.verify(token, 'shhhhh', { clockTimestamp: 1 }, (err, decoded) => {
-  const result = decoded as TestObject;
+jwt.verify(token, "shhhhh", { clockTimestamp: 1 }, (err, decoded) => {
+    const result = decoded as TestObject;
 
-  console.log(result.foo); // bar
+    console.log(result.foo); // bar
 });
 
 // invalid token
@@ -104,12 +106,14 @@ jwt.verify(token, cert, { audience: "urn:foo" }, (err, decoded) => {
 
 // verify issuer
 cert = fs.readFileSync("public.pem"); // get public key
-jwt.verify(token, cert, { audience: "urn:foo", issuer: "urn:issuer" }, (
-    err,
-    decoded,
-) => {
-    // if issuer mismatch, err == invalid issuer
-});
+jwt.verify(
+    token,
+    cert,
+    { audience: "urn:foo", issuer: "urn:issuer" },
+    (err, decoded) => {
+        // if issuer mismatch, err == invalid issuer
+    }
+);
 
 // verify algorithm
 cert = fs.readFileSync("public.pem"); // get public key

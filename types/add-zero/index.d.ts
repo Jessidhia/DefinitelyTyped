@@ -3,4 +3,7 @@
 // Definitions by: Giles Roadnight <https://github.com/Roaders>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export default function addZero(value: string | number, digits?: number): string;
+export default function addZero(
+    value: string | number,
+    digits?: number
+): string;

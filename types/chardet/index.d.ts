@@ -20,7 +20,14 @@ export type Result = Confidence[] | string | null;
 
 export function detect(buf: Buffer, opts?: Options): Result;
 
-export function detectFile(path: string, cb: (err: any, result: Result) => void): void;
-export function detectFile(path: string, opts: Options, cb: (err: any, result: Result) => void): void;
+export function detectFile(
+    path: string,
+    cb: (err: any, result: Result) => void
+): void;
+export function detectFile(
+    path: string,
+    opts: Options,
+    cb: (err: any, result: Result) => void
+): void;
 
 export function detectFileSync(path: string, opts?: Options): Result;

@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 /**
  * Returns whether the `buffer` is a progressive JPEG image.

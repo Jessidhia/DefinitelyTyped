@@ -12,8 +12,7 @@ wp.posts().get((err: Error, data: any) => {
 });
 
 // Promises
-wp
-    .posts()
+wp.posts()
     .then((data: any) => {
         // do something with the returned posts
     })
@@ -66,8 +65,7 @@ const wp2 = new WPAPI({
     username: "someusername",
     password: "password"
 });
-wp2
-    .posts()
+wp2.posts()
     .create({
         // "title" and "content" are the only required properties
         title: "Your Post Title",
@@ -83,8 +81,7 @@ wp2
 
 // You must authenticate to be able to PUT (update) a post
 // .id() must be used to specify the post we are updating
-wp2
-    .posts()
+wp2.posts()
     .id(2501)
     .update({
         // Update the title

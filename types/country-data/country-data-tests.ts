@@ -1,4 +1,4 @@
-import * as lib from 'country-data';
+import * as lib from "country-data";
 
 lib.callingCodes.all; // $ExpectType ReadonlyArray<string>
 lib.callingCountries.all; // $ExpectType ReadonlyArray<Country>

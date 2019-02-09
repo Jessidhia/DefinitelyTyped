@@ -3,6 +3,10 @@
 // Definitions by: Alvaro Menezes <https://github.com/alvarollmenezes>, Vinicius Salomao <https://github.com/vizeke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function batch(opts?: any, cb?: any, errorHandler?: any): (event: any) => void;
-declare namespace batch { }
+declare function batch(
+    opts?: any,
+    cb?: any,
+    errorHandler?: any
+): (event: any) => void;
+declare namespace batch {}
 export = batch;

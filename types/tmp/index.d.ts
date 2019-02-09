@@ -25,18 +25,41 @@ export interface SynchrounousResult {
     removeCallback(): void;
 }
 
-export function file(callback: (err: any, path: string, fd: number, cleanupCallback: () => void) => void): void;
-export function file(config: Options, callback?: (err: any, path: string, fd: number, cleanupCallback: () => void) => void): void;
+export function file(
+    callback: (
+        err: any,
+        path: string,
+        fd: number,
+        cleanupCallback: () => void
+    ) => void
+): void;
+export function file(
+    config: Options,
+    callback?: (
+        err: any,
+        path: string,
+        fd: number,
+        cleanupCallback: () => void
+    ) => void
+): void;
 
 export function fileSync(config?: Options): SynchrounousResult;
 
-export function dir(callback: (err: any, path: string, cleanupCallback: () => void) => void): void;
-export function dir(config: Options, callback?: (err: any, path: string, cleanupCallback: () => void) => void): void;
+export function dir(
+    callback: (err: any, path: string, cleanupCallback: () => void) => void
+): void;
+export function dir(
+    config: Options,
+    callback?: (err: any, path: string, cleanupCallback: () => void) => void
+): void;
 
 export function dirSync(config?: Options): SynchrounousResult;
 
 export function tmpName(callback: (err: any, path: string) => void): void;
-export function tmpName(config: SimpleOptions, callback?: (err: any, path: string) => void): void;
+export function tmpName(
+    config: SimpleOptions,
+    callback?: (err: any, path: string) => void
+): void;
 
 export function tmpNameSync(config?: SimpleOptions): string;
 

@@ -4,9 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace pCatchIf {
-    type Predicate = ErrorConstructor | ReadonlyArray<ErrorConstructor> | boolean | ((err: Error) => boolean | PromiseLike<boolean>);
+    type Predicate =
+        | ErrorConstructor
+        | ReadonlyArray<ErrorConstructor>
+        | boolean
+        | ((err: Error) => boolean | PromiseLike<boolean>);
 }
 
-declare function pCatchIf<T>(predicate: pCatchIf.Predicate, fn: (err: Error) => T): (err: Error) => T;
+declare function pCatchIf<T>(
+    predicate: pCatchIf.Predicate,
+    fn: (err: Error) => T
+): (err: Error) => T;
 
 export = pCatchIf;

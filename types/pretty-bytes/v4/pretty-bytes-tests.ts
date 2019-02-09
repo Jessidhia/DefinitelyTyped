@@ -1,4 +1,4 @@
-import prettyBytes = require('pretty-bytes');
+import prettyBytes = require("pretty-bytes");
 
 prettyBytes(1337);
 // => '1.34 kB'

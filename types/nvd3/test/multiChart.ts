@@ -1,4 +1,3 @@
-
 namespace nvd3_test_multiChart {
     //todo resolve stream_layersIssue var testdata = stream_layers(9, 10 + Math.random() * 100, .1).map(function (data, i) {
     //    return {
@@ -7,11 +6,11 @@ namespace nvd3_test_multiChart {
     //    };
     //});
 
-    var testdata = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (data, i) {
+    var testdata = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function(data, i) {
         return {
-            key: 'Stream' + i,
+            key: "Stream" + i,
             values: [1, 2],
-            type: '',
+            type: "",
             yAxis: 1
         };
     });
@@ -35,18 +34,21 @@ namespace nvd3_test_multiChart {
     testdata[8].type = "bar";
     testdata[8].yAxis = 2;
 
-    nv.addGraph(function () {
-        var chart = nv.models.multiChart()
+    nv.addGraph(function() {
+        var chart = nv.models
+            .multiChart()
             .margin({ top: 30, right: 60, bottom: 50, left: 70 })
             .color(d3.scale.category10().range());
 
-        chart.xAxis.tickFormat(d3.format(',f'));
-        chart.yAxis1.tickFormat(d3.format(',.1f'));
-        chart.yAxis2.tickFormat(d3.format(',.1f'));
+        chart.xAxis.tickFormat(d3.format(",f"));
+        chart.yAxis1.tickFormat(d3.format(",.1f"));
+        chart.yAxis2.tickFormat(d3.format(",.1f"));
 
-        d3.select('#chart1 svg')
+        d3.select("#chart1 svg")
             .datum(testdata)
-            .transition().duration(500).call(chart);
+            .transition()
+            .duration(500)
+            .call(chart);
 
         return chart;
     });

@@ -1,29 +1,20 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "jsx": "react",
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "paths": {
-            "@loadable/server": [
-                "loadable__server"
-            ]
+            "@loadable/server": ["loadable__server"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "loadable__server-tests.tsx"
-    ]
+    "files": ["index.d.ts", "loadable__server-tests.tsx"]
 }

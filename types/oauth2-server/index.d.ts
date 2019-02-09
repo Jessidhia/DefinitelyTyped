@@ -57,9 +57,9 @@ declare namespace OAuth2Server {
      */
     class Request {
         body?: any;
-        headers?: { [key: string]: string; };
+        headers?: { [key: string]: string };
         method?: string;
-        query?: { [key: string]: string; };
+        query?: { [key: string]: string };
 
         /**
          * Instantiates Request using the supplied options.
@@ -85,14 +85,14 @@ declare namespace OAuth2Server {
      */
     class Response {
         body?: any;
-        headers?: { [key: string]: string; };
+        headers?: { [key: string]: string };
         status?: number;
 
         /**
          * Instantiates Response using the supplied options.
          *
          */
-        constructor(options?: { [key: string]: any; } | Express.Response);
+        constructor(options?: { [key: string]: any } | Express.Response);
 
         /**
          * Returns the specified HTTP header field. The match is case-insensitive.
@@ -118,19 +118,27 @@ declare namespace OAuth2Server {
          * Instantiates AbstractGrantType using the supplied options.
          *
          */
-        constructor(options: TokenOptions)
+        constructor(options: TokenOptions);
 
         /**
          * Generate access token. Calls Model#generateAccessToken() if implemented.
          *
          */
-        generateAccessToken(client: Client, user: User, scope: string | string[]): Promise<string>;
+        generateAccessToken(
+            client: Client,
+            user: User,
+            scope: string | string[]
+        ): Promise<string>;
 
         /**
          * Generate refresh token. Calls Model#generateRefreshToken() if implemented.
          *
          */
-        generateRefreshToken(client: Client, user: User, scope: string | string[]): Promise<string>;
+        generateRefreshToken(
+            client: Client,
+            user: User,
+            scope: string | string[]
+        ): Promise<string>;
 
         /**
          * Get access token expiration date.
@@ -154,20 +162,35 @@ declare namespace OAuth2Server {
          * Validate requested scope. Calls Model#validateScope() if implemented.
          *
          */
-        validateScope(user: User, client: Client, scope: string | string[]): Promise<string | string[] | Falsey>;
+        validateScope(
+            user: User,
+            client: Client,
+            scope: string | string[]
+        ): Promise<string | string[] | Falsey>;
 
         /**
          * Retrieve info from the request and client and return token
          *
          */
-        abstract handle(request: Request, client: Client): Promise<Token | Falsey>;
+        abstract handle(
+            request: Request,
+            client: Client
+        ): Promise<Token | Falsey>;
     }
 
-    interface ServerOptions extends AuthenticateOptions, AuthorizeOptions, TokenOptions {
+    interface ServerOptions
+        extends AuthenticateOptions,
+            AuthorizeOptions,
+            TokenOptions {
         /**
          * Model object
          */
-        model: AuthorizationCodeModel | ClientCredentialsModel | RefreshTokenModel | PasswordModel | ExtensionModel;
+        model:
+            | AuthorizationCodeModel
+            | ClientCredentialsModel
+            | RefreshTokenModel
+            | PasswordModel
+            | ExtensionModel;
     }
 
     interface AuthenticateOptions {
@@ -249,26 +272,40 @@ declare namespace OAuth2Server {
     /**
      * For returning falsey parameters in cases of failure
      */
-    type Falsey = '' | 0 | false | null | undefined;
+    type Falsey = "" | 0 | false | null | undefined;
 
     interface BaseModel {
         /**
          * Invoked to generate a new access token.
          *
          */
-        generateAccessToken?(client: Client, user: User, scope: string | string[], callback?: Callback<string>): Promise<string>;
+        generateAccessToken?(
+            client: Client,
+            user: User,
+            scope: string | string[],
+            callback?: Callback<string>
+        ): Promise<string>;
 
         /**
          * Invoked to retrieve a client using a client id or a client id/client secret combination, depending on the grant type.
          *
          */
-        getClient(clientId: string, clientSecret: string, callback?: Callback<Client | Falsey>): Promise<Client | Falsey>;
+        getClient(
+            clientId: string,
+            clientSecret: string,
+            callback?: Callback<Client | Falsey>
+        ): Promise<Client | Falsey>;
 
         /**
          * Invoked to save an access token and optionally a refresh token, depending on the grant type.
          *
          */
-        saveToken(token: Token, client: Client, user: User, callback?: Callback<Token>): Promise<Token | Falsey>;
+        saveToken(
+            token: Token,
+            client: Client,
+            user: User,
+            callback?: Callback<Token>
+        ): Promise<Token | Falsey>;
     }
 
     interface RequestAuthenticationModel {
@@ -276,51 +313,86 @@ declare namespace OAuth2Server {
          * Invoked to retrieve an existing access token previously saved through Model#saveToken().
          *
          */
-        getAccessToken(accessToken: string, callback?: Callback<Token>): Promise<Token | Falsey>;
+        getAccessToken(
+            accessToken: string,
+            callback?: Callback<Token>
+        ): Promise<Token | Falsey>;
 
         /**
          * Invoked during request authentication to check if the provided access token was authorized the requested scopes.
          *
          */
-        verifyScope(token: Token, scope: string | string[], callback?: Callback<boolean>): Promise<boolean>;
+        verifyScope(
+            token: Token,
+            scope: string | string[],
+            callback?: Callback<boolean>
+        ): Promise<boolean>;
     }
 
-    interface AuthorizationCodeModel extends BaseModel, RequestAuthenticationModel {
+    interface AuthorizationCodeModel
+        extends BaseModel,
+            RequestAuthenticationModel {
         /**
          * Invoked to generate a new refresh token.
          *
          */
-        generateRefreshToken?(client: Client, user: User, scope: string | string[], callback?: Callback<string>): Promise<string>;
+        generateRefreshToken?(
+            client: Client,
+            user: User,
+            scope: string | string[],
+            callback?: Callback<string>
+        ): Promise<string>;
 
         /**
          * Invoked to generate a new authorization code.
          *
          */
-        generateAuthorizationCode?(client: Client, user: User, scope: string | string[], callback?: Callback<string>): Promise<string>;
+        generateAuthorizationCode?(
+            client: Client,
+            user: User,
+            scope: string | string[],
+            callback?: Callback<string>
+        ): Promise<string>;
 
         /**
          * Invoked to retrieve an existing authorization code previously saved through Model#saveAuthorizationCode().
          *
          */
-        getAuthorizationCode(authorizationCode: string, callback?: Callback<AuthorizationCode>): Promise<AuthorizationCode | Falsey>;
+        getAuthorizationCode(
+            authorizationCode: string,
+            callback?: Callback<AuthorizationCode>
+        ): Promise<AuthorizationCode | Falsey>;
 
         /**
          * Invoked to save an authorization code.
          *
          */
-        saveAuthorizationCode(code: AuthorizationCode, client: Client, user: User, callback?: Callback<AuthorizationCode>): Promise<AuthorizationCode | Falsey>;
+        saveAuthorizationCode(
+            code: AuthorizationCode,
+            client: Client,
+            user: User,
+            callback?: Callback<AuthorizationCode>
+        ): Promise<AuthorizationCode | Falsey>;
 
         /**
          * Invoked to revoke an authorization code.
          *
          */
-        revokeAuthorizationCode(code: AuthorizationCode, callback?: Callback<boolean>): Promise<boolean>;
+        revokeAuthorizationCode(
+            code: AuthorizationCode,
+            callback?: Callback<boolean>
+        ): Promise<boolean>;
 
         /**
          * Invoked to check if the requested scope is valid for a particular client/user combination.
          *
          */
-        validateScope?(user: User, client: Client, scope: string | string[], callback?: Callback<string | Falsey>): Promise<string | string[] | Falsey>;
+        validateScope?(
+            user: User,
+            client: Client,
+            scope: string | string[],
+            callback?: Callback<string | Falsey>
+        ): Promise<string | string[] | Falsey>;
     }
 
     interface PasswordModel extends BaseModel, RequestAuthenticationModel {
@@ -328,19 +400,33 @@ declare namespace OAuth2Server {
          * Invoked to generate a new refresh token.
          *
          */
-        generateRefreshToken?(client: Client, user: User, scope: string | string[], callback?: Callback<string>): Promise<string>;
+        generateRefreshToken?(
+            client: Client,
+            user: User,
+            scope: string | string[],
+            callback?: Callback<string>
+        ): Promise<string>;
 
         /**
          * Invoked to retrieve a user using a username/password combination.
          *
          */
-        getUser(username: string, password: string, callback?: Callback<User | Falsey>): Promise<User | Falsey>;
+        getUser(
+            username: string,
+            password: string,
+            callback?: Callback<User | Falsey>
+        ): Promise<User | Falsey>;
 
         /**
          * Invoked to check if the requested scope is valid for a particular client/user combination.
          *
          */
-        validateScope?(user: User, client: Client, scope: string | string[], callback?: Callback<string | Falsey>): Promise<string | string[] | Falsey>;
+        validateScope?(
+            user: User,
+            client: Client,
+            scope: string | string[],
+            callback?: Callback<string | Falsey>
+        ): Promise<string | string[] | Falsey>;
     }
 
     interface RefreshTokenModel extends BaseModel, RequestAuthenticationModel {
@@ -348,33 +434,54 @@ declare namespace OAuth2Server {
          * Invoked to generate a new refresh token.
          *
          */
-        generateRefreshToken?(client: Client, user: User, scope: string | string[], callback?: Callback<string>): Promise<string>;
+        generateRefreshToken?(
+            client: Client,
+            user: User,
+            scope: string | string[],
+            callback?: Callback<string>
+        ): Promise<string>;
 
         /**
          * Invoked to retrieve an existing refresh token previously saved through Model#saveToken().
          *
          */
-        getRefreshToken(refreshToken: string, callback?: Callback<RefreshToken>): Promise<RefreshToken | Falsey>;
+        getRefreshToken(
+            refreshToken: string,
+            callback?: Callback<RefreshToken>
+        ): Promise<RefreshToken | Falsey>;
 
         /**
          * Invoked to revoke a refresh token.
          *
          */
-        revokeToken(token: RefreshToken | Token, callback?: Callback<boolean>): Promise<boolean>;
+        revokeToken(
+            token: RefreshToken | Token,
+            callback?: Callback<boolean>
+        ): Promise<boolean>;
     }
 
-    interface ClientCredentialsModel extends BaseModel, RequestAuthenticationModel {
+    interface ClientCredentialsModel
+        extends BaseModel,
+            RequestAuthenticationModel {
         /**
          * Invoked to retrieve the user associated with the specified client.
          *
          */
-        getUserFromClient(client: Client, callback?: Callback<User | Falsey>): Promise<User | Falsey>;
+        getUserFromClient(
+            client: Client,
+            callback?: Callback<User | Falsey>
+        ): Promise<User | Falsey>;
 
         /**
          * Invoked to check if the requested scope is valid for a particular client/user combination.
          *
          */
-        validateScope?(user: User, client: Client, scope: string | string[], callback?: Callback<string | Falsey>): Promise<string | string[] | Falsey>;
+        validateScope?(
+            user: User,
+            client: Client,
+            scope: string | string[],
+            callback?: Callback<string | Falsey>
+        ): Promise<string | string[] | Falsey>;
     }
 
     interface ExtensionModel extends BaseModel, RequestAuthenticationModel {}

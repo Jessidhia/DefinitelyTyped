@@ -7,10 +7,13 @@
 /// <reference types="node" />
 /// <reference types="glob" />
 
-import glob = require('glob');
+import glob = require("glob");
 
 declare function GlobStream(glob: string | string[]): NodeJS.ReadableStream;
-declare function GlobStream(glob: string | string[], options: GlobStream.Options): NodeJS.ReadableStream;
+declare function GlobStream(
+    glob: string | string[],
+    options: GlobStream.Options
+): NodeJS.ReadableStream;
 
 declare namespace GlobStream {
     export interface Entry {
@@ -19,7 +22,7 @@ declare namespace GlobStream {
         path: string;
     }
 
-    export type UniqueByStringPredicate = 'cwd' | 'base' | 'path';
+    export type UniqueByStringPredicate = "cwd" | "base" | "path";
     export type UniqueByFunctionPredicate = (entry: Entry) => string;
 
     export interface Options extends glob.IOptions {

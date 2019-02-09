@@ -5,7 +5,10 @@
 
 /// <reference types="node" />
 
-declare function gzipSize(input: string | Buffer, callback: (error: Error, size: number) => void): string;
+declare function gzipSize(
+    input: string | Buffer,
+    callback: (error: Error, size: number) => void
+): string;
 export = gzipSize;
 declare namespace gzipSize {
     function sync(input: string | Buffer): number;

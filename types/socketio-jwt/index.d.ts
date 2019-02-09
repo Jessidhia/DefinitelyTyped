@@ -12,34 +12,37 @@ import SocketIO = require("socket.io");
  * @param options is an object literal that contains options.
  * @param callback function - not implemented
  */
-export function authorize(options: JwtAuthOptions, callback?: JwtAuthorizeCallback): (socket: SocketIO.Socket) => void;
+export function authorize(
+    options: JwtAuthOptions,
+    callback?: JwtAuthorizeCallback
+): (socket: SocketIO.Socket) => void;
 
 /**
  * This is an object literal that contains options.
  */
 export interface JwtAuthOptions {
-	secret: string | JwtSecretFunc;
-	timeout?: number; // In milliseconds to handle the second round trip.
-	callback?: boolean; // To disconnect socket server-side without a client-side callback if no valid token.
-	decodedPropertyName: string; // Property to store the docoded token to.
-	handshake?: boolean; // Used to trigger a single round trip authentication.
+    secret: string | JwtSecretFunc;
+    timeout?: number; // In milliseconds to handle the second round trip.
+    callback?: boolean; // To disconnect socket server-side without a client-side callback if no valid token.
+    decodedPropertyName: string; // Property to store the docoded token to.
+    handshake?: boolean; // Used to trigger a single round trip authentication.
 }
 
 export interface JwtData {
-	message: string;
-	code: string;
-	type: string;
+    message: string;
+    code: string;
+    type: string;
 }
 
 /**
  * An Error Object used by the package.
  */
 export class UnauthorizedError extends Error {
-	constructor(code: string, error: Error);
+    constructor(code: string, error: Error);
 
-	message: string;
-	inner: Error;
-	data: JwtData;
+    message: string;
+    inner: Error;
+    data: JwtData;
 }
 
 /**
@@ -49,7 +52,11 @@ export class UnauthorizedError extends Error {
  * `payload` is the decoded JWT payload
  * `callback` is an error-first callback defined below
  */
-export type JwtSecretFunc = (request: any, payload: any, callback: JwtSecretFuncCallback) => void;
+export type JwtSecretFunc = (
+    request: any,
+    payload: any,
+    callback: JwtSecretFuncCallback
+) => void;
 
 /**
  * If JwtAuthOptions.secret is a function, then this is the signature of the callback function provided to that function

@@ -54,10 +54,7 @@ subscriptions.dispose();
 
 // Managing Disposables
 subscriptions.add(subscription);
-subscriptions.add(
-    subscription,
-    { dispose() {} }
-);
+subscriptions.add(subscription, { dispose() {} });
 
 subscriptions.remove(subscription);
 subscriptions.remove({ dispose() {} });

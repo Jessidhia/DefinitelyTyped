@@ -5,11 +5,11 @@
 // TypeScript Version: 2.8
 
 // import Ember from 'ember';
-import EmberObject from '@ember/object';
-import RegistryProxyMixin from '@ember/engine/-private/registry-proxy-mixin';
-import Initializer from '@ember/engine/-private/types/initializer';
-import EngineInstance from '@ember/engine/instance';
-import Resolver from '@ember/engine/-private/resolver';
+import EmberObject from "@ember/object";
+import RegistryProxyMixin from "@ember/engine/-private/registry-proxy-mixin";
+import Initializer from "@ember/engine/-private/types/initializer";
+import EngineInstance from "@ember/engine/instance";
+import Resolver from "@ember/engine/-private/resolver";
 
 /**
  * The `Engine` class contains core functionality for both applications and
@@ -31,7 +31,9 @@ export default class Engine extends EmberObject.extend(RegistryProxyMixin) {
      * to the store, container, and other items. However, these initializers run
      * after code has loaded and are not allowed to defer readiness.
      */
-    static instanceInitializer(instanceInitializer: Initializer<EngineInstance>): void;
+    static instanceInitializer(
+        instanceInitializer: Initializer<EngineInstance>
+    ): void;
     /**
      * Set this to provide an alternate class to `Ember.DefaultResolver`
      */

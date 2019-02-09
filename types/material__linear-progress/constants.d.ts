@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    CLOSED_CLASS: 'mdc-linear-progress--closed';
-    INDETERMINATE_CLASS: 'mdc-linear-progress--indeterminate';
-    REVERSED_CLASS: 'mdc-linear-progress--reversed';
+    CLOSED_CLASS: "mdc-linear-progress--closed";
+    INDETERMINATE_CLASS: "mdc-linear-progress--indeterminate";
+    REVERSED_CLASS: "mdc-linear-progress--reversed";
 }
 
 export interface strings extends MDCStrings {
-    PRIMARY_BAR_SELECTOR: '.mdc-linear-progress__primary-bar';
-    BUFFER_SELECTOR: '.mdc-linear-progress__buffer';
+    PRIMARY_BAR_SELECTOR: ".mdc-linear-progress__primary-bar";
+    BUFFER_SELECTOR: ".mdc-linear-progress__buffer";
 }

@@ -7,15 +7,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import * as Koa from 'koa';
-import * as Joi from 'joi';
-import * as KoaRouter from 'koa-router';
-import * as CoBody from 'co-body';
+import * as Koa from "koa";
+import * as Joi from "joi";
+import * as KoaRouter from "koa-router";
+import * as CoBody from "co-body";
 
 declare module "koa" {
     interface Request {
         body?: any;
-        params: {[key: string]: string};
+        params: { [key: string]: string };
     }
 }
 
@@ -29,11 +29,15 @@ declare namespace createRouter {
     interface NestedHandler extends ReadonlyArray<Handler> {}
     type Handler = FullHandler | NestedHandler;
 
-    type Method = (path: string|RegExp, handlerOrConfig: Handler | object, ...handlers: Handler[]) => Router;
+    type Method = (
+        path: string | RegExp,
+        handlerOrConfig: Handler | object,
+        ...handlers: Handler[]
+    ) => Router;
 
     interface Spec {
-        method: string|string[];
-        path: string|RegExp;
+        method: string | string[];
+        path: string | RegExp;
         handler: Handler;
         pre?: Handler;
         validate?: {
@@ -43,11 +47,11 @@ declare namespace createRouter {
             body?: Joi.SchemaLike;
             maxBody?: number;
             failure?: number;
-            type?: 'form'|'json'|'multipart';
+            type?: "form" | "json" | "multipart";
             formOptions?: CoBody.Options;
             jsonOptions?: CoBody.Options;
             multipartOptions?: CoBody.Options;
-            output?: {[status: string]: Joi.SchemaLike};
+            output?: { [status: string]: Joi.SchemaLike };
             continueOnError?: boolean;
         };
         meta?: any;
@@ -55,12 +59,12 @@ declare namespace createRouter {
 
     interface Router {
         routes: Spec[];
-        route(spec: Spec|Spec[]): Router;
+        route(spec: Spec | Spec[]): Router;
         middleware(): Koa.Middleware;
 
-        prefix: KoaRouter['prefix'];
-        use: KoaRouter['use'];
-        param: KoaRouter['param'];
+        prefix: KoaRouter["prefix"];
+        use: KoaRouter["use"];
+        param: KoaRouter["param"];
 
         head: Method;
         options: Method;

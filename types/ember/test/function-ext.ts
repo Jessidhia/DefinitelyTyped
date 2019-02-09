@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 declare global {
     // tslint:disable-next-line:no-empty-interface
@@ -6,7 +6,7 @@ declare global {
 }
 
 Ember.Object.extend({
-    foo: '',
+    foo: "",
 
     // tslint:disable-next-line:only-arrow-functions
     arr: function() {
@@ -14,12 +14,12 @@ Ember.Object.extend({
     }.property(),
 
     alias: function(this: any) {
-        return this.get('foo');
-    }.property('foo', 'bar.@each.baz'),
+        return this.get("foo");
+    }.property("foo", "bar.@each.baz"),
 
     // tslint:disable-next-line:only-arrow-functions
-    observer: function() {}.observes('foo', 'bar'),
+    observer: function() {}.observes("foo", "bar"),
 
     // tslint:disable-next-line:only-arrow-functions
-    on: function() {}.on('foo', 'bar'),
+    on: function() {}.on("foo", "bar")
 });

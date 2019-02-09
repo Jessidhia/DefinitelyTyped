@@ -5,7 +5,7 @@
 
 declare namespace clamp {
     interface ClampOptions {
-        clamp?: number|string;
+        clamp?: number | string;
         useNativeClamp?: boolean;
         splitOnChars?: string[];
         animate?: boolean;
@@ -19,7 +19,10 @@ declare namespace clamp {
     }
 }
 
-declare function clamp(element: HTMLElement, options?: clamp.ClampOptions): clamp.ClampResponse;
+declare function clamp(
+    element: HTMLElement,
+    options?: clamp.ClampOptions
+): clamp.ClampResponse;
 
 export = clamp;
 export as namespace clamp;

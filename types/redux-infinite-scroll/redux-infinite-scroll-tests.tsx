@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import InfiniteScoller from "redux-infinite-scroll";
 
 class App extends React.Component {
@@ -12,7 +12,9 @@ class App extends React.Component {
         const data: JSX.Element[] = [];
         for (let i = 0; i < numOfItems; i++) {
             data.push(
-                <div key={i} className="test-item">Item #{i}</div>
+                <div key={i} className="test-item">
+                    Item #{i}
+                </div>
             );
         }
 
@@ -20,7 +22,7 @@ class App extends React.Component {
     }
 
     _loadMore() {
-        console.log('loading More');
+        console.log("loading More");
         this.setState({ loadingMore: true }, () => {
             // CB emulates an ajax request
             this.setState({
@@ -32,7 +34,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <InfiniteScoller className="test"
+            <InfiniteScoller
+                className="test"
                 elementIsScrollable={true}
                 loadMore={this._loadMore.bind(this)}
                 hasMore={true}
@@ -46,4 +49,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));

@@ -7,7 +7,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.9
 
-export type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never, [x: number]: never })[keyof T]>;
+export type Omit<T, K extends keyof T> = Pick<
+    T,
+    ({ [P in keyof T]: P } &
+        { [P in K]: never } & {
+            [x: string]: never;
+            [x: number]: never;
+        })[keyof T]
+>;
 
 import { ComponentType } from "react";
 import { StyledComponent, Interpolation } from "styled-components";
@@ -42,7 +49,8 @@ export interface CommonProps {
 }
 
 export interface BoxProps
-    extends Omit<React.ComponentPropsWithRef<'div'>, "color" | "is">, CommonProps {
+    extends Omit<React.ComponentPropsWithRef<"div">, "color" | "is">,
+        CommonProps {
     flex?: ResponsiveProp;
     order?: ResponsiveProp;
     is?: string | ComponentType<any>;

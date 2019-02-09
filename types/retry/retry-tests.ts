@@ -1,4 +1,4 @@
-import retry = require('retry');
+import retry = require("retry");
 
 // Option values
 const att = 4;
@@ -19,7 +19,7 @@ const operationOptions: retry.OperationOptions = {
     randomize: rnd,
     forever: evr,
     unref: unr,
-    maxRetryTime: max,
+    maxRetryTime: max
 };
 
 const timeoutsOptions: retry.TimeoutsOptions = {
@@ -27,14 +27,14 @@ const timeoutsOptions: retry.TimeoutsOptions = {
     factor: fac,
     minTimeout: min,
     maxTimeout: max,
-    randomize: rnd,
+    randomize: rnd
 };
 
 const createTimeoutOptions: retry.CreateTimeoutOptions = {
     factor: fac,
     minTimeout: min,
     maxTimeout: max,
-    randomize: rnd,
+    randomize: rnd
 };
 
 // Class to be wrapped later on
@@ -70,6 +70,6 @@ retry.timeouts(); // $ExpectType number[]
 retry.timeouts(timeoutsOptions); // $ExpectType number[]
 
 retry.wrap(new Foo());
-retry.wrap(new Foo(), ['bar']);
-retry.wrap(new Foo(), operationOptions, ['bar']);
+retry.wrap(new Foo(), ["bar"]);
+retry.wrap(new Foo(), operationOptions, ["bar"]);
 retry.wrap(new Foo(), operationOptions);

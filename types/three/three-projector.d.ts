@@ -34,7 +34,6 @@ export class RenderableFace {
     material: Material;
     uvs: Vector2[][];
     z: number;
-
 }
 
 export class RenderableVertex {
@@ -92,10 +91,15 @@ export class Projector {
      * @param camera camera to use in the projection.
      * @param sort select whether to sort elements using the Painter's algorithm.
      */
-    projectScene(scene: Scene, camera: Camera, sortObjects: boolean, sortElements?: boolean): {
-        objects: Object3D[];     // Mesh, Line or other object
-        sprites: Object3D[];    // Sprite or Particle
+    projectScene(
+        scene: Scene,
+        camera: Camera,
+        sortObjects: boolean,
+        sortElements?: boolean
+    ): {
+        objects: Object3D[]; // Mesh, Line or other object
+        sprites: Object3D[]; // Sprite or Particle
         lights: Light[];
-        elements: Face3[];    // Line, Particle, Face3 or Face4
+        elements: Face3[]; // Line, Particle, Face3 or Face4
     };
 }

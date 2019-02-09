@@ -28,8 +28,8 @@ declare namespace Pickadate {
 
         // Day/Time states
         disabled?: string; // default 'picker__day--disabled' or 'picker__list-item--disabled'
-        selected?: string // default 'picker__day--selected' or 'picker__list-item--selected'
-        highlighted?: string // default 'picker__day--highlighted' or 'picker__list-item--highlighted'
+        selected?: string; // default 'picker__day--selected' or 'picker__list-item--selected'
+        highlighted?: string; // default 'picker__day--highlighted' or 'picker__list-item--highlighted'
         now?: string; // default 'picker__day--today' or 'picker__list-item--now'
 
         // Clear button
@@ -139,7 +139,7 @@ declare namespace Pickadate {
          * Specify where to insert the picker's root element by passing any
          * valid CSS selector to this option. Defaults to undefined.
          */
-        container?: string|JQuery;
+        container?: string | JQuery;
 
         /**
          * The hidden input container.
@@ -168,7 +168,11 @@ declare namespace Pickadate {
         onStop?: (event: any) => void;
     }
 
-    type MinOrMaxDateOption = Date | [number, number, number] | number | boolean;
+    type MinOrMaxDateOption =
+        | Date
+        | [number, number, number]
+        | number
+        | boolean;
     type MinOrMaxTimeOption = Date | [number, number] | number | boolean;
 
     export interface DateOptions extends Options {
@@ -363,7 +367,11 @@ declare namespace Pickadate {
         format?: string;
     }
 
-    interface Picker<TPickerObject, TItemObject extends Item, TOptions extends SetObject> {
+    interface Picker<
+        TPickerObject,
+        TItemObject extends Item,
+        TOptions extends SetObject
+    > {
         /**
          * The picker's relative input element wrapped as a jQuery object.
          */
@@ -422,53 +430,53 @@ declare namespace Pickadate {
         /**
          * Returns the string value of the picker's input element.
          */
-        get(thing: 'value'): string;
+        get(thing: "value"): string;
 
         /**
          * Returns the item object that is visually selected.
          */
-        get(thing: 'select'): TItemObject;
+        get(thing: "select"): TItemObject;
 
         /**
          * Returns the item object that is visually highlighted.
          */
-        get(thing: 'highlight'): TItemObject;
+        get(thing: "highlight"): TItemObject;
 
         /**
          * Returns the item object that sets the current view.
          */
-        get(thing: 'view'): TItemObject;
+        get(thing: "view"): TItemObject;
 
         /**
          * Returns the item object that limits the picker's lower range.
          */
-        get(thing: 'min'): TItemObject;
+        get(thing: "min"): TItemObject;
 
         /**
          * Returns the item object that limits the picker's upper range.
          */
-        get(thing: 'max'): TItemObject;
+        get(thing: "max"): TItemObject;
 
         /**
          * Returns a boolean value of whether the picker is open or not.
          */
-        get(thing: 'open'): boolean;
+        get(thing: "open"): boolean;
 
         /**
          * Returns a boolean value of whether the picker has started or not.
          */
-        get(thing: 'start'): boolean;
+        get(thing: "start"): boolean;
 
         /**
          * Returns a unique 9-digit integer that is the ID of the picker.
          */
-        get(thing: 'id'): number;
+        get(thing: "id"): number;
 
         /**
          * Returns an array of items that determine which item objects to
          * disable on the picker.
          */
-        get(thing: 'disable'): any[];
+        get(thing: "disable"): any[];
 
         /**
          * Returns a formatted string for the item object specified by `thing`
@@ -503,8 +511,10 @@ declare namespace Pickadate {
         trigger(event: string, data?: any): TPickerObject;
     }
 
-    export interface DatePicker extends Picker<DatePicker, DateItem, SetObject> { }
-    export interface TimePicker extends Picker<TimePicker, TimeItem, TimeSetObject> { }
+    export interface DatePicker
+        extends Picker<DatePicker, DateItem, SetObject> {}
+    export interface TimePicker
+        extends Picker<TimePicker, TimeItem, TimeSetObject> {}
 
     interface Pickadate {
         defaults: DateOptions;

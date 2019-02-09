@@ -1,29 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "nouislider": [
-                "nouislider/v7"
-            ]
+            "nouislider": ["nouislider/v7"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "nouislider-tests.ts"
-    ]
+    "files": ["index.d.ts", "nouislider-tests.ts"]
 }

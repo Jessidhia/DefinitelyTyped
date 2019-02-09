@@ -5,16 +5,22 @@
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.8
 
-import * as self from '@feathersjs/authentication-oauth2';
-import { Application, Paginated, Service } from '@feathersjs/feathers';
-import { Request, RequestHandler } from 'express';
-import { Profile, Strategy } from 'passport';
+import * as self from "@feathersjs/authentication-oauth2";
+import { Application, Paginated, Service } from "@feathersjs/feathers";
+import { Request, RequestHandler } from "express";
+import { Profile, Strategy } from "passport";
 
-declare const feathersAuthenticationOAuth2: ((options?: FeathersAuthenticationOAuth2Options) => () => void) & typeof self;
+declare const feathersAuthenticationOAuth2: ((
+    options?: FeathersAuthenticationOAuth2Options
+) => () => void) &
+    typeof self;
 export default feathersAuthenticationOAuth2;
 
 // todo: make a base options interface in feathers/authentication that we can extend here
-export interface FeathersAuthenticationOAuth2Options<VerifierType = typeof Verifier, ServiceType = any> {
+export interface FeathersAuthenticationOAuth2Options<
+    VerifierType = typeof Verifier,
+    ServiceType = any
+> {
     /**
      * The name of the OAuth2 provider
      */
@@ -111,15 +117,29 @@ export class Verifier<
      * class MyVerifier extends Verifier<any, any, IProfileType {}
      */
     ProfileType extends Profile = Profile
-    > {
-    constructor(app: Application, options: OptionType)
+> {
+    constructor(app: Application, options: OptionType);
     options: OptionType;
     service: Service<DataType>;
-    _updateEntity(entity: any, data: FeathersAuthenticationOAuth2Data<ProfileType>): Promise<any>; // updates an existing entity
-    _createEntity(data: FeathersAuthenticationOAuth2Data<ProfileType>): Promise<any>; // creates an entity if they didn't exist already
-    _normalizeResult<T = DataType>(results: T[] | Paginated<T>): Promise<T>;  // normalizes result from service to account for pagination
-    _setPayloadAndDone(entity: any, done: (err: Error | null, user: object, info: object) => void): Promise<any>;
-    verify(req: Request, accessToken: string, refreshToken: string, profile: ProfileType, done: (err: Error | null, user: object, info: object) => void): void;
+    _updateEntity(
+        entity: any,
+        data: FeathersAuthenticationOAuth2Data<ProfileType>
+    ): Promise<any>; // updates an existing entity
+    _createEntity(
+        data: FeathersAuthenticationOAuth2Data<ProfileType>
+    ): Promise<any>; // creates an entity if they didn't exist already
+    _normalizeResult<T = DataType>(results: T[] | Paginated<T>): Promise<T>; // normalizes result from service to account for pagination
+    _setPayloadAndDone(
+        entity: any,
+        done: (err: Error | null, user: object, info: object) => void
+    ): Promise<any>;
+    verify(
+        req: Request,
+        accessToken: string,
+        refreshToken: string,
+        profile: ProfileType,
+        done: (err: Error | null, user: object, info: object) => void
+    ): void;
 }
 
 export const defaultHandler: RequestHandler;

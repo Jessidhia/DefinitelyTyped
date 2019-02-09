@@ -11,7 +11,10 @@ interface InputEventInit extends UIEventInit {
 // tslint:disable-next-line no-empty-interface
 interface InputEvent extends UIEvent {}
 declare class InputEvent {
-    constructor(typeArg: 'input' | 'beforeinput', inputEventInit?: InputEventInit);
+    constructor(
+        typeArg: "input" | "beforeinput",
+        inputEventInit?: InputEventInit
+    );
     readonly data: string;
     readonly isComposing: boolean;
 }

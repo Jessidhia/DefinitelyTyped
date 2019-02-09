@@ -9,7 +9,12 @@ const store: expressbruteredis = new expressbruteredis({
 });
 
 const bruteforce: expressbrute = new expressbrute(store, {
-    failCallback: (req: express.Request, res: express.Response, next: express.NextFunction, validTime: Date) => {
+    failCallback: (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction,
+        validTime: Date
+    ) => {
         // Don't send a message back to the user in production
         res.send("You cannot submit a request again until: " + validTime);
     }

@@ -14,16 +14,17 @@ declare namespace adone.templating {
                 noCache?: boolean;
             }
 
-            type ConfigureOptions = EnvironmentOptions & FileSystemLoaderOptions & {
-                tags?: {
-                    blockStart?: string,
-                    blockEnd?: string,
-                    variableStart?: string,
-                    variableEnd?: string,
-                    commentStart?: string,
-                    commentEnd?: string
+            type ConfigureOptions = EnvironmentOptions &
+                FileSystemLoaderOptions & {
+                    tags?: {
+                        blockStart?: string;
+                        blockEnd?: string;
+                        variableStart?: string;
+                        variableEnd?: string;
+                        commentStart?: string;
+                        commentEnd?: string;
+                    };
                 };
-            };
 
             interface PrecompileOptions {
                 name?: string;
@@ -32,7 +33,10 @@ declare namespace adone.templating {
                 env?: Environment;
                 include?: string[];
                 exclude?: string[];
-                wrapper?(templates: { name: string, template: string }, opts: PrecompileOptions): string;
+                wrapper?(
+                    templates: { name: string; template: string },
+                    opts: PrecompileOptions
+                ): string;
             }
 
             interface Extension {
@@ -58,14 +62,29 @@ declare namespace adone.templating {
                 autoescape: boolean;
             };
 
-            constructor(loader?: I.Loader | I.Loader[] | null, opts?: I.EnvironmentOptions);
+            constructor(
+                loader?: I.Loader | I.Loader[] | null,
+                opts?: I.EnvironmentOptions
+            );
             render(name: string, context?: object): string;
-            render(name: string, context?: object, callback?: (err: any, res: string) => any): void;
+            render(
+                name: string,
+                context?: object,
+                callback?: (err: any, res: string) => any
+            ): void;
 
             renderString(name: string, context?: object): string;
-            renderString(name: string, context?: object, callback?: (err: any, res: string) => any): void;
+            renderString(
+                name: string,
+                context?: object,
+                callback?: (err: any, res: string) => any
+            ): void;
 
-            addFilter(name: string, func: (...args: any[]) => any, async?: boolean): void;
+            addFilter(
+                name: string,
+                func: (...args: any[]) => any,
+                async?: boolean
+            ): void;
             getFilter(name: string): (...args: any[]) => any;
 
             addExtension(name: string, ext: I.Extension): void;
@@ -76,7 +95,11 @@ declare namespace adone.templating {
             addGlobal(name: string, value: any): this;
 
             getTemplate(name: string, eagerCompile?: boolean): Template;
-            getTemplate(name: string, eagerCompile?: boolean, callback?: (err: any, templ: Template) => Template): void;
+            getTemplate(
+                name: string,
+                eagerCompile?: boolean,
+                callback?: (err: any, templ: Template) => Template
+            ): void;
 
             express(app: object): void;
         }
@@ -84,7 +107,10 @@ declare namespace adone.templating {
         class Template {
             constructor(src: string, env?: Environment, eagerCompile?: boolean);
             render(context?: object): string;
-            render(context?: object, callback?: (err: any, res: string) => any): void;
+            render(
+                context?: object,
+                callback?: (err: any, res: string) => any
+            ): void;
         }
 
         class Loader {
@@ -96,7 +122,10 @@ declare namespace adone.templating {
         }
 
         class FileSystemLoader extends Loader implements I.Loader {
-            constructor(searchPaths?: string | string[], opts?: I.FileSystemLoaderOptions);
+            constructor(
+                searchPaths?: string | string[],
+                opts?: I.FileSystemLoaderOptions
+            );
 
             getSource(name: string): I.LoaderSource;
         }
@@ -111,10 +140,18 @@ declare namespace adone.templating {
         function renderString(src: string, context?: object): Promise<string>;
         function renderStringSync(src: string, context?: object): string;
 
-        function compile(src: string, env?: Environment, path?: string, eagerCompile?: boolean): Template;
+        function compile(
+            src: string,
+            env?: Environment,
+            path?: string,
+            eagerCompile?: boolean
+        ): Template;
 
         function configure(options?: I.ConfigureOptions): Environment;
-        function configure(path: string | string[], options?: I.ConfigureOptions): Environment;
+        function configure(
+            path: string | string[],
+            options?: I.ConfigureOptions
+        ): Environment;
 
         function installJinjaCompat(): void;
     }

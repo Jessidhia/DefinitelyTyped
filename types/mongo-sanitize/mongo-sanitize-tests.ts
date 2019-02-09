@@ -1,4 +1,4 @@
-import * as mongoSanitize from 'mongo-sanitize';
+import * as mongoSanitize from "mongo-sanitize";
 
 const objectSanitized = mongoSanitize.sanitize({ $gt: 5, a: 1 });
 

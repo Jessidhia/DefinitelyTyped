@@ -14,8 +14,12 @@
 
 import * as http from "http";
 import * as url from "url";
-import { Server as NextServer, ServerOptions as NextServerOptions, RenderOptions } from 'next-server';
-import { NextConfig as NextServerConfig } from 'next-server/next-config';
+import {
+    Server as NextServer,
+    ServerOptions as NextServerOptions,
+    RenderOptions
+} from "next-server";
+import { NextConfig as NextServerConfig } from "next-server/next-config";
 import { Response as NodeResponse } from "node-fetch";
 import { SingletonRouter, DefaultQuery, UrlLike } from "./router";
 
@@ -92,7 +96,11 @@ declare namespace next {
      *
      * @see [React Hooks](https://reactjs.org/docs/hooks-intro.html)
      */
-    type NextSFC<P = {}, IP = P, C = NextContext> = NextFunctionComponent<P, IP, C>;
+    type NextSFC<P = {}, IP = P, C = NextContext> = NextFunctionComponent<
+        P,
+        IP,
+        C
+    >;
 
     /**
      * @deprecated as of recent React versions, function components can no
@@ -100,9 +108,17 @@ declare namespace next {
      *
      * @see [React Hooks](https://reactjs.org/docs/hooks-intro.html)
      */
-    type NextStatelessComponent<P = {}, IP = P, C = NextContext> = NextFunctionComponent<P, IP, C>;
+    type NextStatelessComponent<
+        P = {},
+        IP = P,
+        C = NextContext
+    > = NextFunctionComponent<P, IP, C>;
 
-    type NextFC<P = {}, IP = P, C = NextContext> = NextFunctionComponent<P, IP, C>;
+    type NextFC<P = {}, IP = P, C = NextContext> = NextFunctionComponent<
+        P,
+        IP,
+        C
+    >;
 
     /**
      * Next.js counterpart of React.FC/React.FunctionComponent.
@@ -111,8 +127,11 @@ declare namespace next {
      * @template IP Initial props returned from getInitialProps.
      * @template C Context passed to getInitialProps.
      */
-    type NextFunctionComponent<P = {}, IP = P, C = NextContext> = React.FunctionComponent<P> &
-        NextStaticLifecycle<IP, C>;
+    type NextFunctionComponent<
+        P = {},
+        IP = P,
+        C = NextContext
+    > = React.FunctionComponent<P> & NextStaticLifecycle<IP, C>;
 
     /**
      * Next.js counterpart of React.ComponentClass.
@@ -121,8 +140,11 @@ declare namespace next {
      * @template IP Initial props returned from getInitialProps.
      * @template C Context passed to getInitialProps.
      */
-    type NextComponentClass<P = {}, IP = P, C = NextContext> = React.ComponentClass<P> &
-        NextStaticLifecycle<IP, C>;
+    type NextComponentClass<
+        P = {},
+        IP = P,
+        C = NextContext
+    > = React.ComponentClass<P> & NextStaticLifecycle<IP, C>;
 
     /**
      * Next.js specific lifecycle methods.
@@ -135,6 +157,8 @@ declare namespace next {
     }
 }
 
-declare function next(options?: next.ServerOptions & { dev: true }): next.DevServer;
+declare function next(
+    options?: next.ServerOptions & { dev: true }
+): next.DevServer;
 declare function next(options?: next.ServerOptions): next.Server;
 export = next;

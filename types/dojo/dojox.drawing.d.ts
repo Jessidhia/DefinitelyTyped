@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/drawing.html
      *
@@ -13,8 +11,7 @@ declare namespace dojox {
      * this module.
      *
      */
-    interface drawing {
-    }
+    interface drawing {}
     namespace drawing {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/drawing/_base.html
@@ -1098,7 +1095,15 @@ declare namespace dojox {
                  * @param p
                  * @param c
                  */
-                createForEllipse(o: any, size: any, mult: any, d: any, r: any, p: any, c: any): void;
+                createForEllipse(
+                    o: any,
+                    size: any,
+                    mult: any,
+                    d: any,
+                    r: any,
+                    p: any,
+                    c: any
+                ): void;
                 /**
                  *
                  * @param o
@@ -1109,7 +1114,15 @@ declare namespace dojox {
                  * @param p
                  * @param c
                  */
-                createForLine(o: any, size: any, mult: any, d: any, r: any, p: any, c: any): void;
+                createForLine(
+                    o: any,
+                    size: any,
+                    mult: any,
+                    d: any,
+                    r: any,
+                    p: any,
+                    c: any
+                ): void;
                 /**
                  *
                  * @param o
@@ -1120,7 +1133,15 @@ declare namespace dojox {
                  * @param p
                  * @param c
                  */
-                createForPath(o: any, size: any, mult: any, pts: any, r: any, p: any, c: any): void;
+                createForPath(
+                    o: any,
+                    size: any,
+                    mult: any,
+                    pts: any,
+                    r: any,
+                    p: any,
+                    c: any
+                ): void;
                 /**
                  *
                  * @param o
@@ -1131,7 +1152,15 @@ declare namespace dojox {
                  * @param p
                  * @param c
                  */
-                createForRect(o: any, size: any, mult: any, d: any, r: any, p: any, c: any): void;
+                createForRect(
+                    o: any,
+                    size: any,
+                    mult: any,
+                    d: any,
+                    r: any,
+                    p: any,
+                    c: any
+                ): void;
                 /**
                  *
                  * @param o
@@ -1142,7 +1171,15 @@ declare namespace dojox {
                  * @param p
                  * @param c
                  */
-                createForZArrow(o: any, size: any, mult: any, pts: any, r: any, p: any, c: any): void;
+                createForZArrow(
+                    o: any,
+                    size: any,
+                    mult: any,
+                    pts: any,
+                    r: any,
+                    p: any,
+                    c: any
+                ): void;
                 /**
                  *
                  */
@@ -1261,7 +1298,13 @@ declare namespace dojox {
                  * @param y2
                  * @param style
                  */
-                arrowHead(x1: any, y1: any, x2: any, y2: any, style: any): any[];
+                arrowHead(
+                    x1: any,
+                    y1: any,
+                    x2: any,
+                    y2: any,
+                    style: any
+                ): any[];
                 /**
                  * Changes properties in the style or disabled styles,
                  * depending on whether the object is enabled.
@@ -1310,7 +1353,11 @@ declare namespace dojox {
                  * @param currPt
                  * @param remove
                  */
-                checkClosePoint(firstPt: Object, currPt: Object, remove: boolean): boolean;
+                checkClosePoint(
+                    firstPt: Object,
+                    currPt: Object,
+                    remove: boolean
+                ): boolean;
                 /**
                  * Convenience method for quick connects
                  * See comments below for possiblities
@@ -2103,7 +2150,9 @@ declare namespace dojox {
                      *
                      * @param anchor
                      */
-                    onTransformBegin(anchor: dojox.drawing.manager.Anchors): void;
+                    onTransformBegin(
+                        anchor: dojox.drawing.manager.Anchors
+                    ): void;
                     /**
                      * Called from anchor point up mouse up
                      *
@@ -2118,7 +2167,6 @@ declare namespace dojox {
                     onUp(obj: Event): void;
                 }
             }
-
         }
 
         namespace library {
@@ -2892,7 +2940,12 @@ declare namespace dojox {
                  * @param scrollx
                  * @param scrolly
                  */
-                setDimensions(width: any, height: any, scrollx: any, scrolly: any): void;
+                setDimensions(
+                    width: any,
+                    height: any,
+                    scrollx: any,
+                    scrolly: any
+                ): void;
                 /**
                  * Internal. Zooms canvas in and out.
                  *
@@ -3870,25 +3923,44 @@ declare namespace dojox {
                  * @param params Hash of initialization parameters for widget, including scalar values (like title, duration etc.)and functions, typically callbacks like onClick.The hash can contain any of the widget's properties, excluding read-only properties.
                  * @param srcNodeRef       OptionalIf a srcNodeRef (DOM node) is specified:use srcNodeRef.innerHTML as my contentsif this is a behavioral widget then apply behavior to that srcNodeRefotherwise, replace srcNodeRef with my generated DOM tree
                  */
-                class GreekPalette extends dijit._Widget implements dijit._TemplatedMixin, dijit._PaletteMixin {
+                class GreekPalette extends dijit._Widget
+                    implements dijit._TemplatedMixin, dijit._PaletteMixin {
                     constructor(params?: Object, srcNodeRef?: HTMLElement);
                     /**
                      * True if mouse was pressed while over this widget, and hasn't been released yet
                      *
                      */
                     "active": boolean;
-                    set(property:"active", value: boolean): void;
-                    get(property:"active"): boolean;
-                    watch(property:"active", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                    set(property: "active", value: boolean): void;
+                    get(property: "active"): boolean;
+                    watch(
+                        property: "active",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: boolean,
+                                newValue?: boolean
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Object to which attach points and events will be scoped.  Defaults
                      * to 'this'.
                      *
                      */
                     "attachScope": Object;
-                    set(property:"attachScope", value: Object): void;
-                    get(property:"attachScope"): Object;
-                    watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                    set(property: "attachScope", value: Object): void;
+                    get(property: "attachScope"): Object;
+                    watch(
+                        property: "attachScope",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: Object,
+                                newValue?: Object
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
                      * for each XXX attribute to be mapped to the DOM.
@@ -3932,30 +4004,66 @@ declare namespace dojox {
                      *
                      */
                     "attributeMap": Object;
-                    set(property:"attributeMap", value: Object): void;
-                    get(property:"attributeMap"): Object;
-                    watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                    set(property: "attributeMap", value: Object): void;
+                    get(property: "attributeMap"): Object;
+                    watch(
+                        property: "attributeMap",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: Object,
+                                newValue?: Object
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      *
                      */
                     "baseClass": string;
-                    set(property:"baseClass", value: string): void;
-                    get(property:"baseClass"): string;
-                    watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "baseClass", value: string): void;
+                    get(property: "baseClass"): string;
+                    watch(
+                        property: "baseClass",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      *
                      */
                     "cellClass": string;
-                    set(property:"cellClass", value: string): void;
-                    get(property:"cellClass"): string;
-                    watch(property:"cellClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "cellClass", value: string): void;
+                    get(property: "cellClass"): string;
+                    watch(
+                        property: "cellClass",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      *
                      */
                     "class": string;
-                    set(property:"class", value: string): void;
-                    get(property:"class"): string;
-                    watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "class", value: string): void;
+                    get(property: "class"): string;
+                    watch(
+                        property: "class",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Designates where children of the source DOM node will be placed.
                      * "Children" in this case refers to both DOM nodes and widgets.
@@ -3980,9 +4088,18 @@ declare namespace dojox {
                      *
                      */
                     "containerNode": HTMLElement;
-                    set(property:"containerNode", value: HTMLElement): void;
-                    get(property:"containerNode"): HTMLElement;
-                    watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                    set(property: "containerNode", value: HTMLElement): void;
+                    get(property: "containerNode"): HTMLElement;
+                    watch(
+                        property: "containerNode",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: HTMLElement,
+                                newValue?: HTMLElement
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Subclasses may define a cssStateNodes property that lists sub-nodes within the widget that
                      * need CSS classes applied on mouse hover/press and focus.
@@ -4000,17 +4117,35 @@ declare namespace dojox {
                      *
                      */
                     "cssStateNodes": Object;
-                    set(property:"cssStateNodes", value: Object): void;
-                    get(property:"cssStateNodes"): Object;
-                    watch(property:"cssStateNodes", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                    set(property: "cssStateNodes", value: Object): void;
+                    get(property: "cssStateNodes"): Object;
+                    watch(
+                        property: "cssStateNodes",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: Object,
+                                newValue?: Object
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Number of milliseconds before a held key or button becomes typematic
                      *
                      */
                     "defaultTimeout": number;
-                    set(property:"defaultTimeout", value: number): void;
-                    get(property:"defaultTimeout"): number;
-                    watch(property:"defaultTimeout", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                    set(property: "defaultTimeout", value: number): void;
+                    get(property: "defaultTimeout"): number;
+                    watch(
+                        property: "defaultTimeout",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: number,
+                                newValue?: number
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Bi-directional support, as defined by the HTML DIR
                      * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -4018,9 +4153,18 @@ declare namespace dojox {
                      *
                      */
                     "dir": string;
-                    set(property:"dir", value: string): void;
-                    get(property:"dir"): string;
-                    watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "dir", value: string): void;
+                    get(property: "dir"): string;
+                    watch(
+                        property: "dir",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * This is our visible representation of the widget! Other DOM
                      * Nodes may by assigned to other properties, usually through the
@@ -4029,26 +4173,53 @@ declare namespace dojox {
                      *
                      */
                     "domNode": HTMLElement;
-                    set(property:"domNode", value: HTMLElement): void;
-                    get(property:"domNode"): HTMLElement;
-                    watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                    set(property: "domNode", value: HTMLElement): void;
+                    get(property: "domNode"): HTMLElement;
+                    watch(
+                        property: "domNode",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: HTMLElement,
+                                newValue?: HTMLElement
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * This widget or a widget it contains has focus, or is "active" because
                      * it was recently clicked.
                      *
                      */
                     "focused": boolean;
-                    set(property:"focused", value: boolean): void;
-                    get(property:"focused"): boolean;
-                    watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                    set(property: "focused", value: boolean): void;
+                    get(property: "focused"): boolean;
+                    watch(
+                        property: "focused",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: boolean,
+                                newValue?: boolean
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * True if cursor is over this widget
                      *
                      */
                     "hovering": boolean;
-                    set(property:"hovering", value: boolean): void;
-                    get(property:"hovering"): boolean;
-                    watch(property:"hovering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                    set(property: "hovering", value: boolean): void;
+                    get(property: "hovering"): boolean;
+                    watch(
+                        property: "hovering",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: boolean,
+                                newValue?: boolean
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * A unique, opaque ID string that can be assigned by users or by the
                      * system. If the developer passes an ID which is known not to be
@@ -4057,9 +4228,18 @@ declare namespace dojox {
                      *
                      */
                     "id": string;
-                    set(property:"id", value: string): void;
-                    get(property:"id"): string;
-                    watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "id", value: string): void;
+                    get(property: "id"): string;
+                    watch(
+                        property: "id",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Rarely used.  Overrides the default Dojo locale used to render this widget,
                      * as defined by the HTML LANG attribute.
@@ -4068,82 +4248,172 @@ declare namespace dojox {
                      *
                      */
                     "lang": string;
-                    set(property:"lang", value: string): void;
-                    get(property:"lang"): string;
-                    watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "lang", value: string): void;
+                    get(property: "lang"): string;
+                    watch(
+                        property: "lang",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * The document this widget belongs to.  If not specified to constructor, will default to
                      * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                      *
                      */
                     "ownerDocument": Object;
-                    set(property:"ownerDocument", value: Object): void;
-                    get(property:"ownerDocument"): Object;
-                    watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                    set(property: "ownerDocument", value: Object): void;
+                    get(property: "ownerDocument"): Object;
+                    watch(
+                        property: "ownerDocument",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: Object,
+                                newValue?: Object
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      *
                      */
                     "paletteClass": string;
-                    set(property:"paletteClass", value: string): void;
-                    get(property:"paletteClass"): string;
-                    watch(property:"paletteClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "paletteClass", value: string): void;
+                    get(property: "paletteClass"): string;
+                    watch(
+                        property: "paletteClass",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      *
                      */
                     "searchContainerNode": boolean;
-                    set(property:"searchContainerNode", value: boolean): void;
-                    get(property:"searchContainerNode"): boolean;
-                    watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                    set(property: "searchContainerNode", value: boolean): void;
+                    get(property: "searchContainerNode"): boolean;
+                    watch(
+                        property: "searchContainerNode",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: boolean,
+                                newValue?: boolean
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Whether the preview pane will be displayed, to show details about the selected entity.
                      *
                      */
                     "showPreview": boolean;
-                    set(property:"showPreview", value: boolean): void;
-                    get(property:"showPreview"): boolean;
-                    watch(property:"showPreview", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                    set(property: "showPreview", value: boolean): void;
+                    get(property: "showPreview"): boolean;
+                    watch(
+                        property: "showPreview",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: boolean,
+                                newValue?: boolean
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * pointer to original DOM node
                      *
                      */
                     "srcNodeRef": HTMLElement;
-                    set(property:"srcNodeRef", value: HTMLElement): void;
-                    get(property:"srcNodeRef"): HTMLElement;
-                    watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                    set(property: "srcNodeRef", value: HTMLElement): void;
+                    get(property: "srcNodeRef"): HTMLElement;
+                    watch(
+                        property: "srcNodeRef",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: HTMLElement,
+                                newValue?: HTMLElement
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * HTML style attributes as cssText string or name/value hash
                      *
                      */
                     "style": string;
-                    set(property:"style", value: string): void;
-                    get(property:"style"): string;
-                    watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "style", value: string): void;
+                    get(property: "style"): string;
+                    watch(
+                        property: "style",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Widget tab index.
                      *
                      */
                     "tabIndex": string;
-                    set(property:"tabIndex", value: string): void;
-                    get(property:"tabIndex"): string;
-                    watch(property:"tabIndex", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "tabIndex", value: string): void;
+                    get(property: "tabIndex"): string;
+                    watch(
+                        property: "tabIndex",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Path to template (HTML file) for this widget relative to dojo.baseUrl.
                      * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
                      *
                      */
                     "templatePath": string;
-                    set(property:"templatePath", value: string): void;
-                    get(property:"templatePath"): string;
-                    watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "templatePath", value: string): void;
+                    get(property: "templatePath"): string;
+                    watch(
+                        property: "templatePath",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * The template of this widget.  Using dojoxEntityPalette classes
                      * in order to allow easy transfer of css
                      *
                      */
                     "templateString": string;
-                    set(property:"templateString", value: string): void;
-                    get(property:"templateString"): string;
-                    watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "templateString", value: string): void;
+                    get(property: "templateString"): string;
+                    watch(
+                        property: "templateString",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Fraction of time used to change the typematic timer between events
                      * 1.0 means that each typematic event fires at defaultTimeout intervals
@@ -4151,9 +4421,18 @@ declare namespace dojox {
                      *
                      */
                     "timeoutChangeRate": number;
-                    set(property:"timeoutChangeRate", value: number): void;
-                    get(property:"timeoutChangeRate"): number;
-                    watch(property:"timeoutChangeRate", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                    set(property: "timeoutChangeRate", value: number): void;
+                    get(property: "timeoutChangeRate"): number;
+                    watch(
+                        property: "timeoutChangeRate",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: number,
+                                newValue?: number
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * HTML title attribute.
                      *
@@ -4166,26 +4445,53 @@ declare namespace dojox {
                      *
                      */
                     "title": string;
-                    set(property:"title", value: string): void;
-                    get(property:"title"): string;
-                    watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "title", value: string): void;
+                    get(property: "title"): string;
+                    watch(
+                        property: "title",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                      * this specifies the tooltip to appear when the mouse is hovered over that text.
                      *
                      */
                     "tooltip": string;
-                    set(property:"tooltip", value: string): void;
-                    get(property:"tooltip"): string;
-                    watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "tooltip", value: string): void;
+                    get(property: "tooltip"): string;
+                    watch(
+                        property: "tooltip",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Currently selected color/emoticon/etc.
                      *
                      */
                     "value": string;
-                    set(property:"value", value: string): void;
-                    get(property:"value"): string;
-                    watch(property:"value", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                    set(property: "value", value: string): void;
+                    get(property: "value"): string;
+                    watch(
+                        property: "value",
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: string,
+                                newValue?: string
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * This method is deprecated, use get() or set() directly.
                      *
@@ -4315,7 +4621,11 @@ declare namespace dojox {
                      * @param event
                      * @param method
                      */
-                    connect(obj: Object, event: Function, method: Function): any;
+                    connect(
+                        obj: Object,
+                        event: Function,
+                        method: Function
+                    ): any;
                     /**
                      * Deprecated, will be removed in 2.0, use this.own(on(...)) or this.own(aspect.after(...)) instead.
                      *
@@ -4402,7 +4712,11 @@ declare namespace dojox {
                      * @param eventObj               Optional
                      * @param callbackArgs               Optional
                      */
-                    emit(type: String, eventObj: Object, callbackArgs: any[]): any;
+                    emit(
+                        type: String,
+                        eventObj: Object,
+                        callbackArgs: any[]
+                    ): any;
                     /**
                      * Focus this widget.  Puts focus on the most recently focused cell.
                      *
@@ -4511,7 +4825,10 @@ declare namespace dojox {
                      * @param reference Widget, DOMNode, or id of widget or DOMNode
                      * @param position               OptionalIf reference is a widget (or id of widget), and that widget has an ".addChild" method,it will be called passing this widget instance into that method, supplying the optionalposition index passed.  In this case position (if specified) should be an integer.If reference is a DOMNode (or id matching a DOMNode but not a widget),the position argument can be a numeric index or a string"first", "last", "before", or "after", same as dojo/dom-construct::place().
                      */
-                    placeAt(reference: dijit._WidgetBase, position: String): any;
+                    placeAt(
+                        reference: dijit._WidgetBase,
+                        position: String
+                    ): any;
                     /**
                      * Place this widget somewhere in the DOM based
                      * on standard domConstruct.place() conventions.
@@ -4544,7 +4861,10 @@ declare namespace dojox {
                      * @param reference Widget, DOMNode, or id of widget or DOMNode
                      * @param position               OptionalIf reference is a widget (or id of widget), and that widget has an ".addChild" method,it will be called passing this widget instance into that method, supplying the optionalposition index passed.  In this case position (if specified) should be an integer.If reference is a DOMNode (or id matching a DOMNode but not a widget),the position argument can be a numeric index or a string"first", "last", "before", or "after", same as dojo/dom-construct::place().
                      */
-                    placeAt(reference: dijit._WidgetBase, position: number): any;
+                    placeAt(
+                        reference: dijit._WidgetBase,
+                        position: number
+                    ): any;
                     /**
                      *
                      */
@@ -4642,7 +4962,16 @@ declare namespace dojox {
                      * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                      * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                      */
-                    watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                    watch(
+                        property: string,
+                        callback: {
+                            (
+                                property?: string,
+                                oldValue?: any,
+                                newValue?: any
+                            ): void;
+                        }
+                    ): { unwatch(): void };
                     /**
                      * Static method to get a template based on the templatePath or
                      * templateString key
@@ -4775,9 +5104,7 @@ declare namespace dojox {
                      */
                     onShow(): void;
                 }
-                namespace Silverlight {
-                }
-
+                namespace Silverlight {}
             }
 
             namespace tools {
@@ -5315,9 +5642,7 @@ declare namespace dojox {
                         onZoomOut(): void;
                     }
                 }
-
             }
-
         }
 
         namespace stencil {
@@ -7127,7 +7452,11 @@ declare namespace dojox {
                  * @param currPt
                  * @param remove
                  */
-                checkClosePoint(firstPt: Object, currPt: Object, remove: boolean): boolean;
+                checkClosePoint(
+                    firstPt: Object,
+                    currPt: Object,
+                    remove: boolean
+                ): boolean;
                 /**
                  * Convenience method for quick connects
                  * See comments below for possiblities
@@ -9824,7 +10153,11 @@ declare namespace dojox {
                  * @param currPt
                  * @param remove
                  */
-                checkClosePoint(firstPt: Object, currPt: Object, remove: boolean): boolean;
+                checkClosePoint(
+                    firstPt: Object,
+                    currPt: Object,
+                    remove: boolean
+                ): boolean;
                 /**
                  * Convenience method for quick connects
                  * See comments below for possiblities
@@ -10310,7 +10643,11 @@ declare namespace dojox {
                  * @param currPt
                  * @param remove
                  */
-                checkClosePoint(firstPt: Object, currPt: Object, remove: boolean): boolean;
+                checkClosePoint(
+                    firstPt: Object,
+                    currPt: Object,
+                    remove: boolean
+                ): boolean;
                 /**
                  * Convenience method for quick connects
                  * See comments below for possiblities
@@ -11783,7 +12120,11 @@ declare namespace dojox {
                      * @param y
                      * @param anchor
                      */
-                    anchorPositionCheck(x: number, y: number, anchor: dojox.drawing.manager.Anchors): Object;
+                    anchorPositionCheck(
+                        x: number,
+                        y: number,
+                        anchor: dojox.drawing.manager.Anchors
+                    ): Object;
                     /**
                      *
                      * @param options
@@ -11846,7 +12187,11 @@ declare namespace dojox {
                      * @param currPt
                      * @param remove
                      */
-                    checkClosePoint(firstPt: Object, currPt: Object, remove: boolean): boolean;
+                    checkClosePoint(
+                        firstPt: Object,
+                        currPt: Object,
+                        remove: boolean
+                    ): boolean;
                     /**
                      * Convenience method for quick connects
                      * See comments below for possiblities
@@ -12171,7 +12516,9 @@ declare namespace dojox {
                      *
                      * @param anchor
                      */
-                    onTransformBegin(anchor: dojox.drawing.manager.Anchors): void;
+                    onTransformBegin(
+                        anchor: dojox.drawing.manager.Anchors
+                    ): void;
                     /**
                      * Overwrites _Base.onTransformEnd
                      *
@@ -12780,7 +13127,9 @@ declare namespace dojox {
                      *
                      * @param anchor
                      */
-                    onTransformBegin(anchor: dojox.drawing.manager.Anchors): void;
+                    onTransformBegin(
+                        anchor: dojox.drawing.manager.Anchors
+                    ): void;
                     /**
                      * Called from anchor point up mouse up
                      *
@@ -13278,7 +13627,9 @@ declare namespace dojox {
                      *
                      * @param anchor
                      */
-                    onTransformBegin(anchor: dojox.drawing.manager.Anchors): void;
+                    onTransformBegin(
+                        anchor: dojox.drawing.manager.Anchors
+                    ): void;
                     /**
                      *
                      * @param anchor
@@ -13313,9 +13664,7 @@ declare namespace dojox {
                         tooltip: string;
                     }
                 }
-
             }
-
         }
 
         namespace ui {
@@ -13923,7 +14272,6 @@ declare namespace dojox {
                     onZoomOut(evt: MouseEvent): void;
                 }
             }
-
         }
 
         namespace util {
@@ -13969,7 +14317,12 @@ declare namespace dojox {
                  * @param value
                  * @param squelchErrors
                  */
-                attr(elem: Object, prop: String, value: any, squelchErrors: any): boolean;
+                attr(
+                    elem: Object,
+                    prop: String,
+                    value: any,
+                    squelchErrors: any
+                ): boolean;
                 /**
                  * Get an object that was registered with util.register
                  *
@@ -14022,7 +14375,13 @@ declare namespace dojox {
                  * @param y2
                  * @param amt
                  */
-                lineSub(x1: number, y1: number, x2: number, y2: number, amt: number): Object;
+                lineSub(
+                    x1: number,
+                    y1: number,
+                    x2: number,
+                    y2: number,
+                    amt: number
+                ): Object;
                 /**
                  *
                  * @param o1
@@ -14044,7 +14403,12 @@ declare namespace dojox {
                  * @param radius
                  * @param angle
                  */
-                pointOnCircle(cx: number, cy: number, radius: number, angle: number): Object;
+                pointOnCircle(
+                    cx: number,
+                    cy: number,
+                    radius: number,
+                    angle: number
+                ): Object;
                 /**
                  * Return the radians derived from the coordinates
                  * in the Mouse object.
@@ -14095,8 +14459,7 @@ declare namespace dojox {
                  *
                  *
                  */
-                interface objects {
-                }
+                interface objects {}
             }
 
             /**
@@ -14192,404 +14555,402 @@ declare namespace dojox {
                 convertLaTeX(inText: any): any;
             }
         }
-
     }
-
 }
 
 declare module "dojox/drawing" {
-    var exp: dojox.drawing
-    export=exp;
+    var exp: dojox.drawing;
+    export = exp;
 }
 declare module "dojox/drawing/_base" {
-    var exp: dojox.drawing._base
-    export=exp;
+    var exp: dojox.drawing._base;
+    export = exp;
 }
 declare module "dojox/drawing/Drawing" {
-    var exp: dojox.drawing.Drawing
-    export=exp;
+    var exp: dojox.drawing.Drawing;
+    export = exp;
 }
 declare module "dojox/drawing/defaults" {
-    var exp: dojox.drawing.defaults
-    export=exp;
+    var exp: dojox.drawing.defaults;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.arrows" {
-    var exp: dojox.drawing.defaults.arrows
-    export=exp;
+    var exp: dojox.drawing.defaults.arrows;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.disabled" {
-    var exp: dojox.drawing.defaults.disabled
-    export=exp;
+    var exp: dojox.drawing.defaults.disabled;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.anchors" {
-    var exp: dojox.drawing.defaults.anchors
-    export=exp;
+    var exp: dojox.drawing.defaults.anchors;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.highlighted" {
-    var exp: dojox.drawing.defaults.highlighted
-    export=exp;
+    var exp: dojox.drawing.defaults.highlighted;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.button" {
-    var exp: dojox.drawing.defaults.button
-    export=exp;
+    var exp: dojox.drawing.defaults.button;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.hitSelected" {
-    var exp: dojox.drawing.defaults.hitSelected
-    export=exp;
+    var exp: dojox.drawing.defaults.hitSelected;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.hitNorm" {
-    var exp: dojox.drawing.defaults.hitNorm
-    export=exp;
+    var exp: dojox.drawing.defaults.hitNorm;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.hitHighlighted" {
-    var exp: dojox.drawing.defaults.hitHighlighted
-    export=exp;
+    var exp: dojox.drawing.defaults.hitHighlighted;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.selected" {
-    var exp: dojox.drawing.defaults.selected
-    export=exp;
+    var exp: dojox.drawing.defaults.selected;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.norm" {
-    var exp: dojox.drawing.defaults.norm
-    export=exp;
+    var exp: dojox.drawing.defaults.norm;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.textMode" {
-    var exp: dojox.drawing.defaults.textMode
-    export=exp;
+    var exp: dojox.drawing.defaults.textMode;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.textDisabled" {
-    var exp: dojox.drawing.defaults.textDisabled
-    export=exp;
+    var exp: dojox.drawing.defaults.textDisabled;
+    export = exp;
 }
 declare module "dojox/drawing/defaults.text" {
-    var exp: dojox.drawing.defaults.text
-    export=exp;
+    var exp: dojox.drawing.defaults.text;
+    export = exp;
 }
 declare module "dojox/drawing/annotations/Label" {
-    var exp: dojox.drawing.annotations.Label
-    export=exp;
+    var exp: dojox.drawing.annotations.Label;
+    export = exp;
 }
 declare module "dojox/drawing/annotations/Label.Label" {
-    var exp: dojox.drawing.annotations.Label.Label
-    export=exp;
+    var exp: dojox.drawing.annotations.Label.Label;
+    export = exp;
 }
 declare module "dojox/drawing/annotations/Angle" {
-    var exp: dojox.drawing.annotations.Angle
-    export=exp;
+    var exp: dojox.drawing.annotations.Angle;
+    export = exp;
 }
 declare module "dojox/drawing/annotations/BoxShadow" {
-    var exp: dojox.drawing.annotations.BoxShadow
-    export=exp;
+    var exp: dojox.drawing.annotations.BoxShadow;
+    export = exp;
 }
 declare module "dojox/drawing/annotations/Arrow" {
-    var exp: dojox.drawing.annotations.Arrow
-    export=exp;
+    var exp: dojox.drawing.annotations.Arrow;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons" {
-    var exp: dojox.drawing.library.icons
-    export=exp;
+    var exp: dojox.drawing.library.icons;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.ellipse" {
-    var exp: dojox.drawing.library.icons.ellipse
-    export=exp;
+    var exp: dojox.drawing.library.icons.ellipse;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.arrow" {
-    var exp: dojox.drawing.library.icons.arrow
-    export=exp;
+    var exp: dojox.drawing.library.icons.arrow;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.axes" {
-    var exp: dojox.drawing.library.icons.axes
-    export=exp;
+    var exp: dojox.drawing.library.icons.axes;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.pan" {
-    var exp: dojox.drawing.library.icons.pan
-    export=exp;
+    var exp: dojox.drawing.library.icons.pan;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.line" {
-    var exp: dojox.drawing.library.icons.line
-    export=exp;
+    var exp: dojox.drawing.library.icons.line;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.path" {
-    var exp: dojox.drawing.library.icons.path
-    export=exp;
+    var exp: dojox.drawing.library.icons.path;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.equation" {
-    var exp: dojox.drawing.library.icons.equation
-    export=exp;
+    var exp: dojox.drawing.library.icons.equation;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.iconize" {
-    var exp: dojox.drawing.library.icons.iconize
-    export=exp;
+    var exp: dojox.drawing.library.icons.iconize;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.pencil" {
-    var exp: dojox.drawing.library.icons.pencil
-    export=exp;
+    var exp: dojox.drawing.library.icons.pencil;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.plus" {
-    var exp: dojox.drawing.library.icons.plus
-    export=exp;
+    var exp: dojox.drawing.library.icons.plus;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.triangle" {
-    var exp: dojox.drawing.library.icons.triangle
-    export=exp;
+    var exp: dojox.drawing.library.icons.triangle;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.vector" {
-    var exp: dojox.drawing.library.icons.vector
-    export=exp;
+    var exp: dojox.drawing.library.icons.vector;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.rect" {
-    var exp: dojox.drawing.library.icons.rect
-    export=exp;
+    var exp: dojox.drawing.library.icons.rect;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.zoom100" {
-    var exp: dojox.drawing.library.icons.zoom100
-    export=exp;
+    var exp: dojox.drawing.library.icons.zoom100;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.textBlock" {
-    var exp: dojox.drawing.library.icons.textBlock
-    export=exp;
+    var exp: dojox.drawing.library.icons.textBlock;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.zoomIn" {
-    var exp: dojox.drawing.library.icons.zoomIn
-    export=exp;
+    var exp: dojox.drawing.library.icons.zoomIn;
+    export = exp;
 }
 declare module "dojox/drawing/library/icons.zoomOut" {
-    var exp: dojox.drawing.library.icons.zoomOut
-    export=exp;
+    var exp: dojox.drawing.library.icons.zoomOut;
+    export = exp;
 }
 declare module "dojox/drawing/library/greek" {
-    var exp: dojox.drawing.library.greek
-    export=exp;
+    var exp: dojox.drawing.library.greek;
+    export = exp;
 }
 declare module "dojox/drawing/manager/_registry" {
-    var exp: dojox.drawing.manager._registry
-    export=exp;
+    var exp: dojox.drawing.manager._registry;
+    export = exp;
 }
 declare module "dojox/drawing/manager/keys" {
-    var exp: dojox.drawing.manager.keys
-    export=exp;
+    var exp: dojox.drawing.manager.keys;
+    export = exp;
 }
 declare module "dojox/drawing/manager/Anchors" {
-    var exp: dojox.drawing.manager.Anchors
-    export=exp;
+    var exp: dojox.drawing.manager.Anchors;
+    export = exp;
 }
 declare module "dojox/drawing/manager/Canvas" {
-    var exp: dojox.drawing.manager.Canvas
-    export=exp;
+    var exp: dojox.drawing.manager.Canvas;
+    export = exp;
 }
 declare module "dojox/drawing/manager/StencilUI" {
-    var exp: dojox.drawing.manager.StencilUI
-    export=exp;
+    var exp: dojox.drawing.manager.StencilUI;
+    export = exp;
 }
 declare module "dojox/drawing/manager/Undo" {
-    var exp: dojox.drawing.manager.Undo
-    export=exp;
+    var exp: dojox.drawing.manager.Undo;
+    export = exp;
 }
 declare module "dojox/drawing/manager/Mouse" {
-    var exp: dojox.drawing.manager.Mouse
-    export=exp;
+    var exp: dojox.drawing.manager.Mouse;
+    export = exp;
 }
 declare module "dojox/drawing/manager/Stencil" {
-    var exp: dojox.drawing.manager.Stencil
-    export=exp;
+    var exp: dojox.drawing.manager.Stencil;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/_Plugin" {
-    var exp: dojox.drawing.plugins._Plugin
-    export=exp;
+    var exp: dojox.drawing.plugins._Plugin;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/drawing/Grid" {
-    var exp: dojox.drawing.plugins.drawing.Grid
-    export=exp;
+    var exp: dojox.drawing.plugins.drawing.Grid;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/drawing/GreekPalette" {
-    var exp: dojox.drawing.plugins.drawing.GreekPalette
-    export=exp;
+    var exp: dojox.drawing.plugins.drawing.GreekPalette;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Zoom" {
-    var exp: dojox.drawing.plugins.tools.Zoom
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Zoom;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Zoom.Zoom100" {
-    var exp: dojox.drawing.plugins.tools.Zoom.Zoom100
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Zoom.Zoom100;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Zoom.ZoomOut" {
-    var exp: dojox.drawing.plugins.tools.Zoom.ZoomOut
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Zoom.ZoomOut;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Zoom.ZoomIn" {
-    var exp: dojox.drawing.plugins.tools.Zoom.ZoomIn
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Zoom.ZoomIn;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Iconize" {
-    var exp: dojox.drawing.plugins.tools.Iconize
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Iconize;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Iconize.setup" {
-    var exp: dojox.drawing.plugins.tools.Iconize.setup
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Iconize.setup;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Pan" {
-    var exp: dojox.drawing.plugins.tools.Pan
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Pan;
+    export = exp;
 }
 declare module "dojox/drawing/plugins/tools/Pan.setup" {
-    var exp: dojox.drawing.plugins.tools.Pan.setup
-    export=exp;
+    var exp: dojox.drawing.plugins.tools.Pan.setup;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/_Base" {
-    var exp: dojox.drawing.stencil._Base
-    export=exp;
+    var exp: dojox.drawing.stencil._Base;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Line" {
-    var exp: dojox.drawing.stencil.Line
-    export=exp;
+    var exp: dojox.drawing.stencil.Line;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Ellipse" {
-    var exp: dojox.drawing.stencil.Ellipse
-    export=exp;
+    var exp: dojox.drawing.stencil.Ellipse;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Path" {
-    var exp: dojox.drawing.stencil.Path
-    export=exp;
+    var exp: dojox.drawing.stencil.Path;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Rect" {
-    var exp: dojox.drawing.stencil.Rect
-    export=exp;
+    var exp: dojox.drawing.stencil.Rect;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Image" {
-    var exp: dojox.drawing.stencil.Image
-    export=exp;
+    var exp: dojox.drawing.stencil.Image;
+    export = exp;
 }
 declare module "dojox/drawing/stencil/Text" {
-    var exp: dojox.drawing.stencil.Text
-    export=exp;
+    var exp: dojox.drawing.stencil.Text;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Arrow" {
-    var exp: dojox.drawing.tools.Arrow
-    export=exp;
+    var exp: dojox.drawing.tools.Arrow;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Arrow.setup" {
-    var exp: dojox.drawing.tools.Arrow.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Arrow.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Ellipse" {
-    var exp: dojox.drawing.tools.Ellipse
-    export=exp;
+    var exp: dojox.drawing.tools.Ellipse;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Ellipse.setup" {
-    var exp: dojox.drawing.tools.Ellipse.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Ellipse.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Pencil" {
-    var exp: dojox.drawing.tools.Pencil
-    export=exp;
+    var exp: dojox.drawing.tools.Pencil;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Pencil.setup" {
-    var exp: dojox.drawing.tools.Pencil.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Pencil.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Rect" {
-    var exp: dojox.drawing.tools.Rect
-    export=exp;
+    var exp: dojox.drawing.tools.Rect;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Rect.setup" {
-    var exp: dojox.drawing.tools.Rect.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Rect.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Path" {
-    var exp: dojox.drawing.tools.Path
-    export=exp;
+    var exp: dojox.drawing.tools.Path;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Path.setup" {
-    var exp: dojox.drawing.tools.Path.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Path.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Line" {
-    var exp: dojox.drawing.tools.Line
-    export=exp;
+    var exp: dojox.drawing.tools.Line;
+    export = exp;
 }
 declare module "dojox/drawing/tools/Line.setup" {
-    var exp: dojox.drawing.tools.Line.setup
-    export=exp;
+    var exp: dojox.drawing.tools.Line.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/TextBlock" {
-    var exp: dojox.drawing.tools.TextBlock
-    export=exp;
+    var exp: dojox.drawing.tools.TextBlock;
+    export = exp;
 }
 declare module "dojox/drawing/tools/TextBlock.setup" {
-    var exp: dojox.drawing.tools.TextBlock.setup
-    export=exp;
+    var exp: dojox.drawing.tools.TextBlock.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Axes" {
-    var exp: dojox.drawing.tools.custom.Axes
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Axes;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Axes.setup" {
-    var exp: dojox.drawing.tools.custom.Axes.setup
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Axes.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Vector" {
-    var exp: dojox.drawing.tools.custom.Vector
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Vector;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Vector.setup" {
-    var exp: dojox.drawing.tools.custom.Vector.setup
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Vector.setup;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Equation" {
-    var exp: dojox.drawing.tools.custom.Equation
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Equation;
+    export = exp;
 }
 declare module "dojox/drawing/tools/custom/Equation.setup" {
-    var exp: dojox.drawing.tools.custom.Equation.setup
-    export=exp;
+    var exp: dojox.drawing.tools.custom.Equation.setup;
+    export = exp;
 }
 declare module "dojox/drawing/ui/Button" {
-    var exp: dojox.drawing.ui.Button
-    export=exp;
+    var exp: dojox.drawing.ui.Button;
+    export = exp;
 }
 declare module "dojox/drawing/ui/Toolbar" {
-    var exp: dojox.drawing.ui.Toolbar
-    export=exp;
+    var exp: dojox.drawing.ui.Toolbar;
+    export = exp;
 }
 declare module "dojox/drawing/ui/Tooltip" {
-    var exp: dojox.drawing.ui.Tooltip
-    export=exp;
+    var exp: dojox.drawing.ui.Tooltip;
+    export = exp;
 }
 declare module "dojox/drawing/ui/dom/Toolbar" {
-    var exp: dojox.drawing.ui.dom.Toolbar
-    export=exp;
+    var exp: dojox.drawing.ui.dom.Toolbar;
+    export = exp;
 }
 declare module "dojox/drawing/ui/dom/Pan" {
-    var exp: dojox.drawing.ui.dom.Pan
-    export=exp;
+    var exp: dojox.drawing.ui.dom.Pan;
+    export = exp;
 }
 declare module "dojox/drawing/ui/dom/Pan.setup" {
-    var exp: dojox.drawing.ui.dom.Pan.setup
-    export=exp;
+    var exp: dojox.drawing.ui.dom.Pan.setup;
+    export = exp;
 }
 declare module "dojox/drawing/ui/dom/Zoom" {
-    var exp: dojox.drawing.ui.dom.Zoom
-    export=exp;
+    var exp: dojox.drawing.ui.dom.Zoom;
+    export = exp;
 }
 declare module "dojox/drawing/util/positioning" {
-    var exp: dojox.drawing.util.positioning
-    export=exp;
+    var exp: dojox.drawing.util.positioning;
+    export = exp;
 }
 declare module "dojox/drawing/util/oo" {
-    var exp: dojox.drawing.util.oo
-    export=exp;
+    var exp: dojox.drawing.util.oo;
+    export = exp;
 }
 declare module "dojox/drawing/util/typeset" {
-    var exp: dojox.drawing.util.typeset
-    export=exp;
+    var exp: dojox.drawing.util.typeset;
+    export = exp;
 }
 declare module "dojox/drawing/util/common" {
-    var exp: dojox.drawing.util.common
-    export=exp;
+    var exp: dojox.drawing.util.common;
+    export = exp;
 }
 declare module "dojox/drawing/util/common.objects" {
-    var exp: dojox.drawing.util.common.objects
-    export=exp;
+    var exp: dojox.drawing.util.common.objects;
+    export = exp;
 }

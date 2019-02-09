@@ -1,4 +1,4 @@
-import Mixin from '@ember/object/mixin';
+import Mixin from "@ember/object/mixin";
 
 /**
  * This mixin allows for Ember objects to subscribe to and emit events.

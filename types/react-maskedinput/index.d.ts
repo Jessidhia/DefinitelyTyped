@@ -14,13 +14,13 @@ export interface FormatCharacter {
 }
 
 export interface CharsFormatters {
-  [char: string]: FormatCharacter;
+    [char: string]: FormatCharacter;
 }
 
 export interface MaskedInputProps extends React.InputHTMLAttributes<any> {
-  mask: string;
-  formatCharacters?: CharsFormatters;
-  placeholderChar?: string;
+    mask: string;
+    formatCharacters?: CharsFormatters;
+    placeholderChar?: string;
 }
 
 declare class MaskedInput extends React.Component<MaskedInputProps> {}

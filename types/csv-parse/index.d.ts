@@ -10,7 +10,11 @@ import * as stream from "stream";
 
 export = parse;
 
-declare function parse(input: string, options?: parse.Options, callback?: parse.Callback): any;
+declare function parse(
+    input: string,
+    options?: parse.Options,
+    callback?: parse.Callback
+): any;
 declare function parse(options?: parse.Options, callback?: parse.Callback): any;
 declare function parse(callback?: parse.Callback): any;
 declare namespace parse {
@@ -19,7 +23,7 @@ declare namespace parse {
     interface Parser extends stream.Transform {}
     class Parser {
         constructor(options: Options);
-        __push(line: any): any ;
+        __push(line: any): any;
         __write(chars: any, end: any, callback: any): any;
     }
 

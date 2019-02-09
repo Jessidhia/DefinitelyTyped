@@ -15,11 +15,11 @@ declare namespace JQueryEditableSelect {
         /**
          * Easing used for showing and hiding the dropdown list.
          */
-        effects?: 'default' | 'slide' | 'fade';
+        effects?: "default" | "slide" | "fade";
         /**
          * Duration of the easings (in milliseconds).
          */
-        duration?: number | 'fast' | 'slow';
+        duration?: number | "fast" | "slow";
         /**
          * Where to append the dropdown list in the DOM.
          */
@@ -27,7 +27,7 @@ declare namespace JQueryEditableSelect {
         /**
          * How dropdown list is triggered.
          */
-        trigger?: 'focus'| 'manual';
+        trigger?: "focus" | "manual";
     }
 }
 
@@ -37,20 +37,24 @@ interface JQuery {
      *
      * @param options Options setting the editable select behavior
      */
-    editableSelect(options?: JQueryEditableSelect.EditableSelectOptions): JQuery;
+    editableSelect(
+        options?: JQueryEditableSelect.EditableSelectOptions
+    ): JQuery;
     /**
      * Manually shows/hide/filters/clears/destorys the dropdown list.
      *
      * @param action Action to apply
      */
-    editableSelect(action: 'show'| 'hide'| 'filter' | 'clear'| 'destroy'): void;
+    editableSelect(
+        action: "show" | "hide" | "filter" | "clear" | "destroy"
+    ): void;
     /**
      * Manually sets the value of the text field to the value of the $element passed as parameter.
      *
      * @param action Action to apply, must be 'select'
      * @param element element to select (it must be one of the elements in the dropdown list)
      */
-    editableSelect(action: 'select', element: JQuery): void;
+    editableSelect(action: "select", element: JQuery): void;
     /**
      * Adds a new option in the dropdown list
      *
@@ -60,12 +64,18 @@ interface JQuery {
      * @param attrs optional attributes to add to the element
      * @param data optional data to add to the element
      */
-    editableSelect(action: 'add', text: string , index?: number, attrs?: Array<{name: string, value: string}>, data?: string): void;
+    editableSelect(
+        action: "add",
+        text: string,
+        index?: number,
+        attrs?: Array<{ name: string; value: string }>,
+        data?: string
+    ): void;
     /**
      * Removes an option in the dropdown list at the given index.
      *
      * @param action Action to apply, must be 'remove'
      * @param index position of the element to remove.
      */
-    editableSelect(action: 'remove', index: number): void;
+    editableSelect(action: "remove", index: number): void;
 }

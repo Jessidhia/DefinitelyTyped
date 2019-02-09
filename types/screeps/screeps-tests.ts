@@ -62,7 +62,15 @@ function keys<T>(o: T): Array<keyof T> {
             const creepSpawn: StructureSpawn = creep.spawn;
 
             const cancelStatus: OK | ERR_NOT_OWNER = creep.cancel();
-            const setDirectionStatus: OK | ERR_NOT_OWNER | ERR_INVALID_ARGS = creep.setDirections([TOP, BOTTOM, LEFT, RIGHT]);
+            const setDirectionStatus:
+                | OK
+                | ERR_NOT_OWNER
+                | ERR_INVALID_ARGS = creep.setDirections([
+                TOP,
+                BOTTOM,
+                LEFT,
+                RIGHT
+            ]);
         }
 
         creep = new StructureSpawn.Spawning("");
@@ -121,7 +129,7 @@ function keys<T>(o: T): Array<keyof T> {
     if (Game.spawns["Spawn1"].energy === 0) {
         Game.notify(
             "Spawn1 is out of energy",
-            180, // group these notifications for 3 hours
+            180 // group these notifications for 3 hours
         );
     }
 }
@@ -180,7 +188,7 @@ function keys<T>(o: T): Array<keyof T> {
                 return Infinity;
             }
             return 1;
-        },
+        }
     });
 }
 
@@ -195,8 +203,13 @@ function keys<T>(o: T): Array<keyof T> {
         routeCallback(roomName) {
             const parsed = /^[WE]([0-9]+)[NS]([0-9]+)$/.exec(roomName);
             if (parsed !== null) {
-                const isHighway = parseInt(parsed[1], 10) % 10 === 0 || parseInt(parsed[2], 10) % 10 === 0;
-                const isMyRoom = Game.rooms[roomName] && Game.rooms[roomName].controller && Game.rooms[roomName].controller!.my;
+                const isHighway =
+                    parseInt(parsed[1], 10) % 10 === 0 ||
+                    parseInt(parsed[2], 10) % 10 === 0;
+                const isMyRoom =
+                    Game.rooms[roomName] &&
+                    Game.rooms[roomName].controller &&
+                    Game.rooms[roomName].controller!.my;
                 if (isHighway || isMyRoom) {
                     return 1;
                 } else {
@@ -205,7 +218,7 @@ function keys<T>(o: T): Array<keyof T> {
             } else {
                 return 2.5;
             }
-        },
+        }
     });
 
     if (route !== ERR_NO_PATH) {
@@ -222,7 +235,7 @@ function keys<T>(o: T): Array<keyof T> {
             } else {
                 return true;
             }
-        },
+        }
     });
 }
 
@@ -275,11 +288,18 @@ function keys<T>(o: T): Array<keyof T> {
 
     const amountToBuy = 2000;
     const maxTransferEnergyCost = 500;
-    const orders = Game.market.getAllOrders({ type: ORDER_SELL, resourceType: RESOURCE_GHODIUM });
+    const orders = Game.market.getAllOrders({
+        type: ORDER_SELL,
+        resourceType: RESOURCE_GHODIUM
+    });
 
     for (const i of orders) {
         if (i.roomName) {
-            const transferEnergyCost = Game.market.calcTransactionCost(amountToBuy, "W1N1", i.roomName);
+            const transferEnergyCost = Game.market.calcTransactionCost(
+                amountToBuy,
+                "W1N1",
+                i.roomName
+            );
 
             if (transferEnergyCost < maxTransferEnergyCost) {
                 Game.market.deal(i.id, amountToBuy, "W1N1");
@@ -293,21 +313,31 @@ function keys<T>(o: T): Array<keyof T> {
 
     // Game.market.getAllOrders([filter])
     Game.market.getAllOrders();
-    Game.market.getAllOrders({ type: ORDER_SELL, resourceType: RESOURCE_GHODIUM });
+    Game.market.getAllOrders({
+        type: ORDER_SELL,
+        resourceType: RESOURCE_GHODIUM
+    });
 
     const targetRoom = "W1N1";
     Game.market.getAllOrders(
         currentOrder =>
             currentOrder.resourceType === RESOURCE_GHODIUM &&
             currentOrder.type === ORDER_SELL &&
-            Game.market.calcTransactionCost(1000, targetRoom, currentOrder.roomName!) < 500,
+            Game.market.calcTransactionCost(
+                1000,
+                targetRoom,
+                currentOrder.roomName!
+            ) < 500
     );
 
     // Game.market.getOrderById(id)
     const order = Game.market.getOrderById("55c34a6b5be41a0a6e80c123");
 
     // Subscription tokens
-    Game.market.getAllOrders({ type: ORDER_SELL, resourceType: SUBSCRIPTION_TOKEN });
+    Game.market.getAllOrders({
+        type: ORDER_SELL,
+        resourceType: SUBSCRIPTION_TOKEN
+    });
     Game.market.createOrder(ORDER_BUY, SUBSCRIPTION_TOKEN, 10000000, 1);
 }
 
@@ -346,7 +376,8 @@ function keys<T>(o: T): Array<keyof T> {
                     costs.set(struct.pos.x, struct.pos.y, 1);
                 } else if (
                     struct.structureType !== STRUCTURE_CONTAINER &&
-                    (struct.structureType !== STRUCTURE_RAMPART || !(struct as OwnedStructure).my)
+                    (struct.structureType !== STRUCTURE_RAMPART ||
+                        !(struct as OwnedStructure).my)
                 ) {
                     // Can't walk through non-walkable buildings
                     costs.set(struct.pos.x, struct.pos.y, 0xff);
@@ -360,7 +391,7 @@ function keys<T>(o: T): Array<keyof T> {
             });
 
             return costs;
-        },
+        }
     });
 
     const pos = ret.path[0];
@@ -388,8 +419,8 @@ function keys<T>(o: T): Array<keyof T> {
 
     RawMemory.interShardSegment = JSON.stringify({
         creeps: {
-            Bob: { role: "claimer" },
-        },
+            Bob: { role: "claimer" }
+        }
     });
 
     // on another shard
@@ -454,7 +485,7 @@ function keys<T>(o: T): Array<keyof T> {
     const towers = room.find<StructureTower>(FIND_MY_STRUCTURES, {
         filter: structure => {
             return structure.structureType === STRUCTURE_TOWER;
-        },
+        }
     });
     towers[0].attack(creeps[0]);
 }
@@ -468,20 +499,26 @@ function keys<T>(o: T): Array<keyof T> {
         creep.say(hostileCreep.name);
     }
 
-    const tower = creep.pos.findClosestByPath<StructureTower>(FIND_HOSTILE_STRUCTURES, {
-        filter: structure => {
-            return structure.structureType === STRUCTURE_TOWER;
-        },
-    });
+    const tower = creep.pos.findClosestByPath<StructureTower>(
+        FIND_HOSTILE_STRUCTURES,
+        {
+            filter: structure => {
+                return structure.structureType === STRUCTURE_TOWER;
+            }
+        }
+    );
     if (tower !== null) {
         tower.attack(creep);
     }
 
-    const rampart = creep.pos.findClosestByRange<StructureRampart>(FIND_HOSTILE_STRUCTURES, {
-        filter: structure => {
-            return structure.structureType === STRUCTURE_RAMPART;
-        },
-    });
+    const rampart = creep.pos.findClosestByRange<StructureRampart>(
+        FIND_HOSTILE_STRUCTURES,
+        {
+            filter: structure => {
+                return structure.structureType === STRUCTURE_RAMPART;
+            }
+        }
+    );
     if (rampart !== null) {
         rampart.isPublic;
     }
@@ -493,7 +530,7 @@ function keys<T>(o: T): Array<keyof T> {
     const labs = creep.pos.findInRange<StructureLab>(FIND_MY_STRUCTURES, 4, {
         filter: structure => {
             return structure.structureType === STRUCTURE_LAB;
-        },
+        }
     });
 
     labs[0].boostCreep(creep);
@@ -568,15 +605,21 @@ function keys<T>(o: T): Array<keyof T> {
 
     // test discriminated union using filter functions on find
     const from = Game.rooms.myRoom.find(FIND_STRUCTURES, {
-        filter: s => (s.structureType === STRUCTURE_CONTAINER || s.structureType === STRUCTURE_STORAGE) && s.store.energy > 0,
+        filter: s =>
+            (s.structureType === STRUCTURE_CONTAINER ||
+                s.structureType === STRUCTURE_STORAGE) &&
+            s.store.energy > 0
     })[0];
     const to = from.pos.findClosestByPath(FIND_MY_STRUCTURES, {
-        filter: s => (s.structureType === STRUCTURE_SPAWN || s.structureType === STRUCTURE_EXTENSION) && s.energy < s.energyCapacity,
+        filter: s =>
+            (s.structureType === STRUCTURE_SPAWN ||
+                s.structureType === STRUCTURE_EXTENSION) &&
+            s.energy < s.energyCapacity
     });
 
     Game.rooms.myRoom
         .find(FIND_MY_STRUCTURES, {
-            filter: s => s.structureType === STRUCTURE_RAMPART,
+            filter: s => s.structureType === STRUCTURE_RAMPART
         })
         .forEach(r => r.notifyWhenAttacked(false));
 }
@@ -613,13 +656,19 @@ function keys<T>(o: T): Array<keyof T> {
 // StructurePortal
 
 {
-    const portals = room.find<StructurePortal>(FIND_STRUCTURES, { filter: s => s.structureType === STRUCTURE_PORTAL });
+    const portals = room.find<StructurePortal>(FIND_STRUCTURES, {
+        filter: s => s.structureType === STRUCTURE_PORTAL
+    });
     portals.forEach((p: StructurePortal) => {
         const state = p.ticksToDecay === undefined ? "stable" : "unstable";
         if (p.destination instanceof RoomPosition) {
             Game.notify(`Found ${state} inter-room portal to ${p.destination}`);
         } else {
-            Game.notify(`Found ${state} inter-shard portal to ${p.destination.shard} ${p.destination.room}`);
+            Game.notify(
+                `Found ${state} inter-shard portal to ${p.destination.shard} ${
+                    p.destination.room
+                }`
+            );
         }
     });
 }
@@ -644,7 +693,11 @@ function keys<T>(o: T): Array<keyof T> {
     const lab1 = Game.getObjectById<StructureLab>("lab1");
     const lab2 = Game.getObjectById<StructureLab>("lab2");
     if (lab0 !== null && lab1 !== null && lab2 !== null) {
-        if (lab1.mineralAmount >= LAB_REACTION_AMOUNT && lab2.mineralAmount >= LAB_REACTION_AMOUNT && lab0.mineralType === null) {
+        if (
+            lab1.mineralAmount >= LAB_REACTION_AMOUNT &&
+            lab2.mineralAmount >= LAB_REACTION_AMOUNT &&
+            lab0.mineralType === null
+        ) {
             lab0.runReaction(lab1, lab2);
         }
     }

@@ -12,7 +12,9 @@ export interface Options {
 }
 
 export class Spinner {
-    static setDefaultSpinnerString(spinnerString: string | number): typeof Spinner;
+    static setDefaultSpinnerString(
+        spinnerString: string | number
+    ): typeof Spinner;
     static setDefaultSpinnerDelay(spinnerDelay: number): typeof Spinner;
 
     readonly stream: NodeJS.WritableStream;

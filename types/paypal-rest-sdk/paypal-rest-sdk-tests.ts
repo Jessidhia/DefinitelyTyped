@@ -2,26 +2,26 @@ import * as paypal from "paypal-rest-sdk";
 
 // Minimum Config
 const minConfig: paypal.ConfigureOptions = {
-    client_id: 'asdf',
-    client_secret: 'asdf',
-    mode: 'sandbox',
+    client_id: "asdf",
+    client_secret: "asdf",
+    mode: "sandbox"
 };
 
 // Max Config
 const maxConfig: paypal.ConfigureOptions = {
-    client_id: 'asdf',
-    client_secret: 'asdf',
-    mode: 'sandbox',
-    schema: 'asdf',
-    host: 'asdf',
-    port: 'asdf',
-    openid_connect_schema: 'asdf',
-    openid_connect_host: 'asdf',
-    openid_connect_port: 'asdf',
-    authorize_url: 'asdf',
-    logout_url: 'asdf',
+    client_id: "asdf",
+    client_secret: "asdf",
+    mode: "sandbox",
+    schema: "asdf",
+    host: "asdf",
+    port: "asdf",
+    openid_connect_schema: "asdf",
+    openid_connect_host: "asdf",
+    openid_connect_port: "asdf",
+    authorize_url: "asdf",
+    logout_url: "asdf",
     headers: {
-        asdf: 'asdf',
+        asdf: "asdf"
     }
 };
 
@@ -32,7 +32,7 @@ paypal.configure(maxConfig);
 const minPayment: paypal.Payment = {
     intent: "sale",
     payer: {
-        payment_method: "paypal",
+        payment_method: "paypal"
     },
     transactions: [
         {
@@ -41,18 +41,18 @@ const minPayment: paypal.Payment = {
                 currency: "USD",
                 details: {
                     subtotal: "30.00",
-                    handling_fee: "0.01",
-                },
-            },
-        },
-    ],
+                    handling_fee: "0.01"
+                }
+            }
+        }
+    ]
 };
 
 // Max Payment
 const maxPayment: paypal.Payment = {
     intent: "sale",
     payer: {
-        payment_method: "paypal",
+        payment_method: "paypal"
     },
     transactions: [
         {
@@ -62,69 +62,71 @@ const maxPayment: paypal.Payment = {
                 details: {
                     subtotal: "30.00",
                     handling_fee: "0.01",
-                    shipping: 'test',
-                    tax: 'test',
-                    shipping_discout: 'a',
-                    insurance: 'a',
-                    gift_wrap: 'a',
-                },
+                    shipping: "test",
+                    tax: "test",
+                    shipping_discout: "a",
+                    insurance: "a",
+                    gift_wrap: "a"
+                }
             },
             payee: {
-                email: 'a',
-                merchant_id: 'a',
+                email: "a",
+                merchant_id: "a",
                 payee_display_metadata: {
-                    email: 'a',
+                    email: "a",
                     display_phone: {
-                        country_code: 'a',
-                        national_number: 'a',
+                        country_code: "a",
+                        national_number: "a"
                     }
                 }
             },
-            description: 'asdf',
-            note_to_payee: 'asdf',
-            custom: 'asdf',
-            invoice_number: 'asdf',
-            purchase_order: 'asdf',
-            soft_descriptor: 'asdf',
+            description: "asdf",
+            note_to_payee: "asdf",
+            custom: "asdf",
+            invoice_number: "asdf",
+            purchase_order: "asdf",
+            soft_descriptor: "asdf",
             payment_options: {
-                allowed_payment_method: 'asdf'
+                allowed_payment_method: "asdf"
             },
             item_list: {
-                items: [{
-                    sku: 'asdf',
-                    name: 'asdf',
-                    description: 'asdf',
-                    quantity: 2,
-                    price: 'adsf',
-                    currency: 'adsf',
-                    tax: 'asdf',
-                    url: 'asdf'
-                }],
+                items: [
+                    {
+                        sku: "asdf",
+                        name: "asdf",
+                        description: "asdf",
+                        quantity: 2,
+                        price: "adsf",
+                        currency: "adsf",
+                        tax: "asdf",
+                        url: "asdf"
+                    }
+                ],
                 shipping_address: {
-                    line1: 'asdf',
-                    line2: 'asdf',
-                    city: 'asdf',
-                    country_code: 'asdf',
-                    postal_code: 'asdf',
-                    state: 'asdf',
-                    phone: 'asdf',
-                    type: 'adsf',
-                    recipient_name: 'asdf',
+                    line1: "asdf",
+                    line2: "asdf",
+                    city: "asdf",
+                    country_code: "asdf",
+                    postal_code: "asdf",
+                    state: "asdf",
+                    phone: "asdf",
+                    type: "adsf",
+                    recipient_name: "asdf"
                 },
-                shipping_method: 'adsf',
-                shipping_phone_number: 'adsf',
+                shipping_method: "adsf",
+                shipping_phone_number: "adsf"
             },
-            notify_url: 'asdf',
-            order_url: 'asdf',
-        },
+            notify_url: "asdf",
+            order_url: "asdf"
+        }
     ],
-    experience_profile_id: 'test',
-    note_to_payer: 's',
+    experience_profile_id: "test",
+    note_to_payer: "s",
     redirect_urls: {
-        cancel_url: 'test',
-        return_url: 'test',
+        cancel_url: "test",
+        return_url: "test"
     },
-    failure_reason: 'test',
+    failure_reason: "test"
 };
 
 // Create Payment
@@ -140,11 +142,11 @@ paypal.payment.create(maxPayment, (err, response) => {
 });
 
 const request: paypal.payment.ExecuteRequest = {
-    payer_id: 'test'
+    payer_id: "test"
 };
 
 // Execute Payment
-paypal.payment.execute('test', request, (err, response) => {
+paypal.payment.execute("test", request, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -156,7 +158,7 @@ paypal.payment.execute('test', request, (err, response) => {
 });
 
 // Get Payment
-paypal.payment.get('test', (err, response) => {
+paypal.payment.get("test", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -184,13 +186,13 @@ paypal.payment.list(paymentList, (err, response) => {
 });
 
 const updatePayment: paypal.UpdateRequest = {
-    op: 'asdf',
-    path: 'asdf',
-    value: 'asdf',
+    op: "asdf",
+    path: "asdf",
+    value: "asdf"
 };
 
 // Update Payment
-paypal.payment.update('asdf', [updatePayment], (err, response) => {
+paypal.payment.update("asdf", [updatePayment], (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -202,7 +204,7 @@ paypal.payment.update('asdf', [updatePayment], (err, response) => {
 
 // List Webhooks
 const whList: paypal.QueryParameters = {
-    transaction_id: 'asdf'
+    transaction_id: "asdf"
 };
 paypal.notification.webhook.list(whList, (err, response) => {
     let test;
@@ -215,7 +217,7 @@ paypal.notification.webhook.list(whList, (err, response) => {
 });
 
 // Create Webhooks
-const webhook =  { name: 'test', url: 'asdf', event_types: [ { name: 'test' } ] };
+const webhook = { name: "test", url: "asdf", event_types: [{ name: "test" }] };
 paypal.notification.webhook.create(webhook, (err, response) => {
     let test;
     if (err) {
@@ -227,18 +229,22 @@ paypal.notification.webhook.create(webhook, (err, response) => {
 });
 
 // Replace Webhook
-paypal.notification.webhook.replace('asdf', [{ op: 'string', path: 'asdf', value: 'asdf' }], (err, response) => {
-    let test;
-    if (err) {
-        test = err.response.debug_id;
-        test = err.stack;
-        return;
+paypal.notification.webhook.replace(
+    "asdf",
+    [{ op: "string", path: "asdf", value: "asdf" }],
+    (err, response) => {
+        let test;
+        if (err) {
+            test = err.response.debug_id;
+            test = err.stack;
+            return;
+        }
+        test = response.event_types[0].name;
     }
-    test = response.event_types[0].name;
-});
+);
 
 // Delete Webhook
-paypal.notification.webhook.del('asdf', (err, response) => {
+paypal.notification.webhook.del("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -249,7 +255,7 @@ paypal.notification.webhook.del('asdf', (err, response) => {
 });
 
 // Get Webhook
-paypal.notification.webhook.get('asdf', (err, response) => {
+paypal.notification.webhook.get("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -260,7 +266,7 @@ paypal.notification.webhook.get('asdf', (err, response) => {
 });
 
 // Webhook Event Types
-paypal.notification.webhook.eventTypes('asdf', (err, response) => {
+paypal.notification.webhook.eventTypes("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -271,7 +277,7 @@ paypal.notification.webhook.eventTypes('asdf', (err, response) => {
 });
 
 // WebhookEvent Get
-paypal.notification.webhookEvent.get('asdf', (err, response) => {
+paypal.notification.webhookEvent.get("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -283,14 +289,14 @@ paypal.notification.webhookEvent.get('asdf', (err, response) => {
 });
 
 const webhookEvent: paypal.notification.webhookEvent.WebhookEvent = {
-    id: 'etst',
-    create_time: 'asdf',
-    resource_type: 'adsf',
-    event_version: 'asdf',
-    event_type: 'asdf',
-    summary: 'asdf',
+    id: "etst",
+    create_time: "asdf",
+    resource_type: "adsf",
+    event_version: "asdf",
+    event_type: "asdf",
+    summary: "asdf",
     resource: {
-        id: 'asdf'
+        id: "asdf"
     }
 };
 
@@ -307,18 +313,21 @@ paypal.notification.webhookEvent.getAndVerify(webhookEvent, (err, response) => {
 });
 
 // WebhookEvent List
-paypal.notification.webhookEvent.list({ transaction_id: 'asdf' }, (err, response) => {
-    let test;
-    if (err) {
-        test = err.response.debug_id;
-        test = err.stack;
-        return;
+paypal.notification.webhookEvent.list(
+    { transaction_id: "asdf" },
+    (err, response) => {
+        let test;
+        if (err) {
+            test = err.response.debug_id;
+            test = err.stack;
+            return;
+        }
+        test = response.events[0].resource;
     }
-    test = response.events[0].resource;
-});
+);
 
 // WebhookEvent Resend
-paypal.notification.webhookEvent.resend('id', (err, response) => {
+paypal.notification.webhookEvent.resend("id", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -330,7 +339,7 @@ paypal.notification.webhookEvent.resend('id', (err, response) => {
 });
 
 // WebhookEvent Resend
-paypal.notification.webhookEvent.resend('id', (err, response) => {
+paypal.notification.webhookEvent.resend("id", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -342,15 +351,20 @@ paypal.notification.webhookEvent.resend('id', (err, response) => {
 });
 
 // WebhookEvent Verify
-paypal.notification.webhookEvent.verify({ header: 'asdf' }, webhookEvent, 'id', (err, response) => {
-    let test;
-    if (err) {
-        test = err.response.debug_id;
-        test = err.stack;
-        return;
+paypal.notification.webhookEvent.verify(
+    { header: "asdf" },
+    webhookEvent,
+    "id",
+    (err, response) => {
+        let test;
+        if (err) {
+            test = err.response.debug_id;
+            test = err.stack;
+            return;
+        }
+        test = response.verification_status;
     }
-    test = response.verification_status;
-});
+);
 
 // WebhookEventType List
 paypal.notification.webhookEventType.list((err, response) => {
@@ -364,7 +378,7 @@ paypal.notification.webhookEventType.list((err, response) => {
 });
 
 // Authorization Get
-paypal.authorization.get('id', (err, response) => {
+paypal.authorization.get("id", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -375,10 +389,10 @@ paypal.authorization.get('id', (err, response) => {
 });
 
 const captureRequest: paypal.authorization.CaptureRequest = {
-    is_final_capture: true,
+    is_final_capture: true
 };
 // Authorization Capture
-paypal.authorization.capture('id', captureRequest, (err, response) => {
+paypal.authorization.capture("id", captureRequest, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -389,18 +403,22 @@ paypal.authorization.capture('id', captureRequest, (err, response) => {
 });
 
 // ReAuthorization
-paypal.authorization.reauthorize('id', { total: "10", currency: "USD" }, (err, response) => {
-    let test;
-    if (err) {
-        test = err.response.debug_id;
-        test = err.stack;
-        return;
+paypal.authorization.reauthorize(
+    "id",
+    { total: "10", currency: "USD" },
+    (err, response) => {
+        let test;
+        if (err) {
+            test = err.response.debug_id;
+            test = err.stack;
+            return;
+        }
+        test = response.id;
     }
-    test = response.id;
-});
+);
 
 // Capture Get
-paypal.capture.get('id', (err, response) => {
+paypal.capture.get("id", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -418,7 +436,7 @@ const refundRequest: paypal.RefundRequest = {
 };
 
 // Capture Get
-paypal.capture.refund('id', refundRequest, (err, response) => {
+paypal.capture.refund("id", refundRequest, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -434,52 +452,56 @@ const minInvoice: paypal.invoice.Invoice = {};
 // Max Invoice
 const maxInvoice: paypal.invoice.Invoice = {
     allow_tip: true,
-    billing_info: [{
-        email: 'asfd',
-        language: 'string',
-        notification_channel: 'string',
-        additional_info: 'string',
-    }],
+    billing_info: [
+        {
+            email: "asfd",
+            language: "string",
+            notification_channel: "string",
+            additional_info: "string"
+        }
+    ],
     discount: {
         percent: 2,
         amount: {
             currency: "USD",
             value: "34"
-        },
+        }
     },
     shipping_cost: {
         amount: {
             currency: "USD",
-            value: "20",
+            value: "20"
         },
         tax: {
-            id: 'tst',
+            id: "tst",
             name: "asdf",
             percent: 20,
             amount: {
                 currency: "USD",
-                value: "20",
+                value: "20"
             }
         }
     },
     invoice_date: "asdf",
-    items: [{
-        name: "asdf",
-        description: "asdf",
-        quantity: 2,
-        unit_price: {
-            currency: "USD",
-            value: "20",
-        },
-        tax: {
-            percent: 20,
-        },
-        date: "asdf",
-        discount: {
-            percent: 20,
-        },
-        unit_of_measure: 'asdf'
-    }],
+    items: [
+        {
+            name: "asdf",
+            description: "asdf",
+            quantity: 2,
+            unit_price: {
+                currency: "USD",
+                value: "20"
+            },
+            tax: {
+                percent: 20
+            },
+            date: "asdf",
+            discount: {
+                percent: 20
+            },
+            unit_of_measure: "asdf"
+        }
+    ],
     merchant_info: {
         email: "asdf",
         first_name: "asdf",
@@ -494,20 +516,20 @@ const maxInvoice: paypal.invoice.Invoice = {
         business_name: "asdf",
         phone: {
             country_code: "1",
-            national_number: "asdf",
+            national_number: "asdf"
         },
         website: "asdf",
         tax_id: "adsf",
         additional_info: "asdf",
-        additional_info_label: "asdf",
+        additional_info_label: "asdf"
     },
-    note: 'string',
-    number: 'string',
+    note: "string",
+    number: "string",
     payment_term: {
         term_type: "asdf",
-        due_date: "asdf",
+        due_date: "asdf"
     },
-    reference: 'string',
+    reference: "string",
     shipping_info: {
         address: {
             line1: "asdf",
@@ -516,13 +538,13 @@ const maxInvoice: paypal.invoice.Invoice = {
             postal_code: "adsf",
             country_code: "asdf"
         },
-        business_name: 'asdf',
+        business_name: "asdf",
         first_name: "string",
-        last_name: "string",
+        last_name: "string"
     },
     phone: {
         country_code: "1",
-        national_number: "asdf",
+        national_number: "asdf"
     },
     tax_calculated_after_discount: true,
     tax_inclusive: true,
@@ -530,7 +552,7 @@ const maxInvoice: paypal.invoice.Invoice = {
     cc_info: [
         {
             first_name: "asdf",
-            email: "adsf",
+            email: "adsf"
         }
     ],
     custom: {
@@ -538,7 +560,7 @@ const maxInvoice: paypal.invoice.Invoice = {
         amount: {
             currency: "asdf",
             value: "adsf"
-        },
+        }
     },
     allow_partial_payment: true,
     minimum_amount_due: {
@@ -557,7 +579,7 @@ const maxInvoice: paypal.invoice.Invoice = {
 };
 
 // Invoice Cancel
-paypal.invoice.cancel('id', (err, response) => {
+paypal.invoice.cancel("id", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -575,11 +597,11 @@ paypal.invoice.create(maxInvoice, (err, response) => {
         return;
     }
     test = response.id;
-    test = response.items ? response.items[0].name : 'asdf';
+    test = response.items ? response.items[0].name : "asdf";
 });
 
 // Invoice Delete
-paypal.invoice.del('adsf', (err, response) => {
+paypal.invoice.del("adsf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -587,11 +609,11 @@ paypal.invoice.del('adsf', (err, response) => {
         return;
     }
     test = response.id;
-    test = response.items ? response.items[0].name : 'asdf';
+    test = response.items ? response.items[0].name : "asdf";
 });
 
 // Invoice Delete External Payment
-paypal.invoice.deleteExternalPayment('adsf', 'asdf', (err, response) => {
+paypal.invoice.deleteExternalPayment("adsf", "asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -601,7 +623,7 @@ paypal.invoice.deleteExternalPayment('adsf', 'asdf', (err, response) => {
 });
 
 // Invoice Delete External Refund
-paypal.invoice.deleteExternalRefund('adsf', 'asdf', (err, response) => {
+paypal.invoice.deleteExternalRefund("adsf", "asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -622,7 +644,7 @@ paypal.invoice.generateNumber((err, response) => {
 });
 
 // Invoice Get
-paypal.invoice.get('adsf', (err, response) => {
+paypal.invoice.get("adsf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -630,7 +652,7 @@ paypal.invoice.get('adsf', (err, response) => {
         return;
     }
     test = response.id;
-    test = response.items ? response.items[0].name : 'asdf';
+    test = response.items ? response.items[0].name : "asdf";
 });
 
 // Invoice List
@@ -641,11 +663,11 @@ paypal.invoice.list((err, response) => {
         test = err.stack;
         return;
     }
-    test = response.invoices.length > 0 ? response.invoices[0].id : 'asdf';
+    test = response.invoices.length > 0 ? response.invoices[0].id : "asdf";
 });
 
 // Invoice Qrcode
-paypal.invoice.qrCode('asdf', 1, 3, (err, response) => {
+paypal.invoice.qrCode("asdf", 1, 3, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -661,12 +683,12 @@ const recordPayment: paypal.invoice.PayRequest = {
     note: "asdf",
     amount: {
         currency: "USD",
-        value: "10.10",
+        value: "10.10"
     }
 };
 
 // Invoice Record Payment
-paypal.invoice.recordPayment('asdf', recordPayment, (err, response) => {
+paypal.invoice.recordPayment("asdf", recordPayment, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -676,7 +698,7 @@ paypal.invoice.recordPayment('asdf', recordPayment, (err, response) => {
 });
 
 // Invoice Record Refund
-paypal.invoice.recordRefund('asdf', recordPayment, (err, response) => {
+paypal.invoice.recordRefund("asdf", recordPayment, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -686,7 +708,7 @@ paypal.invoice.recordRefund('asdf', recordPayment, (err, response) => {
 });
 
 // Invoice Remind
-paypal.invoice.remind('asdf', (err, response) => {
+paypal.invoice.remind("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -697,7 +719,7 @@ paypal.invoice.remind('asdf', (err, response) => {
 
 const invoiceSearch: paypal.invoice.SearchRequest = {
     archived: true,
-    start_creation_date: "asdf",
+    start_creation_date: "asdf"
 };
 
 // Invoice Search
@@ -708,11 +730,11 @@ paypal.invoice.search(invoiceSearch, (err, response) => {
         test = err.stack;
         return;
     }
-    test = response.invoices.length > 0 ? response.invoices[0].id : 'asdf';
+    test = response.invoices.length > 0 ? response.invoices[0].id : "asdf";
 });
 
 // Invoice Update
-paypal.invoice.update('asdf', maxInvoice, (err, response) => {
+paypal.invoice.update("asdf", maxInvoice, (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -720,11 +742,11 @@ paypal.invoice.update('asdf', maxInvoice, (err, response) => {
         return;
     }
     test = response.id;
-    test = response.items ? response.items[0].name : 'asdf';
+    test = response.items ? response.items[0].name : "asdf";
 });
 
 // Refund Get
-paypal.refund.get('asdf', (err, response) => {
+paypal.refund.get("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -736,7 +758,7 @@ paypal.refund.get('asdf', (err, response) => {
 });
 
 // Sale Get
-paypal.sale.get('asdf', (err, response) => {
+paypal.sale.get("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;
@@ -748,7 +770,7 @@ paypal.sale.get('asdf', (err, response) => {
 });
 
 // Sale Refund
-paypal.sale.refund('asdf', (err, response) => {
+paypal.sale.refund("asdf", (err, response) => {
     let test;
     if (err) {
         test = err.response.debug_id;

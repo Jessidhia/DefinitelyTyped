@@ -16,9 +16,9 @@ const cb5 = new ClipboardJS(".btn", {
 });
 const cb6 = new ClipboardJS(".btn", {
     action: elem => "copy",
-    text: trigger => trigger.getAttribute('aria-label'),
+    text: trigger => trigger.getAttribute("aria-label"),
     target: trigger => trigger.nextElementSibling,
-    container: document.getElementById('modal')
+    container: document.getElementById("modal")
 });
 
 cb1.destroy();

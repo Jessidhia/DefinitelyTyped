@@ -5,7 +5,7 @@
 
 /// <reference path="lib/sharedb.d.ts" />
 
-import * as ShareDB from './lib/sharedb';
+import * as ShareDB from "./lib/sharedb";
 
 interface PubSubOptions {
     prefix?: string;
@@ -17,40 +17,132 @@ interface Stream {
 export = sharedb;
 
 declare class sharedb {
-    constructor(options?: {db?: any, pubsub?: sharedb.PubSub, disableDocAction?: boolean, disableSpaceDelimitedActions?: boolean});
+    constructor(options?: {
+        db?: any;
+        pubsub?: sharedb.PubSub;
+        disableDocAction?: boolean;
+        disableSpaceDelimitedActions?: boolean;
+    });
     connect: () => sharedb.Connection;
     addProjection(name: string, collection: string, fields: {}): any;
     listen(stream: any): void;
     close(callback?: (err: Error) => any): void;
     use(action: sharedb.UseAction, fn: sharedb.UseCallback): void;
     static types: {
-        register: (type: { name?: string, uri?: string, [key: string]: any}) => void;
+        register: (type: {
+            name?: string;
+            uri?: string;
+            [key: string]: any;
+        }) => void;
     };
 }
 
 declare namespace sharedb {
-    type UseAction = 'connect' | 'op' | 'doc' | 'query' | 'submit' | 'apply' | 'commit' | 'after submit' | 'receive';
-    type UseCallback = ((request: {action: UseAction, agent: any, req: any, collection: string, id: string, query: any, op: ShareDB.RawOp}, callback: () => void) => void);
+    type UseAction =
+        | "connect"
+        | "op"
+        | "doc"
+        | "query"
+        | "submit"
+        | "apply"
+        | "commit"
+        | "after submit"
+        | "receive";
+    type UseCallback = (
+        request: {
+            action: UseAction;
+            agent: any;
+            req: any;
+            collection: string;
+            id: string;
+            query: any;
+            op: ShareDB.RawOp;
+        },
+        callback: () => void
+    ) => void;
 
     abstract class DB {
         projectsSnapshots: boolean;
         disableSubscribe: boolean;
         close(callback?: () => void): void;
-        commit(collection: string, id: string, op: Op, snapshot: any, options: any, callback: (...args: any[]) => any): void;
-        getSnapshot(collection: string, id: string, fields: any, options: any, callback: (...args: any[]) => any): void;
-        getSnapshotBulk(collection: string, ids: string, fields: any, options: any, callback: (...args: any[]) => any): void;
-        getOps(collection: string, id: string, from: number, to: number, options: any, callback: (...args: any[]) => any): void;
-        getOpsToSnapshot(collection: string, id: string, from: number, snapshot: number, options: any, callback: (...args: any[]) => any): void;
-        getOpsBulk(collection: string, fromMap: any, toMap: any, options: any, callback: (...args: any[]) => any): void;
-        getCommittedOpVersion(collection: string, id: string, snapshot: any, op: any, options: any, callback: (...args: any[]) => any): void;
-        query(collection: string, query: Query, fields: any, options: any, callback: (...args: any[]) => any): void;
-        queryPoll(collection: string, query: Query, options: any, callback: (...args: any[]) => any): void;
-        queryPollDoc(collection: string, id: string, query: Query, options: any, callback: (...args: any[]) => any): void;
+        commit(
+            collection: string,
+            id: string,
+            op: Op,
+            snapshot: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getSnapshot(
+            collection: string,
+            id: string,
+            fields: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getSnapshotBulk(
+            collection: string,
+            ids: string,
+            fields: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getOps(
+            collection: string,
+            id: string,
+            from: number,
+            to: number,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getOpsToSnapshot(
+            collection: string,
+            id: string,
+            from: number,
+            snapshot: number,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getOpsBulk(
+            collection: string,
+            fromMap: any,
+            toMap: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        getCommittedOpVersion(
+            collection: string,
+            id: string,
+            snapshot: any,
+            op: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        query(
+            collection: string,
+            query: Query,
+            fields: any,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        queryPoll(
+            collection: string,
+            query: Query,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
+        queryPollDoc(
+            collection: string,
+            id: string,
+            query: Query,
+            options: any,
+            callback: (...args: any[]) => any
+        ): void;
         canPollDoc(): boolean;
         skipPoll(): boolean;
     }
 
-    class MemoryDB extends DB { }
+    class MemoryDB extends DB {}
 
     abstract class PubSub {
         private static shallowCopy(obj: any): any;
@@ -64,13 +156,30 @@ declare namespace sharedb {
             [channel: string]: boolean;
         };
         protected constructor(options?: PubSubOptions);
-        close(callback?: (err: Error|null) => void): void;
-        publish(channels: string[], data: {[k: string]: any}, callback: (err: Error | null) => void): void;
-        subscribe(channel: string, callback: (err: Error | null, stream?: Stream) => void): void;
-        protected abstract _subscribe(channel: string, callback: (err: Error | null) => void): void;
-        protected abstract _unsubscribe(channel: string, callback: (err: Error | null) => void): void;
-        protected abstract _publish(channels: string[], data: any, callback: (err: Error | null) => void): void;
-        protected _emit(channel: string, data: {[k: string]: any}): void;
+        close(callback?: (err: Error | null) => void): void;
+        publish(
+            channels: string[],
+            data: { [k: string]: any },
+            callback: (err: Error | null) => void
+        ): void;
+        subscribe(
+            channel: string,
+            callback: (err: Error | null, stream?: Stream) => void
+        ): void;
+        protected abstract _subscribe(
+            channel: string,
+            callback: (err: Error | null) => void
+        ): void;
+        protected abstract _unsubscribe(
+            channel: string,
+            callback: (err: Error | null) => void
+        ): void;
+        protected abstract _publish(
+            channels: string[],
+            data: any,
+            callback: (err: Error | null) => void
+        ): void;
+        protected _emit(channel: string, data: { [k: string]: any }): void;
         private _createStream(channel): void;
         private _removeStream(channel, stream): void;
     }
@@ -78,8 +187,18 @@ declare namespace sharedb {
     class Connection {
         constructor(ws: WebSocket);
         get(collectionName: string, documentID: string): ShareDB.Doc;
-        createFetchQuery(collectionName: string, query: string, options: {results?: ShareDB.Query[]}, callback: (err: Error, results: any) => any): ShareDB.Query;
-        createSubscribeQuery(collectionName: string, query: string, options: {results?: ShareDB.Query[]}, callback: (err: Error, results: any) => any): ShareDB.Query;
+        createFetchQuery(
+            collectionName: string,
+            query: string,
+            options: { results?: ShareDB.Query[] },
+            callback: (err: Error, results: any) => any
+        ): ShareDB.Query;
+        createSubscribeQuery(
+            collectionName: string,
+            query: string,
+            options: { results?: ShareDB.Query[] },
+            callback: (err: Error, results: any) => any
+        ): ShareDB.Query;
     }
     type Doc = ShareDB.Doc;
     type Query = ShareDB.Query;

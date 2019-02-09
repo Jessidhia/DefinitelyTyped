@@ -1,8 +1,13 @@
-interface Point { x: number; y: number; }
-interface Point3D extends Point { z: number; }
+interface Point {
+    x: number;
+    y: number;
+}
+interface Point3D extends Point {
+    z: number;
+}
 
 let a: any;
-let s = '';
+let s = "";
 let i = 2;
 let iOrUndef: number | undefined;
 let b: boolean;
@@ -36,7 +41,9 @@ let iterableIteratorOfNode: IterableIteratorShim<Node>;
 let iterableIteratorOfStringPoint: IterableIteratorShim<[string, Point]>;
 let iterableIteratorOfAny: IterableIteratorShim<any>;
 let iterableIteratorOfPropertyKey: IterableIteratorShim<PropertyKey>;
-let iterableIteratorOfPropertyKeyPoint: IterableIteratorShim<[PropertyKey, Point]>;
+let iterableIteratorOfPropertyKeyPoint: IterableIteratorShim<
+    [PropertyKey, Point]
+>;
 let nodeList: NodeList;
 let pd: PropertyDescriptor = {};
 let pdm: PropertyDescriptorMap = {};
@@ -102,7 +109,7 @@ i = Math.fround(i);
 i = Math.cbrt(i);
 map.clear();
 map.delete(s);
-map.forEach((value: Point, key: string) => { });
+map.forEach((value: Point, key: string) => {});
 pointOrUndef = map.get(s);
 b = map.has(s);
 map = map.set(s, point);
@@ -111,7 +118,7 @@ map = new Map<string, Point>();
 map = new Map(iterableOfStringPoint);
 set.clear();
 set.delete(point);
-set.forEach((value: Point, key: Point) => { });
+set.forEach((value: Point, key: Point) => {});
 b = set.has(point);
 set = set.add(point);
 i = set.size;
@@ -134,23 +141,38 @@ iterableIteratorOfPoint = arrayOfPoint.values();
 iterableIteratorOfPointPoint = set.entries();
 iterableIteratorOfPoint = set.keys();
 iterableIteratorOfPoint = set.values();
-promiseLikeOfPoint.then((point: Point) => { });
+promiseLikeOfPoint.then((point: Point) => {});
 promiseLikeOfPoint = promiseLikeOfPoint.then();
 promiseLikeOfPoint = promiseLikeOfPoint.then(p => point);
 promiseLikeOfPoint = promiseLikeOfPoint.then(p => promiseLikeOfPoint);
 promiseLikeOfPoint = promiseLikeOfPoint.then(p => point, e => point);
-promiseLikeOfPoint = promiseLikeOfPoint.then(p => promiseLikeOfPoint, e => point);
-promiseLikeOfPoint = promiseLikeOfPoint.then(p => point, e => promiseLikeOfPoint);
-promiseLikeOfPoint = promiseLikeOfPoint.then(p => point, e => { });
-promiseLikeOfPoint = promiseLikeOfPoint.then(p => promiseLikeOfPoint, e => { });
+promiseLikeOfPoint = promiseLikeOfPoint.then(
+    p => promiseLikeOfPoint,
+    e => point
+);
+promiseLikeOfPoint = promiseLikeOfPoint.then(
+    p => point,
+    e => promiseLikeOfPoint
+);
+promiseLikeOfPoint = promiseLikeOfPoint.then(p => point, e => {});
+promiseLikeOfPoint = promiseLikeOfPoint.then(p => promiseLikeOfPoint, e => {});
 promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => point3d);
 promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => promiseLikeOfPoint3D);
 promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => point3d, e => point3d);
-promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => promiseLikeOfPoint3D, e => point3d);
-promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => point3d, e => promiseLikeOfPoint3D);
-promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => point3d, e => { });
-promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => promiseLikeOfPoint3D, e => { });
-promiseOfPoint.then((point: Point) => { });
+promiseLikeOfPoint3D = promiseLikeOfPoint.then(
+    p => promiseLikeOfPoint3D,
+    e => point3d
+);
+promiseLikeOfPoint3D = promiseLikeOfPoint.then(
+    p => point3d,
+    e => promiseLikeOfPoint3D
+);
+promiseLikeOfPoint3D = promiseLikeOfPoint.then(p => point3d, e => {});
+promiseLikeOfPoint3D = promiseLikeOfPoint.then(
+    p => promiseLikeOfPoint3D,
+    e => {}
+);
+promiseOfPoint.then((point: Point) => {});
 promiseOfPoint = promiseOfPoint.then();
 promiseOfPoint = promiseOfPoint.then(p => point);
 promiseOfPoint = promiseOfPoint.then(p => promiseOfPoint);
@@ -160,9 +182,9 @@ promiseOfPoint = promiseOfPoint.then(p => promiseOfPoint, e => point);
 promiseOfPoint = promiseOfPoint.then(p => promiseLikeOfPoint, e => point);
 promiseOfPoint = promiseOfPoint.then(p => point, e => promiseOfPoint);
 promiseOfPoint = promiseOfPoint.then(p => point, e => promiseLikeOfPoint);
-promiseOfPoint = promiseOfPoint.then(p => point, e => { });
-promiseOfPoint = promiseOfPoint.then(p => promiseOfPoint, e => { });
-promiseOfPoint = promiseOfPoint.then(p => promiseLikeOfPoint, e => { });
+promiseOfPoint = promiseOfPoint.then(p => point, e => {});
+promiseOfPoint = promiseOfPoint.then(p => promiseOfPoint, e => {});
+promiseOfPoint = promiseOfPoint.then(p => promiseLikeOfPoint, e => {});
 promiseOfPoint3D = promiseOfPoint.then(p => point3d);
 promiseOfPoint3D = promiseOfPoint.then(p => promiseOfPoint3D);
 promiseOfPoint3D = promiseOfPoint.then(p => promiseLikeOfPoint3D);
@@ -171,19 +193,23 @@ promiseOfPoint3D = promiseOfPoint.then(p => promiseOfPoint3D, e => point3d);
 promiseOfPoint3D = promiseOfPoint.then(p => promiseLikeOfPoint3D, e => point3d);
 promiseOfPoint3D = promiseOfPoint.then(p => point3d, e => promiseOfPoint3D);
 promiseOfPoint3D = promiseOfPoint.then(p => point3d, e => promiseLikeOfPoint3D);
-promiseOfPoint3D = promiseOfPoint.then(p => point3d, e => { });
-promiseOfPoint3D = promiseOfPoint.then(p => promiseOfPoint3D, e => { });
-promiseOfPoint3D = promiseOfPoint.then(p => promiseLikeOfPoint3D, e => { });
+promiseOfPoint3D = promiseOfPoint.then(p => point3d, e => {});
+promiseOfPoint3D = promiseOfPoint.then(p => promiseOfPoint3D, e => {});
+promiseOfPoint3D = promiseOfPoint.then(p => promiseLikeOfPoint3D, e => {});
 promiseOfPoint = promiseOfPoint.catch(e => point);
 promiseOfPoint = promiseOfPoint.catch(e => promiseOfPoint);
 promiseOfPoint = promiseOfPoint.catch(e => promiseLikeOfPoint);
-promiseOfPoint = promiseOfPoint.catch(e => { });
+promiseOfPoint = promiseOfPoint.catch(e => {});
 promiseOfPoint3D = promiseOfPoint3D.catch(e => point3d);
 promiseOfPoint3D = promiseOfPoint3D.catch(e => promiseOfPoint3D);
 promiseOfPoint3D = promiseOfPoint3D.catch(e => promiseLikeOfPoint3D);
 promiseOfPoint = new Promise<Point>((resolve, reject) => resolve(point));
-promiseOfPoint = new Promise<Point>((resolve, reject) => resolve(promiseOfPoint));
-promiseOfPoint = new Promise<Point>((resolve, reject) => resolve(promiseLikeOfPoint));
+promiseOfPoint = new Promise<Point>((resolve, reject) =>
+    resolve(promiseOfPoint)
+);
+promiseOfPoint = new Promise<Point>((resolve, reject) =>
+    resolve(promiseLikeOfPoint)
+);
 promiseOfPoint = new Promise<Point>((resolve, reject) => reject(e));
 // To prevent UnhandledPromiseRejectionWarning
 promiseOfPoint.catch(() => {});

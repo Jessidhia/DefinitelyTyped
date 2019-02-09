@@ -1,4 +1,4 @@
-import pWhilst = require('p-whilst');
+import pWhilst = require("p-whilst");
 
 let count = 0;
 

@@ -56,31 +56,209 @@ declare namespace adone {
 
             interface DescribeFunction {
                 (description: string, callback: DescribeCallback): void;
-                (description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, description: string, callback: DescribeCallback): void;
-                (a: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, h: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, h: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, h: string, i: string, description: string, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, h: string, i: string, description: string, options: DescribeOptions, callback: DescribeCallback): void;
-                (a: string, b: string, c: string, d: string, e: string, f: string, g: string, h: string, i: string, j: string, description: string, callback: DescribeCallback): void;
                 (
-                    a: string, b: string, c: string,
-                    d: string, e: string, f: string,
-                    g: string, h: string, i: string,
-                    j: string, description: string, options: DescribeOptions,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    i: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    i: string,
+                    description: string,
+                    options: DescribeOptions,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    i: string,
+                    j: string,
+                    description: string,
+                    callback: DescribeCallback
+                ): void;
+                (
+                    a: string,
+                    b: string,
+                    c: string,
+                    d: string,
+                    e: string,
+                    f: string,
+                    g: string,
+                    h: string,
+                    i: string,
+                    j: string,
+                    description: string,
+                    options: DescribeOptions,
                     callback: DescribeCallback
                 ): void;
                 (a: string, ...args: Array<string | DescribeCallback>): void;
@@ -137,11 +315,18 @@ declare namespace adone {
                 [key: string]: any;
             }
 
-            type TestCallback = (this: TestRuntimeContext, done: (err?: any) => void) => void;
+            type TestCallback = (
+                this: TestRuntimeContext,
+                done: (err?: any) => void
+            ) => void;
 
             interface TestFunction {
                 (description: string, callback: TestCallback): void;
-                (description: string, options: TestOptions, callback: TestCallback): void;
+                (
+                    description: string,
+                    options: TestOptions,
+                    callback: TestCallback
+                ): void;
                 /**
                  * Mark this test as inclusive
                  */
@@ -167,29 +352,78 @@ declare namespace adone {
                 [key: string]: any;
             }
 
-            type HookCallback = (this: HookRuntimeContext, done: (err?: any) => void) => void;
+            type HookCallback = (
+                this: HookRuntimeContext,
+                done: (err?: any) => void
+            ) => void;
 
             interface HookFunction {
                 (callback: HookCallback): void;
                 (description: string, callback: HookCallback): void;
             }
 
-            type StartHookEvent = "start before hook" | "start after hook"
-                | "start before each hook" | "start after each hook"
-                | "start before test hook" | "start after test hook";
+            type StartHookEvent =
+                | "start before hook"
+                | "start after hook"
+                | "start before each hook"
+                | "start after each hook"
+                | "start before test hook"
+                | "start after test hook";
 
-            type EndHookEvent = "end before hook" | "end after hook"
-                | "end before each hook" | "end after each hook"
-                | "end before test hook" | "end after test hook";
+            type EndHookEvent =
+                | "end before hook"
+                | "end after hook"
+                | "end before each hook"
+                | "end after each hook"
+                | "end before test hook"
+                | "end after test hook";
 
             interface Emitter extends event.Emitter {
-                on(event: "enter block", listener: (event: { block: Block }) => void): this;
-                on(event: "exit block", listener: (event: { block: Block }) => void): this;
-                on(event: "start test", listener: (event: { block: Block, test: Test }) => void): this;
-                on(event: "end test", listener: (event: { block: Block, test: Test, meta: ExecutionResult }) => void): this;
-                on(event: "skip test", listener: (event: { block: Block, test: Test, runtime: boolean }) => void): this;
-                on(event: StartHookEvent, listener: (event: { block: Block, test: Test, hook: Hook }) => void): this;
-                on(event: EndHookEvent, listener: (event: { block: Block, test: Test, hook: Hook, meta: ExecutionResult }) => void): this;
+                on(
+                    event: "enter block",
+                    listener: (event: { block: Block }) => void
+                ): this;
+                on(
+                    event: "exit block",
+                    listener: (event: { block: Block }) => void
+                ): this;
+                on(
+                    event: "start test",
+                    listener: (event: { block: Block; test: Test }) => void
+                ): this;
+                on(
+                    event: "end test",
+                    listener: (event: {
+                        block: Block;
+                        test: Test;
+                        meta: ExecutionResult;
+                    }) => void
+                ): this;
+                on(
+                    event: "skip test",
+                    listener: (event: {
+                        block: Block;
+                        test: Test;
+                        runtime: boolean;
+                    }) => void
+                ): this;
+                on(
+                    event: StartHookEvent,
+                    listener: (event: {
+                        block: Block;
+                        test: Test;
+                        hook: Hook;
+                    }) => void
+                ): this;
+                on(
+                    event: EndHookEvent,
+                    listener: (event: {
+                        block: Block;
+                        test: Test;
+                        hook: Hook;
+                        meta: ExecutionResult;
+                    }) => void
+                ): this;
                 on(event: "error", listener: (err: any) => void): this;
                 on(event: "done", listener: () => void): this;
 
@@ -214,7 +448,11 @@ declare namespace adone {
             class Hook {
                 desctiption: string;
 
-                constructor(description: string, callback: HookCallback, runtimeContext: object);
+                constructor(
+                    description: string,
+                    callback: HookCallback,
+                    runtimeContext: object
+                );
 
                 /**
                  * Check if this hook has been run
@@ -250,7 +488,13 @@ declare namespace adone {
             class Test {
                 description: string;
 
-                constructor(description: string, callback: TestCallback, block: Block, runtimeContext: object, options: TestOptions);
+                constructor(
+                    description: string,
+                    callback: TestCallback,
+                    block: Block,
+                    runtimeContext: object,
+                    options: TestOptions
+                );
 
                 /**
                  * Handles params from options
@@ -313,7 +557,11 @@ declare namespace adone {
                 };
                 children: Array<Block | Test>;
 
-                constructor(name: string, parent: Block, options: DescribeOptions);
+                constructor(
+                    name: string,
+                    parent: Block,
+                    options: DescribeOptions
+                );
 
                 /**
                  * Handles params from options
@@ -805,8 +1053,13 @@ declare namespace adone {
                     /**
                      * Waits for the call where the given match function returns true
                      */
-                    waitFor(match: (call: SpyCall) => boolean): Promise<SpyCall>;
-                    waitFor<T>(match: (call: SpyCall) => boolean, ret: (call: SpyCall) => T): Promise<T>;
+                    waitFor(
+                        match: (call: SpyCall) => boolean
+                    ): Promise<SpyCall>;
+                    waitFor<T>(
+                        match: (call: SpyCall) => boolean,
+                        ret: (call: SpyCall) => T
+                    ): Promise<T>;
 
                     /**
                      * Waits for a call
@@ -928,7 +1181,11 @@ declare namespace adone {
                     /**
                      * Causes the stub to call the argument at the provided index as a callback function on the given context with the given arguments
                      */
-                    callsArgOnWith(index: number, context: any, ...args: any[]): Stub;
+                    callsArgOnWith(
+                        index: number,
+                        context: any,
+                        ...args: any[]
+                    ): Stub;
 
                     /**
                      * Causes the stub to asynchronously call the argument at the provided index as a callback function
@@ -948,7 +1205,11 @@ declare namespace adone {
                     /**
                      * Causes the stub to asynchronously call the argument at the provided index as a callback function on the given context with the given arguments
                      */
-                    callsArgOnWithAsync(index: number, context: any, ...args: any[]): Stub;
+                    callsArgOnWithAsync(
+                        index: number,
+                        context: any,
+                        ...args: any[]
+                    ): Stub;
 
                     /**
                      * Makes the stub call the provided fake function
@@ -1013,7 +1274,11 @@ declare namespace adone {
                     /**
                      * Causes the stub to invoke a callback passed as a property of an object to the spy on the given context
                      */
-                    yieldsToOn(property: string, context: any, ...args: any[]): Stub;
+                    yieldsToOn(
+                        property: string,
+                        context: any,
+                        ...args: any[]
+                    ): Stub;
 
                     /**
                      * Causes the stub to asynchronously call the first callback it receives with the provided arguments
@@ -1033,7 +1298,11 @@ declare namespace adone {
                     /**
                      * Causes the stub to asynchronously invoke a callback passed as a property of an object to the spy on the given context
                      */
-                    yieldsToOnAsync(property: string, context: any, ...args: any[]): Stub;
+                    yieldsToOnAsync(
+                        property: string,
+                        context: any,
+                        ...args: any[]
+                    ): Stub;
 
                     /**
                      * Stubs the method only for the provided arguments
@@ -1358,7 +1627,10 @@ declare namespace adone {
                     /**
                      * Specify a custom matcher
                      */
-                    (callback: (value: any) => boolean, message?: string): Matcher;
+                    (
+                        callback: (value: any) => boolean,
+                        message?: string
+                    ): Matcher;
 
                     /**
                      * Matches anything
@@ -1607,7 +1879,11 @@ declare namespace adone {
                     /**
                      * Attaches an attachment
                      */
-                    attach(name: string, contents: string | Buffer, options?: AttachOptions): this;
+                    attach(
+                        name: string,
+                        contents: string | Buffer,
+                        options?: AttachOptions
+                    ): this;
 
                     /**
                      * Attaches an attachment like a field
@@ -1642,7 +1918,9 @@ declare namespace adone {
                     /**
                      * Executes a function with the response and asserts it returns true
                      */
-                    expect(fn: (response: Response) => boolean | Promise<boolean>): this;
+                    expect(
+                        fn: (response: Response) => boolean | Promise<boolean>
+                    ): this;
 
                     /**
                      * Asserts the response status
@@ -1657,7 +1935,10 @@ declare namespace adone {
                     /**
                      * Asserts the response body
                      */
-                    expectBody(body: RegExp | string | Buffer, options?: ExpectBodyOptions): this;
+                    expectBody(
+                        body: RegExp | string | Buffer,
+                        options?: ExpectBodyOptions
+                    ): this;
 
                     /**
                      * Asserts the response json body

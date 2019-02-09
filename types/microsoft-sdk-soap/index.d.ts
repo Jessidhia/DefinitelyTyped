@@ -32,8 +32,8 @@ declare global {
             Name: string;
         }
 
-        interface IEntityReferenceCollectionView extends Array<IEntityReferenceView> {
-        }
+        interface IEntityReferenceCollectionView
+            extends Array<IEntityReferenceView> {}
 
         class Q {
             /**
@@ -43,7 +43,12 @@ declare global {
              * @param relationship The name of the relationship to be used to create the link.
              * @param relatedEntities A collection of Sdk.EntityReference objects to be associated.
              */
-            static associate(entityName: string, entityId: string, relationship: string, relatedEntities: Sdk.Collection<Sdk.EntityReference>): Q.Promise<void>;
+            static associate(
+                entityName: string,
+                entityId: string,
+                relationship: string,
+                relatedEntities: Sdk.Collection<Sdk.EntityReference>
+            ): Q.Promise<void>;
             /**
              * Creates an entity record and returns a string representation of the GUID value that is the Id of the created entity.
              * @param entity An entity instance.
@@ -64,13 +69,20 @@ declare global {
              * @param relationship The name of the relationship to be used to remove the link.
              * @param relatedEntities A collection of Sdk.EntityReference objects to be disassociated.
              */
-            static disassociate(entityName: string, entityId: string, relationship: string, relatedEntities: Sdk.Collection<Sdk.EntityReference>): Q.Promise<void>;
+            static disassociate(
+                entityName: string,
+                entityId: string,
+                relationship: string,
+                relatedEntities: Sdk.Collection<Sdk.EntityReference>
+            ): Q.Promise<void>;
 
             /**
              * Executes a SOAP Request using the SOAPAction Execute.
              * @param request A request object.
              */
-            static execute(request: Sdk.OrganizationRequest): Q.Promise<OrganizationResponse>;
+            static execute(
+                request: Sdk.OrganizationRequest
+            ): Q.Promise<OrganizationResponse>;
 
             /**
              * Retrieves an entity instance.
@@ -78,25 +90,35 @@ declare global {
              * @param id The id of the entity to retrieve.
              * @param columnSet The columns of the entities to retrieve.
              */
-            static retrieve(entityName: string, id: string, columnSet: Sdk.ColumnSet): Q.Promise<Entity>;
+            static retrieve(
+                entityName: string,
+                id: string,
+                columnSet: Sdk.ColumnSet
+            ): Q.Promise<Entity>;
 
             /**
              * Retrieves the results of a query
              * @param query An Sdk.Query.QueryByAttribute query.
              */
-            static retrieveMultiple(query: Sdk.Query.QueryByAttribute): Q.Promise<Sdk.EntityCollection>;
+            static retrieveMultiple(
+                query: Sdk.Query.QueryByAttribute
+            ): Q.Promise<Sdk.EntityCollection>;
 
             /**
              * Retrieves the results of a query
              * @param query An Sdk.Query.QueryExpression query.
              */
-            static retrieveMultiple(query: Sdk.Query.QueryExpression): Q.Promise<Sdk.EntityCollection>;
+            static retrieveMultiple(
+                query: Sdk.Query.QueryExpression
+            ): Q.Promise<Sdk.EntityCollection>;
 
             /**
              * Retrieves the results of a query
              * @param query An Sdk.Query.FetchExpression query.
              */
-            static retrieveMultiple(query: Sdk.Query.FetchExpression): Q.Promise<Sdk.EntityCollection>;
+            static retrieveMultiple(
+                query: Sdk.Query.FetchExpression
+            ): Q.Promise<Sdk.EntityCollection>;
 
             /**
              * Updates an entity instance.
@@ -158,7 +180,6 @@ declare global {
              */
             getCount(): number;
 
-
             /// prototype methods
 
             /**
@@ -179,11 +200,9 @@ declare global {
             toValueXml(): string;
         }
 
-        class ValueType {
-        }
+        class ValueType {}
 
-        class Collection<T>
-        {
+        class Collection<T> {
             /**
              * A Collection for a specified type.
              * @param type The function that specifies the type.
@@ -368,7 +387,9 @@ declare global {
              * Sets whether the results of the query exceeds the total record count.
              * @param totalRecordCountLimitExceeded Whether the results of the query exceeds the total record count.
              */
-            setTotalRecordCountLimitExceeded(totalRecordCountLimitExceeded: boolean): void;
+            setTotalRecordCountLimitExceeded(
+                totalRecordCountLimitExceeded: boolean
+            ): void;
 
             /**
              * XML definition of an the child nodes of an entity.
@@ -397,8 +418,9 @@ declare global {
              * Sets the collection of entity references.
              * @param entityReferences The entity references
              */
-            setEntityReferences(entityReferences: Sdk.Collection<EntityReference>): void;
-
+            setEntityReferences(
+                entityReferences: Sdk.Collection<EntityReference>
+            ): void;
 
             /// prototype methods
 
@@ -419,11 +441,9 @@ declare global {
             toValueXml(): string;
         }
 
-        class RelatedEntityCollection extends EntityCollection {
-        }
+        class RelatedEntityCollection extends EntityCollection {}
 
-        class AttributeCollection extends Collection<AttributeBase>
-        {
+        class AttributeCollection extends Collection<AttributeBase> {
             constructor();
 
             /**
@@ -435,9 +455,8 @@ declare global {
 
             /**
              * Gets the attributes in the collection.
-              */
+             */
             getAttributes(): Collection<AttributeBase>;
-
 
             /// prototype methods
 
@@ -486,11 +505,9 @@ declare global {
             toXml(action: string): string;
         }
 
-        class FormattedValueCollection {
-        }
+        class FormattedValueCollection {}
 
-        class RelatedEntitiesCollection {
-        }
+        class RelatedEntitiesCollection {}
 
         class AttributeBase {
             /**
@@ -556,7 +573,7 @@ declare global {
              * @param name The logical name of the attribute .
              * @param value The value of the managed property.
              */
-            constructor(name: string, value?: boolean)
+            constructor(name: string, value?: boolean);
 
             /**
              * Gets the value of a Boolean attribute.
@@ -790,8 +807,7 @@ declare global {
             setValue(value: string): void;
         }
 
-        class EntityState {
-        }
+        class EntityState {}
 
         class Entity {
             /**
@@ -821,7 +837,9 @@ declare global {
              * Checks whether the entity has an attribute that satisfies the specified predicate.
              * @param A comparer function that takes an Sdk.AttributeBase as argument and returns a boolean.
              */
-            containsAttribute(predicate: (attribute: Sdk.AttributeBase) => boolean): boolean;
+            containsAttribute(
+                predicate: (attribute: Sdk.AttributeBase) => boolean
+            ): boolean;
 
             /**
              * Checks whether the entity has an attribute with the specified name.
@@ -889,21 +907,29 @@ declare global {
              * Sets a collection of related entities.
              * @param relatedEntities A collection of related entities.
              */
-            setRelatedEntities(relatedEntities: Sdk.RelatedEntitiesCollection): void;
+            setRelatedEntities(
+                relatedEntities: Sdk.RelatedEntitiesCollection
+            ): void;
 
             /**
              * Adds an attribute with an optional value to a newly instantiated Sdk.Entity
              * @param attribute The attribute to add
              * @param isChanged Whether the attribute should be considered changed, the default is true.
              */
-            addAttribute(attribute: Sdk.AttributeBase, isChanged?: boolean): void;
+            addAttribute(
+                attribute: Sdk.AttributeBase,
+                isChanged?: boolean
+            ): void;
 
             /**
              * Adds an entity to the related entities.
              * @param relationshipSchemaName The relationship SchemaName.
              * @param entity The entity to add.
              */
-            addRelatedEntity(relationshipSchemaName: string, entity: Sdk.Entity): void;
+            addRelatedEntity(
+                relationshipSchemaName: string,
+                entity: Sdk.Entity
+            ): void;
 
             /**
              * Gets the value to indicate whether data for the entity has changed.
@@ -1003,7 +1029,6 @@ declare global {
              */
             setName(name: string): void;
 
-
             /// prototype methods
 
             /**
@@ -1046,8 +1071,7 @@ declare global {
             getResponseType(): OrganizationResponse;
         }
 
-        class OrganizationResponse {
-        }
+        class OrganizationResponse {}
 
         /**
          * Contains the data that is needed to convert a query in FetchXML to a QueryExpression.
@@ -1110,7 +1134,11 @@ declare global {
          * @param deletedMetadataFilters An Sdk.Mdq.DeletedMetadataFilters enumeration value. When included the deleted metadata changes will be limited to the types defined by the enumeration.
          */
         class RetrieveMetadataChangesRequest extends Sdk.OrganizationRequest {
-            constructor(query: Sdk.Mdq.EntityQueryExpression, clientVersionStamp?: string, deletedMetadataFilters?: Sdk.Mdq.DeletedMetadataFilters);
+            constructor(
+                query: Sdk.Mdq.EntityQueryExpression,
+                clientVersionStamp?: string,
+                deletedMetadataFilters?: Sdk.Mdq.DeletedMetadataFilters
+            );
             getEntityMetadata(): Sdk.Mdq.IEntityMetadata[];
             getServerVersionStamp(): string;
             getDeletedMetadata(): Object;
@@ -1139,7 +1167,6 @@ declare global {
             public getDeletedMetadata(): any;
         }
 
-
         /**
          * Contains the data that is needed to set the state of an entity record.
          * @param entityMoniker Sets the entity.
@@ -1147,7 +1174,11 @@ declare global {
          * @param status Sets the status that corresponds to the State property.
          */
         class SetStateRequest extends Sdk.OrganizationRequest {
-            constructor(entityMoniker: EntityReference, state: number, status: number);
+            constructor(
+                entityMoniker: EntityReference,
+                state: number,
+                status: number
+            );
 
             /**
              * Sets the entity.
@@ -1312,7 +1343,10 @@ declare global {
              * @param attributeValue One of the classes that inherit from Sdk.AttributeBase including the value to use as criteria.
              * @param errorIfNotFound Whether to throw an error when the attribute to remove is not found. The default is false.
              */
-            removeAttributeValue(attributeValue: Sdk.AttributeBase, errorIfNotFound?: boolean): void;
+            removeAttributeValue(
+                attributeValue: Sdk.AttributeBase,
+                errorIfNotFound?: boolean
+            ): void;
         }
 
         class QueryExpression extends QueryBase {
@@ -1380,7 +1414,12 @@ declare global {
              *          Sdk.Query.OptionSets
              *          Sdk.Query.Strings
              */
-            addCondition(entityName: string, attributeName: string, conditionOperator: Sdk.Query.ConditionOperator, values: Sdk.Query.ValueBase): void;
+            addCondition(
+                entityName: string,
+                attributeName: string,
+                conditionOperator: Sdk.Query.ConditionOperator,
+                values: Sdk.Query.ValueBase
+            ): void;
 
             /**
              * Adds the specified link to the query expression setting the entity name to link to, the attribute name to link from and the attribute name to link to.
@@ -1395,18 +1434,25 @@ declare global {
              * @param linkToAttributeName The name of the attribute to link to.
              * @param joinOperator The join operator. The default value is Inner
              */
-            addLink(firstParam: string, linkFromAttributeName: string, linkToAttributeName: string, joinOperator: Sdk.Query.JoinOperator): void;
+            addLink(
+                firstParam: string,
+                linkFromAttributeName: string,
+                linkToAttributeName: string,
+                joinOperator: Sdk.Query.JoinOperator
+            ): void;
 
             /**
              * Adds the specified order expression to the query expression.
              * @param attributeName The name of the attribute.
              * @param orderType The order, ascending or descending. Ascending is the default if not specified.
              */
-            addOrder(attributeName: string, orderType: Sdk.Query.OrderType): void;
+            addOrder(
+                attributeName: string,
+                orderType: Sdk.Query.OrderType
+            ): void;
         }
 
-        class OrderExpression {
-        }
+        class OrderExpression {}
 
         class ConditionExpression {
             /**
@@ -1429,7 +1475,12 @@ declare global {
              *  - Sdk.Query.OptionSets </para>
              *  - Sdk.Query.Strings </para>
              */
-            constructor(entityName: string, attributeName: string, operator: ConditionOperator, values?: ValueBase);
+            constructor(
+                entityName: string,
+                attributeName: string,
+                operator: ConditionOperator,
+                values?: ValueBase
+            );
 
             /**
              * Returns the logical name of the entity in the condition expression.
@@ -1522,7 +1573,12 @@ declare global {
              *  - Sdk.Query.OptionSets
              *  - Sdk.Query.Strings
              */
-            public addCondition(entityName: string, attributeName: string, conditionOperator: ConditionOperator, values?: ValueBase): void;
+            public addCondition(
+                entityName: string,
+                attributeName: string,
+                conditionOperator: ConditionOperator,
+                values?: ValueBase
+            ): void;
 
             /**
              * Adds a child filter to the filter expression.
@@ -1544,7 +1600,7 @@ declare global {
             /**
              * Gets the logical AND/OR filter operator.
              */
-            getFilterOperator(): LogicalOperator
+            getFilterOperator(): LogicalOperator;
 
             /**
              * Returns an Sdk.Collection of Sdk.Query.FilterExpression.
@@ -1603,7 +1659,8 @@ declare global {
                 linkFromAttributeName: string,
                 linkToAttributeName: string,
                 joinOperator: Sdk.Query.JoinOperator,
-                entityAlias: string);
+                entityAlias: string
+            );
 
             /**
              * Adds a linked entity.
@@ -1771,7 +1828,6 @@ declare global {
              */
             setReturnTotalRecordCount(returnTotalRecordsCount: boolean): void;
 
-
             /// prototype methods
 
             /**
@@ -1858,22 +1914,21 @@ declare global {
             InOrBeforeFiscalPeriodAndYear,
             InOrAfterFiscalPeriodAndYear,
             EqualUserOrUserTeams,
-            EqualUserTeams,
+            EqualUserTeams
         }
 
         export enum JoinOperator {
             Inner,
             LeftOuter,
-            Natural,
+            Natural
         }
 
         export enum OrderType {
             Ascending,
-            Descending,
+            Descending
         }
 
-        export class ValueBase
-        { }
+        export class ValueBase {}
 
         /**
          * Specifies Boolean values to be compared in the query.
@@ -1891,7 +1946,6 @@ declare global {
              * Returns an Sdk.Collection of boolean values.
              */
             public getValues(): Sdk.Collection<boolean>;
-
 
             /**
              * Specifies a Boolean value to be compared in the query.
@@ -2137,12 +2191,12 @@ declare global {
              * Specifies the String values to be compared in the query.
              * @param setValueArgs An array of String values.
              */
-            public setValues(setValueArgs: string[]): void
+            public setValues(setValueArgs: string[]): void;
         }
 
         export enum LogicalOperator {
             Or,
-            And,
+            And
         }
     }
 
@@ -2205,8 +2259,7 @@ declare global {
         function createEntityFromNode(node: string): void;
     }
 
-    namespace Sdk.Xml {
-    }
+    namespace Sdk.Xml {}
 
     namespace Sdk.Mdq {
         /**
@@ -2223,7 +2276,8 @@ declare global {
                 properties: Sdk.Mdq.MetadataPropertiesExpression,
                 attributeQuery?: Sdk.Mdq.AttributeQueryExpression,
                 relationshipQuery?: Sdk.Mdq.RelationshipQueryExpression,
-                labelQuery?: Sdk.Mdq.LabelQueryExpression);
+                labelQuery?: Sdk.Mdq.LabelQueryExpression
+            );
         }
 
         /**
@@ -2236,7 +2290,7 @@ declare global {
             Entity, //Deleted Entity metadata
             Label, //Deleted Label metadata
             OptionSet, // Deleted OptionSet metadata
-            Relationship, //Deleted Relationship metadata
+            Relationship //Deleted Relationship metadata
         }
 
         /**
@@ -2254,20 +2308,38 @@ declare global {
              * @param value The metadata value to evaluate.
              */
             public addCondition(
-                propertyName: SearchableEntityMetadataProperties | SearchableAttributeMetadataProperties | SearchableRelationshipMetadataProperties,
+                propertyName:
+                    | SearchableEntityMetadataProperties
+                    | SearchableAttributeMetadataProperties
+                    | SearchableRelationshipMetadataProperties,
                 conditionOperator: MetadataConditionOperator,
-                value: Object): void;
+                value: Object
+            ): void;
             public addCondition(
-                propertyName: SearchableAttributeMetadataProperties, conditionOperator: MetadataConditionOperator, value: any): void;
-            public addCondition(
-                propertyName: SearchableEntityMetadataProperties | SearchableAttributeMetadataProperties | SearchableRelationshipMetadataProperties,
+                propertyName: SearchableAttributeMetadataProperties,
                 conditionOperator: MetadataConditionOperator,
-                value: Object): void;
-            addCondition(propertyName: SearchableAttributeMetadataProperties, conditionOperator: MetadataConditionOperator): void;
+                value: any
+            ): void;
             public addCondition(
-                propertyName: SearchableEntityMetadataProperties | SearchableAttributeMetadataProperties | SearchableRelationshipMetadataProperties,
+                propertyName:
+                    | SearchableEntityMetadataProperties
+                    | SearchableAttributeMetadataProperties
+                    | SearchableRelationshipMetadataProperties,
                 conditionOperator: MetadataConditionOperator,
-                value: Object): void;
+                value: Object
+            ): void;
+            addCondition(
+                propertyName: SearchableAttributeMetadataProperties,
+                conditionOperator: MetadataConditionOperator
+            ): void;
+            public addCondition(
+                propertyName:
+                    | SearchableEntityMetadataProperties
+                    | SearchableAttributeMetadataProperties
+                    | SearchableRelationshipMetadataProperties,
+                conditionOperator: MetadataConditionOperator,
+                value: Object
+            ): void;
         }
 
         /**
@@ -2276,7 +2348,10 @@ declare global {
          * @param properties The properties to be returned by the query.
          */
         export class AttributeQueryExpression {
-            constructor(criteria: MetadataFilterExpression, properties: Sdk.Mdq.MetadataPropertiesExpression);
+            constructor(
+                criteria: MetadataFilterExpression,
+                properties: Sdk.Mdq.MetadataPropertiesExpression
+            );
         }
 
         /**
@@ -2285,7 +2360,10 @@ declare global {
          * @param properties The properties to be returned by the query.
          */
         export class RelationshipQueryExpression {
-            constructor(criteria: MetadataFilterExpression, properties: Mdq.MetadataPropertiesExpression);
+            constructor(
+                criteria: MetadataFilterExpression,
+                properties: Mdq.MetadataPropertiesExpression
+            );
         }
 
         /**
@@ -2301,7 +2379,7 @@ declare global {
          */
         export enum LogicalOperator {
             And,
-            Or,
+            Or
         }
 
         /**
@@ -2310,7 +2388,15 @@ declare global {
          * @param propertyNames: >An array of strings representing the metadata properties to retrieve.
          */
         export class MetadataPropertiesExpression {
-            constructor(allProperties: boolean, propertyNames?: Array<EntityMetadataProperties | AttributeMetadataProperties | RelationshipMetadataProperties | any>);
+            constructor(
+                allProperties: boolean,
+                propertyNames?: Array<
+                    | EntityMetadataProperties
+                    | AttributeMetadataProperties
+                    | RelationshipMetadataProperties
+                    | any
+                >
+            );
         }
 
         export enum RelationshipMetadataProperties {
@@ -2336,7 +2422,7 @@ declare global {
             ReferencingEntity,
             RelationshipType,
             SchemaName,
-            SecurityTypes,
+            SecurityTypes
         }
 
         export enum AttributeMetadataProperties {
@@ -2383,7 +2469,7 @@ declare global {
             RequiredLevel,
             SchemaName,
             Targets,
-            YomiOf,
+            YomiOf
         }
 
         export enum EntityMetadataProperties {
@@ -2445,7 +2531,7 @@ declare global {
             Privileges,
             RecurrenceBaseEntityLogicalName,
             ReportViewName,
-            SchemaName,
+            SchemaName
         }
 
         export enum SearchableEntityMetadataProperties {
@@ -2499,7 +2585,7 @@ declare global {
             PrimaryNameAttribute,
             RecurrenceBaseEntityLogicalName,
             ReportViewName,
-            SchemaName,
+            SchemaName
         }
 
         export enum SearchableAttributeMetadataProperties {
@@ -2541,7 +2627,7 @@ declare global {
             PrecisionSource,
             RequiredLevel,
             SchemaName,
-            YomiOf,
+            YomiOf
         }
 
         export enum SearchableRelationshipMetadataProperties {
@@ -2563,7 +2649,7 @@ declare global {
             ReferencingEntity,
             RelationshipType,
             SchemaName,
-            SecurityTypes,
+            SecurityTypes
         }
 
         export enum MetadataConditionOperator {
@@ -2572,7 +2658,7 @@ declare global {
             In,
             NotIn,
             GreaterThan,
-            LessThan,
+            LessThan
         }
 
         export interface IEntityMetadata {
@@ -2627,7 +2713,11 @@ declare global {
             MetadataId: string;
             ObjectTypeCode: number;
             OneToManyRelationships: OneToManyRelationshipMetadata;
-            OwnershipType: "BusinessOwned" | "BusinessParented" | "None	OrganizationOwned" | "TeamOwned	UserOwned";
+            OwnershipType:
+                | "BusinessOwned"
+                | "BusinessParented"
+                | "None	OrganizationOwned"
+                | "TeamOwned	UserOwned";
             PrimaryIdAttribute: string;
             PrimaryImageAttribute: string;
             PrimaryNameAttribute: string;
@@ -2647,7 +2737,16 @@ declare global {
             ExtensionData: boolean;
             Name: string;
             PrivilegeId: string;
-            PrivilegeType: "Append" | "AppendTo" | "Assign" | "Create" | "Delete" | "None" | "Read" | "Share" | "Write";
+            PrivilegeType:
+                | "Append"
+                | "AppendTo"
+                | "Assign"
+                | "Create"
+                | "Delete"
+                | "None"
+                | "Read"
+                | "Share"
+                | "Write";
         }
 
         export interface OneToManyRelationshipMetadata {
@@ -2680,7 +2779,11 @@ declare global {
             Unshare: CascadeType;
         }
 
-        export type CascadeType = "Active" | "Cascade" | "NoCascade" | "UserOwned";
+        export type CascadeType =
+            | "Active"
+            | "Cascade"
+            | "NoCascade"
+            | "UserOwned";
 
         export interface ManyToManyRelationshipMetadata {
             Entity1AssociatedMenuConfiguration: AssociatedMenuConfiguration;
@@ -2709,18 +2812,71 @@ declare global {
             Order: number;
         }
 
-        export type AssociatedMenuBehavior = "DoNotDisplay" | "UseCollectionName" | "UseLabel";
+        export type AssociatedMenuBehavior =
+            | "DoNotDisplay"
+            | "UseCollectionName"
+            | "UseLabel";
 
-        export type AssociatedMenuGroup = "Details" | "Marketing" | "Sales" | "Service";
+        export type AssociatedMenuGroup =
+            | "Details"
+            | "Marketing"
+            | "Sales"
+            | "Service";
 
-        export type RelationshipType = "Default" | "ManyToManyRelationship" | "OneToManyRelationship";
+        export type RelationshipType =
+            | "Default"
+            | "ManyToManyRelationship"
+            | "OneToManyRelationship";
 
-        export type SecurityType = "Append" | "Inheritance" | "None" | "ParentChild" | "Pointer";
+        export type SecurityType =
+            | "Append"
+            | "Inheritance"
+            | "None"
+            | "ParentChild"
+            | "Pointer";
 
         export interface IAttributeMetadata {
             AttributeOf: string;
-            AttributeType: "Customer" | "DateTime" | "Decimal" | "Double" | "EntityName" | "Integer" | "Lookup" | "ManagedProperty" | "Memo" | "Money" | "Owner" | "PartyList" | "Picklist" | "State" | "Status" | "Uniqueidentifier" | "Virtual"
-            AttributeTypeName: "BigIntType" | "BooleanType" | "CalendarRulesType" | "CustomerType" | "DateTimeType" | "DecimalType" | "DoubleType" | "EntityNameType" | "ImageType" | "IntegerType" | "LookupType" | "ManagedPropertyType" | "MemoType" | "MoneyType" | "OwnerType" | "PartyListType" | "PicklistType" | "StateType	StatusType" | "StringType" | "UniqueidentifierType" | "VirtualType";
+            AttributeType:
+                | "Customer"
+                | "DateTime"
+                | "Decimal"
+                | "Double"
+                | "EntityName"
+                | "Integer"
+                | "Lookup"
+                | "ManagedProperty"
+                | "Memo"
+                | "Money"
+                | "Owner"
+                | "PartyList"
+                | "Picklist"
+                | "State"
+                | "Status"
+                | "Uniqueidentifier"
+                | "Virtual";
+            AttributeTypeName:
+                | "BigIntType"
+                | "BooleanType"
+                | "CalendarRulesType"
+                | "CustomerType"
+                | "DateTimeType"
+                | "DecimalType"
+                | "DoubleType"
+                | "EntityNameType"
+                | "ImageType"
+                | "IntegerType"
+                | "LookupType"
+                | "ManagedPropertyType"
+                | "MemoType"
+                | "MoneyType"
+                | "OwnerType"
+                | "PartyListType"
+                | "PicklistType"
+                | "StateType	StatusType"
+                | "StringType"
+                | "UniqueidentifierType"
+                | "VirtualType";
             CalculationOf: any;
             CanBeSecuredForCreate: boolean;
             CanBeSecuredForRead: boolean;
@@ -2788,7 +2944,7 @@ declare global {
                 None,
                 OrganizationOwned,
                 TeamOwned,
-                UserOwned,
+                UserOwned
             }
 
             export enum AttributeTypeCode {
@@ -2812,47 +2968,42 @@ declare global {
                 Status,
                 String,
                 Uniqueidentifier,
-                Virtual,
+                Virtual
             }
-
 
             export enum AttributeRequiredLevel {
                 ApplicationRequired,
                 None,
                 Recommended,
-                SystemRequired,
+                SystemRequired
             }
-
 
             export enum DateTimeFormat {
                 DateAndTime,
-                DateOnly,
+                DateOnly
             }
 
             export enum ImeMode {
                 Active,
                 Auto,
                 Disabled,
-                Inactive,
+                Inactive
             }
-
-
 
             export enum IntegerFormat {
                 Duration,
                 Language,
                 Locale,
                 None,
-                TimeZone,
+                TimeZone
             }
-
 
             export enum SecurityTypes {
                 Append,
                 Inheritance,
                 None,
                 ParentChild,
-                Pointer,
+                Pointer
             }
 
             export enum StringFormat {
@@ -2862,11 +3013,10 @@ declare global {
                 TextArea,
                 TickerSymbol,
                 Url,
-                VersionNumber,
+                VersionNumber
             }
         }
     }
 
-    namespace Sdk.Mdq.ValueEnums
-    { }
+    namespace Sdk.Mdq.ValueEnums {}
 }

@@ -1,5 +1,5 @@
-import { Environment } from './environment';
-import { NewConnectConfig } from '../transport/wire';
+import { Environment } from "./environment";
+import { NewConnectConfig } from "../transport/wire";
 export default class NodeEnvironment implements Environment {
     private messageCounter;
     writeToken: (path: string, token: string) => Promise<string>;

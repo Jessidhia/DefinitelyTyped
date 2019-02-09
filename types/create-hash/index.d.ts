@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { Hash } from 'crypto';
+import { Hash } from "crypto";
 
 export = createHash;
 
@@ -14,13 +14,13 @@ declare function createHash(algo: createHash.Algorithm): Hash;
 
 declare namespace createHash {
     type Algorithm =
-        | 'md5'
-        | 'rmd160'
-        | 'ripemd160'
-        | 'sha'
-        | 'sha1'
-        | 'sha224'
-        | 'sha256'
-        | 'sha384'
-        | 'sha512';
+        | "md5"
+        | "rmd160"
+        | "ripemd160"
+        | "sha"
+        | "sha1"
+        | "sha224"
+        | "sha256"
+        | "sha384"
+        | "sha512";
 }

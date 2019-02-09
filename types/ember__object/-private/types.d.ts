@@ -1,5 +1,5 @@
-import Mixin from '@ember/object/mixin';
-import ComputedProperty from '@ember/object/computed';
+import Mixin from "@ember/object/mixin";
+import ComputedProperty from "@ember/object/computed";
 
 /**
  * Map type `T` to a plain object hash with the identity mapping.

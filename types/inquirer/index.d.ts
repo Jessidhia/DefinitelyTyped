@@ -14,7 +14,7 @@
 // TypeScript Version: 2.3
 /// <reference types="rx" />
 
-import through = require('through');
+import through = require("through");
 
 declare namespace inquirer {
     type Prompts = { [name: string]: PromptModule };
@@ -24,12 +24,15 @@ declare namespace inquirer {
         | ReadonlyArray<Question<T>>
         | Rx.Observable<Question<T>>;
     interface OutputStreamOption {
-        output: NodeJS.WriteStream
+        output: NodeJS.WriteStream;
     }
     interface InputStreamOption {
-        input: NodeJS.ReadStream
+        input: NodeJS.ReadStream;
     }
-    type StreamOptions = InputStreamOption | OutputStreamOption | (InputStreamOption & OutputStreamOption);
+    type StreamOptions =
+        | InputStreamOption
+        | OutputStreamOption
+        | (InputStreamOption & OutputStreamOption);
 
     interface Inquirer {
         restoreDefaultPrompts(): void;
@@ -117,7 +120,10 @@ declare namespace inquirer {
          * Receive the user input and should return true if the value is valid, and an error message (String)
          * otherwise. If false is returned, a default error message is provided.
          */
-        validate?(input: any, answers?: T): boolean | string | Promise<boolean | string>;
+        validate?(
+            input: any,
+            answers?: T
+        ): boolean | string | Promise<boolean | string>;
         /**
          * Receive the user input and return the filtered value to be used inside the program.
          * The value returned will be added to the Answers hash.
@@ -133,7 +139,10 @@ declare namespace inquirer {
          * Receive the current user answers hash and should return true or false depending on whether or
          * not this question should be asked. The value can also be a simple boolean.
          */
-        when?: boolean | ((answers: T) => boolean) | ((answers: T) => Promise<boolean>);
+        when?:
+            | boolean
+            | ((answers: T) => boolean)
+            | ((answers: T) => Promise<boolean>);
         paginated?: boolean;
         /**
          * Change the number of lines that will be rendered when using list, rawList, expand or checkbox.

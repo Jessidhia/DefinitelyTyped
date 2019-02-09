@@ -29,6 +29,6 @@ declare namespace isOnline {
          * but it can prove useful to specifically assert IPv6 connectivity.
          * @default 'v4'
          */
-        version?: 'v4' | 'v6';
+        version?: "v4" | "v6";
     }
 }

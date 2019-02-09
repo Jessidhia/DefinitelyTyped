@@ -1,6 +1,6 @@
 import title = require("title");
 
-var document = {title: "original"};
+var document = { title: "original" };
 
 title("newtitle"); // document.title === 'newtitle'
 

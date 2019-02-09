@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 export = UglifyJsPlugin;
 
@@ -21,7 +21,11 @@ declare namespace UglifyJsPlugin {
         parallel?: boolean | number;
         sourceMap?: boolean;
         uglifyOptions?: UglifyJsOptions;
-        extractComments?: boolean | RegExp | ((node: object, comment: string) => boolean) | ExtractCommentsOptions;
+        extractComments?:
+            | boolean
+            | RegExp
+            | ((node: object, comment: string) => boolean)
+            | ExtractCommentsOptions;
         warningsFilter?: (source: string) => boolean;
     }
 

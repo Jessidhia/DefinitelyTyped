@@ -1,4 +1,4 @@
-import * as webdriver from './index';
+import * as webdriver from "./index";
 
 /**
  * A record object that defines the configuration options for a DriverService
@@ -6,7 +6,7 @@ import * as webdriver from './index';
  *
  * @record
  */
-export interface ServiceOptions { }
+export interface ServiceOptions {}
 
 /**
  * Manages the life and death of a native executable WebDriver server.
@@ -136,7 +136,9 @@ export namespace DriverService {
          *     current environment.
          * @return {!DriverService.Builder} A self reference.
          */
-        setEnvironment(env: Map<string, string> | {[name: string]: string} | null): this;
+        setEnvironment(
+            env: Map<string, string> | { [name: string]: string } | null
+        ): this;
 
         /**
          * IO configuration for the spawned server process. For more information,
@@ -183,23 +185,23 @@ export namespace SeleniumServer {
 
         /** The port to start the server on (must be > 0). If the port is provided
         as a promise, the service will wait for the promise to resolve before starting. */
-        port?: number|webdriver.promise.IThenable<number>;
+        port?: number | webdriver.promise.IThenable<number>;
 
         /** The arguments to pass to the service. If a promise is provided, the
         service will wait for it to resolve before starting. */
-        args?: string[]|webdriver.promise.IThenable<string[]>;
+        args?: string[] | webdriver.promise.IThenable<string[]>;
 
         /** The arguments to pass to the JVM. If a promise is provided, the service
         will wait for it to resolve before starting. */
-        jvmArgs?: string[]|webdriver.promise.IThenable<string[]>;
+        jvmArgs?: string[] | webdriver.promise.IThenable<string[]>;
 
         /** The environment variables that should be visible to the server process.
         Defaults to inheriting the current process's environment.*/
-        env?: {[key: string]: string};
+        env?: { [key: string]: string };
 
         /** IO configuration for the spawned server process. For more information,
         refer to the documentation of `child_process.spawn`*/
-        stdio?: string|Array<string|number>;
+        stdio?: string | Array<string | number>;
     }
 }
 
@@ -238,5 +240,8 @@ export class FileDetector extends webdriver.FileDetector {
      * @return {!webdriver.promise.Promise<string>} A promise for the processed
      *     file path.
      */
-    handleFile(driver: webdriver.WebDriver, file: string): webdriver.promise.Promise<string>;
+    handleFile(
+        driver: webdriver.WebDriver,
+        file: string
+    ): webdriver.promise.Promise<string>;
 }

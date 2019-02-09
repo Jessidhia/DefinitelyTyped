@@ -4,11 +4,11 @@ import Mime from "mime/Mime";
 let strOrNul: string | null;
 
 const obj = {
-	mime: ["ext", "ext2"]
+    mime: ["ext", "ext2"]
 };
 
 const obj2 = {
-	"text/plain": ["txt"]
+    "text/plain": ["txt"]
 };
 
 mime.define(obj);
@@ -20,4 +20,4 @@ strOrNul = mime.getExtension("bar");
 
 const myMime = new Mime(obj);
 strOrNul = myMime.getType("foo");
-strOrNul = myMime.getExtension('text/plan');
+strOrNul = myMime.getExtension("text/plan");

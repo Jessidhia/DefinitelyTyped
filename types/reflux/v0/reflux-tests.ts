@@ -7,7 +7,7 @@ const syncActions = Reflux.createActions([
 ]);
 
 const asyncActions = Reflux.createActions({
-    fireBall: {asyncResult: true}
+    fireBall: { asyncResult: true }
 });
 
 asyncActions.fireBall.listen(function() {
@@ -24,7 +24,7 @@ const statusStore = Reflux.createStore({
     },
     // Callback
     onFireBall(flag: boolean) {
-        const status = flag ? 'ONLINE' : 'OFFLINE';
+        const status = flag ? "ONLINE" : "OFFLINE";
 
         // Pass on to listeners
         this.trigger(status);

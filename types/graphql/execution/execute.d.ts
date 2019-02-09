@@ -6,7 +6,7 @@ import {
     GraphQLFieldResolver,
     ResponsePath,
     GraphQLObjectType,
-    GraphQLResolveInfo,
+    GraphQLResolveInfo
 } from "../type/definition";
 import {
     DirectiveNode,
@@ -15,7 +15,7 @@ import {
     SelectionSetNode,
     FieldNode,
     InlineFragmentNode,
-    FragmentDefinitionNode,
+    FragmentDefinitionNode
 } from "../language/ast";
 import { MaybePromise } from "../jsutils/MaybePromise";
 
@@ -37,7 +37,7 @@ export interface ExecutionContext {
 }
 
 export interface ExecutionResultDataDefault {
-    [key: string]: any
+    [key: string]: any;
 }
 
 /**
@@ -73,7 +73,9 @@ export type ExecutionArgs = {
  *
  * Accepts either an object with named arguments, or individual arguments.
  */
-export function execute<TData = ExecutionResultDataDefault>(args: ExecutionArgs): MaybePromise<ExecutionResult<TData>>;
+export function execute<TData = ExecutionResultDataDefault>(
+    args: ExecutionArgs
+): MaybePromise<ExecutionResult<TData>>;
 export function execute<TData = ExecutionResultDataDefault>(
     schema: GraphQLSchema,
     document: DocumentNode,
@@ -88,7 +90,9 @@ export function execute<TData = ExecutionResultDataDefault>(
  * Given a ResponsePath (found in the `path` entry in the information provided
  * as the last argument to a field resolver), return an Array of the path keys.
  */
-export function responsePathAsArray(path: ResponsePath): ReadonlyArray<string | number>;
+export function responsePathAsArray(
+    path: ResponsePath
+): ReadonlyArray<string | number>;
 
 /**
  * Given a ResponsePath and a key, return a new ResponsePath containing the

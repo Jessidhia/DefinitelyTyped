@@ -7,14 +7,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 import Sequelize = require("sequelize");
 import MongoDB = require("mongodb");
 
 declare namespace umzug {
-
     interface MigrationOptions {
-
         /*
          * The params that gets passed to the migrations.
          * Might be an array or a synchronous function which returns an array.
@@ -41,8 +39,9 @@ declare namespace umzug {
          * See https://github.com/sequelize/umzug/tree/master/test/fixtures
          * for examples.
          */
-        customResolver?(path: string): { up: () => Promise<any>, down?: () => Promise<any> };
-
+        customResolver?(
+            path: string
+        ): { up: () => Promise<any>; down?: () => Promise<any> };
     }
 
     /**
@@ -68,17 +67,14 @@ declare namespace umzug {
     }
 
     interface JSONStorageOptions extends Storage {
-
         /**
          * The path to the json storage.
          * Defaults to process.cwd() + '/umzug.json';
          */
         path?: string;
-
     }
 
     interface SequelizeStorageOptions extends Storage {
-
         /**
          * The configured instance of Sequelize.
          * Optional if `model` is passed.
@@ -115,11 +111,9 @@ declare namespace umzug {
          * Defaults to `Sequelize.STRING`
          */
         columnType: Sequelize.DataTypeAbstract;
-
     }
 
     interface MongoDBStorageOptions extends Storage {
-
         /**
          * The MongoDB database connection instance.
          */
@@ -136,7 +130,6 @@ declare namespace umzug {
          * Defaults to 'migrations'
          */
         collectionName?: string;
-
     }
 
     interface ExecuteOptions {
@@ -153,7 +146,11 @@ declare namespace umzug {
         /**
          * The options for the storage.
          */
-        storageOptions?: JSONStorageOptions | SequelizeStorageOptions | MongoDBStorageOptions | Object;
+        storageOptions?:
+            | JSONStorageOptions
+            | SequelizeStorageOptions
+            | MongoDBStorageOptions
+            | Object;
 
         /**
          * The logging function.
@@ -175,39 +172,32 @@ declare namespace umzug {
          * Options for defined migration
          */
         migrations?: MigrationOptions;
-
     }
 
     interface UpToOptions {
-
         /**
          * It is also possible to pass the name of a migration in order to
          * just run the migrations from the current state to the passed
          * migration name.
          */
         to: string;
-
     }
 
     interface DownToOptions {
-
         /**
          * It is also possible to pass the name of a migration in order to
          * just run the migrations from the current state to the passed
          * migration name. down allows to pass 0 to revert everything.
          */
         to: string | 0;
-
     }
 
     interface UpDownMigrationsOptions {
-
         /**
          * Running specific migrations while ignoring the right order, can be
          * done like this:
          */
         migrations: Array<string>;
-
     }
 
     interface Migration {
@@ -237,23 +227,35 @@ declare namespace umzug {
          */
         up(migration?: string): Promise<Migration[]>;
         up(migrations?: string[]): Promise<Migration[]>;
-        up(options?: UpToOptions | UpDownMigrationsOptions): Promise<Migration[]>;
+        up(
+            options?: UpToOptions | UpDownMigrationsOptions
+        ): Promise<Migration[]>;
 
         /**
          * The down method can be used to revert the last executed migration.
          */
         down(migration?: string): Promise<Migration[]>;
         down(migrations?: string[]): Promise<Migration[]>;
-        down(options?: DownToOptions | UpDownMigrationsOptions): Promise<Migration[]>;
+        down(
+            options?: DownToOptions | UpDownMigrationsOptions
+        ): Promise<Migration[]>;
 
-        on(eventName: 'migrating' | 'reverting' | 'migrated' | 'reverted', cb?: (name: string, migration: Migration) => void): this;
-        addListener(eventName: 'migrating' | 'reverting' | 'migrated' | 'reverted', cb?: (name: string, migration: Migration) => void): this;
-        removeListener(eventName: 'migrating' | 'reverting' | 'migrated' | 'reverted', cb?: (name: string, migration: Migration) => void): this;
-
+        on(
+            eventName: "migrating" | "reverting" | "migrated" | "reverted",
+            cb?: (name: string, migration: Migration) => void
+        ): this;
+        addListener(
+            eventName: "migrating" | "reverting" | "migrated" | "reverted",
+            cb?: (name: string, migration: Migration) => void
+        ): this;
+        removeListener(
+            eventName: "migrating" | "reverting" | "migrated" | "reverted",
+            cb?: (name: string, migration: Migration) => void
+        ): this;
     }
 
     interface UmzugStatic {
-        new(options?: UmzugOptions): Umzug;
+        new (options?: UmzugOptions): Umzug;
     }
 }
 

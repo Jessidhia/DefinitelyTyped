@@ -32,7 +32,11 @@ export function isPrivate(d: Buffer): boolean;
  * @param B isPoint(B) should be true
  * @param compressed optional, if true compresses the resulting point
  */
-export function pointAdd(A: Buffer, B: Buffer, compressed?: boolean): Buffer | null;
+export function pointAdd(
+    A: Buffer,
+    B: Buffer,
+    compressed?: boolean
+): Buffer | null;
 
 /**
  * Returns null if result is at infinity.
@@ -40,7 +44,11 @@ export function pointAdd(A: Buffer, B: Buffer, compressed?: boolean): Buffer | n
  * @param tweak should be within [1...order - 1]
  * @param compressed optional, if true compresses the resulting point
  */
-export function pointAddScalar(A: Buffer, tweak: Buffer, compressed?: boolean): Buffer | null;
+export function pointAddScalar(
+    A: Buffer,
+    tweak: Buffer,
+    compressed?: boolean
+): Buffer | null;
 
 /**
  * Compresses point A.
@@ -62,7 +70,11 @@ export function pointFromScalar(d: Buffer, compressed?: boolean): Buffer | null;
  * @param tweak should be within [1...order - 1]
  * @param compressed optional, if true compresses the resulting point
  */
-export function pointMultiply(A: Buffer, tweak: Buffer, compressed?: boolean): Buffer | null;
+export function pointMultiply(
+    A: Buffer,
+    tweak: Buffer,
+    compressed?: boolean
+): Buffer | null;
 
 /**
  * Returns null if result is equal to 0.
@@ -91,4 +103,8 @@ export function sign(message: Buffer, privateKey: Buffer): Buffer;
  * @param publicKey isPoint(publicKey) should be true
  * @param signature signature should have all (r, s) values within range [0...order - 1]
  */
-export function verify(message: Buffer, publicKey: Buffer, signature: Buffer): boolean;
+export function verify(
+    message: Buffer,
+    publicKey: Buffer,
+    signature: Buffer
+): boolean;

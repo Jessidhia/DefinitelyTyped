@@ -37,7 +37,12 @@ export class SourceNode {
     originalSource: string;
     startingLine: number;
 
-    constructor(generatedCode: string, source: string, originalSource: string, startingLine?: number);
+    constructor(
+        generatedCode: string,
+        source: string,
+        originalSource: string,
+        startingLine?: number
+    );
 
     clone(): SourceNode;
 
@@ -64,13 +69,19 @@ export class SourceListMap {
         originalSource?: string
     ): void;
 
-    prepend(generatedCode: SourceListMap | SourceNode | CodeNode, source?: string, originalSource?: string): void;
+    prepend(
+        generatedCode: SourceListMap | SourceNode | CodeNode,
+        source?: string,
+        originalSource?: string
+    ): void;
 
     mapGeneratedCode(fn: (code: string) => string): void;
 
     toString(): string;
 
-    toStringWithSourceMap(options: { file: any }): {
+    toStringWithSourceMap(options: {
+        file: any;
+    }): {
         source: string;
         map: {
             version: number;
@@ -83,8 +94,9 @@ export class SourceListMap {
 }
 
 export function fromStringWithSourceMap(
-    code: string, map: {
-        sources: (string | SourceNode | CodeNode) [];
+    code: string,
+    map: {
+        sources: (string | SourceNode | CodeNode)[];
         sourcesContent: string[];
         mappings: string;
     }

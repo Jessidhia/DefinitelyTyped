@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import ref = require('ref-napi');
+import ref = require("ref-napi");
 
 /**
  * This is the `constructor` of the Struct type that gets returned.
@@ -55,6 +55,6 @@ declare var StructType: {
     new (fields?: any[]): StructType;
     (fields?: object, opt?: object): StructType;
     (fields?: any[]): StructType;
-}
+};
 
 export = StructType;

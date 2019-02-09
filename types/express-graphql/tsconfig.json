@@ -2,24 +2,16 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es2015",
-        "lib": [
-            "es6",
-            "esnext.asynciterable"
-        ],
+        "lib": ["es6", "esnext.asynciterable"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "express-graphql-tests.ts"
-    ]
+    "files": ["index.d.ts", "express-graphql-tests.ts"]
 }

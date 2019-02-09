@@ -3,10 +3,7 @@
 // Definitions by: Steve Fenton <https://github.com/Steve-Fenton>, Pedro Casaubon <https://github.com/xperiments>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace Dropbox {
-
-
     interface QueryParams {
         [key: string]: any;
     }
@@ -16,7 +13,6 @@ declare namespace Dropbox {
         token?: string;
         uid?: string;
     }
-
 
     /* Callbacks */
 
@@ -30,12 +26,15 @@ declare namespace Dropbox {
     }
 
     interface ClientFileReadCallback {
-
-        (err: ApiError, fileContents: string, stat: File.Stat, rangeInfo: Http.RangeInfo): void;
+        (
+            err: ApiError,
+            fileContents: string,
+            stat: File.Stat,
+            rangeInfo: Http.RangeInfo
+        ): void;
     }
 
     interface ClientFileWriteCallback {
-
         (err: ApiError, stat: File.Stat): void;
     }
 
@@ -67,7 +66,6 @@ declare namespace Dropbox {
     }
 
     interface ClientFileReadOptions {
-
         versionTag?: string;
         rev?: string;
         arrayBuffer?: boolean;
@@ -104,7 +102,6 @@ declare namespace Dropbox {
     interface HistoryOptions {
         limit?: number;
         httpCache?: boolean;
-
     }
 
     interface ThumbnailUrlOptions {
@@ -124,7 +121,6 @@ declare namespace Dropbox {
         removed?: boolean;
         deleted?: boolean;
         httpCache?: boolean;
-
     }
 
     interface RedirectOptions {
@@ -135,7 +131,6 @@ declare namespace Dropbox {
     }
 
     namespace Util {
-
         class EventSource {
             constructor(options: { cancelable: boolean });
             addListener(listener: (event: any) => void): EventSource;
@@ -151,16 +146,25 @@ declare namespace Dropbox {
 
         class Xhr {
             xhr: XMLHttpRequest;
-            onError: (error: ApiError, callBack: (error: ApiError) => void) => void;
+            onError: (
+                error: ApiError,
+                callBack: (error: ApiError) => void
+            ) => void;
 
             constructor(method: string, baseUrl: string);
             static urlEncode(obj: {}): string;
             static urlEncodeValue(obj: {}): string;
             static urlDecode(string: {}): QueryParams;
 
-
             setParams(params: QueryParams): Xhr;
-            setCallback(callback: (err: ApiError, responseType: string, metadataHeader: {}, headers: {}) => void): Xhr;
+            setCallback(
+                callback: (
+                    err: ApiError,
+                    responseType: string,
+                    metadataHeader: {},
+                    headers: {}
+                ) => void
+            ): Xhr;
             signWithOauth(oauth: Oauth, cacheFriendly: boolean): Xhr;
             addOauthParams(oauth: Oauth): Xhr;
             addOauthHeader(oauth: Oauth): Xhr;
@@ -172,11 +176,32 @@ declare namespace Dropbox {
             setResponseType(responseType: string): Xhr;
             setHeader(headerName: string, value: string): Xhr;
             reportResponseHeaders(): Xhr;
-            setFileField(fieldName: string, fileName: string, fileData: string, contentType?: string): void;
-            setFileField(fieldName: string, fileName: string, fileData: Blob, contentType?: string): void;
-            setFileField(fieldName: string, fileName: string, fileData: File, contentType?: string): void;
+            setFileField(
+                fieldName: string,
+                fileName: string,
+                fileData: string,
+                contentType?: string
+            ): void;
+            setFileField(
+                fieldName: string,
+                fileName: string,
+                fileData: Blob,
+                contentType?: string
+            ): void;
+            setFileField(
+                fieldName: string,
+                fileName: string,
+                fileData: File,
+                contentType?: string
+            ): void;
             prepare(): Xhr;
-            send(callback: (err: ApiError, responseType: string, metadataHeader: {}) => void): Xhr;
+            send(
+                callback: (
+                    err: ApiError,
+                    responseType: string,
+                    metadataHeader: {}
+                ) => void
+            ): Xhr;
             onReadyStateChange(): void;
             onXdrLoad(): void;
             onXdrError(): void;
@@ -237,7 +262,6 @@ declare namespace Dropbox {
         }
     }
     namespace File {
-
         interface StatOptions {
             version: number;
             removed: boolean;
@@ -289,10 +313,14 @@ declare namespace Dropbox {
         }
     }
     namespace AuthDriver {
-
         /** Do not use class! TypeScript definition implementation detail : https://github.com/Microsoft/TypeScript/issues/371 */
         class IAuthDriver {
-            doAuthorize(authUrl: string, stateParam: string, client: Client, callback?: QueryParamsCallback): void;
+            doAuthorize(
+                authUrl: string,
+                stateParam: string,
+                client: Client,
+                callback?: QueryParamsCallback
+            ): void;
         }
 
         class BrowserBase {
@@ -307,11 +335,23 @@ declare namespace Dropbox {
         }
 
         class Redirect {
-            constructor(options?: { redirectUrl: string; redirectFile: string; scope: string; rememberUser: boolean });
+            constructor(options?: {
+                redirectUrl: string;
+                redirectFile: string;
+                scope: string;
+                rememberUser: boolean;
+            });
             url(): string;
-            doAuthorize(authUrl: string, stateParam: string, client: Client): void;
-            resumeAuthorize(stateParam: string, client: Client, callback: QueryParamsCallback): void;
-
+            doAuthorize(
+                authUrl: string,
+                stateParam: string,
+                client: Client
+            ): void;
+            resumeAuthorize(
+                stateParam: string,
+                client: Client,
+                callback: QueryParamsCallback
+            ): void;
         }
 
         class Popup extends IAuthDriver {
@@ -319,7 +359,6 @@ declare namespace Dropbox {
             static oauthReceiver(): void;
             constructor(options?: RedirectOptions);
             url(): string;
-
         }
 
         class ChromeApp extends IAuthDriver {
@@ -346,18 +385,26 @@ declare namespace Dropbox {
             closeServer(): void;
 
             // TODO check request response types
-            doRequest(request:any, response:any): void;
-            closeBrowser(response:any): void;
+            doRequest(request: any, response: any): void;
+            closeBrowser(response: any): void;
         }
     }
-
 
     class AuthDriver {
         authType(): string;
         url(): string;
-        doAuthorize(authUrl: string, stateParam: string, client: Client, callback: QueryParamsCallback): void;
+        doAuthorize(
+            authUrl: string,
+            stateParam: string,
+            client: Client,
+            callback: QueryParamsCallback
+        ): void;
         getStateParam(client: Client, callback: (state: string) => void): void;
-        resumeAuthorize(stateParam: string, client: Client, callback: QueryParamsCallback): void;
+        resumeAuthorize(
+            stateParam: string,
+            client: Client,
+            callback: QueryParamsCallback
+        ): void;
         onAuthStepChange(client: Client, callback: () => void): void;
     }
 
@@ -400,7 +447,6 @@ declare namespace Dropbox {
     }
 
     class AuthError {
-
         code: string;
         description: string;
         uri: string;
@@ -440,69 +486,279 @@ declare namespace Dropbox {
         authenticate(): Client;
         authenticate(callback: AuthenticateCallback): Client;
         authenticate(options: AuthenticateOptions): Client;
-        authenticate(options: AuthenticateOptions, callback: AuthenticateCallback): Client;
+        authenticate(
+            options: AuthenticateOptions,
+            callback: AuthenticateCallback
+        ): Client;
         isAuthenticated(): boolean;
         signOut(callback: (err: ApiError) => void): XMLHttpRequest;
-        signOut(options: SingOutOptions, callback: (err: ApiError) => void): XMLHttpRequest;
+        signOut(
+            options: SingOutOptions,
+            callback: (err: ApiError) => void
+        ): XMLHttpRequest;
         signOff(callback: (err: ApiError) => void): void;
-        signOff(options: SingOutOptions, callback: (err: ApiError) => void): void;
-        getAccountInfo(callback: (err: ApiError, accountInfo: AccountInfo, AccountInfo: AccountInfo) => void): XMLHttpRequest;
-        getAccountInfo(options: AccountInfoOptions, callback: (err: ApiError, accountInfo: AccountInfo, AccountInfo: AccountInfo) => void): XMLHttpRequest;
-        readFile(path: string, callback: ClientFileReadCallback): XMLHttpRequest;
-        readFile(path: string, options: ClientFileReadOptions, callback: ClientFileReadCallback): XMLHttpRequest;
-        writeFile(path: string, data: any, callback: ClientFileWriteCallback): XMLHttpRequest;
-        writeFile(path: string, data: any, options: ClientFileWriteOptions, callback: ClientFileWriteCallback): XMLHttpRequest;
-        resumableUploadStep(data: any, callback: ResumableUploadStepCallback): XMLHttpRequest;
-        resumableUploadStep(data: any, cursor: Http.UploadCursor, callback: ResumableUploadStepCallback): XMLHttpRequest;
-        resumableUploadFinish(path: string, cursor: Http.UploadCursor, callback: ClientFileWriteCallback): XMLHttpRequest;
-        resumableUploadFinish(path: string, cursor: Http.UploadCursor, options: ClientFileWriteOptions, callback: ClientFileWriteCallback): XMLHttpRequest;
-        stat(path: string, callback: (err: ApiError, stat: File.Stat, folderEntries: File.Stat[]) => void): XMLHttpRequest;
-        stat(path: string, options: File.StatOptions, callback: (err: ApiError, stat: File.Stat, folderEntries: File.Stat[]) => void): XMLHttpRequest;
-        readdir(path: string, callback: (err: ApiError, filenames: string[], stat: File.Stat, folderEntries: File.Stat[]) => void): XMLHttpRequest;
-        readdir(path: string, options: ReadDirOptions, callback: (err: ApiError, filenames: string[], stat: File.Stat, folderEntries: File.Stat[]) => void): XMLHttpRequest;
-        metadata(path: string, callback: (err: ApiError, stat: File.Stat, folderEntries: File.Stat[]) => void): void;
-        metadata(path: string, options: File.StatOptions, callback: (err: ApiError, stat: File.Stat, folderEntries: File.Stat[]) => void): void;
-        makeUrl(path: string, callback: (err: ApiError, shareUrl: File.ShareUrl) => void): XMLHttpRequest;
-        makeUrl(path: string, options: MakeURLOptions, callback: (err: ApiError, shareUrl: File.ShareUrl) => void): XMLHttpRequest;
-        history(path: string, callback: (err: ApiError, fileVersions: File.Stat[]) => void): XMLHttpRequest;
-        history(path: string, options: HistoryOptions, callback: (err: ApiError, fileVersions: File.Stat[]) => void): XMLHttpRequest;
-        revisions(path: string, options: HistoryOptions, callback: (err: ApiError, fileVersions: File.Stat[]) => void): void;
+        signOff(
+            options: SingOutOptions,
+            callback: (err: ApiError) => void
+        ): void;
+        getAccountInfo(
+            callback: (
+                err: ApiError,
+                accountInfo: AccountInfo,
+                AccountInfo: AccountInfo
+            ) => void
+        ): XMLHttpRequest;
+        getAccountInfo(
+            options: AccountInfoOptions,
+            callback: (
+                err: ApiError,
+                accountInfo: AccountInfo,
+                AccountInfo: AccountInfo
+            ) => void
+        ): XMLHttpRequest;
+        readFile(
+            path: string,
+            callback: ClientFileReadCallback
+        ): XMLHttpRequest;
+        readFile(
+            path: string,
+            options: ClientFileReadOptions,
+            callback: ClientFileReadCallback
+        ): XMLHttpRequest;
+        writeFile(
+            path: string,
+            data: any,
+            callback: ClientFileWriteCallback
+        ): XMLHttpRequest;
+        writeFile(
+            path: string,
+            data: any,
+            options: ClientFileWriteOptions,
+            callback: ClientFileWriteCallback
+        ): XMLHttpRequest;
+        resumableUploadStep(
+            data: any,
+            callback: ResumableUploadStepCallback
+        ): XMLHttpRequest;
+        resumableUploadStep(
+            data: any,
+            cursor: Http.UploadCursor,
+            callback: ResumableUploadStepCallback
+        ): XMLHttpRequest;
+        resumableUploadFinish(
+            path: string,
+            cursor: Http.UploadCursor,
+            callback: ClientFileWriteCallback
+        ): XMLHttpRequest;
+        resumableUploadFinish(
+            path: string,
+            cursor: Http.UploadCursor,
+            options: ClientFileWriteOptions,
+            callback: ClientFileWriteCallback
+        ): XMLHttpRequest;
+        stat(
+            path: string,
+            callback: (
+                err: ApiError,
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): XMLHttpRequest;
+        stat(
+            path: string,
+            options: File.StatOptions,
+            callback: (
+                err: ApiError,
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): XMLHttpRequest;
+        readdir(
+            path: string,
+            callback: (
+                err: ApiError,
+                filenames: string[],
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): XMLHttpRequest;
+        readdir(
+            path: string,
+            options: ReadDirOptions,
+            callback: (
+                err: ApiError,
+                filenames: string[],
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): XMLHttpRequest;
+        metadata(
+            path: string,
+            callback: (
+                err: ApiError,
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): void;
+        metadata(
+            path: string,
+            options: File.StatOptions,
+            callback: (
+                err: ApiError,
+                stat: File.Stat,
+                folderEntries: File.Stat[]
+            ) => void
+        ): void;
+        makeUrl(
+            path: string,
+            callback: (err: ApiError, shareUrl: File.ShareUrl) => void
+        ): XMLHttpRequest;
+        makeUrl(
+            path: string,
+            options: MakeURLOptions,
+            callback: (err: ApiError, shareUrl: File.ShareUrl) => void
+        ): XMLHttpRequest;
+        history(
+            path: string,
+            callback: (err: ApiError, fileVersions: File.Stat[]) => void
+        ): XMLHttpRequest;
+        history(
+            path: string,
+            options: HistoryOptions,
+            callback: (err: ApiError, fileVersions: File.Stat[]) => void
+        ): XMLHttpRequest;
+        revisions(
+            path: string,
+            options: HistoryOptions,
+            callback: (err: ApiError, fileVersions: File.Stat[]) => void
+        ): void;
         thumbnailUrl(path: string, options?: ThumbnailUrlOptions): string;
-        readThumbnail(path: string, callback: ReadThumbnailCallback): XMLHttpRequest;
-        readThumbnail(path: string, options: ReadThumbnailOptions, callback: ReadThumbnailCallback): XMLHttpRequest;
-        revertFile(path: string, versionTag: string, callback: FileStatCallback): XMLHttpRequest;
-        restore(path: string, versionTag: string, callback: FileStatCallback): void;
-        findByName(path: string, namePattern: string, callback: (err: ApiError, resultStats: File.Stat[]) => void): XMLHttpRequest;
-        findByName(path: string, namePattern: string, options: FindByNameOptions, callback: (err: ApiError, resultStats: File.Stat[]) => void): XMLHttpRequest;
-        search(path: string, namePattern: string, options: FindByNameOptions, callback: (err: ApiError, resultStats: File.Stat[]) => void): void;
-        makeCopyReference(path: string, callback: (err: ApiError, copyReference: File.CopyReference) => void): XMLHttpRequest;
-        copyRef(path: string, callback: (err: ApiError, copyReference: File.CopyReference) => void): XMLHttpRequest;
-        pullChanges(callback: (err: ApiError, changes: Http.PulledChanges) => void): XMLHttpRequest;
-        pullChanges(cursor: string, callback: (err: ApiError, changes: Http.PulledChanges) => void): XMLHttpRequest;
-        pullChanges(cursor: Http.PulledChanges, callback: (err: ApiError, changes: Http.PulledChanges) => void): XMLHttpRequest;
-        delta(cursor: string, callback: (err: ApiError, changes: Http.PulledChanges) => void): void;
-        delta(cursor: Http.PulledChanges, callback: (err: ApiError, changes: Http.PulledChanges) => void): void;
-        pollForChanges(cursor: string, options: {}, callback: (err: ApiError, changes: Http.PollResult) => void): void;
-        pollForChanges(cursor: Http.PulledChanges, options: {}, callback: (err: ApiError, changes: Http.PollResult) => void): void;
+        readThumbnail(
+            path: string,
+            callback: ReadThumbnailCallback
+        ): XMLHttpRequest;
+        readThumbnail(
+            path: string,
+            options: ReadThumbnailOptions,
+            callback: ReadThumbnailCallback
+        ): XMLHttpRequest;
+        revertFile(
+            path: string,
+            versionTag: string,
+            callback: FileStatCallback
+        ): XMLHttpRequest;
+        restore(
+            path: string,
+            versionTag: string,
+            callback: FileStatCallback
+        ): void;
+        findByName(
+            path: string,
+            namePattern: string,
+            callback: (err: ApiError, resultStats: File.Stat[]) => void
+        ): XMLHttpRequest;
+        findByName(
+            path: string,
+            namePattern: string,
+            options: FindByNameOptions,
+            callback: (err: ApiError, resultStats: File.Stat[]) => void
+        ): XMLHttpRequest;
+        search(
+            path: string,
+            namePattern: string,
+            options: FindByNameOptions,
+            callback: (err: ApiError, resultStats: File.Stat[]) => void
+        ): void;
+        makeCopyReference(
+            path: string,
+            callback: (err: ApiError, copyReference: File.CopyReference) => void
+        ): XMLHttpRequest;
+        copyRef(
+            path: string,
+            callback: (err: ApiError, copyReference: File.CopyReference) => void
+        ): XMLHttpRequest;
+        pullChanges(
+            callback: (err: ApiError, changes: Http.PulledChanges) => void
+        ): XMLHttpRequest;
+        pullChanges(
+            cursor: string,
+            callback: (err: ApiError, changes: Http.PulledChanges) => void
+        ): XMLHttpRequest;
+        pullChanges(
+            cursor: Http.PulledChanges,
+            callback: (err: ApiError, changes: Http.PulledChanges) => void
+        ): XMLHttpRequest;
+        delta(
+            cursor: string,
+            callback: (err: ApiError, changes: Http.PulledChanges) => void
+        ): void;
+        delta(
+            cursor: Http.PulledChanges,
+            callback: (err: ApiError, changes: Http.PulledChanges) => void
+        ): void;
+        pollForChanges(
+            cursor: string,
+            options: {},
+            callback: (err: ApiError, changes: Http.PollResult) => void
+        ): void;
+        pollForChanges(
+            cursor: Http.PulledChanges,
+            options: {},
+            callback: (err: ApiError, changes: Http.PollResult) => void
+        ): void;
         mkdir(path: string, callback: FileStatCallback): XMLHttpRequest;
         remove(path: string, callback: FileStatCallback): XMLHttpRequest;
         unlink(path: string, callback: FileStatCallback): void;
         delete(path: string, callback: FileStatCallback): void;
-        copy(from: string, toPath: string, callback: FileStatCallback): XMLHttpRequest;
-        copy(from: File.CopyReference, toPath: string, callback: FileStatCallback): XMLHttpRequest;
-        move(fromPath: string, toPath: string, callback: FileStatCallback): XMLHttpRequest;
-        appInfo(callback: (err: ApiError, changes: Http.AppInfo) => void): XMLHttpRequest;
-        appInfo(appKey: string, callback: (err: ApiError, changes: Http.AppInfo) => void): XMLHttpRequest;
+        copy(
+            from: string,
+            toPath: string,
+            callback: FileStatCallback
+        ): XMLHttpRequest;
+        copy(
+            from: File.CopyReference,
+            toPath: string,
+            callback: FileStatCallback
+        ): XMLHttpRequest;
+        move(
+            fromPath: string,
+            toPath: string,
+            callback: FileStatCallback
+        ): XMLHttpRequest;
+        appInfo(
+            callback: (err: ApiError, changes: Http.AppInfo) => void
+        ): XMLHttpRequest;
+        appInfo(
+            appKey: string,
+            callback: (err: ApiError, changes: Http.AppInfo) => void
+        ): XMLHttpRequest;
 
         // TODO check if this can better be described
-        isAppDeveloper(userId:any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
-        isAppDeveloper(userId:any, appKey:any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
-        hasOauthRedirectUri(redirectUri: string, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;
-        hasOauthRedirectUri(redirectUri: string, appKey: string, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;
-        hasOauthRedirectUri(redirectUri: string, appKey: Http.AppInfo, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;
+        isAppDeveloper(
+            userId: any,
+            callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void
+        ): XMLHttpRequest;
+        isAppDeveloper(
+            userId: any,
+            appKey: any,
+            callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void
+        ): XMLHttpRequest;
+        hasOauthRedirectUri(
+            redirectUri: string,
+            callback: (err: ApiError, hasOauthRedirectUri: boolean) => void
+        ): XMLHttpRequest;
+        hasOauthRedirectUri(
+            redirectUri: string,
+            appKey: string,
+            callback: (err: ApiError, hasOauthRedirectUri: boolean) => void
+        ): XMLHttpRequest;
+        hasOauthRedirectUri(
+            redirectUri: string,
+            appKey: Http.AppInfo,
+            callback: (err: ApiError, hasOauthRedirectUri: boolean) => void
+        ): XMLHttpRequest;
         reset(): Client;
         setCredentials(credentials: Credentials): Client;
         appHash(): string;
-
     }
 }

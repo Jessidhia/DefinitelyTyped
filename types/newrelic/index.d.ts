@@ -66,14 +66,16 @@ export function setControllerName(name: string, action: string): void;
  *
  * Most recently set value wins.
  */
-export function addCustomAttribute(key: string, value: string|number): void;
+export function addCustomAttribute(key: string, value: string | number): void;
 
 /**
  * Adds all custom attributes in an object to the current transaction.
  *
  * See documentation for `addCustomAttribute` for more information on setting custom attributes.
  */
-export function addCustomAttributes(atts: { [key: string]: string|number }): void;
+export function addCustomAttributes(atts: {
+    [key: string]: string | number;
+}): void;
 
 /**
  * Tell the tracer whether to ignore the current transaction.
@@ -93,7 +95,10 @@ export function setIgnoreTransaction(ignored: boolean): void;
  *
  *  Optional. Any custom attributes to be displayed in the New Relic UI.
  */
-export function noticeError(error: Error, customAttributes?: { [key: string]: string }): void;
+export function noticeError(
+    error: Error,
+    customAttributes?: { [key: string]: string }
+): void;
 
 /**
  * If the URL for a transaction matches the provided pattern, name the
@@ -162,8 +167,17 @@ export function getBrowserTimingHeader(): string;
  * The segment is ended when either the handler finishes executing, or callback is fired, if it is provided.
  * If a promise is returned from the handler, the segment's ending will be tied to that promise resolving or rejecting.
  */
-export function startSegment<T extends PromiseLike<any>>(name: string, record: boolean, handler: T): T;
-export function startSegment<T, C extends (...args: any[]) => any>(name: string, record: boolean, handler: (cb?: C) => T, callback?: C): T;
+export function startSegment<T extends PromiseLike<any>>(
+    name: string,
+    record: boolean,
+    handler: T
+): T;
+export function startSegment<T, C extends (...args: any[]) => any>(
+    name: string,
+    record: boolean,
+    handler: (cb?: C) => T,
+    callback?: C
+): T;
 
 /**
  * Instrument a particular callback to improve visibility into a transaction.
@@ -179,7 +193,10 @@ export function startSegment<T, C extends (...args: any[]) => any>(name: string,
  * @deprecated
  * This method has been deprecated in favor of newrelic.startSegment()
  */
-export function createTracer<T extends (...args: any[]) => any>(name: string, handle: T): T;
+export function createTracer<T extends (...args: any[]) => any>(
+    name: string,
+    handle: T
+): T;
 
 /**
  * Creates and starts a web transaction to record work done in the handle supplied.
@@ -205,7 +222,10 @@ export function createTracer<T extends (...args: any[]) => any>(name: string, ha
  * The `url` is used to name and group related transactions in APM,
  * so it should be a generic name and not include any variable parameters.
  */
-export function startWebTransaction(url: string, handle: (...args: any[]) => any): any;
+export function startWebTransaction(
+    url: string,
+    handle: (...args: any[]) => any
+): any;
 
 /**
  * Creates and starts a background transaction to record work done in the handle supplied.
@@ -235,8 +255,15 @@ export function startWebTransaction(url: string, handle: (...args: any[]) => any
  * For more information see:
  *  https://docs.newrelic.com/docs/apm/applications-menu/monitoring/transactions-page#txn-type-dropdown
  */
-export function startBackgroundTransaction(name: string, handle: (...args: any[]) => any): any;
-export function startBackgroundTransaction(name: string, group: string, handle: (...args: any[]) => any): any;
+export function startBackgroundTransaction(
+    name: string,
+    handle: (...args: any[]) => any
+): any;
+export function startBackgroundTransaction(
+    name: string,
+    group: string,
+    handle: (...args: any[]) => any
+): any;
 
 /**
  * End the current web or background custom transaction.
@@ -273,7 +300,10 @@ export function incrementMetric(name: string, value?: number): void;
  * `eventType` must be an alphanumeric string less than 255 characters.
  * The keys of `attributes` must be shorter than 255 characters.
  */
-export function recordCustomEvent(eventType: string, attributes: { [keys: string]: boolean | number | string }): void;
+export function recordCustomEvent(
+    eventType: string,
+    attributes: { [keys: string]: boolean | number | string }
+): void;
 
 /**
  * Registers an instrumentation function.
@@ -320,7 +350,10 @@ export const instrumentMessages: Instrument;
  * before shutting down. Defaults to `false`.
  */
 export function shutdown(cb?: (error?: Error) => void): void;
-export function shutdown(options?: { collectPendingData?: boolean, timeout?: number }, cb?: (error?: Error) => void): void;
+export function shutdown(
+    options?: { collectPendingData?: boolean; timeout?: number },
+    cb?: (error?: Error) => void
+): void;
 
 /**
  * Wraps an AWS Lambda function with NewRelic instrumentation and returns the value of the handler
@@ -331,8 +364,16 @@ export function shutdown(options?: { collectPendingData?: boolean, timeout?: num
 export function setLambdaHandler<T>(handler: (...args: any[]) => T): T;
 
 export interface Instrument {
-    (opts: { moduleName: string, onRequire: () => void, onError?: (err: Error) => void }): void;
-    (moduleName: string, onRequire: () => void, onError?: (err: Error) => void): void;
+    (opts: {
+        moduleName: string;
+        onRequire: () => void;
+        onError?: (err: Error) => void;
+    }): void;
+    (
+        moduleName: string,
+        onRequire: () => void,
+        onError?: (err: Error) => void
+    ): void;
 }
 
 export interface Metric {

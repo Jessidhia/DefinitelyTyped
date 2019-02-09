@@ -1,25 +1,25 @@
-import ElectronStore = require('electron-store');
+import ElectronStore = require("electron-store");
 
 new ElectronStore({
     defaults: {}
 });
 
 new ElectronStore({
-    name: 'myConfiguration',
-    cwd: 'unicorn'
+    name: "myConfiguration",
+    cwd: "unicorn"
 });
 
 const electronStore = new ElectronStore();
 
-electronStore.set('foo', 'bar');
+electronStore.set("foo", "bar");
 electronStore.set({
-    foo: 'bar',
-    foo2: 'bar2'
+    foo: "bar",
+    foo2: "bar2"
 });
-electronStore.delete('foo');
-electronStore.get('foo');
-electronStore.get('foo', 42);
-electronStore.has('foo');
+electronStore.delete("foo");
+electronStore.get("foo");
+electronStore.get("foo", 42);
+electronStore.has("foo");
 electronStore.clear();
 
 electronStore.openInEditor();
@@ -28,7 +28,7 @@ electronStore.size;
 electronStore.store;
 
 electronStore.store = {
-    foo: 'bar'
+    foo: "bar"
 };
 
 electronStore.path;
@@ -41,14 +41,14 @@ interface SampleStore {
 const typedElectronStore = new ElectronStore<SampleStore>({
     defaults: {
         enabled: true,
-        interval: 30000,
-    },
+        interval: 30000
+    }
 });
 
-const interval: number = typedElectronStore.get('interval');
+const interval: number = typedElectronStore.get("interval");
 const enabled = false;
-typedElectronStore.set('enabled', enabled);
+typedElectronStore.set("enabled", enabled);
 typedElectronStore.set({
     enabled: true,
-    interval: 10000,
+    interval: 10000
 });

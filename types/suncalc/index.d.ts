@@ -41,9 +41,32 @@ export interface GetMoonTimes {
     alwaysDown: boolean;
 }
 
-export function getTimes(date: Date, latitude: number, longitude: number): GetTimesResult;
-export function addTime(angleInDegrees: number, morningName: string, eveningName: string): void;
-export function getPosition(timeAndDate: Date, latitude: number, longitude: number): GetSunPositionResult;
-export function getMoonPosition(timeAndDate: Date, latitude: number, longitude: number): GetMoonPositionResult;
-export function getMoonIllumination(timeAndDate: Date): GetMoonIlluminationResult;
-export function getMoonTimes(date: Date, latitude: number, longitude: number, inUTC?: boolean): GetMoonTimes;
+export function getTimes(
+    date: Date,
+    latitude: number,
+    longitude: number
+): GetTimesResult;
+export function addTime(
+    angleInDegrees: number,
+    morningName: string,
+    eveningName: string
+): void;
+export function getPosition(
+    timeAndDate: Date,
+    latitude: number,
+    longitude: number
+): GetSunPositionResult;
+export function getMoonPosition(
+    timeAndDate: Date,
+    latitude: number,
+    longitude: number
+): GetMoonPositionResult;
+export function getMoonIllumination(
+    timeAndDate: Date
+): GetMoonIlluminationResult;
+export function getMoonTimes(
+    date: Date,
+    latitude: number,
+    longitude: number,
+    inUTC?: boolean
+): GetMoonTimes;

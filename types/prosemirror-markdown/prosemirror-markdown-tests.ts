@@ -1,1 +1,1 @@
-import * as markdown from 'prosemirror-markdown';
+import * as markdown from "prosemirror-markdown";

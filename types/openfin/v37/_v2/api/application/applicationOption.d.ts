@@ -1,5 +1,5 @@
-import { WindowOption, CustomRequestHeaders } from '../window/windowOption';
-import { DownloadPreloadOption } from '../system/download-preload';
+import { WindowOption, CustomRequestHeaders } from "../window/windowOption";
+import { DownloadPreloadOption } from "../system/download-preload";
 export interface ApplicationOption {
     disableIabSecureLogging?: boolean;
     loadErrorMessage?: string;

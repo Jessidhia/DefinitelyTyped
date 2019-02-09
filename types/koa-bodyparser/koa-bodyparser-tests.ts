@@ -5,7 +5,7 @@ const app = new Koa();
 
 app.use(bodyParser({ strict: false }));
 
-app.use((ctx) => {
+app.use(ctx => {
     console.log(ctx.request.body);
     console.log(ctx.request.body.ok);
     console.log(ctx.request.rawBody);

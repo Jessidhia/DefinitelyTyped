@@ -11,14 +11,17 @@ interface MorphDomOptions {
     onElUpdated?: (el: HTMLElement) => void;
     onBeforeNodeDiscarded?: (node: Node) => boolean;
     onNodeDiscarded?: (node: Node) => void;
-    onBeforeElChildrenUpdated?: (fromEl: HTMLElement, toEl: HTMLElement) => boolean;
+    onBeforeElChildrenUpdated?: (
+        fromEl: HTMLElement,
+        toEl: HTMLElement
+    ) => boolean;
     childrenOnly?: boolean;
 }
 
 declare function morphdom(
     fromNode: Node,
     toNode: Node | string,
-    options?: MorphDomOptions,
+    options?: MorphDomOptions
 ): void;
 
 export = morphdom;

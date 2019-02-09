@@ -7,7 +7,9 @@ export type WikidataLanguageBaseString = {
     }
 };
 
-export type WikidataLanguageBaseStringSimplify = { [key in WikidataLanguage]?: string };
+export type WikidataLanguageBaseStringSimplify = {
+    [key in WikidataLanguage]?: string
+};
 
 export type WikidataLanguageBaseArrayString = {
     [Key in WikidataLanguage]: Array<{
@@ -16,4 +18,6 @@ export type WikidataLanguageBaseArrayString = {
     }>
 };
 
-export type WikidataLanguageBaseArrayStringSimplify = { [key in WikidataLanguage]: string[] };
+export type WikidataLanguageBaseArrayStringSimplify = {
+    [key in WikidataLanguage]: string[]
+};

@@ -4,13 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Engine from '@ember/engine';
-import ApplicationInstance from '@ember/application/instance';
-import EventDispatcher from '@ember/application/-private/event-dispatcher';
-import { EventDispatcherEvents } from '@ember/application/types';
-import DefaultResolver from '@ember/application/-private/default-resolver';
-import { Router } from '@ember/routing';
-import Registry from '@ember/application/-private/registry';
+import Engine from "@ember/engine";
+import ApplicationInstance from "@ember/application/instance";
+import EventDispatcher from "@ember/application/-private/event-dispatcher";
+import { EventDispatcherEvents } from "@ember/application/types";
+import DefaultResolver from "@ember/application/-private/default-resolver";
+import { Router } from "@ember/routing";
+import Registry from "@ember/application/-private/registry";
 
 /**
  * An instance of Ember.Application is the starting point for every Ember application. It helps to
@@ -36,7 +36,11 @@ export default class Application extends Engine {
     /**
      * defines an injection or typeInjection
      */
-    inject(factoryNameOrType: string, property: string, injectionName: string): void;
+    inject(
+        factoryNameOrType: string,
+        property: string,
+        injectionName: string
+    ): void;
     /**
      * This injects the test helpers into the window's scope. If a function of the
      * same name has already been defined it will be cached (so that it can be reset
@@ -50,7 +54,11 @@ export default class Application extends Engine {
      * @param fullName type:name (e.g., 'model:user')
      * @param factory (e.g., App.Person)
      */
-    register(fullName: string, factory: any, options?: { singleton?: boolean; instantiate?: boolean }): void;
+    register(
+        fullName: string,
+        factory: any,
+        options?: { singleton?: boolean; instantiate?: boolean }
+    ): void;
     /**
      * This removes all helpers that have been registered, and resets and functions
      * that were overridden by the helpers.

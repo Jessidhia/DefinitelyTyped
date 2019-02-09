@@ -1,14 +1,17 @@
-import * as React from 'react';
-import withRedux from 'next-redux-wrapper';
-import { createStore, Reducer, Store, AnyAction } from 'redux';
+import * as React from "react";
+import withRedux from "next-redux-wrapper";
+import { createStore, Reducer, Store, AnyAction } from "redux";
 
 interface InitialState {
     foo: string;
 }
 
-const reducer: Reducer<InitialState> = (state: InitialState = { foo: '' }, action: AnyAction): InitialState => {
+const reducer: Reducer<InitialState> = (
+    state: InitialState = { foo: "" },
+    action: AnyAction
+): InitialState => {
     switch (action.type) {
-        case 'FOO':
+        case "FOO":
             return { ...state, foo: action.payload };
         default:
             return state;
@@ -30,8 +33,8 @@ interface Props {
 
 class Page extends React.Component<OwnProps & Props> {
     static getInitialProps({ store, isServer, pathname, query }: any) {
-        store.dispatch({ type: 'FOO', payload: 'foo' });
-        return { custom: 'custom' };
+        store.dispatch({ type: "FOO", payload: "foo" });
+        return { custom: "custom" };
     }
     render() {
         return (
@@ -49,16 +52,20 @@ type MergedProps = Props;
 
 // Test various typings
 
-const Com1 = withRedux<InitialState, ConnectStateProps, DispatchProps, OwnProps, MergedProps>(
-    (initialState: InitialState, options) => {
-        if (options.isServer || options.req || options.query || options.res) {
-            const a = 1;
-        }
-        return createStore(reducer, initialState);
-    },
-)(Page);
+const Com1 = withRedux<
+    InitialState,
+    ConnectStateProps,
+    DispatchProps,
+    OwnProps,
+    MergedProps
+>((initialState: InitialState, options) => {
+    if (options.isServer || options.req || options.query || options.res) {
+        const a = 1;
+    }
+    return createStore(reducer, initialState);
+})(Page);
 
 const Com2 = withRedux(makeStore)(Page);
 
-const com1Instance = (<Com1 bar="foo" />);
-const com2Instance = (<Com2 />);
+const com1Instance = <Com1 bar="foo" />;
+const com2Instance = <Com2 />;

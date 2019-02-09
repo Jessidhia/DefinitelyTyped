@@ -6,7 +6,7 @@
 
 /// <reference types="node"/>
 
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 type Cloneable<T> = T & { clone(): Cloneable<T> };
 interface CloneableFn {

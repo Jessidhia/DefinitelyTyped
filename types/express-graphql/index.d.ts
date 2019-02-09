@@ -22,7 +22,11 @@ declare namespace graphqlHTTP {
      * that returns an Object or a Promise for an Object.
      */
     export type Options =
-        | ((request: Request, response: Response, params?: GraphQLParams) => OptionsResult)
+        | ((
+              request: Request,
+              response: Response,
+              params?: GraphQLParams
+          ) => OptionsResult)
         | OptionsResult;
     export type OptionsResult = OptionsData | Promise<OptionsData>;
     export interface OptionsData {
@@ -109,11 +113,16 @@ declare namespace graphqlHTTP {
         raw: boolean | null | undefined;
     }
 
-    type Middleware = (request: Request, response: Response) => Promise<undefined>;
+    type Middleware = (
+        request: Request,
+        response: Response
+    ) => Promise<undefined>;
 }
 
 /**
  * Middleware for express; takes an options object or function as input to
  * configure behavior, and returns an express middleware.
  */
-declare function graphqlHTTP(options: graphqlHTTP.Options): graphqlHTTP.Middleware;
+declare function graphqlHTTP(
+    options: graphqlHTTP.Options
+): graphqlHTTP.Middleware;

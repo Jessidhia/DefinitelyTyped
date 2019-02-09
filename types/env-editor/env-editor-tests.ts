@@ -1,7 +1,7 @@
-import * as envEditor from 'env-editor';
+import * as envEditor from "env-editor";
 
 // $ExpectType Editor
-envEditor.get('sublime');
+envEditor.get("sublime");
 // $ExpectType Editor
 envEditor.default();
 // $ExpectType Editor[]

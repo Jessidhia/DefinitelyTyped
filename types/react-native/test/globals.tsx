@@ -6,7 +6,7 @@ myHeaders.append("Content-Type", "image/jpeg");
 const myInit: RequestInit = {
     method: "GET",
     headers: myHeaders,
-    mode: "cors",
+    mode: "cors"
 };
 
 const myRequest = new Request("flowers.jpg");

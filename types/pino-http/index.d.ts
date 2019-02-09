@@ -4,12 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { IncomingMessage, ServerResponse } from 'http';
-import { DestinationStream, Level, Logger, LoggerOptions } from 'pino';
+import { IncomingMessage, ServerResponse } from "http";
+import { DestinationStream, Level, Logger, LoggerOptions } from "pino";
 
 export = PinoHttp;
 
-declare function PinoHttp(opts?: PinoHttp.Options, stream?: DestinationStream): PinoHttp.HttpLogger;
+declare function PinoHttp(
+    opts?: PinoHttp.Options,
+    stream?: DestinationStream
+): PinoHttp.HttpLogger;
 declare function PinoHttp(stream?: DestinationStream): PinoHttp.HttpLogger;
 
 declare namespace PinoHttp {
@@ -27,7 +30,7 @@ declare namespace PinoHttp {
     }
 }
 
-declare module 'http' {
+declare module "http" {
     interface IncomingMessage {
         log: Logger;
     }

@@ -8,7 +8,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 import {
     Animated,
     LayoutChangeEvent,
@@ -19,7 +19,7 @@ import {
     ViewStyle,
     ImageProps,
     FlatListProps
-} from 'react-native';
+} from "react-native";
 
 export interface AdditionalParallaxProps {
     carouselRef?: React.Component<FlatListProps<any>>;
@@ -42,7 +42,10 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
      * Function that takes an item from the `data` array and returns a React
      * Element. See `react-native`'s `FlatList`
      */
-    renderItem(item: { item: T; index: number }, parallaxProps?: AdditionalParallaxProps): React.ReactNode;
+    renderItem(
+        item: { item: T; index: number },
+        parallaxProps?: AdditionalParallaxProps
+    ): React.ReactNode;
     /**
      * Width in pixels of your slides, must be the same for all of them
      * Note: Required with horizontal carousel
@@ -179,17 +182,20 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
      * they will now play the custom animation you provide as soon as they become active.
      * This means you cannot use props layout, scrollInterpolator or slideInterpolatedStyle in conjunction with activeAnimationOptions
      */
-    activeAnimationOptions?: Animated.DecayAnimationConfig | Animated.TimingAnimationConfig | Animated.SpringAnimationConfig;
+    activeAnimationOptions?:
+        | Animated.DecayAnimationConfig
+        | Animated.TimingAnimationConfig
+        | Animated.SpringAnimationConfig;
     /**
      * Custom animation type: either 'decay, 'spring' or 'timing'.
      * Note that it will only be applied to the scale animation since opacity's animation type will always be set
      * to timing (no one wants the opacity to 'bounce' around)
      */
-    activeAnimationType?: 'decay' | 'spring' | 'timing';
+    activeAnimationType?: "decay" | "spring" | "timing";
     /**
      * Determine active slide's alignment relative to the carousel
      */
-    activeSlideAlignment?: 'start' | 'center' | 'end';
+    activeSlideAlignment?: "start" | "center" | "end";
     /**
      * Optional styles for Scrollview's global wrapper
      */
@@ -218,7 +224,7 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
      * WARNING: setting this prop to either 'stack' or 'tinder' will activate useScrollView to prevent rendering bugs with FlatList.
      * Therefore, those layouts will probably not be suited if you have a large data set.
      */
-    layout?: 'default' | 'stack' | 'tinder';
+    layout?: "default" | "stack" | "tinder";
     /**
      * Use to increase or decrease the default card offset in both 'stack' and 'tinder' layouts.
      */
@@ -226,11 +232,18 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
     /**
      * Used to define custom interpolations
      */
-    scrollInterpolator?(index: number, carouselProps: CarouselProps<any>): { inputRange: number[], outputRange: number[] };
+    scrollInterpolator?(
+        index: number,
+        carouselProps: CarouselProps<any>
+    ): { inputRange: number[]; outputRange: number[] };
     /**
      * Used to define custom interpolations
      */
-    slideInterpolatedStyle?(index: number, animatedValue: Animated.AnimatedValue, carouselProps: CarouselProps<any>): StyleProp<ViewStyle>;
+    slideInterpolatedStyle?(
+        index: number,
+        animatedValue: Animated.AnimatedValue,
+        carouselProps: CarouselProps<any>
+    ): StyleProp<ViewStyle>;
     /**
      * Optional style for each item's container (the one whose scale and opacity are animated)
      */
@@ -258,7 +271,8 @@ export interface CarouselProps<T> extends React.Props<ScrollViewProps> {
     onBeforeSnapToItem?(slideIndex: number): void;
 }
 
-export interface CarouselStatic<T> extends React.ComponentClass<CarouselProps<T>> {
+export interface CarouselStatic<T>
+    extends React.ComponentClass<CarouselProps<T>> {
     /**
      * Current active item (int, starts at 0)
      */
@@ -296,9 +310,13 @@ export interface CarouselStatic<T> extends React.ComponentClass<CarouselProps<T>
     triggerRenderingHack(offset: number): void;
 }
 
-export type CarouselProperties<T> = ScrollViewProps & CarouselProps<T> & React.Props<CarouselStatic<T>>;
+export type CarouselProperties<T> = ScrollViewProps &
+    CarouselProps<T> &
+    React.Props<CarouselStatic<T>>;
 
-export interface ParallaxImageProps extends ImageProps, AdditionalParallaxProps {
+export interface ParallaxImageProps
+    extends ImageProps,
+        AdditionalParallaxProps {
     /**
      * Optional style for image's container
      */
@@ -327,9 +345,10 @@ export interface ParallaxImageProps extends ImageProps, AdditionalParallaxProps 
 
 export type ParallaxImageStatic = React.ComponentClass<ParallaxImageProps>;
 
-export type ParallaxImageProperties = ParallaxImageProps & React.Props<ParallaxImageStatic>;
+export type ParallaxImageProperties = ParallaxImageProps &
+    React.Props<ParallaxImageStatic>;
 
-export class ParallaxImage extends React.Component<ParallaxImageProperties> { }
+export class ParallaxImage extends React.Component<ParallaxImageProperties> {}
 
 export interface PaginationProps {
     /**
@@ -400,7 +419,11 @@ export interface PaginationProps {
      * It will receive three parameters : (activeIndex, total, context).
      * This can be especially useful in order to replace dots with numbers
      */
-    renderDots?(activeIndex: number, total: number, context: any): React.ReactNode;
+    renderDots?(
+        activeIndex: number,
+        total: number,
+        context: any
+    ): React.ReactNode;
     /**
      * Make default dots tappable, e.g. your carousel will slide to the corresponding item.
      * Note that carouselRef must be specified for this to work
@@ -414,8 +437,11 @@ export interface PaginationProps {
 
 export type PaginationStatic = React.ComponentClass<PaginationProps>;
 
-export type PaginationProperties = PaginationProps & React.Props<PaginationStatic>;
+export type PaginationProperties = PaginationProps &
+    React.Props<PaginationStatic>;
 
-export class Pagination extends React.Component<PaginationProperties> { }
+export class Pagination extends React.Component<PaginationProperties> {}
 
-export default class Carousel<T> extends React.Component<CarouselProperties<T>> { }
+export default class Carousel<T> extends React.Component<
+    CarouselProperties<T>
+> {}

@@ -5,7 +5,10 @@
 
 export = fresh;
 
-declare function fresh(reqHeaders: fresh.Headers, resHeaders: fresh.Headers): boolean;
+declare function fresh(
+    reqHeaders: fresh.Headers,
+    resHeaders: fresh.Headers
+): boolean;
 
 declare namespace fresh {
     interface Headers {

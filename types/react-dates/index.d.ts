@@ -6,8 +6,8 @@
 // TypeScript Version: 2.8
 // Required fields are made according to 'minimum REQUIRED setup' in https://github.com/airbnb/react-dates/blob/master/README.md
 
-import * as React from 'react';
-import * as moment from 'moment';
+import * as React from "react";
+import * as moment from "moment";
 
 export = ReactDates;
 
@@ -21,10 +21,10 @@ declare namespace ReactDates {
     // SHAPES
     //
     // shapes/AnchorDirectionShape.js
-    type AnchorDirectionShape = 'left' | 'right';
+    type AnchorDirectionShape = "left" | "right";
 
     // shapes/CalendarInfoPositionShape.js
-    type CalendarInfoPositionShape = 'top' | 'bottom' | 'before' | 'after';
+    type CalendarInfoPositionShape = "top" | "bottom" | "before" | "after";
 
     // shapes/DateRangePickerShape.js
     interface DateRangePickerShape {
@@ -35,20 +35,16 @@ declare namespace ReactDates {
         endDateId: string;
         focusedInput: FocusedInputShape | null;
 
-        onDatesChange: (
-            arg: {
-                startDate: momentPropTypes.momentObj | null;
-                endDate: momentPropTypes.momentObj | null;
-            }
-        ) => void;
+        onDatesChange: (arg: {
+            startDate: momentPropTypes.momentObj | null;
+            endDate: momentPropTypes.momentObj | null;
+        }) => void;
         onFocusChange: (arg: FocusedInputShape | null) => void;
 
-        onClose?: (
-            final: {
-                startDate: momentPropTypes.momentObj;
-                endDate: momentPropTypes.momentObj;
-            }
-        ) => void;
+        onClose?: (final: {
+            startDate: momentPropTypes.momentObj;
+            endDate: momentPropTypes.momentObj;
+        }) => void;
 
         // input related props
         startDatePlaceholderText?: string;
@@ -69,14 +65,20 @@ declare namespace ReactDates {
         regular?: boolean;
         keepFocusOnInput?: boolean;
         // calendar presentation and interaction related props
-        renderMonthText?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderMonthElement?: (
-            props: {
-                month: momentPropTypes.momentObj;
-                onMonthSelect: (currentMonth: momentPropTypes.momentObj, newMonthVal: string) => void;
-                onYearSelect: (currentMonth: momentPropTypes.momentObj, newYearVal: string) => void;
-            }
+        renderMonthText?: (
+            day: momentPropTypes.momentObj
         ) => string | JSX.Element;
+        renderMonthElement?: (props: {
+            month: momentPropTypes.momentObj;
+            onMonthSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newMonthVal: string
+            ) => void;
+            onYearSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newYearVal: string
+            ) => void;
+        }) => string | JSX.Element;
         orientation?: OrientationShape;
         anchorDirection?: AnchorDirectionShape;
         openDirection?: OpenDirectionShape;
@@ -106,8 +108,12 @@ declare namespace ReactDates {
         onNextMonthClick?: (newCurrentMonth: momentPropTypes.momentObj) => void;
 
         // day presentation and interaction related props
-        renderCalendarDay?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderDayContents?: (day: momentPropTypes.momentObj) => string | JSX.Element;
+        renderCalendarDay?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
+        renderDayContents?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
         minimumNights?: number;
         enableOutsideDays?: boolean;
         isDayBlocked?: (day: any) => boolean;
@@ -126,22 +132,25 @@ declare namespace ReactDates {
     type DayOfWeekShape = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
     // shapes/DisabledShape.js
-    type DisabledShape = boolean | 'startDate' | 'endDate';
+    type DisabledShape = boolean | "startDate" | "endDate";
 
     // shapes/FocusedInputShape.js
-    type FocusedInputShape = 'startDate' | 'endDate';
+    type FocusedInputShape = "startDate" | "endDate";
 
     // shape/IconPositionShape.js
-    type IconPositionShape = 'before' | 'after';
+    type IconPositionShape = "before" | "after";
 
     // type/OpenDirectionShape.js
-    type OpenDirectionShape = 'down' | 'up';
+    type OpenDirectionShape = "down" | "up";
 
     // shpae/OrientationShape.js
-    type OrientationShape = 'horizontal' | 'vertical';
+    type OrientationShape = "horizontal" | "vertical";
 
     // shape/ScrollableOrientationShape.js
-    type ScrollableOrientationShape = 'horizontal' | 'vertical' | 'verticalScrollable';
+    type ScrollableOrientationShape =
+        | "horizontal"
+        | "vertical"
+        | "verticalScrollable";
 
     // shapes/SingleDatePickerShape.js
     interface SingleDatePickerShape {
@@ -173,14 +182,20 @@ declare namespace ReactDates {
         keepFocusOnInput?: boolean;
 
         // calendar presentation and interaction related props
-        renderMonthText?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderMonthElement?: (
-            props: {
-                month: momentPropTypes.momentObj;
-                onMonthSelect: (currentMonth: momentPropTypes.momentObj, newMonthVal: string) => void;
-                onYearSelect: (currentMonth: momentPropTypes.momentObj, newYearVal: string) => void;
-            }
+        renderMonthText?: (
+            day: momentPropTypes.momentObj
         ) => string | JSX.Element;
+        renderMonthElement?: (props: {
+            month: momentPropTypes.momentObj;
+            onMonthSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newMonthVal: string
+            ) => void;
+            onYearSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newYearVal: string
+            ) => void;
+        }) => string | JSX.Element;
         orientation?: OrientationShape;
         anchorDirection?: AnchorDirectionShape;
         openDirection?: OpenDirectionShape;
@@ -207,16 +222,18 @@ declare namespace ReactDates {
         navNext?: string | JSX.Element;
         onPrevMonthClick?: (newCurrentMonth: momentPropTypes.momentObj) => void;
         onNextMonthClick?: (newCurrentMonth: momentPropTypes.momentObj) => void;
-        onClose?: (
-            final: {
-                startDate: momentPropTypes.momentObj;
-                endDate: momentPropTypes.momentObj;
-            }
-        ) => void;
+        onClose?: (final: {
+            startDate: momentPropTypes.momentObj;
+            endDate: momentPropTypes.momentObj;
+        }) => void;
 
         // day presentation and interaction related props
-        renderCalendarDay?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderDayContents?: (day: momentPropTypes.momentObj) => string | JSX.Element;
+        renderCalendarDay?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
+        renderDayContents?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
         enableOutsideDays?: boolean;
         isDayBlocked?: (day: any) => boolean;
         isOutsideRange?: (day: any) => boolean;
@@ -382,24 +399,20 @@ declare namespace ReactDates {
         // REQUIRED props
         startDate: momentPropTypes.momentObj | null;
         endDate: momentPropTypes.momentObj | null;
-        onDatesChange: (
-            arg: {
-                startDate: momentPropTypes.momentObj | null;
-                endDate: momentPropTypes.momentObj | null;
-            }
-        ) => void;
+        onDatesChange: (arg: {
+            startDate: momentPropTypes.momentObj | null;
+            endDate: momentPropTypes.momentObj | null;
+        }) => void;
         focusedInput: FocusedInputShape;
         onFocusChange: (arg: FocusedInputShape | null) => void;
 
         startDateOffset?: (day: any) => any;
         endDateOffset?: (day: any) => any;
 
-        onClose?: (
-            final: {
-                startDate: momentPropTypes.momentObj;
-                endDate: momentPropTypes.momentObj;
-            }
-        ) => void;
+        onClose?: (final: {
+            startDate: momentPropTypes.momentObj;
+            endDate: momentPropTypes.momentObj;
+        }) => void;
 
         keepOpenOnDateSelect?: boolean;
         minimumNights?: number;
@@ -409,19 +422,29 @@ declare namespace ReactDates {
         isDayHighlighted?: (day: any) => boolean;
     }
 
-    type DayPickerRangeController = React.ClassicComponentClass<DayPickerRangeControllerShape>;
-    var DayPickerRangeController: React.ClassicComponentClass<DayPickerRangeControllerShape>;
+    type DayPickerRangeController = React.ClassicComponentClass<
+        DayPickerRangeControllerShape
+    >;
+    var DayPickerRangeController: React.ClassicComponentClass<
+        DayPickerRangeControllerShape
+    >;
 
     // components/DayPickerShape.jsx
     interface DayPickerShape {
-        renderMonthText?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderMonthElement?: (
-            props: {
-                month: momentPropTypes.momentObj;
-                onMonthSelect: (currentMonth: momentPropTypes.momentObj, newMonthVal: string) => void;
-                onYearSelect: (currentMonth: momentPropTypes.momentObj, newYearVal: string) => void;
-            }
+        renderMonthText?: (
+            day: momentPropTypes.momentObj
         ) => string | JSX.Element;
+        renderMonthElement?: (props: {
+            month: momentPropTypes.momentObj;
+            onMonthSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newMonthVal: string
+            ) => void;
+            onYearSelect: (
+                currentMonth: momentPropTypes.momentObj,
+                newYearVal: string
+            ) => void;
+        }) => string | JSX.Element;
         enableOutsideDays?: boolean;
         numberOfMonths?: number;
         orientation?: ScrollableOrientationShape;
@@ -440,8 +463,12 @@ declare namespace ReactDates {
         onPrevMonthClick?: (newCurrentMonth: momentPropTypes.momentObj) => void;
         onNextMonthClick?: (newCurrentMonth: momentPropTypes.momentObj) => void;
         onOutsideClick?: (e: any) => void;
-        renderCalendarDay?: (day: momentPropTypes.momentObj) => string | JSX.Element;
-        renderDayContents?: (day: momentPropTypes.momentObj) => string | JSX.Element;
+        renderCalendarDay?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
+        renderDayContents?: (
+            day: momentPropTypes.momentObj
+        ) => string | JSX.Element;
         renderCalendarInfo?: () => string | JSX.Element;
         calendarInfoPosition?: CalendarInfoPositionShape;
 
@@ -474,8 +501,12 @@ declare namespace ReactDates {
         isDayHighlighted?: (day: any) => boolean;
     }
 
-    type DayPickerSingleDateController = React.ClassicComponentClass<DayPickerSingleDateControllerShape>;
-    var DayPickerSingleDateController: React.ClassicComponentClass<DayPickerSingleDateControllerShape>;
+    type DayPickerSingleDateController = React.ClassicComponentClass<
+        DayPickerSingleDateControllerShape
+    >;
+    var DayPickerSingleDateController: React.ClassicComponentClass<
+        DayPickerSingleDateControllerShape
+    >;
 
     // components/SingleDatePicker.js
     type SingleDatePicker = React.ClassicComponentClass<SingleDatePickerShape>;
@@ -492,7 +523,10 @@ declare namespace ReactDates {
     // utils/isSameDay.js
     var isSameDay: (a: moment.Moment, b: moment.Moment) => boolean;
     // utils/toISODateString.js
-    var toISODateString: (date: moment.MomentInput, currentFormat: moment.MomentFormatSpecification) => string | null;
+    var toISODateString: (
+        date: moment.MomentInput,
+        currentFormat: moment.MomentFormatSpecification
+    ) => string | null;
     // utils/toLocalizedDateString.js
     var toLocalizedDateString: (
         date: moment.MomentInput,

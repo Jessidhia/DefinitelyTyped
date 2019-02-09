@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCIconToggleAdapter from './adapter';
-import { cssClasses, strings } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCIconToggleAdapter from "./adapter";
+import { cssClasses, strings } from "./constants";
 
-export default class MDCIconToggleFoundation extends MDCFoundation<MDCIconToggleAdapter> {
+export default class MDCIconToggleFoundation extends MDCFoundation<
+    MDCIconToggleAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

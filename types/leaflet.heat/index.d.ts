@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     type HeatLatLngTuple = [number, number, number];
 
     interface ColorGradientConfig {
@@ -28,5 +28,8 @@ declare module 'leaflet' {
         setLatLngs(latlngs: Array<LatLng | HeatLatLngTuple>): HeatLayer;
     }
 
-    function heatLayer(latlngs: Array<LatLng | HeatLatLngTuple>, options: HeatMapOptions): HeatLayer;
+    function heatLayer(
+        latlngs: Array<LatLng | HeatLatLngTuple>,
+        options: HeatMapOptions
+    ): HeatLayer;
 }

@@ -28,13 +28,13 @@ interface WebTwain {
      */
 
     /*
-    * Properties
-    */
+     * Properties
+     */
 
     /**
-    * Returns or sets whether multi-page selection is supported.
-    * @type {boolean}
-    */
+     * Returns or sets whether multi-page selection is supported.
+     * @type {boolean}
+     */
     AllowMultiSelect: boolean;
 
     /**
@@ -883,8 +883,8 @@ interface WebTwain {
     */
 
     /*
-    *Methods
-    */
+     *Methods
+     */
 
     /**
      * Displays the source's built-in interface to acquire image.
@@ -894,7 +894,14 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    AcquireImage(optionalDeviceConfig?: object, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    AcquireImage(
+        optionalDeviceConfig?: object,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Add text on an image.
@@ -909,7 +916,16 @@ interface WebTwain {
      * @param {number} backgroundOpacity specifies the opacity of the background of the added text, it ranges from 0 to 1.0. Please NOTE that Mac version only supports value 0 and 1
      * @return {boolean}
      */
-    AddText(sImageIndex: number, x: number, y: number, text: string, txtColor: number, backgroundColor: number, backgroundRoundRadius: number, backgroundOpacity: number): boolean;
+    AddText(
+        sImageIndex: number,
+        x: number,
+        y: number,
+        text: string,
+        txtColor: number,
+        backgroundColor: number,
+        backgroundRoundRadius: number,
+        backgroundOpacity: number
+    ): boolean;
 
     /**
      * Cancels all pending transfers.
@@ -972,10 +988,10 @@ interface WebTwain {
     CapGetFrameTop(index: number): number;
 
     /* ignored
-    * CapGetHelp
-    * CapGetLabel
-    * CapGetLabels
-    */
+     * CapGetHelp
+     * CapGetLabel
+     * CapGetLabels
+     */
 
     /**
      * Queries whether the Source supports a particular operation on the capability.
@@ -1009,7 +1025,13 @@ interface WebTwain {
      * @param {number} bottom  the value (in Unit) of the bottom-most edge of the specified frame.
      * @return {boolean}
      */
-    CapSetFrame(index: number, left: number, top: number, right: number, bottom: number): boolean;
+    CapSetFrame(
+        index: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Changes the bitdepth of a specified image.
@@ -1019,7 +1041,11 @@ interface WebTwain {
      * @param {boolean} bHighQuality specifies whether or not to keep high quality while changing the bit depth. When it's true, it takes more time.
      * @return {boolean}
      */
-    ChangeBitDepth(sImageIndex: number, sBitDepth: number, bHighQuality: boolean): boolean;
+    ChangeBitDepth(
+        sImageIndex: number,
+        sBitDepth: number,
+        bHighQuality: boolean
+    ): boolean;
 
     /**
      * Changes width and height of the image of a specified index in the buffer. Please note the file size of the image will be changed proportionately.
@@ -1030,7 +1056,12 @@ interface WebTwain {
      * @param {EnumDWT_InterpolationMethod} newVal specifies the method to do interpolation.
      * @return {boolean}
      */
-    ChangeImageSize(sImageIndex: number, iNewWidth: number, iNewHeight: number, newVal: EnumDWT_InterpolationMethod): boolean;
+    ChangeImageSize(
+        sImageIndex: number,
+        iNewWidth: number,
+        iNewHeight: number,
+        newVal: EnumDWT_InterpolationMethod
+    ): boolean;
 
     /**
      * Clears all the web forms which are used for image uploading.
@@ -1086,7 +1117,12 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    ConvertToBase64(indices: number[], enumImageType: EnumDWT_ImageType, asyncSuccessFunc: (result: Base64Result) => void, asyncFailureFunc: (errorCode: number, errorString: string) => void): boolean;
+    ConvertToBase64(
+        indices: number[],
+        enumImageType: EnumDWT_ImageType,
+        asyncSuccessFunc: (result: Base64Result) => void,
+        asyncFailureFunc: (errorCode: number, errorString: string) => void
+    ): boolean;
 
     /**
      * Converts the images specified by the indices to blob synchronously.
@@ -1106,7 +1142,12 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    ConvertToBlob(indices: number[], enumImageType: EnumDWT_ImageType, asyncSuccessFunc: (result: any) => void, asyncFailureFunc: (errorCode: number, errorString: string) => void): boolean;
+    ConvertToBlob(
+        indices: number[],
+        enumImageType: EnumDWT_ImageType,
+        asyncSuccessFunc: (result: any) => void,
+        asyncFailureFunc: (errorCode: number, errorString: string) => void
+    ): boolean;
 
     /**
      * Changes a specified image to gray scale.
@@ -1143,7 +1184,22 @@ interface WebTwain {
      * @param {string} faceName   the typeface name, the length of this string must not exceed 32 characters, including the terminating null character.
      * @return {boolean}
      */
-    CreateTextFont(height: number, width: number, escapement: number, orientation: number, weight: number, italic: number, underline: number, strikeOut: number, charSet: number, outputPrecision: number, clipPrecision: number, quality: number, pitchAndFamily: number, faceName: string): boolean;
+    CreateTextFont(
+        height: number,
+        width: number,
+        escapement: number,
+        orientation: number,
+        weight: number,
+        italic: number,
+        underline: number,
+        strikeOut: number,
+        charSet: number,
+        outputPrecision: number,
+        clipPrecision: number,
+        quality: number,
+        pitchAndFamily: number,
+        faceName: string
+    ): boolean;
 
     /**
      * Crops the image of a specified index in buffer.
@@ -1155,7 +1211,13 @@ interface WebTwain {
      * @param {number} bottom specifies the y-coordinate of the lower-right corner of the rectangle.
      * @return {boolean}
      */
-    Crop(sImageIndex: number, left: number, top: number, right: number, bottom: number): boolean;
+    Crop(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Crops the image of a specified index in buffer to clipboard in DIB format.
@@ -1167,7 +1229,13 @@ interface WebTwain {
      * @param {number} bottom specifies the y-coordinate of the lower-right corner of the rectangle.
      * @return {boolean}
      */
-    CropToClipboard(sImageIndex: number, left: number, top: number, right: number, bottom: number): boolean;
+    CropToClipboard(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Cuts the image data in the specified area to the system clipboard in DIB format.
@@ -1179,7 +1247,13 @@ interface WebTwain {
      * @param {number} bottom specifies the y-coordinate of the lower-right corner of the rectangle.
      * @return {boolean}
      */
-    CutFrameToClipboard(sImageIndex: number, left: number, top: number, right: number, bottom: number): boolean;
+    CutFrameToClipboard(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Cuts the image of a specified index in buffer to clipboard in DIB format.
@@ -1213,7 +1287,13 @@ interface WebTwain {
      * @param {number} bottom specifies the y-coordinate of the lower-right corner of the rectangle.
      * @return {boolean}
      */
-    Erase(sImageIndex: number, left: number, top: number, right: number, bottom: number): boolean;
+    Erase(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Downloads an image from the FTP server.
@@ -1224,7 +1304,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPDownload(FTPServer: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPDownload(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Directly download a file from the FTP server to local disk without loading it into Dynamic Web TWAIN.
@@ -1236,7 +1324,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPDownloadDirectly(FTPServer: string, FTPRemoteFile: string, localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPDownloadDirectly(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Downloads an image from the FTP server.
@@ -1248,7 +1345,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPDownloadEx(FTPServer: string, FTPRemoteFile: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPDownloadEx(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the image of a specified index in the buffer to the FTP server.
@@ -1260,7 +1366,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUpload(FTPServer: string, sImageIndex: number, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUpload(
+        FTPServer: string,
+        sImageIndex: number,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Directly upload a specific file to the FTP server without loading it into Dynamic Web TWAIN.
@@ -1272,7 +1387,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadDirectly(FTPServer: string, localFile: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadDirectly(
+        FTPServer: string,
+        localFile: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the image of a specified index in the buffer to the FTP server as a specified image format.
@@ -1285,7 +1409,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadEx(FTPServer: string, sImageIndex: number, FTPRemoteFile: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadEx(
+        FTPServer: string,
+        sImageIndex: number,
+        FTPRemoteFile: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads all images in buffer to the FTP server as Multi-Page TIFF.
@@ -1296,7 +1430,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadAllAsMultiPageTIFF(FTPServer: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadAllAsMultiPageTIFF(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads all images in buffer to the FTP server as Multi-Page PDF.
@@ -1307,7 +1449,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadAllAsPDF(FTPServer: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadAllAsPDF(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the selected images in buffer to the FTP server as Multi-Page PDF.
@@ -1318,7 +1468,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadAsMultiPagePDF(FTPServer: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadAsMultiPagePDF(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the selected images in buffer to the FTP server as Multi-Page TIFF.
@@ -1329,7 +1487,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    FTPUploadAsMultiPageTIFF(FTPServer: string, FTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    FTPUploadAsMultiPageTIFF(
+        FTPServer: string,
+        FTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Sets the Source to eject the current page and advance the next page in the document feeder into the feeder acquire area when IfFeederEnabled is TRUE.
@@ -1437,7 +1603,10 @@ interface WebTwain {
      * @param {EnumDWT_ImageType} sImageType specifies the type of an image file..
      * @return {number}
      */
-    GetImageSizeWithSpecifiedType(sImageIndex: number, sImageType: EnumDWT_ImageType): number;
+    GetImageSizeWithSpecifiedType(
+        sImageIndex: number,
+        sImageType: EnumDWT_ImageType
+    ): number;
 
     /**
      * Returns the direct URL of an image specified by index, if iWidth or iHeight is set to -1, you get the original image, otherwise you get the image with specified iWidth or iHeight while keeping the same aspect ratio.
@@ -1477,7 +1646,13 @@ interface WebTwain {
      * Return the runtime license info.
      * @method WebTwain#GetLicenseInfo
      */
-    GetLicenseInfo(optionalAsyncSuccessFunc?: (result: any) => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    GetLicenseInfo(
+        optionalAsyncSuccessFunc?: (result: any) => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Returns the index of the selected image.
@@ -1513,7 +1688,13 @@ interface WebTwain {
      * @param {number} bottom specifies the y-coordinate of the lower-right corner of the rectangle.
      * @return {number}
      */
-    GetSkewAngleEx(sImageIndex: number, left: number, top: number, right: number, bottom: number): number;
+    GetSkewAngleEx(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): number;
 
     /**
      * Get the source name according to the source index.
@@ -1538,7 +1719,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPDownload(HTTPServer: string, HTTPRemoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPDownload(
+        HTTPServer: string,
+        HTTPRemoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Directly downloads a file from the HTTP server to a local disk without loading it into Dynamic Web TWAIN.
@@ -1550,7 +1739,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPDownloadDirectly(HTTPServer: string, HTTPRemoteFile: string, localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPDownloadDirectly(
+        HTTPServer: string,
+        HTTPRemoteFile: string,
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Downloads an image from the HTTP server.
@@ -1562,7 +1760,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPDownloadEx(HTTPServer: string, HTTPRemoteFile: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPDownloadEx(
+        HTTPServer: string,
+        HTTPRemoteFile: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /*ignored
     HTTPDownloadStreamThroughPost
@@ -1579,7 +1786,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPDownloadThroughPost(HTTPServer: string, HTTPRemoteFile: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPDownloadThroughPost(
+        HTTPServer: string,
+        HTTPRemoteFile: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads just a form created by SetHTTPFormField and SetHTTPHeader
@@ -1589,7 +1806,15 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUpload(url: string, asyncSuccessFunc: (httppostresponsestring: string) => void, asyncFailureFunc: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUpload(
+        url: string,
+        asyncSuccessFunc: (httppostresponsestring: string) => void,
+        asyncFailureFunc: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the images specified by the indices to the HTTP server.
@@ -1602,7 +1827,18 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUpload(url: string, indices: number[], enumImageType: EnumDWT_ImageType, dataFormat: EnumDWT_UploadDataFormat, asyncSuccessFunc: (httppostresponsestring: string) => void, asyncFailureFunc: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUpload(
+        url: string,
+        indices: number[],
+        enumImageType: EnumDWT_ImageType,
+        dataFormat: EnumDWT_UploadDataFormat,
+        asyncSuccessFunc: (httppostresponsestring: string) => void,
+        asyncFailureFunc: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the images specified by the indices to the HTTP server.
@@ -1616,7 +1852,19 @@ interface WebTwain {
      * @param {function} asyncFailureFunc the function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUpload(url: string, indices: number[], enumImageType: EnumDWT_ImageType, dataFormat: EnumDWT_UploadDataFormat, fileName: string, asyncSuccessFunc: (httppostresponsestring: string) => void, asyncFailureFunc: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUpload(
+        url: string,
+        indices: number[],
+        enumImageType: EnumDWT_ImageType,
+        dataFormat: EnumDWT_UploadDataFormat,
+        fileName: string,
+        asyncSuccessFunc: (httppostresponsestring: string) => void,
+        asyncFailureFunc: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads all images in the buffer to the HTTP server through the HTTP Post method as a Multi-Page TIFF.
@@ -1628,7 +1876,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadAllThroughPostAsMultiPageTIFF(HTTPServer: string, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadAllThroughPostAsMultiPageTIFF(
+        HTTPServer: string,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads all images in the buffer to the HTTP server through HTTP Post method as a Multi-Page PDF.
@@ -1640,7 +1898,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadAllThroughPostAsPDF(HTTPServer: string, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadAllThroughPostAsPDF(
+        HTTPServer: string,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads all images in the buffer to the HTTP server through the HTTP Put method as a Multi-Page TIFF.
@@ -1651,7 +1919,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadAllThroughPutAsMultiPageTIFF(HTTPServer: string, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadAllThroughPutAsMultiPageTIFF(
+        HTTPServer: string,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads all images in the buffer to the HTTP server through the HTTP Put method as a Multi-Page PDF.
@@ -1662,7 +1938,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadAllThroughPutAsPDF(HTTPServer: string, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadAllThroughPutAsPDF(
+        HTTPServer: string,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /*ignored
     HTTPUploadStreamThroughPost
@@ -1679,7 +1963,18 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPost(HTTPServer: string, sImageIndex: number, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadThroughPost(
+        HTTPServer: string,
+        sImageIndex: number,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the selected images in the buffer to the HTTP server through the HTTP Post method as a Multi-Page TIFF.
@@ -1691,7 +1986,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPostAsMultiPageTIFF(HTTPServer: string, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadThroughPostAsMultiPageTIFF(
+        HTTPServer: string,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the selected images in the buffer to the HTTP server through the HTTP Post method as a Multi-Page PDF.
@@ -1703,7 +2008,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPostAsMultiPagePDF(HTTPServer: string, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadThroughPostAsMultiPagePDF(
+        HTTPServer: string,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Directly upload a specific local file to the HTTP server through the HTTP POST method without loading it into Dynamic Web TWAIN.
@@ -1716,7 +2031,18 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPostDirectly(HTTPServer: string, localFile: string, ActionPage: string, fileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadThroughPostDirectly(
+        HTTPServer: string,
+        localFile: string,
+        ActionPage: string,
+        fileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * Uploads the image of a specified index in the buffer to the HTTP server as a specified image format through the HTTP POST method.
@@ -1730,7 +2056,19 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload succeeds. Please refer to the function prototype OnHttpUploadFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPostEx(HTTPServer: string, sImageIndex: number, ActionPage: string, fileName: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string, httppostresponsestring: string) => void): boolean;
+    HTTPUploadThroughPostEx(
+        HTTPServer: string,
+        sImageIndex: number,
+        ActionPage: string,
+        fileName: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string,
+            httppostresponsestring: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads the image of a specified index in the buffer to the HTTP server through the HTTP PUT method.
@@ -1742,7 +2080,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPut(HTTPServer: string, sImageIndex: number, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadThroughPut(
+        HTTPServer: string,
+        sImageIndex: number,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads the selected images in the buffer to the HTTP server through the HTTP Put method as a Multi-Page TIFF.
@@ -1753,7 +2100,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPutAsMultiPageTIFF(HTTPServer: string, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadThroughPutAsMultiPageTIFF(
+        HTTPServer: string,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads the selected images in the buffer to the HTTP server through the HTTP Put method as a Multi-Page PDF.
@@ -1764,7 +2119,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPutAsMultiPagePDF(HTTPServer: string, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadThroughPutAsMultiPagePDF(
+        HTTPServer: string,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Directly uploads a specific local file to the HTTP server through the HTTP PUT method without loading it into Dynamic Web TWAIN.
@@ -1776,7 +2139,16 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPutDirectly(HTTPServer: string, localFile: string, RemoteFileName: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadThroughPutDirectly(
+        HTTPServer: string,
+        localFile: string,
+        RemoteFileName: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Uploads the image of a specified index in the buffer to the HTTP server as a specified image format through the HTTP PUT method.
@@ -1789,7 +2161,17 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the upload fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    HTTPUploadThroughPutEx(HTTPServer: string, sImageIndex: number, RemoteFileName: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    HTTPUploadThroughPutEx(
+        HTTPServer: string,
+        sImageIndex: number,
+        RemoteFileName: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Detects whether an image is blank.
@@ -1810,7 +2192,14 @@ interface WebTwain {
      * @param {boolean} bFuzzyMatch specifies whether use fuzzy matching when detecting.
      * @return {boolean}
      */
-    IsBlankImageEx(sImageIndex: number, left: number, top: number, right: number, bottom: number, bFuzzyMatch: boolean): boolean;
+    IsBlankImageEx(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number,
+        bFuzzyMatch: boolean
+    ): boolean;
 
     /**
      * Detects whether a specific image is blank.
@@ -1827,7 +2216,13 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the loading fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    LoadDibFromClipboard(optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    LoadDibFromClipboard(
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Loads an image into the Dynamic Web TWAIN.
@@ -1837,7 +2232,14 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the loading fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    LoadImage(localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    LoadImage(
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Loads an image into the Dynamic Web TWAIN.
@@ -1848,7 +2250,15 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the loading fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    LoadImageEx(localFile: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    LoadImageEx(
+        localFile: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Loads image from a base64 byte array with the specified file format.
@@ -1857,7 +2267,15 @@ interface WebTwain {
      * @param {EnumDWT_ImageType} lImageType specifies the file format.
      * @return {boolean}
      */
-    LoadImageFromBase64Binary(bry: string, lImageType: EnumDWT_ImageType, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    LoadImageFromBase64Binary(
+        bry: string,
+        lImageType: EnumDWT_ImageType,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * [Deprecated.] Loads image from a byte array with the specified file format.
@@ -1867,7 +2285,11 @@ interface WebTwain {
      * @param {EnumDWT_ImageType} lImageType Specifies the file format.
      * @return {boolean}
      */
-    LoadImageFromBytes(lBufferSize: number, buffer: number[], lImageType: EnumDWT_ImageType): boolean;
+    LoadImageFromBytes(
+        lBufferSize: number,
+        buffer: number[],
+        lImageType: EnumDWT_ImageType
+    ): boolean;
 
     /**
      * Mirrors the image of a specified index in buffer.
@@ -1918,7 +2340,15 @@ interface WebTwain {
      * @param {number} fOpacity Specifies the opacity of the rectangle. The value represents opacity. 1.0 is 100% opaque and 0.0 is totally transparent.
      * @return {boolean}
      */
-    OverlayRectangle(sImageIndex: number, left: number, top: number, right: number, bottom: number, color: number, fOpacity: number): boolean;
+    OverlayRectangle(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number,
+        color: number,
+        fOpacity: number
+    ): boolean;
 
     /**
      * Shows the GUI of Image Printer.
@@ -1993,7 +2423,12 @@ interface WebTwain {
      * @param {EnumDWT_InterpolationMethod} newVal specifies the method to do interpolation.
      * @return {boolean}
      */
-    RotateEx(sImageIndex: number, fAngle: number, bKeepSize: boolean, newVal: EnumDWT_InterpolationMethod): boolean;
+    RotateEx(
+        sImageIndex: number,
+        fAngle: number,
+        bKeepSize: boolean,
+        newVal: EnumDWT_InterpolationMethod
+    ): boolean;
 
     /**
      * Rotates the image of a specified index in buffer by 90 degrees counter-clockwise.
@@ -2019,7 +2454,14 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the saving fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    SaveAllAsMultiPageTIFF(localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAllAsMultiPageTIFF(
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves all images in buffer as a Multi-Page PDF file.
@@ -2029,7 +2471,14 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the saving fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    SaveAllAsPDF(localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAllAsPDF(
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the image of a specified index in buffer as a BMP file.
@@ -2038,7 +2487,15 @@ interface WebTwain {
      * @param {number} sImageIndex specifies the index of image in buffer. The index is 0-based.
      * @return {boolean}
      */
-    SaveAsBMP(localFile: string, sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAsBMP(
+        localFile: string,
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /*ignored
     SaveAsGIF
@@ -2051,7 +2508,15 @@ interface WebTwain {
      * @param {number} sImageIndex specifies the index of image in buffer. The index is 0-based.
      * @return {boolean}
      */
-    SaveAsJPEG(localFile: string, sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAsJPEG(
+        localFile: string,
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the image of a specified index in buffer as a PDF file.
@@ -2060,7 +2525,15 @@ interface WebTwain {
      * @param {number} sImageIndex specifies the index of image in buffer. The index is 0-based.
      * @return {boolean}
      */
-    SaveAsPDF(localFile: string, sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAsPDF(
+        localFile: string,
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the image of a specified index in buffer as a PNG file.
@@ -2069,7 +2542,15 @@ interface WebTwain {
      * @param {number} sImageIndex specifies the index of image in buffer. The index is 0-based.
      * @return {boolean}
      */
-    SaveAsPNG(localFile: string, sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAsPNG(
+        localFile: string,
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the image of a specified index in buffer as a TIFF file.
@@ -2078,7 +2559,15 @@ interface WebTwain {
      * @param {number} sImageIndex specifies the index of image in buffer. The index is 0-based.
      * @return {boolean}
      */
-    SaveAsTIFF(localFile: string, sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveAsTIFF(
+        localFile: string,
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the selected images in buffer as a Multipage PDF file.
@@ -2088,7 +2577,14 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the saving fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    SaveSelectedImagesAsMultiPagePDF(localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveSelectedImagesAsMultiPagePDF(
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the selected images in buffer as a Multipage TIFF file.
@@ -2098,14 +2594,27 @@ interface WebTwain {
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the saving fails. Please refer to the function prototype OnFailure.
      * @return {boolean}
      */
-    SaveSelectedImagesAsMultiPageTIFF(localFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): boolean;
+    SaveSelectedImagesAsMultiPageTIFF(
+        localFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): boolean;
 
     /**
      * Saves the selected images in buffer to base64 string.
      * @method WebTwain#SaveSelectedImagesToBase64Binary
      * @return {string|boolean}
      */
-    SaveSelectedImagesToBase64Binary(optionalAsyncSuccessFunc?: (result: string[]) => void, optionalAsyncFailureFunc?: (errorCode: number, errorString: string) => void): string | boolean;
+    SaveSelectedImagesToBase64Binary(
+        optionalAsyncSuccessFunc?: (result: string[]) => void,
+        optionalAsyncFailureFunc?: (
+            errorCode: number,
+            errorString: string
+        ) => void
+    ): string | boolean;
 
     /**
      * [Deprecated.] Saves the selected images in buffer to a byte array in the specified file format.
@@ -2190,7 +2699,13 @@ interface WebTwain {
      * @param {EnumDWT_InterpolationMethod} newVal specifies the method to do interpolation.
      * @return {boolean}
      */
-    SetDPI(sImageIndex: number, xResolution: number, yResolution: number, bResampleImage: boolean, newVal: EnumDWT_InterpolationMethod): boolean;
+    SetDPI(
+        sImageIndex: number,
+        xResolution: number,
+        yResolution: number,
+        bResampleImage: boolean,
+        newVal: EnumDWT_InterpolationMethod
+    ): boolean;
 
     /**
      * Sets file name and file format information used in File Transfer Mode.
@@ -2218,7 +2733,11 @@ interface WebTwain {
      * @param {string} optionalFileName specifies the file name for the blob
      * @return {boolean}
      */
-    SetHTTPFormField(FieldName: string, blobValue: Blob, optionalFileName?: string): boolean;
+    SetHTTPFormField(
+        FieldName: string,
+        blobValue: Blob,
+        optionalFileName?: string
+    ): boolean;
 
     /**
      * Sets a header for the current HTTP Post request.
@@ -2238,7 +2757,12 @@ interface WebTwain {
      * @param {number} bottom specifies the floating point number for the bottom side of the image layout rectangle.
      * @return {boolean}
      */
-    SetImageLayout(left: number, top: number, right: number, bottom: number): boolean;
+    SetImageLayout(
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Change the width of an image in buffer.
@@ -2275,7 +2799,13 @@ interface WebTwain {
      * @param {number} bottom The Y axis of the bottom border.
      * @return {boolean}
      */
-    SetSelectedImageArea(sImageIndex: number, left: number, top: number, right: number, bottom: number): boolean;
+    SetSelectedImageArea(
+        sImageIndex: number,
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * You can use the method to select images programatically which is ususally done by mouse clicking.
@@ -2303,7 +2833,10 @@ interface WebTwain {
      * @param {number} moduleSize specifies the size of each segment (in KB).
      * @return {boolean}
      */
-    SetUploadSegment(segmentUploadThreshold: number, moduleSize: number): boolean;
+    SetUploadSegment(
+        segmentUploadThreshold: number,
+        moduleSize: number
+    ): boolean;
 
     /**
      * Sets the view mode that images are displayed in Dynamic Web TWAIN. You can use this method to display multiple images in Dynamic Web TWAIN.
@@ -2312,7 +2845,10 @@ interface WebTwain {
      * @param {number} sVerticalImageCount specifies how many rows can be displayed in Dynamic Web TWAIN..
      * @return {void}
      */
-    SetViewMode(sHorizontalImageCount: number, sVerticalImageCount: number): void;
+    SetViewMode(
+        sHorizontalImageCount: number,
+        sVerticalImageCount: number
+    ): void;
 
     /**
      * Show save file dialog or show open file dialog.
@@ -2327,14 +2863,27 @@ interface WebTwain {
      * @param {number} Flags If this parameter equals 0, the program will be initiated with the default flags, otherwise initiated with the cumstom value and parameters "AllowMultiSelect" and "OverwritePrompt" will be useless.
      * @return {boolean}
      */
-    ShowFileDialog(SaveDialog: boolean, Filter: string, FilterIndex: number, DefExtension: string, InitialDir: string, AllowMultiSelect: boolean, OverwritePrompt: boolean, Flags: number): boolean;
+    ShowFileDialog(
+        SaveDialog: boolean,
+        Filter: string,
+        FilterIndex: number,
+        DefExtension: string,
+        InitialDir: string,
+        AllowMultiSelect: boolean,
+        OverwritePrompt: boolean,
+        Flags: number
+    ): boolean;
 
     /**
      * Shows the GUI of Image Editor.
      * @method WebTwain#ShowImageEditor
      * @return {boolean}
      */
-    ShowImageEditor(divID?: string, divWidth?: number, divHeight?: number): boolean;
+    ShowImageEditor(
+        divID?: string,
+        divWidth?: number,
+        divHeight?: number
+    ): boolean;
 
     /**
      * [Deprecated.] Shows the GUI of Image Editor with custom settings.
@@ -2346,7 +2895,13 @@ interface WebTwain {
      * @param {number} nCmdShow specifices how the window should be shown.
      * @return {boolean}
      */
-    ShowImageEditorEx(x: number, y: number, cx: number, cy: number, nCmdShow: number): boolean;
+    ShowImageEditorEx(
+        x: number,
+        y: number,
+        cx: number,
+        cy: number,
+        nCmdShow: number
+    ): boolean;
 
     /*ingored
     SourceNameItems
@@ -3626,7 +4181,7 @@ declare enum EnumDWT_TransferMode {
     /** Disk File Mode Transfers. */
     TWSX_FILE = 1,
     /** Buffered Memory Mode Transfers. */
-    TWSX_MEMORY = 2/*,*/
+    TWSX_MEMORY = 2 /*,*/
     /** added 1.91 , not supported in DWT yet*/
     /** TWSX_MEMFILE  = 4*/
 }

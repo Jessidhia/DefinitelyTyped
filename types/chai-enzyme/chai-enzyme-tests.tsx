@@ -3,11 +3,11 @@ import chaiEnzyme = require("chai-enzyme");
 import { expect } from "chai";
 import { shallow } from "enzyme";
 
-const Test = () => <div/>;
+const Test = () => <div />;
 
 class Test2 extends React.Component {
     render() {
-        return <div/>;
+        return <div />;
     }
 }
 
@@ -19,7 +19,9 @@ expect(wrapper).to.be.checked();
 expect(wrapper).to.have.className("test");
 expect(wrapper).to.have.descendants({ a: "b" });
 expect(wrapper).to.have.descendants(Test);
-expect(wrapper).to.have.exactly(1).descendants(Test2);
+expect(wrapper)
+    .to.have.exactly(1)
+    .descendants(Test2);
 expect(wrapper).to.have.descendants("div");
 expect(wrapper).to.be.disabled();
 expect(wrapper).to.be.blank();
@@ -40,6 +42,6 @@ expect(wrapper).to.have.state("test", "test");
 expect(wrapper).to.have.prop("test", 5);
 expect(wrapper).to.have.props(["test1", "test2"]);
 expect(wrapper).to.have.props({ test: 5 });
-expect(wrapper).to.contain(<Test/>);
-expect(wrapper).to.containMatchingElement(<Test/>);
-expect(wrapper).to.match(<Test/>);
+expect(wrapper).to.contain(<Test />);
+expect(wrapper).to.containMatchingElement(<Test />);
+expect(wrapper).to.match(<Test />);

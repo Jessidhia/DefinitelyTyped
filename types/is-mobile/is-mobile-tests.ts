@@ -1,3 +1,3 @@
-import isMobile = require('is-mobile');
+import isMobile = require("is-mobile");
 
 isMobile();

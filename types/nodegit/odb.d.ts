@@ -1,7 +1,7 @@
-import { Oid } from './oid';
-import { OdbObject } from './odb-object';
-import { OdbExpandId } from './odb-expand-id';
-import { Object } from './object';
+import { Oid } from "./oid";
+import { OdbObject } from "./odb-object";
+import { OdbExpandId } from "./odb-expand-id";
+import { Object } from "./object";
 
 export namespace Odb {
     const enum STREAM {

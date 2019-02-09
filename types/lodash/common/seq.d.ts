@@ -149,19 +149,14 @@ declare module "../index" {
          * @param interceptor The function to invoke.
          * @return Returns value.
          **/
-        tap<T>(
-            value: T,
-            interceptor: (value: T) => void
-        ): T;
+        tap<T>(value: T, interceptor: (value: T) => void): T;
     }
 
     interface LoDashWrapper<TValue> {
         /**
          * @see _.tap
          */
-        tap(
-            interceptor: (value: TValue) => void
-        ): this;
+        tap(interceptor: (value: TValue) => void): this;
     }
 
     // thru
@@ -174,23 +169,24 @@ declare module "../index" {
          * @param interceptor The function to invoke.
          * @return Returns the result of interceptor.
          */
-        thru<T, TResult>(
-            value: T,
-            interceptor: (value: T) => TResult
-        ): TResult;
+        thru<T, TResult>(value: T, interceptor: (value: T) => TResult): TResult;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.thru
          */
-        thru<TResult>(interceptor: (value: TValue) => TResult): LoDashImplicitWrapper<TResult>;
+        thru<TResult>(
+            interceptor: (value: TValue) => TResult
+        ): LoDashImplicitWrapper<TResult>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.thru
          */
-        thru<TResult>(interceptor: (value: TValue) => TResult): LoDashExplicitWrapper<TResult>;
+        thru<TResult>(
+            interceptor: (value: TValue) => TResult
+        ): LoDashExplicitWrapper<TResult>;
     }
 }

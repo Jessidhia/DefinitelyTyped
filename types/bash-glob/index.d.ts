@@ -7,7 +7,11 @@ type Patterns = string | string[];
 type Callback = (err: Error, files: string[]) => void;
 
 declare function bashGlob(pattern: Patterns, callback: Callback): void;
-declare function bashGlob(pattern: Patterns, options: bashGlob.Options, callback: Callback): void;
+declare function bashGlob(
+    pattern: Patterns,
+    options: bashGlob.Options,
+    callback: Callback
+): void;
 
 declare namespace bashGlob {
     interface Options {
@@ -22,11 +26,18 @@ declare namespace bashGlob {
         nullglob?: boolean;
     }
 
-    function on(event: 'match' | 'files', callback: (files: string, cwd: string) => void): void;
-    function on(event: 'end', callback: (files: string) => void): void;
+    function on(
+        event: "match" | "files",
+        callback: (files: string, cwd: string) => void
+    ): void;
+    function on(event: "end", callback: (files: string) => void): void;
 
     function each(patterns: Patterns, callback: Callback): void;
-    function each(patterns: Patterns, options: Options, callback: Callback): void;
+    function each(
+        patterns: Patterns,
+        options: Options,
+        callback: Callback
+    ): void;
 
     function promise(patterns: Patterns, options?: Options): Promise<string[]>;
 

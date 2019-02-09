@@ -24,6 +24,6 @@ ui.states({
 });
 
 ui.transitions([
-  { from: 'idle', to: 'rollOver', animation: { duration: 0.25 } },
-  { from: 'rollOver', to: 'idle', animation: { duration: 0.1 } }
+    { from: "idle", to: "rollOver", animation: { duration: 0.25 } },
+    { from: "rollOver", to: "idle", animation: { duration: 0.1 } }
 ]);

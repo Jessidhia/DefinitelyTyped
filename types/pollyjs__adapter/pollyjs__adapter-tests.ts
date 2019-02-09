@@ -1,4 +1,4 @@
-import Adapter from '@pollyjs/adapter';
+import Adapter from "@pollyjs/adapter";
 
 Adapter.name;
 Adapter.type;

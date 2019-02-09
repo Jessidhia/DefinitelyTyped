@@ -4,18 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export type AlertPosition =
-    | 'top left'
-    | 'top right'
-    | 'top center'
-    | 'bottom left'
-    | 'bottom right'
-    | 'bottom center';
+    | "top left"
+    | "top right"
+    | "top center"
+    | "bottom left"
+    | "bottom right"
+    | "bottom center";
 
-export type AlertType = 'info' | 'success' | 'error';
-export type AlertTransition = 'fade' | 'scale';
+export type AlertType = "info" | "success" | "error";
+export type AlertTransition = "fade" | "scale";
 
 export interface ProviderOptions {
     /**
@@ -56,9 +56,11 @@ export interface ProviderOptions {
     zIndex?: number;
 }
 
-export class Provider extends React.Component<ProviderOptions & {
-    template: React.ComponentType
-}> {}
+export class Provider extends React.Component<
+    ProviderOptions & {
+        template: React.ComponentType;
+    }
+> {}
 
 export const Alert: React.Consumer<InjectedAlertProp>;
 
@@ -94,4 +96,4 @@ export interface InjectedAlertProp {
 
 export function withAlert<P extends { alert: InjectedAlertProp }>(
     c: React.ComponentType<P>
-): React.ComponentType<Pick<P, Exclude<keyof P, 'alert'>>>;
+): React.ComponentType<Pick<P, Exclude<keyof P, "alert">>>;

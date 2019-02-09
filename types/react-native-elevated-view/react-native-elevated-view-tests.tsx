@@ -6,5 +6,5 @@ import ElevatedView from "react-native-elevated-view";
 };
 
 () => {
-    <ElevatedView elevation={5} style={{ backgroundColor: 'red' }} />;
+    <ElevatedView elevation={5} style={{ backgroundColor: "red" }} />;
 };

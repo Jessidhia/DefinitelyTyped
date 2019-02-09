@@ -1,14 +1,14 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import * as React from "react";
+import * as PropTypes from "prop-types";
 
-import hoistNonReactStatics = require('hoist-non-react-statics');
+import hoistNonReactStatics = require("hoist-non-react-statics");
 
 class A extends React.Component<{ x: number; y?: number | null }> {
-    static a = 'a';
+    static a = "a";
 
     static propTypes = {
         x: PropTypes.number.isRequired,
-        y: PropTypes.number,
+        y: PropTypes.number
     };
 
     getA() {
@@ -17,10 +17,10 @@ class A extends React.Component<{ x: number; y?: number | null }> {
 }
 
 class B extends React.Component {
-    static b = 'b';
+    static b = "b";
 
     static propTypes = {
-        n: PropTypes.number.isRequired,
+        n: PropTypes.number.isRequired
     };
 
     getB() {

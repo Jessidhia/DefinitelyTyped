@@ -1,3 +1,3 @@
-import ensurePosixPath = require('ensure-posix-path');
+import ensurePosixPath = require("ensure-posix-path");
 
-ensurePosixPath('C:\\'); // $ExpectType string
+ensurePosixPath("C:\\"); // $ExpectType string

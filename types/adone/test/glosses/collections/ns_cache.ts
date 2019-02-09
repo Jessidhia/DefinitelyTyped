@@ -1,8 +1,6 @@
 namespace adoneTests.collection.NSCache {
     const {
-        collection: {
-            NSCache
-        }
+        collection: { NSCache }
     } = adone;
 
     new NSCache(10, ["a", "b", "c"]);

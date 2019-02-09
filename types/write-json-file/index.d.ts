@@ -3,7 +3,11 @@
 // Definitions by: Denis Carriere <https://github.com/DenisCarriere>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function writeJsonFile(filepath: string, data: any, options?: writeJsonFile.Options): Promise<void>;
+declare function writeJsonFile(
+    filepath: string,
+    data: any,
+    options?: writeJsonFile.Options
+): Promise<void>;
 declare namespace writeJsonFile {
     type Replacer = (key: string, value: any) => void;
     interface Options {

@@ -13,14 +13,19 @@ declare namespace Fingerprint2 {
     interface Static {
         VERSION: string;
 
-        get(options: Options, callback: (components: Component[]) => void): void;
+        get(
+            options: Options,
+            callback: (components: Component[]) => void
+        ): void;
         get(callback: (components: Component[]) => void): void;
         getPromise(options?: Options): Promise<Component[]>;
         getV18(
             options: Options,
             callback: (murmur: string, components: V18Component[]) => void
         ): void;
-        getV18(callback: (murmur: string, components: V18Component[]) => void): void;
+        getV18(
+            callback: (murmur: string, components: V18Component[]) => void
+        ): void;
 
         x64hash128(value: string, num: number): string;
     }

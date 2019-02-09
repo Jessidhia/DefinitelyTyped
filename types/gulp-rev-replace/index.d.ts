@@ -6,7 +6,6 @@
 
 /// <reference types="node" />
 
-
 declare namespace revReplace {
     interface Options {
         canonicalUris?: boolean;
@@ -18,6 +17,8 @@ declare namespace revReplace {
     }
 }
 
-declare function revReplace(options?: revReplace.Options): NodeJS.ReadWriteStream;
+declare function revReplace(
+    options?: revReplace.Options
+): NodeJS.ReadWriteStream;
 
 export = revReplace;

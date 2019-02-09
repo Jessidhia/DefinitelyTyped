@@ -6,15 +6,17 @@
  * are not intended as functional tests.
  */
 
-import * as d3Chord from 'd3-chord';
-import { select, Selection } from 'd3-selection';
-import { ascending } from 'd3-array';
+import * as d3Chord from "d3-chord";
+import { select, Selection } from "d3-selection";
+import { ascending } from "d3-array";
 
 // ---------------------------------------------------------------------
 // Preparatory Steps
 // ---------------------------------------------------------------------
 
-let context: CanvasRenderingContext2D | null = document.querySelector('canvas')!.getContext('2d');
+let context: CanvasRenderingContext2D | null = document
+    .querySelector("canvas")!
+    .getContext("2d");
 
 let chords: d3Chord.Chords;
 let chordGroups: d3Chord.ChordGroup[];
@@ -31,8 +33,16 @@ const matrix: number[][] = [
 
 let comparatorFn: ((a: number, b: number) => number) | null;
 
-let subgroupAccessor: (this: SVGPathElement, d: d3Chord.Chord, ...args: any[]) => d3Chord.ChordSubgroup;
-let numAccessor: (this: SVGPathElement, d: d3Chord.ChordSubgroup, ...args: any[]) => number;
+let subgroupAccessor: (
+    this: SVGPathElement,
+    d: d3Chord.Chord,
+    ...args: any[]
+) => d3Chord.ChordSubgroup;
+let numAccessor: (
+    this: SVGPathElement,
+    d: d3Chord.ChordSubgroup,
+    ...args: any[]
+) => number;
 
 // ---------------------------------------------------------------------
 // Test Chord
@@ -99,12 +109,24 @@ num = chordSubgroup.index;
 
 // ribbon() create RibbonGenerator =====================================
 
-let canvasRibbon: d3Chord.RibbonGenerator<any, d3Chord.Ribbon, d3Chord.RibbonSubgroup>;
+let canvasRibbon: d3Chord.RibbonGenerator<
+    any,
+    d3Chord.Ribbon,
+    d3Chord.RibbonSubgroup
+>;
 canvasRibbon = d3Chord.ribbon();
 
-let svgRibbon: d3Chord.RibbonGenerator<SVGPathElement, d3Chord.Chord, d3Chord.ChordSubgroup>;
+let svgRibbon: d3Chord.RibbonGenerator<
+    SVGPathElement,
+    d3Chord.Chord,
+    d3Chord.ChordSubgroup
+>;
 
-svgRibbon = d3Chord.ribbon<SVGPathElement, d3Chord.Chord, d3Chord.ChordSubgroup>();
+svgRibbon = d3Chord.ribbon<
+    SVGPathElement,
+    d3Chord.Chord,
+    d3Chord.ChordSubgroup
+>();
 
 // Configure RibbonGenerator ===========================================
 
@@ -139,8 +161,11 @@ subgroupAccessor = svgRibbon.target();
 canvasRibbon = canvasRibbon.radius(30);
 
 svgRibbon = svgRibbon.radius(function(d) {
-    console.log('SVGPathElement createSVGPathSegCurvetoCubicAbs method:', this.createSVGPathSegCurvetoCubicAbs); // this type SVGPathElement
-    console.log('Subgroup startAngle', d.startAngle); // datum is of type Chord
+    console.log(
+        "SVGPathElement createSVGPathSegCurvetoCubicAbs method:",
+        this.createSVGPathSegCurvetoCubicAbs
+    ); // this type SVGPathElement
+    console.log("Subgroup startAngle", d.startAngle); // datum is of type Chord
     return 30;
 });
 
@@ -151,7 +176,10 @@ numAccessor = svgRibbon.radius();
 canvasRibbon = canvasRibbon.startAngle(0);
 
 svgRibbon = svgRibbon.startAngle(function(d) {
-    console.log('SVGPathElement createSVGPathSegCurvetoCubicAbs method:', this.createSVGPathSegCurvetoCubicAbs); // this type SVGPathElement
+    console.log(
+        "SVGPathElement createSVGPathSegCurvetoCubicAbs method:",
+        this.createSVGPathSegCurvetoCubicAbs
+    ); // this type SVGPathElement
     return d.startAngle; // datum is of type ChordSubgroup
 });
 
@@ -162,7 +190,10 @@ numAccessor = svgRibbon.startAngle();
 canvasRibbon = canvasRibbon.endAngle(Math.PI);
 
 svgRibbon = svgRibbon.endAngle(function(d) {
-    console.log('SVGPathElement createSVGPathSegCurvetoCubicAbs method:', this.createSVGPathSegCurvetoCubicAbs); // this type SVGPathElement
+    console.log(
+        "SVGPathElement createSVGPathSegCurvetoCubicAbs method:",
+        this.createSVGPathSegCurvetoCubicAbs
+    ); // this type SVGPathElement
     return d.endAngle; // datum is of type ChordSubgroup
 });
 
@@ -172,8 +203,8 @@ numAccessor = svgRibbon.endAngle();
 
 // use canvas
 const ribbon: d3Chord.Ribbon = {
-  source: {startAngle: 0.7524114, endAngle: 1.1212972, radius: 240},
-  target: {startAngle: 1.8617078, endAngle: 1.9842927, radius: 240}
+    source: { startAngle: 0.7524114, endAngle: 1.1212972, radius: 240 },
+    target: { startAngle: 1.8617078, endAngle: 1.9842927, radius: 240 }
 };
 
 canvasRibbon(ribbon); // render ribbon for first chord
@@ -187,11 +218,17 @@ canvasRibbon(ribbon); // render ribbon for first chord
 
 // use svg
 
-let ribbonPaths: Selection<SVGPathElement, d3Chord.Chord, SVGGElement, d3Chord.Chords>;
+let ribbonPaths: Selection<
+    SVGPathElement,
+    d3Chord.Chord,
+    SVGGElement,
+    d3Chord.Chords
+>;
 
-ribbonPaths = select<SVGGElement, any>('g')
+ribbonPaths = select<SVGGElement, any>("g")
     .datum(chords)
     .selectAll()
     .data(chords => chords)
-    .enter().append('path')
-    .attr('d', svgRibbon);
+    .enter()
+    .append("path")
+    .attr("d", svgRibbon);

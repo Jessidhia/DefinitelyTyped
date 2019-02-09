@@ -29,10 +29,9 @@ $(".selectpicker").selectpicker({
     tickIcon: "test",
     title: "test",
     width: "auto"
-})
+});
 
-$(".selectpicker").selectpicker("val", "foo")
-$(".selectpicker").selectpicker("val", ["foo", "bar"])
-$(".selectpicker").selectpicker("selectAll")
-$(".selectpicker").selectpicker("setStyle", "btn-large", "add")
-
+$(".selectpicker").selectpicker("val", "foo");
+$(".selectpicker").selectpicker("val", ["foo", "bar"]);
+$(".selectpicker").selectpicker("selectAll");
+$(".selectpicker").selectpicker("setStyle", "btn-large", "add");

@@ -26,7 +26,11 @@ interface PCancelableConstructor extends PromiseConstructor {
         userFn: (param1: T1, onCancel: PCancelable.OnCancelFn) => PromiseLike<R>
     ): (param1: T1) => PCancelable.PCancelable<R>;
     fn<T1, T2, R>(
-        userFn: (param1: T1, param2: T2, onCancel: PCancelable.OnCancelFn) => PromiseLike<R>
+        userFn: (
+            param1: T1,
+            param2: T2,
+            onCancel: PCancelable.OnCancelFn
+        ) => PromiseLike<R>
     ): (param1: T1, param2: T2) => PCancelable.PCancelable<R>;
     fn<T1, T2, T3, R>(
         userFn: (
@@ -44,8 +48,15 @@ interface PCancelableConstructor extends PromiseConstructor {
             param4: T4,
             onCancel: PCancelable.OnCancelFn
         ) => PromiseLike<R>
-    ): (param1: T1, param2: T2, param3: T3, param4: T4) => PCancelable.PCancelable<R>;
-    fn<R>(userFn: (...args: any[]) => PromiseLike<R>): (args: any[]) => PCancelable.PCancelable<R>;
+    ): (
+        param1: T1,
+        param2: T2,
+        param3: T3,
+        param4: T4
+    ) => PCancelable.PCancelable<R>;
+    fn<R>(
+        userFn: (...args: any[]) => PromiseLike<R>
+    ): (args: any[]) => PCancelable.PCancelable<R>;
 }
 
 declare namespace PCancelable {
@@ -64,7 +75,7 @@ declare namespace PCancelable {
     }
 
     interface CancelError extends Error {
-        readonly name: 'CancelError';
+        readonly name: "CancelError";
         readonly isCanceled: boolean;
     }
 }

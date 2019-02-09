@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, CSSProperties, ReactNode } from 'react';
+import { Component, CSSProperties, ReactNode } from "react";
 
 export as namespace ReactCrop;
 
@@ -36,11 +36,14 @@ declare namespace ReactCrop {
         keepSelection?: boolean;
         onChange: (crop: Crop, pixelCrop: PixelCrop) => void;
         onComplete?: (crop: Crop, pixelCrop: PixelCrop) => void;
-        onImageLoaded?: (target: HTMLImageElement, pixelCrop: PixelCrop) => void;
+        onImageLoaded?: (
+            target: HTMLImageElement,
+            pixelCrop: PixelCrop
+        ) => void;
         onDragStart?: () => void;
         onDragEnd?: () => void;
         disabled?: boolean;
-        crossorigin?: 'anonymous' | 'use-credentials';
+        crossorigin?: "anonymous" | "use-credentials";
         children?: ReactNode;
         style?: CSSProperties;
         imageStyle?: CSSProperties;
@@ -63,8 +66,8 @@ declare class ReactCrop extends Component<ReactCrop.ReactCropProps> {
     onImageLoad: (image: HTMLImageElement) => void;
     getCropStyle: () => CSSProperties;
     getNewSize: () => {
-        width: number,
-        height: number,
+        width: number;
+        height: number;
     };
     dragCrop: () => ReactCrop.Crop;
     resizeCrop: () => ReactCrop.Crop;

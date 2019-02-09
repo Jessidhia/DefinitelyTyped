@@ -8,7 +8,9 @@ export interface GlobalMethods {
     /**
      * Finds all variable declarators, optionally filtered by name.
      */
-    findVariableDeclarators(name?: string): Collection.Collection<nodes.VariableDeclarator>;
+    findVariableDeclarators(
+        name?: string
+    ): Collection.Collection<nodes.VariableDeclarator>;
 }
 
 export interface TransformMethods<N> {

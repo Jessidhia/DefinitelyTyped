@@ -1,17 +1,17 @@
-import * as whatwgUrl from 'whatwg-url';
+import * as whatwgUrl from "whatwg-url";
 
 // $ExpectType URL
-new whatwgUrl.URL('http://example.com');
+new whatwgUrl.URL("http://example.com");
 
 // $ExpectType URL
-new whatwgUrl.URL('foo', 'http://example.com');
+new whatwgUrl.URL("foo", "http://example.com");
 
 // $ExpectType URLRecord | null
-const urlRecord = whatwgUrl.parseURL('http://example.com');
+const urlRecord = whatwgUrl.parseURL("http://example.com");
 
 if (urlRecord !== null) {
     // $ExpectType URLRecord | null
-    whatwgUrl.basicURLParse('http://example.com', {url: urlRecord});
+    whatwgUrl.basicURLParse("http://example.com", { url: urlRecord });
 
     // $ExpectType string
     whatwgUrl.serializeURL(urlRecord);
@@ -20,17 +20,17 @@ if (urlRecord !== null) {
     whatwgUrl.serializeURLOrigin(urlRecord);
     //
     // $ExpectType void
-    whatwgUrl.setTheUsername(urlRecord, 'user');
+    whatwgUrl.setTheUsername(urlRecord, "user");
     //
     // $ExpectType void
-    whatwgUrl.setThePassword(urlRecord, 'secret');
+    whatwgUrl.setThePassword(urlRecord, "secret");
     //
     // $ExpectType boolean
     whatwgUrl.cannotHaveAUsernamePasswordPort(urlRecord);
 }
 
 // $ExpectType string
-whatwgUrl.serializeHost('http://example.com');
+whatwgUrl.serializeHost("http://example.com");
 
 // $ExpectType string
 whatwgUrl.serializeHost(42);
@@ -42,4 +42,4 @@ whatwgUrl.serializeHost([0, 0, 0, 0, 0, 0, 0, 0]);
 whatwgUrl.serializeInteger(42);
 
 // $ExpectType Buffer
-whatwgUrl.percentDecode(Buffer.from('foo'));
+whatwgUrl.percentDecode(Buffer.from("foo"));

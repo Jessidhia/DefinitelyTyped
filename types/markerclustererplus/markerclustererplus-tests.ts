@@ -35,7 +35,7 @@ const imageSizes: number[] = MarkerClusterer.IMAGE_SIZES;
 const imagePath: string = MarkerClusterer.IMAGE_PATH;
 const imageExtension: string = MarkerClusterer.IMAGE_EXTENSION;
 
-const map = new google.maps.Map(document.getElementById('map'), {
+const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 3,
     center: p,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -147,7 +147,7 @@ const mc = new MarkerClusterer(map);
         const icon = new ClusterIcon(c, iconStyles);
         icon.onAdd();
         icon.createCss(new google.maps.Point(0, 0));
-        icon.useStyle({index: 1, text: "text", title: "title"});
+        icon.useStyle({ index: 1, text: "text", title: "title" });
         icon.draw();
         icon.hide();
         const pos: google.maps.Point = icon.getPosFromLatLng_(p);

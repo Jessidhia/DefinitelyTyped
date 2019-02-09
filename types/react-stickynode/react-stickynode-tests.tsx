@@ -18,11 +18,7 @@ const StickyAllOptions: JSX.Element = (
 );
 
 const StickyOptionalStringOptions: JSX.Element = (
-    <Sticky
-        top="#elem"
-        bottomBoundary="#bottom"
-        innerZ="1234"
-    >
+    <Sticky top="#elem" bottomBoundary="#bottom" innerZ="1234">
         <div />
     </Sticky>
 );

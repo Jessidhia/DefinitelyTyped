@@ -4,11 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import AggregateErrorModule = require('aggregate-error');
+import AggregateErrorModule = require("aggregate-error");
 
 export = pSome;
 
-declare function pSome<T>(values: Array<Value<T>> | Iterable<Value<T>>, options: pSome.Options<T>): Promise<T[]>;
+declare function pSome<T>(
+    values: Array<Value<T>> | Iterable<Value<T>>,
+    options: pSome.Options<T>
+): Promise<T[]>;
 
 type Value<T> = T | PromiseLike<T>;
 

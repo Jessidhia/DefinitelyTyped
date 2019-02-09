@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { FlexboxPropTypes } from "../utils";
 /**
  * Row component.
  *
@@ -8,7 +8,9 @@ import { FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const Row: React.StatelessComponent<RowProps>;
-export interface RowProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLDivElement> {
+export interface RowProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLDivElement> {
     upOnSmall?: number;
     upOnMedium?: number;
     upOnLarge?: number;
@@ -34,7 +36,9 @@ export interface RowProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLDiv
  * @returns {Object}
  */
 export declare const Column: React.StatelessComponent<ColumnProps>;
-export interface ColumnProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLDivElement> {
+export interface ColumnProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLDivElement> {
     upOnSmall?: number;
     small?: number;
     medium?: number;

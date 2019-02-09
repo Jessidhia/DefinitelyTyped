@@ -75,7 +75,11 @@ declare class Request {
      * @param reject The function to call when Promise is rejected
      * @param config The config object to be used for the request
      */
-    constructor(resolve: (arg: any) => void, reject: (arg: any) => void, config: AxiosRequestConfig);
+    constructor(
+        resolve: (arg: any) => void,
+        reject: (arg: any) => void,
+        config: AxiosRequestConfig
+    );
 
     config: AxiosRequestConfig;
     headers: any;
@@ -150,7 +154,11 @@ declare let moxios: {
      * @param urlOrRegExp A URL or RegExp to test against
      * @param response The response to use when a match is made
      */
-    stubOnce(method: string, urlOrRegExp: string | RegExp, response: Item): Promise<void>;
+    stubOnce(
+        method: string,
+        urlOrRegExp: string | RegExp,
+        response: Item
+    ): Promise<void>;
 
     /**
      * Stub a timed response to a request matching a method and a URL or RegExp. If
@@ -161,7 +169,11 @@ declare let moxios: {
      * @param urlOrRegExp A URL or RegExp to test against
      * @param response The response to use when a match is made
      */
-    stubFailure(method: string, urlOrRegExp: string | RegExp, response: Item): Promise<void>;
+    stubFailure(
+        method: string,
+        urlOrRegExp: string | RegExp,
+        response: Item
+    ): Promise<void>;
 
     /**
      * Stub a timeout to be used to respond to a request matching a URL or RegExp

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import express = require('express');
+import express = require("express");
 
 declare namespace StrongErrorHandler {
     interface options {
@@ -47,6 +47,8 @@ declare namespace StrongErrorHandler {
  * Create a new strong error middleware funciton using the given options.
  * @param options
  */
-declare function createStrongErrorHandler(options?: StrongErrorHandler.options): express.RequestHandler;
+declare function createStrongErrorHandler(
+    options?: StrongErrorHandler.options
+): express.RequestHandler;
 
 export = createStrongErrorHandler;

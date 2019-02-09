@@ -16,7 +16,7 @@ interface ReactHolderProp extends React.HTMLAttributes<ReactHolder> {
     // config args
     theme?: string;
     random?: boolean;
-    bg?: string
+    bg?: string;
     fg?: string;
     text?: string;
     size?: number;
@@ -26,7 +26,5 @@ interface ReactHolderProp extends React.HTMLAttributes<ReactHolder> {
     lineWrap?: number;
 }
 
-declare class ReactHolder extends React.Component<ReactHolderProp> {
-
-}
+declare class ReactHolder extends React.Component<ReactHolderProp> {}
 export default ReactHolder;

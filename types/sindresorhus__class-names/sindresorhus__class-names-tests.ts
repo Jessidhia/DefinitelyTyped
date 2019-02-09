@@ -1,25 +1,25 @@
-import classNames = require('@sindresorhus/class-names');
+import classNames = require("@sindresorhus/class-names");
 
 // $ExpectType string
-classNames('unicorn', 'rainbow');
+classNames("unicorn", "rainbow");
 // $ExpectType string
-classNames({ awesome: true, foo: false }, 'unicorn', { rainbow: false });
+classNames({ awesome: true, foo: false }, "unicorn", { rainbow: false });
 // $ExpectType string
-classNames('unicorn', null, undefined, 0, 1, { foo: null });
+classNames("unicorn", null, undefined, 0, 1, { foo: null });
 
-const buttonType = 'main';
+const buttonType = "main";
 // $ExpectType string
 classNames({ [`button-${buttonType}`]: true });
 
 const props = {
-    type: 'success',
+    type: "success",
     small: true,
-    block: undefined,
+    block: undefined
 };
 
 // $ExpectType string
-classNames('button', {
+classNames("button", {
     [`button-${props.type}`]: props.type,
-    'button-block': props.block,
-    'button-small': props.small,
+    "button-block": props.block,
+    "button-small": props.small
 });

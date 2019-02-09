@@ -6,6 +6,12 @@
 
 export = pReduce;
 
-declare function pReduce<T, U = T>(input: Iterable<PromiseLike<T> | T>,
-                                   reducer: (previousValue: U, currentValue: T, index: number) => Promise<U> | U,
-                                   initialValue?: U): Promise<U>;
+declare function pReduce<T, U = T>(
+    input: Iterable<PromiseLike<T> | T>,
+    reducer: (
+        previousValue: U,
+        currentValue: T,
+        index: number
+    ) => Promise<U> | U,
+    initialValue?: U
+): Promise<U>;

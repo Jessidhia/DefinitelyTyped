@@ -31,18 +31,23 @@ declare namespace log {
     /**
      * Possible log level descriptors, may be string, lower or upper case, or number.
      */
-    type LogLevelDesc = LogLevelNumbers
-        | 'trace'
-        | 'debug'
-        | 'info'
-        | 'warn'
-        | 'error'
-        | 'silent'
+    type LogLevelDesc =
+        | LogLevelNumbers
+        | "trace"
+        | "debug"
+        | "info"
+        | "warn"
+        | "error"
+        | "silent"
         | keyof LogLevel;
 
     type LoggingMethod = (...message: any[]) => void;
 
-    type MethodFactory = (methodName: string, level: LogLevelNumbers, loggerName: string) => LoggingMethod;
+    type MethodFactory = (
+        methodName: string,
+        level: LogLevelNumbers,
+        loggerName: string
+    ) => LoggingMethod;
 
     interface DefaultLogger extends Logger {
         /**

@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Accelerated Mobile Pages (AMP) URL API v1 */
-    function load(name: "acceleratedmobilepageurl", version: "v1"): PromiseLike<void>;
-    function load(name: "acceleratedmobilepageurl", version: "v1", callback: () => any): void;
+    function load(
+        name: "acceleratedmobilepageurl",
+        version: "v1"
+    ): PromiseLike<void>;
+    function load(
+        name: "acceleratedmobilepageurl",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const ampUrls: acceleratedmobilepageurl.AmpUrlsResource;
 

@@ -40,7 +40,13 @@ declare namespace adone.collection {
      * Represents a binary search tree
      */
     class BinarySearchTree<K = any, V = any> {
-        constructor(options?: I.BinarySearchTree.ConstructorOptions<K, V, BinarySearchTree<K, V>>);
+        constructor(
+            options?: I.BinarySearchTree.ConstructorOptions<
+                K,
+                V,
+                BinarySearchTree<K, V>
+            >
+        );
 
         /**
          * Returns the max descendant tree

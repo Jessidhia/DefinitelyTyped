@@ -5,4 +5,7 @@
 
 export = pWhilst;
 
-declare function pWhilst(condition: () => boolean, action: () => any): Promise<void>;
+declare function pWhilst(
+    condition: () => boolean,
+    action: () => any
+): Promise<void>;

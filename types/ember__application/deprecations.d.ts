@@ -11,7 +11,7 @@ export function deprecate(
 /**
  * Alias an old, deprecated method with its new counterpart.
  */
-export function deprecateFunc<Func extends ((...args: any[]) => any)>(
+export function deprecateFunc<Func extends (...args: any[]) => any>(
     message: string,
     options: { id: string; until: string },
     func: Func

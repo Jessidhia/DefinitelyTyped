@@ -1,4 +1,4 @@
-import commonjs from 'rollup-plugin-commonjs';
+import commonjs from "rollup-plugin-commonjs";
 
 // $ExpectType Plugin
 commonjs();
@@ -8,11 +8,11 @@ commonjs({});
 
 // $ExpectType Plugin
 commonjs({
-    include: 'node_modules/**',
-    exclude: [ 'node_modules/foo/**', 'node_modules/bar/**' ],
-    extensions: [ '.js', '.coffee' ],
+    include: "node_modules/**",
+    exclude: ["node_modules/foo/**", "node_modules/bar/**"],
+    extensions: [".js", ".coffee"],
     ignoreGlobal: false,
     sourceMap: false,
-    namedExports: { './module.js': ['foo', 'bar' ] },
-    ignore: [ 'conditional-runtime-dependency' ],
+    namedExports: { "./module.js": ["foo", "bar"] },
+    ignore: ["conditional-runtime-dependency"]
 });

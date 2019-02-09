@@ -24,7 +24,8 @@ let lineBreak = "\n";
 export async function getLineBreak(): Promise<string> {
     const tsconfigPath = path.join("..", "tsconfig.json");
     const tsconfigFile = await readFile(tsconfigPath);
-    lineBreak = _.find(["\r\n", "\n", "\r"], x => tsconfigFile.includes(x)) || "\n";
+    lineBreak =
+        _.find(["\r\n", "\n", "\r"], x => tsconfigFile.includes(x)) || "\n";
     return lineBreak;
 }
 
@@ -34,5 +35,8 @@ export function getLineNumber(fileContents: string, index: number) {
 
 export function tab(s: string, count: number) {
     const prepend: string = " ".repeat(count * 4);
-    return (s[0] === "\n" || s[0] === "\r" ? "" : prepend) + s.replace(/(?:\r\n|\n|\r)(.)/g, `${lineBreak}${prepend}$1`);
+    return (
+        (s[0] === "\n" || s[0] === "\r" ? "" : prepend) +
+        s.replace(/(?:\r\n|\n|\r)(.)/g, `${lineBreak}${prepend}$1`)
+    );
 }

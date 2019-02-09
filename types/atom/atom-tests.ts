@@ -48,7 +48,7 @@ declare let pack: Atom.Package;
 declare let packs: Atom.Package[];
 declare let pane: Atom.Pane;
 declare let panes: Atom.Pane[];
-declare let paneContainer: Atom.Dock|Atom.WorkspaceCenter;
+declare let paneContainer: Atom.Dock | Atom.WorkspaceCenter;
 declare let panel: Atom.Panel;
 declare let panels: Atom.Panel[];
 declare let pos: Atom.Point;
@@ -76,34 +76,40 @@ declare let textEditorComponent: Atom.TextEditorComponent;
 // AtomEnvironment ============================================================
 function testAtomEnvironment() {
     // Properties
-    subscription = atom.commands.add("test", { "execute-command": () => {}});
+    subscription = atom.commands.add("test", { "execute-command": () => {} });
 
     str = atom.clipboard.read();
 
     subscription = atom.contextMenu.add({
-        "atom-workspace": [{label: "Help", command: "application:open-documentation"}],
-        "atom-text-editor": [{
-            label: "History",
-            submenu: [
-                { label: "Undo", command: "core:undo" },
-                { label: "Redo", command: "core:redo" },
-            ],
-            after: ["test"],
-            before: ["test"],
-            afterGroupContaining: ["test"],
-            beforeGroupContaining: ["test"]
-        }],
+        "atom-workspace": [
+            { label: "Help", command: "application:open-documentation" }
+        ],
+        "atom-text-editor": [
+            {
+                label: "History",
+                submenu: [
+                    { label: "Undo", command: "core:undo" },
+                    { label: "Redo", command: "core:redo" }
+                ],
+                after: ["test"],
+                before: ["test"],
+                afterGroupContaining: ["test"],
+                beforeGroupContaining: ["test"]
+            }
+        ]
     });
 
-    subscription = atom.menu.add([{
-        label: "Hello",
-        submenu : [{ label: "World!", command: "hello:world" }],
-    }]);
+    subscription = atom.menu.add([
+        {
+            label: "Hello",
+            submenu: [{ label: "World!", command: "hello:world" }]
+        }
+    ]);
 
     atom.keymaps.add("Test.Path", {
         selector: {
-            a: "execute-something",
-        },
+            a: "execute-something"
+        }
     });
 
     subscription = atom.tooltips.add(div, { title: "Tooltip Test" });
@@ -116,27 +122,30 @@ function testAtomEnvironment() {
 
     historyPaths = atom.history.getProjects();
 
-    subscription = atom.packages.onDidActivatePackage((atomPackage) => {
+    subscription = atom.packages.onDidActivatePackage(atomPackage => {
         atomPackage.isCompatible();
     });
 
     subscription = atom.themes.onDidChangeActiveThemes(() => {});
 
-    subscription = atom.styles.onDidAddStyleElement((styleElement) => {});
+    subscription = atom.styles.onDidAddStyleElement(styleElement => {});
 
     const serializer = {
         name: "Test",
-        deserialize: () => ({}),
+        deserialize: () => ({})
     };
     atom.deserializers.add(serializer);
 
-    subscription = atom.views.addViewProvider(Atom.Range, (range): HTMLElement => {
-        range.start;
-        return div;
-    });
+    subscription = atom.views.addViewProvider(
+        Atom.Range,
+        (range): HTMLElement => {
+            range.start;
+            return div;
+        }
+    );
 
-    subscription = atom.workspace.observeTextEditors((editor) => {
-        subscription = editor.onDidStopChanging((event) => {
+    subscription = atom.workspace.observeTextEditors(editor => {
+        subscription = editor.onDidStopChanging(event => {
             for (const change of event.changes) {
                 change.newExtent;
             }
@@ -163,8 +172,8 @@ function testAtomEnvironment() {
     obj = atom.getLoadSettings();
 
     // Managing The Atom Window
-    let dim: { width: number, height: number };
-    let v2: { x: number, y: number };
+    let dim: { width: number; height: number };
+    let v2: { x: number; y: number };
 
     // atom.open(params);
     atom.close();
@@ -173,7 +182,7 @@ function testAtomEnvironment() {
     v2 = atom.getPosition();
     atom.setPosition(42, 42);
 
-    atom.pickFolder((paths) => {
+    atom.pickFolder(paths => {
         if (paths) {
             paths.length;
         }
@@ -199,10 +208,20 @@ function testAtomEnvironment() {
         bool = checked;
     });
     atom.confirm({ message: "Test" });
-    atom.confirm({ message: "Test", buttons: [ "a", "b" ], detailedMessage: "Test" });
-    num = atom.confirm({ message: "Test", detailedMessage: "Test", buttons: {
-        Test: () => { atom.beep(); },
-    }});
+    atom.confirm({
+        message: "Test",
+        buttons: ["a", "b"],
+        detailedMessage: "Test"
+    });
+    num = atom.confirm({
+        message: "Test",
+        detailedMessage: "Test",
+        buttons: {
+            Test: () => {
+                atom.beep();
+            }
+        }
+    });
 
     // Managing the Dev Tools
     async function manageDevTools() {
@@ -218,7 +237,7 @@ function testAtomEnvironment() {
 // BufferedNodeProcess ========================================================
 function testBufferedNodeProcess() {
     const nodeProcess = new Atom.BufferedNodeProcess({
-        command: "File.path",
+        command: "File.path"
     });
 
     new Atom.BufferedNodeProcess({
@@ -226,18 +245,18 @@ function testBufferedNodeProcess() {
         args: [],
         options: {
             cwd: "/var/test",
-            detached: true,
+            detached: true
         },
         exit: (): void => {},
         stderr: (): void => {},
-        stdout: (): void => {},
+        stdout: (): void => {}
     });
 }
 
 // BufferedProcess ============================================================
 function testBufferedProcess() {
     const process = new Atom.BufferedProcess({
-        command: "File.path",
+        command: "File.path"
     });
 
     new Atom.BufferedProcess({
@@ -246,10 +265,10 @@ function testBufferedProcess() {
         options: {},
         exit: (): void => {},
         stderr: (): void => {},
-        stdout: (): void => {},
+        stdout: (): void => {}
     });
 
-    subscription = process.onWillThrowError((error) => {
+    subscription = process.onWillThrowError(error => {
         error.error;
         error.handle();
     });
@@ -274,37 +293,41 @@ function testColor() {
 
 // CommandRegistry ============================================================
 function testCommandRegistry() {
-    atom.commands.add("test", "test:function", (event) => {});
+    atom.commands.add("test", "test:function", event => {});
     atom.commands.add("test", {
-        "test-function": (event) => {},
-        "test-function2": (event) => {},
+        "test-function": event => {},
+        "test-function2": event => {}
     });
     atom.commands.add("test", "test:function", {
-        didDispatch: (event) => {
+        didDispatch: event => {
             event.stopImmediatePropagation();
         },
         description: "A Command Test",
-        displayName: "Command: Test",
+        displayName: "Command: Test"
     });
     atom.commands.add("atom-text-editor", {
-        "test-function": (event) => {
+        "test-function": event => {
             event.currentTarget.getModel();
         },
-        "test-function2": (event) => {
+        "test-function2": event => {
             event.currentTarget.getComponent();
         }
     });
     atom.commands.add("atom-workspace", {
         "test-command": {
-            didDispatch: (event) => {},
+            didDispatch: event => {},
             hiddenInCommandPalette: true
         }
     });
 
     const commands = atom.commands.findCommands({ target: element });
     atom.commands.dispatch(element, "test:function");
-    subscription = atom.commands.onWillDispatch((event) => { event.stopPropagation(); });
-    subscription = atom.commands.onDidDispatch((event) => { event.cancelable; });
+    subscription = atom.commands.onWillDispatch(event => {
+        event.stopPropagation();
+    });
+    subscription = atom.commands.onDidDispatch(event => {
+        event.cancelable;
+    });
 }
 
 // CompositeDisposable ========================================================
@@ -319,10 +342,7 @@ function testCompositeDisposable() {
 
     // Managing Disposables
     subscriptions.add(subscription);
-    subscriptions.add(
-        subscription,
-        { dispose() {} }
-    );
+    subscriptions.add(subscription, { dispose() {} });
 
     subscriptions.remove(subscription);
     subscriptions.remove({ dispose() {} });
@@ -335,29 +355,42 @@ function testCompositeDisposable() {
 
 // Config =====================================================================
 function testConfig() {
-    atom.config.observe("test", (event) => {});
-    atom.config.observe("test", { scope: scopeDescriptor }, (value) => {});
+    atom.config.observe("test", event => {});
+    atom.config.observe("test", { scope: scopeDescriptor }, value => {});
 
-    atom.config.onDidChange((event) => { event.newValue; });
-    atom.config.onDidChange("test", (event) => { event.oldValue; });
+    atom.config.onDidChange(event => {
+        event.newValue;
+    });
+    atom.config.onDidChange("test", event => {
+        event.oldValue;
+    });
 
     // Managing Settings
     atom.config.get("test");
     atom.config.get("test", { scope: scopeDescriptor });
     atom.config.get("test", { excludeSources: ["test.source"] });
     atom.config.get("test", { sources: ["test.source"] });
-    atom.config.get("test", { scope: scopeDescriptor, excludeSources: ["a"],
-        sources: ["b"] });
+    atom.config.get("test", {
+        scope: scopeDescriptor,
+        excludeSources: ["a"],
+        sources: ["b"]
+    });
 
     atom.config.set("test", 42);
     atom.config.set("test", 42, { scopeSelector: "test-selector" });
     atom.config.set("test", 42, { source: "test" });
-    atom.config.set("test", 42, {scopeSelector: "test-selector", source: "test" });
+    atom.config.set("test", 42, {
+        scopeSelector: "test-selector",
+        source: "test"
+    });
 
     atom.config.unset("test");
     atom.config.unset("test", { scopeSelector: "test-selector" });
     atom.config.unset("test", { source: "test" });
-    atom.config.unset("test", { scopeSelector: "test-selector", source: "test" });
+    atom.config.unset("test", {
+        scopeSelector: "test-selector",
+        source: "test"
+    });
 
     const allConfigValues = atom.config.getAll("test");
     for (const { scopeDescriptor, value } of allConfigValues) {
@@ -366,8 +399,11 @@ function testConfig() {
     atom.config.getAll("test", { scope: scopeDescriptor });
     atom.config.getAll("test", { excludeSources: ["test"] });
     atom.config.getAll("test", { sources: ["test"] });
-    atom.config.getAll("test", { scope: scopeDescriptor, excludeSources: ["a"],
-        sources: ["b"] });
+    atom.config.getAll("test", {
+        scope: scopeDescriptor,
+        excludeSources: ["a"],
+        sources: ["b"]
+    });
 
     strs = atom.config.getSources();
 
@@ -381,7 +417,9 @@ function testConfig() {
 // Cursor =====================================================================
 function testCursor() {
     // Event Subscription
-    subscription = cursor.onDidChangePosition((event) => { event.newBufferPosition; });
+    subscription = cursor.onDidChangePosition(event => {
+        event.newBufferPosition;
+    });
     subscription = cursor.onDidDestroy(() => {});
 
     // Managing Cursor Position
@@ -469,16 +507,25 @@ function testCursor() {
     cursor.getBeginningOfCurrentWordBufferPosition({});
     cursor.getBeginningOfCurrentWordBufferPosition({ wordRegex: regExp });
     cursor.getBeginningOfCurrentWordBufferPosition({ allowPrevious: true });
-    cursor.getBeginningOfCurrentWordBufferPosition({ includeNonWordCharacters: true });
-    cursor.getBeginningOfCurrentWordBufferPosition({ wordRegex: regExp,
-        allowPrevious: true, includeNonWordCharacters: true });
+    cursor.getBeginningOfCurrentWordBufferPosition({
+        includeNonWordCharacters: true
+    });
+    cursor.getBeginningOfCurrentWordBufferPosition({
+        wordRegex: regExp,
+        allowPrevious: true,
+        includeNonWordCharacters: true
+    });
 
     cursor.getEndOfCurrentWordBufferPosition();
     cursor.getEndOfCurrentWordBufferPosition({});
     cursor.getEndOfCurrentWordBufferPosition({ wordRegex: regExp });
-    cursor.getEndOfCurrentWordBufferPosition({ includeNonWordCharacters: true });
-    cursor.getEndOfCurrentWordBufferPosition({ wordRegex: regExp, includeNonWordCharacters:
-        true });
+    cursor.getEndOfCurrentWordBufferPosition({
+        includeNonWordCharacters: true
+    });
+    cursor.getEndOfCurrentWordBufferPosition({
+        wordRegex: regExp,
+        includeNonWordCharacters: true
+    });
 
     cursor.getBeginningOfNextWordBufferPosition();
     cursor.getBeginningOfNextWordBufferPosition({});
@@ -512,14 +559,14 @@ function testCursor() {
 
 // TestRunner =================================================================
 function testTestRunner() {
-    const testRunner: Atom.TestRunner = (params) => {
+    const testRunner: Atom.TestRunner = params => {
         const delegate = params.buildDefaultApplicationDelegate();
         const environment = params.buildAtomEnvironment({
             applicationDelegate: delegate,
             configDirPath: "/var/test",
             document,
             enablePersistence: false,
-            window,
+            window
         });
         const { width, height } = environment.getSize();
         return Promise.resolve(width + height);
@@ -532,7 +579,9 @@ function testDecoration() {
     decoration.destroy();
 
     // Event Subscription
-    subscription = decoration.onDidChangeProperties(event => { event.oldProperties.gutterName; });
+    subscription = decoration.onDidChangeProperties(event => {
+        event.oldProperties.gutterName;
+    });
     subscription = decoration.onDidDestroy(() => {});
 
     // Decoration Details
@@ -553,12 +602,17 @@ function testDesializerManager() {
         name: string;
 
         constructor() {}
-        deserialize() { return {}; }
+        deserialize() {
+            return {};
+        }
     }
 
     function isStorableClass(o: object): o is StorableClass {
-        if (typeof o === "object" && (o as StorableClass).name &&
-            (o as StorableClass).name === "test") {
+        if (
+            typeof o === "object" &&
+            (o as StorableClass).name &&
+            (o as StorableClass).name === "test"
+        ) {
             return true;
         } else {
             return false;
@@ -601,7 +655,7 @@ function testDirectory() {
     str = dir.getPath();
     str = dir.getRealPathSync();
     str = dir.getBaseName();
-    dir.relativize("Test.file") ;
+    dir.relativize("Test.file");
 
     // Traversing
     dir = dir.getParent();
@@ -624,11 +678,13 @@ function testDisplayMarker() {
         reversed: false,
         invalidate: "never",
         exclusive: false,
-        properties: { deprecated: "property" },
+        properties: { deprecated: "property" }
     });
 
     // Event Subscription
-    subscription = displayMarker.onDidChange((event) => { event.hasTail; });
+    subscription = displayMarker.onDidChange(event => {
+        event.hasTail;
+    });
     subscription = displayMarker.onDidDestroy(() => {});
 
     // TextEditorMarker Details
@@ -660,19 +716,19 @@ function testDisplayMarker() {
         containedInBufferRange: range,
         containedInScreenRange: range,
         intersectsBufferRange: range,
-        intersectsScreenRange: range,
+        intersectsScreenRange: range
     });
     bool = displayMarker.matchesProperties({
-        intersectsBufferRange: [pos, pos],
+        intersectsBufferRange: [pos, pos]
     });
     bool = displayMarker.matchesProperties({
-        intersectsBufferRange: [pos, [0, 0]],
+        intersectsBufferRange: [pos, [0, 0]]
     });
     bool = displayMarker.matchesProperties({
-        intersectsBufferRange: [[0, 0], pos],
+        intersectsBufferRange: [[0, 0], pos]
     });
     bool = displayMarker.matchesProperties({
-        intersectsBufferRange: [[0, 0], [0, 0]],
+        intersectsBufferRange: [[0, 0], [0, 0]]
     });
 
     // Comparing to other markers
@@ -746,54 +802,100 @@ function testDisplayMarkerLayer() {
     // Event Subscription
     subscription = displayMarkerLayer.onDidDestroy(() => {});
     subscription = displayMarkerLayer.onDidUpdate(() => {});
-    subscription = displayMarkerLayer.onDidCreateMarker((marker) => { marker.isReversed(); });
+    subscription = displayMarkerLayer.onDidCreateMarker(marker => {
+        marker.isReversed();
+    });
 
     // Marker creation
     displayMarker = displayMarkerLayer.markScreenRange(range);
     displayMarker = displayMarkerLayer.markScreenRange(range, {});
-    displayMarker = displayMarkerLayer.markScreenRange(range, { clipDirection: "forward" });
-    displayMarker = displayMarkerLayer.markScreenRange(range, { exclusive: true });
-    displayMarker = displayMarkerLayer.markScreenRange(range, { invalidate: "never" });
-    displayMarker = displayMarkerLayer.markScreenRange(range, { reversed: true });
-    displayMarker = displayMarkerLayer.markScreenRange(range, { clipDirection: "backward",
-        exclusive: false, invalidate: "overlap", reversed: false });
+    displayMarker = displayMarkerLayer.markScreenRange(range, {
+        clipDirection: "forward"
+    });
+    displayMarker = displayMarkerLayer.markScreenRange(range, {
+        exclusive: true
+    });
+    displayMarker = displayMarkerLayer.markScreenRange(range, {
+        invalidate: "never"
+    });
+    displayMarker = displayMarkerLayer.markScreenRange(range, {
+        reversed: true
+    });
+    displayMarker = displayMarkerLayer.markScreenRange(range, {
+        clipDirection: "backward",
+        exclusive: false,
+        invalidate: "overlap",
+        reversed: false
+    });
     displayMarker = displayMarkerLayer.markScreenRange([pos, pos]);
     displayMarker = displayMarkerLayer.markScreenRange([pos, [0, 0]]);
     displayMarker = displayMarkerLayer.markScreenRange([[0, 0], pos]);
     displayMarker = displayMarkerLayer.markScreenRange([[0, 0], [0, 0]]);
-    displayMarker = displayMarkerLayer.markScreenRange([[0, 0], pos], { reversed: true });
+    displayMarker = displayMarkerLayer.markScreenRange([[0, 0], pos], {
+        reversed: true
+    });
 
     displayMarker = displayMarkerLayer.markScreenPosition(pos);
     displayMarker = displayMarkerLayer.markScreenPosition(pos, {});
-    displayMarker = displayMarkerLayer.markScreenPosition(pos, { clipDirection: "forward" });
-    displayMarker = displayMarkerLayer.markScreenPosition(pos, { exclusive: true });
-    displayMarker = displayMarkerLayer.markScreenPosition(pos, { invalidate: "never" });
-    displayMarker = displayMarkerLayer.markScreenPosition(pos, { clipDirection: "backward",
-        exclusive: false, invalidate: "overlap" });
+    displayMarker = displayMarkerLayer.markScreenPosition(pos, {
+        clipDirection: "forward"
+    });
+    displayMarker = displayMarkerLayer.markScreenPosition(pos, {
+        exclusive: true
+    });
+    displayMarker = displayMarkerLayer.markScreenPosition(pos, {
+        invalidate: "never"
+    });
+    displayMarker = displayMarkerLayer.markScreenPosition(pos, {
+        clipDirection: "backward",
+        exclusive: false,
+        invalidate: "overlap"
+    });
     displayMarker = displayMarkerLayer.markScreenPosition([0, 0]);
-    displayMarker = displayMarkerLayer.markScreenPosition([0, 0], { exclusive: false });
+    displayMarker = displayMarkerLayer.markScreenPosition([0, 0], {
+        exclusive: false
+    });
 
     displayMarker = displayMarkerLayer.markBufferRange(range);
     displayMarker = displayMarkerLayer.markBufferRange(range, {});
-    displayMarker = displayMarkerLayer.markBufferRange(range, { invalidate: "inside" });
-    displayMarker = displayMarkerLayer.markBufferRange(range, { exclusive: true });
-    displayMarker = displayMarkerLayer.markBufferRange(range, { reversed: true });
-    displayMarker = displayMarkerLayer.markBufferRange(range, { exclusive: false,
-        invalidate: "overlap", reversed: false });
+    displayMarker = displayMarkerLayer.markBufferRange(range, {
+        invalidate: "inside"
+    });
+    displayMarker = displayMarkerLayer.markBufferRange(range, {
+        exclusive: true
+    });
+    displayMarker = displayMarkerLayer.markBufferRange(range, {
+        reversed: true
+    });
+    displayMarker = displayMarkerLayer.markBufferRange(range, {
+        exclusive: false,
+        invalidate: "overlap",
+        reversed: false
+    });
     displayMarker = displayMarkerLayer.markBufferRange([pos, pos]);
     displayMarker = displayMarkerLayer.markBufferRange([pos, [0, 0]]);
     displayMarker = displayMarkerLayer.markBufferRange([[0, 0], pos]);
     displayMarker = displayMarkerLayer.markBufferRange([[0, 0], [0, 0]]);
-    displayMarker = displayMarkerLayer.markBufferRange([[0, 0], pos], { reversed: true });
+    displayMarker = displayMarkerLayer.markBufferRange([[0, 0], pos], {
+        reversed: true
+    });
 
     displayMarker = displayMarkerLayer.markBufferPosition(pos);
     displayMarker = displayMarkerLayer.markBufferPosition(pos, {});
-    displayMarker = displayMarkerLayer.markBufferPosition(pos, { exclusive: true });
-    displayMarker = displayMarkerLayer.markBufferPosition(pos, { invalidate: "never" });
-    displayMarker = displayMarkerLayer.markBufferPosition(pos, { exclusive: false,
-        invalidate: "overlap" });
+    displayMarker = displayMarkerLayer.markBufferPosition(pos, {
+        exclusive: true
+    });
+    displayMarker = displayMarkerLayer.markBufferPosition(pos, {
+        invalidate: "never"
+    });
+    displayMarker = displayMarkerLayer.markBufferPosition(pos, {
+        exclusive: false,
+        invalidate: "overlap"
+    });
     displayMarker = displayMarkerLayer.markBufferPosition([0, 0]);
-    displayMarker = displayMarkerLayer.markBufferPosition([0, 0], { exclusive: false });
+    displayMarker = displayMarkerLayer.markBufferPosition([0, 0], {
+        exclusive: false
+    });
 
     // Querying
     displayMarker = displayMarkerLayer.getMarker(42);
@@ -820,19 +922,19 @@ function testDisplayMarkerLayer() {
         containedInBufferRange: range,
         containedInScreenRange: range,
         intersectsBufferRange: range,
-        intersectsScreenRange: range,
+        intersectsScreenRange: range
     });
     displayMarkers = displayMarkerLayer.findMarkers({
-        intersectsScreenRange: [pos, pos],
+        intersectsScreenRange: [pos, pos]
     });
     displayMarkers = displayMarkerLayer.findMarkers({
-        intersectsScreenRange: [pos, [0, 0]],
+        intersectsScreenRange: [pos, [0, 0]]
     });
     displayMarkers = displayMarkerLayer.findMarkers({
-        intersectsScreenRange: [[0, 0], pos],
+        intersectsScreenRange: [[0, 0], pos]
     });
     displayMarkers = displayMarkerLayer.findMarkers({
-        intersectsScreenRange: [[0, 0], [0, 0]],
+        intersectsScreenRange: [[0, 0], [0, 0]]
     });
 }
 
@@ -862,14 +964,16 @@ function testDock() {
     subscription = dock.observePanes(pane => pane.activate());
     subscription = dock.onDidChangeActivePane(pane => pane.activate());
     subscription = dock.observeActivePane(pane => pane.activate());
-    subscription = dock.onDidAddPaneItem(event => event.index && event.item && event.pane);
+    subscription = dock.onDidAddPaneItem(
+        event => event.index && event.item && event.pane
+    );
     subscription = dock.onWillDestroyPaneItem(event => {
         event.index && event.item && event.pane;
     });
     subscription = dock.onDidDestroyPaneItem(event => {
         event.index && event.item && event.pane;
     });
-    subscription = dock.onDidChangeHovered(hovered => bool = hovered);
+    subscription = dock.onDidChangeHovered(hovered => (bool = hovered));
 
     // Pane Items
     objs = dock.getPaneItems();
@@ -917,7 +1021,7 @@ function testEmitter() {
     reqEmitter.emit("test-event", "test");
 
     // Mixed Value Emitter
-    const mixedEmitter = new Atom.Emitter<{ "t1": "test" }, { "t2": "test" }>();
+    const mixedEmitter = new Atom.Emitter<{ t1: "test" }, { t2: "test" }>();
     mixedEmitter.emit("t1");
     mixedEmitter.emit("t1", "test");
     mixedEmitter.emit("t2", "test");
@@ -991,10 +1095,10 @@ function testFile() {
 // File/Directory Type Guarding ===============================================
 function testFileDirectoryTypeGuarding() {
     if (fileOrDir.isFile()) {
-      file = fileOrDir;
+        file = fileOrDir;
     }
     if (fileOrDir.isDirectory()) {
-      dir = fileOrDir;
+        dir = fileOrDir;
     }
 }
 
@@ -1006,14 +1110,19 @@ function testGitRepository() {
     repository = new Atom.GitRepository("Test", { refreshOnWindowFocus: true });
     repository = new Atom.GitRepository("Test", { config: atom.config });
     repository = new Atom.GitRepository("Test", { project: atom.project });
-    repository = new Atom.GitRepository("Test", { refreshOnWindowFocus: false, config: atom.config,
-        project: atom.project });
+    repository = new Atom.GitRepository("Test", {
+        refreshOnWindowFocus: false,
+        config: atom.config,
+        project: atom.project
+    });
     repository.destroy();
     bool = repository.isDestroyed();
 
     // Event Subscription
     subscription = repository.onDidDestroy(() => {});
-    subscription = repository.onDidChangeStatus(event => event.path && event.pathStatus);
+    subscription = repository.onDidChangeStatus(
+        event => event.path && event.pathStatus
+    );
     subscription = repository.onDidChangeStatuses(() => {});
 
     // Repository Details
@@ -1029,12 +1138,14 @@ function testGitRepository() {
 
     bool = repository.isSubmodule("test.path");
 
-    let aheadBehindCount: { ahead: number, behind: number };
+    let aheadBehindCount: { ahead: number; behind: number };
     aheadBehindCount = repository.getAheadBehindCount("ref");
     aheadBehindCount = repository.getAheadBehindCount("ref", "test.path");
 
     aheadBehindCount = repository.getCachedUpstreamAheadBehindCount();
-    aheadBehindCount = repository.getCachedUpstreamAheadBehindCount("test.path");
+    aheadBehindCount = repository.getCachedUpstreamAheadBehindCount(
+        "test.path"
+    );
 
     str = repository.getConfigValue("username");
     str = repository.getConfigValue("username", "test.path");
@@ -1052,7 +1163,7 @@ function testGitRepository() {
         str = upstreamBranch;
     }
 
-    let gitReferences: { heads: string[], remotes: string[], tags: string[] };
+    let gitReferences: { heads: string[]; remotes: string[]; tags: string[] };
     gitReferences = repository.getReferences();
     gitReferences = repository.getReferences("test.path");
 
@@ -1075,11 +1186,15 @@ function testGitRepository() {
     bool = repository.isStatusNew(42);
 
     // Retrieving Diffs
-    let diffStats: { added: number, deleted: number };
+    let diffStats: { added: number; deleted: number };
     diffStats = repository.getDiffStats("file.path");
 
-    let lineDiffs: Array<{ oldStart: number, newStart: number, oldLines: number,
-        newLines: number }>;
+    let lineDiffs: Array<{
+        oldStart: number;
+        newStart: number;
+        oldLines: number;
+        newLines: number;
+    }>;
     lineDiffs = repository.getLineDiffs("file.path", "contents");
 
     // Checking Out
@@ -1180,11 +1295,26 @@ function testKeymapManager() {
     manager.destroy();
 
     // Event Subscription
-    subscription = manager.onDidMatchBinding((event): void => { event.keystrokes; });
-    subscription = manager.onDidPartiallyMatchBindings((event): void => {
-        event.partiallyMatchedBindings; });
-    subscription = manager.onDidFailToMatchBinding((event): void => { event.keystrokes; });
-    subscription = manager.onDidFailToReadFile((event): void => { event.stack; });
+    subscription = manager.onDidMatchBinding(
+        (event): void => {
+            event.keystrokes;
+        }
+    );
+    subscription = manager.onDidPartiallyMatchBindings(
+        (event): void => {
+            event.partiallyMatchedBindings;
+        }
+    );
+    subscription = manager.onDidFailToMatchBinding(
+        (event): void => {
+            event.keystrokes;
+        }
+    );
+    subscription = manager.onDidFailToReadFile(
+        (event): void => {
+            event.stack;
+        }
+    );
 
     // Adding and Removing Bindings
     subscription = manager.add("a", {}, 0);
@@ -1195,22 +1325,28 @@ function testKeymapManager() {
     bindings = manager.findKeyBindings({ command: "a" });
     bindings = manager.findKeyBindings({ keystrokes: "a" });
     bindings = manager.findKeyBindings({ target: element });
-    bindings = manager.findKeyBindings({ command: "a", keystrokes: "b"});
-    bindings = manager.findKeyBindings({ command: "a", keystrokes: "b", target: element });
+    bindings = manager.findKeyBindings({ command: "a", keystrokes: "b" });
+    bindings = manager.findKeyBindings({
+        command: "a",
+        keystrokes: "b",
+        target: element
+    });
 
     // Managing Keymap Files
     manager.loadKeymap("Test.file");
     manager.loadKeymap("Test.file", { watch: true });
-    manager.loadKeymap("Test.file", { watch: true, priority: 0});
+    manager.loadKeymap("Test.file", { watch: true, priority: 0 });
 
     // Managing Keyboard Events
     manager.handleKeyboardEvent(event);
     manager.keystrokeForKeyboardEvent(event);
 
-    subscription = manager.addKeystrokeResolver((event): string => {
-        event.layoutName;
-        return "Test";
-    });
+    subscription = manager.addKeystrokeResolver(
+        (event): string => {
+            event.layoutName;
+            return "Test";
+        }
+    );
 
     const num: number = manager.getPartialMatchTimeout();
 }
@@ -1221,7 +1357,10 @@ function testLayerDecoration() {
     bool = layerDecoration.isDestroyed();
     layerDecoration.getProperties();
     layerDecoration.setProperties(decorationLayerProps);
-    layerDecoration.setPropertiesForMarker(marker, { type: "line", class: "test-class" });
+    layerDecoration.setPropertiesForMarker(marker, {
+        type: "line",
+        class: "test-class"
+    });
 }
 
 // Marker =====================================================================
@@ -1235,7 +1374,7 @@ function testMarker() {
         reversed: true,
         invalidate: "surround",
         exclusive: false,
-        properties: { custom: "prop" },
+        properties: { custom: "prop" }
     });
 
     marker.destroy();
@@ -1320,7 +1459,7 @@ function testMarkerLayer() {
         containsRange: range,
         startRow: num,
         endRow: num,
-        intersectsRow: num,
+        intersectsRow: num
     });
     markers = markerLayer.findMarkers({ containsRange: [pos, pos] });
     markers = markerLayer.findMarkers({ containsRange: [pos, [0, 0]] });
@@ -1339,14 +1478,19 @@ function testMarkerLayer() {
     marker = markerLayer.markRange(range, { exclusive: true });
     marker = markerLayer.markRange([pos, pos], { invalidate: "never" });
     marker = markerLayer.markRange(range, {
-        exclusive: false, invalidate: "surround", reversed: false,
+        exclusive: false,
+        invalidate: "surround",
+        reversed: false
     });
 
     marker = markerLayer.markPosition(pos);
     marker = markerLayer.markPosition([0, 0]);
     marker = markerLayer.markPosition(pos, { exclusive: false });
     marker = markerLayer.markPosition([0, 0], { invalidate: "inside" });
-    marker = markerLayer.markPosition(pos, { exclusive: true, invalidate: "surround" });
+    marker = markerLayer.markPosition(pos, {
+        exclusive: true,
+        invalidate: "surround"
+    });
 
     // Event subscription
     subscription = markerLayer.onDidUpdate(() => {});
@@ -1359,8 +1503,8 @@ function testMenuManager() {
     subscription = atom.menu.add([
         {
             label: "Hello",
-            submenu : [{ label: "World!", command: "hello:world" }],
-        },
+            submenu: [{ label: "World!", command: "hello:world" }]
+        }
     ]);
     atom.menu.update();
 }
@@ -1370,18 +1514,20 @@ function testNotification() {
     notification = new Atom.Notification("fatal", "Test");
     notification = new Atom.Notification("success", "Test", {});
     notification = new Atom.Notification("info", "Test", {
-        buttons: [
-            { className: "Test", text: "Test", onDidClick: () => {}},
-        ],
+        buttons: [{ className: "Test", text: "Test", onDidClick: () => {} }],
         description: "Test",
         detail: "Test",
         dismissable: false,
-        icon: "Test",
+        icon: "Test"
     });
 
     // Event Subscription
-    subscription = notification.onDidDismiss(notification => notification.getType());
-    subscription = notification.onDidDisplay(notification => notification.getMessage());
+    subscription = notification.onDidDismiss(notification =>
+        notification.getType()
+    );
+    subscription = notification.onDidDisplay(notification =>
+        notification.getMessage()
+    );
 
     // Methods
     str = notification.getType();
@@ -1394,7 +1540,9 @@ function testNotification() {
 // NotificationManager ========================================================
 function testNotificationManager() {
     // Events
-    atom.notifications.onDidAddNotification(notification => notification.dismiss());
+    atom.notifications.onDidAddNotification(notification =>
+        notification.dismiss()
+    );
     atom.notifications.onDidClearNotifications(() => undefined);
 
     // Adding Notifications
@@ -1405,11 +1553,13 @@ function testNotificationManager() {
         detail: "Details",
         dismissable: true,
         icon: "Icon",
-        buttons: [{
-            text: "Button",
-            onDidClick: () => {},
-            className: "test-class",
-        }],
+        buttons: [
+            {
+                text: "Button",
+                onDidClick: () => {},
+                className: "test-class"
+            }
+        ]
     });
 
     atom.notifications.addInfo("Test");
@@ -1443,7 +1593,7 @@ function testPackage() {
     // Native Module Compatibility
     bool = pack.isCompatible();
 
-    let exitInfo: Promise<{ code: number, stderr: string, stdout: string }>;
+    let exitInfo: Promise<{ code: number; stderr: string; stdout: string }>;
     exitInfo = pack.rebuild();
 
     const buildFailureOutput = pack.getBuildFailureOutput();
@@ -1462,7 +1612,8 @@ function testPackageManager() {
     subscription = atom.packages.onDidLoadPackage(pack => pack.isCompatible());
     subscription = atom.packages.onDidUnloadPackage(pack => pack.name);
     subscription = atom.packages.onDidTriggerActivationHook(
-      'language-javascript:grammar-used', () => {}
+        "language-javascript:grammar-used",
+        () => {}
     );
 
     // Package system data
@@ -1491,7 +1642,7 @@ function testPackageManager() {
     bool = atom.packages.isPackageDisabled("Test");
 
     // Activating and deactivating packages
-    atom.packages.activatePackage("Test").then((activePack) => {
+    atom.packages.activatePackage("Test").then(activePack => {
         pack = activePack;
     });
     atom.packages.deactivatePackage("Test", true).then(() => {
@@ -1529,23 +1680,25 @@ function testPackageManager() {
 // Pane =======================================================================
 function testPane() {
     // Event Subscription
-    subscription = pane.onDidChangeFlexScale(scale => num = scale);
-    subscription = pane.observeFlexScale(scale => num = scale);
+    subscription = pane.onDidChangeFlexScale(scale => (num = scale));
+    subscription = pane.observeFlexScale(scale => (num = scale));
     subscription = pane.onDidActivate(() => {});
     subscription = pane.onWillDestroy(() => {});
     subscription = pane.onDidDestroy(() => {});
-    subscription = pane.onDidChangeActive(active => bool = active);
-    subscription = pane.observeActive(active => bool = active);
+    subscription = pane.onDidChangeActive(active => (bool = active));
+    subscription = pane.observeActive(active => (bool = active));
     subscription = pane.onDidAddItem(event => event.index && event.item);
     subscription = pane.onDidRemoveItem(event => event.index && event.item);
     subscription = pane.onWillRemoveItem(event => event.index && event.item);
-    subscription = pane.onDidMoveItem(event => event.item && event.oldIndex && event.newIndex);
-    subscription = pane.observeItems((item) => {});
-    subscription = pane.onDidChangeActiveItem((item) => {});
-    subscription = pane.onChooseNextMRUItem((item) => {});
-    subscription = pane.onChooseLastMRUItem((item) => {});
+    subscription = pane.onDidMoveItem(
+        event => event.item && event.oldIndex && event.newIndex
+    );
+    subscription = pane.observeItems(item => {});
+    subscription = pane.onDidChangeActiveItem(item => {});
+    subscription = pane.onChooseNextMRUItem(item => {});
+    subscription = pane.onChooseLastMRUItem(item => {});
     subscription = pane.onDoneChoosingMRUItem(() => {});
-    subscription = pane.observeActiveItem((item) => {});
+    subscription = pane.observeActiveItem(item => {});
     subscription = pane.onWillDestroyItem(event => event.index && event.item);
 
     // Items
@@ -1651,8 +1804,8 @@ function testPanel() {
     panel.destroy();
 
     // Event Subscription
-    subscription = panel.onDidChangeVisible(visible => bool = visible);
-    subscription = panel.onDidDestroy(panel => bool = panel.isVisible());
+    subscription = panel.onDidChangeVisible(visible => (bool = visible));
+    subscription = panel.onDidDestroy(panel => (bool = panel.isVisible()));
 
     // Panel Details
     obj = panel.getItem();
@@ -1666,7 +1819,7 @@ function testPanel() {
 async function testPathWatcher() {
     const pathWatcher = await pathWatcherPromise;
     pathWatcher.dispose();
-    subscription = pathWatcher.onDidError((error) => str = error.name);
+    subscription = pathWatcher.onDidError(error => (str = error.name));
 
     async function waitForPathWatcher() {
         await pathWatcher.getStartPromise();
@@ -1794,7 +1947,7 @@ function testRange() {
     range.end;
 
     // Construction
-    range = Atom.Range.fromObject({ start: pos, end: pos}, true);
+    range = Atom.Range.fromObject({ start: pos, end: pos }, true);
     Atom.Range.fromObject([pos, pos]);
     Atom.Range.fromObject([[0, 0], [0, 0]]);
     Atom.Range.fromObject([pos, [0, 0]]);
@@ -1874,9 +2027,14 @@ readonlyStrs = scopeDescriptor.getScopesArray();
 // Selection ==================================================================
 function testSelection() {
     // Event Subscription
-    subscription = selection.onDidChangeRange(event => event.newBufferRange &&
-        event.oldBufferRange && event.newScreenRange && event.oldScreenRange &&
-        event.selection);
+    subscription = selection.onDidChangeRange(
+        event =>
+            event.newBufferRange &&
+            event.oldBufferRange &&
+            event.newScreenRange &&
+            event.oldScreenRange &&
+            event.selection
+    );
     subscription = selection.onDidDestroy(() => {});
 
     // Managing the selection range
@@ -1902,7 +2060,10 @@ function testSelection() {
     selection.setBufferRange(range, { autoscroll: true, preserveFolds: false });
     selection.setBufferRange([pos, pos], { autoscroll: true });
 
-    const [startingRow, endingRow ]: [number, number] = selection.getBufferRowRange();
+    const [startingRow, endingRow]: [
+        number,
+        number
+    ] = selection.getBufferRowRange();
 
     // Info about the selection
     bool = selection.isEmpty();
@@ -1966,9 +2127,16 @@ function testSelection() {
     selection.insertText("Replacement", { normalizeLineEndings: true });
     selection.insertText("Replacement", { undo: "skip" });
     selection.insertText("Replacement", { bypassReadOnly: true });
-    selection.insertText("Replacement", { select: true, autoIndent: true,
-        autoIndentNewline: true, autoDecreaseIndent: true, normalizeLineEndings: true,
-        undo: "skip", preserveTrailingLineIndentation: false, bypassReadOnly: false });
+    selection.insertText("Replacement", {
+        select: true,
+        autoIndent: true,
+        autoIndentNewline: true,
+        autoDecreaseIndent: true,
+        normalizeLineEndings: true,
+        undo: "skip",
+        preserveTrailingLineIndentation: false,
+        bypassReadOnly: false
+    });
 
     selection.backspace();
     selection.backspace({ bypassReadOnly: true });
@@ -2039,10 +2207,18 @@ function testSelection() {
 // StyleManager ===============================================================
 function testStyleManager() {
     // Event Subscription
-    subscription = styleManager.observeStyleElements(styleElement => styleElement.context);
-    subscription = styleManager.onDidAddStyleElement(styleElement => styleElement.sourcePath);
-    subscription = styleManager.onDidRemoveStyleElement(styleElement => styleElement.onkeydown);
-    subscription = styleManager.onDidUpdateStyleElement(styleElement => styleElement.sourcePath);
+    subscription = styleManager.observeStyleElements(
+        styleElement => styleElement.context
+    );
+    subscription = styleManager.onDidAddStyleElement(
+        styleElement => styleElement.sourcePath
+    );
+    subscription = styleManager.onDidRemoveStyleElement(
+        styleElement => styleElement.onkeydown
+    );
+    subscription = styleManager.onDidUpdateStyleElement(
+        styleElement => styleElement.sourcePath
+    );
 
     // Reading Style Elements
     const styleElements: HTMLStyleElement[] = styleManager.getStyleElements();
@@ -2076,15 +2252,22 @@ function testTextBuffer() {
     async function bufferLoadFile() {
         buffer = await Atom.TextBuffer.load("Test.file");
         buffer = await Atom.TextBuffer.load("Test.file", { encoding: "utf8" });
-        buffer = await Atom.TextBuffer.load("Test.file", { shouldDestroyOnFileDelete });
-        buffer = await Atom.TextBuffer.load("Test.file", { encoding: "utf8",
-            shouldDestroyOnFileDelete });
+        buffer = await Atom.TextBuffer.load("Test.file", {
+            shouldDestroyOnFileDelete
+        });
+        buffer = await Atom.TextBuffer.load("Test.file", {
+            encoding: "utf8",
+            shouldDestroyOnFileDelete
+        });
     }
 
     buffer = Atom.TextBuffer.loadSync("Test.file");
     Atom.TextBuffer.loadSync("Test.file", { encoding: "utf8" });
     Atom.TextBuffer.loadSync("Test.file", { shouldDestroyOnFileDelete });
-    Atom.TextBuffer.loadSync("Test.file", { encoding: "uft8", shouldDestroyOnFileDelete });
+    Atom.TextBuffer.loadSync("Test.file", {
+        encoding: "uft8",
+        shouldDestroyOnFileDelete
+    });
 
     async function deserializeBuffer() {
         buffer = await Atom.TextBuffer.deserialize({});
@@ -2093,29 +2276,35 @@ function testTextBuffer() {
     // Event Subscription
     subscription = buffer.onWillChange(() => void {});
 
-    subscription = buffer.onDidChange((event): void => {
-        range = event.newRange;
-        for (const change of event.changes) {
-            range = change.newRange;
+    subscription = buffer.onDidChange(
+        (event): void => {
+            range = event.newRange;
+            for (const change of event.changes) {
+                range = change.newRange;
+            }
         }
-    });
+    );
 
     subscription = buffer.onDidChangeText(() => void {});
 
-    subscription = buffer.onDidStopChanging((event): void => {
-        for (const change of event.changes) {
-        change.newExtent;
+    subscription = buffer.onDidStopChanging(
+        (event): void => {
+            for (const change of event.changes) {
+                change.newExtent;
+            }
         }
-    });
+    );
 
     subscription = buffer.onDidConflict(() => void {});
     subscription = buffer.onDidChangeModified(() => void {});
     subscription = buffer.onDidUpdateMarkers(() => void {});
     subscription = buffer.onDidCreateMarker(() => void {});
 
-    subscription = buffer.onDidChangePath((path): void => {
-        str = path;
-    });
+    subscription = buffer.onDidChangePath(
+        (path): void => {
+            str = path;
+        }
+    );
 
     subscription = buffer.onDidChangeEncoding(() => void {});
 
@@ -2192,9 +2381,14 @@ function testTextBuffer() {
     range = buffer.setTextInRange([[0, 0], [0, 0]], "Test");
     range = buffer.setTextInRange([pos, [0, 0]], "Test");
     range = buffer.setTextInRange([[0, 0], pos], "Test");
-    range = buffer.setTextInRange(range, "Test", { normalizeLineEndings: true });
+    range = buffer.setTextInRange(range, "Test", {
+        normalizeLineEndings: true
+    });
     range = buffer.setTextInRange(range, "Test", { undo: "skip" });
-    range = buffer.setTextInRange(range, "Test", { normalizeLineEndings: true, undo: "skip" });
+    range = buffer.setTextInRange(range, "Test", {
+        normalizeLineEndings: true,
+        undo: "skip"
+    });
     range = buffer.setTextInRange([[0, 0], [0, 0]], "Test", { undo: "skip" });
 
     range = buffer.insert(pos, "Test");
@@ -2236,10 +2430,14 @@ function testTextBuffer() {
     buffer.markRange([[0, 0], [0, 0]]);
     buffer.markRange([pos, [0, 0]]);
     buffer.markRange([[0, 0], pos]);
-    buffer.markRange(range, { exclusive: true});
+    buffer.markRange(range, { exclusive: true });
     buffer.markRange(range, { invalidate: "surround" });
     buffer.markRange(range, { reversed: true });
-    buffer.markRange(range, { exclusive: true, invalidate: "surround", reversed: true });
+    buffer.markRange(range, {
+        exclusive: true,
+        invalidate: "surround",
+        reversed: true
+    });
     buffer.markRange([pos, pos], { exclusive: true });
 
     marker = buffer.markPosition(pos);
@@ -2261,7 +2459,7 @@ function testTextBuffer() {
         containsRange: range,
         startRow: num,
         endRow: num,
-        intersectsRow: num,
+        intersectsRow: num
     });
     markers = buffer.findMarkers({ startsInRange: [pos, pos] });
     markers = buffer.findMarkers({ startsInRange: [pos, [0, 0]] });
@@ -2277,8 +2475,10 @@ function testTextBuffer() {
     bool = buffer.redo({ selectionsMarkerLayer: markerLayer });
 
     num = buffer.transact(500, (): number => 42);
-    num = buffer.transact({ groupingInterval: 500, selectionsMarkerLayer: markerLayer },
-        (): number => 42);
+    num = buffer.transact(
+        { groupingInterval: 500, selectionsMarkerLayer: markerLayer },
+        (): number => 42
+    );
 
     buffer.clearUndoStack();
     num = buffer.createCheckpoint();
@@ -2289,80 +2489,106 @@ function testTextBuffer() {
 
     // Search And Replace
     buffer.scan(/r^Test/, (): void => {});
-    buffer.scan(/r^Test/, (params) => {
+    buffer.scan(/r^Test/, params => {
         num = params.match.index;
         str = params.matchText;
         range = params.range;
         params.replace("Test");
         params.stop();
     });
-    buffer.scan(/r^Test/, {
-        leadingContextLineCount: 5,
-        trailingContextLineCount: 5,
-    }, (params) => {
-        strs = params.leadingContextLines;
-        strs = params.trailingContextLines;
-    });
+    buffer.scan(
+        /r^Test/,
+        {
+            leadingContextLineCount: 5,
+            trailingContextLineCount: 5
+        },
+        params => {
+            strs = params.leadingContextLines;
+            strs = params.trailingContextLines;
+        }
+    );
 
     buffer.backwardsScan(/r^Test/, (): void => {});
-    buffer.backwardsScan(/r^Test/, (params) => {
+    buffer.backwardsScan(/r^Test/, params => {
         num = params.match.index;
         str = params.matchText;
         range = params.range;
         params.replace("Test");
         params.stop();
     });
-    buffer.backwardsScan(/r^Test/, {
-        leadingContextLineCount: 5,
-        trailingContextLineCount: 5,
-    }, (params) => {
-        strs = params.leadingContextLines;
-        strs = params.trailingContextLines;
-    });
+    buffer.backwardsScan(
+        /r^Test/,
+        {
+            leadingContextLineCount: 5,
+            trailingContextLineCount: 5
+        },
+        params => {
+            strs = params.leadingContextLines;
+            strs = params.trailingContextLines;
+        }
+    );
 
     buffer.scanInRange(/r^Test/, range, (): void => {});
-    buffer.scanInRange(/r^Test/, range, (params) => {
+    buffer.scanInRange(/r^Test/, range, params => {
         num = params.match.index;
         str = params.matchText;
         range = params.range;
         params.replace("Test");
         params.stop();
     });
-    buffer.scanInRange(/r^Test/, range, {
-        leadingContextLineCount: 5,
-        trailingContextLineCount: 5,
-    }, (params) => {
-        strs = params.leadingContextLines;
-        strs = params.trailingContextLines;
-    });
+    buffer.scanInRange(
+        /r^Test/,
+        range,
+        {
+            leadingContextLineCount: 5,
+            trailingContextLineCount: 5
+        },
+        params => {
+            strs = params.leadingContextLines;
+            strs = params.trailingContextLines;
+        }
+    );
     buffer.scanInRange(/r^Test/, [pos, pos], (): void => {});
     buffer.scanInRange(/r^Test/, [[0, 0], [0, 0]], (): void => {});
     buffer.scanInRange(/r^Test/, [pos, [0, 0]], (): void => {});
     buffer.scanInRange(/r^Test/, [[0, 0], pos], (): void => {});
-    buffer.scanInRange(/r^Test/, [[0, 0], [0, 0]], { trailingContextLineCount: 42 },
-        (): void => {});
+    buffer.scanInRange(
+        /r^Test/,
+        [[0, 0], [0, 0]],
+        { trailingContextLineCount: 42 },
+        (): void => {}
+    );
 
     buffer.backwardsScanInRange(/r^Test/, range, (): void => {});
-    buffer.backwardsScanInRange(/r^Test/, range, (params) => {
+    buffer.backwardsScanInRange(/r^Test/, range, params => {
         num = params.match.index;
         str = params.matchText;
         range = params.range;
         params.replace("Test");
         params.stop();
     });
-    buffer.backwardsScanInRange(/r^Test/, range, {
-        leadingContextLineCount: 5,
-        trailingContextLineCount: 5,
-    }, (params) => {
-        strs = params.leadingContextLines;
-        strs = params.trailingContextLines;
-    });
+    buffer.backwardsScanInRange(
+        /r^Test/,
+        range,
+        {
+            leadingContextLineCount: 5,
+            trailingContextLineCount: 5
+        },
+        params => {
+            strs = params.leadingContextLines;
+            strs = params.trailingContextLines;
+        }
+    );
     buffer.backwardsScanInRange(/r^Test/, [pos, pos], (): void => {});
     buffer.backwardsScanInRange(/r^Test/, [[0, 0], [0, 0]], (): void => {});
     buffer.backwardsScanInRange(/r^Test/, [pos, [0, 0]], (): void => {});
     buffer.backwardsScanInRange(/r^Test/, [[0, 0], pos], (): void => {});
-    buffer.backwardsScanInRange(/r^Test/, [[0, 0], [0, 0]], { trailingContextLineCount: 42 },
-        (): void => {});
+    buffer.backwardsScanInRange(
+        /r^Test/,
+        [[0, 0], [0, 0]],
+        { trailingContextLineCount: 42 },
+        (): void => {}
+    );
 
     num = buffer.replace(/r^Test/, "Test");
 
@@ -2399,8 +2625,8 @@ function testTextBuffer() {
 // TextEditor =================================================================
 function testTextEditor() {
     // Event Subscription
-    subscription = editor.onDidChangeTitle(title => str = title.charAt(0));
-    subscription = editor.onDidChangePath(path => str = path.charAt(0));
+    subscription = editor.onDidChangeTitle(title => (str = title.charAt(0)));
+    subscription = editor.onDidChangePath(path => (str = path.charAt(0)));
 
     subscription = editor.onDidChange(changes => {
         for (const change of changes) {
@@ -2412,12 +2638,19 @@ function testTextEditor() {
 
     subscription = editor.onDidStopChanging(event => {
         for (const change of event.changes) {
-            change.newExtent && change.oldExtent && change.newRange && change.oldRange &&
-            change.newText && change.oldText && change.start;
+            change.newExtent &&
+                change.oldExtent &&
+                change.newRange &&
+                change.oldRange &&
+                change.newText &&
+                change.oldText &&
+                change.start;
         }
     });
 
-    subscription = editor.onDidChangeCursorPosition(event => event.newBufferPosition);
+    subscription = editor.onDidChangeCursorPosition(
+        event => event.newBufferPosition
+    );
     subscription = editor.onDidChangeSelectionRange(event => event.selection);
     subscription = editor.onDidSave(event => event.path);
     subscription = editor.onDidDestroy(() => {});
@@ -2435,14 +2668,23 @@ function testTextEditor() {
     subscription = editor.observeCursors(cursor => cursor.moveToBottom());
     subscription = editor.onDidAddCursor(cursor => cursor.getMarker());
     subscription = editor.onDidRemoveCursor(cursor => cursor.compare(cursor));
-    subscription = editor.observeSelections(selection => selection.cutToEndOfBufferLine());
-    subscription = editor.onDidAddSelection(selection => selection.selectWord());
-    subscription = editor.onDidRemoveSelection(selection => selection.toggleLineComments());
+    subscription = editor.observeSelections(selection =>
+        selection.cutToEndOfBufferLine()
+    );
+    subscription = editor.onDidAddSelection(selection =>
+        selection.selectWord()
+    );
+    subscription = editor.onDidRemoveSelection(selection =>
+        selection.toggleLineComments()
+    );
     subscription = editor.observeDecorations(decoration => decoration.getId());
     subscription = editor.onDidAddDecoration(decoration => decoration.id);
-    subscription = editor.onDidRemoveDecoration(decoration => decoration.getId());
+    subscription = editor.onDidRemoveDecoration(decoration =>
+        decoration.getId()
+    );
     subscription = editor.onDidChangePlaceholderText(placeholderText =>
-        placeholderText.toLowerCase());
+        placeholderText.toLowerCase()
+    );
     buffer = editor.getBuffer();
 
     // File Details
@@ -2487,9 +2729,14 @@ function testTextEditor() {
     range = editor.setTextInBufferRange([[0, 0], pos], "Test");
     range = editor.setTextInBufferRange([[0, 0], [0, 0]], "Test");
     range = editor.setTextInBufferRange(range, "Test", {});
-    range = editor.setTextInBufferRange([pos, pos], "Test", { normalizeLineEndings: true });
-    range = editor.setTextInBufferRange(range, "Test", { normalizeLineEndings: true,
-        undo: "skip", bypassReadOnly: false });
+    range = editor.setTextInBufferRange([pos, pos], "Test", {
+        normalizeLineEndings: true
+    });
+    range = editor.setTextInBufferRange(range, "Test", {
+        normalizeLineEndings: true,
+        undo: "skip",
+        bypassReadOnly: false
+    });
 
     editor.insertText("Test");
     editor.insertText("Test", {});
@@ -2499,9 +2746,16 @@ function testTextEditor() {
     editor.insertText("Test", { normalizeLineEndings: true });
     editor.insertText("Test", { select: true });
     editor.insertText("Test", { undo: "skip" });
-    editor.insertText("Text", { autoDecreaseIndent: false, autoIndent: false,
-        autoIndentNewline: false, normalizeLineEndings: false, select: false,
-        undo: "skip", preserveTrailingLineIndentation: true, bypassReadOnly: true });
+    editor.insertText("Text", {
+        autoDecreaseIndent: false,
+        autoIndent: false,
+        autoIndentNewline: false,
+        normalizeLineEndings: false,
+        select: false,
+        undo: "skip",
+        preserveTrailingLineIndentation: true,
+        bypassReadOnly: true
+    });
 
     editor.insertNewline();
     editor.insertNewline({ bypassReadOnly: false });
@@ -2509,7 +2763,9 @@ function testTextEditor() {
     editor.delete({ bypassReadOnly: true });
     editor.backspace();
     editor.backspace({ bypassReadOnly: false });
-    editor.mutateSelectedText((selection, index) => { selection.clear(); });
+    editor.mutateSelectedText((selection, index) => {
+        selection.clear();
+    });
     editor.transpose();
     editor.transpose({ bypassReadOnly: true });
     editor.upperCase();
@@ -2557,14 +2813,22 @@ function testTextEditor() {
     pos = editor.screenPositionForBufferPosition(pos);
     pos = editor.screenPositionForBufferPosition([0, 0]);
     pos = editor.screenPositionForBufferPosition(pos, {});
-    pos = editor.screenPositionForBufferPosition(pos, { clipDirection: "backward" });
-    pos = editor.screenPositionForBufferPosition([0, 0], { clipDirection: "forward" });
+    pos = editor.screenPositionForBufferPosition(pos, {
+        clipDirection: "backward"
+    });
+    pos = editor.screenPositionForBufferPosition([0, 0], {
+        clipDirection: "forward"
+    });
 
     pos = editor.bufferPositionForScreenPosition(pos);
     pos = editor.bufferPositionForScreenPosition([0, 0]);
     pos = editor.bufferPositionForScreenPosition(pos, {});
-    pos = editor.bufferPositionForScreenPosition(pos, { clipDirection: "backward" });
-    pos = editor.bufferPositionForScreenPosition([0, 0], { clipDirection: "forward" });
+    pos = editor.bufferPositionForScreenPosition(pos, {
+        clipDirection: "backward"
+    });
+    pos = editor.bufferPositionForScreenPosition([0, 0], {
+        clipDirection: "forward"
+    });
 
     range = editor.screenRangeForBufferRange(range);
     range = editor.screenRangeForBufferRange([pos, pos]);
@@ -2604,49 +2868,99 @@ function testTextEditor() {
 
     // Decorations
     decoration = editor.decorateMarker(displayMarker, { type: "line" });
-    decoration = editor.decorateMarker(displayMarker, { type: "line", avoidOverflow: true,
-        class: "test-class", gutterName: "gutterName", item: element, onlyEmpty: true,
-        onlyHead: true, onlyNonEmpty: true, position: "before" });
+    decoration = editor.decorateMarker(displayMarker, {
+        type: "line",
+        avoidOverflow: true,
+        class: "test-class",
+        gutterName: "gutterName",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
-    layerDecoration = editor.decorateMarkerLayer(displayMarkerLayer, { type: "line-number" });
-    layerDecoration = editor.decorateMarkerLayer(displayMarkerLayer, { type: "line-number",
-        avoidOverflow: false, class: "test-class", item: element, onlyEmpty: false, onlyHead: false,
-        onlyNonEmpty: false, position: "after" });
+    layerDecoration = editor.decorateMarkerLayer(displayMarkerLayer, {
+        type: "line-number"
+    });
+    layerDecoration = editor.decorateMarkerLayer(displayMarkerLayer, {
+        type: "line-number",
+        avoidOverflow: false,
+        class: "test-class",
+        item: element,
+        onlyEmpty: false,
+        onlyHead: false,
+        onlyNonEmpty: false,
+        position: "after"
+    });
 
     decorations = editor.getDecorations();
     decorations = editor.getDecorations({});
     decorations = editor.getDecorations({ type: "line-number" });
-    decorations = editor.getDecorations({ type: "line", avoidOverflow: true,
-        class: "test-class", gutterName: "gutterName", item: element, onlyEmpty: true,
-        onlyHead: true, onlyNonEmpty: true, position: "before" });
+    decorations = editor.getDecorations({
+        type: "line",
+        avoidOverflow: true,
+        class: "test-class",
+        gutterName: "gutterName",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
     decorations = editor.getLineDecorations();
     decorations = editor.getLineDecorations({});
     decorations = editor.getLineDecorations({ avoidOverflow: true });
-    decorations = editor.getLineDecorations({ avoidOverflow: true, class: "test-class",
-        item: element, onlyEmpty: true, onlyHead: true, onlyNonEmpty: true,
-        position: "before" });
+    decorations = editor.getLineDecorations({
+        avoidOverflow: true,
+        class: "test-class",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
     decorations = editor.getLineNumberDecorations();
     decorations = editor.getLineNumberDecorations({});
     decorations = editor.getLineNumberDecorations({ onlyHead: true });
-    decorations = editor.getLineNumberDecorations({ avoidOverflow: true,
-        class: "test-class", gutterName: "gutterName", item: element, onlyEmpty: true,
-        onlyHead: true, onlyNonEmpty: true, position: "before" });
+    decorations = editor.getLineNumberDecorations({
+        avoidOverflow: true,
+        class: "test-class",
+        gutterName: "gutterName",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
     decorations = editor.getHighlightDecorations();
     decorations = editor.getHighlightDecorations({});
     decorations = editor.getHighlightDecorations({ onlyHead: true });
-    decorations = editor.getHighlightDecorations({ avoidOverflow: true,
-        class: "test-class", item: element, onlyEmpty: true, onlyHead: true, onlyNonEmpty: true,
-        position: "before" });
+    decorations = editor.getHighlightDecorations({
+        avoidOverflow: true,
+        class: "test-class",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
     decorations = editor.getOverlayDecorations();
     decorations = editor.getOverlayDecorations({});
     decorations = editor.getOverlayDecorations({ onlyHead: true });
-    decorations = editor.getOverlayDecorations({ avoidOverflow: true,
-        class: "test-class", item: element, onlyEmpty: true, onlyHead: true, onlyNonEmpty: true,
-        position: "before" });
+    decorations = editor.getOverlayDecorations({
+        avoidOverflow: true,
+        class: "test-class",
+        item: element,
+        onlyEmpty: true,
+        onlyHead: true,
+        onlyNonEmpty: true,
+        position: "before"
+    });
 
     // Markers
     displayMarker = editor.markBufferRange(range);
@@ -2658,23 +2972,34 @@ function testTextEditor() {
     displayMarker = editor.markBufferRange(range, { invalidate: "surround" });
     displayMarker = editor.markBufferRange(range, { maintainHistory: true });
     displayMarker = editor.markBufferRange(range, { reversed: true });
-    displayMarker = editor.markBufferRange([[0, 0], [0, 0]], { invalidate: "overlap" });
-    displayMarker = editor.markBufferRange(range, { invalidate: "surround",
-        maintainHistory: false, reversed: false });
+    displayMarker = editor.markBufferRange([[0, 0], [0, 0]], {
+        invalidate: "overlap"
+    });
+    displayMarker = editor.markBufferRange(range, {
+        invalidate: "surround",
+        maintainHistory: false,
+        reversed: false
+    });
 
     displayMarker = editor.markBufferPosition(pos);
     displayMarker = editor.markBufferPosition([0, 0]);
     displayMarker = editor.markBufferPosition(pos, {});
     displayMarker = editor.markBufferPosition(pos, { invalidate: "never" });
-    displayMarker = editor.markBufferPosition([0, 0], { invalidate: "surround" });
+    displayMarker = editor.markBufferPosition([0, 0], {
+        invalidate: "surround"
+    });
 
     displayMarker = editor.markScreenPosition(pos);
     displayMarker = editor.markScreenPosition([0, 0]);
     displayMarker = editor.markScreenPosition(pos, {});
     displayMarker = editor.markScreenPosition(pos, { invalidate: "never" });
-    displayMarker = editor.markScreenPosition(pos, { clipDirection: "forward" });
-    displayMarker = editor.markScreenPosition([0, 0], { invalidate: "surround",
-        clipDirection: "backward" });
+    displayMarker = editor.markScreenPosition(pos, {
+        clipDirection: "forward"
+    });
+    displayMarker = editor.markScreenPosition([0, 0], {
+        invalidate: "surround",
+        clipDirection: "backward"
+    });
 
     displayMarkers = editor.findMarkers({ startBufferRow: 42 });
     displayMarkers = editor.findMarkers({ endBufferRow: 42 });
@@ -2682,7 +3007,9 @@ function testTextEditor() {
     displayMarkers = editor.findMarkers({ containsBufferRange: [pos, pos] });
     displayMarkers = editor.findMarkers({ containsBufferRange: [pos, [0, 0]] });
     displayMarkers = editor.findMarkers({ containsBufferRange: [[0, 0], pos] });
-    displayMarkers = editor.findMarkers({ containsBufferRange: [[0, 0], [0, 0]] });
+    displayMarkers = editor.findMarkers({
+        containsBufferRange: [[0, 0], [0, 0]]
+    });
     displayMarkers = editor.findMarkers({ containsBufferPosition: pos });
     displayMarkers = editor.findMarkers({ containsBufferPosition: [42, 42] });
     displayMarkers = editor.findMarkers({
@@ -2705,14 +3032,17 @@ function testTextEditor() {
         containedInBufferRange: range,
         containedInScreenRange: range,
         intersectsBufferRange: range,
-        intersectsScreenRange: range,
+        intersectsScreenRange: range
     });
 
     displayMarkerLayer = editor.addMarkerLayer();
     displayMarkerLayer = editor.addMarkerLayer({});
     displayMarkerLayer = editor.addMarkerLayer({ maintainHistory: true });
     displayMarkerLayer = editor.addMarkerLayer({ persistent: true });
-    displayMarkerLayer = editor.addMarkerLayer({ maintainHistory: true, persistent: true });
+    displayMarkerLayer = editor.addMarkerLayer({
+        maintainHistory: true,
+        persistent: true
+    });
 
     const potentialMarkerLayer = editor.getMarkerLayer(42);
     if (potentialMarkerLayer) {
@@ -2796,8 +3126,11 @@ function testTextEditor() {
     str = editor.getWordUnderCursor({ allowPrevious: true });
     str = editor.getWordUnderCursor({ includeNonWordCharacters: true });
     str = editor.getWordUnderCursor({ wordRegex: /r/ });
-    str = editor.getWordUnderCursor({ allowPrevious: true, includeNonWordCharacters: true,
-        wordRegex: /r/ });
+    str = editor.getWordUnderCursor({
+        allowPrevious: true,
+        includeNonWordCharacters: true,
+        wordRegex: /r/
+    });
 
     cursors = editor.getCursors();
     cursors = editor.getCursorsOrderedByBufferPosition();
@@ -2811,7 +3144,10 @@ function testTextEditor() {
     editor.setSelectedBufferRange(range, {});
     editor.setSelectedBufferRange(range, { preserveFolds: true });
     editor.setSelectedBufferRange(range, { reversed: true });
-    editor.setSelectedBufferRange(range, { preserveFolds: true, reversed: true });
+    editor.setSelectedBufferRange(range, {
+        preserveFolds: true,
+        reversed: true
+    });
     editor.setSelectedBufferRange([pos, pos]);
     editor.setSelectedBufferRange([pos, [0, 0]]);
     editor.setSelectedBufferRange([[0, 0], pos]);
@@ -2826,7 +3162,10 @@ function testTextEditor() {
     editor.setSelectedBufferRanges([[pos, pos]], {});
     editor.setSelectedBufferRanges(ranges, { reversed: true });
     editor.setSelectedBufferRanges([[pos, pos]], { preserveFolds: true });
-    editor.setSelectedBufferRanges([[pos, pos]], { reversed: true, preserveFolds: true });
+    editor.setSelectedBufferRanges([[pos, pos]], {
+        reversed: true,
+        preserveFolds: true
+    });
 
     range = editor.getSelectedScreenRange();
     ranges = editor.getSelectedScreenRanges();
@@ -2857,11 +3196,17 @@ function testTextEditor() {
     selection = editor.addSelectionForBufferRange([[0, 0], pos]);
     selection = editor.addSelectionForBufferRange([[0, 0], [0, 0]]);
     selection = editor.addSelectionForBufferRange(range, {});
-    selection = editor.addSelectionForBufferRange(range, { preserveFolds: true });
+    selection = editor.addSelectionForBufferRange(range, {
+        preserveFolds: true
+    });
     selection = editor.addSelectionForBufferRange(range, { reversed: true });
-    selection = editor.addSelectionForBufferRange(range, { preserveFolds: false,
-        reversed: false });
-    selection = editor.addSelectionForBufferRange([pos, pos], { preserveFolds: false });
+    selection = editor.addSelectionForBufferRange(range, {
+        preserveFolds: false,
+        reversed: false
+    });
+    selection = editor.addSelectionForBufferRange([pos, pos], {
+        preserveFolds: false
+    });
 
     selection = editor.addSelectionForScreenRange(range);
     selection = editor.addSelectionForScreenRange([pos, pos]);
@@ -2869,11 +3214,17 @@ function testTextEditor() {
     selection = editor.addSelectionForScreenRange([[0, 0], pos]);
     selection = editor.addSelectionForScreenRange([[0, 0], [0, 0]]);
     selection = editor.addSelectionForScreenRange(range, {});
-    selection = editor.addSelectionForScreenRange(range, { preserveFolds: true });
+    selection = editor.addSelectionForScreenRange(range, {
+        preserveFolds: true
+    });
     selection = editor.addSelectionForScreenRange(range, { reversed: true });
-    selection = editor.addSelectionForScreenRange(range, { preserveFolds: false,
-        reversed: false });
-    selection = editor.addSelectionForScreenRange([pos, pos], { preserveFolds: false });
+    selection = editor.addSelectionForScreenRange(range, {
+        preserveFolds: false,
+        reversed: false
+    });
+    selection = editor.addSelectionForScreenRange([pos, pos], {
+        preserveFolds: false
+    });
 
     editor.selectToBufferPosition(pos);
     editor.selectToScreenPosition(pos);
@@ -2930,8 +3281,11 @@ function testTextEditor() {
     editor.scan(/r/, {}, () => {});
     editor.scan(/r/, { leadingContextLineCount: 42 }, () => {});
     editor.scan(/r/, { trailingContextLineCount: 42 }, () => {});
-    editor.scan(/r/, { leadingContextLineCount: 42, trailingContextLineCount: 42 },
-        () => {});
+    editor.scan(
+        /r/,
+        { leadingContextLineCount: 42, trailingContextLineCount: 42 },
+        () => {}
+    );
 
     editor.scanInBufferRange(/r/, range, () => {});
     editor.scanInBufferRange(/r/, [pos, pos], () => {});
@@ -2984,7 +3338,9 @@ function testTextEditor() {
 
     editor.setIndentationForBufferRow(42, 42);
     editor.setIndentationForBufferRow(42, 42, {});
-    editor.setIndentationForBufferRow(42, 42, { preserveLeadingWhitespace: true });
+    editor.setIndentationForBufferRow(42, 42, {
+        preserveLeadingWhitespace: true
+    });
 
     editor.indentSelectedRows();
     editor.indentSelectedRows({ bypassReadOnly: false });
@@ -3020,8 +3376,15 @@ function testTextEditor() {
     editor.pasteText({ select: true });
     editor.pasteText({ undo: "skip" });
     editor.pasteText({ bypassReadOnly: false });
-    editor.pasteText({ autoIndentNewline: true, autoIndent: true, autoDecreaseIndent: true,
-        normalizeLineEndings: true, select: true, undo: "skip", bypassReadOnly: true });
+    editor.pasteText({
+        autoIndentNewline: true,
+        autoIndent: true,
+        autoDecreaseIndent: true,
+        normalizeLineEndings: true,
+        select: true,
+        undo: "skip",
+        bypassReadOnly: true
+    });
 
     editor.cutToEndOfLine();
     editor.cutToEndOfLine({ bypassReadOnly: false });
@@ -3049,25 +3412,34 @@ function testTextEditor() {
     editor.addGutter({ name: "Test", priority: 42 });
     editor.addGutter({ name: "Test", visible: true });
     editor.addGutter({ name: "Test", priority: 42, visible: true });
-    editor.addGutter({ name: "Test", type: 'decorated' });
-    editor.addGutter({ name: "Test", type: 'line-number' });
-    editor.addGutter({ name: "Test", class: 'someClass' });
-    editor.addGutter({ name: "Test", labelFn(lineData) {
-        num = lineData.bufferRow;
-        num = lineData.screenRow;
-        num = lineData.maxDigits;
-        bool = lineData.foldable;
-        bool = lineData.softWrapped;
-        return 'label';
-    }});
-    editor.addGutter({ name: "Test", onMouseDown(lineData) {
-        num = lineData.bufferRow;
-        num = lineData.screenRow;
-    } });
-    editor.addGutter({ name: "Test", onMouseMove(lineData) {
-        num = lineData.bufferRow;
-        num = lineData.screenRow;
-    } });
+    editor.addGutter({ name: "Test", type: "decorated" });
+    editor.addGutter({ name: "Test", type: "line-number" });
+    editor.addGutter({ name: "Test", class: "someClass" });
+    editor.addGutter({
+        name: "Test",
+        labelFn(lineData) {
+            num = lineData.bufferRow;
+            num = lineData.screenRow;
+            num = lineData.maxDigits;
+            bool = lineData.foldable;
+            bool = lineData.softWrapped;
+            return "label";
+        }
+    });
+    editor.addGutter({
+        name: "Test",
+        onMouseDown(lineData) {
+            num = lineData.bufferRow;
+            num = lineData.screenRow;
+        }
+    });
+    editor.addGutter({
+        name: "Test",
+        onMouseMove(lineData) {
+            num = lineData.bufferRow;
+            num = lineData.screenRow;
+        }
+    });
 
     gutters = editor.getGutters();
 
@@ -3098,13 +3470,16 @@ function testTextEditor() {
     str = editor.getPlaceholderText();
     editor.setPlaceholderText("Test");
 
-    range = editor.bufferRangeForScopeAtPosition('source.js', [0, 0]);
-    range = editor.bufferRangeForScopeAtPosition('source.js', {row: 10, column: 11});
-    range = editor.bufferRangeForScopeAtPosition('source.js', pos);
+    range = editor.bufferRangeForScopeAtPosition("source.js", [0, 0]);
+    range = editor.bufferRangeForScopeAtPosition("source.js", {
+        row: 10,
+        column: 11
+    });
+    range = editor.bufferRangeForScopeAtPosition("source.js", pos);
 
-    let token: {value: string, scopes: string[]};
+    let token: { value: string; scopes: string[] };
     token = editor.tokenForBufferPosition([5, 6]);
-    token = editor.tokenForBufferPosition({row: 0, column: 1});
+    token = editor.tokenForBufferPosition({ row: 0, column: 1 });
     token = editor.tokenForBufferPosition(pos);
 }
 
@@ -3141,25 +3516,32 @@ function testThemeManager() {
 
 // TooltipManager =============================================================
 function testTooltipManager() {
-    subscription = atom.tooltips.add(element, { title: "Test"});
-    subscription = atom.tooltips.add(element, { title: "<p>Test</p>", html: true });
-    subscription = atom.tooltips.add(element, { item: element});
+    subscription = atom.tooltips.add(element, { title: "Test" });
+    subscription = atom.tooltips.add(element, {
+        title: "<p>Test</p>",
+        html: true
+    });
+    subscription = atom.tooltips.add(element, { item: element });
     subscription = atom.tooltips.add(element, { class: "test-class" });
     subscription = atom.tooltips.add(element, { placement: "top" });
 
     subscription = atom.tooltips.add(element, { placement: () => "auto left" });
 
     subscription = atom.tooltips.add(element, { trigger: "click" });
-    subscription = atom.tooltips.add(element, { delay: { hide: 42, show: 42 }});
-    subscription = atom.tooltips.add(element, { keyBindingCommand: "test-command",
-        keyBindingTarget: element });
+    subscription = atom.tooltips.add(element, {
+        delay: { hide: 42, show: 42 }
+    });
+    subscription = atom.tooltips.add(element, {
+        keyBindingCommand: "test-command",
+        keyBindingTarget: element
+    });
 
     tooltips = atom.tooltips.findTooltips(element);
 }
 
 // ViewRegistry ===============================================================
 function testViewRegistry() {
-    atom.views.addViewProvider(Atom.Point, (point) => {
+    atom.views.addViewProvider(Atom.Point, point => {
         point.column;
         return element;
     });
@@ -3172,9 +3554,9 @@ function testViewRegistry() {
 function testWorkspace() {
     // Event Subscription
     subscription = atom.workspace.observeTextEditors(editor => editor.id);
-    subscription = atom.workspace.observePaneItems((item) => {});
-    subscription = atom.workspace.onDidChangeActivePaneItem((item) => {});
-    subscription = atom.workspace.onDidStopChangingActivePaneItem((item) => {});
+    subscription = atom.workspace.observePaneItems(item => {});
+    subscription = atom.workspace.onDidChangeActivePaneItem(item => {});
+    subscription = atom.workspace.onDidStopChangingActivePaneItem(item => {});
 
     subscription = atom.workspace.onDidChangeActiveTextEditor(editor => {
         if (editor) {
@@ -3182,7 +3564,7 @@ function testWorkspace() {
         }
     });
 
-    subscription = atom.workspace.observeActivePaneItem((item) => {});
+    subscription = atom.workspace.observeActivePaneItem(item => {});
 
     subscription = atom.workspace.observeActiveTextEditor(editor => {
         if (editor) {
@@ -3190,23 +3572,29 @@ function testWorkspace() {
         }
     });
 
-    subscription = atom.workspace.onDidOpen(event => event.index && event.item &&
-        event.pane && event.uri);
+    subscription = atom.workspace.onDidOpen(
+        event => event.index && event.item && event.pane && event.uri
+    );
     subscription = atom.workspace.onDidAddPane(event => event.pane);
     subscription = atom.workspace.onWillDestroyPane(event => event.pane);
     subscription = atom.workspace.onDidDestroyPane(event => event.pane);
     subscription = atom.workspace.observePanes(pane => pane.activate());
-    subscription = atom.workspace.onDidChangeActivePane(pane => pane.activate());
+    subscription = atom.workspace.onDidChangeActivePane(pane =>
+        pane.activate()
+    );
     subscription = atom.workspace.observeActivePane(pane => pane.activate());
-    subscription = atom.workspace.onDidAddPaneItem(event => event.index && event.item &&
-        event.pane);
+    subscription = atom.workspace.onDidAddPaneItem(
+        event => event.index && event.item && event.pane
+    );
     subscription = atom.workspace.onWillDestroyPaneItem(event => {
         event.index && event.item && event.pane;
     });
-    subscription = atom.workspace.onDidDestroyPaneItem(event => event.index &&
-        event.item && event.pane);
-    subscription = atom.workspace.onDidAddTextEditor(event => event.index && event.pane &&
-        event.textEditor);
+    subscription = atom.workspace.onDidDestroyPaneItem(
+        event => event.index && event.item && event.pane
+    );
+    subscription = atom.workspace.onDidAddTextEditor(
+        event => event.index && event.pane && event.textEditor
+    );
 
     // Opening
     async function workspaceOpen() {
@@ -3219,7 +3607,9 @@ function testWorkspace() {
         obj = await atom.workspace.open("https://test", { location: "right" });
         obj = await atom.workspace.open("https://test", { split: "up" });
         obj = await atom.workspace.open("https://test", { pending: true });
-        obj = await atom.workspace.open("https://test", { searchAllPanes: true });
+        obj = await atom.workspace.open("https://test", {
+            searchAllPanes: true
+        });
         obj = await atom.workspace.open("https://test", {
             activateItem: true,
             activatePane: true,
@@ -3228,7 +3618,7 @@ function testWorkspace() {
             location: "left",
             split: "left",
             pending: true,
-            searchAllPanes: true,
+            searchAllPanes: true
         });
     }
 
@@ -3243,7 +3633,7 @@ function testWorkspace() {
     obj = atom.workspace.createItemForURI("https://test");
 
     if (atom.workspace.isTextEditor(obj)) {
-      const textEditor: Atom.TextEditor = obj;
+        const textEditor: Atom.TextEditor = obj;
     }
 
     async function workspaceReopen() {
@@ -3251,10 +3641,10 @@ function testWorkspace() {
         if (result) obj = result;
     }
 
-    atom.workspace.addOpener((uri) => {
+    atom.workspace.addOpener(uri => {
         if (uri === "test://") {
             return {
-                getTitle: () => "Test Title",
+                getTitle: () => "Test Title"
             };
         }
     });
@@ -3278,7 +3668,9 @@ function testWorkspace() {
     bool = atom.workspace.activateNextPane();
     bool = atom.workspace.activatePreviousPane();
 
-    let potentialPaneContainer = atom.workspace.paneContainerForURI("https://test");
+    let potentialPaneContainer = atom.workspace.paneContainerForURI(
+        "https://test"
+    );
     if (potentialPaneContainer) {
         paneContainer = potentialPaneContainer;
     }
@@ -3308,37 +3700,65 @@ function testWorkspace() {
     panels = atom.workspace.getBottomPanels();
 
     panel = atom.workspace.addBottomPanel({ item: element });
-    panel = atom.workspace.addBottomPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addBottomPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getLeftPanels();
 
     panel = atom.workspace.addLeftPanel({ item: element });
-    panel = atom.workspace.addLeftPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addLeftPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getRightPanels();
 
     panel = atom.workspace.addRightPanel({ item: element });
-    panel = atom.workspace.addRightPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addRightPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getTopPanels();
 
     panel = atom.workspace.addTopPanel({ item: element });
-    panel = atom.workspace.addTopPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addTopPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getHeaderPanels();
 
     panel = atom.workspace.addHeaderPanel({ item: element });
-    panel = atom.workspace.addHeaderPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addHeaderPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getFooterPanels();
 
     panel = atom.workspace.addFooterPanel({ item: element });
-    panel = atom.workspace.addFooterPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addFooterPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     panels = atom.workspace.getModalPanels();
 
     panel = atom.workspace.addModalPanel({ item: element });
-    panel = atom.workspace.addModalPanel({ item: element, priority: 100, visible: true });
+    panel = atom.workspace.addModalPanel({
+        item: element,
+        priority: 100,
+        visible: true
+    });
 
     const potentialPanel = atom.workspace.panelForItem(element);
     if (potentialPanel) {
@@ -3356,9 +3776,9 @@ function testWorkspace() {
             onPathsSearched: (pathsSearched: number) => {},
             leadingContextLineCount: 5,
             trailingContextLineCount: 5,
-            paths: ["a"],
+            paths: ["a"]
         };
-        await atom.workspace.scan(/r/, scanOptions, (results) => {
+        await atom.workspace.scan(/r/, scanOptions, results => {
             str = results.filePath;
             for (const match of results.matches) {
                 range = Atom.Range.fromObject(match.range);
@@ -3369,7 +3789,7 @@ function testWorkspace() {
     }
 
     async function workspaceReplace() {
-        await atom.workspace.replace(/r/, "Test", ["a"], (options) => {});
+        await atom.workspace.replace(/r/, "Test", ["a"], options => {});
     }
 }
 
@@ -3400,7 +3820,7 @@ function testWorkspaceCenter() {
 }
 
 // watchPath ==================================================================
-const pathWatcherPromise = Atom.watchPath("/var/test", {}, (events) => {
+const pathWatcherPromise = Atom.watchPath("/var/test", {}, events => {
     for (const event of events) {
         str = event.path;
         str = event.action;
@@ -3410,36 +3830,43 @@ const pathWatcherPromise = Atom.watchPath("/var/test", {}, (events) => {
 
 // TextEditorElement ==========================================================
 function testTextEditorElement() {
-  textEditorComponent = textEditorElement.getComponent();
-  editor = textEditorElement.getModel();
+    textEditorComponent = textEditorElement.getComponent();
+    editor = textEditorElement.getModel();
 
-  textEditorElement.getNextUpdatePromise().then(() => {});
-  let num: number = textEditorElement.getBaseCharacterWidth();
+    textEditorElement.getNextUpdatePromise().then(() => {});
+    let num: number = textEditorElement.getBaseCharacterWidth();
 
-  textEditorElement.scrollToTop();
-  textEditorElement.scrollToBottom();
-  textEditorElement.setScrollTop(num);
-  num = textEditorElement.getScrollTop();
-  textEditorElement.setScrollLeft(num);
-  num = textEditorElement.getScrollLeft();
-  num = textEditorElement.getScrollHeight();
+    textEditorElement.scrollToTop();
+    textEditorElement.scrollToBottom();
+    textEditorElement.setScrollTop(num);
+    num = textEditorElement.getScrollTop();
+    textEditorElement.setScrollLeft(num);
+    num = textEditorElement.getScrollLeft();
+    num = textEditorElement.getScrollHeight();
 
-  pixelPos = textEditorElement.pixelPositionForBufferPosition(pos);
-  pixelPos = textEditorElement.pixelPositionForScreenPosition({row: 1, column: 2});
-  pixelPos = textEditorElement.pixelPositionForScreenPosition(pos);
+    pixelPos = textEditorElement.pixelPositionForBufferPosition(pos);
+    pixelPos = textEditorElement.pixelPositionForScreenPosition({
+        row: 1,
+        column: 2
+    });
+    pixelPos = textEditorElement.pixelPositionForScreenPosition(pos);
 
-  subscription = textEditorElement.onDidChangeScrollTop((scrollTop: number) => {});
-  subscription = textEditorElement.onDidChangeScrollLeft((scrollLeft: number) => {});
-  subscription = textEditorElement.onDidAttach(() => {});
-  subscription = textEditorElement.onDidDetach(() => {});
+    subscription = textEditorElement.onDidChangeScrollTop(
+        (scrollTop: number) => {}
+    );
+    subscription = textEditorElement.onDidChangeScrollLeft(
+        (scrollLeft: number) => {}
+    );
+    subscription = textEditorElement.onDidAttach(() => {});
+    subscription = textEditorElement.onDidDetach(() => {});
 
-  textEditorElement = document.createElement('atom-text-editor');
+    textEditorElement = document.createElement("atom-text-editor");
 }
 
 // TextEditorComponent ========================================================
 function testTextEditorComponent() {
-  pixelPos = textEditorComponent.pixelPositionForMouseEvent(mouseEvent);
-  pixelPos = textEditorComponent.pixelPositionForScreenPosition(pos);
-  pos = textEditorComponent.screenPositionForMouseEvent(mouseEvent);
-  pos = textEditorComponent.screenPositionForPixelPosition(pixelPos);
+    pixelPos = textEditorComponent.pixelPositionForMouseEvent(mouseEvent);
+    pixelPos = textEditorComponent.pixelPositionForScreenPosition(pos);
+    pos = textEditorComponent.screenPositionForMouseEvent(mouseEvent);
+    pos = textEditorComponent.screenPositionForPixelPosition(pixelPos);
 }

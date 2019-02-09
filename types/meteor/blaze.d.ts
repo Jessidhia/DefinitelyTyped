@@ -13,7 +13,9 @@ declare module "meteor/blaze" {
             isRendered: boolean;
             isDestroyed: boolean;
             renderCount: number;
-            autorun(runFunc: (computation: Tracker.Computation) => void): Tracker.Computation;
+            autorun(
+                runFunc: (computation: Tracker.Computation) => void
+            ): Tracker.Computation;
             onViewCreated(func: Function): void;
             onViewReady(func: Function): void;
             onViewDestroyed(func: Function): void;
@@ -71,7 +73,9 @@ declare module "meteor/blaze" {
 
         interface TemplateInstance {
             $(selector: string): any;
-            autorun(runFunc: (computation: Tracker.Computation) => void): Tracker.Computation;
+            autorun(
+                runFunc: (computation: Tracker.Computation) => void
+            ): Tracker.Computation;
             data: Object;
             find(selector: string): HTMLElement;
             findAll(selector: string): HTMLElement[];
@@ -82,11 +86,23 @@ declare module "meteor/blaze" {
             view: Object;
         }
 
-        function Each(argFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+        function Each(
+            argFunc: Function,
+            contentFunc: Function,
+            elseFunc?: Function
+        ): View;
 
-        function Unless(conditionFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+        function Unless(
+            conditionFunc: Function,
+            contentFunc: Function,
+            elseFunc?: Function
+        ): View;
 
-        function If(conditionFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+        function If(
+            conditionFunc: Function,
+            contentFunc: Function,
+            elseFunc?: Function
+        ): View;
 
         function Let(bindings: Function, contentFunc: Function): View;
 
@@ -98,12 +114,26 @@ declare module "meteor/blaze" {
 
         function remove(renderedView: View): void;
 
-        function render(templateOrView: Template | View, parentNode: Node, nextNode?: Node, parentView?: View): View;
+        function render(
+            templateOrView: Template | View,
+            parentNode: Node,
+            nextNode?: Node,
+            parentView?: View
+        ): View;
 
-        function renderWithData(templateOrView: Template | View, data: Object | Function, parentNode: Node, nextNode?: Node, parentView?: View): View;
+        function renderWithData(
+            templateOrView: Template | View,
+            data: Object | Function,
+            parentNode: Node,
+            nextNode?: Node,
+            parentView?: View
+        ): View;
 
         function toHTML(templateOrView: Template | View): string;
 
-        function toHTMLWithData(templateOrView: Template | View, data: Object | Function): string;
+        function toHTMLWithData(
+            templateOrView: Template | View,
+            data: Object | Function
+        ): string;
     }
 }

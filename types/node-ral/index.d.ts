@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 import { Request, Response, NextFunction } from "express";
 
 export interface LogInfo {
@@ -44,7 +44,7 @@ export namespace RAL {
     }
 
     class NormalizerManager {
-        constructor()
+        constructor();
         normalizers: string[];
         setConfigNormalizer(normalizers: string[]): void;
         needUpdate(config: any): boolean;
@@ -63,7 +63,11 @@ export interface Config {
     getConfNames(): string[];
     getRawConf(): any;
     getUpdateNeededRawConf(): any;
-    enableUpdate(interval: number, all: boolean, cb: (err: any, confs: any) => any): void;
+    enableUpdate(
+        interval: number,
+        all: boolean,
+        cb: (err: any, confs: any) => any
+    ): void;
     disableUpdate(): void;
     isAutoUpdateEnabled(): boolean;
 }
@@ -82,7 +86,7 @@ export abstract class RalModule {
     static load(pathOrModule: string | RalModule): void;
 
     static modules: {
-        [key: string]: RalModule
+        [key: string]: RalModule;
     };
 }
 
@@ -92,32 +96,48 @@ export interface Server {
     port: string | number;
 }
 
-export type buildInConverter = 'form' | 'formData' | 'json' | 'protobuf' | 'querystring' | 'raw' | 'redis' | 'stream' | 'string';
+export type buildInConverter =
+    | "form"
+    | "formData"
+    | "json"
+    | "protobuf"
+    | "querystring"
+    | "raw"
+    | "redis"
+    | "stream"
+    | "string";
 export interface Service {
-    method?: 'GET' | 'POST';
+    method?: "GET" | "POST";
     server: Server[];
     hybird?: boolean;
     timeout?: number;
     retry?: number;
     unpack: buildInConverter;
     pack: buildInConverter;
-    encoding?: 'utf-8' | 'GBK';
-    balance: 'random' | 'roundrobin' | 'hashring';
-    protocol: 'http' | 'https' | 'soap' | 'redis';
+    encoding?: "utf-8" | "GBK";
+    balance: "random" | "roundrobin" | "hashring";
+    protocol: "http" | "https" | "soap" | "redis";
     headers?: {
-        [key: string]: string | number
+        [key: string]: string | number;
     };
     query?: any;
     data?: any;
     path?: string;
 }
 
-export type BalanceContextConstructor = new (serviceID: string, service: Service) => Balance.BalanceContextClass;
+export type BalanceContextConstructor = new (
+    serviceID: string,
+    service: Service
+) => Balance.BalanceContextClass;
 
 export abstract class Balance {
     constructor();
 
-    abstract fetchServer(balanceContext: Balance.BalanceContextClass, conf: any, prevBackend: Server): Server;
+    abstract fetchServer(
+        balanceContext: Balance.BalanceContextClass,
+        conf: any,
+        prevBackend: Server
+    ): Server;
 
     getCategory(): any;
 
@@ -128,7 +148,7 @@ export abstract class Balance {
 
 export namespace Balance {
     class BalanceContextClass {
-        constructor(serviceID: string, service: Service)
+        constructor(serviceID: string, service: Service);
         currentIDC: string;
         serviceID: string;
         reqIDCServers: string[];
@@ -195,7 +215,9 @@ export abstract class ConfigNormalizer extends RalModule {
     abstract needUpdate(config?: any): boolean;
 }
 
-export function Middleware(options?: Service): (req: Request, resp: Response, next: NextFunction) => void;
+export function Middleware(
+    options?: Service
+): (req: Request, resp: Response, next: NextFunction) => void;
 
 export function RALPromise<T>(name: string, options?: {}): Promise<T>;
 export namespace RALPromise {

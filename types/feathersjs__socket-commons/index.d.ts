@@ -4,7 +4,7 @@
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.3
 
-import { HookContext } from '@feathersjs/feathers';
+import { HookContext } from "@feathersjs/feathers";
 
 export type Connection = any; // todo: spec connection
 
@@ -18,20 +18,34 @@ export interface Channel {
     send(data: any): this;
 }
 
-declare module '@feathersjs/feathers' {
+declare module "@feathersjs/feathers" {
     interface ServiceAddons<T> {
         publish(callback: (data: T, hook: HookContext<T>) => Channel): this;
 
-        publish(event: string, callback: (data: T, hook: HookContext<T>) => Channel): this;
+        publish(
+            event: string,
+            callback: (data: T, hook: HookContext<T>) => Channel
+        ): this;
     }
 
     interface Application<ServiceTypes> {
         channel(...names: string[]): Channel;
 
         // tslint:disable-next-line void-return
-        publish<T>(callback: (data: T, hook: HookContext<T>) => Channel | Channel[] | void): Application<ServiceTypes>;
+        publish<T>(
+            callback: (
+                data: T,
+                hook: HookContext<T>
+            ) => Channel | Channel[] | void
+        ): Application<ServiceTypes>;
 
         // tslint:disable-next-line void-return
-        publish<T>(event: string, callback: (data: T, hook: HookContext<T>) => Channel | Channel[] | void): Application<ServiceTypes>;
+        publish<T>(
+            event: string,
+            callback: (
+                data: T,
+                hook: HookContext<T>
+            ) => Channel | Channel[] | void
+        ): Application<ServiceTypes>;
     }
 }

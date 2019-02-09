@@ -1,8 +1,8 @@
-import ora = require('ora');
+import ora = require("ora");
 
-const spinner = ora('Loading unicorns').start();
+const spinner = ora("Loading unicorns").start();
 
 setTimeout(() => {
-    spinner.color = 'yellow';
-    spinner.text = 'Loading rainbows';
+    spinner.color = "yellow";
+    spinner.text = "Loading rainbows";
 }, 1000);

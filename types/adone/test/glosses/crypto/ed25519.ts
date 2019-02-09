@@ -1,8 +1,6 @@
 namespace adoneTests.crypto.ed25519 {
     const {
-        crypto: {
-            ed25519
-        }
+        crypto: { ed25519 }
     } = adone;
 
     let buf: Buffer;
@@ -22,7 +20,14 @@ namespace adoneTests.crypto.ed25519 {
         privateKey: Buffer.from("hello")
     });
 
-    buf = ed25519.sign(Buffer.from("hello"), ed25519.generateKeyPair(Buffer.from("hello")));
+    buf = ed25519.sign(
+        Buffer.from("hello"),
+        ed25519.generateKeyPair(Buffer.from("hello"))
+    );
 
-    bool = ed25519.verify(Buffer.from("hello"), Buffer.from("world"), Buffer.from("key"));
+    bool = ed25519.verify(
+        Buffer.from("hello"),
+        Buffer.from("world"),
+        Buffer.from("key")
+    );
 }

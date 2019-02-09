@@ -1,14 +1,14 @@
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
-import { Transport, TransportOptions } from '..';
+import { Transport, TransportOptions } from "..";
 
-import * as shared from './shared';
+import * as shared from "./shared";
 
-import Mail = require('./mailer');
-import MailMessage = require('./mailer/mail-message');
-import MimeNode = require('./mime-node');
+import Mail = require("./mailer");
+import MailMessage = require("./mailer/mail-message");
+import MimeNode = require("./mime-node");
 
 declare namespace SESTransport {
     interface MailOptions extends Mail.Options {
@@ -50,14 +50,23 @@ declare class SESTransport extends EventEmitter implements Transport {
     sendingRate: number;
     sendingRateTTL: number | null;
     rateInterval: number;
-    rateMessages: Array<{ ts: number, pending: boolean }>;
-    pending: Array<{ mail: Mail; callback(err: Error | null, info: SESTransport.SentMessageInfo): void; }>;
+    rateMessages: Array<{ ts: number; pending: boolean }>;
+    pending: Array<{
+        mail: Mail;
+        callback(err: Error | null, info: SESTransport.SentMessageInfo): void;
+    }>;
     idling: boolean;
 
     constructor(options: SESTransport.Options);
 
     /** Schedules a sending of a message */
-    send(mail: MailMessage, callback: (err: Error | null, info: SESTransport.SentMessageInfo) => void): void;
+    send(
+        mail: MailMessage,
+        callback: (
+            err: Error | null,
+            info: SESTransport.SentMessageInfo
+        ) => void
+    ): void;
 
     /** Returns true if there are free slots in the queue */
     isIdle(): boolean;
@@ -66,19 +75,19 @@ declare class SESTransport extends EventEmitter implements Transport {
     verify(callback: (err: Error | null, success: true) => void): void;
     verify(): Promise<true>;
 
-    addListener(event: 'idle', listener: () => void): this;
+    addListener(event: "idle", listener: () => void): this;
 
-    emit(event: 'idle'): boolean;
+    emit(event: "idle"): boolean;
 
-    on(event: 'idle', listener: () => void): this;
+    on(event: "idle", listener: () => void): this;
 
-    once(event: 'idle', listener: () => void): this;
+    once(event: "idle", listener: () => void): this;
 
-    prependListener(event: 'idle', listener: () => void): this;
+    prependListener(event: "idle", listener: () => void): this;
 
-    prependOnceListener(event: 'idle', listener: () => void): this;
+    prependOnceListener(event: "idle", listener: () => void): this;
 
-    listeners(event: 'idle'): Array<() => void>;
+    listeners(event: "idle"): Array<() => void>;
 }
 
 export = SESTransport;

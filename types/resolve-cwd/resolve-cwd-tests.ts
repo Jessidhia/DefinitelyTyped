@@ -1,7 +1,7 @@
-import resolveCwd = require('resolve-cwd');
+import resolveCwd = require("resolve-cwd");
 
 // $ExpectType string
-resolveCwd('./foo');
+resolveCwd("./foo");
 
 // $ExpectType string | null
-resolveCwd.silent('./foo');
+resolveCwd.silent("./foo");

@@ -4,12 +4,43 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, ReactNode } from 'react';
+import { Component, ReactNode } from "react";
 
-declare function ReactReconciler<Type, Props, Container, Instance, TextInstance, HydratableInstance, PublicInstance, HostContext, UpdatePayload, ChildSet, TimeoutHandle, NoTimeout>(
+declare function ReactReconciler<
+    Type,
+    Props,
+    Container,
+    Instance,
+    TextInstance,
+    HydratableInstance,
+    PublicInstance,
+    HostContext,
+    UpdatePayload,
+    ChildSet,
+    TimeoutHandle,
+    NoTimeout
+>(
     // tslint:disable-next-line:no-unnecessary-generics
-    config: ReactReconciler.HostConfig<Type, Props, Container, Instance, TextInstance, HydratableInstance, PublicInstance, HostContext, UpdatePayload, ChildSet, TimeoutHandle, NoTimeout>,
-): ReactReconciler.Reconciler<Instance, TextInstance, Container, PublicInstance>;
+    config: ReactReconciler.HostConfig<
+        Type,
+        Props,
+        Container,
+        Instance,
+        TextInstance,
+        HydratableInstance,
+        PublicInstance,
+        HostContext,
+        UpdatePayload,
+        ChildSet,
+        TimeoutHandle,
+        NoTimeout
+    >
+): ReactReconciler.Reconciler<
+    Instance,
+    TextInstance,
+    Container,
+    PublicInstance
+>;
 
 declare namespace ReactReconciler {
     // react-reconciler/ReactFiber
@@ -62,7 +93,12 @@ declare namespace ReactReconciler {
 
         // The ref last used to attach this node.
         // I'll avoid adding an owner field for prod and model that as functions.
-        ref: null | (((handle: any) => void) & { _stringRef: string | null | undefined }) | RefObject;
+        ref:
+            | null
+            | (((handle: any) => void) & {
+                  _stringRef: string | null | undefined;
+              })
+            | RefObject;
 
         // Input is the data coming into process this fiber. Arguments. Props.
         pendingProps: any; // This type will be more specific once we overload the tag.
@@ -157,10 +193,27 @@ declare namespace ReactReconciler {
     type OpaqueHandle = Fiber;
     type OpaqueRoot = FiberRoot;
 
-    interface HostConfig<Type, Props, Container, Instance, TextInstance, HydratableInstance, PublicInstance, HostContext, UpdatePayload, ChildSet, TimeoutHandle, NoTimeout> {
+    interface HostConfig<
+        Type,
+        Props,
+        Container,
+        Instance,
+        TextInstance,
+        HydratableInstance,
+        PublicInstance,
+        HostContext,
+        UpdatePayload,
+        ChildSet,
+        TimeoutHandle,
+        NoTimeout
+    > {
         getPublicInstance(instance: Instance | TextInstance): PublicInstance;
         getRootHostContext(rootContainerInstance: Container): HostContext;
-        getChildHostContext(parentHostContext: HostContext, type: Type, rootContainerInstance: Container): HostContext;
+        getChildHostContext(
+            parentHostContext: HostContext,
+            type: Type,
+            rootContainerInstance: Container
+        ): HostContext;
 
         prepareForCommit(containerInfo: Container): void;
         resetAfterCommit(containerInfo: Container): void;
@@ -170,15 +223,18 @@ declare namespace ReactReconciler {
             props: Props,
             rootContainerInstance: Container,
             hostContext: HostContext,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): Instance;
-        appendInitialChild(parentInstance: Instance, child: Instance | TextInstance): void;
+        appendInitialChild(
+            parentInstance: Instance,
+            child: Instance | TextInstance
+        ): void;
         finalizeInitialChildren(
             parentInstance: Instance,
             type: Type,
             props: Props,
             rootContainerInstance: Container,
-            hostContext: HostContext,
+            hostContext: HostContext
         ): boolean;
 
         prepareUpdate(
@@ -187,7 +243,7 @@ declare namespace ReactReconciler {
             oldProps: Props,
             newProps: Props,
             rootContainerInstance: Container,
-            hostContext: HostContext,
+            hostContext: HostContext
         ): null | UpdatePayload;
 
         shouldSetTextContent(type: Type, props: Props): boolean;
@@ -197,16 +253,19 @@ declare namespace ReactReconciler {
             text: string,
             rootContainerInstance: Container,
             hostContext: HostContext,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): TextInstance;
 
         scheduleDeferredCallback(
             callback: () => any,
-            options?: { timeout: number },
+            options?: { timeout: number }
         ): any;
         cancelDeferredCallback(callbackID: any): void;
 
-        setTimeout(handler: (...args: any[]) => void, timeout: number): TimeoutHandle | NoTimeout;
+        setTimeout(
+            handler: (...args: any[]) => void,
+            timeout: number
+        ): TimeoutHandle | NoTimeout;
         clearTimeout(handle: TimeoutHandle | NoTimeout): void;
         noTimeout: NoTimeout;
 
@@ -225,14 +284,24 @@ declare namespace ReactReconciler {
         //      Mutation
         //     (optional)
         // -------------------
-        appendChild?(parentInstance: Instance, child: Instance | TextInstance): void;
-        appendChildToContainer?(container: Container, child: Instance | TextInstance): void;
-        commitTextUpdate?(textInstance: TextInstance, oldText: string, newText: string): void;
+        appendChild?(
+            parentInstance: Instance,
+            child: Instance | TextInstance
+        ): void;
+        appendChildToContainer?(
+            container: Container,
+            child: Instance | TextInstance
+        ): void;
+        commitTextUpdate?(
+            textInstance: TextInstance,
+            oldText: string,
+            newText: string
+        ): void;
         commitMount?(
             instance: Instance,
             type: Type,
             newProps: Props,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): void;
         commitUpdate?(
             instance: Instance,
@@ -240,16 +309,26 @@ declare namespace ReactReconciler {
             type: Type,
             oldProps: Props,
             newProps: Props,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): void;
-        insertBefore?(parentInstance: Instance, child: Instance | TextInstance, beforeChild: Instance | TextInstance): void;
+        insertBefore?(
+            parentInstance: Instance,
+            child: Instance | TextInstance,
+            beforeChild: Instance | TextInstance
+        ): void;
         insertInContainerBefore?(
             container: Container,
             child: Instance | TextInstance,
-            beforeChild: Instance | TextInstance,
+            beforeChild: Instance | TextInstance
         ): void;
-        removeChild?(parentInstance: Instance, child: Instance | TextInstance): void;
-        removeChildFromContainer?(container: Container, child: Instance | TextInstance): void;
+        removeChild?(
+            parentInstance: Instance,
+            child: Instance | TextInstance
+        ): void;
+        removeChildFromContainer?(
+            container: Container,
+            child: Instance | TextInstance
+        ): void;
         resetTextContent?(instance: Instance): void;
 
         // -------------------
@@ -264,77 +343,100 @@ declare namespace ReactReconciler {
             newProps: Props,
             internalInstanceHandle: OpaqueHandle,
             keepChildren: boolean,
-            recyclableInstance: Instance,
+            recyclableInstance: Instance
         ): Instance;
 
         createContainerChildSet?(container: Container): ChildSet;
 
-        appendChildToContainerChildSet?(childSet: ChildSet, child: Instance | TextInstance): void;
-        finalizeContainerChildren?(container: Container, newChildren: ChildSet): void;
+        appendChildToContainerChildSet?(
+            childSet: ChildSet,
+            child: Instance | TextInstance
+        ): void;
+        finalizeContainerChildren?(
+            container: Container,
+            newChildren: ChildSet
+        ): void;
 
-        replaceContainerChildren?(container: Container, newChildren: ChildSet): void;
+        replaceContainerChildren?(
+            container: Container,
+            newChildren: ChildSet
+        ): void;
 
         // -------------------
         //     Hydration
         //     (optional)
         // -------------------
-        canHydrateInstance?(instance: HydratableInstance, type: Type, props: Props): null | Instance;
-        canHydrateTextInstance?(instance: HydratableInstance, text: string): null | TextInstance;
-        getNextHydratableSibling?(instance: Instance | TextInstance | HydratableInstance): null | HydratableInstance;
-        getFirstHydratableChild?(parentInstance: Instance | Container): null | HydratableInstance;
+        canHydrateInstance?(
+            instance: HydratableInstance,
+            type: Type,
+            props: Props
+        ): null | Instance;
+        canHydrateTextInstance?(
+            instance: HydratableInstance,
+            text: string
+        ): null | TextInstance;
+        getNextHydratableSibling?(
+            instance: Instance | TextInstance | HydratableInstance
+        ): null | HydratableInstance;
+        getFirstHydratableChild?(
+            parentInstance: Instance | Container
+        ): null | HydratableInstance;
         hydrateInstance?(
             instance: Instance,
             type: Type,
             props: Props,
             rootContainerInstance: Container,
             hostContext: HostContext,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): null | UpdatePayload;
         hydrateTextInstance?(
             textInstance: TextInstance,
             text: string,
-            internalInstanceHandle: OpaqueHandle,
+            internalInstanceHandle: OpaqueHandle
         ): boolean;
         didNotMatchHydratedContainerTextInstance?(
             parentContainer: Container,
             textInstance: TextInstance,
-            text: string,
+            text: string
         ): void;
         didNotMatchHydratedTextInstance?(
             parentType: Type,
             parentProps: Props,
             parentInstance: Instance,
             textInstance: TextInstance,
-            text: string,
+            text: string
         ): void;
-        didNotHydrateContainerInstance?(parentContainer: Container, instance: Instance | TextInstance): void;
+        didNotHydrateContainerInstance?(
+            parentContainer: Container,
+            instance: Instance | TextInstance
+        ): void;
         didNotHydrateInstance?(
             parentType: Type,
             parentProps: Props,
             parentInstance: Instance,
-            instance: Instance | TextInstance,
+            instance: Instance | TextInstance
         ): void;
         didNotFindHydratableContainerInstance?(
             parentContainer: Container,
             type: Type,
-            props: Props,
+            props: Props
         ): void;
         didNotFindHydratableContainerTextInstance?(
             parentContainer: Container,
-            text: string,
+            text: string
         ): void;
         didNotFindHydratableInstance?(
             parentType: Type,
             parentProps: Props,
             parentInstance: Instance,
             type: Type,
-            props: Props,
+            props: Props
         ): void;
         didNotFindHydratableTextInstance?(
             parentType: Type,
             parentProps: Props,
             parentInstance: Instance,
-            text: string,
+            text: string
         ): void;
     }
 
@@ -361,18 +463,18 @@ declare namespace ReactReconciler {
             container: OpaqueRoot,
             parentComponent: Component<any, any> | null | undefined,
             expirationTime: ExpirationTime,
-            callback: () => void | null | undefined,
+            callback: () => void | null | undefined
         ): ExpirationTime;
         createContainer(
             containerInfo: Container,
             isConcurrent: boolean,
-            hydrate: boolean,
+            hydrate: boolean
         ): OpaqueRoot;
         updateContainer(
             element: ReactNodeList,
             container: OpaqueRoot,
             parentComponent: Component<any, any> | null | undefined,
-            callback: () => void | null | undefined,
+            callback: () => void | null | undefined
         ): ExpirationTime;
         flushRoot(root: OpaqueRoot, expirationTime: ExpirationTime): void;
         requestWork(root: OpaqueRoot, expirationTime: ExpirationTime): void;
@@ -388,7 +490,7 @@ declare namespace ReactReconciler {
 
         // Used to extract the return value from the initial render. Legacy API.
         getPublicRootInstance(
-            container: OpaqueRoot,
+            container: OpaqueRoot
         ): Component<any, any> | PublicInstance | null;
 
         // Use for findDOMNode/findHostNode. Legacy API.
@@ -396,7 +498,9 @@ declare namespace ReactReconciler {
 
         // Used internally for filtering out portals. Legacy API.
         findHostInstanceWithNoPortals(component: Fiber): PublicInstance | null;
-        injectIntoDevTools(devToolsConfig: DevToolsConfig<Instance, TextInstance>): boolean;
+        injectIntoDevTools(
+            devToolsConfig: DevToolsConfig<Instance, TextInstance>
+        ): boolean;
     }
 
     // react-reconciler/ReactFiberRoot
@@ -435,9 +539,9 @@ declare namespace ReactReconciler {
         latestPingedTime: ExpirationTime;
 
         pingCache:
-          | WeakMap<Thenable, Set<ExpirationTime>>
-          | Map<Thenable, Set<ExpirationTime>>
-          | null;
+            | WeakMap<Thenable, Set<ExpirationTime>>
+            | Map<Thenable, Set<ExpirationTime>>
+            | null;
 
         // If an error is thrown, and there are no more updates in the queue, we try
         // rendering from the root one more time, synchronously, before handling

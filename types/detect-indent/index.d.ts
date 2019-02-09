@@ -11,7 +11,7 @@ declare function detectIndent(str: string): detectIndent.IndentInfo;
 declare namespace detectIndent {
     interface IndentInfo {
         amount: number;
-        type: 'tab' | 'space' | null;
+        type: "tab" | "space" | null;
         indent: string;
     }
 }

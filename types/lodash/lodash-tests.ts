@@ -13,13 +13,28 @@ const abcObject: AbcObject = anything;
 const array: AbcObject[] | null | undefined = anything;
 const list: _.List<AbcObject> | null | undefined = anything;
 const dictionary: _.Dictionary<AbcObject> | null | undefined = anything;
-const numericDictionary: _.NumericDictionary<AbcObject> | null | undefined = anything;
+const numericDictionary:
+    | _.NumericDictionary<AbcObject>
+    | null
+    | undefined = anything;
 const arrayParam: AbcObject[] = [];
 const listParam: _.List<AbcObject> = [];
 const comparator = (a: AbcObject, b: AbcObject) => true;
-const listIterator = (value: AbcObject, index: number, collection: _.List<AbcObject>) => true;
-const dictionaryIterator = (value: AbcObject, key: string, collection: _.Dictionary<AbcObject>) => true;
-const numericDictionaryIterator = (value: AbcObject, key: string, collection: _.NumericDictionary<AbcObject>) => true;
+const listIterator = (
+    value: AbcObject,
+    index: number,
+    collection: _.List<AbcObject>
+) => true;
+const dictionaryIterator = (
+    value: AbcObject,
+    key: string,
+    collection: _.Dictionary<AbcObject>
+) => true;
+const numericDictionaryIterator = (
+    value: AbcObject,
+    key: string,
+    collection: _.NumericDictionary<AbcObject>
+) => true;
 const valueIterator = (value: AbcObject) => true;
 const stringIterator = (value: string) => "";
 
@@ -62,7 +77,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.compact
 {
-    const list: _.List<AbcObject | null | undefined | false | "" | 0> | null | undefined = anything;
+    const list:
+        | _.List<AbcObject | null | undefined | false | "" | 0>
+        | null
+        | undefined = anything;
 
     _.compact(list); // $ExpectType AbcObject[]
     _(list).compact(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
@@ -92,63 +110,270 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 {
     _.differenceBy(list); // $ExpectType AbcObject[]
     _.differenceBy(list, listParam); // $ExpectType AbcObject[]
-    _.differenceBy(list, arrayParam, listParam, arrayParam, listParam, arrayParam, listParam); // $ExpectType AbcObject[]
+    _.differenceBy(
+        list,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam
+    ); // $ExpectType AbcObject[]
 
     _.differenceBy(list, listParam, valueIterator); // $ExpectType AbcObject[]
-    _.differenceBy(list, listParam, arrayParam, listParam, arrayParam, listParam, valueIterator); // $ExpectType AbcObject[]
+    _.differenceBy(
+        list,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        valueIterator
+    ); // $ExpectType AbcObject[]
     // $ExpectType AbcObject[]
-    _.differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(list, arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, valueIterator);
+    _.differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(
+        list,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        valueIterator
+    );
 
     _.differenceBy(list, listParam, "a"); // $ExpectType AbcObject[]
-    _.differenceBy(list, listParam, arrayParam, listParam, arrayParam, listParam, "a"); // $ExpectType AbcObject[]
+    _.differenceBy(
+        list,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        "a"
+    ); // $ExpectType AbcObject[]
     // $ExpectType AbcObject[]
-    _.differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(list, arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, "a");
+    _.differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(
+        list,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        "a"
+    );
 
-    _.differenceBy(list, listParam, {a: 1}); // $ExpectType AbcObject[]
-    _.differenceBy(list, listParam, arrayParam, listParam, arrayParam, listParam, {a: 1}); // $ExpectType AbcObject[]
+    _.differenceBy(list, listParam, { a: 1 }); // $ExpectType AbcObject[]
+    _.differenceBy(
+        list,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        { a: 1 }
+    ); // $ExpectType AbcObject[]
     // $ExpectType AbcObject[]
-    _.differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(list, arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, {a: 1});
+    _.differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(
+        list,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        { a: 1 }
+    );
 
     _(list).differenceBy(listParam); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceBy(
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam
+    ); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _(list).differenceBy(listParam, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy(listParam, arrayParam, listParam, arrayParam, listParam, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceBy(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        valueIterator
+    ); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, valueIterator);
+    _(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        valueIterator
+    );
 
     _(list).differenceBy(listParam, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy(listParam, arrayParam, listParam, arrayParam, listParam, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceBy(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        "a"
+    ); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, "a");
+    _(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, "a");
 
-    _(list).differenceBy(listParam, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy(listParam, arrayParam, listParam, arrayParam, listParam, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceBy(listParam, { a: 1 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceBy(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        { a: 1 }
+    ); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, {a: 1});
+    _(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(arrayParam, listParam, arrayParam, listParam, arrayParam, listParam, {
+        a: 1
+    });
 
     _.chain(list).differenceBy(arrayParam); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceBy(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam
+    ); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     _.chain(list).differenceBy(arrayParam, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy(arrayParam, listParam, arrayParam, listParam, arrayParam, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceBy(
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        valueIterator
+    ); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, valueIterator);
+    _.chain(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        valueIterator
+    );
 
     _.chain(list).differenceBy(arrayParam, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy(arrayParam, listParam, arrayParam, listParam, arrayParam, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceBy(
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        "a"
+    ); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, "a");
+    _.chain(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, "a");
 
-    _.chain(list).differenceBy(arrayParam, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy(arrayParam, listParam, arrayParam, listParam, arrayParam, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceBy(arrayParam, { a: 1 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceBy(
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        { a: 1 }
+    ); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceBy<AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject, AbcObject>(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, {a: 1});
+    _.chain(list).differenceBy<
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject,
+        AbcObject
+    >(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, {
+        a: 1
+    });
 
     fp.differenceBy(valueIterator, list, arrayParam); // $ExpectType AbcObject[]
     fp.differenceBy<AbcObject, AbcObject>(valueIterator)(list)(listParam); // $ExpectType AbcObject[]
     fp.differenceBy("a", list, arrayParam); // $ExpectType AbcObject[]
-    fp.differenceBy({a: 1}, list, arrayParam); // $ExpectType AbcObject[]
+    fp.differenceBy({ a: 1 }, list, arrayParam); // $ExpectType AbcObject[]
 
     {
         interface T1 {
@@ -176,22 +401,22 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         // $ExpectType T1[]
         _.differenceBy([t1], [t2], "name");
         // $ExpectType T1[]
-        _.differenceBy([t1], [t2], (value) => {
+        _.differenceBy([t1], [t2], value => {
             value; // $ExpectType T1 | T2
             return 0;
         });
         // $ExpectType T1[]
-        _.differenceBy([t1], [t2, t3], (value) => {
+        _.differenceBy([t1], [t2, t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType (T1 | T2)[]
-        _.differenceBy([t1, t2], [t3], (value) => {
+        _.differenceBy([t1, t2], [t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType T1[]
-        _.differenceBy([t1], [t2], [t3], [t4], [""], [42], (value) => {
+        _.differenceBy([t1], [t2], [t3], [t4], [""], [42], value => {
             value; // $ExpectType string | number | T1 | T2 | T3 | T4
             return 0;
         });
@@ -199,22 +424,22 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         // $ExpectType LoDashImplicitWrapper<T1[]>
         _([t1]).differenceBy([t2], "name");
         // $ExpectType LoDashImplicitWrapper<T1[]>
-        _([t1]).differenceBy([t2], (value) => {
+        _([t1]).differenceBy([t2], value => {
             value; // $ExpectType T1 | T2
             return 0;
         });
         // $ExpectType LoDashImplicitWrapper<T1[]>
-        _([t1]).differenceBy([t2, t3], (value) => {
+        _([t1]).differenceBy([t2, t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType LoDashImplicitWrapper<(T1 | T2)[]>
-        _([t1, t2]).differenceBy([t3], (value) => {
+        _([t1, t2]).differenceBy([t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType LoDashImplicitWrapper<T1[]>
-        _([t1]).differenceBy([t2], [t3], [t4], [""], [42], (value) => {
+        _([t1]).differenceBy([t2], [t3], [t4], [""], [42], value => {
             value; // $ExpectType string | number | T1 | T2 | T3 | T4
             return 0;
         });
@@ -222,22 +447,22 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         // $ExpectType LoDashExplicitWrapper<T1[]>
         _.chain([t1]).differenceBy([t2], "name");
         // $ExpectType LoDashExplicitWrapper<T1[]>
-        _.chain([t1]).differenceBy([t2], (value) => {
+        _.chain([t1]).differenceBy([t2], value => {
             value; // $ExpectType T1 | T2
             return 0;
         });
         // $ExpectType LoDashExplicitWrapper<T1[]>
-        _.chain([t1]).differenceBy([t2, t3], (value) => {
+        _.chain([t1]).differenceBy([t2, t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType LoDashExplicitWrapper<(T1 | T2)[]>
-        _.chain([t1, t2]).differenceBy([t3], (value) => {
+        _.chain([t1, t2]).differenceBy([t3], value => {
             value; // $ExpectType T1 | T2 | T3
             return 0;
         });
         // $ExpectType LoDashExplicitWrapper<T1[]>
-        _.chain([t1]).differenceBy([t2], [t3], [t4], [""], [42], (value) => {
+        _.chain([t1]).differenceBy([t2], [t3], [t4], [""], [42], value => {
             value; // $ExpectType string | number | T1 | T2 | T3 | T4
             return 0;
         });
@@ -252,13 +477,38 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 {
     _.differenceWith(list); // $ExpectType AbcObject[]
     _.differenceWith(list, arrayParam, comparator); // $ExpectType AbcObject[]
-    _.differenceWith(list, listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, comparator); // $ExpectType AbcObject[]
+    _.differenceWith(
+        list,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        comparator
+    ); // $ExpectType AbcObject[]
 
     _(list).differenceWith(arrayParam, comparator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).differenceWith(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, comparator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).differenceWith(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        comparator
+    ); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _.chain(list).differenceWith(arrayParam, comparator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).differenceWith(listParam, arrayParam, listParam, arrayParam, listParam, arrayParam, comparator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).differenceWith(
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        listParam,
+        arrayParam,
+        comparator
+    ); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.differenceWith(comparator, list, arrayParam); // $ExpectType AbcObject[]
     fp.differenceWith(comparator)(list)(arrayParam); // $ExpectType AbcObject[]
@@ -329,17 +579,17 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.dropWhile(list); // $ExpectType AbcObject[]
     _.dropWhile(list, listIterator); // $ExpectType AbcObject[]
     _.dropWhile(list, ""); // $ExpectType AbcObject[]
-    _.dropWhile(list, {a: 42}); // $ExpectType AbcObject[]
+    _.dropWhile(list, { a: 42 }); // $ExpectType AbcObject[]
 
     _(list).dropWhile(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).dropWhile(listIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).dropWhile(""); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).dropWhile({a: 42}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).dropWhile({ a: 42 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _.chain(list).dropWhile(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).dropWhile(listIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).dropWhile(""); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).dropWhile({a: 42}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).dropWhile({ a: 42 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.dropWhile(valueIterator, list); // $ExpectType AbcObject[]
     fp.dropWhile(valueIterator)(list); // $ExpectType AbcObject[]
@@ -349,17 +599,17 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.dropRightWhile(list); // $ExpectType AbcObject[]
     _.dropRightWhile(list, listIterator); // $ExpectType AbcObject[]
     _.dropRightWhile(list, ""); // $ExpectType AbcObject[]
-    _.dropRightWhile(list, {a: 42}); // $ExpectType AbcObject[]
+    _.dropRightWhile(list, { a: 42 }); // $ExpectType AbcObject[]
 
     _(list).dropRightWhile(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).dropRightWhile(listIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).dropRightWhile(""); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).dropRightWhile({a: 42}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).dropRightWhile({ a: 42 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _.chain(list).dropRightWhile(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).dropRightWhile(listIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).dropRightWhile(""); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).dropRightWhile({a: 42}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).dropRightWhile({ a: 42 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.dropRightWhile(valueIterator, list); // $ExpectType AbcObject[]
     fp.dropRightWhile(valueIterator)(list); // $ExpectType AbcObject[]
@@ -396,19 +646,19 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.findIndex(list); // $ExpectType number
     _.findIndex(list, listIterator); // $ExpectType number
     _.findIndex(list, ""); // $ExpectType number
-    _.findIndex(list, {a: 42}); // $ExpectType number
+    _.findIndex(list, { a: 42 }); // $ExpectType number
     _.findIndex(list, listIterator, 1); // $ExpectType number
 
     _(list).findIndex(); // $ExpectType number
     _(list).findIndex(listIterator); // $ExpectType number
     _(list).findIndex(""); // $ExpectType number
-    _(list).findIndex<{a: number}>({a: 42}); // $ExpectType number
+    _(list).findIndex<{ a: number }>({ a: 42 }); // $ExpectType number
     _(list).findIndex(listIterator, 1); // $ExpectType number
 
     _.chain(list).findIndex(); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findIndex(listIterator); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findIndex(""); // $ExpectType LoDashExplicitWrapper<number>
-    _.chain(list).findIndex<{a: number}>({a: 42}); // $ExpectType LoDashExplicitWrapper<number>
+    _.chain(list).findIndex<{ a: number }>({ a: 42 }); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findIndex(listIterator, 1); // $ExpectType LoDashExplicitWrapper<number>
 
     fp.findIndex(valueIterator, list); // $ExpectType number
@@ -424,19 +674,19 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.findLastIndex(list); // $ExpectType number
     _.findLastIndex(list, listIterator); // $ExpectType number
     _.findLastIndex(list, ""); // $ExpectType number
-    _.findLastIndex(list, {a: 42}); // $ExpectType number
+    _.findLastIndex(list, { a: 42 }); // $ExpectType number
     _.findLastIndex(list, listIterator, 1); // $ExpectType number
 
     _(list).findLastIndex(); // $ExpectType number
     _(list).findLastIndex(listIterator); // $ExpectType number
     _(list).findLastIndex(""); // $ExpectType number
-    _(list).findLastIndex<{a: number}>({a: 42}); // $ExpectType number
+    _(list).findLastIndex<{ a: number }>({ a: 42 }); // $ExpectType number
     _(list).findLastIndex(listIterator, 1); // $ExpectType number
 
     _.chain(list).findLastIndex(); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findLastIndex(listIterator); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findLastIndex(""); // $ExpectType LoDashExplicitWrapper<number>
-    _.chain(list).findLastIndex<{a: number}>({a: 42}); // $ExpectType LoDashExplicitWrapper<number>
+    _.chain(list).findLastIndex<{ a: number }>({ a: 42 }); // $ExpectType LoDashExplicitWrapper<number>
     _.chain(list).findLastIndex(listIterator, 1); // $ExpectType LoDashExplicitWrapper<number>
 
     fp.findLastIndex(valueIterator, list); // $ExpectType number
@@ -470,22 +720,22 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.flatten("abc"); // $ExpectType string[]
     _.flatten([1, 2, 3]); // $ExpectType number[]
     _.flatten([1, [2, 3]]); // $ExpectType number[]
-    _.flatten({0: 1, 1: [2, 3], length: 2}); // $ExpectType number[]
+    _.flatten({ 0: 1, 1: [2, 3], length: 2 }); // $ExpectType number[]
 
     _("abc").flatten(); // $ExpectType LoDashImplicitWrapper<string[]>
     _([1, 2, 3]).flatten(); // $ExpectType LoDashImplicitWrapper<number[]>
     _([1, [2, 3]]).flatten(); // $ExpectType LoDashImplicitWrapper<number[]>
-    _({0: 1, 1: [2, 3], length: 2}).flatten(); // $ExpectType LoDashImplicitWrapper<number[]>
+    _({ 0: 1, 1: [2, 3], length: 2 }).flatten(); // $ExpectType LoDashImplicitWrapper<number[]>
 
     _.chain("abc").flatten(); // $ExpectType LoDashExplicitWrapper<string[]>
     _.chain([1, 2, 3]).flatten(); // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain([1, [2, 3]]).flatten(); // $ExpectType LoDashExplicitWrapper<number[]>
-    _.chain({0: 1, 1: [2, 3], length: 2}).flatten(); // $ExpectType LoDashExplicitWrapper<number[]>
+    _.chain({ 0: 1, 1: [2, 3], length: 2 }).flatten(); // $ExpectType LoDashExplicitWrapper<number[]>
 
     fp.flatten("abc"); // $ExpectType string[]
     fp.flatten([1, 2, 3]); // $ExpectType number[]
     fp.flatten([1, [2, 3]]); // $ExpectType number[]
-    fp.flatten({0: 1, 1: [2, 3], length: 2}); // $ExpectType number[]
+    fp.flatten({ 0: 1, 1: [2, 3], length: 2 }); // $ExpectType number[]
     fp.unnest([1, [2, 3]]); // $ExpectType number[]
 }
 
@@ -493,25 +743,28 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 {
     _.flattenDeep<number>([1, 2, 3]); // $ExpectType number[]
     _.flattenDeep<number>([1, [2, [3, [4, 5]]]]); // $ExpectType number[]
-    _.flattenDeep<number>({0: 1, 1: [2, [3, [4, 5]]], length: 2}); // $ExpectType number[]
+    _.flattenDeep<number>({ 0: 1, 1: [2, [3, [4, 5]]], length: 2 }); // $ExpectType number[]
 
     _([1, 2, 3]).flattenDeep<number>(); // $ExpectType LoDashImplicitWrapper<number[]>
     _([1, [2, [3, [4, 5]]]]).flattenDeep<number>(); // $ExpectType LoDashImplicitWrapper<number[]>
-    _({0: 1, 1: [2, [3, [4, 5]]], length: 2}).flattenDeep<number>(); // $ExpectType LoDashImplicitWrapper<number[]>
+    _({ 0: 1, 1: [2, [3, [4, 5]]], length: 2 }).flattenDeep<number>(); // $ExpectType LoDashImplicitWrapper<number[]>
 
     _.chain([1, 2, 3]).flattenDeep<number>(); // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain([1, [2, [3, [4, 5]]]]).flattenDeep<number>(); // $ExpectType LoDashExplicitWrapper<number[]>
-    _.chain({0: 1, 1: [2, [3, [4, 5]]], length: 2}).flattenDeep<number>(); // $ExpectType LoDashExplicitWrapper<number[]>
+    _.chain({ 0: 1, 1: [2, [3, [4, 5]]], length: 2 }).flattenDeep<number>(); // $ExpectType LoDashExplicitWrapper<number[]>
 
     fp.flattenDeep<number>([1, 2, 3]); // $ExpectType number[]
     fp.flattenDeep<number>([1, [2, [3, [4, 5]]]]); // $ExpectType number[]
-    fp.flattenDeep<number>({0: 1, 1: [2, [3, [4, 5]]], length: 2}); // $ExpectType number[]
+    fp.flattenDeep<number>({ 0: 1, 1: [2, [3, [4, 5]]], length: 2 }); // $ExpectType number[]
 }
 
 // _.fromPairs
 {
     const twoDimensionalArray: string[][] | null | undefined = anything;
-    const numberTupleArray: Array<[string, number]> | null | undefined = anything;
+    const numberTupleArray:
+        | Array<[string, number]>
+        | null
+        | undefined = anything;
 
     _.fromPairs(twoDimensionalArray); // $ExpectType Dictionary<any>
     _.fromPairs(numberTupleArray); // $ExpectType Dictionary<number>
@@ -605,12 +858,12 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.intersectionBy(list, list, list, { a: 42 }); // $ExpectType AbcObject[]
     _.intersectionBy(list, list, ["a", 42]); // $ExpectType AbcObject[]
     // $ExpectType AbcObject[]
-    _.intersectionBy(list, list, (value) => {
+    _.intersectionBy(list, list, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
     // $ExpectType AbcObject[]
-    _.intersectionBy(list, list, list, (value) => {
+    _.intersectionBy(list, list, list, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
@@ -620,7 +873,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _(list).intersectionBy(list, list, { a: 42 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).intersectionBy(list, ["a", 42]); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).intersectionBy(list, (value) => {
+    _(list).intersectionBy(list, value => {
         value; // $ExpectType AbcObject
         return 1;
     });
@@ -630,7 +883,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.chain(list).intersectionBy(list, list, { a: 42 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).intersectionBy(list, ["a", 42]); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).intersectionBy(list, (value) => {
+    _.chain(list).intersectionBy(list, value => {
         value; // $ExpectType AbcObject
         return null;
     });
@@ -652,17 +905,17 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     const t1: T1 = { a: "a", b: "b" };
     const t2: T2 = { a: "a", b: 1 };
     // $ExpectType T1[]
-    _.intersectionBy([t1], [t2], (value) => {
+    _.intersectionBy([t1], [t2], value => {
         value; // $ExpectType T1 | T2
         return undefined;
     });
     // $ExpectType LoDashImplicitWrapper<T1[]>
-    _([t1]).intersectionBy([t2], (value) => {
+    _([t1]).intersectionBy([t2], value => {
         value; // $ExpectType T1 | T2
         return {};
     });
     // $ExpectType LoDashExplicitWrapper<T1[]>
-    _.chain([t1]).intersectionBy([t2], (value) => {
+    _.chain([t1]).intersectionBy([t2], value => {
         value; // $ExpectType T1 | T2
         return {};
     });
@@ -887,7 +1140,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.pullAllBy(array); // $ExpectType AbcObject[]
     _.pullAllBy(array, values, "a"); // $ExpectType AbcObject[]
     // $ExpectType AbcObject[]
-    _.pullAllBy(array, values, (value) => {
+    _.pullAllBy(array, values, value => {
         value; // $ExpectType AbcObject
         return [];
     });
@@ -898,7 +1151,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.pullAllBy(list, values, { a: 42 }); // $ExpectType ArrayLike<AbcObject>
     _.pullAllBy(list, values, ["a", 42]); // $ExpectType ArrayLike<AbcObject>
     // $ExpectType ArrayLike<AbcObject>
-    _.pullAllBy(list, values, (value) => {
+    _.pullAllBy(list, values, value => {
         value; // $ExpectType AbcObject
         return () => {};
     });
@@ -906,14 +1159,14 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _(array).pullAllBy(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(array).pullAllBy(values, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(array).pullAllBy(values, (value) => {
+    _(array).pullAllBy(values, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
     _(list).pullAllBy(); // $ExpectType LoDashImplicitWrapper<ArrayLike<AbcObject>>
     _(list).pullAllBy(values, "a"); // $ExpectType LoDashImplicitWrapper<ArrayLike<AbcObject>>
     // $ExpectType LoDashImplicitWrapper<ArrayLike<AbcObject>>
-    _(list).pullAllBy(values, (value) => {
+    _(list).pullAllBy(values, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
@@ -921,14 +1174,14 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.chain(array).pullAllBy(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(array).pullAllBy(values, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(array).pullAllBy(values, (value) => {
+    _.chain(array).pullAllBy(values, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
     _.chain(list).pullAllBy(); // $ExpectType LoDashExplicitWrapper<ArrayLike<AbcObject>>
     _.chain(list).pullAllBy(values, "a"); // $ExpectType LoDashExplicitWrapper<ArrayLike<AbcObject>>
     // $ExpectType LoDashExplicitWrapper<ArrayLike<AbcObject>>
-    _.chain(list).pullAllBy(values, (value) => {
+    _.chain(list).pullAllBy(values, value => {
         value; // $ExpectType AbcObject
         return 0;
     });
@@ -959,17 +1212,17 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     const t1: T1 = { a: "a", b: "b" };
     const t2: T2 = { a: "a", b: 1 };
     // $ExpectType T1[]
-    _.pullAllBy([t1], [t2], (value) => {
+    _.pullAllBy([t1], [t2], value => {
         value; // $ExpectType T1 | T2
         return "";
     });
     // $ExpectType LoDashImplicitWrapper<T1[]>
-    _([t1]).pullAllBy([t2], (value) => {
+    _([t1]).pullAllBy([t2], value => {
         value; // $ExpectType T1 | T2
         return "";
     });
     // $ExpectType LoDashExplicitWrapper<T1[]>
-    _.chain([t1]).pullAllBy([t2], (value) => {
+    _.chain([t1]).pullAllBy([t2], value => {
         value; // $ExpectType T1 | T2
         return "";
     });
@@ -1239,24 +1492,24 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.unionBy(list, list, list, list, list, list, valueIterator); // $ExpectType AbcObject[]
     _.unionBy(list, list, "a"); // $ExpectType AbcObject[]
     _.unionBy(list, list, list, list, list, list, "a"); // $ExpectType AbcObject[]
-    _.unionBy(list, list, {a: 1}); // $ExpectType AbcObject[]
-    _.unionBy(list, list, list, list, list, list, {a: 1}); // $ExpectType AbcObject[]
+    _.unionBy(list, list, { a: 1 }); // $ExpectType AbcObject[]
+    _.unionBy(list, list, list, list, list, list, { a: 1 }); // $ExpectType AbcObject[]
 
     _(list).unionBy(list); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).unionBy(list, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).unionBy(list, list, list, list, list, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).unionBy(list, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).unionBy(list, list, list, list, list, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).unionBy(list, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).unionBy(list, list, list, list, list, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).unionBy(list, { a: 1 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).unionBy(list, list, list, list, list, { a: 1 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _.chain(list).unionBy(list); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).unionBy(list, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).unionBy(list, list, list, list, list, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).unionBy(list, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).unionBy(list, list, list, list, list, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).unionBy(list, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).unionBy(list, list, list, list, list, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).unionBy(list, { a: 1 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).unionBy(list, list, list, list, list, { a: 1 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.unionBy(valueIterator, list, list); // $ExpectType AbcObject[]
     fp.unionBy(valueIterator)(list)(list); // $ExpectType AbcObject[]
@@ -1401,24 +1654,24 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.xorBy(list, list, list, list, list, list, valueIterator); // $ExpectType AbcObject[]
     _.xorBy(list, list, "a"); // $ExpectType AbcObject[]
     _.xorBy(list, list, list, list, list, list, "a"); // $ExpectType AbcObject[]
-    _.xorBy(list, list, {a: 1}); // $ExpectType AbcObject[]
-    _.xorBy(list, list, list, list, list, list, {a: 1}); // $ExpectType AbcObject[]
+    _.xorBy(list, list, { a: 1 }); // $ExpectType AbcObject[]
+    _.xorBy(list, list, list, list, list, list, { a: 1 }); // $ExpectType AbcObject[]
 
     _(list).xorBy(list); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).xorBy(list, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).xorBy(list, list, list, list, list, valueIterator); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).xorBy(list, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     _(list).xorBy(list, list, list, list, list, "a"); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).xorBy(list, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).xorBy(list, list, list, list, list, {a: 1}); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).xorBy(list, { a: 1 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).xorBy(list, list, list, list, list, { a: 1 }); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
 
     _.chain(list).xorBy(list); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).xorBy(list, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).xorBy(list, list, list, list, list, valueIterator); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).xorBy(list, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     _.chain(list).xorBy(list, list, list, list, list, "a"); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).xorBy(list, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).xorBy(list, list, list, list, list, {a: 1}); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).xorBy(list, { a: 1 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).xorBy(list, list, list, list, list, { a: 1 }); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.xorBy(valueIterator, list, list); // $ExpectType AbcObject[]
     fp.xorBy(valueIterator)(list)(list); // $ExpectType AbcObject[]
@@ -1457,8 +1710,8 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
     _.zipObject(["a", "b"], [1, 2]); // $ExpectType Dictionary<number>
     _.zipObject(listOfKeys, listOfValues); // $ExpectType Dictionary<boolean>
-     _(listOfKeys).zipObject(listOfValues); // $ExpectType LoDashImplicitWrapper<Dictionary<boolean>>
-     _.chain(listOfKeys).zipObject(listOfValues); // $ExpectType LoDashExplicitWrapper<Dictionary<boolean>>
+    _(listOfKeys).zipObject(listOfValues); // $ExpectType LoDashImplicitWrapper<Dictionary<boolean>>
+    _.chain(listOfKeys).zipObject(listOfValues); // $ExpectType LoDashExplicitWrapper<Dictionary<boolean>>
     fp.zipObject(["a", "b"], [1, 2]); // $ExpectType Dictionary<number>
     fp.zipObject(listOfKeys)(listOfValues); // $ExpectType Dictionary<boolean>
 
@@ -1473,7 +1726,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 // _.zipWith
 {
     // $ExpectType string[]
-    _.zipWith([1, 2], (value1) => {
+    _.zipWith([1, 2], value1 => {
         value1; // $ExpectType number
         return "";
     });
@@ -1484,15 +1737,23 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         return "";
     });
     // $ExpectType string[]
-    _.zipWith([1, 2], [1, 2], [1, 2], [1, 2], [1, 2], [1, 2], (value1, value2, value3, value4, value5, value6) => {
-        value1; // $ExpectType number
-        value2; // $ExpectType number
-        value3; // $ExpectType number
-        value4; // $ExpectType number
-        value5; // $ExpectType number
-        value6; // $ExpectType number
-        return "";
-    });
+    _.zipWith(
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        (value1, value2, value3, value4, value5, value6) => {
+            value1; // $ExpectType number
+            value2; // $ExpectType number
+            value3; // $ExpectType number
+            value4; // $ExpectType number
+            value5; // $ExpectType number
+            value6; // $ExpectType number
+            return "";
+        }
+    );
     // $ExpectType string[]
     _.zipWith([1, 2], [1, 2], [1, 2], [1, 2], [1, 2], [1, 2], (...group) => {
         group; // $ExpectType number[]
@@ -1510,7 +1771,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.zipWith(...values, (...group: number[]) => ""); // $ExpectType string[]
 
     // $ExpectType LoDashImplicitWrapper<string[]>
-    _([1, 2]).zipWith((value1) => {
+    _([1, 2]).zipWith(value1 => {
         value1; // $ExpectType number
         return "";
     });
@@ -1534,22 +1795,33 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     });
 
     // $ExpectType LoDashExplicitWrapper<string[]>
-    _.chain([1, 2]).zipWith((value1) => {
+    _.chain([1, 2]).zipWith(value1 => {
         value1; // $ExpectType number
         return "";
     });
     // $ExpectType LoDashExplicitWrapper<string[]>
-    _.chain([1, 2]).zipWith([1, 2], [1, 2], [1, 2], [1, 2], [1, 2], (...group) => {
-        group; // $ExpectType number[]
-        return "";
-    });
+    _.chain([1, 2]).zipWith(
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2],
+        (...group) => {
+            group; // $ExpectType number[]
+            return "";
+        }
+    );
     // $ExpectType LoDashExplicitWrapper<string[]>
-    _.chain([1, 2]).zipWith(["a", "b"], [true, false], (value1, value2, value3) => {
-        value1; // $ExpectType number
-        value2; // $ExpectType string
-        value3; // $ExpectType boolean
-        return "";
-    });
+    _.chain([1, 2]).zipWith(
+        ["a", "b"],
+        [true, false],
+        (value1, value2, value3) => {
+            value1; // $ExpectType number
+            value2; // $ExpectType string
+            value3; // $ExpectType boolean
+            return "";
+        }
+    );
 
     fp.zipWith((value1, value2) => "a", [1, 2], [1, 2]); // $ExpectType string[]
     fp.zipWith((value1: number, value2: number) => "a")([1, 2])([1, 2]); // $ExpectType string[]
@@ -1725,7 +1997,8 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.filter
 {
-    const stringIterator = (char: string, index: number, string: string) => true;
+    const stringIterator = (char: string, index: number, string: string) =>
+        true;
 
     _.filter("", stringIterator); // $ExpectType string[]
     _.filter(list, listIterator); // $ExpectType AbcObject[]
@@ -1773,17 +2046,37 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     const a2: Array<string | number> | null | undefined = anything;
     const d2: _.Dictionary<string | number> | null | undefined = anything;
 
-    _.filter(a2, (item: string | number): item is number => typeof item === "number"); // $ExpectType number[]
-    _.filter(d2, (item: string | number): item is number => typeof item === "number"); // $ExpectType number[]
+    _.filter(
+        a2,
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType number[]
+    _.filter(
+        d2,
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType number[]
 
-    _(a2).filter((item: string | number): item is number => typeof item === "number"); // $ExpectType LoDashImplicitWrapper<number[]>
-    _(d2).filter((item: string | number): item is number => typeof item === "number"); // $ExpectType LoDashImplicitWrapper<number[]>
+    _(a2).filter(
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType LoDashImplicitWrapper<number[]>
+    _(d2).filter(
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType LoDashImplicitWrapper<number[]>
 
-    _.chain(a2).filter((item: string | number): item is number => typeof item === "number"); // $ExpectType LoDashExplicitWrapper<number[]>
-    _.chain(d2).filter((item: string | number): item is number => typeof item === "number"); // $ExpectType LoDashExplicitWrapper<number[]>
+    _.chain(a2).filter(
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType LoDashExplicitWrapper<number[]>
+    _.chain(d2).filter(
+        (item: string | number): item is number => typeof item === "number"
+    ); // $ExpectType LoDashExplicitWrapper<number[]>
 
-    fp.filter((item: string | number): item is number => typeof item === "number", a2); // $ExpectType number[]
-    fp.filter((item: string | number): item is number => typeof item === "number", d2); // $ExpectType number[]
+    fp.filter(
+        (item: string | number): item is number => typeof item === "number",
+        a2
+    ); // $ExpectType number[]
+    fp.filter(
+        (item: string | number): item is number => typeof item === "number",
+        d2
+    ); // $ExpectType number[]
 }
 
 // _.find
@@ -1804,7 +2097,11 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.find(dictionary, "a"); // $ExpectType AbcObject | undefined
     _.find(dictionary, { a: 42 }); // $ExpectType AbcObject | undefined
     _.find(dictionary, ["a", 5]); // $ExpectType AbcObject | undefined
-    _.find([anything as AbcObject, null, undefined], (value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null); // $ExpectType AbcObject | undefined
+    _.find(
+        [anything as AbcObject, null, undefined],
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    ); // $ExpectType AbcObject | undefined
 
     _(list).find(); // $ExpectType AbcObject | undefined
     _(list).find(listIterator); // $ExpectType AbcObject | undefined
@@ -1818,7 +2115,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _(dictionary).find("a"); // $ExpectType AbcObject | undefined
     _(dictionary).find({ a: 42 }); // $ExpectType AbcObject | undefined
     _(dictionary).find(["a", 5]); // $ExpectType AbcObject | undefined
-    _([anything as AbcObject, null, undefined]).find((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null); // $ExpectType AbcObject | undefined
+    _([anything as AbcObject, null, undefined]).find(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    ); // $ExpectType AbcObject | undefined
 
     _.chain(list).find(); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     _.chain(list).find(listIterator); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
@@ -1833,7 +2133,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.chain(dictionary).find({ a: 42 }); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     _.chain(dictionary).find(["a", 5]); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
-    _.chain([anything as AbcObject, null, undefined]).find((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null);
+    _.chain([anything as AbcObject, null, undefined]).find(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    );
 
     fp.find(valueIterator, list); // $ExpectType AbcObject | undefined
     fp.find(valueIterator)(list); // $ExpectType AbcObject | undefined
@@ -1844,7 +2147,11 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     fp.find(valueIterator)(dictionary); // $ExpectType AbcObject | undefined
     fp.find({ a: 42 }, dictionary); // $ExpectType AbcObject | undefined
     fp.find(["a", 42], dictionary); // $ExpectType AbcObject | undefined
-    fp.find((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null, [anything as AbcObject, null, undefined]); // $ExpectType AbcObject | undefined
+    fp.find(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null,
+        [anything as AbcObject, null, undefined]
+    ); // $ExpectType AbcObject | undefined
     fp.findFrom(valueIterator, 1, list); // $ExpectType AbcObject | undefined
     fp.findFrom(valueIterator)(1)(list); // $ExpectType AbcObject | undefined
 
@@ -1863,7 +2170,11 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.findLast(dictionary, "a"); // $ExpectType AbcObject | undefined
     _.findLast(dictionary, { a: 42 }); // $ExpectType AbcObject | undefined
     _.findLast(dictionary, ["a", 5]); // $ExpectType AbcObject | undefined
-    _.findLast([anything as AbcObject, null, undefined], (value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null); // $ExpectType AbcObject | undefined
+    _.findLast(
+        [anything as AbcObject, null, undefined],
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    ); // $ExpectType AbcObject | undefined
 
     _(list).findLast(); // $ExpectType AbcObject | undefined
     _(list).findLast(listIterator); // $ExpectType AbcObject | undefined
@@ -1877,7 +2188,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _(dictionary).findLast("a"); // $ExpectType AbcObject | undefined
     _(dictionary).findLast({ a: 42 }); // $ExpectType AbcObject | undefined
     _(dictionary).findLast(["a", 5]); // $ExpectType AbcObject | undefined
-    _([anything as AbcObject, null, undefined]).findLast((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null); // $ExpectType AbcObject | undefined
+    _([anything as AbcObject, null, undefined]).findLast(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    ); // $ExpectType AbcObject | undefined
 
     _.chain(list).findLast(); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     _.chain(list).findLast(listIterator); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
@@ -1892,7 +2206,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.chain(dictionary).findLast({ a: 42 }); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     _.chain(dictionary).findLast(["a", 5]); // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
     // $ExpectType LoDashExplicitWrapper<AbcObject | undefined>
-    _.chain([anything as AbcObject, null, undefined]).findLast((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null);
+    _.chain([anything as AbcObject, null, undefined]).findLast(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null
+    );
 
     fp.findLast(valueIterator, list); // $ExpectType AbcObject | undefined
     fp.findLast(valueIterator)(list); // $ExpectType AbcObject | undefined
@@ -1903,24 +2220,59 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     fp.findLast(valueIterator)(dictionary); // $ExpectType AbcObject | undefined
     fp.findLast({ a: 42 }, dictionary); // $ExpectType AbcObject | undefined
     fp.findLast(["a", 42], dictionary); // $ExpectType AbcObject | undefined
-    fp.findLast((value: AbcObject | null | undefined): value is AbcObject | undefined => value !== null, [anything as AbcObject, null, undefined]); // $ExpectType AbcObject | undefined
+    fp.findLast(
+        (value: AbcObject | null | undefined): value is AbcObject | undefined =>
+            value !== null,
+        [anything as AbcObject, null, undefined]
+    ); // $ExpectType AbcObject | undefined
     fp.findLastFrom(valueIterator, 1, list); // $ExpectType AbcObject | undefined
     fp.findLastFrom(valueIterator)(1)(list); // $ExpectType AbcObject | undefined
 }
 
 // _.flatMap
 {
-    const numList: _.List<number|number[]> | null | undefined = anything;
-    const objList: _.List<{a: number}|Array<{a: number}>> | null | undefined = anything;
-    const numDictionary: _.Dictionary<number|number[]> | null | undefined = anything;
-    const objDictionary: _.Dictionary<{a: number}|Array<{a: number}>> | null | undefined = anything;
-    const numNumericDictionary: _.NumericDictionary<number|number[]> | null | undefined = anything;
-    const objNumericDictionary: _.NumericDictionary<{a: number}|Array<{a: number}>> | null | undefined = anything;
+    const numList: _.List<number | number[]> | null | undefined = anything;
+    const objList:
+        | _.List<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
+    const numDictionary:
+        | _.Dictionary<number | number[]>
+        | null
+        | undefined = anything;
+    const objDictionary:
+        | _.Dictionary<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
+    const numNumericDictionary:
+        | _.NumericDictionary<number | number[]>
+        | null
+        | undefined = anything;
+    const objNumericDictionary:
+        | _.NumericDictionary<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
 
-    const stringIterator = (value: string, index: number, collection: _.List<string>): string | string[] => "";
-    const listIterator = (value: number | number[], index: number, collection: _.List<number | number[]>): number | number[] => 1;
-    const dictionaryIterator = (value: number | number[], key: string, collection: _.Dictionary<number | number[]>): number | number[] => 1;
-    const numericDictionaryIterator = (value: number | number[], key: string, collection: _.NumericDictionary<number | number[]>): number | number[] => 1;
+    const stringIterator = (
+        value: string,
+        index: number,
+        collection: _.List<string>
+    ): string | string[] => "";
+    const listIterator = (
+        value: number | number[],
+        index: number,
+        collection: _.List<number | number[]>
+    ): number | number[] => 1;
+    const dictionaryIterator = (
+        value: number | number[],
+        key: string,
+        collection: _.Dictionary<number | number[]>
+    ): number | number[] => 1;
+    const numericDictionaryIterator = (
+        value: number | number[],
+        key: string,
+        collection: _.NumericDictionary<number | number[]>
+    ): number | number[] => 1;
     const valueIterator = (value: number | number[]): number | number[] => 1;
 
     _.flatMap("abc"); // $ExpectType string[]
@@ -1980,18 +2332,51 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.flatMapDeep, _.flatMapDepth
 {
-    const numList: _.List<number|number[]> | null | undefined = anything;
-    const objList: _.List<{a: number}|Array<{a: number}>> | null | undefined = anything;
-    const numDictionary: _.Dictionary<number|number[]> | null | undefined = anything;
-    const objDictionary: _.Dictionary<{a: number}|Array<{a: number}>> | null | undefined = anything;
-    const numNumericDictionary: _.NumericDictionary<number|number[]> | null | undefined = anything;
-    const objNumericDictionary: _.NumericDictionary<{a: number}|Array<{a: number}>> | null | undefined = anything;
+    const numList: _.List<number | number[]> | null | undefined = anything;
+    const objList:
+        | _.List<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
+    const numDictionary:
+        | _.Dictionary<number | number[]>
+        | null
+        | undefined = anything;
+    const objDictionary:
+        | _.Dictionary<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
+    const numNumericDictionary:
+        | _.NumericDictionary<number | number[]>
+        | null
+        | undefined = anything;
+    const objNumericDictionary:
+        | _.NumericDictionary<{ a: number } | Array<{ a: number }>>
+        | null
+        | undefined = anything;
 
-    const stringIterator = (value: string, index: number, collection: _.List<string>): _.ListOfRecursiveArraysOrValues<string> | string => "";
-    const listIterator = (value: number | number[], index: number, collection: _.List<number | number[]>): _.ListOfRecursiveArraysOrValues<number> | number => 1;
-    const dictionaryIterator = (value: number | number[], key: string, collection: _.Dictionary<number | number[]>): _.ListOfRecursiveArraysOrValues<number> | number => 1;
-    const numericDictionaryIterator = (value: number | number[], key: string, collection: _.NumericDictionary<number | number[]>): _.ListOfRecursiveArraysOrValues<number> | number => 1;
-    const valueIterator = (value: number | number[]): _.ListOfRecursiveArraysOrValues<number> | number => 1;
+    const stringIterator = (
+        value: string,
+        index: number,
+        collection: _.List<string>
+    ): _.ListOfRecursiveArraysOrValues<string> | string => "";
+    const listIterator = (
+        value: number | number[],
+        index: number,
+        collection: _.List<number | number[]>
+    ): _.ListOfRecursiveArraysOrValues<number> | number => 1;
+    const dictionaryIterator = (
+        value: number | number[],
+        key: string,
+        collection: _.Dictionary<number | number[]>
+    ): _.ListOfRecursiveArraysOrValues<number> | number => 1;
+    const numericDictionaryIterator = (
+        value: number | number[],
+        key: string,
+        collection: _.NumericDictionary<number | number[]>
+    ): _.ListOfRecursiveArraysOrValues<number> | number => 1;
+    const valueIterator = (
+        value: number | number[]
+    ): _.ListOfRecursiveArraysOrValues<number> | number => 1;
 
     _.flatMapDeep("abc"); // $ExpectType string[]
     _.flatMapDeep("abc", stringIterator); // $ExpectType string[]
@@ -2112,7 +2497,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     const nilArray: AbcObject[] | null | undefined = anything;
     const nilList: _.List<AbcObject> | null | undefined = anything;
     const nilDictionary: _.Dictionary<AbcObject> | null | undefined = anything;
-    const nilNumericDictionary: _.NumericDictionary<AbcObject> | null | undefined = anything;
+    const nilNumericDictionary:
+        | _.NumericDictionary<AbcObject>
+        | null
+        | undefined = anything;
     const nilAbcObject: AbcObject | null | undefined = anything;
 
     // $ExpectType string
@@ -2682,7 +3070,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.map
 {
-    _.map(list);  // $ExpectType AbcObject[]
+    _.map(list); // $ExpectType AbcObject[]
     // $ExpectType number[]
     _.map(list, (value, index, collection) => {
         value; // $ExpectType AbcObject
@@ -2690,7 +3078,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType ArrayLike<AbcObject>
         return 0;
     });
-    _.map(dictionary);  // $ExpectType AbcObject[]
+    _.map(dictionary); // $ExpectType AbcObject[]
     // $ExpectType number[]
     _.map(dictionary, (value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2698,7 +3086,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType Dictionary<AbcObject>
         return 0;
     });
-    _.map(numericDictionary);  // $ExpectType AbcObject[]
+    _.map(numericDictionary); // $ExpectType AbcObject[]
     // $ExpectType number[]
     _.map(numericDictionary, (value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2712,9 +3100,9 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _.map(list, "d.0.b"); // $ExpectType any[]
     _.map(dictionary, "d.0.b"); // $ExpectType any[]
     _.map(numericDictionary, "d.0.b"); // $ExpectType any[]
-    _.map(list, { a: 42 });  // $ExpectType boolean[]
-    _.map(dictionary, { a: 42 });  // $ExpectType boolean[]
-    _.map(numericDictionary, { a: 42 });  // $ExpectType boolean[]
+    _.map(list, { a: 42 }); // $ExpectType boolean[]
+    _.map(dictionary, { a: 42 }); // $ExpectType boolean[]
+    _.map(numericDictionary, { a: 42 }); // $ExpectType boolean[]
 
     _(list).map(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<number[]>
@@ -2724,7 +3112,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType ArrayLike<AbcObject>
         return 0;
     });
-    _(dictionary).map();  // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(dictionary).map(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<number[]>
     _(dictionary).map((value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2732,7 +3120,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType Dictionary<AbcObject>
         return 0;
     });
-    _(numericDictionary).map();  // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(numericDictionary).map(); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
     // $ExpectType LoDashImplicitWrapper<number[]>
     _(numericDictionary).map((value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2746,11 +3134,11 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
     _(list).map("d.0.b"); // $ExpectType LoDashImplicitWrapper<any[]>
     _(dictionary).map("d.0.b"); // $ExpectType LoDashImplicitWrapper<any[]>
     _(numericDictionary).map("d.0.b"); // $ExpectType LoDashImplicitWrapper<any[]>
-    _(list).map({ a: 42 });  // $ExpectType LoDashImplicitWrapper<boolean[]>
-    _(dictionary).map({ a: 42 });  // $ExpectType LoDashImplicitWrapper<boolean[]>
-    _(numericDictionary).map({ a: 42 });  // $ExpectType LoDashImplicitWrapper<boolean[]>
+    _(list).map({ a: 42 }); // $ExpectType LoDashImplicitWrapper<boolean[]>
+    _(dictionary).map({ a: 42 }); // $ExpectType LoDashImplicitWrapper<boolean[]>
+    _(numericDictionary).map({ a: 42 }); // $ExpectType LoDashImplicitWrapper<boolean[]>
 
-    _.chain(list).map();  // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).map(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain(list).map((value, index, collection) => {
         value; // $ExpectType AbcObject
@@ -2758,7 +3146,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType ArrayLike<AbcObject>
         return 0;
     });
-    _.chain(dictionary).map();  // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(dictionary).map(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain(dictionary).map((value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2766,7 +3154,7 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         collection; // $ExpectType Dictionary<AbcObject>
         return 0;
     });
-    _.chain(numericDictionary).map();  // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(numericDictionary).map(); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
     // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain(numericDictionary).map((value, key, collection) => {
         value; // $ExpectType AbcObject
@@ -2795,67 +3183,67 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 // _.partition
 {
     // $ExpectType [any[], any[]]
-    _.partition(anything, (value) => {
+    _.partition(anything, value => {
         value; // $ExpectType any
         return value < "c";
     });
     // $ExpectType [string[], string[]]
-    _.partition("abcd", (value) => {
+    _.partition("abcd", value => {
         value; // $ExpectType string
         return value < "c";
     });
     // $ExpectType [AbcObject[], AbcObject[]]
-    _.partition(list, (value) => {
+    _.partition(list, value => {
         value; // $ExpectType AbcObject
         return true;
     });
 
     // $ExpectType LoDashImplicitWrapper<[any[], any[]]>
-    _(anything).partition((value) => {
+    _(anything).partition(value => {
         value; // $ExpectType any
         return value < "c";
     });
     // $ExpectType LoDashImplicitWrapper<[string[], string[]]>
-    _("abcd").partition((value) => {
+    _("abcd").partition(value => {
         value; // $ExpectType string
         return value < "c";
     });
     // $ExpectType LoDashImplicitWrapper<[AbcObject[], AbcObject[]]>
-    _(list).partition((value) => {
+    _(list).partition(value => {
         value; // $ExpectType AbcObject
         return true;
     });
 
     // $ExpectType LoDashExplicitWrapper<[any[], any[]]>
-    _.chain(anything).partition((value) => {
+    _.chain(anything).partition(value => {
         value; // $ExpectType any
         return value < "c";
     });
     // $ExpectType LoDashExplicitWrapper<[string[], string[]]>
-    _.chain("abcd").partition((value) => {
+    _.chain("abcd").partition(value => {
         value; // $ExpectType string
         return value < "c";
     });
     // $ExpectType LoDashExplicitWrapper<[AbcObject[], AbcObject[]]>
-    _.chain(list).partition((value) => {
+    _.chain(list).partition(value => {
         value; // $ExpectType AbcObject
         return true;
     });
 
     // $ExpectType [any[], any[]]
-    fp.partition((value) => {
+    fp.partition(value => {
         value; // $ExpectType any
         return value < "c";
     }, anything);
     // $ExpectType [any[], any[]]
     fp.partition((value: any) => value < "c")(anything);
     // $ExpectType [string[], string[]]
-    fp.partition((value) => {
+    fp.partition(value => {
         value; // $ExpectType string
         return value < "c";
     }, "abcd");
     // $ExpectType [AbcObject[], AbcObject[]]
-    fp.partition((value) => {
+    fp.partition(value => {
         value; // $ExpectType AbcObject
         return true;
     }, list);
@@ -2880,26 +3268,46 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
         return sum + curr;
     });
     _.reduce(null, (sum: number, num: number) => sum + num); // $ExpectType number | undefined
-    _.reduce({ a: 1, b: 2, c: 3 }, (r: ABC, num: number, key: string) => r, initial); // $ExpectType ABC
+    _.reduce(
+        { a: 1, b: 2, c: 3 },
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType ABC
 
     _([1, 2, 3]).reduce((sum, num) => sum + num); // $ExpectType number | undefined
-    _({ a: 1, b: 2, c: 3 }).reduce((r: ABC, num: number, key: string) => r, initial); // $ExpectType ABC
+    _({ a: 1, b: 2, c: 3 }).reduce(
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType ABC
 
     _.chain([1, 2, 3]).reduce((sum, num) => sum + num); // $ExpectType LoDashExplicitWrapper<number | undefined>
-    _.chain({ a: 1, b: 2, c: 3 }).reduce((r: ABC, num: number, key: string) => r, initial); // $ExpectType LoDashExplicitWrapper<ABC>
+    _.chain({ a: 1, b: 2, c: 3 }).reduce(
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType LoDashExplicitWrapper<ABC>
 
     fp.reduce((s: string, num: number) => s + num, "", [1, 2, 3]); // $ExpectType string
     fp.reduce((s: string, num: number) => s + num)("")([1, 2, 3]); // $ExpectType string
 
     _.reduceRight([1, 2, 3], (sum, num) => sum + num); // $ExpectType number | undefined
     _.reduceRight(null, (sum: number, num: number) => sum + num); // $ExpectType number | undefined
-    _.reduceRight({ a: 1, b: 2, c: 3 }, (r: ABC, num: number, key: string) => r, initial); // $ExpectType ABC
+    _.reduceRight(
+        { a: 1, b: 2, c: 3 },
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType ABC
 
     _([1, 2, 3]).reduceRight((sum, num) => sum + num); // $ExpectType number | undefined
-    _({ a: 1, b: 2, c: 3 }).reduceRight((r: ABC, num: number, key: string) => r, initial); // $ExpectType ABC
+    _({ a: 1, b: 2, c: 3 }).reduceRight(
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType ABC
 
     _.chain([1, 2, 3]).reduceRight((sum, num) => sum + num); // $ExpectType LoDashExplicitWrapper<number | undefined>
-    _.chain({ a: 1, b: 2, c: 3 }).reduceRight((r: ABC, num: number, key: string) => r, initial); // $ExpectType LoDashExplicitWrapper<ABC>
+    _.chain({ a: 1, b: 2, c: 3 }).reduceRight(
+        (r: ABC, num: number, key: string) => r,
+        initial
+    ); // $ExpectType LoDashExplicitWrapper<ABC>
 
     fp.reduceRight((num: number, s: string) => s + num, "", [1, 2, 3]); // $ExpectType string
     fp.reduceRight((num: number, s: string) => s + num)("")([1, 2, 3]); // $ExpectType string
@@ -2907,7 +3315,8 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.reject
 {
-    const stringIterator = (char: string, index: number, string: string) => true;
+    const stringIterator = (char: string, index: number, string: string) =>
+        true;
 
     _.reject("", stringIterator); // $ExpectType string[]
     _.reject(list, listIterator); // $ExpectType AbcObject[]
@@ -2946,7 +3355,10 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 {
     const list: _.List<string> | null | undefined = anything;
     const dictionary: _.Dictionary<string> | null | undefined = anything;
-    const numericDictionary: _.NumericDictionary<string>  | null | undefined = anything;
+    const numericDictionary:
+        | _.NumericDictionary<string>
+        | null
+        | undefined = anything;
 
     _.sample("abc"); // $ExpectType string | undefined
     _.sample(list); // $ExpectType string | undefined
@@ -3151,37 +3563,40 @@ _.chain([1, 2, 3, 4]).unshift(5, 6); // $ExpectType LoDashExplicitWrapper<number
 
 // _.orderBy
 {
-    _.orderBy("acbd", (value) => 1); // $ExpectType string[]
-    _.orderBy("acbd", (value) => 1, true); // $ExpectType string[]
-    _.orderBy("acbd", [(value) => 1, (value) => 2], [true, false]); // $ExpectType string[]
-    _.orderBy(list, (value) => 1); // $ExpectType AbcObject[]
-    _.orderBy(list, (value) => 1, true); // $ExpectType AbcObject[]
-    _.orderBy(list, [(value) => 1, (value) => 2], [true, false]); // $ExpectType AbcObject[]
-    _.orderBy(dictionary, (value) => 1); // $ExpectType AbcObject[]
-    _.orderBy(dictionary, (value) => 1, true); // $ExpectType AbcObject[]
-    _.orderBy(numericDictionary, (value) => 1); // $ExpectType AbcObject[]
-    _.orderBy(numericDictionary, (value) => 1, true); // $ExpectType AbcObject[]
+    _.orderBy("acbd", value => 1); // $ExpectType string[]
+    _.orderBy("acbd", value => 1, true); // $ExpectType string[]
+    _.orderBy("acbd", [value => 1, value => 2], [true, false]); // $ExpectType string[]
+    _.orderBy(list, value => 1); // $ExpectType AbcObject[]
+    _.orderBy(list, value => 1, true); // $ExpectType AbcObject[]
+    _.orderBy(list, [value => 1, value => 2], [true, false]); // $ExpectType AbcObject[]
+    _.orderBy(dictionary, value => 1); // $ExpectType AbcObject[]
+    _.orderBy(dictionary, value => 1, true); // $ExpectType AbcObject[]
+    _.orderBy(numericDictionary, value => 1); // $ExpectType AbcObject[]
+    _.orderBy(numericDictionary, value => 1, true); // $ExpectType AbcObject[]
 
-    _(list).orderBy((value) => 1); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).orderBy((value) => 1, true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(list).orderBy([(value) => 1, (value) => 2], true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(dictionary).orderBy((value) => 1); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(dictionary).orderBy((value) => 1, true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
-    _(numericDictionary).orderBy((value) => 1); // LoDashImplicitWrapper<AbcObject[]>
-    _(numericDictionary).orderBy((value) => 1, true); // LoDashImplicitWrapper<AbcObject[]>
+    _(list).orderBy(value => 1); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).orderBy(value => 1, true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(list).orderBy([value => 1, value => 2], true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(dictionary).orderBy(value => 1); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(dictionary).orderBy(value => 1, true); // $ExpectType LoDashImplicitWrapper<AbcObject[]>
+    _(numericDictionary).orderBy(value => 1); // LoDashImplicitWrapper<AbcObject[]>
+    _(numericDictionary).orderBy(value => 1, true); // LoDashImplicitWrapper<AbcObject[]>
 
-    _.chain(list).orderBy((value) => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).orderBy((value) => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(list).orderBy([(value) => 1, (value) => 2], true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(dictionary).orderBy((value) => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(dictionary).orderBy((value) => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(numericDictionary).orderBy((value) => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
-    _.chain(numericDictionary).orderBy((value) => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).orderBy(value => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).orderBy(value => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(list).orderBy([value => 1, value => 2], true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(dictionary).orderBy(value => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(dictionary).orderBy(value => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(numericDictionary).orderBy(value => 1); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
+    _.chain(numericDictionary).orderBy(value => 1, true); // $ExpectType LoDashExplicitWrapper<AbcObject[]>
 
     fp.orderBy(fp.identity, "asc", "bca"); // $ExpectType string[]
     fp.orderBy(fp.identity, true, "bca"); // $ExpectType string[]
     fp.orderBy((value: AbcObject) => 1, true, list); // $ExpectType AbcObject[]
-    fp.orderBy([(value: AbcObject) => 1, (value: AbcObject) => 1])([true, false])(list); // $ExpectType AbcObject[]
+    fp.orderBy([(value: AbcObject) => 1, (value: AbcObject) => 1])([
+        true,
+        false
+    ])(list); // $ExpectType AbcObject[]
     fp.orderBy("a", true, list); // $ExpectType AbcObject[]
     fp.orderBy({ a: 42 }, true, list); // $ExpectType AbcObject[]
     fp.orderBy((value: AbcObject) => 1, true, dictionary); // $ExpectType AbcObject[]
@@ -3267,7 +3682,7 @@ fp.now(); // $ExpectType number
 // _.bindKey
 {
     const object = {
-        foo: (a: number, b: string) => true,
+        foo: (a: number, b: string) => true
     };
 
     _.bindKey(object, "foo"); // $ExpectType (...args: any[]) => any
@@ -3282,7 +3697,11 @@ fp.now(); // $ExpectType number
 
 // _.curry
 {
-    const testCurry = (a: string, b: number, c: boolean): [string, number, boolean] => [a, b, c];
+    const testCurry = (
+        a: string,
+        b: number,
+        c: boolean
+    ): [string, number, boolean] => [a, b, c];
     _.curry(testCurry)("1", 2, true); // $ExpectType [string, number, boolean]
     _.curry(testCurry)("1", 2)(true); // $ExpectType [string, number, boolean]
     _.curry(testCurry)("1")(2, true); // $ExpectType [string, number, boolean]
@@ -3346,7 +3765,7 @@ fp.now(); // $ExpectType number
     const options: _.DebounceSettings = {
         leading: true,
         maxWait: 100,
-        trailing: false,
+        trailing: false
     };
 
     const result = _.debounce(func); // $ExpectType ((n: number, s: string) => boolean) & Cancelable
@@ -3405,58 +3824,210 @@ fp.now(); // $ExpectType number
     const fn3 = (a: number): string => "";
     const fn4 = (a: string): boolean => true;
 
-    _.flow(fn2, fn1); // $ExpectType (a1: number, a2: number) => number
-    _.flow(fn2, fn1, fn1, fn1, fn1, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    _.flow(fn2, fn1, fn3, fn4); // $ExpectType (a1: number, a2: number) => boolean
+    _.flow(
+        fn2,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    _.flow(
+        fn2,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    _.flow(
+        fn2,
+        fn1,
+        fn3,
+        fn4
+    ); // $ExpectType (a1: number, a2: number) => boolean
     _.flow([fn2, fn1, fn3, fn4]); // $ExpectType (...args: any[]) => any
 
     _(fn2).flow(fn1); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
-    _(fn2).flow(fn1, fn1); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
-    _(fn2).flow(fn1, fn1, fn1); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
+    _(fn2).flow(
+        fn1,
+        fn1
+    ); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
+    _(fn2).flow(
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
     _(fn2).flow([fn1, fn1, fn1]); // $ExpectType LoDashImplicitWrapper<(...args: any[]) => any>
 
     _.chain(fn2).flow(fn1); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
-    _.chain(fn2).flow(fn1, fn1); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
-    _.chain(fn2).flow(fn1, fn1, fn1); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
+    _.chain(fn2).flow(
+        fn1,
+        fn1
+    ); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
+    _.chain(fn2).flow(
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
     _.chain(fn2).flow([fn1, fn1, fn1]); // $ExpectType LoDashExplicitWrapper<(...args: any[]) => any>
 
-    fp.flow(fn1, fn1); // $ExpectType (a1: number) => number
-    fp.flow(fn1, fn3); // $ExpectType (a1: number) => string
-    fp.flow(fn2, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    fp.flow(fn2, fn1, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    fp.flow(fn2, fn1, fn1, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    fp.flow(fn2, fn1, fn1, fn1, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    fp.flow(fn2, fn1, fn1, fn1, fn1, fn1, fn1); // $ExpectType (a1: number, a2: number) => number
-    fp.flow(fn2, fn3); // $ExpectType (a1: number, a2: number) => string
-    fp.flow(fn2, fn3, fn4); // $ExpectType (a1: number, a2: number) => boolean
-    fp.flow(fn2, fn1, fn3, fn4); // $ExpectType (a1: number, a2: number) => boolean
+    fp.flow(
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number) => number
+    fp.flow(
+        fn1,
+        fn3
+    ); // $ExpectType (a1: number) => string
+    fp.flow(
+        fn2,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flow(
+        fn2,
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flow(
+        fn2,
+        fn1,
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flow(
+        fn2,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flow(
+        fn2,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flow(
+        fn2,
+        fn3
+    ); // $ExpectType (a1: number, a2: number) => string
+    fp.flow(
+        fn2,
+        fn3,
+        fn4
+    ); // $ExpectType (a1: number, a2: number) => boolean
+    fp.flow(
+        fn2,
+        fn1,
+        fn3,
+        fn4
+    ); // $ExpectType (a1: number, a2: number) => boolean
     fp.flow([fn2, fn1, fn3, fn4]); // $ExpectType (...args: any[]) => any
 
-    _.flowRight(fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    _.flowRight(fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    _.flowRight(fn1, fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
+    _.flowRight(
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    _.flowRight(
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    _.flowRight(
+        fn1,
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
     _.flowRight([fn1, fn1, fn1, fn2]); // $ExpectType (...args: any[]) => any
 
     _(fn1).flowRight(fn2); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
-    _(fn1).flowRight(fn1, fn2); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
-    _(fn1).flowRight(fn1, fn1, fn2); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
+    _(fn1).flowRight(
+        fn1,
+        fn2
+    ); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
+    _(fn1).flowRight(
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType LoDashImplicitWrapper<(a1: number, a2: number) => number>
     _(fn1).flowRight([fn1, fn1, fn2]); // $ExpectType LoDashImplicitWrapper<(...args: any[]) => any>
 
     _.chain(fn1).flowRight(fn2); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
-    _.chain(fn1).flowRight(fn1, fn2); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
-    _.chain(fn1).flowRight(fn1, fn1, fn2); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
+    _.chain(fn1).flowRight(
+        fn1,
+        fn2
+    ); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
+    _.chain(fn1).flowRight(
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => number>
     _.chain(fn1).flowRight([fn1, fn1, fn2]); // $ExpectType LoDashExplicitWrapper<(...args: any[]) => any>
 
-    fp.flowRight(fn1, fn1); // $ExpectType (a1: number) => number
-    fp.flowRight(fn3, fn1); // $ExpectType (a1: number) => string
-    fp.flowRight(fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    fp.flowRight(fn1, fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    fp.flowRight(fn1, fn1, fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    fp.flowRight(fn1, fn1, fn1, fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    fp.flowRight(fn1, fn1, fn1, fn1, fn1, fn1, fn2); // $ExpectType (a1: number, a2: number) => number
-    fp.flowRight(fn3, fn2); // $ExpectType (a1: number, a2: number) => string
-    fp.flowRight(fn4, fn3, fn2); // $ExpectType (a1: number, a2: number) => boolean
-    fp.flowRight(fn4, fn3, fn1, fn2); // $ExpectType (a1: number, a2: number) => boolean
+    fp.flowRight(
+        fn1,
+        fn1
+    ); // $ExpectType (a1: number) => number
+    fp.flowRight(
+        fn3,
+        fn1
+    ); // $ExpectType (a1: number) => string
+    fp.flowRight(
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flowRight(
+        fn1,
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flowRight(
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flowRight(
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flowRight(
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => number
+    fp.flowRight(
+        fn3,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => string
+    fp.flowRight(
+        fn4,
+        fn3,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => boolean
+    fp.flowRight(
+        fn4,
+        fn3,
+        fn1,
+        fn2
+    ); // $ExpectType (a1: number, a2: number) => boolean
     fp.flowRight([fn4, fn3, fn1, fn2]); // $ExpectType (...args: any[]) => any
 }
 
@@ -3466,11 +4037,19 @@ fp.now(); // $ExpectType number
     memoizedFunction.cache; // $ExpectType MapCache
 
     const testMapCache: _.MapCache = {
-        delete(key: string) { return true; },
-        get(key: string): any { return 1; },
-        has(key: string) { return true; },
-        set(key: string, value: any): _.MapCache { return this; },
-        clear() { },
+        delete(key: string) {
+            return true;
+        },
+        get(key: string): any {
+            return 1;
+        },
+        has(key: string) {
+            return true;
+        },
+        set(key: string, value: any): _.MapCache {
+            return this;
+        },
+        clear() {}
     };
 
     const memoizeFn = (a1: string, a2: number): boolean => true;
@@ -3515,7 +4094,8 @@ fp.now(); // $ExpectType number
     _.chain((a1: number, a2: number): boolean => true).negate(); // $ExpectType LoDashExplicitWrapper<(a1: number, a2: number) => boolean>
     fp.negate((a1: number, a2: number): boolean => true); // $ExpectType (a1: number, a2: number) => boolean
 
-    const userDefinedTypeGuard = (item: any): item is number => typeof item === "number";
+    const userDefinedTypeGuard = (item: any): item is number =>
+        typeof item === "number";
 
     _.negate(userDefinedTypeGuard); // $ExpectType (a1: any) => boolean
     _(userDefinedTypeGuard).negate(); // $ExpectType LoDashImplicitWrapper<(a1: any) => boolean>
@@ -3574,7 +4154,7 @@ fp.now(); // $ExpectType number
 {
     const options: _.ThrottleSettings = {
         leading: true,
-        trailing: false,
+        trailing: false
     };
 
     const func = (a: number, b: string): boolean => true;
@@ -3660,12 +4240,12 @@ fp.now(); // $ExpectType number
     _(42).cloneDeepWith(customizer); // $ExpectType any
     _.chain(42).cloneDeepWith(customizer); // $ExpectType LoDashExplicitWrapper<any>
 
-    _.cloneDeepWith({a: {b: 42}}, customizer); // $ExpectType any
+    _.cloneDeepWith({ a: { b: 42 } }, customizer); // $ExpectType any
 
-    fp.cloneDeepWith((x) => "", 42); // $ExpectType any
-    fp.cloneDeepWith((x) => "")(42); // $ExpectType any
-    fp.cloneDeepWith((x) => "", [42]); // $ExpectType any
-    fp.cloneDeepWith((x) => "", { a: { b: 42 } }); // $ExpectType any
+    fp.cloneDeepWith(x => "", 42); // $ExpectType any
+    fp.cloneDeepWith(x => "")(42); // $ExpectType any
+    fp.cloneDeepWith(x => "", [42]); // $ExpectType any
+    fp.cloneDeepWith(x => "", { a: { b: 42 } }); // $ExpectType any
 }
 
 // _.cloneWith
@@ -3742,7 +4322,7 @@ fp.now(); // $ExpectType number
 
 // _.isArguments
 {
-    const  value: number | IArguments = 0;
+    const value: number | IArguments = 0;
 
     if (_.isArguments(value)) {
         const result: IArguments = value;
@@ -3809,20 +4389,45 @@ fp.now(); // $ExpectType number
 // _.isArrayLike
 {
     {
-        const value: string | string[] | { [index: number]: boolean, length: number } | [number, boolean]
-            | number | { length: string } | { a: string } | null | undefined
-            = anything;
+        const value:
+            | string
+            | string[]
+            | { [index: number]: boolean; length: number }
+            | [number, boolean]
+            | number
+            | { length: string }
+            | { a: string }
+            | null
+            | undefined = anything;
 
         if (_.isArrayLike(value)) {
-            const result: string | string[] | { [index: number]: boolean, length: number } | [number, boolean] = value;
+            const result:
+                | string
+                | string[]
+                | { [index: number]: boolean; length: number }
+                | [number, boolean] = value;
         } else {
-            const result: number | { length: string } | { a: string; } | null | undefined = value;
+            const result:
+                | number
+                | { length: string }
+                | { a: string }
+                | null
+                | undefined = value;
         }
 
         if (fp.isArrayLike(value)) {
-            const result: string | string[] | { [index: number]: boolean; length: number; } | [number, boolean] = value;
+            const result:
+                | string
+                | string[]
+                | { [index: number]: boolean; length: number }
+                | [number, boolean] = value;
         } else {
-            const result: number | { length: string; } | { a: string; } | null | undefined = value;
+            const result:
+                | number
+                | { length: string }
+                | { a: string }
+                | null
+                | undefined = value;
         }
     }
 
@@ -3862,13 +4467,13 @@ fp.now(); // $ExpectType number
         const value: { a: string } = anything;
 
         if (_.isArrayLike(value)) {
-            const result: { a: string, length: number } = value;
+            const result: { a: string; length: number } = value;
         } else {
             value; // $ExpectType { a: string; }
         }
 
         if (fp.isArrayLike(value)) {
-            const result: { a: string, length: number } = value;
+            const result: { a: string; length: number } = value;
         } else {
             value; // $ExpectType { a: string; }
         }
@@ -3899,20 +4504,45 @@ fp.now(); // $ExpectType number
 // _.isArrayLikeObject
 {
     {
-        const value: string[] | { [index: number]: boolean, length: number } | [number, boolean]
-            | number | string | { length: string } | { a: string } | null | undefined
-            = anything;
+        const value:
+            | string[]
+            | { [index: number]: boolean; length: number }
+            | [number, boolean]
+            | number
+            | string
+            | { length: string }
+            | { a: string }
+            | null
+            | undefined = anything;
 
         if (_.isArrayLikeObject(value)) {
-            const result: string[] | { [index: number]: boolean, length: number } | [number, boolean] = value;
+            const result:
+                | string[]
+                | { [index: number]: boolean; length: number }
+                | [number, boolean] = value;
         } else {
-            const result: string | number | { length: string; } | { a: string; } | null | undefined = value;
+            const result:
+                | string
+                | number
+                | { length: string }
+                | { a: string }
+                | null
+                | undefined = value;
         }
 
         if (fp.isArrayLikeObject(value)) {
-            const result: string[] | [number, boolean] | { [index: number]: boolean; length: number; } =  value;
+            const result:
+                | string[]
+                | [number, boolean]
+                | { [index: number]: boolean; length: number } = value;
         } else {
-            const result: string | number | { length: string; } | { a: string; } | null | undefined = value;
+            const result:
+                | string
+                | number
+                | { length: string }
+                | { a: string }
+                | null
+                | undefined = value;
         }
     }
 
@@ -3952,13 +4582,13 @@ fp.now(); // $ExpectType number
         const value: { a: string } = anything;
 
         if (_.isArrayLikeObject(value)) {
-            const result: { a: string, length: number } = value;
+            const result: { a: string; length: number } = value;
         } else {
             value; // $ExpectType { a: string; }
         }
 
         if (fp.isArrayLikeObject(value)) {
-            const result: { a: string, length: number } = value;
+            const result: { a: string; length: number } = value;
         } else {
             value; // $ExpectType { a: string; }
         }
@@ -4066,7 +4696,14 @@ fp.now(); // $ExpectType number
 
 // _.isEqualWith
 {
-    const customizer = (value: any, other: any, indexOrKey: number|string|symbol|undefined, parent: any, otherParent: any, stack: any) => true;
+    const customizer = (
+        value: any,
+        other: any,
+        indexOrKey: number | string | symbol | undefined,
+        parent: any,
+        otherParent: any,
+        stack: any
+    ) => true;
 
     _.isEqualWith(anything, anything, customizer); // $ExpectType boolean
     _(anything).isEqualWith(anything, customizer); // $ExpectType boolean
@@ -4207,7 +4844,13 @@ fp.now(); // $ExpectType number
 
 // _.isMatchWith
 {
-    const testIsMatchCustiomizerFn = (value: any, other: any, indexOrKey: number|string|symbol, object: object, source: object) => true;
+    const testIsMatchCustiomizerFn = (
+        value: any,
+        other: any,
+        indexOrKey: number | string | symbol,
+        object: object,
+        source: object
+    ) => true;
 
     _.isMatchWith({}, {}, testIsMatchCustiomizerFn); // $ExpectType boolean
     _({}).isMatchWith({}, testIsMatchCustiomizerFn); // $ExpectType boolean
@@ -4603,7 +5246,9 @@ fp.now(); // $ExpectType number
 {
     _.add(1, 1); // $ExpectType number
     _(1).add(1); // $ExpectType number
-    _(1).chain().add(1); // $ExpectType LoDashExplicitWrapper<number>
+    _(1)
+        .chain()
+        .add(1); // $ExpectType LoDashExplicitWrapper<number>
     fp.add(1, 1); // $ExpectType number
     fp.add(1)(1); // $ExpectType number
 }
@@ -4614,8 +5259,12 @@ fp.now(); // $ExpectType number
     _.ceil(6.004, 2); // $ExpectType number
     _(6.004).ceil(); // $ExpectType number
     _(6.004).ceil(2); // $ExpectType number
-    _(6.004).chain().ceil(); // $ExpectType LoDashExplicitWrapper<number>
-    _(6.004).chain().ceil(2); // $ExpectType LoDashExplicitWrapper<number>
+    _(6.004)
+        .chain()
+        .ceil(); // $ExpectType LoDashExplicitWrapper<number>
+    _(6.004)
+        .chain()
+        .ceil(2); // $ExpectType LoDashExplicitWrapper<number>
     fp.ceil(6.004); // $ExpectType number
 }
 
@@ -4623,7 +5272,9 @@ fp.now(); // $ExpectType number
 {
     _.divide(6, 4); // $ExpectType number
     _(6).divide(4); // $ExpectType number
-    _(6).chain().floor(4); // $ExpectType LoDashExplicitWrapper<number>
+    _(6)
+        .chain()
+        .floor(4); // $ExpectType LoDashExplicitWrapper<number>
     fp.divide(6, 4); // $ExpectType number
     fp.divide(6)(4); // $ExpectType number
 }
@@ -4636,9 +5287,15 @@ fp.now(); // $ExpectType number
     _(4.006).floor(); // $ExpectType number
     _(0.046).floor(2); // $ExpectType number
     _(4060).floor(-2); // $ExpectType number
-    _(4.006).chain().floor(); // $ExpectType LoDashExplicitWrapper<number>
-    _(0.046).chain().floor(2); // $ExpectType LoDashExplicitWrapper<number>
-    _(4060).chain().floor(-2); // $ExpectType LoDashExplicitWrapper<number>
+    _(4.006)
+        .chain()
+        .floor(); // $ExpectType LoDashExplicitWrapper<number>
+    _(0.046)
+        .chain()
+        .floor(2); // $ExpectType LoDashExplicitWrapper<number>
+    _(4060)
+        .chain()
+        .floor(-2); // $ExpectType LoDashExplicitWrapper<number>
     fp.floor(4.006); // $ExpectType number
 }
 
@@ -4648,12 +5305,12 @@ fp.now(); // $ExpectType number
     const list: ArrayLike<string> = anything;
 
     _.max(list); // $ExpectType string | undefined
-     _(list).max(); // $ExpectType string | undefined
+    _(list).max(); // $ExpectType string | undefined
     _.chain(list).max(); // $ExpectType LoDashExplicitWrapper<string | undefined>
     fp.max(list); // $ExpectType string | undefined
 
     _.min(list); // $ExpectType string | undefined
-     _(list).min(); // $ExpectType string | undefined
+    _(list).min(); // $ExpectType string | undefined
     _.chain(list).min(); // $ExpectType LoDashExplicitWrapper<string | undefined>
     fp.min(list); // $ExpectType string | undefined
 }
@@ -4695,7 +5352,7 @@ fp.now(); // $ExpectType number
     const list: ArrayLike<number> = anything;
 
     _.mean(list); // $ExpectType number
-     _(list).mean(); // $ExpectType number
+    _(list).mean(); // $ExpectType number
     _.chain(list).mean(); // $ExpectType LoDashExplicitWrapper<number>
     fp.mean(list); // $ExpectType number
 }
@@ -4704,12 +5361,12 @@ fp.now(); // $ExpectType number
 {
     const list: ArrayLike<AbcObject> = anything;
 
-    _.meanBy(list, (x) => x.a); // $ExpectType number
+    _.meanBy(list, x => x.a); // $ExpectType number
     _.meanBy(list, "a"); // $ExpectType number
-    _(list).meanBy((x) => x.a); // $ExpectType number
-    _.chain(list).meanBy((x) => x.a); // $ExpectType LoDashExplicitWrapper<number>
+    _(list).meanBy(x => x.a); // $ExpectType number
+    _.chain(list).meanBy(x => x.a); // $ExpectType LoDashExplicitWrapper<number>
 
-    fp.meanBy((x) => x.a, list); // $ExpectType number
+    fp.meanBy(x => x.a, list); // $ExpectType number
     fp.meanBy((x: AbcObject) => x.a)(list); // $ExpectType number
     fp.meanBy("a", list); // $ExpectType number
 }
@@ -4718,7 +5375,9 @@ fp.now(); // $ExpectType number
 {
     _.multiply(6, 4); // $ExpectType number
     _(6).multiply(4); // $ExpectType number
-    _(6).chain().multiply(4); // $ExpectType LoDashExplicitWrapper<number>
+    _(6)
+        .chain()
+        .multiply(4); // $ExpectType LoDashExplicitWrapper<number>
     fp.multiply(6, 4); // $ExpectType number
     fp.multiply(6)(4); // $ExpectType number
 }
@@ -4729,16 +5388,22 @@ fp.now(); // $ExpectType number
     _.round(4.006, 2); // $ExpectType number
     _(4.006).round(); // $ExpectType number
     _(4.006).round(2); // $ExpectType number
-    _(4.006).chain().round(); // $ExpectType LoDashExplicitWrapper<number>
-    _(4.006).chain().round(2); // $ExpectType LoDashExplicitWrapper<number>
+    _(4.006)
+        .chain()
+        .round(); // $ExpectType LoDashExplicitWrapper<number>
+    _(4.006)
+        .chain()
+        .round(2); // $ExpectType LoDashExplicitWrapper<number>
     fp.round(4.006); // $ExpectType number
 }
 
- // _.subtract
+// _.subtract
 {
     _.subtract(3, 2); // $ExpectType number
     _(3).subtract(2); // $ExpectType number
-    _(3).chain().subtract(2); // $ExpectType LoDashExplicitWrapper<number>
+    _(3)
+        .chain()
+        .subtract(2); // $ExpectType LoDashExplicitWrapper<number>
     fp.subtract(3, 2); // $ExpectType number
     fp.subtract(3)(2); // $ExpectType number
 }
@@ -4749,7 +5414,9 @@ fp.now(); // $ExpectType number
 
     _.sum(list); // $ExpectType number
     _(list).sum(); // $ExpectType number
-    _(list).chain().sum(); // $ExpectType LoDashExplicitWrapper<number>
+    _(list)
+        .chain()
+        .sum(); // $ExpectType LoDashExplicitWrapper<number>
     fp.sum(list); // $ExpectType number
 }
 
@@ -4761,8 +5428,12 @@ fp.now(); // $ExpectType number
     _.sumBy(list, "a"); // $ExpectType number
     _(list).sumBy(listIterator); // $ExpectType number
     _(list).sumBy("a"); // $ExpectType number
-    _(list).chain().sumBy(listIterator); // $ExpectType LoDashExplicitWrapper<number>
-    _(list).chain().sumBy("a"); // $ExpectType LoDashExplicitWrapper<number>
+    _(list)
+        .chain()
+        .sumBy(listIterator); // $ExpectType LoDashExplicitWrapper<number>
+    _(list)
+        .chain()
+        .sumBy("a"); // $ExpectType LoDashExplicitWrapper<number>
 
     fp.sumBy(listIterator, list); // $ExpectType number
     fp.sumBy("a")(list); // $ExpectType number
@@ -4843,7 +5514,13 @@ fp.now(); // $ExpectType number
     const s4 = { e: 1 };
     const s5 = { f: 1 };
 
-    const customizer = (objectValue: any, sourceValue: any, key: string | undefined, object: {} | undefined, source: {} | undefined) => 1;
+    const customizer = (
+        objectValue: any,
+        sourceValue: any,
+        key: string | undefined,
+        object: {} | undefined,
+        source: {} | undefined
+    ) => 1;
 
     _.assign(obj); // $ExpectType { a: string; }
     _.assign(obj, s1); // $ExpectType { a: string; } & { b: number; }
@@ -5028,7 +5705,8 @@ fp.now(); // $ExpectType number
 // _.findKey
 // _.findLastKey
 {
-    const predicateFn = (value: string, key: string, object: { a: string }) => true;
+    const predicateFn = (value: string, key: string, object: { a: string }) =>
+        true;
     const predicateFn2 = (value: number) => true;
 
     _.findKey({ a: "" }); // $ExpectType string | undefined
@@ -5074,11 +5752,19 @@ fp.now(); // $ExpectType number
 // _.forOwnRight
 {
     const dictionary: _.Dictionary<number> = {};
-    const dictionaryIterator = (value: number, key: string, collection: _.Dictionary<number>) => {};
+    const dictionaryIterator = (
+        value: number,
+        key: string,
+        collection: _.Dictionary<number>
+    ) => {};
     const dictionaryIterator2 = (value: number) => {};
 
     const object: AbcObject | null | undefined = anything;
-    const objectIterator = (element: string | number | boolean, key: string, collection: AbcObject) => {};
+    const objectIterator = (
+        element: string | number | boolean,
+        key: string,
+        collection: AbcObject
+    ) => {};
     const objectIterator2 = (element: number | string | boolean) => {};
 
     _.forIn(dictionary); // $ExpectType Dictionary<number>
@@ -5225,34 +5911,34 @@ fp.now(); // $ExpectType number
     const dictionary: _.Dictionary<{ a: number }> = {};
     const numericDictionary: _.NumericDictionary<{ a: number }> = {};
 
-    const valueIterator = (value: {a: number }) => 1;
+    const valueIterator = (value: { a: number }) => 1;
 
     _.invertBy("foo"); // $ExpectType Dictionary<string[]>
     _.invertBy("foo", stringIterator); // $ExpectType Dictionary<string[]>
     _.invertBy(list); // $ExpectType Dictionary<string[]>
     _.invertBy(list, "a"); // $ExpectType Dictionary<string[]>
     _.invertBy(list, valueIterator); // $ExpectType Dictionary<string[]>
-    _.invertBy(list, {a: 1}); // $ExpectType Dictionary<string[]>
+    _.invertBy(list, { a: 1 }); // $ExpectType Dictionary<string[]>
     _.invertBy(dictionary); // $ExpectType Dictionary<string[]>
     _.invertBy(dictionary, "a"); // $ExpectType Dictionary<string[]>
     _.invertBy(dictionary, valueIterator); // $ExpectType Dictionary<string[]>
-    _.invertBy(dictionary, {a: 1}); // $ExpectType Dictionary<string[]>
+    _.invertBy(dictionary, { a: 1 }); // $ExpectType Dictionary<string[]>
     _.invertBy(numericDictionary); // $ExpectType Dictionary<string[]>
     _.invertBy(numericDictionary, "a"); // $ExpectType Dictionary<string[]>
     _.invertBy(numericDictionary, valueIterator); // $ExpectType Dictionary<string[]>
-    _.invertBy(numericDictionary, {a: 1}); // $ExpectType Dictionary<string[]>
+    _.invertBy(numericDictionary, { a: 1 }); // $ExpectType Dictionary<string[]>
 
     _("foo").invertBy(stringIterator); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
     _(list).invertBy(); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
     _(list).invertBy("a"); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
     _(dictionary).invertBy(valueIterator); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
-    _(numericDictionary).invertBy({a: 1}); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
+    _(numericDictionary).invertBy({ a: 1 }); // $ExpectType LoDashImplicitWrapper<Dictionary<string[]>>
 
     _.chain("foo").invertBy(stringIterator); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
     _.chain(list).invertBy(); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
     _.chain(list).invertBy("a"); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
     _.chain(dictionary).invertBy(valueIterator); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
-    _.chain(numericDictionary).invertBy({a: 1}); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
+    _.chain(numericDictionary).invertBy({ a: 1 }); // $ExpectType LoDashExplicitWrapper<Dictionary<string[]>>
 
     fp.invertBy(stringIterator, "foo"); // $ExpectType Dictionary<string[]>
     fp.invertBy(stringIterator)("foo"); // $ExpectType Dictionary<string[]>
@@ -5285,7 +5971,11 @@ fp.now(); // $ExpectType number
 
 // _.mapKeys
 {
-    const abcObjectIterator = (value: AbcObject[keyof AbcObject], key: string, collection: AbcObject) => "";
+    const abcObjectIterator = (
+        value: AbcObject[keyof AbcObject],
+        key: string,
+        collection: AbcObject
+    ) => "";
 
     _.mapKeys(list); // $ExpectType Dictionary<AbcObject>
     _.mapKeys(list, listIterator); // $ExpectType Dictionary<AbcObject>
@@ -5366,7 +6056,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType Dictionary<string>
     _.mapValues(dictionary, (value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5375,7 +6065,7 @@ fp.now(); // $ExpectType number
     // Can"t really support NumericDictionary fully, but it at least gets treated like a Dictionary
     // $ExpectType Dictionary<string>
     _.mapValues(numericDictionary, (value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5383,7 +6073,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType { a: string; b: string; c: string; }
     _.mapValues(abcObject, (value, key, collection) => {
-        value;  // $ExpectType string | number | boolean
+        value; // $ExpectType string | number | boolean
         key; // $ExpectType string
         collection; // $ExpectType AbcObject
         return "";
@@ -5420,7 +6110,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType LoDashImplicitWrapper<Dictionary<string>>
     _(dictionary).mapValues((value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5429,7 +6119,7 @@ fp.now(); // $ExpectType number
     // Can"t really support NumericDictionary fully, but it at least gets treated like a Dictionary
     // $ExpectType LoDashImplicitWrapper<Dictionary<string>>
     _(numericDictionary).mapValues((value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5437,7 +6127,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType LoDashImplicitWrapper<{ a: string; b: string; c: string; }>
     _(abcObject).mapValues((value, key, collection) => {
-        value;  // $ExpectType string | number | boolean
+        value; // $ExpectType string | number | boolean
         key; // $ExpectType string
         collection; // $ExpectType AbcObject
         return "";
@@ -5474,7 +6164,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType LoDashExplicitWrapper<Dictionary<string>>
     _.chain(dictionary).mapValues((value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5483,7 +6173,7 @@ fp.now(); // $ExpectType number
     // Can"t really support NumericDictionary fully, but it at least gets treated like a Dictionary
     // $ExpectType LoDashExplicitWrapper<Dictionary<string>>
     _.chain(numericDictionary).mapValues((value, key, collection) => {
-        value;  // $ExpectType AbcObject
+        value; // $ExpectType AbcObject
         key; // $ExpectType string
         collection; // $ExpectType Dictionary<AbcObject>
         return "";
@@ -5491,7 +6181,7 @@ fp.now(); // $ExpectType number
 
     // $ExpectType LoDashExplicitWrapper<{ a: string; b: string; c: string; }>
     _.chain(abcObject).mapValues((value, key, collection) => {
-        value;  // $ExpectType string | number | boolean
+        value; // $ExpectType string | number | boolean
         key; // $ExpectType string
         collection; // $ExpectType AbcObject
         return "";
@@ -5535,7 +6225,7 @@ fp.now(); // $ExpectType number
     _.omit(obj, "a"); // $ExpectType Pick<AbcObject, "b" | "c">
     _.omit(obj, ["b", 1], 0, "a"); // $ExpectType Partial<AbcObject>
     _.omit(dictionary, "a"); // $ExpectType Dictionary<AbcObject>
-    _.omit(numericDictionary, "a");  // $ExpectType NumericDictionary<AbcObject>
+    _.omit(numericDictionary, "a"); // $ExpectType NumericDictionary<AbcObject>
 
     _(obj).omit("a"); // $ExpectType LoDashImplicitWrapper<Pick<AbcObject, "b" | "c">>
     _(obj).omit(["b", 1], 0, "a"); // $ExpectType LoDashImplicitWrapper<Partial<AbcObject>>
@@ -5556,7 +6246,10 @@ fp.now(); // $ExpectType number
 {
     const obj: AbcObject | null | undefined = anything;
     const dictionary: _.Dictionary<boolean> | null | undefined = anything;
-    const numericDictionary: _.NumericDictionary<boolean> | null | undefined = anything;
+    const numericDictionary:
+        | _.NumericDictionary<boolean>
+        | null
+        | undefined = anything;
     const predicate = (element: string | number | boolean, key: string) => true;
     const predicate2 = (element: boolean, key: string) => true;
 
@@ -5619,7 +6312,10 @@ fp.now(); // $ExpectType number
 {
     const obj: AbcObject | null | undefined = anything;
     const dictionary: _.Dictionary<boolean> | null | undefined = anything;
-    const numericDictionary: _.NumericDictionary<boolean> | null | undefined = anything;
+    const numericDictionary:
+        | _.NumericDictionary<boolean>
+        | null
+        | undefined = anything;
     const predicate = (element: string | number | boolean, key: string) => true;
     const predicate2 = (element: boolean, key: string) => true;
 
@@ -5636,16 +6332,23 @@ fp.now(); // $ExpectType number
     fp.pickBy(predicate2)(dictionary); // $ExpectType Dictionary<boolean>
     fp.pickBy(predicate2)(numericDictionary); // $ExpectType NumericDictionary<boolean>
 
-    const mixedDictionary: _.Dictionary<string | number> | null | undefined = anything;
+    const mixedDictionary:
+        | _.Dictionary<string | number>
+        | null
+        | undefined = anything;
 
-    const userDefinedTypeGuard = (item: string | number): item is number => typeof item === "number";
+    const userDefinedTypeGuard = (item: string | number): item is number =>
+        typeof item === "number";
 
     _.pickBy(mixedDictionary, userDefinedTypeGuard); // $ExpectType Dictionary<number>
     _(mixedDictionary).pickBy(userDefinedTypeGuard); // $ExpectType LoDashImplicitWrapper<Dictionary<number>>
     _.chain(mixedDictionary).pickBy(userDefinedTypeGuard); // $ExpectType LoDashExplicitWrapper<Dictionary<number>>
     fp.pickBy(userDefinedTypeGuard)(mixedDictionary); // $ExpectType Dictionary<number>
 
-    const mixedNumericDictionary: _.NumericDictionary<string | number> | null | undefined = anything;
+    const mixedNumericDictionary:
+        | _.NumericDictionary<string | number>
+        | null
+        | undefined = anything;
 
     _.pickBy(mixedNumericDictionary, userDefinedTypeGuard); // $ExpectType NumericDictionary<number>
     _(mixedNumericDictionary).pickBy(userDefinedTypeGuard); // $ExpectType LoDashImplicitWrapper<NumericDictionary<number>>
@@ -5737,7 +6440,7 @@ fp.now(); // $ExpectType number
 
     _.toPairs(dictionary); // $ExpectType [string, number][]
     _.toPairs(numericDictionary); // $ExpectType [string, number][]
-    _.toPairs(abcObject);  // $ExpectType [string, any][]
+    _.toPairs(abcObject); // $ExpectType [string, any][]
 
     _(dictionary).toPairs(); // $ExpectType LoDashImplicitWrapper<[string, number][]>
     _(numericDictionary).toPairs(); // $ExpectType LoDashImplicitWrapper<[string, number][]>
@@ -5751,7 +6454,7 @@ fp.now(); // $ExpectType number
 
     _.toPairsIn(dictionary); // $ExpectType [string, number][]
     _.toPairsIn(numericDictionary); // $ExpectType [string, number][]
-    _.toPairsIn(abcObject);  // $ExpectType [string, any][]
+    _.toPairsIn(abcObject); // $ExpectType [string, any][]
 
     _(dictionary).toPairsIn(); // $ExpectType LoDashImplicitWrapper<[string, number][]>
     _(numericDictionary).toPairsIn(); // $ExpectType LoDashImplicitWrapper<[string, number][]>
@@ -5770,7 +6473,12 @@ fp.now(); // $ExpectType number
     const dictionary: _.Dictionary<number> = {};
 
     {
-        const iterator = (acc: AbcObject[], curr: number, index?: number, arr?: number[]) => {};
+        const iterator = (
+            acc: AbcObject[],
+            curr: number,
+            index?: number,
+            arr?: number[]
+        ) => {};
         const accumulator: AbcObject[] = [];
 
         _.transform(array); // $ExpectType any[]
@@ -5783,7 +6491,12 @@ fp.now(); // $ExpectType number
     }
 
     {
-        const iterator = (acc: _.Dictionary<AbcObject>, curr: number, index?: number, arr?: number[]) => {};
+        const iterator = (
+            acc: _.Dictionary<AbcObject>,
+            curr: number,
+            index?: number,
+            arr?: number[]
+        ) => {};
         const accumulator: _.Dictionary<AbcObject> = {};
 
         _.transform<number, AbcObject>(array, iterator, accumulator); // $ExpectType Dictionary<AbcObject>
@@ -5792,7 +6505,12 @@ fp.now(); // $ExpectType number
     }
 
     {
-        const iterator = (acc: _.Dictionary<AbcObject>, curr: number, key?: string, dict?: _.Dictionary<number>) => {};
+        const iterator = (
+            acc: _.Dictionary<AbcObject>,
+            curr: number,
+            key?: string,
+            dict?: _.Dictionary<number>
+        ) => {};
         const accumulator: _.Dictionary<AbcObject> = {};
 
         _.transform(dictionary); // $ExpectType Dictionary<any>
@@ -5804,7 +6522,12 @@ fp.now(); // $ExpectType number
     }
 
     {
-        const iterator = (acc: AbcObject[], curr: number, key?: string, dict?: _.Dictionary<number>) => {};
+        const iterator = (
+            acc: AbcObject[],
+            curr: number,
+            key?: string,
+            dict?: _.Dictionary<number>
+        ) => {};
         const accumulator: AbcObject[] = [];
 
         _.transform<number, AbcObject>(dictionary, iterator, accumulator); // $ExpectType AbcObject[]
@@ -5813,7 +6536,8 @@ fp.now(); // $ExpectType number
     }
 
     {
-        const iterator = (acc: AbcObject[], curr: number): AbcObject => anything;
+        const iterator = (acc: AbcObject[], curr: number): AbcObject =>
+            anything;
         const accumulator: AbcObject[] = [];
 
         fp.transform(iterator, accumulator, array); // $ExpectType AbcObject[]
@@ -5822,7 +6546,10 @@ fp.now(); // $ExpectType number
     }
 
     {
-        const iterator = (acc: _.Dictionary<AbcObject>, curr: number): AbcObject => anything;
+        const iterator = (
+            acc: _.Dictionary<AbcObject>,
+            curr: number
+        ): AbcObject => anything;
         const accumulator: _.Dictionary<AbcObject> = {};
 
         fp.transform(iterator)(accumulator)(array); // $ExpectType Dictionary<AbcObject>
@@ -5957,41 +6684,41 @@ fp.now(); // $ExpectType number
 // _.tap
 {
     // $ExpectType string
-    _.tap("a", (value) => {
+    _.tap("a", value => {
         value; // $ExpectType string
     });
     // $ExpectType boolean[]
-    _.tap([true], (value) => {
+    _.tap([true], value => {
         value; // $ExpectType boolean[]
     });
     // $ExpectType { a: number; }
-    _.tap({ a: 42 }, (value) => {
+    _.tap({ a: 42 }, value => {
         value; // $ExpectType { a: number; }
     });
 
     // $ExpectType LoDashImplicitWrapper<string>
-    _("a").tap((value) => {
+    _("a").tap(value => {
         value; // $ExpectType string
     });
     // $ExpectType LoDashImplicitWrapper<boolean[]>
-    _([true]).tap((value) => {
+    _([true]).tap(value => {
         value; // $ExpectType boolean[]
     });
     // $ExpectType LoDashImplicitWrapper<{ a: number; }>
-    _({ a: 42 }).tap((value) => {
+    _({ a: 42 }).tap(value => {
         value; // $ExpectType { a: number; }
     });
 
     // $ExpectType LoDashExplicitWrapper<string>
-    _.chain("a").tap((value) => {
+    _.chain("a").tap(value => {
         value; // $ExpectType string
     });
     // $ExpectType LoDashExplicitWrapper<boolean[]>
-    _.chain([true]).tap((value) => {
+    _.chain([true]).tap(value => {
         value; // $ExpectType boolean[]
     });
     // $ExpectType LoDashExplicitWrapper<{ a: number; }>
-    _.chain({ a: 42 }).tap((value) => {
+    _.chain({ a: 42 }).tap(value => {
         value; // $ExpectType { a: number; }
     });
 
@@ -6003,49 +6730,49 @@ fp.now(); // $ExpectType number
 // _.thru
 {
     // $ExpectType number
-    _.thru("a", (value) => {
+    _.thru("a", value => {
         value; // $ExpectType string
         return 1;
     });
     // $ExpectType number
-    _.thru([true], (value) => {
+    _.thru([true], value => {
         value; // $ExpectType boolean[]
         return 1;
     });
     // $ExpectType number
-    _.thru({ a: 42 }, (value) => {
+    _.thru({ a: 42 }, value => {
         value; // $ExpectType { a: number; }
         return 1;
     });
 
     // $ExpectType LoDashImplicitWrapper<number>
-    _("a").thru((value) => {
+    _("a").thru(value => {
         value; // $ExpectType string
         return 1;
     });
     // $ExpectType LoDashImplicitWrapper<number>
-    _([true]).thru((value) => {
+    _([true]).thru(value => {
         value; // $ExpectType boolean[]
         return 1;
     });
     // $ExpectType LoDashImplicitWrapper<number>
-    _({ a: 42 }).thru((value) => {
+    _({ a: 42 }).thru(value => {
         value; // $ExpectType { a: number; }
         return 1;
     });
 
     // $ExpectType LoDashExplicitWrapper<number>
-    _.chain("a").thru((value) => {
+    _.chain("a").thru(value => {
         value; // $ExpectType string
         return 1;
     });
     // $ExpectType LoDashExplicitWrapper<number>
-    _.chain([true]).thru((value) => {
+    _.chain([true]).thru(value => {
         value; // $ExpectType boolean[]
         return 1;
     });
     // $ExpectType LoDashExplicitWrapper<number>
-    _.chain({ a: 42 }).thru((value) => {
+    _.chain({ a: 42 }).thru(value => {
         value; // $ExpectType { a: number; }
         return 1;
     });
@@ -6088,7 +6815,7 @@ fp.now(); // $ExpectType number
     _.chain(numberROA).concat(numberROA); // $ExpectType LoDashExplicitWrapper<number[]>
     _.chain(numberROA).concat(numberROA, numberROA); // $ExpectType LoDashExplicitWrapper<number[]>
 
-    const objectROA: ReadonlyArray<AbcObject> = [{ a: 1, b: 'foo', c: true }];
+    const objectROA: ReadonlyArray<AbcObject> = [{ a: 1, b: "foo", c: true }];
 
     _.concat(abcObject, abcObject); // $ExpectType AbcObject[]
     _.concat(abcObject, [abcObject], objectROA); // $ExpectType AbcObject[]
@@ -6121,12 +6848,12 @@ fp.now(); // $ExpectType number
 
 // _.prototype.toString
 {
-    _('').toString(); // $ExpectType string
+    _("").toString(); // $ExpectType string
     _(42).toString(); // $ExpectType string
     _([true]).toString(); // $ExpectType string
     _({}).toString(); // $ExpectType string
 
-    _.chain('').toString(); // $ExpectType string
+    _.chain("").toString(); // $ExpectType string
     _.chain(42).toString(); // $ExpectType string
     _.chain([true]).toString(); // $ExpectType string
     _.chain({}).toString(); // $ExpectType string
@@ -6305,7 +7032,8 @@ fp.now(); // $ExpectType number
 
 // _.replace
 {
-    const replacer = (match: string, offset: number, string: string) => "Barney";
+    const replacer = (match: string, offset: number, string: string) =>
+        "Barney";
 
     _.replace("Hi Fred", "Fred", "Barney"); // $ExpectType string
     _.replace("Hi Fred", "Fred", replacer); // $ExpectType string
@@ -6382,7 +7110,7 @@ fp.now(); // $ExpectType number
         imports: {},
         interpolate: / /,
         sourceURL: "",
-        variable: "a",
+        variable: "a"
     };
 
     const result = _.template("");
@@ -6464,23 +7192,49 @@ fp.now(); // $ExpectType number
 // _.truncate
 {
     _.truncate("hi-diddly-ho there, neighborino"); // $ExpectType string
-    _.truncate("hi-diddly-ho there, neighborino", { length: 24, separator: " " }); // $ExpectType string
-    _.truncate("hi-diddly-ho there, neighborino", { length: 24, separator: /,? +/ }); // $ExpectType string
+    _.truncate("hi-diddly-ho there, neighborino", {
+        length: 24,
+        separator: " "
+    }); // $ExpectType string
+    _.truncate("hi-diddly-ho there, neighborino", {
+        length: 24,
+        separator: /,? +/
+    }); // $ExpectType string
     _.truncate("hi-diddly-ho there, neighborino", { omission: " […]" }); // $ExpectType string
 
     _("hi-diddly-ho there, neighborino").truncate(); // $ExpectType string
-    _("hi-diddly-ho there, neighborino").truncate({ length: 24, separator: " " }); // $ExpectType string
-    _("hi-diddly-ho there, neighborino").truncate({ length: 24, separator: /,? +/ }); // $ExpectType string
+    _("hi-diddly-ho there, neighborino").truncate({
+        length: 24,
+        separator: " "
+    }); // $ExpectType string
+    _("hi-diddly-ho there, neighborino").truncate({
+        length: 24,
+        separator: /,? +/
+    }); // $ExpectType string
     _("hi-diddly-ho there, neighborino").truncate({ omission: " […]" }); // $ExpectType string
 
     _.chain("hi-diddly-ho there, neighborino").truncate(); // $ExpectType LoDashExplicitWrapper<string>
-    _.chain("hi-diddly-ho there, neighborino").truncate({ length: 24, separator: " " }); // $ExpectType LoDashExplicitWrapper<string>
-    _.chain("hi-diddly-ho there, neighborino").truncate({ length: 24, separator: /,? +/ }); // $ExpectType LoDashExplicitWrapper<string>
+    _.chain("hi-diddly-ho there, neighborino").truncate({
+        length: 24,
+        separator: " "
+    }); // $ExpectType LoDashExplicitWrapper<string>
+    _.chain("hi-diddly-ho there, neighborino").truncate({
+        length: 24,
+        separator: /,? +/
+    }); // $ExpectType LoDashExplicitWrapper<string>
     _.chain("hi-diddly-ho there, neighborino").truncate({ omission: " […]" }); // $ExpectType LoDashExplicitWrapper<string>
 
-    fp.truncate({ length: 24, separator: " " }, "hi-diddly-ho there, neighborino"); // $ExpectType string
-    fp.truncate({ length: 24, separator: " " })("hi-diddly-ho there, neighborino"); // $ExpectType string
-    fp.truncate({ length: 24, separator: /,? +/ }, "hi-diddly-ho there, neighborino"); // $ExpectType string
+    fp.truncate(
+        { length: 24, separator: " " },
+        "hi-diddly-ho there, neighborino"
+    ); // $ExpectType string
+    fp.truncate({ length: 24, separator: " " })(
+        "hi-diddly-ho there, neighborino"
+    ); // $ExpectType string
+    fp.truncate(
+        { length: 24, separator: /,? +/ },
+        "hi-diddly-ho there, neighborino"
+    ); // $ExpectType string
     fp.truncate({ omission: " […]" }, "hi-diddly-ho there, neighborino"); // $ExpectType string
 }
 
@@ -6703,11 +7457,25 @@ fp.now(); // $ExpectType number
 // _.methodOf
 {
     _.methodOf(abcObject) as (path: _.Many<_.PropertyName>) => any;
-    _.methodOf(abcObject, anything, anything, anything) as (path: _.Many<_.PropertyName>) => any;
-    _(abcObject).methodOf() as _.LoDashImplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
-    _(abcObject).methodOf(anything, anything, anything) as _.LoDashImplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
-    _.chain(abcObject).methodOf() as _.LoDashExplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
-    _.chain(abcObject).methodOf(anything, anything, anything) as _.LoDashExplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
+    _.methodOf(abcObject, anything, anything, anything) as (
+        path: _.Many<_.PropertyName>
+    ) => any;
+    _(abcObject).methodOf() as _.LoDashImplicitWrapper<
+        (path: _.Many<_.PropertyName>) => any
+    >;
+    _(abcObject).methodOf(
+        anything,
+        anything,
+        anything
+    ) as _.LoDashImplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
+    _.chain(abcObject).methodOf() as _.LoDashExplicitWrapper<
+        (path: _.Many<_.PropertyName>) => any
+    >;
+    _.chain(abcObject).methodOf(
+        anything,
+        anything,
+        anything
+    ) as _.LoDashExplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
     fp.methodOf(abcObject) as (path: _.Many<_.PropertyName>) => any;
 }
 
@@ -6715,7 +7483,7 @@ fp.now(); // $ExpectType number
 {
     const source: _.Dictionary<(...args: any[]) => any> = {};
     const dest: AbcObject = anything;
-    const options: {chain?: boolean} = {};
+    const options: { chain?: boolean } = {};
 
     _.mixin(source); // $ExpectType LoDashStatic
     _.mixin(source, options); // $ExpectType LoDashStatic
@@ -6841,8 +7609,12 @@ fp.now(); // $ExpectType number
 // _.propertyOf
 {
     _.propertyOf({}) as (path: _.Many<_.PropertyName>) => any;
-    _({}).propertyOf() as _.LoDashImplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
-    _.chain({}).propertyOf() as _.LoDashExplicitWrapper<(path: _.Many<_.PropertyName>) => any>;
+    _({}).propertyOf() as _.LoDashImplicitWrapper<
+        (path: _.Many<_.PropertyName>) => any
+    >;
+    _.chain({}).propertyOf() as _.LoDashExplicitWrapper<
+        (path: _.Many<_.PropertyName>) => any
+    >;
 
     fp.propertyOf(Symbol.iterator)([]); // $ExpectType any
     fp.propertyOf([Symbol.iterator], []); // $ExpectType any
@@ -6944,20 +7716,20 @@ fp.now(); // $ExpectType number
 
 // _.toPath
 {
-   _.toPath(1); // $ExpectType string[]
-   _.toPath("a[0].b.c"); // $ExpectType string[]
-   _.toPath(["a", 1]); // $ExpectType string[]
-   _(1).toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
-   _("a[0].b.c").toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
-   _(["a", 1]).toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
-   _.chain(1).toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
-   _.chain("a[0].b.c").toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
-   _.chain(["a", 1]).toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
-   fp.toPath(true); // $ExpectType string[]
-   fp.toPath(1); // $ExpectType string[]
-   fp.toPath("a"); // $ExpectType string[]
-   fp.toPath(["a"]); // $ExpectType string[]
-   fp.toPath({}); // $ExpectType string[]
+    _.toPath(1); // $ExpectType string[]
+    _.toPath("a[0].b.c"); // $ExpectType string[]
+    _.toPath(["a", 1]); // $ExpectType string[]
+    _(1).toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
+    _("a[0].b.c").toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
+    _(["a", 1]).toPath(); // $ExpectType LoDashImplicitWrapper<string[]>
+    _.chain(1).toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
+    _.chain("a[0].b.c").toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
+    _.chain(["a", 1]).toPath(); // $ExpectType LoDashExplicitWrapper<string[]>
+    fp.toPath(true); // $ExpectType string[]
+    fp.toPath(1); // $ExpectType string[]
+    fp.toPath("a"); // $ExpectType string[]
+    fp.toPath(["a"]); // $ExpectType string[]
+    fp.toPath({}); // $ExpectType string[]
 }
 
 // _.uniqueId
@@ -6995,11 +7767,11 @@ _.templateSettings; // $ExpectType TemplateSettings
     // with arity 2 function
     _.partial(func2); // $ExpectType Function2<number, string, number>
     _.partial(func2, 42); // $ExpectType Function1<string, number>
-    _.partial(func2,  _, "foo"); // $ExpectType Function1<number, number>
+    _.partial(func2, _, "foo"); // $ExpectType Function1<number, number>
     _.partial(func2, _.partial.placeholder, "foo"); // $ExpectType Function1<number, number>
     _.partial(func2, 42, "foo"); // $ExpectType Function0<number>
     // with arity 3 function
-    _.partial(func3, 42,     _, true);
+    _.partial(func3, 42, _, true);
 
     // with arity 0 function
     _.partialRight(func0); // $ExpectType Function0<number>
@@ -7008,12 +7780,12 @@ _.templateSettings; // $ExpectType TemplateSettings
     _.partialRight(func1); // $ExpectType Function1<number, number>
     // with arity 2 function
     _.partialRight(func2); // $ExpectType Function2<number, string, number>
-    _.partialRight(func2, 42,     _); // $ExpectType Function1<string, number>
+    _.partialRight(func2, 42, _); // $ExpectType Function1<string, number>
     _.partialRight(func2, 42, _.partialRight.placeholder); // $ExpectType Function1<string, number>
-    _.partialRight(func2,     "foo"); // $ExpectType Function1<number, number>
+    _.partialRight(func2, "foo"); // $ExpectType Function1<number, number>
     _.partialRight(func2, 42, "foo"); // $ExpectType Function0<number>
     // with arity 3 function
-    _.partialRight(func3, 42,     _, true);
+    _.partialRight(func3, 42, _, true);
 
     fp.partial(func1, [42]); // $ExpectType Function0<number>
     fp.partial(func1)([42]); // $ExpectType Function0<number>

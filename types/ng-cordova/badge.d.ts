@@ -12,7 +12,15 @@ declare namespace ngCordova {
         set(badge: number, callback?: Function, scope?: {}): ng.IPromise<any>;
         get(): ng.IPromise<number>;
         clear(callback?: Function, scope?: {}): ng.IPromise<any>;
-        increase(count?: number, callback?: Function, scope?: {}): ng.IPromise<any>;
-        decrease(count?: number, callback?: Function, scope?: {}): ng.IPromise<any>;
+        increase(
+            count?: number,
+            callback?: Function,
+            scope?: {}
+        ): ng.IPromise<any>;
+        decrease(
+            count?: number,
+            callback?: Function,
+            scope?: {}
+        ): ng.IPromise<any>;
     }
 }

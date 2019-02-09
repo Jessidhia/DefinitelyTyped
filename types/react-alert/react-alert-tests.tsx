@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     Provider as AlertProvider,
     Alert,
@@ -7,14 +7,14 @@ import {
     AlertTransition,
     ProviderOptions,
     InjectedAlertProp
-} from 'react-alert';
+} from "react-alert";
 
 class AppWithoutAlert extends React.Component<{ alert: InjectedAlertProp }> {
     render() {
         return (
             <button
                 onClick={() => {
-                    this.props.alert.show('Oh look, an alert!');
+                    this.props.alert.show("Oh look, an alert!");
                 }}
             >
                 Show Alert
@@ -32,7 +32,7 @@ class AppAlert extends React.Component {
                 {alert => (
                     <button
                         onClick={() => {
-                            alert.show('Oh look, an alert!');
+                            alert.show("Oh look, an alert!");
                         }}
                     >
                         Show Alert
@@ -53,9 +53,9 @@ class AlertTemplate extends React.Component<any> {
 
         return (
             <div style={style}>
-                {options.type === 'info' && '!'}
-                {options.type === 'success' && ':)'}
-                {options.type === 'error' && ':('}
+                {options.type === "info" && "!"}
+                {options.type === "success" && ":)"}
+                {options.type === "error" && ":("}
                 {message}
                 <button onClick={close}>X</button>
             </div>
@@ -64,10 +64,10 @@ class AlertTemplate extends React.Component<any> {
 }
 
 const options: ProviderOptions = {
-    position: 'bottom center' as AlertPosition,
+    position: "bottom center" as AlertPosition,
     timeout: 5000,
-    offset: '30px',
-    transition: 'scale' as AlertTransition
+    offset: "30px",
+    transition: "scale" as AlertTransition
 };
 
 class Root extends React.Component {

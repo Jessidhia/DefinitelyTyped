@@ -6,14 +6,20 @@
 
 interface TypeOptions {
     allowMultiple?: boolean;
-    handleNotFoundStyleName?: 'throw' | 'log' | 'ignore';
+    handleNotFoundStyleName?: "throw" | "log" | "ignore";
 }
 
 type StylesObject = any;
 
 interface CSSModules {
-    (defaultStyles: StylesObject, options?: TypeOptions): <C extends Function>(Component: C) => C;
-    <C extends Function>(Component: C, defaultStyles: StylesObject, options?: TypeOptions): C;
+    (defaultStyles: StylesObject, options?: TypeOptions): <C extends Function>(
+        Component: C
+    ) => C;
+    <C extends Function>(
+        Component: C,
+        defaultStyles: StylesObject,
+        options?: TypeOptions
+    ): C;
 }
 
 declare module CSSModules {
@@ -29,7 +35,7 @@ declare let CSSModules: CSSModules;
 
 export = CSSModules;
 
-declare module 'react' {
+declare module "react" {
     interface HTMLAttributes<T> {
         styleName?: string;
     }

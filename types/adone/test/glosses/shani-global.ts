@@ -2,41 +2,67 @@ namespace shaniGlobalTests {
     namespace describeTests {
         describe("hello", () => {});
 
-        describe("hello", function () {
+        describe("hello", function() {
             this.skip();
             this.timeout(10);
             this.a;
         });
 
-        describe("1", "2", "3", "4", "45", function () {
+        describe("1", "2", "3", "4", "45", function() {
             this.skip();
             this.timeout(10);
             this.a;
         });
 
-        describe("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", function () {
-            this.skip();
-            this.timeout(10);
-            this.a;
-        });
+        describe(
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            function() {
+                this.skip();
+                this.timeout(10);
+                this.a;
+            }
+        );
 
-        context("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", function () {
-            this.skip();
-            this.timeout(10);
-            this.a;
-        });
+        context(
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            function() {
+                this.skip();
+                this.timeout(10);
+                this.a;
+            }
+        );
     }
 
     namespace itTests {
         it("should be here", () => {});
 
-        it("should be here", function () {
+        it("should be here", function() {
             this.timeout(100);
             this.skip();
             this.a;
         });
 
-        it("should be here", function (done: () => void) {
+        it("should be here", function(done: () => void) {
             this.timeout(1000);
             done();
             this.a;
@@ -44,41 +70,77 @@ namespace shaniGlobalTests {
 
         it("hello", {}, () => {});
 
-        it("hello", {
-            skip: true
-        }, () => {});
+        it(
+            "hello",
+            {
+                skip: true
+            },
+            () => {}
+        );
 
-        it("hello", {
-            skip: () => true
-        }, () => {});
+        it(
+            "hello",
+            {
+                skip: () => true
+            },
+            () => {}
+        );
 
-        it("hello", {
-            timeout: () => 1202
-        }, () => {});
+        it(
+            "hello",
+            {
+                timeout: () => 1202
+            },
+            () => {}
+        );
 
-        it("hello", {
-            timeout: 1010
-        }, () => {});
+        it(
+            "hello",
+            {
+                timeout: 1010
+            },
+            () => {}
+        );
 
-        it("hello", {
-            before() {}
-        }, () => {});
+        it(
+            "hello",
+            {
+                before() {}
+            },
+            () => {}
+        );
 
-        it("hello", {
-            before: ["hello", () => {}]
-        }, () => {});
+        it(
+            "hello",
+            {
+                before: ["hello", () => {}]
+            },
+            () => {}
+        );
 
-        it("hello", {
-            after() {}
-        }, () => {});
+        it(
+            "hello",
+            {
+                after() {}
+            },
+            () => {}
+        );
 
-        it("hello", {
-            after: ["hello", () => {}]
-        }, () => {});
+        it(
+            "hello",
+            {
+                after: ["hello", () => {}]
+            },
+            () => {}
+        );
 
-        specify("hello", {
-            after: ["hello", () => {}]
-        }, () => {});
+        specify(
+            "hello",
+            {
+                after: ["hello", () => {}]
+            },
+            () => {}
+        );
     }
 
     namespace beforeTests {
@@ -87,12 +149,12 @@ namespace shaniGlobalTests {
             this.a;
         });
 
-        before("description", function () {
+        before("description", function() {
             this.timeout(100);
             this.a;
         });
 
-        before("description", function (done) {
+        before("description", function(done) {
             this.timeout(100);
             done();
             this.a;
@@ -100,34 +162,34 @@ namespace shaniGlobalTests {
     }
 
     namespace afterTests {
-        after(function () {
+        after(function() {
             this.timeout(10);
             this.a;
         });
 
-        after("description", function () {
+        after("description", function() {
             this.timeout(10);
             this.a;
         });
 
-        after("description", function (done) {
+        after("description", function(done) {
             this.timeout(10);
             this.a;
         });
     }
 
     namespace beforeEachTests {
-        beforeEach(function () {
+        beforeEach(function() {
             this.timeout(100);
             this.a;
         });
 
-        beforeEach("hello", function () {
+        beforeEach("hello", function() {
             this.timeout(100);
             this.a;
         });
 
-        beforeEach("hello", function (done) {
+        beforeEach("hello", function(done) {
             this.timeout(100);
             done();
             this.a;
@@ -135,17 +197,17 @@ namespace shaniGlobalTests {
     }
 
     namespace afterEachTests {
-        afterEach(function () {
+        afterEach(function() {
             this.timeout(100);
             this.a;
         });
 
-        afterEach("asd", function () {
+        afterEach("asd", function() {
             this.timeout(100);
             this.a;
         });
 
-        afterEach("asd", function (done) {
+        afterEach("asd", function(done) {
             this.timeout(100);
             done();
             this.a;

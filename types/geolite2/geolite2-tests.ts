@@ -1,4 +1,4 @@
-import * as geolite2 from 'geolite2';
+import * as geolite2 from "geolite2";
 
 const asn = geolite2.paths.asn; // $ExpectType string
 const city = geolite2.paths.city; // $ExpectType string

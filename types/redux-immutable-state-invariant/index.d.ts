@@ -7,6 +7,8 @@
 import * as Redux from "redux";
 
 type isImmutableDefault = (value: any) => boolean;
-type immutableStateInvariantMiddlewareInterface = (isImmutable?: isImmutableDefault) => Redux.Middleware;
+type immutableStateInvariantMiddlewareInterface = (
+    isImmutable?: isImmutableDefault
+) => Redux.Middleware;
 declare let immutableStateInvariantMiddleware: immutableStateInvariantMiddlewareInterface;
 export default immutableStateInvariantMiddleware;

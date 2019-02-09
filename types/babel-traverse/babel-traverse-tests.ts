@@ -1,6 +1,6 @@
 import * as babylon from "babylon";
-import traverse, { Visitor } from 'babel-traverse';
-import * as t from 'babel-types';
+import traverse, { Visitor } from "babel-traverse";
+import * as t from "babel-types";
 
 // Examples from: https://github.com/thejameskyle/babel-handbook/blob/master/translations/en/plugin-handbook.md
 const MyVisitor: Visitor = {
@@ -47,7 +47,11 @@ const v1: Visitor = {
             t.binaryExpression("**", path.node.left, t.numericLiteral(2))
         );
         path.parentPath.replaceWith(
-            t.expressionStatement(t.stringLiteral("Anyway the wind blows, doesn't really matter to me, to me."))
+            t.expressionStatement(
+                t.stringLiteral(
+                    "Anyway the wind blows, doesn't really matter to me, to me."
+                )
+            )
         );
         path.parentPath.remove();
     },
@@ -65,7 +69,11 @@ const v1: Visitor = {
         path.replaceWithMultiple([
             t.expressionStatement(t.stringLiteral("Is this the real life?")),
             t.expressionStatement(t.stringLiteral("Is this just fantasy?")),
-            t.expressionStatement(t.stringLiteral("(Enjoy singing the rest of the song in your head)")),
+            t.expressionStatement(
+                t.stringLiteral(
+                    "(Enjoy singing the rest of the song in your head)"
+                )
+            )
         ]);
     },
 
@@ -74,8 +82,14 @@ const v1: Visitor = {
             return a + b;
         }`);
 
-        path.insertBefore(t.expressionStatement(t.stringLiteral("Because I'm easy come, easy go.")));
-        path.insertAfter(t.expressionStatement(t.stringLiteral("A little high, little low.")));
+        path.insertBefore(
+            t.expressionStatement(
+                t.stringLiteral("Because I'm easy come, easy go.")
+            )
+        );
+        path.insertAfter(
+            t.expressionStatement(t.stringLiteral("A little high, little low."))
+        );
         path.remove();
 
         if (path.scope.hasBinding("n")) {
@@ -102,16 +116,16 @@ const v1: Visitor = {
 };
 
 // Binding.kind
-const BindingKindTest: Visitor  = {
+const BindingKindTest: Visitor = {
     Identifier(path) {
         const kind = path.scope.getBinding("str").kind;
-        kind === 'module';
-        kind === 'const';
-        kind === 'let';
-        kind === 'var';
+        kind === "module";
+        kind === "const";
+        kind === "let";
+        kind === "var";
         // The following should fail when uncommented
         // kind === 'anythingElse';
-    },
+    }
 };
 
 // https://github.com/babel/babel/blob/d33d02359474296402b1577ef53f20d94e9085c4/packages/babel-plugin-transform-es2015-block-scoping/test/fixtures/exec/scope-bindings.js#L15-L25

@@ -10,7 +10,9 @@
  * @param sections One or more Section objects
  * @alias module:command-line-usage
  */
-declare function commandLineUsage(sections: commandLineUsage.Section | commandLineUsage.Section[]): string;
+declare function commandLineUsage(
+    sections: commandLineUsage.Section | commandLineUsage.Section[]
+): string;
 export = commandLineUsage;
 
 declare namespace commandLineUsage {

@@ -5,14 +5,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node"/>
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 export const version: string;
 export const libxml_version: string;
 export const libxml_parser_version: string;
 
 // tslint:disable-next-line:strict-export-declare-modifiers
-interface StringMap { [key: string]: string; }
+interface StringMap {
+    [key: string]: string;
+}
 
 // tslint:disable-next-line:strict-export-declare-modifiers
 interface ParserOptions {
@@ -51,11 +53,20 @@ interface ParserOptions {
 }
 
 export function parseXml(source: string, options?: ParserOptions): Document;
-export function parseXmlString(source: string, options?: ParserOptions): Document;
+export function parseXmlString(
+    source: string,
+    options?: ParserOptions
+): Document;
 
 export function parseHtml(source: string, options?: ParserOptions): Document;
-export function parseHtmlString(source: string, options?: ParserOptions): Document;
-export function parseHtmlFragment(source: string, options?: ParserOptions): Document;
+export function parseHtmlString(
+    source: string,
+    options?: ParserOptions
+): Document;
+export function parseHtmlFragment(
+    source: string,
+    options?: ParserOptions
+): Document;
 
 export function memoryUsage(): number;
 export function nodeCount(): number;
@@ -71,17 +82,17 @@ export class Document {
     errors: SyntaxError[];
     validationErrors: ValidationError[];
 
-    child(idx: number): Element|null;
+    child(idx: number): Element | null;
     childNodes(): Element[];
     encoding(): string;
     encoding(enc: string): this;
     find(xpath: string): Element[];
-    get(xpath: string, namespaces?: StringMap): Element|null;
+    get(xpath: string, namespaces?: StringMap): Element | null;
     node(name: string, content?: string): Element;
-    root(): Element|null;
+    root(): Element | null;
     root(newRoot: Node): Node;
     toString(formatted?: boolean): string;
-    type(): 'document';
+    type(): "document";
     validate(xsdDoc: Document): boolean;
     version(): string;
     setDtd(name: string, ext: string, sys: string): void;
@@ -94,11 +105,11 @@ export class Document {
 
 export class Node {
     doc(): Document;
-    parent(): Element|Document;
+    parent(): Element | Document;
     /**
      * The namespace or null in case of comment nodes
      */
-    namespace(): Namespace|null;
+    namespace(): Namespace | null;
 
     /**
      * An array of namespaces that the object belongs to.
@@ -109,21 +120,25 @@ export class Node {
      */
     namespaces(local?: boolean): Namespace[];
 
-    prevSibling(): Node|null;
-    nextSibling(): Node|null;
+    prevSibling(): Node | null;
+    nextSibling(): Node | null;
 
-    type(): 'comment'|'element'|'text'|'attribute';
+    type(): "comment" | "element" | "text" | "attribute";
     remove(): this;
     clone(): this;
     /**
      * Serializes the node to a string. The string will contain all contents of the node formatted as XML and can be used to print the node.
      */
-    toString(format?: boolean|{
-        declaration: boolean;
-        selfCloseEmpty: boolean;
-        whitespace: boolean;
-        type: 'xml'|'html'|'xhtml'
-    }): string;
+    toString(
+        format?:
+            | boolean
+            | {
+                  declaration: boolean;
+                  selfCloseEmpty: boolean;
+                  whitespace: boolean;
+                  type: "xml" | "html" | "xhtml";
+              }
+    ): string;
 }
 
 export class Element extends Node {
@@ -133,7 +148,7 @@ export class Element extends Node {
     name(newName: string): this;
     text(): string;
     text(newText: string): this;
-    attr(name: string): Attribute|null;
+    attr(name: string): Attribute | null;
     attr(attrObject: StringMap): this;
     attrs(): Attribute[];
 
@@ -146,18 +161,21 @@ export class Element extends Node {
      */
     addChild(child: Element): this;
 
-    prevElement(): Element|null;
-    nextElement(): Element|null;
+    prevElement(): Element | null;
+    nextElement(): Element | null;
     addNextSibling(siblingNode: Node): Node;
     addPrevSibling(siblingNode: Node): Node;
 
     find(xpath: string, ns_uri?: string): Node[];
     find(xpath: string, namespaces: StringMap): Node[];
-    get(xpath: string, ns_uri?: string): Element|null;
+    get(xpath: string, ns_uri?: string): Element | null;
 
-    defineNamespace(prefixOrHref: string, hrefInCaseOfPrefix?: string): Namespace;
+    defineNamespace(
+        prefixOrHref: string,
+        hrefInCaseOfPrefix?: string
+    ): Namespace;
 
-    namespace(): Namespace|null;
+    namespace(): Namespace | null;
     namespace(newNamespace: Namespace): this;
     namespace(prefixOrHref: string, hrefInCaseOfPrefix?: string): Namespace;
 
@@ -192,29 +210,29 @@ export class SaxPushParser extends EventEmitter {
 }
 
 export interface SyntaxError {
-    domain: number|null;
-    code: number|null;
-    message: string|null;
-    level: number|null;
-    file: string|null;
-    line: number|null;
+    domain: number | null;
+    code: number | null;
+    message: string | null;
+    level: number | null;
+    file: string | null;
+    line: number | null;
     /**
      * 1-based column number, 0 if not applicable/available.
      */
     column: number;
 
-    str1: number|null;
-    str2: number|null;
-    str3: number|null;
-    int1: number|null;
+    str1: number | null;
+    str2: number | null;
+    str3: number | null;
+    int1: number | null;
 }
 
 export interface ValidationError extends Error {
-    domain: number|null;
-    code: number|null;
-    level: number|null;
+    domain: number | null;
+    code: number | null;
+    level: number | null;
 
-    line: number|null;
+    line: number | null;
     /**
      * 1-based column number, 0 if not applicable/available.
      */

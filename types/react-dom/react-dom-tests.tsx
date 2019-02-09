@@ -1,40 +1,40 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as ReactDOMServer from 'react-dom/server';
-import * as ReactDOMNodeStream from 'react-dom/node-stream';
-import * as ReactTestUtils from 'react-dom/test-utils';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import * as ReactDOMServer from "react-dom/server";
+import * as ReactDOMNodeStream from "react-dom/node-stream";
+import * as ReactTestUtils from "react-dom/test-utils";
 
 declare function describe(desc: string, f: () => void): void;
 declare function it(desc: string, f: () => void): void;
 
-class TestComponent extends React.Component<{x: string}> { }
+class TestComponent extends React.Component<{ x: string }> {}
 
-describe('ReactDOM', () => {
-    it('render', () => {
-        const rootElement = document.createElement('div');
-        ReactDOM.render(React.createElement('div'), rootElement);
+describe("ReactDOM", () => {
+    it("render", () => {
+        const rootElement = document.createElement("div");
+        ReactDOM.render(React.createElement("div"), rootElement);
     });
 
-    it('hydrate', () => {
-        const rootElement = document.createElement('div');
-        ReactDOM.hydrate(React.createElement('div'), rootElement);
+    it("hydrate", () => {
+        const rootElement = document.createElement("div");
+        ReactDOM.hydrate(React.createElement("div"), rootElement);
     });
 
-    it('unmounts', () => {
-        const rootElement = document.createElement('div');
-        ReactDOM.render(React.createElement('div'), rootElement);
+    it("unmounts", () => {
+        const rootElement = document.createElement("div");
+        ReactDOM.render(React.createElement("div"), rootElement);
         ReactDOM.unmountComponentAtNode(rootElement);
     });
 
-    it('find dom node', () => {
-        const rootElement = document.createElement('div');
-        ReactDOM.render(React.createElement('div'), rootElement);
+    it("find dom node", () => {
+        const rootElement = document.createElement("div");
+        ReactDOM.render(React.createElement("div"), rootElement);
         ReactDOM.findDOMNode(rootElement);
     });
 
-    it('createPortal', () => {
-        const rootElement = document.createElement('div');
-        const portalTarget = document.createElement('div');
+    it("createPortal", () => {
+        const rootElement = document.createElement("div");
+        const portalTarget = document.createElement("div");
 
         class ClassComponent extends React.Component {
             render() {
@@ -42,156 +42,210 @@ describe('ReactDOM', () => {
             }
         }
 
-        ReactDOM.createPortal(<div />, document.createElement('div'));
-        ReactDOM.createPortal(<div />, document.createElement('div'), null);
-        ReactDOM.createPortal(<div />, document.createElement('div'), 'key');
+        ReactDOM.createPortal(<div />, document.createElement("div"));
+        ReactDOM.createPortal(<div />, document.createElement("div"), null);
+        ReactDOM.createPortal(<div />, document.createElement("div"), "key");
 
-        ReactDOM.createPortal(React.createElement('div'), document.createElement('div'));
-        ReactDOM.createPortal(React.createElement('div'), document.createElement('div'), null);
-        ReactDOM.createPortal(React.createElement('div'), document.createElement('div'), 'key');
+        ReactDOM.createPortal(
+            React.createElement("div"),
+            document.createElement("div")
+        );
+        ReactDOM.createPortal(
+            React.createElement("div"),
+            document.createElement("div"),
+            null
+        );
+        ReactDOM.createPortal(
+            React.createElement("div"),
+            document.createElement("div"),
+            "key"
+        );
 
         ReactDOM.render(<ClassComponent />, rootElement);
     });
 });
 
-describe('ReactDOMServer', () => {
-    it('renderToString', () => {
-        const content: string = ReactDOMServer.renderToString(React.createElement('div'));
+describe("ReactDOMServer", () => {
+    it("renderToString", () => {
+        const content: string = ReactDOMServer.renderToString(
+            React.createElement("div")
+        );
     });
 
-    it('renderToStaticMarkup', () => {
-        const content: string = ReactDOMServer.renderToStaticMarkup(React.createElement('div'));
-    });
-});
-
-describe('ReactDOMNodeStream', () => {
-    it('renderToStream', () => {
-        const content: any = ReactDOMNodeStream.renderToStream(React.createElement('div'));
-    });
-
-    it('renderToStaticStream', () => {
-        const content: any = ReactDOMNodeStream.renderToStaticStream(React.createElement('div'));
+    it("renderToStaticMarkup", () => {
+        const content: string = ReactDOMServer.renderToStaticMarkup(
+            React.createElement("div")
+        );
     });
 });
 
-describe('React dom test utils', () => {
-    it('Simulate', () => {
-        const element = document.createElement('div');
+describe("ReactDOMNodeStream", () => {
+    it("renderToStream", () => {
+        const content: any = ReactDOMNodeStream.renderToStream(
+            React.createElement("div")
+        );
+    });
+
+    it("renderToStaticStream", () => {
+        const content: any = ReactDOMNodeStream.renderToStaticStream(
+            React.createElement("div")
+        );
+    });
+});
+
+describe("React dom test utils", () => {
+    it("Simulate", () => {
+        const element = document.createElement("div");
         const dom = ReactDOM.render(
-            React.createElement('input', { type: 'text' }),
+            React.createElement("input", { type: "text" }),
             element
         ) as Element;
         const node = ReactDOM.findDOMNode(dom) as HTMLInputElement;
 
-        node.value = 'giraffe';
+        node.value = "giraffe";
         ReactTestUtils.Simulate.change(node);
-        ReactTestUtils.Simulate.keyDown(node, { key: "Enter", keyCode: 13, which: 13 });
+        ReactTestUtils.Simulate.keyDown(node, {
+            key: "Enter",
+            keyCode: 13,
+            which: 13
+        });
     });
 
-    it('renderIntoDocument', () => {
-        const element = React.createElement('input', { type: 'text' });
+    it("renderIntoDocument", () => {
+        const element = React.createElement("input", { type: "text" });
         ReactTestUtils.renderIntoDocument(element);
     });
 
-    it('mockComponent', () => {
-        ReactTestUtils.mockComponent(TestComponent, 'div');
+    it("mockComponent", () => {
+        ReactTestUtils.mockComponent(TestComponent, "div");
     });
 
-    it('isElement', () => {
+    it("isElement", () => {
         const element = React.createElement(TestComponent);
         const isReactElement: boolean = ReactTestUtils.isElement(element);
     });
 
-    it('isElementOfType', () => {
+    it("isElementOfType", () => {
         const element = React.createElement(TestComponent);
-        const isReactElement: boolean = ReactTestUtils.isElementOfType(element, TestComponent);
+        const isReactElement: boolean = ReactTestUtils.isElementOfType(
+            element,
+            TestComponent
+        );
     });
 
-    it('isDOMComponent', () => {
-        const element = React.createElement('div');
-        const instance = ReactTestUtils.renderIntoDocument(element) as HTMLDivElement;
+    it("isDOMComponent", () => {
+        const element = React.createElement("div");
+        const instance = ReactTestUtils.renderIntoDocument(
+            element
+        ) as HTMLDivElement;
         const isDOMElement: boolean = ReactTestUtils.isDOMComponent(instance);
     });
 
-    it('isCompositeComponent', () => {
+    it("isCompositeComponent", () => {
         const element = React.createElement(TestComponent);
-        const instance: TestComponent = ReactTestUtils.renderIntoDocument(element);
-        const isCompositeComponent: boolean = ReactTestUtils.isCompositeComponent(instance);
+        const instance: TestComponent = ReactTestUtils.renderIntoDocument(
+            element
+        );
+        const isCompositeComponent: boolean = ReactTestUtils.isCompositeComponent(
+            instance
+        );
     });
 
-    it('isCompositeComponentWithType', () => {
+    it("isCompositeComponentWithType", () => {
         const element = React.createElement(TestComponent);
-        const instance: TestComponent = ReactTestUtils.renderIntoDocument(element);
-        const isCompositeComponent: boolean = ReactTestUtils.isCompositeComponentWithType(instance, TestComponent);
+        const instance: TestComponent = ReactTestUtils.renderIntoDocument(
+            element
+        );
+        const isCompositeComponent: boolean = ReactTestUtils.isCompositeComponentWithType(
+            instance,
+            TestComponent
+        );
     });
 
-    it('findAllInRenderedTree', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
-        ReactTestUtils.findAllInRenderedTree(component, (i: React.ReactInstance) => true);
+    it("findAllInRenderedTree", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
+        ReactTestUtils.findAllInRenderedTree(
+            component,
+            (i: React.ReactInstance) => true
+        );
     });
 
-    it('scryRenderedDOMComponentsWithClass', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
-        ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'class');
+    it("scryRenderedDOMComponentsWithClass", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
+        ReactTestUtils.scryRenderedDOMComponentsWithClass(component, "class");
     });
 
-    it('findRenderedDOMComponentWithClass', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
-        ReactTestUtils.findRenderedDOMComponentWithClass(component, 'class');
+    it("findRenderedDOMComponentWithClass", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
+        ReactTestUtils.findRenderedDOMComponentWithClass(component, "class");
     });
 
-    it('scryRenderedDOMComponentsWithTag', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
-        ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'div');
+    it("scryRenderedDOMComponentsWithTag", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
+        ReactTestUtils.scryRenderedDOMComponentsWithTag(component, "div");
     });
 
-    it('findRenderedDOMComponentWithTag', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
-        ReactTestUtils.findRenderedDOMComponentWithTag(component, 'tag');
+    it("findRenderedDOMComponentWithTag", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
+        ReactTestUtils.findRenderedDOMComponentWithTag(component, "tag");
     });
 
-    it('scryRenderedComponentsWithType', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
+    it("scryRenderedComponentsWithType", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
         ReactTestUtils.scryRenderedComponentsWithType(component, TestComponent);
     });
 
-    it('findRenderedComponentWithType', () => {
-        const component = ReactTestUtils.renderIntoDocument(React.createElement(TestComponent));
+    it("findRenderedComponentWithType", () => {
+        const component = ReactTestUtils.renderIntoDocument(
+            React.createElement(TestComponent)
+        );
         ReactTestUtils.findRenderedComponentWithType(component, TestComponent);
     });
 
-    describe('Shallow Rendering', () => {
-        it('createRenderer', () => {
+    describe("Shallow Rendering", () => {
+        it("createRenderer", () => {
             const component = React.createElement(TestComponent);
             const shallowRenderer = ReactTestUtils.createRenderer();
         });
 
-        it('shallowRenderer.render', () => {
+        it("shallowRenderer.render", () => {
             const component = React.createElement(TestComponent);
             const shallowRenderer = ReactTestUtils.createRenderer();
             shallowRenderer.render(component);
         });
 
-        it('shallowRenderer.getRenderOutput', () => {
+        it("shallowRenderer.getRenderOutput", () => {
             const component = React.createElement(TestComponent);
             const shallowRenderer = ReactTestUtils.createRenderer();
             shallowRenderer.getRenderOutput();
         });
     });
 
-    describe('act', () => {
-        it('accepts a sync callback that is void', () => {
+    describe("act", () => {
+        it("accepts a sync callback that is void", () => {
             ReactTestUtils.act(() => {});
         });
-        it('rejects an async callback even if void', () => {
+        it("rejects an async callback even if void", () => {
             // $ExpectError
             ReactTestUtils.act(async () => {});
         });
-        it('rejects a callback that returns null', () => {
+        it("rejects a callback that returns null", () => {
             // $ExpectError
             ReactTestUtils.act(() => null);
         });
-        it('returns a Promise-like that errors out on use', () => {
+        it("returns a Promise-like that errors out on use", () => {
             const result = ReactTestUtils.act(() => {});
             // $ExpectError
             Promise.resolve(result);

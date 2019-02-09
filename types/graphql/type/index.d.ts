@@ -3,7 +3,7 @@ export {
     isSchema,
     // GraphQL Schema definition
     GraphQLSchema,
-    GraphQLSchemaConfig,
+    GraphQLSchemaConfig
 } from "./schema";
 
 export {
@@ -96,7 +96,7 @@ export {
     GraphQLUnionTypeConfig,
     GraphQLScalarSerializer,
     GraphQLScalarValueParser,
-    GraphQLScalarLiteralParser,
+    GraphQLScalarLiteralParser
 } from "./definition";
 
 export {
@@ -113,7 +113,7 @@ export {
     // Constant Deprecation Reason
     DEFAULT_DEPRECATION_REASON,
     // type
-    GraphQLDirectiveConfig,
+    GraphQLDirectiveConfig
 } from "./directives";
 
 // Common built-in scalar instances.
@@ -124,7 +124,7 @@ export {
     GraphQLFloat,
     GraphQLString,
     GraphQLBoolean,
-    GraphQLID,
+    GraphQLID
 } from "./scalars";
 
 export {
@@ -144,7 +144,7 @@ export {
     // Meta-field definitions.
     SchemaMetaFieldDef,
     TypeMetaFieldDef,
-    TypeNameMetaFieldDef,
+    TypeNameMetaFieldDef
 } from "./introspection";
 
 export { validateSchema, assertValidSchema } from "./validate";

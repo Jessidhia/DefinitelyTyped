@@ -1,11 +1,11 @@
-import https = require('https');
-import isProgressive = require('is-progressive');
+import https = require("https");
+import isProgressive = require("is-progressive");
 
-isProgressive.file('baseline.jpg'); // $ExpectType Promise<boolean>
+isProgressive.file("baseline.jpg"); // $ExpectType Promise<boolean>
 
-isProgressive.fileSync('progressive.jpg'); // $ExpectType boolean
+isProgressive.fileSync("progressive.jpg"); // $ExpectType boolean
 
-https.get('/', res => {
+https.get("/", res => {
     isProgressive.stream(res); // $ExpectType Promise<boolean>
 });
 

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings, numbers, CornerBit, Corner } from './constants';
-import MDCMenuAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings, numbers, CornerBit, Corner } from "./constants";
+import MDCMenuAdapter from "./adapter";
 
 export interface AnchorMargin {
     top: number;
@@ -26,7 +26,9 @@ export interface AnchorMargin {
     left: number;
 }
 
-export default class MDCMenuFoundation extends MDCFoundation<MDCMenuFoundation> {
+export default class MDCMenuFoundation extends MDCFoundation<
+    MDCMenuFoundation
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;
@@ -51,9 +53,7 @@ export default class MDCMenuFoundation extends MDCFoundation<MDCMenuFoundation> 
 
     setQuickOpen(quickOpen: boolean): void;
 
-    open({focusIndex}?: {
-        focusIndex?: null;
-    }): void;
+    open({ focusIndex }?: { focusIndex?: null }): void;
 
     close(evt?: Event): void;
 

@@ -38,13 +38,22 @@ declare namespace next {
 
     interface ServerRoute<P = DefaultQuery> {
         match(pathname: string, params?: Partial<P>): P | false;
-        fn(req: http.IncomingMessage, res: http.ServerResponse, params: P, parsedUrl: UrlLike): Promise<void>;
+        fn(
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            params: P,
+            parsedUrl: UrlLike
+        ): Promise<void>;
     }
 
     interface ServerRouter {
         routes: ServerRoute[];
         add(route: ServerRoute): void;
-        match(req: http.IncomingMessage, res: http.ServerResponse, parsedUrl: UrlLike): (() => Promise<void>) | undefined;
+        match(
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            parsedUrl: UrlLike
+        ): (() => Promise<void>) | undefined;
     }
 
     /**
@@ -76,7 +85,11 @@ declare namespace next {
         close(): Promise<void>;
         setImmutableAssetCacheControl(res: http.ServerResponse): void;
         generateRoutes(): ServerRoute[];
-        run(req: http.IncomingMessage, res: http.ServerResponse, parsedUrl: UrlLike): Promise<void>;
+        run(
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            parsedUrl: UrlLike
+        ): Promise<void>;
 
         render(
             req: http.IncomingMessage,

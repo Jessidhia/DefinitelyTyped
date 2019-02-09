@@ -1,9 +1,9 @@
-import { ChannelClient } from './client';
-import { Identity } from '../../../identity';
-import { ChannelProvider } from './provider';
-import { EmitterBase } from '../../base';
-import Transport, { Message, Payload } from '../../../transport/transport';
-import { ProviderIdentity } from './channel';
+import { ChannelClient } from "./client";
+import { Identity } from "../../../identity";
+import { ChannelProvider } from "./provider";
+import { EmitterBase } from "../../base";
+import Transport, { Message, Payload } from "../../../transport/transport";
+import { ProviderIdentity } from "./channel";
 export interface Options {
     wait?: boolean;
     uuid: string;

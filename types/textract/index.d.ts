@@ -52,21 +52,23 @@ export interface Config {
      * See `unrtf` manual for available options
      */
     rtf?: extractorExecOpts;
-    tesseract?: {
-        /**
-         *  A pass-through to tesseract allowing for setting of language for extraction.
-         */
-        lang: string,
-    } | {
-        /**
-         * `tesseract.lang` allows a quick means to provide the most popular tesseract option,
-         * but if you need to configure more options, you can simply pass `cmd`.
-         * `cmd` is the string that matches the command-line options you want to pass to tesseract.
-         * For instance, to provide language and psm,
-         * you would pass `{ tesseract: { cmd:"-l chi_sim -psm 10" } }`
-         */
-        cmd: string
-    };
+    tesseract?:
+        | {
+              /**
+               *  A pass-through to tesseract allowing for setting of language for extraction.
+               */
+              lang: string;
+          }
+        | {
+              /**
+               * `tesseract.lang` allows a quick means to provide the most popular tesseract option,
+               * but if you need to configure more options, you can simply pass `cmd`.
+               * `cmd` is the string that matches the command-line options you want to pass to tesseract.
+               * For instance, to provide language and psm,
+               * you would pass `{ tesseract: { cmd:"-l chi_sim -psm 10" } }`
+               */
+              cmd: string;
+          };
     /**
      * This is a proxy options object to the library textract uses for pdf extraction: pdf-text-extract.
      * Options include ownerPassword, userPassword if you are extracting text from password protected PDFs.
@@ -75,28 +77,37 @@ export interface Config {
      * See [this GH issue](https://github.com/dbashford/textract/issues/75) for why textract overrides that library's default.
      */
     pdftotextOptions?: {
-        firstPage?: number,
-        lastPage?: number,
-        resolution?: number,
+        firstPage?: number;
+        lastPage?: number;
+        resolution?: number;
         crop?: {
-            x: number, y: number, w: number, h: number
-        },
+            x: number;
+            y: number;
+            w: number;
+            h: number;
+        };
         /**
          * Do not change unless you know what you are doing!
          * @default "raw"
          */
-        layout?: "layout" | "raw" | "htmlmeta",
+        layout?: "layout" | "raw" | "htmlmeta";
         /**
          * @default "UTF-8"
          */
-        encoding?: "UCS-2" | "ASCII7" | "Latin1" | "UTF-8" | "ZapfDingbats" | "Symbol";
-        eol?: "unix" | "dos" | "mac",
-        ownerPassword?: string,
-        userPassword?: string,
+        encoding?:
+            | "UCS-2"
+            | "ASCII7"
+            | "Latin1"
+            | "UTF-8"
+            | "ZapfDingbats"
+            | "Symbol";
+        eol?: "unix" | "dos" | "mac";
+        ownerPassword?: string;
+        userPassword?: string;
         /**
          * @default true
          */
-        splitPages?: boolean
+        splitPages?: boolean;
     };
     /**
      * When extracting HTML, whether or not to include `alt` text with the extracted text.
@@ -117,14 +128,21 @@ export interface URLConfig extends Config {
  * @param filePath path to file
  * @param callback callback
  */
-export function fromFileWithPath(filePath: string, callback: (error: Error, text: string) => void): void;
+export function fromFileWithPath(
+    filePath: string,
+    callback: (error: Error, text: string) => void
+): void;
 /**
  * Get text from file by path
  * @param filePath path to file
  * @param config configuration object
  * @param callback callback
  */
-export function fromFileWithPath(filePath: string, config: Config, callback: (error: Error, text: string) => void): void;
+export function fromFileWithPath(
+    filePath: string,
+    config: Config,
+    callback: (error: Error, text: string) => void
+): void;
 
 /**
  * Get text from file by path
@@ -132,7 +150,11 @@ export function fromFileWithPath(filePath: string, config: Config, callback: (er
  * @param filePath path to file
  * @param callback callback
  */
-export function fromFileWithMimeAndPath(mimeType: string, filePath: string, callback: (error: Error, text: string) => void): void;
+export function fromFileWithMimeAndPath(
+    mimeType: string,
+    filePath: string,
+    callback: (error: Error, text: string) => void
+): void;
 /**
  * Get text from file by path
  * @param mimeType mime type of file
@@ -140,7 +162,12 @@ export function fromFileWithMimeAndPath(mimeType: string, filePath: string, call
  * @param config configuration object
  * @param callback callback
  */
-export function fromFileWithMimeAndPath(mimeType: string, filePath: string, config: Config, callback: (error: Error, text: string) => void): void;
+export function fromFileWithMimeAndPath(
+    mimeType: string,
+    filePath: string,
+    config: Config,
+    callback: (error: Error, text: string) => void
+): void;
 
 /**
  * Get text from file buffer
@@ -148,7 +175,11 @@ export function fromFileWithMimeAndPath(mimeType: string, filePath: string, conf
  * @param buffer path to file
  * @param callback callback
  */
-export function fromBufferWithMime(mimeType: string, buffer: Buffer, callback: (error: Error, text: string) => void): void;
+export function fromBufferWithMime(
+    mimeType: string,
+    buffer: Buffer,
+    callback: (error: Error, text: string) => void
+): void;
 /**
  * Get text from file buffer
  * @param mimeType mime type of file
@@ -156,7 +187,12 @@ export function fromBufferWithMime(mimeType: string, buffer: Buffer, callback: (
  * @param config configuration object
  * @param callback callback
  */
-export function fromBufferWithMime(mimeType: string, buffer: Buffer, config: Config, callback: (error: Error, text: string) => void): void;
+export function fromBufferWithMime(
+    mimeType: string,
+    buffer: Buffer,
+    config: Config,
+    callback: (error: Error, text: string) => void
+): void;
 
 /**
  * Get text from file buffer
@@ -164,7 +200,11 @@ export function fromBufferWithMime(mimeType: string, buffer: Buffer, config: Con
  * @param buffer buffer with file content
  * @param callback callback
  */
-export function fromBufferWithName(name: string, buffer: Buffer, callback: (error: Error, text: string) => void): void;
+export function fromBufferWithName(
+    name: string,
+    buffer: Buffer,
+    callback: (error: Error, text: string) => void
+): void;
 /**
  * Get text from file buffer
  * @param name file name or path
@@ -172,18 +212,30 @@ export function fromBufferWithName(name: string, buffer: Buffer, callback: (erro
  * @param config configuration object
  * @param callback callback
  */
-export function fromBufferWithName(name: string, buffer: Buffer, config: Config, callback: (error: Error, text: string) => void): void;
+export function fromBufferWithName(
+    name: string,
+    buffer: Buffer,
+    config: Config,
+    callback: (error: Error, text: string) => void
+): void;
 
 /**
  * Get text from url
  * @param url url as string or object
  * @param callback callback
  */
-export function fromUrl(url: string | URL, callback: (error: Error, text: string) => void): void;
+export function fromUrl(
+    url: string | URL,
+    callback: (error: Error, text: string) => void
+): void;
 /**
  * Get text from url
  * @param url url as string or object
  * @param config configuration object
  * @param callback callback
  */
-export function fromUrl(url: string | URL, config: URLConfig, callback: (error: Error, text: string) => void): void;
+export function fromUrl(
+    url: string | URL,
+    config: URLConfig,
+    callback: (error: Error, text: string) => void
+): void;

@@ -29,9 +29,15 @@ export default interface MDCDialogAdapter {
 
     deregisterInteractionHandler(evt: string, handler: EventListener): void;
 
-    registerSurfaceInteractionHandler(evt: string, handler: EventListener): void;
+    registerSurfaceInteractionHandler(
+        evt: string,
+        handler: EventListener
+    ): void;
 
-    deregisterSurfaceInteractionHandler(evt: string, handler: EventListener): void;
+    deregisterSurfaceInteractionHandler(
+        evt: string,
+        handler: EventListener
+    ): void;
 
     registerDocumentKeydownHandler(handler: EventListener): void;
 

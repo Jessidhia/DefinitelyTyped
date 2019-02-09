@@ -1,7 +1,7 @@
 /// <reference types="node" />
 
-import PCancelable = require('p-cancelable');
-import { EventEmitter } from 'events';
+import PCancelable = require("p-cancelable");
+import { EventEmitter } from "events";
 
 const cancelablePromise: PCancelable.PCancelable<{}> = new PCancelable(
     (resolve, reject, onCancel) => {
@@ -16,19 +16,19 @@ const cancelablePromise: PCancelable.PCancelable<{}> = new PCancelable(
             worker.close();
         });
 
-        worker.on('finish', resolve);
-        worker.on('error', reject);
+        worker.on("finish", resolve);
+        worker.on("error", reject);
     }
 );
 
 cancelablePromise
     .then(value => {
-        console.log('Operation finished successfully:', value);
+        console.log("Operation finished successfully:", value);
     })
     .catch(reason => {
         if (cancelablePromise.isCanceled) {
             // Handle the cancelation here
-            console.log('Operation was canceled');
+            console.log("Operation was canceled");
             return;
         }
 
@@ -37,7 +37,7 @@ cancelablePromise
 
 setTimeout(() => {
     cancelablePromise.cancel();
-    cancelablePromise.cancel('foo');
+    cancelablePromise.cancel("foo");
 }, 10000);
 
 const fn0 = PCancelable.fn(onCancel => {
@@ -55,9 +55,11 @@ const fn1 = PCancelable.fn((p1: string, onCancel: PCancelable.OnCancelFn) => {
 // $ExpectType (param1: string) => PCancelable<number>
 fn1;
 
-const fn2 = PCancelable.fn((p1: string, p2: boolean, onCancel: PCancelable.OnCancelFn) => {
-    return Promise.resolve(10);
-});
+const fn2 = PCancelable.fn(
+    (p1: string, p2: boolean, onCancel: PCancelable.OnCancelFn) => {
+        return Promise.resolve(10);
+    }
+);
 // $ExpectType (param1: string, param2: boolean) => PCancelable<number>
 fn2;
 
@@ -70,7 +72,13 @@ const fn3 = PCancelable.fn(
 fn3;
 
 const fn4 = PCancelable.fn(
-    (p1: string, p2: boolean, p3: number, p4: null, onCancel: PCancelable.OnCancelFn) => {
+    (
+        p1: string,
+        p2: boolean,
+        p3: number,
+        p4: null,
+        onCancel: PCancelable.OnCancelFn
+    ) => {
         return Promise.resolve(10);
     }
 );

@@ -11,7 +11,10 @@ function chart_examples() {
             height: 480
         },
         padding: {
-            top: 20, right: 20, bottom: 20, left: 20
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20
         },
         color: {
             pattern: ["#1f77b4", "#aec7e8"]
@@ -22,12 +25,24 @@ function chart_examples() {
         transition: {
             duration: 500
         },
-        oninit: () => { /* code*/ },
-        onrendered: () => { /* code*/ },
-        onmouseover: () => { /* code*/ },
-        onmouseout: () => { /* code*/ },
-        onresize: () => { /* code*/ },
-        onresized: () => { /* code*/ }
+        oninit: () => {
+            /* code*/
+        },
+        onrendered: () => {
+            /* code*/
+        },
+        onmouseover: () => {
+            /* code*/
+        },
+        onmouseout: () => {
+            /* code*/
+        },
+        onresize: () => {
+            /* code*/
+        },
+        onresized: () => {
+            /* code*/
+        }
     });
 
     const chart2 = c3.generate({
@@ -46,10 +61,30 @@ function data_examples() {
         data: {
             url: "/data/c3_test.csv",
             json: [
-                { name: "www.site1.com", upload: 200, download: 200, total: 400 },
-                { name: "www.site2.com", upload: 100, download: 300, total: 400 },
-                { name: "www.site3.com", upload: 300, download: 200, total: 500 },
-                { name: "www.site4.com", upload: 400, download: 100, total: 500 },
+                {
+                    name: "www.site1.com",
+                    upload: 200,
+                    download: 200,
+                    total: 400
+                },
+                {
+                    name: "www.site2.com",
+                    upload: 100,
+                    download: 300,
+                    total: 400
+                },
+                {
+                    name: "www.site3.com",
+                    upload: 300,
+                    download: 200,
+                    total: 500
+                },
+                {
+                    name: "www.site4.com",
+                    upload: 400,
+                    download: 100,
+                    total: 500
+                }
             ],
             mimeType: "json",
             rows: [
@@ -59,7 +94,7 @@ function data_examples() {
                 [50, 200, 290],
                 [120, 160, 230],
                 [80, 130, 300],
-                [90, 220, 320],
+                [90, 220, 320]
             ],
             columns: [
                 ["data1", 30, 20, 50, 40, 60, 50],
@@ -68,26 +103,23 @@ function data_examples() {
             ],
             keys: {
                 x: "name", // it's possible to specify 'x' when category axis
-                value: ["upload", "download"],
+                value: ["upload", "download"]
             },
             x: "date",
             xs: {
                 data1: "x1",
-                data2: "x2",
+                data2: "x2"
             },
             xFormat: "%Y-%m-%d %H:%M:%S",
             names: {
                 data1: "Data Name 1",
-                data2: "Data Name 2",
+                data2: "Data Name 2"
             },
             classes: {
                 data1: "additional-data1-class",
-                data2: "additional-data2-class",
+                data2: "additional-data2-class"
             },
-            groups: [
-                ["data1", "data2"],
-                ["data3"],
-            ],
+            groups: [["data1", "data2"], ["data3"]],
             axes: {
                 data1: "y",
                 data2: "y2"
@@ -100,7 +132,7 @@ function data_examples() {
             labels: true,
             order: "asc",
             regions: {
-                data1: [{ start: 1, end: 2, style: "dashed" }, { start: 3 }],
+                data1: [{ start: 1, end: 2, style: "dashed" }, { start: 3 }]
             },
             color: (color, d) => "#ff0000",
             colors: {
@@ -118,17 +150,27 @@ function data_examples() {
                 grouped: true,
                 multiple: true,
                 draggable: true,
-                isselectable: (d) => true
+                isselectable: d => true
             },
-            onclick: (d, element) => { /* code */ },
-            onmouseover: (d) => { /* code */ },
-            onmouseout: (d) => { /* code */ }
+            onclick: (d, element) => {
+                /* code */
+            },
+            onmouseover: d => {
+                /* code */
+            },
+            onmouseout: d => {
+                /* code */
+            }
         }
     });
 
     const chart2 = c3.generate({
         data: {
-            labels: { format: (v, id, i, j) => { /* code */ } },
+            labels: {
+                format: (v, id, i, j) => {
+                    /* code */
+                }
+            },
             hide: ["data1"]
         }
     });
@@ -159,7 +201,7 @@ function axis_examples() {
                 min: -100,
                 padding: {
                     left: 0,
-                    right: 0,
+                    right: 0
                 },
                 height: 20,
                 extent: [5, 10],
@@ -215,26 +257,26 @@ function axis_examples() {
                 tick: {
                     culling: {
                         max: 5
-                    },
+                    }
                 },
                 label: {
                     text: "Your X Axis",
-                    position: "outer-center",
+                    position: "outer-center"
                 }
             },
             y: {
                 label: {
                     text: "Your X Axis",
-                    position: "outer-middle",
+                    position: "outer-middle"
                 },
                 tick: {
-                    format: (d) => "$" + d
+                    format: d => "$" + d
                 }
             },
             y2: {
                 label: {
                     text: "Your X Axis",
-                    position: "outer-middle",
+                    position: "outer-middle"
                 }
             }
         }
@@ -268,9 +310,7 @@ function grid_examples() {
 function region_examples() {
     const chart = c3.generate({
         data: {},
-        regions: [
-            { axis: "x", start: 1, end: 4, class: "region-1-4" },
-        ]
+        regions: [{ axis: "x", start: 1, end: 4, class: "region-1-4" }]
     });
 }
 
@@ -288,9 +328,15 @@ function legend_examples() {
                 step: undefined
             },
             item: {
-                onclick: (id) => { /* code */ },
-                onmouseover: (id) => { /* code */ },
-                onmouseout: (id) => { /* code */ },
+                onclick: id => {
+                    /* code */
+                },
+                onmouseover: id => {
+                    /* code */
+                },
+                onmouseout: id => {
+                    /* code */
+                }
             }
         }
     });
@@ -324,7 +370,9 @@ function subchart_examples() {
             size: {
                 height: 20
             },
-            onbrush: (domain) => { /* code */ }
+            onbrush: domain => {
+                /* code */
+            }
         }
     });
 }
@@ -334,12 +382,18 @@ function zoom_examples() {
         data: {},
         zoom: {
             enabled: false,
-            type: 'scroll',
+            type: "scroll",
             rescale: true,
             extent: [1, 100], // enable more zooming
-            onzoom: (domain) => { /* code */ },
-            onzoomstart: (event) => { /* code */ },
-            onzoomend: (domain) => { /* code */ }
+            onzoom: domain => {
+                /* code */
+            },
+            onzoomstart: event => {
+                /* code */
+            },
+            onzoomend: domain => {
+                /* code */
+            }
         }
     });
 }
@@ -453,7 +507,7 @@ function gauge_examples() {
             max: 100,
             units: " %",
             width: 10,
-            fullCircle: true,
+            fullCircle: true
         }
     });
 }
@@ -473,9 +527,7 @@ function simple_multiple() {
     });
 
     chart.load({
-        columns: [
-            ["data1", 230, 190, 300, 500, 300, 400]
-        ]
+        columns: [["data1", 230, 190, 300, 500, 300, 400]]
     });
 
     chart.unload({
@@ -489,7 +541,15 @@ function timeseries() {
             x: "x",
             xFormat: "%Y%m%d", // 'xFormat' can be used as custom format of 'x'
             columns: [
-                ["x", "20130101", "20130102", "20130103", "20130104", "20130105", "20130106"],
+                [
+                    "x",
+                    "20130101",
+                    "20130102",
+                    "20130103",
+                    "20130104",
+                    "20130105",
+                    "20130106"
+                ],
                 ["data1", 30, 200, 100, 400, 150, 250],
                 ["data2", 130, 340, 200, 500, 250, 350]
             ]
@@ -535,7 +595,7 @@ function simple_xy_multiple() {
         data: {
             xs: {
                 data1: "x1",
-                data2: "x2",
+                data2: "x2"
             },
             columns: [
                 ["x1", 10, 30, 45, 50, 70, 100],
@@ -639,9 +699,7 @@ function chart_bar_stacked() {
                 ["data3", -230, 200, 200, -300, 250, 250]
             ],
             type: "bar",
-            groups: [
-                ["data1", "data2"]
-            ]
+            groups: [["data1", "data2"]]
         },
         grid: {
             y: {
@@ -656,18 +714,222 @@ function chart_scatter() {
         data: {
             xs: {
                 setosa: "setosa_x",
-                versicolor: "versicolor_x",
+                versicolor: "versicolor_x"
             },
             // iris data from R
             columns: [
-                ["setosa_x", 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4, 3.0, 3.4, 3.5, 3.4, 3.2, 3.1, 3.4,
-                4.1, 4.2, 3.1, 3.2, 3.5, 3.6, 3.0, 3.4, 3.5, 2.3, 3.2, 3.5, 3.8, 3.0, 3.8, 3.2, 3.7, 3.3],
-                ["versicolor_x", 3.2, 3.2, 3.1, 2.3, 2.8, 2.8, 3.3, 2.4, 2.9, 2.7, 2.0, 3.0, 2.2, 2.9, 2.9, 3.1, 3.0, 2.7, 2.2, 2.5, 3.2, 2.8, 2.5, 2.8, 2.9, 3.0, 2.8, 3.0, 2.9, 2.6, 2.4,
-                2.4, 2.7, 2.7, 3.0, 3.4, 3.1, 2.3, 3.0, 2.5, 2.6, 3.0, 2.6, 2.3, 2.7, 3.0, 2.9, 2.9, 2.5, 2.8],
-                ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4,
-                0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-                ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1,
-                1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+                [
+                    "setosa_x",
+                    3.5,
+                    3.0,
+                    3.2,
+                    3.1,
+                    3.6,
+                    3.9,
+                    3.4,
+                    3.4,
+                    2.9,
+                    3.1,
+                    3.7,
+                    3.4,
+                    3.0,
+                    3.0,
+                    4.0,
+                    4.4,
+                    3.9,
+                    3.5,
+                    3.8,
+                    3.8,
+                    3.4,
+                    3.7,
+                    3.6,
+                    3.3,
+                    3.4,
+                    3.0,
+                    3.4,
+                    3.5,
+                    3.4,
+                    3.2,
+                    3.1,
+                    3.4,
+                    4.1,
+                    4.2,
+                    3.1,
+                    3.2,
+                    3.5,
+                    3.6,
+                    3.0,
+                    3.4,
+                    3.5,
+                    2.3,
+                    3.2,
+                    3.5,
+                    3.8,
+                    3.0,
+                    3.8,
+                    3.2,
+                    3.7,
+                    3.3
+                ],
+                [
+                    "versicolor_x",
+                    3.2,
+                    3.2,
+                    3.1,
+                    2.3,
+                    2.8,
+                    2.8,
+                    3.3,
+                    2.4,
+                    2.9,
+                    2.7,
+                    2.0,
+                    3.0,
+                    2.2,
+                    2.9,
+                    2.9,
+                    3.1,
+                    3.0,
+                    2.7,
+                    2.2,
+                    2.5,
+                    3.2,
+                    2.8,
+                    2.5,
+                    2.8,
+                    2.9,
+                    3.0,
+                    2.8,
+                    3.0,
+                    2.9,
+                    2.6,
+                    2.4,
+                    2.4,
+                    2.7,
+                    2.7,
+                    3.0,
+                    3.4,
+                    3.1,
+                    2.3,
+                    3.0,
+                    2.5,
+                    2.6,
+                    3.0,
+                    2.6,
+                    2.3,
+                    2.7,
+                    3.0,
+                    2.9,
+                    2.9,
+                    2.5,
+                    2.8
+                ],
+                [
+                    "setosa",
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.4,
+                    0.4,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.2,
+                    0.4,
+                    0.2,
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.2,
+                    0.6,
+                    0.4,
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    "versicolor",
+                    1.4,
+                    1.5,
+                    1.5,
+                    1.3,
+                    1.5,
+                    1.3,
+                    1.6,
+                    1.0,
+                    1.3,
+                    1.4,
+                    1.0,
+                    1.5,
+                    1.0,
+                    1.4,
+                    1.3,
+                    1.4,
+                    1.5,
+                    1.0,
+                    1.5,
+                    1.1,
+                    1.8,
+                    1.3,
+                    1.5,
+                    1.2,
+                    1.3,
+                    1.4,
+                    1.4,
+                    1.7,
+                    1.5,
+                    1.0,
+                    1.1,
+                    1.0,
+                    1.2,
+                    1.6,
+                    1.5,
+                    1.6,
+                    1.5,
+                    1.3,
+                    1.3,
+                    1.3,
+                    1.2,
+                    1.4,
+                    1.2,
+                    1.0,
+                    1.3,
+                    1.2,
+                    1.3,
+                    1.3,
+                    1.1,
+                    1.3
+                ]
             ],
             type: "scatter"
         },
@@ -689,14 +951,17 @@ function chart_pie() {
     const chart = c3.generate({
         data: {
             // iris data from R
-            columns: [
-                ["data1", 30],
-                ["data2", 120],
-            ],
+            columns: [["data1", 30], ["data2", 120]],
             type: "pie",
-            onclick: (d, i) => { console.log("onclick", d, i); },
-            onmouseover: (d, i) => { console.log("onmouseover", d, i); },
-            onmouseout: (d, i) => { console.log("onmouseout", d, i); }
+            onclick: (d, i) => {
+                console.log("onclick", d, i);
+            },
+            onmouseover: (d, i) => {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: (d, i) => {
+                console.log("onmouseout", d, i);
+            }
         }
     });
 }
@@ -704,14 +969,17 @@ function chart_pie() {
 function chart_donut() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data1", 30],
-                ["data2", 120],
-            ],
+            columns: [["data1", 30], ["data2", 120]],
             type: "donut",
-            onclick: (d, i) => { console.log("onclick", d, i); },
-            onmouseover: (d, i) => { console.log("onmouseover", d, i); },
-            onmouseout: (d, i) => { console.log("onmouseout", d, i); }
+            onclick: (d, i) => {
+                console.log("onclick", d, i);
+            },
+            onmouseover: (d, i) => {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: (d, i) => {
+                console.log("onmouseout", d, i);
+            }
         },
         donut: {
             title: "Iris Petal Width"
@@ -722,13 +990,17 @@ function chart_donut() {
 function gauge_chart() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data", 91.4]
-            ],
+            columns: [["data", 91.4]],
             type: "gauge",
-            onclick: (d, i) => { console.log("onclick", d, i); },
-            onmouseover: (d, i) => { console.log("onmouseover", d, i); },
-            onmouseout: (d, i) => { console.log("onmouseout", d, i); }
+            onclick: (d, i) => {
+                console.log("onclick", d, i);
+            },
+            onmouseover: (d, i) => {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: (d, i) => {
+                console.log("onmouseout", d, i);
+            }
         },
         gauge: {
             label: {
@@ -765,17 +1037,15 @@ function chart_combination() {
                 ["data3", 300, 200, 160, 400, 250, 250],
                 ["data4", 200, 130, 90, 240, 130, 220],
                 ["data5", 130, 120, 150, 140, 160, 150],
-                ["data6", 90, 70, 20, 50, 60, 120],
+                ["data6", 90, 70, 20, 50, 60, 120]
             ],
             type: "bar",
             types: {
                 data3: "spline",
                 data4: "line",
-                data6: "area",
+                data6: "area"
             },
-            groups: [
-                ["data1", "data2"]
-            ]
+            groups: [["data1", "data2"]]
         }
     });
 }
@@ -787,14 +1057,22 @@ function chart_combination() {
 function categorized() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data1", 30, 200, 100, 400, 150, 250, 50, 100, 250]
-            ]
+            columns: [["data1", 30, 200, 100, 400, 150, 250, 50, 100, 250]]
         },
         axis: {
             x: {
                 type: "category",
-                categories: ["cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7", "cat8", "cat9"]
+                categories: [
+                    "cat1",
+                    "cat2",
+                    "cat3",
+                    "cat4",
+                    "cat5",
+                    "cat6",
+                    "cat7",
+                    "cat8",
+                    "cat9"
+                ]
             }
         }
     });
@@ -808,7 +1086,7 @@ function axes_rotated() {
                 ["data2", 50, 20, 10, 40, 15, 25]
             ],
             types: {
-                data1: "bar",
+                data1: "bar"
             }
         },
         axis: {
@@ -842,7 +1120,15 @@ function axes_x_tick_format() {
         data: {
             x: "x",
             columns: [
-                ["x", "2010-01-01", "2011-01-01", "2012-01-01", "2013-01-01", "2014-01-01", "2015-01-01"],
+                [
+                    "x",
+                    "2010-01-01",
+                    "2011-01-01",
+                    "2012-01-01",
+                    "2013-01-01",
+                    "2014-01-01",
+                    "2015-01-01"
+                ],
                 ["sample", 30, 200, 100, 400, 150, 250]
             ]
         },
@@ -863,8 +1149,36 @@ function axes_x_tick_count() {
         data: {
             x: "x",
             columns: [
-                ["x", "2013-01-01", "2013-01-02", "2013-01-03", "2013-01-04", "2013-01-05", "2013-01-06", "2013-01-07", "2013-01-08", "2013-01-09", "2013-01-10", "2013-01-11", "2013-01-12"],
-                ["sample", 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250]
+                [
+                    "x",
+                    "2013-01-01",
+                    "2013-01-02",
+                    "2013-01-03",
+                    "2013-01-04",
+                    "2013-01-05",
+                    "2013-01-06",
+                    "2013-01-07",
+                    "2013-01-08",
+                    "2013-01-09",
+                    "2013-01-10",
+                    "2013-01-11",
+                    "2013-01-12"
+                ],
+                [
+                    "sample",
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250
+                ]
             ]
         },
         axis: {
@@ -884,8 +1198,36 @@ function axes_x_tick_values() {
         data: {
             x: "x",
             columns: [
-                ["x", "2013-01-01", "2013-01-02", "2013-01-03", "2013-01-04", "2013-01-05", "2013-01-06", "2013-01-07", "2013-01-08", "2013-01-09", "2013-01-10", "2013-01-11", "2013-01-12"],
-                ["sample", 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250]
+                [
+                    "x",
+                    "2013-01-01",
+                    "2013-01-02",
+                    "2013-01-03",
+                    "2013-01-04",
+                    "2013-01-05",
+                    "2013-01-06",
+                    "2013-01-07",
+                    "2013-01-08",
+                    "2013-01-09",
+                    "2013-01-10",
+                    "2013-01-11",
+                    "2013-01-12"
+                ],
+                [
+                    "sample",
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250
+                ]
             ]
         },
         axis: {
@@ -904,7 +1246,32 @@ function axes_x_tick_culling() {
     const chart = c3.generate({
         data: {
             columns: [
-                ["sample", 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 200, 100, 400, 150, 250]
+                [
+                    "sample",
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250
+                ]
             ]
         },
         axis: {
@@ -928,7 +1295,7 @@ function axes_x_tick_fit() {
             x: "x",
             columns: [
                 ["x", "2013-10-31", "2013-12-31", "2014-01-31", "2014-02-28"],
-                ["sample", 30, 100, 400, 150],
+                ["sample", 30, 100, 400, 150]
             ]
         },
         axis: {
@@ -949,7 +1316,7 @@ function axes_x_tick_width() {
             x: "x",
             columns: [
                 ["x", "2013-10-31", "2013-12-31", "2014-01-31", "2014-02-28"],
-                ["sample", 30, 100, 400, 150],
+                ["sample", 30, 100, 400, 150]
             ]
         },
         axis: {
@@ -994,9 +1361,22 @@ function axes_x_tick_rotate() {
         data: {
             x: "x",
             columns: [
-                ["x", "www.somesitename1.com", "www.somesitename2.com", "www.somesitename3.com", "www.somesitename4.com", "www.somesitename5.com", "www.somesitename6.com", "www.somesitename7.com",
-                "www.somesitename8.com", "www.somesitename9.com", "www.somesitename10.com", "www.somesitename11.com", "www.somesitename12.com"],
-                ["pv", 90, 100, 140, 200, 100, 400, 90, 100, 140, 200, 100, 400],
+                [
+                    "x",
+                    "www.somesitename1.com",
+                    "www.somesitename2.com",
+                    "www.somesitename3.com",
+                    "www.somesitename4.com",
+                    "www.somesitename5.com",
+                    "www.somesitename6.com",
+                    "www.somesitename7.com",
+                    "www.somesitename8.com",
+                    "www.somesitename9.com",
+                    "www.somesitename10.com",
+                    "www.somesitename11.com",
+                    "www.somesitename12.com"
+                ],
+                ["pv", 90, 100, 140, 200, 100, 400, 90, 100, 140, 200, 100, 400]
             ],
             type: "bar"
         },
@@ -1016,9 +1396,7 @@ function axes_x_tick_rotate() {
 function axes_y_tick_format() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 2500]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 2500]]
         },
         axis: {
             y: {
@@ -1058,14 +1436,12 @@ function axes_y_padding() {
 function axes_y_range() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
         axis: {
             y: {
                 max: 400,
-                min: -400,
+                min: -400
                 // Range includes padding, set 0 if no padding needed
                 // padding: {top:0, bottom:0}
             }
@@ -1179,7 +1555,7 @@ function data_rowed() {
                 [50, 200, 290],
                 [120, 160, 230],
                 [80, 130, 300],
-                [90, 220, 320],
+                [90, 220, 320]
             ]
         }
     });
@@ -1200,14 +1576,34 @@ function data_json() {
         chart = c3.generate({
             data: {
                 json: [
-                    { name: "www.site1.com", upload: 200, download: 200, total: 400 },
-                    { name: "www.site2.com", upload: 100, download: 300, total: 400 },
-                    { name: "www.site3.com", upload: 300, download: 200, total: 500 },
-                    { name: "www.site4.com", upload: 400, download: 100, total: 500 },
+                    {
+                        name: "www.site1.com",
+                        upload: 200,
+                        download: 200,
+                        total: 400
+                    },
+                    {
+                        name: "www.site2.com",
+                        upload: 100,
+                        download: 300,
+                        total: 400
+                    },
+                    {
+                        name: "www.site3.com",
+                        upload: 300,
+                        download: 200,
+                        total: 500
+                    },
+                    {
+                        name: "www.site4.com",
+                        upload: 400,
+                        download: 100,
+                        total: 500
+                    }
                 ],
                 keys: {
                     // x: "name", // it's possible to specify 'x' when category axis
-                    value: ["upload", "download"],
+                    value: ["upload", "download"]
                 }
             },
             axis: {
@@ -1221,13 +1617,33 @@ function data_json() {
     setTimeout(() => {
         chart.load({
             json: [
-                { name: "www.site1.com", upload: 800, download: 500, total: 400 },
-                { name: "www.site2.com", upload: 600, download: 600, total: 400 },
-                { name: "www.site3.com", upload: 400, download: 800, total: 500 },
-                { name: "www.site4.com", upload: 400, download: 700, total: 500 },
+                {
+                    name: "www.site1.com",
+                    upload: 800,
+                    download: 500,
+                    total: 400
+                },
+                {
+                    name: "www.site2.com",
+                    upload: 600,
+                    download: 600,
+                    total: 400
+                },
+                {
+                    name: "www.site3.com",
+                    upload: 400,
+                    download: 800,
+                    total: 500
+                },
+                {
+                    name: "www.site4.com",
+                    upload: 400,
+                    download: 700,
+                    total: 500
+                }
             ],
             keys: {
-                value: ["upload", "download"],
+                value: ["upload", "download"]
             }
         });
     }, 2000);
@@ -1255,13 +1671,17 @@ function data_stringx() {
         data: {
             x: "x",
             columns: [
-                ["x", "www.site1.com", "www.site2.com", "www.site3.com", "www.site4.com"],
+                [
+                    "x",
+                    "www.site1.com",
+                    "www.site2.com",
+                    "www.site3.com",
+                    "www.site4.com"
+                ],
                 ["download", 30, 200, 100, 400],
-                ["loading", 90, 100, 140, 200],
+                ["loading", 90, 100, 140, 200]
             ],
-            groups: [
-                ["download", "loading"]
-            ],
+            groups: [["download", "loading"]],
             type: "bar"
         },
         axis: {
@@ -1274,10 +1694,16 @@ function data_stringx() {
     setTimeout(() => {
         chart.load({
             columns: [
-                ["x", "www.siteA.com", "www.siteB.com", "www.siteC.com", "www.siteD.com"],
+                [
+                    "x",
+                    "www.siteA.com",
+                    "www.siteB.com",
+                    "www.siteC.com",
+                    "www.siteD.com"
+                ],
                 ["download", 130, 200, 150, 350],
-                ["loading", 190, 180, 190, 140],
-            ],
+                ["loading", 190, 180, 190, 140]
+            ]
         });
     }, 1000);
 
@@ -1286,18 +1712,24 @@ function data_stringx() {
             columns: [
                 ["x", "www.siteE.com", "www.siteF.com", "www.siteG.com"],
                 ["download", 30, 300, 200],
-                ["loading", 90, 130, 240],
-            ],
+                ["loading", 90, 130, 240]
+            ]
         });
     }, 2000);
 
     setTimeout(() => {
         chart.load({
             columns: [
-                ["x", "www.site1.com", "www.site2.com", "www.site3.com", "www.site4.com"],
+                [
+                    "x",
+                    "www.site1.com",
+                    "www.site2.com",
+                    "www.site3.com",
+                    "www.site4.com"
+                ],
                 ["download", 130, 300, 200, 470],
-                ["loading", 190, 130, 240, 340],
-            ],
+                ["loading", 190, 130, 240, 340]
+            ]
         });
     }, 3000);
 
@@ -1305,8 +1737,8 @@ function data_stringx() {
         chart.load({
             columns: [
                 ["download", 30, 30, 20, 170],
-                ["loading", 90, 30, 40, 40],
-            ],
+                ["loading", 90, 30, 40, 40]
+            ]
         });
     }, 4000);
 
@@ -1335,9 +1767,9 @@ function data_load() {
         chart.load({
             columns: [
                 ["data1", 130, 120, 150, 140, 160, 150],
-                ["data4", 30, 20, 50, 40, 60, 50],
+                ["data4", 30, 20, 50, 40, 60, 50]
             ],
-            unload: ["data2", "data3"],
+            unload: ["data2", "data3"]
         });
     }, 2000);
 
@@ -1350,17 +1782,15 @@ function data_load() {
                 [200, 290],
                 [160, 230],
                 [130, 300],
-                [220, 320],
+                [220, 320]
             ],
-            unload: "data4",
+            unload: "data4"
         });
     }, 3000);
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data4", 30, 20, 50, 40, 60, 50, 100, 200]
-            ],
+            columns: [["data4", 30, 20, 50, 40, 60, 50, 100, 200]],
             type: "bar"
         });
     }, 4000);
@@ -1373,9 +1803,7 @@ function data_load() {
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data2", null, 30, 20, 50, 40, 60, 50]
-            ]
+            columns: [["data2", null, 30, 20, 50, 40, 60, 50]]
         });
     }, 6000);
 
@@ -1392,7 +1820,7 @@ function data_load() {
                 [50, 200, 290],
                 [120, 160, 230],
                 [80, 130, 300],
-                [90, 220, 320],
+                [90, 220, 320]
             ],
             type: "bar"
         });
@@ -1407,7 +1835,7 @@ function data_load() {
                 [150, 500],
                 [220, 460],
                 [180, 430],
-                [190, 520],
+                [190, 520]
             ],
             type: "line"
         });
@@ -1451,7 +1879,9 @@ function data_color() {
             },
             color: (color, d) => {
                 // d will be 'id' when called for legends
-                return d.id && d.id === "data3" ? d3.rgb(color).darker(d.value / 150) : color;
+                return d.id && d.id === "data3"
+                    ? d3.rgb(color).darker(d.value / 150)
+                    : color;
             }
         }
     });
@@ -1466,9 +1896,7 @@ function data_order() {
                 ["data3", -130, -50, -10, -200, -250, -150]
             ],
             type: "bar",
-            groups: [
-                ["data1", "data2", "data3"]
-            ],
+            groups: [["data1", "data2", "data3"]],
             order: "desc" // stack order by sum of values descendantly. this is default.
             //      order: "asc"  // stack order by sum of values ascendantly.
             //      order: null   // stack order by data definition.
@@ -1482,17 +1910,13 @@ function data_order() {
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data4", 1200, 1300, 1450, 1600, 1520, 1820],
-            ]
+            columns: [["data4", 1200, 1300, 1450, 1600, 1520, 1820]]
         });
     }, 1000);
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data5", 200, 300, 450, 600, 520, 820],
-            ]
+            columns: [["data5", 200, 300, 450, 600, 520, 820]]
         });
     }, 2000);
 
@@ -1509,9 +1933,7 @@ function data_label() {
                 ["data2", -50, 150, -150, 150, -50, -150],
                 ["data3", -100, 100, -40, 100, -150, -50]
             ],
-            groups: [
-                ["data1", "data2"]
-            ],
+            groups: [["data1", "data2"]],
             type: "bar",
             labels: true
         },
@@ -1531,14 +1953,12 @@ function data_label_format() {
                 ["data2", -50, 150, -150, 150, -50, -150],
                 ["data3", -100, 100, -40, 100, -150, -50]
             ],
-            groups: [
-                ["data1", "data2"]
-            ],
+            groups: [["data1", "data2"]],
             type: "bar",
             labels: {
                 // format: function (v, id, i, j) { return "Default Format"; },
                 format: {
-                    data1: d3.format("$"),
+                    data1: d3.format("$")
                     // data1: function (v, id, i, j) { return "Format for data1"; },
                 }
             }
@@ -1558,9 +1978,7 @@ function data_label_format() {
 function options_gridline() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250, 120, 200]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250, 120, 200]]
         },
         grid: {
             x: {
@@ -1576,9 +1994,7 @@ function options_gridline() {
 function grid_x_lines() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
         grid: {
             x: {
@@ -1597,7 +2013,7 @@ function grid_y_lines() {
         data: {
             columns: [
                 ["sample", 30, 200, 100, 400, 150, 250],
-                ["sample2", 1300, 1200, 1100, 1400, 1500, 1250],
+                ["sample2", 1300, 1200, 1100, 1400, 1500, 1250]
             ],
             axes: {
                 sample2: "y2"
@@ -1612,7 +2028,12 @@ function grid_y_lines() {
             y: {
                 lines: [
                     { value: 50, text: "Lable 50 for y" },
-                    { value: 1300, text: "Lable 1300 for y2", axis: "y2", position: "start" },
+                    {
+                        value: 1300,
+                        text: "Lable 1300 for y2",
+                        axis: "y2",
+                        position: "start"
+                    },
                     { value: 350, text: "Lable 350 for y", position: "middle" }
                 ]
             }
@@ -1629,7 +2050,7 @@ function region() {
         data: {
             columns: [
                 ["data1", 30, 200, 100, 400, 150, 250, 400],
-                ["data2", 830, 1200, 1100, 1400, 1150, 1250, 1500],
+                ["data2", 830, 1200, 1100, 1400, 1150, 1250, 1500]
             ],
             axes: {
                 data2: "y2"
@@ -1649,7 +2070,7 @@ function region() {
             { axis: "y", start: 400, class: "regionY" },
             { axis: "y2", end: 900, class: "regionY2" },
             { axis: "y2", start: 1150, end: 1250, class: "regionY2" },
-            { axis: "y2", start: 1300, class: "regionY2" },
+            { axis: "y2", start: 1300, class: "regionY2" }
         ]
     });
 }
@@ -1659,7 +2080,14 @@ function region_timeseries() {
         data: {
             x: "date",
             columns: [
-                ["date", "2014-01-01", "2014-01-10", "2014-01-20", "2014-01-30", "2014-02-01"],
+                [
+                    "date",
+                    "2014-01-01",
+                    "2014-01-10",
+                    "2014-01-20",
+                    "2014-01-30",
+                    "2014-02-01"
+                ],
                 ["sample", 30, 200, 100, 400, 150, 250]
             ]
         },
@@ -1683,9 +2111,7 @@ function region_timeseries() {
 function options_subchart() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
         subchart: {
             show: true
@@ -1697,8 +2123,63 @@ function interaction_zoom() {
     const chart = c3.generate({
         data: {
             columns: [
-                ["sample", 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250, 150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250, 150,
-                200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150, 50, 120, 70, 40]
+                [
+                    "sample",
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    150,
+                    200,
+                    170,
+                    240,
+                    350,
+                    150,
+                    100,
+                    400,
+                    150,
+                    250,
+                    150,
+                    200,
+                    170,
+                    240,
+                    100,
+                    150,
+                    250,
+                    150,
+                    200,
+                    170,
+                    240,
+                    30,
+                    200,
+                    100,
+                    400,
+                    150,
+                    250,
+                    150,
+                    200,
+                    170,
+                    240,
+                    350,
+                    150,
+                    100,
+                    400,
+                    350,
+                    220,
+                    250,
+                    300,
+                    270,
+                    140,
+                    150,
+                    90,
+                    150,
+                    50,
+                    120,
+                    70,
+                    40
+                ]
             ]
         },
         zoom: {
@@ -1714,9 +2195,7 @@ function interaction_zoom() {
 function options_legend() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
         legend: {
             show: false
@@ -1739,9 +2218,7 @@ function legend_position() {
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data3", 130, 150, 200, 300, 200, 100]
-            ]
+            columns: [["data3", 130, 150, 200, 300, 200, 100]]
         });
     }, 1000);
 
@@ -1763,11 +2240,7 @@ function legend_position() {
 function legend_custom() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data1", 100],
-                ["data2", 300],
-                ["data3", 200]
-            ],
+            columns: [["data1", 100], ["data2", 300], ["data3", 200]],
             type: "pie"
         },
         legend: {
@@ -1779,23 +2252,27 @@ function legend_custom() {
         chart.toggle(id);
     }
 
-    d3.select(".container").insert("div", ".chart").attr("class", "legend").selectAll("span")
+    d3.select(".container")
+        .insert("div", ".chart")
+        .attr("class", "legend")
+        .selectAll("span")
         .data(["data1", "data2", "data3"])
-        .enter().append("span")
-        .attr("data-id", (id) => id)
-        .html((id) => id)
-        .each((id) => {
+        .enter()
+        .append("span")
+        .attr("data-id", id => id)
+        .html(id => id)
+        .each(id => {
             // this is most likely the wrong context now
             // tslint:disable-next-line
             d3.select(this).style("background-color", chart.color(id));
         })
-        .on("mouseover", (id) => {
+        .on("mouseover", id => {
             chart.focus(id);
         })
-        .on("mouseout", (id) => {
+        .on("mouseout", id => {
             chart.revert();
         })
-        .on("click", (id) => {
+        .on("click", id => {
             chart.toggle(id);
         });
 }
@@ -1803,9 +2280,7 @@ function legend_custom() {
 function legend_tiles() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
         legend: {
             // amount of padding to put between each legend element
@@ -1817,7 +2292,8 @@ function legend_tiles() {
                     height: 2
                 }
             }
-        }});
+        }
+    });
 }
 
 /////////////////////
@@ -1881,7 +2357,8 @@ function tooltip_format() {
             format: {
                 title: (d: any) => "Data " + d,
                 value: (value: any, ratio: any, id: any) => {
-                    const format = id === "data1" ? d3.format(",") : d3.format("$");
+                    const format =
+                        id === "data1" ? d3.format(",") : d3.format("$");
                     return format(value);
                 }
                 //            value: d3.format(",") // apply this format to both y and y2
@@ -1899,7 +2376,7 @@ function tooltip_order() {
             ]
         },
         tooltip: {
-            order: 'asc'
+            order: "asc"
         }
     });
 }
@@ -1932,9 +2409,7 @@ function options_size() {
             width: 480
         },
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         }
     });
 }
@@ -1945,12 +2420,10 @@ function options_padding() {
             top: 40,
             right: 100,
             bottom: 40,
-            left: 100,
+            left: 100
         },
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250000000000]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250000000000]]
         }
     });
 }
@@ -1968,8 +2441,28 @@ function options_color() {
             ]
         },
         color: {
-            pattern: ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5", "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f", "#c7c7c7",
-            "#bcbd22", "#dbdb8d", "#17becf", "#9edae5"]
+            pattern: [
+                "#1f77b4",
+                "#aec7e8",
+                "#ff7f0e",
+                "#ffbb78",
+                "#2ca02c",
+                "#98df8a",
+                "#d62728",
+                "#ff9896",
+                "#9467bd",
+                "#c5b0d5",
+                "#8c564b",
+                "#c49c94",
+                "#e377c2",
+                "#f7b6d2",
+                "#7f7f7f",
+                "#c7c7c7",
+                "#bcbd22",
+                "#dbdb8d",
+                "#17becf",
+                "#9edae5"
+            ]
         }
     });
 }
@@ -2009,16 +2502,14 @@ function transition_duration() {
                 [50, 200, 290],
                 [120, 160, 230],
                 [80, 130, 300],
-                [90, 220, 320],
+                [90, 220, 320]
             ]
         });
     }, 1500);
 
     setTimeout(() => {
         chart.load({
-            columns: [
-                ["data1", null, 30, 20, 50, 40, 60, 50, 100, 200]
-            ]
+            columns: [["data1", null, 30, 20, 50, 40, 60, 50, 100, 200]]
         });
     }, 2000);
 }
@@ -2048,10 +2539,7 @@ function point_show() {
 function pie_label_format() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data1", 30],
-                ["data2", 50]
-            ],
+            columns: [["data1", 30], ["data2", 50]],
             type: "pie"
         },
         pie: {
@@ -2076,14 +2564,14 @@ function api_flow() {
                 ["x", "2012-12-29", "2012-12-30", "2012-12-31"],
                 ["data1", 230, 300, 330],
                 ["data2", 190, 230, 200],
-                ["data3", 90, 130, 180],
+                ["data3", 90, 130, 180]
             ]
         },
         axis: {
             x: {
                 type: "timeseries",
                 tick: {
-                    format: "%m/%d",
+                    format: "%m/%d"
                 }
             }
         }
@@ -2095,13 +2583,19 @@ function api_flow() {
                 ["x", "2013-01-11", "2013-01-21"],
                 ["data1", 500, 200],
                 ["data2", 100, 300],
-                ["data3", 200, 120],
+                ["data3", 200, 120]
             ],
             duration: 1500,
             done: () => {
                 chart.flow({
                     columns: [
-                        ["x", "2013-02-11", "2013-02-12", "2013-02-13", "2013-02-14"],
+                        [
+                            "x",
+                            "2013-02-11",
+                            "2013-02-12",
+                            "2013-02-13",
+                            "2013-02-14"
+                        ],
                         ["data1", 200, 300, 100, 250],
                         ["data2", 100, 90, 40, 120],
                         ["data3", 100, 100, 300, 500]
@@ -2127,13 +2621,13 @@ function api_flow() {
                                         ["data3", 200, 400]
                                     ],
                                     to: "2013-03-01",
-                                    duration: 1500,
+                                    duration: 1500
                                 });
                             }
                         });
                     }
                 });
-            },
+            }
         });
     }, 1000);
 }
@@ -2153,7 +2647,10 @@ function api_data_name() {
     });
 
     setTimeout(() => {
-        chart.data.names({ data1: "New name for data1", data2: "New name for data2" });
+        chart.data.names({
+            data1: "New name for data1",
+            data2: "New name for data2"
+        });
     }, 1000);
 
     setTimeout(() => {
@@ -2183,7 +2680,7 @@ function api_data_color() {
         chart.data.colors({
             data1: d3.rgb("#ff0000").darker(1),
             data2: d3.rgb("#00ff00").darker(1),
-            data3: d3.rgb("#0000ff").darker(1),
+            data3: d3.rgb("#0000ff").darker(1)
         });
     }, 1000);
 
@@ -2191,7 +2688,7 @@ function api_data_color() {
         chart.data.colors({
             data1: d3.rgb("#ff0000").darker(2),
             data2: d3.rgb("#00ff00").darker(2),
-            data3: d3.rgb("#0000ff").darker(2),
+            data3: d3.rgb("#0000ff").darker(2)
         });
     }, 2000);
 }
@@ -2224,7 +2721,10 @@ function api_axis_label() {
     }, 1000);
 
     setTimeout(() => {
-        chart.axis.labels({ y: "New Y Axis Label", y2: "New Y2 Axis Label Again" });
+        chart.axis.labels({
+            y: "New Y Axis Label",
+            y2: "New Y2 Axis Label Again"
+        });
     }, 2000);
 }
 
@@ -2242,7 +2742,7 @@ function api_axis_range() {
         },
         axis: {
             y2: {
-                show: true,
+                show: true
             }
         }
     });
@@ -2311,14 +2811,15 @@ function api_grid_x() {
     const chart = c3.generate({
         bindto: "#chart",
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         }
     });
 
     setTimeout(() => {
-        chart.xgrids([{ value: 1, text: "Label 1" }, { value: 4, text: "Label 4" }]);
+        chart.xgrids([
+            { value: 1, text: "Label 1" },
+            { value: 4, text: "Label 4" }
+        ]);
     }, 1000);
 
     setTimeout(() => {
@@ -2338,7 +2839,10 @@ function api_grid_x() {
     }, 5000);
 
     setTimeout(() => {
-        chart.xgrids([{ value: 1, text: "Label 1" }, { value: 4, text: "Label 4" }]);
+        chart.xgrids([
+            { value: 1, text: "Label 1" },
+            { value: 4, text: "Label 4" }
+        ]);
     }, 6000);
 
     setTimeout(() => {
@@ -2495,18 +2999,222 @@ function transform_scatter() {
         data: {
             xs: {
                 setosa: "setosa_x",
-                versicolor: "versicolor_x",
+                versicolor: "versicolor_x"
             },
             // iris data from R
             columns: [
-                ["setosa_x", 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4, 3.0, 3.4, 3.5, 3.4, 3.2, 3.1, 3.4,
-                4.1, 4.2, 3.1, 3.2, 3.5, 3.6, 3.0, 3.4, 3.5, 2.3, 3.2, 3.5, 3.8, 3.0, 3.8, 3.2, 3.7, 3.3],
-                ["versicolor_x", 3.2, 3.2, 3.1, 2.3, 2.8, 2.8, 3.3, 2.4, 2.9, 2.7, 2.0, 3.0, 2.2, 2.9, 2.9, 3.1, 3.0, 2.7, 2.2, 2.5, 3.2, 2.8, 2.5, 2.8, 2.9, 3.0, 2.8, 3.0, 2.9, 2.6, 2.4, 2.4,
-                2.7, 2.7, 3.0, 3.4, 3.1, 2.3, 3.0, 2.5, 2.6, 3.0, 2.6, 2.3, 2.7, 3.0, 2.9, 2.9, 2.5, 2.8],
-                ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1,
-                0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-                ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0,
-                1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+                [
+                    "setosa_x",
+                    3.5,
+                    3.0,
+                    3.2,
+                    3.1,
+                    3.6,
+                    3.9,
+                    3.4,
+                    3.4,
+                    2.9,
+                    3.1,
+                    3.7,
+                    3.4,
+                    3.0,
+                    3.0,
+                    4.0,
+                    4.4,
+                    3.9,
+                    3.5,
+                    3.8,
+                    3.8,
+                    3.4,
+                    3.7,
+                    3.6,
+                    3.3,
+                    3.4,
+                    3.0,
+                    3.4,
+                    3.5,
+                    3.4,
+                    3.2,
+                    3.1,
+                    3.4,
+                    4.1,
+                    4.2,
+                    3.1,
+                    3.2,
+                    3.5,
+                    3.6,
+                    3.0,
+                    3.4,
+                    3.5,
+                    2.3,
+                    3.2,
+                    3.5,
+                    3.8,
+                    3.0,
+                    3.8,
+                    3.2,
+                    3.7,
+                    3.3
+                ],
+                [
+                    "versicolor_x",
+                    3.2,
+                    3.2,
+                    3.1,
+                    2.3,
+                    2.8,
+                    2.8,
+                    3.3,
+                    2.4,
+                    2.9,
+                    2.7,
+                    2.0,
+                    3.0,
+                    2.2,
+                    2.9,
+                    2.9,
+                    3.1,
+                    3.0,
+                    2.7,
+                    2.2,
+                    2.5,
+                    3.2,
+                    2.8,
+                    2.5,
+                    2.8,
+                    2.9,
+                    3.0,
+                    2.8,
+                    3.0,
+                    2.9,
+                    2.6,
+                    2.4,
+                    2.4,
+                    2.7,
+                    2.7,
+                    3.0,
+                    3.4,
+                    3.1,
+                    2.3,
+                    3.0,
+                    2.5,
+                    2.6,
+                    3.0,
+                    2.6,
+                    2.3,
+                    2.7,
+                    3.0,
+                    2.9,
+                    2.9,
+                    2.5,
+                    2.8
+                ],
+                [
+                    "setosa",
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.4,
+                    0.4,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.2,
+                    0.4,
+                    0.2,
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.2,
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.2,
+                    0.6,
+                    0.4,
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    "versicolor",
+                    1.4,
+                    1.5,
+                    1.5,
+                    1.3,
+                    1.5,
+                    1.3,
+                    1.6,
+                    1.0,
+                    1.3,
+                    1.4,
+                    1.0,
+                    1.5,
+                    1.0,
+                    1.4,
+                    1.3,
+                    1.4,
+                    1.5,
+                    1.0,
+                    1.5,
+                    1.1,
+                    1.8,
+                    1.3,
+                    1.5,
+                    1.2,
+                    1.3,
+                    1.4,
+                    1.4,
+                    1.7,
+                    1.5,
+                    1.0,
+                    1.1,
+                    1.0,
+                    1.2,
+                    1.6,
+                    1.5,
+                    1.6,
+                    1.5,
+                    1.3,
+                    1.3,
+                    1.3,
+                    1.2,
+                    1.4,
+                    1.2,
+                    1.0,
+                    1.3,
+                    1.2,
+                    1.3,
+                    1.3,
+                    1.1,
+                    1.3
+                ]
             ],
             type: "pie"
         },
@@ -2593,30 +3301,29 @@ function transform_donut() {
 function style_region() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["sample", 30, 200, 100, 400, 150, 250]
-            ]
+            columns: [["sample", 30, 200, 100, 400, 150, 250]]
         },
-        regions: [
-            { start: 0, end: 1 },
-            { start: 2, end: 4, class: "foo" }
-        ]
+        regions: [{ start: 0, end: 1 }, { start: 2, end: 4, class: "foo" }]
     });
 }
 
 function style_grid() {
     const chart = c3.generate({
         data: {
-            columns: [
-                ["data1", 100, 200, 1000, 900, 500]
-            ]
+            columns: [["data1", 100, 200, 1000, 900, 500]]
         },
         grid: {
             x: {
-                lines: [{ value: 2 }, { value: 4, class: "grid4", text: "LABEL 4" }]
+                lines: [
+                    { value: 2 },
+                    { value: 4, class: "grid4", text: "LABEL 4" }
+                ]
             },
             y: {
-                lines: [{ value: 500 }, { value: 800, class: "grid800", text: "LABEL 800" }]
+                lines: [
+                    { value: 500 },
+                    { value: 800, class: "grid800", text: "LABEL 800" }
+                ]
             }
         }
     });
@@ -2624,16 +3331,14 @@ function style_grid() {
 
 // set colors via function
 c3.generate({
-  bindto: '#chart',
-  data: {
-    columns: [
-      ['data1', ...[]],
-    ],
-    type: 'bar',
-    colors: {
-      data1: (d: any) => {
-        return d.value > 90 ? 'green' : 'orange';
-      }
+    bindto: "#chart",
+    data: {
+        columns: [["data1", ...[]]],
+        type: "bar",
+        colors: {
+            data1: (d: any) => {
+                return d.value > 90 ? "green" : "orange";
+            }
+        }
     }
-  }
 });

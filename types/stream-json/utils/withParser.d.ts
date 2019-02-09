@@ -1,8 +1,15 @@
-import { Writable, WritableOptions, Duplex, DuplexOptions, Transform, TransformOptions } from 'stream';
-import * as Chain from 'stream-chain';
-import * as Parser from '../Parser';
-import * as FilterBase from '../filters/FilterBase';
-import * as StreamBase from '../streamers/StreamBase';
+import {
+    Writable,
+    WritableOptions,
+    Duplex,
+    DuplexOptions,
+    Transform,
+    TransformOptions
+} from "stream";
+import * as Chain from "stream-chain";
+import * as Parser from "../Parser";
+import * as FilterBase from "../filters/FilterBase";
+import * as StreamBase from "../streamers/StreamBase";
 
 export = withParser;
 
@@ -16,7 +23,10 @@ declare function withParser(
     options?: withParser.StreamOptions
 ): Chain;
 
-declare function withParser(fn: (options?: TransformOptions) => Transform, options?: Parser.ParserOptions): Chain;
+declare function withParser(
+    fn: (options?: TransformOptions) => Transform,
+    options?: Parser.ParserOptions
+): Chain;
 
 declare namespace withParser {
     interface FilterOptions extends FilterBase.FilterOptions {

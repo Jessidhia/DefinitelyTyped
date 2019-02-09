@@ -1,4 +1,4 @@
-import githubUsername = require('github-username');
+import githubUsername = require("github-username");
 
 // $ExpectType Promise<string>
-githubUsername('sindresorhus@gmail.com', 'deadbeef');
+githubUsername("sindresorhus@gmail.com", "deadbeef");

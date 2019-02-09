@@ -15,16 +15,22 @@
  */
 interface KnockoutObservable<T> {
     // starts validation for observable
-    validate(validationOptions?: Valerie.ValidationOptions): Valerie.PropertyValidationState<KnockoutObservable<T>>;
+    validate(
+        validationOptions?: Valerie.ValidationOptions
+    ): Valerie.PropertyValidationState<KnockoutObservable<T>>;
 }
 
 interface KnockoutComputed<T> {
     // starts validation for observable
-    validate(validationOptions?: Valerie.ValidationOptions): Valerie.PropertyValidationState<KnockoutComputed<T>>;
+    validate(
+        validationOptions?: Valerie.ValidationOptions
+    ): Valerie.PropertyValidationState<KnockoutComputed<T>>;
 }
 
 interface KnockoutObservableArray<T> {
-    validate(validationOptions?: Valerie.ValidationOptions): Valerie.PropertyValidationState<KnockoutObservableArray<T>>;
+    validate(
+        validationOptions?: Valerie.ValidationOptions
+    ): Valerie.PropertyValidationState<KnockoutObservableArray<T>>;
 }
 
 interface KnockoutObservableArrayFunctions<T> {
@@ -42,8 +48,8 @@ interface KnockoutObservableArrayFunctions<T> {
 }
 
 /**
-* Valerie BindingHandlers
-*/
+ * Valerie BindingHandlers
+ */
 interface KnockoutBindingHandlers {
     /**
      * Validates entries that can be checked, i.e. check boxes and radio buttons.
@@ -134,7 +140,7 @@ interface KnockoutBindingHandlers {
      * </ul>
      * @name ko.bindingHandlers.validationCss
      */
-    validationCss: KnockoutBindingHandler
+    validationCss: KnockoutBindingHandler;
 
     /**
      * Makes the element behave like a validation message for the chosen property or model:
@@ -229,9 +235,11 @@ declare namespace Valerie {
          * model property is unwrapped, the result of which determines if the property is included in the destination model
          * @return {*} the destination model
          */
-        mapModel(sourceModel: any,
+        mapModel(
+            sourceModel: any,
             includeWrappedFunction?: IncludePropertyCallback,
-            includeUnwrappedFunction?: IncludePropertyCallback): any;
+            includeUnwrappedFunction?: IncludePropertyCallback
+        ): any;
 
         /**
          * Makes the passed-in model validatable. After invocation the model will have a validation state.
@@ -241,11 +249,17 @@ declare namespace Valerie {
          * state
          * @return {valerie.ModelValidationState} the validation state belonging to the model
          */
-        validatableModel(model: any, options?: ValidationOptions): ModelValidationState;
+        validatableModel(
+            model: any,
+            options?: ValidationOptions
+        ): ModelValidationState;
 
         // Makes the passed-in property validatable. After invocation the property will have a validation state.
         // (value should be observable or computed)
-        validatableProperty<T>(value: T, options?: ValidationOptions): PropertyValidationState<T>;
+        validatableProperty<T>(
+            value: T,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
         // Validation result class
         ValidationResult: ValidationResultStatic;
@@ -266,11 +280,9 @@ declare namespace Valerie {
         utils: UtilsStatic;
 
         validationState: ValidationState;
-
     }
 
     interface ValidationResultStatic {
-
         passedInstance: ValidationResult;
 
         // static method to create validatio failed message
@@ -279,15 +291,12 @@ declare namespace Valerie {
 
     // Contains converters, always singletons.
     interface ConvertersStatic {
-
         //TODO: other converters to be added
 
         passThrough: Valerie.IConverter;
     }
 
-
     interface UtilsStatic {
-
         // Creates a function that returns the given value as an array of one item, or simply returns the given value if it is already an array.
         asArray<T>(value: any): any[];
 
@@ -317,8 +326,10 @@ declare namespace Valerie {
         //  - either parameter can be omitted and a clone of the other parameter will be returned
         //  - the merge is shallow
         //  - array properties are shallow cloned
-        mergeOptions(defaultOptions: ValidationOptions, options:any): ValidationOptions;
-
+        mergeOptions(
+            defaultOptions: ValidationOptions,
+            options: any
+        ): ValidationOptions;
     }
 
     // callback interface (see mapModel above)
@@ -329,14 +340,17 @@ declare namespace Valerie {
     // Constructs the validation state for a model, which may comprise of simple properties and sub-models.
     interface ModelValidationState {
         // ctor
-        new: (model: any, options?: ModelValidationStateOptions) => ModelValidationState;
+        new: (
+            model: any,
+            options?: ModelValidationStateOptions
+        ) => ModelValidationState;
 
         model: any;
-        options?: ModelValidationStateOptions
+        options?: ModelValidationStateOptions;
 
         // methods
 
-         /**
+        /**
          * Adds validation states to this validation state.<br/>
          * <i>[fluent]</i>
          * @name valerie.ModelValidationState#addValidationStates
@@ -403,13 +417,12 @@ declare namespace Valerie {
 
         result(): ValidationResult;
 
-        summary(): summaryItem[]
+        summary(): summaryItem[];
 
         /***
          * Gets or sets whether the model has been 'touched' by user action
          */
         touched(value: boolean): boolean;
-
 
         validationStates(): IValidationState[];
 
@@ -437,7 +450,9 @@ declare namespace Valerie {
          * @param {object|array.<valerie.IValidationState>} validationStateOrStates the validation states to remove
          * @return {valerie.ModelValidationState}
          */
-        removeValidationStates(validationStateOrStates: any): ModelValidationState;
+        removeValidationStates(
+            validationStateOrStates: any
+        ): ModelValidationState;
 
         /**
          * Stops validating the given sub-model by adding the validation state that belongs to it.
@@ -454,20 +469,20 @@ declare namespace Valerie {
         stopValidatingSubModel(validatableSubModel: any): ModelValidationState;
 
         /**
-        * Updates the static summary of validation states that are in a failure state.<br/>
-        * <i>[fluent]</i>
-        * @fluent
-        * @param {boolean} [updateSubModelSummaries = false] whether to update the static summaries for sub-models
-        * @return {valerie.ModelValidationState}
-        */
+         * Updates the static summary of validation states that are in a failure state.<br/>
+         * <i>[fluent]</i>
+         * @fluent
+         * @param {boolean} [updateSubModelSummaries = false] whether to update the static summaries for sub-models
+         * @return {valerie.ModelValidationState}
+         */
         updateSummary(updateSubModelSummaries: boolean): ModelValidationState;
 
         /**
-        * Adds the validation states for all the descendant properties and sub-models that belong to the model.<br/>
-        * <i>[fluent]</i>
-        * @fluent
-        * @return {valerie.ModelValidationState}
-        */
+         * Adds the validation states for all the descendant properties and sub-models that belong to the model.<br/>
+         * <i>[fluent]</i>
+         * @fluent
+         * @return {valerie.ModelValidationState}
+         */
         validateAll(): ModelValidationState;
 
         /**
@@ -493,7 +508,6 @@ declare namespace Valerie {
          * @return {valerie.ModelValidationState}
          */
         validateChildPropertiesAndSubModels(): ModelValidationState;
-
 
         /**
          * Ends a chain of fluent method calls on this model validation state.
@@ -535,56 +549,170 @@ declare namespace Valerie {
         applicable(value: boolean): PropertyValidationState<T>;
         applicable(fn: () => boolean): PropertyValidationState<T>;
         currencyMajor(options?: ValidationOptions): PropertyValidationState<T>;
-        currencyMajorMinor(options?: ValidationOptions): PropertyValidationState<T>;
+        currencyMajorMinor(
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
         date(): PropertyValidationState<T>;
-        during(earliest: Date, latest: Date, options?: ValidationOptions): PropertyValidationState<T>; // date + date
-        during(earliest: () => Date, latest: Date, options?: ValidationOptions): PropertyValidationState<T>; // dateFN + date
-        during(earliest: Date, latest: () => Date, options?: ValidationOptions): PropertyValidationState<T>; // date + dateFN
-        during(earliest: () => Date, latest: () => Date, options?: ValidationOptions): PropertyValidationState<T>; // dateFN + dateFN
-        earliest(earliest: Date, options?: ValidationOptions): PropertyValidationState<T>; // date value
-        earliest(earliest: () => Date, options?: ValidationOptions): PropertyValidationState<T>; // date function
+        during(
+            earliest: Date,
+            latest: Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // date + date
+        during(
+            earliest: () => Date,
+            latest: Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // dateFN + date
+        during(
+            earliest: Date,
+            latest: () => Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // date + dateFN
+        during(
+            earliest: () => Date,
+            latest: () => Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // dateFN + dateFN
+        earliest(
+            earliest: Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // date value
+        earliest(
+            earliest: () => Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // date function
         email(): PropertyValidationState<T>;
         entryFormat(format: string): PropertyValidationState<T>;
         excludeFromSummary(): PropertyValidationState<T>;
-        expression(regularExpression: RegExp, options?: ValidationOptions): PropertyValidationState<T>; // regex
-        expression(regularExpressionString: string, options?: ValidationOptions): PropertyValidationState<T>; // regex string
+        expression(
+            regularExpression: RegExp,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // regex
+        expression(
+            regularExpressionString: string,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>; // regex string
         float(options?: ValidationOptions): PropertyValidationState<T>;
         integer(options?: ValidationOptions): PropertyValidationState<T>;
-        latest(latestValueOrFunction: Date, options?: ValidationOptions): PropertyValidationState<T>;
-        latest(latestValueOrFunction: () => Date, options?: ValidationOptions): PropertyValidationState<T>;
-        lengthBetween(shortest: number, longest: number, options?: ValidationOptions): PropertyValidationState<T>;
-        lengthBetween(shortest: number, longest: () => number, options?: ValidationOptions): PropertyValidationState<T>;
-        lengthBetween(shortest: () => number, longest: number, options?: ValidationOptions): PropertyValidationState<T>;
-        lengthBetween(shortest: () => number, longest: () => number, options?: ValidationOptions): PropertyValidationState<T>;
-        matches(permitted: any, options?: ValidationOptions): PropertyValidationState<T>;
-        matches(permitted: () => any, options?: ValidationOptions): PropertyValidationState<T>;
+        latest(
+            latestValueOrFunction: Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        latest(
+            latestValueOrFunction: () => Date,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        lengthBetween(
+            shortest: number,
+            longest: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        lengthBetween(
+            shortest: number,
+            longest: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        lengthBetween(
+            shortest: () => number,
+            longest: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        lengthBetween(
+            shortest: () => number,
+            longest: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        matches(
+            permitted: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        matches(
+            permitted: () => any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
-        maximum(maximum: any, options?: ValidationOptions): PropertyValidationState<T>;
-        maximum(maximum: () => any, options?: ValidationOptions): PropertyValidationState<T>;
-        maximumLength(longest: number, options?: ValidationOptions): PropertyValidationState<T>;
-        maximumLength(longest: () => number, options?: ValidationOptions): PropertyValidationState<T>;
-        maximumNumberOfItems(maximum: number, options?: ValidationOptions): PropertyValidationState<T>;
-        maximumNumberOfItems(maximum: () => number, options?: ValidationOptions): PropertyValidationState<T>;
+        maximum(
+            maximum: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        maximum(
+            maximum: () => any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        maximumLength(
+            longest: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        maximumLength(
+            longest: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        maximumNumberOfItems(
+            maximum: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        maximumNumberOfItems(
+            maximum: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
-        minimum(minimumValueOrFunction: any, options?: ValidationOptions): PropertyValidationState<T>;
-        minimumLength(shortest: number, options?: ValidationOptions): PropertyValidationState<T>;
-        minimumLength(shortest: () => number, options?: ValidationOptions): PropertyValidationState<T>;
-        minimumNumberOfItems(minimum: number, options?: ValidationOptions): PropertyValidationState<T>;
-        minimumNumberOfItems(minimum: () => number, options?: ValidationOptions): PropertyValidationState<T>;
+        minimum(
+            minimumValueOrFunction: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        minimumLength(
+            shortest: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        minimumLength(
+            shortest: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        minimumNumberOfItems(
+            minimum: number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        minimumNumberOfItems(
+            minimum: () => number,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
         name(value: string): PropertyValidationState<T>;
         name(value: () => string): PropertyValidationState<T>;
-        noneOf(forbiddenValues: any[], options?: ValidationOptions): PropertyValidationState<T>;
-        noneOf(forbiddenValues: () => any[], options?: ValidationOptions): PropertyValidationState<T>;
+        noneOf(
+            forbiddenValues: any[],
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        noneOf(
+            forbiddenValues: () => any[],
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
 
-        not(forbiddenValueOrFunction: any, options?: ValidationOptions): PropertyValidationState<T>;
+        not(
+            forbiddenValueOrFunction: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
         number(): PropertyValidationState<T>;
-        numberOfItems(minimumValueOrFunction: any, maximumValueOrFunction: any, options?: ValidationOptions): PropertyValidationState<T>;
-        oneOf(permittedValues: any[], options?: ValidationOptions): PropertyValidationState<T>;
-        oneOf(permittedValues: () => any[], options?: ValidationOptions): PropertyValidationState<T>;
+        numberOfItems(
+            minimumValueOrFunction: any,
+            maximumValueOrFunction: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        oneOf(
+            permittedValues: any[],
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
+        oneOf(
+            permittedValues: () => any[],
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
         postcode(): PropertyValidationState<T>;
-        range(minimumValueOrFunction: any, maximumValueOrFunction: any, options?: ValidationOptions): PropertyValidationState<T>;
+        range(
+            minimumValueOrFunction: any,
+            maximumValueOrFunction: any,
+            options?: ValidationOptions
+        ): PropertyValidationState<T>;
         required(valueOrFunction?: any): PropertyValidationState<T>;
         rule(testFunction: () => any): PropertyValidationState<T>;
         ruleMessage(failureMessageFormat: string): PropertyValidationState<T>;
@@ -606,17 +734,17 @@ declare namespace Valerie {
         passed(): boolean;
         pending(): boolean;
         showMessage(): boolean;
-        touched(): boolean;               // get touched state
+        touched(): boolean; // get touched state
         touched(value: boolean): boolean; // set touched state
         result(): ValidationResult;
     }
 
     interface ValidationResult {
         state: any; // the result state
-        failed: boolean;	//true if the activity failed validation
-        passed: boolean;	//true if the activity passed validation
-        pending: boolean;	//true if the activity hasn't yet completed
-        message: string;	//a message from the activity
+        failed: boolean; //true if the activity failed validation
+        passed: boolean; //true if the activity passed validation
+        pending: boolean; //true if the activity hasn't yet completed
+        message: string; //a message from the activity
         new: (state: any, message?: string) => ValidationResult;
     }
 
@@ -645,16 +773,16 @@ declare namespace Valerie {
     }
 
     interface ValidationOptions {
-        applicable? (): any;  // the function used to determine if the property is applicable
-        converter?: IConverter;  // the converter used to parse user entries and format display of the property's value
-        entryFormat?: string;  // the string used to format the property's value for display in a user entry
-        excludeFromSummary?: boolean;  // whether any validation failures for this property are excluded from a summary
-        invalidFailureMessage?: string;  // the message shown when the user has entered an invalid value
-        missingFailureMessage?: string;  // the message shown when a value is required but is missing
-        name?: () => any;  // the function used to determine the name of the property; used in failure messages
-        required?: () => any;  // the function used to determine if a value is required
+        applicable?(): any; // the function used to determine if the property is applicable
+        converter?: IConverter; // the converter used to parse user entries and format display of the property's value
+        entryFormat?: string; // the string used to format the property's value for display in a user entry
+        excludeFromSummary?: boolean; // whether any validation failures for this property are excluded from a summary
+        invalidFailureMessage?: string; // the message shown when the user has entered an invalid value
+        missingFailureMessage?: string; // the message shown when a value is required but is missing
+        name?: () => any; // the function used to determine the name of the property; used in failure messages
+        required?: () => any; // the function used to determine if a value is required
         rules?: any; //Valerie.array.<IRule>;  // the chain of rules used to validate the property's value
-        valueFormat?: string;  // the string use to format the property's value for display in a message
+        valueFormat?: string; // the string use to format the property's value for display in a message
     }
 
     // The interface for a converter, a pair of functions: format and parse, which work in tandem on a single type of value.
@@ -672,10 +800,12 @@ declare namespace Valerie {
         format(value: number, format: string): string;
 
         // Initialises the helper
-        init(decimalSeparator: string,
+        init(
+            decimalSeparator: string,
             thousandsSeparator: string,
             currencySign: string,
-            currencyMinorUnitPlaces: number): NumericHelper;
+            currencyMinorUnitPlaces: number
+        ): NumericHelper;
 
         // Informs whether the given numeric string represents a currency value with major units only.
         isCurrencyMajor(numericString: string): boolean;
@@ -698,10 +828,12 @@ declare namespace Valerie {
 
     interface ValidationState {
         // Finds and returns the validation states
-        findIn(model: any,
+        findIn(
+            model: any,
             includeSubModels?: boolean,
             recurse?: boolean,
-            validationStates?: IValidationState[]): IValidationState[];
+            validationStates?: IValidationState[]
+        ): IValidationState[];
 
         // Gets the validation state for the given model, observable or computed.
         getFor(modelOrObservableOrComputed: any): IValidationState;

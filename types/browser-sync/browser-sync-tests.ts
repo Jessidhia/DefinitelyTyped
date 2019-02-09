@@ -26,17 +26,11 @@ browserSync({
 });
 
 browserSync({
-    files: [
-        "app/css/style.css",
-        "app/js/*.js"
-    ]
+    files: ["app/css/style.css", "app/js/*.js"]
 });
 
 browserSync({
-    files: [
-        "app/css/style.css",
-        "!app/js/*.js"
-    ]
+    files: ["app/css/style.css", "!app/js/*.js"]
 });
 
 browserSync({
@@ -44,7 +38,7 @@ browserSync({
         "wp-content/themes/**/*.css",
         {
             match: ["wp-content/themes/**/*.css"],
-            fn: function (event, file) {
+            fn: function(event, file) {
                 /** Custom event handler **/
             }
         }
@@ -52,13 +46,7 @@ browserSync({
 });
 
 browserSync({
-    watchEvents: [
-        "change",
-        "add",
-        "unlink",
-        "addDir",
-        "unlinkDir"
-    ]
+    watchEvents: ["change", "add", "unlink", "addDir", "unlinkDir"]
 });
 
 browserSync({
@@ -66,9 +54,7 @@ browserSync({
 });
 
 browserSync({
-    ignore: [
-        "app/js/*.js"
-    ]
+    ignore: ["app/js/*.js"]
 });
 
 browserSync({
@@ -78,20 +64,20 @@ browserSync({
 browserSync({
     watchOptions: {
         ignoreInitial: true,
-        ignored: '*.txt'
+        ignored: "*.txt"
     },
-    files: ['./app']
+    files: ["./app"]
 });
 
 browserSync({
     files: [
         {
             match: ["wp-content/themes/**/*.php"],
-            fn: function (event, file) {
+            fn: function(event, file) {
                 /** Custom event handler **/
             },
             options: {
-                ignored: '*.txt'
+                ignored: "*.txt"
             }
         }
     ]
@@ -148,7 +134,7 @@ browserSync({
 browserSync({
     proxy: {
         target: "http://yourlocal.dev",
-        proxyReq: function (proxyReq) {
+        proxyReq: function(proxyReq) {
             console.log(proxyReq);
         }
     }
@@ -158,7 +144,7 @@ browserSync({
     proxy: {
         target: "http://yourlocal.dev",
         proxyReq: [
-            function (proxyReq) {
+            function(proxyReq) {
                 console.log(proxyReq);
             }
         ]
@@ -168,7 +154,7 @@ browserSync({
 browserSync({
     proxy: {
         target: "http://yourlocal.dev",
-        proxyRes: function (proxyResponse, req, res) {
+        proxyRes: function(proxyResponse, req, res) {
             console.log(proxyResponse);
         }
     }
@@ -178,7 +164,7 @@ browserSync({
     proxy: {
         target: "http://yourlocal.dev",
         proxyRes: [
-            function (proxyResponse, req, res) {
+            function(proxyResponse, req, res) {
                 console.log(proxyResponse);
             }
         ]
@@ -188,7 +174,7 @@ browserSync({
 browserSync({
     proxy: {
         target: "http://yourlocal.dev",
-        proxyRes: function (res) {
+        proxyRes: function(res) {
             console.log(res);
         }
     }
@@ -198,7 +184,7 @@ browserSync({
     proxy: {
         target: "http://yourlocal.dev",
         proxyRes: [
-            function (res) {
+            function(res) {
                 console.log(res);
             }
         ]
@@ -219,37 +205,43 @@ browserSync({
 
 browserSync({
     proxy: "http://yourlocal.dev",
-    serveStatic: ['.', './app/css']
+    serveStatic: [".", "./app/css"]
 });
 
 browserSync({
     proxy: "http://yourlocal.dev",
-    serveStatic: [{
-        route: '/assets',
-        dir: 'tmp'
-    }]
+    serveStatic: [
+        {
+            route: "/assets",
+            dir: "tmp"
+        }
+    ]
 });
 
 browserSync({
     proxy: "http://yourlocal.dev",
-    serveStatic: [{
-        route: ['/assets', '/content'],
-        dir: 'tmp'
-    }]
+    serveStatic: [
+        {
+            route: ["/assets", "/content"],
+            dir: "tmp"
+        }
+    ]
 });
 
 browserSync({
     proxy: "http://yourlocal.dev",
-    serveStatic: [{
-        route: '/assets',
-        dir: ['./tmp', './app']
-    }]
+    serveStatic: [
+        {
+            route: "/assets",
+            dir: ["./tmp", "./app"]
+        }
+    ]
 });
 
 browserSync({
-    serveStatic: ['.', './app', './temp'],
+    serveStatic: [".", "./app", "./temp"],
     serveStaticOptions: {
-        extensions: ['html'] // pretty urls
+        extensions: ["html"] // pretty urls
     }
 });
 
@@ -294,15 +286,12 @@ browserSync({
 
 browserSync({
     snippetOptions: {
-
         // Ignore all HTML files within the templates folder
-        blacklist: [
-            "templates/*.html"
-        ],
+        blacklist: ["templates/*.html"],
         // Provide a custom Regex for inserting the snippet.
         rule: {
             match: /<\/body>/i,
-            fn: function (snippet, match) {
+            fn: function(snippet, match) {
                 return snippet + match;
             }
         }
@@ -313,8 +302,8 @@ browserSync({
     rewriteRules: [
         {
             match: /Browsersync/g,
-            fn: function (req, res, match) {
-                return 'kittenz';
+            fn: function(req, res, match) {
+                return "kittenz";
             }
         }
     ]
@@ -339,7 +328,7 @@ var config = {
 browserSync(config);
 
 // config + callback
-browserSync(config, function (err, bs) {
+browserSync(config, function(err, bs) {
     if (!err) {
         console.log("BrowserSync is ready!");
     }
@@ -364,19 +353,19 @@ browserSync.notify("HTML <span color='green'>is supported</span> too!");
 // Since 1.3.0, specify a timeout
 browserSync.notify("This message will only last a second", 1000);
 
-browserSync(config, function (err, bs) {
+browserSync(config, function(err, bs) {
     browserSync.exit();
 });
 
 console.log(browserSync.active); // false
 
-browserSync(config, function (err, bs) {
+browserSync(config, function(err, bs) {
     console.log(browserSync.active); // true
 });
 
 var evt = browserSync.emitter;
 
-evt.on("init", function () {
+evt.on("init", function() {
     console.log("BrowserSync is running!");
 });
 
@@ -408,15 +397,13 @@ browserSync.use({
     }
 });
 
-browserSync(
-    {
-        server: {
-            baseDir: "test/fixtures"
-        },
-        logLevel: "silent",
-        open: false
-    }
-);
+browserSync({
+    server: {
+        baseDir: "test/fixtures"
+    },
+    logLevel: "silent",
+    open: false
+});
 
 var instanceName = "TestInstance";
 var namedInstance = browserSync.create(instanceName);
@@ -468,10 +455,10 @@ browser.stream({ match: "**/*.js" });
 browser.stream({ match: /\.js$/ });
 
 // -- "match" option (function).
-browser.stream({ match: (testString) => true });
+browser.stream({ match: testString => true });
 
 // -- "match" option (array).
-browser.stream({ match: ["**/*.js", /\.js$/, (testString) => true] });
+browser.stream({ match: ["**/*.js", /\.js$/, testString => true] });
 
 // -- Both options.
-browser.stream({ once: true, match: ["**/*.js", /\.js$/, (testString) => true] });
+browser.stream({ once: true, match: ["**/*.js", /\.js$/, testString => true] });

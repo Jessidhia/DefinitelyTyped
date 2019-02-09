@@ -6,27 +6,27 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { NextHandleFunction } from 'connect';
-import * as webpack from 'webpack';
+import { NextHandleFunction } from "connect";
+import * as webpack from "webpack";
 
 export = WebpackHotMiddleware;
 
 declare function WebpackHotMiddleware(
-	compiler: webpack.ICompiler,
-	options?: WebpackHotMiddleware.Options
+    compiler: webpack.ICompiler,
+    options?: WebpackHotMiddleware.Options
 ): NextHandleFunction & WebpackHotMiddleware.EventStream;
 
 declare namespace WebpackHotMiddleware {
-	interface Options {
-		log?: false | Logger;
-		path?: string;
-		heartbeat?: number;
-		reload?: boolean;
-	}
+    interface Options {
+        log?: false | Logger;
+        path?: string;
+        heartbeat?: number;
+        reload?: boolean;
+    }
 
-	type Logger = (message?: any, ...optionalParams: any[]) => void;
+    type Logger = (message?: any, ...optionalParams: any[]) => void;
 
-	interface EventStream {
-		publish(payload: any): void;
-	}
+    interface EventStream {
+        publish(payload: any): void;
+    }
 }

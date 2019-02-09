@@ -1,55 +1,78 @@
 () => {
-    const v: CSSStyleValue = CSSStyleValue.parse('padding', '10px');
-    const vArray: CSSStyleValue = CSSStyleValue.parseAll('padding', '10px 10px');
+    const v: CSSStyleValue = CSSStyleValue.parse("padding", "10px");
+    const vArray: CSSStyleValue = CSSStyleValue.parseAll(
+        "padding",
+        "10px 10px"
+    );
 };
 
 () => {
     const v1: CSSVariableReferenceValue = new CSSVariableReferenceValue(
-        'v1', new CSSUnparsedValue([]));
+        "v1",
+        new CSSUnparsedValue([])
+    );
     const vVariable: string = v1.variable;
-    v1.variable = 'v3';
+    v1.variable = "v3";
     const vFalback: CSSUnparsedValue | undefined = v1.fallback;
 };
 
 () => {
-    const u = new CSSUnparsedValue(['x', new CSSVariableReferenceValue('v2')]);
+    const u = new CSSUnparsedValue(["x", new CSSVariableReferenceValue("v2")]);
     const s = u[1];
-    u[2] = 'hellow';
-    u[3] = new CSSVariableReferenceValue('world');
+    u[2] = "hellow";
+    u[3] = new CSSVariableReferenceValue("world");
     for (const v of Array.from(u)) {
         const x: CSSUnparsedSegment = v;
     }
 };
 
 () => {
-    const k: CSSKeywordValue = new CSSKeywordValue('inline');
+    const k: CSSKeywordValue = new CSSKeywordValue("inline");
     const keyword = k.value;
-    k.value = 'block';
+    k.value = "block";
 };
 
 () => {
-    const v: CSSNumericValue = CSSNumericValue.parse('10px');
-    const em1 = CSSNumericValue.parse('1em');
-    const vw2 = CSSNumericValue.parse('2vw');
+    const v: CSSNumericValue = CSSNumericValue.parse("10px");
+    const em1 = CSSNumericValue.parse("1em");
+    const vw2 = CSSNumericValue.parse("2vw");
 
-    const addRes: CSSNumericValue = v.add(1).add(em1).add(2, vw2);
-    const subRes: CSSNumericValue = v.sub(1).sub(em1).sub(2, vw2);
-    const mulRes: CSSNumericValue = v.mul(1).mul(em1).mul(2, vw2);
-    const divRes: CSSNumericValue = v.div(1).div(em1).div(2, vw2);
-    const minRes: CSSNumericValue = v.min(1).min(em1).min(2, vw2);
-    const maxRes: CSSNumericValue = v.max(1).max(em1).max(2, vw2);
+    const addRes: CSSNumericValue = v
+        .add(1)
+        .add(em1)
+        .add(2, vw2);
+    const subRes: CSSNumericValue = v
+        .sub(1)
+        .sub(em1)
+        .sub(2, vw2);
+    const mulRes: CSSNumericValue = v
+        .mul(1)
+        .mul(em1)
+        .mul(2, vw2);
+    const divRes: CSSNumericValue = v
+        .div(1)
+        .div(em1)
+        .div(2, vw2);
+    const minRes: CSSNumericValue = v
+        .min(1)
+        .min(em1)
+        .min(2, vw2);
+    const maxRes: CSSNumericValue = v
+        .max(1)
+        .max(em1)
+        .max(2, vw2);
 
     const resEquals1 = v.equals(20);
     const resEquals2 = v.equals(em1);
     const resEquals3 = v.equals(30, vw2);
 
-    const vw: CSSUnitValue = v.to('vw');
-    const sum: CSSMathSum = v.toSum('px', 'vw');
+    const vw: CSSUnitValue = v.to("vw");
+    const sum: CSSMathSum = v.toSum("px", "vw");
     const type: CSSNumericType = v.type();
 };
 
 () => {
-    const u = new CSSUnitValue(10, 'px');
+    const u = new CSSUnitValue(10, "px");
     const value = u.value;
     u.value = 20;
     const unit = u.unit;
@@ -109,7 +132,7 @@
         new CSSScale(1, 2),
         new CSSSkew(CSS.deg(7), CSS.rad(15)),
         new CSSSkewX(CSS.deg(10)),
-        new CSSSkewY(CSS.rad(10)),
+        new CSSSkewY(CSS.rad(10))
     ]);
     const l = t.length;
     const c = t[0];
@@ -129,7 +152,11 @@
 
 () => {
     const t1: CSSTranslate = new CSSTranslate(CSS.px(20), CSS.px(20));
-    const t2: CSSTranslate = new CSSTranslate(CSS.px(20), CSS.px(20), CSS.px(30));
+    const t2: CSSTranslate = new CSSTranslate(
+        CSS.px(20),
+        CSS.px(20),
+        CSS.px(30)
+    );
     const is2d: boolean = t1.is2D;
     const matix: DOMMatrix = t1.toMatrix();
     const x: CSSNumericValue = t1.x;
@@ -180,18 +207,23 @@
 };
 
 () => {
-    const m1: CSSMatrixComponent = new CSSMatrixComponent(new CSSScale(1, 1).toMatrix());
-    const m2: CSSMatrixComponent = new CSSMatrixComponent(new CSSScale(1, 1).toMatrix(), {
-        is2D: true,
-    });
+    const m1: CSSMatrixComponent = new CSSMatrixComponent(
+        new CSSScale(1, 1).toMatrix()
+    );
+    const m2: CSSMatrixComponent = new CSSMatrixComponent(
+        new CSSScale(1, 1).toMatrix(),
+        {
+            is2D: true
+        }
+    );
     const m: DOMMatrix = m1.matrix;
 };
 
 () => {
     const m: StylePropertyMapReadOnly = document.body.computedStyleMap();
-    const v: CSSStyleValue | undefined = m.get('padding');
-    const vArray: CSSStyleValue[] = m.getAll('padding');
-    const has: boolean = m.has('padding');
+    const v: CSSStyleValue | undefined = m.get("padding");
+    const vArray: CSSStyleValue[] = m.getAll("padding");
+    const has: boolean = m.has("padding");
     const size: number = m.size;
     for (const v of Array.from(m)) {
         const x: CSSStyleValue = v;
@@ -200,14 +232,14 @@
 
 () => {
     const m: StylePropertyMap = document.body.attributeStyleMap;
-    m.set('padding-top', CSS.px(10));
-    m.set('background-image', 'url()', 'url()');
-    m.append('background-image', 'url()');
-    m.delete('margin');
+    m.set("padding-top", CSS.px(10));
+    m.set("background-image", "url()", "url()");
+    m.append("background-image", "url()");
+    m.delete("margin");
     m.clear();
-    const v: CSSStyleValue | undefined = m.get('padding');
-    const vArray: CSSStyleValue[] = m.getAll('padding');
-    const has: boolean = m.has('padding');
+    const v: CSSStyleValue | undefined = m.get("padding");
+    const vArray: CSSStyleValue[] = m.getAll("padding");
+    const has: boolean = m.has("padding");
     const size: number = m.size;
     for (const v of Array.from(m)) {
         const x: CSSStyleValue = v;
@@ -223,7 +255,7 @@
 };
 
 () => {
-    const e: HTMLElement = document.createElement('div');
+    const e: HTMLElement = document.createElement("div");
     const m: StylePropertyMap = e.attributeStyleMap;
     const c: StylePropertyMapReadOnly = e.computedStyleMap();
 };

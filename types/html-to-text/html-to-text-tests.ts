@@ -1,6 +1,4 @@
-
-
-import * as htmlToText from 'html-to-text';
+import * as htmlToText from "html-to-text";
 
 let htmlOptions: HtmlToTextOptions = {
     wordwrap: null,
@@ -8,7 +6,6 @@ let htmlOptions: HtmlToTextOptions = {
     hideLinkHrefIfSameAsText: true,
     ignoreImage: true
 };
-
 
 function callback(err: string, result: string) {
     console.log(`callback called with result ${result}`);
@@ -26,4 +23,3 @@ console.log(htmlToText.fromString(htmlString));
 
 console.log("Processing string with custom options");
 console.log(htmlToText.fromString(htmlString, htmlOptions));
-

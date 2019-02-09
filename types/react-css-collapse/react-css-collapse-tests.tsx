@@ -5,9 +5,7 @@ import Collapse from "react-css-collapse";
 
 const TestOpen: SFC = () => (
     <Collapse isOpen>
-        <div>
-            i am open
-        </div>
+        <div>i am open</div>
     </Collapse>
 );
 

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin, Loader } from 'webpack';
+import { Plugin, Loader } from "webpack";
 
 export = ExtractTextPlugin;
 
@@ -20,13 +20,17 @@ declare class ExtractTextPlugin extends Plugin {
      * Use the resulting loader in `module.rules`/`module.loaders`.
      * @see {@link https://www.npmjs.com/package/extract-text-webpack-plugin#extract}
      */
-    static extract: (loader: Loader | Loader[] | ExtractTextPlugin.LoaderOptions) => Loader[];
+    static extract: (
+        loader: Loader | Loader[] | ExtractTextPlugin.LoaderOptions
+    ) => Loader[];
     /**
      * Creates an extracting loader from an existing loader (instance).
      * Use the resulting loader in `module.rules`/`module.loaders`.
      * @see {@link https://www.npmjs.com/package/extract-text-webpack-plugin#multiple-instances}
      */
-    extract: (loader: Loader | Loader[] | ExtractTextPlugin.LoaderOptions) => Loader[];
+    extract: (
+        loader: Loader | Loader[] | ExtractTextPlugin.LoaderOptions
+    ) => Loader[];
 }
 
 declare namespace ExtractTextPlugin {

@@ -4,17 +4,17 @@ import * as stream from "stream";
 
 function testDicerSyntax() {
     const opts: Dicer.Config = {
-        boundary: "testing",
+        boundary: "testing"
     };
     const dicer = new Dicer(opts);
     const opts2: Dicer.Config = {
         headerFirst: true,
-        maxHeaderPairs: 1,
+        maxHeaderPairs: 1
     };
     const opts3: Dicer.Config = {
         boundary: "more-testing",
         headerFirst: false,
-        maxHeaderPairs: 8,
+        maxHeaderPairs: 8
     };
     dicer.setBoundary("new-testing-boundary");
     dicer.on("part", handleDicerPartStream);

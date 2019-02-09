@@ -1,4 +1,4 @@
-import ParkMiller = require('park-miller');
+import ParkMiller = require("park-miller");
 
 const random = new ParkMiller(10);
 

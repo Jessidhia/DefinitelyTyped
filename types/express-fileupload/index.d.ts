@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import express = require('express');
+import express = require("express");
 
 declare global {
     namespace Express {
@@ -17,11 +17,13 @@ declare global {
 
 export = fileUpload;
 
-declare function fileUpload(options?: fileUpload.Options): express.RequestHandler;
+declare function fileUpload(
+    options?: fileUpload.Options
+): express.RequestHandler;
 
 declare namespace fileUpload {
     class FileArray {
-        [index: string]: UploadedFile | UploadedFile[]
+        [index: string]: UploadedFile | UploadedFile[];
     }
 
     interface UploadedFile {

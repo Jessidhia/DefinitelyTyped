@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load G Suite Activity API v1 */
     function load(name: "appsactivity", version: "v1"): PromiseLike<void>;
-    function load(name: "appsactivity", version: "v1", callback: () => any): void;
+    function load(
+        name: "appsactivity",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const activities: appsactivity.ActivitiesResource;
 

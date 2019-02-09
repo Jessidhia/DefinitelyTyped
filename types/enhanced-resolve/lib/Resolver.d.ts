@@ -1,12 +1,12 @@
 /// <reference types="tapable" />
-import Tapable = require('tapable');
+import Tapable = require("tapable");
 import {
     ResolveParseResult,
     ResolverRequest,
     LoggingCallbackWrapper,
     AbstractInputFileSystem,
     ResolveContext
-} from './common-types';
+} from "./common-types";
 
 declare class Resolver extends Tapable {
     fileSystem: AbstractInputFileSystem;
@@ -15,9 +15,19 @@ declare class Resolver extends Tapable {
 
     resolveSync(context: ResolveContext, path: string, request: string): string;
 
-    resolve(context: ResolveContext, path: string, request: string, callback: LoggingCallbackWrapper): any;
+    resolve(
+        context: ResolveContext,
+        path: string,
+        request: string,
+        callback: LoggingCallbackWrapper
+    ): any;
 
-    doResolve(type: string, request: ResolverRequest, message: string | null, callback: LoggingCallbackWrapper): any;
+    doResolve(
+        type: string,
+        request: ResolverRequest,
+        message: string | null,
+        callback: LoggingCallbackWrapper
+    ): any;
 
     parse(identifier: string): ResolveParseResult | null;
 

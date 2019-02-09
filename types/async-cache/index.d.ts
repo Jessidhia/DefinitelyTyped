@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Options as LRUOptions } from 'lru-cache';
+import { Options as LRUOptions } from "lru-cache";
 
 export = AsyncCache;
 
@@ -29,6 +29,9 @@ declare namespace AsyncCache {
     }
 
     interface Options<T> extends LRUOptions<string, T> {
-        load(key: string, callback: (error: any, asyncValue: T, maxAge?: number) => void): void;
+        load(
+            key: string,
+            callback: (error: any, asyncValue: T, maxAge?: number) => void
+        ): void;
     }
 }

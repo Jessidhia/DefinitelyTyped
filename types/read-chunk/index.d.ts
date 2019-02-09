@@ -7,14 +7,18 @@
 
 export = ReadChunk;
 
-    /**
-     * Asynchronous: Reads a chunk from a file. Returns a Promise<Buffer>.
-     * @param {string} filePath The path to the file.
-     * @param {number} startingPosition Position to start reading.
-     * @param {number} length Number of bytes to read.
-     * @return {Promise<Buffer>} Returns a Promise<Buffer>.
-     */
-declare function ReadChunk(filePath: string, startingPosition: number, length: number): Promise<Buffer>;
+/**
+ * Asynchronous: Reads a chunk from a file. Returns a Promise<Buffer>.
+ * @param {string} filePath The path to the file.
+ * @param {number} startingPosition Position to start reading.
+ * @param {number} length Number of bytes to read.
+ * @return {Promise<Buffer>} Returns a Promise<Buffer>.
+ */
+declare function ReadChunk(
+    filePath: string,
+    startingPosition: number,
+    length: number
+): Promise<Buffer>;
 
 declare namespace ReadChunk {
     /**
@@ -24,6 +28,9 @@ declare namespace ReadChunk {
      * @param {number} length Number of bytes to read.
      * @return {Buffer} Returns a Buffer.
      */
-    function sync(filePath: string, startingPosition: number, length: number): Buffer;
+    function sync(
+        filePath: string,
+        startingPosition: number,
+        length: number
+    ): Buffer;
 }
-

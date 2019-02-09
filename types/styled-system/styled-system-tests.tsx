@@ -137,8 +137,8 @@ const breakpointsPx = breakpoints.map(px);
 const mediaQueries = breakpoints.map(createMediaQuery);
 
 const boxStyle = variant({
-    prop: 'boxStyle',
-    key: 'box',
+    prop: "boxStyle",
+    key: "box"
 });
 
 interface BoxProps
@@ -178,8 +178,8 @@ interface BoxProps
         TextStyleProps,
         MixedProps,
         VerticalAlignProps {
-            boxStyle?: string;
-        }
+    boxStyle?: string;
+}
 const Box: React.ComponentType<BoxProps> = styled`
   border-radius: ${themeGet("radii.small", "4px")};
   ${space}
@@ -228,7 +228,7 @@ const Box: React.ComponentType<BoxProps> = styled`
 `;
 
 Box.defaultProps = {
-    boxStyle: 'normal',
+    boxStyle: "normal"
 };
 
 interface TextProps
@@ -287,9 +287,7 @@ const Grid: React.ComponentType<GridComponentProps> = styled`
     ${gridTemplateColumns};
 `;
 
-interface ButtonProps
-    extends SpaceProps,
-        ButtonStyleProps {}
+interface ButtonProps extends SpaceProps, ButtonStyleProps {}
 
 const TestButton: React.ComponentType<ButtonProps> = styled`
     ${buttonStyle}
@@ -514,7 +512,6 @@ const test = () => (
         />
         // verticalAlign
         <Box verticalAlign="middle" />
-
         <TestButton variant="primary" m={2} />
     </div>
 );

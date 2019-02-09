@@ -1,4 +1,4 @@
-import yoga, { Node, Config, Size, Value, DISPLAY_FLEX } from 'yoga-layout';
+import yoga, { Node, Config, Size, Value, DISPLAY_FLEX } from "yoga-layout";
 
 const cfg = Config.create();
 

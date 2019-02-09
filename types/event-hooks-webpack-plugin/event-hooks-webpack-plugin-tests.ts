@@ -1,8 +1,8 @@
-import EventHooksPlugin = require('event-hooks-webpack-plugin');
+import EventHooksPlugin = require("event-hooks-webpack-plugin");
 
 new EventHooksPlugin({});
 new EventHooksPlugin({
-    done: () => {},
+    done: () => {}
 });
 new EventHooksPlugin({
     shouldEmit: () => {},
@@ -28,5 +28,5 @@ new EventHooksPlugin({
     afterEnvironment: () => {},
     afterPlugins: () => {},
     afterResolvers: () => {},
-    entryOption: () => {},
+    entryOption: () => {}
 });

@@ -3,7 +3,6 @@
 // Definitions by: Tanguy Krotoff <https://github.com/tkrotoff>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace RelateUrl {
     interface Options {
         /**
@@ -115,7 +114,11 @@ declare class RelateUrl {
     static ROOT_RELATIVE: string;
     static SHORTEST: string;
 
-    static relate(from: string, to: string, options?: RelateUrl.Options): string;
+    static relate(
+        from: string,
+        to: string,
+        options?: RelateUrl.Options
+    ): string;
 
     constructor(from: string, options?: RelateUrl.Options);
     relate(to: string, options?: RelateUrl.Options): string;

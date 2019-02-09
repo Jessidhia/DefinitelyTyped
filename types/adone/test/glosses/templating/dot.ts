@@ -1,8 +1,6 @@
 namespace adoneTests.templating.dot {
     const {
-        templating: {
-            dot
-        }
+        templating: { dot }
     } = adone;
 
     let str: string;

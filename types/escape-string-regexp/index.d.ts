@@ -4,8 +4,6 @@
 //                 faergeek <https://github.com/faergeek>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare const escapeStringRegexp: (str: string) => string;
 
 export = escapeStringRegexp;

@@ -46,7 +46,7 @@ export interface ConcreteFragment {
     kind: string;
     name: string;
     type: string;
-    metadata: {[key: string]: any} | null;
+    metadata: { [key: string]: any } | null;
     argumentDefinitions: any[];
     selections: any[];
 }
@@ -56,7 +56,7 @@ export interface ConcreteRequest {
     name: string;
     id: string | null;
     text: string | null;
-    metadata: {[key: string]: any};
+    metadata: { [key: string]: any };
     fragment: ConcreteFragment;
     operation: any;
 }
@@ -64,7 +64,7 @@ export interface ConcreteBatchRequest {
     kind: string;
     operationKind: string;
     name: string;
-    metadata: {[key: string]: any};
+    metadata: { [key: string]: any };
     fragment: ConcreteFragment;
     requests: Array<{
         name: string;
@@ -100,7 +100,10 @@ export const ROOT_ID: string;
 // ~~~~~~~~~~~~~~~~~~~~~
 // RelayQL
 // ~~~~~~~~~~~~~~~~~~~~~
-export type RelayQL = (strings: string[], ...substitutions: any[]) => RelayConcreteNode;
+export type RelayQL = (
+    strings: string[],
+    ...substitutions: any[]
+) => RelayConcreteNode;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // RelayModernGraphQLTag
@@ -112,7 +115,9 @@ export type GraphQLTaggedNode =
     | (() => ConcreteFragment | RequestNode)
     | {
           modern(): ConcreteFragment | RequestNode;
-          classic(relayQL: RelayQL): ConcreteFragmentDefinition | ConcreteOperationDefinition;
+          classic(
+              relayQL: RelayQL
+          ): ConcreteFragmentDefinition | ConcreteOperationDefinition;
       };
 // ~~~~~~~~~~~~~~~~~~~~~
 // General Usage
@@ -182,7 +187,7 @@ export type SubscribeFunction = (
  * - cache size limiting, with least-recently *updated* entries purged first
  */
 export class QueryResponseCache {
-    constructor(options: {size: number; ttl: number});
+    constructor(options: { size: number; ttl: number });
     clear(): void;
     get(queryID: string, variables: Variables): QueryPayload | null;
     set(queryID: string, variables: Variables, payload: QueryPayload): void;
@@ -228,11 +233,22 @@ export interface RecordProxy {
     copyFieldsFrom(source: RecordProxy): void;
     getDataID(): DataID;
     getLinkedRecord(name: string, args?: Variables): RecordProxy | null;
-    getLinkedRecords(name: string, args?: Variables): ReadonlyArray<RecordProxy | null> | null;
-    getOrCreateLinkedRecord(name: string, typeName: string, args?: Variables): RecordProxy;
+    getLinkedRecords(
+        name: string,
+        args?: Variables
+    ): ReadonlyArray<RecordProxy | null> | null;
+    getOrCreateLinkedRecord(
+        name: string,
+        typeName: string,
+        args?: Variables
+    ): RecordProxy;
     getType(): string;
     getValue(name: string, args?: Variables): any;
-    setLinkedRecord(record: RecordProxy, name: string, args?: Variables): RecordProxy;
+    setLinkedRecord(
+        record: RecordProxy,
+        name: string,
+        args?: Variables
+    ): RecordProxy;
     setLinkedRecords(
         records: Array<RecordProxy | null> | undefined | null,
         name: string,
@@ -394,7 +410,14 @@ export interface COperationSelector<TNode, TOperation> {
  * The public API of Relay core. Represents an encapsulated environment with its
  * own in-memory cache.
  */
-export interface CEnvironment<TEnvironment, TFragment, TGraphQLTaggedNode, TNode, TOperation, TPayload> {
+export interface CEnvironment<
+    TEnvironment,
+    TFragment,
+    TGraphQLTaggedNode,
+    TNode,
+    TOperation,
+    TPayload
+> {
     /**
      * Read the results of a selector from in-memory records in the store.
      */
@@ -405,7 +428,10 @@ export interface CEnvironment<TEnvironment, TFragment, TGraphQLTaggedNode, TNode
      * when data has been committed to the store that would cause the results of
      * the snapshot's selector to change.
      */
-    subscribe(snapshot: CSnapshot<TNode>, callback: (snapshot: CSnapshot<TNode>) => void): Disposable;
+    subscribe(
+        snapshot: CSnapshot<TNode>,
+        callback: (snapshot: CSnapshot<TNode>) => void
+    ): Disposable;
 
     /**
      * Ensure that all the records necessary to fulfill the given selector are
@@ -451,10 +477,22 @@ export interface CEnvironment<TEnvironment, TFragment, TGraphQLTaggedNode, TNode
         operation: COperationSelector<TNode, TOperation>;
     }): Disposable;
 
-    unstable_internal: CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTaggedNode, TNode, TOperation>;
+    unstable_internal: CUnstableEnvironmentCore<
+        TEnvironment,
+        TFragment,
+        TGraphQLTaggedNode,
+        TNode,
+        TOperation
+    >;
 }
 
-export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTaggedNode, TNode, TOperation> {
+export interface CUnstableEnvironmentCore<
+    TEnvironment,
+    TFragment,
+    TGraphQLTaggedNode,
+    TNode,
+    TOperation
+> {
     /**
      * Create an instance of a FragmentSpecResolver.
      *
@@ -476,7 +514,10 @@ export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTagge
      * filtered to exclude variables that do not matche defined arguments on the
      * operation, and default values are populated for null values.
      */
-    createOperationSelector(operation: TOperation, variables: Variables): COperationSelector<TNode, TOperation>;
+    createOperationSelector(
+        operation: TOperation,
+        variables: Variables
+    ): COperationSelector<TNode, TOperation>;
 
     /**
      * Given a graphql`...` tagged template, extract a fragment definition usable
@@ -525,7 +566,11 @@ export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTagge
      * const childData = environment.lookup(childSelector).data;
      * ```
      */
-    getSelector(operationVariables: Variables, fragment: TFragment, prop: any): CSelector<TNode> | null;
+    getSelector(
+        operationVariables: Variables,
+        fragment: TFragment,
+        prop: any
+    ): CSelector<TNode> | null;
 
     /**
      * Given the result `items` from a parent that fetched `fragment`, creates a
@@ -533,7 +578,11 @@ export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTagge
      * items. This is similar to `getSelector` but for "plural" fragments that
      * expect an array of results and therefore return an array of selectors.
      */
-    getSelectorList(operationVariables: Variables, fragment: TFragment, props: any[]): Array<CSelector<TNode>> | null;
+    getSelectorList(
+        operationVariables: Variables,
+        fragment: TFragment,
+        props: any[]
+    ): Array<CSelector<TNode>> | null;
 
     /**
      * Given a mapping of keys -> results and a mapping of keys -> fragments,
@@ -548,7 +597,11 @@ export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTagge
         fragments: CFragmentMap<TFragment>,
         props: Props
     ): {
-        [key: string]: CSelector<TNode> | Array<CSelector<TNode>> | null | undefined;
+        [key: string]:
+            | CSelector<TNode>
+            | Array<CSelector<TNode>>
+            | null
+            | undefined;
     };
 
     /**
@@ -571,7 +624,11 @@ export interface CUnstableEnvironmentCore<TEnvironment, TFragment, TGraphQLTagge
      * This can be useful in determing what varaibles were used to fetch the data
      * for a Relay container, for example.
      */
-    getVariablesFromObject(operationVariables: Variables, fragments: CFragmentMap<TFragment>, props: Props): Variables;
+    getVariablesFromObject(
+        operationVariables: Variables,
+        fragments: CFragmentMap<TFragment>,
+        props: Props
+    ): Variables;
 }
 
 /**
@@ -636,7 +693,12 @@ export interface REQUIRED_CHILDREN {
     type: "REQUIRED_CHILDREN";
     children: RelayConcreteNode[];
 }
-export type RelayMutationConfig = FIELDS_CHANGE | RANGE_ADD | NODE_DELETE | RANGE_DELETE | REQUIRED_CHILDREN;
+export type RelayMutationConfig =
+    | FIELDS_CHANGE
+    | RANGE_ADD
+    | NODE_DELETE
+    | RANGE_DELETE
+    | REQUIRED_CHILDREN;
 
 export interface RelayMutationTransactionCommitCallbacks {
     onFailure?: RelayMutationTransactionCommitFailureCallback;
@@ -646,11 +708,9 @@ export type RelayMutationTransactionCommitFailureCallback = (
     transaction: RelayMutationTransaction,
     preventAutoRollback: () => void
 ) => void;
-export type RelayMutationTransactionCommitSuccessCallback = (
-    response: {
-        [key: string]: any;
-    }
-) => void;
+export type RelayMutationTransactionCommitSuccessCallback = (response: {
+    [key: string]: any;
+}) => void;
 export interface NetworkLayer {
     sendMutation(request: RelayMutationRequest): Promise<any> | null;
     sendQueries(requests: RelayQueryRequest[]): Promise<any> | null;
@@ -669,7 +729,9 @@ export interface ReadyState {
     ready: boolean;
     stale: boolean;
 }
-export type RelayContainerErrorEventType = "CACHE_RESTORE_FAILED" | "NETWORK_QUERY_ERROR";
+export type RelayContainerErrorEventType =
+    | "CACHE_RESTORE_FAILED"
+    | "NETWORK_QUERY_ERROR";
 export type RelayContainerLoadingEventType =
     | "ABORT"
     | "CACHE_RESTORED_REQUIRED"
@@ -702,11 +764,9 @@ export interface QueryPayload {
 export interface RelayQuerySet {
     [queryName: string]: any;
 }
-export type RangeBehaviorsFunction = (
-    connectionArgs: {
-        [argName: string]: any;
-    }
-) => "APPEND" | "IGNORE" | "PREPEND" | "REFETCH" | "REMOVE";
+export type RangeBehaviorsFunction = (connectionArgs: {
+    [argName: string]: any;
+}) => "APPEND" | "IGNORE" | "PREPEND" | "REFETCH" | "REMOVE";
 export interface RangeBehaviorsObject {
     [key: string]: "APPEND" | "IGNORE" | "PREPEND" | "REFETCH" | "REMOVE";
 }
@@ -765,10 +825,16 @@ export class Environment {
         optimisticResponse?: object;
     }): Disposable;
     check(readSelector: Selector): boolean;
-    commitPayload(operationSelector: OperationSelector, payload: PayloadData): void;
+    commitPayload(
+        operationSelector: OperationSelector,
+        payload: PayloadData
+    ): void;
     commitUpdate(updater: StoreUpdater): void;
     lookup(readSelector: Selector): Snapshot;
-    subscribe(snapshot: Snapshot, callback: (snapshot: Snapshot) => void): Disposable;
+    subscribe(
+        snapshot: Snapshot,
+        callback: (snapshot: Snapshot) => void
+    ): Disposable;
     retain(selector: Selector): Disposable;
     execute(config: {
         operation: OperationSelector;
@@ -802,7 +868,10 @@ export class Network {
      * Creates an implementation of the `Network` interface defined in
      * `RelayNetworkTypes` given `fetch` and `subscribe` functions.
      */
-    static create(fetchFn: FetchFunction, subscribeFn?: SubscribeFunction): RelayNetwork;
+    static create(
+        fetchFn: FetchFunction,
+        subscribeFn?: SubscribeFunction
+    ): RelayNetwork;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -816,7 +885,13 @@ export class RecordSource {
     getRecordIDs(): DataID[];
     getStatus(dataID: DataID): "EXISTENT" | "NONEXISTENT" | "UNKNOWN";
     has(dataID: DataID): boolean;
-    load(dataID: DataID, callback: (error: Error | null, record: RelayInMemoryRecordSource | null) => void): void;
+    load(
+        dataID: DataID,
+        callback: (
+            error: Error | null,
+            record: RelayInMemoryRecordSource | null
+        ) => void
+    ): void;
     remove(dataID: DataID): void;
     set(dataID: DataID, record: RelayInMemoryRecordSource): void;
     size(): number;
@@ -834,7 +909,10 @@ export class Store {
     lookup(selector: Selector): Snapshot;
     notify(): void;
     publish(source: RecordSource): void;
-    subscribe(snapshot: Snapshot, callback: (snapshot: Snapshot) => void): Disposable;
+    subscribe(
+        snapshot: Snapshot,
+        callback: (snapshot: Snapshot) => void
+    ): Disposable;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -855,7 +933,10 @@ export class RecordSummary {
  * Internal class for inspecting a single RelayInMemoryRecordSource.
  */
 export class RecordInspector {
-    constructor(sourceInspector: RelayRecordSourceInspector, record: RelayInMemoryRecordSource);
+    constructor(
+        sourceInspector: RelayRecordSourceInspector,
+        record: RelayInMemoryRecordSource
+    );
     /**
      * Get the cache id of the given record. For types that implement the `Node`
      * interface (or that have an `id`) this will be `id`, for other types it will be
@@ -902,7 +983,9 @@ export class RecordInspector {
 
 export class RelayRecordSourceInspector {
     constructor(source: RecordSource);
-    static getForEnvironment(environment: Environment): RelayRecordSourceInspector;
+    static getForEnvironment(
+        environment: Environment
+    ): RelayRecordSourceInspector;
     /**
      * Returns an inspector for the record with the given id, or null/undefined if
      * that record is deleted/unfetched.
@@ -982,7 +1065,9 @@ export class RelayObservable<T> implements Subscribable<T> {
      * legacy Relay observer and directly return an Observable instead.
      */
     static fromLegacy<V>(
-        callback: (legacyObserver: LegacyObserver<V>) => Disposable | RelayObservable<V>
+        callback: (
+            legacyObserver: LegacyObserver<V>
+        ) => Disposable | RelayObservable<V>
     ): RelayObservable<V>;
 
     /**
@@ -1065,7 +1150,10 @@ export type Observable<T> = RelayObservable<T>;
 // commitLocalUpdate
 // ~~~~~~~~~~~~~~~~~~~~~
 // exposed through RelayModern, not Runtime directly
-export function commitLocalUpdate(environment: Environment, updater: StoreUpdater): void;
+export function commitLocalUpdate(
+    environment: Environment,
+    updater: StoreUpdater
+): void;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // commitRelayModernMutation
@@ -1076,13 +1164,18 @@ export interface MutationConfig<T extends OperationBase> {
     mutation: GraphQLTaggedNode;
     variables: T["variables"];
     uploadables?: UploadableMap;
-    onCompleted?(response: T["response"], errors: PayloadError[] | null | undefined): void;
+    onCompleted?(
+        response: T["response"],
+        errors: PayloadError[] | null | undefined
+    ): void;
     onError?(error?: Error): void;
     optimisticUpdater?: SelectorStoreUpdater<T["response"]>;
     optimisticResponse?: T["response"];
     updater?: SelectorStoreUpdater<T["response"]>;
 }
-export function commitRelayModernMutation<T extends OperationBase = OperationDefaults>(
+export function commitRelayModernMutation<
+    T extends OperationBase = OperationDefaults
+>(
     environment: Environment,
     // tslint:disable-next-line:no-unnecessary-generics
     config: MutationConfig<T>
@@ -1137,4 +1230,7 @@ export interface GraphQLSubscriptionConfig {
     onNext?(response: object | null | undefined): void;
     updater?(store: RecordSourceSelectorProxy): void;
 }
-export function requestRelaySubscription(environment: Environment, config: GraphQLSubscriptionConfig): Disposable;
+export function requestRelaySubscription(
+    environment: Environment,
+    config: GraphQLSubscriptionConfig
+): Disposable;

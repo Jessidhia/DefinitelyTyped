@@ -1,8 +1,8 @@
-import { ComponentType, ComponentClass } from 'react';
+import { ComponentType, ComponentClass } from "react";
 
-import { TableProps } from '../../index';
+import { TableProps } from "../../index";
 
-export type SelectType = 'checkbox' | 'radio';
+export type SelectType = "checkbox" | "radio";
 
 export interface SelectInputComponentProps {
     selectType: SelectType;
@@ -28,9 +28,9 @@ export interface SelectTableAdditionalProps {
 
     selectAll?: boolean;
 
-    toggleAll?: SelectAllInputComponentProps['onClick'];
+    toggleAll?: SelectAllInputComponentProps["onClick"];
 
-    toggleSelection?: SelectInputComponentProps['onClick'];
+    toggleSelection?: SelectInputComponentProps["onClick"];
 
     /**
      * Default: checkbox

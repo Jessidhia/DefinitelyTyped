@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Router from './Router';
-import * as H from 'history';
+import * as React from "react";
+import Router from "./Router";
+import * as H from "history";
 
 declare const self: self.Redirect;
 type self = typeof self;
@@ -14,6 +14,6 @@ declare namespace self {
         query?: H.Query;
         state?: H.LocationState;
     }
-    interface Redirect extends React.ComponentClass<RedirectProps> { }
-    interface RedirectElement extends React.ReactElement<RedirectProps> { }
+    interface Redirect extends React.ComponentClass<RedirectProps> {}
+    interface RedirectElement extends React.ReactElement<RedirectProps> {}
 }

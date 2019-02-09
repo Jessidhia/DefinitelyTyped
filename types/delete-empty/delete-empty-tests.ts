@@ -1,7 +1,7 @@
-import * as deleteEmpty from 'delete-empty';
+import * as deleteEmpty from "delete-empty";
 
-deleteEmpty('foo').then(f => f[0].toLowerCase());
-deleteEmpty('foo', (err, f) => {
+deleteEmpty("foo").then(f => f[0].toLowerCase());
+deleteEmpty("foo", (err, f) => {
     if (err) {
         err.message;
     } else {
@@ -9,4 +9,4 @@ deleteEmpty('foo', (err, f) => {
     }
 });
 
-deleteEmpty.sync('foo')[0].toLowerCase();
+deleteEmpty.sync("foo")[0].toLowerCase();

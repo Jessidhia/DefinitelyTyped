@@ -5,21 +5,49 @@ declare interface EJSONableCustomType {
     typeName(): string;
 }
 declare interface EJSONable {
-    [key: string]: number | string | boolean | Object | number[] | string[] | Object[] | Date | Uint8Array | EJSONableCustomType | undefined | null;
+    [key: string]:
+        | number
+        | string
+        | boolean
+        | Object
+        | number[]
+        | string[]
+        | Object[]
+        | Date
+        | Uint8Array
+        | EJSONableCustomType
+        | undefined
+        | null;
 }
 declare interface JSONable {
-    [key: string]: number | string | boolean | Object | number[] | string[] | Object[] | undefined | null;
+    [key: string]:
+        | number
+        | string
+        | boolean
+        | Object
+        | number[]
+        | string[]
+        | Object[]
+        | undefined
+        | null;
 }
-declare interface EJSON extends EJSONable { }
+declare interface EJSON extends EJSONable {}
 
 declare module EJSON {
-    function addType(name: string, factory: (val: JSONable) => EJSONableCustomType): void;
+    function addType(
+        name: string,
+        factory: (val: JSONable) => EJSONableCustomType
+    ): void;
 
     function clone<T>(val: T): T;
 
-    function equals(a: EJSON, b: EJSON, options?: {
-        keyOrderSensitive?: boolean;
-    }): boolean;
+    function equals(
+        a: EJSON,
+        b: EJSON,
+        options?: {
+            keyOrderSensitive?: boolean;
+        }
+    ): boolean;
 
     function fromJSONValue(val: JSONable): any;
 
@@ -28,10 +56,13 @@ declare module EJSON {
 
     function parse(str: string): EJSON;
 
-    function stringify(val: EJSON, options?: {
-        indent?: boolean | number | string;
-        canonical?: boolean;
-    }): string;
+    function stringify(
+        val: EJSON,
+        options?: {
+            indent?: boolean | number | string;
+            canonical?: boolean;
+        }
+    ): string;
 
     function toJSONValue(val: EJSON): JSONable;
 }

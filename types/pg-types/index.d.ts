@@ -7,7 +7,11 @@ export type TypeParser = (value: any) => any;
 
 export function getTypeParser(oid: number, format: string): TypeParser;
 
-export function setTypeParser(oid: number, format: string, parseFn: TypeParser): void;
+export function setTypeParser(
+    oid: number,
+    format: string,
+    parseFn: TypeParser
+): void;
 export function setTypeParser(oid: number, parseFn: TypeParser): void;
 
 export namespace arrayParser {

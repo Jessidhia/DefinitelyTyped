@@ -1,8 +1,5 @@
 namespace adoneTests.vault {
-    const {
-        is,
-        vault
-    } = adone;
+    const { is, vault } = adone;
 
     let num: number;
     let bool: boolean;
@@ -10,9 +7,7 @@ namespace adoneTests.vault {
     let str: string;
 
     namespace Vault {
-        const {
-            Vault
-        } = vault;
+        const { Vault } = vault;
 
         new Vault({
             location: "a"
@@ -26,29 +21,29 @@ namespace adoneTests.vault {
             location: "a"
         });
 
-        v.addTag("hello").then((x) => {
+        v.addTag("hello").then(x => {
             if (!is.null(x)) {
                 num = x;
             }
         });
-        v.clear().then((x) => {
+        v.clear().then(x => {
             num = x;
         });
         v.close().then();
-        v.create("hello").then((x) => {
+        v.create("hello").then(x => {
             x.set("a", "b");
         });
-        v.create("hello", ["a", "b"]).then((x) => {
+        v.create("hello", ["a", "b"]).then(x => {
             x.set("a", "b");
         });
         v.delete("a").then();
-        v.deleteTag("a").then((x) => {
+        v.deleteTag("a").then(x => {
             bool = x;
         });
-        v.entries().then((x) => {
+        v.entries().then(x => {
             obj = x;
         });
-        v.get("a").then((x) => {
+        v.get("a").then(x => {
             x.set("a", "b");
         });
         str = v.getNotes();
@@ -62,45 +57,45 @@ namespace adoneTests.vault {
         str = v.tagNames([1])[0];
         obj = v.tags()[0];
         obj = v.toJSON();
-        v.toJSON({ valuable: { includeId: true } }).then((x) => {
+        v.toJSON({ valuable: { includeId: true } }).then(x => {
             obj = x.valuables[0];
         });
-        v.toJSON({ includeStats: true }).then((x) => {
+        v.toJSON({ includeStats: true }).then(x => {
             num = x.stats.created;
             num = x.stats.updated;
             str = x.stats.location;
         });
-        v.values().then((x) => {
+        v.values().then(x => {
             x[0];
         });
     }
 
     namespace Valuable {
-        new vault.Vault({ location: "a" }).get("a").then((v) => {
+        new vault.Vault({ location: "a" }).get("a").then(v => {
             v.addTag("a").then();
-            v.clear().then((x) => {
+            v.clear().then(x => {
                 num = x;
             });
-            v.clear({ includeNotes: true }).then((x) => {
+            v.clear({ includeNotes: true }).then(x => {
                 num = x;
             });
-            v.clear({ includeTags: true }).then((x) => {
+            v.clear({ includeTags: true }).then(x => {
                 num = x;
             });
-            v.delete("a").then((x) => {
+            v.delete("a").then(x => {
                 num = x;
             });
             v.deleteAllTags();
-            v.entries().then((x) => {
+            v.entries().then(x => {
                 obj = x;
             });
-            v.entries({ entriesAsArray: true }).then((x) => {
+            v.entries({ entriesAsArray: true }).then(x => {
                 obj = x;
             });
-            v.entries({ includeEntryId: true }).then((x) => {
+            v.entries({ includeEntryId: true }).then(x => {
                 obj = x;
             });
-            v.fromJSON({}).then((x) => {
+            v.fromJSON({}).then(x => {
                 num = x;
             });
             v.get("a").then();
@@ -110,10 +105,10 @@ namespace adoneTests.vault {
             num = v.internalId();
             str = v.keys()[0];
             str = v.name();
-            v.set("a", "b").then((x) => {
+            v.set("a", "b").then(x => {
                 num = x;
             });
-            v.set("a", "b", "wtf").then((x) => {
+            v.set("a", "b", "wtf").then(x => {
                 num = x;
             });
             v.setMulti({ a: "1", b: "2" }).then();
@@ -132,33 +127,33 @@ namespace adoneTests.vault {
     }
 
     namespace slice {
-        new vault.Vault({ location: "a" }).get("a").then((valuable) => {
+        new vault.Vault({ location: "a" }).get("a").then(valuable => {
             vault.slice(valuable, "s");
             vault.slice(valuable, ["s"]);
             vault.slice(valuable, ["s"], "a");
             vault.slice(valuable, ["s"], "a");
             const v = vault.slice(valuable, "s");
             v.addTag("a").then();
-            v.delete("a").then((x) => {
+            v.delete("a").then(x => {
                 num = x;
             });
             v.deleteAllTags().then();
-            v.deleteTag("a").then((x) => {
+            v.deleteTag("a").then(x => {
                 bool = x;
             });
-            v.entries().then((x) => {
+            v.entries().then(x => {
                 obj = x;
             });
-            v.entries({}).then((x) => {
+            v.entries({}).then(x => {
                 obj = x;
             });
-            v.entries({ entriesAsArray: true }).then((x) => {
+            v.entries({ entriesAsArray: true }).then(x => {
                 obj = x;
             });
-            v.entries({ includeEntryId: true }).then((x) => {
+            v.entries({ includeEntryId: true }).then(x => {
                 obj = x;
             });
-            v.fromJSON({}).then((x) => {
+            v.fromJSON({}).then(x => {
                 num = x;
             });
             v.get("a").then();
@@ -168,14 +163,14 @@ namespace adoneTests.vault {
             num = v.internalId();
             str = v.keys()[0];
             str = v.name();
-            v.set("a", "b").then((x) => {
+            v.set("a", "b").then(x => {
                 num = x;
             });
-            v.set("a", "b", "wtf").then((x) => {
+            v.set("a", "b", "wtf").then(x => {
                 num = x;
             });
             v.setMulti({}).then();
-            v.setNotes("a").then((x) => {
+            v.setNotes("a").then(x => {
                 num = x;
             });
             obj = v.tags()[0];
@@ -193,11 +188,11 @@ namespace adoneTests.vault {
     }
 
     namespace open {
-        vault.open({ location: "a" }).then((x) => {
-            x.get("a").then((x) => x.setMulti({}));
+        vault.open({ location: "a" }).then(x => {
+            x.get("a").then(x => x.setMulti({}));
         });
-        vault.open({ location: "a", ValuableClass: vault.Valuable }).then((x) => {
-            x.get("a").then((x) => x.setMulti({}));
+        vault.open({ location: "a", ValuableClass: vault.Valuable }).then(x => {
+            x.get("a").then(x => x.setMulti({}));
         });
     }
 }

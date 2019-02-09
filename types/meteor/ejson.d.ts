@@ -6,21 +6,49 @@ declare module "meteor/ejson" {
         typeName(): string;
     }
     interface EJSONable {
-        [key: string]: number | string | boolean | Object | number[] | string[] | Object[] | Date | Uint8Array | EJSONableCustomType | undefined | null;
+        [key: string]:
+            | number
+            | string
+            | boolean
+            | Object
+            | number[]
+            | string[]
+            | Object[]
+            | Date
+            | Uint8Array
+            | EJSONableCustomType
+            | undefined
+            | null;
     }
     interface JSONable {
-        [key: string]: number | string | boolean | Object | number[] | string[] | Object[] | undefined | null;
+        [key: string]:
+            | number
+            | string
+            | boolean
+            | Object
+            | number[]
+            | string[]
+            | Object[]
+            | undefined
+            | null;
     }
-    interface EJSON extends EJSONable { }
+    interface EJSON extends EJSONable {}
 
     module EJSON {
-        function addType(name: string, factory: (val: JSONable) => EJSONableCustomType): void;
+        function addType(
+            name: string,
+            factory: (val: JSONable) => EJSONableCustomType
+        ): void;
 
         function clone<T>(val: T): T;
 
-        function equals(a: EJSON, b: EJSON, options?: {
-            keyOrderSensitive?: boolean;
-        }): boolean;
+        function equals(
+            a: EJSON,
+            b: EJSON,
+            options?: {
+                keyOrderSensitive?: boolean;
+            }
+        ): boolean;
 
         function fromJSONValue(val: JSONable): any;
 
@@ -29,10 +57,13 @@ declare module "meteor/ejson" {
 
         function parse(str: string): EJSON;
 
-        function stringify(val: EJSON, options?: {
-            indent?: boolean | number | string;
-            canonical?: boolean;
-        }): string;
+        function stringify(
+            val: EJSON,
+            options?: {
+                indent?: boolean | number | string;
+                canonical?: boolean;
+            }
+        ): string;
 
         function toJSONValue(val: EJSON): JSONable;
     }

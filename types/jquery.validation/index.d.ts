@@ -7,9 +7,14 @@
 /// <reference types="jquery"/>
 
 declare namespace JQueryValidation {
-    interface RulesDictionary { [name: string]: any; }
+    interface RulesDictionary {
+        [name: string]: any;
+    }
 
-    type ValidatePredicate = ((element: HTMLElement, event: JQueryEventObject) => void);
+    type ValidatePredicate = (
+        element: HTMLElement,
+        event: JQueryEventObject
+    ) => void;
 
     type ShouldValidatePredicate = boolean | ValidatePredicate;
 
@@ -73,7 +78,11 @@ declare namespace JQueryValidation {
          *
          * default: Adds errorClass (see the option) to the element
          */
-        highlight?(element: HTMLElement, errorClass: string, validClass: string): void;
+        highlight?(
+            element: HTMLElement,
+            errorClass: string,
+            validClass: string
+        ): void;
         /**
          * Elements to ignore when validating, simply filtering them out. jQuery's not-method is used, therefore everything that is
          * accepted by not() can be passed as this option. Inputs of type submit and reset are always ignored, so are disabled elements.
@@ -151,7 +160,10 @@ declare namespace JQueryValidation {
          * be a single element when doing validation onblur/keyup. You can trigger (in addition to your own messages) the default
          * behaviour by calling this.defaultShowErrors().
          */
-        showErrors?(errorMap: ErrorDictionary, errorList: ErrorListItem[]): void;
+        showErrors?(
+            errorMap: ErrorDictionary,
+            errorList: ErrorListItem[]
+        ): void;
         /**
          * Callback for handling the actual submit when the form is valid. Gets the form and the event object. Replaces the default submit.
          * The right place to submit a form via Ajax after it is validated.
@@ -162,13 +174,19 @@ declare namespace JQueryValidation {
          * a class to the label. If a Function is given, it is called with the label (as a jQuery object) and the validated input (as a DOM element).
          * The label can be used to add a text like "ok!".
          */
-        success?: string | (($label: JQuery, validatedInput: HTMLElement) => void);
+        success?:
+            | string
+            | (($label: JQuery, validatedInput: HTMLElement) => void);
         /**
          * Called to revert changes made by option highlight, same arguments as highlight.
          *
          * default: Removes the errorClass
          */
-        unhighlight?(element: HTMLElement, errorClass: string, validClass: string): void;
+        unhighlight?(
+            element: HTMLElement,
+            errorClass: string,
+            validClass: string
+        ): void;
         /**
          * This class is added to an element after it was validated and considered valid.
          *
@@ -213,13 +231,17 @@ declare namespace JQueryValidation {
          * @param method The actual method implementation, returning true if an element is valid. First argument: Current value. Second argument: Validated element. Third argument: Parameters.
          * @param message a default string message or a Message generator. First argument: Parameters. Second argument: Validated element.
          */
-        addMethod(name: string, method: (value: any, element: HTMLElement, params: any) => boolean, message?: string | ((params: any, element: HTMLElement) => string)): void;
+        addMethod(
+            name: string,
+            method: (value: any, element: HTMLElement, params: any) => boolean,
+            message?: string | ((params: any, element: HTMLElement) => string)
+        ): void;
         /**
          * Replaces {n} placeholders with arguments.
          *
          * @param template The string to format.
          */
-        format(template: string): ((...args: any[]) => string);
+        format(template: string): (...args: any[]) => string;
         format(template: string, ...args: any[]): string;
         /**
          * Modify default settings for validation.
@@ -307,7 +329,9 @@ interface JQuery {
      *
      * @param options options for validation
      */
-    validate(options?: JQueryValidation.ValidationOptions): JQueryValidation.Validator;
+    validate(
+        options?: JQueryValidation.ValidationOptions
+    ): JQueryValidation.Validator;
 }
 
 interface JQueryStatic {

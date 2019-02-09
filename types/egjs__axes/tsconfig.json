@@ -1,32 +1,20 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "@egjs/component": [
-                "egjs__component"
-            ],
-            "@egjs/axes": [
-                "egjs__axes"
-            ]
+            "@egjs/component": ["egjs__component"],
+            "@egjs/axes": ["egjs__axes"]
         }
     },
-    "files": [
-        "index.d.ts",
-        "egjs__axes-tests.ts"
-    ]
+    "files": ["index.d.ts", "egjs__axes-tests.ts"]
 }

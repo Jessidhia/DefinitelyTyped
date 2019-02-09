@@ -1,28 +1,28 @@
-import stringifyObject = require('stringify-object');
+import stringifyObject = require("stringify-object");
 
 stringifyObject({ a: 1, b: 2, c: 3 });
 
-stringifyObject('abc', {
-  indent: '  '
+stringifyObject("abc", {
+    indent: "  "
 });
 
-stringifyObject('123', {
-  indent: '  '
+stringifyObject("123", {
+    indent: "  "
 });
 
 stringifyObject(123, {
-    indent: '  ',
+    indent: "  ",
     singleQuotes: false
 });
 
 stringifyObject([1, 2, 3], {
-    indent: '  ',
+    indent: "  ",
     singleQuotes: false,
     inlineCharacterLimit: 12
 });
 
 stringifyObject([1, 2, 3], {
-    filter: (o, prop) => prop !== '_hidden_'
+    filter: (o, prop) => prop !== "_hidden_"
 });
 
 stringifyObject([1, 2, 3], {

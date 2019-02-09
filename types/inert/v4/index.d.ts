@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import * as hapi from 'hapi';
+import * as hapi from "hapi";
 
 declare namespace inert {
     export interface ReplyFileHandlerOptions {
@@ -18,18 +18,18 @@ declare namespace inert {
          *  * 'attachment'
          *  *'inline'
          */
-        mode?: false | 'attachment' | 'inline';
+        mode?: false | "attachment" | "inline";
         /** lookupCompressed - if true, looks for for a pre-compressed version of the file with the same filename with an extension, depending on the accepted encoding. Defaults to false. */
         lookupCompressed?: boolean;
         /** lookupMap - an object which maps content encoding to expected file name extension. Defaults to `{ gzip: '.gz' }. */
-        lookupMap?: {[index: string]: string};
+        lookupMap?: { [index: string]: string };
         /**
          * etagMethod - specifies the method used to calculate the ETag header response. Available values:
          *  * 'hash' - SHA1 sum of the file contents, suitable for distributed deployments. Default value.
          *  * 'simple' - Hex encoded size and modification date, suitable when files are stored on a single server.
          *  * false - Disable ETag computation.
          */
-        etagMethod?: 'hash' | 'simple' | false;
+        etagMethod?: "hash" | "simple" | false;
         /** start - offset in file to reading from, defaults to 0. */
         start?: number;
         /** end - offset in file to stop reading from. If not set, will read to end of file. */
@@ -47,7 +47,10 @@ declare namespace inert {
          *  * an array of path strings. Each path will be attempted in order until a match is found (by following the same process as the single path string).
          *  * a function with the signature function(request) which returns the path string or an array of path strings. If the function returns an error, the error is passed back to the client in the response.
          */
-        path: string | string[] | hapi.RequestHandler<string | string[] | Error>;
+        path:
+            | string
+            | string[]
+            | hapi.RequestHandler<string | string[] | Error>;
         /** index - optional boolean|string|string[], determines if an index file will be served if found in the folder when requesting a directory. The given string or strings specify the name(s) of the index file to look for. If true, looks for 'index.html'. Any falsy value disables index file lookup. Defaults to true. */
         index?: boolean | string | string[];
         /** listing - optional boolean, determines if directory listing is generated when a directory is requested without an index document. Defaults to false. */
@@ -64,7 +67,7 @@ declare namespace inert {
          *  * 'simple' - Hex encoded size and modification date, suitable when files are stored on a single server.
          *  * false - Disable ETag computation.
          */
-        etagMethod?: 'hash' | 'simple' | false;
+        etagMethod?: "hash" | "simple" | false;
         /** defaultExtension - optional string, appended to file requests if the requested file is not found. Defaults to no extension. */
         defaultExtension?: string;
     }
@@ -81,7 +84,7 @@ declare namespace inert {
     }
 }
 
-declare module 'hapi' {
+declare module "hapi" {
     interface RouteHandlerPlugins {
         /**
          * The file handler
@@ -107,7 +110,10 @@ declare module 'hapi' {
          * Transmits a file from the file system. The 'Content-Type' header defaults to the matching mime type based on filename extension.
          * @see {@link https://github.com/hapijs/inert#replyfilepath-options}
          */
-        file: (path: string, options?: inert.ReplyFileHandlerOptions) => Response;
+        file: (
+            path: string,
+            options?: inert.ReplyFileHandlerOptions
+        ) => Response;
     }
 }
 

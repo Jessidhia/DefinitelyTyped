@@ -1,8 +1,6 @@
 namespace adoneTests.pretty.size {
     const {
-        pretty: {
-            size
-        }
+        pretty: { size }
     } = adone;
 
     let str: string;

@@ -7,7 +7,7 @@ Router.readyCallbacks.push(() => {
 });
 Router.ready(() => {
     console.log(
-        "I'll get called immediately if the router initializes, or when it eventually does.",
+        "I'll get called immediately if the router initializes, or when it eventually does."
     );
 });
 
@@ -36,10 +36,18 @@ split(Router.pathname);
 const query = `?${qs.stringify(Router.query)}`;
 
 // Assign some callback methods.
-Router.events.on('routeChangeStart', (url: string) => console.log("Route is starting to change.", url));
-Router.events.on('beforeHistoryChange', (as: string) => console.log("History hasn't changed yet.", as));
-Router.events.on('routeChangeComplete', (url: string) => console.log("Route change is complete.", url));
-Router.events.on('routeChangeError', (err: any, url: string) => console.log("Route change errored.", err, url));
+Router.events.on("routeChangeStart", (url: string) =>
+    console.log("Route is starting to change.", url)
+);
+Router.events.on("beforeHistoryChange", (as: string) =>
+    console.log("History hasn't changed yet.", as)
+);
+Router.events.on("routeChangeComplete", (url: string) =>
+    console.log("Route change is complete.", url)
+);
+Router.events.on("routeChangeError", (err: any, url: string) =>
+    console.log("Route change errored.", err, url)
+);
 
 // Call methods on the router itself.
 Router.reload("/route").then(() => console.log("route was reloaded"));
@@ -47,23 +55,23 @@ Router.back();
 Router.beforePopState(({ url }) => !!url);
 
 Router.push("/route").then((success: boolean) =>
-    console.log("route push success: ", success),
+    console.log("route push success: ", success)
 );
 Router.push("/route", "/asRoute").then((success: boolean) =>
-    console.log("route push success: ", success),
+    console.log("route push success: ", success)
 );
 Router.push("/route", "/asRoute", { shallow: false }).then((success: boolean) =>
-    console.log("route push success: ", success),
+    console.log("route push success: ", success)
 );
 
 Router.replace("/route").then((success: boolean) =>
-    console.log("route replace success: ", success),
+    console.log("route replace success: ", success)
 );
 Router.replace("/route", "/asRoute").then((success: boolean) =>
-    console.log("route replace success: ", success),
+    console.log("route replace success: ", success)
 );
 Router.replace("/route", "/asRoute", {
-    shallow: false,
+    shallow: false
 }).then((success: boolean) => console.log("route replace success: ", success));
 
 Router.prefetch("/route").then(Component => {
@@ -89,8 +97,10 @@ class TestComponent extends React.Component<TestComponentProps> {
     render() {
         return (
             <div>
-                <h1>{this.state.ready ? 'Ready' : 'Not Ready'}</h1>
-                <h2>Route: {this.props.router ? this.props.router.route : ""}</h2>
+                <h1>{this.state.ready ? "Ready" : "Not Ready"}</h1>
+                <h2>
+                    Route: {this.props.router ? this.props.router.route : ""}
+                </h2>
                 <p>Another prop: {this.props.testValue}</p>
             </div>
         );
@@ -118,8 +128,10 @@ class TestComponent2 extends React.Component<TestComponent2Props> {
     render() {
         return (
             <div>
-                <h1>{this.state.ready ? 'Ready' : 'Not Ready'}</h1>
-                <h2>Route: {this.props.router ? this.props.router.route : ""}</h2>
+                <h1>{this.state.ready ? "Ready" : "Not Ready"}</h1>
+                <h2>
+                    Route: {this.props.router ? this.props.router.route : ""}
+                </h2>
                 <p>Another prop: {this.props.testValue}</p>
             </div>
         );
@@ -142,7 +154,7 @@ const TestSFC: React.SFC<TestSFCProps> = ({ router }) => {
 };
 const TestSFCComponent = withRouter(TestSFC);
 
-const res2 = <TestSFCComponent testProp="asdf"/>;
+const res2 = <TestSFCComponent testProp="asdf" />;
 
 const TestSFC2 = withRouter<TestSFCProps>(({ router }) => {
     return <div>{router && router.query && router.query.test}</div>;

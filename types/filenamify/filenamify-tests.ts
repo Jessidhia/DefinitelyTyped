@@ -1,10 +1,10 @@
-import filenamify = require('filenamify');
+import filenamify = require("filenamify");
 
-filenamify('<foo/bar>');
+filenamify("<foo/bar>");
 // => 'foo!bar'
 
-filenamify('foo:"bar"', {replacement: '🐴'});
+filenamify('foo:"bar"', { replacement: "🐴" });
 // => 'foo🐴bar'
 
-filenamify.path('/some/!path');
+filenamify.path("/some/!path");
 // => '/some/path'

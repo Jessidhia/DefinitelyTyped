@@ -3,6 +3,9 @@
 // Definitions by: Aankhen <https://github.com/Aankhen>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export function timeout<T>(promise: Promise<T>, timeoutMillis: number): Promise<T>;
+export function timeout<T>(
+    promise: Promise<T>,
+    timeoutMillis: number
+): Promise<T>;
 
-export class TimeoutError extends Error { }
+export class TimeoutError extends Error {}

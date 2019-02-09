@@ -7,8 +7,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'prosemirror-state';
-import { EditorView } from 'prosemirror-view';
+import { Plugin } from "prosemirror-state";
+import { EditorView } from "prosemirror-view";
 
 /**
  * Create a keymap plugin for the given set of bindings.
@@ -48,5 +48,5 @@ export function keymap(bindings: { [key: string]: any }): Plugin;
  * handler](#view.EditorProps.handleKeyDown) handles them.
  */
 export function keydownHandler(bindings: {
-  [key: string]: any;
+    [key: string]: any;
 }): (view: EditorView, event: Event) => boolean;

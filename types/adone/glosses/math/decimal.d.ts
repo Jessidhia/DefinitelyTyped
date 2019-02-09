@@ -737,7 +737,10 @@ declare namespace adone.math {
         /**
          * Returns a string representing the value of this Decimal in binary, rounded to sd significant digits using rounding mode rm.
          */
-        toBinary(significantDigits: number, rounding: I.Decimal.Rounding): string;
+        toBinary(
+            significantDigits: number,
+            rounding: I.Decimal.Rounding
+        ): string;
 
         /**
          * Returns a new Decimal whose value is the value of this Decimal rounded to dp decimal places using rounding mode rm.
@@ -751,7 +754,10 @@ declare namespace adone.math {
          *
          * @alias toDP
          */
-        toDecimalPlaces(decimalPlaces: number, rounding: I.Decimal.Rounding): Decimal;
+        toDecimalPlaces(
+            decimalPlaces: number,
+            rounding: I.Decimal.Rounding
+        ): Decimal;
 
         /**
          * Returns a new Decimal whose value is the value of this Decimal rounded to dp decimal places using rounding mode rm.
@@ -783,7 +789,10 @@ declare namespace adone.math {
          * If the value of this Decimal in exponential notation has fewer than dp fraction digits,
          * the return value will be appended with zeros accordingly.
          */
-        toExponential(decimalPlaces: number, rounding: I.Decimal.Rounding): string;
+        toExponential(
+            decimalPlaces: number,
+            rounding: I.Decimal.Rounding
+        ): string;
 
         /**
          * Returns a string representing the value of this Decimal in normal (fixed-point) notation rounded to dp decimal places using rounding mode rm.
@@ -823,7 +832,10 @@ declare namespace adone.math {
          *
          * @alias toHex
          */
-        toHexadecimal(significantDigits: number, rounding: I.Decimal.Rounding): string;
+        toHexadecimal(
+            significantDigits: number,
+            rounding: I.Decimal.Rounding
+        ): string;
 
         /**
          * Returns a string representing the value of this Decimal in hexadecimal, rounded to sd significant digits using rounding mode rm.
@@ -869,7 +881,10 @@ declare namespace adone.math {
         /**
          * Returns a string representing the value of this Decimal in octal, rounded to sd significant digits using rounding mode rm.
          */
-        toOctal(significantDigits: number, rounding: I.Decimal.Rounding): string;
+        toOctal(
+            significantDigits: number,
+            rounding: I.Decimal.Rounding
+        ): string;
 
         /**
          * Returns a new Decimal whose value is the value of this Decimal raised to the power x,
@@ -903,7 +918,10 @@ declare namespace adone.math {
         /**
          * Returns a string representing the value of this Decimal rounded to sd significant digits using rounding mode rm.
          */
-        toPrecision(significantDigits: number, rounding: I.Decimal.Rounding): string;
+        toPrecision(
+            significantDigits: number,
+            rounding: I.Decimal.Rounding
+        ): string;
 
         /**
          * Returns a new Decimal whose value is the value of this Decimal rounded to sd significant digits using rounding mode rm.
@@ -917,7 +935,10 @@ declare namespace adone.math {
          *
          * @alias toSD
          */
-        toSignificantDigits(significantDigits: number, rounding: I.Decimal.Rounding): Decimal;
+        toSignificantDigits(
+            significantDigits: number,
+            rounding: I.Decimal.Rounding
+        ): Decimal;
 
         /**
          * Returns a new Decimal whose value is the value of this Decimal rounded to sd significant digits using rounding mode rm.
@@ -1283,5 +1304,5 @@ declare namespace adone.math {
          * Not a rounding mode
          */
         static readonly EUCLID: 9;
-      }
+    }
 }

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export type PaneId = string | number;
 
@@ -22,47 +22,50 @@ export interface PaneProperty {
 
 export interface PaneResizeData {
     pane: PaneProperty;
-    direction: 'x' | 'y' | 'xy';
+    direction: "x" | "y" | "xy";
     delta: PaneSize;
 }
 
 export interface SortablePaneProps {
     className?: string;
     style?: React.HTMLAttributes<HTMLElement>;
-    direction?: 'horizontal' | 'vertical';
+    direction?: "horizontal" | "vertical";
     margin?: number;
     zIndex?: number;
     grid?: [number, number];
     isSortable?: boolean;
     disableEffect?: boolean;
     dragHandleClassName?: string;
-    onOrderChange?: (oldPanes: PaneProperty[], newPanes: PaneProperty[]) => void;
+    onOrderChange?: (
+        oldPanes: PaneProperty[],
+        newPanes: PaneProperty[]
+    ) => void;
     onResizeStart?: (
         e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>,
         id: PaneId,
-        panes: PaneProperty[],
+        panes: PaneProperty[]
     ) => void;
     onResize?: (
         e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>,
         id: PaneId,
         panes: PaneProperty[],
-        data: PaneResizeData,
+        data: PaneResizeData
     ) => void;
     onResizeStop?: (
         e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>,
         id: PaneId,
         panes: PaneProperty[],
-        data: PaneResizeData,
+        data: PaneResizeData
     ) => void;
     onDragStart?: (
         e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>,
         id: PaneId,
-        panes: PaneProperty[],
+        panes: PaneProperty[]
     ) => void;
     onDragStop?: (
         e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>,
         id: PaneId,
-        panes: PaneProperty[],
+        panes: PaneProperty[]
     ) => void;
 }
 

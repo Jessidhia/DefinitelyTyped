@@ -7,7 +7,7 @@
 
 /// <reference types="node" />
 
-import * as cp from 'child_process';
+import * as cp from "child_process";
 
 /* Note that ES6 modules cannot directly export callable functions.
  * This file should be imported using the CommonJS-style:

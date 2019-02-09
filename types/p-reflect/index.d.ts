@@ -5,7 +5,9 @@
 
 export = pReflect;
 
-declare function pReflect<T>(promise: PromiseLike<T>): Promise<pReflect.PromiseResult<T>>;
+declare function pReflect<T>(
+    promise: PromiseLike<T>
+): Promise<pReflect.PromiseResult<T>>;
 
 declare namespace pReflect {
     type PromiseResult<T> = PromiseFulfilledResult<T> | PromiseRejectedResult;

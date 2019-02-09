@@ -10,7 +10,11 @@ declare namespace Slick {
         }
 
         export class ColumnPicker<T extends Slick.SlickData> {
-            constructor(columns: Slick.Column<T>[], grid: Slick.Grid<T>, options: SlickColumnPickerOptions);
+            constructor(
+                columns: Slick.Column<T>[],
+                grid: Slick.Grid<T>,
+                options: SlickColumnPickerOptions
+            );
             getAllColumns(): Slick.Column<T>[];
             destroy(): void;
         }

@@ -1,4 +1,10 @@
-import { Component, ComponentClass, ClassAttributes, ReactNode, StatelessComponent } from "react";
+import {
+    Component,
+    ComponentClass,
+    ClassAttributes,
+    ReactNode,
+    StatelessComponent
+} from "react";
 import {
     Action,
     History,
@@ -30,9 +36,18 @@ export type StringifyQuery = (queryObject: Query) => Search;
 
 type AnyFunction = (...args: any[]) => any;
 
-export type EnterHook = (nextState: RouterState, replace: RedirectFunction, callback?: AnyFunction) => any;
+export type EnterHook = (
+    nextState: RouterState,
+    replace: RedirectFunction,
+    callback?: AnyFunction
+) => any;
 export type LeaveHook = (prevState: RouterState) => any;
-export type ChangeHook = (prevState: RouterState, nextState: RouterState, replace: RedirectFunction, callback?: AnyFunction) => any;
+export type ChangeHook = (
+    prevState: RouterState,
+    nextState: RouterState,
+    replace: RedirectFunction,
+    callback?: AnyFunction
+) => any;
 export type RouteHook = (nextLocation?: Location) => any;
 
 export interface RedirectFunction {
@@ -50,9 +65,15 @@ export interface RouterState {
 type LocationFunction = (location: LocationDescriptor) => void;
 type GoFunction = (n: number) => void;
 type NavigateFunction = () => void;
-type ActiveFunction = (location: LocationDescriptor, indexOnly?: boolean) => boolean;
+type ActiveFunction = (
+    location: LocationDescriptor,
+    indexOnly?: boolean
+) => boolean;
 type LeaveHookFunction = (route: any, callback: RouteHook) => void;
-type CreatePartFunction<Part> = (pathOrLoc: LocationDescriptor, query?: any) => Part;
+type CreatePartFunction<Part> = (
+    pathOrLoc: LocationDescriptor,
+    query?: any
+) => Part;
 
 export interface InjectedRouter {
     push: LocationFunction;

@@ -15,7 +15,8 @@ interface ElectronConfigOptions {
     name?: string;
 }
 
-declare class ElectronConfig implements Iterable<[string, string | number | boolean | symbol | {}]> {
+declare class ElectronConfig
+    implements Iterable<[string, string | number | boolean | symbol | {}]> {
     /**
      * gets the item count
      */
@@ -62,7 +63,9 @@ declare class ElectronConfig implements Iterable<[string, string | number | bool
      */
     clear(): void;
 
-    [Symbol.iterator](): Iterator<[string, string | number | boolean | symbol | {}]>;
+    [Symbol.iterator](): Iterator<
+        [string, string | number | boolean | symbol | {}]
+    >;
 }
 
 declare namespace ElectronConfig {} // https://github.com/Microsoft/TypeScript/issues/5073

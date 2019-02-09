@@ -4,12 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import ts = require('typescript');
-import Bluebird = require('bluebird');
+import ts = require("typescript");
+import Bluebird = require("bluebird");
 
 export = dtsGenerator;
 
-declare function dtsGenerator(options: dtsGenerator.DtsGeneratorOptions): Bluebird<void>;
+declare function dtsGenerator(
+    options: dtsGenerator.DtsGeneratorOptions
+): Bluebird<void>;
 
 declare namespace dtsGenerator {
     interface ResolveModuleIdParams {

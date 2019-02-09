@@ -1,14 +1,14 @@
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
-import { Transport, TransportOptions } from '..';
-import * as shared from './shared';
+import { Transport, TransportOptions } from "..";
+import * as shared from "./shared";
 
-import Mail = require('./mailer');
-import MailMessage = require('./mailer/mail-message');
-import MimeNode = require('./mime-node');
-import SMTPConnection = require('./smtp-connection');
+import Mail = require("./mailer");
+import MailMessage = require("./mailer/mail-message");
+import MimeNode = require("./mime-node");
+import SMTPConnection = require("./smtp-connection");
 
 declare namespace SMTPPool {
     interface MailOptions extends Mail.Options {
@@ -16,11 +16,17 @@ declare namespace SMTPPool {
         dsn?: SMTPConnection.DSNOptions;
     }
 
-    interface Options extends MailOptions, TransportOptions, SMTPConnection.Options {
+    interface Options
+        extends MailOptions,
+            TransportOptions,
+            SMTPConnection.Options {
         /** set to true to use pooled connections (defaults to false) instead of creating a new connection for every email */
         pool: true;
         service?: string;
-        getSocket?(options: Options, callback: (err: Error | null, socketOptions: any) => void): void; // TODO http.ClientRequest?
+        getSocket?(
+            options: Options,
+            callback: (err: Error | null, socketOptions: any) => void
+        ): void; // TODO http.ClientRequest?
         url?: string;
         /** the count of maximum simultaneous connections to make against the SMTP server (defaults to 5) */
         maxConnections?: number;
@@ -54,10 +60,16 @@ declare class SMTPPool extends EventEmitter implements Transport {
     constructor(options: SMTPPool.Options | string);
 
     /** Placeholder function for creating proxy sockets. This method immediatelly returns without a socket */
-    getSocket(options: SMTPPool.Options, callback: (err: Error | null, socketOptions: any) => void): void;
+    getSocket(
+        options: SMTPPool.Options,
+        callback: (err: Error | null, socketOptions: any) => void
+    ): void;
 
     /** Sends an e-mail using the selected settings */
-    send(mail: MailMessage, callback: (err: Error | null, info: SMTPPool.SentMessageInfo) => void): void;
+    send(
+        mail: MailMessage,
+        callback: (err: Error | null, info: SMTPPool.SentMessageInfo) => void
+    ): void;
 
     /** Closes all connections in the pool. If there is a message being sent, the connection is closed later */
     close(): void;
@@ -69,19 +81,19 @@ declare class SMTPPool extends EventEmitter implements Transport {
     verify(callback: (err: Error | null, success: true) => void): void;
     verify(): Promise<true>;
 
-    addListener(event: 'idle', listener: () => void): this;
+    addListener(event: "idle", listener: () => void): this;
 
-    emit(event: 'idle'): boolean;
+    emit(event: "idle"): boolean;
 
-    on(event: 'idle', listener: () => void): this;
+    on(event: "idle", listener: () => void): this;
 
-    once(event: 'idle', listener: () => void): this;
+    once(event: "idle", listener: () => void): this;
 
-    prependListener(event: 'idle', listener: () => void): this;
+    prependListener(event: "idle", listener: () => void): this;
 
-    prependOnceListener(event: 'idle', listener: () => void): this;
+    prependOnceListener(event: "idle", listener: () => void): this;
 
-    listeners(event: 'idle'): Array<() => void>;
+    listeners(event: "idle"): Array<() => void>;
 }
 
 export = SMTPPool;

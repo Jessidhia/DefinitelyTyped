@@ -23,7 +23,10 @@ export const BINARY_EVENT: number;
 export const BINARY_ACK: number;
 
 export class Encoder {
-    encode(packet: Packet, callback: (encodedPackets: EncodedPacket[]) => void): void;
+    encode(
+        packet: Packet,
+        callback: (encodedPackets: EncodedPacket[]) => void
+    ): void;
 }
 
 export class Decoder {

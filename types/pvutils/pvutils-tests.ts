@@ -1,11 +1,11 @@
 import * as pvutils from "pvutils";
 
-pvutils.getUTCDate(new Date).getTime();
+pvutils.getUTCDate(new Date()).getTime();
 
 pvutils.getParametersValue({}, "name", "").charAt(0);
 pvutils.getParametersValue({}, "name", 0).toFixed();
 pvutils.getParametersValue({}, "name", true).valueOf();
-pvutils.getParametersValue({}, "name", new Date).getTime();
+pvutils.getParametersValue({}, "name", new Date()).getTime();
 
 pvutils.bufferToHexCodes(new ArrayBuffer(0)).charAt(0);
 pvutils.bufferToHexCodes(new ArrayBuffer(0), 0).charAt(0);
@@ -18,7 +18,12 @@ pvutils.utilFromBase(new Uint8Array(0), 0).toFixed();
 pvutils.utilToBase(0, 0).byteLength;
 pvutils.utilToBase(0, 0, 0).byteLength;
 
-pvutils.utilConcatBuf(new ArrayBuffer(0), new ArrayBuffer(0), new ArrayBuffer(0), new ArrayBuffer(0)).byteLength;
+pvutils.utilConcatBuf(
+    new ArrayBuffer(0),
+    new ArrayBuffer(0),
+    new ArrayBuffer(0),
+    new ArrayBuffer(0)
+).byteLength;
 
 pvutils.utilDecodeTC().toFixed();
 

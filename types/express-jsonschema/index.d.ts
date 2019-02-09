@@ -16,8 +16,20 @@ export class JsonSchemaCustomPropertyError {
 export class JsonSchemaValidation {
     name: string;
     message: string;
-    validations: {[requestProperty: string]: Array<{ value: any, property: string, messages: string[]}> };
-    constructor(validations: { [requestProperty: string]: { instance: any, property: string, message: string }});
+    validations: {
+        [requestProperty: string]: Array<{
+            value: any;
+            property: string;
+            messages: string[];
+        }>;
+    };
+    constructor(validations: {
+        [requestProperty: string]: {
+            instance: any;
+            property: string;
+            message: string;
+        };
+    });
 }
 
 /**
@@ -28,7 +40,14 @@ export class JsonSchemaValidation {
  * functions that implement the validation.
  * @throws Client tries to override an existing JSON Schema property.
  */
-export function addSchemaProperties(newProperties: { [attribute: string]: (instance: any, schema: JSONSchema4, options: any, ctx: any) => void | string }): void;
+export function addSchemaProperties(newProperties: {
+    [attribute: string]: (
+        instance: any,
+        schema: JSONSchema4,
+        options: any,
+        ctx: any
+    ) => void | string;
+}): void;
 
 /**
  * Accepts an object where the keys are request properties and the
@@ -50,5 +69,5 @@ export function addSchemaProperties(newProperties: { [attribute: string]: (insta
  */
 export function validate(
     schemas: { [requestProperty: string]: JSONSchema4 },
-    schemaDependencies?: JSONSchema4[],
+    schemaDependencies?: JSONSchema4[]
 ): (req: Request, res: Response, next: NextFunction) => void;

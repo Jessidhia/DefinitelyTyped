@@ -10,7 +10,10 @@ declare let bool: boolean;
 declare let boolOrUndefined: boolean | undefined;
 declare let numOrUndefined: number | undefined;
 declare let apiGwEvtReqCtx: AWSLambda.APIGatewayEventRequestContext;
-declare let apiGwEvtReqCtxOpt: AWSLambda.APIGatewayEventRequestContext | null | undefined;
+declare let apiGwEvtReqCtxOpt:
+    | AWSLambda.APIGatewayEventRequestContext
+    | null
+    | undefined;
 declare let apiGwEvt: AWSLambda.APIGatewayEvent;
 declare let customAuthorizerEvt: AWSLambda.CustomAuthorizerEvent;
 declare let clientCtx: AWSLambda.ClientContext;
@@ -25,7 +28,10 @@ declare let authResponse: AWSLambda.AuthResponse;
 declare let policyDocument: AWSLambda.PolicyDocument;
 declare let statement: AWSLambda.Statement;
 declare let authResponseContext: AWSLambda.AuthResponseContext;
-declare let authResponseContextOpt: AWSLambda.AuthResponseContext | null | undefined;
+declare let authResponseContextOpt:
+    | AWSLambda.AuthResponseContext
+    | null
+    | undefined;
 declare let snsEvt: AWSLambda.SNSEvent;
 declare let snsEvtRecs: AWSLambda.SNSEventRecord[];
 declare let snsEvtRec: AWSLambda.SNSEventRecord;
@@ -33,37 +39,38 @@ declare let snsMsg: AWSLambda.SNSMessage;
 declare let snsMsgAttr: AWSLambda.SNSMessageAttribute;
 declare let snsMsgAttrs: AWSLambda.SNSMessageAttributes;
 const S3EvtRec: AWSLambda.S3EventRecord = {
-    eventVersion: '2.0',
-    eventSource: 'aws:s3',
-    awsRegion: 'us-east-1',
-    eventTime: '1970-01-01T00:00:00.000Z',
-    eventName: 'ObjectCreated:Put',
+    eventVersion: "2.0",
+    eventSource: "aws:s3",
+    awsRegion: "us-east-1",
+    eventTime: "1970-01-01T00:00:00.000Z",
+    eventName: "ObjectCreated:Put",
     userIdentity: {
-        principalId: 'AIDAJDPLRKLG7UEXAMPLE'
+        principalId: "AIDAJDPLRKLG7UEXAMPLE"
     },
     requestParameters: {
-        sourceIPAddress: '127.0.0.1'
+        sourceIPAddress: "127.0.0.1"
     },
     responseElements: {
-        'x-amz-request-id': 'C3D13FE58DE4C810',
-        'x-amz-id-2': 'FMyUVURIY8/IgAtTv8xRjskZQpcIZ9KG4V5Wp6S7S/JRWeUWerMUE5JgHvANOjpD'
+        "x-amz-request-id": "C3D13FE58DE4C810",
+        "x-amz-id-2":
+            "FMyUVURIY8/IgAtTv8xRjskZQpcIZ9KG4V5Wp6S7S/JRWeUWerMUE5JgHvANOjpD"
     },
     s3: {
-        s3SchemaVersion: '1.0',
-        configurationId: 'testConfigRule',
+        s3SchemaVersion: "1.0",
+        configurationId: "testConfigRule",
         bucket: {
-            name: 'mybucket',
+            name: "mybucket",
             ownerIdentity: {
-                principalId: 'A3NL1KOZZKExample'
+                principalId: "A3NL1KOZZKExample"
             },
-            arn: 'arn:aws:s3:::mybucket'
+            arn: "arn:aws:s3:::mybucket"
         },
         object: {
-            key: 'HappyFace.jpg',
+            key: "HappyFace.jpg",
             size: 1024,
-            eTag: 'd41d8cd98f00b204e9800998ecf8427e',
-            versionId: '096fKKXTRTtl3on89fVO.nfljtsv6qko',
-            sequencer: '0055AED6DCD90281E5'
+            eTag: "d41d8cd98f00b204e9800998ecf8427e",
+            versionId: "096fKKXTRTtl3on89fVO.nfljtsv6qko",
+            sequencer: "0055AED6DCD90281E5"
         }
     }
 };
@@ -146,93 +153,93 @@ strOrUndefined = customAuthorizerEvt.apiId;
 const dynamoDBStreamEvent: AWSLambda.DynamoDBStreamEvent = {
     Records: [
         {
-            eventID: '1',
-            eventVersion: '1.0',
+            eventID: "1",
+            eventVersion: "1.0",
             dynamodb: {
                 Keys: {
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
                 NewImage: {
                     Message: {
-                        S: 'New item!'
+                        S: "New item!"
                     },
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
-                StreamViewType: 'NEW_AND_OLD_IMAGES',
-                SequenceNumber: '111',
+                StreamViewType: "NEW_AND_OLD_IMAGES",
+                SequenceNumber: "111",
                 SizeBytes: 26
             },
-            awsRegion: 'us-west-2',
-            eventName: 'INSERT',
+            awsRegion: "us-west-2",
+            eventName: "INSERT",
             eventSourceARN:
-                'arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899',
-            eventSource: 'aws:dynamodb'
+                "arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899",
+            eventSource: "aws:dynamodb"
         },
         {
-            eventID: '2',
-            eventVersion: '1.0',
+            eventID: "2",
+            eventVersion: "1.0",
             dynamodb: {
                 OldImage: {
                     Message: {
-                        S: 'New item!'
+                        S: "New item!"
                     },
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
-                SequenceNumber: '222',
+                SequenceNumber: "222",
                 Keys: {
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
                 SizeBytes: 59,
                 NewImage: {
                     Message: {
-                        S: 'This item has changed'
+                        S: "This item has changed"
                     },
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
-                StreamViewType: 'NEW_AND_OLD_IMAGES'
+                StreamViewType: "NEW_AND_OLD_IMAGES"
             },
-            awsRegion: 'us-west-2',
-            eventName: 'MODIFY',
+            awsRegion: "us-west-2",
+            eventName: "MODIFY",
             eventSourceARN:
-                'arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899',
-            eventSource: 'aws:dynamodb'
+                "arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899",
+            eventSource: "aws:dynamodb"
         },
         {
-            eventID: '3',
-            eventVersion: '1.0',
+            eventID: "3",
+            eventVersion: "1.0",
             dynamodb: {
                 Keys: {
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
                 SizeBytes: 38,
-                SequenceNumber: '333',
+                SequenceNumber: "333",
                 OldImage: {
                     Message: {
-                        S: 'This item has changed'
+                        S: "This item has changed"
                     },
                     Id: {
-                        N: '101'
+                        N: "101"
                     }
                 },
-                StreamViewType: 'NEW_AND_OLD_IMAGES'
+                StreamViewType: "NEW_AND_OLD_IMAGES"
             },
-            awsRegion: 'us-west-2',
-            eventName: 'REMOVE',
+            awsRegion: "us-west-2",
+            eventName: "REMOVE",
             eventSourceARN:
-                'arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899',
-            eventSource: 'aws:dynamodb'
+                "arn:aws:dynamodb:us-west-2:account-id:table/ExampleTableWithStream/stream/2015-06-27T00:48:05.899",
+            eventSource: "aws:dynamodb"
         }
     ]
 };
@@ -306,7 +313,7 @@ statement = {
 statement = {
     Effect: str,
     Action: str,
-    Principal: { Service: str},
+    Principal: { Service: str },
     Resource: 123
 };
 
@@ -333,12 +340,15 @@ statement = {
     Resource: [str, str],
     Condition: {
         condition1: { key: "value" },
-        condition2: [{
+        condition2: [
+            {
                 key1: "value",
                 key2: "value"
-        }, {
-            key3: "value"
-        }]
+            },
+            {
+                key3: "value"
+            }
+        ]
     },
     Principal: [str, str],
     NotPrincipal: [str, str]
@@ -382,7 +392,7 @@ authResponse = {
 
 authResponse = {
     principalId: str,
-    policyDocument,
+    policyDocument
 };
 
 // CognitoUserPoolEvent
@@ -400,7 +410,8 @@ cognitoUserPoolEvent.triggerSource === "CustomMessage_VerifyUserAttribute";
 cognitoUserPoolEvent.triggerSource === "CustomMessage_Authentication";
 cognitoUserPoolEvent.triggerSource === "DefineAuthChallenge_Authentication";
 cognitoUserPoolEvent.triggerSource === "CreateAuthChallenge_Authentication";
-cognitoUserPoolEvent.triggerSource === "VerifyAuthChallengeResponse_Authentication";
+cognitoUserPoolEvent.triggerSource ===
+    "VerifyAuthChallengeResponse_Authentication";
 cognitoUserPoolEvent.triggerSource === "PreSignUp_AdminCreateUser";
 cognitoUserPoolEvent.triggerSource === "PostConfirmation_ConfirmForgotPassword";
 cognitoUserPoolEvent.triggerSource === "TokenGeneration_HostedAuth";
@@ -424,7 +435,8 @@ cognitoUserPoolEvent.request.session![0].challengeName === "CUSTOM_CHALLENGE";
 cognitoUserPoolEvent.request.session![0].challengeName === "PASSWORD_VERIFIER";
 cognitoUserPoolEvent.request.session![0].challengeName === "SMS_MFA";
 cognitoUserPoolEvent.request.session![0].challengeName === "DEVICE_SRP_AUTH";
-cognitoUserPoolEvent.request.session![0].challengeName === "DEVICE_PASSWORD_VERIFIER";
+cognitoUserPoolEvent.request.session![0].challengeName ===
+    "DEVICE_PASSWORD_VERIFIER";
 cognitoUserPoolEvent.request.session![0].challengeName === "ADMIN_NO_SRP_AUTH";
 bool = cognitoUserPoolEvent.request.session![0].challengeResult;
 strOrUndefined = cognitoUserPoolEvent.request.session![0].challengeMetadata;
@@ -463,13 +475,13 @@ switch (cloudformationCustomResourceEvent.RequestType) {
         str = cloudformationCustomResourceEvent.ResponseURL;
         str = cloudformationCustomResourceEvent.ServiceToken;
         str = cloudformationCustomResourceEvent.StackId;
-    break;
+        break;
     case "Update":
         anyObj = cloudformationCustomResourceEvent.OldResourceProperties;
-    break;
+        break;
     case "Delete":
         str = cloudformationCustomResourceEvent.PhysicalResourceId;
-    break;
+        break;
 }
 anyObj = cloudformationCustomResourceResponse.Data;
 str = cloudformationCustomResourceResponse.LogicalResourceId;
@@ -580,8 +592,10 @@ const CodePipelineEvent: AWSLambda.CodePipelineEvent = {
                 {
                     location: {
                         s3Location: {
-                            bucketName: "the name of the bucket configured as the pipeline artifact store in Amazon S3, for example codepipeline-us-east-2-1234567890",
-                            objectKey: "the name of the application, for example CodePipelineDemoApplication.zip"
+                            bucketName:
+                                "the name of the bucket configured as the pipeline artifact store in Amazon S3, for example codepipeline-us-east-2-1234567890",
+                            objectKey:
+                                "the name of the application, for example CodePipelineDemoApplication.zip"
                         },
                         type: "S3"
                     },
@@ -614,136 +628,138 @@ const CodePipelineEvent: AWSLambda.CodePipelineEvent = {
     }
 };
 
-CodePipelineEvent["CodePipeline.job"].data.encryptionKey = { type: 'KMS', id: 'key' };
+CodePipelineEvent["CodePipeline.job"].data.encryptionKey = {
+    type: "KMS",
+    id: "key"
+};
 
 /* CodePipeline CloudWatch Events
  * see https://docs.aws.amazon.com/codepipeline/latest/userguide/detect-state-changes-cloudwatch-events.html
  * Their documentation says that detail.version is a string, but it is actually an integer
  */
 const CodePipelineCloudWatchEvent: AWSLambda.CodePipelineCloudWatchEvent = {
-    version: '0',
-    id: 'event_Id',
-    'detail-type': 'CodePipeline Pipeline Execution State Change',
-    source: 'aws.codepipeline',
-    account: 'Pipeline_Account',
-    time: 'TimeStamp',
-    region: 'us-east-1',
-    resources: ['arn:aws:codepipeline:us-east-1:account_ID:myPipeline'],
+    version: "0",
+    id: "event_Id",
+    "detail-type": "CodePipeline Pipeline Execution State Change",
+    source: "aws.codepipeline",
+    account: "Pipeline_Account",
+    time: "TimeStamp",
+    region: "us-east-1",
+    resources: ["arn:aws:codepipeline:us-east-1:account_ID:myPipeline"],
     detail: {
-        pipeline: 'myPipeline',
+        pipeline: "myPipeline",
         version: 1,
-        state: 'STARTED',
-        'execution-id': 'execution_Id',
-    },
+        state: "STARTED",
+        "execution-id": "execution_Id"
+    }
 };
 
 /* CloudFront events, see http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-event-structure.html */
 const CloudFrontRequestWithCustomOriginEvent: AWSLambda.CloudFrontRequestEvent = {
-  Records: [
-    {
-      cf: {
-        config: {
-          distributionDomainName: "d123.cloudfront.net",
-          distributionId: "EDFDVBD6EXAMPLE",
-          eventType: "viewer-request",
-          requestId: "MRVMF7KydIvxMWfJIglgwHQwZsbG2IhRJ07sn9AkKUFSHS9EXAMPLE=="
-        },
-        request: {
-          clientIp: "2001:0db8:85a3:0:0:8a2e:0370:7334",
-          method: "GET",
-          uri: "/picture.jpg",
-          querystring: "size=large",
-          headers: {
-            host: [
-              {
-                key: "Host",
-                value: "d111111abcdef8.cloudfront.net"
-              }
-            ],
-            "user-agent": [
-              {
-                key: "User-Agent",
-                value: "curl/7.51.0"
-              }
-            ]
-          },
-          origin: {
-            custom: {
-              customHeaders: {
-                "my-origin-custom-header": [
-                  {
-                    key: "My-Origin-Custom-Header",
-                    value: "Test"
-                  }
-                ]
-              },
-              domainName: "example.com",
-              keepaliveTimeout: 5,
-              path: "/custom_path",
-              port: 443,
-              protocol: "https",
-              readTimeout: 5,
-              sslProtocols: [
-                "TLSv1",
-                "TLSv1.1"
-              ]
+    Records: [
+        {
+            cf: {
+                config: {
+                    distributionDomainName: "d123.cloudfront.net",
+                    distributionId: "EDFDVBD6EXAMPLE",
+                    eventType: "viewer-request",
+                    requestId:
+                        "MRVMF7KydIvxMWfJIglgwHQwZsbG2IhRJ07sn9AkKUFSHS9EXAMPLE=="
+                },
+                request: {
+                    clientIp: "2001:0db8:85a3:0:0:8a2e:0370:7334",
+                    method: "GET",
+                    uri: "/picture.jpg",
+                    querystring: "size=large",
+                    headers: {
+                        host: [
+                            {
+                                key: "Host",
+                                value: "d111111abcdef8.cloudfront.net"
+                            }
+                        ],
+                        "user-agent": [
+                            {
+                                key: "User-Agent",
+                                value: "curl/7.51.0"
+                            }
+                        ]
+                    },
+                    origin: {
+                        custom: {
+                            customHeaders: {
+                                "my-origin-custom-header": [
+                                    {
+                                        key: "My-Origin-Custom-Header",
+                                        value: "Test"
+                                    }
+                                ]
+                            },
+                            domainName: "example.com",
+                            keepaliveTimeout: 5,
+                            path: "/custom_path",
+                            port: 443,
+                            protocol: "https",
+                            readTimeout: 5,
+                            sslProtocols: ["TLSv1", "TLSv1.1"]
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  ]
+    ]
 };
 
 const CloudFrontRequestWithS3OriginEvent: AWSLambda.CloudFrontRequestEvent = {
-  Records: [
-    {
-      cf: {
-        config: {
-          distributionDomainName: "d123.cloudfront.net",
-          distributionId: "EDFDVBD6EXAMPLE",
-          eventType: "viewer-request",
-          requestId: "MRVMF7KydIvxMWfJIglgwHQwZsbG2IhRJ07sn9AkKUFSHS9EXAMPLE=="
-        },
-        request: {
-          clientIp: "2001:0db8:85a3:0:0:8a2e:0370:7334",
-          method: "GET",
-          uri: "/picture.jpg",
-          querystring: "size=large",
-          headers: {
-            host: [
-              {
-                key: "Host",
-                value: "d111111abcdef8.cloudfront.net"
-              }
-            ],
-            "user-agent": [
-              {
-                key: "User-Agent",
-                value: "curl/7.51.0"
-              }
-            ]
-          },
-          origin: {
-            s3: {
-              authMethod: "origin-access-identity",
-              customHeaders: {
-                "my-origin-custom-header": [
-                  {
-                    key: "My-Origin-Custom-Header",
-                    value: "Test"
-                  }
-                ]
-              },
-              domainName: "my-bucket.s3.amazonaws.com",
-              path: "/s3_path",
-              region: "us-east-1"
+    Records: [
+        {
+            cf: {
+                config: {
+                    distributionDomainName: "d123.cloudfront.net",
+                    distributionId: "EDFDVBD6EXAMPLE",
+                    eventType: "viewer-request",
+                    requestId:
+                        "MRVMF7KydIvxMWfJIglgwHQwZsbG2IhRJ07sn9AkKUFSHS9EXAMPLE=="
+                },
+                request: {
+                    clientIp: "2001:0db8:85a3:0:0:8a2e:0370:7334",
+                    method: "GET",
+                    uri: "/picture.jpg",
+                    querystring: "size=large",
+                    headers: {
+                        host: [
+                            {
+                                key: "Host",
+                                value: "d111111abcdef8.cloudfront.net"
+                            }
+                        ],
+                        "user-agent": [
+                            {
+                                key: "User-Agent",
+                                value: "curl/7.51.0"
+                            }
+                        ]
+                    },
+                    origin: {
+                        s3: {
+                            authMethod: "origin-access-identity",
+                            customHeaders: {
+                                "my-origin-custom-header": [
+                                    {
+                                        key: "My-Origin-Custom-Header",
+                                        value: "Test"
+                                    }
+                                ]
+                            },
+                            domainName: "my-bucket.s3.amazonaws.com",
+                            path: "/s3_path",
+                            region: "us-east-1"
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  ]
+    ]
 };
 
 const CloudFrontResponseEvent: AWSLambda.CloudFrontResponseEvent = {
@@ -754,7 +770,8 @@ const CloudFrontResponseEvent: AWSLambda.CloudFrontResponseEvent = {
                     distributionDomainName: "d123.cloudfront.net",
                     distributionId: "EDFDVBD6EXAMPLE",
                     eventType: "viewer-response",
-                    requestId: "xGN7KWpVEmB9Dp7ctcVFQC4E-nrcOcEKS3QyAez--06dV7TEXAMPLE=="
+                    requestId:
+                        "xGN7KWpVEmB9Dp7ctcVFQC4E-nrcOcEKS3QyAez--06dV7TEXAMPLE=="
                 },
                 request: {
                     clientIp: "2001:0db8:85a3:0:0:8a2e:0370:7334",
@@ -793,7 +810,8 @@ const CloudFrontResponseEvent: AWSLambda.CloudFrontResponseEvent = {
                             },
                             {
                                 key: "Set-Cookie",
-                                value: "sessionToken=abc123; Expires=Wed, 09 Jun 2021 10:18:14 GMT"
+                                value:
+                                    "sessionToken=abc123; Expires=Wed, 09 Jun 2021 10:18:14 GMT"
                             }
                         ]
                     }
@@ -836,7 +854,11 @@ context.fail(error);
 context.fail(str);
 
 /* Handler */
-const handler: AWSLambda.Handler = (event: any, context: AWSLambda.Context, cb: AWSLambda.Callback) => { };
+const handler: AWSLambda.Handler = (
+    event: any,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback
+) => {};
 
 /* In node8.10 runtime, handlers may return a promise for the result value, so existing async
  * handlers that return Promise<void> before calling the callback will now have a `null` result.
@@ -847,17 +869,17 @@ const handler: AWSLambda.Handler = (event: any, context: AWSLambda.Context, cb: 
 const legacyAsyncHandler: AWSLambda.APIGatewayProxyHandler = async (
     event: AWSLambda.APIGatewayProxyEvent,
     context: AWSLambda.Context,
-    cb: AWSLambda.Callback<AWSLambda.APIGatewayProxyResult>,
+    cb: AWSLambda.Callback<AWSLambda.APIGatewayProxyResult>
 ) => {
-    cb(null, { statusCode: 200, body: 'No longer valid' });
+    cb(null, { statusCode: 200, body: "No longer valid" });
 };
 
 const node8AsyncHandler: AWSLambda.APIGatewayProxyHandler = async (
     event: AWSLambda.APIGatewayProxyEvent,
     context: AWSLambda.Context,
-    cb: AWSLambda.Callback<AWSLambda.APIGatewayProxyResult>,
+    cb: AWSLambda.Callback<AWSLambda.APIGatewayProxyResult>
 ) => {
-    return { statusCode: 200, body: 'Is now valid!' };
+    return { statusCode: 200, body: "Is now valid!" };
 };
 
 const inferredHandler: AWSLambda.S3Handler = (event, context, cb) => {
@@ -873,50 +895,101 @@ const inferredHandler: AWSLambda.S3Handler = (event, context, cb) => {
     cb(null);
     cb(new Error());
     // $ExpectError
-    cb(null, { });
+    cb(null, {});
 };
 
 // Test using default Callback type still works.
-const defaultCallbackHandler: AWSLambda.APIGatewayProxyHandler = (event: AWSLambda.APIGatewayEvent, context: AWSLambda.Context, cb: AWSLambda.Callback) => { };
+const defaultCallbackHandler: AWSLambda.APIGatewayProxyHandler = (
+    event: AWSLambda.APIGatewayEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback
+) => {};
 
 // Specific types
-let s3Handler: AWSLambda.S3Handler = (event: AWSLambda.S3Event, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+let s3Handler: AWSLambda.S3Handler = (
+    event: AWSLambda.S3Event,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 // Test old name
-const s3CreateHandler: AWSLambda.S3Handler = (event: AWSLambda.S3CreateEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const s3CreateHandler: AWSLambda.S3Handler = (
+    event: AWSLambda.S3CreateEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 s3Handler = s3CreateHandler;
 
-const dynamoDBStreamHandler: AWSLambda.DynamoDBStreamHandler = (event: AWSLambda.DynamoDBStreamEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const dynamoDBStreamHandler: AWSLambda.DynamoDBStreamHandler = (
+    event: AWSLambda.DynamoDBStreamEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const snsHandler: AWSLambda.SNSHandler = (event: AWSLambda.SNSEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const snsHandler: AWSLambda.SNSHandler = (
+    event: AWSLambda.SNSEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const cognitoUserPoolHandler: AWSLambda.CognitoUserPoolTriggerHandler = (event: AWSLambda.CognitoUserPoolEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const cognitoUserPoolHandler: AWSLambda.CognitoUserPoolTriggerHandler = (
+    event: AWSLambda.CognitoUserPoolEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const cloudFormationCustomResourceHandler: AWSLambda.CloudFormationCustomResourceHandler =
-    (event: AWSLambda.CloudFormationCustomResourceEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const cloudFormationCustomResourceHandler: AWSLambda.CloudFormationCustomResourceHandler = (
+    event: AWSLambda.CloudFormationCustomResourceEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const cloudWatchLogsHandler: AWSLambda.CloudWatchLogsHandler = (event: AWSLambda.CloudWatchLogsEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const cloudWatchLogsHandler: AWSLambda.CloudWatchLogsHandler = (
+    event: AWSLambda.CloudWatchLogsEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const scheduledHandler: AWSLambda.ScheduledHandler = (event: AWSLambda.ScheduledEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const scheduledHandler: AWSLambda.ScheduledHandler = (
+    event: AWSLambda.ScheduledEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-let apiGtwProxyHandler: AWSLambda.APIGatewayProxyHandler = (event: AWSLambda.APIGatewayProxyEvent, context: AWSLambda.Context, cb: AWSLambda.APIGatewayProxyCallback) => { };
+let apiGtwProxyHandler: AWSLambda.APIGatewayProxyHandler = (
+    event: AWSLambda.APIGatewayProxyEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.APIGatewayProxyCallback
+) => {};
 // Test old names
-const proxyHandler: AWSLambda.ProxyHandler = (event: AWSLambda.APIGatewayEvent, context: AWSLambda.Context, cb: AWSLambda.ProxyCallback) => { };
+const proxyHandler: AWSLambda.ProxyHandler = (
+    event: AWSLambda.APIGatewayEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.ProxyCallback
+) => {};
 apiGtwProxyHandler = proxyHandler;
 
-const codePipelineHandler: AWSLambda.CodePipelineHandler = (event: AWSLambda.CodePipelineEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => {};
+const codePipelineHandler: AWSLambda.CodePipelineHandler = (
+    event: AWSLambda.CodePipelineEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const cloudFrontRequestHandler: AWSLambda.CloudFrontRequestHandler = (event: AWSLambda.CloudFrontRequestEvent, context: AWSLambda.Context, cb: AWSLambda.CloudFrontRequestCallback) => {
+const cloudFrontRequestHandler: AWSLambda.CloudFrontRequestHandler = (
+    event: AWSLambda.CloudFrontRequestEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.CloudFrontRequestCallback
+) => {
     event = CloudFrontRequestWithCustomOriginEvent;
     // $ExpectType CloudFrontRequestEvent
     event;
     let request = event.Records[0].cf.request;
 
     let s3Origin: AWSLambda.CloudFrontS3Origin = {
-        authMethod: 'none',
+        authMethod: "none",
         customHeaders: {},
-        domainName: 'example.com',
-        path: '/',
-        region: 'us-east-1'
+        domainName: "example.com",
+        path: "/",
+        region: "us-east-1"
     };
 
     if (request.origin && request.origin.custom) {
@@ -927,16 +1000,16 @@ const cloudFrontRequestHandler: AWSLambda.CloudFrontRequestHandler = (event: AWS
         s3Origin = request.origin.s3;
 
         // $ExpectError
-        request.origin.s3.path = '/';
+        request.origin.s3.path = "/";
     }
 
     let customOrigin: AWSLambda.CloudFrontCustomOrigin = {
         customHeaders: {},
-        domainName: 'example.com',
+        domainName: "example.com",
         keepaliveTimeout: 60,
-        path: '/',
+        path: "/",
         port: 80,
-        protocol: 'http',
+        protocol: "http",
         readTimeout: 30,
         sslProtocols: []
     };
@@ -953,26 +1026,50 @@ const cloudFrontRequestHandler: AWSLambda.CloudFrontRequestHandler = (event: AWS
         customOrigin = request.origin.custom;
 
         // $ExpectError
-        request.origin.custom.path = '/';
+        request.origin.custom.path = "/";
     }
 
     cb();
     cb(null);
-    cb(new Error(''));
-    cb(null, { clientIp: str, method: str, uri: str, querystring: str, headers: { } });
+    cb(new Error(""));
+    cb(null, {
+        clientIp: str,
+        method: str,
+        uri: str,
+        querystring: str,
+        headers: {}
+    });
     cb(null, { status: str });
     // $ExpectError
-    cb(null, { });
+    cb(null, {});
 };
 
-const cloudFrontResponseHandler: AWSLambda.CloudFrontResponseHandler = (event: AWSLambda.CloudFrontResponseEvent, context: AWSLambda.Context, cb: AWSLambda.CloudFrontResponseCallback) => { };
+const cloudFrontResponseHandler: AWSLambda.CloudFrontResponseHandler = (
+    event: AWSLambda.CloudFrontResponseEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.CloudFrontResponseCallback
+) => {};
 
-const customAuthorizerHandler: AWSLambda.CustomAuthorizerHandler = (event: AWSLambda.CustomAuthorizerEvent, context: AWSLambda.Context, cb: AWSLambda.CustomAuthorizerCallback) => { };
+const customAuthorizerHandler: AWSLambda.CustomAuthorizerHandler = (
+    event: AWSLambda.CustomAuthorizerEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.CustomAuthorizerCallback
+) => {};
 
-interface CustomEvent { eventString: string; eventBool: boolean; }
-interface CustomResult { resultString: string; resultBool?: boolean; }
+interface CustomEvent {
+    eventString: string;
+    eventBool: boolean;
+}
+interface CustomResult {
+    resultString: string;
+    resultBool?: boolean;
+}
 type CustomCallback = AWSLambda.Callback<CustomResult>;
-const customHandler: AWSLambda.Handler<CustomEvent, CustomResult> = (event, context, cb) => {
+const customHandler: AWSLambda.Handler<CustomEvent, CustomResult> = (
+    event,
+    context,
+    cb
+) => {
     // $ExpectType CustomEvent
     event;
     str = event.eventString;
@@ -986,17 +1083,26 @@ const customHandler: AWSLambda.Handler<CustomEvent, CustomResult> = (event, cont
     cb(null, { resultString: bool });
 };
 
-const kinesisStreamHandler: AWSLambda.KinesisStreamHandler = (event: AWSLambda.KinesisStreamEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => { };
+const kinesisStreamHandler: AWSLambda.KinesisStreamHandler = (
+    event: AWSLambda.KinesisStreamEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
-const SQSMessageHandler: AWSLambda.SQSHandler = (event: AWSLambda.SQSEvent, context: AWSLambda.Context, cb: AWSLambda.Callback<void>) => { };
+const SQSMessageHandler: AWSLambda.SQSHandler = (
+    event: AWSLambda.SQSEvent,
+    context: AWSLambda.Context,
+    cb: AWSLambda.Callback<void>
+) => {};
 
 // See https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-sqs
 const SQSEvent: AWSLambda.SQSEvent = {
     Records: [
         {
             messageId: "c80e8021-a70a-42c7-a470-796e1186f753",
-            receiptHandle: "AQEBJQ+/u6NsnT5t8Q/VbVxgdUl4TMKZ5FqhksRdIQvLBhwNvADoBxYSOVeCBXdnS9P+",
-            body: "{\"foo\":\"bar\"}",
+            receiptHandle:
+                "AQEBJQ+/u6NsnT5t8Q/VbVxgdUl4TMKZ5FqhksRdIQvLBhwNvADoBxYSOVeCBXdnS9P+",
+            body: '{"foo":"bar"}',
             attributes: {
                 ApproximateReceiveCount: "3",
                 SentTimestamp: "1529104986221",
@@ -1015,7 +1121,7 @@ const SQSEvent: AWSLambda.SQSEvent = {
 const SQSMessageLegacyAsyncHandler: AWSLambda.SQSHandler = async (
     event: AWSLambda.SQSEvent,
     context: AWSLambda.Context,
-    cb: AWSLambda.Callback<void>,
+    cb: AWSLambda.Callback<void>
 ) => {
     // $ExpectType SQSEvent
     event;
@@ -1061,8 +1167,8 @@ const firehoseEventHandler: AWSLambda.FirehoseTransformationHandler = (
         records: [
             {
                 recordId: event.records[0].recordId,
-                result: 'Ok' as AWSLambda.FirehoseRecordTransformationStatus,
-                data: 'eyJmb28iOiJiYXIifQ==',
+                result: "Ok" as AWSLambda.FirehoseRecordTransformationStatus,
+                data: "eyJmb28iOiJiYXIifQ=="
             }
         ]
     });
@@ -1071,38 +1177,36 @@ const firehoseEventHandler: AWSLambda.FirehoseTransformationHandler = (
 declare let lexEvent: AWSLambda.LexEvent;
 lexEvent = {
     currentIntent: {
-        name: 'intent-name',
+        name: "intent-name",
         slots: {
             slot1: null,
-            slot2: 'value2',
+            slot2: "value2"
         },
         slotDetails: {
             slot1: {
-                resolutions: [
-                    { value: 'value1' },
-                ],
-                originalValue: 'originalValue',
+                resolutions: [{ value: "value1" }],
+                originalValue: "originalValue"
             }
         },
-        confirmationStatus: 'None',
+        confirmationStatus: "None"
     },
     bot: {
-        name: 'bot name',
-        alias: 'bot alias',
-        version: 'bot version',
+        name: "bot name",
+        alias: "bot alias",
+        version: "bot version"
     },
-    userId: 'User ID specified in the POST request to Amazon Lex.',
-    inputTranscript: 'Text used to process the request',
-    invocationSource: 'FulfillmentCodeHook',
-    outputDialogMode: 'Text',
-    messageVersion: '1.0',
+    userId: "User ID specified in the POST request to Amazon Lex.",
+    inputTranscript: "Text used to process the request",
+    invocationSource: "FulfillmentCodeHook",
+    outputDialogMode: "Text",
+    messageVersion: "1.0",
     sessionAttributes: {
-        key1: 'value1',
-        key2: 'value2',
+        key1: "value1",
+        key2: "value2"
     },
     requestAttributes: {
-        key1: 'value1',
-        key2: 'value2',
+        key1: "value1",
+        key2: "value2"
     }
 };
 
@@ -1118,12 +1222,12 @@ declare let lexGenericAttachment: AWSLambda.LexGenericAttachment;
 
 lexResult = {
     sessionAttributes: {
-        attrib1: 'Value One',
+        attrib1: "Value One"
     },
     dialogAction: {
-        type: 'Close',
-        fulfillmentState: 'Failed',
-    },
+        type: "Close",
+        fulfillmentState: "Failed"
+    }
 };
 
 str = lexGenericAttachment.title;
@@ -1133,41 +1237,42 @@ str = lexGenericAttachment.attachmentLinkUrl;
 str = lexGenericAttachment.buttons[0].text;
 str = lexGenericAttachment.buttons[0].value;
 
-lexDialogAction.type === 'Close';
-lexDialogAction.type === 'ConfirmIntent';
-lexDialogAction.type === 'Delegate';
-lexDialogAction.type === 'ElicitIntent';
-lexDialogAction.type === 'ElicitSlot';
+lexDialogAction.type === "Close";
+lexDialogAction.type === "ConfirmIntent";
+lexDialogAction.type === "Delegate";
+lexDialogAction.type === "ElicitIntent";
+lexDialogAction.type === "ElicitSlot";
 
-lexDialogActionBase.message!.contentType === 'CustomPayload';
-lexDialogActionBase.message!.contentType === 'PlainText';
-lexDialogActionBase.message!.contentType === 'SSML';
+lexDialogActionBase.message!.contentType === "CustomPayload";
+lexDialogActionBase.message!.contentType === "PlainText";
+lexDialogActionBase.message!.contentType === "SSML";
 str = lexDialogActionBase.message!.content;
 num = lexDialogActionBase.responseCard!.version;
-lexDialogActionBase.responseCard!.contentType === 'application/vnd.amazonaws.card.generic';
+lexDialogActionBase.responseCard!.contentType ===
+    "application/vnd.amazonaws.card.generic";
 // $ExpectType LexGenericAttachment
 lexDialogActionBase.responseCard!.genericAttachments[0];
 
-lexDialogActionClose.type === 'Close';
-lexDialogActionClose.fulfillmentState === 'Failed';
-lexDialogActionClose.fulfillmentState === 'Fulfilled';
+lexDialogActionClose.type === "Close";
+lexDialogActionClose.fulfillmentState === "Failed";
+lexDialogActionClose.fulfillmentState === "Fulfilled";
 
-lexDialogActionConfirmIntent.type === 'ConfirmIntent';
+lexDialogActionConfirmIntent.type === "ConfirmIntent";
 str = lexDialogActionConfirmIntent.intentName;
-strOrNull = lexDialogActionConfirmIntent.slots['example'];
+strOrNull = lexDialogActionConfirmIntent.slots["example"];
 
-lexDialogActionDelegate.type === 'Delegate';
-strOrNull = lexDialogActionDelegate.slots['example'];
+lexDialogActionDelegate.type === "Delegate";
+strOrNull = lexDialogActionDelegate.slots["example"];
 
-lexDialogActionElicitIntent.type === 'ElicitIntent';
-lexDialogActionElicitSlot.type === 'ElicitSlot';
-strOrNull = lexDialogActionElicitSlot.slots['example'];
+lexDialogActionElicitIntent.type === "ElicitIntent";
+lexDialogActionElicitSlot.type === "ElicitSlot";
+strOrNull = lexDialogActionElicitSlot.slots["example"];
 str = lexDialogActionElicitSlot.slotToElicit;
 str = lexDialogActionElicitSlot.intentName;
 
 const lexEventHandler: AWSLambda.LexHandler = async (
     event: AWSLambda.LexEvent,
-    context: AWSLambda.Context,
+    context: AWSLambda.Context
 ) => {
     // $ExpectType LexEvent
     event;

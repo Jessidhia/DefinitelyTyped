@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { TransitionCallbacks } from 'react-bootstrap';
+import * as React from "react";
+import { TransitionCallbacks } from "react-bootstrap";
 
 declare namespace Overlay {
     export interface OverlayProps extends TransitionCallbacks {
@@ -15,5 +15,5 @@ declare namespace Overlay {
         shouldUpdatePosition?: boolean;
     }
 }
-declare class Overlay extends React.Component<Overlay.OverlayProps> { }
+declare class Overlay extends React.Component<Overlay.OverlayProps> {}
 export = Overlay;

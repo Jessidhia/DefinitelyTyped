@@ -140,4 +140,6 @@ export function completionItem(item: CompleteItemOrString): CompleteItem;
  *
  * @param args Strings or Objects with name and description property.
  */
-export function log(args: string[] | CompleteItem[] | CompleteItemOrString[]): void;
+export function log(
+    args: string[] | CompleteItem[] | CompleteItemOrString[]
+): void;

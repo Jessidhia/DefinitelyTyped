@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { ExecOptions, ExecException, ExecSyncOptions } from 'child_process';
+import { ExecOptions, ExecException, ExecSyncOptions } from "child_process";
 
 export = gitFirstCommit;
 
@@ -37,9 +37,14 @@ declare function gitFirstCommit(
 
 declare namespace gitFirstCommit {
     function sync(options?: Options<ExecSyncOptions>): string | Buffer;
-    function sync(cwd: string, options?: Options<ExecSyncOptions>): string | Buffer;
+    function sync(
+        cwd: string,
+        options?: Options<ExecSyncOptions>
+    ): string | Buffer;
 
-    type ExecOptionsWithEncoding = { encoding?: BufferEncoding | 'buffer' | null } & ExecOptions;
+    type ExecOptionsWithEncoding = {
+        encoding?: BufferEncoding | "buffer" | null;
+    } & ExecOptions;
 
     interface Options<TExecOptions> {
         cwd?: string;

@@ -2,7 +2,7 @@
 export {
     getIntrospectionQuery,
     // @deprecated, use getIntrospectionQuery() - will be removed in v15
-    introspectionQuery,
+    introspectionQuery
 } from "./introspectionQuery";
 
 export {
@@ -27,7 +27,7 @@ export {
     IntrospectionField,
     IntrospectionInputValue,
     IntrospectionEnumValue,
-    IntrospectionDirective,
+    IntrospectionDirective
 } from "./introspectionQuery";
 
 // Gets the target Operation from a Document
@@ -49,7 +49,7 @@ export {
     // @deprecated: Get the description from a schema AST node and supports legacy
     // syntax for specifying descriptions - will be removed in v16
     getDescription,
-    BuildSchemaOptions,
+    BuildSchemaOptions
 } from "./buildASTSchema";
 
 // Extends an existing GraphQLSchema from a parsed GraphQL Schema language AST.
@@ -59,7 +59,11 @@ export { extendSchema } from "./extendSchema";
 export { lexicographicSortSchema } from "./lexicographicSortSchema";
 
 // Print a GraphQLSchema to GraphQL Schema language.
-export { printSchema, printType, printIntrospectionSchema } from "./schemaPrinter";
+export {
+    printSchema,
+    printType,
+    printIntrospectionSchema
+} from "./schemaPrinter";
 
 // Create a GraphQLType from a GraphQL language AST.
 export { typeFromAST } from "./typeFromAST";
@@ -93,7 +97,11 @@ export { concatAST } from "./concatAST";
 export { separateOperations } from "./separateOperations";
 
 // Comparators for types
-export { isEqualType, isTypeSubTypeOf, doTypesOverlap } from "./typeComparators";
+export {
+    isEqualType,
+    isTypeSubTypeOf,
+    doTypesOverlap
+} from "./typeComparators";
 
 // Asserts that a string is a valid GraphQL name
 export { assertValidName, isValidNameError } from "./assertValidName";
@@ -105,7 +113,7 @@ export {
     findBreakingChanges,
     findDangerousChanges,
     BreakingChange,
-    DangerousChange,
+    DangerousChange
 } from "./findBreakingChanges";
 
 // Report all deprecated usage within a GraphQL document.

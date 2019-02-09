@@ -9,7 +9,14 @@ export var version: string;
 export var author: string;
 
 export class Matrix {
-    constructor(a?: number, b?: number, c?: number, d?: number, tx?: number, ty?: number);
+    constructor(
+        a?: number,
+        b?: number,
+        c?: number,
+        d?: number,
+        tx?: number,
+        ty?: number
+    );
 
     a: number;
     b: number;
@@ -38,7 +45,11 @@ export class Point3D {
 
 export class ColorGeom {
     static get32(color: number): number;
-    static applyBrightness(color: number, brightness: number, highlight?: boolean): number;
+    static applyBrightness(
+        color: number,
+        brightness: number,
+        highlight?: boolean
+    ): number;
 }
 
 export class ColorPattern {
@@ -80,7 +91,13 @@ export class AbstractColor {
 }
 
 export class CubeColor extends AbstractColor {
-    constructor(border?: number, borderHighlight?: number, left?: number, right?: number, horizontal?: number);
+    constructor(
+        border?: number,
+        borderHighlight?: number,
+        left?: number,
+        right?: number,
+        horizontal?: number
+    );
 
     BRIGHTNESS_GAIN: number;
 
@@ -88,7 +105,12 @@ export class CubeColor extends AbstractColor {
 }
 
 export class PyramidColor extends AbstractColor {
-    constructor(border?: number, borderHighlight?: number, left?: number, right?: number);
+    constructor(
+        border?: number,
+        borderHighlight?: number,
+        left?: number,
+        right?: number
+    );
 
     BRIGHTNESS_GAIN: number;
 
@@ -110,7 +132,7 @@ export class SlopeColor extends AbstractColor {
         left?: number,
         right?: number,
         leftSlope?: number,
-        rightSlope?: number,
+        rightSlope?: number
     );
 
     BRIGHTNESS_GAIN: number;
@@ -214,49 +236,106 @@ export class AbstractPrimitive {
 }
 
 export class Brick extends AbstractPrimitive {
-    constructor(dimension?: BrickDimension, color?: SideColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: BrickDimension,
+        color?: SideColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class Cube extends AbstractPrimitive {
-    constructor(dimension?: CubeDimension, color?: CubeColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: CubeDimension,
+        color?: CubeColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class Pyramid extends AbstractPrimitive {
-    constructor(dimension?: PyramidDimension, color?: PyramidColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: PyramidDimension,
+        color?: PyramidColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SideX extends AbstractPrimitive {
-    constructor(dimension?: SideXDimension, color?: SideColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SideXDimension,
+        color?: SideColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SideY extends AbstractPrimitive {
-    constructor(dimension?: SideYDimension, color?: SideColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SideYDimension,
+        color?: SideColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SlopeEast extends AbstractPrimitive {
-    constructor(dimension?: SlopeDimension, color?: SlopeColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SlopeDimension,
+        color?: SlopeColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SlopeNorth extends AbstractPrimitive {
-    constructor(dimension?: SlopeDimension, color?: SlopeColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SlopeDimension,
+        color?: SlopeColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SlopeSouth extends AbstractPrimitive {
-    constructor(dimension?: SlopeDimension, color?: SlopeColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SlopeDimension,
+        color?: SlopeColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class SlopeWest extends AbstractPrimitive {
-    constructor(dimension?: SlopeDimension, color?: SlopeColor, border?: boolean, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: SlopeDimension,
+        color?: SlopeColor,
+        border?: boolean,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class LineX extends AbstractPrimitive {
-    constructor(dimension?: LineXDimension, color?: LineColor, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: LineXDimension,
+        color?: LineColor,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class LineY extends AbstractPrimitive {
-    constructor(dimension?: LineYDimension, color?: LineColor, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: LineYDimension,
+        color?: LineColor,
+        useDefaultCanvas?: boolean
+    );
 }
 
 export class LineZ extends AbstractPrimitive {
-    constructor(dimension?: LineZDimension, color?: LineColor, useDefaultCanvas?: boolean);
+    constructor(
+        dimension?: LineZDimension,
+        color?: LineColor,
+        useDefaultCanvas?: boolean
+    );
 }

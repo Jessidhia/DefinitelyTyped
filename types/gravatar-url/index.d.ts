@@ -5,12 +5,15 @@
 
 export = GravatarUrl;
 
-declare function GravatarUrl(email: string, options?: GravatarUrl.Options): string;
+declare function GravatarUrl(
+    email: string,
+    options?: GravatarUrl.Options
+): string;
 
 declare namespace GravatarUrl {
     interface Options {
         default?: string;
-        rating?: 'g' | 'pg' | 'r' | 'x';
+        rating?: "g" | "pg" | "r" | "x";
         size?: number;
     }
 }

@@ -1,10 +1,10 @@
-import detect = require('franc');
+import detect = require("franc");
 
-const testText = 'This is an example sentence';
+const testText = "This is an example sentence";
 const testOptions = {
     minLength: 3,
-    whitelist: ['eng'],
-    blacklist: [],
+    whitelist: ["eng"],
+    blacklist: []
 };
 
 detect(testText);

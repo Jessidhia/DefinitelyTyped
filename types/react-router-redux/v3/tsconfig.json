@@ -1,35 +1,21 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "history": [
-                "history/v3"
-            ],
-            "history/*": [
-                "history/v3/*"
-            ],
-            "react-router-redux": [
-                "react-router-redux/v3"
-            ]
+            "history": ["history/v3"],
+            "history/*": ["history/v3/*"],
+            "react-router-redux": ["react-router-redux/v3"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "react-router-redux-tests.ts"
-    ]
+    "files": ["index.d.ts", "react-router-redux-tests.ts"]
 }

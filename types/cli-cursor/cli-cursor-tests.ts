@@ -1,4 +1,4 @@
-import { show, hide, toggle } from 'cli-cursor';
+import { show, hide, toggle } from "cli-cursor";
 
 hide();
 hide(process.stderr);

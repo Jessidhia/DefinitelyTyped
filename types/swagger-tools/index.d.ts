@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { NextHandleFunction } from 'connect';
-import { IncomingMessage, ServerResponse } from 'http';
+import { NextHandleFunction } from "connect";
+import { IncomingMessage, ServerResponse } from "http";
 
 export interface SwaggerParameterSchema {
     allowMultiple?: boolean;
@@ -47,7 +47,11 @@ export interface Swagger12Request extends IncomingMessage {
     };
 }
 
-export type SwaggerRouter12HandlerFunction = (req: Swagger12Request, res: ServerResponse, next: (arg?: any) => void) => void;
+export type SwaggerRouter12HandlerFunction = (
+    req: Swagger12Request,
+    res: ServerResponse,
+    next: (arg?: any) => void
+) => void;
 
 export interface SwaggerRouter12OptionsControllers {
     [handlerName: string]: SwaggerRouter12HandlerFunction;
@@ -82,7 +86,8 @@ export interface Swagger20Operation {
     tags?: string[];
 }
 
-export interface Swagger20Request<P extends SwaggerRequestParameters> extends IncomingMessage {
+export interface Swagger20Request<P extends SwaggerRequestParameters>
+    extends IncomingMessage {
     swagger: {
         apiPath: string;
         operation?: Swagger20Operation;
@@ -97,7 +102,11 @@ export interface Swagger20Request<P extends SwaggerRequestParameters> extends In
     };
 }
 
-export type SwaggerRouter20HandlerFunction = (req: Swagger20Request<any>, res: ServerResponse, next: (arg?: any) => void) => void;
+export type SwaggerRouter20HandlerFunction = (
+    req: Swagger20Request<any>,
+    res: ServerResponse,
+    next: (arg?: any) => void
+) => void;
 
 export interface SwaggerRouter20OptionsControllers {
     [handlerName: string]: SwaggerRouter20HandlerFunction;
@@ -118,7 +127,12 @@ export interface SwaggerSecurityError {
 
 export type SwaggerSecurityCallback = (err?: SwaggerSecurityError) => void;
 
-export type SwaggerSecurityHandler = (request: IncomingMessage, securityDefinition: any, scopes: string | string[], callback: SwaggerSecurityCallback) => void;
+export type SwaggerSecurityHandler = (
+    request: IncomingMessage,
+    securityDefinition: any,
+    scopes: string | string[],
+    callback: SwaggerSecurityCallback
+) => void;
 
 export interface SwaggerSecurityOptions {
     [securityDefinitionName: string]: SwaggerSecurityHandler;
@@ -148,7 +162,10 @@ export interface Middleware {
 
 export interface Middleware12 extends Middleware {
     swaggerRouter(options?: SwaggerRouter12Options): NextHandleFunction;
-    swaggerUi(apiDeclarations: SwaggerUi12ApiDeclarations, options?: SwaggerUiOptions): NextHandleFunction;
+    swaggerUi(
+        apiDeclarations: SwaggerUi12ApiDeclarations,
+        options?: SwaggerUiOptions
+    ): NextHandleFunction;
 }
 
 export interface Middleware20 extends Middleware {
@@ -164,7 +181,10 @@ export interface Resource {
     resourcePath: string;
 }
 
-export function initializeMiddleware(swaggerObject: any, callback: InitializeMiddlewareCallback20): void;
+export function initializeMiddleware(
+    swaggerObject: any,
+    callback: InitializeMiddlewareCallback20
+): void;
 
 export function initializeMiddleware(
     swaggerObject: any,

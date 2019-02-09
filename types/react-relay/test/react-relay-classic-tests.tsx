@@ -31,9 +31,9 @@ export default class AddTweetMutation extends Relay.Mutation<Props, {}> {
                 connectionName: "tweets",
                 edgeName: "tweetEdge",
                 rangeBehaviors: {
-                    "": "append",
-                },
-            },
+                    "": "append"
+                }
+            }
         ];
     }
 
@@ -54,7 +54,11 @@ interface ArtworkProps extends Relay.RelayProps<ArtwokRelayVariables> {
 
 class Artwork extends React.Component<ArtworkProps> {
     render() {
-        return <a href={`/artworks/${this.props.relay.variables.artworkID}`}>{this.props.artwork.title}</a>;
+        return (
+            <a href={`/artworks/${this.props.relay.variables.artworkID}`}>
+                {this.props.artwork.title}
+            </a>
+        );
     }
 }
 
@@ -65,8 +69,8 @@ const ArtworkContainer = Relay.createContainer(Artwork, {
                 title
                 ${CompatContainer.getFragment("whatever")}
             }
-        `,
-    },
+        `
+    }
 });
 
 class StubbedArtwork extends React.Component {
@@ -75,17 +79,17 @@ class StubbedArtwork extends React.Component {
             artwork: { title: "CHAMPAGNE FORMICA FLAG" },
             relay: {
                 route: {
-                    name: "champagne",
+                    name: "champagne"
                 },
                 variables: {
-                    artworkID: "champagne-formica-flag",
+                    artworkID: "champagne-formica-flag"
                 },
                 setVariables: () => {},
                 forceFetch: () => {},
                 hasOptimisticUpdate: () => false,
                 getPendingTransactions: (): any => undefined,
-                commitUpdate: () => {},
-            },
+                commitUpdate: () => {}
+            }
         };
         return <ArtworkContainer {...props} />;
     }

@@ -1,6 +1,6 @@
-import gzipSize = require('gzip-size');
+import gzipSize = require("gzip-size");
 
-const string = 'Lorem ipsum dolor sit amet.';
+const string = "Lorem ipsum dolor sit amet.";
 
 console.log(string.length);
 

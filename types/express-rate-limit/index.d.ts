@@ -33,7 +33,11 @@ declare namespace RateLimit {
          * Date object.
          * Default: `(req, res, next) => res.status(options.statusCode).send(options.message)`
          */
-        handler?(req: express.Request, res: express.Response, next: express.NextFunction): any;
+        handler?(
+            req: express.Request,
+            res: express.Response,
+            next: express.NextFunction
+        ): any;
 
         /**
          * Enable headers for request limit (`X-RateLimit-Limit`) and current usage (`X-RateLimit-Remaining`) on all
@@ -65,7 +69,11 @@ declare namespace RateLimit {
          * an empty function.
          * Default: `(req, res, opts) => {}`
          */
-        onLimitReached?(req: express.Request, res: express.Response, optionsUsed: Options): void;
+        onLimitReached?(
+            req: express.Request,
+            res: express.Response,
+            optionsUsed: Options
+        ): void;
 
         /**
          * Function used to skip requests. Returning `true` from the function will skip limiting for that request. Defaults to
@@ -101,5 +109,7 @@ declare namespace RateLimit {
     }
 }
 
-declare var RateLimit: new (options: RateLimit.Options) => express.RequestHandler;
+declare var RateLimit: new (
+    options: RateLimit.Options
+) => express.RequestHandler;
 export = RateLimit;

@@ -13,7 +13,10 @@ declare global {
         type AnalyticsProperties = Partial<PropertyMixins.Analytics>;
 
         interface Analytics extends NativeObject, PropertyMixins.Analytics {
-            logEvent(eventName: string, parameters?: {[key: string]: string}): void;
+            logEvent(
+                eventName: string,
+                parameters?: { [key: string]: string }
+            ): void;
             setUserProperty(propertyName: string, value: string): void;
             set(properties: AnalyticsProperties): this;
             set(property: string, value: any): this;
@@ -24,16 +27,30 @@ declare global {
             readonly token: string;
             readonly launchData: object;
             resetInstanceId(): void;
-            on(type: string, listener: (event: any) => void, context?: object): this;
+            on(
+                type: string,
+                listener: (event: any) => void,
+                context?: object
+            ): this;
             on(listeners: MessagingEvents): this;
-            off(type: string, listener: (event: any) => void, context?: object): this;
+            off(
+                type: string,
+                listener: (event: any) => void,
+                context?: object
+            ): this;
             off(listeners: MessagingEvents): this;
-            once(type: string, listener: (event: any) => void, context?: object): this;
+            once(
+                type: string,
+                listener: (event: any) => void,
+                context?: object
+            ): this;
             once(listeners: MessagingEvents): this;
         }
 
         interface MessagingEvents {
-            instanceIdChanged?(event: PropertyChangedEvent<Messaging, string>): void;
+            instanceIdChanged?(
+                event: PropertyChangedEvent<Messaging, string>
+            ): void;
             tokenChanged?(event: PropertyChangedEvent<Messaging, string>): void;
             message?(event: MessageEvent): void;
         }

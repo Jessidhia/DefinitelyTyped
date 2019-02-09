@@ -4,19 +4,24 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as enzyme from 'enzyme';
+import * as enzyme from "enzyme";
 
-declare module 'enzyme' {
+declare module "enzyme" {
     interface UntilOptions {
         maxDepth: number;
     }
     interface ShallowWrapper<P = {}> {
         renderProp(propName: string, ...args: any[]): ShallowWrapper<P>;
         drill(expander: (props: any) => ShallowWrapper): ShallowWrapper<P>;
-        until(selector: EnzymeSelector, options?: UntilOptions): ShallowWrapper<P>;
+        until(
+            selector: EnzymeSelector,
+            options?: UntilOptions
+        ): ShallowWrapper<P>;
     }
 }
 
-declare function monkeyPatchShallowWrapper(s: typeof enzyme.ShallowWrapper): void;
+declare function monkeyPatchShallowWrapper(
+    s: typeof enzyme.ShallowWrapper
+): void;
 
 export = monkeyPatchShallowWrapper;

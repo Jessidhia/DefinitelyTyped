@@ -6,7 +6,7 @@
 
 declare namespace pkgConf {
     type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
-    interface JsonArray extends Array<AnyJson> { }
+    interface JsonArray extends Array<AnyJson> {}
     interface JsonMap {
         [key: string]: AnyJson;
     }
@@ -29,6 +29,9 @@ declare namespace pkgConf {
 }
 
 // Returns a Promise for the config.
-declare function pkgConf(namespace: string, options?: pkgConf.Options): Promise<pkgConf.JsonMap>;
+declare function pkgConf(
+    namespace: string,
+    options?: pkgConf.Options
+): Promise<pkgConf.JsonMap>;
 
 export = pkgConf;

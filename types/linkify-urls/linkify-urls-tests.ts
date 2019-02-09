@@ -1,32 +1,32 @@
-import linkifyUrls = require('linkify-urls');
+import linkifyUrls = require("linkify-urls");
 
 // $ExpectType string
-linkifyUrls('See https://sindresorhus.com', {
+linkifyUrls("See https://sindresorhus.com", {
     attributes: {
-        class: 'unicorn',
+        class: "unicorn",
         one: 1,
         foo: true,
-        multiple: ['a', 'b'],
-    },
+        multiple: ["a", "b"]
+    }
 });
 // $ExpectType string
-linkifyUrls('See https://sindresorhus.com', {
-    value: 'foo',
+linkifyUrls("See https://sindresorhus.com", {
+    value: "foo"
 });
 // $ExpectType string
-linkifyUrls('See https://sindresorhus.com/foo', {
-    value: url => new URL(url).pathname,
+linkifyUrls("See https://sindresorhus.com/foo", {
+    value: url => new URL(url).pathname
 });
 // $ExpectType string
-linkifyUrls('See https://sindresorhus.com/foo', {
-    type: 'string',
+linkifyUrls("See https://sindresorhus.com/foo", {
+    type: "string"
 });
 
-const fragment = linkifyUrls('See https://sindresorhus.com', {
-    type: 'dom',
+const fragment = linkifyUrls("See https://sindresorhus.com", {
+    type: "dom",
     attributes: {
-        class: 'unicorn',
-    },
+        class: "unicorn"
+    }
 });
 
 // $ExpectType DocumentFragment

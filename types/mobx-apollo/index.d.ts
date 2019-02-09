@@ -9,7 +9,7 @@ import {
     ObservableQuery,
     WatchQueryOptions,
     ApolloError
-} from 'apollo-client';
+} from "apollo-client";
 
 export interface MobxApolloQueryOptions<T> extends WatchQueryOptions {
     client: ApolloClient<any>;

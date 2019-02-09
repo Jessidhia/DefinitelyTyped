@@ -1,5 +1,5 @@
-import * as React from 'react';
-import AutosizeInput, { AutosizeInputProps } from 'react-input-autosize';
+import * as React from "react";
+import AutosizeInput, { AutosizeInputProps } from "react-input-autosize";
 
 class Test extends React.Component<AutosizeInputProps> {
     input: HTMLInputElement;
@@ -7,12 +7,12 @@ class Test extends React.Component<AutosizeInputProps> {
 
     inputRef = (ref: HTMLInputElement) => {
         this.input = ref;
-    }
+    };
 
     onChange: React.ChangeEventHandler<HTMLInputElement> = _event => {
         const input = this.auto.getInput();
         input.blur();
-    }
+    };
 
     render() {
         return (

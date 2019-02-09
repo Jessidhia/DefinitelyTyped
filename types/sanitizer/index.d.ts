@@ -3,7 +3,6 @@
 // Definitions by: Dave Taylor <http://davetayls.me>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 export interface ISaxHandler {
     startTag(name: string, attribs: string[], param: any): void;
     endTag(name: string, param: any): void;
@@ -17,7 +16,9 @@ export interface ISaxHandler {
 
 export declare function escape(s: string): string;
 
-export declare function makeSaxParser(yourHandler: ISaxHandler): (...any: any[]) => any;
+export declare function makeSaxParser(
+    yourHandler: ISaxHandler
+): (...any: any[]) => any;
 
 export declare function normalizeRCData(s: string): string;
 

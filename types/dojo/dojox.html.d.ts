@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/html.html
      *
@@ -12,8 +11,7 @@ declare namespace dojox {
      * this module.
      *
      */
-    interface html {
-    }
+    interface html {}
     namespace html {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/html/ellipsis.html
@@ -25,8 +23,7 @@ declare namespace dojox {
          * NOTE: When using the dojoxEllipsis class within tables, the table needs to have the table-layout: fixed style
          *
          */
-        interface ellipsis {
-        }
+        interface ellipsis {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/html/entities.html
          *
@@ -172,7 +169,11 @@ declare namespace dojox {
              * @param declaration A single string that would make up a style block, notincluding the curly braces. Include semi-colons betweenstatements. Do not use JavaScript style declarationsin camel case, use as you would in a CSS dojo.doc:"color:#ffoooo;font-size:12px;margin-left:5px;"
              * @param styleSheetName               OptionalName of the dynamic style sheet this rule should beinserted into. If is not found by that name, it iscreated. If no name is passed, the name "default" isused.
              */
-            insertCssRule(selector: String, declaration: String, styleSheetName: String): String;
+            insertCssRule(
+                selector: String,
+                declaration: String,
+                styleSheetName: String
+            ): String;
             /**
              * Not implemented - it seems to have some merit for changing some complex
              * selectors. It's not much use for changing simple ones like "span".
@@ -184,7 +185,11 @@ declare namespace dojox {
              * @param declaration
              * @param styleSheetName
              */
-            modifyCssRule(selector: any, declaration: any, styleSheetName: any): void;
+            modifyCssRule(
+                selector: any,
+                declaration: any,
+                styleSheetName: any
+            ): void;
             /**
              * Removes a cssRule base on the selector and declaration passed
              * The declaration is needed for cases of dupe selectors
@@ -195,7 +200,11 @@ declare namespace dojox {
              * @param declaration
              * @param styleSheetName
              */
-            removeCssRule(selector: String, declaration: String, styleSheetName: String): void;
+            removeCssRule(
+                selector: String,
+                declaration: String,
+                styleSheetName: String
+            ): void;
         }
         namespace styles {
             /**
@@ -405,7 +414,11 @@ declare namespace dojox {
                  * @param style
                  * @param className               Optional
                  */
-                getTextBox(text: String, style: Object, className: String): void;
+                getTextBox(
+                    text: String,
+                    style: Object,
+                    className: String
+                ): void;
                 /**
                  *
                  */
@@ -558,54 +571,50 @@ declare namespace dojox {
         }
 
         namespace ext_dojo {
-            namespace style {
-            }
-
+            namespace style {}
         }
 
-        namespace format {
-        }
-
+        namespace format {}
     }
 }
 
 declare module "dojox/html" {
-    var exp: dojox.html
-    export=exp;
+    var exp: dojox.html;
+    export = exp;
 }
 declare module "dojox/html/ellipsis" {
-    var exp: dojox.html.ellipsis
-    export=exp;
+    var exp: dojox.html.ellipsis;
+    export = exp;
 }
 declare module "dojox/html/entities" {
-    var exp: dojox.html.entities
-    export=exp;
+    var exp: dojox.html.entities;
+    export = exp;
 }
 declare module "dojox/html/metrics" {
-    var exp: dojox.html.metrics
-    export=exp;
+    var exp: dojox.html.metrics;
+    export = exp;
 }
 declare module "dojox/html/styles" {
-    var exp: dojox.html.styles
-    export=exp;
+    var exp: dojox.html.styles;
+    export = exp;
 }
 declare module "dojox/html/styles._ContentSetter" {
-    var exp: dojox.html.styles._ContentSetter
-    export=exp;
+    var exp: dojox.html.styles._ContentSetter;
+    export = exp;
 }
 declare module "dojox/html/styles.ext-dojo" {
-    var exp: dojox.html.styles.ext_dojo
-    export=exp;
+    var exp: dojox.html.styles.ext_dojo;
+    export = exp;
 }
 declare module "dojox/html/styles.metrics" {
-    var exp: dojox.html.styles.metrics
-    export=exp;
+    var exp: dojox.html.styles.metrics;
+    export = exp;
 }
 declare module "dojox/html/styles.entities" {
-    var exp: dojox.html.styles.entities
-    export=exp;
+    var exp: dojox.html.styles.entities;
+    export = exp;
 }
 declare module "dojox/html/_base._ContentSetter" {
-    var exp: dojox.html._base._ContentSetter
-    export=exp;
+    var exp: dojox.html._base._ContentSetter;
+    export = exp;
 }

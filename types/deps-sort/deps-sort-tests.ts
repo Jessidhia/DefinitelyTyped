@@ -22,7 +22,7 @@ function browserifyTest(opts: depsSort.Options) {
     inst.on("file", (file, id) => {
         console.log("file", file, id);
     });
-    inst.on("package", (pkg) => {
+    inst.on("package", pkg => {
         console.log("package", pkg);
     });
     inst.on("transform", (tr, file) => {

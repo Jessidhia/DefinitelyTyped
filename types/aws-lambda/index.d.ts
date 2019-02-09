@@ -127,7 +127,11 @@ export interface StreamRecord {
     OldImage?: { [key: string]: AttributeValue };
     SequenceNumber?: string;
     SizeBytes?: number;
-    StreamViewType?: 'KEYS_ONLY' | 'NEW_IMAGE' | 'OLD_IMAGE' | 'NEW_AND_OLD_IMAGES';
+    StreamViewType?:
+        | "KEYS_ONLY"
+        | "NEW_IMAGE"
+        | "OLD_IMAGE"
+        | "NEW_AND_OLD_IMAGES";
 }
 
 // Context
@@ -136,7 +140,7 @@ export interface DynamoDBRecord {
     awsRegion?: string;
     dynamodb?: StreamRecord;
     eventID?: string;
-    eventName?: 'INSERT' | 'MODIFY' | 'REMOVE';
+    eventName?: "INSERT" | "MODIFY" | "REMOVE";
     eventSource?: string;
     eventSourceARN?: string;
     eventVersion?: string;
@@ -202,8 +206,8 @@ export interface S3EventRecord {
         sourceIPAddress: string;
     };
     responseElements: {
-        'x-amz-request-id': string;
-        'x-amz-id-2': string;
+        "x-amz-request-id": string;
+        "x-amz-id-2": string;
     };
     s3: {
         s3SchemaVersion: string;
@@ -212,16 +216,16 @@ export interface S3EventRecord {
             name: string;
             ownerIdentity: {
                 principalId: string;
-            },
+            };
             arn: string;
-        },
+        };
         object: {
             key: string;
             size: number;
             eTag: string;
             versionId: string;
             sequencer: string;
-        }
+        };
     };
 }
 
@@ -237,29 +241,29 @@ export type S3CreateEvent = S3Event; // old name
 export interface CognitoUserPoolTriggerEvent {
     version: number;
     triggerSource:
-    | "PreSignUp_SignUp"
-    | "PostConfirmation_ConfirmSignUp"
-    | "PreAuthentication_Authentication"
-    | "PostAuthentication_Authentication"
-    | "CustomMessage_SignUp"
-    | "CustomMessage_AdminCreateUser"
-    | "CustomMessage_ResendCode"
-    | "CustomMessage_ForgotPassword"
-    | "CustomMessage_UpdateUserAttribute"
-    | "CustomMessage_VerifyUserAttribute"
-    | "CustomMessage_Authentication"
-    | "DefineAuthChallenge_Authentication"
-    | "CreateAuthChallenge_Authentication"
-    | "VerifyAuthChallengeResponse_Authentication"
-    | "PreSignUp_AdminCreateUser"
-    | "PostConfirmation_ConfirmForgotPassword"
-    | "TokenGeneration_HostedAuth"
-    | "TokenGeneration_Authentication"
-    | "TokenGeneration_NewPasswordChallenge"
-    | "TokenGeneration_AuthenticateDevice"
-    | "TokenGeneration_RefreshTokens"
-    | "UserMigration_Authentication"
-    | "UserMigration_ForgotPassword";
+        | "PreSignUp_SignUp"
+        | "PostConfirmation_ConfirmSignUp"
+        | "PreAuthentication_Authentication"
+        | "PostAuthentication_Authentication"
+        | "CustomMessage_SignUp"
+        | "CustomMessage_AdminCreateUser"
+        | "CustomMessage_ResendCode"
+        | "CustomMessage_ForgotPassword"
+        | "CustomMessage_UpdateUserAttribute"
+        | "CustomMessage_VerifyUserAttribute"
+        | "CustomMessage_Authentication"
+        | "DefineAuthChallenge_Authentication"
+        | "CreateAuthChallenge_Authentication"
+        | "VerifyAuthChallengeResponse_Authentication"
+        | "PreSignUp_AdminCreateUser"
+        | "PostConfirmation_ConfirmForgotPassword"
+        | "TokenGeneration_HostedAuth"
+        | "TokenGeneration_Authentication"
+        | "TokenGeneration_NewPasswordChallenge"
+        | "TokenGeneration_AuthenticateDevice"
+        | "TokenGeneration_RefreshTokens"
+        | "UserMigration_Authentication"
+        | "UserMigration_ForgotPassword";
     region: string;
     userPoolId: string;
     userName?: string;
@@ -274,7 +278,13 @@ export interface CognitoUserPoolTriggerEvent {
         usernameParameter?: string;
         newDeviceUsed?: boolean;
         session?: Array<{
-            challengeName: "CUSTOM_CHALLENGE" | "PASSWORD_VERIFIER" | "SMS_MFA" | "DEVICE_SRP_AUTH" | "DEVICE_PASSWORD_VERIFIER" | "ADMIN_NO_SRP_AUTH";
+            challengeName:
+                | "CUSTOM_CHALLENGE"
+                | "PASSWORD_VERIFIER"
+                | "SMS_MFA"
+                | "DEVICE_SRP_AUTH"
+                | "DEVICE_PASSWORD_VERIFIER"
+                | "ADMIN_NO_SRP_AUTH";
             challengeResult: boolean;
             challengeMetadata?: string;
         }>;
@@ -321,11 +331,13 @@ export interface CloudFormationCustomResourceEventCommon {
     };
 }
 
-export interface CloudFormationCustomResourceCreateEvent extends CloudFormationCustomResourceEventCommon {
+export interface CloudFormationCustomResourceCreateEvent
+    extends CloudFormationCustomResourceEventCommon {
     RequestType: "Create";
 }
 
-export interface CloudFormationCustomResourceUpdateEvent extends CloudFormationCustomResourceEventCommon {
+export interface CloudFormationCustomResourceUpdateEvent
+    extends CloudFormationCustomResourceEventCommon {
     RequestType: "Update";
     PhysicalResourceId: string;
     OldResourceProperties: {
@@ -333,12 +345,16 @@ export interface CloudFormationCustomResourceUpdateEvent extends CloudFormationC
     };
 }
 
-export interface CloudFormationCustomResourceDeleteEvent extends CloudFormationCustomResourceEventCommon {
+export interface CloudFormationCustomResourceDeleteEvent
+    extends CloudFormationCustomResourceEventCommon {
     RequestType: "Delete";
     PhysicalResourceId: string;
 }
 
-export type CloudFormationCustomResourceEvent = CloudFormationCustomResourceCreateEvent | CloudFormationCustomResourceUpdateEvent | CloudFormationCustomResourceDeleteEvent;
+export type CloudFormationCustomResourceEvent =
+    | CloudFormationCustomResourceCreateEvent
+    | CloudFormationCustomResourceUpdateEvent
+    | CloudFormationCustomResourceDeleteEvent;
 
 export interface CloudFormationCustomResourceResponseCommon {
     PhysicalResourceId: string;
@@ -350,17 +366,21 @@ export interface CloudFormationCustomResourceResponseCommon {
     };
 }
 
-export interface CloudFormationCustomResourceSuccessResponse extends CloudFormationCustomResourceResponseCommon {
+export interface CloudFormationCustomResourceSuccessResponse
+    extends CloudFormationCustomResourceResponseCommon {
     Status: "SUCCESS";
     Reason?: string;
 }
 
-export interface CloudFormationCustomResourceFailedResponse extends CloudFormationCustomResourceResponseCommon {
+export interface CloudFormationCustomResourceFailedResponse
+    extends CloudFormationCustomResourceResponseCommon {
     Status: "FAILED";
     Reason: string;
 }
 
-export type CloudFormationCustomResourceResponse = CloudFormationCustomResourceSuccessResponse | CloudFormationCustomResourceFailedResponse;
+export type CloudFormationCustomResourceResponse =
+    | CloudFormationCustomResourceSuccessResponse
+    | CloudFormationCustomResourceFailedResponse;
 
 /**
  * See https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-scheduled-event
@@ -403,7 +423,7 @@ export interface CloudWatchLogsLogEvent {
     id: string;
     timestamp: number;
     message: string;
-    extractedFields?: {[key: string]: string};
+    extractedFields?: { [key: string]: string };
 }
 
 // Context
@@ -513,7 +533,9 @@ export interface Condition {
  * https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-policy-language-overview.html
  * https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
  */
-export type Statement = BaseStatement & StatementAction & (StatementResource | StatementPrincipal);
+export type Statement = BaseStatement &
+    StatementAction &
+    (StatementResource | StatementPrincipal);
 
 export interface BaseStatement {
     Effect: string;
@@ -521,7 +543,10 @@ export interface BaseStatement {
     Condition?: ConditionBlock;
 }
 
-export type PrincipalValue = { [key: string]: string | string[]; } | string | string[];
+export type PrincipalValue =
+    | { [key: string]: string | string[] }
+    | string
+    | string[];
 export interface MaybeStatementPrincipal {
     Principal?: PrincipalValue;
     NotPrincipal?: PrincipalValue;
@@ -530,9 +555,13 @@ export interface MaybeStatementResource {
     Resource?: string | string[];
     NotResource?: string | string[];
 }
-export type StatementAction = { Action: string | string[] } | { NotAction: string | string[] };
-export type StatementResource = MaybeStatementPrincipal & ({ Resource: string | string[] } | { NotResource: string | string[] });
-export type StatementPrincipal = MaybeStatementResource & ({ Principal: PrincipalValue } | { NotPrincipal: PrincipalValue });
+export type StatementAction =
+    | { Action: string | string[] }
+    | { NotAction: string | string[] };
+export type StatementResource = MaybeStatementPrincipal &
+    ({ Resource: string | string[] } | { NotResource: string | string[] });
+export type StatementPrincipal = MaybeStatementResource &
+    ({ Principal: PrincipalValue } | { NotPrincipal: PrincipalValue });
 /**
  * API Gateway CustomAuthorizer AuthResponse.PolicyDocument.Statement.
  * http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html#api-gateway-custom-authorizer-output
@@ -550,7 +579,7 @@ export interface S3ArtifactLocation {
     objectKey: string;
 }
 export interface S3ArtifactStore {
-    type: 'S3';
+    type: "S3";
     s3Location: S3ArtifactLocation;
 }
 
@@ -582,12 +611,12 @@ export interface CodePipelineEvent {
                 configuration: {
                     FunctionName: string;
                     UserParameters: string;
-                }
+                };
             };
             inputArtifacts: Artifact[];
             outputArtifacts: Artifact[];
             artifactCredentials: Credentials;
-            encryptionKey?: EncryptionKey & { type: 'KMS' };
+            encryptionKey?: EncryptionKey & { type: "KMS" };
             continuationToken?: string;
         };
     };
@@ -603,31 +632,31 @@ export interface CodePipelineEvent {
  * Their documentation says that detail.version is a string, but it is actually an integer
  */
 export type CodePipelineState =
-    | 'STARTED'
-    | 'SUCCEEDED'
-    | 'RESUMED'
-    | 'FAILED'
-    | 'CANCELED'
-    | 'SUPERSEDED';
+    | "STARTED"
+    | "SUCCEEDED"
+    | "RESUMED"
+    | "FAILED"
+    | "CANCELED"
+    | "SUPERSEDED";
 
 export type CodePipelineStageState =
-    | 'STARTED'
-    | 'SUCCEEDED'
-    | 'RESUMED'
-    | 'FAILED'
-    | 'CANCELED';
+    | "STARTED"
+    | "SUCCEEDED"
+    | "RESUMED"
+    | "FAILED"
+    | "CANCELED";
 
 export type CodePipelineActionState =
-    | 'STARTED'
-    | 'SUCCEEDED'
-    | 'FAILED'
-    | 'CANCELED';
+    | "STARTED"
+    | "SUCCEEDED"
+    | "FAILED"
+    | "CANCELED";
 
 export interface CodePipelineCloudWatchPipelineEvent {
     version: string;
     id: string;
-    'detail-type': 'CodePipeline Pipeline Execution State Change';
-    source: 'aws.codepipeline';
+    "detail-type": "CodePipeline Pipeline Execution State Change";
+    source: "aws.codepipeline";
     account: string;
     time: string;
     region: string;
@@ -636,15 +665,15 @@ export interface CodePipelineCloudWatchPipelineEvent {
         pipeline: string;
         version: number;
         state: CodePipelineState;
-        'execution-id': string;
+        "execution-id": string;
     };
 }
 
 export interface CodePipelineCloudWatchStageEvent {
     version: string;
     id: string;
-    'detail-type': 'CodePipeline Stage Execution State Change';
-    source: 'aws.codepipeline';
+    "detail-type": "CodePipeline Stage Execution State Change";
+    source: "aws.codepipeline";
     account: string;
     time: string;
     region: string;
@@ -652,25 +681,25 @@ export interface CodePipelineCloudWatchStageEvent {
     detail: {
         pipeline: string;
         version: number;
-        'execution-id': string;
+        "execution-id": string;
         stage: string;
         state: CodePipelineStageState;
     };
 }
 
 export type CodePipelineActionCategory =
-    | 'Approval'
-    | 'Build'
-    | 'Deploy'
-    | 'Invoke'
-    | 'Source'
-    | 'Test';
+    | "Approval"
+    | "Build"
+    | "Deploy"
+    | "Invoke"
+    | "Source"
+    | "Test";
 
 export interface CodePipelineCloudWatchActionEvent {
     version: string;
     id: string;
-    'detail-type': 'CodePipeline Action Execution State Change';
-    source: 'aws.codepipeline';
+    "detail-type": "CodePipeline Action Execution State Change";
+    source: "aws.codepipeline";
     account: string;
     time: string;
     region: string;
@@ -678,12 +707,12 @@ export interface CodePipelineCloudWatchActionEvent {
     detail: {
         pipeline: string;
         version: number;
-        'execution-id': string;
+        "execution-id": string;
         stage: string;
         action: string;
         state: CodePipelineActionState;
         type: {
-            owner: 'AWS' | 'Custom' | 'ThirdParty';
+            owner: "AWS" | "Custom" | "ThirdParty";
             category: CodePipelineActionCategory;
             provider: string;
             version: number;
@@ -711,8 +740,8 @@ export interface CloudFrontHeaders {
 }
 
 export type CloudFrontOrigin =
-    | { s3: CloudFrontS3Origin, custom?: never }
-    | { custom: CloudFrontCustomOrigin, s3?: never };
+    | { s3: CloudFrontS3Origin; custom?: never }
+    | { custom: CloudFrontCustomOrigin; s3?: never };
 
 export interface CloudFrontCustomOrigin {
     customHeaders: CloudFrontHeaders;
@@ -720,13 +749,13 @@ export interface CloudFrontCustomOrigin {
     keepaliveTimeout: number;
     path: string;
     port: number;
-    protocol: 'http' | 'https';
+    protocol: "http" | "https";
     readTimeout: number;
     sslProtocols: string[];
 }
 
 export interface CloudFrontS3Origin {
-    authMethod: 'origin-access-identity' | 'none';
+    authMethod: "origin-access-identity" | "none";
     customHeaders: CloudFrontHeaders;
     domainName: string;
     path: string;
@@ -752,7 +781,11 @@ export interface CloudFrontEvent {
     config: {
         distributionDomainName: string;
         distributionId: string;
-        eventType: 'origin-request' | 'origin-response' | 'viewer-request' | 'viewer-response';
+        eventType:
+            | "origin-request"
+            | "origin-response"
+            | "viewer-request"
+            | "viewer-response";
         requestId: string;
     };
 }
@@ -762,7 +795,7 @@ export interface CloudFrontResultResponse {
     status: string;
     statusDescription?: string;
     headers?: CloudFrontHeaders;
-    bodyEncoding?: 'text' | 'base64';
+    bodyEncoding?: "text" | "base64";
     body?: string;
 }
 
@@ -771,21 +804,28 @@ export interface CloudFrontResponseEvent {
         cf: CloudFrontEvent & {
             request: CloudFrontRequest;
             response: CloudFrontResponse;
-        }
+        };
     }>;
 }
 
-export type CloudFrontRequestResult = undefined | null | CloudFrontResultResponse | CloudFrontRequest;
+export type CloudFrontRequestResult =
+    | undefined
+    | null
+    | CloudFrontResultResponse
+    | CloudFrontRequest;
 
 export interface CloudFrontRequestEvent {
     Records: Array<{
         cf: CloudFrontEvent & {
             request: CloudFrontRequest;
-        }
+        };
     }>;
 }
 
-export type CloudFrontResponseResult = undefined | null | CloudFrontResultResponse;
+export type CloudFrontResponseResult =
+    | undefined
+    | null
+    | CloudFrontResultResponse;
 
 // Kinesis Streams
 // https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-kinesis-streams
@@ -840,7 +880,10 @@ export interface FirehoseRecordMetadata {
     subsequenceNumber: string;
 }
 
-export type FirehoseRecordTransformationStatus = 'Ok' | 'Dropped' | 'ProcessingFailed';
+export type FirehoseRecordTransformationStatus =
+    | "Ok"
+    | "Dropped"
+    | "ProcessingFailed";
 
 export interface FirehoseTransformationResultRecord {
     recordId: string;
@@ -893,7 +936,7 @@ export interface LexEvent {
         name: string;
         slots: { [name: string]: string | null };
         slotDetails: LexSlotDetails;
-        confirmationStatus: 'None' | 'Confirmed' | 'Denied';
+        confirmationStatus: "None" | "Confirmed" | "Denied";
     };
     bot: {
         name: string;
@@ -902,9 +945,9 @@ export interface LexEvent {
     };
     userId: string;
     inputTranscript: string;
-    invocationSource: 'DialogCodeHook' | 'FulfillmentCodeHook';
-    outputDialogMode: 'Text' | 'Voice';
-    messageVersion: '1.0';
+    invocationSource: "DialogCodeHook" | "FulfillmentCodeHook";
+    outputDialogMode: "Text" | "Voice";
+    messageVersion: "1.0";
     sessionAttributes: { [key: string]: string };
     requestAttributes: { [key: string]: string } | null;
 }
@@ -917,7 +960,7 @@ export interface LexSlotDetails {
     [name: string]: {
         // The following line only works in TypeScript Version: 3.0, The array should have at least 1 and no more than 5 items
         // resolutions: [LexSlotResolution, LexSlotResolution?, LexSlotResolution?, LexSlotResolution?, LexSlotResolution?];
-        resolutions: LexSlotResolution[]
+        resolutions: LexSlotResolution[];
         originalValue: string;
     };
 }
@@ -934,46 +977,51 @@ export interface LexGenericAttachment {
 }
 
 export interface LexDialogActionBase {
-    type: 'Close' | 'ElicitIntent' | 'ElicitSlot' | 'ConfirmIntent';
+    type: "Close" | "ElicitIntent" | "ElicitSlot" | "ConfirmIntent";
     message?: {
-        contentType: 'PlainText' | 'SSML' | 'CustomPayload';
+        contentType: "PlainText" | "SSML" | "CustomPayload";
         content: string;
     };
     responseCard?: {
         version: number;
-        contentType: 'application/vnd.amazonaws.card.generic';
+        contentType: "application/vnd.amazonaws.card.generic";
         genericAttachments: LexGenericAttachment[];
     };
 }
 
 export interface LexDialogActionClose extends LexDialogActionBase {
-    type: 'Close';
-    fulfillmentState: 'Fulfilled' | 'Failed';
+    type: "Close";
+    fulfillmentState: "Fulfilled" | "Failed";
 }
 
 export interface LexDialogActionElicitIntent extends LexDialogActionBase {
-    type: 'ElicitIntent';
+    type: "ElicitIntent";
 }
 
 export interface LexDialogActionElicitSlot extends LexDialogActionBase {
-    type: 'ElicitSlot';
+    type: "ElicitSlot";
     intentName: string;
     slots: { [name: string]: string | null };
     slotToElicit: string;
 }
 
 export interface LexDialogActionConfirmIntent extends LexDialogActionBase {
-    type: 'ConfirmIntent';
+    type: "ConfirmIntent";
     intentName: string;
     slots: { [name: string]: string | null };
 }
 
 export interface LexDialogActionDelegate {
-    type: 'Delegate';
+    type: "Delegate";
     slots: { [name: string]: string | null };
 }
 
-export type LexDialogAction = LexDialogActionClose | LexDialogActionElicitIntent | LexDialogActionElicitSlot | LexDialogActionConfirmIntent | LexDialogActionDelegate;
+export type LexDialogAction =
+    | LexDialogActionClose
+    | LexDialogActionElicitIntent
+    | LexDialogActionElicitSlot
+    | LexDialogActionConfirmIntent
+    | LexDialogActionDelegate;
 
 export interface LexResult {
     sessionAttributes?: { [key: string]: string };
@@ -992,7 +1040,7 @@ export interface LexResult {
 export type Handler<TEvent = any, TResult = any> = (
     event: TEvent,
     context: Context,
-    callback: Callback<TResult>,
+    callback: Callback<TResult>
 ) => void | Promise<TResult>;
 
 /**
@@ -1004,7 +1052,10 @@ export type Handler<TEvent = any, TResult = any> = (
  *                https://docs.aws.amazon.com/apigateway/latest/developerguide/handle-errors-in-lambda-integration.html
  * @param result – an optional parameter that you can use to provide the result of a successful function execution. The result provided must be JSON.stringify compatible.
  */
-export type Callback<TResult = any> = (error?: Error | null | string, result?: TResult) => void;
+export type Callback<TResult = any> = (
+    error?: Error | null | string,
+    result?: TResult
+) => void;
 
 // Begin defining Handler and Callback types for each API trigger type.
 // Ordered by https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html
@@ -1021,14 +1072,19 @@ export type SNSHandler = Handler<SNSEvent, void>;
 
 // Result type is weird: docs and samples say to return the mutated event, but it only requires an object
 // with a "response" field, the type of which is specific to the event.triggerType. Leave as any for now.
-export type CognitoUserPoolTriggerHandler = Handler<CognitoUserPoolTriggerEvent>;
+export type CognitoUserPoolTriggerHandler = Handler<
+    CognitoUserPoolTriggerEvent
+>;
 // TODO: Different event/handler types for each event trigger so we can type the result?
 
 export type SQSHandler = Handler<SQSEvent, void>;
 
 // TODO: CognitoSync
 
-export type CloudFormationCustomResourceHandler = Handler<CloudFormationCustomResourceEvent, void>;
+export type CloudFormationCustomResourceHandler = Handler<
+    CloudFormationCustomResourceEvent,
+    void
+>;
 
 // TODO: CloudWatchEvents
 
@@ -1045,7 +1101,10 @@ export type ScheduledHandler = Handler<ScheduledEvent, void>;
 export type LexHandler = Handler<LexEvent, LexResult>;
 export type LexCallback = Callback<LexResult>;
 
-export type APIGatewayProxyHandler = Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+export type APIGatewayProxyHandler = Handler<
+    APIGatewayProxyEvent,
+    APIGatewayProxyResult
+>;
 export type APIGatewayProxyCallback = Callback<APIGatewayProxyResult>;
 export type ProxyHandler = APIGatewayProxyHandler; // Old name
 export type ProxyCallback = APIGatewayProxyCallback; // Old name
@@ -1054,23 +1113,49 @@ export type ProxyCallback = APIGatewayProxyCallback; // Old name
 
 export type CodePipelineHandler = Handler<CodePipelineEvent, void>;
 
-export type CodePipelineCloudWatchHandler = Handler<CodePipelineCloudWatchEvent, void>;
-export type CodePipelineCloudWatchPipelineHandler = Handler<CodePipelineCloudWatchPipelineEvent, void>;
-export type CodePipelineCloudWatchStageHandler = Handler<CodePipelineCloudWatchStageEvent, void>;
-export type CodePipelineCloudWatchActionHandler = Handler<CodePipelineCloudWatchActionEvent, void>;
+export type CodePipelineCloudWatchHandler = Handler<
+    CodePipelineCloudWatchEvent,
+    void
+>;
+export type CodePipelineCloudWatchPipelineHandler = Handler<
+    CodePipelineCloudWatchPipelineEvent,
+    void
+>;
+export type CodePipelineCloudWatchStageHandler = Handler<
+    CodePipelineCloudWatchStageEvent,
+    void
+>;
+export type CodePipelineCloudWatchActionHandler = Handler<
+    CodePipelineCloudWatchActionEvent,
+    void
+>;
 
-export type CloudFrontRequestHandler = Handler<CloudFrontRequestEvent, CloudFrontRequestResult>;
+export type CloudFrontRequestHandler = Handler<
+    CloudFrontRequestEvent,
+    CloudFrontRequestResult
+>;
 export type CloudFrontRequestCallback = Callback<CloudFrontRequestResult>;
 
-export type CloudFrontResponseHandler = Handler<CloudFrontResponseEvent, CloudFrontResponseResult>;
+export type CloudFrontResponseHandler = Handler<
+    CloudFrontResponseEvent,
+    CloudFrontResponseResult
+>;
 export type CloudFrontResponseCallback = Callback<CloudFrontResponseResult>;
 
 export type KinesisStreamHandler = Handler<KinesisStreamEvent, void>;
 
-export type FirehoseTransformationCallback = Callback<FirehoseTransformationResult>;
-export type FirehoseTransformationHandler = Handler<FirehoseTransformationEvent, FirehoseTransformationResult>;
+export type FirehoseTransformationCallback = Callback<
+    FirehoseTransformationResult
+>;
+export type FirehoseTransformationHandler = Handler<
+    FirehoseTransformationEvent,
+    FirehoseTransformationResult
+>;
 
-export type CustomAuthorizerHandler = Handler<CustomAuthorizerEvent, CustomAuthorizerResult>;
+export type CustomAuthorizerHandler = Handler<
+    CustomAuthorizerEvent,
+    CustomAuthorizerResult
+>;
 export type CustomAuthorizerCallback = Callback<CustomAuthorizerResult>;
 
 export as namespace AWSLambda;

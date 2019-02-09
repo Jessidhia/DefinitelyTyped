@@ -9,7 +9,7 @@ export as namespace ReactTextareaAutocomplete;
 
 import * as React from "react";
 
-export type CaretPositionType = 'start' | 'end' | 'next' | number;
+export type CaretPositionType = "start" | "end" | "next" | number;
 
 export interface TextToReplaceType {
     text: string;
@@ -17,9 +17,9 @@ export interface TextToReplaceType {
     key?: string;
 }
 
-export type DataProviderType<TItem> = (token: string) =>
-    | Promise<TItem[]>
-    | TItem[];
+export type DataProviderType<TItem> = (
+    token: string
+) => Promise<TItem[]> | TItem[];
 
 export interface ItemComponentProps<TItem> {
     selected: boolean;
@@ -70,7 +70,11 @@ export interface TriggerType<TItem> {
 
 type PickedAttributes = "onChange" | "onSelect" | "onBlur" | "value";
 
-export interface TextareaProps<TItem> extends Pick<React.InputHTMLAttributes<HTMLTextAreaElement>, PickedAttributes> {
+export interface TextareaProps<TItem>
+    extends Pick<
+        React.InputHTMLAttributes<HTMLTextAreaElement>,
+        PickedAttributes
+    > {
     /**
      * Define triggers and their corresponding behavior.
      */
@@ -91,7 +95,9 @@ export interface TextareaProps<TItem> extends Pick<React.InputHTMLAttributes<HTM
      * With default implementation it will scroll the dropdown every time when the item gets out of the view.
      * @default true
      */
-    scrollToItem?: boolean | ((container: HTMLDivElement, item: HTMLDivElement) => void);
+    scrollToItem?:
+        | boolean
+        | ((container: HTMLDivElement, item: HTMLDivElement) => void);
     /**
      * 	When it's true autocomplete will close when use click outside.
      * @default false
@@ -170,7 +176,9 @@ export interface TextareaState<TItem> {
     component?: React.SFC<ItemComponentProps<TItem>>;
 }
 
-declare class ReactTextareaAutocomplete<TItem extends string | object> extends React.Component<TextareaProps<TItem>, TextareaState<TItem>> {
+declare class ReactTextareaAutocomplete<
+    TItem extends string | object
+> extends React.Component<TextareaProps<TItem>, TextareaState<TItem>> {
     /**
      * Gets the current caret position in the textarea.
      */
@@ -183,7 +191,7 @@ declare class ReactTextareaAutocomplete<TItem extends string | object> extends R
     /**
      * Returns selectionStart and selectionEnd of the textarea.
      */
-    getSelectionPosition(): { selectionStart: number, selectionEnd: number };
+    getSelectionPosition(): { selectionStart: number; selectionEnd: number };
     /**
      * 	Returns currently selected word.
      */

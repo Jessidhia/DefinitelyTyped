@@ -1,6 +1,6 @@
-import { Repository } from './repository';
-import { Oid } from './oid';
-import { Commit } from './commit';
+import { Repository } from "./repository";
+import { Oid } from "./oid";
+import { Commit } from "./commit";
 
 export namespace Revwalk {
     const enum SORT {

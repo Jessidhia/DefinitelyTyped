@@ -10,16 +10,49 @@ export declare let removed: any[];
 export declare let isSupported: boolean;
 
 export declare function sanitize(source: string | Node): string;
-export declare function sanitize(source: string | Node, config: Config & { RETURN_DOM_FRAGMENT?: false; RETURN_DOM?: false; }): string;
-export declare function sanitize(source: string | Node, config: Config & { RETURN_DOM_FRAGMENT: true; }): DocumentFragment;
-export declare function sanitize(source: string | Node, config: Config & { RETURN_DOM: true; }): HTMLElement;
-export declare function sanitize(source: string | Node, config: Config): string | HTMLElement | DocumentFragment;
-export declare function addHook(hook: 'uponSanitizeElement', cb: (currentNode: Element, data: SanitizeElementHookEvent, config: Config) => void): void;
-export declare function addHook(hook: 'uponSanitizeAttribute', cb: (currentNode: Element, data: SanitizeAttributeHookEvent, config: Config) => void): void;
-export declare function addHook(hook: HookName, cb: (currentNode: Element, data: HookEvent, config: Config) => void): void;
+export declare function sanitize(
+    source: string | Node,
+    config: Config & { RETURN_DOM_FRAGMENT?: false; RETURN_DOM?: false }
+): string;
+export declare function sanitize(
+    source: string | Node,
+    config: Config & { RETURN_DOM_FRAGMENT: true }
+): DocumentFragment;
+export declare function sanitize(
+    source: string | Node,
+    config: Config & { RETURN_DOM: true }
+): HTMLElement;
+export declare function sanitize(
+    source: string | Node,
+    config: Config
+): string | HTMLElement | DocumentFragment;
+export declare function addHook(
+    hook: "uponSanitizeElement",
+    cb: (
+        currentNode: Element,
+        data: SanitizeElementHookEvent,
+        config: Config
+    ) => void
+): void;
+export declare function addHook(
+    hook: "uponSanitizeAttribute",
+    cb: (
+        currentNode: Element,
+        data: SanitizeAttributeHookEvent,
+        config: Config
+    ) => void
+): void;
+export declare function addHook(
+    hook: HookName,
+    cb: (currentNode: Element, data: HookEvent, config: Config) => void
+): void;
 export declare function setConfig(cfg: Config): void;
 export declare function clearConfig(): void;
-export declare function isValidAttribute(tag: string, attr: string, value: string): boolean;
+export declare function isValidAttribute(
+    tag: string,
+    attr: string,
+    value: string
+): boolean;
 export declare function removeHook(entryPoint: HookName): void;
 export declare function removeHooks(entryPoint: HookName): void;
 export declare function removeAllHooks(): void;
@@ -43,25 +76,29 @@ interface Config {
     ALLOWED_URI_REGEXP?: RegExp;
     SAFE_FOR_TEMPLATES?: boolean;
     ALLOW_UNKNOWN_PROTOCOLS?: boolean;
-    USE_PROFILES?: false | {mathMl?: boolean, svg?: boolean, svgFilters?: boolean, html?: boolean};
+    USE_PROFILES?:
+        | false
+        | {
+              mathMl?: boolean;
+              svg?: boolean;
+              svgFilters?: boolean;
+              html?: boolean;
+          };
     IN_PLACE?: boolean;
 }
 
-type HookName
-    = 'beforeSanitizeElements'
-    | 'uponSanitizeElement'
-    | 'afterSanitizeElements'
-    | 'beforeSanitizeAttributes'
-    | 'uponSanitizeAttribute'
-    | 'afterSanitizeAttributes'
-    | 'beforeSanitizeShadowDOM'
-    | 'uponSanitizeShadowNode'
-    | 'afterSanitizeShadowDOM';
+type HookName =
+    | "beforeSanitizeElements"
+    | "uponSanitizeElement"
+    | "afterSanitizeElements"
+    | "beforeSanitizeAttributes"
+    | "uponSanitizeAttribute"
+    | "afterSanitizeAttributes"
+    | "beforeSanitizeShadowDOM"
+    | "uponSanitizeShadowNode"
+    | "afterSanitizeShadowDOM";
 
-type HookEvent
-    = SanitizeElementHookEvent
-    | SanitizeAttributeHookEvent
-    | null;
+type HookEvent = SanitizeElementHookEvent | SanitizeAttributeHookEvent | null;
 
 interface SanitizeElementHookEvent {
     tagName: string;

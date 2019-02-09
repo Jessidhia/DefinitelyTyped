@@ -22,12 +22,18 @@ export class ArgumentParser extends ArgumentGroup {
 
 export class Namespace {
     constructor(options: object);
-    get<K extends keyof this, D extends any>(key: K, defaultValue?: D): this[K] | D;
+    get<K extends keyof this, D extends any>(
+        key: K,
+        defaultValue?: D
+    ): this[K] | D;
     isset(key: keyof this): boolean;
     set<K extends keyof this>(key: K, value: this[K]): this;
     set<K extends string, V extends any>(key: K, value: V): this & Record<K, V>;
     set<K extends object>(obj: K): this & K;
-    unset<K extends keyof this, D extends any>(key: K, defaultValue?: D): this[K] | D;
+    unset<K extends keyof this, D extends any>(
+        key: K,
+        defaultValue?: D
+    ): this[K] | D;
 }
 
 export class SubParser {
@@ -65,7 +71,13 @@ export interface ArgumentParserOptions {
     argumentDefault?: any;
     parents?: ArgumentParser[];
     prefixChars?: string;
-    formatterClass?: { new (): HelpFormatter | ArgumentDefaultsHelpFormatter | RawDescriptionHelpFormatter | RawTextHelpFormatter };
+    formatterClass?: {
+        new ():
+            | HelpFormatter
+            | ArgumentDefaultsHelpFormatter
+            | RawDescriptionHelpFormatter
+            | RawTextHelpFormatter;
+    };
     prog?: string;
     usage?: string;
     version?: string;
@@ -79,10 +91,10 @@ export interface ArgumentGroupOptions {
     description?: string;
 }
 
-export class HelpFormatter { }
-export class ArgumentDefaultsHelpFormatter { }
-export class RawDescriptionHelpFormatter { }
-export class RawTextHelpFormatter { }
+export class HelpFormatter {}
+export class ArgumentDefaultsHelpFormatter {}
+export class RawDescriptionHelpFormatter {}
+export class RawTextHelpFormatter {}
 
 export interface ArgumentOptions {
     action?: string;

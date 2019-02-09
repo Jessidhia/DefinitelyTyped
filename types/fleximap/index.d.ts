@@ -32,7 +32,12 @@ export class FlexiMap {
     removeRange(keyChain: KeyChain, fromIndex: number, toIndex: number): any[];
     removeAll(): void;
 
-    splice(keyChain: KeyChain, index: number, count: number, ...items: any[]): any[];
+    splice(
+        keyChain: KeyChain,
+        index: number,
+        count: number,
+        ...items: any[]
+    ): any[];
 
     pop(keyChain: KeyChain): any[];
 }

@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { LabelColors } from '../enums';
-import { FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { LabelColors } from "../enums";
+import { FlexboxPropTypes } from "../utils";
 /**
  * Label component.
  * http://foundation.zurb.com/sites/docs/label.html
@@ -10,6 +10,8 @@ import { FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const Label: React.StatelessComponent<LabelProps>;
-export interface LabelProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLSpanElement> {
+export interface LabelProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLSpanElement> {
     color?: LabelColors;
 }

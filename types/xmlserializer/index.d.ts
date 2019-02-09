@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import * as parse5 from 'parse5';
+import * as parse5 from "parse5";
 
 export as namespace xmlserializer;
 

@@ -85,10 +85,7 @@ export default interface Eth {
     currentProvider: Provider;
     estimateGas(tx: Tx, callback?: Callback<number>): Promise<number>;
     getAccounts(cb?: Callback<string[]>): Promise<string[]>;
-    getBalance(
-        address: string,
-        defaultBlock?: BlockType
-    ): Promise<string>;
+    getBalance(address: string, defaultBlock?: BlockType): Promise<string>;
     getBalance(
         address: string,
         defaultBlock: BlockType,

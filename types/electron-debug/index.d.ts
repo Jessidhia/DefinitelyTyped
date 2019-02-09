@@ -11,7 +11,7 @@ declare function electronDebug(options: {
     /** Enable debug options. */
     enabled?: boolean;
     /** Show DevTools on each created BrowserWindow. */
-    showDevTools?: boolean | 'right' | 'bottom' | 'undocked';
+    showDevTools?: boolean | "right" | "bottom" | "undocked";
 }): void;
 
 export = electronDebug;

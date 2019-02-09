@@ -5,9 +5,13 @@
 
 /// <reference types="node" />
 
-import * as child_process from 'child_process';
+import * as child_process from "child_process";
 
-declare function spawn(command: string, args?: string[], options?: child_process.SpawnOptions): child_process.ChildProcess;
+declare function spawn(
+    command: string,
+    args?: string[],
+    options?: child_process.SpawnOptions
+): child_process.ChildProcess;
 
 declare namespace spawn {
     const sync: typeof child_process.spawnSync;

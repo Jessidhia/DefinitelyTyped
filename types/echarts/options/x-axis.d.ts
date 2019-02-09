@@ -16,7 +16,7 @@ declare namespace echarts {
              *
              * @default ''
              */
-            position?: 'top' | 'bottom';
+            position?: "top" | "bottom";
 
             /**
              * Options:

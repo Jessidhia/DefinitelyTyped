@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { JsonEncoder, Logger, model } from 'zipkin';
+import { JsonEncoder, Logger, model } from "zipkin";
 
 export interface Options {
     endpoint: string;
@@ -15,5 +15,5 @@ export interface Options {
 
 export class HttpLogger implements Logger {
     logSpan(span: model.Span): void;
-    constructor(options: Options)
+    constructor(options: Options);
 }

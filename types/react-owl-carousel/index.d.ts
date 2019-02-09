@@ -410,5 +410,4 @@ export interface Options {
     onPlayVideo?: HandlerCallback;
 }
 
-export default class OwlCarousel extends React.Component<Options, any> {
-}
+export default class OwlCarousel extends React.Component<Options, any> {}

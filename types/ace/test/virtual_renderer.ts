@@ -1,5 +1,5 @@
 const aceVirtualRendererTests = {
-    "test: screen2text the column should be rounded to the next character edge": function () {
+    "test: screen2text the column should be rounded to the next character edge": function() {
         var el = document.createElement("div");
 
         if (!el.getBoundingClientRect) {
@@ -15,12 +15,16 @@ const aceVirtualRendererTests = {
 
         var renderer = new AceAjax.VirtualRenderer(el);
         renderer.setPadding(0);
-        renderer.setScrollMargin(0,0,0,0)
+        renderer.setScrollMargin(0, 0, 0, 0);
         renderer.setSession(new AceAjax.EditSession("1234"));
 
         var r = renderer.scroller.getBoundingClientRect();
         function testPixelToText(x, y, row, column) {
-            assert.position(renderer.screenToTextCoordinates(x + r.left, y + r.top), row, column);
+            assert.position(
+                renderer.screenToTextCoordinates(x + r.left, y + r.top),
+                row,
+                column
+            );
         }
 
         renderer.characterWidth = 10;

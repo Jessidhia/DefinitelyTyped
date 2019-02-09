@@ -15,7 +15,7 @@
 export function parse(
     id: string,
     buffer?: Buffer | any[],
-    offset?: number,
+    offset?: number
 ): Buffer;
 
 /**

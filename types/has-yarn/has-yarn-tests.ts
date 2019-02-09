@@ -1,4 +1,4 @@
-import hasYarn = require('has-yarn');
+import hasYarn = require("has-yarn");
 
 // $ExpectType boolean
-hasYarn('foo');
+hasYarn("foo");

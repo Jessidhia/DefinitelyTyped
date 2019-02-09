@@ -9,16 +9,16 @@
 import * as React from "react";
 
 export interface FindChunks {
-  autoEscape?: boolean;
-  caseSensitive?: boolean;
-  sanitize?: (text: string) => string;
-  searchWords: string[];
-  textToHighlight: string;
+    autoEscape?: boolean;
+    caseSensitive?: boolean;
+    sanitize?: (text: string) => string;
+    searchWords: string[];
+    textToHighlight: string;
 }
 
 export interface Chunk {
-  start: number;
-  end: number;
+    start: number;
+    end: number;
 }
 
 interface HighlighterProps {

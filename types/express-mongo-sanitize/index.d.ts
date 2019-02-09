@@ -4,17 +4,23 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import express = require('express');
+import express = require("express");
 
 interface MongoSanitizeOptions {
-	replaceWith: any;
+    replaceWith: any;
 }
 
 declare namespace expressMongoSanitize {
-	function sanitize<T>(payload: T, options?: MongoSanitizeOptions): T;
-	function has(payload: any): boolean;
+    function sanitize<T>(payload: T, options?: MongoSanitizeOptions): T;
+    function has(payload: any): boolean;
 }
 
-declare function expressMongoSanitize(options?: MongoSanitizeOptions): (req: express.Request, res: express.Response, next: express.NextFunction) => void;
+declare function expressMongoSanitize(
+    options?: MongoSanitizeOptions
+): (
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) => void;
 
 export = expressMongoSanitize;

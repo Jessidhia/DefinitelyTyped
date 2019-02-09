@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-import { MDCFoundation } from 'material__base';
-import { cssClasses, strings } from './constants';
-import MDCDialogAdapter from './adapter';
+import { MDCFoundation } from "material__base";
+import { cssClasses, strings } from "./constants";
+import MDCDialogAdapter from "./adapter";
 
-export default class MDCDialogFoundation extends MDCFoundation<MDCDialogAdapter> {
+export default class MDCDialogFoundation extends MDCFoundation<
+    MDCDialogAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

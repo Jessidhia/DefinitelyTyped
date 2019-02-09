@@ -31,13 +31,16 @@ declare module "redux-optimistic-ui" {
     /**
      * Enhances and wraps your root reducer into optimistic state
      */
-    export function optimistic<TState>(reducer: Reducer<TState>): Reducer<OptimisticState<TState>>;
-
+    export function optimistic<TState>(
+        reducer: Reducer<TState>
+    ): Reducer<OptimisticState<TState>>;
 
     /**
      * Returns your current state or state if it wasn't enhanced yet
      */
-    export function ensureState<TState>(state: OptimisticState<TState> | TState): TState;
+    export function ensureState<TState>(
+        state: OptimisticState<TState> | TState
+    ): TState;
 
     /**
      * Optimistic action slice
@@ -60,20 +63,20 @@ declare module "redux-optimistic-ui" {
                  * @type {number}
                  */
                 id: number;
-            }
-        }
+            };
+        };
     }
 
     /**
      * Start optimistic action
      */
-    export const BEGIN = '@@optimist/BEGIN';
+    export const BEGIN = "@@optimist/BEGIN";
     /**
      * Finish optimistic action and commit results
      */
-    export const COMMIT = '@@optimist/COMMIT';
+    export const COMMIT = "@@optimist/COMMIT";
     /**
      * Revert optimistic action
      */
-    export const REVERT = '@@optimist/REVERT';
+    export const REVERT = "@@optimist/REVERT";
 }

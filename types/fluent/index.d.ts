@@ -16,7 +16,7 @@ export class FluentType {
     valueOf(): any;
 }
 
-export class FluentNone extends FluentType  {}
+export class FluentNone extends FluentType {}
 export class FluentNumber extends FluentType {}
 export class FluentDateTime extends FluentType {}
 
@@ -27,7 +27,10 @@ export class FluentResource extends Map {
 }
 
 export class FluentBundle {
-    constructor(locales: string | string[], options?: FluentBundleContructorOptions);
+    constructor(
+        locales: string | string[],
+        options?: FluentBundleContructorOptions
+    );
     addMessages(source: string): string[];
     getMessage(id: string): FluentNode[];
     format(message: FluentNode[], args?: object, errors?: string[]): string;

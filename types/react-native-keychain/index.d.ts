@@ -25,24 +25,24 @@ export interface Options {
 }
 
 export type SecAccessible =
-    'AccessibleWhenUnlocked'
-    | 'AccessibleAfterFirstUnlock'
-    | 'AccessibleAlways'
-    | 'AccessibleWhenPasscodeSetThisDeviceOnly'
-    | 'AccessibleWhenUnlockedThisDeviceOnly'
-    | 'AccessibleAfterFirstUnlockThisDeviceOnly'
-    | 'AccessibleAlwaysThisDeviceOnly';
+    | "AccessibleWhenUnlocked"
+    | "AccessibleAfterFirstUnlock"
+    | "AccessibleAlways"
+    | "AccessibleWhenPasscodeSetThisDeviceOnly"
+    | "AccessibleWhenUnlockedThisDeviceOnly"
+    | "AccessibleAfterFirstUnlockThisDeviceOnly"
+    | "AccessibleAlwaysThisDeviceOnly";
 
 export type SecAccessControl =
-    'UserPresence'
-    | 'BiometryAny'
-    | 'BiometryCurrentSet'
-    | 'DevicePasscode'
-    | 'ApplicationPassword'
-    | 'BiometryAnyOrDevicePasscode'
-    | 'BiometryCurrentSetOrDevicePasscode';
+    | "UserPresence"
+    | "BiometryAny"
+    | "BiometryCurrentSet"
+    | "DevicePasscode"
+    | "ApplicationPassword"
+    | "BiometryAnyOrDevicePasscode"
+    | "BiometryCurrentSetOrDevicePasscode";
 
-export type LAPolicy = 'Authentication' | 'AuthenticationWithBiometrics';
+export type LAPolicy = "Authentication" | "AuthenticationWithBiometrics";
 
 export function canImplyAuthentication(options?: Options): Promise<boolean>;
 
@@ -59,9 +59,7 @@ export function getInternetCredentials(
     server: string
 ): Promise<UserCredentials>;
 
-export function resetInternetCredentials(
-    server: string
-): Promise<boolean>;
+export function resetInternetCredentials(server: string): Promise<boolean>;
 
 export function setGenericPassword(
     username: string,
@@ -71,14 +69,13 @@ export function setGenericPassword(
 
 export function getGenericPassword(
     serviceOrOptions?: string | Options
-): Promise<boolean | {service: string, username: string, password: string}>;
+): Promise<boolean | { service: string; username: string; password: string }>;
 
 export function resetGenericPassword(
     serviceOrOptions?: string | Options
 ): Promise<boolean>;
 
-export function requestSharedWebCredentials(
-): Promise<SharedWebCredentials>;
+export function requestSharedWebCredentials(): Promise<SharedWebCredentials>;
 
 export function setSharedWebCredentials(
     server: string,

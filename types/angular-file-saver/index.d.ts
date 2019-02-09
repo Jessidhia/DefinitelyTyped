@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as angular from 'angular';
-declare module 'angular' {
+import * as angular from "angular";
+declare module "angular" {
     /**
      * A core Angular factory proving FileSaver functionality.
      */

@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @name pc.Material
      * @class A material determines how a particular mesh instance is rendered. It specifies the shader and render state that is
@@ -53,7 +52,6 @@ declare namespace pc {
      * @author Will Eastcott and Arthur Rahteenko
      */
     class Material {
-
         alphaTest: number;
         alphaToCoverage: boolean;
         alphaWrite: boolean;
@@ -90,7 +88,11 @@ declare namespace pc {
          * @param {Number|Array|pc.Texture} data The value for the specified parameter.
          * @author Will Eastcott
          */
-        setParameter(name: string, data: number | any[] | pc.Texture, passFlags?: number): void;
+        setParameter(
+            name: string,
+            data: number | any[] | pc.Texture,
+            passFlags?: number
+        ): void;
 
         /**
          * @function
@@ -136,7 +138,7 @@ declare namespace pc {
      * @property {Number} zpass Sets operation to perform if both stencil and depth test are passed. See pc.GraphicsDevice#setStencilOperation
      * @property {Number} readMask Sets stencil test reading mask. See pc.GraphicsDevice#setStencilFunc
      * @property {Number} writeMask Sets stencil test writing mask. See pc.GraphicsDevice#setStencilOperation
-    */
+     */
     class StencilParameters {
         constructor(options?: {
             func?: number;
@@ -146,7 +148,7 @@ declare namespace pc {
             fail?: number;
             zfail?: number;
             zpass?: number;
-        })
+        });
 
         func: number;
         ref: number;
@@ -155,7 +157,5 @@ declare namespace pc {
         fail: number;
         zfail: number;
         zpass: number;
-
-
     }
 }

@@ -167,7 +167,9 @@ export interface ArraySchema<T> extends Schema<T[]> {
     min(limit: number | Ref, message?: TestOptionsMessage): ArraySchema<T>;
     max(limit: number | Ref, message?: TestOptionsMessage): ArraySchema<T>;
     ensure(): ArraySchema<T>;
-    compact(rejector?: (value: T, index: number, array: T[]) => boolean): ArraySchema<T>;
+    compact(
+        rejector?: (value: T, index: number, array: T[]) => boolean
+    ): ArraySchema<T>;
 }
 
 export type ObjectSchemaDefinition<T extends object> = {
@@ -204,11 +206,11 @@ export interface ObjectSchema<T extends object> extends Schema<T> {
     constantCase(): ObjectSchema<T>;
 }
 
-export type TransformFunction<T> = ((
+export type TransformFunction<T> = (
     this: T,
     value: any,
     originalValue: any
-) => any);
+) => any;
 
 export interface WhenOptionsBuilder<T> {
     (value: any, schema: T): T;
@@ -228,7 +230,10 @@ export interface TestContext {
     parent: any;
     schema: Schema<any>;
     resolve: (value: any) => any;
-    createError: (params?: { path?: string; message?: string }) => ValidationError;
+    createError: (params?: {
+        path?: string;
+        message?: string;
+    }) => ValidationError;
 }
 
 export interface ValidateOptions {

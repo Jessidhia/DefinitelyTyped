@@ -1,5 +1,5 @@
-import Route = require('route-parser');
+import Route = require("route-parser");
 
-const route = new Route('/users/:id');
-const matched = route.match('/users/42'); // => { id: '42' }
+const route = new Route("/users/:id");
+const matched = route.match("/users/42"); // => { id: '42' }
 const reversed = route.reverse({ id: 42 });

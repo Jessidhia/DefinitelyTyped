@@ -7,18 +7,18 @@
 /// <reference types="node" />
 
 export const VERSIONS: {
-    V1_0: string,
-    V1_1: string,
-    V1_2: string,
-    supportedVersions: () => string[]
+    V1_0: string;
+    V1_1: string;
+    V1_2: string;
+    supportedVersions: () => string[];
 };
 
 export class Client {
     connected: boolean;
     counter: number;
     heartbeat: {
-        incoming: number,
-        outgoing: number
+        incoming: number;
+        outgoing: number;
     };
     maxWebSocketFrameSize: number;
     subscriptions: {};
@@ -26,13 +26,31 @@ export class Client {
 
     debug(...args: string[]): any;
 
-    connect(headers: { login: string, passcode: string, host?: string }, connectCallback: (frame?: Frame) => any, errorCallback?: (error: Frame | string) => any): any;
-    connect(headers: { }, connectCallback: (frame?: Frame) => any, errorCallback?: (error: Frame | string) => any): any;
-    connect(login: string, passcode: string, connectCallback: (frame?: Frame) => any, errorCallback?: (error: Frame | string) => any, host?: string): any;
+    connect(
+        headers: { login: string; passcode: string; host?: string },
+        connectCallback: (frame?: Frame) => any,
+        errorCallback?: (error: Frame | string) => any
+    ): any;
+    connect(
+        headers: {},
+        connectCallback: (frame?: Frame) => any,
+        errorCallback?: (error: Frame | string) => any
+    ): any;
+    connect(
+        login: string,
+        passcode: string,
+        connectCallback: (frame?: Frame) => any,
+        errorCallback?: (error: Frame | string) => any,
+        host?: string
+    ): any;
     disconnect(disconnectCallback: () => any, headers?: {}): any;
 
     send(destination: string, headers?: {}, body?: string): any;
-    subscribe(destination: string, callback?: (message: Message) => any, headers?: {}): Subscription;
+    subscribe(
+        destination: string,
+        callback?: (message: Message) => any,
+        headers?: {}
+    ): Subscription;
     unsubscribe(id: string): void;
 
     begin(transaction: string): any;
@@ -69,5 +87,8 @@ export function client(url: string, protocols?: string | Array<string>): Client;
 export function over(ws: WebSocket): Client;
 export function overTCP(host: string, port: number): Client;
 export function overWS(url: string): Client;
-export function setInterval(interval: number, f: (...args: any[]) => void): NodeJS.Timer;
+export function setInterval(
+    interval: number,
+    f: (...args: any[]) => void
+): NodeJS.Timer;
 export function clearInterval(id: NodeJS.Timer): void;

@@ -7,7 +7,12 @@
 declare function assert(value: any, message?: string): void;
 
 declare namespace assert {
-    function fail(actual?: any, expected?: any, message?: string, operator?: string): void;
+    function fail(
+        actual?: any,
+        expected?: any,
+        message?: string,
+        operator?: string
+    ): void;
 
     function ok(value: any, message?: string): void;
 
@@ -24,10 +29,18 @@ declare namespace assert {
     function notStrictEqual(actual: any, expected: any, message?: string): void;
 
     function throws(block: () => void, message?: string): void;
-    function throws(block: () => void, error: (() => void) | ((err: any) => boolean) | RegExp, message?: string): void;
+    function throws(
+        block: () => void,
+        error: (() => void) | ((err: any) => boolean) | RegExp,
+        message?: string
+    ): void;
 
     function doesNotThrow(block: () => void, message?: string): void;
-    function doesNotThrow(block: () => void, error: (() => void) | ((err: any) => boolean) | RegExp, message?: string): void;
+    function doesNotThrow(
+        block: () => void,
+        error: (() => void) | ((err: any) => boolean) | RegExp,
+        message?: string
+    ): void;
 
     function ifError(value: any): void;
 
@@ -39,7 +52,13 @@ declare namespace assert {
         operator: string;
         generatedMessage: boolean;
 
-        constructor(options?: { message?: string; actual?: any; expected?: any; operator?: string; stackStartFunction?: () => void });
+        constructor(options?: {
+            message?: string;
+            actual?: any;
+            expected?: any;
+            operator?: string;
+            stackStartFunction?: () => void;
+        });
     }
 }
 

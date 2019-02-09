@@ -207,7 +207,7 @@ const testContext = function(this: TestContext) {
     // $ExpectType ValidationError
     this.createError({ message: "1" });
     // $ExpectType ValidationError
-    this.createError({ path: "1"});
+    this.createError({ path: "1" });
     // $ExpectType ValidationError
     this.createError();
     return true;

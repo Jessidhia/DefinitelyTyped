@@ -129,7 +129,11 @@ declare namespace QUnitDom {
          * @param value
          * @param message
          */
-        hasAttribute(name: string, value: string | RegExp | object, message?: string): void;
+        hasAttribute(
+            name: string,
+            value: string | RegExp | object,
+            message?: string
+        ): void;
 
         /**
          * Assert that the `HTMLElement` or an `HTMLElement` matching the
@@ -159,8 +163,8 @@ declare namespace QUnitDom {
          * @param message
          */
         doesNotHaveAttribute(name: string, message?: string): void;
-        hasNoAttribute: Matchers['doesNotHaveAttribute'];
-        lacksAttribute: Matchers['doesNotHaveAttribute'];
+        hasNoAttribute: Matchers["doesNotHaveAttribute"];
+        lacksAttribute: Matchers["doesNotHaveAttribute"];
 
         /**
          * Assert that the `HTMLElement` has the `expected` CSS class using
@@ -183,8 +187,8 @@ declare namespace QUnitDom {
          * @param message
          */
         doesNotHaveClass(expected: string, message?: string): void;
-        hasNoClass: Matchers['doesNotHaveClass'];
-        lacksClass: Matchers['doesNotHaveClass'];
+        hasNoClass: Matchers["doesNotHaveClass"];
+        lacksClass: Matchers["doesNotHaveClass"];
 
         /**
          * Assert that the text of the `HTMLElement` or an `HTMLElement`
@@ -200,7 +204,7 @@ declare namespace QUnitDom {
          * @param message
          */
         hasText(expected: string | RegExp, message?: string): void;
-        matchesText: Matchers['hasText'];
+        matchesText: Matchers["hasText"];
 
         /**
          * Assert that the `textContent` property of an `HTMLElement` is not empty.
@@ -223,8 +227,8 @@ declare namespace QUnitDom {
          * @param message
          */
         includesText(text: string, message?: string): void;
-        containsText: Matchers['includesText'];
-        hasTextContaining: Matchers['includesText'];
+        containsText: Matchers["includesText"];
+        hasTextContaining: Matchers["includesText"];
 
         /**
          * Assert that the text of the `HTMLElement` or an `HTMLElement`
@@ -239,8 +243,8 @@ declare namespace QUnitDom {
          * @param message
          */
         doesNotIncludeText(text: string, message?: string): void;
-        doesNotContainText: Matchers['doesNotIncludeText'];
-        doesNotHaveTextContaining: Matchers['doesNotIncludeText'];
+        doesNotContainText: Matchers["doesNotIncludeText"];
+        doesNotHaveTextContaining: Matchers["doesNotIncludeText"];
 
         /**
          * Assert that the `value` property of an `HTMLInputElement` matches
@@ -271,7 +275,7 @@ declare namespace QUnitDom {
          * @param message
          */
         hasNoValue(message?: string): void;
-        lacksValue: Matchers['hasNoValue'];
+        lacksValue: Matchers["hasNoValue"];
     }
 }
 

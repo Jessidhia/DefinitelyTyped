@@ -10,12 +10,18 @@ declare namespace M {
         /**
          * Init autocomplete
          */
-        static init(els: Element, options?: Partial<AutocompleteOptions>): Autocomplete;
+        static init(
+            els: Element,
+            options?: Partial<AutocompleteOptions>
+        ): Autocomplete;
 
         /**
          * Init autocompletes
          */
-        static init(els: MElements, options?: Partial<AutocompleteOptions>): Autocomplete[];
+        static init(
+            els: MElements,
+            options?: Partial<AutocompleteOptions>
+        ): Autocomplete[];
 
         /**
          * Select a specific autocomplete options.
@@ -82,7 +88,13 @@ declare namespace M {
 interface JQuery {
     // Pick<T,K> to check methods exist.
     autocomplete(method: keyof Pick<M.Autocomplete, "destroy">): JQuery;
-    autocomplete(method: keyof Pick<M.Autocomplete, "selectOption">, el: Element): JQuery;
-    autocomplete(method: keyof Pick<M.Autocomplete, "updateData">, data: M.AutocompleteData): JQuery;
+    autocomplete(
+        method: keyof Pick<M.Autocomplete, "selectOption">,
+        el: Element
+    ): JQuery;
+    autocomplete(
+        method: keyof Pick<M.Autocomplete, "updateData">,
+        data: M.AutocompleteData
+    ): JQuery;
     autocomplete(options?: Partial<M.AutocompleteOptions>): JQuery;
 }

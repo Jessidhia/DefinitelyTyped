@@ -1,7 +1,14 @@
 import { SCChannel, SCChannelOptions } from "sc-channel";
-import { handlerFunction, Client, SCBrokerClusterClientOptions } from "sc-broker-cluster";
+import {
+    handlerFunction,
+    Client,
+    SCBrokerClusterClientOptions
+} from "sc-broker-cluster";
 
-const clientOptions: SCBrokerClusterClientOptions = { brokers: [], connectRetryErrorThreshold: 0 };
+const clientOptions: SCBrokerClusterClientOptions = {
+    brokers: [],
+    connectRetryErrorThreshold: 0
+};
 const client = new Client(clientOptions);
 
 let channel = new SCChannel("channelName", client.exchange());
@@ -14,7 +21,7 @@ channel.state = channel.UNSUBSCRIBED;
 
 const channelName: string = channel.name;
 
-const handler: handlerFunction = () => { };
+const handler: handlerFunction = () => {};
 
 channel.watch(handler);
 channel.unwatch();

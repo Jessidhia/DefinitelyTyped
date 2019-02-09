@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 export default Critters;
 declare class Critters extends Plugin {
@@ -47,7 +47,7 @@ declare namespace Critters {
          * - "js": Inject an asynchronous CSS loader similar to LoadCSS and use it to load stylesheets. [JS]
          * - "js-lazy": Like "js", but the stylesheet is disabled until fully loaded.
          */
-        preload?: 'body' | 'media' | 'swap' | 'js' | 'js-lazy';
+        preload?: "body" | "media" | "swap" | "js" | "js-lazy";
         /**
          * Add <noscript> fallback to JS-based strategies
          */
@@ -75,7 +75,7 @@ declare namespace Critters {
          * - "none" Remove all keyframes rules
          * @default "critical"
          */
-        keyframes?: 'critical' | 'all' | 'none';
+        keyframes?: "critical" | "all" | "none";
         /**
          * Compress resulting critical CSS.
          * @default true

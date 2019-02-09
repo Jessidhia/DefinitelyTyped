@@ -1,3 +1,3 @@
-import pkgVersions = require('pkg-versions');
+import pkgVersions = require("pkg-versions");
 
-pkgVersions('ava'); // $ExpectType Promise<Set<string>>
+pkgVersions("ava"); // $ExpectType Promise<Set<string>>

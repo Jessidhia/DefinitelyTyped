@@ -5,7 +5,7 @@ capitalize("united states");
 
 capitalize.words("united states");
 
-capitalize.words('hello-cañapolísas');
+capitalize.words("hello-cañapolísas");
 
 capitalize.words("it's a nice day");
 

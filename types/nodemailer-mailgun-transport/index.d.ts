@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as nodemailer from 'nodemailer';
-import Mail = require('nodemailer/lib/mailer');
-import MailMessage = require('nodemailer/lib/mailer/mail-message');
+import * as nodemailer from "nodemailer";
+import Mail = require("nodemailer/lib/mailer");
+import MailMessage = require("nodemailer/lib/mailer/mail-message");
 
 declare namespace mailgunTransport {
     interface AuthOptions {
@@ -25,10 +25,15 @@ declare namespace mailgunTransport {
     class MailgunTransport implements nodemailer.Transport {
         name: string;
         version: string;
-        send(mail: MailMessage, callback: (err: Error | null, info?: Information) => void): void;
+        send(
+            mail: MailMessage,
+            callback: (err: Error | null, info?: Information) => void
+        ): void;
     }
 }
 
-declare function mailgunTransport(options: mailgunTransport.Options): mailgunTransport.MailgunTransport;
+declare function mailgunTransport(
+    options: mailgunTransport.Options
+): mailgunTransport.MailgunTransport;
 
 export = mailgunTransport;

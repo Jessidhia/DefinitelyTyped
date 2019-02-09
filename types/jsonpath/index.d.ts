@@ -10,7 +10,11 @@ type PathComponent = string | number;
  * satisfy the provided JSONPath expression,or an empty array if none were matched.
  * Returns only first `count` elements if specified.
  */
-export declare function query(obj: any, pathExpression: string, count?: number): any[];
+export declare function query(
+    obj: any,
+    pathExpression: string,
+    count?: number
+): any[];
 
 /**
  * Find paths to elements in `obj` matching `pathExpression`. Returns an array of
@@ -18,7 +22,11 @@ export declare function query(obj: any, pathExpression: string, count?: number):
  * array of keys representing the location within `obj` of the matching element. Returns
  * only first `count` paths if specified.
  */
-export declare function paths(obj: any, pathExpression: string, count?: number): PathComponent[][];
+export declare function paths(
+    obj: any,
+    pathExpression: string,
+    count?: number
+): PathComponent[][];
 
 /**
  * Find elements and their corresponding paths in `obj` matching `pathExpression`.
@@ -26,14 +34,22 @@ export declare function paths(obj: any, pathExpression: string, count?: number):
  * keys representing the location within `obj`, and a `value` pointing to the matched
  * element. Returns only first `count` nodes if specified.
  */
-export declare function nodes(obj: any, pathExpression: string, count?: number): { path: PathComponent[]; value: any; }[];
+export declare function nodes(
+    obj: any,
+    pathExpression: string,
+    count?: number
+): { path: PathComponent[]; value: any }[];
 
 /**
  * Returns the value of the first element matching `pathExpression`. If `newValue` is
  * provided, sets the value of the first matching element and returns the new value.
  */
 export declare function value(obj: any, pathExpression: string): any;
-export declare function value<T>(obj: any, pathExpression: string, newValue: T): T;
+export declare function value<T>(
+    obj: any,
+    pathExpression: string,
+    newValue: T
+): T;
 
 /**
  * Returns the parent of the first matching element.
@@ -46,7 +62,11 @@ export declare function parent(obj: any, pathExpression: string): any;
  * value of the matching element as its only parameter. Returns matching nodes with
  * their updated values.
  */
-export declare function apply(obj: any, pathExpression: string, fn: (x: any) => any): { path: PathComponent[]; value: any; }[];
+export declare function apply(
+    obj: any,
+    pathExpression: string,
+    fn: (x: any) => any
+): { path: PathComponent[]; value: any }[];
 
 /**
  * Parse the provided JSONPath expression into path components and their associated

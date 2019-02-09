@@ -1,7 +1,7 @@
 /// <reference types="node" />
-import Transport, { Message } from '../transport/transport';
-import { Identity } from '../identity';
-import { EventEmitter } from 'events';
+import Transport, { Message } from "../transport/transport";
+import { Identity } from "../identity";
+import { EventEmitter } from "events";
 export interface RuntimeEvent extends Identity {
     topic: string;
     type: string | symbol;
@@ -24,18 +24,37 @@ export declare class EmitterBase extends Base {
     constructor(wire: Transport);
     emit: (eventName: string | symbol, ...args: any[]) => void;
     protected onmessage: (message: Message<any>) => boolean;
-    protected registerEventListener: (listener: RuntimeEvent) => Promise<void | Message<void>>;
-    protected deregisterEventListener: (listener: RuntimeEvent) => Promise<void | Message<void>>;
+    protected registerEventListener: (
+        listener: RuntimeEvent
+    ) => Promise<void | Message<void>>;
+    protected deregisterEventListener: (
+        listener: RuntimeEvent
+    ) => Promise<void | Message<void>>;
     on(eventType: string, listener: (...args: any[]) => void): Promise<void>;
-    addListener: (eventType: string, listener: (...args: any[]) => void) => Promise<void>;
+    addListener: (
+        eventType: string,
+        listener: (...args: any[]) => void
+    ) => Promise<void>;
     once(eventType: string, listener: (...args: any[]) => void): Promise<void>;
-    prependListener(eventType: string, listener: (...args: any[]) => void): Promise<void>;
-    prependOnceListener(eventType: string, listener: (...args: any[]) => void): Promise<void>;
-    removeListener(eventType: string, listener: (...args: any[]) => void): Promise<void>;
-    protected deregisterAllListeners: (eventType: string | symbol) => Promise<void | Message<void>>;
+    prependListener(
+        eventType: string,
+        listener: (...args: any[]) => void
+    ): Promise<void>;
+    prependOnceListener(
+        eventType: string,
+        listener: (...args: any[]) => void
+    ): Promise<void>;
+    removeListener(
+        eventType: string,
+        listener: (...args: any[]) => void
+    ): Promise<void>;
+    protected deregisterAllListeners: (
+        eventType: string | symbol
+    ) => Promise<void | Message<void>>;
     removeAllListeners(eventType?: string): Promise<void>;
 }
-export declare class Reply<TOPIC extends string, TYPE extends string | void> implements Identity {
+export declare class Reply<TOPIC extends string, TYPE extends string | void>
+    implements Identity {
     topic: TOPIC;
     type: TYPE;
     uuid: string;

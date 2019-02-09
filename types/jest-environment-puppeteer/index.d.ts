@@ -11,4 +11,4 @@ declare global {
     const page: Page;
 }
 
-export { };
+export {};

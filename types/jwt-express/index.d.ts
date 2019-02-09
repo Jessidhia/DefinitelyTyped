@@ -176,7 +176,10 @@ export function clear(): express.RequestHandler;
  * @param payload The payload of the JWT.
  * @return JWT
  */
-export function create(secret: string | ((payload: any) => string), payload: any): JWT;
+export function create(
+    secret: string | ((payload: any) => string),
+    payload: any
+): JWT;
 
 /**
  * The jwt.init() function returns a middleware function for Express so it must be called inside app.use().
@@ -191,7 +194,10 @@ export function create(secret: string | ((payload: any) => string), payload: any
  * @param options The options of jwt-express.
  * @return Express middleware
  */
-export function init(secret: string | ((req: express.Request) => string), options?: JWTExpressOptions): express.RequestHandler;
+export function init(
+    secret: string | ((req: express.Request) => string),
+    options?: JWTExpressOptions
+): express.RequestHandler;
 
 /**
  * Returns a middleware function that requires the payload to contain / match certain data.
@@ -204,7 +210,11 @@ export function init(secret: string | ((req: express.Request) => string), option
  * @param value The value to compare the payload data against
  * @return Express middleware
  */
-export function require(key: string, operator?: string, value?: any): express.RequestHandler;
+export function require(
+    key: string,
+    operator?: string,
+    value?: any
+): express.RequestHandler;
 
 /**
  * Returns a middleware function that ensures a JWT is valid. This method will trigger error handling if the JWT is not valid.

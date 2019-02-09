@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { ChunkExtractor } from '@loadable/server';
+import * as React from "react";
+import { ChunkExtractor } from "@loadable/server";
 
 // Should be satisfied by `stats` or `statsFile`
 new ChunkExtractor({ stats: {} });
-new ChunkExtractor({ statsFile: './path/to/stats' });
+new ChunkExtractor({ statsFile: "./path/to/stats" });
 
 const {
-	collectChunks,
-	getLinkElements,
-	getLinkTags,
-	getScriptElements,
-	getScriptTags,
-	getStyleElements,
-	getStyleTags,
-	requireEntrypoint
+    collectChunks,
+    getLinkElements,
+    getLinkTags,
+    getScriptElements,
+    getScriptTags,
+    getStyleElements,
+    getStyleTags,
+    requireEntrypoint
 } = new ChunkExtractor({ stats: {} });
 
 // collectChunks
@@ -67,7 +67,7 @@ const {
     requireEntrypoint();
 
     // Should accept string
-    requireEntrypoint('main');
+    requireEntrypoint("main");
 
     // Should return component on default property
     const entry: { default: React.ComponentType } = requireEntrypoint();

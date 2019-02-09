@@ -1,6 +1,6 @@
-import npmUser = require('npm-user');
+import npmUser = require("npm-user");
 
-npmUser('sindresorhus').then(user => {
+npmUser("sindresorhus").then(user => {
     user; // $ExpectType UserData
 
     user.name; // $ExpectType string | null

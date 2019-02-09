@@ -5,7 +5,7 @@
 // TypeScript Version: 2.2
 
 export type Type =
-    "7d2d"
+    | "7d2d"
     | "ageofchivalry"
     | "aoe2"
     | "alienarena"

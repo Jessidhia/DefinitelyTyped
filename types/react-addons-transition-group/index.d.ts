@@ -4,16 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ComponentClass, TransitionGroupProps } from 'react';
+import { ComponentClass, TransitionGroupProps } from "react";
 
-declare module 'react' {
+declare module "react" {
     export interface HTMLTransitionGroupProps<T> extends HTMLAttributes<T> {
         component?: ReactType;
         childFactory?: (child: ReactElement<any>) => ReactElement<any>;
     }
 
-    export interface TransitionGroupProps extends HTMLTransitionGroupProps<ReactTransitionGroup> {
-    }
+    export interface TransitionGroupProps
+        extends HTMLTransitionGroupProps<ReactTransitionGroup> {}
 }
 
 declare var ReactTransitionGroup: ReactTransitionGroup;

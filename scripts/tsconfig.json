@@ -9,9 +9,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "baseUrl": "../types",
-        "typeRoots": [
-            "../types"
-        ],
+        "typeRoots": ["../types"],
         "types": [],
         "forceConsistentCasingInFileNames": true
     }

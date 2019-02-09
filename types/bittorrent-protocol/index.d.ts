@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import * as stream from 'stream';
+import * as stream from "stream";
 
 declare const BittorrentProtocol: BittorrentProtocol.BittorrentProtocol;
 
@@ -20,7 +20,11 @@ declare namespace BittorrentProtocol {
     }
 
     interface Extension {
-        onHandshake?(infoHash: string, peerId: string, extensions: { [name: string]: boolean }): void;
+        onHandshake?(
+            infoHash: string,
+            peerId: string,
+            extensions: { [name: string]: boolean }
+        ): void;
         onExtendedHandshake?(handshake: { [key: string]: any }): void;
         onMessage?(buf: Buffer): void;
         name: string;
@@ -36,15 +40,15 @@ declare namespace BittorrentProtocol {
     interface Wire extends stream.Duplex {
         readonly peerId: string; // remote peer id (hex string)
         readonly peerIdBuffer: Buffer; // remote peer id (Buffer)
-        readonly type: 'webrtc' | 'tcpIncoming' | 'tcpOutgoing' | 'webSeed'; // connection type
+        readonly type: "webrtc" | "tcpIncoming" | "tcpOutgoing" | "webSeed"; // connection type
         readonly amChoking: boolean; // are we choking the peer?
         readonly amInterested: boolean; // are we interested in the peer?
         readonly peerChoking: boolean; // is the peer choking us?
         readonly peerInterested: boolean; // is the peer interested in us?
         readonly requests: Request[];
         readonly peerRequests: Request[];
-        readonly extendedMapping: { [key: number]: string, };
-        readonly peerExtendedMapping: { [key: string]: number, };
+        readonly extendedMapping: { [key: number]: string };
+        readonly peerExtendedMapping: { [key: string]: number };
 
         setKeepAlive(enable: boolean): void;
 
@@ -54,7 +58,11 @@ declare namespace BittorrentProtocol {
 
         use(ext: ExtensionConstructor): void;
 
-        handshake(infoHash: string | Buffer, peerId: string | Buffer, extensions?: any): void;
+        handshake(
+            infoHash: string | Buffer,
+            peerId: string | Buffer,
+            extensions?: any
+        ): void;
 
         choke(): void;
 
@@ -69,7 +77,12 @@ declare namespace BittorrentProtocol {
         // TODO: bitfield can be also a bitfield instance
         bitfield(bitfield: Buffer | any): void;
 
-        request<T extends any>(index: number, offset: number, length: number, cb?: (err: Error) => T): T | void;
+        request<T extends any>(
+            index: number,
+            offset: number,
+            length: number,
+            cb?: (err: Error) => T
+        ): T | void;
 
         piece(index: number, offset: number, buffer: Buffer): void;
 
@@ -80,15 +93,51 @@ declare namespace BittorrentProtocol {
         extend(ext: number | string, obj: any): void;
 
         // TODO: bitfield is a bitfield instance
-        on(event: 'bitfield', listener: (bitfield: any) => void): this;
-        on(event: 'keep-alive' | 'choke' | 'unchoke' | 'interested' | 'uninterested' | 'timeout', listener: () => void): this;
-        on(event: 'upload' | 'have' | 'download' | 'port', listener: (length: number) => void): this;
-        on(event: 'handshake', listener: (infoHash: string, peerId: string, extensions: Extension[]) => void): this;
-        on(event: 'request', listener: (index: number, offset: number, length: number, respond: () => void) => void): this;
-        on(event: 'piece', listener: (index: number, offset: number, buffer: Buffer) => void): this;
-        on(event: 'cancel', listener: (index: number, offset: number, length: number) => void): this;
-        on(event: 'extended', listener: (ext: 'handshake' | string, buf: any) => void): void;
-        on(event: 'unknownmessage', listener: (buffer: Buffer) => void): this;
+        on(event: "bitfield", listener: (bitfield: any) => void): this;
+        on(
+            event:
+                | "keep-alive"
+                | "choke"
+                | "unchoke"
+                | "interested"
+                | "uninterested"
+                | "timeout",
+            listener: () => void
+        ): this;
+        on(
+            event: "upload" | "have" | "download" | "port",
+            listener: (length: number) => void
+        ): this;
+        on(
+            event: "handshake",
+            listener: (
+                infoHash: string,
+                peerId: string,
+                extensions: Extension[]
+            ) => void
+        ): this;
+        on(
+            event: "request",
+            listener: (
+                index: number,
+                offset: number,
+                length: number,
+                respond: () => void
+            ) => void
+        ): this;
+        on(
+            event: "piece",
+            listener: (index: number, offset: number, buffer: Buffer) => void
+        ): this;
+        on(
+            event: "cancel",
+            listener: (index: number, offset: number, length: number) => void
+        ): this;
+        on(
+            event: "extended",
+            listener: (ext: "handshake" | string, buf: any) => void
+        ): void;
+        on(event: "unknownmessage", listener: (buffer: Buffer) => void): this;
         on(event: string, listener: (...args: any[]) => void): this;
     }
 }

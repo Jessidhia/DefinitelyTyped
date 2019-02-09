@@ -11,14 +11,14 @@ declare namespace google.payments.api {
         apiVersionMinor: number;
     }
 
-    type EnvironmentType = 'PRODUCTION' | 'TEST';
+    type EnvironmentType = "PRODUCTION" | "TEST";
 
     interface PaymentOptions {
         environment?: EnvironmentType;
     }
 
-    type ButtonColor = 'default' | 'black' | 'white';
-    type ButtonType = 'long' | 'short';
+    type ButtonColor = "default" | "black" | "white";
+    type ButtonType = "long" | "short";
 
     interface ButtonOptions {
         onClick: EventListener;
@@ -37,29 +37,33 @@ declare namespace google.payments.api {
     }
 
     type PaymentMethod = CardPaymentMethod;
-    type AllowedPaymentMethodType = 'CARD';
+    type AllowedPaymentMethodType = "CARD";
 
     interface BasePaymentMethod {
         type: AllowedPaymentMethodType;
         tokenizationSpecification?: PaymentMethodTokenizationSpecification;
     }
 
-    type PaymentMethodTokenizationSpecification = PaymentGatewayTokenizationSpecification | DirectTokenizationSpecification;
-    type TokenizationType = 'DIRECT' | 'PAYMENT_GATEWAY';
+    type PaymentMethodTokenizationSpecification =
+        | PaymentGatewayTokenizationSpecification
+        | DirectTokenizationSpecification;
+    type TokenizationType = "DIRECT" | "PAYMENT_GATEWAY";
 
     interface BasePaymentMethodTokenizationSpecification {
         type: TokenizationType;
     }
 
-    interface PaymentGatewayTokenizationSpecification extends BasePaymentMethodTokenizationSpecification {
-        type: 'PAYMENT_GATEWAY';
+    interface PaymentGatewayTokenizationSpecification
+        extends BasePaymentMethodTokenizationSpecification {
+        type: "PAYMENT_GATEWAY";
         parameters: {
             [parameter: string]: string;
         };
     }
 
-    interface DirectTokenizationSpecification extends BasePaymentMethodTokenizationSpecification {
-        type: 'DIRECT';
+    interface DirectTokenizationSpecification
+        extends BasePaymentMethodTokenizationSpecification {
+        type: "DIRECT";
         parameters: {
             protocolVersion: string;
             publicKey: string;
@@ -67,12 +71,17 @@ declare namespace google.payments.api {
     }
 
     interface CardPaymentMethod extends BasePaymentMethod {
-        type: 'CARD';
+        type: "CARD";
         parameters: CardParameters;
     }
 
-    type AllowedAuthMethod = 'PAN_ONLY' | 'CRYPTOGRAM_3DS';
-    type AllowedCardNetwork = 'AMEX' | 'DISCOVER' | 'JCB' | 'MASTERCARD' | 'VISA';
+    type AllowedAuthMethod = "PAN_ONLY" | "CRYPTOGRAM_3DS";
+    type AllowedCardNetwork =
+        | "AMEX"
+        | "DISCOVER"
+        | "JCB"
+        | "MASTERCARD"
+        | "VISA";
 
     interface CardParameters {
         allowedAuthMethods: AllowedAuthMethod[];
@@ -82,7 +91,7 @@ declare namespace google.payments.api {
         billingAddressParameters?: BillingAddressParameters;
     }
 
-    type BillingAddressFormat = 'FULL' | 'MIN';
+    type BillingAddressFormat = "FULL" | "MIN";
 
     interface BillingAddressParameters {
         format?: BillingAddressFormat;
@@ -110,8 +119,10 @@ declare namespace google.payments.api {
         merchantOrigin?: string;
     }
 
-    type TransactionInfo = UnknownPriceTransactionInfo | KnownPriceTransactionInfo;
-    type TotalPriceStatus = 'ESTIMATED' | 'FINAL' | 'NOT_CURRENTLY_KNOWN';
+    type TransactionInfo =
+        | UnknownPriceTransactionInfo
+        | KnownPriceTransactionInfo;
+    type TotalPriceStatus = "ESTIMATED" | "FINAL" | "NOT_CURRENTLY_KNOWN";
 
     interface BaseTransactionInfo {
         totalPriceStatus: TotalPriceStatus;
@@ -119,11 +130,11 @@ declare namespace google.payments.api {
     }
 
     interface UnknownPriceTransactionInfo extends BaseTransactionInfo {
-        totalPriceStatus: 'NOT_CURRENTLY_KNOWN';
+        totalPriceStatus: "NOT_CURRENTLY_KNOWN";
     }
 
     interface KnownPriceTransactionInfo extends BaseTransactionInfo {
-        totalPriceStatus: 'ESTIMATED' | 'FINAL';
+        totalPriceStatus: "ESTIMATED" | "FINAL";
         totalPrice: string;
     }
 
@@ -146,7 +157,7 @@ declare namespace google.payments.api {
     }
 
     interface CardPaymentMethodData extends BasePaymentMethodData {
-        type: 'CARD';
+        type: "CARD";
         info: CardInfo;
     }
 
@@ -174,7 +185,11 @@ declare namespace google.payments.api {
         sortingCode: string;
     }
 
-    type ErrorStatusCode = 'BUYER_ACCOUNT_ERROR' | 'CANCELED' | 'DEVELOPER_ERROR' | 'INTERNAL_ERROR';
+    type ErrorStatusCode =
+        | "BUYER_ACCOUNT_ERROR"
+        | "CANCELED"
+        | "DEVELOPER_ERROR"
+        | "INTERNAL_ERROR";
 
     interface PaymentsError {
         statusCode: ErrorStatusCode;
@@ -184,7 +199,9 @@ declare namespace google.payments.api {
     class PaymentsClient {
         constructor(paymentOptions: PaymentOptions);
         createButton(request: ButtonOptions): HTMLElement;
-        isReadyToPay(request: IsReadyToPayRequest): Promise<IsReadyToPayResponse>;
+        isReadyToPay(
+            request: IsReadyToPayRequest
+        ): Promise<IsReadyToPayResponse>;
         loadPaymentData(request: PaymentDataRequest): Promise<PaymentData>;
         prefetchPaymentData(request: PaymentDataRequest): void;
     }

@@ -8,9 +8,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Strategy as PassportStrategy } from 'passport-strategy';
-import {Request} from 'express';
-import { VerifyOptions } from 'jsonwebtoken'
+import { Strategy as PassportStrategy } from "passport-strategy";
+import { Request } from "express";
+import { VerifyOptions } from "jsonwebtoken";
 
 export declare class Strategy extends PassportStrategy {
     constructor(opt: StrategyOptions, verify: VerifyCallback);
@@ -48,9 +48,15 @@ export interface JwtFromRequestFunction {
 export declare namespace ExtractJwt {
     export function fromHeader(header_name: string): JwtFromRequestFunction;
     export function fromBodyField(field_name: string): JwtFromRequestFunction;
-    export function fromUrlQueryParameter(param_name: string): JwtFromRequestFunction;
-    export function fromAuthHeaderWithScheme(auth_scheme: string): JwtFromRequestFunction;
+    export function fromUrlQueryParameter(
+        param_name: string
+    ): JwtFromRequestFunction;
+    export function fromAuthHeaderWithScheme(
+        auth_scheme: string
+    ): JwtFromRequestFunction;
     export function fromAuthHeader(): JwtFromRequestFunction;
-    export function fromExtractors(extractors: JwtFromRequestFunction[]): JwtFromRequestFunction;
+    export function fromExtractors(
+        extractors: JwtFromRequestFunction[]
+    ): JwtFromRequestFunction;
     export function fromAuthHeaderAsBearerToken(): JwtFromRequestFunction;
 }

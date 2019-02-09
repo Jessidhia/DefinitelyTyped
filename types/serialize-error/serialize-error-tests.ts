@@ -1,5 +1,5 @@
-import serializeError = require('serialize-error');
+import serializeError = require("serialize-error");
 
-const error = new Error('unicorn');
+const error = new Error("unicorn");
 
 const serializedError = serializeError(error);

@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": false,
         "strictNullChecks": true,
         "strictFunctionTypes": false,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "mongoose": [
-                "mongoose/v4"
-            ]
+            "mongoose": ["mongoose/v4"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "mongoose-tests.ts"
-    ]
+    "files": ["index.d.ts", "mongoose-tests.ts"]
 }

@@ -6,59 +6,59 @@ declare module "http" {
 
     // incoming headers will never contain number
     interface IncomingHttpHeaders {
-        'accept'?: string;
-        'accept-patch'?: string;
-        'accept-ranges'?: string;
-        'access-control-allow-credentials'?: string;
-        'access-control-allow-headers'?: string;
-        'access-control-allow-methods'?: string;
-        'access-control-allow-origin'?: string;
-        'access-control-expose-headers'?: string;
-        'access-control-max-age'?: string;
-        'age'?: string;
-        'allow'?: string;
-        'alt-svc'?: string;
-        'authorization'?: string;
-        'cache-control'?: string;
-        'connection'?: string;
-        'content-disposition'?: string;
-        'content-encoding'?: string;
-        'content-language'?: string;
-        'content-length'?: string;
-        'content-location'?: string;
-        'content-range'?: string;
-        'content-type'?: string;
-        'cookie'?: string;
-        'date'?: string;
-        'expect'?: string;
-        'expires'?: string;
-        'forwarded'?: string;
-        'from'?: string;
-        'host'?: string;
-        'if-match'?: string;
-        'if-modified-since'?: string;
-        'if-none-match'?: string;
-        'if-unmodified-since'?: string;
-        'last-modified'?: string;
-        'location'?: string;
-        'pragma'?: string;
-        'proxy-authenticate'?: string;
-        'proxy-authorization'?: string;
-        'public-key-pins'?: string;
-        'range'?: string;
-        'referer'?: string;
-        'retry-after'?: string;
-        'set-cookie'?: string[];
-        'strict-transport-security'?: string;
-        'tk'?: string;
-        'trailer'?: string;
-        'transfer-encoding'?: string;
-        'upgrade'?: string;
-        'user-agent'?: string;
-        'vary'?: string;
-        'via'?: string;
-        'warning'?: string;
-        'www-authenticate'?: string;
+        accept?: string;
+        "accept-patch"?: string;
+        "accept-ranges"?: string;
+        "access-control-allow-credentials"?: string;
+        "access-control-allow-headers"?: string;
+        "access-control-allow-methods"?: string;
+        "access-control-allow-origin"?: string;
+        "access-control-expose-headers"?: string;
+        "access-control-max-age"?: string;
+        age?: string;
+        allow?: string;
+        "alt-svc"?: string;
+        authorization?: string;
+        "cache-control"?: string;
+        connection?: string;
+        "content-disposition"?: string;
+        "content-encoding"?: string;
+        "content-language"?: string;
+        "content-length"?: string;
+        "content-location"?: string;
+        "content-range"?: string;
+        "content-type"?: string;
+        cookie?: string;
+        date?: string;
+        expect?: string;
+        expires?: string;
+        forwarded?: string;
+        from?: string;
+        host?: string;
+        "if-match"?: string;
+        "if-modified-since"?: string;
+        "if-none-match"?: string;
+        "if-unmodified-since"?: string;
+        "last-modified"?: string;
+        location?: string;
+        pragma?: string;
+        "proxy-authenticate"?: string;
+        "proxy-authorization"?: string;
+        "public-key-pins"?: string;
+        range?: string;
+        referer?: string;
+        "retry-after"?: string;
+        "set-cookie"?: string[];
+        "strict-transport-security"?: string;
+        tk?: string;
+        trailer?: string;
+        "transfer-encoding"?: string;
+        upgrade?: string;
+        "user-agent"?: string;
+        vary?: string;
+        via?: string;
+        warning?: string;
+        "www-authenticate"?: string;
         [header: string]: string | string[] | undefined;
     }
 
@@ -85,11 +85,19 @@ declare module "http" {
         timeout?: number;
         setHost?: boolean;
         // https://github.com/nodejs/node/blob/master/lib/_http_client.js#L278
-        createConnection?: (options: ClientRequestArgs, oncreate: (err: Error, socket: net.Socket) => void) => net.Socket;
+        createConnection?: (
+            options: ClientRequestArgs,
+            oncreate: (err: Error, socket: net.Socket) => void
+        ) => net.Socket;
     }
 
     class Server extends net.Server {
-        constructor(requestListener?: (req: IncomingMessage, res: ServerResponse) => void);
+        constructor(
+            requestListener?: (
+                req: IncomingMessage,
+                res: ServerResponse
+            ) => void
+        );
 
         setTimeout(msecs?: number, callback?: () => void): this;
         setTimeout(callback: () => void): this;
@@ -118,7 +126,9 @@ declare module "http" {
         getHeaderNames(): string[];
         hasHeader(name: string): boolean;
         removeHeader(name: string): void;
-        addTrailers(headers: OutgoingHttpHeaders | Array<[string, string]>): void;
+        addTrailers(
+            headers: OutgoingHttpHeaders | Array<[string, string]>
+        ): void;
         flushHeaders(): void;
     }
 
@@ -134,7 +144,11 @@ declare module "http" {
         // https://github.com/nodejs/node/blob/master/test/parallel/test-http-write-callbacks.js#L53
         // no args in writeContinue callback
         writeContinue(callback?: () => void): void;
-        writeHead(statusCode: number, reasonPhrase?: string, headers?: OutgoingHttpHeaders): void;
+        writeHead(
+            statusCode: number,
+            reasonPhrase?: string,
+            headers?: OutgoingHttpHeaders
+        ): void;
         writeHead(statusCode: number, headers?: OutgoingHttpHeaders): void;
     }
 
@@ -144,7 +158,10 @@ declare module "http" {
         socket: net.Socket;
         aborted: number;
 
-        constructor(url: string | URL | ClientRequestArgs, cb?: (res: IncomingMessage) => void);
+        constructor(
+            url: string | URL | ClientRequestArgs,
+            cb?: (res: IncomingMessage) => void
+        );
 
         abort(): void;
         onSocket(socket: net.Socket): void;
@@ -233,15 +250,34 @@ declare module "http" {
         [errorCode: string]: string | undefined;
     };
 
-    function createServer(requestListener?: (request: IncomingMessage, response: ServerResponse) => void): Server;
+    function createServer(
+        requestListener?: (
+            request: IncomingMessage,
+            response: ServerResponse
+        ) => void
+    ): Server;
     function createClient(port?: number, host?: string): any;
 
     // although RequestOptions are passed as ClientRequestArgs to ClientRequest directly,
     // create interface RequestOptions would make the naming more clear to developers
-    interface RequestOptions extends ClientRequestArgs { }
-    function request(options: RequestOptions | string | URL, callback?: (res: IncomingMessage) => void): ClientRequest;
-    function request(url: string | URL, options: RequestOptions, callback?: (res: IncomingMessage) => void): ClientRequest;
-    function get(options: RequestOptions | string | URL, callback?: (res: IncomingMessage) => void): ClientRequest;
-    function get(url: string | URL, options: RequestOptions, callback?: (res: IncomingMessage) => void): ClientRequest;
+    interface RequestOptions extends ClientRequestArgs {}
+    function request(
+        options: RequestOptions | string | URL,
+        callback?: (res: IncomingMessage) => void
+    ): ClientRequest;
+    function request(
+        url: string | URL,
+        options: RequestOptions,
+        callback?: (res: IncomingMessage) => void
+    ): ClientRequest;
+    function get(
+        options: RequestOptions | string | URL,
+        callback?: (res: IncomingMessage) => void
+    ): ClientRequest;
+    function get(
+        url: string | URL,
+        options: RequestOptions,
+        callback?: (res: IncomingMessage) => void
+    ): ClientRequest;
     let globalAgent: Agent;
 }

@@ -1,10 +1,12 @@
-import * as React from 'react';
-import loadable, { lazy, loadableReady } from '@loadable/component';
+import * as React from "react";
+import loadable, { lazy, loadableReady } from "@loadable/component";
 
 const TestComponent: React.SFC<{ foo: string }> = () => <>test</>;
 
 function defaultImportComponentLoader() {
-    return new Promise<{ default: typeof TestComponent }>(resolve => resolve({ default: TestComponent }));
+    return new Promise<{ default: typeof TestComponent }>(resolve =>
+        resolve({ default: TestComponent })
+    );
 }
 
 function importComponentLoader() {
@@ -12,11 +14,13 @@ function importComponentLoader() {
 }
 
 const lib = {
-    getTestObj: () => ({ bar: 'bar', foo: 'foo' })
+    getTestObj: () => ({ bar: "bar", foo: "foo" })
 };
 
 function defaultImportLibLoader() {
-    return new Promise<{ default: typeof lib }>(resolve => resolve(({ default: lib })));
+    return new Promise<{ default: typeof lib }>(resolve =>
+        resolve({ default: lib })
+    );
 }
 
 function importLibLoader() {
@@ -64,9 +68,7 @@ function importLibLoader() {
 
     // Should infer types from module without default export and reflect them in children render prop
     const LoadableLibrary = loadable.lib(importLibLoader);
-    <LoadableLibrary>
-        {({ getTestObj }) => getTestObj().foo}
-    </LoadableLibrary>;
+    <LoadableLibrary>{({ getTestObj }) => getTestObj().foo}</LoadableLibrary>;
 
     // Should allow passing fallback JSX element
     loadable.lib(importLibLoader, { fallback: <div>loading lib...</div> });
@@ -92,9 +94,7 @@ function importLibLoader() {
 
     // Should infer types from module without default export and reflect them in children render prop
     const LazyLibrary = lazy.lib(importLibLoader);
-    <LazyLibrary>
-        {({ getTestObj }) => getTestObj().foo}
-    </LazyLibrary>;
+    <LazyLibrary>{({ getTestObj }) => getTestObj().foo}</LazyLibrary>;
 
     // Should allow passing fallback prop
     <LazyLibrary fallback={<div>Loading library...</div>}>

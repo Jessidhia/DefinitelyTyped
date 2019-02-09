@@ -7,30 +7,33 @@
 import { SQS } from "aws-sdk";
 
 export interface Options {
-  queueUrl: string;
-  region?: string;
-  batchSize?: number;
-  sqs?: SQS;
+    queueUrl: string;
+    region?: string;
+    batchSize?: number;
+    sqs?: SQS;
 }
 
 export type ProducerCallback<T> = (err?: Error, data?: T) => any;
 
 export interface ProducerMessageAttribute {
-  DataType: "String" | "Binary";
-  StringValue?: string;
-  BinaryValue?: Buffer;
+    DataType: "String" | "Binary";
+    StringValue?: string;
+    BinaryValue?: Buffer;
 }
 
 export interface ProducerMessage {
-  id: string;
-  body: string;
-  messageAttributes?: { [key: string]: ProducerMessageAttribute };
-  delaySeconds?: number;
+    id: string;
+    body: string;
+    messageAttributes?: { [key: string]: ProducerMessageAttribute };
+    delaySeconds?: number;
 }
 
 export interface Producer {
-  send(messages: string[] | ProducerMessage[], cb: ProducerCallback<void>): void;
-  queueSize(cb: ProducerCallback<number>): void;
+    send(
+        messages: string[] | ProducerMessage[],
+        cb: ProducerCallback<void>
+    ): void;
+    queueSize(cb: ProducerCallback<number>): void;
 }
 
 export function create(opts: Options): Producer;

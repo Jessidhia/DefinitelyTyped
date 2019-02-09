@@ -133,7 +133,9 @@ declare namespace GoogleAppsScriptOAuth2 {
          * In most cases this should be user properties, but document or script properties may be appropriate
          * if you want to share access across users.
          */
-        setPropertyStore(propertyStore: GoogleAppsScript.Properties.Properties): OAuth2Service;
+        setPropertyStore(
+            propertyStore: GoogleAppsScript.Properties.Properties
+        ): OAuth2Service;
         /**
          * Sets the scope or scopes to request during the authorization flow (optional).
          * If the scope value is an array it will be joined using the separator before being sent to the server,
@@ -155,7 +157,9 @@ declare namespace GoogleAppsScriptOAuth2 {
         /**
          * Sets an additional function to invoke on the payload of the access token request.
          */
-        setTokenPayloadHandler(tokenHandler: (tokenPayload: TokenPayload) => object): OAuth2Service;
+        setTokenPayloadHandler(
+            tokenHandler: (tokenPayload: TokenPayload) => object
+        ): OAuth2Service;
         /**
          * Sets the service's token URL (required).
          * For Google services this URL should be `https://accounts.google.com/o/oauth2/token`.
@@ -171,7 +175,7 @@ declare namespace GoogleAppsScriptOAuth2 {
         /**
          * Pass the state token in the redirect URL, as a workaround for APIs that don't support the state parameter.
          */
-        REDIRECT_URL,
+        REDIRECT_URL
     }
 
     enum TokenFormat {
@@ -182,7 +186,7 @@ declare namespace GoogleAppsScriptOAuth2 {
         /**
          * Form URL-encoded, for example `access_token=...`.
          */
-        FORM_URL_ENCODED,
+        FORM_URL_ENCODED
     }
 
     interface TokenPayload {

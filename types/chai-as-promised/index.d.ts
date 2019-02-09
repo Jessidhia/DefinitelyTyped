@@ -9,11 +9,14 @@
 
 /// <reference types="chai" />
 
-declare module 'chai-as-promised' {
+declare module "chai-as-promised" {
     function chaiAsPromised(chai: any, utils: any): void;
 
     namespace chaiAsPromised {
-        function transferPromiseness(assertion: Chai.PromisedAssertion, promise: PromiseLike<any>): void;
+        function transferPromiseness(
+            assertion: Chai.PromisedAssertion,
+            promise: PromiseLike<any>
+        ): void;
 
         function transformAsserterArgs(values: any[]): any;
     }
@@ -22,9 +25,11 @@ declare module 'chai-as-promised' {
 }
 
 declare namespace Chai {
-
     // For BDD API
-    interface Assertion extends LanguageChains, NumericComparison, TypeComparison {
+    interface Assertion
+        extends LanguageChains,
+            NumericComparison,
+            TypeComparison {
         eventually: PromisedAssertion;
         become(expected: any): PromisedAssertion;
         fulfilled: PromisedAssertion;
@@ -34,7 +39,10 @@ declare namespace Chai {
     }
 
     // Eventually does not have .then(), but PromisedAssertion have.
-    interface Eventually extends PromisedLanguageChains, PromisedNumericComparison, PromisedTypeComparison {
+    interface Eventually
+        extends PromisedLanguageChains,
+            PromisedNumericComparison,
+            PromisedTypeComparison {
         // From chai-as-promised
         become(expected: any): PromisedAssertion;
         fulfilled: PromisedAssertion;
@@ -103,8 +111,7 @@ declare namespace Chai {
         oneOf(list: any[], message?: string): PromisedAssertion;
     }
 
-    interface PromisedAssertion extends Eventually, PromiseLike<any> {
-    }
+    interface PromisedAssertion extends Eventually, PromiseLike<any> {}
 
     interface PromisedLanguageChains {
         eventually: Eventually;
@@ -138,7 +145,11 @@ declare namespace Chai {
         lessThan: PromisedNumberComparer;
         most: PromisedNumberComparer;
         lte: PromisedNumberComparer;
-        within(start: number, finish: number, message?: string): PromisedAssertion;
+        within(
+            start: number,
+            finish: number,
+            message?: string
+        ): PromisedAssertion;
     }
 
     interface PromisedNumberComparer {
@@ -172,7 +183,7 @@ declare namespace Chai {
         include: PromisedInclude;
         property: PromisedProperty;
         members: PromisedMembers;
-        ordered: PromisedOrdered
+        ordered: PromisedOrdered;
     }
 
     interface PromisedOrdered {
@@ -196,11 +207,17 @@ declare namespace Chai {
     }
 
     interface PromisedOwnPropertyDescriptor {
-        (name: string, descriptor: PropertyDescriptor, message?: string): PromisedAssertion;
+        (
+            name: string,
+            descriptor: PropertyDescriptor,
+            message?: string
+        ): PromisedAssertion;
         (name: string, message?: string): PromisedAssertion;
     }
 
-    interface PromisedLength extends PromisedLanguageChains, PromisedNumericComparison {
+    interface PromisedLength
+        extends PromisedLanguageChains,
+            PromisedNumericComparison {
         (length: number, message?: string): PromisedAssertion;
     }
 
@@ -230,10 +247,26 @@ declare namespace Chai {
         (): PromisedAssertion;
         (expected: string, message?: string): PromisedAssertion;
         (expected: RegExp, message?: string): PromisedAssertion;
-        (constructor: Error, expected?: string, message?: string): PromisedAssertion;
-        (constructor: Error, expected?: RegExp, message?: string): PromisedAssertion;
-        (constructor: Function, expected?: string, message?: string): PromisedAssertion;
-        (constructor: Function, expected?: RegExp, message?: string): PromisedAssertion;
+        (
+            constructor: Error,
+            expected?: string,
+            message?: string
+        ): PromisedAssertion;
+        (
+            constructor: Error,
+            expected?: RegExp,
+            message?: string
+        ): PromisedAssertion;
+        (
+            constructor: Function,
+            expected?: string,
+            message?: string
+        ): PromisedAssertion;
+        (
+            constructor: Function,
+            expected?: RegExp,
+            message?: string
+        ): PromisedAssertion;
     }
 
     interface PromisedRespondTo {
@@ -255,17 +288,44 @@ declare namespace Chai {
     // For Assert API
     interface Assert {
         eventually: PromisedAssert;
-        isFulfilled(promise: PromiseLike<any>, message?: string): PromiseLike<void>;
-        becomes(promise: PromiseLike<any>, expected: any, message?: string): PromiseLike<void>;
-        doesNotBecome(promise: PromiseLike<any>, expected: any, message?: string): PromiseLike<void>;
-        isRejected(promise: PromiseLike<any>, message?: string): PromiseLike<void>;
-        isRejected(promise: PromiseLike<any>, expected: any, message?: string): PromiseLike<void>;
-        isRejected(promise: PromiseLike<any>, match: RegExp, message?: string): PromiseLike<void>;
+        isFulfilled(
+            promise: PromiseLike<any>,
+            message?: string
+        ): PromiseLike<void>;
+        becomes(
+            promise: PromiseLike<any>,
+            expected: any,
+            message?: string
+        ): PromiseLike<void>;
+        doesNotBecome(
+            promise: PromiseLike<any>,
+            expected: any,
+            message?: string
+        ): PromiseLike<void>;
+        isRejected(
+            promise: PromiseLike<any>,
+            message?: string
+        ): PromiseLike<void>;
+        isRejected(
+            promise: PromiseLike<any>,
+            expected: any,
+            message?: string
+        ): PromiseLike<void>;
+        isRejected(
+            promise: PromiseLike<any>,
+            match: RegExp,
+            message?: string
+        ): PromiseLike<void>;
         notify(fn: Function): PromiseLike<void>;
     }
 
     export interface PromisedAssert {
-        fail(actual?: any, expected?: any, msg?: string, operator?: string): PromiseLike<void>;
+        fail(
+            actual?: any,
+            expected?: any,
+            msg?: string,
+            operator?: string
+        ): PromiseLike<void>;
 
         isOk(val: any, msg?: string): PromiseLike<void>;
         ok(val: any, msg?: string): PromiseLike<void>;
@@ -282,7 +342,11 @@ declare namespace Chai {
         notDeepEqual(act: any, exp: any, msg?: string): PromiseLike<void>;
 
         isAbove(val: number, above: number, msg?: string): PromiseLike<void>;
-        isAtLeast(val: number, atLeast: number, msg?: string): PromiseLike<void>;
+        isAtLeast(
+            val: number,
+            atLeast: number,
+            msg?: string
+        ): PromiseLike<void>;
         isAtBelow(val: number, below: number, msg?: string): PromiseLike<void>;
         isAtMost(val: number, atMost: number, msg?: string): PromiseLike<void>;
 
@@ -326,7 +390,11 @@ declare namespace Chai {
         notTypeOf(val: any, type: string, msg?: string): PromiseLike<void>;
 
         instanceOf(val: any, type: Function, msg?: string): PromiseLike<void>;
-        notInstanceOf(val: any, type: Function, msg?: string): PromiseLike<void>;
+        notInstanceOf(
+            val: any,
+            type: Function,
+            msg?: string
+        ): PromiseLike<void>;
 
         include(exp: string, inc: any, msg?: string): PromiseLike<void>;
         include(exp: any[], inc: any, msg?: string): PromiseLike<void>;
@@ -339,62 +407,203 @@ declare namespace Chai {
 
         property(obj: Object, prop: string, msg?: string): PromiseLike<void>;
         notProperty(obj: Object, prop: string, msg?: string): PromiseLike<void>;
-        deepProperty(obj: Object, prop: string, msg?: string): PromiseLike<void>;
-        notDeepProperty(obj: Object, prop: string, msg?: string): PromiseLike<void>;
+        deepProperty(
+            obj: Object,
+            prop: string,
+            msg?: string
+        ): PromiseLike<void>;
+        notDeepProperty(
+            obj: Object,
+            prop: string,
+            msg?: string
+        ): PromiseLike<void>;
 
-        propertyVal(obj: Object, prop: string, val: any, msg?: string): PromiseLike<void>;
-        propertyNotVal(obj: Object, prop: string, val: any, msg?: string): PromiseLike<void>;
+        propertyVal(
+            obj: Object,
+            prop: string,
+            val: any,
+            msg?: string
+        ): PromiseLike<void>;
+        propertyNotVal(
+            obj: Object,
+            prop: string,
+            val: any,
+            msg?: string
+        ): PromiseLike<void>;
 
-        deepPropertyVal(obj: Object, prop: string, val: any, msg?: string): PromiseLike<void>;
-        deepPropertyNotVal(obj: Object, prop: string, val: any, msg?: string): PromiseLike<void>;
+        deepPropertyVal(
+            obj: Object,
+            prop: string,
+            val: any,
+            msg?: string
+        ): PromiseLike<void>;
+        deepPropertyNotVal(
+            obj: Object,
+            prop: string,
+            val: any,
+            msg?: string
+        ): PromiseLike<void>;
 
         lengthOf(exp: any, len: number, msg?: string): PromiseLike<void>;
         //alias frenzy
         throw(fn: Function, msg?: string): PromiseLike<void>;
         throw(fn: Function, regExp: RegExp): PromiseLike<void>;
         throw(fn: Function, errType: Function, msg?: string): PromiseLike<void>;
-        throw(fn: Function, errType: Function, regExp: RegExp): PromiseLike<void>;
+        throw(
+            fn: Function,
+            errType: Function,
+            regExp: RegExp
+        ): PromiseLike<void>;
 
         throws(fn: Function, msg?: string): PromiseLike<void>;
         throws(fn: Function, regExp: RegExp): PromiseLike<void>;
-        throws(fn: Function, errType: Function, msg?: string): PromiseLike<void>;
-        throws(fn: Function, errType: Function, regExp: RegExp): PromiseLike<void>;
+        throws(
+            fn: Function,
+            errType: Function,
+            msg?: string
+        ): PromiseLike<void>;
+        throws(
+            fn: Function,
+            errType: Function,
+            regExp: RegExp
+        ): PromiseLike<void>;
 
         Throw(fn: Function, msg?: string): PromiseLike<void>;
         Throw(fn: Function, regExp: RegExp): PromiseLike<void>;
         Throw(fn: Function, errType: Function, msg?: string): PromiseLike<void>;
-        Throw(fn: Function, errType: Function, regExp: RegExp): PromiseLike<void>;
+        Throw(
+            fn: Function,
+            errType: Function,
+            regExp: RegExp
+        ): PromiseLike<void>;
 
         doesNotThrow(fn: Function, msg?: string): PromiseLike<void>;
         doesNotThrow(fn: Function, regExp: RegExp): PromiseLike<void>;
-        doesNotThrow(fn: Function, errType: Function, msg?: string): PromiseLike<void>;
-        doesNotThrow(fn: Function, errType: Function, regExp: RegExp): PromiseLike<void>;
+        doesNotThrow(
+            fn: Function,
+            errType: Function,
+            msg?: string
+        ): PromiseLike<void>;
+        doesNotThrow(
+            fn: Function,
+            errType: Function,
+            regExp: RegExp
+        ): PromiseLike<void>;
 
-        operator(val: any, operator: string, val2: any, msg?: string): PromiseLike<void>;
-        closeTo(act: number, exp: number, delta: number, msg?: string): PromiseLike<void>;
-        approximately(act: number, exp: number, delta: number, msg?: string): PromiseLike<void>;
+        operator(
+            val: any,
+            operator: string,
+            val2: any,
+            msg?: string
+        ): PromiseLike<void>;
+        closeTo(
+            act: number,
+            exp: number,
+            delta: number,
+            msg?: string
+        ): PromiseLike<void>;
+        approximately(
+            act: number,
+            exp: number,
+            delta: number,
+            msg?: string
+        ): PromiseLike<void>;
 
         sameMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        sameDeepMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        sameOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        notSameOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        sameDeepOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        notSameDeepOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        includeOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        notIncludeOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        includeDeepOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        notIncludeDeepOrderedMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        includeMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
-        includeDeepMembers(set1: any[], set2: any[], msg?: string): PromiseLike<void>;
+        sameDeepMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        sameOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        notSameOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        sameDeepOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        notSameDeepOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        includeOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        notIncludeOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        includeDeepOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        notIncludeDeepOrderedMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        includeMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
+        includeDeepMembers(
+            set1: any[],
+            set2: any[],
+            msg?: string
+        ): PromiseLike<void>;
 
         oneOf(val: any, list: any[], msg?: string): PromiseLike<void>;
 
-        changes(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
-        doesNotChange(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
-        increases(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
-        doesNotIncrease(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
-        decreases(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
-        doesNotDecrease(modifier: Function, obj: Object, property: string, msg?: string): PromiseLike<void>;
+        changes(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
+        doesNotChange(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
+        increases(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
+        doesNotIncrease(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
+        decreases(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
+        doesNotDecrease(
+            modifier: Function,
+            obj: Object,
+            property: string,
+            msg?: string
+        ): PromiseLike<void>;
 
         ifError(val: any, msg?: string): PromiseLike<void>;
 

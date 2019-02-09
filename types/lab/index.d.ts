@@ -13,7 +13,11 @@ interface Lab {
     experiment(desc: string, cb: EmptyCallback): void;
 
     /** Organise tests into an experiment with options */
-    experiment(desc: string, options: ExperimentOptions, cb: EmptyCallback): void;
+    experiment(
+        desc: string,
+        options: ExperimentOptions,
+        cb: EmptyCallback
+    ): void;
 
     /** Create a test suite */
     describe(desc: string, cb: EmptyCallback): void;
@@ -170,7 +174,10 @@ type DoneFunction = (err?: Error) => void;
 
 type CleanupFunction = (func: (next: Function) => void) => void;
 
-type TestCallback = (done: DoneFunction & DoneNote, onCleanup?: CleanupFunction) => void;
+type TestCallback = (
+    done: DoneFunction & DoneNote,
+    onCleanup?: CleanupFunction
+) => void;
 
 type TestPromise = () => Promise<any>;
 
@@ -180,8 +187,16 @@ type AsyncPromise = () => Promise<any>;
 
 type ExperimentArgs = (desc: string, cb: EmptyCallback) => {};
 
-type ExperimentWithOptionsArgs = (desc: string, options: ExperimentOptions, cb: EmptyCallback) => {};
+type ExperimentWithOptionsArgs = (
+    desc: string,
+    options: ExperimentOptions,
+    cb: EmptyCallback
+) => {};
 
 type TestArgs = (desc: string, cb: TestCallback) => {};
 
-type TestWithOptionsArgs = (desc: string, options: TestOptions, cb: TestCallback) => {}
+type TestWithOptionsArgs = (
+    desc: string,
+    options: TestOptions,
+    cb: TestCallback
+) => {};

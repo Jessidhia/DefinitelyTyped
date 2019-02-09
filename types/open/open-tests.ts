@@ -1,5 +1,4 @@
+import open = require("open");
 
-import open = require('open');
-
-open('foo');
-open('foo', 'bar');
+open("foo");
+open("foo", "bar");

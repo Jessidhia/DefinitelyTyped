@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface ScrollAnimationProps {
     animateIn?: string;
@@ -19,6 +19,8 @@ export interface ScrollAnimationProps {
     className?: string;
 }
 
-export default class ScrollAnimation extends React.Component<ScrollAnimationProps> {
+export default class ScrollAnimation extends React.Component<
+    ScrollAnimationProps
+> {
     constructor(props: ScrollAnimationProps);
 }

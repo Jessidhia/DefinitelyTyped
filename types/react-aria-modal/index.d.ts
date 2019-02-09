@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import React = require('react');
+import React = require("react");
 
 export interface AriaModalProps {
     /**

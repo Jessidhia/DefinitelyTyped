@@ -5,9 +5,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import * as UglifyJS from 'uglify-js';
-import * as CleanCSS from 'clean-css';
-import * as RelateUrl from 'relateurl';
+import * as UglifyJS from "uglify-js";
+import * as CleanCSS from "clean-css";
+import * as RelateUrl from "relateurl";
 
 export function minify(text: string, options?: Options): string;
 
@@ -67,7 +67,10 @@ export interface Options {
     minifyCSS?: boolean | CleanCSS.Options | ((text: string) => string);
 
     // Minify JavaScript in script elements and event attributes (uses UglifyJS or function specified)
-    minifyJS?: boolean | UglifyJS.MinifyOptions | ((text: string, inline: boolean) => string);
+    minifyJS?:
+        | boolean
+        | UglifyJS.MinifyOptions
+        | ((text: string, inline: boolean) => string);
 
     // Minify URLs in various attributes (uses relateurl or function specified)
     minifyURLs?: boolean | RelateUrl.Options | ((text: string) => string);
@@ -103,7 +106,9 @@ export interface Options {
      * Remove all attributes with whitespace-only values
      * @see http://perfectionkills.com/experimenting-with-html-minifier/#remove_empty_or_blank_attributes
      */
-    removeEmptyAttributes?: boolean | ((attrName: string, tag: string) => boolean);
+    removeEmptyAttributes?:
+        | boolean
+        | ((attrName: string, tag: string) => boolean);
 
     /**
      * Remove all elements with empty contents

@@ -7,5 +7,10 @@ export class TGALoader {
 
     manager: LoadingManager;
 
-    load(url: string, onLoad?: (texture: Texture) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): Texture;
+    load(
+        url: string,
+        onLoad?: (texture: Texture) => void,
+        onProgress?: (event: ProgressEvent) => void,
+        onError?: (event: ErrorEvent) => void
+    ): Texture;
 }

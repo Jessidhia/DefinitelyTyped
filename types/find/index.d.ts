@@ -8,7 +8,7 @@ export interface AsyncFindStream {
      * Handling errors in asynchronous interfaces.
      * @param callback The callback that is called upon an error
      */
-    error(callback: (() => void)  | ((err: Error) => void)): void;
+    error(callback: (() => void) | ((err: Error) => void)): void;
 }
 
 export interface FindEachStream {
@@ -30,7 +30,10 @@ export interface FindEachStream {
  * @param root The root directory
  * @param callback A callback that accepts an array of the found files
  */
-export function file(root: string, callback: (files: string[]) => void): AsyncFindStream;
+export function file(
+    root: string,
+    callback: (files: string[]) => void
+): AsyncFindStream;
 
 /**
  * Find all files that match a glob pattern in a given directory asynchronously.
@@ -38,14 +41,21 @@ export function file(root: string, callback: (files: string[]) => void): AsyncFi
  * @param root The root directory
  * @param callback A callback that accepts an array of the found files
  */
-export function file(pattern: string | RegExp, root: string, callback: (files: string[]) => void): AsyncFindStream;
+export function file(
+    pattern: string | RegExp,
+    root: string,
+    callback: (files: string[]) => void
+): AsyncFindStream;
 
 /**
  * Find all files in a given directory asynchronously.
  * @param root The root directory
  * @param callback A callback that accepts each file separately
  */
-export function eachfile(root: string, callback: (file: string) => void): FindEachStream;
+export function eachfile(
+    root: string,
+    callback: (file: string) => void
+): FindEachStream;
 
 /**
  * Find all files that match a glob pattern in a given directory asynchronously.
@@ -53,7 +63,11 @@ export function eachfile(root: string, callback: (file: string) => void): FindEa
  * @param root The root directory
  * @param callback A callback that accepts an array of the found files
  */
-export function eachfile(pattern: string | RegExp, root: string, callback: (file: string) => void): FindEachStream;
+export function eachfile(
+    pattern: string | RegExp,
+    root: string,
+    callback: (file: string) => void
+): FindEachStream;
 
 /**
  * Find all files in a given directory synchronously.
@@ -75,7 +89,10 @@ export function fileSync(pattern: string | RegExp, root: string): string[];
  * @param root The root directory
  * @param callback A callback that accepts an array of the found directories
  */
-export function dir(root: string, callback: (directories: string[]) => void): AsyncFindStream;
+export function dir(
+    root: string,
+    callback: (directories: string[]) => void
+): AsyncFindStream;
 
 /**
  * Find all directories that match a glob pattern in a given directory asynchronously.
@@ -83,7 +100,11 @@ export function dir(root: string, callback: (directories: string[]) => void): As
  * @param root The root directory
  * @param callback A callback that accepts an array of the found directories
  */
-export function dir(pattern: RegExp | string, root: string, callback: (directories: string[]) => void): AsyncFindStream;
+export function dir(
+    pattern: RegExp | string,
+    root: string,
+    callback: (directories: string[]) => void
+): AsyncFindStream;
 
 /**
  * Find all directories in a given directory synchronously.
@@ -105,7 +126,10 @@ export function dirSync(pattern: string | RegExp, root: string): string[];
  * @param root The root directory
  * @param callback A callback that accepts each of the found directories separately
  */
-export function eachdir(root: string, callback: (directory: string) => void): FindEachStream;
+export function eachdir(
+    root: string,
+    callback: (directory: string) => void
+): FindEachStream;
 
 /**
  * Find all directories that match a glob pattern in a given directory asynchronously.
@@ -113,4 +137,8 @@ export function eachdir(root: string, callback: (directory: string) => void): Fi
  * @param root The root directory
  * @param callback A callback that accepts each of the found directories separately
  */
-export function eachdir(pattern: string | RegExp, root: string, callback: (directory: string) => void): FindEachStream;
+export function eachdir(
+    pattern: string | RegExp,
+    root: string,
+    callback: (directory: string) => void
+): FindEachStream;

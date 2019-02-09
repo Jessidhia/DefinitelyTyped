@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace dojox {
-
     namespace secure {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/secure/DOM.html
@@ -12,7 +11,9 @@ declare namespace dojox {
          *
          * @param element
          */
-        interface DOM{(element: any): void}
+        interface DOM {
+            (element: any): void;
+        }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/secure/sandbox.html
          *
@@ -25,9 +26,10 @@ declare namespace dojox {
          *
          * @param element The DOM element to use as the container for the sandbox
          */
-        interface sandbox{(element: any): void}
-        namespace fromJson {
+        interface sandbox {
+            (element: any): void;
         }
+        namespace fromJson {}
 
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/secure/capability.html
@@ -52,21 +54,24 @@ declare namespace dojox {
              * @param safeLibraries The safe libraries that can be called (the functions can not be access/modified by the untrusted code, only called)
              * @param safeGlobals These globals can be freely interacted with by the untrusted code
              */
-            validate(script: String, safeLibraries: any[], safeGlobals: Object): void;
+            validate(
+                script: String,
+                safeLibraries: any[],
+                safeGlobals: Object
+            ): void;
         }
     }
-
 }
 
 declare module "dojox/secure/DOM" {
-    var exp: dojox.secure.DOM
-    export=exp;
+    var exp: dojox.secure.DOM;
+    export = exp;
 }
 declare module "dojox/secure/sandbox" {
-    var exp: dojox.secure.sandbox
-    export=exp;
+    var exp: dojox.secure.sandbox;
+    export = exp;
 }
 declare module "dojox/secure/capability" {
-    var exp: dojox.secure.capability
-    export=exp;
+    var exp: dojox.secure.capability;
+    export = exp;
 }

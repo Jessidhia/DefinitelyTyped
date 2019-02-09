@@ -1,7 +1,12 @@
 namespace mathTests.matrixTests {
     const {
-        vec2, vec3, vec4,
-        mat2, mat2d, mat3, mat4,
+        vec2,
+        vec3,
+        vec4,
+        mat2,
+        mat2d,
+        mat3,
+        mat4,
         quat
     } = adone.math.matrix;
     type mat2 = adone.math.matrix.I.mat2;
@@ -27,8 +32,42 @@ namespace mathTests.matrixTests {
     const mat2dB = mat2d.fromValues(1, 2, 3, 4, 5, 6);
     const mat3A = mat3.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9);
     const mat3B = mat3.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9);
-    const mat4A = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-    const mat4B = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+    const mat4A = mat4.fromValues(
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    );
+    const mat4B = mat4.fromValues(
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    );
     const quatA = quat.fromValues(1, 2, 3, 4);
     const quatB = quat.fromValues(5, 6, 7, 8);
 
@@ -286,8 +325,43 @@ namespace mathTests.matrixTests {
         outMat4 = mat4.create();
         outMat4 = mat4.clone(mat4A);
         outMat4 = mat4.copy(outMat4, mat4A);
-        outMat4 = mat4.fromValues(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-        outMat4 = mat4.set(outMat4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        outMat4 = mat4.fromValues(
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+        );
+        outMat4 = mat4.set(
+            outMat4,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+        );
         outMat4 = mat4.identity(outMat4);
         outMat4 = mat4.transpose(outMat4, mat4A);
         outMat4Null = mat4.invert(outMat4, mat4A);
@@ -311,12 +385,33 @@ namespace mathTests.matrixTests {
         outVec3 = mat4.getTranslation(outVec3, mat4A);
         outVec3 = mat4.getScaling(outVec3, mat4A);
         outQuat = mat4.getRotation(outQuat, mat4A);
-        outMat4 = mat4.fromRotationTranslationScale(outMat4, quatA, vec3A, vec3B);
-        outMat4 = mat4.fromRotationTranslationScaleOrigin(outMat4, quatA, vec3A, vec3B, vec3A);
+        outMat4 = mat4.fromRotationTranslationScale(
+            outMat4,
+            quatA,
+            vec3A,
+            vec3B
+        );
+        outMat4 = mat4.fromRotationTranslationScaleOrigin(
+            outMat4,
+            quatA,
+            vec3A,
+            vec3B,
+            vec3A
+        );
         outMat4 = mat4.fromQuat(outMat4, quatB);
         outMat4 = mat4.frustum(outMat4, -1, 1, -1, 1, -1, 1);
         outMat4 = mat4.perspective(outMat4, Math.PI, 1, 0, 1);
-        outMat4 = mat4.perspectiveFromFieldOfView(outMat4, { upDegrees: Math.PI, downDegrees: -Math.PI, leftDegrees: -Math.PI, rightDegrees: Math.PI }, 1, 0);
+        outMat4 = mat4.perspectiveFromFieldOfView(
+            outMat4,
+            {
+                upDegrees: Math.PI,
+                downDegrees: -Math.PI,
+                leftDegrees: -Math.PI,
+                rightDegrees: Math.PI
+            },
+            1,
+            0
+        );
         outMat4 = mat4.ortho(outMat4, -1, 1, -1, 1, -1, 1);
         outMat4 = mat4.lookAt(outMat4, vec3A, vec3B, vec3A);
         outStr = mat4.str(mat4A);

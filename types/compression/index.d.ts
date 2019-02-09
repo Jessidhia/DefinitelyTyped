@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import * as express from 'express';
+import * as express from "express";
 
 declare function e(options?: e.CompressionOptions): express.RequestHandler;
 
@@ -14,7 +14,10 @@ declare namespace e {
      * Default filter, used for extending filter given in CompressionOptions
      * See https://github.com/expressjs/compression#filter-1 regarding the usage
      */
-    export function filter(req: express.Request, res: express.Response): boolean;
+    export function filter(
+        req: express.Request,
+        res: express.Response
+    ): boolean;
 
     interface CompressionFilter {
         (req: express.Request, res: express.Response): boolean;

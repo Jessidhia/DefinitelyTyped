@@ -6,7 +6,6 @@
 
 /// <reference types="node" />
 
-
 interface Options {
     searchPath?: string | string[];
     base?: string;
@@ -17,7 +16,10 @@ interface Options {
 }
 
 interface Useref {
-    (options?: Options, ...transformStreams: NodeJS.ReadWriteStream[]): NodeJS.ReadWriteStream;
+    (
+        options?: Options,
+        ...transformStreams: NodeJS.ReadWriteStream[]
+    ): NodeJS.ReadWriteStream;
 }
 
 declare var useref: Useref;

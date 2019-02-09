@@ -1,9 +1,13 @@
-import Lasso, { LassoConfig, LassoPage, LassoResource } from './Lasso';
-import LassoContext from './LassoContext';
-import * as _writers from './writers';
+import Lasso, { LassoConfig, LassoPage, LassoResource } from "./Lasso";
+import LassoContext from "./LassoContext";
+import * as _writers from "./writers";
 
 export namespace transforms {
-  function createTransformer(unfilteredTransforms: any[], lassoContext: LassoContext, callback: (err: Error | null, result?: any) => any): void;
+    function createTransformer(
+        unfilteredTransforms: any[],
+        lassoContext: LassoContext,
+        callback: (err: Error | null, result?: any) => any
+    ): void;
 }
 
 export { _writers as writers };
@@ -20,9 +24,17 @@ export const lassoResource: LassoResource;
 
 export function getDefaultLasso(): Lasso;
 
-export function create(config?: LassoConfig | string, baseDir?: string, filename?: string): Lasso;
+export function create(
+    config?: LassoConfig | string,
+    baseDir?: string,
+    filename?: string
+): Lasso;
 
-export function configure(config?: LassoConfig | string, baseDir?: string, filename?: string): void;
+export function configure(
+    config?: LassoConfig | string,
+    baseDir?: string,
+    filename?: string
+): void;
 
 export function setDevelopmentMode(): void;
 

@@ -5,7 +5,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 /// <reference types="node" />
 
-
 export declare var EVENTS: string[];
 
 interface SAXOptions {
@@ -64,7 +63,7 @@ export declare class SAXParser {
     strict: boolean;
     opt: SAXOptions;
     tag: string;
-    ENTITIES: {[key: string]: string};
+    ENTITIES: { [key: string]: string };
 
     // Events
     onerror(e: Error): void;
@@ -86,7 +85,10 @@ export declare class SAXParser {
 }
 
 import stream = require("stream");
-export declare function createStream(strict: boolean, opt: SAXOptions): SAXStream;
+export declare function createStream(
+    strict: boolean,
+    opt: SAXOptions
+): SAXStream;
 export declare class SAXStream extends stream.Duplex {
     constructor(strict: boolean, opt: SAXOptions);
     private _parser: SAXParser;

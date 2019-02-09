@@ -13,7 +13,11 @@
  *     });
  */
 // tslint:disable-next-line strict-export-declare-modifiers
-declare function cmdShim(from: string, to: string, cb: (err: any) => void): undefined;
+declare function cmdShim(
+    from: string,
+    to: string,
+    cb: (err: any) => void
+): undefined;
 
 // tslint:disable-next-line strict-export-declare-modifiers
 declare namespace cmdShim {
@@ -26,7 +30,11 @@ declare namespace cmdShim {
      *         if (err) throw err;
      *     });
      */
-    function ifExists(from: string, to: string, cb: (err: any) => void): undefined;
+    function ifExists(
+        from: string,
+        to: string,
+        cb: (err: any) => void
+    ): undefined;
 }
 
 // tslint:disable-next-line strict-export-declare-modifiers

@@ -1,54 +1,54 @@
-import newGithubIssueUrl = require('new-github-issue-url');
+import newGithubIssueUrl = require("new-github-issue-url");
 
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-issue-url.git',
+    repoUrl: "https://github.com/sindresorhus/new-github-issue-url.git"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    user: 'sindresorhus',
-    repo: 'new-github-issue-url',
+    user: "sindresorhus",
+    repo: "new-github-issue-url"
 });
 // $ExpectError
 newGithubIssueUrl({
-    user: 'sindresorhus',
+    user: "sindresorhus"
 });
 // $ExpectError
 newGithubIssueUrl({
-    repo: 'new-github-issue-url',
+    repo: "new-github-issue-url"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    body: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    body: "foo"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    title: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    title: "foo"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    template: 'unicorn.md',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    template: "unicorn.md"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    labels: ['foo', 'bar'],
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    labels: ["foo", "bar"]
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    milestone: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    milestone: "foo"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    assignee: 'sindresorhus',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    assignee: "sindresorhus"
 });
 // $ExpectType string
 newGithubIssueUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    projects: ['some-repo/3'],
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    projects: ["some-repo/3"]
 });

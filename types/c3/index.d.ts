@@ -318,8 +318,8 @@ export interface Data {
      */
     rows?: PrimitiveArray[];
     /*
-        * Load data from a multidimensional array, with each element containing an array consisting of a datum name and associated data values.
-        */
+     * Load data from a multidimensional array, with each element containing an array consisting of a datum name and associated data values.
+     */
     columns?: PrimitiveArray[];
     /**
      * Used if loading JSON via data.url
@@ -384,7 +384,10 @@ export interface Data {
      * - j is the sub index of the data point where the label is shown.
      * Formatter function can be defined for each data by specifying as an object and D3 formatter function can be set (e.g. d3.format('$'))
      */
-    labels?: boolean | { format: FormatFunction } | { format: { [key: string]: FormatFunction } };
+    labels?:
+        | boolean
+        | { format: FormatFunction }
+        | { format: { [key: string]: FormatFunction } };
     /**
      * Define the order of the data.
      * This option changes the order of stacking the data and pieces of pie/donut. If null specified, it will be the order the data loaded. If function specified, it will be used to sort the data
@@ -408,7 +411,12 @@ export interface Data {
     /**
      * Set color for each data.
      */
-    colors?: { [key: string]: string | d3.RGBColor | ((d: any) => string | d3.RGBColor) };
+    colors?: {
+        [key: string]:
+            | string
+            | d3.RGBColor
+            | ((d: any) => string | d3.RGBColor);
+    };
     /**
      * Hide each data when the chart appears.
      * If true specified, all of data will be hidden. If multiple ids specified as an array, those will be hidden.
@@ -737,7 +745,7 @@ export interface LegendOptions {
              * Tile height
              */
             height?: number;
-        }
+        };
     };
 }
 
@@ -770,12 +778,22 @@ export interface TooltipOptions {
     /**
      * Set custom position for the tooltip. This option can be used to modify the tooltip position by returning object that has top and left.
      */
-    position?(data: any, width: number, height: number, element: any): { top: number; left: number };
+    position?(
+        data: any,
+        width: number,
+        height: number,
+        element: any
+    ): { top: number; left: number };
     /**
      * Set custom HTML for the tooltip.
      * Specified function receives data, defaultTitleFormat, defaultValueFormat and color of the data point to show. If tooltip.grouped is true, data includes multiple data points.
      */
-    contents?(data: any, defaultTitleFormat: string, defaultValueFormat: string, color: any): string;
+    contents?(
+        data: any,
+        defaultTitleFormat: string,
+        defaultValueFormat: string,
+        color: any
+    ): string;
     /**
      * Set tooltip values order
      * Available Values: desc, asc, any[], function (data1, data2) { ... }, null
@@ -809,7 +827,7 @@ export interface ZoomOptions {
     /**
      * Set interaction type for zooming
      */
-    type?: 'scroll' | 'drag';
+    type?: "scroll" | "drag";
     /**
      * Enable to rescale after zooming. If true set, y domain will be updated according to the zoomed region.
      */
@@ -1035,7 +1053,9 @@ export interface ChartAPI {
          * Get and set colors of the data loaded in the chart.
          * @param colors If this argument is given, the colors of data will be updated. If not given, the current colors will be returned. The format of this argument is the same as data.colors.
          */
-        colors(colors?: { [key: string]: string | d3.RGBColor }): { [key: string]: string };
+        colors(colors?: {
+            [key: string]: string | d3.RGBColor;
+        }): { [key: string]: string };
         /**
          * Get and set axes of the data loaded in the chart.
          * @param axes If this argument is given, the axes of data will be updated. If not given, the current axes will be returned. The format of this argument is the same as data.axes.
@@ -1071,7 +1091,9 @@ export interface ChartAPI {
      * Get and set x values for the chart.
      * @param x If x is given, x values of every target will be updated. If no argument is given, current x values will be returned as an Object whose keys are the target ids.
      */
-    xs(xs?: { [key: string]: PrimitiveArray }): { [key: string]: PrimitiveArray };
+    xs(xs?: {
+        [key: string]: PrimitiveArray;
+    }): { [key: string]: PrimitiveArray };
 
     axis: {
         /**
@@ -1083,12 +1105,16 @@ export interface ChartAPI {
          * Get and set axis min value.
          * @param min If min is given, specified axis' min value will be updated. If no argument is given, the current min values for each axis will be returned.
          */
-        min(min?: number | { [key: string]: number }): number | { [key: string]: number };
+        min(
+            min?: number | { [key: string]: number }
+        ): number | { [key: string]: number };
         /**
          * Get and set axis max value.
          * @param max If max is given, specified axis' max value will be updated. If no argument is given, the current max values for each axis will be returned.
          */
-        max(max?: number | { [key: string]: number }): number | { [key: string]: number };
+        max(
+            max?: number | { [key: string]: number }
+        ): number | { [key: string]: number };
         /**
          * Get and set axis min and max value.
          * @param range If range is given, specified axis' min and max value will be updated. If no argument is given, the current min and max values for each axis will be returned.
@@ -1096,7 +1122,10 @@ export interface ChartAPI {
         range(range?: {
             min?: number | { [key: string]: number };
             max?: number | { [key: string]: number };
-        }): { min: number | { [key: string]: number }; max: number | { [key: string]: number } };
+        }): {
+            min: number | { [key: string]: number };
+            max: number | { [key: string]: number };
+        };
     };
 
     legend: {

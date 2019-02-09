@@ -1,6 +1,6 @@
 import { Break, BreakClip } from "./cast.framework.messages";
 
-export as namespace breaks
+export as namespace breaks;
 export class BreakSeekData {
     constructor(seekFrom: number, seekTo: number, breaks: Break[]);
 

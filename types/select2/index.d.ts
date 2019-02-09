@@ -14,20 +14,26 @@ export as namespace Select2;
 // For jQuery v1 and v2 backward compatibility
 // --------------------------------------------------------------------------
 
-export type Sub<O extends string, D extends string> =
-    {[K in O]: (Record<D, never> & Record<string, K>)[K]}[O];
+export type Sub<O extends string, D extends string> = {
+    [K in O]: (Record<D, never> & Record<string, K>)[K]
+}[O];
 
 /**
  * Same as jQuery v3 `JQuery.AjaxSettingsBase`.
  */
-export type JQueryAjaxSettingsBase =
-    Pick<JQueryAjaxSettings, Sub<keyof JQueryAjaxSettings, "url">>;
+export type JQueryAjaxSettingsBase = Pick<
+    JQueryAjaxSettings,
+    Sub<keyof JQueryAjaxSettings, "url">
+>;
 
 /**
  * Same as jQuery v3 `JQuery.EventHandlerBase`.
  */
-export type JQueryEventHandlerBase<TContext, T> =
-    (this: TContext, t: T, ...args: any[]) => void | false;
+export type JQueryEventHandlerBase<TContext, T> = (
+    this: TContext,
+    t: T,
+    ...args: any[]
+) => void | false;
 
 /**
  * Same as jQuery v3 `JQuery.PlainObject`.
@@ -77,7 +83,7 @@ export interface GroupedDataFormat {
 
 export interface ProcessedResult<Result = DataFormat | GroupedDataFormat> {
     results: Result[];
-    pagination?: {more: boolean};
+    pagination?: { more: boolean };
 }
 
 export interface LoadingData {
@@ -160,19 +166,32 @@ export interface Trigger {
 // Ajax Option
 // --------------------------------------------------------------------------
 
-export interface AjaxOptions<Result = DataFormat | GroupedDataFormat, RemoteResult = any> extends JQueryAjaxSettingsBase {
+export interface AjaxOptions<
+    Result = DataFormat | GroupedDataFormat,
+    RemoteResult = any
+> extends JQueryAjaxSettingsBase {
     delay?: number;
     url?: string | ((params: QueryOptions) => string);
     data?: (params: QueryOptions) => PlainObject;
-    transport?: (settings: JQueryAjaxSettings, success?: (data: RemoteResult) => undefined, failure?: () => undefined) => void;
-    processResults?: (data: RemoteResult, params: QueryOptions) => ProcessedResult<Result>;
+    transport?: (
+        settings: JQueryAjaxSettings,
+        success?: (data: RemoteResult) => undefined,
+        failure?: () => undefined
+    ) => void;
+    processResults?: (
+        data: RemoteResult,
+        params: QueryOptions
+    ) => ProcessedResult<Result>;
 }
 
 // --------------------------------------------------------------------------
 // Options
 // --------------------------------------------------------------------------
 
-export interface Options<Result = DataFormat | GroupedDataFormat, RemoteResult = any> {
+export interface Options<
+    Result = DataFormat | GroupedDataFormat,
+    RemoteResult = any
+> {
     ajax?: AjaxOptions<Result, RemoteResult>;
     allowClear?: boolean;
     amdBase?: string;
@@ -193,7 +212,10 @@ export interface Options<Result = DataFormat | GroupedDataFormat, RemoteResult =
     escapeMarkup?: (markup: string) => string;
     initSelection?: (element: JQuery, callback: (data: any) => void) => void;
     language?: string | Translation;
-    matcher?: (params: SearchOptions, data: OptGroupData | OptionData) => OptGroupData | OptionData | null;
+    matcher?: (
+        params: SearchOptions,
+        data: OptGroupData | OptionData
+    ) => OptGroupData | OptionData | null;
     maximumInputLength?: number;
     maximumSelectionLength?: number;
     minimumInputLength?: number;
@@ -203,12 +225,21 @@ export interface Options<Result = DataFormat | GroupedDataFormat, RemoteResult =
     resultsAdapter?: any;
     selectionAdapter?: any;
     selectOnClose?: boolean;
-    sorter?: (data: Array<OptGroupData | OptionData | IdTextPair>) => Array<OptGroupData | OptionData | IdTextPair>;
+    sorter?: (
+        data: Array<OptGroupData | OptionData | IdTextPair>
+    ) => Array<OptGroupData | OptionData | IdTextPair>;
     tags?: boolean;
     templateResult?: (result: LoadingData | Result) => string | JQuery | null;
-    templateSelection?: (selection: IdTextPair | LoadingData | Result) => string | JQuery;
+    templateSelection?: (
+        selection: IdTextPair | LoadingData | Result
+    ) => string | JQuery;
     theme?: string;
-    tokenizer?: (input: string, selection: any[], selectCallback: () => void, options: Options) => string;
+    tokenizer?: (
+        input: string,
+        selection: any[],
+        selectCallback: () => void,
+        options: Options
+    ) => string;
     tokenSeparators?: string[];
     width?: string;
 
@@ -221,8 +252,8 @@ export interface Options<Result = DataFormat | GroupedDataFormat, RemoteResult =
 // jQuery And Select2 Plugin
 // --------------------------------------------------------------------------
 
-export interface Select2Plugin<TElement = HTMLElement>  {
-    amd: { require: Require; };
+export interface Select2Plugin<TElement = HTMLElement> {
+    amd: { require: Require };
 
     defaults: {
         set: (key: string, value: any) => void;
@@ -231,23 +262,25 @@ export interface Select2Plugin<TElement = HTMLElement>  {
 
     (): JQuery<TElement>;
     // tslint:disable-next-line:no-unnecessary-generics
-    <Result = DataFormat | GroupedDataFormat, RemoteResult = any>(options: Options<Result, RemoteResult>): JQuery<TElement>;
+    <Result = DataFormat | GroupedDataFormat, RemoteResult = any>(
+        options: Options<Result, RemoteResult>
+    ): JQuery<TElement>;
 
-	/**
-	 * Get the data object of the current selection
-	 */
+    /**
+     * Get the data object of the current selection
+     */
     (method: "data"): OptionData[];
-	/**
-	 * Reverts changes to DOM done by Select2. Any selection done via Select2 will be preserved.
-	 */
+    /**
+     * Reverts changes to DOM done by Select2. Any selection done via Select2 will be preserved.
+     */
     (method: "destroy"): JQuery<TElement>;
-	/**
-	 * Opens the dropdown
-	 */
+    /**
+     * Opens the dropdown
+     */
     (method: "open"): JQuery<TElement>;
-	/**
-	 * Closes the dropdown
-	 */
+    /**
+     * Closes the dropdown
+     */
     (method: "close"): JQuery<TElement>;
 }
 
@@ -259,13 +292,55 @@ declare global {
         trigger(events: Trigger): void;
 
         // TODO: events "change" and "change.select2"
-        on(events: "select2:closing", handler?: JQueryEventHandlerBase<TElement, Event<TElement, IngParams>>): this;
-        on(events: "select2:close", handler?: JQueryEventHandlerBase<TElement, Event<TElement, {}>>): this;
-        on(events: "select2:opening", handler?: JQueryEventHandlerBase<TElement, Event<TElement, IngParams>>): this;
-        on(events: "select2:open", handler?: JQueryEventHandlerBase<TElement, Event<TElement, {}>>): this;
-        on(events: "select2:selecting", handler?: JQueryEventHandlerBase<TElement, Event<TElement, IngParams>>): this;
-        on(events: "select2:select", handler?: JQueryEventHandlerBase<TElement, Event<TElement, DataParams>>): this;
-        on(events: "select2:unselecting", handler?: JQueryEventHandlerBase<TElement, Event<TElement, IngParams>>): this;
-        on(events: "select2:unselect", handler?: JQueryEventHandlerBase<TElement, Event<TElement, DataParams>>): this;
+        on(
+            events: "select2:closing",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, IngParams>
+            >
+        ): this;
+        on(
+            events: "select2:close",
+            handler?: JQueryEventHandlerBase<TElement, Event<TElement, {}>>
+        ): this;
+        on(
+            events: "select2:opening",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, IngParams>
+            >
+        ): this;
+        on(
+            events: "select2:open",
+            handler?: JQueryEventHandlerBase<TElement, Event<TElement, {}>>
+        ): this;
+        on(
+            events: "select2:selecting",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, IngParams>
+            >
+        ): this;
+        on(
+            events: "select2:select",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, DataParams>
+            >
+        ): this;
+        on(
+            events: "select2:unselecting",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, IngParams>
+            >
+        ): this;
+        on(
+            events: "select2:unselect",
+            handler?: JQueryEventHandlerBase<
+                TElement,
+                Event<TElement, DataParams>
+            >
+        ): this;
     }
 }

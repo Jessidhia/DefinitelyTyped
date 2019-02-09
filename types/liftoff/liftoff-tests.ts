@@ -1,119 +1,119 @@
-import Liftoff = require('liftoff');
-import v8flags = require('v8flags');
+import Liftoff = require("liftoff");
+import v8flags = require("v8flags");
 
 new Liftoff({
-    name: 'hacker',
-    processTitle: 'hacker',
-    moduleName: 'hacker',
-    configName: 'hackerfile',
+    name: "hacker",
+    processTitle: "hacker",
+    moduleName: "hacker",
+    configName: "hackerfile",
     extensions: {
-        '.js': null,
-        '.json': null,
-        '.coffee': 'coffee-script/register',
+        ".js": null,
+        ".json": null,
+        ".coffee": "coffee-script/register"
     },
-    v8flags: ['--harmony'],
+    v8flags: ["--harmony"]
 });
 new Liftoff({
-    name: 'hacker',
-    processTitle: 'hacker',
-    moduleName: 'hacker',
-    configName: 'hackerfile',
+    name: "hacker",
+    processTitle: "hacker",
+    moduleName: "hacker",
+    configName: "hackerfile",
     extensions: {
-        '.js': null,
-        '.json': null,
-        '.coffee': 'coffee-script/register',
+        ".js": null,
+        ".json": null,
+        ".coffee": "coffee-script/register"
     },
-    v8flags,
+    v8flags
 });
-new Liftoff({ name: 'hacker' });
+new Liftoff({ name: "hacker" });
 new Liftoff({
-    name: 'myapp',
+    name: "myapp",
     extensions: {
-        '.js': null,
-        '.json': null,
-        '.coffee': 'coffee-script/register',
-    },
+        ".js": null,
+        ".json": null,
+        ".coffee": "coffee-script/register"
+    }
 });
 new Liftoff({
-    name: 'myapp',
-    configName: '.myapp',
+    name: "myapp",
+    configName: ".myapp",
     extensions: {
-        rc: null,
-    },
+        rc: null
+    }
 });
 new Liftoff({
-    name: 'myapp',
-    extensions: require('interpret').jsVariants,
+    name: "myapp",
+    extensions: require("interpret").jsVariants
 });
 new Liftoff({
-    v8flags: ['--trace-deprecation'],
+    v8flags: ["--trace-deprecation"]
 });
 new Liftoff({
     v8flags(cb) {
-        cb(null, ['--trace-deprecation']);
-    },
+        cb(null, ["--trace-deprecation"]);
+    }
 });
 new Liftoff({
-    name: 'hacker',
+    name: "hacker",
     configFiles: {
-        '.hacker': {
-            cwd: '.',
-        },
-    },
+        ".hacker": {
+            cwd: "."
+        }
+    }
 });
 new Liftoff({
-    name: 'hacker',
+    name: "hacker",
     configFiles: {
-        '.hacker': {
+        ".hacker": {
             home: {
-                path: '~',
+                path: "~",
                 extensions: {
-                    rc: null,
-                },
-            },
-        },
-    },
+                    rc: null
+                }
+            }
+        }
+    }
 });
 new Liftoff({
-    name: 'hacker',
+    name: "hacker",
     configFiles: {
-        '.hacker': {
+        ".hacker": {
             up: {
-                path: '.',
-                findUp: true,
-            },
-        },
-    },
+                path: ".",
+                findUp: true
+            }
+        }
+    }
 });
 new Liftoff({
-    name: 'hacker',
+    name: "hacker",
     configFiles: {
         hacker: {
             override: {
-                path: '.',
-                name: '.override',
-            },
-        },
-    },
+                path: ".",
+                name: ".override"
+            }
+        }
+    }
 });
 new Liftoff({
-    name: 'hacker',
+    name: "hacker",
     configFiles: {
-        '.hacker': {
+        ".hacker": {
             home: {
-                path: '.',
-                cwd: '~',
-            },
-        },
-    },
+                path: ".",
+                cwd: "~"
+            }
+        }
+    }
 });
 
 new Liftoff().launch(
     {
-        cwd: '',
-        configPath: '',
-        require: '',
-        completion: '',
+        cwd: "",
+        configPath: "",
+        require: "",
+        completion: ""
     },
     env => {
         // $ExpectType LiftoffEnv
@@ -137,44 +137,44 @@ new Liftoff().launch(
         env.configFiles;
     }
 );
-new Liftoff().launch({ cwd: '' }, () => {});
-new Liftoff().launch({ configPath: '' }, () => {});
-new Liftoff().launch({ require: '' }, () => {});
-new Liftoff().launch({ forcedFlags: ['--trace-deprecation'] }, () => {});
-new Liftoff().launch({ forcedFlags: '--trace-deprecation' }, () => {});
+new Liftoff().launch({ cwd: "" }, () => {});
+new Liftoff().launch({ configPath: "" }, () => {});
+new Liftoff().launch({ require: "" }, () => {});
+new Liftoff().launch({ forcedFlags: ["--trace-deprecation"] }, () => {});
+new Liftoff().launch({ forcedFlags: "--trace-deprecation" }, () => {});
 new Liftoff().launch(
     {
         forcedFlags: env => {
             // $ExpectType LiftoffEnv
             env;
-            return ['--trace-deprecation'];
-        },
+            return ["--trace-deprecation"];
+        }
     },
     () => {}
 );
 new Liftoff().launch(
     {
         forcedFlags: env => {
-            return '--trace-deprecation';
-        },
+            return "--trace-deprecation";
+        }
     },
     () => {}
 );
-new Liftoff().launch({ completion: '' }, () => {});
+new Liftoff().launch({ completion: "" }, () => {});
 
-new Liftoff().on('require', (name, module) => {
+new Liftoff().on("require", (name, module) => {
     // $ExpectType string
     name;
     // $ExpectType ExtensionDescriptor
     module;
 });
-new Liftoff().on('requireFail', (name, err) => {
+new Liftoff().on("requireFail", (name, err) => {
     // $ExpectType string
     name;
     // $ExpectType any
     err;
 });
-new Liftoff().on('respawn', (flags, child) => {
+new Liftoff().on("respawn", (flags, child) => {
     // $ExpectType string[]
     flags;
     // $ExpectType Process

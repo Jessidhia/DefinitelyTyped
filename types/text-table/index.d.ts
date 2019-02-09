@@ -9,7 +9,6 @@
 declare function table(
     /** An array of arrays containing strings, numbers, or other printable values. */
     rows: Array<Array<{}>>,
-
     /** A configuration object to customize table output. */
     options?: table.Options
 ): string;
@@ -20,7 +19,7 @@ declare namespace table {
         hsep?: string;
 
         /** An array of alignment types for each column, default ['l','l',...]. */
-        align?: Array<'l' | 'r' | 'c' | '.'>;
+        align?: Array<"l" | "r" | "c" | ".">;
 
         /** A callback function to use when calculating the string length. */
         stringLength?(str: string): number;

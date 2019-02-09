@@ -33,7 +33,7 @@ declare namespace jwplayer {
 
     interface OS {
         android: boolean;
-        androidNative: boolean;   // Android native browser
+        androidNative: boolean; // Android native browser
         iOS: boolean;
         mobile: boolean;
         mac: boolean;
@@ -56,7 +56,7 @@ declare namespace jwplayer {
     }
 
     interface AdProgressParam {
-        client: 'vast' | 'googima';
+        client: "vast" | "googima";
         creativetype: string;
         tag: string;
     }
@@ -72,18 +72,18 @@ declare namespace jwplayer {
     }
 
     interface AdRequestParam {
-        adposition: 'pre' | 'mid' | 'post';
-        client: 'vast' | 'googima';
-        offset: 'pre' | 'mid' | 'post';
+        adposition: "pre" | "mid" | "post";
+        client: "vast" | "googima";
+        offset: "pre" | "mid" | "post";
         tag: string;
     }
 
     interface AdImpressionParam {
-        adposition: 'pre' | 'mid' | 'post';
+        adposition: "pre" | "mid" | "post";
         adsystem: string;
         adtitle: string;
         clickThroughUrl: string;
-        client: 'vast' | 'googima';
+        client: "vast" | "googima";
         creativetype: string;
         linear: string;
         mediafile: any;
@@ -113,7 +113,7 @@ declare namespace jwplayer {
     interface BufferParam {
         newstate: string;
         oldstate: string;
-        reason: 'loading' | 'complete' | 'stalled' | 'error';
+        reason: "loading" | "complete" | "stalled" | "error";
     }
 
     interface BufferChangeParam {
@@ -124,7 +124,7 @@ declare namespace jwplayer {
     }
 
     interface AdTimeParam {
-        client: 'vast' | 'googima';
+        client: "vast" | "googima";
         creativetype: string;
         duration: number;
         position: number;
@@ -165,7 +165,7 @@ declare namespace jwplayer {
     }
 
     interface IdleParam {
-        oldstate: 'buffering' | 'playing' | 'paused';
+        oldstate: "buffering" | "playing" | "paused";
     }
 
     interface LevelsChangedParam {
@@ -181,7 +181,7 @@ declare namespace jwplayer {
     }
 
     interface PlayParam {
-        oldstate: 'buffering' | 'playing';
+        oldstate: "buffering" | "playing";
         viewable: 0 | 1;
     }
 
@@ -260,16 +260,16 @@ declare namespace jwplayer {
     }
 
     interface QualityLevel {
-        mode: 'auto' | 'manual';
+        mode: "auto" | "manual";
         level: Level;
-        reason: 'auto' | 'api' | 'initial choice';
+        reason: "auto" | "api" | "initial choice";
     }
 
     interface CastParam {
         available: boolean;
         active: boolean;
         deviceName: string;
-        type: 'cast';
+        type: "cast";
     }
 
     interface EventParams {
@@ -314,11 +314,23 @@ declare namespace jwplayer {
         time: TimeParam;
     }
 
-    type NoParamEvent = 'adBlock' | 'beforeComplete' | 'complete' | 'beforePlay' | 'displayClick' | 'playlistComplete'
-            | 'seeked' | 'remove';
+    type NoParamEvent =
+        | "adBlock"
+        | "beforeComplete"
+        | "complete"
+        | "beforePlay"
+        | "displayClick"
+        | "playlistComplete"
+        | "seeked"
+        | "remove";
 
     interface JWPlayer {
-        addButton(icon: string, label: string, handler: () => void, id: string): void;
+        addButton(
+            icon: string,
+            label: string,
+            handler: () => void,
+            id: string
+        ): void;
         getAudioTracks(): any[];
         getBuffer(): number;
         getCaptionsList(): any[];
@@ -344,18 +356,32 @@ declare namespace jwplayer {
         getWidth(): number;
         getVisualQuality(): QualityLevel | undefined;
         load(playlist: any[] | string): void;
-        on<TEvent extends keyof EventParams>(event: TEvent, callback: EventCallback<EventParams[TEvent]>): void;
+        on<TEvent extends keyof EventParams>(
+            event: TEvent,
+            callback: EventCallback<EventParams[TEvent]>
+        ): void;
         on(event: NoParamEvent, callback: () => void): void;
-        once<TEvent extends keyof EventParams>(event: TEvent, callback: EventCallback<EventParams[TEvent]>): void;
+        once<TEvent extends keyof EventParams>(
+            event: TEvent,
+            callback: EventCallback<EventParams[TEvent]>
+        ): void;
         once(event: NoParamEvent, callback: () => void): void;
         off(event: keyof EventParams | NoParamEvent): void;
-        trigger<TEvent extends keyof EventParams>(event: TEvent, args: EventParams[TEvent]): void;
+        trigger<TEvent extends keyof EventParams>(
+            event: TEvent,
+            args: EventParams[TEvent]
+        ): void;
         trigger(event: NoParamEvent): void;
         pause(state?: boolean): void;
         play(state?: boolean): void;
         playAd(tag: string): void;
         playlistItem(index: number): void;
-        registerPlugin(id: string, target: string, jsPlugin: () => void, swfURL?: string): void;
+        registerPlugin(
+            id: string,
+            target: string,
+            jsPlugin: () => void,
+            swfURL?: string
+        ): void;
         remove(): void;
         removeButton(id: string): void;
         resize(width: number, height: number): void;

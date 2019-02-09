@@ -8,7 +8,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface StorybookUIOptions {
     /**
@@ -102,4 +102,4 @@ export function getStorybookUI(
     options: StorybookUIOptions
 ): React.ComponentClass;
 
-export * from '@storybook/react';
+export * from "@storybook/react";

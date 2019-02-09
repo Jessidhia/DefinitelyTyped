@@ -80,7 +80,12 @@ export interface ClientChannel extends Channel {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    setWindow(rows: number, cols: number, height: number, width: number): boolean;
+    setWindow(
+        rows: number,
+        cols: number,
+        height: number,
+        width: number
+    ): boolean;
 
     /**
      * Sends a POSIX signal to the current process on the server. Valid signal names are:
@@ -106,7 +111,15 @@ export interface ClientChannel extends Channel {
      * finishes. If the process finished normally, the process's return value is passed to
      * the `exit` callback.
      */
-    on(event: "exit", listener: (exitCode: number | null, signalName?: string, didCoreDump?: boolean, description?: string) => void): this;
+    on(
+        event: "exit",
+        listener: (
+            exitCode: number | null,
+            signalName?: string,
+            didCoreDump?: boolean,
+            description?: string
+        ) => void
+    ): this;
 
     on(event: string | symbol, listener: Function): this;
 }
@@ -158,7 +171,14 @@ export class Client extends events.EventEmitter {
      * Calling `accept()` accepts the connection and returns a `Channel` object.
      * Calling `reject()` rejects the connection and no further action is needed.
      */
-    on(event: "tcp connection", listener: (details: TcpConnectionDetails, accept: () => ClientChannel, reject: () => void) => void): this;
+    on(
+        event: "tcp connection",
+        listener: (
+            details: TcpConnectionDetails,
+            accept: () => ClientChannel,
+            reject: () => void
+        ) => void
+    ): this;
 
     /**
      * Emitted when an incoming X11 connection is being requested.
@@ -166,7 +186,14 @@ export class Client extends events.EventEmitter {
      * Calling `accept()` accepts the connection and returns a `Channel` object.
      * Calling `reject()` rejects the connection and no further action is needed.
      */
-    on(event: "x11", listener: (details: X11Details, accept: () => ClientChannel, reject: () => void) => void): this;
+    on(
+        event: "x11",
+        listener: (
+            details: X11Details,
+            accept: () => ClientChannel,
+            reject: () => void
+        ) => void
+    ): this;
 
     /**
      * Emitted when the server is asking for replies to the given `prompts` for keyboard-
@@ -180,7 +207,16 @@ export class Client extends events.EventEmitter {
      *
      * NOTE: It's possible for the server to come back and ask more questions.
      */
-    on(event: "keyboard-interactive", listener: (name: string, instructions: string, lang: string, prompts: Prompt[], finish: (responses: string[]) => void) => void): this;
+    on(
+        event: "keyboard-interactive",
+        listener: (
+            name: string,
+            instructions: string,
+            lang: string,
+            prompts: Prompt[],
+            finish: (responses: string[]) => void
+        ) => void
+    ): this;
 
     /**
      * Emitted when the server has requested that the user's password be changed, if using
@@ -188,7 +224,14 @@ export class Client extends events.EventEmitter {
      *
      * Call `done` with the new password.
      */
-    on(event: "change password", listener: (message: string, lang: string, done: (password: string) => void) => void): this;
+    on(
+        event: "change password",
+        listener: (
+            message: string,
+            lang: string,
+            done: (password: string) => void
+        ) => void
+    ): this;
 
     /**
      * Emitted when more requests/data can be sent to the server (after a `Client` method
@@ -199,7 +242,10 @@ export class Client extends events.EventEmitter {
     /**
      * Emitted when an error occurred.
      */
-    on(event: "error", listener: (err: Error & ClientErrorExtensions) => void): this;
+    on(
+        event: "error",
+        listener: (err: Error & ClientErrorExtensions) => void
+    ): this;
 
     /**
      * Emitted when the socket was disconnected.
@@ -249,7 +295,11 @@ export class Client extends events.EventEmitter {
      * @param options Options for the command.
      * @param callback The callback to execute when the command has completed.
      */
-    exec(command: string, options: ExecOptions, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    exec(
+        command: string,
+        options: ExecOptions,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Executes a command on the server.
@@ -259,7 +309,10 @@ export class Client extends events.EventEmitter {
      * @param command The command to execute.
      * @param callback The callback to execute when the command has completed.
      */
-    exec(command: string, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    exec(
+        command: string,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Starts an interactive shell session on the server.
@@ -270,7 +323,11 @@ export class Client extends events.EventEmitter {
      * @param options Options for the command.
      * @param callback The callback to execute when the channel has been created.
      */
-    shell(window: PseudoTtyOptions | false, options: ShellOptions, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    shell(
+        window: PseudoTtyOptions | false,
+        options: ShellOptions,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Starts an interactive shell session on the server.
@@ -280,7 +337,10 @@ export class Client extends events.EventEmitter {
      * @param window Either an object containing containing pseudo-tty settings, `false` to suppress creation of a pseudo-tty.
      * @param callback The callback to execute when the channel has been created.
      */
-    shell(window: PseudoTtyOptions | false, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    shell(
+        window: PseudoTtyOptions | false,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Starts an interactive shell session on the server.
@@ -290,7 +350,10 @@ export class Client extends events.EventEmitter {
      * @param options Options for the command.
      * @param callback The callback to execute when the channel has been created.
      */
-    shell(options: ShellOptions, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    shell(
+        options: ShellOptions,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Starts an interactive shell session on the server.
@@ -320,7 +383,11 @@ export class Client extends events.EventEmitter {
      * @param remotePort The remote port to bind on the server. If this value is `0`, the actual bound port is provided to `callback`.
      * @param callback An optional callback that is invoked when the remote address is bound.
      */
-    forwardIn(remoteAddr: string, remotePort: number, callback?: (err: Error, bindPort: number) => void): boolean;
+    forwardIn(
+        remoteAddr: string,
+        remotePort: number,
+        callback?: (err: Error, bindPort: number) => void
+    ): boolean;
 
     /**
      * Unbind from `remoteAddr` on `remotePort` on the server and stop forwarding incoming TCP
@@ -332,7 +399,11 @@ export class Client extends events.EventEmitter {
      * @param remotePort The remote port to unbind on the server.
      * @param callback An optional callback that is invoked when the remote address is unbound.
      */
-    unforwardIn(remoteAddr: string, remotePort: number, callback?: (err: Error) => void): boolean;
+    unforwardIn(
+        remoteAddr: string,
+        remotePort: number,
+        callback?: (err: Error) => void
+    ): boolean;
 
     /**
      * Open a connection with `srcIP` and `srcPort` as the originating address and port and
@@ -346,7 +417,13 @@ export class Client extends events.EventEmitter {
      * @param dstPort The destination port.
      * @param callback The callback that is invoked when the address is bound.
      */
-    forwardOut(srcIP: string, srcPort: number, dstIP: string, dstPort: number, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    forwardOut(
+        srcIP: string,
+        srcPort: number,
+        dstIP: string,
+        dstPort: number,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Starts an SFTP session.
@@ -365,7 +442,10 @@ export class Client extends events.EventEmitter {
      * @param subsystem The subsystem to start on the server.
      * @param callback The callback that is invoked when the subsystem has started.
      */
-    subsys(subsystem: string, callback: (err: Error, channel: ClientChannel) => void): boolean;
+    subsys(
+        subsystem: string,
+        callback: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 
     /**
      * Disconnects the socket.
@@ -391,7 +471,10 @@ export class Client extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_forwardInStreamLocal(socketPath: string, callback?: (err: Error) => void): boolean;
+    openssh_forwardInStreamLocal(
+        socketPath: string,
+        callback?: (err: Error) => void
+    ): boolean;
 
     /**
      * OpenSSH extension that unbinds from a UNIX domain socket at `socketPath` on the server
@@ -399,7 +482,10 @@ export class Client extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_unforwardInStreamLocal(socketPath: string, callback?: (err: Error) => void): boolean;
+    openssh_unforwardInStreamLocal(
+        socketPath: string,
+        callback?: (err: Error) => void
+    ): boolean;
 
     /**
      * OpenSSH extension that opens a connection to a UNIX domain socket at `socketPath` on
@@ -407,7 +493,10 @@ export class Client extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_forwardOutStreamLocal(socketPath: string, callback?: (err: Error, channel: ClientChannel) => void): boolean;
+    openssh_forwardOutStreamLocal(
+        socketPath: string,
+        callback?: (err: Error, channel: ClientChannel) => void
+    ): boolean;
 }
 
 export interface ConnectConfig {
@@ -454,7 +543,7 @@ export interface ConnectConfig {
     /** Explicit overrides for the default transport layer algorithms used for the connection. */
     algorithms?: Algorithms;
     /** Compression settings: true (prefer), false (never), 'force' (require) */
-    compress?: boolean | 'force';
+    compress?: boolean | "force";
     /** A function that receives a single string argument to get detailed (local) debug information. */
     debug?: (information: string) => any;
 }
@@ -528,7 +617,10 @@ export class Server extends events.EventEmitter {
     /**
      * Emitted when a new client has connected.
      */
-    on(event: "connection", listener: (client: Connection, info: ClientInfo) => void): this;
+    on(
+        event: "connection",
+        listener: (client: Connection, info: ClientInfo) => void
+    ): this;
 
     /**
      * Emitted when an error occurs.
@@ -555,7 +647,10 @@ export class Server extends events.EventEmitter {
      * @param config Server configuration properties.
      * @param connectionListener if supplied, is added as a connection listener.
      */
-    constructor(config: ServerConfig, connectionListener?: (client: Connection, info: ClientInfo) => void);
+    constructor(
+        config: ServerConfig,
+        connectionListener?: (client: Connection, info: ClientInfo) => void
+    );
 
     /**
      * Creates and returns a new Server instance.
@@ -563,7 +658,10 @@ export class Server extends events.EventEmitter {
      * @param config Server configuration properties.
      * @param connectionListener if supplied, is added as a connection listener.
      */
-    static createServer(config: ServerConfig, connectionListener?: (client: Connection, info: ClientInfo) => void): Server;
+    static createServer(
+        config: ServerConfig,
+        connectionListener?: (client: Connection, info: ClientInfo) => void
+    ): Server;
 
     /**
      * Start a local socket server listening for connections on the given `path`.
@@ -597,7 +695,11 @@ export class Server extends events.EventEmitter {
      * @param backlog The maximum length of the queue of pending connections.
      * @param callback An optional callback to add to the `listening` event of the server.
      */
-    listen(handle: net.Server | net.Socket | { fd: number }, backlog?: number, callback?: () => void): this;
+    listen(
+        handle: net.Server | net.Socket | { fd: number },
+        backlog?: number,
+        callback?: () => void
+    ): this;
 
     /**
      * This will cause the server to accept connections on the specified handle, but it is
@@ -609,7 +711,10 @@ export class Server extends events.EventEmitter {
      * @param handle Either a server or socket (anything with an underlying `_handle` member), or an `{fd: number}` object.
      * @param callback An optional callback to add to the `listening` event of the server.
      */
-    listen(handle: net.Server | net.Socket | { fd: number }, callback?: () => void): this;
+    listen(
+        handle: net.Server | net.Socket | { fd: number },
+        callback?: () => void
+    ): this;
 
     /**
      * This will cause the server to accept connections using the specified options.
@@ -635,7 +740,12 @@ export class Server extends events.EventEmitter {
      * @param backlog The maximum length of the queue of pending connections.
      * @param callback An optional callback to add to the `listening` event of the server.
      */
-    listen(port: number, hostname?: string, backlog?: number, callback?: () => void): this;
+    listen(
+        port: number,
+        hostname?: string,
+        backlog?: number,
+        callback?: () => void
+    ): this;
 
     /**
      * Begin accepting connections on the specified port and hostname.
@@ -690,7 +800,7 @@ export class Server extends events.EventEmitter {
      * Returns the bound address, the address family name, and port of the server as reported
      * by the operating system.
      */
-    address(): { port: number; family: string; address: string; };
+    address(): { port: number; family: string; address: string };
 
     /**
      * Asynchronously get the number of concurrent connections on the server.
@@ -771,34 +881,77 @@ export interface Connection extends events.EventEmitter {
      * Emitted when the client has requested a new session.
      * Sessions are used to start interactive shells, execute commands, request X11 forwarding, etc.
      */
-    on(event: "session", listener: (accept: () => Session, reject: () => boolean) => void): this;
+    on(
+        event: "session",
+        listener: (accept: () => Session, reject: () => boolean) => void
+    ): this;
 
     /**
      * Emitted when the client has requested an outbound (TCP) connection.
      */
-    on(event: "tcpip", listener: (accept: () => ServerChannel, reject: () => boolean, info: TcpipRequestInfo) => void): this;
+    on(
+        event: "tcpip",
+        listener: (
+            accept: () => ServerChannel,
+            reject: () => boolean,
+            info: TcpipRequestInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has requested a connection to a UNIX domain socket.
      */
-    on(event: "openssh.streamlocal", listener: (accept: () => ServerChannel, reject: () => boolean, info: SocketRequestInfo) => void): this;
+    on(
+        event: "openssh.streamlocal",
+        listener: (
+            accept: () => ServerChannel,
+            reject: () => boolean,
+            info: SocketRequestInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has sent a global request for name.
      * If info.bindPort === 0, you should pass the chosen port to accept so that the client will know what port was bound.
      */
-    on(event: "request", listener: (accept: (chosenPort?: number) => void, reject: () => void, name: "tcpip-forward" | "cancel-tcpip-forward", info: TcpipBindInfo) => void): this;
+    on(
+        event: "request",
+        listener: (
+            accept: (chosenPort?: number) => void,
+            reject: () => void,
+            name: "tcpip-forward" | "cancel-tcpip-forward",
+            info: TcpipBindInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has sent a global request for name.
      */
-    on(event: "request", listener: (accept: () => void, reject: () => void, name: "streamlocal-forward@openssh.com" | "cancel-streamlocal-forward@openssh.com", info: SocketBindInfo) => void): this;
+    on(
+        event: "request",
+        listener: (
+            accept: () => void,
+            reject: () => void,
+            name:
+                | "streamlocal-forward@openssh.com"
+                | "cancel-streamlocal-forward@openssh.com",
+            info: SocketBindInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has sent a global request for name.
      * If info.bindPort === 0, you should pass the chosen port to accept so that the client will know what port was bound.
      */
-    on(event: "request", listener: (accept: (chosenPort?: number) => void, reject: () => void, name: string, info: TcpipBindInfo | SocketBindInfo) => void): this;
+    on(
+        event: "request",
+        listener: (
+            accept: (chosenPort?: number) => void,
+            reject: () => void,
+            name: string,
+            info: TcpipBindInfo | SocketBindInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has finished rekeying (either client or server initiated).
@@ -844,7 +997,11 @@ export interface Connection extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    x11(originAddr: string, originPort: number, callback: (err: Error, channel: ServerChannel) => void): boolean;
+    x11(
+        originAddr: string,
+        originPort: number,
+        callback: (err: Error, channel: ServerChannel) => void
+    ): boolean;
 
     /**
      * Alert the client of an incoming TCP connection on `boundAddr` on port `boundPort` from
@@ -852,7 +1009,13 @@ export interface Connection extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    forwardOut(boundAddr: string, boundPort: number, remoteAddr: string, remotePort: number, callback: (err: Error, channel: ServerChannel) => void): boolean;
+    forwardOut(
+        boundAddr: string,
+        boundPort: number,
+        remoteAddr: string,
+        remotePort: number,
+        callback: (err: Error, channel: ServerChannel) => void
+    ): boolean;
 
     /**
      * Initiates a rekeying with the client.
@@ -868,7 +1031,10 @@ export interface Connection extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_forwardOutStreamLocal(socketPath: string, callback: (err: Error, channel: ServerChannel) => void): boolean;
+    openssh_forwardOutStreamLocal(
+        socketPath: string,
+        callback: (err: Error, channel: ServerChannel) => void
+    ): boolean;
 }
 
 export interface AuthContextBase extends events.EventEmitter {
@@ -919,7 +1085,10 @@ export interface KeyboardAuthContext extends AuthContextBase {
      * @param prompts The prompts to send to the client.
      * @param callback A callback to call with the responses from the client.
      */
-    prompt(prompts: string | Prompt | (string | Prompt)[], callback: () => void): void;
+    prompt(
+        prompts: string | Prompt | (string | Prompt)[],
+        callback: () => void
+    ): void;
 
     /**
      * Send prompts to the client.
@@ -927,7 +1096,11 @@ export interface KeyboardAuthContext extends AuthContextBase {
      * @param title The title for the prompt.
      * @param callback A callback to call with the responses from the client.
      */
-    prompt(prompts: string | Prompt | (string | Prompt)[], title: string, callback: () => void): void;
+    prompt(
+        prompts: string | Prompt | (string | Prompt)[],
+        title: string,
+        callback: () => void
+    ): void;
 
     /**
      * Send prompts to the client.
@@ -936,7 +1109,12 @@ export interface KeyboardAuthContext extends AuthContextBase {
      * @param instructions Instructions for the client.
      * @param callback A callback to call with the responses from the client.
      */
-    prompt(prompts: string | Prompt | (string | Prompt)[], title: string, instructions: string, callback: () => void): void;
+    prompt(
+        prompts: string | Prompt | (string | Prompt)[],
+        title: string,
+        instructions: string,
+        callback: () => void
+    ): void;
 }
 
 export interface PublicKeyAuthContext extends AuthContextBase {
@@ -988,7 +1166,12 @@ export interface NoneAuthContext extends AuthContextBase {
     method: "none";
 }
 
-export type AuthContext = KeyboardAuthContext | PublicKeyAuthContext | HostbasedAuthContext | PasswordAuthContext | NoneAuthContext;
+export type AuthContext =
+    | KeyboardAuthContext
+    | PublicKeyAuthContext
+    | HostbasedAuthContext
+    | PasswordAuthContext
+    | NoneAuthContext;
 
 export interface TcpipRequestInfo {
     /** Source IP address of outgoing connection. */
@@ -1024,52 +1207,110 @@ export interface Session extends events.EventEmitter {
     /**
      * Emitted when the client requested allocation of a pseudo-TTY for this session.
      */
-    on(event: "pty", listener: (accept: () => boolean, reject: () => boolean, info: PseudoTtyInfo) => void): this;
+    on(
+        event: "pty",
+        listener: (
+            accept: () => boolean,
+            reject: () => boolean,
+            info: PseudoTtyInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client reported a change in window dimensions during this session.
      */
-    on(event: "window-change", listener: (accept: () => boolean, reject: () => boolean, info: WindowChangeInfo) => void): this;
+    on(
+        event: "window-change",
+        listener: (
+            accept: () => boolean,
+            reject: () => boolean,
+            info: WindowChangeInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client requested X11 forwarding.
      */
-    on(event: "x11", listener: (accept: () => boolean, reject: () => boolean, info: X11Info) => void): this;
+    on(
+        event: "x11",
+        listener: (
+            accept: () => boolean,
+            reject: () => boolean,
+            info: X11Info
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client requested an environment variable to be set for this session.
      */
-    on(event: "env", listener: (accept: () => boolean, reject: () => boolean, info: SetEnvInfo) => void): this;
+    on(
+        event: "env",
+        listener: (
+            accept: () => boolean,
+            reject: () => boolean,
+            info: SetEnvInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has sent a POSIX signal.
      */
-    on(event: "signal", listener: (accept: () => boolean, reject: () => boolean, info: SignalInfo) => void): this;
+    on(
+        event: "signal",
+        listener: (
+            accept: () => boolean,
+            reject: () => boolean,
+            info: SignalInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has requested incoming ssh-agent requests be forwarded to them.
      */
-    on(event: "auth-agent", listener: (accept: () => boolean, reject: () => boolean) => void): this;
+    on(
+        event: "auth-agent",
+        listener: (accept: () => boolean, reject: () => boolean) => void
+    ): this;
 
     /**
      * Emitted when the client has requested an interactive shell.
      */
-    on(event: "shell", listener: (accept: () => ServerChannel, reject: () => boolean) => void): this;
+    on(
+        event: "shell",
+        listener: (accept: () => ServerChannel, reject: () => boolean) => void
+    ): this;
 
     /**
      * Emitted when the client has requested execution of a command string.
      */
-    on(event: "exec", listener: (accept: () => ServerChannel, reject: () => boolean, info: ExecInfo) => void): this;
+    on(
+        event: "exec",
+        listener: (
+            accept: () => ServerChannel,
+            reject: () => boolean,
+            info: ExecInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the client has requested the SFTP subsystem.
      */
-    on(event: "sftp", listener: (accept: () => SFTPStream, reject: () => boolean) => void): this;
+    on(
+        event: "sftp",
+        listener: (accept: () => SFTPStream, reject: () => boolean) => void
+    ): this;
 
     /**
      * Emitted when the client has requested an arbitrary subsystem.
      */
-    on(event: "subsystem", listener: (accept: () => ServerChannel, reject: () => boolean, info: SubsystemInfo) => void): this;
+    on(
+        event: "subsystem",
+        listener: (
+            accept: () => ServerChannel,
+            reject: () => boolean,
+            info: SubsystemInfo
+        ) => void
+    ): this;
 
     /**
      * Emitted when the session has closed.
@@ -1255,55 +1496,90 @@ export interface SFTPWrapper extends events.EventEmitter {
      * (Client-only)
      * Downloads a file at `remotePath` to `localPath` using parallel reads for faster throughput.
      */
-    fastGet(remotePath: string, localPath: string, options: TransferOptions, callback: (err: any) => void): void;
+    fastGet(
+        remotePath: string,
+        localPath: string,
+        options: TransferOptions,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Downloads a file at `remotePath` to `localPath` using parallel reads for faster throughput.
      */
-    fastGet(remotePath: string, localPath: string, callback: (err: any) => void): void;
+    fastGet(
+        remotePath: string,
+        localPath: string,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Uploads a file from `localPath` to `remotePath` using parallel reads for faster throughput.
      */
-    fastPut(localPath: string, remotePath: string, options: TransferOptions, callback: (err: any) => void): void;
+    fastPut(
+        localPath: string,
+        remotePath: string,
+        options: TransferOptions,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Uploads a file from `localPath` to `remotePath` using parallel reads for faster throughput.
      */
-    fastPut(localPath: string, remotePath: string, callback: (err: any) => void): void;
+    fastPut(
+        localPath: string,
+        remotePath: string,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, options: ReadFileOptions, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        options: ReadFileOptions,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, encoding: string, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        encoding: string,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Returns a new readable stream for `path`.
      */
-    createReadStream(path: string, options?: ReadStreamOptions): stream.Readable;
+    createReadStream(
+        path: string,
+        options?: ReadStreamOptions
+    ): stream.Readable;
 
     /**
      * (Client-only)
      * Returns a new writable stream for `path`.
      */
-    createWriteStream(path: string, options?: WriteStreamOptions): stream.Writable;
+    createWriteStream(
+        path: string,
+        options?: WriteStreamOptions
+    ): stream.Writable;
 
     /**
      * (Client-only)
@@ -1311,7 +1587,12 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    open(filename: string, mode: string, attributes: InputAttributes, callback: (err: any, handle: Buffer) => void): boolean;
+    open(
+        filename: string,
+        mode: string,
+        attributes: InputAttributes,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1319,7 +1600,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    open(filename: string, mode: string, callback: (err: any, handle: Buffer) => void): boolean;
+    open(
+        filename: string,
+        mode: string,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1336,13 +1621,32 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    read(handle: Buffer, buffer: Buffer, offset: number, length: number, position: number, callback: (err: any, bytesRead: number, buffer: Buffer, position: number) => void): boolean;
+    read(
+        handle: Buffer,
+        buffer: Buffer,
+        offset: number,
+        length: number,
+        position: number,
+        callback: (
+            err: any,
+            bytesRead: number,
+            buffer: Buffer,
+            position: number
+        ) => void
+    ): boolean;
 
     /**
      * (Client-only)
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    write(handle: Buffer, buffer: Buffer, offset: number, length: number, position: number, callback: (err: any) => void): boolean;
+    write(
+        handle: Buffer,
+        buffer: Buffer,
+        offset: number,
+        length: number,
+        position: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1358,7 +1662,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fsetstat(handle: Buffer, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    fsetstat(
+        handle: Buffer,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1366,7 +1674,12 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    futimes(handle: Buffer, atime: number | Date, mtime: number | Date, callback: (err: any) => void): boolean;
+    futimes(
+        handle: Buffer,
+        atime: number | Date,
+        mtime: number | Date,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1374,7 +1687,12 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fchown(handle: Buffer, uid: number, gid: number, callback: (err: any) => void): boolean;
+    fchown(
+        handle: Buffer,
+        uid: number,
+        gid: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1382,7 +1700,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fchmod(handle: Buffer, mode: number | string, callback: (err: any) => void): boolean;
+    fchmod(
+        handle: Buffer,
+        mode: number | string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1390,7 +1712,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    opendir(path: string, callback: (err: any, handle: Buffer) => void): boolean;
+    opendir(
+        path: string,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1398,7 +1723,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    readdir(location: string | Buffer, callback: (err: any, list: FileEntry[]) => void): boolean;
+    readdir(
+        location: string | Buffer,
+        callback: (err: any, list: FileEntry[]) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1414,7 +1742,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    rename(srcPath: string, destPath: string, callback: (err: any) => void): boolean;
+    rename(
+        srcPath: string,
+        destPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1422,7 +1754,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    mkdir(path: string, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    mkdir(
+        path: string,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1463,7 +1799,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    setstat(path: string, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    setstat(
+        path: string,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1471,7 +1811,12 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    utimes(path: string, atime: number | Date, mtime: number | Date, callback: (err: any) => void): boolean;
+    utimes(
+        path: string,
+        atime: number | Date,
+        mtime: number | Date,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1479,7 +1824,12 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    chown(path: string, uid: number, gid: number, callback: (err: any) => void): boolean;
+    chown(
+        path: string,
+        uid: number,
+        gid: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1487,7 +1837,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    chmod(path: string, mode: number | string, callback: (err: any) => void): boolean;
+    chmod(
+        path: string,
+        mode: number | string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1495,7 +1849,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    readlink(path: string, callback: (err: any, target: string) => void): boolean;
+    readlink(
+        path: string,
+        callback: (err: any, target: string) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1503,7 +1860,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    symlink(targetPath: string, linkPath: string, callback: (err: any) => void): boolean;
+    symlink(
+        targetPath: string,
+        linkPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1511,7 +1872,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    realpath(path: string, callback: (err: any, absPath: string) => void): boolean;
+    realpath(
+        path: string,
+        callback: (err: any, absPath: string) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1519,7 +1883,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_rename(srcPath: string, destPath: string, callback: (err: any) => void): boolean;
+    ext_openssh_rename(
+        srcPath: string,
+        destPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1527,7 +1895,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_statvfs(path: string, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_statvfs(
+        path: string,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1535,7 +1906,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_fstatvfs(handle: Buffer, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_fstatvfs(
+        handle: Buffer,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1543,7 +1917,11 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_hardlink(targetPath: string, linkPath: string, callback: (err: any) => void): boolean;
+    ext_openssh_hardlink(
+        targetPath: string,
+        linkPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1551,7 +1929,10 @@ export interface SFTPWrapper extends events.EventEmitter {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_fsync(handle: Buffer, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_fsync(
+        handle: Buffer,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * Ends the stream.

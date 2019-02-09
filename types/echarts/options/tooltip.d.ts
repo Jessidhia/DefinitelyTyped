@@ -25,7 +25,7 @@ declare namespace echarts {
              *
              * @default 'item'
              */
-            trigger?: 'item' | 'axis' | 'none';
+            trigger?: "item" | "axis" | "none";
 
             /**
              * `axisPointer` is a tool for displaying reference line
@@ -57,14 +57,14 @@ declare namespace echarts {
                  *
                  * @default 'line'
                  */
-                type?: 'line' | 'shadow' | 'none' | 'cross';
+                type?: "line" | "shadow" | "none" | "cross";
 
                 /**
                  * By default, each coordinate system will automatically
                  * chose the axes whose will display its axisPointer
                  * (category axis or time axis is used by default).
                  */
-                axis?: 'x' | 'y' | 'radius' | 'angle';
+                axis?: "x" | "y" | "radius" | "angle";
 
                 /**
                  * Whether snap to point automatically.
@@ -72,7 +72,7 @@ declare namespace echarts {
                  * This feature usually makes sense in value axis
                  * and time axis, where tiny points
                  * can be seeked automatically.
-                */
+                 */
                 snap?: boolean;
 
                 /**
@@ -120,7 +120,7 @@ declare namespace echarts {
              *
              * @default 'mousemove|click'
              */
-            triggerOn?: 'mousemove' | 'click' | 'mousemove|click' | 'none';
+            triggerOn?: "mousemove" | "click" | "mousemove|click" | "none";
 
             /**
              * Delay time for showing tooltip, in ms.
@@ -161,7 +161,7 @@ declare namespace echarts {
              *
              * @default 'html'
              */
-            renderMode?: 'html';
+            renderMode?: "html";
 
             /**
              * Whether confine tooltip content in the view rect
@@ -352,9 +352,13 @@ declare namespace echarts {
 
         namespace Tooltip {
             namespace Position {
-                type Type = Position.Str | Position.Obj | (number | string)[] | Position.Fn;
+                type Type =
+                    | Position.Str
+                    | Position.Obj
+                    | (number | string)[]
+                    | Position.Fn;
 
-                type Str = 'inside' | 'top' | 'left' | 'right' | 'bottom';
+                type Str = "inside" | "top" | "left" | "right" | "bottom";
 
                 interface Obj {
                     top?: string | number;
@@ -369,7 +373,7 @@ declare namespace echarts {
                         params: object | object[],
                         element: HTMLElement,
                         rect: object,
-                        size: object,
+                        size: object
                     ): (number | string)[] | Obj;
                 }
             }
@@ -404,12 +408,12 @@ declare namespace echarts {
                 (
                     params: Format | Format[],
                     ticket: string,
-                    callback: (ticket: string, html: string) => void,
+                    callback: (ticket: string, html: string) => void
                 ): string;
             }
 
             interface Format {
-                componentType?: 'series';
+                componentType?: "series";
 
                 // Series type
                 seriesType?: string;

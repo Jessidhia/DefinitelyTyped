@@ -7,7 +7,10 @@ export interface AnimationParam {
     destPos: Axis;
     duration: number;
     delta: Axis;
-    setTo?: (destPos?: Axis, duration?: number) => {
+    setTo?: (
+        destPos?: Axis,
+        duration?: number
+    ) => {
         destPos: Axis;
         duration: number;
     };
@@ -23,14 +26,21 @@ export declare class AnimationManager {
     private _raf;
     private _animateParam;
     static getDuration(duration: number, min: number, max: number): number;
-    constructor(options: AxesOption, itm: InterruptManager, em: EventManager, axm: AxisManager);
+    constructor(
+        options: AxesOption,
+        itm: InterruptManager,
+        em: EventManager,
+        axm: AxisManager
+    );
     getDuration(depaPos: Axis, destPos: Axis, wishDuration?: number): number;
     private createAnimationParam(pos, duration, inputEvent?);
     grab(axes: string[], event?: any): void;
     restore(inputEvent?: any): void;
     animationEnd(): void;
     private animateLoop(param, complete);
-    getUserControll(param: AnimationParam): {
+    getUserControll(
+        param: AnimationParam
+    ): {
         destPos: Axis;
         duration: number;
     };

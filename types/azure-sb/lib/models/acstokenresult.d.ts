@@ -14,11 +14,12 @@
 // limitations under the License.
 //
 
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 import Dictionary = Azure.ServiceBus.Dictionary;
 
 export namespace Azure.ServiceBus.Results {
-    export interface AcsTokenResponse extends Dictionary<string | Dictionary<string>> {
+    export interface AcsTokenResponse
+        extends Dictionary<string | Dictionary<string>> {
         WrapAccessToken: Dictionary<string>;
         WrapAccessTokenExpiresIn: Dictionary<string>;
     }

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, ReactNode } from 'react';
+import { Component, ReactNode } from "react";
 
 export default class Layer extends Component<Props> {}
 
@@ -37,7 +37,7 @@ export interface Props {
     onFlippedChange?: (
         flipped: boolean,
         actualPosition: CSSPositionType,
-        originalPosition: CSSPositionType,
+        originalPosition: CSSPositionType
     ) => void;
     /**
      * Position of a layer relative to its target. The position attribute takes two positional arguments in
@@ -51,22 +51,22 @@ export interface Props {
     lockScroll?: boolean;
 }
 
-export type FlipPositionType = 'top' | 'right' | 'bottom' | 'left';
+export type FlipPositionType = "top" | "right" | "bottom" | "left";
 
 export type PositionType =
-    | 'top left'
-    | 'top center'
-    | 'top right'
-    | 'right top'
-    | 'right middle'
-    | 'right bottom'
-    | 'bottom left'
-    | 'bottom center'
-    | 'bottom right'
-    | 'left top'
-    | 'left middle'
-    | 'left bottom';
+    | "top left"
+    | "top center"
+    | "top right"
+    | "right top"
+    | "right middle"
+    | "right bottom"
+    | "bottom left"
+    | "bottom center"
+    | "bottom right"
+    | "left top"
+    | "left middle"
+    | "left bottom";
 
-export type BoundariesElementType = 'viewport' | 'window' | 'scrollParent';
+export type BoundariesElementType = "viewport" | "window" | "scrollParent";
 
-export type CSSPositionType = 'absolute' | 'fixed';
+export type CSSPositionType = "absolute" | "fixed";

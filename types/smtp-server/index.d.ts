@@ -9,11 +9,11 @@
 /// <reference types="node" />
 /// <reference types="nodemailer" />
 
-import { EventEmitter } from 'events';
-import * as net from 'net';
-import * as shared from 'nodemailer/lib/shared';
-import { PassThrough } from 'stream';
-import * as tls from 'tls';
+import { EventEmitter } from "events";
+import * as net from "net";
+import * as shared from "nodemailer/lib/shared";
+import { PassThrough } from "stream";
+import * as tls from "tls";
 
 export type ms = number;
 
@@ -32,7 +32,7 @@ export interface SMTPServerAuthentication {
     /**
      * indicates the authentication method used, 'PLAIN', 'LOGIN' or 'XOAUTH2'
      */
-    method: 'PLAIN' | 'LOGIN' | 'XOAUTH2';
+    method: "PLAIN" | "LOGIN" | "XOAUTH2";
     /**
      * the username of the user
      */
@@ -150,7 +150,12 @@ export interface SMTPServerOptions extends tls.TlsOptions {
     /** indicate an TLS server where TLS is handled upstream */
     secured?: boolean;
     /** optional private keys in PEM format */
-    key?: string | string[] | Buffer | Buffer[] | Array<{ pem: string | Buffer, passphrase: string }>;
+    key?:
+        | string
+        | string[]
+        | Buffer
+        | Buffer[]
+        | Array<{ pem: string | Buffer; passphrase: string }>;
     /** optional cert chains in PEM format */
     cert?: string | string[] | Buffer | Buffer[];
     /** optionally override the trusted CA certificates */
@@ -220,7 +225,9 @@ export interface SMTPServerOptions extends tls.TlsOptions {
     /**
      * optional Map or an object of TLS options for SNI where servername is the key. Overrided by SNICallback.
      */
-    sniOptions?: { [servername: string]: tls.TlsOptions } | Map<string, tls.TlsOptions>;
+    sniOptions?:
+        | { [servername: string]: tls.TlsOptions }
+        | Map<string, tls.TlsOptions>;
     /**
      * optional boolean, if set to true then upgrade sockets to TLS immediately after connection is established. Works with secure: true
      */
@@ -267,27 +274,52 @@ export interface SMTPServerOptions extends tls.TlsOptions {
     /**
      * The callback to handle authentications ([see details](https://github.com/andris9/smtp-server#handling-authentication))
      */
-    onAuth?(auth: SMTPServerAuthentication, session: SMTPServerSession, callback: (err: Error | null | undefined, response?: SMTPServerAuthenticationResponse) => void): void;
+    onAuth?(
+        auth: SMTPServerAuthentication,
+        session: SMTPServerSession,
+        callback: (
+            err: Error | null | undefined,
+            response?: SMTPServerAuthenticationResponse
+        ) => void
+    ): void;
     /**
      * The callback to handle the client connection. ([see details](https://github.com/andris9/smtp-server#validating-client-connection))
      */
-    onConnect?(session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onConnect?(
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /**
      * the callback to validate MAIL FROM commands ([see details](https://github.com/andris9/smtp-server#validating-sender-addresses))
      */
-    onMailFrom?(address: SMTPServerAddress, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onMailFrom?(
+        address: SMTPServerAddress,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /**
      * The callback to validate RCPT TO commands ([see details](https://github.com/andris9/smtp-server#validating-recipient-addresses))
      */
-    onRcptTo?(address: SMTPServerAddress, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onRcptTo?(
+        address: SMTPServerAddress,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /**
      * the callback to handle incoming messages ([see details](https://github.com/andris9/smtp-server#processing-incoming-message))
      */
-    onData?(stream: SMTPServerDataStream, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onData?(
+        stream: SMTPServerDataStream,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /**
      * the callback that informs about closed client connection
      */
-    onClose?(session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onClose?(
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
 }
 
 /** Creates a SMTP server instance */
@@ -301,14 +333,38 @@ export class SMTPServer extends EventEmitter {
     constructor(options?: SMTPServerOptions);
 
     /** Start listening on selected port and interface */
-    listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void): net.Server;
-    listen(port?: number, hostname?: string, listeningListener?: () => void): net.Server;
-    listen(port?: number, backlog?: number, listeningListener?: () => void): net.Server; // tslint:disable-line unified-signatures
+    listen(
+        port?: number,
+        hostname?: string,
+        backlog?: number,
+        listeningListener?: () => void
+    ): net.Server;
+    listen(
+        port?: number,
+        hostname?: string,
+        listeningListener?: () => void
+    ): net.Server;
+    listen(
+        port?: number,
+        backlog?: number,
+        listeningListener?: () => void
+    ): net.Server; // tslint:disable-line unified-signatures
     listen(port?: number, listeningListener?: () => void): net.Server;
-    listen(path: string, backlog?: number, listeningListener?: () => void): net.Server;
+    listen(
+        path: string,
+        backlog?: number,
+        listeningListener?: () => void
+    ): net.Server;
     listen(path: string, listeningListener?: () => void): void;
-    listen(options: net.ListenOptions, listeningListener?: () => void): net.Server;
-    listen(handle: any, backlog?: number, listeningListener?: () => void): net.Server; // tslint:disable-line unified-signatures
+    listen(
+        options: net.ListenOptions,
+        listeningListener?: () => void
+    ): net.Server;
+    listen(
+        handle: any,
+        backlog?: number,
+        listeningListener?: () => void
+    ): net.Server; // tslint:disable-line unified-signatures
     listen(handle: any, listeningListener?: () => void): net.Server; // tslint:disable-line unified-signatures
 
     /** Closes the server */
@@ -317,49 +373,74 @@ export class SMTPServer extends EventEmitter {
     updateSecureContext(options: tls.TlsOptions): void;
 
     /** Authentication handler. Override this */
-    onAuth(auth: SMTPServerAuthentication, session: SMTPServerSession, callback: (err: Error | null | undefined, response?: SMTPServerAuthenticationResponse) => void): void;
+    onAuth(
+        auth: SMTPServerAuthentication,
+        session: SMTPServerSession,
+        callback: (
+            err: Error | null | undefined,
+            response?: SMTPServerAuthenticationResponse
+        ) => void
+    ): void;
     /** Override this */
-    onClose(session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onClose(
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /** Override this */
-    onConnect(session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onConnect(
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /** Override this */
-    onData(stream: SMTPServerDataStream, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onData(
+        stream: SMTPServerDataStream,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /** Override this */
-    onMailFrom(address: SMTPServerAddress, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onMailFrom(
+        address: SMTPServerAddress,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
     /** Override this */
-    onRcptTo(address: SMTPServerAddress, session: SMTPServerSession, callback: (err?: Error | null) => void): void;
+    onRcptTo(
+        address: SMTPServerAddress,
+        session: SMTPServerSession,
+        callback: (err?: Error | null) => void
+    ): void;
 
-    addListener(event: 'close', listener: () => void): this;
-    addListener(event: 'error', listener: (err: Error) => void): this;
+    addListener(event: "close", listener: () => void): this;
+    addListener(event: "error", listener: (err: Error) => void): this;
 
-    emit(event: 'close'): boolean;
-    emit(event: 'error', err: Error): boolean;
+    emit(event: "close"): boolean;
+    emit(event: "error", err: Error): boolean;
 
-    listenerCount(event: 'close' | 'error'): number;
+    listenerCount(event: "close" | "error"): number;
 
-    listeners(event: 'close'): Array<() => void>;
-    listeners(event: 'error'): Array<(err: Error) => void>;
+    listeners(event: "close"): Array<() => void>;
+    listeners(event: "error"): Array<(err: Error) => void>;
 
-    off(event: 'close', listener: () => void): this;
-    off(event: 'error', listener: (err: Error) => void): this;
+    off(event: "close", listener: () => void): this;
+    off(event: "error", listener: (err: Error) => void): this;
 
-    on(event: 'close', listener: () => void): this;
-    on(event: 'error', listener: (err: Error) => void): this;
+    on(event: "close", listener: () => void): this;
+    on(event: "error", listener: (err: Error) => void): this;
 
-    once(event: 'close', listener: () => void): this;
-    once(event: 'error', listener: (err: Error) => void): this;
+    once(event: "close", listener: () => void): this;
+    once(event: "error", listener: (err: Error) => void): this;
 
-    prependListener(event: 'close', listener: () => void): this;
-    prependListener(event: 'error', listener: (err: Error) => void): this;
+    prependListener(event: "close", listener: () => void): this;
+    prependListener(event: "error", listener: (err: Error) => void): this;
 
-    prependOnceListener(event: 'close', listener: () => void): this;
-    prependOnceListener(event: 'error', listener: (err: Error) => void): this;
+    prependOnceListener(event: "close", listener: () => void): this;
+    prependOnceListener(event: "error", listener: (err: Error) => void): this;
 
-    rawListeners(event: 'close'): Array<() => void>;
-    rawListeners(event: 'error'): Array<(err: Error) => void>;
+    rawListeners(event: "close"): Array<() => void>;
+    rawListeners(event: "error"): Array<(err: Error) => void>;
 
-    removeAllListener(event: 'close' | 'error'): this;
+    removeAllListener(event: "close" | "error"): this;
 
-    removeListener(event: 'close', listener: () => void): this;
-    removeListener(event: 'error', listener: (err: Error) => void): this;
+    removeListener(event: "close", listener: () => void): this;
+    removeListener(event: "error", listener: (err: Error) => void): this;
 }

@@ -38,7 +38,7 @@ declare namespace MarkupData {
         /**
          * Start tag attributes' location info
          */
-        attrs: AttributesLocation
+        attrs: AttributesLocation;
     }
 
     interface ElementLocation extends StartTagLocation {
@@ -92,14 +92,13 @@ declare namespace Options {
     }
 }
 
-
 // AST
 //-----------------------------------------------------------------------------------
 declare namespace AST {
     /**
      * [Document mode](https://dom.spec.whatwg.org/#concept-document-limited-quirks).
      */
-    type DocumentMode = 'no-quirks' | 'quirks' | 'limited-quirks';
+    type DocumentMode = "no-quirks" | "quirks" | "limited-quirks";
 
     // Default tree adapter
     namespace Default {
@@ -152,7 +151,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            nodeName: '#documentType';
+            nodeName: "#documentType";
             /**
              * Document type name.
              */
@@ -174,7 +173,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            nodeName: '#document';
+            nodeName: "#document";
             /**
              * [Document mode](https://dom.spec.whatwg.org/#concept-document-limited-quirks).
              */
@@ -188,7 +187,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            nodeName: '#document-fragment';
+            nodeName: "#document-fragment";
         }
 
         /**
@@ -228,7 +227,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            nodeName: '#comment';
+            nodeName: "#comment";
             /**
              * Comment text.
              */
@@ -250,7 +249,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            nodeName: '#text';
+            nodeName: "#text";
             /**
              * Text content.
              */
@@ -265,7 +264,6 @@ declare namespace AST {
             __location?: MarkupData.Location;
         }
     }
-
 
     // htmlparser2 tree adapter
     namespace HtmlParser2 {
@@ -336,11 +334,11 @@ declare namespace AST {
             /**
              * The type of the node.
              */
-            type: 'directive';
+            type: "directive";
             /**
              * Node name.
              */
-            name: '!doctype';
+            name: "!doctype";
             /**
              * Serialized doctype {@link name}, {@link publicId} and {@link systemId}.
              */
@@ -348,15 +346,15 @@ declare namespace AST {
             /**
              * Document type name.
              */
-            'x-name':string;
+            "x-name": string;
             /**
              * Document type public identifier.
              */
-            'x-publicId': string;
+            "x-publicId": string;
             /**
              * Document type system identifier.
              */
-            'x-systemId': string;
+            "x-systemId": string;
         }
 
         /**
@@ -366,15 +364,15 @@ declare namespace AST {
             /**
              * The type of the node.
              */
-            type: 'root';
+            type: "root";
             /**
              * The name of the node.
              */
-            name: 'root';
+            name: "root";
             /**
              * [Document mode](https://dom.spec.whatwg.org/#concept-document-limited-quirks).
              */
-            'x-mode': DocumentMode;
+            "x-mode": DocumentMode;
         }
 
         /**
@@ -384,11 +382,11 @@ declare namespace AST {
             /**
              * The type of the node.
              */
-            type: 'root';
+            type: "root";
             /**
              * The name of the node.
              */
-            name: 'root';
+            name: "root";
         }
 
         /**
@@ -414,11 +412,11 @@ declare namespace AST {
             /**
              * Element attribute namespaces.
              */
-            'x-attribsNamespace': { [name: string]: string };
+            "x-attribsNamespace": { [name: string]: string };
             /**
              * Element attribute namespace-related prefixes.
              */
-            'x-attribsPrefix': { [name: string]: string };
+            "x-attribsPrefix": { [name: string]: string };
             /**
              * Element source code location info. Available if location info is enabled via {@link Options.ParserOptions}.
              */
@@ -432,7 +430,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            name: 'comment';
+            name: "comment";
             /**
              * Comment text.
              */
@@ -454,7 +452,7 @@ declare namespace AST {
             /**
              * The name of the node.
              */
-            name: 'text';
+            name: "text";
             /**
              * Text content.
              */
@@ -469,7 +467,6 @@ declare namespace AST {
             __location?: MarkupData.Location;
         }
     }
-
 
     // Unions
     // NOTE: we use `Object` in unions to support custom tree adapter implementations.
@@ -489,7 +486,10 @@ declare namespace AST {
      * Generic DocumentType interface.
      * Cast to the actual AST interface (e.g. {@link parse5.AST.Default.DocumentType}) to get access to the properties.
      */
-    type DocumentType = Default.DocumentType | HtmlParser2.DocumentType | Object;
+    type DocumentType =
+        | Default.DocumentType
+        | HtmlParser2.DocumentType
+        | Object;
     /**
      * Generic Document interface.
      * Cast to the actual AST interface (e.g. {@link parse5.AST.Default.Document}) to get access to the properties.
@@ -499,7 +499,10 @@ declare namespace AST {
      * Generic DocumentFragment interface.
      * Cast to the actual AST interface (e.g. {@link parse5.AST.Default.DocumentFragment}) to get access to the properties.
      */
-    type DocumentFragment = Default.DocumentFragment | HtmlParser2.DocumentFragment | Object;
+    type DocumentFragment =
+        | Default.DocumentFragment
+        | HtmlParser2.DocumentFragment
+        | Object;
     /**
      * Generic Element interface.
      * Cast to the actual AST interface (e.g. {@link parse5.AST.Default.Element}) to get access to the properties.
@@ -515,7 +518,6 @@ declare namespace AST {
      * Cast to the actual AST interface (e.g. {@link parse5.AST.Default.CommentNode}) to get access to the properties.
      */
     type CommentNode = Default.CommentNode | HtmlParser2.CommentNode | Object;
-
 
     // Tree adapter interface
     //-----------------------------------------------------------------------------------
@@ -543,7 +545,11 @@ declare namespace AST {
          * @param namespaceURI - Namespace of the element.
          * @param attrs - Attribute name-value pair array. Foreign attributes may contain `namespace` and `prefix` fields as well.
          */
-        createElement(tagName: string, namespaceURI: string, attrs: AST.Default.Attribute[]): AST.Element;
+        createElement(
+            tagName: string,
+            namespaceURI: string,
+            attrs: AST.Default.Attribute[]
+        ): AST.Element;
         /**
          * Creates a comment node.
          *
@@ -564,14 +570,21 @@ declare namespace AST {
          * @param newNode -  Child node.
          * @param referenceNode -  Reference node.
          */
-        insertBefore(parentNode: AST.ParentNode, newNode: AST.Node, referenceNode: AST.Node): void;
+        insertBefore(
+            parentNode: AST.ParentNode,
+            newNode: AST.Node,
+            referenceNode: AST.Node
+        ): void;
         /**
          * Sets the `<template>` element content element.
          *
          * @param templateElement - `<template>` element.
          * @param contentElement -  Content element.
          */
-        setTemplateContent(templateElement: AST.Element, contentElement: AST.DocumentFragment): void;
+        setTemplateContent(
+            templateElement: AST.Element,
+            contentElement: AST.DocumentFragment
+        ): void;
         /**
          * Returns the `<template>` element content element.
          *
@@ -588,7 +601,12 @@ declare namespace AST {
          * @param publicId - Document type public identifier.
          * @param systemId - Document type system identifier.
          */
-        setDocumentType(document: AST.Document, name: string, publicId: string, systemId: string): void;
+        setDocumentType(
+            document: AST.Document,
+            name: string,
+            publicId: string,
+            systemId: string
+        ): void;
         /**
          * Sets the [document mode](https://dom.spec.whatwg.org/#concept-document-limited-quirks).
          *
@@ -625,14 +643,21 @@ declare namespace AST {
          * @param text - Text to insert.
          * @param referenceNode - Node to insert text before.
          */
-        insertTextBefore(parentNode: AST.ParentNode, text: string, referenceNode: AST.Node): void;
+        insertTextBefore(
+            parentNode: AST.ParentNode,
+            text: string,
+            referenceNode: AST.Node
+        ): void;
         /**
          * Copies attributes to the given element. Only attributes that are not yet present in the element are copied.
          *
          * @param recipient - Element to copy attributes into.
          * @param attrs - Attributes to copy.
          */
-        adoptAttributes(recipient: AST.Element, attrs: AST.Default.Attribute[]): void;
+        adoptAttributes(
+            recipient: AST.Element,
+            attrs: AST.Default.Attribute[]
+        ): void;
         /**
          * Returns the first child of the given node.
          *
@@ -727,7 +752,6 @@ declare namespace AST {
     }
 }
 
-
 // Included tree adapters
 //-----------------------------------------------------------------------------------
 
@@ -754,14 +778,13 @@ export var treeAdapters: {
     /**
      * Default tree format for parse5.
      */
-    default: AST.TreeAdapter,
+    default: AST.TreeAdapter;
     /**
      * Quite popular [htmlparser2](https://github.com/fb55/htmlparser2) tree format
      * (e.g. used by [cheerio](https://github.com/MatthewMueller/cheerio) and [jsdom](https://github.com/tmpvar/jsdom)).
      */
-    htmlparser2: AST.TreeAdapter
+    htmlparser2: AST.TreeAdapter;
 };
-
 
 // Shorthand methods
 //-----------------------------------------------------------------------------------
@@ -782,7 +805,10 @@ export var treeAdapters: {
  * console.log(document.childNodes[1].tagName); //> 'html'
  * ```
  */
-export function parse(html: string, options?: Options.ParserOptions): AST.Document;
+export function parse(
+    html: string,
+    options?: Options.ParserOptions
+): AST.Document;
 
 /**
  * Parses an HTML fragment.
@@ -806,8 +832,15 @@ export function parse(html: string, options?: Options.ParserOptions): AST.Docume
  * console.log(trFragment.childNodes[0].childNodes[0].tagName); //> 'td'
  * ```
  */
-export function parseFragment(fragmentContext: AST.Element, html: string, options?: Options.ParserOptions): AST.DocumentFragment;
-export function parseFragment(html: string, options?: Options.ParserOptions): AST.DocumentFragment;
+export function parseFragment(
+    fragmentContext: AST.Element,
+    html: string,
+    options?: Options.ParserOptions
+): AST.DocumentFragment;
+export function parseFragment(
+    html: string,
+    options?: Options.ParserOptions
+): AST.DocumentFragment;
 
 /**
  * Serializes an AST node to an HTML string.
@@ -831,8 +864,10 @@ export function parseFragment(html: string, options?: Options.ParserOptions): AS
  * console.log(str); //> '<head></head><body>Hi there!</body>'
  * ```
  */
-export function serialize(node: AST.Node, options?: Options.SerializerOptions): string;
-
+export function serialize(
+    node: AST.Node,
+    options?: Options.SerializerOptions
+): string;
 
 // Parser stream
 //-----------------------------------------------------------------------------------
@@ -903,13 +938,19 @@ export class ParserStream extends stream.Writable {
      * parser.end('<script src="example.com/script.js"></script>');
      * ```
      */
-    on(event: 'script', listener: (scriptElement: AST.Element, documentWrite: (html: string) => void, resume: () => void) => void): this;
+    on(
+        event: "script",
+        listener: (
+            scriptElement: AST.Element,
+            documentWrite: (html: string) => void,
+            resume: () => void
+        ) => void
+    ): this;
     /**
      * WritableStream events
      */
     on(event: string, listener: Function): this;
 }
-
 
 // Plaint text conversion stream
 //-----------------------------------------------------------------------------------
@@ -934,8 +975,7 @@ export class ParserStream extends stream.Writable {
  * file.pipe(converter);
  * ```
  */
-export class PlainTextConversionStream extends ParserStream { }
-
+export class PlainTextConversionStream extends ParserStream {}
 
 // SAX parser
 //-----------------------------------------------------------------------------------
@@ -981,28 +1021,45 @@ export class SAXParser extends stream.Transform {
      * @param listener.selfClosing - Indicates if the tag is self-closing.
      * @param listener.location - Start tag source code location info. Available if location info is enabled via {@link Options.SAXParserOptions}.
      */
-    on(event: 'startTag', listener: (name: string, attrs: AST.Default.Attribute[], selfClosing: boolean, location?: MarkupData.StartTagLocation) => void): this;
+    on(
+        event: "startTag",
+        listener: (
+            name: string,
+            attrs: AST.Default.Attribute[],
+            selfClosing: boolean,
+            location?: MarkupData.StartTagLocation
+        ) => void
+    ): this;
     /**
      * Raised then parser encounters an end tag.
      *
      * @param listener.name - Tag name.
      * @param listener.location - End tag source code location info. Available if location info is enabled via {@link Options.SAXParserOptions}.
      */
-    on(event: 'endTag', listener: (name: string, location?: MarkupData.Location) => void): this;
+    on(
+        event: "endTag",
+        listener: (name: string, location?: MarkupData.Location) => void
+    ): this;
     /**
      * Raised then parser encounters a comment.
      *
      * @param listener.text - Comment text.
      * @param listener.location - Comment source code location info. Available if location info is enabled via {@link Options.SAXParserOptions}.
      */
-    on(event: 'comment', listener: (text: string, location?: MarkupData.Location) => void): this;
+    on(
+        event: "comment",
+        listener: (text: string, location?: MarkupData.Location) => void
+    ): this;
     /**
      * Raised then parser encounters text content.
      *
      * @param listener.text - Text content.
      * @param listener.location - Text content code location info. Available if location info is enabled via {@link Options.SAXParserOptions}.
      */
-    on(event: 'text', listener: (text: string, location?: MarkupData.Location) => void): this;
+    on(
+        event: "text",
+        listener: (text: string, location?: MarkupData.Location) => void
+    ): this;
     /**
      * Raised then parser encounters a [document type declaration](https://en.wikipedia.org/wiki/Document_type_declaration).
      *
@@ -1011,7 +1068,15 @@ export class SAXParser extends stream.Transform {
      * @param listener.systemId - Document type system identifier.
      * @param listener.location - Document type declaration source code location info. Available if location info is enabled via {@link Options.SAXParserOptions}.
      */
-    on(event: 'doctype', listener: (name: string, publicId: string, systemId: string, location?: MarkupData.Location) => void): this;
+    on(
+        event: "doctype",
+        listener: (
+            name: string,
+            publicId: string,
+            systemId: string,
+            location?: MarkupData.Location
+        ) => void
+    ): this;
     /**
      * TransformStream events
      */
@@ -1046,7 +1111,6 @@ export class SAXParser extends stream.Transform {
      */
     stop(): void;
 }
-
 
 // Serializer stream
 //-----------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     StripeProvider,
     CardElement,
@@ -8,8 +8,8 @@ import {
     CardExpiryElement,
     CardCVCElement,
     PostalCodeElement,
-    ReactStripeElements,
-} from 'react-stripe-elements';
+    ReactStripeElements
+} from "react-stripe-elements";
 import InjectedStripeProps = ReactStripeElements.InjectedStripeProps;
 
 import ElementChangeResponse = stripe.elements.ElementChangeResponse;
@@ -19,49 +19,49 @@ import PatchedTokenResponse = ReactStripeElements.PatchedTokenResponse;
 import HTMLStripeElement = ReactStripeElements.HTMLStripeElement;
 
 const cardElementProps: ElementsOptions = {
-    iconStyle: 'solid',
+    iconStyle: "solid",
     style: {
         base: {
-            color: '#32325d',
-            lineHeight: '24px',
+            color: "#32325d",
+            lineHeight: "24px",
             fontFamily: 'Roboto, "Helvetica Neue", sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#aab7c4',
-            },
+            fontSmoothing: "antialiased",
+            fontSize: "16px",
+            "::placeholder": {
+                color: "#aab7c4"
+            }
         },
         invalid: {
-            color: '#B71C1C',
-            iconColor: '#B71C1C',
-        },
+            color: "#B71C1C",
+            iconColor: "#B71C1C"
+        }
     },
     hidePostalCode: true,
     classes: {
-        base: 'field',
-        complete: 'complete',
-        empty: 'is-empty',
-        focus: 'is-focused',
-        invalid: 'is-invalid',
-        webkitAutofill: 'webkit-autofill',
+        base: "field",
+        complete: "complete",
+        empty: "is-empty",
+        focus: "is-focused",
+        invalid: "is-invalid",
+        webkitAutofill: "webkit-autofill"
     },
-    hideIcon: true,
+    hideIcon: true
 };
 
 const fontElementsProps: ElementsCreateOptions = {
-  fonts: [
-    {
-      cssSrc: "https://fonts.googleapis.com/css?family=Dosis"
-    },
-    {
-      family: "Dosis, sanz",
-      src: "url(https://somewebsite.com/path/to/font.woff)",
-      style: "normal",
-      weight: "bold",
-      unicodeRange: "U+26"
-    }
-  ],
-  locale: "es"
+    fonts: [
+        {
+            cssSrc: "https://fonts.googleapis.com/css?family=Dosis"
+        },
+        {
+            family: "Dosis, sanz",
+            src: "url(https://somewebsite.com/path/to/font.woff)",
+            style: "normal",
+            weight: "bold",
+            unicodeRange: "U+26"
+        }
+    ],
+    locale: "es"
 };
 
 <CardElement
@@ -119,40 +119,45 @@ class WrappedComponent extends React.Component<
     constructor(props: ComponentProps & InjectedStripeProps) {
         super(props);
         // Test for paymentRequest
-        const paymentRequest = props.stripe && props.stripe.paymentRequest({
-            country: 'US',
-            currency: 'usd',
-            total: {
-                label: 'Demo total',
-                amount: 1
-            }
-        });
+        const paymentRequest =
+            props.stripe &&
+            props.stripe.paymentRequest({
+                country: "US",
+                currency: "usd",
+                total: {
+                    label: "Demo total",
+                    amount: 1
+                }
+            });
         if (paymentRequest) {
-            paymentRequest.on('token', ({complete, token, ...data}) => undefined);
+            paymentRequest.on(
+                "token",
+                ({ complete, token, ...data }) => undefined
+            );
             paymentRequest.canMakePayment().then(res => undefined);
         }
     }
     onSubmit = () => {
-        this.props.stripe!
-            .createToken({
-                name: '',
-                address_line1: '',
-                address_line2: '',
-                address_city: '',
-                address_state: '',
-                address_zip: '',
-                address_country: '',
-                currency: '',
+        this.props
+            .stripe!.createToken({
+                name: "",
+                address_line1: "",
+                address_line2: "",
+                address_city: "",
+                address_state: "",
+                address_zip: "",
+                address_country: "",
+                currency: ""
             })
             .then((response: PatchedTokenResponse) =>
                 this.props.tokenCallback(response)
             );
-    }
+    };
 
     isFormValid = () => {
         // use onChange callbacks from *Element components to detect if form is valid for submission
         return false;
-    }
+    };
 
     render() {
         return (
@@ -164,7 +169,9 @@ class WrappedComponent extends React.Component<
     }
 }
 
-const ExportedComponent: React.ComponentType<ComponentProps> = injectStripe(WrappedComponent);
+const ExportedComponent: React.ComponentType<ComponentProps> = injectStripe(
+    WrappedComponent
+);
 
 class MainComponent extends React.Component {
     onTokenReceived = (token: PatchedTokenResponse) => void 0;
@@ -222,16 +229,19 @@ const TestStripeProviderProps3: React.SFC<{
  * See: https://github.com/stripe/react-stripe-elements#loading-stripejs-asynchronously
  */
 const TestStripeProviderProps4: React.SFC<{
-    stripe: null | stripe.Stripe
-}> = props =>
+    stripe: null | stripe.Stripe;
+}> = props => (
     <StripeProvider stripe={props.stripe}>
         <Elements>
             <div />
         </Elements>
-    </StripeProvider>;
+    </StripeProvider>
+);
 
 /**
  * StripeProvider should be able to accept options.
  * See: https://stripe.com/docs/stripe-js/reference#stripe-function for options.
  */
-const TestStripeProviderOptions: React.SFC = () => <StripeProvider apiKey="" stripeAccount="" />;
+const TestStripeProviderOptions: React.SFC = () => (
+    <StripeProvider apiKey="" stripeAccount="" />
+);

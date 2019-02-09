@@ -3,7 +3,7 @@ export interface Dictionary<T> {
 }
 
 export interface Concord {
-    '[server] main': string;
+    "[server] main": string;
     extensions: string[];
     main: string;
     modules: Dictionary<string>;
@@ -22,17 +22,47 @@ export interface ConcordContext {
 }
 
 declare function parseType(type: string): Type;
-declare function isTypeMatched(baseType: string | Type, testedType: string | Type): boolean;
-declare function isResourceTypeSupported(context: ConcordContext, type: string): boolean;
-declare function isEnvironment(context: ConcordContext, env: string | Type): boolean;
+declare function isTypeMatched(
+    baseType: string | Type,
+    testedType: string | Type
+): boolean;
+declare function isResourceTypeSupported(
+    context: ConcordContext,
+    type: string
+): boolean;
+declare function isEnvironment(
+    context: ConcordContext,
+    env: string | Type
+): boolean;
 declare function isGlobMatched(glob: string, relativePath: string): boolean;
-declare function isConditionMatched(context: ConcordContext, condition: string): boolean;
-declare function isKeyMatched(context: ConcordContext, key: string): string | boolean;
-declare function getField(context: ConcordContext, configuration: Concord, field: string): any;
+declare function isConditionMatched(
+    context: ConcordContext,
+    condition: string
+): boolean;
+declare function isKeyMatched(
+    context: ConcordContext,
+    key: string
+): string | boolean;
+declare function getField(
+    context: ConcordContext,
+    configuration: Concord,
+    field: string
+): any;
 declare function getMain(context: ConcordContext, configuration: Concord): any;
-declare function getExtensions(context: ConcordContext, configuration: Concord): any;
-declare function matchModule(context: ConcordContext, configuration: Concord, request: string): any;
-declare function matchType(context: ConcordContext, configuration: Concord, relativePath: string): string | undefined;
+declare function getExtensions(
+    context: ConcordContext,
+    configuration: Concord
+): any;
+declare function matchModule(
+    context: ConcordContext,
+    configuration: Concord,
+    request: string
+): any;
+declare function matchType(
+    context: ConcordContext,
+    configuration: Concord,
+    relativePath: string
+): string | undefined;
 
 export {
     getExtensions,

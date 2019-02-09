@@ -5,10 +5,18 @@
 
 /// <reference types="node" />
 
-type ImporterReturnType = { file: string } | { contents: string } | Error | null;
+type ImporterReturnType =
+    | { file: string }
+    | { contents: string }
+    | Error
+    | null;
 
 interface Importer {
-    (url: string, prev: string, done: (data: ImporterReturnType) => void): ImporterReturnType | void;
+    (
+        url: string,
+        prev: string,
+        done: (data: ImporterReturnType) => void
+    ): ImporterReturnType | void;
 }
 
 interface Options {
@@ -49,8 +57,11 @@ interface Result {
         end: number;
         duration: number;
         includedFiles: string[];
-    }
+    };
 }
 
-export declare function render(options: Options, callback: (err: SassError, result: Result) => any): void;
+export declare function render(
+    options: Options,
+    callback: (err: SassError, result: Result) => any
+): void;
 export declare function renderSync(options: Options): Result;

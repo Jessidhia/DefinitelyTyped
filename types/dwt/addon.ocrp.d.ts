@@ -114,22 +114,30 @@ interface OCRPro {
     IsModuleInstalled(): boolean;
 
     /**
-     *  Downloads and installs the ocr add-on on the local system. 
+     *  Downloads and installs the ocr add-on on the local system.
      * @param {string} remoteFile specifies the URL to download a ZIP which contains the OCR Pro addon
      * @param {function} optionalAsyncSuccessFunc optional. The function to call when the download succeeds. Please refer to the function prototype OnSuccess.
      * @param {function} optionalAsyncFailureFunc optional. The function to call when the download fails. Please refer to the function prototype OnFailure.
      * @return {void}
      */
-    Download(remoteFile: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: () => void): void;
+    Download(
+        remoteFile: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: () => void
+    ): void;
 
     /**
-     *  Performs OCR on a given image. 
+     *  Performs OCR on a given image.
      * @param {number} sImageIndex Specifies the index of the image.
      * @param {function} AsyncSuccessFunc  The function to call when OCR operation succeeds. Please refer to the function prototype OnOCRSuccess.
      * @param {function} AsyncFailureFunc  The function to call when OCR operation fails. Please refer to the function prototype OnOCRFailure.
      * @return {void}
      */
-    Recognize(sImageIndex: number, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: () => void): void;
+    Recognize(
+        sImageIndex: number,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: () => void
+    ): void;
 
     /**
      *   Performs OCR on one or multiple specified local file(s) directly.
@@ -138,17 +146,26 @@ interface OCRPro {
      * @param {function} AsyncFailureFunc  The function to call when OCR operation fails. Please refer to the function prototype OnOCRFailure.
      * @return {void}
      */
-    RecognizeFile(fileNames: string, optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: () => void): void;
+    RecognizeFile(
+        fileNames: string,
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: () => void
+    ): void;
 
     /**
-     *  Peforms OCR on the given rectangle on a specified image. 
+     *  Peforms OCR on the given rectangle on a specified image.
      * @param {number} sImageIndex Specifies the index of the image.
      * @param {number[]} aryZone specifies the coordinates of the rectangle.
      * @param {function} AsyncSuccessFunc  The function to call when OCR operation succeeds. Please refer to the function prototype OnOCRSuccess.
      * @param {function} AsyncFailureFunc  The function to call when OCR operation fails. Please refer to the function prototype OnOCRFailure.
      * @return {void}
      */
-    RecognizeRect(sImageIndex: number, aryZone: number[], optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: () => void): void;
+    RecognizeRect(
+        sImageIndex: number,
+        aryZone: number[],
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: () => void
+    ): void;
 
     /**
      *   Performs OCR on the currently selected images in the buffer.
@@ -156,7 +173,10 @@ interface OCRPro {
      * @param {function} AsyncFailureFunc  The function to call when OCR operation fails. Please refer to the function prototype OnOCRFailure.
      * @return {void}
      */
-    RecognizeSelectedImages(optionalAsyncSuccessFunc?: () => void, optionalAsyncFailureFunc?: () => void): void;
+    RecognizeSelectedImages(
+        optionalAsyncSuccessFunc?: () => void,
+        optionalAsyncFailureFunc?: () => void
+    ): void;
 }
 
 interface WebTwainAddon {

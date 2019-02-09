@@ -46,7 +46,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createShareButton(url: string, target: HTMLElement, options?: TwitterButtonWidgetOptions): Promise<HTMLElement>;
+    createShareButton(
+        url: string,
+        target: HTMLElement,
+        options?: TwitterButtonWidgetOptions
+    ): Promise<HTMLElement>;
     /**
      * Create a follow button for a user.
      *
@@ -54,7 +58,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createFollowButton(screen_name: string, target: HTMLElement, options?: TwitterButtonWidgetOptions): Promise<HTMLElement>;
+    createFollowButton(
+        screen_name: string,
+        target: HTMLElement,
+        options?: TwitterButtonWidgetOptions
+    ): Promise<HTMLElement>;
     /**
      * Create a hashtag button for a hashtag.
      *
@@ -62,7 +70,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createHashtagButton(hashtag: string, target: HTMLElement, options?: TwitterButtonWidgetOptions): Promise<HTMLElement>;
+    createHashtagButton(
+        hashtag: string,
+        target: HTMLElement,
+        options?: TwitterButtonWidgetOptions
+    ): Promise<HTMLElement>;
     /**
      * Create a mention button for a user.
      *
@@ -70,7 +82,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createMentionButton(screen_name: string, target: HTMLElement, options?: TwitterButtonWidgetOptions): Promise<HTMLElement>;
+    createMentionButton(
+        screen_name: string,
+        target: HTMLElement,
+        options?: TwitterButtonWidgetOptions
+    ): Promise<HTMLElement>;
     /**
      * Create a timeline widget.
      *
@@ -78,7 +94,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createTimeline(widgetId: string, target: HTMLElement, options?: TwitterTimelineWidgetOptions): Promise<HTMLElement>;
+    createTimeline(
+        widgetId: string,
+        target: HTMLElement,
+        options?: TwitterTimelineWidgetOptions
+    ): Promise<HTMLElement>;
     /**
      * Create an embedded Tweet for a Tweet.
      *
@@ -86,7 +106,11 @@ interface TwitterWidgets {
      * @param target The element in which to render the widget.
      * @param options An object hash of additional options to configure the widget.
      */
-    createTweet(tweetId: string, target: HTMLElement, options?: TwitterTweetWidgetOptions): Promise<HTMLElement>;
+    createTweet(
+        tweetId: string,
+        target: HTMLElement,
+        options?: TwitterTweetWidgetOptions
+    ): Promise<HTMLElement>;
 }
 
 /**
@@ -160,7 +184,7 @@ interface TwitterTweetWidgetOptions extends TwitterWidgetOptions {
     /**
      * Fix the width of the embedded widget.
      */
-    width?: string|number;
+    width?: string | number;
     /**
      * Adjust the color of links inside the widget.
      */
@@ -174,7 +198,10 @@ interface TwitterTweetWidgetOptions extends TwitterWidgetOptions {
 /**
  * The interface for additional options for embedded Timelines.
  */
-interface TwitterTimelineWidgetOptions extends TwitterWidgetOptions, TwitterButtonWidgetOptions, TwitterTweetWidgetOptions {
+interface TwitterTimelineWidgetOptions
+    extends TwitterWidgetOptions,
+        TwitterButtonWidgetOptions,
+        TwitterTweetWidgetOptions {
     /**
      * Apply the specified aria-polite behavior to the rendered timeline.
      */
@@ -182,7 +209,7 @@ interface TwitterTimelineWidgetOptions extends TwitterWidgetOptions, TwitterButt
     /**
      * Fix the height of the embedded widget.
      */
-    height?: string|number;
+    height?: string | number;
     /**
      * Adjust the color of borders inside the widget.
      */

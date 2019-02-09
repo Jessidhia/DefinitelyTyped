@@ -1,8 +1,12 @@
-import { Base, EmitterBase } from '../base';
-import { Identity } from '../../identity';
-import Transport from '../../transport/transport';
-import { FrameEvents } from '../events/frame';
-export declare type EntityType = 'window' | 'iframe' | 'external connection' | 'unknown';
+import { Base, EmitterBase } from "../base";
+import { Identity } from "../../identity";
+import Transport from "../../transport/transport";
+import { FrameEvents } from "../events/frame";
+export declare type EntityType =
+    | "window"
+    | "iframe"
+    | "external connection"
+    | "unknown";
 export interface FrameInfo {
     uuid: string;
     name: string;

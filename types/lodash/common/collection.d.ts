@@ -352,7 +352,7 @@ declare module "../index" {
             collection: List<T> | null | undefined,
             predicate: ListIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.find
@@ -361,7 +361,7 @@ declare module "../index" {
             collection: List<T> | null | undefined,
             predicate?: ListIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T|undefined;
+        ): T | undefined;
 
         /**
          * @see _.find
@@ -370,7 +370,7 @@ declare module "../index" {
             collection: T | null | undefined,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.find
@@ -379,7 +379,7 @@ declare module "../index" {
             collection: T | null | undefined,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T[keyof T]|undefined;
+        ): T[keyof T] | undefined;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -390,7 +390,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             predicate: ListIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.find
@@ -399,7 +399,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             predicate?: ListIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T|undefined;
+        ): T | undefined;
 
         /**
          * @see _.find
@@ -408,7 +408,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<T | null | undefined>,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.find
@@ -417,7 +417,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<T | null | undefined>,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T[keyof T]|undefined;
+        ): T[keyof T] | undefined;
     }
 
     interface LoDashExplicitWrapper<TValue> {
@@ -428,7 +428,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             predicate: ListIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<S|undefined>;
+        ): LoDashExplicitWrapper<S | undefined>;
 
         /**
          * @see _.find
@@ -437,7 +437,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             predicate?: ListIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<T|undefined>;
+        ): LoDashExplicitWrapper<T | undefined>;
 
         /**
          * @see _.find
@@ -446,7 +446,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<T | null | undefined>,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<S|undefined>;
+        ): LoDashExplicitWrapper<S | undefined>;
 
         /**
          * @see _.find
@@ -455,7 +455,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<T | null | undefined>,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<T[keyof T]|undefined>;
+        ): LoDashExplicitWrapper<T[keyof T] | undefined>;
     }
 
     // findLast
@@ -473,7 +473,7 @@ declare module "../index" {
             collection: List<T> | null | undefined,
             predicate: ListIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.findLast
@@ -482,7 +482,7 @@ declare module "../index" {
             collection: List<T> | null | undefined,
             predicate?: ListIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T|undefined;
+        ): T | undefined;
 
         /**
          * @see _.findLast
@@ -491,7 +491,7 @@ declare module "../index" {
             collection: T | null | undefined,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.findLast
@@ -500,7 +500,7 @@ declare module "../index" {
             collection: T | null | undefined,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T[keyof T]|undefined;
+        ): T[keyof T] | undefined;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -529,7 +529,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<T | null | undefined>,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): S|undefined;
+        ): S | undefined;
 
         /**
          * @see _.findLast
@@ -538,7 +538,7 @@ declare module "../index" {
             this: LoDashImplicitWrapper<T | null | undefined>,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): T[keyof T]|undefined;
+        ): T[keyof T] | undefined;
     }
 
     interface LoDashExplicitWrapper<TValue> {
@@ -567,7 +567,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<T | null | undefined>,
             predicate: ObjectIteratorTypeGuard<T, S>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<S|undefined>;
+        ): LoDashExplicitWrapper<S | undefined>;
 
         /**
          * @see _.findLast
@@ -576,7 +576,7 @@ declare module "../index" {
             this: LoDashExplicitWrapper<T | null | undefined>,
             predicate?: ObjectIterateeCustom<T, boolean>,
             fromIndex?: number
-        ): LoDashExplicitWrapper<T[keyof T]|undefined>;
+        ): LoDashExplicitWrapper<T[keyof T] | undefined>;
     }
 
     // flatMap
@@ -592,15 +592,18 @@ declare module "../index" {
          * @return Returns the new flattened array.
          */
         flatMap<T>(
-            collection: List<Many<T>> | Dictionary<Many<T>> | NumericDictionary<Many<T>> | null | undefined
+            collection:
+                | List<Many<T>>
+                | Dictionary<Many<T>>
+                | NumericDictionary<Many<T>>
+                | null
+                | undefined
         ): T[];
 
         /**
          * @see _.flatMap
          */
-        flatMap(
-            collection: object | null | undefined
-        ): any[];
+        flatMap(collection: object | null | undefined): any[];
 
         /**
          * @see _.flatMap
@@ -621,10 +624,7 @@ declare module "../index" {
         /**
          * @see _.flatMap
          */
-        flatMap(
-            collection: object | null | undefined,
-            iteratee: string
-        ): any[];
+        flatMap(collection: object | null | undefined, iteratee: string): any[];
 
         /**
          * @see _.flatMap
@@ -639,7 +639,15 @@ declare module "../index" {
         /**
          * @see _.flatMap
          */
-        flatMap<T>(this: LoDashImplicitWrapper<List<Many<T>> | Dictionary<Many<T>> | NumericDictionary<Many<T>> | null | undefined>): LoDashImplicitWrapper<T[]>;
+        flatMap<T>(
+            this: LoDashImplicitWrapper<
+                | List<Many<T>>
+                | Dictionary<Many<T>>
+                | NumericDictionary<Many<T>>
+                | null
+                | undefined
+            >
+        ): LoDashImplicitWrapper<T[]>;
 
         /**
          * @see _.flatMap
@@ -665,23 +673,27 @@ declare module "../index" {
         /**
          * @see _.flatMap
          */
-        flatMap(
-            iteratee: string
-        ): LoDashImplicitWrapper<any[]>;
+        flatMap(iteratee: string): LoDashImplicitWrapper<any[]>;
 
         /**
          * @see _.flatMap
          */
-        flatMap(
-            iteratee: object
-        ): LoDashImplicitWrapper<boolean[]>;
+        flatMap(iteratee: object): LoDashImplicitWrapper<boolean[]>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.flatMap
          */
-        flatMap<T>(this: LoDashExplicitWrapper<List<Many<T>> | Dictionary<Many<T>> | NumericDictionary<Many<T>> | null | undefined>): LoDashExplicitWrapper<T[]>;
+        flatMap<T>(
+            this: LoDashExplicitWrapper<
+                | List<Many<T>>
+                | Dictionary<Many<T>>
+                | NumericDictionary<Many<T>>
+                | null
+                | undefined
+            >
+        ): LoDashExplicitWrapper<T[]>;
 
         /**
          * @see _.flatMap
@@ -707,16 +719,12 @@ declare module "../index" {
         /**
          * @see _.flatMap
          */
-        flatMap(
-            iteratee: string
-        ): LoDashExplicitWrapper<any[]>;
+        flatMap(iteratee: string): LoDashExplicitWrapper<any[]>;
 
         /**
          * @see _.flatMap
          */
-        flatMap(
-            iteratee: object
-        ): LoDashExplicitWrapper<boolean[]>;
+        flatMap(iteratee: object): LoDashExplicitWrapper<boolean[]>;
     }
 
     // flatMapDeep
@@ -741,7 +749,12 @@ declare module "../index" {
          * // => [1, 1, 2, 2]
          */
         flatMapDeep<T>(
-            collection: List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined
+            collection:
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
         ): T[];
 
         /**
@@ -749,7 +762,10 @@ declare module "../index" {
          */
         flatMapDeep<T, TResult>(
             collection: List<T> | null | undefined,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): TResult[];
 
         /**
@@ -757,7 +773,10 @@ declare module "../index" {
          */
         flatMapDeep<T extends object, TResult>(
             collection: T | null | undefined,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): TResult[];
 
         /**
@@ -782,7 +801,13 @@ declare module "../index" {
          * @see _.flatMapDeep
          */
         flatMapDeep<T>(
-            this: LoDashImplicitWrapper<List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined>
+            this: LoDashImplicitWrapper<
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
+            >
         ): LoDashImplicitWrapper<T[]>;
 
         /**
@@ -790,7 +815,10 @@ declare module "../index" {
          */
         flatMapDeep<T, TResult>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): LoDashImplicitWrapper<TResult[]>;
 
         /**
@@ -798,7 +826,10 @@ declare module "../index" {
          */
         flatMapDeep<T extends object, TResult>(
             this: LoDashImplicitWrapper<T | null | undefined>,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): LoDashImplicitWrapper<TResult[]>;
 
         /**
@@ -823,7 +854,13 @@ declare module "../index" {
          * @see _.flatMapDeep
          */
         flatMapDeep<T>(
-            this: LoDashExplicitWrapper<List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined>
+            this: LoDashExplicitWrapper<
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
+            >
         ): LoDashExplicitWrapper<T[]>;
 
         /**
@@ -831,7 +868,10 @@ declare module "../index" {
          */
         flatMapDeep<T, TResult>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): LoDashExplicitWrapper<TResult[]>;
 
         /**
@@ -839,7 +879,10 @@ declare module "../index" {
          */
         flatMapDeep<T extends object, TResult>(
             this: LoDashExplicitWrapper<T | null | undefined>,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >
         ): LoDashExplicitWrapper<TResult[]>;
 
         /**
@@ -882,7 +925,12 @@ declare module "../index" {
          * // => [[1, 1], [2, 2]]
          */
         flatMapDepth<T>(
-            collection: List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined
+            collection:
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
         ): T[];
 
         /**
@@ -890,7 +938,10 @@ declare module "../index" {
          */
         flatMapDepth<T, TResult>(
             collection: List<T> | null | undefined,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): TResult[];
 
@@ -899,7 +950,10 @@ declare module "../index" {
          */
         flatMapDepth<T extends object, TResult>(
             collection: T | null | undefined,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): TResult[];
 
@@ -927,7 +981,13 @@ declare module "../index" {
          * @see _.flatMapDepth
          */
         flatMapDepth<T>(
-            this: LoDashImplicitWrapper<List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined>
+            this: LoDashImplicitWrapper<
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
+            >
         ): LoDashImplicitWrapper<T[]>;
 
         /**
@@ -935,7 +995,10 @@ declare module "../index" {
          */
         flatMapDepth<T, TResult>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): LoDashImplicitWrapper<TResult[]>;
 
@@ -944,7 +1007,10 @@ declare module "../index" {
          */
         flatMapDepth<T extends object, TResult>(
             this: LoDashImplicitWrapper<T | null | undefined>,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): LoDashImplicitWrapper<TResult[]>;
 
@@ -972,7 +1038,13 @@ declare module "../index" {
          * @see _.flatMapDepth
          */
         flatMapDepth<T>(
-            this: LoDashExplicitWrapper<List<ListOfRecursiveArraysOrValues<T> | T> | Dictionary<ListOfRecursiveArraysOrValues<T> | T> | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T> | null | undefined>
+            this: LoDashExplicitWrapper<
+                | List<ListOfRecursiveArraysOrValues<T> | T>
+                | Dictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | NumericDictionary<ListOfRecursiveArraysOrValues<T> | T>
+                | null
+                | undefined
+            >
         ): LoDashExplicitWrapper<T[]>;
 
         /**
@@ -980,7 +1052,10 @@ declare module "../index" {
          */
         flatMapDepth<T, TResult>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
-            iteratee: ListIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ListIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): LoDashExplicitWrapper<TResult[]>;
 
@@ -989,7 +1064,10 @@ declare module "../index" {
          */
         flatMapDepth<T extends object, TResult>(
             this: LoDashExplicitWrapper<T | null | undefined>,
-            iteratee: ObjectIterator<T, ListOfRecursiveArraysOrValues<TResult> | TResult>,
+            iteratee: ObjectIterator<
+                T,
+                ListOfRecursiveArraysOrValues<TResult> | TResult
+            >,
             depth?: number
         ): LoDashExplicitWrapper<TResult[]>;
 
@@ -1027,18 +1105,12 @@ declare module "../index" {
          * @param collection The collection to iterate over.
          * @param iteratee The function invoked per iteration.
          */
-        forEach<T>(
-            collection: T[],
-            iteratee?: ArrayIterator<T, any>
-        ): T[];
+        forEach<T>(collection: T[], iteratee?: ArrayIterator<T, any>): T[];
 
         /**
          * @see _.forEach
          */
-        forEach(
-            collection: string,
-            iteratee?: StringIterator<any>
-        ): string;
+        forEach(collection: string, iteratee?: StringIterator<any>): string;
 
         /**
          * @see _.forEach
@@ -1134,10 +1206,7 @@ declare module "../index" {
          * @param collection The collection to iterate over.
          * @param iteratee The function called per iteration.
          */
-        forEachRight<T>(
-            collection: T[],
-            iteratee?: ArrayIterator<T, any>
-        ): T[];
+        forEachRight<T>(collection: T[], iteratee?: ArrayIterator<T, any>): T[];
 
         /**
          * @see _.forEachRight
@@ -1305,7 +1374,12 @@ declare module "../index" {
          * @return True if the target element is found, else false.
          */
         includes<T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined,
             target: T,
             fromIndex?: number
         ): boolean;
@@ -1316,7 +1390,13 @@ declare module "../index" {
          * @see _.includes
          */
         includes<T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             target: T,
             fromIndex?: number
         ): boolean;
@@ -1327,7 +1407,13 @@ declare module "../index" {
          * @see _.includes
          */
         includes<T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             target: T,
             fromIndex?: number
         ): LoDashExplicitWrapper<boolean>;
@@ -1337,58 +1423,64 @@ declare module "../index" {
 
     interface LoDashStatic {
         /**
-        * Invokes the method named by methodName on each element in the collection returning
-        * an array of the results of each invoked method. Additional arguments will be provided
-        * to each invoked method. If methodName is a function it will be invoked for, and this
-        * bound to, each element in the collection.
-        * @param collection The collection to iterate over.
-        * @param methodName The name of the method to invoke.
-        * @param args Arguments to invoke the method with.
-        **/
+         * Invokes the method named by methodName on each element in the collection returning
+         * an array of the results of each invoked method. Additional arguments will be provided
+         * to each invoked method. If methodName is a function it will be invoked for, and this
+         * bound to, each element in the collection.
+         * @param collection The collection to iterate over.
+         * @param methodName The name of the method to invoke.
+         * @param args Arguments to invoke the method with.
+         **/
         invokeMap(
             collection: object | null | undefined,
             methodName: string,
-            ...args: any[]): any[];
+            ...args: any[]
+        ): any[];
 
         /**
-        * @see _.invokeMap
-        **/
+         * @see _.invokeMap
+         **/
         invokeMap<TResult>(
             collection: object | null | undefined,
             method: (...args: any[]) => TResult,
-            ...args: any[]): TResult[];
+            ...args: any[]
+        ): TResult[];
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
-        * @see _.invokeMap
-        **/
+         * @see _.invokeMap
+         **/
         invokeMap(
             methodName: string,
-            ...args: any[]): LoDashImplicitWrapper<any[]>;
+            ...args: any[]
+        ): LoDashImplicitWrapper<any[]>;
 
         /**
-        * @see _.invokeMap
-        **/
+         * @see _.invokeMap
+         **/
         invokeMap<TResult>(
             method: (...args: any[]) => TResult,
-            ...args: any[]): LoDashImplicitWrapper<TResult[]>;
+            ...args: any[]
+        ): LoDashImplicitWrapper<TResult[]>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
-        * @see _.invokeMap
-        **/
+         * @see _.invokeMap
+         **/
         invokeMap(
             methodName: string,
-            ...args: any[]): LoDashExplicitWrapper<any[]>;
+            ...args: any[]
+        ): LoDashExplicitWrapper<any[]>;
 
         /**
-        * @see _.invokeMap
-        **/
+         * @see _.invokeMap
+         **/
         invokeMap<TResult>(
             method: (...args: any[]) => TResult,
-            ...args: any[]): LoDashExplicitWrapper<TResult[]>;
+            ...args: any[]
+        ): LoDashExplicitWrapper<TResult[]>;
     }
 
     // keyBy
@@ -1488,7 +1580,14 @@ declare module "../index" {
         /**
          * @see _.map
          */
-        map<T>(collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined): T[];
+        map<T>(
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+        ): T[];
 
         /**
          * @see _.map
@@ -1500,7 +1599,12 @@ declare module "../index" {
 
         /** @see _.map */
         map<T, K extends keyof T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined,
             iteratee: K
         ): Array<T[K]>;
 
@@ -1508,7 +1612,12 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined,
             iteratee?: string
         ): any[];
 
@@ -1516,7 +1625,12 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined,
             iteratee?: object
         ): boolean[];
     }
@@ -1541,7 +1655,15 @@ declare module "../index" {
         /**
          * @see _.map
          */
-        map<T>(this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>): LoDashImplicitWrapper<T[]>;
+        map<T>(
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
+        ): LoDashImplicitWrapper<T[]>;
 
         /**
          * @see _.map
@@ -1553,7 +1675,13 @@ declare module "../index" {
 
         /** @see _.map */
         map<T, K extends keyof T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee: K
         ): LoDashImplicitWrapper<Array<T[K]>>;
 
@@ -1561,7 +1689,13 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee?: string
         ): LoDashImplicitWrapper<any[]>;
 
@@ -1569,7 +1703,13 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee?: object
         ): LoDashImplicitWrapper<boolean[]>;
     }
@@ -1594,7 +1734,15 @@ declare module "../index" {
         /**
          * @see _.map
          */
-        map<T>(this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>): LoDashExplicitWrapper<T[]>;
+        map<T>(
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
+        ): LoDashExplicitWrapper<T[]>;
 
         /**
          * @see _.map
@@ -1606,7 +1754,13 @@ declare module "../index" {
 
         /** @see _.map */
         map<T, K extends keyof T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee: K
         ): LoDashExplicitWrapper<Array<T[K]>>;
 
@@ -1614,7 +1768,13 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee?: string
         ): LoDashExplicitWrapper<any[]>;
 
@@ -1622,7 +1782,13 @@ declare module "../index" {
          * @see _.map
          */
         map<T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             iteratee?: object
         ): LoDashExplicitWrapper<boolean[]>;
     }
@@ -1658,7 +1824,7 @@ declare module "../index" {
         orderBy<T>(
             collection: List<T> | null | undefined,
             iteratees?: Many<ListIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): T[];
 
         /**
@@ -1667,7 +1833,7 @@ declare module "../index" {
         orderBy<T>(
             collection: List<T> | null | undefined,
             iteratees?: Many<ListIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): T[];
 
         /**
@@ -1676,7 +1842,7 @@ declare module "../index" {
         orderBy<T extends object>(
             collection: T | null | undefined,
             iteratees?: Many<ObjectIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): Array<T[keyof T]>;
 
         /**
@@ -1685,7 +1851,7 @@ declare module "../index" {
         orderBy<T extends object>(
             collection: T | null | undefined,
             iteratees?: Many<ObjectIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): Array<T[keyof T]>;
     }
 
@@ -1696,7 +1862,7 @@ declare module "../index" {
         orderBy<T>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             iteratees?: Many<ListIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashImplicitWrapper<T[]>;
 
         /**
@@ -1705,7 +1871,7 @@ declare module "../index" {
         orderBy<T>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             iteratees?: Many<ListIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashImplicitWrapper<T[]>;
 
         /**
@@ -1714,7 +1880,7 @@ declare module "../index" {
         orderBy<T extends object>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             iteratees?: Many<ObjectIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashImplicitWrapper<Array<T[keyof T]>>;
 
         /**
@@ -1723,7 +1889,7 @@ declare module "../index" {
         orderBy<T extends object>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             iteratees?: Many<ObjectIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashImplicitWrapper<Array<T[keyof T]>>;
     }
 
@@ -1734,7 +1900,7 @@ declare module "../index" {
         orderBy<T>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             iteratees?: Many<ListIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashExplicitWrapper<T[]>;
 
         /**
@@ -1743,7 +1909,7 @@ declare module "../index" {
         orderBy<T>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             iteratees?: Many<ListIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashExplicitWrapper<T[]>;
 
         /**
@@ -1752,7 +1918,7 @@ declare module "../index" {
         orderBy<T extends object>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             iteratees?: Many<ObjectIterator<T, NotVoid>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashExplicitWrapper<Array<T[keyof T]>>;
 
         /**
@@ -1761,7 +1927,7 @@ declare module "../index" {
         orderBy<T extends object>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             iteratees?: Many<ObjectIteratee<T>>,
-            orders?: Many<boolean|"asc"|"desc">
+            orders?: Many<boolean | "asc" | "desc">
         ): LoDashExplicitWrapper<Array<T[keyof T]>>;
     }
 
@@ -1769,14 +1935,14 @@ declare module "../index" {
 
     interface LoDashStatic {
         /**
-        * Creates an array of elements split into two groups, the first of which contains elements predicate returns truthy for,
-        * while the second of which contains elements predicate returns falsey for.
-        * The predicate is invoked with three arguments: (value, index|key, collection).
-        *
-        * @param collection The collection to iterate over.
-        * @param callback The function called per iteration.
-        * @return Returns the array of grouped elements.
-        **/
+         * Creates an array of elements split into two groups, the first of which contains elements predicate returns truthy for,
+         * while the second of which contains elements predicate returns falsey for.
+         * The predicate is invoked with three arguments: (value, index|key, collection).
+         *
+         * @param collection The collection to iterate over.
+         * @param callback The function called per iteration.
+         * @return Returns the array of grouped elements.
+         **/
         partition<T>(
             collection: List<T> | null | undefined,
             callback: ValueIteratee<T>
@@ -1831,16 +1997,16 @@ declare module "../index" {
 
     interface LoDashStatic {
         /**
-        * Reduces a collection to a value which is the accumulated result of running each
-        * element in the collection through the callback, where each successive callback execution
-        * consumes the return value of the previous execution. If accumulator is not provided the
-        * first element of the collection will be used as the initial accumulator value. The callback
-        * is invoked with four arguments: (accumulator, value, index|key, collection).
-        * @param collection The collection to iterate over.
-        * @param callback The function called per iteration.
-        * @param accumulator Initial value of the accumulator.
-        * @return Returns the accumulated value.
-        **/
+         * Reduces a collection to a value which is the accumulated result of running each
+         * element in the collection through the callback, where each successive callback execution
+         * consumes the return value of the previous execution. If accumulator is not provided the
+         * first element of the collection will be used as the initial accumulator value. The callback
+         * is invoked with four arguments: (accumulator, value, index|key, collection).
+         * @param collection The collection to iterate over.
+         * @param callback The function called per iteration.
+         * @param accumulator Initial value of the accumulator.
+         * @return Returns the accumulated value.
+         **/
         reduce<T, TResult>(
             collection: T[] | null | undefined,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -1848,8 +2014,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T, TResult>(
             collection: List<T> | null | undefined,
             callback: MemoListIterator<T, TResult, List<T>>,
@@ -1857,8 +2023,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object, TResult>(
             collection: T | null | undefined,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -1866,8 +2032,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T>(
             collection: T[] | null | undefined,
             callback: MemoListIterator<T, T, T[]>
@@ -1882,8 +2048,8 @@ declare module "../index" {
         ): T | undefined;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object>(
             collection: T | null | undefined,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -1891,9 +2057,9 @@ declare module "../index" {
     }
 
     interface LoDashImplicitWrapper<TValue> {
-         /**
-        * @see _.reduce
-        **/
+        /**
+         * @see _.reduce
+         **/
         reduce<T, TResult>(
             this: LoDashImplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -1910,8 +2076,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object, TResult>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -1919,24 +2085,24 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T>(
             this: LoDashImplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, T, T[]>
         ): T | undefined;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, T, List<T>>
         ): T | undefined;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -1945,8 +2111,8 @@ declare module "../index" {
 
     interface LoDashExplicitWrapper<TValue> {
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T, TResult>(
             this: LoDashExplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -1954,8 +2120,8 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T, TResult>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, TResult, List<T>>,
@@ -1963,8 +2129,8 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object, TResult>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -1972,24 +2138,24 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T>(
             this: LoDashExplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, T, T[]>
         ): LoDashExplicitWrapper<T | undefined>;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, T, List<T>>
         ): LoDashExplicitWrapper<T | undefined>;
 
         /**
-        * @see _.reduce
-        **/
+         * @see _.reduce
+         **/
         reduce<T extends object>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -2000,13 +2166,13 @@ declare module "../index" {
 
     interface LoDashStatic {
         /**
-        * This method is like _.reduce except that it iterates over elements of a collection from
-        * right to left.
-        * @param collection The collection to iterate over.
-        * @param callback The function called per iteration.
-        * @param accumulator Initial value of the accumulator.
-        * @return The accumulated value.
-        **/
+         * This method is like _.reduce except that it iterates over elements of a collection from
+         * right to left.
+         * @param collection The collection to iterate over.
+         * @param callback The function called per iteration.
+         * @param accumulator Initial value of the accumulator.
+         * @return The accumulated value.
+         **/
         reduceRight<T, TResult>(
             collection: T[] | null | undefined,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -2014,8 +2180,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T, TResult>(
             collection: List<T> | null | undefined,
             callback: MemoListIterator<T, TResult, List<T>>,
@@ -2023,8 +2189,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object, TResult>(
             collection: T | null | undefined,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -2032,24 +2198,24 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             collection: T[] | null | undefined,
             callback: MemoListIterator<T, T, T[]>
         ): T | undefined;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             collection: List<T> | null | undefined,
             callback: MemoListIterator<T, T, List<T>>
         ): T | undefined;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object>(
             collection: T | null | undefined,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -2057,9 +2223,9 @@ declare module "../index" {
     }
 
     interface LoDashImplicitWrapper<TValue> {
-         /**
-        * @see _.reduceRight
-        **/
+        /**
+         * @see _.reduceRight
+         **/
         reduceRight<T, TResult>(
             this: LoDashImplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -2067,8 +2233,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T, TResult>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, TResult, List<T>>,
@@ -2076,8 +2242,8 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object, TResult>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -2085,24 +2251,24 @@ declare module "../index" {
         ): TResult;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             this: LoDashImplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, T, T[]>
         ): T | undefined;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             this: LoDashImplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, T, List<T>>
         ): T | undefined;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object>(
             this: LoDashImplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -2111,8 +2277,8 @@ declare module "../index" {
 
     interface LoDashExplicitWrapper<TValue> {
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T, TResult>(
             this: LoDashExplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, TResult, T[]>,
@@ -2120,8 +2286,8 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T, TResult>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, TResult, List<T>>,
@@ -2129,8 +2295,8 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object, TResult>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], TResult, T>,
@@ -2138,24 +2304,24 @@ declare module "../index" {
         ): LoDashExplicitWrapper<TResult>;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             this: LoDashExplicitWrapper<T[] | null | undefined>,
             callback: MemoListIterator<T, T, T[]>
         ): LoDashExplicitWrapper<T | undefined>;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T>(
             this: LoDashExplicitWrapper<List<T> | null | undefined>,
             callback: MemoListIterator<T, T, List<T>>
         ): LoDashExplicitWrapper<T | undefined>;
 
         /**
-        * @see _.reduceRight
-        **/
+         * @see _.reduceRight
+         **/
         reduceRight<T extends object>(
             this: LoDashExplicitWrapper<T | null | undefined>,
             callback: MemoObjectIterator<T[keyof T], T[keyof T], T>
@@ -2257,7 +2423,12 @@ declare module "../index" {
          * @return Returns the random element.
          */
         sample<T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
         ): T | undefined;
 
         /**
@@ -2273,7 +2444,13 @@ declare module "../index" {
          * @see _.sample
          */
         sample<T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
         ): T | undefined;
 
         /**
@@ -2289,7 +2466,13 @@ declare module "../index" {
          * @see _.sample
          */
         sample<T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
         ): LoDashExplicitWrapper<T | undefined>;
 
         /**
@@ -2311,7 +2494,12 @@ declare module "../index" {
          * @return Returns the random elements.
          */
         sampleSize<T>(
-            collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+            collection:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined,
             n?: number
         ): T[];
 
@@ -2329,7 +2517,13 @@ declare module "../index" {
          * @see _.sampleSize
          */
         sampleSize<T>(
-            this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             n?: number
         ): LoDashImplicitWrapper<T[]>;
 
@@ -2347,7 +2541,13 @@ declare module "../index" {
          * @see _.sampleSize
          */
         sampleSize<T>(
-            this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>,
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >,
             n?: number
         ): LoDashExplicitWrapper<T[]>;
 
@@ -2374,31 +2574,41 @@ declare module "../index" {
         /**
          * @see _.shuffle
          */
-        shuffle<T extends object>(collection: T | null | undefined): Array<T[keyof T]>;
+        shuffle<T extends object>(
+            collection: T | null | undefined
+        ): Array<T[keyof T]>;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.shuffle
          */
-        shuffle<T>(this: LoDashImplicitWrapper<List<T> | null | undefined>): LoDashImplicitWrapper<T[]>;
+        shuffle<T>(
+            this: LoDashImplicitWrapper<List<T> | null | undefined>
+        ): LoDashImplicitWrapper<T[]>;
 
         /**
          * @see _.shuffle
          */
-        shuffle<T extends object>(this: LoDashImplicitWrapper<T | null | undefined>): LoDashImplicitWrapper<Array<T[keyof T]>>;
+        shuffle<T extends object>(
+            this: LoDashImplicitWrapper<T | null | undefined>
+        ): LoDashImplicitWrapper<Array<T[keyof T]>>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.shuffle
          */
-        shuffle<T>(this: LoDashExplicitWrapper<List<T> | null | undefined>): LoDashExplicitWrapper<T[]>;
+        shuffle<T>(
+            this: LoDashExplicitWrapper<List<T> | null | undefined>
+        ): LoDashExplicitWrapper<T[]>;
 
         /**
          * @see _.shuffle
          */
-        shuffle<T extends object>(this: LoDashExplicitWrapper<T | null | undefined>): LoDashExplicitWrapper<Array<T[keyof T]>>;
+        shuffle<T extends object>(
+            this: LoDashExplicitWrapper<T | null | undefined>
+        ): LoDashExplicitWrapper<Array<T[keyof T]>>;
     }
 
     // size

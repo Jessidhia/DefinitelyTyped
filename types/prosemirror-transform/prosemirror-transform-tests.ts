@@ -1,4 +1,4 @@
-import * as transform from 'prosemirror-transform';
+import * as transform from "prosemirror-transform";
 
 const stepmap = new transform.StepMap([]);
 

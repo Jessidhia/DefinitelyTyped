@@ -6,11 +6,15 @@
 type DevTools = {
     open: boolean;
     orientation: "vertical" | "horizontal";
-}
+};
 interface DevToolsEvent extends Event {
     detail: DevTools;
 }
 interface Window {
     devtools: DevTools;
-    addEventListener(type: "devtoolschange", listener: (ev: DevToolsEvent) => any, useCapture?: boolean): void;
+    addEventListener(
+        type: "devtoolschange",
+        listener: (ev: DevToolsEvent) => any,
+        useCapture?: boolean
+    ): void;
 }

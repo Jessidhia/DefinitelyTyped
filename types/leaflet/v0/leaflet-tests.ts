@@ -1,8 +1,8 @@
 // initialize the map on the "map" div with a given center and zoom
 
-var div = document.getElementById('map');
+var div = document.getElementById("map");
 
-var map : L.Map = L.map(div, {
+var map: L.Map = L.map(div, {
     center: L.latLng([51.505, -0.09]),
     zoom: 13,
     minZoom: 3,
@@ -36,7 +36,6 @@ var map : L.Map = L.map(div, {
     zoomAnimation: true,
     zoomAnimationThreshold: 4,
     markerZoomAnimation: true
-
 });
 
 map.dragging.enable();
@@ -115,8 +114,8 @@ map.stopLocate();
 
 map.remove();
 
-var center : L.LatLng = map.getCenter();
-var zoom : number = map.getZoom();
+var center: L.LatLng = map.getCenter();
+var zoom: number = map.getZoom();
 var minZoom: number = map.getMinZoom();
 var maxZoom: number = map.getMaxZoom();
 var bounds: L.LatLngBounds = map.getBounds();
@@ -144,12 +143,12 @@ map.openPopup(popup);
 map.closePopup(popup);
 map.closePopup();
 
-map.addControl(L.control.attribution({position: 'bottomright'}));
-map.removeControl(L.control.attribution({ position: 'bottomright' }));
+map.addControl(L.control.attribution({ position: "bottomright" }));
+map.removeControl(L.control.attribution({ position: "bottomright" }));
 
-L.control.layers({'Base': layer}).addTo(map);
-map.on('baseLayerChange', function(e: L.LeafletLayersControlEvent) {
-  alert(e.name);
+L.control.layers({ Base: layer }).addTo(map);
+map.on("baseLayerChange", function(e: L.LeafletLayersControlEvent) {
+    alert(e.name);
 });
 
 map.latLngToLayerPoint(map.layerPointToLatLng(L.point(0, 0)));
@@ -165,47 +164,47 @@ map.mouseEventToContainerPoint(mouseEvent);
 map.mouseEventToLayerPoint(mouseEvent);
 map.mouseEventToLatLng(mouseEvent);
 
-map.getContainer().classList.add('roger');
-map.getPanes().mapPane.classList.add('roger');
-map.getPanes().markerPane.classList.add('roger');
-map.getPanes().objectsPane.classList.add('roger');
-map.getPanes().overlayPane.classList.add('roger');
-map.getPanes().popupPane.classList.add('roger');
-map.getPanes().shadowPane.classList.add('roger');
-map.getPanes().tilePane.classList.add('roger');
+map.getContainer().classList.add("roger");
+map.getPanes().mapPane.classList.add("roger");
+map.getPanes().markerPane.classList.add("roger");
+map.getPanes().objectsPane.classList.add("roger");
+map.getPanes().overlayPane.classList.add("roger");
+map.getPanes().popupPane.classList.add("roger");
+map.getPanes().shadowPane.classList.add("roger");
+map.getPanes().tilePane.classList.add("roger");
 
 map.whenReady((m: L.Map) => {
     m.zoomOut();
 });
 
-map.on('click', () => {
+map.on("click", () => {
     map.zoomOut();
 });
 
-map.off('dblclick', L.Util.falseFn);
+map.off("dblclick", L.Util.falseFn);
 
-map.once('contextmenu', (e: L.LeafletMouseEvent) => {
-    map.openPopup('contextmenu', e.latlng);
+map.once("contextmenu", (e: L.LeafletMouseEvent) => {
+    map.openPopup("contextmenu", e.latlng);
 });
 
 var marker = L.marker(L.latLng(42, 51), {
     icon: L.icon({
-        iconUrl: 'roger.png',
-        iconRetinaUrl: 'roger-retina.png',
+        iconUrl: "roger.png",
+        iconRetinaUrl: "roger-retina.png",
         iconSize: L.point(40, 40),
         iconAnchor: L.point(20, 0),
-        shadowUrl: 'roger-shadow.png',
-        shadowRetinaUrl: 'roger-shadow-retina.png',
+        shadowUrl: "roger-shadow.png",
+        shadowRetinaUrl: "roger-shadow-retina.png",
         shadowSize: L.point(44, 44),
         shadowAnchor: L.point(22, 0),
         popupAnchor: L.point(0, 0),
-        className: 'roger-icon'
+        className: "roger-icon"
     }),
     clickable: true,
     draggable: false,
     keyboard: true,
-    title: 'this is an icon',
-    alt: '',
+    title: "this is an icon",
+    alt: "",
     zIndexOffset: 0,
     opacity: 1.0,
     riseOnHover: false,
@@ -214,13 +213,13 @@ var marker = L.marker(L.latLng(42, 51), {
 
 marker.addTo(map);
 
-marker.on('click', (e: L.LeafletMouseEvent) => {
+marker.on("click", (e: L.LeafletMouseEvent) => {
     map.setView(e.latlng);
 });
 
-marker.once('mouseover', () => {
+marker.once("mouseover", () => {
     marker.openPopup();
-})
+});
 
 marker.setLatLng(marker.getLatLng());
 
@@ -231,7 +230,7 @@ marker.setOpacity(0.8);
 
 marker.bindPopup(popup);
 marker.unbindPopup();
-marker.bindPopup('hello', {
+marker.bindPopup("hello", {
     closeOnClick: true
 });
 
@@ -239,8 +238,8 @@ marker.openPopup();
 marker.closePopup();
 marker.togglePopup();
 marker.togglePopup();
-marker.setPopupContent('hello 3')
-marker.getPopup().setContent('hello 2');
+marker.setPopupContent("hello 3");
+marker.getPopup().setContent("hello 2");
 marker.update();
 
 marker.toGeoJSON();
@@ -260,21 +259,24 @@ popup = L.popup({
     autoPanPadding: L.point(5, 5),
     zoomAnimation: true,
     closeOnClick: null,
-    className: 'roger'
+    className: "roger"
 });
 
-popup.setLatLng(L.latLng(12, 54)).setContent('this is nice popup').openOn(map);
+popup
+    .setLatLng(L.latLng(12, 54))
+    .setContent("this is nice popup")
+    .openOn(map);
 
 popup.update();
 
-var tileLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {
+var tileLayer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}", {
     minZoom: 0,
     maxZoom: 18,
     maxNativeZoom: 17,
     tileSize: 256,
-    subdomains: ['a','b','c'],
-    errorTileUrl: '',
-    attribution: '',
+    subdomains: ["a", "b", "c"],
+    errorTileUrl: "",
+    attribution: "",
     tms: false,
     continuousWorld: false,
     noWrap: false,
@@ -289,18 +291,20 @@ var tileLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?{foo}', {
     bounds: null
 });
 
-tileLayer.on('loading', L.Util.falseFn)
-    .off('loading', L.Util.falseFn)
-    .once('tileload', L.Util.falseFn);
+tileLayer
+    .on("loading", L.Util.falseFn)
+    .off("loading", L.Util.falseFn)
+    .once("tileload", L.Util.falseFn);
 
 tileLayer.addTo(map);
 
-tileLayer.bringToBack()
+tileLayer
+    .bringToBack()
     .bringToFront()
     .setOpacity(0.7)
     .setZIndex(9)
     .redraw()
-    .setUrl('http://perdu.com')
+    .setUrl("http://perdu.com")
     .getContainer();
 
 namespace CustomControl {
@@ -313,11 +317,11 @@ interface CustomControl extends L.Control {
     getTitle(): string;
     setTitle(title: string): CustomControl;
 }
-var CustomControl: { new(options: CustomControl.Options): CustomControl };
+var CustomControl: { new (options: CustomControl.Options): CustomControl };
 CustomControl = L.Control.extend<CustomControl.Options, CustomControl>({
     initialize: function(options: CustomControl.Options) {
         L.Control.prototype.initialize.call(this, {
-            position: options.position || 'bottomleft',
+            position: options.position || "bottomleft"
         });
         this.title = options.title;
     },
@@ -326,7 +330,7 @@ CustomControl = L.Control.extend<CustomControl.Options, CustomControl>({
     },
     setTitle: function(title: string) {
         this.title = title;
-    },
+    }
 });
 
 // Different latLng and latLngBounds expressions
@@ -388,8 +392,8 @@ map.setZoomAround(latLngLiteral, 15);
 map.setZoomAround(latLngObjectLiteral, 15);
 map.panTo(latLngLiteral);
 map.panTo(latLngObjectLiteral);
-map.openPopup('test', latLngLiteral);
-map.openPopup('test', latLngObjectLiteral);
+map.openPopup("test", latLngLiteral);
+map.openPopup("test", latLngObjectLiteral);
 map.latLngToLayerPoint(latLngLiteral);
 map.latLngToLayerPoint(latLngObjectLiteral);
 map.latLngToContainerPoint(latLngLiteral);
@@ -420,6 +424,6 @@ popup.setLatLng(latLngObjectLiteral);
 
 var zoomCtrl = L.control.zoom({
     position: "topleft",
-    zoomInText: '+',
-    zoomOutText: '-'
+    zoomInText: "+",
+    zoomOutText: "-"
 });

@@ -4,10 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import * as Boom from 'boom';
+import * as Boom from "boom";
 
 export type CallBackNoResult = (err?: Boom.BoomError) => void;
-export type CallBackWithResult<T> = (err: Boom.BoomError | null | undefined, result: T) => void;
+export type CallBackWithResult<T> = (
+    err: Boom.BoomError | null | undefined,
+    result: T
+) => void;
 
 /**
  * Client
@@ -32,7 +35,10 @@ export class Client implements ClientApi {
      *  * key - a cache key object (see [ICacheKey]).
      *  * callback - a function with the signature function(err, cached). If the item is not found, both err and cached are null. If found, the cached object is returned
      */
-    get(key: CacheKey, callback: CallBackWithResult<null | CachedObject>): CacheItem;
+    get(
+        key: CacheKey,
+        callback: CallBackWithResult<null | CachedObject>
+    ): CacheItem;
     /**
      * set(key, value, ttl, callback) - store an item in the cache for a specified length of time, where:
      *  * key - a cache key object (see [ICacheKey]).
@@ -40,7 +46,12 @@ export class Client implements ClientApi {
      *  * ttl - a time-to-live value in milliseconds after which the item is automatically removed from the cache (or is marked invalid).
      *  * callback - a function with the signature function(err).
      */
-    set(key: CacheKey, value: CacheItem, ttl: number, callback: CallBackNoResult): void;
+    set(
+        key: CacheKey,
+        value: CacheItem,
+        ttl: number,
+        callback: CallBackNoResult
+    ): void;
     /**
      * drop(key, callback) - remove an item from cache where:
      *  * key - a cache key object (see [ICacheKey]).
@@ -59,7 +70,7 @@ export type EnginePrototypeOrObject = EnginePrototype | ClientApi;
  * A prototype CatBox engine function
  */
 export interface EnginePrototype {
-    new(settings: ClientOptions): ClientApi;
+    new (settings: ClientOptions): ClientApi;
 }
 
 /**
@@ -77,7 +88,10 @@ export interface ClientApi {
      *  * key - a cache key object (see [ICacheKey]).
      *  * callback - a function with the signature function(err, cached). If the item is not found, both err and cached are null. If found, the cached object is returned
      */
-    get(key: CacheKey, callback: CallBackWithResult<null | CachedObject>): CacheItem;
+    get(
+        key: CacheKey,
+        callback: CallBackWithResult<null | CachedObject>
+    ): CacheItem;
     /**
      * set(key, value, ttl, callback) - store an item in the cache for a specified length of time, where:
      *  * key - a cache key object (see [ICacheKey]).
@@ -85,7 +99,12 @@ export interface ClientApi {
      *  * ttl - a time-to-live value in milliseconds after which the item is automatically removed from the cache (or is marked invalid).
      *  * callback - a function with the signature function(err).
      */
-    set(key: CacheKey, value: CacheItem, ttl: number, callback: CallBackNoResult): void;
+    set(
+        key: CacheKey,
+        value: CacheItem,
+        ttl: number,
+        callback: CallBackNoResult
+    ): void;
     /**
      * drop(key, callback) - remove an item from cache where:
      *  * key - a cache key object (see [ICacheKey]).
@@ -140,7 +159,7 @@ export class Policy implements PolicyAPI {
      *  * id - the unique item identifier (within the policy segment). Can be a string or an object with the required 'id' key.
      *  * callback - the return function.
      */
-    get(id: string | {id: string}, callback: PolicyGetCallback): CacheItem;
+    get(id: string | { id: string }, callback: PolicyGetCallback): CacheItem;
     /**
      * set(id, value, ttl, callback) - store an item in the cache where:
      *  * id - the unique item identifier (within the policy segment).
@@ -149,13 +168,18 @@ export class Policy implements PolicyAPI {
      *    This should be set to 0 in order to use the caching rules configured when creating the Policy object.
      *  * callback - a function with the signature function(err).
      */
-    set(id: string | {id: string}, value: CacheItem, ttl: number | null, callback: CallBackNoResult): void;
+    set(
+        id: string | { id: string },
+        value: CacheItem,
+        ttl: number | null,
+        callback: CallBackNoResult
+    ): void;
     /**
      * drop(id, callback) - remove the item from cache where:
      *  * id - the unique item identifier (within the policy segment).
      *  * callback - a function with the signature function(err).
      */
-    drop(id: string | {id: string}, callback: CallBackNoResult): void;
+    drop(id: string | { id: string }, callback: CallBackNoResult): void;
     /** ttl(created) - given a created timestamp in milliseconds, returns the time-to-live left based on the configured rules. */
     ttl(created: number): number;
     /** rules(options) - changes the policy rules after construction (note that items already stored will not be affected) */
@@ -178,7 +202,7 @@ export interface PolicyAPI {
      *  * id - the unique item identifier (within the policy segment). Can be a string or an object with the required 'id' key.
      *  * callback - the return function.
      */
-    get(id: string | {id: string}, callback: PolicyGetCallback): CacheItem;
+    get(id: string | { id: string }, callback: PolicyGetCallback): CacheItem;
     /**
      * set(id, value, ttl, callback) - store an item in the cache where:
      *  * id - the unique item identifier (within the policy segment).
@@ -187,13 +211,18 @@ export interface PolicyAPI {
      *    This should be set to 0 in order to use the caching rules configured when creating the Policy object.
      *  * callback - a function with the signature function(err).
      */
-    set(id: string | {id: string}, value: CacheItem, ttl: number | null, callback: CallBackNoResult): void;
+    set(
+        id: string | { id: string },
+        value: CacheItem,
+        ttl: number | null,
+        callback: CallBackNoResult
+    ): void;
     /**
      * drop(id, callback) - remove the item from cache where:
      *  * id - the unique item identifier (within the policy segment).
      *  * callback - a function with the signature function(err).
      */
-    drop(id: string | {id: string}, callback: CallBackNoResult): void;
+    drop(id: string | { id: string }, callback: CallBackNoResult): void;
     /** ttl(created) - given a created timestamp in milliseconds, returns the time-to-live left based on the configured rules. */
     ttl(created: number): number;
     /** rules(options) - changes the policy rules after construction (note that items already stored will not be affected) */
@@ -211,7 +240,12 @@ export interface PolicyAPI {
  * @param cached - null if a valid item was not found in the cache, or IPolicyGetCallbackCachedOptions
  * @param report - an object with logging information about the generation operation
  */
-export type PolicyGetCallback = (err: null | Boom.BoomError, value: CacheItem, cached: PolicyGetCallbackCachedOptions, report: PolicyGetCallbackReportLog) => void;
+export type PolicyGetCallback = (
+    err: null | Boom.BoomError,
+    value: CacheItem,
+    cached: PolicyGetCallbackCachedOptions,
+    report: PolicyGetCallbackReportLog
+) => void;
 
 export interface PolicyGetCallbackCachedOptions {
     /** item - the cached value. */
@@ -273,7 +307,10 @@ export interface PolicyOptions {
  *      * ttl - the cache ttl value in milliseconds. Set to 0 to skip storing in the cache. Defaults to the cache global policy.
  * @see {@link https://github.com/hapijs/catbox#policy}
  */
-export type GenerateFunc = (id: string, next: ((err: null | Boom.BoomError, value: CacheItem, ttl?: number) => void)) => void;
+export type GenerateFunc = (
+    id: string,
+    next: (err: null | Boom.BoomError, value: CacheItem, ttl?: number) => void
+) => void;
 
 /**
  * An object with logging information about the generation operation containing the following keys (as relevant):

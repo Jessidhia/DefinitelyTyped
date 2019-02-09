@@ -1,4 +1,4 @@
-import pkgUp = require('pkg-up');
+import pkgUp = require("pkg-up");
 
 pkgUp().then(filepath => {
     filepath;

@@ -1,8 +1,7 @@
 // Type definitions for Leap Motion TS 0.7.9
 // Project: https://github.com/logotype/LeapMotionTS
 // Definitions by: Victor Norgren <https://github.com/logotype>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped  
-
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export declare class EventDispatcher {
     private _listeners;
@@ -21,7 +20,8 @@ export interface Listener {
     onInit(controller: Controller): void;
 }
 
-export declare class DefaultListener extends EventDispatcher implements Listener {
+export declare class DefaultListener extends EventDispatcher
+    implements Listener {
     constructor();
     public onConnect(controller: Controller): void;
     public onDisconnect(controller: Controller): void;
@@ -71,7 +71,11 @@ export declare class LeapUtil {
     static sphericalToCartesian(vSpherical: Vector3): Vector3;
     static clamp(inVal: number, minVal: number, maxVal: number): number;
     static lerp(a: number, b: number, coefficient: number): number;
-    static lerpVector(vec1: Vector3, vec2: Vector3, coefficient: number): Vector3;
+    static lerpVector(
+        vec1: Vector3,
+        vec2: Vector3,
+        coefficient: number
+    ): Vector3;
 }
 
 export declare class Controller extends EventDispatcher {
@@ -281,9 +285,9 @@ export declare class Vector3 {
     public magnitude(): number;
     public magnitudeSquared(): number;
     public normalized(): Vector3;
-    public pitch : number;
-    public yaw : number;
-    public roll : number;
+    public pitch: number;
+    public yaw: number;
+    public roll: number;
     static zero(): Vector3;
     static xAxis(): Vector3;
     static yAxis(): Vector3;

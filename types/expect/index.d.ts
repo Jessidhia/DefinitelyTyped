@@ -30,31 +30,93 @@ declare namespace expect {
         toNotBeA(value: string | {}, message?: string): Expectation<T>;
         toNotBeAn(value: string | {}, message?: string): Expectation<T>;
         toMatch(value: string | RegExp | {}, message?: string): Expectation<T>;
-        toNotMatch(value: string | RegExp | {}, message?: string): Expectation<T>;
+        toNotMatch(
+            value: string | RegExp | {},
+            message?: string
+        ): Expectation<T>;
         toMatchObject(value: {}, message?: string): Expectation<T>;
 
         toBeLessThan(value: number, message?: string): Expectation<T>;
         toBeLessThanOrEqualTo(value: number, messasge?: string): Expectation<T>;
         toBeFewerThan(value: number, message?: string): Expectation<T>;
         toBeGreaterThan(value: number, message?: string): Expectation<T>;
-        toBeGreaterThanOrEqualTo(value: number, messasge?: string): Expectation<T>;
+        toBeGreaterThanOrEqualTo(
+            value: number,
+            messasge?: string
+        ): Expectation<T>;
         toBeMoreThan(value: number, message?: string): Expectation<T>;
 
-        toInclude<U>(value: any, compareValues?: CompareValues<U>, message?: string): Expectation<T>;
-        toContain<U>(value: any, compareValues?: CompareValues<U>, message?: string): Expectation<T>;
-        toExclude<U>(value: any, compareValues?: CompareValues<U>, message?: string): Expectation<T>;
-        toNotContain<U>(value: any, compareValues?: CompareValues<U>, message?: string): Expectation<T>;
+        toInclude<U>(
+            value: any,
+            compareValues?: CompareValues<U>,
+            message?: string
+        ): Expectation<T>;
+        toContain<U>(
+            value: any,
+            compareValues?: CompareValues<U>,
+            message?: string
+        ): Expectation<T>;
+        toExclude<U>(
+            value: any,
+            compareValues?: CompareValues<U>,
+            message?: string
+        ): Expectation<T>;
+        toNotContain<U>(
+            value: any,
+            compareValues?: CompareValues<U>,
+            message?: string
+        ): Expectation<T>;
 
-        toIncludeKeys(keys: KeyType[], comparator?: Comparator, message?: string): Expectation<T>;
-        toContainKeys(keys: KeyType[], comparator?: Comparator, message?: string): Expectation<T>;
-        toExcludeKeys(keys: KeyType[], comparator?: Comparator, message?: string): Expectation<T>;
-        toNotContainKeys(keys: KeyType[], comparator?: Comparator, message?: string): Expectation<T>;
-        toNotIncludeKeys(keys: KeyType[], comparator?: Comparator, message?: string): Expectation<T>;
-        toIncludeKey(key: KeyType, comparator?: Comparator, message?: string): Expectation<T>;
-        toContainKey(key: KeyType, comparator?: Comparator, message?: string): Expectation<T>;
-        toExcludeKey(key: KeyType, comparator?: Comparator, message?: string): Expectation<T>;
-        toNotContainKey(key: KeyType, comparator?: Comparator, message?: string): Expectation<T>;
-        toNotIncludeKey(key: KeyType, comparator?: Comparator, message?: string): Expectation<T>;
+        toIncludeKeys(
+            keys: KeyType[],
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toContainKeys(
+            keys: KeyType[],
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toExcludeKeys(
+            keys: KeyType[],
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toNotContainKeys(
+            keys: KeyType[],
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toNotIncludeKeys(
+            keys: KeyType[],
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toIncludeKey(
+            key: KeyType,
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toContainKey(
+            key: KeyType,
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toExcludeKey(
+            key: KeyType,
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toNotContainKey(
+            key: KeyType,
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
+        toNotIncludeKey(
+            key: KeyType,
+            comparator?: Comparator,
+            message?: string
+        ): Expectation<T>;
 
         toHaveBeenCalled(message?: string): Expectation<T>;
         toNotHaveBeenCalled(message?: string): Expectation<T>;
@@ -91,11 +153,18 @@ declare namespace expect {
         reset(): void;
     }
 
-    function createSpy(fn?: (...args: any[]) => any, restore?: (...args: any[]) => any): Spy<any>;
+    function createSpy(
+        fn?: (...args: any[]) => any,
+        restore?: (...args: any[]) => any
+    ): Spy<any>;
     function spyOn<T>(object: T, methodName: string): Spy<T>;
     function isSpy(object: {}): boolean;
     function restoreSpies(): void;
-    function assert(condition: boolean, messageFormat: string, ...extraArgs: any[]): void;
+    function assert(
+        condition: boolean,
+        messageFormat: string,
+        ...extraArgs: any[]
+    ): void;
     function extend(extension: Extension): void;
     function any<T>(ctor: { new (): T }): T;
 }

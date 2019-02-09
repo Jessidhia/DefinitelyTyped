@@ -7,9 +7,9 @@
 declare var _: string;
 export = _;
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     ///////////////////////////////////////////////////////////////////////////////
     // ngSanitize module (angular-sanitize.js)
     ///////////////////////////////////////////////////////////////////////////////
@@ -36,15 +36,21 @@ declare module 'angular' {
              * see https://docs.angularjs.org/api/ngSanitize/filter/linky
              */
             interface ILinky {
-                (text: string, target?: string, attributes?: { [attribute: string]: string } | ((url: string) => { [attribute: string]: string })): string;
+                (
+                    text: string,
+                    target?: string,
+                    attributes?:
+                        | { [attribute: string]: string }
+                        | ((url: string) => { [attribute: string]: string })
+                ): string;
             }
         }
 
-	///////////////////////////////////////////////////////////////////////////////
-	// Extend angular $filter declarations to include filters from angular.sanitize module
-	///////////////////////////////////////////////////////////////////////////////
-	interface IFilterService {
-	    (name: 'linky'): angular.sanitize.filter.ILinky;
-	}
+        ///////////////////////////////////////////////////////////////////////////////
+        // Extend angular $filter declarations to include filters from angular.sanitize module
+        ///////////////////////////////////////////////////////////////////////////////
+        interface IFilterService {
+            (name: "linky"): angular.sanitize.filter.ILinky;
+        }
     }
 }

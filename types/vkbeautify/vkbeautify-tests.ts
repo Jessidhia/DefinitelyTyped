@@ -1,4 +1,4 @@
-import VKBeautify = require('vkbeautify');
+import VKBeautify = require("vkbeautify");
 
 /*
  * Beautifying
@@ -14,7 +14,8 @@ import VKBeautify = require('vkbeautify');
  *         String:   character string to visualize indentation ( can also be a set of white spaces )
  */
 
-const exampleContent = "here-be-xml-json-css-or-sql-content-that-is-about-to-get-formatted";
+const exampleContent =
+    "here-be-xml-json-css-or-sql-content-that-is-about-to-get-formatted";
 
 // xml
 function xmlWithDefault() {
@@ -26,7 +27,7 @@ function xmlWithNumberOfSpaces() {
 }
 
 function xmlWithStringPattern() {
-    VKBeautify.xml(exampleContent, '   ');
+    VKBeautify.xml(exampleContent, "   ");
 }
 
 // json
@@ -39,7 +40,7 @@ function jsonWithNumberOfSpaces() {
 }
 
 function jsonWithStringPattern() {
-    VKBeautify.json(exampleContent, '   ');
+    VKBeautify.json(exampleContent, "   ");
 }
 
 // css
@@ -52,7 +53,7 @@ function cssWithNumberOfSpaces() {
 }
 
 function cssWithStringPattern() {
-    VKBeautify.css(exampleContent, '   ');
+    VKBeautify.css(exampleContent, "   ");
 }
 
 // sql
@@ -65,7 +66,7 @@ function sqlWithNumberOfSpaces() {
 }
 
 function sqlWithStringPattern() {
-    VKBeautify.sql(exampleContent, '   ');
+    VKBeautify.sql(exampleContent, "   ");
 }
 
 /*

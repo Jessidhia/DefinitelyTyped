@@ -12,17 +12,17 @@ import * as stream from "stream";
 import * as child_process from "child_process";
 
 export interface IBlessedProgramOptions {
-  input?: Readable;
-  output?: Writable;
-  log?: string;
-  dump?: boolean;
-  zero?: boolean;
-  buffer?: boolean;
-  terminal?: string;
-  term?: string;
-  tput?: string;
-  debug?: boolean;
-  resizeTimeout?: boolean;
+    input?: Readable;
+    output?: Writable;
+    log?: string;
+    dump?: boolean;
+    zero?: boolean;
+    buffer?: boolean;
+    terminal?: string;
+    term?: string;
+    tput?: string;
+    debug?: boolean;
+    resizeTimeout?: boolean;
 }
 
 export class BlessedProgram extends EventEmitter {
@@ -64,18 +64,23 @@ export class BlessedProgram extends EventEmitter {
     listen(): void;
     destroy(): void;
 
-    key(key: string|string[], listener: Function): void;
-    onceKey(key: string|string[], listener: Function): void;
+    key(key: string | string[], listener: Function): void;
+    onceKey(key: string | string[], listener: Function): void;
 
-    unKey(key: string|string[], listener: Function): void;
-    removeKey(key: string|string[], listener: Function): void;
+    unKey(key: string | string[], listener: Function): void;
+    removeKey(key: string | string[], listener: Function): void;
 
     bindMouse(): void;
     enableGpm(): void;
     disableGpm(): void;
     bindResponse(): void;
 
-    response(name: string, text: string, callback: Function, noBypass?: boolean): boolean;
+    response(
+        name: string,
+        text: string,
+        callback: Function,
+        noBypass?: boolean
+    ): boolean;
     response(name: string, callback?: Function): boolean;
 
     write(text: string): boolean;
@@ -210,8 +215,18 @@ export class BlessedProgram extends EventEmitter {
     setBackground(color: string, val?: boolean): boolean;
     bg(color: string, val?: boolean): boolean;
 
-    deviceStatuses(param?: string, callback?: Function, dec?: boolean, noBypass?: boolean): boolean;
-    dsr(param?: string, callback?: Function, dec?: boolean, noBypass?: boolean): boolean;
+    deviceStatuses(
+        param?: string,
+        callback?: Function,
+        dec?: boolean,
+        noBypass?: boolean
+    ): boolean;
+    dsr(
+        param?: string,
+        callback?: Function,
+        dec?: boolean,
+        noBypass?: boolean
+    ): boolean;
 
     getCursor(callback: Function): boolean;
     saveReportedCursor(callback: Function): void;
@@ -687,7 +702,8 @@ export namespace Widgets {
         /** Received when node is detached from the screen directly or somewhere in its ancestry. */
         | "detach";
 
-    abstract class Node extends EventEmitter implements IHasOptions<INodeOptions>, IDestroyable {
+    abstract class Node extends EventEmitter
+        implements IHasOptions<INodeOptions>, IDestroyable {
         constructor(options: INodeOptions);
 
         focusable: boolean;
@@ -853,24 +869,45 @@ export namespace Widgets {
         /**
          * Bind a keypress listener for a specific key.
          */
-        key(name: string | string[], listener: (ch: any, key: Events.IKeyEventArg) => void): void;
+        key(
+            name: string | string[],
+            listener: (ch: any, key: Events.IKeyEventArg) => void
+        ): void;
 
         /**
          * Bind a keypress listener for a specific key once.
          */
-        onceKey(name: string, listener: (ch: any, key: Events.IKeyEventArg) => void): void;
+        onceKey(
+            name: string,
+            listener: (ch: any, key: Events.IKeyEventArg) => void
+        ): void;
 
         /**
          * Remove a keypress listener for a specific key.
          */
-        unkey(name: string, listener: (ch: any, key: Events.IKeyEventArg) => void): void;
-        removeKey(name: string, listener: (ch: any, key: Events.IKeyEventArg) => void): void;
+        unkey(
+            name: string,
+            listener: (ch: any, key: Events.IKeyEventArg) => void
+        ): void;
+        removeKey(
+            name: string,
+            listener: (ch: any, key: Events.IKeyEventArg) => void
+        ): void;
 
-        on(event: string, listener: (ch: any, key: Events.IKeyEventArg) => void): this;
+        on(
+            event: string,
+            listener: (ch: any, key: Events.IKeyEventArg) => void
+        ): this;
         /** Received on mouse events. */
-        on(event: NodeMouseEventType, callback: (arg: Events.IMouseEventArg) => void): this;
+        on(
+            event: NodeMouseEventType,
+            callback: (arg: Events.IMouseEventArg) => void
+        ): this;
         /** Received on key events. */
-        on(event: "keypress", callback: (ch: string, key: Events.IKeyEventArg) => void): this;
+        on(
+            event: "keypress",
+            callback: (ch: string, key: Events.IKeyEventArg) => void
+        ): this;
         on(event: NodeScreenEventType, callback: (arg: Screen) => void): this;
         /** Received when blessed notices something untoward (output is not a tty, terminfo not found, etc). */
         on(event: "warning", callback: (text: string) => void): this;
@@ -1338,7 +1375,14 @@ export namespace Widgets {
         /**
          * Fill any region with a character of a certain attribute.
          */
-        fillRegion(attr: string, ch: string, x1: number, x2: number, y1: number, y2: number): void;
+        fillRegion(
+            attr: string,
+            ch: string,
+            x1: number,
+            x2: number,
+            y1: number,
+            y2: number
+        ): void;
 
         /**
          * Focus element by offset of focusable elements.
@@ -1383,7 +1427,11 @@ export namespace Widgets {
         /**
          * Spawn a process in the foreground, return to blessed app after exit.
          */
-        spawn(file: string, args?: string[], options?: NodeChildProcessExecOptions): child_process.ChildProcess;
+        spawn(
+            file: string,
+            args?: string[],
+            options?: NodeChildProcessExecOptions
+        ): child_process.ChildProcess;
 
         /**
          * Spawn a process in the foreground, return to blessed app after exit. Executes callback on error or exit.
@@ -1398,13 +1446,25 @@ export namespace Widgets {
         /**
          * Read data from text editor.
          */
-        readEditor(options: any, callback: (err: NodeJS.ErrnoException, data: Buffer) => void): void;
-        readEditor(callback: (err: NodeJS.ErrnoException, data: Buffer) => void): void;
+        readEditor(
+            options: any,
+            callback: (err: NodeJS.ErrnoException, data: Buffer) => void
+        ): void;
+        readEditor(
+            callback: (err: NodeJS.ErrnoException, data: Buffer) => void
+        ): void;
 
         /**
          * Set effects based on two events and attributes.
          */
-        setEffects(el: BlessedElement, fel: BlessedElement, over: any, out: any, effects: any, temp: any): void;
+        setEffects(
+            el: BlessedElement,
+            fel: BlessedElement,
+            over: any,
+            out: any,
+            effects: any,
+            temp: any
+        ): void;
 
         /**
          * Insert a line into the screen (using csr: this bypasses the output buffer).
@@ -1674,7 +1734,8 @@ export namespace Widgets {
     }
 
     // TODO: scrollable - Note: If the scrollable option is enabled, Element inherits all methods from ScrollableBox.
-    abstract class BlessedElement extends NodeWithEvents implements IHasOptions<ElementOptions> {
+    abstract class BlessedElement extends NodeWithEvents
+        implements IHasOptions<ElementOptions> {
         constructor(opts: ElementOptions);
 
         /**
@@ -1828,7 +1889,10 @@ export namespace Widgets {
          * Same asel.removeListener('screen', ...) except this will automatically keep track of which
          * listeners are bound to the screen object. For use with onScreenEvent(), free(), and destroy().
          */
-        removeScreenEvent(type: string, handler: (...args: any[]) => void): void;
+        removeScreenEvent(
+            type: string,
+            handler: (...args: any[]) => void
+        ): void;
 
         /**
          * Free up the element. Automatically unbind all events that may have been bound to the screen
@@ -2157,7 +2221,8 @@ export namespace Widgets {
     /**
      * A box element which draws a simple box containing content or other elements.
      */
-    class BoxElement extends ScrollableTextElement implements IHasOptions<BoxOptions> {
+    class BoxElement extends ScrollableTextElement
+        implements IHasOptions<BoxOptions> {
         constructor(opts: BoxOptions);
 
         /**
@@ -2182,7 +2247,8 @@ export namespace Widgets {
     /**
      * An element similar to Box, but geared towards rendering simple text elements.
      */
-    class TextElement extends BlessedElement implements IHasOptions<TextOptions> {
+    class TextElement extends BlessedElement
+        implements IHasOptions<TextOptions> {
         constructor(opts: TextOptions);
 
         /**
@@ -2241,7 +2307,8 @@ export namespace Widgets {
     /**
      * A box which can render content drawn as 8x14 cell characters using the terminus font.
      */
-    class BigTextElement extends BoxElement implements IHasOptions<BigTextOptions> {
+    class BigTextElement extends BoxElement
+        implements IHasOptions<BigTextOptions> {
         constructor(opts: BigTextOptions);
 
         /**
@@ -2295,7 +2362,8 @@ export namespace Widgets {
         | "insert item"
         | "set items";
 
-    class ListElement extends BoxElement implements IHasOptions<ListOptions<ListElementStyle>> {
+    class ListElement extends BoxElement
+        implements IHasOptions<ListOptions<ListElementStyle>> {
         constructor(opts: ListOptions<ListElementStyle>);
 
         /**
@@ -2405,9 +2473,15 @@ export namespace Widgets {
 
         on(event: string, listener: (...args: any[]) => void): this;
         /** Received when an item is selected. */
-        on(event: "select", callback: (item: BoxElement, index: number) => void): this;
+        on(
+            event: "select",
+            callback: (item: BoxElement, index: number) => void
+        ): this;
         on(event: ListElementEventType, callback: () => void): this;
-        on(event: "select item", callback: (item: BlessedElement, index: number) => void): this;
+        on(
+            event: "select item",
+            callback: (item: BlessedElement, index: number) => void
+        ): this;
     }
 
     interface FileManagerOptions extends ListOptions<ListElementStyle> {
@@ -2417,7 +2491,8 @@ export namespace Widgets {
         cwd?: string;
     }
 
-    class FileManagerElement extends ListElement implements IHasOptions<FileManagerOptions> {
+    class FileManagerElement extends ListElement
+        implements IHasOptions<FileManagerOptions> {
         constructor(opts: FileManagerOptions);
 
         /**
@@ -2490,7 +2565,8 @@ export namespace Widgets {
         style?: StyleListTable;
     }
 
-    class ListTableElement extends ListElement implements IHasOptions<ListTableOptions> {
+    class ListTableElement extends ListElement
+        implements IHasOptions<ListTableOptions> {
         constructor(opts: ListTableOptions);
 
         /**
@@ -2539,7 +2615,8 @@ export namespace Widgets {
         autoCommandKeys: boolean;
     }
 
-    class ListbarElement extends BoxElement implements IHasOptions<ListbarOptions> {
+    class ListbarElement extends BoxElement
+        implements IHasOptions<ListbarOptions> {
         constructor(opts: ListbarOptions);
 
         /**
@@ -2598,7 +2675,10 @@ export namespace Widgets {
         selectTab(index: number): void;
 
         on(event: string, listener: (...args: any[]) => void): this;
-        on(event: "set items" | "remove item" | "select tab", callback: () => void): this;
+        on(
+            event: "set items" | "remove item" | "select tab",
+            callback: () => void
+        ): this;
     }
 
     interface FormOptions extends BoxOptions {
@@ -2613,7 +2693,8 @@ export namespace Widgets {
         vi?: boolean;
     }
 
-    class FormElement<TFormData> extends BoxElement implements IHasOptions<FormOptions> {
+    class FormElement<TFormData> extends BoxElement
+        implements IHasOptions<FormOptions> {
         constructor(opts: FormOptions);
 
         /**
@@ -2683,7 +2764,8 @@ export namespace Widgets {
         /** Either submit or cancel. */
         | "action";
 
-    class TextareaElement extends InputElement implements IHasOptions<TextareaOptions> {
+    class TextareaElement extends InputElement
+        implements IHasOptions<TextareaOptions> {
         constructor(opts: TextareaOptions);
 
         /**
@@ -2773,7 +2855,8 @@ export namespace Widgets {
         censor?: boolean;
     }
 
-    class TextboxElement extends TextareaElement implements IHasOptions<TextboxOptions> {
+    class TextboxElement extends TextareaElement
+        implements IHasOptions<TextboxOptions> {
         constructor(opts: TextboxOptions);
 
         /**
@@ -2794,7 +2877,8 @@ export namespace Widgets {
 
     interface ButtonOptions extends BoxOptions {}
 
-    class ButtonElement extends InputElement implements IHasOptions<ButtonOptions> {
+    class ButtonElement extends InputElement
+        implements IHasOptions<ButtonOptions> {
         constructor(opts: ButtonOptions);
 
         /**
@@ -2826,7 +2910,8 @@ export namespace Widgets {
     /**
      * A checkbox which can be used in a form element.
      */
-    class CheckboxElement extends InputElement implements IHasOptions<CheckboxOptions> {
+    class CheckboxElement extends InputElement
+        implements IHasOptions<CheckboxOptions> {
         constructor(options?: CheckboxOptions);
 
         /**
@@ -2889,7 +2974,8 @@ export namespace Widgets {
     /**
      * A prompt box containing a text input, okay, and cancel buttons (automatically hidden).
      */
-    class PromptElement extends BoxElement implements IHasOptions<PromptOptions> {
+    class PromptElement extends BoxElement
+        implements IHasOptions<PromptOptions> {
         constructor(opts: PromptOptions);
 
         options: PromptOptions;
@@ -2897,9 +2983,21 @@ export namespace Widgets {
         /**
          * Show the prompt and wait for the result of the textbox. Set text and initial value.
          */
-        input(text: string, value: string, callback: (err: any, value: string) => void): void;
-        setInput(text: string, value: string, callback: (err: any, value: string) => void): void;
-        readInput(text: string, value: string, callback: (err: any, value: string) => void): void;
+        input(
+            text: string,
+            value: string,
+            callback: (err: any, value: string) => void
+        ): void;
+        setInput(
+            text: string,
+            value: string,
+            callback: (err: any, value: string) => void
+        ): void;
+        readInput(
+            text: string,
+            value: string,
+            callback: (err: any, value: string) => void
+        ): void;
     }
 
     interface QuestionOptions extends BoxOptions {}
@@ -2907,7 +3005,8 @@ export namespace Widgets {
     /**
      * A question box containing okay and cancel buttons (automatically hidden).
      */
-    class QuestionElement extends BoxElement implements IHasOptions<QuestionOptions> {
+    class QuestionElement extends BoxElement
+        implements IHasOptions<QuestionOptions> {
         constructor(opts: QuestionOptions);
 
         options: QuestionOptions;
@@ -2915,7 +3014,10 @@ export namespace Widgets {
         /**
          * Ask a question. callback will yield the result.
          */
-        ask(question: string, callback: (err: any, value: string) => void): void;
+        ask(
+            question: string,
+            callback: (err: any, value: string) => void
+        ): void;
     }
 
     interface MessageOptions extends BoxOptions {}
@@ -2923,7 +3025,8 @@ export namespace Widgets {
     /**
      * A box containing a message to be displayed (automatically hidden).
      */
-    class MessageElement extends BoxElement implements IHasOptions<MessageOptions> {
+    class MessageElement extends BoxElement
+        implements IHasOptions<MessageOptions> {
         constructor(opts: MessageOptions);
 
         options: MessageOptions;
@@ -2949,7 +3052,8 @@ export namespace Widgets {
     /**
      * A box with a spinning line to denote loading (automatically hidden).
      */
-    class LoadingElement extends BoxElement implements IHasOptions<LoadingOptions> {
+    class LoadingElement extends BoxElement
+        implements IHasOptions<LoadingOptions> {
         constructor(opts: LoadingOptions);
 
         options: LoadingOptions;
@@ -3000,7 +3104,8 @@ export namespace Widgets {
     /**
      * A progress bar allowing various styles. This can also be used as a form input.
      */
-    class ProgressBarElement extends InputElement implements IHasOptions<ProgressBarOptions> {
+    class ProgressBarElement extends InputElement
+        implements IHasOptions<ProgressBarOptions> {
         constructor(options?: ProgressBarOptions);
 
         options: ProgressBarOptions;
@@ -3140,7 +3245,8 @@ export namespace Widgets {
         env?: any;
     }
 
-    class TerminalElement extends BoxElement implements IHasOptions<TerminalOptions> {
+    class TerminalElement extends BoxElement
+        implements IHasOptions<TerminalOptions> {
         constructor(opts: TerminalOptions);
 
         options: TerminalOptions;
@@ -3242,7 +3348,8 @@ export namespace Widgets {
     /**
      * Convert any .png file (or .gif, see below) to an ANSI image and display it as an element.
      */
-    class ANSIImageElement extends BoxElement implements IHasOptions<ANSIImageOptions> {
+    class ANSIImageElement extends BoxElement
+        implements IHasOptions<ANSIImageOptions> {
         constructor(options?: ANSIImageOptions);
 
         options: ANSIImageOptions;
@@ -3305,7 +3412,8 @@ export namespace Widgets {
     /**
      * Convert any .png file (or .gif, see below) to an ANSI image and display it as an element.
      */
-    class OverlayImageElement extends BoxElement implements IHasOptions<OverlayImageOptions> {
+    class OverlayImageElement extends BoxElement
+        implements IHasOptions<OverlayImageOptions> {
         constructor(options?: OverlayImageOptions);
 
         options: OverlayImageOptions;
@@ -3374,7 +3482,8 @@ export namespace Widgets {
         layout: "inline" | "inline-block" | "grid";
     }
 
-    class LayoutElement extends BlessedElement implements IHasOptions<LayoutOptions> {
+    class LayoutElement extends BlessedElement
+        implements IHasOptions<LayoutOptions> {
         constructor(options?: LayoutOptions);
 
         options: LayoutOptions;
@@ -3423,29 +3532,63 @@ export function box(options?: Widgets.BoxOptions): Widgets.BoxElement;
 export function text(options?: Widgets.TextOptions): Widgets.TextElement;
 export function line(options?: Widgets.LineOptions): Widgets.LineElement;
 export function scrollablebox(options?: Widgets.BoxOptions): Widgets.BoxElement;
-export function scrollabletext(options?: Widgets.BoxOptions): Widgets.BoxElement;
-export function bigtext(options?: Widgets.BigTextOptions): Widgets.BigTextElement;
-export function list(options?: Widgets.ListOptions<Widgets.ListElementStyle>): Widgets.ListElement;
-export function filemanager(options?: Widgets.FileManagerOptions): Widgets.FileManagerElement;
-export function listtable(options?: Widgets.ListTableOptions): Widgets.ListTableElement;
-export function listbar(options?: Widgets.ListbarOptions): Widgets.ListbarElement;
-export function form<TFormData>(options?: Widgets.FormOptions): Widgets.FormElement<TFormData>;
+export function scrollabletext(
+    options?: Widgets.BoxOptions
+): Widgets.BoxElement;
+export function bigtext(
+    options?: Widgets.BigTextOptions
+): Widgets.BigTextElement;
+export function list(
+    options?: Widgets.ListOptions<Widgets.ListElementStyle>
+): Widgets.ListElement;
+export function filemanager(
+    options?: Widgets.FileManagerOptions
+): Widgets.FileManagerElement;
+export function listtable(
+    options?: Widgets.ListTableOptions
+): Widgets.ListTableElement;
+export function listbar(
+    options?: Widgets.ListbarOptions
+): Widgets.ListbarElement;
+export function form<TFormData>(
+    options?: Widgets.FormOptions
+): Widgets.FormElement<TFormData>;
 export function input(options?: Widgets.InputOptions): Widgets.InputElement;
-export function textarea(options?: Widgets.TextareaOptions): Widgets.TextareaElement;
-export function textbox(options?: Widgets.TextboxOptions): Widgets.TextboxElement;
+export function textarea(
+    options?: Widgets.TextareaOptions
+): Widgets.TextareaElement;
+export function textbox(
+    options?: Widgets.TextboxOptions
+): Widgets.TextboxElement;
 export function button(options?: Widgets.ButtonOptions): Widgets.ButtonElement;
-export function checkbox(options?: Widgets.CheckboxOptions): Widgets.CheckboxElement;
-export function radioset(options?: Widgets.RadioSetOptions): Widgets.RadioSetElement;
-export function radiobutton(options?: Widgets.RadioButtonOptions): Widgets.RadioButtonElement;
+export function checkbox(
+    options?: Widgets.CheckboxOptions
+): Widgets.CheckboxElement;
+export function radioset(
+    options?: Widgets.RadioSetOptions
+): Widgets.RadioSetElement;
+export function radiobutton(
+    options?: Widgets.RadioButtonOptions
+): Widgets.RadioButtonElement;
 export function table(options?: Widgets.TableOptions): Widgets.TableElement;
 export function prompt(options?: Widgets.PromptOptions): Widgets.PromptElement;
-export function question(options?: Widgets.QuestionOptions): Widgets.QuestionElement;
-export function message(options?: Widgets.MessageOptions): Widgets.MessageElement;
-export function loading(options?: Widgets.LoadingOptions): Widgets.LoadingElement;
+export function question(
+    options?: Widgets.QuestionOptions
+): Widgets.QuestionElement;
+export function message(
+    options?: Widgets.MessageOptions
+): Widgets.MessageElement;
+export function loading(
+    options?: Widgets.LoadingOptions
+): Widgets.LoadingElement;
 export function log(options?: Widgets.LogOptions): Widgets.Log;
-export function progressbar(options?: Widgets.ProgressBarOptions): Widgets.ProgressBarElement;
+export function progressbar(
+    options?: Widgets.ProgressBarOptions
+): Widgets.ProgressBarElement;
 export function program(options?: Widgets.IScreenOptions): BlessedProgram;
-export function terminal(options?: Widgets.TerminalOptions): Widgets.TerminalElement;
+export function terminal(
+    options?: Widgets.TerminalOptions
+): Widgets.TerminalElement;
 export function layout(options?: Widgets.LayoutOptions): Widgets.LayoutElement;
 export function escape(item: any): any;
 

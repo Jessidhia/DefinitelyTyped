@@ -9,10 +9,10 @@
 
 export as namespace L;
 
-import * as geojson from 'geojson';
+import * as geojson from "geojson";
 
 export class Class {
-    static extend(props: any): {new(...args: any[]): any} & typeof Class;
+    static extend(props: any): { new (...args: any[]): any } & typeof Class;
     static include(props: any): any & typeof Class;
     static mergeOptions(props: any): any & typeof Class;
 
@@ -34,7 +34,11 @@ export namespace LineUtil {
 }
 
 export namespace PolyUtil {
-    function clipPolygon(points: Point[], bounds: BoundsExpression, round?: boolean): Point[];
+    function clipPolygon(
+        points: Point[],
+        bounds: BoundsExpression,
+        round?: boolean
+    ): Point[];
 }
 
 export namespace DomUtil {
@@ -43,7 +47,11 @@ export namespace DomUtil {
      */
     function get(element: string | HTMLElement): HTMLElement | null;
     function getStyle(el: HTMLElement, styleAttrib: string): string | null;
-    function create(tagName: string, className?: string, container?: HTMLElement): HTMLElement;
+    function create(
+        tagName: string,
+        className?: string,
+        container?: HTMLElement
+    ): HTMLElement;
     function remove(el: HTMLElement): void;
     function empty(el: HTMLElement): void;
     function toFront(el: HTMLElement): void;
@@ -130,9 +138,19 @@ export type LatLngTuple = [number, number];
 
 export type LatLngExpression = LatLng | LatLngLiteral | LatLngTuple;
 
-export function latLng(latitude: number, longitude: number, altitude?: number): LatLng;
+export function latLng(
+    latitude: number,
+    longitude: number,
+    altitude?: number
+): LatLng;
 
-export function latLng(coords: LatLngTuple | [number, number, number] | LatLngLiteral | {lat: number, lng: number, alt?: number}): LatLng;
+export function latLng(
+    coords:
+        | LatLngTuple
+        | [number, number, number]
+        | LatLngLiteral
+        | { lat: number; lng: number; alt?: number }
+): LatLng;
 
 export class LatLngBounds {
     constructor(southWest: LatLngExpression, northEast: LatLngExpression);
@@ -148,7 +166,9 @@ export class LatLngBounds {
     getSouth(): number;
     getEast(): number;
     getNorth(): number;
-    contains(otherBoundsOrLatLng: LatLngBoundsExpression | LatLngExpression): boolean;
+    contains(
+        otherBoundsOrLatLng: LatLngBoundsExpression | LatLngExpression
+    ): boolean;
     intersects(otherBounds: LatLngBoundsExpression): boolean;
     overlaps(otherBounds: BoundsExpression): boolean; // investigate if this is really bounds and not latlngbounds
     toBBoxString(): string;
@@ -160,7 +180,10 @@ export type LatLngBoundsLiteral = LatLngTuple[]; // Must be [LatLngTuple, LatLng
 
 export type LatLngBoundsExpression = LatLngBounds | LatLngBoundsLiteral;
 
-export function latLngBounds(southWest: LatLngExpression, northEast: LatLngExpression): LatLngBounds;
+export function latLngBounds(
+    southWest: LatLngExpression,
+    northEast: LatLngExpression
+): LatLngBounds;
 
 export function latLngBounds(latlngs: LatLngExpression[]): LatLngBounds;
 
@@ -194,7 +217,7 @@ export type PointExpression = Point | PointTuple;
 
 export function point(x: number, y: number, round?: boolean): Point;
 
-export function point(coords: PointTuple | {x: number, y: number}): Point;
+export function point(coords: PointTuple | { x: number; y: number }): Point;
 
 export type BoundsLiteral = [PointTuple, PointTuple];
 
@@ -216,7 +239,10 @@ export class Bounds {
 
 export type BoundsExpression = Bounds | BoundsLiteral;
 
-export function bounds(topLeft: PointExpression, bottomRight: PointExpression): Bounds;
+export function bounds(
+    topLeft: PointExpression,
+    bottomRight: PointExpression
+): Bounds;
 
 export function bounds(points: Point[] | BoundsLiteral): Bounds;
 
@@ -252,14 +278,14 @@ export abstract class Evented extends Class {
      * Note that if you passed a custom context to on, you must pass the same context
      * to off in order to remove the listener.
      */
-     // With an eventMap there are no additional arguments allowed
+    // With an eventMap there are no additional arguments allowed
     // tslint:disable-next-line:unified-signatures
     off(type: string, fn?: LeafletEventHandlerFn, context?: any): this;
 
     /**
      * Removes a set of type/listener pairs.
      */
-     // With an eventMap there are no additional arguments allowed
+    // With an eventMap there are no additional arguments allowed
     // tslint:disable-next-line:unified-signatures
     off(eventMap: LeafletEventHandlerFnMap): this;
     /**
@@ -307,7 +333,11 @@ export abstract class Evented extends Class {
      * keyword will point to). You can also pass several space-separated types
      * (e.g. 'click dblclick').
      */
-    addEventListener(type: string, fn: LeafletEventHandlerFn, context?: any): this;
+    addEventListener(
+        type: string,
+        fn: LeafletEventHandlerFn,
+        context?: any
+    ): this;
 
     /**
      * Alias for on(...)
@@ -324,7 +354,11 @@ export abstract class Evented extends Class {
      * Note that if you passed a custom context to on, you must pass the same context
      * to off in order to remove the listener.
      */
-    removeEventListener(type: string, fn?: LeafletEventHandlerFn, context?: any): this;
+    removeEventListener(
+        type: string,
+        fn?: LeafletEventHandlerFn,
+        context?: any
+    ): this;
 
     /**
      * Alias for off(...)
@@ -345,7 +379,11 @@ export abstract class Evented extends Class {
      *
      * Behaves as on(...), except the listener will only get fired once and then removed.
      */
-    addOneTimeEventListener(type: string, fn: LeafletEventHandlerFn, context?: any): this;
+    addOneTimeEventListener(
+        type: string,
+        fn: LeafletEventHandlerFn,
+        context?: any
+    ): this;
 
     /**
      * Alias for once(...)
@@ -377,7 +415,11 @@ export abstract class Evented extends Class {
  * that were positioned with [`L.DomUtil.setPosition`](#domutil-setposition).
  */
 export class Draggable extends Evented {
-    constructor(element: HTMLElement, dragStartTarget?: HTMLElement, preventOutline?: boolean);
+    constructor(
+        element: HTMLElement,
+        dragStartTarget?: HTMLElement,
+        preventOutline?: boolean
+    );
 
     enable(): void;
 
@@ -398,13 +440,16 @@ export interface InteractiveLayerOptions extends LayerOptions {
 
 export class Layer extends Evented {
     constructor(options?: LayerOptions);
-    addTo(map: Map|LayerGroup): this;
+    addTo(map: Map | LayerGroup): this;
     remove(): this;
     removeFrom(map: Map): this;
     getPane(name?: string): HTMLElement | undefined;
 
     // Popup methods
-    bindPopup(content: ((layer: Layer) => Content) | Content | Popup, options?: PopupOptions): this;
+    bindPopup(
+        content: ((layer: Layer) => Content) | Content | Popup,
+        options?: PopupOptions
+    ): this;
     unbindPopup(): this;
     openPopup(latlng?: LatLngExpression): this;
     closePopup(): this;
@@ -414,7 +459,10 @@ export class Layer extends Evented {
     getPopup(): Popup | undefined;
 
     // Tooltip methods
-    bindTooltip(content: ((layer: Layer) => Content) | Tooltip | Content, options?: TooltipOptions): this;
+    bindTooltip(
+        content: ((layer: Layer) => Content) | Tooltip | Content,
+        options?: TooltipOptions
+    ): this;
     unbindTooltip(): this;
     openTooltip(latlng?: LatLngExpression): this;
     closeTooltip(): this;
@@ -426,7 +474,7 @@ export class Layer extends Evented {
     // Extension methods
     onAdd(map: Map): this;
     onRemove(map: Map): this;
-    getEvents?(): {[name: string]: (event: LeafletEvent) => void};
+    getEvents?(): { [name: string]: (event: LeafletEvent) => void };
     getAttribution?(): string | null;
     beforeAdd?(map: Map): this;
 
@@ -454,12 +502,12 @@ export type DoneCallback = (error?: Error, tile?: HTMLElement) => void;
 
 export interface InternalTiles {
     [key: string]: {
-        active?: boolean,
-        coords: Coords,
-        current: boolean,
-        el: HTMLElement,
-        loaded?: Date,
-        retain?: boolean,
+        active?: boolean;
+        coords: Coords;
+        current: boolean;
+        el: HTMLElement;
+        loaded?: Date;
+        retain?: boolean;
     };
 }
 
@@ -512,7 +560,10 @@ export class TileLayer extends GridLayer {
     options: TileLayerOptions;
 }
 
-export function tileLayer(urlTemplate: string, options?: TileLayerOptions): TileLayer;
+export function tileLayer(
+    urlTemplate: string,
+    options?: TileLayerOptions
+): TileLayer;
 
 export namespace TileLayer {
     class WMS extends TileLayer {
@@ -560,7 +611,11 @@ export interface ImageOverlayOptions extends InteractiveLayerOptions {
 }
 
 export class ImageOverlay extends Layer {
-    constructor(imageUrl: string, bounds: LatLngBoundsExpression, options?: ImageOverlayOptions);
+    constructor(
+        imageUrl: string,
+        bounds: LatLngBoundsExpression,
+        options?: ImageOverlayOptions
+    );
     setOpacity(opacity: number): this;
     bringToFront(): this;
     bringToBack(): this;
@@ -578,15 +633,24 @@ export class ImageOverlay extends Layer {
     options: ImageOverlayOptions;
 }
 
-export function imageOverlay(imageUrl: string, bounds: LatLngBoundsExpression, options?: ImageOverlayOptions): ImageOverlay;
+export function imageOverlay(
+    imageUrl: string,
+    bounds: LatLngBoundsExpression,
+    options?: ImageOverlayOptions
+): ImageOverlay;
 
 export interface VideoOverlayOptions extends ImageOverlayOptions {
     autoplay?: boolean;
     loop?: boolean;
 }
 
-export class VideoOverlay extends Layer { /** VideoOverlay doesn't extend ImageOverlay because ImageOverlay.getElement returns HTMLImageElement */
-    constructor(video: string | string[] | HTMLVideoElement, bounds: LatLngBoundsExpression, options?: VideoOverlayOptions);
+export class VideoOverlay extends Layer {
+    /** VideoOverlay doesn't extend ImageOverlay because ImageOverlay.getElement returns HTMLImageElement */
+    constructor(
+        video: string | string[] | HTMLVideoElement,
+        bounds: LatLngBoundsExpression,
+        options?: VideoOverlayOptions
+    );
     setOpacity(opacity: number): this;
     bringToFront(): this;
     bringToBack(): this;
@@ -604,13 +668,17 @@ export class VideoOverlay extends Layer { /** VideoOverlay doesn't extend ImageO
     options: VideoOverlayOptions;
 }
 
-export function videoOverlay(video: string | string[] | HTMLVideoElement, bounds: LatLngBoundsExpression, options?: VideoOverlayOptions): VideoOverlay;
+export function videoOverlay(
+    video: string | string[] | HTMLVideoElement,
+    bounds: LatLngBoundsExpression,
+    options?: VideoOverlayOptions
+): VideoOverlay;
 
-export type LineCapShape = 'butt' | 'round' | 'square' | 'inherit';
+export type LineCapShape = "butt" | "round" | "square" | "inherit";
 
-export type LineJoinShape = 'miter' | 'round' | 'bevel' | 'inherit';
+export type LineJoinShape = "miter" | "round" | "bevel" | "inherit";
 
-export type FillRule = 'nonzero' | 'evenodd' | 'inherit';
+export type FillRule = "nonzero" | "evenodd" | "inherit";
 
 export interface PathOptions extends InteractiveLayerOptions {
     stroke?: boolean;
@@ -644,11 +712,24 @@ export interface PolylineOptions extends PathOptions {
     noClip?: boolean;
 }
 
-export class Polyline<T extends geojson.GeometryObject = geojson.LineString | geojson.MultiLineString, P = any> extends Path {
-    constructor(latlngs: LatLngExpression[] | LatLngExpression[][], options?: PolylineOptions);
+export class Polyline<
+    T extends geojson.GeometryObject =
+        | geojson.LineString
+        | geojson.MultiLineString,
+    P = any
+> extends Path {
+    constructor(
+        latlngs: LatLngExpression[] | LatLngExpression[][],
+        options?: PolylineOptions
+    );
     toGeoJSON(): geojson.Feature<T, P>;
     getLatLngs(): LatLng[] | LatLng[][] | LatLng[][][];
-    setLatLngs(latlngs: LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][]): this;
+    setLatLngs(
+        latlngs:
+            | LatLngExpression[]
+            | LatLngExpression[][]
+            | LatLngExpression[][][]
+    ): this;
     isEmpty(): boolean;
     getCenter(): LatLng;
     getBounds(): LatLngBounds;
@@ -658,20 +739,41 @@ export class Polyline<T extends geojson.GeometryObject = geojson.LineString | ge
     options: PolylineOptions;
 }
 
-export function polyline(latlngs: LatLngExpression[] | LatLngExpression[][], options?: PolylineOptions): Polyline;
+export function polyline(
+    latlngs: LatLngExpression[] | LatLngExpression[][],
+    options?: PolylineOptions
+): Polyline;
 
-export class Polygon<P = any> extends Polyline<geojson.Polygon | geojson.MultiPolygon, P> {
-    constructor(latlngs: LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][], options?: PolylineOptions);
+export class Polygon<P = any> extends Polyline<
+    geojson.Polygon | geojson.MultiPolygon,
+    P
+> {
+    constructor(
+        latlngs:
+            | LatLngExpression[]
+            | LatLngExpression[][]
+            | LatLngExpression[][][],
+        options?: PolylineOptions
+    );
 }
 
-export function polygon(latlngs: LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][], options?: PolylineOptions): Polygon;
+export function polygon(
+    latlngs: LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][],
+    options?: PolylineOptions
+): Polygon;
 
 export class Rectangle<P = any> extends Polygon<P> {
-    constructor(latLngBounds: LatLngBoundsExpression, options?: PolylineOptions);
+    constructor(
+        latLngBounds: LatLngBoundsExpression,
+        options?: PolylineOptions
+    );
     setBounds(latLngBounds: LatLngBoundsExpression): this;
 }
 
-export function rectangle(latLngBounds: LatLngBoundsExpression, options?: PolylineOptions): Rectangle;
+export function rectangle(
+    latLngBounds: LatLngBoundsExpression,
+    options?: PolylineOptions
+): Rectangle;
 
 export interface CircleMarkerOptions extends PathOptions {
     radius?: number;
@@ -689,16 +791,30 @@ export class CircleMarker<P = any> extends Path {
     feature?: geojson.Feature<geojson.Point, P>;
 }
 
-export function circleMarker(latlng: LatLngExpression, options?: CircleMarkerOptions): CircleMarker;
+export function circleMarker(
+    latlng: LatLngExpression,
+    options?: CircleMarkerOptions
+): CircleMarker;
 
 export class Circle<P = any> extends CircleMarker<P> {
     constructor(latlng: LatLngExpression, options?: CircleMarkerOptions);
-    constructor(latlng: LatLngExpression, radius: number, options?: CircleMarkerOptions); // deprecated!
+    constructor(
+        latlng: LatLngExpression,
+        radius: number,
+        options?: CircleMarkerOptions
+    ); // deprecated!
     getBounds(): LatLngBounds;
 }
 
-export function circle(latlng: LatLngExpression, options?: CircleMarkerOptions): Circle;
-export function circle(latlng: LatLngExpression, radius: number, options?: CircleMarkerOptions): Circle; // deprecated!
+export function circle(
+    latlng: LatLngExpression,
+    options?: CircleMarkerOptions
+): Circle;
+export function circle(
+    latlng: LatLngExpression,
+    radius: number,
+    options?: CircleMarkerOptions
+): Circle; // deprecated!
 
 export interface RendererOptions extends LayerOptions {
     padding?: number;
@@ -735,7 +851,10 @@ export class LayerGroup<P = any> extends Layer {
     /**
      * Returns a GeoJSON representation of the layer group (as a GeoJSON GeometryCollection, GeoJSONFeatureCollection or Multipoint).
      */
-    toGeoJSON(): geojson.FeatureCollection<geojson.GeometryObject, P> | geojson.Feature<geojson.MultiPoint, P> | geojson.GeometryCollection;
+    toGeoJSON():
+        | geojson.FeatureCollection<geojson.GeometryObject, P>
+        | geojson.Feature<geojson.MultiPoint, P>
+        | geojson.GeometryCollection;
 
     /**
      * Adds the given layer to the group.
@@ -789,13 +908,19 @@ export class LayerGroup<P = any> extends Layer {
      */
     getLayerId(layer: Layer): number;
 
-    feature?: geojson.FeatureCollection<geojson.GeometryObject, P> | geojson.Feature<geojson.MultiPoint, P> | geojson.GeometryCollection;
+    feature?:
+        | geojson.FeatureCollection<geojson.GeometryObject, P>
+        | geojson.Feature<geojson.MultiPoint, P>
+        | geojson.GeometryCollection;
 }
 
 /**
  * Create a layer group, optionally given an initial set of layers and an `options` object.
  */
-export function layerGroup(layers?: Layer[], options?: LayerOptions): LayerGroup;
+export function layerGroup(
+    layers?: Layer[],
+    options?: LayerOptions
+): LayerGroup;
 
 /**
  * Extended LayerGroup that also has mouse events (propagated from
@@ -829,7 +954,9 @@ export class FeatureGroup<P = any> extends LayerGroup<P> {
  */
 export function featureGroup(layers?: Layer[]): FeatureGroup;
 
-export type StyleFunction<P = any> = (feature?: geojson.Feature<geojson.GeometryObject, P>) => PathOptions;
+export type StyleFunction<P = any> = (
+    feature?: geojson.Feature<geojson.GeometryObject, P>
+) => PathOptions;
 
 export interface GeoJSONOptions<P = any> extends LayerOptions {
     /**
@@ -845,7 +972,10 @@ export interface GeoJSONOptions<P = any> extends LayerOptions {
      * }
      * ```
      */
-    pointToLayer?(geoJsonPoint: geojson.Feature<geojson.Point, P>, latlng: LatLng): Layer; // should import GeoJSON typings
+    pointToLayer?(
+        geoJsonPoint: geojson.Feature<geojson.Point, P>,
+        latlng: LatLng
+    ): Layer; // should import GeoJSON typings
 
     /**
      * PathOptions or a Function defining the Path options for styling GeoJSON lines and polygons,
@@ -871,7 +1001,10 @@ export interface GeoJSONOptions<P = any> extends LayerOptions {
      * function (feature, layer) {}
      * ```
      */
-    onEachFeature?(feature: geojson.Feature<geojson.GeometryObject, P>, layer: Layer): void;
+    onEachFeature?(
+        feature: geojson.Feature<geojson.GeometryObject, P>,
+        layer: Layer
+    ): void;
 
     /**
      * A Function that will be used to decide whether to show a feature or not.
@@ -884,13 +1017,17 @@ export interface GeoJSONOptions<P = any> extends LayerOptions {
      * }
      * ```
      */
-    filter?(geoJsonFeature: geojson.Feature<geojson.GeometryObject, P>): boolean;
+    filter?(
+        geoJsonFeature: geojson.Feature<geojson.GeometryObject, P>
+    ): boolean;
 
     /**
      * A Function that will be used for converting GeoJSON coordinates to LatLngs.
      * The default is the coordsToLatLng static method.
      */
-    coordsToLatLng?(coords: [number, number] | [number, number, number]): LatLng; // check if LatLng has an altitude property
+    coordsToLatLng?(
+        coords: [number, number] | [number, number, number]
+    ): LatLng; // check if LatLng has an altitude property
 }
 
 /**
@@ -902,13 +1039,18 @@ export class GeoJSON<P = any> extends FeatureGroup<P> {
      * Creates a Layer from a given GeoJSON feature. Can use a custom pointToLayer
      * and/or coordsToLatLng functions if provided as options.
      */
-    static geometryToLayer<P = any>(featureData: geojson.Feature<geojson.GeometryObject, P>, options?: GeoJSONOptions<P>): Layer;
+    static geometryToLayer<P = any>(
+        featureData: geojson.Feature<geojson.GeometryObject, P>,
+        options?: GeoJSONOptions<P>
+    ): Layer;
 
     /**
      * Creates a LatLng object from an array of 2 numbers (longitude, latitude) or
      * 3 numbers (longitude, latitude, altitude) used in GeoJSON for points.
      */
-    static coordsToLatLng(coords: [number, number] | [number, number, number]): LatLng;
+    static coordsToLatLng(
+        coords: [number, number] | [number, number, number]
+    ): LatLng;
 
     /**
      * Creates a multidimensional array of LatLngs from a GeoJSON coordinates array.
@@ -919,26 +1061,39 @@ export class GeoJSON<P = any> extends FeatureGroup<P> {
     static coordsToLatLngs(
         coords: any[],
         levelsDeep?: number,
-        coordsToLatLng?: (coords: [number, number] | [number, number, number]) => LatLng): any[]; // Using any[] to avoid artificially limiting valid calls
+        coordsToLatLng?: (
+            coords: [number, number] | [number, number, number]
+        ) => LatLng
+    ): any[]; // Using any[] to avoid artificially limiting valid calls
 
     /**
      * Reverse of coordsToLatLng
      */
-    static latLngToCoords(latlng: LatLng): [number, number] | [number, number, number];
+    static latLngToCoords(
+        latlng: LatLng
+    ): [number, number] | [number, number, number];
 
     /**
      * Reverse of coordsToLatLngs closed determines whether the first point should be
      * appended to the end of the array to close the feature, only used when levelsDeep is 0.
      * False by default.
      */
-    static latLngsToCoords(latlngs: any[], levelsDeep?: number, closed?: boolean): any[];  // Using any[] to avoid artificially limiting valid calls
+    static latLngsToCoords(
+        latlngs: any[],
+        levelsDeep?: number,
+        closed?: boolean
+    ): any[]; // Using any[] to avoid artificially limiting valid calls
 
     /**
      * Normalize GeoJSON geometries/features into GeoJSON features.
      */
-    static asFeature<P = any>(geojson: geojson.Feature<geojson.GeometryObject, P> | geojson.GeometryObject): geojson.Feature<geojson.GeometryObject, P>;
+    static asFeature<P = any>(
+        geojson:
+            | geojson.Feature<geojson.GeometryObject, P>
+            | geojson.GeometryObject
+    ): geojson.Feature<geojson.GeometryObject, P>;
 
-    constructor(geojson?: geojson.GeoJsonObject, options?: GeoJSONOptions<P>)
+    constructor(geojson?: geojson.GeoJsonObject, options?: GeoJSONOptions<P>);
     /**
      * Adds a GeoJSON object to the layer.
      */
@@ -966,9 +1121,12 @@ export class GeoJSON<P = any> extends FeatureGroup<P> {
  * map (you can alternatively add it later with addData method) and
  * an options object.
  */
-export function geoJSON<P = any>(geojson?: geojson.GeoJsonObject, options?: GeoJSONOptions<P>): GeoJSON<P>;
+export function geoJSON<P = any>(
+    geojson?: geojson.GeoJsonObject,
+    options?: GeoJSONOptions<P>
+): GeoJSON<P>;
 
-export type Zoom = boolean | 'center';
+export type Zoom = boolean | "center";
 
 export interface MapOptions {
     preferCanvas?: boolean;
@@ -1027,7 +1185,11 @@ export interface MapOptions {
     bounceAtZoomLimits?: boolean;
 }
 
-export type ControlPosition = 'topleft' | 'topright' | 'bottomleft' | 'bottomright';
+export type ControlPosition =
+    | "topleft"
+    | "topright"
+    | "bottomleft"
+    | "bottomright";
 
 export interface ControlOptions {
     position?: ControlPosition;
@@ -1084,7 +1246,11 @@ export namespace Control {
     }
 
     class Layers extends Control {
-        constructor(baseLayers?: LayersObject, overlays?: LayersObject, options?: LayersOptions);
+        constructor(
+            baseLayers?: LayersObject,
+            overlays?: LayersObject,
+            options?: LayersOptions
+        );
         addBaseLayer(layer: Layer, name: string): this;
         addOverlay(layer: Layer, name: string): this;
         removeLayer(layer: Layer): this;
@@ -1109,9 +1275,15 @@ export namespace Control {
 export namespace control {
     function zoom(options?: Control.ZoomOptions): Control.Zoom;
 
-    function attribution(options?: Control.AttributionOptions): Control.Attribution;
+    function attribution(
+        options?: Control.AttributionOptions
+    ): Control.Attribution;
 
-    function layers(baseLayers?: Control.LayersObject, overlays?: Control.LayersObject, options?: Control.LayersOptions): Control.Layers;
+    function layers(
+        baseLayers?: Control.LayersObject,
+        overlays?: Control.LayersObject,
+        options?: Control.LayersOptions
+    ): Control.Layers;
 
     function scale(options?: Control.ScaleOptions): Control.Scale;
 }
@@ -1157,7 +1329,7 @@ export class Popup extends Layer {
 
 export function popup(options?: PopupOptions, source?: Layer): Popup;
 
-export type Direction = 'right' | 'left' | 'top' | 'bottom' | 'center' | 'auto';
+export type Direction = "right" | "left" | "top" | "bottom" | "center" | "auto";
 
 export interface TooltipOptions extends DivOverlayOptions {
     pane?: string;
@@ -1316,13 +1488,31 @@ export interface ZoomAnimEvent extends LeafletEvent {
 export namespace DomEvent {
     type EventHandlerFn = (event: Event) => void;
 
-    function on(el: HTMLElement, types: string, fn: EventHandlerFn, context?: any): typeof DomEvent;
+    function on(
+        el: HTMLElement,
+        types: string,
+        fn: EventHandlerFn,
+        context?: any
+    ): typeof DomEvent;
 
-    function on(el: HTMLElement, eventMap: {[eventName: string]: EventHandlerFn}, context?: any): typeof DomEvent;
+    function on(
+        el: HTMLElement,
+        eventMap: { [eventName: string]: EventHandlerFn },
+        context?: any
+    ): typeof DomEvent;
 
-    function off(el: HTMLElement, types: string, fn: EventHandlerFn, context?: any): typeof DomEvent;
+    function off(
+        el: HTMLElement,
+        types: string,
+        fn: EventHandlerFn,
+        context?: any
+    ): typeof DomEvent;
 
-    function off(el: HTMLElement, eventMap: {[eventName: string]: EventHandlerFn}, context?: any): typeof DomEvent;
+    function off(
+        el: HTMLElement,
+        eventMap: { [eventName: string]: EventHandlerFn },
+        context?: any
+    ): typeof DomEvent;
 
     function stopPropagation(ev: Event): typeof DomEvent;
 
@@ -1338,13 +1528,31 @@ export namespace DomEvent {
 
     function getWheelDelta(ev: Event): number;
 
-    function addListener(el: HTMLElement, types: string, fn: EventHandlerFn, context?: any): typeof DomEvent;
+    function addListener(
+        el: HTMLElement,
+        types: string,
+        fn: EventHandlerFn,
+        context?: any
+    ): typeof DomEvent;
 
-    function addListener(el: HTMLElement, eventMap: {[eventName: string]: EventHandlerFn}, context?: any): typeof DomEvent;
+    function addListener(
+        el: HTMLElement,
+        eventMap: { [eventName: string]: EventHandlerFn },
+        context?: any
+    ): typeof DomEvent;
 
-    function removeListener(el: HTMLElement, types: string, fn: EventHandlerFn, context?: any): typeof DomEvent;
+    function removeListener(
+        el: HTMLElement,
+        types: string,
+        fn: EventHandlerFn,
+        context?: any
+    ): typeof DomEvent;
 
-    function removeListener(el: HTMLElement, eventMap: {[eventName: string]: EventHandlerFn}, context?: any): typeof DomEvent;
+    function removeListener(
+        el: HTMLElement,
+        eventMap: { [eventName: string]: EventHandlerFn },
+        context?: any
+    ): typeof DomEvent;
 }
 
 export interface DefaultMapPanes {
@@ -1369,18 +1577,34 @@ export class Map extends Evented {
     hasLayer(layer: Layer): boolean;
     eachLayer(fn: (layer: Layer) => void, context?: any): this;
     openPopup(popup: Popup): this;
-    openPopup(content: Content, latlng: LatLngExpression, options?: PopupOptions): this;
+    openPopup(
+        content: Content,
+        latlng: LatLngExpression,
+        options?: PopupOptions
+    ): this;
     closePopup(popup?: Popup): this;
     openTooltip(tooltip: Tooltip): this;
-    openTooltip(content: Content, latlng: LatLngExpression, options?: TooltipOptions): this;
+    openTooltip(
+        content: Content,
+        latlng: LatLngExpression,
+        options?: TooltipOptions
+    ): this;
     closeTooltip(tooltip?: Tooltip): this;
 
     // Methods for modifying map state
-    setView(center: LatLngExpression, zoom: number, options?: ZoomPanOptions): this;
+    setView(
+        center: LatLngExpression,
+        zoom: number,
+        options?: ZoomPanOptions
+    ): this;
     setZoom(zoom: number, options?: ZoomPanOptions): this;
     zoomIn(delta?: number, options?: ZoomOptions): this;
     zoomOut(delta?: number, options?: ZoomOptions): this;
-    setZoomAround(position: Point | LatLngExpression, zoom: number, options?: ZoomOptions): this;
+    setZoomAround(
+        position: Point | LatLngExpression,
+        zoom: number,
+        options?: ZoomOptions
+    ): this;
     fitBounds(bounds: LatLngBoundsExpression, options?: FitBoundsOptions): this;
     fitWorld(options?: FitBoundsOptions): this;
     panTo(latlng: LatLngExpression, options?: PanOptions): this;
@@ -1395,8 +1619,15 @@ export class Map extends Evented {
      */
     invalidateSize(options?: boolean | ZoomPanOptions): this;
     stop(): this;
-    flyTo(latlng: LatLngExpression, zoom?: number, options?: ZoomPanOptions): this;
-    flyToBounds(bounds: LatLngBoundsExpression, options?: FitBoundsOptions): this;
+    flyTo(
+        latlng: LatLngExpression,
+        zoom?: number,
+        options?: ZoomPanOptions
+    ): this;
+    flyToBounds(
+        bounds: LatLngBoundsExpression,
+        options?: FitBoundsOptions
+    ): this;
 
     // Other methods
     addHandler(name: string, HandlerClass: typeof Handler): this; // Alternatively, HandlerClass: new(map: Map) => Handler
@@ -1406,7 +1637,7 @@ export class Map extends Evented {
      * Name of the pane or the pane as HTML-Element
      */
     getPane(pane: string | HTMLElement): HTMLElement | undefined;
-    getPanes(): {[name: string]: HTMLElement} & DefaultMapPanes;
+    getPanes(): { [name: string]: HTMLElement } & DefaultMapPanes;
     getContainer(): HTMLElement;
     whenReady(fn: () => void, context?: any): this;
 
@@ -1545,7 +1776,10 @@ export class Marker<P = any> extends Layer {
     feature?: geojson.Feature<geojson.Point, P>;
 }
 
-export function marker(latlng: LatLngExpression, options?: MarkerOptions): Marker;
+export function marker(
+    latlng: LatLngExpression,
+    options?: MarkerOptions
+): Marker;
 
 export namespace Browser {
     const ie: boolean;
@@ -1578,26 +1812,53 @@ export namespace Browser {
 }
 
 export namespace Util {
-    function extend<D extends object, S1 extends object = {}>(dest: D, src?: S1): D & S1;
-    function extend<D extends object, S1 extends object, S2 extends object>(dest: D, src1: S1, src2: S2): D & S1 & S2;
-    function extend<D extends object, S1 extends object, S2 extends object, S3 extends object>(dest: D, src1: S1, src2: S2, src3: S3): D & S1 & S2 & S3;
+    function extend<D extends object, S1 extends object = {}>(
+        dest: D,
+        src?: S1
+    ): D & S1;
+    function extend<D extends object, S1 extends object, S2 extends object>(
+        dest: D,
+        src1: S1,
+        src2: S2
+    ): D & S1 & S2;
+    function extend<
+        D extends object,
+        S1 extends object,
+        S2 extends object,
+        S3 extends object
+    >(dest: D, src1: S1, src2: S2, src3: S3): D & S1 & S2 & S3;
     function extend(dest: any, ...src: any[]): any;
 
-    function create(proto: object | null, properties?: PropertyDescriptorMap): any;
+    function create(
+        proto: object | null,
+        properties?: PropertyDescriptorMap
+    ): any;
     function bind(fn: () => void, ...obj: any[]): () => void;
     function stamp(obj: any): number;
     function throttle(fn: () => void, time: number, context: any): () => void;
-    function wrapNum(num: number, range: number[], includeMax?: boolean): number;
+    function wrapNum(
+        num: number,
+        range: number[],
+        includeMax?: boolean
+    ): number;
     function falseFn(): false;
     function formatNum(num: number, digits?: number): number;
     function trim(str: string): string;
     function splitWords(str: string): string[];
     function setOptions(obj: any, options: any): any;
-    function getParamString(obj: any, existingUrl?: string, uppercase?: boolean): string;
+    function getParamString(
+        obj: any,
+        existingUrl?: string,
+        uppercase?: boolean
+    ): string;
     function template(str: string, data: any): string;
     function isArray(obj: any): boolean;
     function indexOf(array: any[], el: any): number;
-    function requestAnimFrame(fn: (timestamp: number) => void, context?: any, immediate?: boolean): number;
+    function requestAnimFrame(
+        fn: (timestamp: number) => void,
+        context?: any,
+        immediate?: boolean
+    ): number;
     function cancelAnimFrame(id: number): void;
 
     let lastId: number;

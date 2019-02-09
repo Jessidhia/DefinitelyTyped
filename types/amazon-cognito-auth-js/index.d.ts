@@ -140,7 +140,7 @@ export interface CognitoConstants {
     HOSTNAMEREGEX: RegExp;
     QUERYPARAMETERREGEX1: RegExp;
     QUERYPARAMETERREGEX2: RegExp;
-    HEADER: { 'Content-Type': string };
+    HEADER: { "Content-Type": string };
 }
 
 export class CognitoIdToken {
@@ -481,9 +481,13 @@ export class CognitoAuth {
      * @param onSuccess callback
      * @param onFailure callback
      */
-    makePOSTRequest(header: object, body: object, url: string,
+    makePOSTRequest(
+        header: object,
+        body: object,
+        url: string,
         onSuccess: (responseText: string) => void,
-        onFailure: (responseText: string) => void): void;
+        onFailure: (responseText: string) => void
+    ): void;
 
     /**
      * Create the XHR object
@@ -491,7 +495,10 @@ export class CognitoAuth {
      * @param url the url string
      * @returns xhr
      */
-    createCORSRequest(method: string, url: string): XMLHttpRequest | XDomainRequest;
+    createCORSRequest(
+        method: string,
+        url: string
+    ): XMLHttpRequest | XDomainRequest;
 
     /**
      * The http POST request onFailure callback.

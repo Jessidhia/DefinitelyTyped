@@ -1,6 +1,6 @@
-import * as isSvg from 'is-svg';
+import * as isSvg from "is-svg";
 
-const data = '<svg></svg>';
+const data = "<svg></svg>";
 let result = false;
 
 result = isSvg(data);

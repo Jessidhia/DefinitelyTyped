@@ -8,7 +8,10 @@ export interface TraversalMethods {
     /**
      * Find nodes of a specific type within the nodes of this collection.
      */
-    find<T>(type: recast.Type<T>, filter?: ((value: any) => boolean) | object): Collection.Collection<T>;
+    find<T>(
+        type: recast.Type<T>,
+        filter?: ((value: any) => boolean) | object
+    ): Collection.Collection<T>;
 
     /**
      * Returns a collection containing the paths that create the scope of the
@@ -28,7 +31,9 @@ export interface TraversalMethods {
      *
      * If the callback returns a falsy value, the element is skipped.
      */
-    getVariableDeclarators(nameGetter: (...args: any[]) => any): Collection.Collection<nodes.VariableDeclarator>;
+    getVariableDeclarators(
+        nameGetter: (...args: any[]) => any
+    ): Collection.Collection<nodes.VariableDeclarator>;
 }
 
 export interface MutationMethods<N> {
@@ -37,7 +42,9 @@ export interface MutationMethods<N> {
      * is provided it is executed for every node and the node is replaced with the
      * functions return value.
      */
-    replaceWith<T>(nodes: T | T[] | ((path: ASTPath<N>, i: number) => T)): Collection.Collection<T>;
+    replaceWith<T>(
+        nodes: T | T[] | ((path: ASTPath<N>, i: number) => T)
+    ): Collection.Collection<T>;
 
     /**
      * Inserts a new node before the current one.

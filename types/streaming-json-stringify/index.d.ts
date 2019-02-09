@@ -5,7 +5,7 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node" />
-import * as stream from 'stream';
+import * as stream from "stream";
 
 export = Stringify;
 
@@ -23,7 +23,11 @@ declare namespace Stringify {
         opener: string;
         seperator: string;
         closer: string;
-        stringifier(value: any, replacer: Replacer, space: string | number): string;
+        stringifier(
+            value: any,
+            replacer: Replacer,
+            space: string | number
+        ): string;
     }
 
     type Replacer = (key: string, value: any) => any;

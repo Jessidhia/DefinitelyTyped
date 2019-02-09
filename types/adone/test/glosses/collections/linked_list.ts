@@ -1,8 +1,6 @@
 namespace adoneTests.collection.LinkedList {
     const {
-        collection: {
-            LinkedList
-        }
+        collection: { LinkedList }
     } = adone;
 
     namespace creation {
@@ -11,15 +9,27 @@ namespace adoneTests.collection.LinkedList {
     }
 
     namespace properties {
-        { const a: boolean = new LinkedList().full; }
-        { const a: boolean = new LinkedList().empty; }
-        { const a: number = new LinkedList().maxLength; }
-        { const a: number = new LinkedList().length; }
-        { const a: boolean = new LinkedList().autoresize; }
+        {
+            const a: boolean = new LinkedList().full;
+        }
+        {
+            const a: boolean = new LinkedList().empty;
+        }
+        {
+            const a: number = new LinkedList().maxLength;
+        }
+        {
+            const a: number = new LinkedList().length;
+        }
+        {
+            const a: boolean = new LinkedList().autoresize;
+        }
     }
 
     namespace resize {
-        { const a: boolean = new LinkedList().resize(100).full; }
+        {
+            const a: boolean = new LinkedList().resize(100).full;
+        }
     }
 
     namespace push {

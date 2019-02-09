@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Box, Flex, Text, Heading, Button, Link, Image, Card } from 'rebass';
+import * as React from "react";
+import { Box, Flex, Text, Heading, Button, Link, Image, Card } from "rebass";
 
 () => (
-    <Box width={1} css={{ height: '100vh' }} py={[1, 2, 3]} ml="1em">
+    <Box width={1} css={{ height: "100vh" }} py={[1, 2, 3]} ml="1em">
         <Flex width={1} alignItems="center" justifyContent="center">
             <Heading fontSize={5} fontWeight="bold">
                 Hi, I'm a heading.

@@ -53,15 +53,17 @@ export namespace formatters {
 
 export function lint(options?: LinterOptions): Promise<LinterResult>;
 
-export type RuleOption = {
-    actual: any;
-    possible?: any;
-    optional?: false;
-} | {
-    actual?: any;
-    possible: any;
-    optional: true;
-};
+export type RuleOption =
+    | {
+          actual: any;
+          possible?: any;
+          optional?: false;
+      }
+    | {
+          actual?: any;
+          possible: any;
+          optional: true;
+      };
 
 export namespace utils {
     function report(violation: {
@@ -74,14 +76,24 @@ export namespace utils {
         line?: number;
     }): void;
 
-    function ruleMessages(ruleName: string, messages: { [key: string]: any; }): typeof messages;
+    function ruleMessages(
+        ruleName: string,
+        messages: { [key: string]: any }
+    ): typeof messages;
 
-    function validateOptions(result: LintResult, ruleName: string, ...options: RuleOption[]): boolean;
+    function validateOptions(
+        result: LintResult,
+        ruleName: string,
+        ...options: RuleOption[]
+    ): boolean;
 
-    function checkAgainstRule(options: { ruleName: string; ruleSettings: any; root: any; }, callback: (warning: string) => void): void;
+    function checkAgainstRule(
+        options: { ruleName: string; ruleSettings: any; root: any },
+        callback: (warning: string) => void
+    ): void;
 }
 
 export function createPlugin(
     ruleName: string,
-    plugin: (options: RuleOption[]) => (root: any, result: LintResult) => void,
+    plugin: (options: RuleOption[]) => (root: any, result: LintResult) => void
 ): any;

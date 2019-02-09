@@ -5,7 +5,10 @@
 
 export = fined;
 
-declare function fined(path: string | fined.PathSpec, opts?: fined.PathSpec): fined.Result | null;
+declare function fined(
+    path: string | fined.PathSpec,
+    opts?: fined.PathSpec
+): fined.Result | null;
 
 declare namespace fined {
     interface PathSpec {

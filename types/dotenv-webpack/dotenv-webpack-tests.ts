@@ -1,12 +1,12 @@
-import * as webpack from 'webpack';
-import DotenvWebpackPlugin = require('dotenv-webpack');
+import * as webpack from "webpack";
+import DotenvWebpackPlugin = require("dotenv-webpack");
 
 new DotenvWebpackPlugin(); // $ExpectType DotenvWebpackPlugin
 
 const optionsEmpty: DotenvWebpackPlugin.Options = {};
 
 const optionsFull: DotenvWebpackPlugin.Options = {
-    path: './some.other.env',
+    path: "./some.other.env",
     safe: true,
     systemvars: true,
     silent: true,
@@ -15,8 +15,8 @@ const optionsFull: DotenvWebpackPlugin.Options = {
 };
 
 const optionsStrings: DotenvWebpackPlugin.Options = {
-    safe: './some.other.env.example',
-    defaults: './some.other.env.defaults'
+    safe: "./some.other.env.example",
+    defaults: "./some.other.env.defaults"
 };
 
 const config: webpack.Configuration = {

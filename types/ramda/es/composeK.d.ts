@@ -1,2 +1,2 @@
-import { composeK } from '../index';
+import { composeK } from "../index";
 export default composeK;

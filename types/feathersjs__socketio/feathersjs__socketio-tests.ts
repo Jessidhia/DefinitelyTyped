@@ -1,5 +1,5 @@
-import feathers, { Application } from '@feathersjs/feathers';
-import feathersSocketIO from '@feathersjs/socketio';
+import feathers, { Application } from "@feathersjs/feathers";
+import feathersSocketIO from "@feathersjs/socketio";
 
 const app: Application<{}> = feathers();
 

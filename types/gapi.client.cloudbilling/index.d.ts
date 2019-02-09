@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Cloud Billing API v1 */
     function load(name: "cloudbilling", version: "v1"): PromiseLike<void>;
-    function load(name: "cloudbilling", version: "v1", callback: () => any): void;
+    function load(
+        name: "cloudbilling",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const billingAccounts: cloudbilling.BillingAccountsResource;
 

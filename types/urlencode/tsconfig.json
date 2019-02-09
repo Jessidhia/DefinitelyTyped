@@ -1,9 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "noImplicitAny": true,
@@ -11,15 +9,10 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "urlencode-tests.ts"
-    ]
+    "files": ["index.d.ts", "urlencode-tests.ts"]
 }

@@ -23,7 +23,7 @@ readStream.pipe(extract);
 extract.on("entry", (entry: any) => undefined);
 
 let packStream: tar.PackStream = tar.Pack();
-packStream = tar.Pack({ path: 'test' });
+packStream = tar.Pack({ path: "test" });
 
 /**
  * Examples from tar docs:
@@ -32,36 +32,34 @@ packStream = tar.Pack({ path: 'test' });
 tar.c(
     {
         gzip: true,
-        file: 'my-tarball.tgz'
+        file: "my-tarball.tgz"
     },
-    ['some', 'files', 'and', 'folders']
+    ["some", "files", "and", "folders"]
 ).then(() => undefined);
 
 tar.c(
     {
-        gzip: true,
+        gzip: true
     },
-    ['some', 'files', 'and', 'folders']
-).pipe(fs.createWriteStream('my-tarball.tgz'));
+    ["some", "files", "and", "folders"]
+).pipe(fs.createWriteStream("my-tarball.tgz"));
 
-tar.x(
-    {
-        file: 'my-tarball.tgz',
-    }
-).then(() => undefined);
+tar.x({
+    file: "my-tarball.tgz"
+}).then(() => undefined);
 
-fs.createReadStream('my-tarball.tgz').pipe(
+fs.createReadStream("my-tarball.tgz").pipe(
     tar.x({
         strip: 1,
-        C: 'some-dir' // alias for cwd:'some-dir', also ok
+        C: "some-dir" // alias for cwd:'some-dir', also ok
     })
 );
 
 tar.t({
-    file: 'my-tarball.tgz',
-    onentry: (entry) => console.log(entry.path, 'was', entry.size),
+    file: "my-tarball.tgz",
+    onentry: entry => console.log(entry.path, "was", entry.size)
 });
 
-fs.createReadStream('my-tarball.tgz')
+fs.createReadStream("my-tarball.tgz")
     .pipe(tar.t())
-    .on('entry', entry => console.log(entry.size));
+    .on("entry", entry => console.log(entry.size));

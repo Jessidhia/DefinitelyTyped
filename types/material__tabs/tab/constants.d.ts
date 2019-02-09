@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ACTIVE: 'mdc-tab--active';
+    ACTIVE: "mdc-tab--active";
 }
 
 export interface strings extends MDCStrings {
-    SELECTED_EVENT: 'MDCTab:selected';
+    SELECTED_EVENT: "MDCTab:selected";
 }

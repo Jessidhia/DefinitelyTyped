@@ -5,20 +5,32 @@
 
 export = linkifyUrls;
 
-declare function linkifyUrls(input: string, options?: linkifyUrls.TypeStringOptions): string;
-declare function linkifyUrls(input: string, options: linkifyUrls.TypeDomOptions): DocumentFragment;
+declare function linkifyUrls(
+    input: string,
+    options?: linkifyUrls.TypeStringOptions
+): string;
+declare function linkifyUrls(
+    input: string,
+    options: linkifyUrls.TypeDomOptions
+): DocumentFragment;
 
 declare namespace linkifyUrls {
     interface BaseOptions {
-        attributes?: { [attrName: string]: string | number | boolean | Array<string | number> };
+        attributes?: {
+            [attrName: string]:
+                | string
+                | number
+                | boolean
+                | Array<string | number>;
+        };
         value?: string | ((url: string) => string);
     }
 
     interface TypeStringOptions extends BaseOptions {
-        type?: 'string';
+        type?: "string";
     }
 
     interface TypeDomOptions extends BaseOptions {
-        type: 'dom';
+        type: "dom";
     }
 }

@@ -5,8 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import { EscapeCode } from './escape-code';
-
+import { EscapeCode } from "./escape-code";
 
 export const reset: EscapeCode.CodePair;
 export const bold: EscapeCode.CodePair;
@@ -68,7 +67,8 @@ export const bgWhiteBright: EscapeCode.CodePair;
  *
  * This is a Map with the open codes as keys and close codes as values.
  */
-export const codes: Map<number, number>
-export const modifier: EscapeCode.Modifier
-export const color: EscapeCode.Color & EscapeCode.ColorType & { close: string }
-export const bgColor: EscapeCode.BackgroundColor & EscapeCode.ColorType & { close: string }
+export const codes: Map<number, number>;
+export const modifier: EscapeCode.Modifier;
+export const color: EscapeCode.Color & EscapeCode.ColorType & { close: string };
+export const bgColor: EscapeCode.BackgroundColor &
+    EscapeCode.ColorType & { close: string };

@@ -52,7 +52,10 @@ declare class Mocha {
      *
      * @see https://mochajs.org/api/mocha#reporter
      */
-    reporter(reporter?: string | Mocha.ReporterConstructor, reporterOptions?: any): this;
+    reporter(
+        reporter?: string | Mocha.ReporterConstructor,
+        reporterOptions?: any
+    ): this;
 
     /**
      * Set test UI to one of the built-in test interfaces.
@@ -298,7 +301,11 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.utils.html#.exports.lookupFiles
          */
-        function lookupFiles(filepath: string, extensions?: string[], recursive?: boolean): string[];
+        function lookupFiles(
+            filepath: string,
+            extensions?: string[],
+            recursive?: boolean
+        ): string[];
 
         /**
          * Generate an undefined error with a message warning the user.
@@ -861,32 +868,28 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.reporters.Dot.html
          */
-        class Dot extends Base {
-        }
+        class Dot extends Base {}
 
         /**
          * Initialize a new `Doc` reporter.
          *
          * @see https://mochajs.org/api/Mocha.reporters.Doc.html
          */
-        class Doc extends Base {
-        }
+        class Doc extends Base {}
 
         /**
          * Initialize a new `TAP` test reporter.
          *
          * @see https://mochajs.org/api/Mocha.reporters.TAP.html
          */
-        class TAP extends Base {
-        }
+        class TAP extends Base {}
 
         /**
          * Initialize a new `JSON` reporter
          *
          * @see https://mochajs.org/api/Mocha.reporters.JSON.html
          */
-        class JSON extends Base {
-        }
+        class JSON extends Base {}
 
         /**
          * Initialize a new `HTML` reporter.
@@ -923,24 +926,21 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.reporters.List.html
          */
-        class List extends Base {
-        }
+        class List extends Base {}
 
         /**
          * Initialize a new `Min` minimal test reporter (best used with --watch).
          *
          * @see https://mochajs.org/api/Mocha.reporters.Min.html
          */
-        class Min extends Base {
-        }
+        class Min extends Base {}
 
         /**
          * Initialize a new `Spec` test reporter.
          *
          * @see https://mochajs.org/api/Mocha.reporters.Spec.html
          */
-        class Spec extends Base {
-        }
+        class Spec extends Base {}
 
         /**
          * Initialize a new `NyanCat` test reporter.
@@ -1015,8 +1015,7 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.reporters.Markdown.html
          */
-        class Markdown extends Base {
-        }
+        class Markdown extends Base {}
 
         /**
          * Initialize a new `Progress` bar test reporter.
@@ -1048,16 +1047,14 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.reporters.Landing.html
          */
-        class Landing extends Base {
-        }
+        class Landing extends Base {}
 
         /**
          * Initialize a new `JSONStream` test reporter.
          *
          * @see https://mochajs.org/api/Mocha.reporters.JSONStream.html
          */
-        class JSONStream extends Base {
-        }
+        class JSONStream extends Base {}
 
         // value-only aliases
         const base: typeof Base;
@@ -1260,7 +1257,10 @@ declare namespace Mocha {
         addListener(event: "error", listener: (error: any) => void): this;
         removeListener(event: "error", listener: (error: any) => void): this;
         prependListener(event: "error", listener: (error: any) => void): this;
-        prependOnceListener(event: "error", listener: (error: any) => void): this;
+        prependOnceListener(
+            event: "error",
+            listener: (error: any) => void
+        ): this;
         emit(name: "error", error: any): boolean;
     }
     // #endregion Runnable "error" event
@@ -1270,8 +1270,14 @@ declare namespace Mocha {
         once(event: string, listener: (...args: any[]) => void): this;
         addListener(event: string, listener: (...args: any[]) => void): this;
         removeListener(event: string, listener: (...args: any[]) => void): this;
-        prependListener(event: string, listener: (...args: any[]) => void): this;
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         emit(name: string, ...args: any[]): boolean;
     }
     // #endregion Runnable untyped events
@@ -1494,21 +1500,31 @@ declare namespace Mocha {
          *
          * @see https://mochajs.org/api/Mocha.Runner.html#hooks
          */
-        protected hooks(name: string, suites: Suite[], fn: (err?: any, errSuite?: Suite) => void): void;
+        protected hooks(
+            name: string,
+            suites: Suite[],
+            fn: (err?: any, errSuite?: Suite) => void
+        ): void;
 
         /**
          * Run hooks from the top level down.
          *
          * @see https://mochajs.org/api/Mocha.Runner.html#hookUp
          */
-        protected hookUp(name: string, fn: (err?: any, errSuite?: Suite) => void): void;
+        protected hookUp(
+            name: string,
+            fn: (err?: any, errSuite?: Suite) => void
+        ): void;
 
         /**
          * Run hooks from the bottom up.
          *
          * @see https://mochajs.org/api/Mocha.Runner.html#hookDown
          */
-        protected hookDown(name: string, fn: (err?: any, errSuite?: Suite) => void): void;
+        protected hookDown(
+            name: string,
+            fn: (err?: any, errSuite?: Suite) => void
+        ): void;
 
         /**
          * Return an array of parent Suites from closest to furthest.
@@ -1543,10 +1559,22 @@ declare namespace Mocha {
     interface Runner {
         on(event: "waiting", listener: (rootSuite: Suite) => void): this;
         once(event: "waiting", listener: (rootSuite: Suite) => void): this;
-        addListener(event: "waiting", listener: (rootSuite: Suite) => void): this;
-        removeListener(event: "waiting", listener: (rootSuite: Suite) => void): this;
-        prependListener(event: "waiting", listener: (rootSuite: Suite) => void): this;
-        prependOnceListener(event: "waiting", listener: (rootSuite: Suite) => void): this;
+        addListener(
+            event: "waiting",
+            listener: (rootSuite: Suite) => void
+        ): this;
+        removeListener(
+            event: "waiting",
+            listener: (rootSuite: Suite) => void
+        ): this;
+        prependListener(
+            event: "waiting",
+            listener: (rootSuite: Suite) => void
+        ): this;
+        prependOnceListener(
+            event: "waiting",
+            listener: (rootSuite: Suite) => void
+        ): this;
         emit(name: "waiting", rootSuite: Suite): boolean;
     }
     // #endregion Runner "waiting" event
@@ -1579,7 +1607,10 @@ declare namespace Mocha {
         addListener(event: "suite", listener: (suite: Suite) => void): this;
         removeListener(event: "suite", listener: (suite: Suite) => void): this;
         prependListener(event: "suite", listener: (suite: Suite) => void): this;
-        prependOnceListener(event: "suite", listener: (suite: Suite) => void): this;
+        prependOnceListener(
+            event: "suite",
+            listener: (suite: Suite) => void
+        ): this;
         emit(name: "suite", suite: Suite): boolean;
     }
     // #endregion Runner "suite" event
@@ -1588,9 +1619,18 @@ declare namespace Mocha {
         on(event: "suite end", listener: (suite: Suite) => void): this;
         once(event: "suite end", listener: (suite: Suite) => void): this;
         addListener(event: "suite end", listener: (suite: Suite) => void): this;
-        removeListener(event: "suite end", listener: (suite: Suite) => void): this;
-        prependListener(event: "suite end", listener: (suite: Suite) => void): this;
-        prependOnceListener(event: "suite end", listener: (suite: Suite) => void): this;
+        removeListener(
+            event: "suite end",
+            listener: (suite: Suite) => void
+        ): this;
+        prependListener(
+            event: "suite end",
+            listener: (suite: Suite) => void
+        ): this;
+        prependOnceListener(
+            event: "suite end",
+            listener: (suite: Suite) => void
+        ): this;
         emit(name: "suite end", suite: Suite): boolean;
     }
     // #endregion Runner "suite end" event
@@ -1601,7 +1641,10 @@ declare namespace Mocha {
         addListener(event: "test", listener: (test: Test) => void): this;
         removeListener(event: "test", listener: (test: Test) => void): this;
         prependListener(event: "test", listener: (test: Test) => void): this;
-        prependOnceListener(event: "test", listener: (test: Test) => void): this;
+        prependOnceListener(
+            event: "test",
+            listener: (test: Test) => void
+        ): this;
         emit(name: "test", test: Test): boolean;
     }
     // #endregion Runner "test" event
@@ -1611,8 +1654,14 @@ declare namespace Mocha {
         once(event: "test end", listener: (test: Test) => void): this;
         addListener(event: "test end", listener: (test: Test) => void): this;
         removeListener(event: "test end", listener: (test: Test) => void): this;
-        prependListener(event: "test end", listener: (test: Test) => void): this;
-        prependOnceListener(event: "test end", listener: (test: Test) => void): this;
+        prependListener(
+            event: "test end",
+            listener: (test: Test) => void
+        ): this;
+        prependOnceListener(
+            event: "test end",
+            listener: (test: Test) => void
+        ): this;
         emit(name: "test end", test: Test): boolean;
     }
     // #endregion Runner "test end" event
@@ -1623,7 +1672,10 @@ declare namespace Mocha {
         addListener(event: "hook", listener: (hook: Hook) => void): this;
         removeListener(event: "hook", listener: (hook: Hook) => void): this;
         prependListener(event: "hook", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "hook", listener: (hook: Hook) => void): this;
+        prependOnceListener(
+            event: "hook",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "hook", hook: Hook): boolean;
     }
     // #endregion Runner "hook" event
@@ -1633,8 +1685,14 @@ declare namespace Mocha {
         once(event: "hook end", listener: (hook: Hook) => void): this;
         addListener(event: "hook end", listener: (hook: Hook) => void): this;
         removeListener(event: "hook end", listener: (hook: Hook) => void): this;
-        prependListener(event: "hook end", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "hook end", listener: (hook: Hook) => void): this;
+        prependListener(
+            event: "hook end",
+            listener: (hook: Hook) => void
+        ): this;
+        prependOnceListener(
+            event: "hook end",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "hook end", hook: Hook): boolean;
     }
     // #endregion Runner "hook end" event
@@ -1645,7 +1703,10 @@ declare namespace Mocha {
         addListener(event: "pass", listener: (test: Test) => void): this;
         removeListener(event: "pass", listener: (test: Test) => void): this;
         prependListener(event: "pass", listener: (test: Test) => void): this;
-        prependOnceListener(event: "pass", listener: (test: Test) => void): this;
+        prependOnceListener(
+            event: "pass",
+            listener: (test: Test) => void
+        ): this;
         emit(name: "pass", test: Test): boolean;
     }
     // #endregion Runner "pass" event
@@ -1653,10 +1714,22 @@ declare namespace Mocha {
     interface Runner extends NodeJS.EventEmitter {
         on(event: "fail", listener: (test: Test, err: any) => void): this;
         once(event: "fail", listener: (test: Test, err: any) => void): this;
-        addListener(event: "fail", listener: (test: Test, err: any) => void): this;
-        removeListener(event: "fail", listener: (test: Test, err: any) => void): this;
-        prependListener(event: "fail", listener: (test: Test, err: any) => void): this;
-        prependOnceListener(event: "fail", listener: (test: Test, err: any) => void): this;
+        addListener(
+            event: "fail",
+            listener: (test: Test, err: any) => void
+        ): this;
+        removeListener(
+            event: "fail",
+            listener: (test: Test, err: any) => void
+        ): this;
+        prependListener(
+            event: "fail",
+            listener: (test: Test, err: any) => void
+        ): this;
+        prependOnceListener(
+            event: "fail",
+            listener: (test: Test, err: any) => void
+        ): this;
         emit(name: "fail", test: Test, err: any): boolean;
     }
     // #endregion Runner "fail" event
@@ -1667,7 +1740,10 @@ declare namespace Mocha {
         addListener(event: "pending", listener: (test: Test) => void): this;
         removeListener(event: "pending", listener: (test: Test) => void): this;
         prependListener(event: "pending", listener: (test: Test) => void): this;
-        prependOnceListener(event: "pending", listener: (test: Test) => void): this;
+        prependOnceListener(
+            event: "pending",
+            listener: (test: Test) => void
+        ): this;
         emit(name: "pending", test: Test): boolean;
     }
     // #endregion Runner "pending" event
@@ -1677,8 +1753,14 @@ declare namespace Mocha {
         once(event: string, listener: (...args: any[]) => void): this;
         addListener(event: string, listener: (...args: any[]) => void): this;
         removeListener(event: string, listener: (...args: any[]) => void): this;
-        prependListener(event: string, listener: (...args: any[]) => void): this;
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         emit(name: string, ...args: any[]): boolean;
     }
     // #endregion Runner untyped events
@@ -1989,9 +2071,18 @@ declare namespace Mocha {
         on(event: "beforeAll", listener: (hook: Hook) => void): this;
         once(event: "beforeAll", listener: (hook: Hook) => void): this;
         addListener(event: "beforeAll", listener: (hook: Hook) => void): this;
-        removeListener(event: "beforeAll", listener: (hook: Hook) => void): this;
-        prependListener(event: "beforeAll", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "beforeAll", listener: (hook: Hook) => void): this;
+        removeListener(
+            event: "beforeAll",
+            listener: (hook: Hook) => void
+        ): this;
+        prependListener(
+            event: "beforeAll",
+            listener: (hook: Hook) => void
+        ): this;
+        prependOnceListener(
+            event: "beforeAll",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "beforeAll", hook: Hook): boolean;
     }
     // #endregion Suite "beforeAll" event
@@ -2001,8 +2092,14 @@ declare namespace Mocha {
         once(event: "afterAll", listener: (hook: Hook) => void): this;
         addListener(event: "afterAll", listener: (hook: Hook) => void): this;
         removeListener(event: "afterAll", listener: (hook: Hook) => void): this;
-        prependListener(event: "afterAll", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "afterAll", listener: (hook: Hook) => void): this;
+        prependListener(
+            event: "afterAll",
+            listener: (hook: Hook) => void
+        ): this;
+        prependOnceListener(
+            event: "afterAll",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "afterAll", hook: Hook): boolean;
     }
     // #endregion Suite "afterAll" event
@@ -2011,9 +2108,18 @@ declare namespace Mocha {
         on(event: "beforeEach", listener: (hook: Hook) => void): this;
         once(event: "beforeEach", listener: (hook: Hook) => void): this;
         addListener(event: "beforeEach", listener: (hook: Hook) => void): this;
-        removeListener(event: "beforeEach", listener: (hook: Hook) => void): this;
-        prependListener(event: "beforeEach", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "beforeEach", listener: (hook: Hook) => void): this;
+        removeListener(
+            event: "beforeEach",
+            listener: (hook: Hook) => void
+        ): this;
+        prependListener(
+            event: "beforeEach",
+            listener: (hook: Hook) => void
+        ): this;
+        prependOnceListener(
+            event: "beforeEach",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "beforeEach", hook: Hook): boolean;
     }
     // #endregion Suite "beforeEach" event
@@ -2022,9 +2128,18 @@ declare namespace Mocha {
         on(event: "afterEach", listener: (hook: Hook) => void): this;
         once(event: "afterEach", listener: (hook: Hook) => void): this;
         addListener(event: "afterEach", listener: (hook: Hook) => void): this;
-        removeListener(event: "afterEach", listener: (hook: Hook) => void): this;
-        prependListener(event: "afterEach", listener: (hook: Hook) => void): this;
-        prependOnceListener(event: "afterEach", listener: (hook: Hook) => void): this;
+        removeListener(
+            event: "afterEach",
+            listener: (hook: Hook) => void
+        ): this;
+        prependListener(
+            event: "afterEach",
+            listener: (hook: Hook) => void
+        ): this;
+        prependOnceListener(
+            event: "afterEach",
+            listener: (hook: Hook) => void
+        ): this;
         emit(name: "afterEach", hook: Hook): boolean;
     }
     // #endregion Suite "afterEach" event
@@ -2035,7 +2150,10 @@ declare namespace Mocha {
         addListener(event: "suite", listener: (suite: Suite) => void): this;
         removeListener(event: "suite", listener: (suite: Suite) => void): this;
         prependListener(event: "suite", listener: (suite: Suite) => void): this;
-        prependOnceListener(event: "suite", listener: (suite: Suite) => void): this;
+        prependOnceListener(
+            event: "suite",
+            listener: (suite: Suite) => void
+        ): this;
         emit(name: "suite", suite: Suite): boolean;
     }
     // #endregion Suite "suite" event
@@ -2046,7 +2164,10 @@ declare namespace Mocha {
         addListener(event: "test", listener: (test: Test) => void): this;
         removeListener(event: "test", listener: (test: Test) => void): this;
         prependListener(event: "test", listener: (test: Test) => void): this;
-        prependOnceListener(event: "test", listener: (test: Test) => void): this;
+        prependOnceListener(
+            event: "test",
+            listener: (test: Test) => void
+        ): this;
         emit(name: "test", test: Test): boolean;
     }
     // #endregion Suite "test" event
@@ -2063,35 +2184,147 @@ declare namespace Mocha {
     // #endregion Suite "run" event
     // #region Suite "pre-require" event
     interface Suite extends NodeJS.EventEmitter {
-        on(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        once(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        addListener(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        removeListener(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        prependListener(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        prependOnceListener(event: "pre-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        emit(name: "pre-require", context: MochaGlobals, file: string, mocha: Mocha): boolean;
+        on(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        once(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        addListener(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        removeListener(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        prependListener(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        prependOnceListener(
+            event: "pre-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        emit(
+            name: "pre-require",
+            context: MochaGlobals,
+            file: string,
+            mocha: Mocha
+        ): boolean;
     }
     // #endregion Suite "pre-require" event
     // #region Suite "require" event
     interface Suite extends NodeJS.EventEmitter {
-        on(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
-        once(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
-        addListener(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
-        removeListener(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
-        prependListener(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
-        prependOnceListener(event: "require", listener: (module: any, file: string, mocha: Mocha) => void): this;
+        on(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
+        once(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
+        addListener(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
+        removeListener(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
+        prependListener(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
+        prependOnceListener(
+            event: "require",
+            listener: (module: any, file: string, mocha: Mocha) => void
+        ): this;
         emit(name: "require", module: any, file: string, mocha: Mocha): boolean;
     }
     // #endregion Suite "require" event
     // #region Suite "post-require" event
     interface Suite extends NodeJS.EventEmitter {
-        on(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        once(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        addListener(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        removeListener(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        prependListener(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        prependOnceListener(event: "post-require", listener: (context: MochaGlobals, file: string, mocha: Mocha) => void): this;
-        emit(name: "post-require", context: MochaGlobals, file: string, mocha: Mocha): boolean;
+        on(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        once(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        addListener(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        removeListener(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        prependListener(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        prependOnceListener(
+            event: "post-require",
+            listener: (
+                context: MochaGlobals,
+                file: string,
+                mocha: Mocha
+            ) => void
+        ): this;
+        emit(
+            name: "post-require",
+            context: MochaGlobals,
+            file: string,
+            mocha: Mocha
+        ): boolean;
     }
     // #endregion Suite "post-require" event
     // #region Suite untyped events
@@ -2100,8 +2333,14 @@ declare namespace Mocha {
         once(event: string, listener: (...args: any[]) => void): this;
         addListener(event: string, listener: (...args: any[]) => void): this;
         removeListener(event: string, listener: (...args: any[]) => void): this;
-        prependListener(event: string, listener: (...args: any[]) => void): this;
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         emit(name: string, ...args: any[]): boolean;
     }
     // #endregion Runner untyped events
@@ -2161,7 +2400,10 @@ declare namespace Mocha {
     type TestInterface = (suite: Suite) => void;
 
     interface ReporterConstructor {
-        new (runner: Runner, options: { reporterOptions?: any; }): reporters.Base;
+        new (
+            runner: Runner,
+            options: { reporterOptions?: any }
+        ): reporters.Base;
     }
 
     type Done = (err?: any) => void;
@@ -2548,8 +2790,8 @@ declare namespace Mocha {
         /** @deprecated `.parent` has type `Mocha.Suite | undefined` in `Mocha.Test`. */
         parent?: ISuite;
         pending: boolean;
-        state?: 'failed' | 'passed';
-        type: 'test';
+        state?: "failed" | "passed";
+        type: "test";
         fullTitle(): string;
     }
 
@@ -2559,7 +2801,7 @@ declare namespace Mocha {
         ctx?: IContext;
         /** @deprecated `.parent` has type `Mocha.Suite` in `Mocha.Runnable`. */
         parent?: ISuite;
-        type: 'hook';
+        type: "hook";
         /** @deprecated `.error()` has additional overloads in `Mocha.Hook`. */
         error(err: Error): void;
     }
@@ -2599,24 +2841,51 @@ declare namespace Mocha {
     /** @deprecated use `Mocha.SuiteFunction` instead. */
     interface IContextDefinition {
         /** @deprecated use `Mocha.SuiteFunction` instead. */
-        (description: string, callback: (this: ISuiteCallbackContext) => void): ISuite;
+        (
+            description: string,
+            callback: (this: ISuiteCallbackContext) => void
+        ): ISuite;
         /** @deprecated use `Mocha.SuiteFunction` instead. */
-        only(description: string, callback: (this: ISuiteCallbackContext) => void): ISuite;
+        only(
+            description: string,
+            callback: (this: ISuiteCallbackContext) => void
+        ): ISuite;
         /** @deprecated use `Mocha.SuiteFunction` instead. */
-        skip(description: string, callback: (this: ISuiteCallbackContext) => void): void;
+        skip(
+            description: string,
+            callback: (this: ISuiteCallbackContext) => void
+        ): void;
     }
 
     /** @deprecated use `Mocha.TestFunction` instead. */
     interface ITestDefinition {
         /** @deprecated use `Mocha.TestFunction` instead. */
         /** @deprecated `Mocha.TestFunction` does not allow mixing `done` with a return type of `PromiseLike<any>`. */
-        (expectation: string, callback?: (this: ITestCallbackContext, done: MochaDone) => PromiseLike<any> | void): ITest;
+        (
+            expectation: string,
+            callback?: (
+                this: ITestCallbackContext,
+                done: MochaDone
+            ) => PromiseLike<any> | void
+        ): ITest;
         /** @deprecated use `Mocha.TestFunction` instead. */
         /** @deprecated `Mocha.TestFunction#only` does not allow mixing `done` with a return type of `PromiseLike<any>`. */
-        only(expectation: string, callback?: (this: ITestCallbackContext, done: MochaDone) => PromiseLike<any> | void): ITest;
+        only(
+            expectation: string,
+            callback?: (
+                this: ITestCallbackContext,
+                done: MochaDone
+            ) => PromiseLike<any> | void
+        ): ITest;
         /** @deprecated use `Mocha.TestFunction` instead. */
         /** @deprecated `Mocha.TestFunction#skip` does not allow mixing `done` with a return type of `PromiseLike<any>`. */
-        skip(expectation: string, callback?: (this: ITestCallbackContext, done: MochaDone) => PromiseLike<any> | void): void;
+        skip(
+            expectation: string,
+            callback?: (
+                this: ITestCallbackContext,
+                done: MochaDone
+            ) => PromiseLike<any> | void
+        ): void;
     }
 
     // #endregion
@@ -2784,22 +3053,22 @@ declare var xspecify: Mocha.PendingTestFunction;
 // Required by Mocha.reporters.HTML.
 // NOTE: Mocha *must not* have a direct dependency on DOM types.
 // tslint:disable-next-line no-empty-interface
-interface HTMLLIElement { }
+interface HTMLLIElement {}
 
 // Augments the DOM `Window` object when lib.dom.d.ts is loaded.
 // tslint:disable-next-line no-empty-interface
-interface Window extends Mocha.MochaGlobals { }
+interface Window extends Mocha.MochaGlobals {}
 
 declare namespace NodeJS {
     // Forward declaration for `NodeJS.EventEmitter` from node.d.ts.
     // Required by Mocha.Runnable, Mocha.Runner, and Mocha.Suite.
     // NOTE: Mocha *must not* have a direct dependency on @types/node.
     // tslint:disable-next-line no-empty-interface
-    interface EventEmitter { }
+    interface EventEmitter {}
 
     // Augments NodeJS's `global` object when node.d.ts is loaded
     // tslint:disable-next-line no-empty-interface
-    interface Global extends Mocha.MochaGlobals { }
+    interface Global extends Mocha.MochaGlobals {}
 }
 
 // #endregion Reporter augmentations
@@ -2878,7 +3147,11 @@ declare module "mocha/lib/ms" {
 declare module "mocha/lib/interfaces/common" {
     export = common;
 
-    function common(suites: Mocha.Suite[], context: Mocha.MochaGlobals, mocha: Mocha): common.CommonFunctions;
+    function common(
+        suites: Mocha.Suite[],
+        context: Mocha.MochaGlobals,
+        mocha: Mocha
+    ): common.CommonFunctions;
 
     namespace common {
         interface CommonFunctions {

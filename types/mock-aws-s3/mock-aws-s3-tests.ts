@@ -11,6 +11,9 @@ s3.putObject(
         Body: '{"is dog":false,"name":"otter","stringified object?":true}'
     },
     (err: MockAWS.AWSError, data: MockAWS.S3.Types.PutObjectOutput) => {
-        s3.listObjects({ Bucket: 'example', Prefix: "sea" }, (err: any, data: any) => {});
+        s3.listObjects(
+            { Bucket: "example", Prefix: "sea" },
+            (err: any, data: any) => {}
+        );
     }
 );

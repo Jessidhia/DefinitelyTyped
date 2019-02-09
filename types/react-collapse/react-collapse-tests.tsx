@@ -1,17 +1,15 @@
-import * as React from 'react';
-import { Collapse, UnmountClosed } from 'react-collapse';
+import * as React from "react";
+import { Collapse, UnmountClosed } from "react-collapse";
 
 class TestRequired extends React.Component {
     render() {
         return (
             <div>
-                <Collapse
-                    isOpened>
-                    <div/>
+                <Collapse isOpened>
+                    <div />
                 </Collapse>
-                <UnmountClosed
-                    isOpened>
-                    <div/>
+                <UnmountClosed isOpened>
+                    <div />
                 </UnmountClosed>
             </div>
         );
@@ -23,20 +21,24 @@ class TestAll extends React.Component {
         const springConfig = {
             stiffness: 1,
             damping: 1,
-            precision: 1,
+            precision: 1
         };
 
         const theme = {
-            collapse: 'collapse-class',
-            content: 'content-class'
+            collapse: "collapse-class",
+            content: "content-class"
         };
 
         const style: React.CSSProperties = {
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 16
         };
 
-        const onRender = (object: { current: number; from: number; to: number; }) => {};
+        const onRender = (object: {
+            current: number;
+            from: number;
+            to: number;
+        }) => {};
         const onRest = () => {};
         const onMeasure = (object: { width: number; height: number }) => {};
 
@@ -44,29 +46,31 @@ class TestAll extends React.Component {
             <div>
                 <Collapse
                     isOpened
-                    springConfig={ springConfig }
+                    springConfig={springConfig}
                     forceInitialAnimation
                     hasNestedCollapse
-                    fixedHeight={ 0 }
-                    theme={ theme }
-                    style={ style }
-                    onRender={ onRender }
-                    onRest={ onRest }
-                    onMeasure={ onMeasure}>
-                    <div/>
+                    fixedHeight={0}
+                    theme={theme}
+                    style={style}
+                    onRender={onRender}
+                    onRest={onRest}
+                    onMeasure={onMeasure}
+                >
+                    <div />
                 </Collapse>
                 <UnmountClosed
                     isOpened
-                    springConfig={ springConfig }
+                    springConfig={springConfig}
                     forceInitialAnimation
                     hasNestedCollapse
-                    fixedHeight={ 0 }
-                    theme={ theme }
-                    style={ style }
-                    onRender={ onRender }
-                    onRest={ onRest }
-                    onMeasure={ onMeasure}>
-                    <div/>
+                    fixedHeight={0}
+                    theme={theme}
+                    style={style}
+                    onRender={onRender}
+                    onRest={onRest}
+                    onMeasure={onMeasure}
+                >
+                    <div />
                 </UnmountClosed>
             </div>
         );

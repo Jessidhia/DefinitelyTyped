@@ -101,12 +101,26 @@ declare namespace HubSpotPaceInterfaces {
         track(fn: () => void, ...args: any[]): void;
         ignore(fn: () => void, ...args: any[]): void;
 
-        on(event: string, handler: (...args: any[]) => void, context?: any): void;
+        on(
+            event: string,
+            handler: (...args: any[]) => void,
+            context?: any
+        ): void;
         off(event: string, handler?: (...args: any[]) => void): void;
-        once(event: string, handler: (...args: any[]) => void, context?: any): void;
+        once(
+            event: string,
+            handler: (...args: any[]) => void,
+            context?: any
+        ): void;
     }
 
-    enum PaceEvent { start, stop, restart, done, hide }
+    enum PaceEvent {
+        start,
+        stop,
+        restart,
+        done,
+        hide
+    }
 }
 
 declare var pace: HubSpotPaceInterfaces.Pace;

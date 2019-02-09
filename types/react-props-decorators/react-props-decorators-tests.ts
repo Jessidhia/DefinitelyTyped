@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import { propTypes, defaultProps } from 'react-props-decorators';
+import * as React from "react";
+import * as PropTypes from "prop-types";
+import { propTypes, defaultProps } from "react-props-decorators";
 
 @propTypes({
     foo: PropTypes.string,

@@ -6,9 +6,9 @@
 
 /// <reference types="node" />
 
-import http = require('http');
-import Logger = require('bunyan');
-import url = require('url');
+import http = require("http");
+import Logger = require("bunyan");
+import url = require("url");
 
 export interface addressInterface {
     port: number;
@@ -316,41 +316,107 @@ export interface Router {
      * @param    res      the response object
      * @param    callback operation callback
      */
-    find(req: Request, res: Response, callback: (err: Error, route: Route) => void): void;
+    find(
+        req: Request,
+        res: Response,
+        callback: (err: Error, route: Route) => void
+    ): void;
 }
 
 export interface Server extends http.Server {
-    use(handler: RequestHandler | RequestHandler[], ...handlers: RequestHandler[]): Server;
+    use(
+        handler: RequestHandler | RequestHandler[],
+        ...handlers: RequestHandler[]
+    ): Server;
     // tslint:disable-next-line unified-signatures
-    use(handler: RequestHandler | RequestHandler[], ...handlers: RequestHandler[][]): Server;
+    use(
+        handler: RequestHandler | RequestHandler[],
+        ...handlers: RequestHandler[][]
+    ): Server;
 
-    post(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    post(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    post(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    post(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    patch(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    patch(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    patch(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    patch(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    put(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    put(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    put(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    put(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    del(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    del(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    del(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    del(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    get(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    get(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    get(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    get(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    head(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    head(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    head(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    head(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
-    opts(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[]): string;
+    opts(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[]
+    ): string;
     // tslint:disable-next-line unified-signatures
-    opts(route: any, routeCallBack: RequestHandler | RequestHandler[], ...routeCallBacks: RequestHandler[][]): string;
+    opts(
+        route: any,
+        routeCallBack: RequestHandler | RequestHandler[],
+        ...routeCallBacks: RequestHandler[][]
+    ): string;
 
     name: string;
     version: string;
@@ -400,22 +466,61 @@ export interface ClientOptions {
 }
 
 export interface Client {
-    get(opts: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request, res: Response, obj: any) => any): any;
-    head(opts: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request, res: Response) => any): any;
-    post(opts: string | { path?: string; [name: string]: any }, object: any, callback?: (err: any, req: Request, res: Response, obj: any) => any): any;
-    put(opts: string | { path?: string; [name: string]: any }, object: any, callback?: (err: any, req: Request, res: Response, obj: any) => any): any;
-    patch(opts: string | { path?: string; [name: string]: any }, object: any, callback?: (err: any, req: Request, res: Response, obj: any) => any): any;
-    del(opts: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request, res: Response) => any): any;
+    get(
+        opts: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request, res: Response, obj: any) => any
+    ): any;
+    head(
+        opts: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request, res: Response) => any
+    ): any;
+    post(
+        opts: string | { path?: string; [name: string]: any },
+        object: any,
+        callback?: (err: any, req: Request, res: Response, obj: any) => any
+    ): any;
+    put(
+        opts: string | { path?: string; [name: string]: any },
+        object: any,
+        callback?: (err: any, req: Request, res: Response, obj: any) => any
+    ): any;
+    patch(
+        opts: string | { path?: string; [name: string]: any },
+        object: any,
+        callback?: (err: any, req: Request, res: Response, obj: any) => any
+    ): any;
+    del(
+        opts: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request, res: Response) => any
+    ): any;
     basicAuth(username: string, password: string): any;
 }
 
 export interface HttpClient {
-    get(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
-    head(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
-    post(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
-    put(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
-    patch(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
-    del(opts?: string | { path?: string; [name: string]: any }, callback?: (err: any, req: Request) => void): any;
+    get(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
+    head(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
+    post(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
+    put(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
+    patch(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
+    del(
+        opts?: string | { path?: string; [name: string]: any },
+        callback?: (err: any, req: Request) => void
+    ): any;
     basicAuth(username: string, password: string): any;
 }
 
@@ -443,7 +548,9 @@ export function createJsonClient(options?: ClientOptions): Client;
 export function createStringClient(options?: ClientOptions): Client;
 export function createClient(options?: ClientOptions): HttpClient;
 
-export class HttpError { constructor(cause: any, message?: any); }
+export class HttpError {
+    constructor(cause: any, message?: any);
+}
 
 export class DefiniteHttpError {
     constructor(message?: any);
@@ -452,60 +559,60 @@ export class DefiniteHttpError {
     constructor(cause: any, message?: any);
 }
 
-export class BadRequestError extends DefiniteHttpError { }
-export class UnauthorizedError extends DefiniteHttpError { }
-export class PaymentRequiredError extends DefiniteHttpError { }
-export class ForbiddenError extends DefiniteHttpError { }
-export class NotFoundError extends DefiniteHttpError { }
-export class MethodNotAllowedError extends DefiniteHttpError { }
-export class NotAcceptableError extends DefiniteHttpError { }
-export class ProxyAuthenticationRequiredError extends DefiniteHttpError { }
-export class RequestTimeoutError extends DefiniteHttpError { }
-export class ConflictError extends DefiniteHttpError { }
-export class GoneError extends DefiniteHttpError { }
-export class LengthRequiredError extends DefiniteHttpError { }
-export class RequestEntityTooLargeError extends DefiniteHttpError { }
-export class RequesturiTooLargeError extends DefiniteHttpError { }
-export class UnsupportedMediaTypeError extends DefiniteHttpError { }
-export class RequestedRangeNotSatisfiableError extends DefiniteHttpError { }
-export class ExpectationFailedError extends DefiniteHttpError { }
-export class ImATeapotError extends DefiniteHttpError { }
-export class UnprocessableEntityError extends DefiniteHttpError { }
-export class LockedError extends DefiniteHttpError { }
-export class FailedDependencyError extends DefiniteHttpError { }
-export class UnorderedCollectionError extends DefiniteHttpError { }
-export class UpgradeRequiredError extends DefiniteHttpError { }
-export class PreconditionRequiredError extends DefiniteHttpError { }
-export class TooManyRequestsError extends DefiniteHttpError { }
-export class RequestHeaderFieldsTooLargeError extends DefiniteHttpError { }
-export class InternalServerError extends DefiniteHttpError { }
-export class NotImplementedError extends DefiniteHttpError { }
-export class BadGatewayError extends DefiniteHttpError { }
-export class ServiceUnavailableError extends DefiniteHttpError { }
-export class GatewayTimeoutError extends DefiniteHttpError { }
-export class HttpVersionNotSupportedError extends DefiniteHttpError { }
-export class VariantAlsoNegotiatesError extends DefiniteHttpError { }
-export class InsufficientStorageError extends DefiniteHttpError { }
-export class BandwidthLimitExceededError extends DefiniteHttpError { }
-export class NotExtendedError extends DefiniteHttpError { }
-export class NetworkAuthenticationRequiredError extends DefiniteHttpError { }
-export class RestError extends DefiniteHttpError { }
+export class BadRequestError extends DefiniteHttpError {}
+export class UnauthorizedError extends DefiniteHttpError {}
+export class PaymentRequiredError extends DefiniteHttpError {}
+export class ForbiddenError extends DefiniteHttpError {}
+export class NotFoundError extends DefiniteHttpError {}
+export class MethodNotAllowedError extends DefiniteHttpError {}
+export class NotAcceptableError extends DefiniteHttpError {}
+export class ProxyAuthenticationRequiredError extends DefiniteHttpError {}
+export class RequestTimeoutError extends DefiniteHttpError {}
+export class ConflictError extends DefiniteHttpError {}
+export class GoneError extends DefiniteHttpError {}
+export class LengthRequiredError extends DefiniteHttpError {}
+export class RequestEntityTooLargeError extends DefiniteHttpError {}
+export class RequesturiTooLargeError extends DefiniteHttpError {}
+export class UnsupportedMediaTypeError extends DefiniteHttpError {}
+export class RequestedRangeNotSatisfiableError extends DefiniteHttpError {}
+export class ExpectationFailedError extends DefiniteHttpError {}
+export class ImATeapotError extends DefiniteHttpError {}
+export class UnprocessableEntityError extends DefiniteHttpError {}
+export class LockedError extends DefiniteHttpError {}
+export class FailedDependencyError extends DefiniteHttpError {}
+export class UnorderedCollectionError extends DefiniteHttpError {}
+export class UpgradeRequiredError extends DefiniteHttpError {}
+export class PreconditionRequiredError extends DefiniteHttpError {}
+export class TooManyRequestsError extends DefiniteHttpError {}
+export class RequestHeaderFieldsTooLargeError extends DefiniteHttpError {}
+export class InternalServerError extends DefiniteHttpError {}
+export class NotImplementedError extends DefiniteHttpError {}
+export class BadGatewayError extends DefiniteHttpError {}
+export class ServiceUnavailableError extends DefiniteHttpError {}
+export class GatewayTimeoutError extends DefiniteHttpError {}
+export class HttpVersionNotSupportedError extends DefiniteHttpError {}
+export class VariantAlsoNegotiatesError extends DefiniteHttpError {}
+export class InsufficientStorageError extends DefiniteHttpError {}
+export class BandwidthLimitExceededError extends DefiniteHttpError {}
+export class NotExtendedError extends DefiniteHttpError {}
+export class NetworkAuthenticationRequiredError extends DefiniteHttpError {}
+export class RestError extends DefiniteHttpError {}
 
-export class PreconditionFailedError extends RestError { }
-export class BadDigestError extends RestError { }
-export class BadMethodError extends RestError { }
-export class InternalError extends RestError { }
-export class InvalidArgumentError extends RestError { }
-export class InvalidContentError extends RestError { }
-export class InvalidCredentialsError extends RestError { }
-export class InvalidHeaderError extends RestError { }
-export class InvalidVersionError extends RestError { }
-export class MissingParameterError extends RestError { }
-export class NotAuthorizedError extends RestError { }
-export class RequestExpiredError extends RestError { }
-export class RequestThrottledError extends RestError { }
-export class ResourceNotFoundError extends RestError { }
-export class WrongAcceptError extends RestError { }
+export class PreconditionFailedError extends RestError {}
+export class BadDigestError extends RestError {}
+export class BadMethodError extends RestError {}
+export class InternalError extends RestError {}
+export class InvalidArgumentError extends RestError {}
+export class InvalidContentError extends RestError {}
+export class InvalidCredentialsError extends RestError {}
+export class InvalidHeaderError extends RestError {}
+export class InvalidVersionError extends RestError {}
+export class MissingParameterError extends RestError {}
+export class NotAuthorizedError extends RestError {}
+export class RequestExpiredError extends RestError {}
+export class RequestThrottledError extends RestError {}
+export class ResourceNotFoundError extends RestError {}
+export class WrongAcceptError extends RestError {}
 
 export function acceptParser(parser: any): RequestHandler;
 export function authorizationParser(): RequestHandler;
@@ -519,7 +626,9 @@ export function requestLogger(options?: any): RequestHandler;
 export function serveStatic(options?: any): RequestHandler;
 export function throttle(options?: ThrottleOptions): RequestHandler;
 export function conditionalRequest(): RequestHandler[];
-export function auditLogger(options: { log: any }): (req: Request, res: Response, route: Route, err: any) => void;
+export function auditLogger(options: {
+    log: any;
+}): (req: Request, res: Response, route: Route, err: any) => void;
 export function fullResponse(): RequestHandler;
 // tslint:disable-next-line no-var
 export var defaultResponseHeaders: any;

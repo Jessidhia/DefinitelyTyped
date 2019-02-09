@@ -18,12 +18,15 @@ declare module Accounts {
 
     function userId(): string;
 
-    function createUser(options: {
-        username?: string;
-        email?: string;
-        password?: string;
-        profile?: Object;
-    }, callback?: Function): string;
+    function createUser(
+        options: {
+            username?: string;
+            email?: string;
+            password?: string;
+            profile?: Object;
+        },
+        callback?: Function
+    ): string;
 
     function config(options: {
         sendVerificationEmail?: boolean;
@@ -36,12 +39,16 @@ declare module Accounts {
         ambiguousErrorMessages?: boolean;
     }): void;
 
-    function onLogin(func: Function): {
-        stop: () => void
+    function onLogin(
+        func: Function
+    ): {
+        stop: () => void;
     };
 
-    function onLoginFailure(func: Function): {
-        stop: () => void
+    function onLoginFailure(
+        func: Function
+    ): {
+        stop: () => void;
     };
 
     function loginServicesConfigured(): boolean;
@@ -50,13 +57,24 @@ declare module Accounts {
 }
 
 declare module Accounts {
-    function changePassword(oldPassword: string, newPassword: string, callback?: Function): void;
+    function changePassword(
+        oldPassword: string,
+        newPassword: string,
+        callback?: Function
+    ): void;
 
-    function forgotPassword(options: {
-        email?: string;
-    }, callback?: Function): void;
+    function forgotPassword(
+        options: {
+            email?: string;
+        },
+        callback?: Function
+    ): void;
 
-    function resetPassword(token: string, newPassword: string, callback?: Function): void;
+    function resetPassword(
+        token: string,
+        newPassword: string,
+        callback?: Function
+    ): void;
 
     function verifyEmail(token: string, callback?: Function): void;
 
@@ -98,7 +116,11 @@ declare interface EmailTemplates {
 declare module Accounts {
     var emailTemplates: EmailTemplates;
 
-    function addEmail(userId: string, newEmail: string, verified?: boolean): void;
+    function addEmail(
+        userId: string,
+        newEmail: string,
+        verified?: boolean
+    ): void;
 
     function removeEmail(userId: string, email: string): void;
 
@@ -116,17 +138,25 @@ declare module Accounts {
 
     function setUsername(userId: string, newUsername: string): void;
 
-    function setPassword(userId: string, newPassword: string, options?: {
-        logout?: Object;
-    }): void;
+    function setPassword(
+        userId: string,
+        newPassword: string,
+        options?: {
+            logout?: Object;
+        }
+    ): void;
 
     function validateNewUser(func: Function): boolean;
 
-    function validateLoginAttempt(func: Function): {
-        stop: () => void
+    function validateLoginAttempt(
+        func: Function
+    ): {
+        stop: () => void;
     };
 
-    function _hashPassword(password: string): { digest: string; algorithm: string; };
+    function _hashPassword(
+        password: string
+    ): { digest: string; algorithm: string };
 
     interface IValidateLoginAttemptCbOpts {
         type: string;
@@ -144,5 +174,7 @@ declare module Accounts {
 }
 
 declare module Accounts {
-    function onLogout(func: (user: Meteor.User, connection: Meteor.Connection) => void): void;
+    function onLogout(
+        func: (user: Meteor.User, connection: Meteor.Connection) => void
+    ): void;
 }

@@ -1,5 +1,5 @@
-import styles from './main.sass';
-import * as classNames from 'classnames';
+import styles from "./main.sass";
+import * as classNames from "classnames";
 
 class App {
     private readonly theme: string;
@@ -12,9 +12,11 @@ class App {
         const tpl = `<div style="${styles.toString()}"></div>`;
         // or as scoped unique classes, also latest typescript versions allow prop access using dot like styles.darkUI instead of styles['darkUI']
         return `
-            <div class="${classNames((this.theme === 'dark') ?
-                styles.darkUI :
-                styles.lightUI.toString())}">
+            <div class="${classNames(
+                this.theme === "dark"
+                    ? styles.darkUI
+                    : styles.lightUI.toString()
+            )}">
             </div>
         `;
     }

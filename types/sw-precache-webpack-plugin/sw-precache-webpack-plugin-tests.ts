@@ -1,5 +1,5 @@
-import { Configuration } from 'webpack';
-import * as SwPrecacheWebpackPlugin from 'sw-precache-webpack-plugin';
+import { Configuration } from "webpack";
+import * as SwPrecacheWebpackPlugin from "sw-precache-webpack-plugin";
 
 let config: Configuration = {
     plugins: [new SwPrecacheWebpackPlugin()]
@@ -8,7 +8,7 @@ let config: Configuration = {
 config = {
     plugins: [
         new SwPrecacheWebpackPlugin({
-            filename: ''
+            filename: ""
         })
     ]
 };
@@ -16,7 +16,7 @@ config = {
 config = {
     plugins: [
         new SwPrecacheWebpackPlugin({
-            cacheId: ''
+            cacheId: ""
         })
     ]
 };
@@ -26,7 +26,7 @@ config = {
         new SwPrecacheWebpackPlugin({
             importScripts: [
                 {
-                    chunkName: ''
+                    chunkName: ""
                 }
             ]
         })

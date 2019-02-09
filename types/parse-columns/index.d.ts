@@ -21,6 +21,11 @@ declare namespace parseColumns {
     }
 
     interface Options<T> extends BaseOptions {
-        transform: (element: string, header: string, columnIndex: number, rowIndex: number) => T;
+        transform: (
+            element: string,
+            header: string,
+            columnIndex: number,
+            rowIndex: number
+        ) => T;
     }
 }

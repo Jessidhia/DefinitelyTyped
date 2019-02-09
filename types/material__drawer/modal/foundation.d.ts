@@ -21,22 +21,22 @@
  * THE SOFTWARE.
  */
 
-import { MDCDrawerAdapter } from '../adapter';
-import { MDCDismissibleDrawerFoundation } from '../dismissible/foundation';
+import { MDCDrawerAdapter } from "../adapter";
+import { MDCDismissibleDrawerFoundation } from "../dismissible/foundation";
 
 export class MDCModalDrawerFoundation extends MDCDismissibleDrawerFoundation {
-  /**
-   * Called when drawer finishes open animation.
-   */
-  opened(): void;
+    /**
+     * Called when drawer finishes open animation.
+     */
+    opened(): void;
 
-  /**
-   * Called when drawer finishes close animation.
-   */
-  closed(): void;
+    /**
+     * Called when drawer finishes close animation.
+     */
+    closed(): void;
 
-  /**
-   * Handles click event on scrim.
-   */
-  handleScrimClick(): void;
+    /**
+     * Handles click event on scrim.
+     */
+    handleScrimClick(): void;
 }

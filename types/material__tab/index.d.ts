@@ -20,9 +20,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCTabFoundation from './foundation';
-import MDCTabAdapter from './adapter';
+import MDCComponent from "material__base/component";
+import MDCTabFoundation from "./foundation";
+import MDCTabAdapter from "./adapter";
 
 export { MDCTabFoundation, MDCTabAdapter };
 

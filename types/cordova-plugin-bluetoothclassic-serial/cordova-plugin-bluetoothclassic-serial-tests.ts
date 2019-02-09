@@ -1,21 +1,9 @@
 let BluetoothClassicSerial: BluetoothClassicSerial =
-  window.BluetoothClassicSerial;
+    window.BluetoothClassicSerial;
 
-BluetoothClassicSerial.connect(
-  "",
-  [""]
-);
-BluetoothClassicSerial.connect(
-  "",
-  [""],
-  results => {}
-);
-BluetoothClassicSerial.connect(
-  "",
-  [""],
-  results => {},
-  error => {}
-);
+BluetoothClassicSerial.connect("", [""]);
+BluetoothClassicSerial.connect("", [""], results => {});
+BluetoothClassicSerial.connect("", [""], results => {}, error => {});
 BluetoothClassicSerial.connectInsecure("", [""]);
 BluetoothClassicSerial.connectInsecure("", [""], results => {});
 BluetoothClassicSerial.connectInsecure("", [""], results => {}, error => {});

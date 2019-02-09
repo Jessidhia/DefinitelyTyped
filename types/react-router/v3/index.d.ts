@@ -55,12 +55,21 @@ export { default as Route } from "react-router/lib/Route";
 export { createRoutes } from "react-router/lib/RouteUtils";
 export { default as RouterContext } from "react-router/lib/RouterContext";
 export { routerShape, locationShape } from "react-router/lib/PropTypes";
-export { default as match, MatchHistoryArgs, MatchLocationArgs, MatchCallback } from "react-router/lib/match";
+export {
+    default as match,
+    MatchHistoryArgs,
+    MatchLocationArgs,
+    MatchCallback
+} from "react-router/lib/match";
 export { default as useRouterHistory } from "react-router/lib/useRouterHistory";
 export { formatPattern } from "react-router/lib/PatternUtils";
-export { default as applyRouterMiddleware } from "react-router/lib/applyRouterMiddleware";
+export {
+    default as applyRouterMiddleware
+} from "react-router/lib/applyRouterMiddleware";
 
 /* histories */
 export { default as browserHistory } from "react-router/lib/browserHistory";
 export { default as hashHistory } from "react-router/lib/hashHistory";
-export { default as createMemoryHistory } from "react-router/lib/createMemoryHistory";
+export {
+    default as createMemoryHistory
+} from "react-router/lib/createMemoryHistory";

@@ -1,79 +1,75 @@
 // No npm package for wx-js-sdk, source location is: https://res.wx.qq.com/open/js/jweixin-1.2.0.js
 
 wx.config({
-    appId: '',
+    appId: "",
     timestamp: 123,
-    nonceStr: '',
-    signature: '',
-    jsApiList: ['']
+    nonceStr: "",
+    signature: "",
+    jsApiList: [""]
 });
 
-wx.ready(() => {
-});
+wx.ready(() => {});
 
-wx.error((res: any) => {
-});
+wx.error((res: any) => {});
 
 wx.checkJsApi({
-    jsApiList: [''],
+    jsApiList: [""],
     success: res => {
         res.checkResult;
         if (res.errMsg) {
             res.errMsg.msg;
         }
     },
-    complete: () => {
-    }
+    complete: () => {}
 });
 
 wx.onMenuShareAppMessage({
-    desc: '',
-    title: '',
-    link: '',
-    imgUrl: ''
+    desc: "",
+    title: "",
+    link: "",
+    imgUrl: ""
 });
 
 wx.onMenuShareTimeline({
-    title: '',
-    link: ''
+    title: "",
+    link: ""
 });
 
-wx.scanQRCode({
-});
+wx.scanQRCode({});
 
 wx.closeWindow();
 
 wx.downloadImage({
-    serverId: ''
+    serverId: ""
 });
 
 wx.addCard({
     cardList: [
         {
-            cardId: '',
-            cardExt: ''
+            cardId: "",
+            cardExt: ""
         }
     ]
 });
 
 wx.chooseImage({
-    success: (res) => {
+    success: res => {
         res.localIds;
     }
 });
 
 wx.chooseWXPay({
     timestamp: 0,
-    nonceStr: '',
-    package: '',
-    paySign: '',
+    nonceStr: "",
+    package: "",
+    paySign: "",
     success: () => {},
     cancel: () => {},
     fail: () => {}
 });
 
 wx.getLocation({
-    success: (res) => {
+    success: res => {
         if (res) {
             res.accuracy;
             res.latitude;
@@ -83,7 +79,7 @@ wx.getLocation({
     }
 });
 
-wx.getNetworkType((res) => {
+wx.getNetworkType(res => {
     if (res) {
         res.networkType;
     }
@@ -96,55 +92,54 @@ wx.hideMenuItems({
 wx.hideAllNonBaseMenuItem();
 
 wx.onMenuShareQQ({
-    title: '',
-    link: '',
-    desc: ''
+    title: "",
+    link: "",
+    desc: ""
 });
 
 wx.openLocation({
-    name: '',
+    name: "",
     latitude: 123.2,
     longitude: -12.23
 });
 
 wx.openProductSpecificView({
-    productId: '1',
+    productId: "1",
     viewType: 0
 });
 
 wx.chooseCard({
-    cardId: '',
-    shopId: '',
-    cardType: '',
-    cardSign: '',
-    nonceStr: '',
+    cardId: "",
+    shopId: "",
+    cardType: "",
+    cardSign: "",
+    nonceStr: "",
     timestamp: 1,
-    signType: ''
+    signType: ""
 });
 
-wx.onVoiceRecordEnd((res) => {
+wx.onVoiceRecordEnd(res => {
     res.localId;
 });
 
-wx.onVoicePlayEnd((res) => {
+wx.onVoicePlayEnd(res => {
     res.localId;
 });
 
 wx.openProductSpecificView({
-    productId: ''
+    productId: ""
 });
 
 wx.updateAppMessageShareData({
-    title: '',
-    desc: '',
-    link: '',
-    imgUrl: '',
-    success: () => {
-    }
+    title: "",
+    desc: "",
+    link: "",
+    imgUrl: "",
+    success: () => {}
 });
 
 wx.updateTimelineShareData({
-    title: '',
-    link: '',
-    imageUrl: ''
+    title: "",
+    link: "",
+    imageUrl: ""
 });

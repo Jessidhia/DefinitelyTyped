@@ -8,10 +8,14 @@
 
 export = intoStream;
 
-declare function intoStream(input: intoStream.Input | Promise<intoStream.Input>): NodeJS.ReadableStream;
+declare function intoStream(
+    input: intoStream.Input | Promise<intoStream.Input>
+): NodeJS.ReadableStream;
 
 declare namespace intoStream {
-    function obj(input: object | Iterable<object> | Promise<object | Iterable<object>>): NodeJS.ReadableStream;
+    function obj(
+        input: object | Iterable<object> | Promise<object | Iterable<object>>
+    ): NodeJS.ReadableStream;
 
     type Input = Buffer | string | Iterable<Buffer | string>;
 }

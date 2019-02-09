@@ -3,7 +3,7 @@
 // Definitions by: Basarat Ali Syed <https://github.com/basarat>, Markus Lanthaler <https://github.com/lanthaler>, vvakame <https://github.com/vvakame>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-type NameOrCtorDef = string | { new (...args: any[]): Element; };
+type NameOrCtorDef = string | { new (...args: any[]): Element };
 
 /**
  * Patches the document starting at node with the provided function. This
@@ -15,7 +15,11 @@ type NameOrCtorDef = string | { new (...args: any[]): Element; };
  * @return {!Node} The patched node.
  * @template T
  */
-export declare var patchInner: <T>(node: Element | DocumentFragment, fn: (data: T) => void, data?: T) => Node;
+export declare var patchInner: <T>(
+    node: Element | DocumentFragment,
+    fn: (data: T) => void,
+    data?: T
+) => Node;
 
 /**
  * Patches the document starting at node with the provided function. This
@@ -40,7 +44,11 @@ export declare var patch: typeof patchInner;
  *     was removed.
  * @template T
  */
-export declare var patchOuter: <T>(node: Element, fn: (data: T) => void, data?: T) => Node | null;
+export declare var patchOuter: <T>(
+    node: Element,
+    fn: (data: T) => void,
+    data?: T
+) => Node | null;
 
 /**
  * Makes sure that the current node is an Element with a matching nameOrCtor and
@@ -54,7 +62,11 @@ export declare var patchOuter: <T>(node: Element, fn: (data: T) => void, data?: 
  *     would otherwise match.
  * @return {!Element} The corresponding Element.
  */
-export declare var open: (nameOrCtor: NameOrCtorDef, key?: string, typeId?: any) => Element;
+export declare var open: (
+    nameOrCtor: NameOrCtorDef,
+    key?: string,
+    typeId?: any
+) => Element;
 
 /**
  * Closes the currently open Element, removing any unvisited children if
@@ -99,7 +111,12 @@ export declare var skipNode: () => void;
  *     for the Element.
  * @return {!Element} The corresponding Element.
  */
-export declare var elementOpen: (nameOrCtor: NameOrCtorDef, key?: string, statics?: any[], ...var_args: any[]) => Element;
+export declare var elementOpen: (
+    nameOrCtor: NameOrCtorDef,
+    key?: string,
+    statics?: any[],
+    ...var_args: any[]
+) => Element;
 
 /**
  * Declares a virtual Element at the current location in the document. This
@@ -115,7 +132,11 @@ export declare var elementOpen: (nameOrCtor: NameOrCtorDef, key?: string, static
  *     static attributes for the Element. These will only be set once when the
  *     Element is created.
  */
-export declare var elementOpenStart: (nameOrCtor: NameOrCtorDef, key?: string, statics?: any[]) => void;
+export declare var elementOpenStart: (
+    nameOrCtor: NameOrCtorDef,
+    key?: string,
+    statics?: any[]
+) => void;
 
 /***
  * Defines a virtual attribute at this point of the DOM. This is only valid
@@ -154,7 +175,12 @@ export declare var elementClose: (nameOrCtor: NameOrCtorDef) => Element;
  *     for the Element.
  * @return {!Element} The corresponding Element.
  */
-export declare var elementVoid: (nameOrCtor: NameOrCtorDef, key?: string, statics?: any[], ...var_args: any[]) => Element;
+export declare var elementVoid: (
+    nameOrCtor: NameOrCtorDef,
+    key?: string,
+    statics?: any[],
+    ...var_args: any[]
+) => Element;
 
 /**
  * Declares a virtual Text at this point in the document.
@@ -184,7 +210,11 @@ export declare var attributes: any;
  * @param {string} name The attribute's name.
  * @param {?(boolean|number|string)=} value The attribute's value.
  */
-export declare var applyAttr: (el: Element, name: string, value?: boolean | number | string) => void;
+export declare var applyAttr: (
+    el: Element,
+    name: string,
+    value?: boolean | number | string
+) => void;
 
 /**
  * Applies a property to a given Element.

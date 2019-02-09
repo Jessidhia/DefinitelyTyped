@@ -1,8 +1,14 @@
-import A11yDialog = require('a11y-dialog');
+import A11yDialog = require("a11y-dialog");
 
 const dialogEl = new A11yDialog(document.getElementById("test"));
-const dialogElTwo = new A11yDialog(document.getElementById("test"), document.getElementById("testContainer"));
-const dialogElThree = new A11yDialog(document.getElementById("test"), "dummy-element");
+const dialogElTwo = new A11yDialog(
+    document.getElementById("test"),
+    document.getElementById("testContainer")
+);
+const dialogElThree = new A11yDialog(
+    document.getElementById("test"),
+    "dummy-element"
+);
 
 dialogEl.show();
 dialogEl.hide();
@@ -21,7 +27,7 @@ dialogEl.on("create", (el: HTMLElement, evt) => {
     evt.target;
 });
 
-dialogEl.on('hide', () => {
+dialogEl.on("hide", () => {
     const t = 5;
 });
 

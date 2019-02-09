@@ -38,7 +38,10 @@ export function ls(...paths: Array<string | string[]>): ShellArray;
  * @param  ...paths Paths to search.
  * @return          An array of files in the given path(s).
  */
-export function ls(options: string, ...paths: Array<string | string[]>): ShellArray;
+export function ls(
+    options: string,
+    ...paths: Array<string | string[]>
+): ShellArray;
 
 /**
  * Returns array of all files (however deep) in the given paths.
@@ -62,7 +65,11 @@ export function cp(source: string | string[], dest: string): ShellString;
  * @param dest    The destination.
  * @return        Object with shell exit code, stderr and stdout.
  */
-export function cp(options: string, source: string | string[], dest: string): ShellString;
+export function cp(
+    options: string,
+    source: string | string[],
+    dest: string
+): ShellString;
 
 /**
  * Removes files. The wildcard * is accepted.
@@ -77,7 +84,10 @@ export function rm(...files: Array<string | string[]>): ShellString;
  * @param ...files Files to remove.
  * @return         Object with shell exit code, stderr and stdout.
  */
-export function rm(options: string, ...files: Array<string | string[]>): ShellString;
+export function rm(
+    options: string,
+    ...files: Array<string | string[]>
+): ShellString;
 
 /**
  * Moves files. The wildcard * is accepted.
@@ -94,7 +104,11 @@ export function mv(source: string | string[], dest: string): ShellString;
  * @param dest   The destination.
  * @return       Object with shell exit code, stderr and stdout.
  */
-export function mv(options: string, source: string | string[], dest: string): ShellString;
+export function mv(
+    options: string,
+    source: string | string[],
+    dest: string
+): ShellString;
 
 /**
  * Creates directories.
@@ -109,7 +123,10 @@ export function mkdir(...dir: Array<string | string[]>): ShellString;
  * @param ...dir  The directories to create.
  * @return        Object with shell exit code, stderr and stdout.
  */
-export function mkdir(options: string, ...dir: Array<string | string[]>): ShellString;
+export function mkdir(
+    options: string,
+    ...dir: Array<string | string[]>
+): ShellString;
 
 /**
  * Evaluates expression using the available primaries and returns corresponding value.
@@ -135,7 +152,11 @@ export function cat(...files: Array<string | string[]>): ShellString;
  * @param  file        The file to process.
  * @return             The new string after replacement.
  */
-export function sed(searchRegex: string | RegExp, replacement: string, file: string): ShellString;
+export function sed(
+    searchRegex: string | RegExp,
+    replacement: string,
+    file: string
+): ShellString;
 
 /**
  * Reads an input string from file and performs a JavaScript replace() on the input using the given search regex and replacement string or function. Returns the new string after replacement.
@@ -145,7 +166,12 @@ export function sed(searchRegex: string | RegExp, replacement: string, file: str
  * @param  file        The file to process.
  * @return             The new string after replacement.
  */
-export function sed(options: string, searchRegex: string | RegExp, replacement: string, file: string): ShellString;
+export function sed(
+    options: string,
+    searchRegex: string | RegExp,
+    replacement: string,
+    file: string
+): ShellString;
 
 /**
  * Reads input string from given files and returns a string containing all lines of the file that match the given regex_filter. Wildcard * accepted.
@@ -153,7 +179,10 @@ export function sed(options: string, searchRegex: string | RegExp, replacement: 
  * @param  ...files     The files to process.
  * @return                Returns a string containing all lines of the file that match the given regex_filter.
  */
-export function grep(regex_filter: string | RegExp, ...files: Array<string | string[]>): ShellString;
+export function grep(
+    regex_filter: string | RegExp,
+    ...files: Array<string | string[]>
+): ShellString;
 
 /**
  * Reads input string from given files and returns a string containing all lines of the file that match the given regex_filter. Wildcard * accepted.
@@ -162,7 +191,11 @@ export function grep(regex_filter: string | RegExp, ...files: Array<string | str
  * @param  ...files     The files to process.
  * @return                Returns a string containing all lines of the file that match the given regex_filter.
  */
-export function grep(options: string, regex_filter: string | RegExp, ...files: Array<string | string[]>): ShellString;
+export function grep(
+    options: string,
+    regex_filter: string | RegExp,
+    ...files: Array<string | string[]>
+): ShellString;
 
 /**
  * Searches for command in the system's PATH. On Windows looks for .exe, .cmd, and .bat extensions.
@@ -350,22 +383,36 @@ export function exec(command: string): ExecOutputReturnValue;
  * @param                                 options Silence and synchronous options.
  * @return         Returns an object containing the return code and output as string, or if {async:true} was passed, a ChildProcess.
  */
-export function exec(command: string, options: ExecOptions): ExecOutputReturnValue | child.ChildProcess;
+export function exec(
+    command: string,
+    options: ExecOptions
+): ExecOutputReturnValue | child.ChildProcess;
 /**
  * Executes the given command synchronously.
  * @param           command  The command to execute.
  * @param      options  Silence and synchronous options.
  * @param     callback Receives code and output asynchronously.
  */
-export function exec(command: string, options: ExecOptions, callback: ExecCallback): child.ChildProcess;
+export function exec(
+    command: string,
+    options: ExecOptions,
+    callback: ExecCallback
+): child.ChildProcess;
 /**
  * Executes the given command synchronously.
  * @param           command  The command to execute.
  * @param     callback Receives code and output asynchronously.
  */
-export function exec(command: string, callback: ExecCallback): child.ChildProcess;
+export function exec(
+    command: string,
+    callback: ExecCallback
+): child.ChildProcess;
 
-export type ExecCallback = (code: number, stdout: string, stderr: string) => any;
+export type ExecCallback = (
+    code: number,
+    stdout: string,
+    stderr: string
+) => any;
 
 export interface ExecOptions extends child.ExecOptions {
     /** Do not echo program output to console (default: false). */
@@ -425,7 +472,11 @@ export function chmod(octalMode: number, file: string): ShellString;
  * @param file      The file to use.
  * @return          Object with shell exit code, stderr and stdout.
  */
-export function chmod(options: string, octalMode: number, file: string): ShellString;
+export function chmod(
+    options: string,
+    octalMode: number,
+    file: string
+): ShellString;
 
 /**
  * Alters the permissions of a file or directory by either specifying the absolute permissions in octal form or expressing the changes in symbols. This command tries to mimic the POSIX behavior as much as possible. Notable exceptions:
@@ -468,24 +519,33 @@ export type TouchOptionsLiteral = "-a" | "-c" | "-m" | "-d" | "-r";
  * Update the access and modification times of each FILE to the current time. A FILE argument that does not exist is created empty, unless -c is supplied
  */
 export interface TouchOptionsArray {
-    '-d'?: string;
-    '-r'?: string;
+    "-d"?: string;
+    "-r"?: string;
 }
 
 export function touch(...files: string[]): ShellString;
 export function touch(files: string[]): ShellString;
-export function touch(options: TouchOptionsLiteral, ...files: Array<string | string[]>): ShellString;
-export function touch(options: TouchOptionsArray, ...files: Array<string | string[]>): ShellString;
+export function touch(
+    options: TouchOptionsLiteral,
+    ...files: Array<string | string[]>
+): ShellString;
+export function touch(
+    options: TouchOptionsArray,
+    ...files: Array<string | string[]>
+): ShellString;
 
 export interface HeadOptions {
     /** Show the first <num> lines of the files. */
-    '-n': number;
+    "-n": number;
 }
 
 /** Read the start of a file. */
 export function head(...files: Array<string | string[]>): ShellString;
 /** Read the start of a file. */
-export function head(options: HeadOptions, ...files: Array<string | string[]>): ShellString;
+export function head(
+    options: HeadOptions,
+    ...files: Array<string | string[]>
+): ShellString;
 
 /**
  * Return the contents of the files, sorted line-by-line. Sorting multiple files mixes their content (just as unix sort does).
@@ -496,17 +556,23 @@ export function sort(...files: Array<string | string[]>): ShellString;
  * Return the contents of the files, sorted line-by-line. Sorting multiple files mixes their content (just as unix sort does).
  * @param options Available options: -r: Reverse the results -n: Compare according to numerical value
  */
-export function sort(options: string, ...files: Array<string | string[]>): ShellString;
+export function sort(
+    options: string,
+    ...files: Array<string | string[]>
+): ShellString;
 
 export interface TailOptions {
     /** Show the last <num> lines of files. */
-    '-n': number;
+    "-n": number;
 }
 
 /** Read the end of a file. */
 export function tail(...files: Array<string | string[]>): ShellString;
 /** Read the end of a file. */
-export function tail(options: TailOptions, ...files: Array<string | string[]>): ShellString;
+export function tail(
+    options: TailOptions,
+    ...files: Array<string | string[]>
+): ShellString;
 
 /**
  * Filter adjacent matching lines from input.
@@ -516,7 +582,11 @@ export function uniq(input: string, output?: string): ShellString;
  * Filter adjacent matching lines from input.
  * @param options Available options: -i: Ignore case while comparing -c: Prefix lines by the number of occurrences -d: Only print duplicate lines, one for each group of identical lines
  */
-export function uniq(options: string, input: string, output?: string): ShellString;
+export function uniq(
+    options: string,
+    input: string,
+    output?: string
+): ShellString;
 
 /**
  * Sets global configuration variables

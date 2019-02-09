@@ -27,7 +27,7 @@ favicons("file.png", (err: any, res: any) => {
     }
 });
 
-favicons("file.png").then((res) => {
+favicons("file.png").then(res => {
     html = res.html.join("");
 
     for (const { name, contents } of [...res.files, ...res.images]) {

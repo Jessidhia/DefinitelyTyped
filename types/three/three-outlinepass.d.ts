@@ -1,8 +1,24 @@
-import { Camera, Color, Object3D, Scene, Vector2, MeshBasicMaterial, ShaderMaterial, WebGLRenderTarget, IUniform, Matrix4 } from './three-core';
-import {Pass} from "./three-effectcomposer";
+import {
+    Camera,
+    Color,
+    Object3D,
+    Scene,
+    Vector2,
+    MeshBasicMaterial,
+    ShaderMaterial,
+    WebGLRenderTarget,
+    IUniform,
+    Matrix4
+} from "./three-core";
+import { Pass } from "./three-effectcomposer";
 
 export class OutlinePass extends Pass {
-    constructor(resolution: Vector2, scene: Scene, camera: Camera, selectedObjects?: Object3D[]);
+    constructor(
+        resolution: Vector2,
+        scene: Scene,
+        camera: Camera,
+        selectedObjects?: Object3D[]
+    );
     selectedObjects: Object3D[];
     renderCamera: Camera;
     renderScene: Scene;
@@ -37,4 +53,3 @@ export class OutlinePass extends Pass {
     changeVisibilityOfNonSelectedObjects(bVisible: boolean): void;
     updateTextureMatrix(): void;
 }
-

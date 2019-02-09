@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, ComponentType, ReactNode } from 'react';
+import { Component, ComponentType, ReactNode } from "react";
 import {
     StyleProp,
     TextProperties,
     ViewProperties,
     TextStyle,
     ViewStyle,
-    ImageStyle,
-} from 'react-native';
+    ImageStyle
+} from "react-native";
 
 export interface HTMLViewNode {
     data?: string;

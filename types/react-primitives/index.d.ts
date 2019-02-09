@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ComponentType } from 'react';
+import { ComponentType } from "react";
 import {
     Animated,
     Dimensions,
@@ -17,16 +17,16 @@ import {
     Text,
     TouchableOpacityProps,
     View
-} from 'react-native';
+} from "react-native";
 
 export const Touchable: ComponentType<TouchableOpacityProps>;
 
 // react-primitives also supports react-sketchapp and react-vr as platforms
-export type PlatformOSType = RNPlatformOSType | 'sketch' | 'vr';
+export type PlatformOSType = RNPlatformOSType | "sketch" | "vr";
 export interface PlatformStatic {
     OS: PlatformOSType;
     Version: number | string;
-    select<T>(specifics: { [platform in PlatformOSType | 'default']?: T }): T;
+    select<T>(specifics: { [platform in PlatformOSType | "default"]?: T }): T;
 }
 export const Platform: PlatformStatic;
 

@@ -2,7 +2,7 @@ import { format, parse, PMRMessage } from "parity-pmr";
 
 const buffer = new Buffer("test");
 const message: PMRMessage = {
-    messageType: 'E'
+    messageType: "E"
 };
 
 // $ExpectType Buffer
@@ -10,7 +10,7 @@ format(message);
 
 // Invalid type
 // $ExpectError
-format('');
+format("");
 
 // $ExpectError
 format({});
@@ -24,4 +24,4 @@ parse(buffer);
 
 // Invalid type
 // $ExpectError
-parse('');
+parse("");

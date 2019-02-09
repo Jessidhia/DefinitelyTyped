@@ -7,15 +7,15 @@ console.assert(images != null);
 // 字体
 let texts = wx.getTextLineHeight({
     text: "",
-    fontFamily: 'Arial',
+    fontFamily: "Arial",
     fontSize: 28,
-    fontWeight: 'bold',
-    fontStyle: 'normal',
+    fontWeight: "bold",
+    fontStyle: "normal",
     success: res => {
         console.assert(res.lineHeight === 0);
     }
 });
-let textload = wx.loadFont('Arial');
+let textload = wx.loadFont("Arial");
 console.assert(textload != null); // 当前版本不支持此加载自定义字体
 // 帧率
 wx.setPreferredFramesPerSecond(30);
@@ -57,15 +57,25 @@ const audioBegin = () => {
 wx.onAudioInterruptionBegin(audioBegin);
 wx.offAudioInterruptionBegin(audioBegin);
 
-const onWXError = (res: { message: string, stack: string }) => { console.error(`sys error: ${res.message}....${res.stack}`); };
+const onWXError = (res: { message: string; stack: string }) => {
+    console.error(`sys error: ${res.message}....${res.stack}`);
+};
 wx.onError(onWXError);
 wx.offError(onWXError);
 
 // 触摸事件
-wx.onTouchStart(d => { console.assert(d != null); });
-wx.onTouchMove(d => { console.assert(d != null); });
-wx.onTouchEnd(d => { console.assert(d != null); });
-wx.onTouchCancel(d => { console.assert(d != null); });
+wx.onTouchStart(d => {
+    console.assert(d != null);
+});
+wx.onTouchMove(d => {
+    console.assert(d != null);
+});
+wx.onTouchEnd(d => {
+    console.assert(d != null);
+});
+wx.onTouchCancel(d => {
+    console.assert(d != null);
+});
 // 加速计
 wx.onAccelerometerChange(res => {
     console.assert(res.x != null);
@@ -185,7 +195,7 @@ console.assert(downLoad != null);
 downLoad.abort();
 // 发起请求
 let requ = wx.request({
-    url: 'https://www.baidu.com/',
+    url: "https://www.baidu.com/",
     success: () => {
         console.log("wx.request success");
     }
@@ -194,7 +204,7 @@ console.assert(requ != null);
 requ.abort();
 // WebSocket
 let conne = wx.connectSocket({
-    url: 'wss://www.baidu.com/',
+    url: "wss://www.baidu.com/",
     header: {},
     protocols: [],
     success: () => {
@@ -203,7 +213,7 @@ let conne = wx.connectSocket({
 });
 console.assert(conne != null);
 wx.closeSocket({
-    reason: 'normal close',
+    reason: "normal close",
     success: () => {
         console.log("wx.closeSocket success");
     }
@@ -232,7 +242,10 @@ let upLoad = wx.uploadFile({
 });
 console.assert(upLoad != null);
 upLoad.onProgressUpdate(res => {
-    console.log(`upload progress: ${res.progress}, ${res.totalBytesSent / res.totalBytesExpectedToSend}`);
+    console.log(
+        `upload progress: ${res.progress}, ${res.totalBytesSent /
+            res.totalBytesExpectedToSend}`
+    );
 });
 upLoad.abort();
 
@@ -262,7 +275,7 @@ wx.checkSession({
     }
 });
 wx.login({
-    success: (res) => {
+    success: res => {
         console.log(`login code: ${res.code}`);
     }
 });
@@ -275,8 +288,8 @@ wx.checkIsUserAdvisedToRest({
 });
 // 用户信息
 let ubtn = wx.createUserInfoButton({
-    type: 'text',
-    text: 'test btn',
+    type: "text",
+    text: "test btn",
     style: {
         left: 1,
         top: 1,
@@ -285,11 +298,11 @@ let ubtn = wx.createUserInfoButton({
         /**
          * 格式#ff0000
          */
-        backgroundColor: '#fefefe',
+        backgroundColor: "#fefefe",
         /**
          * 格式#ff0000
          */
-        borderColor: '#cccccc',
+        borderColor: "#cccccc",
         borderWidth: 1,
         borderRadius: 3,
         textAlign: "center",
@@ -317,11 +330,11 @@ let createOpenSet = wx.createOpenSettingButton({
         width: 200,
         height: 40,
         lineHeight: 40,
-        backgroundColor: '#ff12ff',
-        borderColor: '#000',
+        backgroundColor: "#ff12ff",
+        borderColor: "#000",
         borderWidth: 1,
         borderRadius: 3,
-        textAlign: 'center',
+        textAlign: "center",
         fontSize: 16
     }
 });
@@ -357,11 +370,11 @@ let yxq = wx.createGameClubButton({
         width: 200,
         height: 40,
         lineHeight: 40,
-        backgroundColor: '#f00ff0',
-        borderColor: '#fff222',
+        backgroundColor: "#f00ff0",
+        borderColor: "#fff222",
         borderWidth: 1,
         borderRadius: 3,
-        textAlign: 'center',
+        textAlign: "center",
         fontSize: 16
     },
     icon: "green"
@@ -377,11 +390,11 @@ wx.createFeedbackButton({
         width: 200,
         height: 40,
         lineHeight: 40,
-        backgroundColor: '#00f0f0',
-        borderColor: '#000',
+        backgroundColor: "#00f0f0",
+        borderColor: "#000",
         borderWidth: 1,
         borderRadius: 3,
-        textAlign: 'center',
+        textAlign: "center",
         fontSize: 16
     }
 });
@@ -404,18 +417,20 @@ wx.getShareInfo({
     }
 });
 wx.hideShareMenu();
-wx.onShareAppMessage((): wx.types.ShareOption => {
-    return {
-    	imageUrl: "test.png",
-    	title: "test title",
-    	query: "__shareQueryStr"
-    };
-});
+wx.onShareAppMessage(
+    (): wx.types.ShareOption => {
+        return {
+            imageUrl: "test.png",
+            title: "test title",
+            query: "__shareQueryStr"
+        };
+    }
+);
 wx.showShareMenu({
     withShareTicket: true
 });
 wx.shareAppMessage({
-    title: ''
+    title: ""
 });
 wx.updateShareMenu({
     withShareTicket: true
@@ -434,7 +449,7 @@ wx.clearStorage({
     }
 });
 wx.getStorage({
-    key: 'test key',
+    key: "test key",
     success: res => {
         console.assert(res.data != null);
     }
@@ -444,27 +459,27 @@ wx.getStorageInfo({
         console.assert(res.keys != null);
         console.assert(res.currentSize != null);
         console.assert(res.limitSize != null);
-        console.log('wx.getStorageInfo success');
+        console.log("wx.getStorageInfo success");
     }
 });
 wx.removeStorage({
     key: "test key",
     success: () => {
-        console.log('wx.removeStorage success');
+        console.log("wx.removeStorage success");
     }
 });
 wx.setStorage({
     key: "",
     data: "",
     success: () => {
-        console.log('wx.removeStorage success');
+        console.log("wx.removeStorage success");
     }
 });
 // 分包加载
 let loadSu = wx.loadSubpackage({
-    name: 'package name',
+    name: "package name",
     success: () => {
-        console.log('wx.loadSubpackage success');
+        console.log("wx.loadSubpackage success");
     }
 });
 // 菜单
@@ -477,7 +492,7 @@ console.assert(getMenu.right != null);
 console.assert(getMenu.bottom != null);
 console.assert(getMenu.left != null);
 wx.setMenuStyle({
-    style: 'dark'
+    style: "dark"
 });
 // 交互
 wx.showModal({
@@ -508,7 +523,7 @@ wx.showKeyboard({
     confirmType: "done"
 });
 wx.updateKeyboard({
-    value: 'DEFGHI'
+    value: "DEFGHI"
 });
 // 状态栏
 wx.setStatusBarStyle({
@@ -540,8 +555,8 @@ console.assert(getRecord != null);
 // 图片
 wx.chooseImage({
     count: 1,
-    sizeType: ['original'],
-    sourceType: ['album'],
+    sizeType: ["original"],
+    sourceType: ["album"],
     success: res => {
         console.assert(res.tempFilePaths.length > 0);
     }
@@ -555,7 +570,7 @@ wx.saveImageToPhotosAlbum({
 // 视频
 wx.createVideo({
     src: "../res/testv.mp4",
-    objectFit: 'fill'
+    objectFit: "fill"
 });
 // 虚拟支付
 wx.requestMidasPayment({

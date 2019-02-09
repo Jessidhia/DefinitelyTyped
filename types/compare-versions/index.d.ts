@@ -3,5 +3,8 @@
 // Definitions by: Leonid Logvinov <https://github.com/LogvinovLeon>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function compareVersions(firstVersion: string, secondVersion: string): number;
+declare function compareVersions(
+    firstVersion: string,
+    secondVersion: string
+): number;
 export = compareVersions;

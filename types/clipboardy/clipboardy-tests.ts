@@ -1,7 +1,7 @@
-import clipboardy = require('clipboardy');
+import clipboardy = require("clipboardy");
 
-clipboardy.writeSync('🦄');
-clipboardy.write('🦄').then(() => {});
+clipboardy.writeSync("🦄");
+clipboardy.write("🦄").then(() => {});
 
 let str: string;
 str = clipboardy.readSync();

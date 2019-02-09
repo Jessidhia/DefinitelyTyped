@@ -7,7 +7,6 @@
 
 /// <reference types="node" />
 
-
 import * as Boom from "boom";
 import * as events from "events";
 import * as http from "http";
@@ -16,13 +15,24 @@ import * as Url from "url";
 
 interface RequestOptions {
     baseUrl?: string;
-    socketPath? : string;
+    socketPath?: string;
     payload?: any;
     headers?: { [key: string]: any };
     redirects?: number;
     redirect303?: boolean;
-    beforeRedirect?: (redirectMethod: string, statusCode: number, location: string, resHeaders: { [key: string]: any }, redirectOptions: any, next: () => {}) => void;
-    redirected?: (statusCode: number, location: string, req: http.ClientRequest) => void;
+    beforeRedirect?: (
+        redirectMethod: string,
+        statusCode: number,
+        location: string,
+        resHeaders: { [key: string]: any },
+        redirectOptions: any,
+        next: () => {}
+    ) => void;
+    redirected?: (
+        statusCode: number,
+        location: string,
+        req: http.ClientRequest
+    ) => void;
     timeout?: number;
     maxBytes?: number;
     rejectUnauthorized?: boolean;
@@ -41,12 +51,23 @@ interface ReadOptions {
 }
 
 interface RequestResponse {
-    res: http.IncomingMessage,
-    payload: any,
+    res: http.IncomingMessage;
+    payload: any;
 }
 
-declare type RequestCallback = (uri: string, options: RequestOptions & { payload?: any }) => void;
-declare type ResponseCallback = (err: Boom | undefined, details: { req: http.ClientRequest, res: http.IncomingMessage | undefined, start: number, url: Url.URL }) => void;
+declare type RequestCallback = (
+    uri: string,
+    options: RequestOptions & { payload?: any }
+) => void;
+declare type ResponseCallback = (
+    err: Boom | undefined,
+    details: {
+        req: http.ClientRequest;
+        res: http.IncomingMessage | undefined;
+        start: number;
+        url: Url.URL;
+    }
+) => void;
 
 declare class WreckEventEmitter extends events.EventEmitter {
     on(event: "request", listener: RequestCallback): this;
@@ -56,24 +77,46 @@ declare class WreckEventEmitter extends events.EventEmitter {
 interface WreckObject {
     defaults: (options: RequestOptions) => WreckObject;
 
-    request: (method: string, uri: string, options: RequestOptions) => Promise<http.IncomingMessage> & { req: http.ClientRequest };
+    request: (
+        method: string,
+        uri: string,
+        options: RequestOptions
+    ) => Promise<http.IncomingMessage> & { req: http.ClientRequest };
 
-    read: (response: http.IncomingMessage, options: ReadOptions) => Promise<any>;
+    read: (
+        response: http.IncomingMessage,
+        options: ReadOptions
+    ) => Promise<any>;
 
-    get: (uri: string, options: RequestOptions & ReadOptions) => Promise<RequestResponse>;
-    post: (uri: string, options: RequestOptions & ReadOptions) => Promise<RequestResponse>;
-    patch: (uri: string, options: RequestOptions & ReadOptions) => Promise<RequestResponse>;
-    put: (uri: string, options: RequestOptions & ReadOptions) => Promise<RequestResponse>;
-    delete: (uri: string, options: RequestOptions & ReadOptions) => Promise<RequestResponse>;
+    get: (
+        uri: string,
+        options: RequestOptions & ReadOptions
+    ) => Promise<RequestResponse>;
+    post: (
+        uri: string,
+        options: RequestOptions & ReadOptions
+    ) => Promise<RequestResponse>;
+    patch: (
+        uri: string,
+        options: RequestOptions & ReadOptions
+    ) => Promise<RequestResponse>;
+    put: (
+        uri: string,
+        options: RequestOptions & ReadOptions
+    ) => Promise<RequestResponse>;
+    delete: (
+        uri: string,
+        options: RequestOptions & ReadOptions
+    ) => Promise<RequestResponse>;
 
     toReadableStream: (payload: any, encoding?: string) => stream.Readable;
 
     parseCacheControl: (field: string) => any;
 
     agents: {
-        http: http.Agent,
-        https: http.Agent,
-        httpsAllowUnauthorized: http.Agent
+        http: http.Agent;
+        https: http.Agent;
+        httpsAllowUnauthorized: http.Agent;
     };
 
     events?: WreckEventEmitter;

@@ -31,7 +31,9 @@ declare function arrify<T>(val: undefined | null | T | T[]): T[];
  * // returns ['a', 'b']
  * arrify<number, string>(value);
  */
-declare function arrify<T1, T2>(val: undefined | null | T1 | T2 | T1[] | T2[]): T1[] | T2[];
+declare function arrify<T1, T2>(
+    val: undefined | null | T1 | T2 | T1[] | T2[]
+): T1[] | T2[];
 
 /**
  * @example
@@ -49,7 +51,9 @@ declare function arrify<T1, T2>(val: undefined | null | T1 | T2 | T1[] | T2[]): 
  * // returns ['a', 'b']
  * arrify<boolean, number, string>(value);
  */
-declare function arrify<T1, T2, T3>(val: undefined | null | T1 | T2 | T3 | T1[] | T2[] | T3[]): T1[] | T2[] | T3[];
+declare function arrify<T1, T2, T3>(
+    val: undefined | null | T1 | T2 | T3 | T1[] | T2[] | T3[]
+): T1[] | T2[] | T3[];
 
 /**
  * @example
@@ -67,7 +71,9 @@ declare function arrify<T1, T2, T3>(val: undefined | null | T1 | T2 | T3 | T1[] 
  * // returns [true, false]
  * arrify<boolean, Date, number, string>(value);
  */
-declare function arrify<T1, T2, T3, T4>(val: undefined | null | T1 | T2 | T3 | T4 | T1[] | T2[] | T3[] | T4[]): T1[] | T2[] | T3[] | T4[];
+declare function arrify<T1, T2, T3, T4>(
+    val: undefined | null | T1 | T2 | T3 | T4 | T1[] | T2[] | T3[] | T4[]
+): T1[] | T2[] | T3[] | T4[];
 
 /**
  * @example
@@ -85,7 +91,21 @@ declare function arrify<T1, T2, T3, T4>(val: undefined | null | T1 | T2 | T3 | T
  * // returns [/test1/, /test2/]
  * arrify<boolean, Date, number, RegExp, string>(value);
  */
-declare function arrify<T1, T2, T3, T4, T5>(val: undefined | null | T1 | T2 | T3 | T4 | T5 | T1[] | T2[] | T3[] | T4[] | T5[]): T1[] | T2[] | T3[] | T4[] | T5[];
+declare function arrify<T1, T2, T3, T4, T5>(
+    val:
+        | undefined
+        | null
+        | T1
+        | T2
+        | T3
+        | T4
+        | T5
+        | T1[]
+        | T2[]
+        | T3[]
+        | T4[]
+        | T5[]
+): T1[] | T2[] | T3[] | T4[] | T5[];
 
 declare namespace arrify {}
 export = arrify;

@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { View, Button } from 'react-native';
-import Toast, { Style } from 'react-native-toast-native';
+import * as React from "react";
+import { View, Button } from "react-native";
+import Toast, { Style } from "react-native-toast-native";
 
 class Test extends React.Component<any> {
     showToast() {
         const style: Style = {
-            color: 'white',
-            backgroundColor: '#5CB85C',
+            color: "white",
+            backgroundColor: "#5CB85C",
             fontSize: 16,
             height: 140,
             borderRadius: 15,
-            fontWeight: 'bold',
+            fontWeight: "bold",
             yOffset: 40
         };
 
@@ -20,9 +20,8 @@ class Test extends React.Component<any> {
     render() {
         return (
             <View>
-                <Button
-                    onPress={() => this.showToast()}
-                    title="Show Toast" />
-            </View>);
+                <Button onPress={() => this.showToast()} title="Show Toast" />
+            </View>
+        );
     }
 }

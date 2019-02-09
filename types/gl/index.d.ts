@@ -4,8 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface StackGLExtension {
-    getExtension(extensionName: "STACKGL_resize_drawingbuffer"): STACKGL_resize_drawingbuffer | null;
-    getExtension(extensionName: "STACKGL_destroy_context"): STACKGL_destroy_context | null;
+    getExtension(
+        extensionName: "STACKGL_resize_drawingbuffer"
+    ): STACKGL_resize_drawingbuffer | null;
+    getExtension(
+        extensionName: "STACKGL_destroy_context"
+    ): STACKGL_destroy_context | null;
 }
 
 interface STACKGL_resize_drawingbuffer {
@@ -16,6 +20,10 @@ interface STACKGL_destroy_context {
     destroy(): void;
 }
 
-declare function createContext(width: number, height: number, options?: WebGLContextAttributes): WebGLRenderingContext & StackGLExtension;
+declare function createContext(
+    width: number,
+    height: number,
+    options?: WebGLContextAttributes
+): WebGLRenderingContext & StackGLExtension;
 
 export = createContext;

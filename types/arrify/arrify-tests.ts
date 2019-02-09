@@ -1,4 +1,4 @@
-import * as arrify from 'arrify';
+import * as arrify from "arrify";
 
 /***************** arrify<T> *****************/
 arrify(null);
@@ -26,7 +26,7 @@ arrify<number, string>(null); // returns []
 }
 
 {
-    const value: number[] | string | string[] = ['a', 'b'];
+    const value: number[] | string | string[] = ["a", "b"];
     arrify<number, string>(value); // returns ['a', 'b']
 }
 /***************** arrify<T1, T2> *****************/
@@ -43,7 +43,7 @@ arrify<boolean, number, string>(null);
 }
 
 {
-    const value: boolean[] | number | string[] = ['a', 'b'];
+    const value: boolean[] | number | string[] = ["a", "b"];
     // returns ['a', 'b']
     arrify<boolean, number, string>(value);
 }
@@ -79,7 +79,10 @@ arrify<boolean, Date, number, RegExp, string>(null);
 }
 
 {
-    const value: boolean[] | Date[] | number | RegExp[] | string = [/test1/, /test2/];
+    const value: boolean[] | Date[] | number | RegExp[] | string = [
+        /test1/,
+        /test2/
+    ];
     // returns [/test1/, /test2/]
     arrify<boolean, Date, number, RegExp, string>(value);
 }

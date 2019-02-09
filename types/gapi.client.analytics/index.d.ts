@@ -1104,17 +1104,19 @@ declare namespace gapi.client {
              * Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as
              * specified in the request.
              */
-            rows?: Array<Array<{
-                /** A conversion path dimension value, containing a list of interactions with their attributes. */
-                conversionPathValue?: Array<{
-                    /** Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc. */
-                    interactionType?: string;
-                    /** Node value of an interaction on conversion path. Such as source, medium etc. */
-                    nodeValue?: string;
-                }>;
-                /** A primitive dimension value. A primitive metric value. */
-                primitiveValue?: string;
-            }>>;
+            rows?: Array<
+                Array<{
+                    /** A conversion path dimension value, containing a list of interactions with their attributes. */
+                    conversionPathValue?: Array<{
+                        /** Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc. */
+                        interactionType?: string;
+                        /** Node value of an interaction on conversion path. Such as source, medium etc. */
+                        nodeValue?: string;
+                    }>;
+                    /** A primitive dimension value. A primitive metric value. */
+                    primitiveValue?: string;
+                }>
+            >;
             /** The number of samples used to calculate the result. */
             sampleSize?: string;
             /** Total size of the sample space from which the samples were selected. */

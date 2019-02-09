@@ -6,8 +6,7 @@
 
 /// <reference types="react" />
 
-
-import * as React from 'react';
+import * as React from "react";
 
 declare namespace reactMixin {
     export interface ClassDecorator {
@@ -16,7 +15,10 @@ declare namespace reactMixin {
 
     interface ReactMixin {
         decorate(mixin: React.Mixin<any, any>): ClassDecorator;
-        onClass<S>(clazz: any, mixin: React.Mixin<any, any>): React.ComponentClass<S>;
+        onClass<S>(
+            clazz: any,
+            mixin: React.Mixin<any, any>
+        ): React.ComponentClass<S>;
         <S>(clazz: any, mixin: React.Mixin<any, any>): React.ComponentClass<S>;
     }
 }

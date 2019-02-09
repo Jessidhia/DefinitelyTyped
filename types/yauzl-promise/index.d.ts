@@ -7,9 +7,14 @@
 
 /// <reference types="node" />
 
-import { Entry as BaseEntry, Options, ZipFileOptions, RandomAccessReader } from 'yauzl';
-import { Readable } from 'stream';
-import { EventEmitter } from 'events';
+import {
+    Entry as BaseEntry,
+    Options,
+    ZipFileOptions,
+    RandomAccessReader
+} from "yauzl";
+import { Readable } from "stream";
+import { EventEmitter } from "events";
 
 // This class is not directly compatible with @types/yauzl 's ZipFile as this library changes the function signatures
 // Therefore, it is replaced, albeit with a significant portion
@@ -36,7 +41,7 @@ export class ZipFile extends EventEmitter {
         autoClose: boolean,
         lazyEntries: boolean,
         decodeStrings: boolean,
-        validateEntrySizes: boolean,
+        validateEntrySizes: boolean
     );
 
     // These funcitons are custom to yauzl-promise
@@ -44,7 +49,10 @@ export class ZipFile extends EventEmitter {
     close(): Promise<void>;
     readEntry(): Promise<Entry>;
     readEntries(numEntries?: number): Promise<Entry[]>;
-    walkEntries(callback: (entry: Entry) => Promise<void> | void, numEntries?: number): Promise<void>;
+    walkEntries(
+        callback: (entry: Entry) => Promise<void> | void,
+        numEntries?: number
+    ): Promise<void>;
     openReadStream(entry: Entry, options?: ZipFileOptions): Promise<Readable>;
 }
 
@@ -58,7 +66,11 @@ export function fromFd(fd: number, options?: Options): Promise<ZipFile>;
 // export function fromFd(fd: number): Promise<ZipFile>;
 export function fromBuffer(buffer: Buffer, options?: Options): Promise<ZipFile>;
 // export function fromBuffer(buffer: Buffer): Promise<ZipFile>;
-export function fromRandomAccessReader(reader: RandomAccessReader, totalSize: number, options?: Options): Promise<ZipFile>;
+export function fromRandomAccessReader(
+    reader: RandomAccessReader,
+    totalSize: number,
+    options?: Options
+): Promise<ZipFile>;
 // export function fromRandomAccessReader(reader: RandomAccessReader, totalSize: number): Promise<ZipFile>;
 
 // These are copied directly from @types/yauzl, I beleive they are unmodified

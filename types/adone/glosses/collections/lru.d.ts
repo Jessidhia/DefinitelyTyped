@@ -124,12 +124,18 @@ declare namespace adone.collection {
         /**
          * Iterates over all the keys in the cache, in reverse recent-ness order. (ie, less recently used items are iterated over first.)
          */
-        rforEach<T = any>(fn: (this: T, value: V, key: K, cache: LRU<K, V>) => void, thisp?: T): void;
+        rforEach<T = any>(
+            fn: (this: T, value: V, key: K, cache: LRU<K, V>) => void,
+            thisp?: T
+        ): void;
 
         /**
          * Iterates over all the keys in the cache, in order of recent-ness
          */
-        forEach<T = any>(fn: (this: T, value: V, key: K, cache: LRU<K, V>) => void, thisp?: T): void;
+        forEach<T = any>(
+            fn: (this: T, value: V, key: K, cache: LRU<K, V>) => void,
+            thisp?: T
+        ): void;
 
         /**
          * Returns an array of the keys in the cache

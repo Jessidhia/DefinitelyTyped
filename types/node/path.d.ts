@@ -109,11 +109,11 @@ declare module "path" {
     /**
      * The platform-specific file separator. '\\' or '/'.
      */
-    const sep: '\\' | '/';
+    const sep: "\\" | "/";
     /**
      * The platform-specific file delimiter. ';' or ':'.
      */
-    const delimiter: ';' | ':';
+    const delimiter: ";" | ":";
     /**
      * Returns an object from a path string - the opposite of format().
      *

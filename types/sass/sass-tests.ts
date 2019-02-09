@@ -1,9 +1,9 @@
-import * as sass from 'sass';
+import * as sass from "sass";
 
 sass.renderSync({
-    file: 'index.scss',
+    file: "index.scss",
     sourceMap: true,
-    outFile: 'index.css',
+    outFile: "index.css"
 });
 
 const n0: sass.types.Number = new sass.types.Number(0);

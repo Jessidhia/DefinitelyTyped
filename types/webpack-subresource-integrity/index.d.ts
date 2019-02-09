@@ -4,7 +4,7 @@
 // Definitions: https://github.com/huan086/webpack-subresource-integrity-typings
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 declare namespace WebpackSubresourceIntegrityPlugin {
     interface Options {

@@ -15,8 +15,8 @@ interface Podium {
      * Creates a new podium emitter
      * @param events  if present, the value is passed to podium.registerEvent().
      */
-    new(events?: Podium.Events[]): Podium;
-    new(events?: Podium.Events): Podium;
+    new (events?: Podium.Events[]): Podium;
+    new (events?: Podium.Events): Podium;
 
     /**
      * podium.registerEvent(events)
@@ -43,7 +43,13 @@ interface Podium {
      * @param callback  an optional callback method invoked when all subscribers have been notified using the signature function()
      * @see {@link https://github.com/hapijs/podium/blob/master/API.md#podiumemitcriteria-data-callback}
      */
-    emit(criteria: string | {name: string, channel?: string, tags?: string | string[]}, data: any, callback?: (() => void)): void;
+    emit(
+        criteria:
+            | string
+            | { name: string; channel?: string; tags?: string | string[] },
+        data: any,
+        callback?: () => void
+    ): void;
 
     /**
      * podium.on(criteria, listener)
@@ -61,7 +67,10 @@ interface Podium {
      * @param listener  the handler method set to receive event updates. The function signature depends on the block, spread, and tags options.
      * @see {@link https://github.com/hapijs/podium/blob/master/API.md#podiumoncriteria-listener}
      */
-    addListener(criteria: string | Podium.Criteria, listener: Podium.Listener): void;
+    addListener(
+        criteria: string | Podium.Criteria,
+        listener: Podium.Listener
+    ): void;
 
     /**
      * podium.once(criteria, listener)
@@ -175,10 +184,10 @@ declare namespace Podium {
      * @see {@link https://github.com/hapijs/podium/blob/master/API.md#podiumoncriteria-listener}
      */
     export interface Listener {
-    (data: any, tags?: Tags, callback?: () => void): void;
+        (data: any, tags?: Tags, callback?: () => void): void;
     }
 
-    export type Tags = {[tag: string]: boolean};
+    export type Tags = { [tag: string]: boolean };
 }
 
 declare var Podium: Podium;

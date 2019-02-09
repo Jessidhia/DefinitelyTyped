@@ -14,7 +14,6 @@ declare namespace JsHamcrest {
      */
     export var version: string;
 
-
     //
     // Description
     //
@@ -71,7 +70,12 @@ declare namespace JsHamcrest {
          * @param list Array of self describing objects. These objects must have a describeTo() function that accepts a JsHamcrest.Description object as argument
          * @return {Description} Itself for method chaining
          */
-        appendList(start: string, separator: string, end: string, list: any[]): Description;
+        appendList(
+            start: string,
+            separator: string,
+            end: string,
+            list: any[]
+        ): Description;
 
         /**
          * Appends a JavaScript language’s literal to this description.
@@ -90,7 +94,12 @@ declare namespace JsHamcrest {
          * @param list Array of values to be described to this description
          * @return {Description} Itself for method chaining
          */
-        appendValueList(start: string, separator: string, end: string, list: SelfDescribing[]): Description;
+        appendValueList(
+            start: string,
+            separator: string,
+            end: string,
+            list: SelfDescribing[]
+        ): Description;
 
         /**
          * Gets the current content of this description.
@@ -99,7 +108,6 @@ declare namespace JsHamcrest {
          */
         get(): string;
     }
-
 
     //
     // Matcher
@@ -163,7 +171,6 @@ declare namespace JsHamcrest {
         or(matcherOrValue: any): CombinableMatcher;
     }
 
-
     //
     // Helpers
     //
@@ -182,8 +189,9 @@ declare namespace JsHamcrest {
      * @param factory Creates a new matcher that delegates to the passed/wrapped matcherOrValue
      * @return {function(*): Matcher} Wraps the value with equalTo before passing to factory
      */
-    export function EqualTo(factory: (matcher: Matcher) => Matcher): (matcherOrValue: any) => Matcher;
-
+    export function EqualTo(
+        factory: (matcher: Matcher) => Matcher
+    ): (matcherOrValue: any) => Matcher;
 
     /**
      * Provides the assertion, filtering, and currying methods.
@@ -206,7 +214,11 @@ declare namespace JsHamcrest {
          * @param options Provides message and pass/fail handlers
          * @return {JsHamcrest.Description} Contains the message, actual value, matcher, and result
          */
-        export function assert(actual: any, matcherOrValue?: any, options?: AssertOptions): JsHamcrest.Description;
+        export function assert(
+            actual: any,
+            matcherOrValue?: any,
+            options?: AssertOptions
+        ): JsHamcrest.Description;
 
         /**
          * Returns those items of the array for which matcher matches.
@@ -224,9 +236,11 @@ declare namespace JsHamcrest {
          * @param args Passed to func
          * @return {function(): *} A function that calls func with args and returns its result
          */
-        export function callTo(func: (...args: any[]) => any, ...args: any[]): () => any;
+        export function callTo(
+            func: (...args: any[]) => any,
+            ...args: any[]
+        ): () => any;
     }
-
 
     /**
      * Defines all of the built-in matchers grouped into five categories.
@@ -249,7 +263,9 @@ declare namespace JsHamcrest {
          * @param matcherOrValue Instance of JsHamcrest.SimpleMatcher or a value
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function everyItem(matcherOrValue: any): JsHamcrest.SimpleMatcher;
+        export function everyItem(
+            matcherOrValue: any
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual value should be an array and it must contain at least one value that matches matcherOrValue.
@@ -265,7 +281,9 @@ declare namespace JsHamcrest {
          * @param matchersOrValues Instances of JsHamcrest.SimpleMatcher and/or values
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function hasItems(...matchersOrValues: any[]): JsHamcrest.SimpleMatcher;
+        export function hasItems(
+            ...matchersOrValues: any[]
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The length of the actual value must match matcherOrValue.
@@ -291,7 +309,6 @@ declare namespace JsHamcrest {
          */
         export function oneOf(...items: any[]): JsHamcrest.SimpleMatcher;
 
-
         //
         // Core Matchers
         //
@@ -302,7 +319,9 @@ declare namespace JsHamcrest {
          * @param matchersOrValues Instances of JsHamcrest.SimpleMatcher and/or values
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function allOf(...matchersOrValues: any[]): JsHamcrest.SimpleMatcher;
+        export function allOf(
+            ...matchersOrValues: any[]
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * At least one of the matchersOrValues should match the actual value. This matcher behaves pretty much like the JavaScript || (or) operator.
@@ -310,7 +329,9 @@ declare namespace JsHamcrest {
          * @param matchersOrValues Instances of JsHamcrest.SimpleMatcher and/or values
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function anyOf(...matchersOrValues: any[]): JsHamcrest.SimpleMatcher;
+        export function anyOf(
+            ...matchersOrValues: any[]
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * Useless always-match matcher.
@@ -333,7 +354,9 @@ declare namespace JsHamcrest {
          * @param matcherOrValue Instance of JsHamcrest.SimpleMatcher or a value
          * @return {JsHamcrest.CombinableMatcher} Instance of JsHamcrest.CombinableMatcher
          */
-        export function either(matcherOrValue: any): JsHamcrest.CombinableMatcher;
+        export function either(
+            matcherOrValue: any
+        ): JsHamcrest.CombinableMatcher;
 
         /**
          * The actual value must be equal to expected.
@@ -396,7 +419,6 @@ declare namespace JsHamcrest {
          */
         export function truth(): JsHamcrest.SimpleMatcher;
 
-
         //
         // Number Matchers
         //
@@ -416,7 +438,10 @@ declare namespace JsHamcrest {
          * @param [delta=0] Expected difference delta
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function closeTo(expected: number, delta?: number): JsHamcrest.SimpleMatcher;
+        export function closeTo(
+            expected: number,
+            delta?: number
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual number must be divisible by divisor.
@@ -447,7 +472,9 @@ declare namespace JsHamcrest {
          * @param expected Expected number
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function greaterThanOrEqualTo(expected: any): JsHamcrest.SimpleMatcher;
+        export function greaterThanOrEqualTo(
+            expected: any
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual number must be less than expected.
@@ -463,7 +490,9 @@ declare namespace JsHamcrest {
          * @param expected Expected number
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function lessThanOrEqualTo(expected: any): JsHamcrest.SimpleMatcher;
+        export function lessThanOrEqualTo(
+            expected: any
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual value must not be a number.
@@ -485,7 +514,6 @@ declare namespace JsHamcrest {
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
         export function zero(): JsHamcrest.SimpleMatcher;
-
 
         //
         // Object Matchers
@@ -511,7 +539,9 @@ declare namespace JsHamcrest {
          * @param functionName Function name
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function hasFunction(functionName: string): JsHamcrest.SimpleMatcher;
+        export function hasFunction(
+            functionName: string
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual value has an attribute with the given name.
@@ -520,7 +550,10 @@ declare namespace JsHamcrest {
          * @param [matcherOrValue] Instance of JsHamcrest.SimpleMatcher or a value
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function hasMember(memberName: string, matcherOrValue?: any): JsHamcrest.SimpleMatcher;
+        export function hasMember(
+            memberName: string,
+            matcherOrValue?: any
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual value must be an instance of clazz.
@@ -528,7 +561,9 @@ declare namespace JsHamcrest {
          * @param clazz Constructor function
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function instanceOf(clazz: new() => any): JsHamcrest.SimpleMatcher;
+        export function instanceOf(
+            clazz: new () => any
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual value must be a number.
@@ -558,7 +593,6 @@ declare namespace JsHamcrest {
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
         export function typeOf(typeName: string): JsHamcrest.SimpleMatcher;
-
 
         //
         // Text Matchers
@@ -595,7 +629,9 @@ declare namespace JsHamcrest {
          * @param str String
          * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
          */
-        export function equalIgnoringCase(str: string): JsHamcrest.SimpleMatcher;
+        export function equalIgnoringCase(
+            str: string
+        ): JsHamcrest.SimpleMatcher;
 
         /**
          * The actual string must match regex.
@@ -613,7 +649,6 @@ declare namespace JsHamcrest {
          */
         export function startsWith(str: string): JsHamcrest.SimpleMatcher;
     }
-
 
     /**
      * Provides methods for exposing matchers and operators for several testing frameworks.
@@ -651,7 +686,6 @@ declare namespace JsHamcrest {
          * @param source
          */
         export function installOperators(source: {}): void;
-
 
         //
         // Testing Frameworks
@@ -709,7 +743,10 @@ declare namespace JsHamcrest {
          *
          * @param params Omit to copy members to "jsUnity.env.defaultScope"
          */
-        export function jsUnity(params?: { scope?: {}; attachAssertions?: boolean }): void;
+        export function jsUnity(params?: {
+            scope?: {};
+            attachAssertions?: boolean;
+        }): void;
 
         /**
          * Screw.Unit integration.
@@ -726,7 +763,6 @@ declare namespace JsHamcrest {
         export function jasmine(params?: { scope?: {} }): void;
     }
 
-
     //
     // Builders
     //
@@ -739,13 +775,11 @@ declare namespace JsHamcrest {
     }
 }
 
-
 //
 // Functions that are copied by copyMembers() to the global scope are copy-n-pasted here.
 //
 // TODO There must be a better way to do this, and not every testing framework places them in the global scope.
 //
-
 
 //
 // Assert
@@ -759,8 +793,11 @@ declare namespace JsHamcrest {
  * @param message Prepends the built description
  * @return {JsHamcrest.Description} Contains the message, actual value, matcher, and result
  */
-declare function assertThat(actual: any, matcher?: JsHamcrest.Matcher, message?: any): JsHamcrest.Description;
-
+declare function assertThat(
+    actual: any,
+    matcher?: JsHamcrest.Matcher,
+    message?: any
+): JsHamcrest.Description;
 
 //
 // Collection Matchers
@@ -820,7 +857,6 @@ declare function isIn(...items: any[]): JsHamcrest.SimpleMatcher;
  * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
  */
 declare function oneOf(...items: any[]): JsHamcrest.SimpleMatcher;
-
 
 //
 // Core Matchers
@@ -926,7 +962,6 @@ declare function sameAs(expected: any): JsHamcrest.SimpleMatcher;
  */
 declare function truth(): JsHamcrest.SimpleMatcher;
 
-
 //
 // Number Matchers
 //
@@ -946,7 +981,10 @@ declare function between(start: any): JsHamcrest.BetweenBuilder;
  * @param [delta=0] Expected difference delta
  * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
  */
-declare function closeTo(expected: number, delta?: number): JsHamcrest.SimpleMatcher;
+declare function closeTo(
+    expected: number,
+    delta?: number
+): JsHamcrest.SimpleMatcher;
 
 /**
  * The actual number must be divisible by divisor.
@@ -1016,7 +1054,6 @@ declare function odd(): JsHamcrest.SimpleMatcher;
  */
 declare function zero(): JsHamcrest.SimpleMatcher;
 
-
 //
 // Object Matchers
 //
@@ -1050,7 +1087,10 @@ declare function hasFunction(functionName: string): JsHamcrest.SimpleMatcher;
  * @param [matcherOrValue] Instance of JsHamcrest.SimpleMatcher or a value
  * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
  */
-declare function hasMember(memberName: string, matcherOrValue?: any): JsHamcrest.SimpleMatcher;
+declare function hasMember(
+    memberName: string,
+    matcherOrValue?: any
+): JsHamcrest.SimpleMatcher;
 
 /**
  * The actual value must be an instance of clazz.
@@ -1058,7 +1098,7 @@ declare function hasMember(memberName: string, matcherOrValue?: any): JsHamcrest
  * @param clazz Constructor function
  * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
  */
-declare function instanceOf(clazz: new() => any): JsHamcrest.SimpleMatcher;
+declare function instanceOf(clazz: new () => any): JsHamcrest.SimpleMatcher;
 
 /**
  * The actual value must be a number.
@@ -1088,7 +1128,6 @@ declare function string(): JsHamcrest.SimpleMatcher;
  * @return {JsHamcrest.SimpleMatcher} Instance of JsHamcrest.SimpleMatcher
  */
 declare function typeOf(typeName: string): JsHamcrest.SimpleMatcher;
-
 
 //
 // Text Matchers

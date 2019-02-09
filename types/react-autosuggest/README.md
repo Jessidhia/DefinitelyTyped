@@ -1,8 +1,10 @@
 # react-autosuggest usage notes
 
-The definition uses generics for stronger typing. Read the [TypeScript deep dive on JSX Generic components](https://basarat.gitbooks.io/typescript/docs/jsx/tsx.html#react-jsx-tip-generic-components) for details on consuming these type definitions.
+The definition uses generics for stronger typing. Read the
+[TypeScript deep dive on JSX Generic components](https://basarat.gitbooks.io/typescript/docs/jsx/tsx.html#react-jsx-tip-generic-components)
+for details on consuming these type definitions.
 
-## Example 
+## Example
 
 ```jsx
 import * as Autosuggest from 'react-autosuggest'

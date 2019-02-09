@@ -13,7 +13,8 @@ export const OLD_ABI_STANDARD: ABIDefinition[] = [
         name: "function1",
         outputs: [],
         type: "function"
-    }, {
+    },
+    {
         constant: true,
         payable: false,
         inputs: [],
@@ -25,21 +26,23 @@ export const OLD_ABI_STANDARD: ABIDefinition[] = [
             }
         ],
         type: "function"
-    }, {
+    },
+    {
         constant: false,
         payable: false,
         inputs: [],
         name: "removeOwner",
         outputs: [],
         type: "function"
-    }, {
+    },
+    {
         constant: false,
         payable: true,
         inputs: [],
         name: "removeOwner",
         outputs: [],
         type: "function"
-    },
+    }
 ];
 
 export const NEW_ABI_STANDARD: ABIDefinition[] = [
@@ -56,7 +59,8 @@ export const NEW_ABI_STANDARD: ABIDefinition[] = [
         name: "function1",
         outputs: [],
         type: "function"
-    }, {
+    },
+    {
         constant: true,
         payable: false,
         stateMutability: "pure",
@@ -69,7 +73,8 @@ export const NEW_ABI_STANDARD: ABIDefinition[] = [
             }
         ],
         type: "function"
-    }, {
+    },
+    {
         constant: false,
         payable: false,
         stateMutability: "nonpayable",
@@ -77,7 +82,8 @@ export const NEW_ABI_STANDARD: ABIDefinition[] = [
         name: "removeOwner",
         outputs: [],
         type: "function"
-    }, {
+    },
+    {
         constant: false,
         payable: true,
         stateMutability: "payable",
@@ -85,5 +91,5 @@ export const NEW_ABI_STANDARD: ABIDefinition[] = [
         name: "removeOwner",
         outputs: [],
         type: "function"
-    },
+    }
 ];

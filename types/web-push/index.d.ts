@@ -22,7 +22,11 @@
  * @see WebPushError
  * @see https://github.com/web-push-libs/web-push#sendnotificationpushsubscription-payload-options
  */
-export function sendNotification(subscription: PushSubscription, payload?: string | Buffer | null, options?: RequestOptions): Promise<SendResult>;
+export function sendNotification(
+    subscription: PushSubscription,
+    payload?: string | Buffer | null,
+    options?: RequestOptions
+): Promise<SendResult>;
 
 /**
  * Generate VAPID keys.
@@ -59,7 +63,12 @@ export function setGCMAPIKey(apiKey: string | null): void;
  * @see ContentEncoding
  * @see https://github.com/web-push-libs/web-push#encryptuserpublickey-userauth-payload-contentencoding
  */
-export function encrypt(userPublicKey: string, userAuth: string, payload: string | Buffer, contentEncoding: ContentEncoding): EncryptionResult;
+export function encrypt(
+    userPublicKey: string,
+    userAuth: string,
+    payload: string | Buffer,
+    contentEncoding: ContentEncoding
+): EncryptionResult;
 
 /**
  * This method takes the required VAPID parameters and returns the required
@@ -73,21 +82,36 @@ export function encrypt(userPublicKey: string, userAuth: string, payload: string
  * @returns                 Returns an Object with the Authorization and 'Crypto-Key' values to be used as headers.
  */
 export function getVapidHeaders(
-    audience: string, subject: string, publicKey: string, privateKey: string, contentEncoding: 'aes128gcm', expiration?: number
+    audience: string,
+    subject: string,
+    publicKey: string,
+    privateKey: string,
+    contentEncoding: "aes128gcm",
+    expiration?: number
 ): {
     Authorization: string;
 };
 export function getVapidHeaders(
-    audience: string, subject: string, publicKey: string, privateKey: string, contentEncoding: 'aesgcm', expiration?: number
+    audience: string,
+    subject: string,
+    publicKey: string,
+    privateKey: string,
+    contentEncoding: "aesgcm",
+    expiration?: number
 ): {
     Authorization: string;
-    'Crypto-Key': string;
+    "Crypto-Key": string;
 };
 export function getVapidHeaders(
-    audience: string, subject: string, publicKey: string, privateKey: string, contentEncoding: ContentEncoding, expiration?: number
+    audience: string,
+    subject: string,
+    publicKey: string,
+    privateKey: string,
+    contentEncoding: ContentEncoding,
+    expiration?: number
 ): {
     Authorization: string;
-    'Crypto-Key'?: string;
+    "Crypto-Key"?: string;
 };
 
 /**
@@ -108,21 +132,33 @@ export function getVapidHeaders(
  * @see RequestDetails
  * @see https://github.com/web-push-libs/web-push#generaterequestdetailspushsubscription-payload-options
  */
-export function generateRequestDetails(subscription: PushSubscription, payload?: null, options?: RequestOptions): RequestDetails & { body: null };
-export function generateRequestDetails(subscription: PushSubscription, payload?: string | Buffer, options?: RequestOptions): RequestDetails & { body: Buffer };
-export function generateRequestDetails(subscription: PushSubscription, payload?: string | Buffer, options?: RequestOptions): RequestDetails;
+export function generateRequestDetails(
+    subscription: PushSubscription,
+    payload?: null,
+    options?: RequestOptions
+): RequestDetails & { body: null };
+export function generateRequestDetails(
+    subscription: PushSubscription,
+    payload?: string | Buffer,
+    options?: RequestOptions
+): RequestDetails & { body: Buffer };
+export function generateRequestDetails(
+    subscription: PushSubscription,
+    payload?: string | Buffer,
+    options?: RequestOptions
+): RequestDetails;
 
 /**
  * Valid content encodings used by encrypt(), getVapidHeaders(), generateRequestDetails() and sendNotification().
  */
-export type ContentEncoding = 'aesgcm' | 'aes128gcm';
+export type ContentEncoding = "aesgcm" | "aes128gcm";
 
 /**
  * Map of valid content encodings.
  */
 export const supportedContentEncodings: {
-    readonly AES_GCM: 'aesgcm' & ContentEncoding;
-    readonly AES_128_GCM: 'aws128gcm' & ContentEncoding;
+    readonly AES_GCM: "aesgcm" & ContentEncoding;
+    readonly AES_128_GCM: "aws128gcm" & ContentEncoding;
 };
 
 /**
@@ -151,7 +187,11 @@ export interface VapidKeys {
  * @param  publicKey   The public VAPID key.
  * @param  privateKey  The private VAPID key.
  */
-export function setVapidDetails(subject: string, publicKey: string, privateKey: string): void;
+export function setVapidDetails(
+    subject: string,
+    publicKey: string,
+    privateKey: string
+): void;
 
 /**
  * Configuration for a Push Subscription. This can be obtained on the frontend by calling
@@ -176,7 +216,8 @@ export interface Headers {
 export interface RequestOptions {
     headers?: Headers;
     gcmAPIKey?: string; // can be a GCM API key to be used for this request and this request only. This overrides any API key set via setGCMAPIKey().
-    vapidDetails?: { // should be an object with subject, publicKey and privateKey values defined. These values should follow the VAPID Spec. (https://tools.ietf.org/html/draft-thomson-webpush-vapid)
+    vapidDetails?: {
+        // should be an object with subject, publicKey and privateKey values defined. These values should follow the VAPID Spec. (https://tools.ietf.org/html/draft-thomson-webpush-vapid)
         subject: string;
         publicKey: string;
         privateKey: string;
@@ -191,7 +232,7 @@ export interface RequestOptions {
  * Buffer is null unless a payload was passed into generateRequestDetails().
  */
 export interface RequestDetails {
-    method: 'POST';
+    method: "POST";
     headers: Headers;
     body: Buffer | null;
     endpoint: string;

@@ -44,7 +44,7 @@ declare namespace pusher {
          * Defines how the authentication endpoint, defined using authEndpoint, will be called.
          * There are two options available: ajax and jsonp.
          */
-        authTransport?: 'ajax' | 'jsonp';
+        authTransport?: "ajax" | "jsonp";
 
         /**
          * Allows passing additional data to authorizers. Supports query string params and headers (AJAX only).
@@ -111,7 +111,7 @@ declare namespace pusher {
         httpsPort?: number;
     }
 
-    type Transport = 'ws' | 'wss' | 'xhr_streaming' | 'xhr_polling' | 'sockjs';
+    type Transport = "ws" | "wss" | "xhr_streaming" | "xhr_polling" | "sockjs";
 
     interface AuthConfig {
         params?: { [key: string]: any };
@@ -123,8 +123,14 @@ declare namespace pusher {
         channel_data?: string;
     }
 
-    type Authorizer = (channel: Channel, options: Config) => {
-        authorize: (socketId: string, callback: (errored: boolean, authInfo?: AuthInfo) => void) => void;
+    type Authorizer = (
+        channel: Channel,
+        options: Config
+    ) => {
+        authorize: (
+            socketId: string,
+            callback: (errored: boolean, authInfo?: AuthInfo) => void
+        ) => void;
     };
 
     type EventCallback = (context: any, data: any) => void;
@@ -132,7 +138,11 @@ declare namespace pusher {
     interface EventsDispatcher {
         bind(eventName: string, callback: EventCallback, context?: any): this;
         bind_global(callback: EventCallback): this;
-        unbind(eventName?: string | null, callback?: EventCallback | null, context?: any): this;
+        unbind(
+            eventName?: string | null,
+            callback?: EventCallback | null,
+            context?: any
+        ): this;
         unbind_global(callback?: EventCallback): this;
         unbind_all(): this;
         emit(eventName: string, data?: any): this;

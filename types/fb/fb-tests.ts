@@ -1,12 +1,9 @@
-
 window.fbAsyncInit = function() {
-    FB.init(
-        {
-            appId      : "{your-app-id}",
-            xfbml      : true,
-            version    : "v2.0"
-        }
-    );
+    FB.init({
+        appId: "{your-app-id}",
+        xfbml: true,
+        version: "v2.0"
+    });
 
     FB.ui(
         {
@@ -18,13 +15,9 @@ window.fbAsyncInit = function() {
         }
     );
 
-    FB.api(
-        "/me",
-        "post",
-        function (fbResponse) {
-            console.log(fbResponse);
-        }
-    );
+    FB.api("/me", "post", function(fbResponse) {
+        console.log(fbResponse);
+    });
 
     function checkAuth(response: FB.LoginStatusResponse): void {
         if (response.status === "connected") {

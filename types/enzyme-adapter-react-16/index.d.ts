@@ -4,12 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { EnzymeAdapter } from 'enzyme';
+import { EnzymeAdapter } from "enzyme";
 
-declare class ReactSixteenAdapter extends EnzymeAdapter {
-}
+declare class ReactSixteenAdapter extends EnzymeAdapter {}
 
-declare namespace ReactSixteenAdapter {
-}
+declare namespace ReactSixteenAdapter {}
 
 export = ReactSixteenAdapter;

@@ -1,26 +1,29 @@
-import * as angular from 'angular';
+import * as angular from "angular";
 
-var app = angular.module('testModule', ['tmh.dynamicLocale']);
-app.config((localStorageServiceProvider: angular.dynamicLocale.tmhDynamicLocaleProvider) => {
-	localStorageServiceProvider
-		.localeLocationPattern("app/config/locales/")
-		.useCookieStorage();
-    localStorageServiceProvider.defaultLocale('en');
-});
+var app = angular.module("testModule", ["tmh.dynamicLocale"]);
+app.config(
+    (
+        localStorageServiceProvider: angular.dynamicLocale.tmhDynamicLocaleProvider
+    ) => {
+        localStorageServiceProvider
+            .localeLocationPattern("app/config/locales/")
+            .useCookieStorage();
+        localStorageServiceProvider.defaultLocale("en");
+    }
+);
 
 class LocaleTestController {
+    constructor(
+        tmhDynamicLocaleService: angular.dynamicLocale.tmhDynamicLocaleService
+    ) {
+        var locale = tmhDynamicLocaleService.get();
 
-	constructor(tmhDynamicLocaleService: angular.dynamicLocale.tmhDynamicLocaleService) {
+        var newLocale = "mt";
+        tmhDynamicLocaleService.set(newLocale);
 
-		var locale = tmhDynamicLocaleService.get();
-
-		var newLocale = "mt"
-		tmhDynamicLocaleService.set(newLocale);
-
-		newLocale = "en";
-		tmhDynamicLocaleService.set(newLocale).then((value) => {});
-	}
-
+        newLocale = "en";
+        tmhDynamicLocaleService.set(newLocale).then(value => {});
+    }
 }
 
-app.controller('TestController', LocaleTestController);
+app.controller("TestController", LocaleTestController);

@@ -1,4 +1,4 @@
-import { MODES } from '@pollyjs/utils';
+import { MODES } from "@pollyjs/utils";
 
 MODES.PASSTHROUGH;
 MODES.RECORD;

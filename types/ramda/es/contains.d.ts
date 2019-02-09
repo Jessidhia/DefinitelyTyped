@@ -1,2 +1,2 @@
-import { contains } from '../index';
+import { contains } from "../index";
 export default contains;

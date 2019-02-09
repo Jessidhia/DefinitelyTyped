@@ -7,26 +7,17 @@
     ],
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": false,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
         "jsx": "react",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "react-select": [
-                "react-select/v1"
-            ],
-            "react-select/*": [
-                "react-select/v1/*"
-            ]
+            "react-select": ["react-select/v1"],
+            "react-select/*": ["react-select/v1/*"]
         },
         "types": [],
         "noEmit": true,

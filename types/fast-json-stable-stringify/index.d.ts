@@ -5,7 +5,10 @@
 
 export = stringify;
 
-declare function stringify(obj: any, options?: stringify.Options | stringify.Comparator): string;
+declare function stringify(
+    obj: any,
+    options?: stringify.Options | stringify.Comparator
+): string;
 
 declare namespace stringify {
     interface Options {

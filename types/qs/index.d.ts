@@ -19,11 +19,11 @@ declare namespace QueryString {
         encode?: boolean;
         encoder?: (str: string) => any;
         filter?: Array<string | number> | ((prefix: string, value: any) => any);
-        arrayFormat?: 'indices' | 'brackets' | 'repeat';
+        arrayFormat?: "indices" | "brackets" | "repeat";
         indices?: boolean;
         sort?: (a: any, b: any) => number;
         serializeDate?: (d: Date) => string;
-        format?: 'RFC1738' | 'RFC3986';
+        format?: "RFC1738" | "RFC3986";
         encodeValuesOnly?: boolean;
         addQueryPrefix?: boolean;
         allowDots?: boolean;

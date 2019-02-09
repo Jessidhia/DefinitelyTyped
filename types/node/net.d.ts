@@ -3,7 +3,15 @@ declare module "net" {
     import * as events from "events";
     import * as dns from "dns";
 
-    type LookupFunction = (hostname: string, options: dns.LookupOneOptions, callback: (err: NodeJS.ErrnoException | null, address: string, family: number) => void) => void;
+    type LookupFunction = (
+        hostname: string,
+        options: dns.LookupOneOptions,
+        callback: (
+            err: NodeJS.ErrnoException | null,
+            address: string,
+            family: number
+        ) => void
+    ) => void;
 
     interface AddressInfo {
         address: string;
@@ -45,8 +53,15 @@ declare module "net" {
         write(str: string, encoding?: string, fd?: string): boolean;
         write(data: any, encoding?: string, callback?: Function): void;
 
-        connect(options: SocketConnectOpts, connectionListener?: Function): this;
-        connect(port: number, host: string, connectionListener?: Function): this;
+        connect(
+            options: SocketConnectOpts,
+            connectionListener?: Function
+        ): this;
+        connect(
+            port: number,
+            host: string,
+            connectionListener?: Function
+        ): this;
         connect(port: number, connectionListener?: Function): this;
         connect(path: string, connectionListener?: Function): this;
 
@@ -90,13 +105,24 @@ declare module "net" {
          *   8. timeout
          */
         addListener(event: string, listener: (...args: any[]) => void): this;
-        addListener(event: "close", listener: (had_error: boolean) => void): this;
+        addListener(
+            event: "close",
+            listener: (had_error: boolean) => void
+        ): this;
         addListener(event: "connect", listener: () => void): this;
         addListener(event: "data", listener: (data: Buffer) => void): this;
         addListener(event: "drain", listener: () => void): this;
         addListener(event: "end", listener: () => void): this;
         addListener(event: "error", listener: (err: Error) => void): this;
-        addListener(event: "lookup", listener: (err: Error, address: string, family: string | number, host: string) => void): this;
+        addListener(
+            event: "lookup",
+            listener: (
+                err: Error,
+                address: string,
+                family: string | number,
+                host: string
+            ) => void
+        ): this;
         addListener(event: "timeout", listener: () => void): this;
 
         emit(event: string | symbol, ...args: any[]): boolean;
@@ -106,7 +132,13 @@ declare module "net" {
         emit(event: "drain"): boolean;
         emit(event: "end"): boolean;
         emit(event: "error", err: Error): boolean;
-        emit(event: "lookup", err: Error, address: string, family: string | number, host: string): boolean;
+        emit(
+            event: "lookup",
+            err: Error,
+            address: string,
+            family: string | number,
+            host: string
+        ): boolean;
         emit(event: "timeout"): boolean;
 
         on(event: string, listener: (...args: any[]) => void): this;
@@ -116,7 +148,15 @@ declare module "net" {
         on(event: "drain", listener: () => void): this;
         on(event: "end", listener: () => void): this;
         on(event: "error", listener: (err: Error) => void): this;
-        on(event: "lookup", listener: (err: Error, address: string, family: string | number, host: string) => void): this;
+        on(
+            event: "lookup",
+            listener: (
+                err: Error,
+                address: string,
+                family: string | number,
+                host: string
+            ) => void
+        ): this;
         on(event: "timeout", listener: () => void): this;
 
         once(event: string, listener: (...args: any[]) => void): this;
@@ -126,27 +166,69 @@ declare module "net" {
         once(event: "drain", listener: () => void): this;
         once(event: "end", listener: () => void): this;
         once(event: "error", listener: (err: Error) => void): this;
-        once(event: "lookup", listener: (err: Error, address: string, family: string | number, host: string) => void): this;
+        once(
+            event: "lookup",
+            listener: (
+                err: Error,
+                address: string,
+                family: string | number,
+                host: string
+            ) => void
+        ): this;
         once(event: "timeout", listener: () => void): this;
 
-        prependListener(event: string, listener: (...args: any[]) => void): this;
-        prependListener(event: "close", listener: (had_error: boolean) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
+        prependListener(
+            event: "close",
+            listener: (had_error: boolean) => void
+        ): this;
         prependListener(event: "connect", listener: () => void): this;
         prependListener(event: "data", listener: (data: Buffer) => void): this;
         prependListener(event: "drain", listener: () => void): this;
         prependListener(event: "end", listener: () => void): this;
         prependListener(event: "error", listener: (err: Error) => void): this;
-        prependListener(event: "lookup", listener: (err: Error, address: string, family: string | number, host: string) => void): this;
+        prependListener(
+            event: "lookup",
+            listener: (
+                err: Error,
+                address: string,
+                family: string | number,
+                host: string
+            ) => void
+        ): this;
         prependListener(event: "timeout", listener: () => void): this;
 
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
-        prependOnceListener(event: "close", listener: (had_error: boolean) => void): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
+        prependOnceListener(
+            event: "close",
+            listener: (had_error: boolean) => void
+        ): this;
         prependOnceListener(event: "connect", listener: () => void): this;
-        prependOnceListener(event: "data", listener: (data: Buffer) => void): this;
+        prependOnceListener(
+            event: "data",
+            listener: (data: Buffer) => void
+        ): this;
         prependOnceListener(event: "drain", listener: () => void): this;
         prependOnceListener(event: "end", listener: () => void): this;
-        prependOnceListener(event: "error", listener: (err: Error) => void): this;
-        prependOnceListener(event: "lookup", listener: (err: Error, address: string, family: string | number, host: string) => void): this;
+        prependOnceListener(
+            event: "error",
+            listener: (err: Error) => void
+        ): this;
+        prependOnceListener(
+            event: "lookup",
+            listener: (
+                err: Error,
+                address: string,
+                family: string | number,
+                host: string
+            ) => void
+        ): this;
         prependOnceListener(event: "timeout", listener: () => void): this;
     }
 
@@ -163,16 +245,40 @@ declare module "net" {
     // https://github.com/nodejs/node/blob/master/lib/net.js
     class Server extends events.EventEmitter {
         constructor(connectionListener?: (socket: Socket) => void);
-        constructor(options?: { allowHalfOpen?: boolean, pauseOnConnect?: boolean }, connectionListener?: (socket: Socket) => void);
+        constructor(
+            options?: { allowHalfOpen?: boolean; pauseOnConnect?: boolean },
+            connectionListener?: (socket: Socket) => void
+        );
 
-        listen(port?: number, hostname?: string, backlog?: number, listeningListener?: Function): this;
-        listen(port?: number, hostname?: string, listeningListener?: Function): this;
-        listen(port?: number, backlog?: number, listeningListener?: Function): this;
+        listen(
+            port?: number,
+            hostname?: string,
+            backlog?: number,
+            listeningListener?: Function
+        ): this;
+        listen(
+            port?: number,
+            hostname?: string,
+            listeningListener?: Function
+        ): this;
+        listen(
+            port?: number,
+            backlog?: number,
+            listeningListener?: Function
+        ): this;
         listen(port?: number, listeningListener?: Function): this;
-        listen(path: string, backlog?: number, listeningListener?: Function): this;
+        listen(
+            path: string,
+            backlog?: number,
+            listeningListener?: Function
+        ): this;
         listen(path: string, listeningListener?: Function): this;
         listen(options: ListenOptions, listeningListener?: Function): this;
-        listen(handle: any, backlog?: number, listeningListener?: Function): this;
+        listen(
+            handle: any,
+            backlog?: number,
+            listeningListener?: Function
+        ): this;
         listen(handle: any, listeningListener?: Function): this;
         close(callback?: Function): this;
         address(): AddressInfo | string;
@@ -192,7 +298,10 @@ declare module "net" {
          */
         addListener(event: string, listener: (...args: any[]) => void): this;
         addListener(event: "close", listener: () => void): this;
-        addListener(event: "connection", listener: (socket: Socket) => void): this;
+        addListener(
+            event: "connection",
+            listener: (socket: Socket) => void
+        ): this;
         addListener(event: "error", listener: (err: Error) => void): this;
         addListener(event: "listening", listener: () => void): this;
 
@@ -214,37 +323,78 @@ declare module "net" {
         once(event: "error", listener: (err: Error) => void): this;
         once(event: "listening", listener: () => void): this;
 
-        prependListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependListener(event: "close", listener: () => void): this;
-        prependListener(event: "connection", listener: (socket: Socket) => void): this;
+        prependListener(
+            event: "connection",
+            listener: (socket: Socket) => void
+        ): this;
         prependListener(event: "error", listener: (err: Error) => void): this;
         prependListener(event: "listening", listener: () => void): this;
 
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependOnceListener(event: "close", listener: () => void): this;
-        prependOnceListener(event: "connection", listener: (socket: Socket) => void): this;
-        prependOnceListener(event: "error", listener: (err: Error) => void): this;
+        prependOnceListener(
+            event: "connection",
+            listener: (socket: Socket) => void
+        ): this;
+        prependOnceListener(
+            event: "error",
+            listener: (err: Error) => void
+        ): this;
         prependOnceListener(event: "listening", listener: () => void): this;
     }
 
-    interface TcpNetConnectOpts extends TcpSocketConnectOpts, SocketConstructorOpts {
+    interface TcpNetConnectOpts
+        extends TcpSocketConnectOpts,
+            SocketConstructorOpts {
         timeout?: number;
     }
 
-    interface IpcNetConnectOpts extends IpcSocketConnectOpts, SocketConstructorOpts {
+    interface IpcNetConnectOpts
+        extends IpcSocketConnectOpts,
+            SocketConstructorOpts {
         timeout?: number;
     }
 
     type NetConnectOpts = TcpNetConnectOpts | IpcNetConnectOpts;
 
-    function createServer(connectionListener?: (socket: Socket) => void): Server;
-    function createServer(options?: { allowHalfOpen?: boolean, pauseOnConnect?: boolean }, connectionListener?: (socket: Socket) => void): Server;
-    function connect(options: NetConnectOpts, connectionListener?: Function): Socket;
-    function connect(port: number, host?: string, connectionListener?: Function): Socket;
+    function createServer(
+        connectionListener?: (socket: Socket) => void
+    ): Server;
+    function createServer(
+        options?: { allowHalfOpen?: boolean; pauseOnConnect?: boolean },
+        connectionListener?: (socket: Socket) => void
+    ): Server;
+    function connect(
+        options: NetConnectOpts,
+        connectionListener?: Function
+    ): Socket;
+    function connect(
+        port: number,
+        host?: string,
+        connectionListener?: Function
+    ): Socket;
     function connect(path: string, connectionListener?: Function): Socket;
-    function createConnection(options: NetConnectOpts, connectionListener?: Function): Socket;
-    function createConnection(port: number, host?: string, connectionListener?: Function): Socket;
-    function createConnection(path: string, connectionListener?: Function): Socket;
+    function createConnection(
+        options: NetConnectOpts,
+        connectionListener?: Function
+    ): Socket;
+    function createConnection(
+        port: number,
+        host?: string,
+        connectionListener?: Function
+    ): Socket;
+    function createConnection(
+        path: string,
+        connectionListener?: Function
+    ): Socket;
     function isIP(input: string): number;
     function isIPv4(input: string): boolean;
     function isIPv6(input: string): boolean;

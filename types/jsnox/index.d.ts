@@ -12,7 +12,11 @@ import * as React from "react";
  * This will normally be the React object but could be something else
  */
 interface ReactLikeObject {
-    createElement<P>(type: React.ComponentClass<P> | string, props: P, children: React.ReactNode): React.ReactElement<P>;
+    createElement<P>(
+        type: React.ComponentClass<P> | string,
+        props: P,
+        children: React.ReactNode
+    ): React.ReactElement<P>;
 }
 
 type Module = (reactObj: ReactLikeObject) => CreateElement;
@@ -26,7 +30,10 @@ interface CreateElement {
      * @param children A single React node (string or ReactElement) or array of nodes.
      * Note that unlike with React itself, multiple children must be placed into an array.
      */
-    <P>(specString: string, children: React.ReactNode): React.DOMElement<P, Element>;
+    <P>(specString: string, children: React.ReactNode): React.DOMElement<
+        P,
+        Element
+    >;
 
     /**
      * Renders an HTML element from the given spec string, with optional props
@@ -37,7 +44,11 @@ interface CreateElement {
      * @param children A single React node (string or ReactElement) or array of nodes.
      * Note that unlike with React itself, multiple children must be placed into an array.
      */
-    <P>(specString: string, props?: React.HTMLAttributes<{}>, children?: React.ReactNode): React.DOMElement<P, Element>;
+    <P>(
+        specString: string,
+        props?: React.HTMLAttributes<{}>,
+        children?: React.ReactNode
+    ): React.DOMElement<P, Element>;
 
     /**
      * Renders a React component, with children but no props
@@ -46,7 +57,10 @@ interface CreateElement {
      * @param children A single React node (string or ReactElement) or array of nodes.
      * Note that unlike with React itself, multiple children must be placed into an array.
      */
-    <P>(component: React.ComponentClass<P>, children: React.ReactNode): React.ReactElement<P>;
+    <P>(
+        component: React.ComponentClass<P>,
+        children: React.ReactNode
+    ): React.ReactElement<P>;
 
     /**
      * Renders a React component, with optional props and children
@@ -56,7 +70,11 @@ interface CreateElement {
      * @param children A single React node (string or ReactElement) or array of nodes.
      * Note that unlike with React itself, multiple children must be placed into an array.
      */
-    <P>(component: React.ComponentClass<P>, props?: P, children?: React.ReactNode): React.ReactElement<P>;
+    <P>(
+        component: React.ComponentClass<P>,
+        props?: P,
+        children?: React.ReactNode
+    ): React.ReactElement<P>;
 }
 
 declare var exports: Module;

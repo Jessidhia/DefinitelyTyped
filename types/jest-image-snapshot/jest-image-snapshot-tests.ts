@@ -1,13 +1,17 @@
 // Typescript Version: 2.3
-import { toMatchImageSnapshot, configureToMatchImageSnapshot, MatchImageSnapshotOptions } from 'jest-image-snapshot';
+import {
+    toMatchImageSnapshot,
+    configureToMatchImageSnapshot,
+    MatchImageSnapshotOptions
+} from "jest-image-snapshot";
 
-it('should be able to use toMatchImageSnapshot in a test', () => {
+it("should be able to use toMatchImageSnapshot in a test", () => {
     expect.extend({ toMatchImageSnapshot });
 
     expect(400).toMatchImageSnapshot();
 });
 
-it('should be able to use configureToMatchImageSnapshot in a test', () => {
+it("should be able to use configureToMatchImageSnapshot in a test", () => {
     const matchFn = configureToMatchImageSnapshot({
         noColors: true,
         customDiffConfig: {
@@ -15,14 +19,14 @@ it('should be able to use configureToMatchImageSnapshot in a test', () => {
             includeAA: false
         },
         failureThreshold: 10,
-        failureThresholdType: 'percent'
+        failureThresholdType: "percent"
     });
     expect.extend({ toMatchImageSnapshot: matchFn });
 
-    expect('Me').toMatchImageSnapshot();
+    expect("Me").toMatchImageSnapshot();
 });
 
-it('Should be able to use configuration directly in toMatchImageSnapshot', () => {
+it("Should be able to use configuration directly in toMatchImageSnapshot", () => {
     expect.extend({ toMatchImageSnapshot });
 
     const options: MatchImageSnapshotOptions = {
@@ -31,12 +35,12 @@ it('Should be able to use configuration directly in toMatchImageSnapshot', () =>
             threshold: 5,
             includeAA: false
         },
-        customDiffDir: './diffs',
-        diffDirection: 'vertical',
+        customDiffDir: "./diffs",
+        diffDirection: "vertical",
         updatePassedSnapshot: true,
         failureThreshold: 10,
-        failureThresholdType: 'percent'
+        failureThresholdType: "percent"
     };
 
-    expect('Me').toMatchImageSnapshot(options);
+    expect("Me").toMatchImageSnapshot(options);
 });

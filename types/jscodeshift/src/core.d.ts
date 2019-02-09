@@ -41,7 +41,9 @@ declare namespace core {
 
     interface Core {
         (source: string, options?: Options): Collection.Collection<any>;
-        (source: ASTNode | ASTNode[] | ASTPath | ASTPath[]): Collection.Collection<any>;
+        (
+            source: ASTNode | ASTNode[] | ASTPath | ASTPath[]
+        ): Collection.Collection<any>;
 
         registerMethods: typeof Collection.registerMethods;
 
@@ -94,7 +96,11 @@ declare namespace core {
          * If a string is returned but it's the same as the source, the transform is considered to be unsuccessful.
          * If nothing is returned, the file is not supposed to be transformed (which is ok).
          */
-        (file: FileInfo, api: API, options: Options): string | null | undefined | void;
+        (file: FileInfo, api: API, options: Options):
+            | string
+            | null
+            | undefined
+            | void;
     }
 
     type ASTNode = nodes.ASTNode;

@@ -36,20 +36,54 @@ declare namespace yargs {
 
         boolean(key: string | string[]): Argv;
 
-        check(func: (argv: Arguments, aliases: { [alias: string]: string }) => any, global?: boolean): Argv;
+        check(
+            func: (
+                argv: Arguments,
+                aliases: { [alias: string]: string }
+            ) => any,
+            global?: boolean
+        ): Argv;
 
         choices(key: string, values: Choices): Argv;
         choices(choices: { [argName: string]: Choices }): Argv;
 
         coerce(key: string | string[], func: (arg: any) => any): Argv;
-        coerce(opts: { [key: string]: (arg: any) => any; }): Argv;
+        coerce(opts: { [key: string]: (arg: any) => any }): Argv;
 
-        command(command: string | string[], description: string, builder?: (args: Argv) => Argv, handler?: (args: Arguments) => void): Argv;
-        command(command: string | string[], description: string, builder?: { [key: string]: Options }, handler?: (args: Arguments) => void): Argv;
-        command(command: string | string[], description: string, module: CommandModule): Argv;
-        command(command: string | string[], showInHelp: false, builder?: (args: Argv) => Argv, handler?: (args: Arguments) => void): Argv;
-        command(command: string | string[], showInHelp: false, builder?: { [key: string]: Options }, handler?: (args: Arguments) => void): Argv;
-        command(command: string | string[], showInHelp: false, module: CommandModule): Argv;
+        command(
+            command: string | string[],
+            description: string,
+            builder?: (args: Argv) => Argv,
+            handler?: (args: Arguments) => void
+        ): Argv;
+        command(
+            command: string | string[],
+            description: string,
+            builder?: { [key: string]: Options },
+            handler?: (args: Arguments) => void
+        ): Argv;
+        command(
+            command: string | string[],
+            description: string,
+            module: CommandModule
+        ): Argv;
+        command(
+            command: string | string[],
+            showInHelp: false,
+            builder?: (args: Argv) => Argv,
+            handler?: (args: Arguments) => void
+        ): Argv;
+        command(
+            command: string | string[],
+            showInHelp: false,
+            builder?: { [key: string]: Options },
+            handler?: (args: Arguments) => void
+        ): Argv;
+        command(
+            command: string | string[],
+            showInHelp: false,
+            module: CommandModule
+        ): Argv;
         command(module: CommandModule): Argv;
 
         // Advanced API
@@ -58,12 +92,27 @@ declare namespace yargs {
         completion(): Argv;
         completion(cmd: string, func?: AsyncCompletionFunction): Argv;
         completion(cmd: string, func?: SyncCompletionFunction): Argv;
-        completion(cmd: string, description?: string, func?: AsyncCompletionFunction): Argv;
-        completion(cmd: string, description?: string, func?: SyncCompletionFunction): Argv;
+        completion(
+            cmd: string,
+            description?: string,
+            func?: AsyncCompletionFunction
+        ): Argv;
+        completion(
+            cmd: string,
+            description?: string,
+            func?: SyncCompletionFunction
+        ): Argv;
 
         config(): Argv;
-        config(key: string | string[], description?: string, parseFn?: (configPath: string) => object): Argv;
-        config(key: string | string[], parseFn: (configPath: string) => object): Argv;
+        config(
+            key: string | string[],
+            description?: string,
+            parseFn?: (configPath: string) => object
+        ): Argv;
+        config(
+            key: string | string[],
+            parseFn: (configPath: string) => object
+        ): Argv;
         config(explicitConfigurationObject: object): Argv;
 
         conflicts(key: string, value: string | string[]): Argv;
@@ -89,7 +138,12 @@ declare namespace yargs {
 
         demandCommand(): Argv;
         demandCommand(min: number, minMsg?: string): Argv;
-        demandCommand(min: number, max?: number, minMsg?: string, maxMsg?: string): Argv;
+        demandCommand(
+            min: number,
+            max?: number,
+            minMsg?: string,
+            maxMsg?: string
+        ): Argv;
 
         describe(key: string | string[], description: string): Argv;
         describe(descriptions: { [key: string]: string }): Argv;
@@ -110,7 +164,10 @@ declare namespace yargs {
 
         fail(func: (msg: string, err: Error) => any): Argv;
 
-        getCompletion(args: string[], done: (completions: string[]) => void): Argv;
+        getCompletion(
+            args: string[],
+            done: (completions: string[]) => void
+        ): Argv;
 
         global(key: string | string[]): Argv;
 
@@ -119,7 +176,11 @@ declare namespace yargs {
         help(): Argv;
         help(enableExplicit: boolean): Argv;
         help(option: string, enableExplicit: boolean): Argv;
-        help(option: string, description?: string, enableExplicit?: boolean): Argv;
+        help(
+            option: string,
+            description?: string,
+            enableExplicit?: boolean
+        ): Argv;
 
         implies(key: string, value: string | string[]): Argv;
         implies(implies: { [key: string]: string | string[] }): Argv;
@@ -141,7 +202,11 @@ declare namespace yargs {
         options(options: { [key: string]: Options }): Argv;
 
         parse(): Arguments;
-        parse(arg: string | string[], context?: object, parseCallback?: ParseCallback): Arguments;
+        parse(
+            arg: string | string[],
+            context?: object,
+            parseCallback?: ParseCallback
+        ): Arguments;
 
         pkgConf(key: string | string[], cwd?: string): Argv;
 
@@ -203,10 +268,30 @@ declare namespace yargs {
         updateStrings(obj: { [key: string]: string }): Argv;
 
         usage(message: string): Argv;
-        usage(command: string | string[], description: string, builder?: (args: Argv) => Argv, handler?: (args: Arguments) => void): Argv;
-        usage(command: string | string[], showInHelp: boolean, builder?: (args: Argv) => Argv, handler?: (args: Arguments) => void): Argv;
-        usage(command: string | string[], description: string, builder?: { [key: string]: Options }, handler?: (args: Arguments) => void): Argv;
-        usage(commands: string | string[], showInHelp: boolean, builder?: { [key: string]: Options }, handler?: (args: Arguments) => void): Argv;
+        usage(
+            command: string | string[],
+            description: string,
+            builder?: (args: Argv) => Argv,
+            handler?: (args: Arguments) => void
+        ): Argv;
+        usage(
+            command: string | string[],
+            showInHelp: boolean,
+            builder?: (args: Argv) => Argv,
+            handler?: (args: Arguments) => void
+        ): Argv;
+        usage(
+            command: string | string[],
+            description: string,
+            builder?: { [key: string]: Options },
+            handler?: (args: Arguments) => void
+        ): Argv;
+        usage(
+            commands: string | string[],
+            showInHelp: boolean,
+            builder?: { [key: string]: Options },
+            handler?: (args: Arguments) => void
+        ): Argv;
 
         version(): Argv;
         version(version: string): Argv;
@@ -229,7 +314,11 @@ declare namespace yargs {
     interface RequireDirectoryOptions {
         recurse?: boolean;
         extensions?: string[];
-        visit?: (commandObject: any, pathToFile?: string, filename?: string) => any;
+        visit?: (
+            commandObject: any,
+            pathToFile?: string,
+            filename?: string
+        ) => any;
         include?: RegExp | ((pathToFile: string) => boolean);
         exclude?: RegExp | ((pathToFile: string) => boolean);
     }
@@ -292,10 +381,18 @@ declare namespace yargs {
         handler: (args: any) => void;
     }
 
-    type ParseCallback = (err: Error | undefined, argv: Arguments, output: string) => void;
+    type ParseCallback = (
+        err: Error | undefined,
+        argv: Arguments,
+        output: string
+    ) => void;
     type CommandBuilder = { [key: string]: Options } | ((args: Argv) => Argv);
     type SyncCompletionFunction = (current: string, argv: any) => string[];
-    type AsyncCompletionFunction = (current: string, argv: any, done: (completion: string[]) => void) => void;
+    type AsyncCompletionFunction = (
+        current: string,
+        argv: any,
+        done: (completion: string[]) => void
+    ) => void;
     type Choices = Array<string | true | undefined>;
     type PositionalOptionsType = "boolean" | "number" | "string";
 }

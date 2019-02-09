@@ -1,6 +1,6 @@
-import radius = require('radius');
+import radius = require("radius");
 
-var radius_secret: string = "shhhh"
+var radius_secret: string = "shhhh";
 
 radius.add_dictionary("./");
 var encodedPacket: Buffer = radius.encode({
@@ -20,7 +20,10 @@ var radiusPacket: radius.RadiusPacket = radius.decode({
 
 var response: Buffer;
 
-if (radiusPacket.attributes["User-Name"] == "me" && radiusPacket.attributes["User-Password"] == "its-a-secret") {
+if (
+    radiusPacket.attributes["User-Name"] == "me" &&
+    radiusPacket.attributes["User-Password"] == "its-a-secret"
+) {
     response = radius.encode_response({
         packet: radiusPacket,
         code: "Access-Accept",
@@ -34,8 +37,10 @@ if (radiusPacket.attributes["User-Name"] == "me" && radiusPacket.attributes["Use
     });
 }
 
-console.log(radius.verify_response({
-    request: encodedPacket,
-    response: response,
-    secret: radius_secret
-}));
+console.log(
+    radius.verify_response({
+        request: encodedPacket,
+        response: response,
+        secret: radius_secret
+    })
+);

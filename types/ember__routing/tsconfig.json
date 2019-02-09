@@ -2,18 +2,13 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "paths": {
             "@ember/service": ["ember__service"],
             "@ember/object": ["ember__object"],

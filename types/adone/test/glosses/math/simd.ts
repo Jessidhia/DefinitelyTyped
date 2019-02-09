@@ -21,7 +21,24 @@ namespace mathTests.simdTests {
     const a6 = Uint8x16(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
     const a7 = Bool32x4(true, true, true, true);
     const a8 = Bool16x8(true, true, true, true, true, true, true, true);
-    const a9 = Bool8x16(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+    const a9 = Bool8x16(
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+    );
 
     Float32x4.length;
     Float32x4.name;
@@ -160,7 +177,26 @@ namespace mathTests.simdTests {
     Int8x16.prototype;
     Int8x16.extractLane(a3, 15);
     Int8x16.swizzle(a3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    Int8x16.shuffle(a3, a3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+    Int8x16.shuffle(
+        a3,
+        a3,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    );
     Int8x16.check(a3);
     Int8x16.splat(1);
     Int8x16.replaceLane(a3, 15, 1);
@@ -280,7 +316,26 @@ namespace mathTests.simdTests {
     Uint8x16.prototype;
     Uint8x16.extractLane(a6, 15);
     Uint8x16.swizzle(a6, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    Uint8x16.shuffle(a6, a6, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+    Uint8x16.shuffle(
+        a6,
+        a6,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    );
     Uint8x16.check(a6);
     Uint8x16.splat(1);
     Uint8x16.replaceLane(a6, 15, 1);

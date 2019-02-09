@@ -261,7 +261,7 @@ interface Assert {
     rejects(
         promise: Promise<any>,
         expectedMatcher?: any,
-        message?: string,
+        message?: string
     ): void;
 
     /**
@@ -289,7 +289,6 @@ interface Assert {
      * @param message A short description of the assertion
      */
     verifySteps(steps: string[], message?: string): void;
-
 }
 
 interface Config {
@@ -297,7 +296,7 @@ interface Config {
     autostart: boolean;
     collapse: boolean;
     current: any;
-    filter: string | RegExp
+    filter: string | RegExp;
     fixture: string;
     hidepassed: boolean;
     maxDepth: number;
@@ -315,12 +314,11 @@ interface Config {
         id?: string;
         label?: string;
         tooltip?: string;
-        value?: string | string[] | { [key: string]: string }
+        value?: string | string[] | { [key: string]: string };
     }[];
 }
 
 interface Hooks {
-
     /**
      * Runs after the last test. If additional tests are defined after the
      * module's queue has emptied, it will not run this hook again.
@@ -341,7 +339,6 @@ interface Hooks {
      * Runs before each test.
      */
     beforeEach?: (assert: Assert) => void;
-
 }
 
 interface NestedHooks {
@@ -365,14 +362,20 @@ interface NestedHooks {
      * Runs before each test.
      */
     beforeEach: (fn: (assert: Assert) => void) => void;
-
 }
 
 declare namespace QUnit {
-    interface BeginDetails { totalTests: number }
-    interface DoneDetails { failed: number, passed: number, total: number, runtime: number }
+    interface BeginDetails {
+        totalTests: number;
+    }
+    interface DoneDetails {
+        failed: number;
+        passed: number;
+        total: number;
+        runtime: number;
+    }
     interface LogDetails {
-        result: boolean,
+        result: boolean;
         actual: any;
         expected: any;
         message: string;
@@ -388,7 +391,9 @@ declare namespace QUnit {
         total: number;
         runtime: number;
     }
-    interface ModuleStartDetails { name: string }
+    interface ModuleStartDetails {
+        name: string;
+    }
     interface TestDoneDetails {
         name: string;
         module: string;
@@ -397,11 +402,13 @@ declare namespace QUnit {
         total: number;
         runtime: number;
     }
-    interface TestStartDetails { name: string; module: string; }
+    interface TestStartDetails {
+        name: string;
+        module: string;
+    }
 }
 
 interface QUnit {
-
     /**
      * Namespace for QUnit assertions
      *
@@ -428,7 +435,7 @@ interface QUnit {
      * QUnit has a bunch of internal configuration defaults, some of which are
      * useful to override. Check the description for each option for details.
      */
-    config: Config
+    config: Config;
 
     /**
      * Register a callback to fire whenever the test suite ends.
@@ -454,7 +461,7 @@ interface QUnit {
      */
     dump: {
         maxDepth: number;
-        parse(data: any): string
+        parse(data: any): string;
     };
 
     /**
@@ -519,7 +526,11 @@ interface QUnit {
      * @param hookds Callbacks to run during test execution
      * @param nested A callback with grouped tests and nested modules to run under the current module label
      */
-    module(name: string, hooks?: Hooks, nested?: (hooks: NestedHooks) => void): void;
+    module(
+        name: string,
+        hooks?: Hooks,
+        nested?: (hooks: NestedHooks) => void
+    ): void;
     module(name: string, nested?: (hooks: NestedHooks) => void): void;
 
     /**
@@ -636,14 +647,16 @@ interface QUnit {
      *
      * @param callback Callback to execute
      */
-    testDone(callback: (details: {
-        name: string;
-        module: string;
-        failed: number;
-        passed: number;
-        total: number;
-        runtime: number;
-    }) => void): void;
+    testDone(
+        callback: (details: {
+            name: string;
+            module: string;
+            failed: number;
+            passed: number;
+            total: number;
+            runtime: number;
+        }) => void
+    ): void;
 
     /**
      * Register a callback to fire whenever a test begins.
@@ -681,10 +694,9 @@ interface QUnit {
     isLocal: boolean;
 
     /**
-    * QUnit version
-    */
+     * QUnit version
+     */
     version: string;
-
 }
 
 /* QUnit */

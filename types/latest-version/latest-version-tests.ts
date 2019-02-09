@@ -1,4 +1,4 @@
-import latestVersion = require('latest-version');
+import latestVersion = require("latest-version");
 
-latestVersion('ava'); // $ExpectType Promise<string>
-latestVersion('npm', { version: 'latest-5' }); // $ExpectType Promise<string>
+latestVersion("ava"); // $ExpectType Promise<string>
+latestVersion("npm", { version: "latest-5" }); // $ExpectType Promise<string>

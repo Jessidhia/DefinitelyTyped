@@ -7,7 +7,11 @@
 import { WikidataLanguage } from "./def/type/language";
 import { WikidataProperty } from "./def/type/property";
 import { WikidataSite } from "./def/type/site";
-import { WikidataSiteLink, WikidataSiteLinkSimplify, WikidataSiteLinkWithUrlSimplify } from "./def/object/sitelink";
+import {
+    WikidataSiteLink,
+    WikidataSiteLinkSimplify,
+    WikidataSiteLinkWithUrlSimplify
+} from "./def/object/sitelink";
 import { UrlResultFormat } from "./def/type/format";
 import {
     WikidataLanguageBaseString,
@@ -16,7 +20,12 @@ import {
     WikidataLanguageBaseArrayStringSimplify
 } from "./def/object/language-base-string";
 
-import { WikidataClaim, WikidataMainSnak, WikidataTimeDataValue, WikidataEntityDataValue } from "./def/object/claim";
+import {
+    WikidataClaim,
+    WikidataMainSnak,
+    WikidataTimeDataValue,
+    WikidataEntityDataValue
+} from "./def/object/claim";
 
 // ----------------------------------- //
 // Export session                      //
@@ -36,7 +45,12 @@ export {
 
 export { UrlResultFormat };
 
-export { WikidataClaim, WikidataMainSnak, WikidataTimeDataValue, WikidataEntityDataValue };
+export {
+    WikidataClaim,
+    WikidataMainSnak,
+    WikidataTimeDataValue,
+    WikidataEntityDataValue
+};
 
 export interface Json {
     [key: string]: any;
@@ -277,7 +291,10 @@ export function getSitelinkUrl(site: WikidataSite, title: string): string;
 /**
  * @alias getSitelinkUrl
  */
-export function getSitelinkUrl(a: { site: WikidataSite; title: string }): string;
+export function getSitelinkUrl(a: {
+    site: WikidataSite;
+    title: string;
+}): string;
 
 export interface SitelinkData {
     lang: string;
@@ -407,7 +424,9 @@ export namespace simplify {
      *
      * @see {@link https://github.com/maxlath/wikidata-sdk/blob/master/docs/simplify_entities_data.md#simplify-labels | Github[simplify-labels]}
      */
-    function labels(labels: WikidataLanguageBaseString): WikidataLanguageBaseStringSimplify;
+    function labels(
+        labels: WikidataLanguageBaseString
+    ): WikidataLanguageBaseStringSimplify;
 
     /**
      * Make description simplifier and easier to understand
@@ -421,7 +440,9 @@ export namespace simplify {
      *
      * @see {@link https://github.com/maxlath/wikidata-sdk/blob/master/docs/simplify_entities_data.md#simplify-descriptions | Github[simplify-descriptions]}
      */
-    function descriptions(descriptions: WikidataLanguageBaseString): WikidataLanguageBaseStringSimplify;
+    function descriptions(
+        descriptions: WikidataLanguageBaseString
+    ): WikidataLanguageBaseStringSimplify;
 
     /**
      * Make alias simplifier and easier to understand
@@ -435,7 +456,9 @@ export namespace simplify {
      *
      * @see {@link https://github.com/maxlath/wikidata-sdk/blob/master/docs/simplify_entities_data.md#simplify-aliases | Github[simplify-aliases]}
      */
-    function aliases(aliases: WikidataLanguageBaseArrayString): WikidataLanguageBaseArrayStringSimplify;
+    function aliases(
+        aliases: WikidataLanguageBaseArrayString
+    ): WikidataLanguageBaseArrayStringSimplify;
 
     /**
      * Make sitelink simplifier and easier to understand
@@ -464,5 +487,8 @@ export namespace simplify {
      *
      * @see {@link https://github.com/maxlath/wikidata-sdk/blob/master/docs/simplify_entities_data.md#add-sitelinks-urls | Github[simplify-sitelinks-with-url]}
      */
-    function sitelinks(sitelinks: WikidataSiteLink, options: { addUrl: true }): WikidataSiteLinkWithUrlSimplify;
+    function sitelinks(
+        sitelinks: WikidataSiteLink,
+        options: { addUrl: true }
+    ): WikidataSiteLinkWithUrlSimplify;
 }

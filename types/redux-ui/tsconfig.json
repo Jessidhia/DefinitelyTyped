@@ -1,25 +1,17 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": false,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true
     },
-    "files": [
-        "index.d.ts",
-        "redux-ui-tests.ts"
-    ]
+    "files": ["index.d.ts", "redux-ui-tests.ts"]
 }

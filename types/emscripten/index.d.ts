@@ -8,8 +8,7 @@
 /// <reference types="webassembly-js-api" />
 
 declare namespace Emscripten {
-    interface FileSystemType {
-    }
+    interface FileSystemType {}
 }
 
 declare namespace Module {
@@ -19,9 +18,9 @@ declare namespace Module {
     function printErr(str: string): void;
     var arguments: string[];
     var environment: EnvironmentType;
-    var preInit: { ():  void }[];
-    var preRun: { ():  void }[];
-    var postRun: { ():  void }[];
+    var preInit: { (): void }[];
+    var preRun: { (): void }[];
+    var postRun: { (): void }[];
     var preinitializedWebGLContext: WebGLRenderingContext;
     var noInitialRun: boolean;
     var noExitRuntime: boolean;
@@ -30,7 +29,10 @@ declare namespace Module {
     var wasmBinary: ArrayBuffer;
 
     function destroy(object: object): void;
-    function getPreloadedPackage(remotePackageName: string, remotePackageSize: number): ArrayBuffer;
+    function getPreloadedPackage(
+        remotePackageName: string,
+        remotePackageSize: number
+    ): ArrayBuffer;
     function instantiateWasm(
         imports: WebAssembly.Imports,
         successCallback: (module: WebAssembly.Module) => void
@@ -40,10 +42,24 @@ declare namespace Module {
 
     var Runtime: any;
 
-    function ccall(ident: string, returnType: string | null, argTypes: string[], args: any[]): any;
-    function cwrap(ident: string, returnType: string | null, argTypes: string[]): any;
+    function ccall(
+        ident: string,
+        returnType: string | null,
+        argTypes: string[],
+        args: any[]
+    ): any;
+    function cwrap(
+        ident: string,
+        returnType: string | null,
+        argTypes: string[]
+    ): any;
 
-    function setValue(ptr: number, value: any, type: string, noSafe?: boolean): void;
+    function setValue(
+        ptr: number,
+        value: any,
+        type: string,
+        noSafe?: boolean
+    ): void;
     function getValue(ptr: number, type: string, noSafe?: boolean): number;
 
     var ALLOC_NORMAL: number;
@@ -52,8 +68,18 @@ declare namespace Module {
     var ALLOC_DYNAMIC: number;
     var ALLOC_NONE: number;
 
-    function allocate(slab: any, types: string, allocator: number, ptr: number): number;
-    function allocate(slab: any, types: string[], allocator: number, ptr: number): number;
+    function allocate(
+        slab: any,
+        types: string,
+        allocator: number,
+        ptr: number
+    ): number;
+    function allocate(
+        slab: any,
+        types: string[],
+        allocator: number,
+        ptr: number
+    ): number;
 
     function Pointer_stringify(ptr: number, length?: number): string;
     function UTF16ToString(ptr: number): string;
@@ -70,7 +96,7 @@ declare namespace Module {
     var HEAP8: Int8Array;
     var HEAP16: Int16Array;
     var HEAP32: Int32Array;
-    var HEAPU8:  Uint8Array;
+    var HEAPU8: Uint8Array;
     var HEAPU16: Uint16Array;
     var HEAPU32: Uint32Array;
     var HEAPF32: Float32Array;
@@ -87,15 +113,26 @@ declare namespace Module {
     function addOnPostRun(cb: () => any): void;
 
     // Tools
-    function intArrayFromString(stringy: string, dontAddNull?: boolean, length?: number): number[];
+    function intArrayFromString(
+        stringy: string,
+        dontAddNull?: boolean,
+        length?: number
+    ): number[];
     function intArrayToString(array: number[]): string;
-    function writeStringToMemory(str: string, buffer: number, dontAddNull: boolean): void;
+    function writeStringToMemory(
+        str: string,
+        buffer: number,
+        dontAddNull: boolean
+    ): void;
     function writeArrayToMemory(array: number[], buffer: number): void;
-    function writeAsciiToMemory(str: string, buffer: number, dontAddNull: boolean): void;
+    function writeAsciiToMemory(
+        str: string,
+        buffer: number,
+        dontAddNull: boolean
+    ): void;
 
     function addRunDependency(id: any): void;
     function removeRunDependency(id: any): void;
-
 
     var preloadedImages: any;
     var preloadedAudios: any;
@@ -148,8 +185,12 @@ declare namespace FS {
     // core
     //
     function syncfs(populate: boolean, callback: (e: any) => any): void;
-    function syncfs( callback: (e: any) => any, populate?: boolean): void;
-    function mount(type: Emscripten.FileSystemType, opts: any, mountpoint: string): any;
+    function syncfs(callback: (e: any) => any, populate?: boolean): void;
+    function mount(
+        type: Emscripten.FileSystemType,
+        opts: any,
+        mountpoint: string
+    ): any;
     function unmount(mountpoint: string): void;
 
     function mkdir(path: string, mode?: number): any;
@@ -165,36 +206,115 @@ declare namespace FS {
     function chmod(path: string, mode: number, dontFollow?: boolean): void;
     function lchmod(path: string, mode: number): void;
     function fchmod(fd: number, mode: number): void;
-    function chown(path: string, uid: number, gid: number, dontFollow?: boolean): void;
+    function chown(
+        path: string,
+        uid: number,
+        gid: number,
+        dontFollow?: boolean
+    ): void;
     function lchown(path: string, uid: number, gid: number): void;
     function fchown(fd: number, uid: number, gid: number): void;
     function truncate(path: string, len: number): void;
     function ftruncate(fd: number, len: number): void;
     function utime(path: string, atime: number, mtime: number): void;
-    function open(path: string, flags: string, mode?: number, fd_start?: number, fd_end?: number): FSStream;
+    function open(
+        path: string,
+        flags: string,
+        mode?: number,
+        fd_start?: number,
+        fd_end?: number
+    ): FSStream;
     function close(stream: FSStream): void;
     function llseek(stream: FSStream, offset: number, whence: number): any;
-    function read(stream: FSStream, buffer: ArrayBufferView, offset: number, length: number, position?: number): number;
-    function write(stream: FSStream, buffer: ArrayBufferView, offset: number, length: number, position?: number, canOwn?: boolean): number;
+    function read(
+        stream: FSStream,
+        buffer: ArrayBufferView,
+        offset: number,
+        length: number,
+        position?: number
+    ): number;
+    function write(
+        stream: FSStream,
+        buffer: ArrayBufferView,
+        offset: number,
+        length: number,
+        position?: number,
+        canOwn?: boolean
+    ): number;
     function allocate(stream: FSStream, offset: number, length: number): void;
-    function mmap(stream: FSStream, buffer: ArrayBufferView, offset: number, length: number, position: number, prot: number, flags: number): any;
+    function mmap(
+        stream: FSStream,
+        buffer: ArrayBufferView,
+        offset: number,
+        length: number,
+        position: number,
+        prot: number,
+        flags: number
+    ): any;
     function ioctl(stream: FSStream, cmd: any, arg: any): any;
-    function readFile(path: string, opts?: {encoding: string; flags: string}): any;
-    function writeFile(path: string, data: ArrayBufferView, opts?: {encoding: string; flags: string}): void;
-    function writeFile(path: string, data: string, opts?: {encoding: string; flags: string}): void;
+    function readFile(
+        path: string,
+        opts?: { encoding: string; flags: string }
+    ): any;
+    function writeFile(
+        path: string,
+        data: ArrayBufferView,
+        opts?: { encoding: string; flags: string }
+    ): void;
+    function writeFile(
+        path: string,
+        data: string,
+        opts?: { encoding: string; flags: string }
+    ): void;
 
     //
     // module-level FS code
     //
     function cwd(): string;
     function chdir(path: string): void;
-    function init(input: () => number, output: (c: number) => any, error: (c: number) => any): void;
+    function init(
+        input: () => number,
+        output: (c: number) => any,
+        error: (c: number) => any
+    ): void;
 
-    function createLazyFile(parent: string, name: string, url: string, canRead: boolean, canWrite: boolean): FSNode;
-    function createLazyFile(parent: FSNode, name: string, url: string, canRead: boolean, canWrite: boolean): FSNode;
+    function createLazyFile(
+        parent: string,
+        name: string,
+        url: string,
+        canRead: boolean,
+        canWrite: boolean
+    ): FSNode;
+    function createLazyFile(
+        parent: FSNode,
+        name: string,
+        url: string,
+        canRead: boolean,
+        canWrite: boolean
+    ): FSNode;
 
-    function createPreloadedFile(parent: string, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: ()=> void, onerror?: ()=>void, dontCreateFile?:boolean, canOwn?: boolean): void;
-    function createPreloadedFile(parent: FSNode, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: ()=> void, onerror?: ()=>void, dontCreateFile?:boolean, canOwn?: boolean): void;
+    function createPreloadedFile(
+        parent: string,
+        name: string,
+        url: string,
+        canRead: boolean,
+        canWrite: boolean,
+        onload?: () => void,
+        onerror?: () => void,
+        dontCreateFile?: boolean,
+        canOwn?: boolean
+    ): void;
+    function createPreloadedFile(
+        parent: FSNode,
+        name: string,
+        url: string,
+        canRead: boolean,
+        canWrite: boolean,
+        onload?: () => void,
+        onerror?: () => void,
+        dontCreateFile?: boolean,
+        canOwn?: boolean
+    ): void;
 }
 
 declare var MEMFS: Emscripten.FileSystemType;

@@ -16,8 +16,8 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import { Duplex } from 'stream';
+import { EventEmitter } from "events";
+import { Duplex } from "stream";
 
 export interface RetryStrategyOptions {
     error: NodeJS.ErrnoException;
@@ -72,8 +72,25 @@ export interface OverloadedCommand<T, U, R> {
 }
 
 export interface OverloadedKeyCommand<T, U, R> {
-    (key: string, arg1: T, arg2: T, arg3: T, arg4: T, arg5: T, arg6: T, cb?: Callback<U>): R;
-    (key: string, arg1: T, arg2: T, arg3: T, arg4: T, arg5: T, cb?: Callback<U>): R;
+    (
+        key: string,
+        arg1: T,
+        arg2: T,
+        arg3: T,
+        arg4: T,
+        arg5: T,
+        arg6: T,
+        cb?: Callback<U>
+    ): R;
+    (
+        key: string,
+        arg1: T,
+        arg2: T,
+        arg3: T,
+        arg4: T,
+        arg5: T,
+        cb?: Callback<U>
+    ): R;
     (key: string, arg1: T, arg2: T, arg3: T, arg4: T, cb?: Callback<U>): R;
     (key: string, arg1: T, arg2: T, arg3: T, cb?: Callback<U>): R;
     (key: string, arg1: T, arg2: T, cb?: Callback<U>): R;
@@ -93,8 +110,25 @@ export interface OverloadedListCommand<T, U, R> {
 }
 
 export interface OverloadedSetCommand<T, U, R> {
-    (key: string, arg1: T, arg2: T, arg3: T, arg4: T, arg5: T, arg6: T, cb?: Callback<U>): R;
-    (key: string, arg1: T, arg2: T, arg3: T, arg4: T, arg5: T, cb?: Callback<U>): R;
+    (
+        key: string,
+        arg1: T,
+        arg2: T,
+        arg3: T,
+        arg4: T,
+        arg5: T,
+        arg6: T,
+        cb?: Callback<U>
+    ): R;
+    (
+        key: string,
+        arg1: T,
+        arg2: T,
+        arg3: T,
+        arg4: T,
+        arg5: T,
+        cb?: Callback<U>
+    ): R;
     (key: string, arg1: T, arg2: T, arg3: T, arg4: T, cb?: Callback<U>): R;
     (key: string, arg1: T, arg2: T, arg3: T, cb?: Callback<U>): R;
     (key: string, arg1: T, arg2: T, cb?: Callback<U>): R;
@@ -103,7 +137,15 @@ export interface OverloadedSetCommand<T, U, R> {
 }
 
 export interface OverloadedLastCommand<T1, T2, U, R> {
-    (arg1: T1, arg2: T1, arg3: T1, arg4: T1, arg5: T1, arg6: T2, cb?: Callback<U>): R;
+    (
+        arg1: T1,
+        arg2: T1,
+        arg3: T1,
+        arg4: T1,
+        arg5: T1,
+        arg6: T2,
+        cb?: Callback<U>
+    ): R;
     (arg1: T1, arg2: T1, arg3: T1, arg4: T1, arg5: T2, cb?: Callback<U>): R;
     (arg1: T1, arg2: T1, arg3: T1, arg4: T2, cb?: Callback<U>): R;
     (arg1: T1, arg2: T1, arg3: T2, cb?: Callback<U>): R;
@@ -161,8 +203,8 @@ export interface Commands<R> {
     /**
      * Set multiple hash fields to multiple values.
      */
-    hmset: OverloadedSetCommand<string | number, 'OK', R>;
-    HMSET: OverloadedSetCommand<string | number, 'OK', R>;
+    hmset: OverloadedSetCommand<string | number, "OK", R>;
+    HMSET: OverloadedSetCommand<string | number, "OK", R>;
 
     /**
      * Listen for messages published to the given channels.
@@ -197,8 +239,8 @@ export interface Commands<R> {
     /**
      * Asynchronously rewrite the append-only file.
      */
-    bgrewriteaof(cb?: Callback<'OK'>): R;
-    BGREWRITEAOF(cb?: Callback<'OK'>): R;
+    bgrewriteaof(cb?: Callback<"OK">): R;
+    BGREWRITEAOF(cb?: Callback<"OK">): R;
 
     /**
      * Asynchronously save the dataset to disk.
@@ -223,22 +265,78 @@ export interface Commands<R> {
     /**
      * Perform bitwise operations between strings.
      */
-    bitop(operation: string, destkey: string, key1: string, key2: string, key3: string, cb?: Callback<number>): R;
-    bitop(operation: string, destkey: string, key1: string, key2: string, cb?: Callback<number>): R;
-    bitop(operation: string, destkey: string, key: string, cb?: Callback<number>): R;
-    bitop(operation: string, destkey: string, ...args: Array<string | Callback<number>>): R;
-    BITOP(operation: string, destkey: string, key1: string, key2: string, key3: string, cb?: Callback<number>): R;
-    BITOP(operation: string, destkey: string, key1: string, key2: string, cb?: Callback<number>): R;
-    BITOP(operation: string, destkey: string, key: string, cb?: Callback<number>): R;
-    BITOP(operation: string, destkey: string, ...args: Array<string | Callback<number>>): R;
+    bitop(
+        operation: string,
+        destkey: string,
+        key1: string,
+        key2: string,
+        key3: string,
+        cb?: Callback<number>
+    ): R;
+    bitop(
+        operation: string,
+        destkey: string,
+        key1: string,
+        key2: string,
+        cb?: Callback<number>
+    ): R;
+    bitop(
+        operation: string,
+        destkey: string,
+        key: string,
+        cb?: Callback<number>
+    ): R;
+    bitop(
+        operation: string,
+        destkey: string,
+        ...args: Array<string | Callback<number>>
+    ): R;
+    BITOP(
+        operation: string,
+        destkey: string,
+        key1: string,
+        key2: string,
+        key3: string,
+        cb?: Callback<number>
+    ): R;
+    BITOP(
+        operation: string,
+        destkey: string,
+        key1: string,
+        key2: string,
+        cb?: Callback<number>
+    ): R;
+    BITOP(
+        operation: string,
+        destkey: string,
+        key: string,
+        cb?: Callback<number>
+    ): R;
+    BITOP(
+        operation: string,
+        destkey: string,
+        ...args: Array<string | Callback<number>>
+    ): R;
 
     /**
      * Find first bit set or clear in a string.
      */
-    bitpos(key: string, bit: number, start: number, end: number, cb?: Callback<number>): R;
+    bitpos(
+        key: string,
+        bit: number,
+        start: number,
+        end: number,
+        cb?: Callback<number>
+    ): R;
     bitpos(key: string, bit: number, start: number, cb?: Callback<number>): R;
     bitpos(key: string, bit: number, cb?: Callback<number>): R;
-    BITPOS(key: string, bit: number, start: number, end: number, cb?: Callback<number>): R;
+    BITPOS(
+        key: string,
+        bit: number,
+        start: number,
+        end: number,
+        cb?: Callback<number>
+    ): R;
     BITPOS(key: string, bit: number, start: number, cb?: Callback<number>): R;
     BITPOS(key: string, bit: number, cb?: Callback<number>): R;
 
@@ -257,8 +355,18 @@ export interface Commands<R> {
     /**
      * Pop a value from a list, push it to another list and return it; or block until one is available.
      */
-    brpoplpush(source: string, destination: string, timeout: number, cb?: Callback<string | null>): R;
-    BRPOPLPUSH(source: string, destination: string, timeout: number, cb?: Callback<string | null>): R;
+    brpoplpush(
+        source: string,
+        destination: string,
+        timeout: number,
+        cb?: Callback<string | null>
+    ): R;
+    BRPOPLPUSH(
+        source: string,
+        destination: string,
+        timeout: number,
+        cb?: Callback<string | null>
+    ): R;
 
     /**
      * ADDSLOTS - Assign new hash slots to receiving node.
@@ -290,8 +398,12 @@ export interface Commands<R> {
      * GETKEYS - Extract keys given a full Redis command.
      * INFO - Get array of specific REdis command details.
      */
-    command(cb?: Callback<Array<[string, number, string[], number, number, number]>>): R;
-    COMMAND(cb?: Callback<Array<[string, number, string[], number, number, number]>>): R;
+    command(
+        cb?: Callback<Array<[string, number, string[], number, number, number]>>
+    ): R;
+    COMMAND(
+        cb?: Callback<Array<[string, number, string[], number, number, number]>>
+    ): R;
 
     /**
      * Get array of Redis command details.
@@ -341,8 +453,8 @@ export interface Commands<R> {
     /**
      * Discard all commands issued after MULTI.
      */
-    discard(cb?: Callback<'OK'>): R;
-    DISCARD(cb?: Callback<'OK'>): R;
+    discard(cb?: Callback<"OK">): R;
+    DISCARD(cb?: Callback<"OK">): R;
 
     /**
      * Return a serialized version of the value stored at the specified key.
@@ -395,8 +507,8 @@ export interface Commands<R> {
     /**
      * Remove all keys from the current database.
      */
-    flushdb(cb?: Callback<'OK'>): R;
-    FLUSHDB(cb?: Callback<'OK'>): R;
+    flushdb(cb?: Callback<"OK">): R;
+    FLUSHDB(cb?: Callback<"OK">): R;
 
     /**
      * Add one or more geospatial items in the geospatial index represented using a sorted set.
@@ -425,14 +537,30 @@ export interface Commands<R> {
     /**
      * Query a sorted set representing a geospatial index to fetch members matching a given maximum distance from a point.
      */
-    georadius: OverloadedKeyCommand<string | number, Array<string | [string, string | [string, string]]>, R>;
-    GEORADIUS: OverloadedKeyCommand<string | number, Array<string | [string, string | [string, string]]>, R>;
+    georadius: OverloadedKeyCommand<
+        string | number,
+        Array<string | [string, string | [string, string]]>,
+        R
+    >;
+    GEORADIUS: OverloadedKeyCommand<
+        string | number,
+        Array<string | [string, string | [string, string]]>,
+        R
+    >;
 
     /**
      * Query a sorted set representing a geospatial index to fetch members matching a given maximum distance from a member.
      */
-    georadiusbymember: OverloadedKeyCommand<string | number, Array<string | [string, string | [string, string]]>, R>;
-    GEORADIUSBYMEMBER: OverloadedKeyCommand<string | number, Array<string | [string, string | [string, string]]>, R>;
+    georadiusbymember: OverloadedKeyCommand<
+        string | number,
+        Array<string | [string, string | [string, string]]>,
+        R
+    >;
+    GEORADIUSBYMEMBER: OverloadedKeyCommand<
+        string | number,
+        Array<string | [string, string | [string, string]]>,
+        R
+    >;
 
     /**
      * Get the value of a key.
@@ -485,14 +613,34 @@ export interface Commands<R> {
     /**
      * Increment the integer value of a hash field by the given number.
      */
-    hincrby(key: string, field: string, increment: number, cb?: Callback<number>): R;
-    HINCRBY(key: string, field: string, increment: number, cb?: Callback<number>): R;
+    hincrby(
+        key: string,
+        field: string,
+        increment: number,
+        cb?: Callback<number>
+    ): R;
+    HINCRBY(
+        key: string,
+        field: string,
+        increment: number,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Increment the float value of a hash field by the given amount.
      */
-    hincrbyfloat(key: string, field: string, increment: number, cb?: Callback<string>): R;
-    HINCRBYFLOAT(key: string, field: string, increment: number, cb?: Callback<string>): R;
+    hincrbyfloat(
+        key: string,
+        field: string,
+        increment: number,
+        cb?: Callback<string>
+    ): R;
+    HINCRBYFLOAT(
+        key: string,
+        field: string,
+        increment: number,
+        cb?: Callback<string>
+    ): R;
 
     /**
      * Get all the fields of a hash.
@@ -575,8 +723,20 @@ export interface Commands<R> {
     /**
      * Insert an element before or after another element in a list.
      */
-    linsert(key: string, dir: 'BEFORE' | 'AFTER', pivot: string, value: string, cb?: Callback<string>): R;
-    LINSERT(key: string, dir: 'BEFORE' | 'AFTER', pivot: string, value: string, cb?: Callback<string>): R;
+    linsert(
+        key: string,
+        dir: "BEFORE" | "AFTER",
+        pivot: string,
+        value: string,
+        cb?: Callback<string>
+    ): R;
+    LINSERT(
+        key: string,
+        dir: "BEFORE" | "AFTER",
+        pivot: string,
+        value: string,
+        cb?: Callback<string>
+    ): R;
 
     /**
      * Get the length of a list.
@@ -605,8 +765,18 @@ export interface Commands<R> {
     /**
      * Get a range of elements from a list.
      */
-    lrange(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
-    LRANGE(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
+    lrange(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
+    LRANGE(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Remove elements from a list.
@@ -617,14 +787,14 @@ export interface Commands<R> {
     /**
      * Set the value of an element in a list by its index.
      */
-    lset(key: string, index: number, value: string, cb?: Callback<'OK'>): R;
-    LSET(key: string, index: number, value: string, cb?: Callback<'OK'>): R;
+    lset(key: string, index: number, value: string, cb?: Callback<"OK">): R;
+    LSET(key: string, index: number, value: string, cb?: Callback<"OK">): R;
 
     /**
      * Trim a list to the specified range.
      */
-    ltrim(key: string, start: number, stop: number, cb?: Callback<'OK'>): R;
-    LTRIM(key: string, start: number, stop: number, cb?: Callback<'OK'>): R;
+    ltrim(key: string, start: number, stop: number, cb?: Callback<"OK">): R;
+    LTRIM(key: string, start: number, stop: number, cb?: Callback<"OK">): R;
 
     /**
      * Get the values of all given keys.
@@ -677,8 +847,16 @@ export interface Commands<R> {
     /**
      * Set the expiration for a key as a UNIX timestamp specified in milliseconds.
      */
-    pexpireat(key: string, millisecondsTimestamp: number, cb?: Callback<number>): R;
-    PEXPIREAT(key: string, millisecondsTimestamp: number, cb?: Callback<number>): R;
+    pexpireat(
+        key: string,
+        millisecondsTimestamp: number,
+        cb?: Callback<number>
+    ): R;
+    PEXPIREAT(
+        key: string,
+        millisecondsTimestamp: number,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Adds the specified elements to the specified HyperLogLog.
@@ -701,8 +879,18 @@ export interface Commands<R> {
     /**
      * Set the value and expiration in milliseconds of a key.
      */
-    psetex(key: string, milliseconds: number, value: string, cb?: Callback<'OK'>): R;
-    PSETEX(key: string, milliseconds: number, value: string, cb?: Callback<'OK'>): R;
+    psetex(
+        key: string,
+        milliseconds: number,
+        value: string,
+        cb?: Callback<"OK">
+    ): R;
+    PSETEX(
+        key: string,
+        milliseconds: number,
+        value: string,
+        cb?: Callback<"OK">
+    ): R;
 
     /**
      * Inspect the state of the Pub/Sub subsytem.
@@ -719,8 +907,8 @@ export interface Commands<R> {
     /**
      * Close the connection.
      */
-    quit(cb?: Callback<'OK'>): R;
-    QUIT(cb?: Callback<'OK'>): R;
+    quit(cb?: Callback<"OK">): R;
+    QUIT(cb?: Callback<"OK">): R;
 
     /**
      * Return a random key from the keyspace.
@@ -743,8 +931,8 @@ export interface Commands<R> {
     /**
      * Rename a key.
      */
-    rename(key: string, newkey: string, cb?: Callback<'OK'>): R;
-    RENAME(key: string, newkey: string, cb?: Callback<'OK'>): R;
+    rename(key: string, newkey: string, cb?: Callback<"OK">): R;
+    RENAME(key: string, newkey: string, cb?: Callback<"OK">): R;
 
     /**
      * Rename a key, only if the new key does not exist.
@@ -755,8 +943,18 @@ export interface Commands<R> {
     /**
      * Create a key using the provided serialized value, previously obtained using DUMP.
      */
-    restore(key: string, ttl: number, serializedValue: string, cb?: Callback<'OK'>): R;
-    RESTORE(key: string, ttl: number, serializedValue: string, cb?: Callback<'OK'>): R;
+    restore(
+        key: string,
+        ttl: number,
+        serializedValue: string,
+        cb?: Callback<"OK">
+    ): R;
+    RESTORE(
+        key: string,
+        ttl: number,
+        serializedValue: string,
+        cb?: Callback<"OK">
+    ): R;
 
     /**
      * Return the role of the instance in the context of replication.
@@ -837,26 +1035,72 @@ export interface Commands<R> {
     /**
      * Set the string value of a key.
      */
-    set(key: string, value: string, cb?: Callback<'OK'>): R;
-    set(key: string, value: string, flag: string, cb?: Callback<'OK'>): R;
-    set(key: string, value: string, mode: string, duration: number, cb?: Callback<'OK' | undefined>): R;
-    set(key: string, value: string, mode: string, duration: number, flag: string, cb?: Callback<'OK' | undefined>): R;
-    SET(key: string, value: string, cb?: Callback<'OK'>): R;
-    SET(key: string, value: string, flag: string, cb?: Callback<'OK'>): R;
-    SET(key: string, value: string, mode: string, duration: number, cb?: Callback<'OK' | undefined>): R;
-    SET(key: string, value: string, mode: string, duration: number, flag: string, cb?: Callback<'OK' | undefined>): R;
+    set(key: string, value: string, cb?: Callback<"OK">): R;
+    set(key: string, value: string, flag: string, cb?: Callback<"OK">): R;
+    set(
+        key: string,
+        value: string,
+        mode: string,
+        duration: number,
+        cb?: Callback<"OK" | undefined>
+    ): R;
+    set(
+        key: string,
+        value: string,
+        mode: string,
+        duration: number,
+        flag: string,
+        cb?: Callback<"OK" | undefined>
+    ): R;
+    SET(key: string, value: string, cb?: Callback<"OK">): R;
+    SET(key: string, value: string, flag: string, cb?: Callback<"OK">): R;
+    SET(
+        key: string,
+        value: string,
+        mode: string,
+        duration: number,
+        cb?: Callback<"OK" | undefined>
+    ): R;
+    SET(
+        key: string,
+        value: string,
+        mode: string,
+        duration: number,
+        flag: string,
+        cb?: Callback<"OK" | undefined>
+    ): R;
 
     /**
      * Sets or clears the bit at offset in the string value stored at key.
      */
-    setbit(key: string, offset: number, value: string, cb?: Callback<number>): R;
-    SETBIT(key: string, offset: number, value: string, cb?: Callback<number>): R;
+    setbit(
+        key: string,
+        offset: number,
+        value: string,
+        cb?: Callback<number>
+    ): R;
+    SETBIT(
+        key: string,
+        offset: number,
+        value: string,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Set the value and expiration of a key.
      */
-    setex(key: string, seconds: number, value: string, cb?: Callback<string>): R;
-    SETEX(key: string, seconds: number, value: string, cb?: Callback<string>): R;
+    setex(
+        key: string,
+        seconds: number,
+        value: string,
+        cb?: Callback<string>
+    ): R;
+    SETEX(
+        key: string,
+        seconds: number,
+        value: string,
+        cb?: Callback<string>
+    ): R;
 
     /**
      * Set the value of a key, only if the key does not exist.
@@ -867,8 +1111,18 @@ export interface Commands<R> {
     /**
      * Overwrite part of a string at key starting at the specified offset.
      */
-    setrange(key: string, offset: number, value: string, cb?: Callback<number>): R;
-    SETRANGE(key: string, offset: number, value: string, cb?: Callback<number>): R;
+    setrange(
+        key: string,
+        offset: number,
+        value: string,
+        cb?: Callback<number>
+    ): R;
+    SETRANGE(
+        key: string,
+        offset: number,
+        value: string,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Synchronously save the dataset to disk and then shut down the server.
@@ -903,8 +1157,16 @@ export interface Commands<R> {
     /**
      * Manages the Redis slow queries log.
      */
-    slowlog: OverloadedCommand<string, Array<[number, number, number, string[]]>, R>;
-    SLOWLOG: OverloadedCommand<string, Array<[number, number, number, string[]]>, R>;
+    slowlog: OverloadedCommand<
+        string,
+        Array<[number, number, number, string[]]>,
+        R
+    >;
+    SLOWLOG: OverloadedCommand<
+        string,
+        Array<[number, number, number, string[]]>,
+        R
+    >;
 
     /**
      * Get all the members in a set.
@@ -915,8 +1177,18 @@ export interface Commands<R> {
     /**
      * Move a member from one set to another.
      */
-    smove(source: string, destination: string, member: string, cb?: Callback<number>): R;
-    SMOVE(source: string, destination: string, member: string, cb?: Callback<number>): R;
+    smove(
+        source: string,
+        destination: string,
+        member: string,
+        cb?: Callback<number>
+    ): R;
+    SMOVE(
+        source: string,
+        destination: string,
+        member: string,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Sort the elements in a list, set or sorted set.
@@ -991,8 +1263,8 @@ export interface Commands<R> {
     /**
      * Forget about all watched keys.
      */
-    unwatch(cb?: Callback<'OK'>): R;
-    UNWATCH(cb?: Callback<'OK'>): R;
+    unwatch(cb?: Callback<"OK">): R;
+    UNWATCH(cb?: Callback<"OK">): R;
 
     /**
      * Wait for the synchronous replication of all the write commands sent in the context of the current connection.
@@ -1003,8 +1275,8 @@ export interface Commands<R> {
     /**
      * Watch the given keys to determine execution of the MULTI/EXEC block.
      */
-    watch: OverloadedCommand<string, 'OK', R>;
-    WATCH: OverloadedCommand<string, 'OK', R>;
+    watch: OverloadedCommand<string, "OK", R>;
+    WATCH: OverloadedCommand<string, "OK", R>;
 
     /**
      * Add one or more members to a sorted set, or update its score if it already exists.
@@ -1021,14 +1293,34 @@ export interface Commands<R> {
     /**
      * Count the members in a sorted set with scores between the given values.
      */
-    zcount(key: string, min: number | string, max: number | string, cb?: Callback<number>): R;
-    ZCOUNT(key: string, min: number | string, max: number | string, cb?: Callback<number>): R;
+    zcount(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<number>
+    ): R;
+    ZCOUNT(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Increment the score of a member in a sorted set.
      */
-    zincrby(key: string, increment: number, member: string, cb?: Callback<string>): R;
-    ZINCRBY(key: string, increment: number, member: string, cb?: Callback<string>): R;
+    zincrby(
+        key: string,
+        increment: number,
+        member: string,
+        cb?: Callback<string>
+    ): R;
+    ZINCRBY(
+        key: string,
+        increment: number,
+        member: string,
+        cb?: Callback<string>
+    ): R;
 
     /**
      * Intersect multiple sorted sets and store the resulting sorted set in a new key.
@@ -1045,38 +1337,168 @@ export interface Commands<R> {
     /**
      * Return a range of members in a sorted set, by index.
      */
-    zrange(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
-    zrange(key: string, start: number, stop: number, withscores: string, cb?: Callback<string[]>): R;
-    ZRANGE(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
-    ZRANGE(key: string, start: number, stop: number, withscores: string, cb?: Callback<string[]>): R;
+    zrange(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
+    zrange(
+        key: string,
+        start: number,
+        stop: number,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGE(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGE(
+        key: string,
+        start: number,
+        stop: number,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Return a range of members in a sorted set, by lexicographical range.
      */
-    zrangebylex(key: string, min: string, max: string, cb?: Callback<string[]>): R;
-    zrangebylex(key: string, min: string, max: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZRANGEBYLEX(key: string, min: string, max: string, cb?: Callback<string[]>): R;
-    ZRANGEBYLEX(key: string, min: string, max: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
+    zrangebylex(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<string[]>
+    ): R;
+    zrangebylex(
+        key: string,
+        min: string,
+        max: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYLEX(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYLEX(
+        key: string,
+        min: string,
+        max: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Return a range of members in a sorted set, by lexicographical range, ordered from higher to lower strings.
      */
-    zrevrangebylex(key: string, min: string, max: string, cb?: Callback<string[]>): R;
-    zrevrangebylex(key: string, min: string, max: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZREVRANGEBYLEX(key: string, min: string, max: string, cb?: Callback<string[]>): R;
-    ZREVRANGEBYLEX(key: string, min: string, max: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
+    zrevrangebylex(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<string[]>
+    ): R;
+    zrevrangebylex(
+        key: string,
+        min: string,
+        max: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYLEX(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYLEX(
+        key: string,
+        min: string,
+        max: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Return a range of members in a sorted set, by score.
      */
-    zrangebyscore(key: string, min: number | string, max: number | string, cb?: Callback<string[]>): R;
-    zrangebyscore(key: string, min: number | string, max: number | string, withscores: string, cb?: Callback<string[]>): R;
-    zrangebyscore(key: string, min: number | string, max: number | string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    zrangebyscore(key: string, min: number | string, max: number | string, withscores: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZRANGEBYSCORE(key: string, min: number | string, max: number | string, cb?: Callback<string[]>): R;
-    ZRANGEBYSCORE(key: string, min: number | string, max: number | string, withscores: string, cb?: Callback<string[]>): R;
-    ZRANGEBYSCORE(key: string, min: number | string, max: number | string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZRANGEBYSCORE(key: string, min: number | string, max: number | string, withscores: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
+    zrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<string[]>
+    ): R;
+    zrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    zrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    zrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Determine the index of a member in a sorted set.
@@ -1093,40 +1515,148 @@ export interface Commands<R> {
     /**
      * Remove all members in a sorted set between the given lexicographical range.
      */
-    zremrangebylex(key: string, min: string, max: string, cb?: Callback<number>): R;
-    ZREMRANGEBYLEX(key: string, min: string, max: string, cb?: Callback<number>): R;
+    zremrangebylex(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<number>
+    ): R;
+    ZREMRANGEBYLEX(
+        key: string,
+        min: string,
+        max: string,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Remove all members in a sorted set within the given indexes.
      */
-    zremrangebyrank(key: string, start: number, stop: number, cb?: Callback<number>): R;
-    ZREMRANGEBYRANK(key: string, start: number, stop: number, cb?: Callback<number>): R;
+    zremrangebyrank(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<number>
+    ): R;
+    ZREMRANGEBYRANK(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Remove all members in a sorted set within the given indexes.
      */
-    zremrangebyscore(key: string, min: string | number, max: string | number, cb?: Callback<number>): R;
-    ZREMRANGEBYSCORE(key: string, min: string | number, max: string | number, cb?: Callback<number>): R;
+    zremrangebyscore(
+        key: string,
+        min: string | number,
+        max: string | number,
+        cb?: Callback<number>
+    ): R;
+    ZREMRANGEBYSCORE(
+        key: string,
+        min: string | number,
+        max: string | number,
+        cb?: Callback<number>
+    ): R;
 
     /**
      * Return a range of members in a sorted set, by index, with scores ordered from high to low.
      */
-    zrevrange(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
-    zrevrange(key: string, start: number, stop: number, withscores: string, cb?: Callback<string[]>): R;
-    ZREVRANGE(key: string, start: number, stop: number, cb?: Callback<string[]>): R;
-    ZREVRANGE(key: string, start: number, stop: number, withscores: string, cb?: Callback<string[]>): R;
+    zrevrange(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
+    zrevrange(
+        key: string,
+        start: number,
+        stop: number,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGE(
+        key: string,
+        start: number,
+        stop: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGE(
+        key: string,
+        start: number,
+        stop: number,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Return a range of members in a sorted set, by score, with scores ordered from high to low.
      */
-    zrevrangebyscore(key: string, min: number | string, max: number | string, cb?: Callback<string[]>): R;
-    zrevrangebyscore(key: string, min: number | string, max: number | string, withscores: string, cb?: Callback<string[]>): R;
-    zrevrangebyscore(key: string, min: number | string, max: number | string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    zrevrangebyscore(key: string, min: number | string, max: number | string, withscores: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZREVRANGEBYSCORE(key: string, min: number | string, max: number | string, cb?: Callback<string[]>): R;
-    ZREVRANGEBYSCORE(key: string, min: number | string, max: number | string, withscores: string, cb?: Callback<string[]>): R;
-    ZREVRANGEBYSCORE(key: string, min: number | string, max: number | string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
-    ZREVRANGEBYSCORE(key: string, min: number | string, max: number | string, withscores: string, limit: string, offset: number, count: number, cb?: Callback<string[]>): R;
+    zrevrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<string[]>
+    ): R;
+    zrevrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    zrevrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    zrevrangebyscore(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
+    ZREVRANGEBYSCORE(
+        key: string,
+        min: number | string,
+        max: number | string,
+        withscores: string,
+        limit: string,
+        offset: number,
+        count: number,
+        cb?: Callback<string[]>
+    ): R;
 
     /**
      * Determine the index of a member in a sorted set, with scores ordered from high to low.
@@ -1185,10 +1715,22 @@ export interface RedisClient extends Commands<boolean>, EventEmitter {
     server_info: ServerInfo;
     stream: Duplex;
 
-    on(event: 'message' | 'message_buffer', listener: (channel: string, message: string) => void): this;
-    on(event: 'pmessage' | 'pmessage_buffer', listener: (pattern: string, channel: string, message: string) => void): this;
-    on(event: 'subscribe' | 'unsubscribe', listener: (channel: string, count: number) => void): this;
-    on(event: 'psubscribe' | 'punsubscribe', listener: (pattern: string, count: number) => void): this;
+    on(
+        event: "message" | "message_buffer",
+        listener: (channel: string, message: string) => void
+    ): this;
+    on(
+        event: "pmessage" | "pmessage_buffer",
+        listener: (pattern: string, channel: string, message: string) => void
+    ): this;
+    on(
+        event: "subscribe" | "unsubscribe",
+        listener: (channel: string, count: number) => void
+    ): this;
+    on(
+        event: "psubscribe" | "punsubscribe",
+        listener: (pattern: string, count: number) => void
+    ): this;
     on(event: string, listener: (...args: any[]) => void): this;
 
     /**
@@ -1233,18 +1775,28 @@ export interface Multi extends Commands<Multi> {
 
 export let debug_mode: boolean;
 
-export function createClient(port: number, host?: string, options?: ClientOpts): RedisClient;
-export function createClient(unix_socket: string, options?: ClientOpts): RedisClient;
-export function createClient(redis_url: string, options?: ClientOpts): RedisClient;
+export function createClient(
+    port: number,
+    host?: string,
+    options?: ClientOpts
+): RedisClient;
+export function createClient(
+    unix_socket: string,
+    options?: ClientOpts
+): RedisClient;
+export function createClient(
+    redis_url: string,
+    options?: ClientOpts
+): RedisClient;
 export function createClient(options?: ClientOpts): RedisClient;
 
 export function print(err: Error | null, reply: any): void;
 
-export class RedisError extends Error { }
-export class ReplyError extends RedisError { }
-export class AbortError extends RedisError { }
+export class RedisError extends Error {}
+export class ReplyError extends RedisError {}
+export class AbortError extends RedisError {}
 export class ParserError extends RedisError {
     offset: number;
     buffer: Buffer;
 }
-export class AggregateError extends AbortError { }
+export class AggregateError extends AbortError {}

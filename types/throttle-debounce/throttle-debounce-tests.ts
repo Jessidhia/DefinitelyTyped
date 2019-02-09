@@ -1,4 +1,4 @@
-import throttleDebounce = require('throttle-debounce');
+import throttleDebounce = require("throttle-debounce");
 
 const { throttle, debounce } = throttleDebounce;
 

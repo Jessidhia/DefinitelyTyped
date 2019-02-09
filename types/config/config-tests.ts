@@ -1,4 +1,3 @@
-
 import * as config from "config";
 
 var class1: config.IConfig = config;

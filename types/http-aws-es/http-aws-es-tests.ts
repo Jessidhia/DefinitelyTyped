@@ -6,20 +6,20 @@ new Client({
     awsConfig: new AWS.Config({
         accessKeyId: "AKID",
         region: "us-east-1",
-        secretAccessKey: "secret",
+        secretAccessKey: "secret"
     }),
     connectionClass: HttpAmazonESConnector,
-    host: "https://amazon-es-host.us-east-1.es.amazonaws.com",
+    host: "https://amazon-es-host.us-east-1.es.amazonaws.com"
 });
 
 new Client({
     awsConfig: new AWS.Config({
         accessKeyId: "AKID",
         region: "us-east-1",
-        secretAccessKey: "secret",
+        secretAccessKey: "secret"
     }),
     connectionClass: require("http-aws-es"),
-    host: "https://amazon-es-host.us-east-1.es.amazonaws.com",
+    host: "https://amazon-es-host.us-east-1.es.amazonaws.com"
 });
 
 const myCredentials = new AWS.EnvironmentCredentials("AWS");
@@ -27,17 +27,17 @@ const myCredentials = new AWS.EnvironmentCredentials("AWS");
 new Client({
     awsConfig: new AWS.Config({
         credentials: myCredentials,
-        region: "us-east-1",
+        region: "us-east-1"
     }),
     connectionClass: HttpAmazonESConnector,
-    host: "https://amazon-es-host.us-east-1.es.amazonaws.com",
+    host: "https://amazon-es-host.us-east-1.es.amazonaws.com"
 });
 
 new Client({
     awsConfig: new AWS.Config({
         credentials: myCredentials,
-        region: "us-east-1",
+        region: "us-east-1"
     }),
     connectionClass: require("http-aws-es"),
-    host: "https://amazon-es-host.us-east-1.es.amazonaws.com",
+    host: "https://amazon-es-host.us-east-1.es.amazonaws.com"
 });

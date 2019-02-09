@@ -27,4 +27,3 @@ declare var platform: Platform;
 declare module "platform" {
     export = platform;
 }
-

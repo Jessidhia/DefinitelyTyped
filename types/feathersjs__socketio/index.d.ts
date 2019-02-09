@@ -7,6 +7,15 @@
 /// <reference types="feathersjs__socket-commons"/>
 import SocketIO = require("socket.io");
 
-export default function feathersSocketIO(callback?: (io: SocketIO.Server) => void): () => void;
-export default function feathersSocketIO(options: number | SocketIO.ServerOptions, callback?: (io: SocketIO.Server) => void): () => void;
-export default function feathersSocketIO(port: number, options?: SocketIO.ServerOptions, callback?: (io: SocketIO.Server) => void): () => void;
+export default function feathersSocketIO(
+    callback?: (io: SocketIO.Server) => void
+): () => void;
+export default function feathersSocketIO(
+    options: number | SocketIO.ServerOptions,
+    callback?: (io: SocketIO.Server) => void
+): () => void;
+export default function feathersSocketIO(
+    port: number,
+    options?: SocketIO.ServerOptions,
+    callback?: (io: SocketIO.Server) => void
+): () => void;

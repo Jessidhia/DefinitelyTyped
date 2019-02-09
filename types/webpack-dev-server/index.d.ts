@@ -9,12 +9,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as webpack from 'webpack';
-import * as httpProxyMiddleware from 'http-proxy-middleware';
-import * as express from 'express';
-import * as serveStatic from 'serve-static';
-import * as https from 'https';
-import * as http from 'http';
+import * as webpack from "webpack";
+import * as httpProxyMiddleware from "http-proxy-middleware";
+import * as express from "express";
+import * as serveStatic from "serve-static";
+import * as https from "https";
+import * as http from "http";
 import { Url } from "url";
 
 declare namespace WebpackDevServer {
@@ -28,7 +28,7 @@ declare namespace WebpackDevServer {
 
     type ProxyConfigArrayItem = {
         path?: string | string[];
-        context?: string | string[]
+        context?: string | string[];
     } & httpProxyMiddleware.Config;
 
     type ProxyConfigArray = ProxyConfigArrayItem[];
@@ -63,7 +63,7 @@ declare namespace WebpackDevServer {
          * When using inline mode, the console in your DevTools will show you messages e.g. before reloading,
          * before an error or when Hot Module Replacement is enabled. This may be too verbose.
          */
-        clientLogLevel?: 'none' | 'error' | 'warning' | 'info';
+        clientLogLevel?: "none" | "error" | "warning" | "info";
         /** Enable gzip compression for everything served. */
         compress?: boolean;
         /**
@@ -121,10 +121,12 @@ declare namespace WebpackDevServer {
         /** Specify a page to navigate to when opening the browser. */
         openPage?: string;
         /** Shows a full-screen overlay in the browser when there are compiler errors or warnings. Disabled by default. */
-        overlay?: boolean | {
-            warnings?: boolean;
-            errors?: boolean;
-        };
+        overlay?:
+            | boolean
+            | {
+                  warnings?: boolean;
+                  errors?: boolean;
+              };
         /** When used via the CLI, a path to an SSL .pfx file. If used in options, it should be the bytestream of the .pfx file. */
         pfx?: string;
         /** The passphrase to a SSL PFX file. */
@@ -171,7 +173,7 @@ declare namespace WebpackDevServer {
     }
 }
 
-declare module 'webpack' {
+declare module "webpack" {
     interface Configuration {
         /** Can be used to configure the behaviour of webpack-dev-server when the webpack config is passed to webpack-dev-server CLI. */
         devServer?: WebpackDevServer.Configuration;
@@ -190,7 +192,11 @@ declare class WebpackDevServer {
         listeningApp?: WebpackDevServer.ListeningApp
     ): void;
 
-    listen(port: number, hostname: string, callback?: (error?: Error) => void): http.Server;
+    listen(
+        port: number,
+        hostname: string,
+        callback?: (error?: Error) => void
+    ): http.Server;
 
     listen(port: number, callback?: (error?: Error) => void): http.Server;
 

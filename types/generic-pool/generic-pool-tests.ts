@@ -44,24 +44,24 @@ const pool = genericPool.createPool<Connection>(factory, opts);
 
 pool.start();
 
-pool.use((conn: Connection) => 'test')
-    .then((result: string) => { });
+pool.use((conn: Connection) => "test").then((result: string) => {});
 
 pool.acquire()
     .then((conn: Connection) => {
-        console.log(pool.isBorrowedResource(conn));  // => true
+        console.log(pool.isBorrowedResource(conn)); // => true
         return pool.release(conn);
-    }).then(() => {
+    })
+    .then(() => {
         return pool.acquire(5);
-    }).then((conn: Connection) => {
+    })
+    .then((conn: Connection) => {
         return pool.destroy(conn);
-    }).then(() => {
+    })
+    .then(() => {
         return pool.clear();
-    }).then(() => {
-    });
+    })
+    .then(() => {});
 
-pool.on('factoryCreateError', (err: Error) => {
-});
+pool.on("factoryCreateError", (err: Error) => {});
 
-pool.on('factoryDestroyError', (err: Error) => {
-});
+pool.on("factoryDestroyError", (err: Error) => {});

@@ -1,19 +1,19 @@
 import * as Textract from "textract";
 
-Textract.fromBufferWithMime("", Buffer.alloc(0), (err, text) => { });
-Textract.fromBufferWithMime("", Buffer.alloc(0), {}, (err, text) => { });
+Textract.fromBufferWithMime("", Buffer.alloc(0), (err, text) => {});
+Textract.fromBufferWithMime("", Buffer.alloc(0), {}, (err, text) => {});
 
-Textract.fromBufferWithName("", Buffer.alloc(0), (err, text) => { });
-Textract.fromBufferWithName("", Buffer.alloc(0), {}, (err, text) => { });
+Textract.fromBufferWithName("", Buffer.alloc(0), (err, text) => {});
+Textract.fromBufferWithName("", Buffer.alloc(0), {}, (err, text) => {});
 
-Textract.fromFileWithMimeAndPath("", "", (err, text) => { });
-Textract.fromFileWithMimeAndPath("", "", {}, (err, text) => { });
+Textract.fromFileWithMimeAndPath("", "", (err, text) => {});
+Textract.fromFileWithMimeAndPath("", "", {}, (err, text) => {});
 
-Textract.fromFileWithPath("", (err, text) => { });
-Textract.fromFileWithPath("", {}, (err, text) => { });
+Textract.fromFileWithPath("", (err, text) => {});
+Textract.fromFileWithPath("", {}, (err, text) => {});
 
-Textract.fromUrl("", (err, text) => { });
-Textract.fromUrl("", {}, (err, text) => { });
+Textract.fromUrl("", (err, text) => {});
+Textract.fromUrl("", {}, (err, text) => {});
 
 const testConf: Textract.Config = {
     doc: { exec: {} },
@@ -31,11 +31,11 @@ const testConf: Textract.Config = {
         ownerPassword: "",
         resolution: 300,
         splitPages: true,
-        userPassword: "",
+        userPassword: ""
     },
     preserveLineBreaks: true,
     preserveOnlyMultipleLineBreaks: true,
-    tesseract: { cmd: "-lang de" },
+    tesseract: { cmd: "-lang de" }
 };
 
 const testConf2: Textract.Config = {

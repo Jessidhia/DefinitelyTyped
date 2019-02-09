@@ -41,4 +41,7 @@ export function assertValidSDL(documentAST: DocumentNode): undefined;
  *
  * @internal
  */
-export function assertValidSDLExtension(documentAST: DocumentNode, schema: GraphQLSchema): undefined;
+export function assertValidSDLExtension(
+    documentAST: DocumentNode,
+    schema: GraphQLSchema
+): undefined;

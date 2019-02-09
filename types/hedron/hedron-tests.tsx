@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as hedron from 'hedron';
+import * as React from "react";
+import * as hedron from "hedron";
 
 <hedron.BreakpointProvider breakpoints={{ lg: 1, md: 2 }}>
     <hedron.Page debug fluid tagName="div" width="10px">
@@ -17,7 +17,9 @@ interface Props {
     str: string;
 }
 
-class ComponentWithBreakpoints extends React.Component<Props & hedron.BreakpointsProps> {
+class ComponentWithBreakpoints extends React.Component<
+    Props & hedron.BreakpointsProps
+> {
     render() {
         // `breakpoints` prop is accessible in component
         this.props.breakpoints;
@@ -29,4 +31,4 @@ class ComponentWithBreakpoints extends React.Component<Props & hedron.Breakpoint
 const WithBreakpoints = hedron.withBreakpoints(ComponentWithBreakpoints);
 
 // breakpoints props is not needed
-<WithBreakpoints numeric={42} str='str' />;
+<WithBreakpoints numeric={42} str="str" />;

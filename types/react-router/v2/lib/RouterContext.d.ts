@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as H from 'history';
-import Router from './Router';
+import * as React from "react";
+import * as H from "history";
+import Router from "./Router";
 
 declare const self: self.RouterContext;
 type self = self.RouterContext;
@@ -17,7 +17,8 @@ declare namespace self {
         components?: Router.RouteComponent[];
     }
     interface RouterContext extends React.ComponentClass<RouterContextProps> {}
-    interface RouterContextElement extends React.ReactElement<RouterContextProps> {
+    interface RouterContextElement
+        extends React.ReactElement<RouterContextProps> {
         history?: H.History;
         location: H.Location;
         router?: Router;

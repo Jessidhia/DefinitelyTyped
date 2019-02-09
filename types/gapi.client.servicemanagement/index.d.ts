@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Service Management API v1 */
     function load(name: "servicemanagement", version: "v1"): PromiseLike<void>;
-    function load(name: "servicemanagement", version: "v1", callback: () => any): void;
+    function load(
+        name: "servicemanagement",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const operations: servicemanagement.OperationsResource;
 

@@ -11,8 +11,14 @@ const options: Options = {
     timeoutInterval: 1000
 };
 
-const ws1: ReconnectingWebSocket = new ReconnectingWebSocket("url", ["protocol"], options);
-const ws2: ReconnectingWebSocket = new ReconnectingWebSocket("url", ["protocol"]);
+const ws1: ReconnectingWebSocket = new ReconnectingWebSocket(
+    "url",
+    ["protocol"],
+    options
+);
+const ws2: ReconnectingWebSocket = new ReconnectingWebSocket("url", [
+    "protocol"
+]);
 const ws3: ReconnectingWebSocket = new ReconnectingWebSocket("url");
 
 ReconnectingWebSocket.debugAll = true;
@@ -21,20 +27,15 @@ ReconnectingWebSocket.OPEN = WebSocket.OPEN;
 ReconnectingWebSocket.CLOSING = WebSocket.CLOSING;
 ReconnectingWebSocket.CLOSED = WebSocket.CLOSED;
 
-ws1.onclose = (event: any) => {
-};
+ws1.onclose = (event: any) => {};
 
-ws2.onconnecting = (event: any) => {
-};
+ws2.onconnecting = (event: any) => {};
 
-ws3.onerror = (event: any) => {
-};
+ws3.onerror = (event: any) => {};
 
-ws1.onmessage = (event: any) => {
-};
+ws1.onmessage = (event: any) => {};
 
-ws1.onopen = (event: any) => {
-};
+ws1.onopen = (event: any) => {};
 
 ws1.open(true);
 

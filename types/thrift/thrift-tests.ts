@@ -1,71 +1,72 @@
-import * as http from 'http';
-import * as https from 'https';
+import * as http from "http";
+import * as https from "https";
 
 import {
-  createConnection,
-  createServer,
-  createClient,
-  Multiplexer,
-  Thrift,
-  TBinaryProtocol,
-  TBufferedTransport,
-  TProtocol,
-  TTransport,
-  TTransportCallback,
-  Int64,
-  TMessage,
-  TStruct,
-  TField,
-  TSet,
-  TList,
-  TMap,
-} from 'thrift';
+    createConnection,
+    createServer,
+    createClient,
+    Multiplexer,
+    Thrift,
+    TBinaryProtocol,
+    TBufferedTransport,
+    TProtocol,
+    TTransport,
+    TTransportCallback,
+    Int64,
+    TMessage,
+    TStruct,
+    TField,
+    TSet,
+    TList,
+    TMap
+} from "thrift";
 
 interface MockServiceHandlers {
-  ping(): string;
+    ping(): string;
 }
 
-class MockProcessor {
-}
+class MockProcessor {}
 
-class MockClient {
-}
+class MockClient {}
 
 const mockServiceHandlers: MockServiceHandlers = {
-  ping(): string {
-    return 'ok';
-  }
+    ping(): string {
+        return "ok";
+    }
 };
 
 const mockGeneratedService = {
-  Client: MockClient,
-  Processor: MockProcessor
+    Client: MockClient,
+    Processor: MockProcessor
 };
 
-createServer<MockProcessor, MockServiceHandlers>(mockGeneratedService, mockServiceHandlers);
+createServer<MockProcessor, MockServiceHandlers>(
+    mockGeneratedService,
+    mockServiceHandlers
+);
 
 const httpOptions: http.RequestOptions = {
     timeout: 10000,
     headers: {
-        'Content-Type': 'application/octet-stream'
+        "Content-Type": "application/octet-stream"
     }
 };
 
 const httpsOptions: https.RequestOptions = {
     timeout: 10000,
     headers: {
-        'Content-Type': 'application/octet-stream'
+        "Content-Type": "application/octet-stream"
     },
-    secureProtocol: 'SSLv3_method'
+    secureProtocol: "SSLv3_method"
 };
 
-const clientConnection = createConnection('0.0.0.0', 1234, {
+const clientConnection = createConnection("0.0.0.0", 1234, {
     transport: TBufferedTransport,
     protocol: TBinaryProtocol,
     nodeOptions: httpOptions
 });
 
-const secureConnection = createConnection('0.0.0.0', 1234, {
+const secureConnection = createConnection("0.0.0.0", 1234, {
     transport: TBufferedTransport,
     protocol: TBinaryProtocol,
     nodeOptions: httpsOptions
@@ -77,7 +78,10 @@ const mockBuffer: Buffer = Buffer.alloc(8);
 
 const mockCallback: TTransportCallback = (msg: Buffer, seq: number): void => {};
 
-const mockTransport: TTransport = new TBufferedTransport(mockBuffer, mockCallback);
+const mockTransport: TTransport = new TBufferedTransport(
+    mockBuffer,
+    mockCallback
+);
 
 const mockProtocol: TProtocol = new TBinaryProtocol(mockTransport);
 
@@ -95,7 +99,7 @@ const open: boolean = mockTransport.open();
 const close: boolean = mockTransport.close();
 
 mockTransport.write(mockBuffer);
-mockTransport.write('test');
+mockTransport.write("test");
 mockTransport.flush();
 mockTransport.setCurrSeqId(1);
 mockTransport.ensureAvailable(10);
@@ -104,11 +108,11 @@ mockTransport.rollbackPosition();
 
 // Test protocol types
 mockProtocol.flush();
-mockProtocol.writeMessageBegin('test', Thrift.MessageType.CALL, 1);
+mockProtocol.writeMessageBegin("test", Thrift.MessageType.CALL, 1);
 mockProtocol.writeMessageEnd();
-mockProtocol.writeStructBegin('test');
+mockProtocol.writeStructBegin("test");
 mockProtocol.writeStructEnd();
-mockProtocol.writeFieldBegin('test', Thrift.Type.BOOL, 1);
+mockProtocol.writeFieldBegin("test", Thrift.Type.BOOL, 1);
 mockProtocol.writeFieldEnd();
 mockProtocol.writeFieldStop();
 mockProtocol.writeMapBegin(Thrift.Type.STRING, Thrift.Type.I64, 1);
@@ -122,12 +126,12 @@ mockProtocol.writeByte(1);
 mockProtocol.writeI16(16);
 mockProtocol.writeI32(32);
 mockProtocol.writeI64(64);
-mockProtocol.writeI64(new Int64('0xff'));
+mockProtocol.writeI64(new Int64("0xff"));
 mockProtocol.writeDouble(42);
-mockProtocol.writeString('test');
-mockProtocol.writeString(new Buffer('test'));
-mockProtocol.writeBinary('test');
-mockProtocol.writeBinary(new Buffer('test'));
+mockProtocol.writeString("test");
+mockProtocol.writeString(new Buffer("test"));
+mockProtocol.writeBinary("test");
+mockProtocol.writeBinary(new Buffer("test"));
 
 const message: TMessage = mockProtocol.readMessageBegin();
 mockProtocol.readMessageEnd();
@@ -153,4 +157,8 @@ const tTrans: TTransport = mockProtocol.getTransport();
 mockProtocol.skip(Thrift.Type.STRUCT);
 
 const multiplexer = new Multiplexer();
-multiplexer.createClient("mock-service", mockGeneratedService, clientConnection);
+multiplexer.createClient(
+    "mock-service",
+    mockGeneratedService,
+    clientConnection
+);

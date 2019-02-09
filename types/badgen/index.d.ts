@@ -5,17 +5,17 @@
 // TypeScript Version: 2.7
 
 type ColorPresets =
-    | 'green'
-    | 'blue'
-    | 'red'
-    | 'yellow'
-    | 'orange'
-    | 'purple'
-    | 'pink'
-    | 'grey'
-    | 'gray'
-    | 'cyan'
-    | 'black';
+    | "green"
+    | "blue"
+    | "red"
+    | "yellow"
+    | "orange"
+    | "purple"
+    | "pink"
+    | "grey"
+    | "gray"
+    | "cyan"
+    | "black";
 
 interface BadgeCreationParams {
     /**
@@ -36,7 +36,7 @@ interface BadgeCreationParams {
     /**
      * 'flat' or undefined, optional.
      */
-    style?: 'flat';
+    style?: "flat";
 
     /**
      * Use icon, optional.

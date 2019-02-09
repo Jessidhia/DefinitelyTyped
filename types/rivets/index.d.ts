@@ -52,13 +52,17 @@ export namespace Rivets {
             rootInterface?: string;
 
             // Template delimiters for text bindings
-            templateDelimiters?: string[]
+            templateDelimiters?: string[];
 
             // Augment the event handler of the on-* binder
             handler?(context: any, ev: Event, biding: any): void;
         }): void;
 
-        bind(element: HTMLElement | HTMLElement[] | JQuery, models: object, options?: object): View;
+        bind(
+            element: HTMLElement | HTMLElement[] | JQuery,
+            models: object,
+            options?: object
+        ): View;
     }
 }
 

@@ -1,4 +1,4 @@
-import { Token } from './Token';
+import { Token } from "./Token";
 
 export class Interval {
     readonly length: number;
@@ -37,7 +37,11 @@ export class IntervalSet {
 
     removeOne(v: number): boolean;
 
-    toString(literalNames?: string[], symbolicNames?: string[], elemsAreChar?: boolean): string;
+    toString(
+        literalNames?: string[],
+        symbolicNames?: string[],
+        elemsAreChar?: boolean
+    ): string;
 
     toCharString(): string;
 
@@ -45,5 +49,9 @@ export class IntervalSet {
 
     toTokenString(literalNames: string[], symbolicNames: string[]): string;
 
-    elementName(literalNames: string[], symbolicNames: string[], token: Token): string;
+    elementName(
+        literalNames: string[],
+        symbolicNames: string[],
+        token: Token
+    ): string;
 }

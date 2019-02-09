@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { MenuAlignments } from '../enums';
-import { FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { MenuAlignments } from "../enums";
+import { FlexboxPropTypes } from "../utils";
 /**
  * Menu component.
  * http://foundation.zurb.com/sites/docs/menu.html
@@ -10,7 +10,9 @@ import { FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const Menu: React.StatelessComponent<MenuProps>;
-export interface MenuProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLUListElement> {
+export interface MenuProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLUListElement> {
     alignment?: MenuAlignments;
     iconsOnTop?: boolean;
     isExpanded?: boolean;
@@ -27,7 +29,9 @@ export interface MenuProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLUL
  * @returns {Object}
  */
 export declare const MenuItem: React.StatelessComponent<MenuItemProps>;
-export interface MenuItemProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLLIElement> {
+export interface MenuItemProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLLIElement> {
     isActive?: boolean;
 }
 /**

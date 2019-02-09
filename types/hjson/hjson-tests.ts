@@ -1,4 +1,4 @@
-import hjson = require('hjson');
+import hjson = require("hjson");
 
 let deserializedObj: any;
 let deserializeOptions: hjson.DeserializeOptions;
@@ -8,8 +8,8 @@ let serializeOptions: hjson.SerializeOptions;
 deserializeOptions = {};
 serializeOptions = {};
 
-deserializedObj = hjson.parse('foo');
-deserializedObj = hjson.parse('foo', deserializeOptions);
+deserializedObj = hjson.parse("foo");
+deserializedObj = hjson.parse("foo", deserializeOptions);
 
-serializedObj = hjson.stringify({ foo: 'bar' });
-serializedObj = hjson.stringify({ foo: 'bar' }, serializeOptions);
+serializedObj = hjson.stringify({ foo: "bar" });
+serializedObj = hjson.stringify({ foo: "bar" }, serializeOptions);

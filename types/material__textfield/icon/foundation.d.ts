@@ -14,11 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import { strings } from './constants';
-import MDCTextFieldIconAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { strings } from "./constants";
+import MDCTextFieldIconAdapter from "./adapter";
 
-export default class MDCTextFieldIconFoundation extends MDCFoundation<MDCTextFieldIconAdapter> {
+export default class MDCTextFieldIconFoundation extends MDCFoundation<
+    MDCTextFieldIconAdapter
+> {
     static readonly strings: strings;
 
     static readonly defaultAdapter: MDCTextFieldIconAdapter;

@@ -132,7 +132,11 @@ declare function GM_openInTab(url: string): Window;
  *                      It should be a letter in the caption.
  * @see    {@link http://wiki.greasespot.net/GM_registerMenuCommand}
  */
-declare function GM_registerMenuCommand(caption: string, commandFunc: Function, accessKey?: string): void;
+declare function GM_registerMenuCommand(
+    caption: string,
+    commandFunc: Function,
+    accessKey?: string
+): void;
 
 /**
  * Sets a text to the clipboard of the opeating system.
@@ -222,8 +226,9 @@ interface GMXMLHttpRequestSyncResult {
  * Returned object by {@link GM_xmlhttpRequest}.
  * @see  {@link http://wiki.greasespot.net/GM_xmlhttpRequest#Returns}
  */
-interface GMXMLHttpRequestResult extends GMXMLHttpRequestAsyncResult, GMXMLHttpRequestSyncResult {
-}
+interface GMXMLHttpRequestResult
+    extends GMXMLHttpRequestAsyncResult,
+        GMXMLHttpRequestSyncResult {}
 
 /**
  * Sends a HTTP request to a URL.
@@ -232,4 +237,6 @@ interface GMXMLHttpRequestResult extends GMXMLHttpRequestAsyncResult, GMXMLHttpR
  *           If the request is sent in the synchronous mode, it also contains the response information.
  * @see      {@link http://wiki.greasespot.net/GM_setClipboard}
  */
-declare function GM_xmlhttpRequest(options: GMXMLHttpRequestOptions): GMXMLHttpRequestResult;
+declare function GM_xmlhttpRequest(
+    options: GMXMLHttpRequestOptions
+): GMXMLHttpRequestResult;

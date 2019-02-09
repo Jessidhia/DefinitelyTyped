@@ -17,7 +17,15 @@ export interface QRCodeOptions {
      * Possible values are low, medium, quartile, high or L, M, Q, H.
      * Default: M
      */
-    errorCorrectionLevel?: "low" | "medium" | "quartile" | "high" | "L" | "M" | "Q" | "H";
+    errorCorrectionLevel?:
+        | "low"
+        | "medium"
+        | "quartile"
+        | "high"
+        | "L"
+        | "M"
+        | "Q"
+        | "H";
     /**
      * Helper function used internally to convert a kanji to its Shift JIS value.
      * Provide this function if you need support for Kanji mode.
@@ -102,7 +110,7 @@ export interface QRCodeRenderersOptions extends QRCodeOptions {
 
 export interface QRCodeSegment {
     data: string;
-    mode: 'alphanumeric' | 'numeric';
+    mode: "alphanumeric" | "numeric";
 }
 
 export interface QRCode {
@@ -131,115 +139,213 @@ export interface QRCode {
 /**
  * Creates QR Code symbol and returns a qrcode object.
  */
-export function create(text: string | QRCodeSegment[], options: QRCodeOptions): QRCode;
+export function create(
+    text: string | QRCodeSegment[],
+    options: QRCodeOptions
+): QRCode;
 
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], callback: (error: Error) => void): void;
+export function toCanvas(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    callback: (error: Error) => void
+): void;
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], options?: QRCodeOptions): Promise<any>;
+export function toCanvas(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    options?: QRCodeOptions
+): Promise<any>;
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], options: QRCodeOptions, callback: (error: Error) => void): void;
+export function toCanvas(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    options: QRCodeOptions,
+    callback: (error: Error) => void
+): void;
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(text: string | QRCodeSegment[], callback: (error: Error, canvas: HTMLCanvasElement) => void): void;
+export function toCanvas(
+    text: string | QRCodeSegment[],
+    callback: (error: Error, canvas: HTMLCanvasElement) => void
+): void;
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(text: string | QRCodeSegment[], options?: QRCodeOptions): Promise<any>;
+export function toCanvas(
+    text: string | QRCodeSegment[],
+    options?: QRCodeOptions
+): Promise<any>;
 /**
  * Draws qr code symbol to canvas.
  */
-export function toCanvas(text: string | QRCodeSegment[], options: QRCodeOptions, callback: (error: Error, canvas: HTMLCanvasElement) => void): void;
+export function toCanvas(
+    text: string | QRCodeSegment[],
+    options: QRCodeOptions,
+    callback: (error: Error, canvas: HTMLCanvasElement) => void
+): void;
 /**
  * Draws qr code symbol to node canvas.
  */
-export function toCanvas(canvas: any, text: string | QRCodeSegment[], callback: (error: Error) => void): void;
+export function toCanvas(
+    canvas: any,
+    text: string | QRCodeSegment[],
+    callback: (error: Error) => void
+): void;
 /**
  * Draws qr code symbol to node canvas.
  */
-export function toCanvas(canvas: any, text: string | QRCodeSegment[], options?: QRCodeOptions): Promise<any>;
+export function toCanvas(
+    canvas: any,
+    text: string | QRCodeSegment[],
+    options?: QRCodeOptions
+): Promise<any>;
 /**
  * Draws qr code symbol to node canvas.
  */
-export function toCanvas(canvas: any, text: string | QRCodeSegment[], options: QRCodeOptions, callback: (error: Error) => void): void;
+export function toCanvas(
+    canvas: any,
+    text: string | QRCodeSegment[],
+    options: QRCodeOptions,
+    callback: (error: Error) => void
+): void;
 
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], callback: (error: Error, url: string) => void): void;
+export function toDataURL(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    callback: (error: Error, url: string) => void
+): void;
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], options?: QRCodeToDataURLOptions): Promise<any>;
+export function toDataURL(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    options?: QRCodeToDataURLOptions
+): Promise<any>;
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(canvasElement: HTMLCanvasElement, text: string | QRCodeSegment[], options: QRCodeToDataURLOptions, callback: (error: Error, url: string) => void): void;
+export function toDataURL(
+    canvasElement: HTMLCanvasElement,
+    text: string | QRCodeSegment[],
+    options: QRCodeToDataURLOptions,
+    callback: (error: Error, url: string) => void
+): void;
 
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(text: string | QRCodeSegment[], callback: (error: Error, url: string) => void): void;
+export function toDataURL(
+    text: string | QRCodeSegment[],
+    callback: (error: Error, url: string) => void
+): void;
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(text: string | QRCodeSegment[], options?: QRCodeToDataURLOptions): Promise<any>;
+export function toDataURL(
+    text: string | QRCodeSegment[],
+    options?: QRCodeToDataURLOptions
+): Promise<any>;
 /**
  * Returns a Data URI containing a representation of the QR Code image.
  */
-export function toDataURL(text: string | QRCodeSegment[], options: QRCodeToDataURLOptions, callback: (error: Error, url: string) => void): void;
+export function toDataURL(
+    text: string | QRCodeSegment[],
+    options: QRCodeToDataURLOptions,
+    callback: (error: Error, url: string) => void
+): void;
 
 /**
  * Returns a string representation of the QR Code.
  * If choosen output format is svg it will returns a string containing xml code.
  */
-export function toString(text: string | QRCodeSegment[], callback: (error: Error, string: string) => void): void;
+export function toString(
+    text: string | QRCodeSegment[],
+    callback: (error: Error, string: string) => void
+): void;
 /**
  * Returns a string representation of the QR Code.
  * If choosen output format is svg it will returns a string containing xml code.
  */
-export function toString(text: string | QRCodeSegment[], options?: QRCodeToStringOptions): Promise<any>;
+export function toString(
+    text: string | QRCodeSegment[],
+    options?: QRCodeToStringOptions
+): Promise<any>;
 /**
  * Returns a string representation of the QR Code.
  * If choosen output format is svg it will returns a string containing xml code.
  */
-export function toString(text: string | QRCodeSegment[], options: QRCodeToStringOptions, callback: (error: Error, string: string) => void): void;
+export function toString(
+    text: string | QRCodeSegment[],
+    options: QRCodeToStringOptions,
+    callback: (error: Error, string: string) => void
+): void;
 
 /**
  * Saves QR Code to image file.
  * If options.type is not specified, the format will be guessed from file extension.
  * Recognized extensions are png, svg, txt.
  */
-export function toFile(path: string, text: string | QRCodeSegment[], callback: (error: Error) => void): void;
+export function toFile(
+    path: string,
+    text: string | QRCodeSegment[],
+    callback: (error: Error) => void
+): void;
 /**
  * Saves QR Code to image file.
  * If options.type is not specified, the format will be guessed from file extension.
  * Recognized extensions are png, svg, txt.
  */
-export function toFile(path: string, text: string | QRCodeSegment[], options?: QRCodeToFileOptions): Promise<any>;
+export function toFile(
+    path: string,
+    text: string | QRCodeSegment[],
+    options?: QRCodeToFileOptions
+): Promise<any>;
 /**
  * Saves QR Code to image file.
  * If options.type is not specified, the format will be guessed from file extension.
  * Recognized extensions are png, svg, txt.
  */
-export function toFile(path: string, text: string | QRCodeSegment[], options: QRCodeToFileOptions, callback: (error: Error) => void): void;
+export function toFile(
+    path: string,
+    text: string | QRCodeSegment[],
+    options: QRCodeToFileOptions,
+    callback: (error: Error) => void
+): void;
 
 /**
  * Writes QR Code image to stream. Only works with png format for now.
  */
-export function toFileStream(stream: stream.Writable, text: string | QRCodeSegment[], callback: (error: Error) => void): void;
+export function toFileStream(
+    stream: stream.Writable,
+    text: string | QRCodeSegment[],
+    callback: (error: Error) => void
+): void;
 /**
  * Writes QR Code image to stream. Only works with png format for now.
  */
-export function toFileStream(stream: stream.Writable, text: string | QRCodeSegment[], options?: QRCodeOptions): Promise<any>;
+export function toFileStream(
+    stream: stream.Writable,
+    text: string | QRCodeSegment[],
+    options?: QRCodeOptions
+): Promise<any>;
 /**
  * Writes QR Code image to stream. Only works with png format for now.
  */
-export function toFileStream(stream: stream.Writable, text: string | QRCodeSegment[], options: QRCodeOptions, callback: (error: Error) => void): void;
+export function toFileStream(
+    stream: stream.Writable,
+    text: string | QRCodeSegment[],
+    options: QRCodeOptions,
+    callback: (error: Error) => void
+): void;

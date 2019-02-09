@@ -5,12 +5,19 @@
 
 /// <reference types="node" />
 
-
 export type Encoding =
-    "UTF32" | "UTF16" | "UTF16BE" |
-    "UTF16LE" | "BINARY" | "ASCII" |
-    "JIS" | "UTF8" | "EUCJP" |
-    "SJIS" | "UNICODE" | "AUTO";
+    | "UTF32"
+    | "UTF16"
+    | "UTF16BE"
+    | "UTF16LE"
+    | "BINARY"
+    | "ASCII"
+    | "JIS"
+    | "UTF8"
+    | "EUCJP"
+    | "SJIS"
+    | "UNICODE"
+    | "AUTO";
 type RawType = string | Uint8Array | number[] | Buffer;
 
 interface ConvertOptions {
@@ -20,9 +27,19 @@ interface ConvertOptions {
     bom?: boolean | string;
 }
 
-export declare function detect(data: RawType, encodings?: Encoding | Encoding[]): Encoding;
-export declare function convert(data: RawType, to: Encoding, from?: Encoding): number[];
-export declare function convert(data: RawType, options: ConvertOptions): string | ArrayBuffer | number[];
+export declare function detect(
+    data: RawType,
+    encodings?: Encoding | Encoding[]
+): Encoding;
+export declare function convert(
+    data: RawType,
+    to: Encoding,
+    from?: Encoding
+): number[];
+export declare function convert(
+    data: RawType,
+    options: ConvertOptions
+): string | ArrayBuffer | number[];
 export declare function urlEncode(data: number[] | Uint8Array): string;
 export declare function urlDecode(data: string): number[];
 export declare function base64Encode(data: number[] | Uint8Array): string;

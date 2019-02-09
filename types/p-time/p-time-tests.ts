@@ -1,4 +1,4 @@
-import pTime = require('p-time');
+import pTime = require("p-time");
 
 const wrappedFn = pTime(async (input: number) => {
     return input;
@@ -16,7 +16,7 @@ pTime((input: number) => {
 });
 
 // $ExpectError
-wrappedFn('foo');
+wrappedFn("foo");
 
 // $ExpectType (input: number) => PromiseWithTime<number>
 pTime.log(async (input: number) => {

@@ -6,7 +6,7 @@ declare global {
     }
 }
 
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 /**
  * Render a React element to its initial HTML. This should only be used on the server.
@@ -25,7 +25,9 @@ export function renderToString(element: ReactElement<any>): string;
  * an HTML string. The HTML output by this stream is exactly equal to what
  * `ReactDOMServer.renderToString()` would return.
  */
-export function renderToNodeStream(element: ReactElement<any>): NodeJS.ReadableStream;
+export function renderToNodeStream(
+    element: ReactElement<any>
+): NodeJS.ReadableStream;
 
 /**
  * Similar to `renderToString`, except this doesn't create extra DOM attributes
@@ -40,7 +42,9 @@ export function renderToStaticMarkup(element: ReactElement<any>): string;
  * such as `data-reactid`, that React uses internally. The HTML output by this stream
  * is exactly equal to what `ReactDOMServer.renderToStaticMarkup()` would return.
  */
-export function renderToStaticNodeStream(element: ReactElement<any>): NodeJS.ReadableStream;
+export function renderToStaticNodeStream(
+    element: ReactElement<any>
+): NodeJS.ReadableStream;
 
 export const version: string;
 

@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import * as stream from 'stream';
+import * as stream from "stream";
 
 export = InsertModuleGlobals;
 
@@ -22,7 +22,7 @@ interface InsertModuleGlobals {
     readonly vars: {
         process(file: string): string;
         global(): string;
-        'Buffer.isBuffer'(file: string): string;
+        "Buffer.isBuffer"(file: string): string;
         Buffer(): string;
         __filename(file: string, basedir: string): string;
         __dirname(file: string, basedir: string): string;
@@ -57,7 +57,10 @@ declare namespace InsertModuleGlobals {
         [name: string]: InsertFunction | undefined;
     }
 
-    type InsertFunction = (file: string, basedir: string) => VariableConfig | string;
+    type InsertFunction = (
+        file: string,
+        basedir: string
+    ) => VariableConfig | string;
 
     interface VariableConfig {
         id: string;

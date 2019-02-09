@@ -10,7 +10,9 @@ export interface Profile {
     sessionIndex?: string; // only SAML 2.0
 }
 
-export type ValidationOptions = ValidationOptionsWithKey | ValidationOptionsWithPrint;
+export type ValidationOptions =
+    | ValidationOptionsWithKey
+    | ValidationOptionsWithPrint;
 
 export interface ValidationOptionsWithKey {
     publicKey: string;
@@ -24,7 +26,15 @@ export interface ValidationOptionsWithPrint {
     audience?: any;
 }
 
-export type ParseCallback = (err: Error | null, profile: Profile, version: string) => void;
+export type ParseCallback = (
+    err: Error | null,
+    profile: Profile,
+    version: string
+) => void;
 
 export function parse(rawAssertion: string, cb: ParseCallback): void;
-export function validate(rawAssertion: string, options: ValidationOptions, cb: ParseCallback): void;
+export function validate(
+    rawAssertion: string,
+    options: ValidationOptions,
+    cb: ParseCallback
+): void;

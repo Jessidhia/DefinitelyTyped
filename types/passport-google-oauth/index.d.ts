@@ -6,8 +6,8 @@
 
 /// <reference types="passport"/>
 
-import passport = require('passport');
-import express = require('express');
+import passport = require("passport");
+import express = require("express");
 
 interface Profile extends passport.Profile {
     gender: string;

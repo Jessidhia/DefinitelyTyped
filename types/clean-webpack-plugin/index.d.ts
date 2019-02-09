@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 export = CleanWebpackPlugin;
 
@@ -12,7 +12,10 @@ declare class CleanWebpackPlugin extends Plugin {
     /**
      * @param paths A glob or array of globs to delete
      */
-    constructor(paths: string | ReadonlyArray<string>, options?: string | CleanWebpackPlugin.Options);
+    constructor(
+        paths: string | ReadonlyArray<string>,
+        options?: string | CleanWebpackPlugin.Options
+    );
 }
 
 declare namespace CleanWebpackPlugin {

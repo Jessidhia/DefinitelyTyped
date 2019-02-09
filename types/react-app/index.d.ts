@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface LinkProps {
     to: string;
@@ -16,7 +16,8 @@ export interface LayoutProps {
     className: string;
 }
 
-export interface RouteProps { // takes the form of universal-router routes
+export interface RouteProps {
+    // takes the form of universal-router routes
     path: string;
     children: ChildProps[];
 }

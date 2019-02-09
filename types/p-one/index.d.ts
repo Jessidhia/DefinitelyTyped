@@ -5,9 +5,11 @@
 
 export = pOne;
 
-declare function pOne<T>(input: Iterable<PromiseLike<T> | T>,
-                         testFn: (element: T, index: number) => boolean | Promise<boolean>,
-                         options?: pOne.Options): Promise<boolean>;
+declare function pOne<T>(
+    input: Iterable<PromiseLike<T> | T>,
+    testFn: (element: T, index: number) => boolean | Promise<boolean>,
+    options?: pOne.Options
+): Promise<boolean>;
 
 declare namespace pOne {
     interface Options {

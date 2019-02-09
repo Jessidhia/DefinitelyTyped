@@ -17,11 +17,11 @@ export { JssProviderProps };
 // library implementations
 export const jss: JSS;
 export {
-  createGenerateClassName,
-  createTheming,
-  JssProvider,
-  SheetsRegistry,
-  ThemeProvider,
-  withTheme
+    createGenerateClassName,
+    createTheming,
+    JssProvider,
+    SheetsRegistry,
+    ThemeProvider,
+    withTheme
 };
 export default injectSheet;

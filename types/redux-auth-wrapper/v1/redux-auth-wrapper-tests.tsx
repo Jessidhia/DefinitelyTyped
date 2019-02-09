@@ -10,10 +10,10 @@ const Auth = UserAuthWrapper<any, any, any>({
     authSelector(state: any) {
         return state.auth;
     },
-    FailureComponent: () => (<div />),
+    FailureComponent: () => <div />,
     failureRedirectPath: "/401",
-    LoadingComponent: () => (<div />),
-    redirectAction: () => ({ type : "redirect" }),
+    LoadingComponent: () => <div />,
+    redirectAction: () => ({ type: "redirect" }),
     redirectQueryParamName: "next",
     predicate(authData: any) {
         return authData.authorized;
@@ -22,7 +22,7 @@ const Auth = UserAuthWrapper<any, any, any>({
 });
 
 export const TestAuthComponent: StatelessComponent = () => {
-    return (<div />);
+    return <div />;
 };
 
 const TestAuth = Auth(TestAuthComponent);

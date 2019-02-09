@@ -1,7 +1,7 @@
-import ipAddress = require('ip-address');
+import ipAddress = require("ip-address");
 
 // Test Address4 Typings
-const address4 = new ipAddress.Address4('127.0.0.1');
+const address4 = new ipAddress.Address4("127.0.0.1");
 
 const address4Valid = address4.valid;
 const address4String = address4.address;
@@ -12,7 +12,7 @@ const address4Subnet = address4.subnet;
 const address4Mask = address4.subnetMask;
 
 // $ExpectType Address4
-ipAddress.Address4.fromHex('127.0.0.1');
+ipAddress.Address4.fromHex("127.0.0.1");
 // $ExpectType Address4
 ipAddress.Address4.fromInteger(127001);
 // $ExpectType Address4
@@ -33,7 +33,7 @@ address4.toGroup6();
 // $ExpectType string
 address4.mask();
 // $ExpectType string
-address4.mask('0');
+address4.mask("0");
 // $ExpectType string
 address4.getBitsBase2(0, 1);
 // $ExpectType string
@@ -47,7 +47,7 @@ address4.isCorrect();
 address4.isInSubnet(address4);
 
 // Test Address6 Typings
-const address6 = new ipAddress.Address6('127.0.0.1');
+const address6 = new ipAddress.Address6("127.0.0.1");
 
 const address6Valid = address6.valid;
 const address6String = address6.address;

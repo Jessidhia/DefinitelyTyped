@@ -1,13 +1,12 @@
-
-import minimist = require('minimist');
+import minimist = require("minimist");
 import Opts = minimist.Opts;
 
 interface CustomArgs {
-	foo: boolean;
+    foo: boolean;
 }
 
 interface CustomArgs2 extends minimist.ParsedArgs {
-	foo: boolean;
+    foo: boolean;
 }
 
 var num: string;
@@ -26,26 +25,26 @@ opts.boolean = true;
 opts.boolean = str;
 opts.boolean = strArr;
 opts.alias = {
-	foo: strArr
+    foo: strArr
 };
 opts.alias = {
-	foo: str
+    foo: str
 };
 opts.default = {
-	foo: str
+    foo: str
 };
 opts.default = {
-	foo: num
+    foo: num
 };
 opts.unknown = (arg: string) => {
-	if(/xyz/.test(arg)){
-		return true;
-	}
+    if (/xyz/.test(arg)) {
+        return true;
+    }
 
-	return false;
+    return false;
 };
 opts.stopEarly = true;
-opts['--'] = true;
+opts["--"] = true;
 
 obj = minimist();
 obj = minimist(strArr);
@@ -58,7 +57,7 @@ eobj = minimist<CustomArgs2>(strArr);
 eobj = minimist<CustomArgs2>(strArr, opts);
 var remainingArgCount = obj._.length;
 
-arg = obj['foo'];
+arg = obj["foo"];
 
 arg = iobj.foo;
 remainingArgCount = iobj._.length;

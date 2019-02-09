@@ -8,19 +8,18 @@
 /// <reference types="handlebars"/>
 
 declare namespace EmberStates {
-
     interface Transition {
         targetName: string;
         urlMethod: string;
         intent: any;
-        params: {}|any;
+        params: {} | any;
         pivotHandler: any;
         resolveIndex: number;
         handlerInfos: any;
-        resolvedModels: {}|any;
+        resolvedModels: {} | any;
         isActive: boolean;
         state: any;
-        queryParams: {}|any;
+        queryParams: {} | any;
         queryParamsOnly: boolean;
 
         isTransition: boolean;
@@ -57,7 +56,11 @@ declare namespace EmberStates {
           @arg {String} label optional string for labeling the promise. Useful for tooling.
           @return {Promise}
          */
-        then(onFulfilled: Function, onRejected?: Function, label?: string): Ember.RSVP.Promise;
+        then(
+            onFulfilled: Function,
+            onRejected?: Function,
+            label?: string
+        ): Ember.RSVP.Promise;
 
         /**
           Forwards to the internal `promise` property which you can
@@ -128,7 +131,7 @@ declare namespace EmberStates {
           @arg {Boolean} [ignoreFailure=false] a boolean specifying whether unhandled events throw an error
           @arg {String} name the name of the event to fire
          */
-        trigger(ignoreFailure:boolean, eventName: string): void;
+        trigger(ignoreFailure: boolean, eventName: string): void;
         /**
           Fires an event on the current list of resolved/resolving
           handlers within this transition. Useful for firing events
@@ -152,23 +155,18 @@ declare namespace EmberStates {
          */
         followRedirects(): Ember.RSVP.Promise;
     }
-
 }
 
 declare namespace EmberTesting {
-
     namespace Test {
-
         class Adapter {
             asyncEnd(): void;
             asyncStart(): void;
             exception(error: string): void;
         }
 
-        class QUnitAdapter extends Adapter { }
-
+        class QUnitAdapter extends Adapter {}
     }
-
 }
 
 interface Function {
@@ -195,34 +193,73 @@ interface Array<T> {
     constructor(arr: any[]): void;
     activate(): void;
     addArrayObserver(target: any, opts?: EnumerableConfigurationOptions): any[];
-    addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+    addEnumerableObserver(
+        target: any,
+        opts: EnumerableConfigurationOptions
+    ): any[];
     any(callback: Function, target?: any): boolean;
     anyBy(key: string, value?: string): boolean;
-    arrayContentDidChange(startIdx: number, removeAmt: number, addAmt: number): any[];
-    arrayContentWillChange(startIdx: number, removeAmt: number, addAmt: number): any[];
+    arrayContentDidChange(
+        startIdx: number,
+        removeAmt: number,
+        addAmt: number
+    ): any[];
+    arrayContentWillChange(
+        startIdx: number,
+        removeAmt: number,
+        addAmt: number
+    ): any[];
     someProperty(key: string, value?: any): boolean;
     clear(): any[];
     compact(): any[];
     contains(obj: any): boolean;
-    enumerableContentDidChange(start: number, removing: number, adding: number): any;
-    enumerableContentDidChange(start: number, removing: Ember.Enumerable, adding: number): any;
-    enumerableContentDidChange(start: number, removing: number, adding: Ember.Enumerable): any;
-    enumerableContentDidChange(start: number, removing: Ember.Enumerable, adding: Ember.Enumerable): any;
+    enumerableContentDidChange(
+        start: number,
+        removing: number,
+        adding: number
+    ): any;
+    enumerableContentDidChange(
+        start: number,
+        removing: Ember.Enumerable,
+        adding: number
+    ): any;
+    enumerableContentDidChange(
+        start: number,
+        removing: number,
+        adding: Ember.Enumerable
+    ): any;
+    enumerableContentDidChange(
+        start: number,
+        removing: Ember.Enumerable,
+        adding: Ember.Enumerable
+    ): any;
     enumerableContentDidChange(removing: number, adding: number): any;
     enumerableContentDidChange(removing: Ember.Enumerable, adding: number): any;
     enumerableContentDidChange(removing: number, adding: Ember.Enumerable): any;
-    enumerableContentDidChange(removing: Ember.Enumerable, adding: Ember.Enumerable): any;
+    enumerableContentDidChange(
+        removing: Ember.Enumerable,
+        adding: Ember.Enumerable
+    ): any;
     enumerableContentWillChange(removing: number, adding: number): any[];
-    enumerableContentWillChange(removing: Ember.Enumerable, adding: number): any[];
-    enumerableContentWillChange(removing: number, adding: Ember.Enumerable): any[];
-    enumerableContentWillChange(removing: Ember.Enumerable, adding: Ember.Enumerable): any[];
+    enumerableContentWillChange(
+        removing: Ember.Enumerable,
+        adding: number
+    ): any[];
+    enumerableContentWillChange(
+        removing: number,
+        adding: Ember.Enumerable
+    ): any[];
+    enumerableContentWillChange(
+        removing: Ember.Enumerable,
+        adding: Ember.Enumerable
+    ): any[];
     every(callback: Function, target?: any): boolean;
     everyBy(key: string, value?: string): boolean;
     everyProperty(key: string, value?: any): boolean;
     filter(callback: Function, target?: any): any[];
     filterBy(key: string, value?: string): any[];
 
- /**
+    /**
     Returns the first item in the array for which the callback returns true.
     This method works similar to the `filter()` method defined in JavaScript 1.6
     except that it will stop working on the array once a match is found.
@@ -260,12 +297,22 @@ interface Array<T> {
     popObject(): any;
     pushObject(obj: any): any;
     pushObjects(...args: any[]): any[];
-    reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+    reduce(
+        callback: ReduceCallback,
+        initialValue: any,
+        reducerProperty: string
+    ): any;
     reject: ItemIndexEnumerableCallbackTarget;
     rejectBy(key: string, value?: string): any[];
-    removeArrayObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+    removeArrayObserver(
+        target: any,
+        opts: EnumerableConfigurationOptions
+    ): any[];
     removeAt(start: number, len: number): any;
-    removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+    removeEnumerableObserver(
+        target: any,
+        opts: EnumerableConfigurationOptions
+    ): any[];
     replace(idx: number, amt: number, objects: any[]): void;
     reverseObjects(): any[];
     setEach(key: string, value?: any): any;
@@ -278,8 +325,8 @@ interface Array<T> {
     unshiftObject(object: any): any;
     unshiftObjects(objects: any[]): any[];
     without(value: any): any[];
-    '[]': any[];
-    '@each': Ember.EachProxy;
+    "[]": any[];
+    "@each": Ember.EachProxy;
     Boolean: boolean;
     firstObject: any;
     hasEnumerableObservers: boolean;
@@ -303,7 +350,11 @@ interface Array<T> {
     propertyDidChange(keyName: string): any[];
     propertyWillChange(keyName: string): any[];
     removeObserver(key: string, target: any, method: string): Ember.Observable;
-    removeObserver(key: string, target: any, method: Function): Ember.Observable;
+    removeObserver(
+        key: string,
+        target: any,
+        method: Function
+    ): Ember.Observable;
     set(keyName: string, value: any): any[];
     setProperties(hash: {}): any[];
     toggleProperty(keyName: string): any;
@@ -353,8 +404,8 @@ interface CoreObjectArguments {
 }
 
 interface EnumerableConfigurationOptions {
-    willChange?: boolean ;
-    didChange?: boolean ;
+    willChange?: boolean;
+    didChange?: boolean;
 }
 
 interface ItemIndexEnumerableCallbackTarget {
@@ -366,7 +417,12 @@ interface ItemIndexEnumerableCallback {
 }
 
 interface ReduceCallback {
-    (previousValue: any, item: any, index: number, enumerable: Ember.Enumerable): void;
+    (
+        previousValue: any,
+        item: any,
+        index: number,
+        enumerable: Ember.Enumerable
+    ): void;
 }
 
 interface TransitionsHash {
@@ -467,7 +523,11 @@ declare namespace Ember {
         /**
         defines an injection or typeInjection
         **/
-        inject(factoryNameOrType: string, property: string, injectionName: string): void;
+        inject(
+            factoryNameOrType: string,
+            property: string,
+            injectionName: string
+        ): void;
         /**
         This injects the test helpers into the window's scope. If a function of the
         same name has already been defined it will be cached (so that it can be reset
@@ -535,27 +595,72 @@ declare namespace Ember {
     Array class as well as other controllers, etc. that want to appear to be arrays.
     **/
     class Array implements Enumerable {
-        addArrayObserver(target: any, opts?: EnumerableConfigurationOptions): any[];
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addArrayObserver(
+            target: any,
+            opts?: EnumerableConfigurationOptions
+        ): any[];
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         any(callback: Function, target?: any): boolean;
         anyBy(key: string, value?: string): boolean;
-        arrayContentDidChange(startIdx: number, removeAmt: number, addAmt: number): any[];
-        arrayContentWillChange(startIdx: number, removeAmt: number, addAmt: number): any[];
+        arrayContentDidChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
+        arrayContentWillChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
         someProperty(key: string, value?: string): boolean;
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -573,20 +678,30 @@ declare namespace Ember {
         nextObject(index: number, previousObject: any, context: any): any;
         objectAt(idx: number): any;
         objectsAt(...args: number[]): any[];
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeArrayObserver(target: any, opts: EnumerableConfigurationOptions): any[];
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeArrayObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): any[];
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         setEach(key: string, value?: any): any;
         slice(beginIndex?: number, endIndex?: number): any[];
         some(callback: Function, target?: any): boolean;
         toArray(): any[];
         uniq(): Enumerable;
         without(value: any): Enumerable;
-    '@each': EachProxy;
+        "@each": EachProxy;
         Boolean: boolean;
-    '[]': any[];
+        "[]": any[];
         firstObject: any;
         hasEnumerableObservers: boolean;
         lastObject: any;
@@ -596,7 +711,8 @@ declare namespace Ember {
     Provides a way for you to publish a collection of objects so that you can easily bind to the
     collection from a Handlebars #each helper, an Ember.CollectionView, or other controllers.
     **/
-    class ArrayController extends ArrayProxy implements SortableMixin, ControllerMixin {
+    class ArrayController extends ArrayProxy
+        implements SortableMixin, ControllerMixin {
         static detect(obj: any): boolean;
         static detectInstance(obj: any): boolean;
         /**
@@ -626,7 +742,6 @@ declare namespace Ember {
         queryParams: any;
         send(name: string, ...args: any[]): void;
         actions: {};
-
     }
     /**
     Array polyfills to support ES5 features in older browsers.
@@ -656,28 +771,73 @@ declare namespace Ember {
         static metaForProperty(key: string): {};
         static isClass: boolean;
         static isMethod: boolean;
-        addArrayObserver(target: any, opts?: EnumerableConfigurationOptions): any[];
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addArrayObserver(
+            target: any,
+            opts?: EnumerableConfigurationOptions
+        ): any[];
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         any(callback: Function, target?: any): boolean;
         anyBy(key: string, value?: string): boolean;
-        arrayContentDidChange(startIdx: number, removeAmt: number, addAmt: number): any[];
-        arrayContentWillChange(startIdx: number, removeAmt: number, addAmt: number): any[];
+        arrayContentDidChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
+        arrayContentWillChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
         someProperty(key: string, value?: string): boolean;
         clear(): any[];
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -700,12 +860,22 @@ declare namespace Ember {
         popObject(): any;
         pushObject(obj: any): any;
         pushObjects(...args: any[]): any[];
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeArrayObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+        removeArrayObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): any[];
         removeAt(start: number, len: number): any;
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         replace(idx: number, amt: number, objects: any[]): any;
         replaceContent(idx: number, amt: number, objects: any[]): void;
         reverseObjects(): any[];
@@ -719,8 +889,8 @@ declare namespace Ember {
         unshiftObject(object: any): any;
         unshiftObjects(objects: any[]): any[];
         without(value: any): Enumerable;
-    '[]': any[];
-    '@each': EachProxy;
+        "[]": any[];
+        "@each": EachProxy;
         Boolean: boolean;
         firstObject: any;
         hasEnumerableObservers: boolean;
@@ -791,7 +961,12 @@ declare namespace Ember {
     array are added, removed, or replaced.
     **/
     class CollectionView extends ContainerView {
-        arrayDidChange(content: any[], start: number, removed: number, added: number): void;
+        arrayDidChange(
+            content: any[],
+            start: number,
+            removed: number,
+            added: number
+        ): void;
         arrayWillChange(content: any[], start: number, removed: number): void;
         createChildView(viewClass: {}, attrs?: {}): CollectionView;
         destroy(): CollectionView;
@@ -875,8 +1050,16 @@ declare namespace Ember {
         has(fullName: string): boolean;
         optionsForType(type: string, options: {}): void;
         options(type: string, options: {}): void;
-        injection(factoryName: string, property: string, injectionName: string): void;
-        factoryInjection(factoryName: string, property: string, injectionName: string): void;
+        injection(
+            factoryName: string,
+            property: string,
+            injectionName: string
+        ): void;
+        factoryInjection(
+            factoryName: string,
+            property: string,
+            injectionName: string
+        ): void;
         destroy(): void;
         reset(): void;
     }
@@ -918,7 +1101,7 @@ declare namespace Ember {
         replaceRoute(name: string, ...args: any[]): void;
         transitionToRoute(name: string, ...args: any[]): void;
         controllers: {};
-        model : any;
+        model: any;
         needs: string[];
         queryParams: any;
         target: any;
@@ -1015,7 +1198,7 @@ declare namespace Ember {
         @param {Object} [args] - Object containing values to use within the new class
         Non-static method because Ember classes aren't currently 'real' TypeScript classes.
         **/
-        extend<T>(args ?: CoreObjectArguments): T;
+        extend<T>(args?: CoreObjectArguments): T;
         /**
         Creates a new subclass.
         @method extend
@@ -1023,7 +1206,7 @@ declare namespace Ember {
         @param {Object} [args] - Object containing values to use within the new class
         Non-static method because Ember classes aren't currently 'real' TypeScript classes.
         **/
-        extend<T>(mixins ? : Mixin, args ?: CoreObjectArguments): T;
+        extend<T>(mixins?: Mixin, args?: CoreObjectArguments): T;
 
         /**
         Equivalent to doing extend(arguments).create(). If possible use the normal create method instead.
@@ -1138,7 +1321,7 @@ declare namespace Ember {
     The default implementation handles simple properties.
     You generally won't need to create or subclass this directly.
     **/
-    class Descriptor { }
+    class Descriptor {}
     var EMPTY_META: {}; // TODO: define interface
     var ENV: {};
     var EXTEND_PROTOTYPES: boolean;
@@ -1171,24 +1354,58 @@ declare namespace Ember {
     on simple arrays. If Array already implements one of these methods, the mixin will not override them.
     **/
     class Enumerable {
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         any(callback: Function, target?: any): boolean;
         anyBy(key: string, value?: string): boolean;
         someProperty(key: string, value?: string): boolean;
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -1202,16 +1419,23 @@ declare namespace Ember {
         map: ItemIndexEnumerableCallbackTarget;
         mapBy(key: string): any[];
         nextObject(index: number, previousObject: any, context: any): any;
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         setEach(key: string, value?: any): any;
         some(callback: Function, target?: any): boolean;
         toArray(): any[];
         uniq(): Enumerable;
         without(value: any): Enumerable;
-    '[]': any[];
+        "[]": any[];
         firstObject: any;
         hasEnumerableObservers: boolean;
         lastObject: any;
@@ -1264,7 +1488,11 @@ declare namespace Ember {
     namespace Handlebars {
         function compile(string: string): Function;
         function get(root: any, path: string, options?: {}): any;
-        function helper(name: string, func: Function, dependentKeys?: string): void;
+        function helper(
+            name: string,
+            func: Function,
+            dependentKeys?: string
+        ): void;
         function helper(name: string, view: View, dependentKeys?: string): void;
         class helpers {
             action(actionName: string, context: any, options?: {}): void;
@@ -1291,10 +1519,18 @@ declare namespace Ember {
             yield(options?: {}): string;
         }
         function precompile(string: string): void;
-        function registerBoundHelper(name: string, func: Function, dependentKeys?: string): void;
-        class Compiler { }
-        class JavaScriptCompiler { }
-        function registerHelper(name: string, fn: Function, inverse?: boolean): void;
+        function registerBoundHelper(
+            name: string,
+            func: Function,
+            dependentKeys?: string
+        ): void;
+        class Compiler {}
+        class JavaScriptCompiler {}
+        function registerHelper(
+            name: string,
+            fn: Function,
+            inverse?: boolean
+        ): void;
         function registerPartial(name: string, str: any): void;
         function K(): any;
         function createFrame(objec: any): any;
@@ -1307,7 +1543,12 @@ declare namespace Ember {
         function print(ast: any): void;
         var logger: typeof Ember.Logger;
         function log(level: string, str: string): void;
-        function compile(environment: any, options?: any, context?: any, asObject?: any): any;
+        function compile(
+            environment: any,
+            options?: any,
+            context?: any,
+            asObject?: any
+        ): any;
     }
     class HashLocation extends Object {
         static detect(obj: any): boolean;
@@ -1346,7 +1587,12 @@ declare namespace Ember {
     class Instrumentation {
         getProperties(obj: any, list: any[]): {};
         getProperties(obj: any, ...args: string[]): {};
-        instrument(name: string, payload: any, callback: Function, binding: any): void;
+        instrument(
+            name: string,
+            payload: any,
+            callback: Function,
+            binding: any
+        ): void;
         reset(): void;
         subscribe(pattern: string, object: any): void;
         unsubscribe(subscriber: any): void;
@@ -1426,28 +1672,73 @@ declare namespace Ember {
         reopen<T extends Mixin>(args?: {}): T;
     }
     class MutableArray implements Array, MutableEnumerable {
-        addArrayObserver(target: any, opts?: EnumerableConfigurationOptions): any[];
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addArrayObserver(
+            target: any,
+            opts?: EnumerableConfigurationOptions
+        ): any[];
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         any(callback: Function, target?: any): boolean;
         anyBy(key: string, value?: string): boolean;
-        arrayContentDidChange(startIdx: number, removeAmt: number, addAmt: number): any[];
-        arrayContentWillChange(startIdx: number, removeAmt: number, addAmt: number): any[];
+        arrayContentDidChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
+        arrayContentWillChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
         someProperty(key: string, value?: string): boolean;
         clear(): any[];
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -1469,12 +1760,22 @@ declare namespace Ember {
         popObject(): any;
         pushObject(obj: any): any;
         pushObjects(...args: any[]): any[];
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeArrayObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+        removeArrayObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): any[];
         removeAt(start: number, len: number): any;
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         replace(idx: number, amt: number, objects: any[]): any;
         reverseObjects(): any[];
         setEach(key: string, value?: any): any;
@@ -1487,8 +1788,8 @@ declare namespace Ember {
         unshiftObject(object: any): any;
         unshiftObjects(objects: any[]): any[];
         without(value: any): Enumerable;
-        '[]': any[];
-        '@each': EachProxy;
+        "[]": any[];
+        "@each": EachProxy;
         Boolean: boolean;
         firstObject: any;
         hasEnumerableObservers: boolean;
@@ -1500,7 +1801,10 @@ declare namespace Ember {
         removeObjects(objects: Enumerable): MutableEnumerable;
     }
     class MutableEnumerable implements Enumerable {
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         addObject(object: any): any;
         addObjects(objects: Enumerable): MutableEnumerable;
         any(callback: Function, target?: any): boolean;
@@ -1508,18 +1812,49 @@ declare namespace Ember {
         someProperty(key: string, value?: string): boolean;
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -1533,10 +1868,17 @@ declare namespace Ember {
         map: ItemIndexEnumerableCallbackTarget;
         mapBy(key: string): any[];
         nextObject(index: number, previousObject: any, context: any): any;
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         removeObject(object: any): any;
         removeObjects(objects: Enumerable): MutableEnumerable;
         setEach(key: string, value?: any): any;
@@ -1544,7 +1886,7 @@ declare namespace Ember {
         toArray(): any[];
         uniq(): Enumerable;
         without(value: any): Enumerable;
-    '[]': any[];
+        "[]": any[];
         firstObject: any;
         hasEnumerableObservers: boolean;
         lastObject: any;
@@ -1569,28 +1911,73 @@ declare namespace Ember {
     class NativeArray implements MutableArray, Observable, Copyable {
         constructor(arr: any[]);
         static activate(): void;
-        addArrayObserver(target: any, opts?: EnumerableConfigurationOptions): any[];
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addArrayObserver(
+            target: any,
+            opts?: EnumerableConfigurationOptions
+        ): any[];
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         any(callback: Function, target?: any): boolean;
         anyBy(key: string, value?: string): boolean;
-        arrayContentDidChange(startIdx: number, removeAmt: number, addAmt: number): any[];
-        arrayContentWillChange(startIdx: number, removeAmt: number, addAmt: number): any[];
+        arrayContentDidChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
+        arrayContentWillChange(
+            startIdx: number,
+            removeAmt: number,
+            addAmt: number
+        ): any[];
         someProperty(key: string, value?: any): boolean;
         clear(): any[];
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: any): boolean;
@@ -1612,12 +1999,22 @@ declare namespace Ember {
         popObject(): any;
         pushObject(obj: any): any;
         pushObjects(...args: any[]): any[];
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeArrayObserver(target: any, opts: EnumerableConfigurationOptions): any[];
+        removeArrayObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): any[];
         removeAt(start: number, len: number): any;
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         replace(idx: number, amt: number, objects: any[]): any;
         reverseObjects(): any[];
         setEach(key: string, value?: any): any;
@@ -1630,8 +2027,8 @@ declare namespace Ember {
         unshiftObject(object: any): any;
         unshiftObjects(objects: any[]): any[];
         without(value: any): Enumerable;
-        '[]': any[];
-        '@each': EachProxy;
+        "[]": any[];
+        "@each": EachProxy;
         Boolean: boolean;
         firstObject: any;
         hasEnumerableObservers: boolean;
@@ -1795,7 +2192,6 @@ declare namespace Ember {
         }
 
         class Promise {
-
             /**
               Promise objects represent the eventual result of an asynchronous operation. The
               primary way of interacting with a promise is through its `then` method, which
@@ -1872,7 +2268,6 @@ declare namespace Ember {
       the [routing guide](http://emberjs.com/guides/routing/) for documentation.
     */
     class Route extends Object implements ActionHandlerMixin, Evented {
-
         static isClass: boolean;
         static isMethod: boolean;
 
@@ -1903,7 +2298,10 @@ declare namespace Ember {
             resolves. Otherwise, non-promise return values are not
             utilized in any way.
         */
-        afterModel(resolvedModel: any, transition: EmberStates.Transition): RSVP.Promise;
+        afterModel(
+            resolvedModel: any,
+            transition: EmberStates.Transition
+        ): RSVP.Promise;
 
         /**
         This hook is the first of the route entry validation hooks
@@ -1985,7 +2383,11 @@ declare namespace Ember {
         @param {String} urlKey
         @param {String} defaultValueType
         */
-        deserializeQueryParam(value: any, urlKey: string, defaultValueType: string): any;
+        deserializeQueryParam(
+            value: any,
+            urlKey: string,
+            defaultValueType: string
+        ): any;
 
         /**
         Disconnects a view that has been rendered into an outlet.
@@ -1997,7 +2399,7 @@ declare namespace Ember {
         @method disconnectOutlet
         @param {Object|String} options the options hash or outlet name
         */
-        disconnectOutlet(options: DisconnectOutletOptions|string): void;
+        disconnectOutlet(options: DisconnectOutletOptions | string): void;
 
         /**
         @method findModel
@@ -2045,7 +2447,10 @@ declare namespace Ember {
             the promise resolves, and the resolved value of the promise
             will be used as the model for this route.
         */
-        model(params: {}, transition: EmberStates.Transition): any|RSVP.Promise;
+        model(
+            params: {},
+            transition: EmberStates.Transition
+        ): any | RSVP.Promise;
 
         /**
         Returns the model of a parent (or any ancestor) route
@@ -2068,7 +2473,7 @@ declare namespace Ember {
         @method paramsFor
         @param {String} name
         */
-        paramsFor(name: string) : any;
+        paramsFor(name: string): any;
 
         /**
         Configuration hash for this route's queryParams.
@@ -2097,7 +2502,6 @@ declare namespace Ember {
         @since 1.4.0
         */
         redirect(): EmberStates.Transition;
-
 
         /**
         Refresh the model on this route and any child routes, firing the
@@ -2178,7 +2582,11 @@ declare namespace Ember {
         @param {Object} transition
         @since 1.7.0
         */
-        resetController(controller: Ember.Controller, isExiting: boolean, transition: any): void;
+        resetController(
+            controller: Ember.Controller,
+            isExiting: boolean,
+            transition: any
+        ): void;
 
         /**
         A hook you can implement to convert the route's model into parameters
@@ -2205,7 +2613,11 @@ declare namespace Ember {
         @param {String} urlKey
         @param {String} defaultValueType
         */
-        serializeQueryParam(value: any, urlKey: string, defaultValueType: string): string;
+        serializeQueryParam(
+            value: any,
+            urlKey: string,
+            defaultValueType: string
+        ): string;
 
         /**
         Serializes the query parameter key
@@ -2379,7 +2791,7 @@ declare namespace Ember {
         @param {Function} method The function of the subscription
         @return this
         */
-        off(name: string, target:any , method: Function): Evented;
+        off(name: string, target: any, method: Function): Evented;
 
         /**
         Checks to see if object has any subscriptions for named event.
@@ -2457,8 +2869,12 @@ declare namespace Ember {
         static isClass: boolean;
         static isMethod: boolean;
     }
-    class Set extends CoreObject implements MutableEnumerable, Copyable, Freezable {
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Set;
+    class Set extends CoreObject
+        implements MutableEnumerable, Copyable, Freezable {
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Set;
         addObject(object: any): any;
         addObjects(objects: Enumerable): Set;
         any(callback: Function, target?: any): boolean;
@@ -2466,18 +2882,40 @@ declare namespace Ember {
         someProperty(key: string, value?: string): boolean;
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentWillChange(removing: number, adding: number): Set;
         enumerableContentWillChange(removing: Enumerable, adding: number): Set;
         enumerableContentWillChange(removing: number, adding: Enumerable): Set;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Set;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Set;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -2491,10 +2929,17 @@ declare namespace Ember {
         map: ItemIndexEnumerableCallbackTarget;
         mapBy(key: string): any[];
         nextObject(index: number, previousObject: any, context: any): any;
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Set;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Set;
         removeObject(object: any): any;
         removeObjects(objects: Enumerable): Set;
         setEach(key: string, value?: any): any;
@@ -2502,7 +2947,7 @@ declare namespace Ember {
         toArray(): any[];
         uniq(): Set;
         without(value: any): Set;
-        '[]': any[];
+        "[]": any[];
         firstObject: any;
         hasEnumerableObservers: boolean;
         lastObject: any;
@@ -2523,7 +2968,10 @@ declare namespace Ember {
         length: number;
     }
     class SortableMixin implements MutableEnumerable {
-        addEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        addEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         addObject(object: any): any;
         addObjects(objects: Enumerable): MutableEnumerable;
         any(callback: Function, target?: any): boolean;
@@ -2531,18 +2979,49 @@ declare namespace Ember {
         someProperty(key: string, value?: string): boolean;
         compact(): any[];
         contains(obj: any): boolean;
-        enumerableContentDidChange(start: number, removing: number, adding: number): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: number): any;
-        enumerableContentDidChange(start: number, removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(start: number, removing: Enumerable, adding: Enumerable): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: number
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: number,
+            adding: Enumerable
+        ): any;
+        enumerableContentDidChange(
+            start: number,
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
         enumerableContentDidChange(removing: number, adding: number): any;
         enumerableContentDidChange(removing: Enumerable, adding: number): any;
         enumerableContentDidChange(removing: number, adding: Enumerable): any;
-        enumerableContentDidChange(removing: Enumerable, adding: Enumerable): any;
-        enumerableContentWillChange(removing: number, adding: number): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: number): Enumerable;
-        enumerableContentWillChange(removing: number, adding: Enumerable): Enumerable;
-        enumerableContentWillChange(removing: Enumerable, adding: Enumerable): Enumerable;
+        enumerableContentDidChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): any;
+        enumerableContentWillChange(
+            removing: number,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: number
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: number,
+            adding: Enumerable
+        ): Enumerable;
+        enumerableContentWillChange(
+            removing: Enumerable,
+            adding: Enumerable
+        ): Enumerable;
         every(callback: Function, target?: any): boolean;
         everyBy(key: string, value?: string): boolean;
         everyProperty(key: string, value?: string): boolean;
@@ -2556,10 +3035,17 @@ declare namespace Ember {
         map: ItemIndexEnumerableCallbackTarget;
         mapBy(key: string): any[];
         nextObject(index: number, previousObject: any, context: any): any;
-        reduce(callback: ReduceCallback, initialValue: any, reducerProperty: string): any;
+        reduce(
+            callback: ReduceCallback,
+            initialValue: any,
+            reducerProperty: string
+        ): any;
         reject: ItemIndexEnumerableCallbackTarget;
         rejectBy(key: string, value?: string): any[];
-        removeEnumerableObserver(target: any, opts: EnumerableConfigurationOptions): Enumerable;
+        removeEnumerableObserver(
+            target: any,
+            opts: EnumerableConfigurationOptions
+        ): Enumerable;
         removeObject(object: any): any;
         removeObjects(objects: Enumerable): MutableEnumerable;
         setEach(key: string, value?: any): any;
@@ -2567,7 +3053,7 @@ declare namespace Ember {
         toArray(): any[];
         uniq(): Enumerable;
         without(value: any): Enumerable;
-        '[]': any[];
+        "[]": any[];
         arrangedContent: any;
         firstObject: any;
         hasEnumerableObservers: boolean;
@@ -2624,7 +3110,10 @@ declare namespace Ember {
         static metaForProperty(key: string): {};
         static isClass: boolean;
         static isMethod: boolean;
-        contextFreeTransition(currentState: State, path: string): TransitionsHash;
+        contextFreeTransition(
+            currentState: State,
+            path: string
+        ): TransitionsHash;
         enterState(transition: TransitionsHash): void;
         getState(name: string): State;
         getStateByPath(root: State, path: string): State;
@@ -2808,11 +3297,40 @@ declare namespace Ember {
         actionContext: any;
     }
     var ViewUtils: {}; // TODO: define interface
-    function addBeforeObserver(obj: any, path: string, target: any, method: Function): any;
-    function addListener(obj: any, eventName: string, target: any, method: Function, once?: boolean): void;
-    function addListener(obj: any, eventName: string, target: any, method: string, once?: boolean): void;
-    function addListener(obj: any, eventName: string, func: Function, method: Function, once?: boolean): void;
-    function addListener(obj: any, eventName: string, func: Function, method: string, once?: boolean): void;
+    function addBeforeObserver(
+        obj: any,
+        path: string,
+        target: any,
+        method: Function
+    ): any;
+    function addListener(
+        obj: any,
+        eventName: string,
+        target: any,
+        method: Function,
+        once?: boolean
+    ): void;
+    function addListener(
+        obj: any,
+        eventName: string,
+        target: any,
+        method: string,
+        once?: boolean
+    ): void;
+    function addListener(
+        obj: any,
+        eventName: string,
+        func: Function,
+        method: Function,
+        once?: boolean
+    ): void;
+    function addListener(
+        obj: any,
+        eventName: string,
+        func: Function,
+        method: string,
+        once?: boolean
+    ): void;
     var addObserver: ModifyObserver;
     /**
     Ember.alias is deprecated. Please use Ember.aliasMethod or Ember.computed.alias instead.
@@ -2854,7 +3372,11 @@ declare namespace Ember {
     // ReSharper disable DuplicatingLocalDeclaration
     var config: {};
     // ReSharper restore DuplicatingLocalDeclaration
-    function controllerFor(container: Container, controllerName: string, lookupOptions?: {}): Controller;
+    function controllerFor(
+        container: Container,
+        controllerName: string,
+        lookupOptions?: {}
+    ): Controller;
     function copy(obj: any, deep: boolean): any;
     /**
     Creates an instance of the CoreObject class.
@@ -2876,7 +3398,11 @@ declare namespace Ember {
     var exports: {};
     function finishChains(obj: any): void;
     function flushPendingChains(): void;
-    function generateController(container: Container, controllerName: string, context: any): Controller;
+    function generateController(
+        container: Container,
+        controllerName: string,
+        context: any
+    ): Controller;
     function generateGuid(obj: any, prefix?: string): string;
     function get(obj: any, keyName: string): any;
     function getMeta(obj: any, property: string): any;
@@ -2889,10 +3415,18 @@ declare namespace Ember {
     function handleErrors(func: Function, context: any): any;
     function hasListeners(context: any, name: string): boolean;
     function hasOwnProperty(prop: string): boolean;
-    function immediateObserver(func: Function, ...propertyNames: any[]): Function;
+    function immediateObserver(
+        func: Function,
+        ...propertyNames: any[]
+    ): Function;
     var imports: {};
     function inspect(obj: any): string;
-    function instrument(name: string, payload: any, callback: Function, binding: any): void;
+    function instrument(
+        name: string,
+        payload: any,
+        callback: Function,
+        binding: any
+    ): void;
     function isArray(obj: any): boolean;
     function isEmpty(obj: any): boolean;
     function isEqual(a: any, b: any): boolean;
@@ -2902,9 +3436,17 @@ declare namespace Ember {
     function isPrototypeOf(obj: {}): boolean;
     function isWatching(obj: any, key: string): boolean;
     function keys(obj: any): any[];
-    function listenersDiff(obj: any, eventName: string, otherActions: any[]): any[];
+    function listenersDiff(
+        obj: any,
+        eventName: string,
+        otherActions: any[]
+    ): any[];
     function listenersFor(obj: any, eventName: string): any[];
-    function listenersUnion(obj: any, eventName: string, otherActions: any[]): void;
+    function listenersUnion(
+        obj: any,
+        eventName: string,
+        otherActions: any[]
+    ): void;
     // ReSharper disable once DuplicatingLocalDeclaration
     var lookup: {}; // TODO: define interface
     function makeArray(obj: any): any[];
@@ -2935,13 +3477,43 @@ declare namespace Ember {
     function propertyDidChange(obj: any, keyName: string): void;
     function propertyIsEnumerable(prop: string): boolean;
     function propertyWillChange(obj: any, keyName: string): void;
-    function removeBeforeObserver(obj: any, path: string, target: any, method: Function): any;
+    function removeBeforeObserver(
+        obj: any,
+        path: string,
+        target: any,
+        method: Function
+    ): any;
     function removeChainWatcher(obj: any, keyName: string, node: any): void;
-    function removeListener(obj: any, eventName: string, target: any, method: Function): void;
-    function removeListener(obj: any, eventName: string, target: any, method: string): void;
-    function removeListener(obj: any, eventName: string, func: Function, method: Function): void;
-    function removeListener(obj: any, eventName: string, func: Function, method: string): void;
-    function removeObserver(obj: any, path: string, target: any, method: Function): any;
+    function removeListener(
+        obj: any,
+        eventName: string,
+        target: any,
+        method: Function
+    ): void;
+    function removeListener(
+        obj: any,
+        eventName: string,
+        target: any,
+        method: string
+    ): void;
+    function removeListener(
+        obj: any,
+        eventName: string,
+        func: Function,
+        method: Function
+    ): void;
+    function removeListener(
+        obj: any,
+        eventName: string,
+        func: Function,
+        method: string
+    ): void;
+    function removeObserver(
+        obj: any,
+        path: string,
+        target: any,
+        method: Function
+    ): any;
     function required(): Descriptor;
     function rewatch(obj: any): void;
     var run: {
@@ -2959,17 +3531,42 @@ declare namespace Ember {
         next(target: any, method: string, ...args: any[]): number;
         once(target: any, method: Function, ...args: any[]): number;
         once(target: any, method: string, ...args: any[]): number;
-        schedule(queue: string, target: any, method: Function, ...args: any[]): void;
-        schedule(queue: string, target: any, method: string, ...args: any[]): void;
-        scheduleOnce(queue: string, target: any, method: Function, ...args: any[]): void;
-        scheduleOnce(queue: string, target: any, method: string, ...args: any[]): void;
+        schedule(
+            queue: string,
+            target: any,
+            method: Function,
+            ...args: any[]
+        ): void;
+        schedule(
+            queue: string,
+            target: any,
+            method: string,
+            ...args: any[]
+        ): void;
+        scheduleOnce(
+            queue: string,
+            target: any,
+            method: Function,
+            ...args: any[]
+        ): void;
+        scheduleOnce(
+            queue: string,
+            target: any,
+            method: string,
+            ...args: any[]
+        ): void;
         sync(): void;
         throttle(target: any, method: Function, ...args: any[]): void;
         throttle(target: any, method: string, ...args: any[]): void;
         queues: any[];
     };
     function runLoadHooks(name: string, object: any): void;
-    function sendEvent(obj: any, eventName: string, params?: any[], actions?: any[]): boolean;
+    function sendEvent(
+        obj: any,
+        eventName: string,
+        params?: any[],
+        actions?: any[]
+    ): boolean;
     function set(obj: any, keyName: string, value: any): any;
     function setMeta(obj: any, property: string, value: any): void;
     /**
@@ -2980,8 +3577,17 @@ declare namespace Ember {
     function subscribe(pattern: string, object: any): void;
     function toLocaleString(): string;
     function toString(): string;
-    function tryCatchFinally(tryable: Function, catchable: Function, finalizer: Function, binding?: any): any;
-    function tryFinally(tryable: Function, finalizer: Function, binding?: any): any;
+    function tryCatchFinally(
+        tryable: Function,
+        catchable: Function,
+        finalizer: Function,
+        binding?: any
+    ): any;
+    function tryFinally(
+        tryable: Function,
+        finalizer: Function,
+        binding?: any
+    ): any;
     function tryInvoke(obj: any, methodName: string, args?: any[]): any;
     function trySet(obj: any, path: string, value: any): void;
     /**
@@ -3010,111 +3616,112 @@ declare namespace Em {
     **/
     var $: typeof Ember.$;
     var A: typeof Ember.A;
-    class ActionHandlerMixin extends Ember.ActionHandlerMixin { }
-    class Application extends Ember.Application { }
-    class Array extends Ember.Array { }
-    class ArrayController extends Ember.ArrayController { }
+    class ActionHandlerMixin extends Ember.ActionHandlerMixin {}
+    class Application extends Ember.Application {}
+    class Array extends Ember.Array {}
+    class ArrayController extends Ember.ArrayController {}
     var ArrayPolyfills: typeof Ember.ArrayPolyfills;
-    class ArrayProxy extends Ember.ArrayProxy { }
+    class ArrayProxy extends Ember.ArrayProxy {}
     var BOOTED: typeof Ember.BOOTED;
-    class Binding extends Ember.Binding { }
-    class Button extends Ember.Button { }
-    class Checkbox extends Ember.Checkbox { }
-    class CollectionView extends Ember.CollectionView { }
-    class Comparable extends Ember.Comparable { }
-    class Component extends Ember.Component { }
-    class ComputedProperty extends Ember.ComputedProperty { }
-    class Container extends Ember.Container { }
-    class ContainerView extends Ember.ContainerView { }
-    class Controller extends Ember.Controller { }
-    class ControllerMixin extends Ember.ControllerMixin { }
-    class Copyable extends Ember.Copyable { }
-    class CoreObject extends Ember.CoreObject { }
-    class CoreView extends Ember.CoreView { }
-    class DAG extends Ember.DAG { }
+    class Binding extends Ember.Binding {}
+    class Button extends Ember.Button {}
+    class Checkbox extends Ember.Checkbox {}
+    class CollectionView extends Ember.CollectionView {}
+    class Comparable extends Ember.Comparable {}
+    class Component extends Ember.Component {}
+    class ComputedProperty extends Ember.ComputedProperty {}
+    class Container extends Ember.Container {}
+    class ContainerView extends Ember.ContainerView {}
+    class Controller extends Ember.Controller {}
+    class ControllerMixin extends Ember.ControllerMixin {}
+    class Copyable extends Ember.Copyable {}
+    class CoreObject extends Ember.CoreObject {}
+    class CoreView extends Ember.CoreView {}
+    class DAG extends Ember.DAG {}
     var DEFAULT_GETTER_FUNCTION: typeof Ember.DEFAULT_GETTER_FUNCTION;
-    class DefaultResolver extends Ember.DefaultResolver { }
-    class Deffered extends Ember.Deferred { }
-    class DeferredMixin extends Ember.DeferredMixin { }
-    class Descriptor extends Ember.Descriptor { }
+    class DefaultResolver extends Ember.DefaultResolver {}
+    class Deffered extends Ember.Deferred {}
+    class DeferredMixin extends Ember.DeferredMixin {}
+    class Descriptor extends Ember.Descriptor {}
     var EMPTY_META: typeof Ember.EMPTY_META;
     var ENV: typeof Ember.ENV;
     var EXTEND_PROTOTYPES: typeof Ember.EXTEND_PROTOTYPES;
-    class EachProxy extends Ember.EachProxy { }
-    class Enumerable extends Ember.Enumerable { }
+    class EachProxy extends Ember.EachProxy {}
+    class Enumerable extends Ember.Enumerable {}
     var EnumerableUtils: typeof Ember.EnumerableUtils;
     var Error: typeof Ember.Error;
-    class EventDispatcher extends Ember.EventDispatcher { }
-    class Evented extends Ember.Evented { }
+    class EventDispatcher extends Ember.EventDispatcher {}
+    class Evented extends Ember.Evented {}
     var FROZEN_ERROR: typeof Ember.FROZEN_ERROR;
-    class Freezable extends Ember.Freezable { }
+    class Freezable extends Ember.Freezable {}
     var GUID_KEY: typeof Ember.GUID_KEY;
     namespace Handlebars {
         var compile: typeof Ember.Handlebars.compile;
         var get: typeof Ember.Handlebars.get;
         var helper: typeof Ember.Handlebars.helper;
-        class helpers extends Ember.Handlebars.helpers { }
+        class helpers extends Ember.Handlebars.helpers {}
         var precompile: typeof Ember.Handlebars.precompile;
         var registerBoundHelper: typeof Ember.Handlebars.registerBoundHelper;
-        class Compiler extends Ember.Handlebars.Compiler { }
-        class JavaScriptCompiler extends Ember.Handlebars.JavaScriptCompiler { }
+        class Compiler extends Ember.Handlebars.Compiler {}
+        class JavaScriptCompiler extends Ember.Handlebars.JavaScriptCompiler {}
         var registerHelper: typeof Ember.Handlebars.registerHelper;
         var registerPartial: typeof Ember.Handlebars.registerPartial;
         var K: typeof Ember.Handlebars.K;
         var createFrame: typeof Ember.Handlebars.createFrame;
         var Exception: typeof Ember.Handlebars.Exception;
-        class SafeString extends Ember.Handlebars.SafeString { }
+        class SafeString extends Ember.Handlebars.SafeString {}
         var parse: typeof Ember.Handlebars.parse;
         var print: typeof Ember.Handlebars.print;
         var logger: typeof Ember.Handlebars.logger;
         var log: typeof Ember.Handlebars.log;
     }
-    class HashLocation extends Ember.HashLocation { }
-    class HistoryLocation extends Ember.HistoryLocation { }
+    class HashLocation extends Ember.HashLocation {}
+    class HistoryLocation extends Ember.HistoryLocation {}
     var IS_BINDING: typeof Ember.IS_BINDING;
-    class Instrumentation extends Ember.Instrumentation { }
+    class Instrumentation extends Ember.Instrumentation {}
     var K: typeof Ember.K;
     var LOG_BINDINGS: typeof Ember.LOG_BINDINGS;
     var LOG_STACKTRACE_ON_DEPRECATION: typeof Ember.LOG_STACKTRACE_ON_DEPRECATION;
     var LOG_VERSION: typeof Ember.LOG_VERSION;
-    class LinkView extends Ember.LinkView { }
-    class Location extends Ember.Location { }
+    class LinkView extends Ember.LinkView {}
+    class Location extends Ember.Location {}
     var Logger: typeof Ember.Logger;
     var MANDATORY_SETTER_FUNCTION: typeof Ember.MANDATORY_SETTER_FUNCTION;
     var META_KEY: typeof Ember.META_KEY;
-    class Map extends Ember.Map { }
-    class MapWithDefault extends Ember.MapWithDefault { }
-    class Mixin extends Ember.Mixin { }
-    class MutableArray extends Ember.MutableArray { }
-    class MutableEnumerable extends Ember.MutableEnumerable { }
+    class Map extends Ember.Map {}
+    class MapWithDefault extends Ember.MapWithDefault {}
+    class Mixin extends Ember.Mixin {}
+    class MutableArray extends Ember.MutableArray {}
+    class MutableEnumerable extends Ember.MutableEnumerable {}
     var NAME_KEY: typeof Ember.NAME_KEY;
-    class Namespace extends Ember.Namespace { }
-    class NativeArray extends Ember.NativeArray { }
-    class NoneLocation extends Ember.NoneLocation { }
+    class Namespace extends Ember.Namespace {}
+    class NativeArray extends Ember.NativeArray {}
+    class NoneLocation extends Ember.NoneLocation {}
     var ORDER_DEFINITION: typeof Ember.ORDER_DEFINITION;
-    class Object extends Ember.Object { }
-    class ObjectController extends Ember.ObjectController { }
-    class ObjectProxy extends Ember.ObjectProxy { }
-    class Observable extends Ember.Observable { }
-    class OrderedSet extends Ember.OrderedSet { }
+    class Object extends Ember.Object {}
+    class ObjectController extends Ember.ObjectController {}
+    class ObjectProxy extends Ember.ObjectProxy {}
+    class Observable extends Ember.Observable {}
+    class OrderedSet extends Ember.OrderedSet {}
     namespace RSVP {
-        interface PromiseResolve extends Ember.RSVP.PromiseResolve { }
-        interface PromiseReject extends Ember.RSVP.PromiseReject { }
-        interface PromiseResolverFunction extends Ember.RSVP.PromiseResolverFunction { }
-        class Promise extends Ember.RSVP.Promise { }
+        interface PromiseResolve extends Ember.RSVP.PromiseResolve {}
+        interface PromiseReject extends Ember.RSVP.PromiseReject {}
+        interface PromiseResolverFunction
+            extends Ember.RSVP.PromiseResolverFunction {}
+        class Promise extends Ember.RSVP.Promise {}
     }
-    class RenderBuffer extends Ember.RenderBuffer { }
-    class Route extends Ember.Route { }
-    class Router extends Ember.Router { }
-    class RouterDSL extends Ember.RouterDSL { }
+    class RenderBuffer extends Ember.RenderBuffer {}
+    class Route extends Ember.Route {}
+    class Router extends Ember.Router {}
+    class RouterDSL extends Ember.RouterDSL {}
     var SHIM_ES5: typeof Ember.SHIM_ES5;
     var STRINGS: typeof Ember.STRINGS;
-    class Select extends Ember.Select { }
-    class SelectOption extends Ember.SelectOption { }
-    class Set extends Ember.Set { }
-    class SortableMixin extends Ember.SortableMixin { }
-    class State extends Ember.State { }
-    class StateManager extends Ember.StateManager { }
+    class Select extends Ember.Select {}
+    class SelectOption extends Ember.SelectOption {}
+    class Set extends Ember.Set {}
+    class SortableMixin extends Ember.SortableMixin {}
+    class State extends Ember.State {}
+    class StateManager extends Ember.StateManager {}
     namespace String {
         var camelize: typeof Ember.String.camelize;
         var capitalize: typeof Ember.String.capitalize;
@@ -3128,14 +3735,14 @@ declare namespace Em {
         var w: typeof Ember.String.w;
     }
     var TEMPLATES: typeof Ember.TEMPLATES;
-    class TargetActionSupport extends Ember.TargetActionSupport { }
-    class Test extends Ember.Test { }
-    class TextArea extends Ember.TextArea { }
-    class TextField extends Ember.TextField { }
-    class TextSupport extends Ember.TextSupport { }
+    class TargetActionSupport extends Ember.TargetActionSupport {}
+    class Test extends Ember.Test {}
+    class TextArea extends Ember.TextArea {}
+    class TextField extends Ember.TextField {}
+    class TextSupport extends Ember.TextSupport {}
     var VERSION: typeof Ember.VERSION;
-    class View extends Ember.View { }
-    class ViewTargetActionSupport extends Ember.ViewTargetActionSupport { }
+    class View extends Ember.View {}
+    class ViewTargetActionSupport extends Ember.ViewTargetActionSupport {}
     var ViewUtils: typeof Ember.ViewUtils;
     var addBeforeObserver: typeof Ember.addBeforeObserver;
     var addListener: typeof Ember.addListener;
@@ -3251,114 +3858,114 @@ declare namespace Em {
  */
 
 declare module "Ember" {
-
     var $: typeof Ember.$;
     var A: typeof Ember.A;
-    class ActionHandlerMixin extends Ember.ActionHandlerMixin { }
-    class Application extends Ember.Application { }
-    class Array extends Ember.Array { }
-    class ArrayController extends Ember.ArrayController { }
+    class ActionHandlerMixin extends Ember.ActionHandlerMixin {}
+    class Application extends Ember.Application {}
+    class Array extends Ember.Array {}
+    class ArrayController extends Ember.ArrayController {}
     var ArrayPolyfills: typeof Ember.ArrayPolyfills;
-    class ArrayProxy extends Ember.ArrayProxy { }
+    class ArrayProxy extends Ember.ArrayProxy {}
     var BOOTED: typeof Ember.BOOTED;
-    class Binding extends Ember.Binding { }
-    class Button extends Ember.Button { }
-    class Checkbox extends Ember.Checkbox { }
-    class CollectionView extends Ember.CollectionView { }
-    class Comparable extends Ember.Comparable { }
-    class Component extends Ember.Component { }
-    class ComputedProperty extends Ember.ComputedProperty { }
-    class Container extends Ember.Container { }
-    class ContainerView extends Ember.ContainerView { }
-    class Controller extends Ember.Controller { }
-    class ControllerMixin extends Ember.ControllerMixin { }
-    class Copyable extends Ember.Copyable { }
-    class CoreObject extends Ember.CoreObject { }
-    class CoreView extends Ember.CoreView { }
-    class DAG extends Ember.DAG { }
+    class Binding extends Ember.Binding {}
+    class Button extends Ember.Button {}
+    class Checkbox extends Ember.Checkbox {}
+    class CollectionView extends Ember.CollectionView {}
+    class Comparable extends Ember.Comparable {}
+    class Component extends Ember.Component {}
+    class ComputedProperty extends Ember.ComputedProperty {}
+    class Container extends Ember.Container {}
+    class ContainerView extends Ember.ContainerView {}
+    class Controller extends Ember.Controller {}
+    class ControllerMixin extends Ember.ControllerMixin {}
+    class Copyable extends Ember.Copyable {}
+    class CoreObject extends Ember.CoreObject {}
+    class CoreView extends Ember.CoreView {}
+    class DAG extends Ember.DAG {}
     var DEFAULT_GETTER_FUNCTION: typeof Ember.DEFAULT_GETTER_FUNCTION;
-    class DefaultResolver extends Ember.DefaultResolver { }
-    class Deffered extends Ember.Deferred { }
-    class DeferredMixin extends Ember.DeferredMixin { }
-    class Descriptor extends Ember.Descriptor { }
+    class DefaultResolver extends Ember.DefaultResolver {}
+    class Deffered extends Ember.Deferred {}
+    class DeferredMixin extends Ember.DeferredMixin {}
+    class Descriptor extends Ember.Descriptor {}
     var EMPTY_META: typeof Ember.EMPTY_META;
     var ENV: typeof Ember.ENV;
     var EXTEND_PROTOTYPES: typeof Ember.EXTEND_PROTOTYPES;
-    class EachProxy extends Ember.EachProxy { }
-    class Enumerable extends Ember.Enumerable { }
+    class EachProxy extends Ember.EachProxy {}
+    class Enumerable extends Ember.Enumerable {}
     var EnumerableUtils: typeof Ember.EnumerableUtils;
     var Error: typeof Ember.Error;
-    class EventDispatcher extends Ember.EventDispatcher { }
-    class Evented extends Ember.Evented { }
+    class EventDispatcher extends Ember.EventDispatcher {}
+    class Evented extends Ember.Evented {}
     var FROZEN_ERROR: typeof Ember.FROZEN_ERROR;
-    class Freezable extends Ember.Freezable { }
+    class Freezable extends Ember.Freezable {}
     var GUID_KEY: typeof Ember.GUID_KEY;
     namespace Handlebars {
         var compile: typeof Ember.Handlebars.compile;
         var get: typeof Ember.Handlebars.get;
         var helper: typeof Ember.Handlebars.helper;
-        class helpers extends Ember.Handlebars.helpers { }
+        class helpers extends Ember.Handlebars.helpers {}
         var precompile: typeof Ember.Handlebars.precompile;
         var registerBoundHelper: typeof Ember.Handlebars.registerBoundHelper;
-        class Compiler extends Ember.Handlebars.Compiler { }
-        class JavaScriptCompiler extends Ember.Handlebars.JavaScriptCompiler { }
+        class Compiler extends Ember.Handlebars.Compiler {}
+        class JavaScriptCompiler extends Ember.Handlebars.JavaScriptCompiler {}
         var registerHelper: typeof Ember.Handlebars.registerHelper;
         var registerPartial: typeof Ember.Handlebars.registerPartial;
         var K: typeof Ember.Handlebars.K;
         var createFrame: typeof Ember.Handlebars.createFrame;
         var Exception: typeof Ember.Handlebars.Exception;
-        class SafeString extends Ember.Handlebars.SafeString { }
+        class SafeString extends Ember.Handlebars.SafeString {}
         var parse: typeof Ember.Handlebars.parse;
         var print: typeof Ember.Handlebars.print;
         var logger: typeof Ember.Handlebars.logger;
         var log: typeof Ember.Handlebars.log;
     }
-    class HashLocation extends Ember.HashLocation { }
-    class HistoryLocation extends Ember.HistoryLocation { }
+    class HashLocation extends Ember.HashLocation {}
+    class HistoryLocation extends Ember.HistoryLocation {}
     var IS_BINDING: typeof Ember.IS_BINDING;
-    class Instrumentation extends Ember.Instrumentation { }
+    class Instrumentation extends Ember.Instrumentation {}
     var K: typeof Ember.K;
     var LOG_BINDINGS: typeof Ember.LOG_BINDINGS;
     var LOG_STACKTRACE_ON_DEPRECATION: typeof Ember.LOG_STACKTRACE_ON_DEPRECATION;
     var LOG_VERSION: typeof Ember.LOG_VERSION;
-    class LinkView extends Ember.LinkView { }
-    class Location extends Ember.Location { }
+    class LinkView extends Ember.LinkView {}
+    class Location extends Ember.Location {}
     var Logger: typeof Ember.Logger;
     var MANDATORY_SETTER_FUNCTION: typeof Ember.MANDATORY_SETTER_FUNCTION;
     var META_KEY: typeof Ember.META_KEY;
-    class Map extends Ember.Map { }
-    class MapWithDefault extends Ember.MapWithDefault { }
-    class Mixin extends Ember.Mixin { }
-    class MutableArray extends Ember.MutableArray { }
-    class MutableEnumerable extends Ember.MutableEnumerable { }
+    class Map extends Ember.Map {}
+    class MapWithDefault extends Ember.MapWithDefault {}
+    class Mixin extends Ember.Mixin {}
+    class MutableArray extends Ember.MutableArray {}
+    class MutableEnumerable extends Ember.MutableEnumerable {}
     var NAME_KEY: typeof Ember.NAME_KEY;
-    class Namespace extends Ember.Namespace { }
-    class NativeArray extends Ember.NativeArray { }
-    class NoneLocation extends Ember.NoneLocation { }
+    class Namespace extends Ember.Namespace {}
+    class NativeArray extends Ember.NativeArray {}
+    class NoneLocation extends Ember.NoneLocation {}
     var ORDER_DEFINITION: typeof Ember.ORDER_DEFINITION;
-    class Object extends Ember.Object { }
-    class ObjectController extends Ember.ObjectController { }
-    class ObjectProxy extends Ember.ObjectProxy { }
-    class Observable extends Ember.Observable { }
-    class OrderedSet extends Ember.OrderedSet { }
+    class Object extends Ember.Object {}
+    class ObjectController extends Ember.ObjectController {}
+    class ObjectProxy extends Ember.ObjectProxy {}
+    class Observable extends Ember.Observable {}
+    class OrderedSet extends Ember.OrderedSet {}
     namespace RSVP {
-        interface PromiseResolve extends Ember.RSVP.PromiseResolve { }
-        interface PromiseReject extends Ember.RSVP.PromiseReject { }
-        interface PromiseResolverFunction extends Ember.RSVP.PromiseResolverFunction { }
-        class Promise extends Ember.RSVP.Promise { }
+        interface PromiseResolve extends Ember.RSVP.PromiseResolve {}
+        interface PromiseReject extends Ember.RSVP.PromiseReject {}
+        interface PromiseResolverFunction
+            extends Ember.RSVP.PromiseResolverFunction {}
+        class Promise extends Ember.RSVP.Promise {}
     }
-    class RenderBuffer extends Ember.RenderBuffer { }
-    class Route extends Ember.Route { }
-    class Router extends Ember.Router { }
-    class RouterDSL extends Ember.RouterDSL { }
+    class RenderBuffer extends Ember.RenderBuffer {}
+    class Route extends Ember.Route {}
+    class Router extends Ember.Router {}
+    class RouterDSL extends Ember.RouterDSL {}
     var SHIM_ES5: typeof Ember.SHIM_ES5;
     var STRINGS: typeof Ember.STRINGS;
-    class Select extends Ember.Select { }
-    class SelectOption extends Ember.SelectOption { }
-    class Set extends Ember.Set { }
-    class SortableMixin extends Ember.SortableMixin { }
-    class State extends Ember.State { }
-    class StateManager extends Ember.StateManager { }
+    class Select extends Ember.Select {}
+    class SelectOption extends Ember.SelectOption {}
+    class Set extends Ember.Set {}
+    class SortableMixin extends Ember.SortableMixin {}
+    class State extends Ember.State {}
+    class StateManager extends Ember.StateManager {}
     namespace String {
         var camelize: typeof Ember.String.camelize;
         var capitalize: typeof Ember.String.capitalize;
@@ -3372,14 +3979,14 @@ declare module "Ember" {
         var w: typeof Ember.String.w;
     }
     var TEMPLATES: typeof Ember.TEMPLATES;
-    class TargetActionSupport extends Ember.TargetActionSupport { }
-    class Test extends Ember.Test { }
-    class TextArea extends Ember.TextArea { }
-    class TextField extends Ember.TextField { }
-    class TextSupport extends Ember.TextSupport { }
+    class TargetActionSupport extends Ember.TargetActionSupport {}
+    class Test extends Ember.Test {}
+    class TextArea extends Ember.TextArea {}
+    class TextField extends Ember.TextField {}
+    class TextSupport extends Ember.TextSupport {}
     var VERSION: typeof Ember.VERSION;
-    class View extends Ember.View { }
-    class ViewTargetActionSupport extends Ember.ViewTargetActionSupport { }
+    class View extends Ember.View {}
+    class ViewTargetActionSupport extends Ember.ViewTargetActionSupport {}
     var ViewUtils: typeof Ember.ViewUtils;
     var addBeforeObserver: typeof Ember.addBeforeObserver;
     var addListener: typeof Ember.addListener;

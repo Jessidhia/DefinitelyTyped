@@ -1,10 +1,10 @@
-import { Oid } from './oid';
-import { TreeEntry } from './tree-entry';
-import { Repository } from './repository';
-import { Object } from './object';
-import { Treebuilder } from './tree-builder';
-import { DiffFile } from './diff-file';
-import { TreeUpdate } from './tree-update';
+import { Oid } from "./oid";
+import { TreeEntry } from "./tree-entry";
+import { Repository } from "./repository";
+import { Object } from "./object";
+import { Treebuilder } from "./tree-builder";
+import { DiffFile } from "./diff-file";
+import { TreeUpdate } from "./tree-update";
 
 export namespace Tree {
     const enum WALK_MODE {
@@ -20,7 +20,11 @@ export class Tree {
     /**
      * Retrieves the tree pointed to by the oid
      */
-    static lookup(repo: Repository, id: string | Oid | Tree, callback?: Function): Promise<Tree>;
+    static lookup(
+        repo: Repository,
+        id: string | Oid | Tree,
+        callback?: Function
+    ): Promise<Tree>;
 
     entryById(id: Oid): TreeEntry;
     _entryByIndex(idx: number): TreeEntry;
@@ -42,7 +46,11 @@ export class Tree {
     /**
      * Diff two trees with options
      */
-    diffWithOptions(tree: Tree, options?: Object, callback?: Function): Promise<DiffFile[]>;
+    diffWithOptions(
+        tree: Tree,
+        options?: Object,
+        callback?: Function
+    ): Promise<DiffFile[]>;
     /**
      * Get an entry at the ith position.
      */
@@ -70,5 +78,9 @@ export class Tree {
      */
     builder(): Treebuilder;
     dup(): Promise<Tree>;
-    createUpdated(repo: Repository, nUpdates: number, updates: TreeUpdate): Promise<Oid>;
+    createUpdated(
+        repo: Repository,
+        nUpdates: number,
+        updates: TreeUpdate
+    ): Promise<Oid>;
 }

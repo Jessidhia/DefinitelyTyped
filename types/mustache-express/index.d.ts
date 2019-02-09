@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Cache } from 'lru-cache';
+import { Cache } from "lru-cache";
 
 export = mustacheExpress;
 
@@ -19,5 +19,8 @@ declare namespace mustacheExpress {
         cache: TemplateCache;
     }
 
-    type TemplateCache = Cache<string, { name: string; data: string; partials: string[] }>;
+    type TemplateCache = Cache<
+        string,
+        { name: string; data: string; partials: string[] }
+    >;
 }

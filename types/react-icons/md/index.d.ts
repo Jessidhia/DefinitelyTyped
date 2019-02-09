@@ -24,12 +24,24 @@ export { default as MdAdd } from "./add";
 export { default as MdAdjust } from "./adjust";
 export { default as MdAirlineSeatFlatAngled } from "./airline-seat-flat-angled";
 export { default as MdAirlineSeatFlat } from "./airline-seat-flat";
-export { default as MdAirlineSeatIndividualSuite } from "./airline-seat-individual-suite";
-export { default as MdAirlineSeatLegroomExtra } from "./airline-seat-legroom-extra";
-export { default as MdAirlineSeatLegroomNormal } from "./airline-seat-legroom-normal";
-export { default as MdAirlineSeatLegroomReduced } from "./airline-seat-legroom-reduced";
-export { default as MdAirlineSeatReclineExtra } from "./airline-seat-recline-extra";
-export { default as MdAirlineSeatReclineNormal } from "./airline-seat-recline-normal";
+export {
+    default as MdAirlineSeatIndividualSuite
+} from "./airline-seat-individual-suite";
+export {
+    default as MdAirlineSeatLegroomExtra
+} from "./airline-seat-legroom-extra";
+export {
+    default as MdAirlineSeatLegroomNormal
+} from "./airline-seat-legroom-normal";
+export {
+    default as MdAirlineSeatLegroomReduced
+} from "./airline-seat-legroom-reduced";
+export {
+    default as MdAirlineSeatReclineExtra
+} from "./airline-seat-recline-extra";
+export {
+    default as MdAirlineSeatReclineNormal
+} from "./airline-seat-recline-normal";
 export { default as MdAirplanemodeActive } from "./airplanemode-active";
 export { default as MdAirplanemodeInactive } from "./airplanemode-inactive";
 export { default as MdAirplay } from "./airplay";
@@ -358,8 +370,12 @@ export { default as MdFormatQuote } from "./format-quote";
 export { default as MdFormatShapes } from "./format-shapes";
 export { default as MdFormatSize } from "./format-size";
 export { default as MdFormatStrikethrough } from "./format-strikethrough";
-export { default as MdFormatTextdirectionLToR } from "./format-textdirection-l-to-r";
-export { default as MdFormatTextdirectionRToL } from "./format-textdirection-r-to-l";
+export {
+    default as MdFormatTextdirectionLToR
+} from "./format-textdirection-l-to-r";
+export {
+    default as MdFormatTextdirectionRToL
+} from "./format-textdirection-r-to-l";
 export { default as MdFormatUnderlined } from "./format-underlined";
 export { default as MdForum } from "./forum";
 export { default as MdForward10 } from "./forward-10";
@@ -737,8 +753,12 @@ export { default as MdSend } from "./send";
 export { default as MdSentimentDissatisfied } from "./sentiment-dissatisfied";
 export { default as MdSentimentNeutral } from "./sentiment-neutral";
 export { default as MdSentimentSatisfied } from "./sentiment-satisfied";
-export { default as MdSentimentVeryDissatisfied } from "./sentiment-very-dissatisfied";
-export { default as MdSentimentVerySatisfied } from "./sentiment-very-satisfied";
+export {
+    default as MdSentimentVeryDissatisfied
+} from "./sentiment-very-dissatisfied";
+export {
+    default as MdSentimentVerySatisfied
+} from "./sentiment-very-satisfied";
 export { default as MdSettingsApplications } from "./settings-applications";
 export { default as MdSettingsBackupRestore } from "./settings-backup-restore";
 export { default as MdSettingsBluetooth } from "./settings-bluetooth";
@@ -746,15 +766,21 @@ export { default as MdSettingsBrightness } from "./settings-brightness";
 export { default as MdSettingsCell } from "./settings-cell";
 export { default as MdSettingsEthernet } from "./settings-ethernet";
 export { default as MdSettingsInputAntenna } from "./settings-input-antenna";
-export { default as MdSettingsInputComponent } from "./settings-input-component";
-export { default as MdSettingsInputComposite } from "./settings-input-composite";
+export {
+    default as MdSettingsInputComponent
+} from "./settings-input-component";
+export {
+    default as MdSettingsInputComposite
+} from "./settings-input-composite";
 export { default as MdSettingsInputHdmi } from "./settings-input-hdmi";
 export { default as MdSettingsInputSvideo } from "./settings-input-svideo";
 export { default as MdSettingsOverscan } from "./settings-overscan";
 export { default as MdSettingsPhone } from "./settings-phone";
 export { default as MdSettingsPower } from "./settings-power";
 export { default as MdSettingsRemote } from "./settings-remote";
-export { default as MdSettingsSystemDaydream } from "./settings-system-daydream";
+export {
+    default as MdSettingsSystemDaydream
+} from "./settings-system-daydream";
 export { default as MdSettingsVoice } from "./settings-voice";
 export { default as MdSettings } from "./settings";
 export { default as MdShare } from "./share";
@@ -766,7 +792,9 @@ export { default as MdShortText } from "./short-text";
 export { default as MdShowChart } from "./show-chart";
 export { default as MdShuffle } from "./shuffle";
 export { default as MdSignalCellular4Bar } from "./signal-cellular-4-bar";
-export { default as MdSignalCellularConnectedNoInternet4Bar } from "./signal-cellular-connected-no-internet-4-bar";
+export {
+    default as MdSignalCellularConnectedNoInternet4Bar
+} from "./signal-cellular-connected-no-internet-4-bar";
 export { default as MdSignalCellularNoSim } from "./signal-cellular-no-sim";
 export { default as MdSignalCellularNull } from "./signal-cellular-null";
 export { default as MdSignalCellularOff } from "./signal-cellular-off";
@@ -814,7 +842,9 @@ export { default as MdStreetview } from "./streetview";
 export { default as MdStrikethroughS } from "./strikethrough-s";
 export { default as MdStyle } from "./style";
 export { default as MdSubdirectoryArrowLeft } from "./subdirectory-arrow-left";
-export { default as MdSubdirectoryArrowRight } from "./subdirectory-arrow-right";
+export {
+    default as MdSubdirectoryArrowRight
+} from "./subdirectory-arrow-right";
 export { default as MdSubject } from "./subject";
 export { default as MdSubscriptions } from "./subscriptions";
 export { default as MdSubtitles } from "./subtitles";
@@ -866,7 +896,9 @@ export { default as MdTrackChanges } from "./track-changes";
 export { default as MdTraffic } from "./traffic";
 export { default as MdTrain } from "./train";
 export { default as MdTram } from "./tram";
-export { default as MdTransferWithinAStation } from "./transfer-within-a-station";
+export {
+    default as MdTransferWithinAStation
+} from "./transfer-within-a-station";
 export { default as MdTransform } from "./transform";
 export { default as MdTranslate } from "./translate";
 export { default as MdTrendingDown } from "./trending-down";

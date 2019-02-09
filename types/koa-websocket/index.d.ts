@@ -7,11 +7,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import Koa = require('koa');
-import compose = require('koa-compose');
-import * as ws from 'ws';
-import * as http from 'http';
-import * as https from 'https';
+import Koa = require("koa");
+import compose = require("koa-compose");
+import * as ws from "ws";
+import * as http from "http";
+import * as https from "https";
 
 declare module "koa" {
     interface Context {
@@ -46,6 +46,10 @@ declare namespace KoaWebsocket {
     }
 }
 
-declare function KoaWebsocket(app: Koa, wsOptions?: ws.ServerOptions, httpsOptions?: https.ServerOptions): KoaWebsocket.App;
+declare function KoaWebsocket(
+    app: Koa,
+    wsOptions?: ws.ServerOptions,
+    httpsOptions?: https.ServerOptions
+): KoaWebsocket.App;
 
 export = KoaWebsocket;

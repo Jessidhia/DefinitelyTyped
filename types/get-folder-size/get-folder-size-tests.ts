@@ -1,5 +1,5 @@
-import getFolderSize = require('get-folder-size');
+import getFolderSize = require("get-folder-size");
 
-getFolderSize('.', (err: Error | null, size: number) => {});
+getFolderSize(".", (err: Error | null, size: number) => {});
 
-getFolderSize('.', /types/, (err: Error | null, size: number) => {});
+getFolderSize(".", /types/, (err: Error | null, size: number) => {});

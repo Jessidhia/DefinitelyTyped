@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings } from './constants';
-import MDCTabAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings } from "./constants";
+import MDCTabAdapter from "./adapter";
 
 export default class MDCTabFoundation extends MDCFoundation<MDCTabAdapter> {
     static readonly cssClasses: cssClasses;

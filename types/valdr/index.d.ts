@@ -4,12 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace valdr {
-
     /**
      * Custom validators must implement this interface to provide custom validation logic.
      */
     interface ValdrValidator {
-
         /**
          *  Custom validator's name, that will be set in the violation's validator field.
          */
@@ -18,24 +16,27 @@ declare namespace valdr {
         /**
          * Method to be called to perform custom validation over given value.
          */
-        validate(value: any, validationArguments?: {[argumentName:string]: any}): boolean;
+        validate(
+            value: any,
+            validationArguments?: { [argumentName: string]: any }
+        ): boolean;
     }
 
     interface ValdrConstraintValidator {
-        [argumentName:string]: any;
+        [argumentName: string]: any;
         message: string;
     }
 
     interface ValdrConstraintFieldName {
-        [validatorName:string]: ValdrConstraintValidator;
+        [validatorName: string]: ValdrConstraintValidator;
     }
 
     interface ValdrConstraintTypeName {
-        [fieldName:string]: ValdrConstraintFieldName;
+        [fieldName: string]: ValdrConstraintFieldName;
     }
 
     interface ValdrConstraints {
-        [typeName:string]: ValdrConstraintTypeName;
+        [typeName: string]: ValdrConstraintTypeName;
     }
 
     interface ValdrViolation extends ValdrConstraintValidator {
@@ -60,7 +61,11 @@ declare namespace valdr {
          * @param value the value to validate.
          * @returns {ValdrValidationResult} the validation result.
          */
-        validate(typeName: string, fieldName: string, value: string): ValdrValidationResult;
+        validate(
+            typeName: string,
+            fieldName: string,
+            value: string
+        ): ValdrValidationResult;
 
         /**
          * Adds a new list of constraints (JSON Object).
@@ -84,7 +89,7 @@ declare namespace valdr {
          * Sets custom classes on the surrounding elements.
          * @param newClasses the new classes.
          */
-        setClasses(newClasses: { valid: string, invalid: string }): void;
+        setClasses(newClasses: { valid: string; invalid: string }): void;
     }
 
     interface ValdrProvider {

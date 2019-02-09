@@ -20,15 +20,18 @@
  * limitations under the License.
  */
 
-import { MDCComponent } from 'material__base';
-import MDCSelectFoundation from './foundation';
-import MDCSelectAdapter from './adapter';
-import { MDCFloatingLabel } from 'material__floating-label';
-import { MDCLineRipple } from 'material__line-ripple';
+import { MDCComponent } from "material__base";
+import MDCSelectFoundation from "./foundation";
+import MDCSelectAdapter from "./adapter";
+import { MDCFloatingLabel } from "material__floating-label";
+import { MDCLineRipple } from "material__line-ripple";
 
-export {MDCSelectAdapter, MDCSelectFoundation};
+export { MDCSelectAdapter, MDCSelectFoundation };
 
-export class MDCSelect extends MDCComponent<MDCSelectAdapter, MDCSelectFoundation> {
+export class MDCSelect extends MDCComponent<
+    MDCSelectAdapter,
+    MDCSelectFoundation
+> {
     static attachTo(root: Element): MDCSelect;
 
     value: string;
@@ -37,7 +40,10 @@ export class MDCSelect extends MDCComponent<MDCSelectAdapter, MDCSelectFoundatio
 
     disabled: boolean;
 
-    initialize(labelFactory?: (el: Element) => MDCFloatingLabel, lineRippleFactory?: (el: Element) => MDCLineRipple): void;
+    initialize(
+        labelFactory?: (el: Element) => MDCFloatingLabel,
+        lineRippleFactory?: (el: Element) => MDCLineRipple
+    ): void;
 
     initialSyncWithDOM(): void;
 }

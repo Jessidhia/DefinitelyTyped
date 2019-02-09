@@ -1,11 +1,11 @@
-import { CommonTokenStream } from './CommonTokenStream';
-import { Recognizer } from './Recognizer';
-import { Token } from './Token';
-import { ParseTreeListener } from './tree/Tree';
-import { Lexer } from './Lexer';
-import { InputStream } from './InputStream';
-import { ParserRuleContext } from './ParserRuleContext';
-import { ErrorStrategy } from './error/ErrorStrategy';
+import { CommonTokenStream } from "./CommonTokenStream";
+import { Recognizer } from "./Recognizer";
+import { Token } from "./Token";
+import { ParseTreeListener } from "./tree/Tree";
+import { Lexer } from "./Lexer";
+import { InputStream } from "./InputStream";
+import { ParserRuleContext } from "./ParserRuleContext";
+import { ErrorStrategy } from "./error/ErrorStrategy";
 
 export class Parser extends Recognizer {
     constructor(input: CommonTokenStream);
@@ -38,7 +38,11 @@ export class Parser extends Recognizer {
 
     getATNWithBypassAlts(): any;
 
-    compileParseTreePattern(pattern: any, patternRuleIndex: any, lexer: Lexer): any;
+    compileParseTreePattern(
+        pattern: any,
+        patternRuleIndex: any,
+        lexer: Lexer
+    ): any;
 
     getInputStream(): InputStream;
 
@@ -62,9 +66,19 @@ export class Parser extends Recognizer {
 
     getPrecedence(): any;
 
-    enterRecursionRule(localCtx: ParserRuleContext, state: any, ruleIndex: any, precedence: any): void;
+    enterRecursionRule(
+        localCtx: ParserRuleContext,
+        state: any,
+        ruleIndex: any,
+        precedence: any
+    ): void;
 
-    pushNewRecursionContext(localCtx: ParserRuleContext, state: any, ruleIndex: any, precedence: any): void;
+    pushNewRecursionContext(
+        localCtx: ParserRuleContext,
+        state: any,
+        ruleIndex: any,
+        precedence: any
+    ): void;
 
     unrollRecursionContexts(parentCtx: ParserRuleContext): void;
 

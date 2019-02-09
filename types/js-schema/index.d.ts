@@ -3,9 +3,7 @@
 // Definitions by: Marcin Porebski <https://github.com/marcinporebski>, Robin Labat <https://github.com/roblabat>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-declare module 'js-schema'
-{
+declare module "js-schema" {
     function schema(definition: any): schema.Schema;
 
     namespace schema {
@@ -28,7 +26,11 @@ interface NumberConstructor {
 interface StringConstructor {
     of(charset: string): StringConstructor;
     of(length: number, charset: string): StringConstructor;
-    of(minLength: number, maxLength: number, charset: string): StringConstructor;
+    of(
+        minLength: number,
+        maxLength: number,
+        charset: string
+    ): StringConstructor;
 }
 
 interface ArrayConstructor {

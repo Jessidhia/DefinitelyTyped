@@ -1,4 +1,4 @@
-import SimpleBar = require('simplebar');
+import SimpleBar = require("simplebar");
 
 // $ExpectType typeof SimpleBar
 SimpleBar;

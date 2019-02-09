@@ -27,7 +27,9 @@ interface ReactResizeDetectorProps extends React.Props<ReactResizeDetector> {
     render?: (props: any) => React.ReactNode;
 }
 
-declare class ReactResizeDetector extends React.PureComponent<ReactResizeDetectorProps> { }
+declare class ReactResizeDetector extends React.PureComponent<
+    ReactResizeDetectorProps
+> {}
 
 export declare function withResizeDetector(
     WrappedComponent: React.ReactNode,

@@ -8,9 +8,9 @@
 
 export = xml;
 
-import * as ltx from 'ltx';
-import * as escape from 'ltx/lib/escape';
-import { EventEmitter } from 'events';
+import * as ltx from "ltx";
+import * as escape from "ltx/lib/escape";
+import { EventEmitter } from "events";
 
 declare function xml(
     name: string,
@@ -43,7 +43,10 @@ declare namespace xml {
         root: Element | null;
         cursor: Element | null;
 
-        onStartElement(name: string, attrs?: string | { [attrName: string]: any }): void;
+        onStartElement(
+            name: string,
+            attrs?: string | { [attrName: string]: any }
+        ): void;
         onEndElement(name: string): void;
         onText(str: string): void;
         write(data: Buffer): void;
@@ -52,7 +55,7 @@ declare namespace xml {
 }
 
 declare class XMLError extends Error {
-    readonly name: 'XMLError';
+    readonly name: "XMLError";
 }
 
 declare global {

@@ -6,4 +6,8 @@
 
 import { Transform } from "redux-persist";
 
-export default function createFilter<State, Raw>(reducerName: string, inboundPaths?: string[], outboundPaths?: string[]): Transform<State, Raw>;
+export default function createFilter<State, Raw>(
+    reducerName: string,
+    inboundPaths?: string[],
+    outboundPaths?: string[]
+): Transform<State, Raw>;

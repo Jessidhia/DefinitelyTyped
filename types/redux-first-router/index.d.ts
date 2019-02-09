@@ -10,14 +10,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import {
-    Dispatch,
-    Store,
-    Reducer,
-    Middleware,
-    StoreEnhancer
-} from 'redux';
-import { History } from 'history';
+import { Dispatch, Store, Reducer, Middleware, StoreEnhancer } from "redux";
+import { History } from "history";
 
 export type Nullable<T> = T | null | undefined;
 
@@ -29,7 +23,7 @@ export type ConfirmLeave = (state: object, action: object) => Nullable<string>;
 
 export type RouteThunk<TState = any> = (
     dispatch: Dispatch<any>,
-    getState: StateGetter<TState>,
+    getState: StateGetter<TState>
 ) => any | Promise<any>;
 
 export type RouteObject<TKeys = {}, TState = any> = TKeys & {
@@ -44,7 +38,9 @@ export type RouteObject<TKeys = {}, TState = any> = TKeys & {
     meta?: Meta;
 };
 
-export type Route<TKeys = {}, TState = any> = RouteString | RouteObject<TKeys, TState>;
+export type Route<TKeys = {}, TState = any> =
+    | RouteString
+    | RouteObject<TKeys, TState>;
 
 export interface RoutesMap<TKeys = {}, TState = any> {
     [key: string]: Route<TKeys, TState>;
@@ -171,7 +167,9 @@ export interface Navigators<TState = any> {
     [key: string]: Navigator<TState>;
 }
 
-export type SelectLocationState<TKeys = {}, TState = any> = (state: TState) => LocationState<TKeys, TState>;
+export type SelectLocationState<TKeys = {}, TState = any> = (
+    state: TState
+) => LocationState<TKeys, TState>;
 export type SelectTitleState<TState = any> = (state: TState) => string;
 
 export interface QuerySerializer {
@@ -195,9 +193,9 @@ export interface NavigatorsConfig<TKeys = {}, TState = any> {
         routesMap: RoutesMap<TKeys, TState>,
         action: object
     ): {
-            action: object;
-            navigationAction: Nullable<NavigationAction>;
-        };
+        action: object;
+        navigationAction: Nullable<NavigationAction>;
+    };
 }
 
 export interface Bag {
@@ -258,20 +256,32 @@ export interface Options<TKeys = {}, TState = any> {
      * It's passed your standard `dispatch` and `getState` arguments like a thunk,
      * as well as the `bag` object as a third parameter, which contains the dispatched `action` and the configured `extra` value.
      */
-    onBeforeChange?(dispatch: Dispatch<any>, getState: StateGetter<TState>, bag: Bag): void;
+    onBeforeChange?(
+        dispatch: Dispatch<any>,
+        getState: StateGetter<TState>,
+        bag: Bag
+    ): void;
     /**
      * A simple function that will be called after the routes change.
      * It's passed your standard `dispatch` and `getState` arguments like a thunk,
      * as well as the `bag` object as a third parameter, which contains the dispatched `action` and the configured `extra` value.
      */
-    onAfterChange?(dispatch: Dispatch<any>, getState: StateGetter<TState>, bag: Bag): void;
+    onAfterChange?(
+        dispatch: Dispatch<any>,
+        getState: StateGetter<TState>,
+        bag: Bag
+    ): void;
     /**
      * A simple function that will be called whenever the user uses the browser back/next buttons.
      * It's passed your standard `dispatch` and `getState` arguments like a thunk,
      * as well as the `bag` object as a third parameter, which contains the dispatched `action`
      * and the configured `extra` value. Actions with kinds `back`, `next`, and `pop` trigger this.
      */
-    onBackNext?(dispatch: Dispatch<any>, getState: StateGetter<TState>, bag: Bag): void;
+    onBackNext?(
+        dispatch: Dispatch<any>,
+        getState: StateGetter<TState>,
+        bag: Bag
+    ): void;
     /**
      * A function receiving `message` and `callback` when navigation is blocked with `confirmLeave`.
      * The message is the return value from `confirmLeave`.
@@ -299,11 +309,14 @@ export interface Options<TKeys = {}, TState = any> {
 export type Params = object;
 export type Payload = object;
 
-export type DisplayConfirmLeave = (message: string, callback: (unblock: boolean) => void) => void;
+export type DisplayConfirmLeave = (
+    message: string,
+    callback: (unblock: boolean) => void
+) => void;
 
 export type ScrollUpdater = (performedByUser: boolean) => void;
 
-export const NOT_FOUND: '@@redux-first-router/NOT_FOUND';
+export const NOT_FOUND: "@@redux-first-router/NOT_FOUND";
 
 export function actionToPath<TKeys = {}, TState = any>(
     action: ReceivedAction,
@@ -321,14 +334,14 @@ export function canGoForward(): boolean;
 
 export function connectRoutes<TKeys = {}, TState = any>(
     routesMap: RoutesMap<TKeys, TState>,
-    options?: Options<TKeys, TState>,
+    options?: Options<TKeys, TState>
 ): {
-        reducer: Reducer<LocationState<TKeys, TState>>;
-        middleware: Middleware;
-        thunk(store: Store<TState>): Promise<Nullable<RouteThunk<TState>>>;
-        enhancer: StoreEnhancer;
-        initialDispatch?(): void;
-    };
+    reducer: Reducer<LocationState<TKeys, TState>>;
+    middleware: Middleware;
+    thunk(store: Store<TState>): Promise<Nullable<RouteThunk<TState>>>;
+    enhancer: StoreEnhancer;
+    initialDispatch?(): void;
+};
 
 export function go(n: number): void;
 

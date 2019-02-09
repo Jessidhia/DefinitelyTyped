@@ -3,8 +3,6 @@
 // Definitions by: Rogier Schouten <https://github.com/rogierschouten>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare namespace checksum {
     /**
      * Options object for all functions
@@ -22,14 +20,21 @@ declare namespace checksum {
      * @param filename	The file name
      * @param callback	Callback which is called with the result or an error
      */
-    function file(filename: string, callback: (error: Error, hash: string) => void): void;
+    function file(
+        filename: string,
+        callback: (error: Error, hash: string) => void
+    ): void;
     /**
      * Generate the checksum for a file on disk
      * @param filename	The file name
      * @param options	Options object to indicate hash algo
      * @param callback	Callback which is called with the result or an error
      */
-    function file(filename: string, options: ChecksumOptions, callback: (error: Error, hash: string) => void): void;
+    function file(
+        filename: string,
+        options: ChecksumOptions,
+        callback: (error: Error, hash: string) => void
+    ): void;
 }
 
 /**
@@ -38,6 +43,9 @@ declare namespace checksum {
  * @param options	Allows to set the algorithm
  * @returns	Checksum
  */
-declare function checksum(value: any, options?: checksum.ChecksumOptions): string;
+declare function checksum(
+    value: any,
+    options?: checksum.ChecksumOptions
+): string;
 
 export = checksum;

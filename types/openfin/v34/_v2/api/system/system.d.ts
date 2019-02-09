@@ -1,24 +1,33 @@
-import { EmitterBase } from '../base';
-import { ApplicationInfo } from './application';
-import { WindowInfo } from './window';
-import { Identity } from '../../identity';
-import { MonitorInfo } from './monitor';
-import { PointTopLeft } from './point';
-import { GetLogRequestType, LogInfo, LogLevel } from './log';
-import { ProxyInfo, ProxyConfig } from './proxy';
-import { ProcessInfo } from './process';
-import { AppAssetInfo, AppAssetRequest, RuntimeDownloadOptions, RuntimeDownloadProgress } from './download-asset';
-import { RVMInfo } from './rvm';
-import { RuntimeInfo } from './runtime-info';
-import { Entity, EntityInfo } from './entity';
-import { HostSpecs } from './host-specs';
-import { ExternalProcessRequestType, TerminateExternalRequestType, ExternalConnection } from './external-process';
-import Transport from '../../transport/transport';
-import { CookieInfo, CookieOption } from './cookie';
-import { RegistryInfo } from './registry-info';
-import { DownloadPreloadOption, DownloadPreloadInfo } from './download-preload';
-import { ClearCacheOption } from './clearCacheOption';
-import { CrashReporterOption } from './crashReporterOption';
+import { EmitterBase } from "../base";
+import { ApplicationInfo } from "./application";
+import { WindowInfo } from "./window";
+import { Identity } from "../../identity";
+import { MonitorInfo } from "./monitor";
+import { PointTopLeft } from "./point";
+import { GetLogRequestType, LogInfo, LogLevel } from "./log";
+import { ProxyInfo, ProxyConfig } from "./proxy";
+import { ProcessInfo } from "./process";
+import {
+    AppAssetInfo,
+    AppAssetRequest,
+    RuntimeDownloadOptions,
+    RuntimeDownloadProgress
+} from "./download-asset";
+import { RVMInfo } from "./rvm";
+import { RuntimeInfo } from "./runtime-info";
+import { Entity, EntityInfo } from "./entity";
+import { HostSpecs } from "./host-specs";
+import {
+    ExternalProcessRequestType,
+    TerminateExternalRequestType,
+    ExternalConnection
+} from "./external-process";
+import Transport from "../../transport/transport";
+import { CookieInfo, CookieOption } from "./cookie";
+import { RegistryInfo } from "./registry-info";
+import { DownloadPreloadOption, DownloadPreloadInfo } from "./download-preload";
+import { ClearCacheOption } from "./clearCacheOption";
+import { CrashReporterOption } from "./crashReporterOption";
 /**
  * AppAssetInfo interface
  * @typedef { Object } AppAssetInfo
@@ -54,12 +63,12 @@ import { CrashReporterOption } from './crashReporterOption';
  * @property { string } uuid The uuid of the external connection
  */
 /**
-* ExternalProcessRequestType interface
-* @typedef { Object } ExternalProcessRequestType
-* @property { string } path The file path to where the running application resides
-* @property { string } arguments The argument passed to the running application
-* @property { Object } listener This is described in the {LaunchExternalProcessListner} type definition
-*/
+ * ExternalProcessRequestType interface
+ * @typedef { Object } ExternalProcessRequestType
+ * @property { string } path The file path to where the running application resides
+ * @property { string } arguments The argument passed to the running application
+ * @property { Object } listener This is described in the {LaunchExternalProcessListner} type definition
+ */
 /**
  * Entity interface
  * @typedef { Object } Entity
@@ -75,12 +84,12 @@ import { CrashReporterOption } from './crashReporterOption';
  * @property { string } entityType The type of the entity
  */
 /**
-* GetLogRequestType interface
-* @typedef { Object } GetLogRequestType
-* @property { string } name The name of the running application
-* @property { number } endFile The file length of the log file
-* @property { number } sizeLimit The set size limit of the log file
-*/
+ * GetLogRequestType interface
+ * @typedef { Object } GetLogRequestType
+ * @property { string } name The name of the running application
+ * @property { number } endFile The file length of the log file
+ * @property { number } sizeLimit The set size limit of the log file
+ */
 /**
  * Identity interface
  * @typedef { Object } Identity
@@ -152,12 +161,12 @@ import { CrashReporterOption } from './crashReporterOption';
  * @property {boolean} localStorage browser data that can be used across sessions
  */
 /**
-* CrashReporterOption interface
-* @typedef { Object } CrashReporterOption
-* @property { boolean } diagnosticMode In diagnostic mode the crash reporter will send diagnostic logs to
-*  the OpenFin reporting service on runtime shutdown
-* @property { boolean } isRunning check if it's running
-*/
+ * CrashReporterOption interface
+ * @typedef { Object } CrashReporterOption
+ * @property { boolean } diagnosticMode In diagnostic mode the crash reporter will send diagnostic logs to
+ *  the OpenFin reporting service on runtime shutdown
+ * @property { boolean } isRunning check if it's running
+ */
 /**
  * An object representing the core of OpenFin Runtime. Allows the developer
  * to perform system-level actions, such as accessing logs, viewing processes,
@@ -241,7 +250,9 @@ export default class System extends EmitterBase {
      * @return {Promise.<CrashReporterOption>}
      * @tutorial System.startCrashReporter
      */
-    startCrashReporter(options: CrashReporterOption): Promise<CrashReporterOption>;
+    startCrashReporter(
+        options: CrashReporterOption
+    ): Promise<CrashReporterOption>;
     /**
      * Returns a hex encoded hash of the mac address and the currently logged in user name
      * @return {Promise.<string>}
@@ -338,7 +349,9 @@ export default class System extends EmitterBase {
      * @return {Promise.<Identity>}
      * @tutorial System.launchExternalProcess
      */
-    launchExternalProcess(options: ExternalProcessRequestType): Promise<Identity>;
+    launchExternalProcess(
+        options: ExternalProcessRequestType
+    ): Promise<Identity>;
     /**
      * Monitors a running process.
      * @param { number } pid See tutorial for more details
@@ -383,7 +396,9 @@ export default class System extends EmitterBase {
      * @return {Promise.<void>}
      * @tutorial System.terminateExternalProcess
      */
-    terminateExternalProcess(options: TerminateExternalRequestType): Promise<void>;
+    terminateExternalProcess(
+        options: TerminateExternalRequestType
+    ): Promise<void>;
     /**
      * Update the OpenFin Runtime Proxy settings.
      * @param { ProxyConfig } options A config object defined in the ProxyConfig interface
@@ -397,22 +412,30 @@ export default class System extends EmitterBase {
      * @return {Promise.<void>}
      * @tutorial System.downloadAsset
      */
-    downloadAsset(appAsset: AppAssetInfo, progressListener: (progress: RuntimeDownloadProgress) => void): Promise<void>;
+    downloadAsset(
+        appAsset: AppAssetInfo,
+        progressListener: (progress: RuntimeDownloadProgress) => void
+    ): Promise<void>;
     /**
-    * Downloads a version of the runtime.
-    * @param { RuntimeDownloadOptions } options - Download options.
-    * @param {Function} [progressListener] - called as the runtime is downloaded with progress information.
-    * @return {Promise.<void>}
-    * @tutorial System.downloadRuntime
-    */
-    downloadRuntime(options: RuntimeDownloadOptions, progressListener: (progress: RuntimeDownloadProgress) => void): Promise<void>;
+     * Downloads a version of the runtime.
+     * @param { RuntimeDownloadOptions } options - Download options.
+     * @param {Function} [progressListener] - called as the runtime is downloaded with progress information.
+     * @return {Promise.<void>}
+     * @tutorial System.downloadRuntime
+     */
+    downloadRuntime(
+        options: RuntimeDownloadOptions,
+        progressListener: (progress: RuntimeDownloadProgress) => void
+    ): Promise<void>;
     /**
-    * Download preload scripts from given URLs
-    * @param {DownloadPreloadOption[]} scripts - URLs of preload scripts. See tutorial for more details.
-    * @return {Promise.Array<DownloadPreloadInfo>}
-    * @tutorial System.downloadPreloadScripts
-    */
-    downloadPreloadScripts(scripts: Array<DownloadPreloadOption>): Promise<Array<DownloadPreloadInfo>>;
+     * Download preload scripts from given URLs
+     * @param {DownloadPreloadOption[]} scripts - URLs of preload scripts. See tutorial for more details.
+     * @return {Promise.Array<DownloadPreloadInfo>}
+     * @tutorial System.downloadPreloadScripts
+     */
+    downloadPreloadScripts(
+        scripts: Array<DownloadPreloadOption>
+    ): Promise<Array<DownloadPreloadInfo>>;
     /**
      * Retrieves an array of data (name, ids, bounds) for all application windows.
      * @return {Promise.Array.<Identity>}
@@ -463,7 +486,11 @@ export default class System extends EmitterBase {
      * @return {Promise.<RegistryInfo>}
      * @tutorial System.readRegistryValue
      */
-    readRegistryValue(rootKey: string, subkey: string, value: string): Promise<RegistryInfo>;
+    readRegistryValue(
+        rootKey: string,
+        subkey: string,
+        value: string
+    ): Promise<RegistryInfo>;
     /**
      * This function call will register a unique id and produce a token.
      * The token can be used to broker an external connection.

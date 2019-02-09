@@ -5,8 +5,12 @@ import { createReadStream } from "fs";
 const defaultAdapter = new Object() as parse5.TreeAdapter;
 let parser = new ParserStream<parse5.DefaultTreeDocument>();
 
-parser = new ParserStream<parse5.DefaultTreeDocument>({ sourceCodeLocationInfo: true });
-parser = new ParserStream<parse5.DefaultTreeDocument>({ treeAdapter: defaultAdapter });
+parser = new ParserStream<parse5.DefaultTreeDocument>({
+    sourceCodeLocationInfo: true
+});
+parser = new ParserStream<parse5.DefaultTreeDocument>({
+    treeAdapter: defaultAdapter
+});
 parser = new ParserStream<parse5.DefaultTreeDocument>({
     sourceCodeLocationInfo: true,
     treeAdapter: defaultAdapter

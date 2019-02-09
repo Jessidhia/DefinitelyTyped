@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ReactWidgetsCommonDropdownProps, AutoFocus } from './CommonProps';
+import * as React from "react";
+import { ReactWidgetsCommonDropdownProps, AutoFocus } from "./CommonProps";
 
 interface ComboBoxMessages {
     /**
@@ -16,7 +16,9 @@ interface ComboBoxMessages {
     emptyFilter: string | ((props: ComboBoxProps) => string);
 }
 
-interface ComboBoxProps extends ReactWidgetsCommonDropdownProps<ComboBoxClass>, AutoFocus {
+interface ComboBoxProps
+    extends ReactWidgetsCommonDropdownProps<ComboBoxClass>,
+        AutoFocus {
     /**
      * The current value of the Combobox. This can be an object (such as a member of the data
      * array) or a primitive value, hinted to by the valueField. The widget value does not need

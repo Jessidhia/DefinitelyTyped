@@ -1,4 +1,4 @@
-import uniqueRandomArray = require('unique-random-array');
+import uniqueRandomArray = require("unique-random-array");
 
 // $ExpectType () => number
 uniqueRandomArray([1, 2, 3, 4]);

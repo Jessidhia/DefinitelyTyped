@@ -6,12 +6,9 @@
 //                 Alberto Vasquez <https://github.com/albertovasquez>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare var c: c.IConfig;
 
 declare namespace c {
-
     // see https://github.com/lorenwest/node-config/wiki/Using-Config-Utilities
     interface IUtil {
         // Extend an object (and any object it contains) with one or more objects (and objects contained in them).
@@ -27,10 +24,18 @@ declare namespace c {
         diffDeep(object1: any, object2: any, depth?: number): any;
 
         // Make a javascript object property immutable (assuring it cannot be changed from the current value).
-        makeImmutable(object: any, propertyName?: string, propertyValue?: string): any;
+        makeImmutable(
+            object: any,
+            propertyName?: string,
+            propertyValue?: string
+        ): any;
 
         // Make an object property hidden so it doesn't appear when enumerating elements of the object.
-        makeHidden(object: any, propertyName: string, propertyValue?: string): any;
+        makeHidden(
+            object: any,
+            propertyName: string,
+            propertyValue?: string
+        ): any;
 
         // Get the current value of a config environment variable
         getEnv(varName: string): string;
@@ -40,7 +45,7 @@ declare namespace c {
 
         // Return the sources for the configurations
         getConfigSources(): IConfigSource[];
-        
+
         // Returns a new deep copy of the current config object, or any part of the config if provided.
         toObject(config?: any): any;
 
@@ -49,7 +54,7 @@ declare namespace c {
          * the 6 years agoInitial 0.4 checkin default configuration object so
          * they can be configured by the consumers of the module.
          */
-        setModuleDefaults(moduleName:string, defaults:any): any;
+        setModuleDefaults(moduleName: string, defaults: any): any;
     }
 
     interface IConfig {

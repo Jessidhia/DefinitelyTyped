@@ -7,7 +7,10 @@
 
 declare namespace Chai {
     // For BDD APIs
-    interface Assertion extends LanguageChains, NumericComparison, TypeComparison {
+    interface Assertion
+        extends LanguageChains,
+            NumericComparison,
+            TypeComparison {
         oequal(result: any, method?: string): Equal;
         oeql(result: any, method?: string): Equal;
         oeq(result: any, method?: string): Equal;
@@ -21,7 +24,7 @@ declare namespace Chai {
     }
 }
 
-declare module 'chai-oequal' {
+declare module "chai-oequal" {
     function chaiOequal(chai: any, utils: any): void;
     namespace chaiOequal {}
     export = chaiOequal;

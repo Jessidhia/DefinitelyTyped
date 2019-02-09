@@ -50,8 +50,18 @@ interface GlDatePickerOptions {
     monthNames?: string[];
     dowNames?: string[];
     dowOffset?: number;
-    onClick?: (inputElement: JQuery, cell: JQuery, date: Date, data: any) => void;
-    onHover?: (inputElement: JQuery, cell: JQuery, date: Date, data: any) => void;
+    onClick?: (
+        inputElement: JQuery,
+        cell: JQuery,
+        date: Date,
+        data: any
+    ) => void;
+    onHover?: (
+        inputElement: JQuery,
+        cell: JQuery,
+        date: Date,
+        data: any
+    ) => void;
     onShow?: (calendar: JQuery) => void;
     onHide?: (calendar: JQuery) => void;
 }
@@ -65,6 +75,6 @@ interface GlDatePicker {
 }
 
 interface JQuery {
-	glDatePicker(ret: boolean): GlDatePicker;
-	glDatePicker(options?: GlDatePickerOptions): JQuery;
+    glDatePicker(ret: boolean): GlDatePicker;
+    glDatePicker(options?: GlDatePickerOptions): JQuery;
 }

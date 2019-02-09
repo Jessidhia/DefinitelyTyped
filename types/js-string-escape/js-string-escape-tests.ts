@@ -1,3 +1,3 @@
-import jsStringEscape = require('js-string-escape');
+import jsStringEscape = require("js-string-escape");
 
-jsStringEscape('hello world');
+jsStringEscape("hello world");

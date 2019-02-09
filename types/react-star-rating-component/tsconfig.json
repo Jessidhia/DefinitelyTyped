@@ -1,9 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "esModuleInterop": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
@@ -11,15 +9,10 @@
         "strictFunctionTypes": true,
         "jsx": "react",
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "react-star-rating-component-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-star-rating-component-tests.tsx"]
 }

@@ -1,4 +1,4 @@
-import { Converter, Validator, Validation } from '../ojvalidation-base';
+import { Converter, Validator, Validation } from "../ojvalidation-base";
 export class DateRestrictionValidator implements Validator<string> {
     constructor(options?: DateRestrictionValidator.ValidatorOptions);
     getHint(): string | null;
@@ -19,13 +19,17 @@ export namespace DateRestrictionValidator {
     };
     // tslint:disable-next-line interface-over-type-literal
     type ValidatorOptions = {
-        dayFormatter?: ((param0: DayFormatterInput) => DayFormatterOutput | null | 'all');
+        dayFormatter?: (
+            param0: DayFormatterInput
+        ) => DayFormatterOutput | null | "all";
         messageSummary?: string;
         messageDetail?: string;
     };
 }
 export interface DateRestrictionValidatorFactory {
-    createValidator(options?: DateRestrictionValidator.ValidatorOptions): DateRestrictionValidator;
+    createValidator(
+        options?: DateRestrictionValidator.ValidatorOptions
+    ): DateRestrictionValidator;
 }
 export abstract class DateTimeConverter implements Converter<string> {
     abstract calculateWeek(value: string): number | undefined;
@@ -44,7 +48,9 @@ export abstract class DateTimeConverter implements Converter<string> {
     parse(value: string): string | null;
 }
 export interface DateTimeConverterFactory {
-    createConverter(options?: IntlDateTimeConverter.ConverterOptions): IntlDateTimeConverter;
+    createConverter(
+        options?: IntlDateTimeConverter.ConverterOptions
+    ): IntlDateTimeConverter;
 }
 export class DateTimeRangeValidator implements Validator<string> {
     constructor(options?: DateTimeRangeValidator.ValidatorOptions);
@@ -74,20 +80,25 @@ export namespace DateTimeRangeValidator {
     };
 }
 export interface DateTimeRangeValidatorFactory {
-    createValidator(options?: DateTimeRangeValidator.ValidatorOptions): DateTimeRangeValidator;
+    createValidator(
+        options?: DateTimeRangeValidator.ValidatorOptions
+    ): DateTimeRangeValidator;
 }
 export class IntlDateTimeConverter extends DateTimeConverter {
     constructor(options?: IntlDateTimeConverter.ConverterOptions);
     calculateWeek(value: string): number;
     compareISODates(isoStr: string, isoStr2: string): number;
     format(value: string): string | null;
-    formatRelative(value: string, relativeOptions?: {
-        formatUsing?: string;
-        dateField?: string;
-        relativeTime?: string;
-        dateOnly?: boolean;
-        timeZone?: string;
-    }): string | null;
+    formatRelative(
+        value: string,
+        relativeOptions?: {
+            formatUsing?: string;
+            dateField?: string;
+            relativeTime?: string;
+            dateOnly?: boolean;
+            timeZone?: string;
+        }
+    ): string | null;
     getAvailableTimeZones(): any[];
     getHint(): null;
     getOptions(): IntlDateTimeConverter.ConverterOptions;
@@ -106,25 +117,25 @@ export class IntlDateTimeConverter extends DateTimeConverter {
 export namespace IntlDateTimeConverter {
     // tslint:disable-next-line interface-over-type-literal
     type ConverterOptions = {
-        year?: '2-digit' | 'numeric';
-        'two-digit-year-start'?: number;
-        month?: '2-digit' | 'numeric' | 'narrow' | 'short' | 'long';
-        day?: '2-digit' | 'numeric';
-        hour?: '2-digit' | 'numeric';
-        minute?: '2-digit' | 'numeric';
-        second?: '2-digit' | 'numeric';
-        millisecond?: 'numeric';
-        weekday?: 'narrow' | 'short' | 'long';
-        era?: 'narrow' | 'short' | 'long';
-        timeZoneName?: 'short' | 'long';
+        year?: "2-digit" | "numeric";
+        "two-digit-year-start"?: number;
+        month?: "2-digit" | "numeric" | "narrow" | "short" | "long";
+        day?: "2-digit" | "numeric";
+        hour?: "2-digit" | "numeric";
+        minute?: "2-digit" | "numeric";
+        second?: "2-digit" | "numeric";
+        millisecond?: "numeric";
+        weekday?: "narrow" | "short" | "long";
+        era?: "narrow" | "short" | "long";
+        timeZoneName?: "short" | "long";
         timeZone?: string;
-        isoStrFormat?: 'offset' | 'zulu' | 'local' | 'auto';
+        isoStrFormat?: "offset" | "zulu" | "local" | "auto";
         dst?: boolean;
         hour12?: boolean;
         pattern?: string;
-        formatType?: 'date' | 'time' | 'datetime';
-        dateFormat?: 'short' | 'medium' | 'long' | 'full';
-        timeFormat?: 'short' | 'medium' | 'long' | 'full';
-        lenientParse?: 'full' | 'none';
+        formatType?: "date" | "time" | "datetime";
+        dateFormat?: "short" | "medium" | "long" | "full";
+        timeFormat?: "short" | "medium" | "long" | "full";
+        lenientParse?: "full" | "none";
     };
 }

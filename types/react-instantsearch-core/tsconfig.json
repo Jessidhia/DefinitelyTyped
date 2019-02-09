@@ -8,15 +8,10 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "react-instantsearch-core-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-instantsearch-core-tests.tsx"]
 }

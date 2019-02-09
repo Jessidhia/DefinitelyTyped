@@ -33,7 +33,10 @@ export interface RouteActions {
 }
 
 export interface HistoryMiddleware extends Redux.Middleware {
-    listenForReplays(store: Redux.Store<any>, selectLocationState?: Function): void;
+    listenForReplays(
+        store: Redux.Store<any>,
+        selectLocationState?: Function
+    ): void;
     unsubscribe(): void;
 }
 

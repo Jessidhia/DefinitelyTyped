@@ -1,12 +1,12 @@
-import * as gz from 'gzip-js';
+import * as gz from "gzip-js";
 
 const options = {
     level: 3,
-    name: 'hello-world.txt',
-    timestamp: Date.now() / 1000,
+    name: "hello-world.txt",
+    timestamp: Date.now() / 1000
 };
 
-const out = Buffer.from(gz.zip('Hello world', options));
+const out = Buffer.from(gz.zip("Hello world", options));
 console.log(out);
 
 let buf;

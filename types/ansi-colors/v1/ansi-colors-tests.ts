@@ -1,4 +1,4 @@
-import * as colors from 'ansi-colors';
+import * as colors from "ansi-colors";
 
 let s: string;
 

@@ -1,4 +1,4 @@
-import randomFloat = require('random-float');
+import randomFloat = require("random-float");
 
 // $ExpectType number
 randomFloat(5);

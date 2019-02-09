@@ -36,12 +36,16 @@ export interface TemplateBuilder<T> {
     /**
      * Building from a string produces an AST builder function by default.
      */
-    (code: string, opts?: TemplateBuilderOptions): (arg?: PublicReplacements) => T;
+    (code: string, opts?: TemplateBuilderOptions): (
+        arg?: PublicReplacements
+    ) => T;
 
     /**
      * Building from a template literal produces an AST builder function by default.
      */
-    (tpl: TemplateStringsArray, ...args: any[]): (arg?: PublicReplacements) => T;
+    (tpl: TemplateStringsArray, ...args: any[]): (
+        arg?: PublicReplacements
+    ) => T;
 
     // Allow users to explicitly create templates that produce ASTs, skipping the need for an intermediate function.
     ast: {
@@ -50,7 +54,7 @@ export interface TemplateBuilder<T> {
     };
 }
 
-export type PublicReplacements = { [index: string]: any; } | any[];
+export type PublicReplacements = { [index: string]: any } | any[];
 
 export const smart: TemplateBuilder<Statement | Statement[]>;
 export const statement: TemplateBuilder<Statement>;

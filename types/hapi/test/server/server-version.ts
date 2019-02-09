@@ -2,8 +2,8 @@
 import { Server } from "hapi";
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 
 server.start();
-console.log(server.version);        // 17.x.x
+console.log(server.version); // 17.x.x

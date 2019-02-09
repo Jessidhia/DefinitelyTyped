@@ -1,4 +1,4 @@
-import Pusher = require('pusher-js');
+import Pusher = require("pusher-js");
 import { PresenceChannel } from "pusher-js";
 
 var APP_KEY: string;
@@ -14,7 +14,7 @@ var pusher: Pusher.Pusher;
 
 Pusher.logToConsole = true;
 
-Pusher.log = (msg) => {
+Pusher.log = msg => {
     console.log(msg);
 };
 
@@ -43,11 +43,11 @@ pusher = new Pusher(APP_KEY, {
 pusher = new Pusher(APP_KEY, {
     authorizer: function(channel, options) {
         return {
-        authorize: function(socketId, callback) {
-            // Do some ajax to get the auth information
-            var authInformation = {auth: "hash"};
-            callback(false, authInformation);
-        }
+            authorize: function(socketId, callback) {
+                // Do some ajax to get the auth information
+                var authInformation = { auth: "hash" };
+                callback(false, authInformation);
+            }
         };
     }
 });
@@ -79,9 +79,9 @@ socket.disconnect();
 // Subscribing to channels
 //
 
-channel = socket.subscribe('my-channel');
+channel = socket.subscribe("my-channel");
 
-channel = socket.subscribe('private-my-channel');
+channel = socket.subscribe("private-my-channel");
 
 socket.allChannels().forEach(channel => console.log(channel.name));
 
@@ -89,25 +89,29 @@ socket.allChannels().forEach(channel => console.log(channel.name));
 // Unsubscribing from channels
 //
 
-socket.unsubscribe('my-channel');
+socket.unsubscribe("my-channel");
 
-socket.unsubscribe('private-my-channel');
+socket.unsubscribe("private-my-channel");
 
 //
 // Binding to events
 //
 
-channel.bind('new-message', function(data) {
+channel.bind("new-message", function(data) {
     console.log(data.message);
 });
 
-channel.bind('my-event', function() {
-    console.log(`hi ${this.name}`);
-}, { name: 'Pusher' });
+channel.bind(
+    "my-event",
+    function() {
+        console.log(`hi ${this.name}`);
+    },
+    { name: "Pusher" }
+);
 
-channel.unbind('new-comment', console.log);
+channel.unbind("new-comment", console.log);
 
-channel.unbind('new-comment');
+channel.unbind("new-comment");
 
 channel.unbind(null, console.log);
 
@@ -129,7 +133,7 @@ channel.unbind_all();
 // Connection Events
 //
 
-socket.connection.bind('connected', console.log);
+socket.connection.bind("connected", console.log);
 
 //
 //
@@ -141,8 +145,8 @@ socket.connection.bind('connected', console.log);
 // JavaScript Quick Start Guide
 //
 
-channel.bind('my-event', function(data: any) {
-    alert('An event was triggered with message: ' + data.message);
+channel.bind("my-event", function(data: any) {
+    alert("An event was triggered with message: " + data.message);
 });
 
 //
@@ -171,41 +175,43 @@ pusher = new Pusher(applicationKey, options);
 options = {
     encrypted: true, // true/false
     auth: {
-        params: { // {key: value} pairs
-            param1: 'value1',
-            param2: 'value2'
+        params: {
+            // {key: value} pairs
+            param1: "value1",
+            param2: "value2"
         },
-        headers: { // {key: value} pairs
-            header1: 'value1',
-            header2: 'value2'
+        headers: {
+            // {key: value} pairs
+            header1: "value1",
+            header2: "value2"
         }
     }
 };
 
-pusher = new Pusher('app_key', {
+pusher = new Pusher("app_key", {
     auth: {
         params: {
-            CSRFToken: 'some_csrf_token'
+            CSRFToken: "some_csrf_token"
         }
     }
 });
 
-pusher = new Pusher('app_key', {
+pusher = new Pusher("app_key", {
     auth: {
         headers: {
-            'X-CSRF-Token': 'some_csrf_token'
+            "X-CSRF-Token": "some_csrf_token"
         }
     }
 });
 
-pusher = new Pusher('app_key', { cluster: 'eu' });
+pusher = new Pusher("app_key", { cluster: "eu" });
 
-pusher = new Pusher('app_key', { encrypted: true });
+pusher = new Pusher("app_key", { encrypted: true });
 
-pusher = new Pusher('app_key');
-pusher.connection.bind('error', function(err: any) {
+pusher = new Pusher("app_key");
+pusher.connection.bind("error", function(err: any) {
     if (err.data.code === 4004) {
-        log('>>> detected limit error');
+        log(">>> detected limit error");
     }
 });
 
@@ -215,20 +221,24 @@ pusher.disconnect();
 
 // Connection States
 
-pusher = new Pusher('YOUR_APP_KEY');
+pusher = new Pusher("YOUR_APP_KEY");
 
-pusher.connection.bind('connected', function() {
-    $('div#status').text('Real time is go!');
+pusher.connection.bind("connected", function() {
+    $("div#status").text("Real time is go!");
 });
 
-pusher.connection.bind('connecting_in', function(delay: any) {
-    alert("I haven't been able to establish a connection for this feature.  " +
-        "I will try again in " + delay + " seconds.");
+pusher.connection.bind("connecting_in", function(delay: any) {
+    alert(
+        "I haven't been able to establish a connection for this feature.  " +
+            "I will try again in " +
+            delay +
+            " seconds."
+    );
 });
 
-pusher.connection.bind('state_change', function(states: any) {
+pusher.connection.bind("state_change", function(states: any) {
     // states = {previous: 'oldState', current: 'newState'}
-    $('div#status').text("Pusher's current state is " + states.current);
+    $("div#status").text("Pusher's current state is " + states.current);
 });
 
 var connectionState: string = pusher.connection.state;
@@ -249,7 +259,9 @@ var privateChannel = pusher.subscribe(privateChannelName);
 
 // Presence channels
 
-var presenceChannel = pusher.subscribe(presenceChannelName) as Pusher.PresenceChannel<any>;
+var presenceChannel = pusher.subscribe(
+    presenceChannelName
+) as Pusher.PresenceChannel<any>;
 
 var count: number = presenceChannel.members.count;
 
@@ -263,17 +275,21 @@ var user = presenceChannel.members.get(some_user_id);
 
 var me = presenceChannel.members.me;
 
-pusher = new Pusher('app_key');
-presenceChannel = pusher.subscribe('presence-example') as Pusher.PresenceChannel<any>;
-presenceChannel.bind('pusher:subscription_succeeded', function() {
+pusher = new Pusher("app_key");
+presenceChannel = pusher.subscribe(
+    "presence-example"
+) as Pusher.PresenceChannel<any>;
+presenceChannel.bind("pusher:subscription_succeeded", function() {
     var me = presenceChannel.members.me;
     var userId = me.id;
     var userInfo = me.info;
 });
 
-channel = pusher.subscribe('presence-meeting-11');
+channel = pusher.subscribe("presence-meeting-11");
 
-channel.bind('pusher:subscription_succeeded', function(members: Pusher.Members<any>) {
+channel.bind("pusher:subscription_succeeded", function(
+    members: Pusher.Members<any>
+) {
     // for example
     update_member_count(members.count);
 
@@ -283,12 +299,12 @@ channel.bind('pusher:subscription_succeeded', function(members: Pusher.Members<a
     });
 });
 
-channel.bind('pusher:member_added', function(member: Pusher.Member<any>) {
+channel.bind("pusher:member_added", function(member: Pusher.Member<any>) {
     // for example:
     add_member(member.id, member.info);
 });
 
-channel.bind('pusher:member_removed', function(member: Pusher.Member<any>) {
+channel.bind("pusher:member_removed", function(member: Pusher.Member<any>) {
     // for example:
     remove_member(member.id, member.info);
 });
@@ -297,28 +313,26 @@ channel.bind('pusher:member_removed', function(member: Pusher.Member<any>) {
 
 channel.bind(eventName, callback);
 
-pusher = new Pusher('APP_KEY');
-channel = pusher.subscribe('APPL');
-channel.bind('new-price',
-    function(data: any) {
-        // add new price into the APPL widget
-    }
-);
+pusher = new Pusher("APP_KEY");
+channel = pusher.subscribe("APPL");
+channel.bind("new-price", function(data: any) {
+    // add new price into the APPL widget
+});
 
-var context = { title: 'Pusher' };
+var context = { title: "Pusher" };
 var handler = function() {
-    console.log('My name is ' + this.title);
+    console.log("My name is " + this.title);
 };
-channel.bind('new-comment', handler, context);
+channel.bind("new-comment", handler, context);
 
 pusher.bind(eventName, callback);
 
-pusher = new Pusher('APP_KEY');
-var channel1 = pusher.subscribe('test_channel_1');
-var channel2 = pusher.subscribe('test_channel_2');
-var channel3 = pusher.subscribe('test_channel_3');
+pusher = new Pusher("APP_KEY");
+var channel1 = pusher.subscribe("test_channel_1");
+var channel2 = pusher.subscribe("test_channel_2");
+var channel3 = pusher.subscribe("test_channel_3");
 
-var eventName = 'new-comment';
+var eventName = "new-comment";
 callback = function(data: any) {
     // add comment into page
 };
@@ -330,21 +344,20 @@ pusher.bind(eventName, callback);
 
 channel.unbind(eventName, callback);
 
-pusher = new Pusher('APP_KEY');
-channel = pusher.subscribe('APPL');
+pusher = new Pusher("APP_KEY");
+channel = pusher.subscribe("APPL");
 callback = function(data: any) {};
-channel.bind('new-price', callback);
+channel.bind("new-price", callback);
 
-channel.unbind('new-price', callback);
+channel.unbind("new-price", callback);
 
 // Pusher channel events
 
-channel.bind('pusher:subscription_succeeded', function() {
-});
+channel.bind("pusher:subscription_succeeded", function() {});
 
-pusher = new Pusher('APP_KEY');
-channel = pusher.subscribe('private-channel');
-channel.bind('pusher:subscription_error', function(status: number) {
+pusher = new Pusher("APP_KEY");
+channel = pusher.subscribe("private-channel");
+channel.bind("pusher:subscription_error", function(status: number) {
     if (status === 408 || status === 503) {
         // retry?
     }
@@ -353,15 +366,15 @@ channel.bind('pusher:subscription_error', function(status: number) {
 // Triggering Client Events
 
 var triggered = channel.trigger(eventName, data);
-pusher = new Pusher('YOUR_APP_KEY');
-channel = pusher.subscribe('private-channel');
-channel.bind('pusher:subscription_succeeded', function() {
-    var triggered = channel.trigger('client-someeventname', { your: data });
+pusher = new Pusher("YOUR_APP_KEY");
+channel = pusher.subscribe("private-channel");
+channel.bind("pusher:subscription_succeeded", function() {
+    var triggered = channel.trigger("client-someeventname", { your: data });
 });
 
 // Best practice when sending client events
 
-var outputEl = document.getElementById('client_event_example_log');
+var outputEl = document.getElementById("client_event_example_log");
 var state: any = {
     currentX: 0,
     currentY: 0,
@@ -373,7 +386,7 @@ pusher = new Pusher("YOUR_APP_KEY");
 channel = pusher.subscribe("private-mousemoves");
 
 // this method should be bound as a 'mousemove' event listener
-document.body.addEventListener('mousemove', onMouseMove, false);
+document.body.addEventListener("mousemove", onMouseMove, false);
 function onMouseMove(ev: any) {
     ev = ev || window.event;
     state.currentX = ev.pageX || ev.clientX;
@@ -386,10 +399,16 @@ setInterval(function() {
         state.lastY = state.currentY;
 
         var text = document.createTextNode(
-            'Triggering event due to state change: x: ' + state.currentX + ', y: ' + state.currentY
+            "Triggering event due to state change: x: " +
+                state.currentX +
+                ", y: " +
+                state.currentY
         );
         outputEl.replaceChild(text, outputEl.firstChild);
 
-        channel.trigger("client-mouse-moved", {x: state.currentX, y: state.currentY});
+        channel.trigger("client-mouse-moved", {
+            x: state.currentX,
+            y: state.currentY
+        });
     }
 }, 300); // send every 300 milliseconds if position has changed

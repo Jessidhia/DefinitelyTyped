@@ -6,11 +6,15 @@
 
 /// <reference types="node" />
 
-import { Response, NextFunction } from 'express';
-import * as http from 'http';
-import { EventEmitter } from 'events';
+import { Response, NextFunction } from "express";
+import * as http from "http";
+import { EventEmitter } from "events";
 
-type WeMiddleware = (req: any, res: Response | http.ServerResponse, next: NextFunction) => any;
+type WeMiddleware = (
+    req: any,
+    res: Response | http.ServerResponse,
+    next: NextFunction
+) => any;
 
 declare function weAccessMiddleware(
     options: {

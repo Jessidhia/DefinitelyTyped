@@ -1,9 +1,11 @@
-import * as React from 'react';
-import { ReactWidgetsCommonProps, AutoFocus } from './CommonProps';
+import * as React from "react";
+import { ReactWidgetsCommonProps, AutoFocus } from "./CommonProps";
 
-type CalendarView = 'month' | 'year' | 'decade' | 'century';
+type CalendarView = "month" | "year" | "decade" | "century";
 
-interface CalendarProps extends ReactWidgetsCommonProps<CalendarClass>, AutoFocus {
+interface CalendarProps
+    extends ReactWidgetsCommonProps<CalendarClass>,
+        AutoFocus {
     /**
      * Set the culture of the Calendar, passed to the configured localizer.
      */

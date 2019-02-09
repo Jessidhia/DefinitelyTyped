@@ -9,15 +9,13 @@ import fs = require("fs");
         position: true
     };
 
-    let parser = sax.parser(/*strict=*/true, opts);
+    let parser = sax.parser(/*strict=*/ true, opts);
 
     parser.ENTITIES["foo"] = "bar";
 
-    parser.onerror = function(e: Error) {
-    };
+    parser.onerror = function(e: Error) {};
 
-    parser.ontext = function(text: string) {
-    };
+    parser.ontext = function(text: string) {};
 
     parser.onopentag = function(tag: sax.QualifiedTag) {
         let prefix: string = tag.prefix;
@@ -36,16 +34,13 @@ import fs = require("fs");
         }
     };
 
-    parser.onattribute = function(attr: { name: string; value: string; }) {
-    };
+    parser.onattribute = function(attr: { name: string; value: string }) {};
 
-    parser.onend = function() {
-    };
+    parser.onend = function() {};
 
-    parser.write("<xml>Hello, <who name=\"world\">world</who>!</xml>").close();
+    parser.write('<xml>Hello, <who name="world">world</who>!</xml>').close();
 
-
-    let saxStream = sax.createStream(/*strict=*/true, opts);
+    let saxStream = sax.createStream(/*strict=*/ true, opts);
 
     saxStream.on("error", function(e: Error) {
         this._parser.error = null;
@@ -65,13 +60,11 @@ import fs = require("fs");
         position: true
     };
 
-    let parser = sax.parser(/*strict=*/true, opts);
+    let parser = sax.parser(/*strict=*/ true, opts);
 
-    parser.onerror = function(e: Error) {
-    };
+    parser.onerror = function(e: Error) {};
 
-    parser.ontext = function(text: string) {
-    };
+    parser.ontext = function(text: string) {};
 
     parser.onopentag = function(tag: sax.Tag) {
         let name: string = tag.name;
@@ -79,11 +72,9 @@ import fs = require("fs");
         let attrValue: string = tag.attributes["name"];
     };
 
-    parser.onattribute = function(attr: { name: string; value: string; }) {
-    };
+    parser.onattribute = function(attr: { name: string; value: string }) {};
 
-    parser.onend = function() {
-    };
+    parser.onend = function() {};
 
-    parser.write("<xml>Hello, <who name=\"world\">world</who>!</xml>").close();
+    parser.write('<xml>Hello, <who name="world">world</who>!</xml>').close();
 })();

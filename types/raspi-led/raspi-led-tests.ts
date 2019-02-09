@@ -1,4 +1,4 @@
-import { OFF, ON, LED } from 'raspi-led';
+import { OFF, ON, LED } from "raspi-led";
 
 const led = new LED();
 led.hasLed();

@@ -4,12 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import {
     NavigationContainer,
     NavigationPathsConfig,
     NavigationRouteConfigMap
-} from 'react-navigation';
+} from "react-navigation";
 
 export interface TabConfig {
     shifting?: boolean;
@@ -20,7 +20,7 @@ export interface TabConfig {
     initialRouteName?: string;
     order?: string[];
     paths?: NavigationPathsConfig;
-    backBehavior?: 'initialRoute' | 'none';
+    backBehavior?: "initialRoute" | "none";
 }
 
 export function createMaterialBottomTabNavigator(

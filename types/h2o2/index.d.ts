@@ -6,8 +6,8 @@
 
 /// <reference types="node" />
 
-import http = require('http');
-import Boom = require('boom');
+import http = require("http");
+import Boom = require("boom");
 
 import {
     Plugin,
@@ -15,8 +15,8 @@ import {
     ResponseObject,
     ResponseToolkit,
     Lifecycle,
-    RouteOptions,
-} from 'hapi';
+    RouteOptions
+} from "hapi";
 
 declare namespace h2o2 {
     /** `mapURI` return value */
@@ -35,7 +35,7 @@ declare namespace h2o2 {
         /** port - upstream service port. */
         port?: number | string;
         /** protocol - protocol to use when making the request to the proxied host: */
-        protocol?: 'http' | 'https';
+        protocol?: "http" | "https";
         /** uri - absolute URI used instead of host, port, protocol, path, and query. Cannot be used with host, port, protocol, or mapUri. */
         uri?: string;
         /** passThrough - if set to true, it forwards the headers from the client to the upstream service, headers sent from the upstream service will also be forwarded to the client. Defaults to false. */
@@ -54,8 +54,11 @@ declare namespace h2o2 {
         timeout?: number;
         /** mapUri - a function used to map the request URI to the target `uri` and optional `headers` with which to make that request. Cannot be used together with `host`, `port`, `protocol`, or `uri`.
          * @param request - is the incoming request object.
-        */
-        mapUri?: (this: ProxyHandlerOptions, request: Request) => Promise<ProxyTarget>;
+         */
+        mapUri?: (
+            this: ProxyHandlerOptions,
+            request: Request
+        ) => Promise<ProxyTarget>;
         /**
          * onResponse - a custom function for processing the response from the upstream service before sending to the client. Useful for custom error handling of responses from the proxied endpoint or other payload manipulation.
          * @param err - internal or upstream error returned from attempting to contact the upstream proxy.  TODO: check this is of type BoomError or just Error.
@@ -65,15 +68,17 @@ declare namespace h2o2 {
          * @param settings - the proxy handler configuration.
          * @param ttl - the upstream TTL in milliseconds if proxy.ttl it set to 'upstream' and the upstream response included a valid 'Cache-Control' header with 'max-age'.
          */
-        onResponse?: (this: RouteOptions,
+        onResponse?: (
+            this: RouteOptions,
             err: null | Boom,
             res: http.IncomingMessage,
             req: Request,
             h: ResponseToolkit,
             settings: ProxyHandlerOptions,
-            ttl: number) => Lifecycle.ReturnValue;
+            ttl: number
+        ) => Lifecycle.ReturnValue;
         /** ttl - if set to 'upstream', applies the upstream response caching policy to the response using the response.ttl() method (or passed as an argument to the onResponse method if provided). */
-        ttl?: 'upstream';
+        ttl?: "upstream";
         /** agent - a node http(s) agent to be used for connections to upstream server. @see {@link https://nodejs.org/api/http.html#http_class_http_agent} */
         agent?: http.Agent;
         /** maxSockets - sets the maximum number of sockets available per outgoing proxy host connection. false means use the wreck module default value (Infinity). Does not affect non-proxy outgoing client connections. Defaults to Infinity. */
@@ -81,7 +86,7 @@ declare namespace h2o2 {
     }
 }
 
-declare module 'hapi' {
+declare module "hapi" {
     interface HandlerDecorations {
         /**
          * Proxies the request to an upstream endpoint.

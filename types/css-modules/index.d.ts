@@ -17,22 +17,22 @@ interface SelectorNode {
     [key: string]: string;
 }
 
-declare module '*.css' {
+declare module "*.css" {
     const styles: SelectorNode & Stringifyable;
     export default styles;
 }
 
-declare module '*.scss' {
+declare module "*.scss" {
     const styles: SelectorNode & Stringifyable;
     export default styles;
 }
 
-declare module '*.sass' {
+declare module "*.sass" {
     const styles: SelectorNode & Stringifyable;
     export default styles;
 }
 
-declare module '*.less' {
+declare module "*.less" {
     const styles: SelectorNode & Stringifyable;
     export default styles;
 }

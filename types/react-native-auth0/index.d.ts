@@ -97,7 +97,9 @@ export class Auth {
     resetPassword(params: ResetPasswordParams): Promise<any>;
     revoke(params: RevokeParams): Promise<any>;
     /* tslint:disable-next-line no-unnecessary-generics */
-    userInfo<CustomClaims = {}>(params: UserInfoParams): Promise<UserInfo<CustomClaims>>;
+    userInfo<CustomClaims = {}>(
+        params: UserInfoParams
+    ): Promise<UserInfo<CustomClaims>>;
 }
 
 /**

@@ -5,13 +5,13 @@
 
 declare function depcheck(
     rootDir: string,
-    options: depcheck.Options,
+    options: depcheck.Options
 ): Promise<depcheck.Results>;
 
 declare function depcheck<T>(
     rootDir: string,
     options: depcheck.Options,
-    callback: (results: depcheck.Results) => T,
+    callback: (results: depcheck.Results) => T
 ): Promise<T>;
 
 declare namespace depcheck {
@@ -23,7 +23,7 @@ declare namespace depcheck {
         content: string,
         filePath: string,
         deps: ReadonlyArray<string>,
-        rootDir: string,
+        rootDir: string
     ) => Node;
 
     type Detector = (node: Node) => ReadonlyArray<string> | string;
@@ -71,8 +71,8 @@ declare namespace depcheck {
         bin: Parser;
         commitizen: Parser;
         eslint: Parser;
-        'feross-standard': Parser;
-        'gulp-load-plugins': Parser;
+        "feross-standard": Parser;
+        "gulp-load-plugins": Parser;
         mocha: Parser;
         webpack: Parser;
     };

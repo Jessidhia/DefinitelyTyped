@@ -1,7 +1,11 @@
-import { Base, EmitterBase } from '../base';
-import { Identity } from '../../identity';
-import Transport from '../../transport/transport';
-export declare type EntityType = 'window' | 'iframe' | 'external connection' | 'unknown';
+import { Base, EmitterBase } from "../base";
+import { Identity } from "../../identity";
+import Transport from "../../transport/transport";
+export declare type EntityType =
+    | "window"
+    | "iframe"
+    | "external connection"
+    | "unknown";
 export interface FrameInfo {
     uuid: string;
     name: string;
@@ -46,6 +50,9 @@ export declare class _Frame extends EmitterBase {
     getParentWindow(): Promise<FrameInfo>;
 }
 export interface _Frame {
-    on(type: 'connected', listener: (eventType: string) => void): Promise<void>;
-    on(type: 'disconnected', listener: (eventType: string) => void): Promise<void>;
+    on(type: "connected", listener: (eventType: string) => void): Promise<void>;
+    on(
+        type: "disconnected",
+        listener: (eventType: string) => void
+    ): Promise<void>;
 }

@@ -1,6 +1,6 @@
-import pLog = require('p-log');
+import pLog = require("p-log");
 
-Promise.resolve('unicorn')
+Promise.resolve("unicorn")
     .then(pLog())
     .then(val => {
         val; // $ExpectType string
@@ -8,8 +8,7 @@ Promise.resolve('unicorn')
 
 Promise.resolve()
     .then(() => {
-        throw new Error('pony');
+        throw new Error("pony");
     })
     .catch(pLog.catch())
-    .catch(error => {
-    });
+    .catch(error => {});

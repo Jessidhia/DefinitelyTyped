@@ -24,7 +24,7 @@
  *
  */
 
-import { MDCChip } from '../chip';
+import { MDCChip } from "../chip";
 
 export default interface MDCChipSetAdapter {
     /**
@@ -42,7 +42,11 @@ export default interface MDCChipSetAdapter {
     /**
      * Appends and returns a new chip element with the given text, leading icon, and trailing icon.
      */
-    appendChip(text: string, leadingIcon?: Element | null, trailingIcon?: Element | null): Element;
+    appendChip(
+        text: string,
+        leadingIcon?: Element | null,
+        trailingIcon?: Element | null
+    ): Element;
     /**
      * Removes the chip object from the chip set.
      */

@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'prosemirror-state';
+import { Plugin } from "prosemirror-state";
 
 /**
  * Create a plugin that, when added to a ProseMirror instance,
@@ -17,4 +17,7 @@ import { Plugin } from 'prosemirror-state';
  * @param options.color The color of the cursor. Defaults to `black`.
  * @param options.width The precise width of the cursor in pixels. Defaults to 1.
  */
-export function dropCursor(options?: { color?: string | null, width?: number | null }): Plugin;
+export function dropCursor(options?: {
+    color?: string | null;
+    width?: number | null;
+}): Plugin;

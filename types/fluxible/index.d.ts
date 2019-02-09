@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.5
 /// <reference types="node" />
-import { Dispatcher, DispatcherInterface, StoreClass } from 'dispatchr';
-import BaseStore = require('./addons/BaseStore');
+import { Dispatcher, DispatcherInterface, StoreClass } from "dispatchr";
+import BaseStore = require("./addons/BaseStore");
 
 export interface FluxibleConfiguration {
     /**
@@ -140,7 +140,9 @@ export class FluxibleContext {
     /**
      * Getter for store from dispatcher
      */
-    getStore<T extends BaseStore>(store: { new(dispatcher: DispatcherInterface): T; }): T;
+    getStore<T extends BaseStore>(store: {
+        new (dispatcher: DispatcherInterface): T;
+    }): T;
 }
 
 export class ActionContext {
@@ -157,12 +159,22 @@ export class ActionContext {
      * @param payload
      * @param callback
      */
-    executeAction(action: (context: ActionContext, params: object, callback?: () => void) => void, payload?: any, callback?: any): void;
+    executeAction(
+        action: (
+            context: ActionContext,
+            params: object,
+            callback?: () => void
+        ) => void,
+        payload?: any,
+        callback?: any
+    ): void;
 
     /**
      * Getter for store from dispatcher
      */
-    getStore<T extends BaseStore>(store: { new(dispatcher: DispatcherInterface): T; }): T;
+    getStore<T extends BaseStore>(store: {
+        new (dispatcher: DispatcherInterface): T;
+    }): T;
 
     /**
      * Data service. available only if fetch plugin is added
@@ -174,7 +186,11 @@ export class ActionContext {
          * @param params query string parameters as key-value object
          * @param callback
          */
-        read: (resource: string, params: any, callback: (error: Error, data: any) => void) => void;
+        read: (
+            resource: string,
+            params: any,
+            callback: (error: Error, data: any) => void
+        ) => void;
         /**
          * POST request to the server
          * @param resource name of resourse
@@ -182,7 +198,12 @@ export class ActionContext {
          * @param body json request body
          * @param callback
          */
-        create: (resource: string, params: any, body: any, callback: (error: Error, data: any) => void) => void;
+        create: (
+            resource: string,
+            params: any,
+            body: any,
+            callback: (error: Error, data: any) => void
+        ) => void;
         /**
          *
          * @param resource name of resourse
@@ -190,14 +211,23 @@ export class ActionContext {
          * @param body json request body
          * @param callback
          */
-        update: (resource: string, params: any, body: any, callback: (error: Error, data: any) => void) => void;
+        update: (
+            resource: string,
+            params: any,
+            body: any,
+            callback: (error: Error, data: any) => void
+        ) => void;
         /**
          *
          * @param resource name of resourse
          * @param params query string parameters as key-value object
          * @param callback
          */
-        delete: (resource: string, params: any, callback: (error: Error, data: any) => void) => void;
+        delete: (
+            resource: string,
+            params: any,
+            callback: (error: Error, data: any) => void
+        ) => void;
     };
 }
 
@@ -208,13 +238,21 @@ export class ComponentContext {
      * @param payload
      * @param callback
      */
-    executeAction(action: (context: ActionContext, params: object, callback?: () => void) => void, payload?: any): void;
+    executeAction(
+        action: (
+            context: ActionContext,
+            params: object,
+            callback?: () => void
+        ) => void,
+        payload?: any
+    ): void;
 
     /**
      * Getter for store from dispatcher
      */
-    getStore<T extends BaseStore>(store: { new(dispatcher: DispatcherInterface): T; }): T;
+    getStore<T extends BaseStore>(store: {
+        new (dispatcher: DispatcherInterface): T;
+    }): T;
 }
 
-export class StoreContext {
-}
+export class StoreContext {}

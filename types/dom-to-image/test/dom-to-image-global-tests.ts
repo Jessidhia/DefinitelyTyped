@@ -2,14 +2,14 @@ const node = new Node();
 
 const options: DomToImage.Options = {
     filter,
-    bgcolor: '#24292e',
+    bgcolor: "#24292e",
     style: {
-        width: '100px'
+        width: "100px"
     },
     width: 100,
     height: 100,
     quality: 0.1,
-    imagePlaceholder: 'data:image/gif;base64,R0lGODlhAQABAIAAAP',
+    imagePlaceholder: "data:image/gif;base64,R0lGODlhAQABAIAAAP",
     cachebust: true
 };
 
@@ -22,7 +22,10 @@ async function testToSvg() {
 }
 
 async function testToPng() {
-    const png = await DomToImage.toPng(node, { bgcolor: '#24292e', style: { width: '100px' } });
+    const png = await DomToImage.toPng(node, {
+        bgcolor: "#24292e",
+        style: { width: "100px" }
+    });
 }
 
 async function testToJpeg() {
@@ -30,9 +33,12 @@ async function testToJpeg() {
 }
 
 async function testToBlob() {
-    const blob = await DomToImage.toBlob(node, { quality: 0.1, });
+    const blob = await DomToImage.toBlob(node, { quality: 0.1 });
 }
 
 async function testToPixelData() {
-    const pixelData = await DomToImage.toPixelData(node, { imagePlaceholder: 'data:image/gif;base64,R0lGODlhAQABAIAAAP', cachebust: true });
+    const pixelData = await DomToImage.toPixelData(node, {
+        imagePlaceholder: "data:image/gif;base64,R0lGODlhAQABAIAAAP",
+        cachebust: true
+    });
 }

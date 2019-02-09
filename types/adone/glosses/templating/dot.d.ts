@@ -23,7 +23,11 @@ declare namespace adone.templating {
 
         let templateSettings: I.TemplateSettings;
 
-        function template(tmpl: string, c?: I.TemplateSettings, def?: {}): I.RenderFunction;
+        function template(
+            tmpl: string,
+            c?: I.TemplateSettings,
+            def?: {}
+        ): I.RenderFunction;
 
         function compile(tmpl: string, def?: object): I.RenderFunction;
 
@@ -36,6 +40,8 @@ declare namespace adone.templating {
             }
         }
 
-        function process(options?: I.ProcessOptions): { [path: string]: I.RenderFunction };
+        function process(
+            options?: I.ProcessOptions
+        ): { [path: string]: I.RenderFunction };
     }
 }

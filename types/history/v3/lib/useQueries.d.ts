@@ -1,4 +1,11 @@
-import { CreateHistory, Href, LocationState, Path, Pathname, Query } from "history";
+import {
+    CreateHistory,
+    Href,
+    LocationState,
+    Path,
+    Pathname,
+    Query
+} from "history";
 
 export interface HistoryQueries {
     pushState(state: LocationState, pathname: Pathname, query?: Query): void;
@@ -7,4 +14,6 @@ export interface HistoryQueries {
     createHref(path: Path, query?: Query): Href;
 }
 
-export default function useQueries<O, H>(createHistory: CreateHistory<O, H>): CreateHistory<O, H & HistoryQueries>;
+export default function useQueries<O, H>(
+    createHistory: CreateHistory<O, H>
+): CreateHistory<O, H & HistoryQueries>;

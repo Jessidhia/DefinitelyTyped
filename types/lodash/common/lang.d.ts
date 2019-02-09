@@ -16,14 +16,18 @@ declare module "../index" {
         /**
          * @see _.castArray
          */
-        castArray<T>(this: LoDashImplicitWrapper<Many<T>>): LoDashImplicitWrapper<T[]>;
+        castArray<T>(
+            this: LoDashImplicitWrapper<Many<T>>
+        ): LoDashImplicitWrapper<T[]>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.castArray
          */
-        castArray<T>(this: LoDashExplicitWrapper<Many<T>>): LoDashExplicitWrapper<T[]>;
+        castArray<T>(
+            this: LoDashExplicitWrapper<Many<T>>
+        ): LoDashExplicitWrapper<T[]>;
     }
 
     // clone
@@ -85,7 +89,12 @@ declare module "../index" {
 
     // cloneDeepWith
 
-    type CloneDeepWithCustomizer<TObject> = (value: any, key: number | string | undefined, object: TObject | undefined, stack: any) => any;
+    type CloneDeepWithCustomizer<TObject> = (
+        value: any,
+        key: number | string | undefined,
+        object: TObject | undefined,
+        stack: any
+    ) => any;
 
     interface LoDashStatic {
         /**
@@ -95,10 +104,7 @@ declare module "../index" {
          * @param customizer The function to customize cloning.
          * @return Returns the deep cloned value.
          */
-        cloneDeepWith<T>(
-            value: T,
-            customizer: CloneDeepWithCustomizer<T>
-        ): any;
+        cloneDeepWith<T>(value: T, customizer: CloneDeepWithCustomizer<T>): any;
 
         /**
          * @see _.cloneDeepWith
@@ -110,9 +116,7 @@ declare module "../index" {
         /**
          * @see _.cloneDeepWith
          */
-        cloneDeepWith(
-            customizer: CloneDeepWithCustomizer<TValue>
-        ): any;
+        cloneDeepWith(customizer: CloneDeepWithCustomizer<TValue>): any;
 
         /**
          * @see _.cloneDeepWith
@@ -136,7 +140,12 @@ declare module "../index" {
 
     // cloneWith
 
-    type CloneWithCustomizer<TValue, TResult> = (value: TValue, key: number | string | undefined, object: any, stack: any) => TResult;
+    type CloneWithCustomizer<TValue, TResult> = (
+        value: TValue,
+        key: number | string | undefined,
+        object: any,
+        stack: any
+    ) => TResult;
 
     interface LoDashStatic {
         /**
@@ -224,7 +233,10 @@ declare module "../index" {
         /**
          * @see _.conformsTo
          */
-        conformsTo<T>(this: LoDashImplicitWrapper<T>, source: ConformsPredicateObject<T>): boolean;
+        conformsTo<T>(
+            this: LoDashImplicitWrapper<T>,
+            source: ConformsPredicateObject<T>
+        ): boolean;
         // Note: we can't use TValue here,  because it generates a typescript error when strictFunctionTypes is enabled.
     }
 
@@ -232,7 +244,10 @@ declare module "../index" {
         /**
          * @see _.conformsTo
          */
-        conformsTo<T>(this: LoDashExplicitWrapper<T>, source: ConformsPredicateObject<T>): LoDashExplicitWrapper<boolean>;
+        conformsTo<T>(
+            this: LoDashExplicitWrapper<T>,
+            source: ConformsPredicateObject<T>
+        ): LoDashExplicitWrapper<boolean>;
         // Note: we can't use TValue here,  because it generates a typescript error when strictFunctionTypes is enabled.
     }
 
@@ -269,28 +284,21 @@ declare module "../index" {
          * _.eq(NaN, NaN);
          * // => true
          */
-        eq(
-            value: any,
-            other: any
-        ): boolean;
+        eq(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.eq
          */
-        eq(
-            other: any
-        ): boolean;
+        eq(other: any): boolean;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.eq
          */
-        eq(
-            other: any
-        ): LoDashExplicitWrapper<boolean>;
+        eq(other: any): LoDashExplicitWrapper<boolean>;
     }
 
     // gt
@@ -303,10 +311,7 @@ declare module "../index" {
          * @param other The other value to compare.
          * @return Returns true if value is greater than other, else false.
          */
-        gt(
-            value: any,
-            other: any
-        ): boolean;
+        gt(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -333,10 +338,7 @@ declare module "../index" {
          * @param other The other value to compare.
          * @return Returns true if value is greater than or equal to other, else false.
          */
-        gte(
-            value: any,
-            other: any
-        ): boolean;
+        gte(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -466,7 +468,9 @@ declare module "../index" {
         /**
          * @see _.isArrayLike
          */
-        isArrayLike(value: ((...args: any[]) => any) | null | undefined): value is never;
+        isArrayLike(
+            value: ((...args: any[]) => any) | null | undefined
+        ): value is never;
 
         /**
          * @see _.isArrayLike
@@ -518,13 +522,32 @@ declare module "../index" {
          * @see _.isArrayLike
          */
         // tslint:disable-next-line:ban-types (type guard doesn't seem to work correctly without the Function type)
-        isArrayLikeObject(value: ((...args: any[]) => any) | Function | string | boolean | number | null | undefined): value is never;
+        isArrayLikeObject(
+            value:
+                | ((...args: any[]) => any)
+                | Function
+                | string
+                | boolean
+                | number
+                | null
+                | undefined
+        ): value is never;
 
         /**
          * @see _.isArrayLike
          */
         // tslint:disable-next-line:ban-types (type guard doesn't seem to work correctly without the Function type)
-        isArrayLikeObject<T extends object>(value: T | ((...args: any[]) => any) | Function | string | boolean | number | null | undefined): value is T & { length: number };
+        isArrayLikeObject<T extends object>(
+            value:
+                | T
+                | ((...args: any[]) => any)
+                | Function
+                | string
+                | boolean
+                | number
+                | null
+                | undefined
+        ): value is T & { length: number };
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -700,33 +723,33 @@ declare module "../index" {
          * object === other;
          * // => false
          */
-        isEqual(
-            value: any,
-            other: any
-        ): boolean;
+        isEqual(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.isEqual
          */
-        isEqual(
-            other: any
-        ): boolean;
+        isEqual(other: any): boolean;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.isEqual
          */
-        isEqual(
-            other: any
-        ): LoDashExplicitWrapper<boolean>;
+        isEqual(other: any): LoDashExplicitWrapper<boolean>;
     }
 
     // isEqualWith
 
-    type IsEqualCustomizer = (value: any, other: any, indexOrKey: PropertyName | undefined, parent: any, otherParent: any, stack: any) => boolean|undefined;
+    type IsEqualCustomizer = (
+        value: any,
+        other: any,
+        indexOrKey: PropertyName | undefined,
+        parent: any,
+        otherParent: any,
+        stack: any
+    ) => boolean | undefined;
 
     interface LoDashStatic {
         /**
@@ -769,10 +792,7 @@ declare module "../index" {
         /**
          * @see _.isEqualWith
          */
-        isEqualWith(
-            other: any,
-            customizer?: IsEqualCustomizer
-        ): boolean;
+        isEqualWith(other: any, customizer?: IsEqualCustomizer): boolean;
     }
 
     interface LoDashExplicitWrapper<TValue> {
@@ -978,7 +998,11 @@ declare module "../index" {
 
     // isMatch
 
-    type isMatchCustomizer = (value: any, other: any, indexOrKey?: PropertyName) => boolean;
+    type isMatchCustomizer = (
+        value: any,
+        other: any,
+        indexOrKey?: PropertyName
+    ) => boolean;
 
     interface LoDashStatic {
         /**
@@ -1020,7 +1044,13 @@ declare module "../index" {
 
     // isMatchWith
 
-    type isMatchWithCustomizer = (value: any, other: any, indexOrKey: PropertyName, object: object, source: object) => boolean;
+    type isMatchWithCustomizer = (
+        value: any,
+        other: any,
+        indexOrKey: PropertyName,
+        object: object,
+        source: object
+    ) => boolean;
 
     interface LoDashStatic {
         /**
@@ -1052,7 +1082,11 @@ declare module "../index" {
          * _.isMatchWith(object, source, customizer);
          * // => true
          */
-        isMatchWith(object: object, source: object, customizer: isMatchWithCustomizer): boolean;
+        isMatchWith(
+            object: object,
+            source: object,
+            customizer: isMatchWithCustomizer
+        ): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -1066,7 +1100,10 @@ declare module "../index" {
         /**
          * @see _.isMatchWith
          */
-        isMatchWith(source: object, customizer: isMatchWithCustomizer): LoDashExplicitWrapper<boolean>;
+        isMatchWith(
+            source: object,
+            customizer: isMatchWithCustomizer
+        ): LoDashExplicitWrapper<boolean>;
     }
 
     // isNaN
@@ -1580,10 +1617,7 @@ declare module "../index" {
          * @param other The other value to compare.
          * @return Returns true if value is less than other, else false.
          */
-        lt(
-            value: any,
-            other: any
-        ): boolean;
+        lt(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -1610,10 +1644,7 @@ declare module "../index" {
          * @param other The other value to compare.
          * @return Returns true if value is less than or equal to other, else false.
          */
-        lte(
-            value: any,
-            other: any
-        ): boolean;
+        lte(value: any, other: any): boolean;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -1639,7 +1670,14 @@ declare module "../index" {
          * @param value The value to convert.
          * @return Returns the converted array.
          */
-        toArray<T>(value: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined): T[];
+        toArray<T>(
+            value:
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+        ): T[];
 
         /**
          * @see _.toArray
@@ -1656,24 +1694,44 @@ declare module "../index" {
         /**
          * @see _.toArray
          */
-        toArray<T>(this: LoDashImplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>): LoDashImplicitWrapper<T[]>;
+        toArray<T>(
+            this: LoDashImplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
+        ): LoDashImplicitWrapper<T[]>;
 
         /**
          * @see _.toArray
          */
-        toArray<T extends object>(this: LoDashImplicitWrapper<T>): LoDashImplicitWrapper<Array<T[keyof T]>>;
+        toArray<T extends object>(
+            this: LoDashImplicitWrapper<T>
+        ): LoDashImplicitWrapper<Array<T[keyof T]>>;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.toArray
          */
-        toArray<T>(this: LoDashExplicitWrapper<List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined>): LoDashExplicitWrapper<T[]>;
+        toArray<T>(
+            this: LoDashExplicitWrapper<
+                | List<T>
+                | Dictionary<T>
+                | NumericDictionary<T>
+                | null
+                | undefined
+            >
+        ): LoDashExplicitWrapper<T[]>;
 
         /**
          * @see _.toArray
          */
-        toArray<T extends object>(this: LoDashImplicitWrapper<T>): LoDashExplicitWrapper<Array<T[keyof T]>>;
+        toArray<T extends object>(
+            this: LoDashImplicitWrapper<T>
+        ): LoDashExplicitWrapper<Array<T[keyof T]>>;
     }
 
     // toFinite

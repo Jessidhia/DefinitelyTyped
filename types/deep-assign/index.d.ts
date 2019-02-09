@@ -22,7 +22,11 @@ declare function deepAssign<T, U>(target: T, source: U): T & U;
  * @param source1 First extending object
  * @param source2 Second extending object
  */
-declare function deepAssign<T, U, V>(target: T, source1: U, source2: V): T & U & V;
+declare function deepAssign<T, U, V>(
+    target: T,
+    source1: U,
+    source2: V
+): T & U & V;
 /**
  * Deeply assigns all the properties of the source objects to the
  * target object
@@ -31,7 +35,12 @@ declare function deepAssign<T, U, V>(target: T, source1: U, source2: V): T & U &
  * @param source2 Second extending object
  * @param source3 Third extending object
  */
-declare function deepAssign<T, U, V, W>(target: T, source1: U, source2: V, source3: W): T & U & V & W;
+declare function deepAssign<T, U, V, W>(
+    target: T,
+    source1: U,
+    source2: V,
+    source3: W
+): T & U & V & W;
 /**
  * Deeply assigns all the properties of the source objects to the
  * target object
@@ -41,7 +50,13 @@ declare function deepAssign<T, U, V, W>(target: T, source1: U, source2: V, sourc
  * @param source3 Third extending object
  * @param source4 Fourth extending object
  */
-declare function deepAssign<T, U, V, W, X>(target: T, source1: U, source2: V, source3: W, source4: X): T & U & V & W & X;
+declare function deepAssign<T, U, V, W, X>(
+    target: T,
+    source1: U,
+    source2: V,
+    source3: W,
+    source4: X
+): T & U & V & W & X;
 /**
  * Deeply assigns all the properties of the source objects to the
  * target object
@@ -52,7 +67,14 @@ declare function deepAssign<T, U, V, W, X>(target: T, source1: U, source2: V, so
  * @param source4 Fourth extending object
  * @param source5 Fifth extending object
  */
-declare function deepAssign<T, U, V, W, X, Y>(target: T, source1: U, source2: V, source3: W, source4: X, source5: Y): T & U & V & W & X & Y;
+declare function deepAssign<T, U, V, W, X, Y>(
+    target: T,
+    source1: U,
+    source2: V,
+    source3: W,
+    source4: X,
+    source5: Y
+): T & U & V & W & X & Y;
 /**
  * Deeply assigns all the properties of the source objects to the
  * target object
@@ -64,7 +86,15 @@ declare function deepAssign<T, U, V, W, X, Y>(target: T, source1: U, source2: V,
  * @param source5 Fifth extending object
  * @param source6 Sixth extending object
  */
-declare function deepAssign<T, U, V, W, X, Y, Z>(target: T, source1: U, source2: V, source3: W, source4: X, source5: Y, source6: Z): T & U & V & W & X & Y & Z;
+declare function deepAssign<T, U, V, W, X, Y, Z>(
+    target: T,
+    source1: U,
+    source2: V,
+    source3: W,
+    source4: X,
+    source5: Y,
+    source6: Z
+): T & U & V & W & X & Y & Z;
 /**
  * Deeply assigns all the properties of the source objects to the
  * target object

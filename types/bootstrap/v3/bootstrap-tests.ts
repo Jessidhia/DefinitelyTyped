@@ -4,7 +4,7 @@ declare let aHtmlElement: HTMLElement;
 // jQuery backward compatibility
 // --------------------------------------------------------------------------------------
 
-$(".dropdown").on("affixed.bs.affix", (e) => {
+$(".dropdown").on("affixed.bs.affix", e => {
     e.stopPropagation();
 });
 
@@ -26,11 +26,11 @@ $(".modal").modal({
     backdrop: "static",
     keyboard: false,
     show: true,
-    remote: "remote.html",
+    remote: "remote.html"
 });
 
 $(".modal").modal({
-    backdrop: false,
+    backdrop: false
 });
 
 // --------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ $(".dropdown").dropdown();
 // $ExpectType JQuery<HTMLElement>
 $(".dropdown").dropdown("toggle");
 
-$(".dropdown").on("show.bs.dropdown", (e) => {
+$(".dropdown").on("show.bs.dropdown", e => {
     aHtmlElement = e.relatedTarget;
 });
 
@@ -59,7 +59,7 @@ $(".navbar").scrollspy("refresh");
 
 $(".navbar").scrollspy({
     target: "#navbar-example",
-    offset: 10,
+    offset: 10
 });
 
 $(".navbar").on("activate.bs.scrollspy", () => {
@@ -76,7 +76,7 @@ $(".tab").tab();
 // $ExpectType JQuery<HTMLElement>
 $(".tab").tab("show");
 
-$(".tab").on("shown.bs.tab", (e) => {
+$(".tab").on("shown.bs.tab", e => {
     aHtmlElement = e.target; // newly activated tab
     aHtmlElement = e.relatedTarget; // previous active tab
 });
@@ -101,26 +101,28 @@ $(".tooltip").tooltip({
     template: '<div class="tooltip" role="tooltip"></div>',
     title: "",
     trigger: "hover focus",
-    viewport: { selector: "body", padding: 0 },
+    viewport: { selector: "body", padding: 0 }
 });
 
 $(".tooltip").tooltip({
-    container: "body",
+    container: "body"
 });
 
 $(".tooltip").tooltip({
-    delay: { show: 500, hide: 100 },
+    delay: { show: 500, hide: 100 }
 });
 
 $(".tooltip").tooltip({
-    placement() { return "top"; },
+    placement() {
+        return "top";
+    }
 });
 
 $(".tooltip").tooltip({
     placement(tooltip: HTMLElement, trigger: Element) {
         console.log(this.options.delay);
         return "top";
-    },
+    }
 });
 
 $(".tooltip").tooltip({
@@ -128,15 +130,17 @@ $(".tooltip").tooltip({
         // $ExpectError
         console.log(this.options.content); // only for PopoverOption, not TooltipOption
         return "top";
-    },
+    }
 });
 
 $(".tooltip").tooltip({
-    title() { return this.id; },
+    title() {
+        return this.id;
+    }
 });
 
 $(".tooltip").tooltip({
-    viewport: "body",
+    viewport: "body"
 });
 
 $(".tooltip").on("hidden.bs.tooltip", () => {
@@ -164,38 +168,44 @@ $(".popover").popover({
     template: '<div class="tooltip" role="tooltip"></div>',
     title: "",
     trigger: "hover focus",
-    viewport: { selector: "body", padding: 0 },
+    viewport: { selector: "body", padding: 0 }
 });
 
 $(".popover").popover({
-    container: "body",
+    container: "body"
 });
 
 $(".popover").popover({
-    content() { return `Elem id: ${this.id}`; },
+    content() {
+        return `Elem id: ${this.id}`;
+    }
 });
 
 $(".popover").popover({
-    delay: { show: 500, hide: 100 },
+    delay: { show: 500, hide: 100 }
 });
 
 $(".popover").popover({
-    placement() { return "top"; },
+    placement() {
+        return "top";
+    }
 });
 
 $(".popover").popover({
     placement(tooltip: HTMLElement, trigger: Element) {
         console.log(this.options.content);
         return "top";
-    },
+    }
 });
 
 $(".popover").popover({
-    title() { return `Elem id: ${this.id}`; },
+    title() {
+        return `Elem id: ${this.id}`;
+    }
 });
 
 $(".popover").popover({
-    viewport: "body",
+    viewport: "body"
 });
 
 $(".popover").on("hidden.bs.popover", () => {
@@ -239,7 +249,7 @@ $(".collapse").collapse("toggle");
 
 $(".collapse").collapse({
     parent: "#selector",
-    toggle: false,
+    toggle: false
 });
 
 $(".collapse").on("hidden.bs.collapse", () => {
@@ -262,18 +272,18 @@ $(".carousel").carousel({
     interval: 2000,
     pause: "hover",
     wrap: true,
-    keyboard: false,
+    keyboard: false
 });
 
 $(".carousel").carousel({
-    interval: false,
+    interval: false
 });
 
 $(".carousel").carousel({
-    pause: null,
+    pause: null
 });
 
-$("#myCarousel").on("slide.bs.carousel", (e) => {
+$("#myCarousel").on("slide.bs.carousel", e => {
     const dir: "left" | "right" = e.direction;
     aHtmlElement = e.relatedTarget;
 });
@@ -290,19 +300,19 @@ $(".affix").affix("checkPosition");
 
 $(".affix").affix({
     offset: 10,
-    target: window,
+    target: window
 });
 
 $(".affix").affix({
-    offset: { top: 10, bottom: 5 },
+    offset: { top: 10, bottom: 5 }
 });
 
 $(".affix").affix({
-    offset: { top: 10 },
+    offset: { top: 10 }
 });
 
 $(".affix").affix({
-    offset: { bottom: () => 10 },
+    offset: { bottom: () => 10 }
 });
 
 $(".affix").affix({
@@ -311,20 +321,20 @@ $(".affix").affix({
         bottom() {
             const that = this as BootstrapOffset;
             return (that.bottom = $(".footer").outerHeight(true)!);
-        },
+        }
     }
 });
 
 $(".affix").affix({
-    target: ".selector",
+    target: ".selector"
 });
 
 $(".affix").affix({
-    target: document.getElementById("id")!,
+    target: document.getElementById("id")!
 });
 
 $(".affix").affix({
-    target: $("#id"),
+    target: $("#id")
 });
 
 // --------------------------------------------------------------------------------------
@@ -335,4 +345,6 @@ $(".item").emulateTransitionEnd(2000);
 
 $.support.transition = false;
 
-console.log(($.support.transition as TransitionEventNames).end === "transitionend");
+console.log(
+    ($.support.transition as TransitionEventNames).end === "transitionend"
+);

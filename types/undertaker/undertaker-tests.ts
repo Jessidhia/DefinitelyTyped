@@ -11,7 +11,8 @@ taker.task("task1", (cb: () => void) => {
 });
 
 taker.task("task2", () => {
-    return fs.createReadStream("./myFile.js")
+    return fs
+        .createReadStream("./myFile.js")
         .pipe(fs.createWriteStream("./myFile.copy.js"));
 });
 
@@ -37,10 +38,13 @@ const CommonRegistry = (options: { buildDir: string }): Registry => {
 
 const taker2 = new Undertaker(CommonRegistry({ buildDir: "/dist" }));
 
-taker2.task("build", taker2.series("clean", (cb: () => void) => {
-    // do things
-    cb();
-}));
+taker2.task(
+    "build",
+    taker2.series("clean", (cb: () => void) => {
+        // do things
+        cb();
+    })
+);
 
 taker2.addListener("event", () => {
     // Checking for extended EventEmitter

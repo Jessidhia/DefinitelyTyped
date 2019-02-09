@@ -1,4 +1,4 @@
-import untildify = require('untildify');
+import untildify = require("untildify");
 
 // $ExpectType string
-untildify('~/dev');
+untildify("~/dev");

@@ -1,3 +1,3 @@
-import compareVersions = require('compare-versions');
+import compareVersions = require("compare-versions");
 
-compareVersions('1.0.0', '2.0.0');
+compareVersions("1.0.0", "2.0.0");

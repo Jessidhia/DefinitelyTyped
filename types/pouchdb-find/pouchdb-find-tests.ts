@@ -3,21 +3,21 @@ function testFind() {
 
     db.find({
         selector: {},
-        fields: ['fieldName'],
-        sort: ['fieldName'],
+        fields: ["fieldName"],
+        sort: ["fieldName"],
         limit: 1,
         skip: 1,
-        use_index: 'ddocName'
+        use_index: "ddocName"
     });
 
     db.find({
         selector: {},
-        use_index: ['ddocName', 'name']
+        use_index: ["ddocName", "name"]
     });
 
     db.find({
         selector: {},
-        sort: [{fieldName: 'asc'}]
+        sort: [{ fieldName: "asc" }]
     });
 
     // test combinations of selectors
@@ -49,7 +49,7 @@ function testFind() {
             },
 
             // value
-            bar: 'any value',
+            bar: "any value",
 
             // combinatons
             $and: [],
@@ -61,7 +61,7 @@ function testFind() {
             sub: {
                 $and: [
                     {
-                        foo: 'bar',
+                        foo: "bar",
                         bar: {
                             $gt: null
                         }

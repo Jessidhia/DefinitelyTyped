@@ -1,4 +1,4 @@
-import * as webdriver from './index';
+import * as webdriver from "./index";
 
 /**
  * A WebDriver client for Microsoft's Internet Explorer.
@@ -13,7 +13,10 @@ export class Driver extends webdriver.WebDriver {
      *     or {@code null} to use the currently active flow.
      * @return {!Driver} A new driver instance.
      */
-    static createSession(opt_config?: webdriver.Capabilities | Options, opt_flow?: webdriver.promise.ControlFlow): Driver;
+    static createSession(
+        opt_config?: webdriver.Capabilities | Options,
+        opt_flow?: webdriver.promise.ControlFlow
+    ): Driver;
 
     /**
      * This function is a no-op as file detectors are not supported by this
@@ -49,7 +52,9 @@ export class Options {
      * @param {boolean} ignoreSettings Whether to ignore protected mode settings.
      * @return {!Options} A self reference.
      */
-    introduceFlakinessByIgnoringProtectedModeSettings(ignoreSettings: boolean): Options;
+    introduceFlakinessByIgnoringProtectedModeSettings(
+        ignoreSettings: boolean
+    ): Options;
 
     /**
      * Indicates whether to skip the check that the browser's zoom level is set to
@@ -204,5 +209,7 @@ export class Options {
      *     merge these options into, if any.
      * @return {!capabilities.Capabilities} The capabilities.
      */
-    toCapabilities(opt_capabilities?: webdriver.Capabilities): webdriver.Capabilities;
+    toCapabilities(
+        opt_capabilities?: webdriver.Capabilities
+    ): webdriver.Capabilities;
 }

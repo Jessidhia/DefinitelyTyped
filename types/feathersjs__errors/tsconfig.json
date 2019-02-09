@@ -1,30 +1,20 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "@feathersjs/errors": [
-                "feathersjs__errors"
-            ],
-            "@feathersjs/errors/handler": [
-                "feathersjs__errors/handler"
-            ],
-            "@feathersjs/errors/not-found": [
-                "feathersjs__errors/not-found"
-            ]
+            "@feathersjs/errors": ["feathersjs__errors"],
+            "@feathersjs/errors/handler": ["feathersjs__errors/handler"],
+            "@feathersjs/errors/not-found": ["feathersjs__errors/not-found"]
         }
     },
     "files": [

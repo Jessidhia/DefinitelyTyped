@@ -4,12 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-declare function parseXml(name: string, options?: parseXml.ParseOptions): parseXml.Document;
+declare function parseXml(
+    name: string,
+    options?: parseXml.ParseOptions
+): parseXml.Document;
 
 declare namespace parseXml {
     interface NodeBase {
-      parent?: NodeBase;
-      type: string;
+        parent?: NodeBase;
+        type: string;
     }
 
     interface Document extends NodeBase {

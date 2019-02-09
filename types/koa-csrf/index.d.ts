@@ -21,7 +21,7 @@ app.use(new koaCsrf({
 
 export = koaCsrf;
 
-import { Middleware } from 'koa';
+import { Middleware } from "koa";
 
 declare module "koa" {
     interface Context {

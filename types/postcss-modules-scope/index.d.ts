@@ -8,7 +8,11 @@ import { Plugin } from "postcss";
 
 declare namespace scope {
     interface Options {
-        generateScopedName?: (exportedName: string, path: string, css: string) => string;
+        generateScopedName?: (
+            exportedName: string,
+            path: string,
+            css: string
+        ) => string;
     }
 
     type Scope = Plugin<Options>;

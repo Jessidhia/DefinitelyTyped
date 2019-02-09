@@ -1,5 +1,11 @@
-import { InputStream, CommonTokenStream, Lexer, Parser, ParserRuleContext } from 'antlr4';
-import { TerminalNode } from 'antlr4/tree/Tree';
+import {
+    InputStream,
+    CommonTokenStream,
+    Lexer,
+    Parser,
+    ParserRuleContext
+} from "antlr4";
+import { TerminalNode } from "antlr4/tree/Tree";
 
 export declare class CLexer extends Lexer {
     readonly channelNames: string[];
@@ -2148,7 +2154,7 @@ export declare class CParser extends Parser {
     getErrorListenerDispatch(): any;
 }
 
-const inputStream = new InputStream('int x = 10;');
+const inputStream = new InputStream("int x = 10;");
 const lexer = new CLexer(inputStream);
 const tokenStream = new CommonTokenStream(lexer);
 const parser = new CParser(tokenStream);

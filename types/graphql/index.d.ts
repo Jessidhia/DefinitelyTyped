@@ -155,7 +155,7 @@ export {
     GraphQLDirectiveConfig,
     GraphQLScalarSerializer,
     GraphQLScalarValueParser,
-    GraphQLScalarLiteralParser,
+    GraphQLScalarLiteralParser
 } from "./type";
 
 // Parse and operate on GraphQL language source files.
@@ -256,7 +256,7 @@ export {
     InputObjectTypeExtensionNode,
     KindEnum,
     TokenKindEnum,
-    DirectiveLocationEnum,
+    DirectiveLocationEnum
 } from "./language";
 
 // Execute GraphQL queries.
@@ -267,7 +267,7 @@ export {
     getDirectiveValues,
     // type
     ExecutionArgs,
-    ExecutionResult,
+    ExecutionResult
 } from "./execution";
 
 export { subscribe, createSourceEventStream } from "./subscription";
@@ -303,11 +303,16 @@ export {
     UniqueVariableNamesRule,
     ValuesOfCorrectTypeRule,
     VariablesAreInputTypesRule,
-    VariablesInAllowedPositionRule,
+    VariablesInAllowedPositionRule
 } from "./validation";
 
 // Create and format GraphQL errors.
-export { GraphQLError, formatError, printError, GraphQLFormattedError } from "./error";
+export {
+    GraphQLError,
+    formatError,
+    printError,
+    GraphQLFormattedError
+} from "./error";
 
 // Utilities for operating on GraphQL type schema and parsed sources.
 export {
@@ -404,5 +409,5 @@ export {
     IntrospectionSchema,
     IntrospectionType,
     IntrospectionTypeRef,
-    IntrospectionUnionType,
+    IntrospectionUnionType
 } from "./utilities";

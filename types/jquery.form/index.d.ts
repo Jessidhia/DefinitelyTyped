@@ -4,12 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-
 /// <reference types="jquery"/>
 
 interface JQueryFormOptions extends JQueryAjaxSettings {
     beforeSerialize?: ($form: JQuery, options: JQueryFormOptions) => boolean;
-    beforeSubmit?: (formData: any[], $form: JQuery, options: JQueryFormOptions) => boolean;
+    beforeSubmit?: (
+        formData: any[],
+        $form: JQuery,
+        options: JQueryFormOptions
+    ) => boolean;
     clearForm?: boolean;
     forceSync?: boolean;
     iframe?: boolean;
@@ -19,7 +22,12 @@ interface JQueryFormOptions extends JQueryAjaxSettings {
     resetForm?: boolean;
     semantic?: boolean;
     target?: any;
-    uploadProgress?: (event: ProgressEvent, position: number, total: number, percentComplete: number) => void;
+    uploadProgress?: (
+        event: ProgressEvent,
+        position: number,
+        total: number,
+        percentComplete: number
+    ) => void;
 }
 
 interface JQueryForm {

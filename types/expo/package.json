@@ -1,6 +1,6 @@
 {
-  "private": true,
-  "dependencies": {
-    "react-native-maps": "*"
-  }
+    "private": true,
+    "dependencies": {
+        "react-native-maps": "*"
+    }
 }

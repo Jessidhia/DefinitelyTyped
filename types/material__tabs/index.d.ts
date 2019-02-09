@@ -20,6 +20,10 @@
  * limitations under the License.
  */
 
-export { MDCTabFoundation, MDCTab, MDCTabAdapter } from './tab';
-export { MDCTabBarFoundation, MDCTabBar, MDCTabBarAdapter } from './tab-bar';
-export { MDCTabBarScrollerFoundation, MDCTabBarScroller, MDCTabBarScrollerAdapter } from './tab-bar-scroller';
+export { MDCTabFoundation, MDCTab, MDCTabAdapter } from "./tab";
+export { MDCTabBarFoundation, MDCTabBar, MDCTabBarAdapter } from "./tab-bar";
+export {
+    MDCTabBarScrollerFoundation,
+    MDCTabBarScroller,
+    MDCTabBarScrollerAdapter
+} from "./tab-bar-scroller";

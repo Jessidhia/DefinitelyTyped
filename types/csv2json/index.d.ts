@@ -8,10 +8,10 @@
 import { Writable } from "stream";
 
 declare namespace csv2json {
-  interface Options {
-    dynamicTyping?: boolean;
-    separator?: string;
-  }
+    interface Options {
+        dynamicTyping?: boolean;
+        separator?: string;
+    }
 }
 
 declare function csv2json(options?: csv2json.Options): Writable;

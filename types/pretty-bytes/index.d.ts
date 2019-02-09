@@ -4,7 +4,10 @@
 //                 Daniela Yassuda <https://github.com/danielasy>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function PrettyBytes(number: number, options?: PrettyBytes.PrettyBytesOptions): string;
+declare function PrettyBytes(
+    number: number,
+    options?: PrettyBytes.PrettyBytesOptions
+): string;
 export = PrettyBytes;
 declare namespace PrettyBytes {
     interface PrettyBytesOptions {

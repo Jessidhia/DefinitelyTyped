@@ -9,7 +9,13 @@
 
 export function decode(string: string, precision?: number): number[][];
 export function encode(coordinates: number[][], precision?: number): string;
-export function fromGeoJSON(geojson: GeoJSON.LineString | GeoJSON.Feature<GeoJSON.LineString>, precision?: number): string;
-export function toGeoJSON(string: string, precision?: number): GeoJSON.LineString;
+export function fromGeoJSON(
+    geojson: GeoJSON.LineString | GeoJSON.Feature<GeoJSON.LineString>,
+    precision?: number
+): string;
+export function toGeoJSON(
+    string: string,
+    precision?: number
+): GeoJSON.LineString;
 
 export as namespace polyline;

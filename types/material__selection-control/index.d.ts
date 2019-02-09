@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-import { MDCRipple } from 'material__ripple';
+import { MDCRipple } from "material__ripple";
 
 export interface MDCSelectionControlState {
     checked: boolean;

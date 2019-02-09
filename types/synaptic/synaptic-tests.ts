@@ -35,7 +35,7 @@
         const B = new Neuron();
         A.project(B);
 
-        const learningRate = .3;
+        const learningRate = 0.3;
 
         for (let i = 0; i < 20000; i++) {
             // when A activates 1
@@ -96,7 +96,7 @@
         const B = new Layer(2);
         A.project(B);
 
-        const learningRate = .3;
+        const learningRate = 0.3;
 
         for (let i = 0; i < 20000; i++) {
             // when A activates [1, 0, 1, 0, 1]
@@ -115,7 +115,7 @@
         A.set({
             squash: Neuron.squash.TANH,
             bias: 0
-        })
+        });
 
         // neurons
         // -------
@@ -194,7 +194,7 @@
     });
 
     // train the network
-    let learningRate = .3;
+    let learningRate = 0.3;
     for (let i = 0; i < 20000; i++) {
         // 0,0 => 0
         myNetwork.activate([0, 0]);
@@ -233,7 +233,7 @@
     // worker
     // ------
     // training set
-    learningRate = .3;
+    learningRate = 0.3;
     const trainingSet = [
         {
             input: [0, 0],
@@ -250,7 +250,7 @@
         {
             input: [1, 1],
             output: [0]
-        },
+        }
     ];
 
     // create a network
@@ -272,25 +272,31 @@
 
     // activate the network
     function activateWorker(input: number[]) {
-        myWorker.postMessage({
-            action: "activate",
-            input: input,
-            memoryBuffer: myNetwork.optimized.memory
-        }, [myNetwork.optimized.memory.buffer]);
+        myWorker.postMessage(
+            {
+                action: "activate",
+                input: input,
+                memoryBuffer: myNetwork.optimized.memory
+            },
+            [myNetwork.optimized.memory.buffer]
+        );
     }
 
     // backpropagate the network
     function propagateWorker(target: number[]) {
-        myWorker.postMessage({
-            action: "propagate",
-            target: target,
-            rate: learningRate,
-            memoryBuffer: myNetwork.optimized.memory
-        }, [myNetwork.optimized.memory.buffer]);
+        myWorker.postMessage(
+            {
+                action: "propagate",
+                target: target,
+                rate: learningRate,
+                memoryBuffer: myNetwork.optimized.memory
+            },
+            [myNetwork.optimized.memory.buffer]
+        );
     }
 
     // train the worker
-    myWorker.onmessage = function (e) {
+    myWorker.onmessage = function(e) {
         // give control of the memory back to the network - this is mandatory!
         myNetwork.optimized.ownership(e.data.memoryBuffer);
 
@@ -318,7 +324,7 @@
             propagateWorker(trainingSet[index].output);
             index++;
         }
-    }
+    };
 
     // kick it
     let index = 0;
@@ -342,8 +348,8 @@
 
     const standalone = myNetwork.standalone();
 
-    myNetwork.activate([1, 0, 1, 0]);  // [0.5466397925108878, 0.5121246668637663]
-    standalone([1, 0, 1, 0]);   // [0.5466397925108878, 0.5121246668637663]
+    myNetwork.activate([1, 0, 1, 0]); // [0.5466397925108878, 0.5121246668637663]
+    standalone([1, 0, 1, 0]); // [0.5466397925108878, 0.5121246668637663]
 
     // clone
     // -----
@@ -362,8 +368,8 @@
 
     const clone = myNetwork.clone();
 
-    myNetwork.activate([1, 0, 1, 0]);  // [0.5466397925108878, 0.5121246668637663]
-    clone.activate([1, 0, 1, 0]);   // [0.5466397925108878, 0.5121246668637663]
+    myNetwork.activate([1, 0, 1, 0]); // [0.5466397925108878, 0.5121246668637663]
+    clone.activate([1, 0, 1, 0]); // [0.5466397925108878, 0.5121246668637663]
 
     // neurons
     // -------
@@ -406,21 +412,27 @@
     const connections = 30;
     const gates = 10;
 
-    const myLiquidStateMachine = new Architect.Liquid(input, pool, output, connections, gates);
+    const myLiquidStateMachine = new Architect.Liquid(
+        input,
+        pool,
+        output,
+        connections,
+        gates
+    );
 
     // Hopfield
     // --------
-    const hopfield = new Architect.Hopfield(10) // create a network for 10-bit patterns
+    const hopfield = new Architect.Hopfield(10); // create a network for 10-bit patterns
 
     // teach the network two different patterns
     hopfield.learn([
         [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
         [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-    ])
+    ]);
 
     // feed new patterns to the network and it will return the most similar to the ones it was trained to remember
-    hopfield.feed([0, 1, 0, 1, 0, 1, 0, 1, 1, 1]) // [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
-    hopfield.feed([1, 1, 1, 1, 1, 0, 0, 1, 0, 0]) // [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+    hopfield.feed([0, 1, 0, 1, 0, 1, 0, 1, 1, 1]); // [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+    hopfield.feed([1, 1, 1, 1, 1, 0, 0, 1, 0, 0]); // [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
 }
 
 // Trainer
@@ -428,8 +440,8 @@
 {
     // train
     // -----
-    let myNetwork = new Architect.Perceptron(2, 2, 1)
-    let trainer = new Trainer(myNetwork)
+    let myNetwork = new Architect.Perceptron(2, 2, 1);
+    let trainer = new Trainer(myNetwork);
 
     let trainingSet = [
         {
@@ -447,25 +459,31 @@
         {
             input: [1, 1],
             output: [0]
-        },
-    ]
+        }
+    ];
 
     trainer.train(trainingSet);
 
     const traningOptions = {
-        rate: .1,
+        rate: 0.1,
         iterations: 20000,
-        error: .005,
+        error: 0.005,
         shuffle: true,
         log: 1000,
         cost: Trainer.cost.CROSS_ENTROPY,
         schedule: {
             every: 500, // repeat this task every 500 iterations
-            do: function (data: Synaptic.Trainer.TrainingScheduleDoData) {
+            do: function(data: Synaptic.Trainer.TrainingScheduleDoData) {
                 // custom log
-                console.log("error", data.error, "iterations", data.iterations, "rate", data.rate);
-                if (data.error > .5)
-                    return true; // abort/stop training
+                console.log(
+                    "error",
+                    data.error,
+                    "iterations",
+                    data.iterations,
+                    "rate",
+                    data.rate
+                );
+                if (data.error > 0.5) return true; // abort/stop training
             }
         }
     };
@@ -475,11 +493,12 @@
     // trainAsync
     // ----------
     trainer = new Trainer(myNetwork);
-    trainer.trainAsync(trainingSet, traningOptions)
-        .then((results: any) => console.log('done!', results))
+    trainer
+        .trainAsync(trainingSet, traningOptions)
+        .then((results: any) => console.log("done!", results));
 
-    myNetwork = new Architect.Perceptron(2, 2, 1)
-    trainer = new Trainer(myNetwork)
+    myNetwork = new Architect.Perceptron(2, 2, 1);
+    trainer = new Trainer(myNetwork);
 
     trainingSet = [
         {
@@ -497,11 +516,12 @@
         {
             input: [1, 1],
             output: [0]
-        },
-    ]
+        }
+    ];
 
-    trainer.trainAsync(trainingSet)
-        .then((results: any) => console.log('done!', results))
+    trainer
+        .trainAsync(trainingSet)
+        .then((results: any) => console.log("done!", results));
 
     // test
     // ----

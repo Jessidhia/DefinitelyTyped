@@ -1,4 +1,4 @@
-import builtins from 'rollup-plugin-node-builtins';
+import builtins from "rollup-plugin-node-builtins";
 
 // No options (default)
 (() => {
@@ -11,6 +11,6 @@ import builtins from 'rollup-plugin-node-builtins';
     // $ExpectType Plugin
     builtins({
         crypto: true,
-        fs: true,
+        fs: true
     });
 })();

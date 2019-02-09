@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.7
 
-import * as csstree from 'css-tree';
+import * as csstree from "css-tree";
 
 declare namespace csso {
     interface Result {
@@ -94,7 +94,10 @@ declare namespace csso {
     }
 
     type BeforeCompressFn = (ast: object, options: CompressOptions) => void;
-    type AfterCompressFn = (compressResult: string, options: CompressOptions) => void;
+    type AfterCompressFn = (
+        compressResult: string,
+        options: CompressOptions
+    ) => void;
 }
 
 interface Csso {
@@ -103,19 +106,28 @@ interface Csso {
      * @param source
      * @param options
      */
-    minify(source: string, options?: csso.MinifyOptions & csso.CompressOptions): csso.Result;
+    minify(
+        source: string,
+        options?: csso.MinifyOptions & csso.CompressOptions
+    ): csso.Result;
 
     /**
      * The same as minify() but for list of declarations. Usually it's a style attribute value.
      * @param source
      * @param options
      */
-    minifyBlock(source: string, options?: csso.MinifyOptions & csso.CompressOptions): csso.Result;
+    minifyBlock(
+        source: string,
+        options?: csso.MinifyOptions & csso.CompressOptions
+    ): csso.Result;
 
     /**
      * Does the main task – compress an AST.
      */
-    compress(ast: csstree.CssNode, options?: csso.CompressOptions): { ast: csstree.CssNode };
+    compress(
+        ast: csstree.CssNode,
+        options?: csso.CompressOptions
+    ): { ast: csstree.CssNode };
 
     syntax: typeof csstree;
 }

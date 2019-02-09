@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load YouTube Reporting API v1 */
     function load(name: "youtubereporting", version: "v1"): PromiseLike<void>;
-    function load(name: "youtubereporting", version: "v1", callback: () => any): void;
+    function load(
+        name: "youtubereporting",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const jobs: youtubereporting.JobsResource;
 

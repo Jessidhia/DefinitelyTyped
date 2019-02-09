@@ -6,17 +6,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import Ember from 'ember';
-import RSVP from 'rsvp';
+import Ember from "ember";
+import RSVP from "rsvp";
 
 export interface ModelRegistry {}
 export interface AdapterRegistry {}
 export interface SerializerRegistry {}
 export interface TransformRegistry {
-    'string': string;
-    'boolean': boolean;
-    'number': number;
-    'date': Date;
+    string: string;
+    boolean: boolean;
+    number: number;
+    date: Date;
 }
 
 type AttributesFor<Model> = keyof Model; // TODO: filter to attr properties only (TS 2.8)
@@ -34,7 +34,7 @@ interface AttributeMeta<Model extends DS.Model> {
 }
 interface RelationshipMeta<Model extends DS.Model> {
     key: RelationshipsFor<Model>;
-    kind: 'belongsTo' | 'hasMany';
+    kind: "belongsTo" | "hasMany";
     type: keyof ModelRegistry;
     options: object;
     name: string;
@@ -58,8 +58,12 @@ export namespace DS {
         polymorphic?: boolean;
     }
 
-    interface Sync { async: false; }
-    interface Async { async?: true; }
+    interface Sync {
+        async: false;
+    }
+    interface Async {
+        async?: true;
+    }
 
     /**
      * `DS.belongsTo` is used to define One-To-One and One-To-Many
@@ -72,7 +76,10 @@ export namespace DS {
     function belongsTo<K extends keyof ModelRegistry>(
         modelName: K,
         options?: RelationshipOptions<ModelRegistry[K]> & Async
-    ): Ember.ComputedProperty<ModelRegistry[K] & PromiseObject<ModelRegistry[K]>, ModelRegistry[K]>;
+    ): Ember.ComputedProperty<
+        ModelRegistry[K] & PromiseObject<ModelRegistry[K]>,
+        ModelRegistry[K]
+    >;
     /**
      * `DS.hasMany` is used to define One-To-Many and Many-To-Many
      * relationships on a [DS.Model](/api/data/classes/DS.Model.html).
@@ -84,12 +91,17 @@ export namespace DS {
     function hasMany<K extends keyof ModelRegistry>(
         type: K,
         options?: RelationshipOptions<ModelRegistry[K]> & Async
-    ): Ember.ComputedProperty<PromiseManyArray<ModelRegistry[K]>, Ember.Array<ModelRegistry[K]>>;
+    ): Ember.ComputedProperty<
+        PromiseManyArray<ModelRegistry[K]>,
+        Ember.Array<ModelRegistry[K]>
+    >;
     /**
      * This method normalizes a modelName into the format Ember Data uses
      * internally.
      */
-    function normalizeModelName<K extends keyof ModelRegistry>(modelName: K): string;
+    function normalizeModelName<K extends keyof ModelRegistry>(
+        modelName: K
+    ): string;
     const VERSION: string;
 
     interface AttrOptions<T = any> {
@@ -156,11 +168,17 @@ export namespace DS {
         /**
          * Builds a URL for a `store.query(type, query)` call.
          */
-        urlForQuery<K extends keyof ModelRegistry>(query: {}, modelName: K): string;
+        urlForQuery<K extends keyof ModelRegistry>(
+            query: {},
+            modelName: K
+        ): string;
         /**
          * Builds a URL for a `store.queryRecord(type, query)` call.
          */
-        urlForQueryRecord<K extends keyof ModelRegistry>(query: {}, modelName: K): string;
+        urlForQueryRecord<K extends keyof ModelRegistry>(
+            query: {},
+            modelName: K
+        ): string;
         /**
          * Builds a URL for coalesceing multiple `store.findRecord(type, id)`
          * records into 1 request when the adapter's `coalesceFindRequests`
@@ -193,7 +211,10 @@ export namespace DS {
          * Builds a URL for a `record.save()` call when the record was created
          * locally using `store.createRecord()`.
          */
-        urlForCreateRecord<K extends keyof ModelRegistry>(modelName: K, snapshot: Snapshot<K>): string;
+        urlForCreateRecord<K extends keyof ModelRegistry>(
+            modelName: K,
+            snapshot: Snapshot<K>
+        ): string;
         /**
          * Builds a URL for a `record.save()` call when the record has been update locally.
          */
@@ -525,7 +546,10 @@ export namespace DS {
          * invoking the callback with the name of each relationship and its relationship
          * descriptor.
          */
-        eachRelationship(callback: (name: string, details: RelationshipMeta<this>) => void, binding?: any): any;
+        eachRelationship(
+            callback: (name: string, details: RelationshipMeta<this>) => void,
+            binding?: any
+        ): any;
         /**
          * Represents the model's class name as a string. This can be used to look up the model's class name through
          * `DS.Store`'s modelFor method.
@@ -534,11 +558,17 @@ export namespace DS {
         /**
          * For a given relationship name, returns the model type of the relationship.
          */
-        static typeForRelationship<K extends keyof ModelRegistry>(name: K, store: Store): ModelRegistry[K];
+        static typeForRelationship<K extends keyof ModelRegistry>(
+            name: K,
+            store: Store
+        ): ModelRegistry[K];
         /**
          * Find the relationship which is the inverse of the one asked for.
          */
-        static inverseFor<K extends keyof ModelRegistry>(name: K, store: Store): {};
+        static inverseFor<K extends keyof ModelRegistry>(
+            name: K,
+            store: Store
+        ): {};
         /**
          * The model's relationships as a map, keyed on the type of the
          * relationship. The value of each entry is an array containing a descriptor
@@ -557,9 +587,7 @@ export namespace DS {
          * included once, regardless of the number of relationships it has with
          * the model.
          */
-        static relatedTypes: Ember.ComputedProperty<
-            Ember.NativeArray<string>
-        >;
+        static relatedTypes: Ember.ComputedProperty<Ember.NativeArray<string>>;
         /**
          * A map whose keys are the relationships of a model and whose values are
          * relationship descriptors.
@@ -576,7 +604,10 @@ export namespace DS {
          * invoking the callback with the name of each relationship and its relationship
          * descriptor.
          */
-        static eachRelationship<M extends Model = Model>(callback: (name: string, details: RelationshipMeta<M>) => void, binding?: any): any;
+        static eachRelationship<M extends Model = Model>(
+            callback: (name: string, details: RelationshipMeta<M>) => void,
+            binding?: any
+        ): any;
         /**
          * Given a callback, iterates over each of the types related to a model,
          * invoking the callback with the related type's class. Each type will be
@@ -607,10 +638,7 @@ export namespace DS {
          * the passed function on each attribute. Note the callback will not be
          * called for any attributes that do not have an transformation type.
          */
-        static eachTransformedAttribute(
-            callback: Function,
-            binding: {}
-        ): any;
+        static eachTransformedAttribute(callback: Function, binding: {}): any;
         /**
          * Discards any unsaved changes to the given attribute. This feature is not enabled by default. You must enable `ds-rollback-attribute` and be running a canary build.
          */
@@ -949,7 +977,9 @@ export namespace DS {
         /**
          * Returns the value of an attribute.
          */
-        attr<L extends AttributesFor<ModelRegistry[K]>>(keyName: L): ModelRegistry[K][L];
+        attr<L extends AttributesFor<ModelRegistry[K]>>(
+            keyName: L
+        ): ModelRegistry[K][L];
         /**
          * Returns all attributes and their corresponding values.
          */
@@ -957,21 +987,23 @@ export namespace DS {
         /**
          * Returns all changed attributes and their old and new values.
          */
-        changedAttributes(): Partial<{ [L in keyof ModelRegistry[K]]: ModelRegistry[K][L] }>;
+        changedAttributes(): Partial<
+            { [L in keyof ModelRegistry[K]]: ModelRegistry[K][L] }
+        >;
         /**
          * Returns the current value of a belongsTo relationship.
          */
         belongsTo<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options?: {}
-        ): Snapshot<K>['record'][L] | string | null | undefined;
+        ): Snapshot<K>["record"][L] | string | null | undefined;
         /**
          * Returns the current value of a hasMany relationship.
          */
         hasMany<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options?: { ids: false }
-        ): Array<Snapshot<K>['record'][L]> | undefined;
+        ): Array<Snapshot<K>["record"][L]> | undefined;
         hasMany<L extends RelationshipsFor<ModelRegistry[K]>>(
             keyName: L,
             options: { ids: true }
@@ -980,12 +1012,18 @@ export namespace DS {
          * Iterates through all the attributes of the model, calling the passed
          * function on each attribute.
          */
-        eachAttribute<M extends ModelRegistry[K]>(callback: (key: keyof M, meta: AttributeMeta<M>) => void, binding?: {}): any;
+        eachAttribute<M extends ModelRegistry[K]>(
+            callback: (key: keyof M, meta: AttributeMeta<M>) => void,
+            binding?: {}
+        ): any;
         /**
          * Iterates through all the relationships of the model, calling the passed
          * function on each relationship.
          */
-        eachRelationship<M extends ModelRegistry[K]>(callback: (key: keyof M, meta: RelationshipMeta<M>) => void, binding?: {}): any;
+        eachRelationship<M extends ModelRegistry[K]>(
+            callback: (key: keyof M, meta: RelationshipMeta<M>) => void,
+            binding?: {}
+        ): any;
         /**
          * Serializes the snapshot using the serializer for the model.
          */
@@ -1060,7 +1098,8 @@ export namespace DS {
         query<K extends keyof ModelRegistry>(
             modelName: K,
             query: any
-        ): AdapterPopulatedRecordArray<ModelRegistry[K]> & PromiseArray<ModelRegistry[K]>;
+        ): AdapterPopulatedRecordArray<ModelRegistry[K]> &
+            PromiseArray<ModelRegistry[K]>;
         /**
          * This method makes a request for one record, where the `id` is not known
          * beforehand (if the `id` is known, use [`findRecord`](#method_findRecord)
@@ -1089,7 +1128,9 @@ export namespace DS {
          * This method returns a filtered array that contains all of the
          * known records for a given type in the store.
          */
-        peekAll<K extends keyof ModelRegistry>(modelName: K): RecordArray<ModelRegistry[K]>;
+        peekAll<K extends keyof ModelRegistry>(
+            modelName: K
+        ): RecordArray<ModelRegistry[K]>;
         /**
          * This method unloads all records in the store.
          * It schedules unloading to happen during the next run loop.
@@ -1100,7 +1141,10 @@ export namespace DS {
          * This method has been deprecated and is an alias for store.hasRecordForId, which should
          * be used instead.
          */
-        recordIsLoaded<K extends keyof ModelRegistry>(modelName: K, id: string): boolean;
+        recordIsLoaded<K extends keyof ModelRegistry>(
+            modelName: K,
+            id: string
+        ): boolean;
         /**
          * Returns the model class for the particular `modelName`.
          */
@@ -1112,7 +1156,10 @@ export namespace DS {
         /**
          * Push some raw data into the store.
          */
-        pushPayload<K extends keyof ModelRegistry>(modelName: K, inputPayload: {}): any;
+        pushPayload<K extends keyof ModelRegistry>(
+            modelName: K,
+            inputPayload: {}
+        ): any;
         pushPayload(inputPayload: {}): any;
         /**
          * `normalize` converts a json payload into the normalized form that
@@ -1124,13 +1171,17 @@ export namespace DS {
          * example, `adapterFor('person')` will return an instance of
          * `App.PersonAdapter`.
          */
-        adapterFor<K extends keyof AdapterRegistry>(modelName: K): AdapterRegistry[K];
+        adapterFor<K extends keyof AdapterRegistry>(
+            modelName: K
+        ): AdapterRegistry[K];
         /**
          * Returns an instance of the serializer for a given type. For
          * example, `serializerFor('person')` will return an instance of
          * `App.PersonSerializer`.
          */
-        serializerFor<K extends keyof SerializerRegistry>(modelName: K): SerializerRegistry[K];
+        serializerFor<K extends keyof SerializerRegistry>(
+            modelName: K
+        ): SerializerRegistry[K];
     }
     /**
      * The `JSONAPIAdapter` is the default adapter used by Ember Data. It
@@ -1156,11 +1207,7 @@ export namespace DS {
         /**
          * Takes a URL, an HTTP method and a hash of data, and makes an HTTP request.
          */
-        ajax(
-            url: string,
-            type: string,
-            options?: object
-        ): RSVP.Promise<any>;
+        ajax(url: string, type: string, options?: object): RSVP.Promise<any>;
         /**
          * Generate ajax options
          */
@@ -1218,7 +1265,11 @@ export namespace DS {
          * Called by the store in order to fetch a JSON array for
          * the records that match a particular query.
          */
-        query<K extends keyof ModelRegistry>(store: Store, type: ModelRegistry[K], query: {}): RSVP.Promise<any>;
+        query<K extends keyof ModelRegistry>(
+            store: Store,
+            type: ModelRegistry[K],
+            query: {}
+        ): RSVP.Promise<any>;
         /**
          * Called by the store in order to fetch a JSON object for
          * the record that matches a particular query.
@@ -1352,11 +1403,17 @@ export namespace DS {
         /**
          * Builds a URL for a `store.query(type, query)` call.
          */
-        urlForQuery<K extends keyof ModelRegistry>(query: {}, modelName: K): string;
+        urlForQuery<K extends keyof ModelRegistry>(
+            query: {},
+            modelName: K
+        ): string;
         /**
          * Builds a URL for a `store.queryRecord(type, query)` call.
          */
-        urlForQueryRecord<K extends keyof ModelRegistry>(query: {}, modelName: K): string;
+        urlForQueryRecord<K extends keyof ModelRegistry>(
+            query: {},
+            modelName: K
+        ): string;
         /**
          * Builds a URL for coalesceing multiple `store.findRecord(type, id)`
          * records into 1 request when the adapter's `coalesceFindRequests`
@@ -1389,7 +1446,10 @@ export namespace DS {
          * Builds a URL for a `record.save()` call when the record was created
          * locally using `store.createRecord()`.
          */
-        urlForCreateRecord<K extends keyof ModelRegistry>(modelName: K, snapshot: Snapshot<K>): string;
+        urlForCreateRecord<K extends keyof ModelRegistry>(
+            modelName: K,
+            snapshot: Snapshot<K>
+        ): string;
         /**
          * Builds a URL for a `record.save()` call when the record has been update locally.
          */
@@ -1460,7 +1520,9 @@ export namespace DS {
         /**
          * Converts the model name to a pluralized version of the model name.
          */
-        payloadKeyFromModelName<K extends keyof ModelRegistry>(modelName: K): string;
+        payloadKeyFromModelName<K extends keyof ModelRegistry>(
+            modelName: K
+        ): string;
         /**
          * `keyForAttribute` can be used to define rules for how to convert an
          * attribute name in your model to a key in your JSON.
@@ -1490,7 +1552,9 @@ export namespace DS {
          * `payloadTypeFromModelName` can be used to change the mapping for the type in
          * the payload, taken from the model name.
          */
-        payloadTypeFromModelName<K extends keyof ModelRegistry>(modelName: K): string;
+        payloadTypeFromModelName<K extends keyof ModelRegistry>(
+            modelName: K
+        ): string;
     }
     /**
      * Ember Data 2.0 Serializer:
@@ -1661,7 +1725,10 @@ export namespace DS {
          * Called when a record is saved in order to convert the
          * record into JSON.
          */
-        serialize<K extends keyof ModelRegistry>(snapshot: Snapshot<K>, options: {}): {};
+        serialize<K extends keyof ModelRegistry>(
+            snapshot: Snapshot<K>,
+            options: {}
+        ): {};
         /**
          * You can use this method to customize how a serialized record is added to the complete
          * JSON hash to be sent to the server. By default the JSON Serializer does not namespace
@@ -1758,7 +1825,11 @@ export namespace DS {
          * serializeId can be used to customize how id is serialized
          * For example, your server may expect integer datatype of id
          */
-        serializeId<K extends keyof ModelRegistry>(snapshot: Snapshot<K>, json: {}, primaryKey: string): any;
+        serializeId<K extends keyof ModelRegistry>(
+            snapshot: Snapshot<K>,
+            json: {},
+            primaryKey: string
+        ): any;
     }
     /**
      * Normally, applications will use the `RESTSerializer` by implementing
@@ -1796,7 +1867,10 @@ export namespace DS {
          * Called when a record is saved in order to convert the
          * record into JSON.
          */
-        serialize<K extends keyof ModelRegistry>(snapshot: Snapshot<K>, options: {}): {};
+        serialize<K extends keyof ModelRegistry>(
+            snapshot: Snapshot<K>,
+            options: {}
+        ): {};
         /**
          * You can use this method to customize the root keys serialized into the JSON.
          * The hash property should be modified by reference (possibly using something like _.extend)
@@ -1814,7 +1888,9 @@ export namespace DS {
          * request. By default, the RESTSerializer returns a camelized version of the
          * model's name.
          */
-        payloadKeyFromModelName<K extends keyof ModelRegistry>(modelName: K): string;
+        payloadKeyFromModelName<K extends keyof ModelRegistry>(
+            modelName: K
+        ): string;
         /**
          * You can use this method to customize how polymorphic objects are serialized.
          * By default the REST Serializer creates the key by appending `Type` to
@@ -1843,7 +1919,9 @@ export namespace DS {
          * `payloadTypeFromModelName` can be used to change the mapping for the type in
          * the payload, taken from the model name.
          */
-        payloadTypeFromModelName<K extends keyof ModelRegistry>(modelName: K): string;
+        payloadTypeFromModelName<K extends keyof ModelRegistry>(
+            modelName: K
+        ): string;
     }
     /**
      * The `DS.BooleanTransform` class is used to serialize and deserialize
@@ -1962,7 +2040,10 @@ export namespace DS {
         /**
          * Proxies to the serializer's `serialize` method.
          */
-        serialize<K extends keyof ModelRegistry>(snapshot: Snapshot<K>, options: {}): {};
+        serialize<K extends keyof ModelRegistry>(
+            snapshot: Snapshot<K>,
+            options: {}
+        ): {};
         /**
          * Implement this method in a subclass to handle the creation of
          * new records.
@@ -2018,7 +2099,10 @@ export namespace DS {
          * reload a record from the adapter when a record is requested by
          * `store.findRecord`.
          */
-        shouldReloadRecord<K extends keyof ModelRegistry>(store: Store, snapshot: Snapshot<K>): boolean;
+        shouldReloadRecord<K extends keyof ModelRegistry>(
+            store: Store,
+            snapshot: Snapshot<K>
+        ): boolean;
         /**
          * This method is used by the store to determine if the store should
          * reload all records from the adapter when records are requested by
@@ -2074,7 +2158,10 @@ export namespace DS {
          * The `serialize` method is used when a record is saved in order to convert
          * the record into the form that your external data source expects.
          */
-        serialize<K extends keyof ModelRegistry>(snapshot: Snapshot<K>, options: {}): {};
+        serialize<K extends keyof ModelRegistry>(
+            snapshot: Snapshot<K>,
+            options: {}
+        ): {};
         /**
          * The `normalize` method is used to convert a payload received from your
          * external data source into the normalized form `store.push()` expects. You
@@ -2087,13 +2174,13 @@ export namespace DS {
 
 export default DS;
 
-declare module 'ember' {
+declare module "ember" {
     namespace Ember {
         /*
-		* The store is automatically injected into these objects
-		*
-		* https://github.com/emberjs/data/blob/05e95280e11c411177f2fbcb65fd83488d6a9d89/addon/setup-container.js#L71-L78
-		*/
+         * The store is automatically injected into these objects
+         *
+         * https://github.com/emberjs/data/blob/05e95280e11c411177f2fbcb65fd83488d6a9d89/addon/setup-container.js#L71-L78
+         */
         interface Route {
             store: DS.Store;
         }
@@ -2108,13 +2195,13 @@ declare module 'ember' {
     // It is also available to inject anywhere
 }
 
-declare module '@ember/service' {
+declare module "@ember/service" {
     interface Registry {
-        'store': DS.Store;
+        store: DS.Store;
     }
 }
 
-declare module 'ember-test-helpers' {
+declare module "ember-test-helpers" {
     interface TestContext {
         store: DS.Store;
     }

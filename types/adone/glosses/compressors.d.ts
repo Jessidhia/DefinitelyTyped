@@ -5,11 +5,16 @@ declare namespace adone {
     namespace compressor {
         namespace I {
             namespace zlib {
-                type TypedArray = Int8Array | Uint8Array
+                type TypedArray =
+                    | Int8Array
+                    | Uint8Array
                     | Uint8ClampedArray
-                    | Int16Array | Uint16Array
-                    | Int32Array | Uint32Array
-                    | Float32Array | Float64Array;
+                    | Int16Array
+                    | Uint16Array
+                    | Int32Array
+                    | Uint32Array
+                    | Float32Array
+                    | Float64Array;
 
                 interface CommonOptions {
                     flush?: number;
@@ -95,52 +100,80 @@ declare namespace adone {
             /**
              * Compresses the given string or buffer
              */
-            function compress(buf: string | Buffer, options: I.zlib.CompressOptions & { info: true }): Promise<I.zlib.GzipInfo>;
+            function compress(
+                buf: string | Buffer,
+                options: I.zlib.CompressOptions & { info: true }
+            ): Promise<I.zlib.GzipInfo>;
 
             /**
              * Compresses the given string or buffer
              */
-            function compress(buf: string | Buffer, options?: I.zlib.CompressOptions): Promise<Buffer>;
+            function compress(
+                buf: string | Buffer,
+                options?: I.zlib.CompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously compreses the given string or buffer
              */
-            function compressSync(buf: string | Buffer, options: I.zlib.CompressOptions & { info: true }): I.zlib.GzipInfo;
+            function compressSync(
+                buf: string | Buffer,
+                options: I.zlib.CompressOptions & { info: true }
+            ): I.zlib.GzipInfo;
 
             /**
              * Synchronously compreses the given string or buffer
              */
-            function compressSync(buf: string | Buffer, options?: I.zlib.CompressOptions): Buffer;
+            function compressSync(
+                buf: string | Buffer,
+                options?: I.zlib.CompressOptions
+            ): Buffer;
 
             /**
              * Creates a compress stream
              */
-            function compressStream(options?: I.zlib.CompressStreamOptions): nodestd.zlib.Gzip;
+            function compressStream(
+                options?: I.zlib.CompressStreamOptions
+            ): nodestd.zlib.Gzip;
 
             /**
              * Decompresses the given string or buffer
              */
-            function decompress(buf: string | Buffer, options: I.zlib.DecompressOptions & { info: true }): Promise<I.zlib.GunzipInfo>;
+            function decompress(
+                buf: string | Buffer,
+                options: I.zlib.DecompressOptions & { info: true }
+            ): Promise<I.zlib.GunzipInfo>;
 
             /**
              * Decompresses the given string or buffer
              */
-            function decompress(buf: string | Buffer, options?: I.zlib.DecompressOptions): Promise<Buffer>;
+            function decompress(
+                buf: string | Buffer,
+                options?: I.zlib.DecompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously decompresses the given string or buffer
              */
-            function decompressSync(buf: string | Buffer, options: I.zlib.DecompressOptions & { info: true }): I.zlib.GunzipInfo;
+            function decompressSync(
+                buf: string | Buffer,
+                options: I.zlib.DecompressOptions & { info: true }
+            ): I.zlib.GunzipInfo;
 
             /**
              * Synchronously decompresses the given string or buffer
              */
-            function decompressSync(buf: string | Buffer, options?: I.zlib.DecompressOptions): Buffer;
+            function decompressSync(
+                buf: string | Buffer,
+                options?: I.zlib.DecompressOptions
+            ): Buffer;
 
             /**
              * Creates a decompress stream
              */
-            function decompressStream(options?: I.zlib.DecompressStreamOptions): nodestd.zlib.Gunzip;
+            function decompressStream(
+                options?: I.zlib.DecompressStreamOptions
+            ): nodestd.zlib.Gunzip;
 
             const Z_NO_FLUSH: number;
             const Z_PARTIAL_FLUSH: number;
@@ -177,12 +210,20 @@ declare namespace adone {
          */
         namespace deflate {
             namespace I {
-                interface CompressStreamOptions extends compressor.I.zlib.CompressStreamOptions {
-                    dictionary?: Buffer | DataView | compressor.I.zlib.TypedArray;
+                interface CompressStreamOptions
+                    extends compressor.I.zlib.CompressStreamOptions {
+                    dictionary?:
+                        | Buffer
+                        | DataView
+                        | compressor.I.zlib.TypedArray;
                 }
 
-                interface DecompressStreamOptions extends compressor.I.zlib.DecompressStreamOptions {
-                    dictionary?: Buffer | DataView | compressor.I.zlib.TypedArray;
+                interface DecompressStreamOptions
+                    extends compressor.I.zlib.DecompressStreamOptions {
+                    dictionary?:
+                        | Buffer
+                        | DataView
+                        | compressor.I.zlib.TypedArray;
                 }
 
                 interface CompressOptions extends CompressStreamOptions {
@@ -211,102 +252,158 @@ declare namespace adone {
             /**
              * Compresses the given string or buffer
              */
-            function compress(buf: string | Buffer, options: I.CompressOptions & { info: true }): Promise<I.DeflateInfo>;
+            function compress(
+                buf: string | Buffer,
+                options: I.CompressOptions & { info: true }
+            ): Promise<I.DeflateInfo>;
 
             /**
              * Compresses the given string or buffer
              */
-            function compress(buf: string | Buffer, options?: I.CompressOptions): Promise<Buffer>;
+            function compress(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously compresses the given string or buffer
              */
-            function compressSync(buf: string | Buffer, options: I.CompressOptions & { info: true }): I.DeflateInfo;
+            function compressSync(
+                buf: string | Buffer,
+                options: I.CompressOptions & { info: true }
+            ): I.DeflateInfo;
 
             /**
              * Synchronously compresses the given string or buffer
              */
-            function compressSync(buf: string | Buffer, options?: I.CompressOptions): Buffer;
+            function compressSync(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Buffer;
 
             /**
              * Creates a compress stream
              */
-            function compressStream(options?: I.CompressStreamOptions): nodestd.zlib.Deflate;
+            function compressStream(
+                options?: I.CompressStreamOptions
+            ): nodestd.zlib.Deflate;
 
             /**
              * Compresses data using deflate, and does not append a zlib header
              */
-            function rawCompress(buf: string | Buffer, options: I.CompressOptions & { info: true }): Promise<I.DeflateRawInfo>;
+            function rawCompress(
+                buf: string | Buffer,
+                options: I.CompressOptions & { info: true }
+            ): Promise<I.DeflateRawInfo>;
 
             /**
              * Compresses data using deflate, and does not append a zlib header
              */
-            function rawCompress(buf: string | Buffer, options?: I.CompressOptions): Promise<Buffer>;
+            function rawCompress(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously compresses data using deflate, and does not append a zlib header
              */
-            function rawCompressSync(buf: string | Buffer, options: I.CompressOptions & { info: true }): I.DeflateRawInfo;
+            function rawCompressSync(
+                buf: string | Buffer,
+                options: I.CompressOptions & { info: true }
+            ): I.DeflateRawInfo;
 
             /**
              * Synchronously compresses data using deflate, and does not append a zlib header
              */
-            function rawCompressSync(buf: string | Buffer, options?: I.CompressOptions): Buffer;
+            function rawCompressSync(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Buffer;
 
             /**
              * Creates a raw compress stream
              */
-            function rawCompressStream(options?: I.CompressStreamOptions): nodestd.zlib.DeflateRaw;
+            function rawCompressStream(
+                options?: I.CompressStreamOptions
+            ): nodestd.zlib.DeflateRaw;
 
             /**
              * Decomrpesses the given string of buffer
              */
-            function decompress(buf: string | Buffer, options: I.DecompressOptions & { info: true }): Promise<I.InflateInfo>;
+            function decompress(
+                buf: string | Buffer,
+                options: I.DecompressOptions & { info: true }
+            ): Promise<I.InflateInfo>;
 
             /**
              * Decomrpesses the given string of buffer
              */
-            function decompress(buf: string | Buffer, options?: I.DecompressOptions): Promise<Buffer>;
+            function decompress(
+                buf: string | Buffer,
+                options?: I.DecompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously decomrpesses the given string of buffer
              */
-            function decompressSync(buf: string | Buffer, options: I.DecompressOptions & { info: true }): I.InflateInfo;
+            function decompressSync(
+                buf: string | Buffer,
+                options: I.DecompressOptions & { info: true }
+            ): I.InflateInfo;
 
             /**
              * Synchronously decomrpesses the given string of buffer
              */
-            function decompressSync(buf: string | Buffer, options?: I.DecompressOptions): Buffer;
+            function decompressSync(
+                buf: string | Buffer,
+                options?: I.DecompressOptions
+            ): Buffer;
 
             /**
              * Creates a decompress stream
              */
-            function decompressStream(options?: I.DecompressStreamOptions): nodestd.zlib.Inflate;
+            function decompressStream(
+                options?: I.DecompressStreamOptions
+            ): nodestd.zlib.Inflate;
 
             /**
              * Decompresses raw compressed data
              */
-            function rawDecompress(buf: string | Buffer, options: I.DecompressOptions & { info: true }): Promise<I.InflateRawInfo>;
+            function rawDecompress(
+                buf: string | Buffer,
+                options: I.DecompressOptions & { info: true }
+            ): Promise<I.InflateRawInfo>;
 
             /**
              * Decompresses raw compressed data
              */
-            function rawDecompress(buf: string | Buffer, options?: I.DecompressOptions): Promise<Buffer>;
+            function rawDecompress(
+                buf: string | Buffer,
+                options?: I.DecompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously decompresses raw compressed data
              */
-            function rawDecompressSync(buf: string | Buffer, options: I.DecompressOptions & { info: true }): I.InflateRawInfo;
+            function rawDecompressSync(
+                buf: string | Buffer,
+                options: I.DecompressOptions & { info: true }
+            ): I.InflateRawInfo;
 
             /**
              * Synchronously decompresses raw compressed data
              */
-            function rawDecompressSync(buf: string | Buffer, options?: I.DecompressOptions): Buffer;
+            function rawDecompressSync(
+                buf: string | Buffer,
+                options?: I.DecompressOptions
+            ): Buffer;
 
             /**
              * Creates a raw decompress stream
              */
-            function rawDecompressStream(options?: I.DecompressStreamOptions): nodestd.zlib.InflateRaw;
+            function rawDecompressStream(
+                options?: I.DecompressStreamOptions
+            ): nodestd.zlib.InflateRaw;
 
             const Z_NO_FLUSH: number;
             const Z_PARTIAL_FLUSH: number;
@@ -420,32 +517,48 @@ declare namespace adone {
             /**
              * Compresses the given string or buffer
              */
-            function compress(buf: string | Buffer, options?: I.CompressOptions): Promise<Buffer>;
+            function compress(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously compresses the given string or buffer
              */
-            function compressSync(buf: string | Buffer, options?: I.CompressOptions): Buffer;
+            function compressSync(
+                buf: string | Buffer,
+                options?: I.CompressOptions
+            ): Buffer;
 
             /**
              * Creates a compress stream
              */
-            function compressStream(options?: I.CompressOptions): I.EncodeStream;
+            function compressStream(
+                options?: I.CompressOptions
+            ): I.EncodeStream;
 
             /**
              * Decompresses the given buffer
              */
-            function decompress(buf: Buffer, options?: I.DecompressOptions): Promise<Buffer>;
+            function decompress(
+                buf: Buffer,
+                options?: I.DecompressOptions
+            ): Promise<Buffer>;
 
             /**
              * Synchronously decompresses the given buffer
              */
-            function decompressSync(buf: Buffer, options?: I.DecompressOptions): Buffer;
+            function decompressSync(
+                buf: Buffer,
+                options?: I.DecompressOptions
+            ): Buffer;
 
             /**
              * Creates a decompress stream
              */
-            function decompressStream(options?: I.DecompressOptions): I.DecodeStream;
+            function decompressStream(
+                options?: I.DecompressOptions
+            ): I.DecodeStream;
         }
 
         /**
@@ -485,15 +598,16 @@ declare namespace adone {
 
         namespace I.lzma {
             interface Filter {
-                id: "LZMA_FILTERS_MAX"
-                | "LZMA_FILTER_ARM"
-                | "LZMA_FILTER_ARMTHUMB"
-                | "LZMA_FILTER_IA64"
-                | "LZMA_FILTER_POWERPC"
-                | "LZMA_FILTER_SPARC"
-                | "LZMA_FILTER_X86"
-                | "LZMA_FILTER_LZMA1"
-                | "LZMA_FILTER_LZMA2";
+                id:
+                    | "LZMA_FILTERS_MAX"
+                    | "LZMA_FILTER_ARM"
+                    | "LZMA_FILTER_ARMTHUMB"
+                    | "LZMA_FILTER_IA64"
+                    | "LZMA_FILTER_POWERPC"
+                    | "LZMA_FILTER_SPARC"
+                    | "LZMA_FILTER_X86"
+                    | "LZMA_FILTER_LZMA1"
+                    | "LZMA_FILTER_LZMA2";
             }
 
             interface DeltaFilter {
@@ -585,7 +699,8 @@ declare namespace adone {
 
             type Filters = Array<Filter | DeltaFilter | LZMAFilter>;
 
-            type Coder = "easyEncoder"
+            type Coder =
+                | "easyEncoder"
                 | "autoDecoder"
                 | "aloneEncoder"
                 | "aloneDecoder"
@@ -835,46 +950,70 @@ declare namespace adone {
              *
              * @param options preset or options
              */
-            function createStream(coder: "easyEncoder", options?: number | I.lzma.EasyEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "easyEncoder",
+                options?: number | I.lzma.EasyEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA 1/2 (bith .xz and .lzma) decoder with auto detection of file format
              *
              * @param options preset or options
              */
-            function createStream(coder: "autoDecoder", options?: I.lzma.AutoDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "autoDecoder",
+                options?: I.lzma.AutoDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA encoder
              *
              * @param options preset or options
              */
-            function createStream(coder: "aloneEncoder", options?: number | I.lzma.AloneEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "aloneEncoder",
+                options?: number | I.lzma.AloneEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA decoder
              */
-            function createStream(coder: "aloneDecoder", options?: I.lzma.AloneDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "aloneDecoder",
+                options?: I.lzma.AloneDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom encoder corresponding to lzma_raw_encoder
              */
-            function createStream(coder: "rawEncoder", options?: I.lzma.RawEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "rawEncoder",
+                options?: I.lzma.RawEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom decoder corresponding to lzma_raw_decoder
              */
-            function createStream(coder: "rawDecoder", options?: I.lzma.RawDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "rawDecoder",
+                options?: I.lzma.RawDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom encoder corresponding to lzma_stream_encoder
              */
-            function createStream(coder: "streamEncoder", options?: I.lzma.StreamEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "streamEncoder",
+                options?: I.lzma.StreamEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom decoder corresponding to lzma_stream_decoder
              */
-            function createStream(coder: "streamDecoder", options?: I.lzma.StreamDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "streamDecoder",
+                options?: I.lzma.StreamDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Encodes the given string or buffer using the given stream
@@ -927,26 +1066,36 @@ declare namespace adone {
              *
              * @param options preset or options
              */
-            function compress(buf: string | Buffer, options?: number | I.lzma.AloneEncoderOptions): Promise<Buffer>;
+            function compress(
+                buf: string | Buffer,
+                options?: number | I.lzma.AloneEncoderOptions
+            ): Promise<Buffer>;
 
             /**
              * Creates a compress stream
              *
              * @param options preset or options
              */
-            function compressStream(options?: number | I.lzma.AloneEncoderOptions): I.lzma.Stream;
+            function compressStream(
+                options?: number | I.lzma.AloneEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Decompresses the given buffer
              */
-            function decompress(buf: Buffer, options?: I.lzma.AloneDecoderOptions): Promise<Buffer>;
+            function decompress(
+                buf: Buffer,
+                options?: I.lzma.AloneDecoderOptions
+            ): Promise<Buffer>;
 
             /**
              * Creates a decompress stream
              *
              * @param options preset or options
              */
-            function decompressStream(options?: I.lzma.AloneDecoderOptions): I.lzma.Stream;
+            function decompressStream(
+                options?: I.lzma.AloneDecoderOptions
+            ): I.lzma.Stream;
         }
 
         /**
@@ -1022,44 +1171,68 @@ declare namespace adone {
              *
              * @param options preset or options
              */
-            function createStream(coder: "easyEncoder", options?: number | I.lzma.EasyEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "easyEncoder",
+                options?: number | I.lzma.EasyEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA 1/2 (bith .xz and .lzma) decoder with auto detection of file format
              */
-            function createStream(coder: "autoDecoder", options?: I.lzma.AutoDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "autoDecoder",
+                options?: I.lzma.AutoDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA encoder
              *
              * @param options preset or options
              */
-            function createStream(coder: "aloneEncoder", options?: number | I.lzma.AloneEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "aloneEncoder",
+                options?: number | I.lzma.AloneEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a standard LZMA decoder
              */
-            function createStream(coder: "aloneDecoder", options?: I.lzma.AloneDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "aloneDecoder",
+                options?: I.lzma.AloneDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom encoder corresponding to lzma_raw_encoder
              */
-            function createStream(coder: "rawEncoder", options?: I.lzma.RawEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "rawEncoder",
+                options?: I.lzma.RawEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom decoder corresponding to lzma_raw_decoder
              */
-            function createStream(coder: "rawDecoder", options?: I.lzma.RawDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "rawDecoder",
+                options?: I.lzma.RawDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom encoder corresponding to lzma_stream_encoder
              */
-            function createStream(coder: "streamEncoder", options?: I.lzma.StreamEncoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "streamEncoder",
+                options?: I.lzma.StreamEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Returns a custom decoder corresponding to lzma_stream_decoder
              */
-            function createStream(coder: "streamDecoder", options?: I.lzma.StreamDecoderOptions): I.lzma.Stream;
+            function createStream(
+                coder: "streamDecoder",
+                options?: I.lzma.StreamDecoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Encodes the given string or buffer using the given stream
@@ -1112,26 +1285,36 @@ declare namespace adone {
              *
              * @param options preset or options
              */
-            function compress(buf: string | Buffer, options?: number | I.lzma.EasyEncoderOptions): Promise<Buffer>;
+            function compress(
+                buf: string | Buffer,
+                options?: number | I.lzma.EasyEncoderOptions
+            ): Promise<Buffer>;
 
             /**
              * Creates a compress stream
              *
              * @param options preset or options
              */
-            function compressStream(options?: number | I.lzma.EasyEncoderOptions): I.lzma.Stream;
+            function compressStream(
+                options?: number | I.lzma.EasyEncoderOptions
+            ): I.lzma.Stream;
 
             /**
              * Decompresses the given buffer
              */
-            function decompress(buf: Buffer, options?: I.lzma.AutoDecoderOptions): Promise<Buffer>;
+            function decompress(
+                buf: Buffer,
+                options?: I.lzma.AutoDecoderOptions
+            ): Promise<Buffer>;
 
             /**
              * Creates a decompress stream
              *
              * @param options preset or options
              */
-            function decompressStream(options?: I.lzma.AutoDecoderOptions): I.lzma.Stream;
+            function decompressStream(
+                options?: I.lzma.AutoDecoderOptions
+            ): I.lzma.Stream;
         }
     }
 }

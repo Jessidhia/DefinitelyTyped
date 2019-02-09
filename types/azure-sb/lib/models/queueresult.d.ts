@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 import Dictionary = Azure.ServiceBus.Dictionary;
 
 export namespace Azure.ServiceBus.Results {

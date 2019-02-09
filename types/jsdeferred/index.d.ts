@@ -3,7 +3,7 @@
 // Definitions by: Daisuke Mino <https://github.com/minodisk>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import $ = require('jquery');
+import $ = require("jquery");
 
 declare global {
     interface Loop {
@@ -23,13 +23,20 @@ declare global {
         wait: number;
     }
 
-    interface DeferredizedFunction { (...arg: any[]): Deferred; }
-    interface DeferredizedFunctionWithNumber { (n: number): Deferred; }
-    interface FunctionWithNumber { (i: number, o?: any): any; }
-    interface ErrorCallback { (d: Deferred, ...args: any[]): any; }
+    interface DeferredizedFunction {
+        (...arg: any[]): Deferred;
+    }
+    interface DeferredizedFunctionWithNumber {
+        (n: number): Deferred;
+    }
+    interface FunctionWithNumber {
+        (i: number, o?: any): any;
+    }
+    interface ErrorCallback {
+        (d: Deferred, ...args: any[]): any;
+    }
 
     class Deferred {
-
         static methods: string[];
 
         static isDeferred(obj: any): boolean;
@@ -54,9 +61,16 @@ declare global {
         static register(name: string, fun: DeferredizedFunction): void;
 
         static connect(funo: any, options: string): DeferredizedFunction;
-        static connect(funo: Function, options?: ConnectOption): DeferredizedFunction;
+        static connect(
+            funo: Function,
+            options?: ConnectOption
+        ): DeferredizedFunction;
 
-        static retry(retryCount: number, funcDeferred: DeferredizedFunctionWithNumber, options?: RetryOption): Deferred;
+        static retry(
+            retryCount: number,
+            funcDeferred: DeferredizedFunctionWithNumber,
+            options?: RetryOption
+        ): Deferred;
 
         static define(obj?: any, list?: string[]): any;
 

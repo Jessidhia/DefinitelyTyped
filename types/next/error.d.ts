@@ -9,6 +9,10 @@ export interface DefaultErrorIProps {
     statusCode: number;
 }
 
-export default class Error<P = {}> extends React.Component<P & DefaultErrorIProps> {
-    static getInitialProps(context: NextContext): Promise<DefaultErrorIProps> | DefaultErrorIProps;
+export default class Error<P = {}> extends React.Component<
+    P & DefaultErrorIProps
+> {
+    static getInitialProps(
+        context: NextContext
+    ): Promise<DefaultErrorIProps> | DefaultErrorIProps;
 }

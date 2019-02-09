@@ -5,15 +5,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import 'karma';
-import * as istanbul from 'istanbul';
+import "karma";
+import * as istanbul from "istanbul";
 
-declare module 'karma' {
+declare module "karma" {
     interface ConfigOptions {
         /**
          * See https://github.com/karma-runner/karma-coverage/blob/master/docs/configuration.md
          */
-        coverageReporter?: KarmaCoverageReporter & { reporters?: KarmaCoverageReporter[] };
+        coverageReporter?: KarmaCoverageReporter & {
+            reporters?: KarmaCoverageReporter[];
+        };
     }
 
     interface KarmaCoverageReporter {

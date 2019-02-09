@@ -6,7 +6,10 @@
 /// <reference types="node" />
 export = tempWrite;
 
-declare function tempWrite(input: string | Buffer | NodeJS.ReadableStream, filepath?: string): Promise<string>;
+declare function tempWrite(
+    input: string | Buffer | NodeJS.ReadableStream,
+    filepath?: string
+): Promise<string>;
 
 declare namespace tempWrite {
     function sync(input: string | Buffer, filepath?: string): string;

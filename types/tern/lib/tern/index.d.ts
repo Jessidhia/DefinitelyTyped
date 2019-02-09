@@ -1,10 +1,11 @@
 import * as ESTree from "estree";
 import { Scope, Type } from "../infer";
 
-export { };
+export {};
 
 // #### Programming interface ####
-export type ConstructorOptions = CtorOptions & (SyncConstructorOptions | ASyncConstructorOptions);
+export type ConstructorOptions = CtorOptions &
+    (SyncConstructorOptions | ASyncConstructorOptions);
 
 interface CtorOptions {
     /** The definition objects to load into the server’s environment. */
@@ -38,11 +39,14 @@ interface ASyncConstructorOptions {
      * a function that takes a `filename` and a `callback`, and calls the callback with an optional `error` as the first argument,
      * and the `content` string (if no error) as the second.
      */
-    getFile?(filename: string, callback: (error: Error | undefined, content?: string) => void): void;
+    getFile?(
+        filename: string,
+        callback: (error: Error | undefined, content?: string) => void
+    ): void;
 }
 
 interface TernConstructor {
-    new(options?: ConstructorOptions): Server;
+    new (options?: ConstructorOptions): Server;
 }
 
 export const Server: TernConstructor;
@@ -94,7 +98,13 @@ export interface Server {
         doc: D & { query?: Q },
         callback: (
             error: Error | undefined,
-            response: (D extends { query: undefined } ? {} : D extends { query: Query } ? QueryResult<Q> : {}) | undefined
+            response:
+                | (D extends { query: undefined }
+                      ? {}
+                      : D extends { query: Query }
+                      ? QueryResult<Q>
+                      : {})
+                | undefined
         ) => void
     ): void;
 }
@@ -107,16 +117,16 @@ export type Query = QueryRegistry[keyof QueryRegistry]["query"];
 
 export interface QueryRegistry {
     completions: {
-        query: CompletionsQuery,
-        result: CompletionsQueryResult
+        query: CompletionsQuery;
+        result: CompletionsQueryResult;
     };
     type: {
-        query: TypeQuery,
-        result: TypeQueryResult
+        query: TypeQuery;
+        result: TypeQueryResult;
     };
     definition: {
-        query: DefinitionQuery,
-        result: DefinitionQueryResult
+        query: DefinitionQuery;
+        result: DefinitionQueryResult;
     };
     documentation: {
         query: DocumentationQuery;
@@ -127,16 +137,16 @@ export interface QueryRegistry {
         result: RefsQueryResult;
     };
     rename: {
-        query: RenameQuery,
-        result: RenameQueryResult
+        query: RenameQuery;
+        result: RenameQueryResult;
     };
     properties: {
-        query: PropertiesQuery,
-        result: PropertiesQueryResult
+        query: PropertiesQuery;
+        result: PropertiesQueryResult;
     };
     files: {
-        query: FilesQuery,
-        result: FilesQueryResult
+        query: FilesQuery;
+        result: FilesQueryResult;
     };
 }
 
@@ -222,14 +232,16 @@ export interface CompletionsQueryResult {
      * and, depending on the options, `type`, `depth`, `doc`, `url`, and `origin` properties.
      * When none of these options are enabled, the result array will hold plain strings.
      */
-    completions: string[] | Array<{
-        name: string,
-        type?: string,
-        depth?: number,
-        doc?: string,
-        url?: string,
-        origin?: string
-    }>;
+    completions:
+        | string[]
+        | Array<{
+              name: string;
+              type?: string;
+              depth?: number;
+              doc?: string;
+              url?: string;
+              origin?: string;
+          }>;
 }
 
 /** Query the type of something. */
@@ -356,9 +368,9 @@ export interface RefsQueryResult {
     /** The name of the variable or property */
     name: string;
     refs: Array<{
-        file: string,
-        start: number | Position,
-        end: number | Position
+        file: string;
+        start: number | Position;
+        end: number | Position;
     }>;
     /** for variables: a type property holding either "global" or "local". */
     type?: "global" | "local";
@@ -385,10 +397,10 @@ export interface RenameQuery extends BaseQuery {
 export interface RenameQueryResult {
     /** Array of changes that must be performed to apply the rename. The client is responsible for doing the actual modification. */
     changes: Array<{
-        file: string,
-        start: number | Position,
-        end: number | Position,
-        text: string
+        file: string;
+        start: number | Position;
+        end: number | Position;
+        text: string;
     }>;
 }
 
@@ -445,7 +457,12 @@ export interface Events {
      * or an alternate type to be used instead. This is useful when
      * a plugin can provide a more helpful type than Tern (e.g. within comments).
      */
-    typeAt(file: File, end: Position, expr: ESTree.Node, type: Type): Type | void;
+    typeAt(
+        file: File,
+        end: Position,
+        expr: ESTree.Node,
+        type: Type
+    ): Type | void;
     /** Run at the start of a completion query. May return a valid completion result to replace the default completion algorithm. */
     completion(file: File, query: Query): CompletionsQueryResult | void;
 }
@@ -463,10 +480,17 @@ export const version: string;
  *
  * See the server’s [list of events](http://ternjs.net/doc/manual.html#events) for ways to wire up plugin behavior.
  */
-export function registerPlugin(name: string, init: (server: Server, options?: ConstructorOptions) => void): void;
+export function registerPlugin(
+    name: string,
+    init: (server: Server, options?: ConstructorOptions) => void
+): void;
 
 export interface Desc<T extends Query["type"]> {
-    run(Server: Server, query: QueryRegistry[T]["query"], file?: File): QueryRegistry[T]["result"];
+    run(
+        Server: Server,
+        query: QueryRegistry[T]["query"],
+        file?: File
+    ): QueryRegistry[T]["result"];
     takesfile?: boolean;
 }
 
@@ -497,4 +521,7 @@ export interface Desc<T extends Query["type"]> {
  * _Note that your query interface should extend_ `BaseQuery` _and that its_ `type` _property has to be spelled
  * exactly like the key in the_ `QueryRegistry` _interface._
  */
-export function defineQueryType<T extends Query["type"]>(name: T, desc: Desc<T>): void;
+export function defineQueryType<T extends Query["type"]>(
+    name: T,
+    desc: Desc<T>
+): void;

@@ -35,7 +35,10 @@ import * as trace_events from "trace_events";
 import Module = require("module");
 
 // Specifically test buffer module regression.
-import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buffer";
+import {
+    Buffer as ImportedBuffer,
+    SlowBuffer as ImportedSlowBuffer
+} from "buffer";
 
 //////////////////////////////////////////////////////////
 /// Global Tests : https://nodejs.org/api/global.html  ///
@@ -62,22 +65,32 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
         assert.deepStrictEqual({ a: 1 }, { a: 1 }, "uses === comparator");
 
-        assert.doesNotThrow(() => {
-            const b = false;
-            if (b) { throw new Error("a hammer at your face"); }
-        }, undefined, "What the...*crunch*");
+        assert.doesNotThrow(
+            () => {
+                const b = false;
+                if (b) {
+                    throw new Error("a hammer at your face");
+                }
+            },
+            undefined,
+            "What the...*crunch*"
+        );
 
         assert.equal(3, "3", "uses == comparator");
 
-        assert.fail('stuff broke');
+        assert.fail("stuff broke");
 
-        assert.fail('actual', 'expected', 'message');
+        assert.fail("actual", "expected", "message");
 
-        assert.fail(1, 2, undefined, '>');
+        assert.fail(1, 2, undefined, ">");
 
         assert.ifError(0);
 
-        assert.notDeepStrictEqual({ x: { y: "3" } }, { x: { y: 3 } }, "uses !== comparator");
+        assert.notDeepStrictEqual(
+            { x: { y: "3" } },
+            { x: { y: 3 } },
+            "uses !== comparator"
+        );
 
         assert.notEqual(1, 2, "uses != comparator");
 
@@ -88,9 +101,18 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
         assert.strictEqual(1, 1, "uses === comparator");
 
-        assert.throws(() => { throw new Error("a hammer at your face"); }, undefined, "DODGED IT");
+        assert.throws(
+            () => {
+                throw new Error("a hammer at your face");
+            },
+            undefined,
+            "DODGED IT"
+        );
 
-        assert.strict.strict.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);
+        assert.strict.strict.deepEqual(
+            [[[1, 2, 3]], 4, 5],
+            [[[1, 2, "3"]], 4, 5]
+        );
     }
 }
 
@@ -100,7 +122,7 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
 {
     const emitter: events.EventEmitter = new events.EventEmitter();
-    const event: string | symbol = '';
+    const event: string | symbol = "";
     const listener: (...args: any[]) => void = () => {};
     const any: any = 1;
 
@@ -171,29 +193,40 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
 {
     {
-        fs.writeFile("thebible.txt",
+        fs.writeFile(
+            "thebible.txt",
             "Do unto others as you would have them do unto you.",
-            assert.ifError);
+            assert.ifError
+        );
 
-        fs.write(1234, "test", () => { });
+        fs.write(1234, "test", () => {});
 
-        fs.writeFile("Harry Potter",
-            "\"You be wizzing, Harry,\" jived Dumbledore.",
+        fs.writeFile(
+            "Harry Potter",
+            '"You be wizzing, Harry," jived Dumbledore.',
             {
                 encoding: "ascii"
             },
-            assert.ifError);
+            assert.ifError
+        );
 
         fs.writeFile("testfile", "content", "utf8", assert.ifError);
 
         fs.writeFileSync("testfile", "content", "utf8");
         fs.writeFileSync("testfile", "content", { encoding: "utf8" });
-        fs.writeFileSync("testfile", new DataView(new ArrayBuffer(1)), { encoding: "utf8" });
+        fs.writeFileSync("testfile", new DataView(new ArrayBuffer(1)), {
+            encoding: "utf8"
+        });
     }
 
     {
         fs.appendFile("testfile", "foobar", "utf8", assert.ifError);
-        fs.appendFile("testfile", "foobar", { encoding: "utf8" }, assert.ifError);
+        fs.appendFile(
+            "testfile",
+            "foobar",
+            { encoding: "utf8" },
+            assert.ifError
+        );
         fs.appendFileSync("testfile", "foobar", "utf8");
         fs.appendFileSync("testfile", "foobar", { encoding: "utf8" });
     }
@@ -203,37 +236,76 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
         let buffer: Buffer;
         let stringOrBuffer: string | Buffer;
         const nullEncoding: string | null = null;
-        const stringEncoding: string | null = 'utf8';
+        const stringEncoding: string | null = "utf8";
 
-        content = fs.readFileSync('testfile', 'utf8');
-        content = fs.readFileSync('testfile', { encoding: 'utf8' });
-        stringOrBuffer = fs.readFileSync('testfile', stringEncoding);
-        stringOrBuffer = fs.readFileSync('testfile', { encoding: stringEncoding });
+        content = fs.readFileSync("testfile", "utf8");
+        content = fs.readFileSync("testfile", { encoding: "utf8" });
+        stringOrBuffer = fs.readFileSync("testfile", stringEncoding);
+        stringOrBuffer = fs.readFileSync("testfile", {
+            encoding: stringEncoding
+        });
 
-        buffer = fs.readFileSync('testfile');
-        buffer = fs.readFileSync('testfile', null);
-        buffer = fs.readFileSync('testfile', { encoding: null });
-        stringOrBuffer = fs.readFileSync('testfile', nullEncoding);
-        stringOrBuffer = fs.readFileSync('testfile', { encoding: nullEncoding });
+        buffer = fs.readFileSync("testfile");
+        buffer = fs.readFileSync("testfile", null);
+        buffer = fs.readFileSync("testfile", { encoding: null });
+        stringOrBuffer = fs.readFileSync("testfile", nullEncoding);
+        stringOrBuffer = fs.readFileSync("testfile", {
+            encoding: nullEncoding
+        });
 
-        buffer = fs.readFileSync('testfile', { flag: 'r' });
+        buffer = fs.readFileSync("testfile", { flag: "r" });
 
-        fs.readFile('testfile', 'utf8', (err, data) => content = data);
-        fs.readFile('testfile', { encoding: 'utf8' }, (err, data) => content = data);
-        fs.readFile('testfile', stringEncoding, (err, data) => stringOrBuffer = data);
-        fs.readFile('testfile', { encoding: stringEncoding }, (err, data) => stringOrBuffer = data);
+        fs.readFile("testfile", "utf8", (err, data) => (content = data));
+        fs.readFile(
+            "testfile",
+            { encoding: "utf8" },
+            (err, data) => (content = data)
+        );
+        fs.readFile(
+            "testfile",
+            stringEncoding,
+            (err, data) => (stringOrBuffer = data)
+        );
+        fs.readFile(
+            "testfile",
+            { encoding: stringEncoding },
+            (err, data) => (stringOrBuffer = data)
+        );
 
-        fs.readFile('testfile', (err, data) => buffer = data);
-        fs.readFile('testfile', null, (err, data) => buffer = data);
-        fs.readFile('testfile', { encoding: null }, (err, data) => buffer = data);
-        fs.readFile('testfile', nullEncoding, (err, data) => stringOrBuffer = data);
-        fs.readFile('testfile', { encoding: nullEncoding }, (err, data) => stringOrBuffer = data);
+        fs.readFile("testfile", (err, data) => (buffer = data));
+        fs.readFile("testfile", null, (err, data) => (buffer = data));
+        fs.readFile(
+            "testfile",
+            { encoding: null },
+            (err, data) => (buffer = data)
+        );
+        fs.readFile(
+            "testfile",
+            nullEncoding,
+            (err, data) => (stringOrBuffer = data)
+        );
+        fs.readFile(
+            "testfile",
+            { encoding: nullEncoding },
+            (err, data) => (stringOrBuffer = data)
+        );
 
-        fs.readFile('testfile', { flag: 'r' }, (err, data) => buffer = data);
+        fs.readFile("testfile", { flag: "r" }, (err, data) => (buffer = data));
     }
 
     {
-        fs.read(1, new DataView(new ArrayBuffer(1)), 0, 1, 0, (err: NodeJS.ErrnoException, bytesRead: number, buffer: DataView) => {});
+        fs.read(
+            1,
+            new DataView(new ArrayBuffer(1)),
+            0,
+            1,
+            0,
+            (
+                err: NodeJS.ErrnoException,
+                bytesRead: number,
+                buffer: DataView
+            ) => {}
+        );
     }
 
     {
@@ -242,7 +314,7 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
     {
         let errno: number;
-        fs.readFile('testfile', (err, data) => {
+        fs.readFile("testfile", (err, data) => {
             if (err && err.errno) {
                 errno = err.errno;
             }
@@ -251,28 +323,37 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
     {
         let listS: string[];
-        listS = fs.readdirSync('path');
-        listS = fs.readdirSync('path', { encoding: 'utf8' });
-        listS = fs.readdirSync('path', { encoding: null });
-        listS = fs.readdirSync('path', { encoding: undefined });
-        listS = fs.readdirSync('path', 'utf8');
-        listS = fs.readdirSync('path', null);
-        listS = fs.readdirSync('path', undefined);
-        const listDir: fs.Dirent[] = fs.readdirSync('path', { withFileTypes: true });
-        const listDir2: Buffer[] = fs.readdirSync('path', { withFileTypes: false, encoding: 'buffer' });
+        listS = fs.readdirSync("path");
+        listS = fs.readdirSync("path", { encoding: "utf8" });
+        listS = fs.readdirSync("path", { encoding: null });
+        listS = fs.readdirSync("path", { encoding: undefined });
+        listS = fs.readdirSync("path", "utf8");
+        listS = fs.readdirSync("path", null);
+        listS = fs.readdirSync("path", undefined);
+        const listDir: fs.Dirent[] = fs.readdirSync("path", {
+            withFileTypes: true
+        });
+        const listDir2: Buffer[] = fs.readdirSync("path", {
+            withFileTypes: false,
+            encoding: "buffer"
+        });
 
         let listB: Buffer[];
-        listB = fs.readdirSync('path', { encoding: 'buffer' });
-        listB = fs.readdirSync("path", 'buffer');
+        listB = fs.readdirSync("path", { encoding: "buffer" });
+        listB = fs.readdirSync("path", "buffer");
 
-        const enc = 'buffer';
-        fs.readdirSync('path', { encoding: enc });
-        fs.readdirSync('path', { });
+        const enc = "buffer";
+        fs.readdirSync("path", { encoding: enc });
+        fs.readdirSync("path", {});
 
-        fs.readdir('path', { withFileTypes: true }, (err: NodeJS.ErrnoException, files: fs.Dirent[]) => {});
+        fs.readdir(
+            "path",
+            { withFileTypes: true },
+            (err: NodeJS.ErrnoException, files: fs.Dirent[]) => {}
+        );
     }
     {
-        fs.mkdtemp('/tmp/foo-', (err, folder) => {
+        fs.mkdtemp("/tmp/foo-", (err, folder) => {
             console.log(folder);
             // Prints: /tmp/foo-itXde2
         });
@@ -280,153 +361,310 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 
     {
         let tempDir: string;
-        tempDir = fs.mkdtempSync('/tmp/foo-');
+        tempDir = fs.mkdtempSync("/tmp/foo-");
     }
 
     {
-        fs.watch('/tmp/foo-', (event, filename) => {
+        fs.watch("/tmp/foo-", (event, filename) => {
             console.log(event, filename);
         });
 
-        fs.watch('/tmp/foo-', 'utf8', (event, filename) => {
+        fs.watch("/tmp/foo-", "utf8", (event, filename) => {
             console.log(event, filename);
         });
 
-        fs.watch('/tmp/foo-', {
-            recursive: true,
-            persistent: true,
-            encoding: 'utf8'
-        }, (event, filename) => {
-            console.log(event, filename);
-        });
+        fs.watch(
+            "/tmp/foo-",
+            {
+                recursive: true,
+                persistent: true,
+                encoding: "utf8"
+            },
+            (event, filename) => {
+                console.log(event, filename);
+            }
+        );
     }
 
     {
-        fs.access('/path/to/folder', (err) => { });
+        fs.access("/path/to/folder", err => {});
 
-        fs.access(Buffer.from(''), (err) => { });
+        fs.access(Buffer.from(""), err => {});
 
-        fs.access('/path/to/folder', fs.constants.F_OK | fs.constants.R_OK, (err) => { });
+        fs.access(
+            "/path/to/folder",
+            fs.constants.F_OK | fs.constants.R_OK,
+            err => {}
+        );
 
-        fs.access(Buffer.from(''), fs.constants.F_OK | fs.constants.R_OK, (err) => { });
+        fs.access(
+            Buffer.from(""),
+            fs.constants.F_OK | fs.constants.R_OK,
+            err => {}
+        );
 
-        fs.accessSync('/path/to/folder');
+        fs.accessSync("/path/to/folder");
 
-        fs.accessSync(Buffer.from(''));
+        fs.accessSync(Buffer.from(""));
 
-        fs.accessSync('path/to/folder', fs.constants.W_OK | fs.constants.X_OK);
+        fs.accessSync("path/to/folder", fs.constants.W_OK | fs.constants.X_OK);
 
-        fs.accessSync(Buffer.from(''), fs.constants.W_OK | fs.constants.X_OK);
+        fs.accessSync(Buffer.from(""), fs.constants.W_OK | fs.constants.X_OK);
     }
 
     {
         let s: string;
         let b: Buffer;
-        fs.readlink('/path/to/folder', (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', undefined, (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', 'utf8', (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', 'buffer', (err, linkString) => b = linkString);
-        fs.readlink('/path/to/folder', s, (err, linkString) => typeof linkString === 'string' ? s = linkString : b = linkString);
-        fs.readlink('/path/to/folder', {}, (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', { encoding: undefined }, (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', { encoding: 'utf8' }, (err, linkString) => s = linkString);
-        fs.readlink('/path/to/folder', { encoding: 'buffer' }, (err, linkString) => b = linkString);
-        fs.readlink('/path/to/folder', { encoding: s }, (err, linkString) => typeof linkString === "string" ? s = linkString : b = linkString);
+        fs.readlink("/path/to/folder", (err, linkString) => (s = linkString));
+        fs.readlink(
+            "/path/to/folder",
+            undefined,
+            (err, linkString) => (s = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            "utf8",
+            (err, linkString) => (s = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            "buffer",
+            (err, linkString) => (b = linkString)
+        );
+        fs.readlink("/path/to/folder", s, (err, linkString) =>
+            typeof linkString === "string" ? (s = linkString) : (b = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            {},
+            (err, linkString) => (s = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            { encoding: undefined },
+            (err, linkString) => (s = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            { encoding: "utf8" },
+            (err, linkString) => (s = linkString)
+        );
+        fs.readlink(
+            "/path/to/folder",
+            { encoding: "buffer" },
+            (err, linkString) => (b = linkString)
+        );
+        fs.readlink("/path/to/folder", { encoding: s }, (err, linkString) =>
+            typeof linkString === "string" ? (s = linkString) : (b = linkString)
+        );
 
-        s = fs.readlinkSync('/path/to/folder');
-        s = fs.readlinkSync('/path/to/folder', undefined);
-        s = fs.readlinkSync('/path/to/folder', 'utf8');
-        b = fs.readlinkSync('/path/to/folder', 'buffer');
-        const v1 = fs.readlinkSync('/path/to/folder', s);
-        typeof v1 === "string" ? s = v1 : b = v1;
+        s = fs.readlinkSync("/path/to/folder");
+        s = fs.readlinkSync("/path/to/folder", undefined);
+        s = fs.readlinkSync("/path/to/folder", "utf8");
+        b = fs.readlinkSync("/path/to/folder", "buffer");
+        const v1 = fs.readlinkSync("/path/to/folder", s);
+        typeof v1 === "string" ? (s = v1) : (b = v1);
 
-        s = fs.readlinkSync('/path/to/folder', {});
-        s = fs.readlinkSync('/path/to/folder', { encoding: undefined });
-        s = fs.readlinkSync('/path/to/folder', { encoding: 'utf8' });
-        b = fs.readlinkSync('/path/to/folder', { encoding: 'buffer' });
-        const v2 = fs.readlinkSync('/path/to/folder', { encoding: s });
-        typeof v2 === "string" ? s = v2 : b = v2;
+        s = fs.readlinkSync("/path/to/folder", {});
+        s = fs.readlinkSync("/path/to/folder", { encoding: undefined });
+        s = fs.readlinkSync("/path/to/folder", { encoding: "utf8" });
+        b = fs.readlinkSync("/path/to/folder", { encoding: "buffer" });
+        const v2 = fs.readlinkSync("/path/to/folder", { encoding: s });
+        typeof v2 === "string" ? (s = v2) : (b = v2);
     }
 
     {
         let s: string;
         let b: Buffer;
-        fs.realpath('/path/to/folder', (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', undefined, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', 'utf8', (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', 'buffer', (err, resolvedPath) => b = resolvedPath);
-        fs.realpath('/path/to/folder', s, (err, resolvedPath) => typeof resolvedPath === 'string' ? s = resolvedPath : b = resolvedPath);
-        fs.realpath('/path/to/folder', {}, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', { encoding: undefined }, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', { encoding: 'utf8' }, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath('/path/to/folder', { encoding: 'buffer' }, (err, resolvedPath) => b = resolvedPath);
-        fs.realpath('/path/to/folder', { encoding: s }, (err, resolvedPath) => typeof resolvedPath === "string" ? s = resolvedPath : b = resolvedPath);
+        fs.realpath(
+            "/path/to/folder",
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            undefined,
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            "utf8",
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            "buffer",
+            (err, resolvedPath) => (b = resolvedPath)
+        );
+        fs.realpath("/path/to/folder", s, (err, resolvedPath) =>
+            typeof resolvedPath === "string"
+                ? (s = resolvedPath)
+                : (b = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            {},
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            { encoding: undefined },
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            { encoding: "utf8" },
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath(
+            "/path/to/folder",
+            { encoding: "buffer" },
+            (err, resolvedPath) => (b = resolvedPath)
+        );
+        fs.realpath("/path/to/folder", { encoding: s }, (err, resolvedPath) =>
+            typeof resolvedPath === "string"
+                ? (s = resolvedPath)
+                : (b = resolvedPath)
+        );
 
-        s = fs.realpathSync('/path/to/folder');
-        s = fs.realpathSync('/path/to/folder', undefined);
-        s = fs.realpathSync('/path/to/folder', 'utf8');
-        b = fs.realpathSync('/path/to/folder', 'buffer');
-        const v1 = fs.realpathSync('/path/to/folder', s);
-        typeof v1 === "string" ? s = v1 : b = v1;
+        s = fs.realpathSync("/path/to/folder");
+        s = fs.realpathSync("/path/to/folder", undefined);
+        s = fs.realpathSync("/path/to/folder", "utf8");
+        b = fs.realpathSync("/path/to/folder", "buffer");
+        const v1 = fs.realpathSync("/path/to/folder", s);
+        typeof v1 === "string" ? (s = v1) : (b = v1);
 
-        s = fs.realpathSync('/path/to/folder', {});
-        s = fs.realpathSync('/path/to/folder', { encoding: undefined });
-        s = fs.realpathSync('/path/to/folder', { encoding: 'utf8' });
-        b = fs.realpathSync('/path/to/folder', { encoding: 'buffer' });
-        const v2 = fs.realpathSync('/path/to/folder', { encoding: s });
-        typeof v2 === "string" ? s = v2 : b = v2;
+        s = fs.realpathSync("/path/to/folder", {});
+        s = fs.realpathSync("/path/to/folder", { encoding: undefined });
+        s = fs.realpathSync("/path/to/folder", { encoding: "utf8" });
+        b = fs.realpathSync("/path/to/folder", { encoding: "buffer" });
+        const v2 = fs.realpathSync("/path/to/folder", { encoding: s });
+        typeof v2 === "string" ? (s = v2) : (b = v2);
 
         // native
-        fs.realpath.native('/path/to/folder', (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', undefined, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', 'utf8', (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', 'buffer', (err, resolvedPath) => b = resolvedPath);
-        fs.realpath.native('/path/to/folder', s, (err, resolvedPath) => typeof resolvedPath === 'string' ? s = resolvedPath : b = resolvedPath);
-        fs.realpath.native('/path/to/folder', {}, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', { encoding: undefined }, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', { encoding: 'utf8' }, (err, resolvedPath) => s = resolvedPath);
-        fs.realpath.native('/path/to/folder', { encoding: 'buffer' }, (err, resolvedPath) => b = resolvedPath);
-        fs.realpath.native('/path/to/folder', { encoding: s }, (err, resolvedPath) => typeof resolvedPath === "string" ? s = resolvedPath : b = resolvedPath);
+        fs.realpath.native(
+            "/path/to/folder",
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            undefined,
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            "utf8",
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            "buffer",
+            (err, resolvedPath) => (b = resolvedPath)
+        );
+        fs.realpath.native("/path/to/folder", s, (err, resolvedPath) =>
+            typeof resolvedPath === "string"
+                ? (s = resolvedPath)
+                : (b = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            {},
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            { encoding: undefined },
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            { encoding: "utf8" },
+            (err, resolvedPath) => (s = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            { encoding: "buffer" },
+            (err, resolvedPath) => (b = resolvedPath)
+        );
+        fs.realpath.native(
+            "/path/to/folder",
+            { encoding: s },
+            (err, resolvedPath) =>
+                typeof resolvedPath === "string"
+                    ? (s = resolvedPath)
+                    : (b = resolvedPath)
+        );
 
-        s = fs.realpathSync.native('/path/to/folder');
-        s = fs.realpathSync.native('/path/to/folder', undefined);
-        s = fs.realpathSync.native('/path/to/folder', 'utf8');
-        b = fs.realpathSync.native('/path/to/folder', 'buffer');
-        const v3 = fs.realpathSync.native('/path/to/folder', s);
-        typeof v3 === "string" ? s = v3 : b = v3;
+        s = fs.realpathSync.native("/path/to/folder");
+        s = fs.realpathSync.native("/path/to/folder", undefined);
+        s = fs.realpathSync.native("/path/to/folder", "utf8");
+        b = fs.realpathSync.native("/path/to/folder", "buffer");
+        const v3 = fs.realpathSync.native("/path/to/folder", s);
+        typeof v3 === "string" ? (s = v3) : (b = v3);
 
-        s = fs.realpathSync.native('/path/to/folder', {});
-        s = fs.realpathSync.native('/path/to/folder', { encoding: undefined });
-        s = fs.realpathSync.native('/path/to/folder', { encoding: 'utf8' });
-        b = fs.realpathSync.native('/path/to/folder', { encoding: 'buffer' });
-        const v4 = fs.realpathSync.native('/path/to/folder', { encoding: s });
-        typeof v4 === "string" ? s = v4 : b = v4;
+        s = fs.realpathSync.native("/path/to/folder", {});
+        s = fs.realpathSync.native("/path/to/folder", { encoding: undefined });
+        s = fs.realpathSync.native("/path/to/folder", { encoding: "utf8" });
+        b = fs.realpathSync.native("/path/to/folder", { encoding: "buffer" });
+        const v4 = fs.realpathSync.native("/path/to/folder", { encoding: s });
+        typeof v4 === "string" ? (s = v4) : (b = v4);
     }
 
     {
-        fs.copyFile('/path/to/src', '/path/to/dest', (err) => console.error(err));
-        fs.copyFile('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_EXCL, (err) => console.error(err));
-        fs.copyFile('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_FICLONE, (err) => console.error(err));
-        fs.copyFile('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_FICLONE_FORCE, (err) => console.error(err));
+        fs.copyFile("/path/to/src", "/path/to/dest", err => console.error(err));
+        fs.copyFile(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_EXCL,
+            err => console.error(err)
+        );
+        fs.copyFile(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_FICLONE,
+            err => console.error(err)
+        );
+        fs.copyFile(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_FICLONE_FORCE,
+            err => console.error(err)
+        );
 
-        fs.copyFileSync('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_EXCL);
-        fs.copyFileSync('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_FICLONE);
-        fs.copyFileSync('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_FICLONE_FORCE);
+        fs.copyFileSync(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_EXCL
+        );
+        fs.copyFileSync(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_FICLONE
+        );
+        fs.copyFileSync(
+            "/path/to/src",
+            "/path/to/dest",
+            fs.constants.COPYFILE_FICLONE_FORCE
+        );
 
         const cf = util.promisify(fs.copyFile);
-        cf('/path/to/src', '/path/to/dest', fs.constants.COPYFILE_EXCL).then(console.log);
+        cf("/path/to/src", "/path/to/dest", fs.constants.COPYFILE_EXCL).then(
+            console.log
+        );
     }
 
     {
-        fs.mkdir('some/test/path', {
-            recursive: true,
-            mode: 0o777,
-        }, () => {
-        });
+        fs.mkdir(
+            "some/test/path",
+            {
+                recursive: true,
+                mode: 0o777
+            },
+            () => {}
+        );
 
-        fs.mkdirSync('some/test/path', {
+        fs.mkdirSync("some/test/path", {
             recursive: true,
-            mode: 0o777,
+            mode: 0o777
         });
     }
 }
@@ -436,16 +674,16 @@ import { Buffer as ImportedBuffer, SlowBuffer as ImportedSlowBuffer } from "buff
 ///////////////////////////////////////////////////////
 
 function bufferTests() {
-    const utf8Buffer = new Buffer('test');
-    const base64Buffer = new Buffer('', 'base64');
+    const utf8Buffer = new Buffer("test");
+    const base64Buffer = new Buffer("", "base64");
     const octets: Uint8Array = null;
     const octetBuffer = new Buffer(octets);
     const sharedBuffer = new Buffer(octets.buffer);
     const copiedBuffer = new Buffer(utf8Buffer);
     console.log(Buffer.isBuffer(octetBuffer));
-    console.log(Buffer.isEncoding('utf8'));
-    console.log(Buffer.byteLength('xyz123'));
-    console.log(Buffer.byteLength('xyz123', 'ascii'));
+    console.log(Buffer.isEncoding("utf8"));
+    console.log(Buffer.byteLength("xyz123"));
+    console.log(Buffer.byteLength("xyz123", "ascii"));
     const result1 = Buffer.concat([utf8Buffer, base64Buffer]);
     const result2 = Buffer.concat([utf8Buffer, base64Buffer], 9999999);
 
@@ -464,7 +702,7 @@ function bufferTests() {
         // Buffer
         const buf2: Buffer = Buffer.from(buf1);
         // String
-        const buf3: Buffer = Buffer.from('this is a tést');
+        const buf3: Buffer = Buffer.from("this is a tést");
         // ArrayBuffer
         const arrUint16: Uint16Array = new Uint16Array(2);
         arrUint16[0] = 5000;
@@ -489,14 +727,17 @@ function bufferTests() {
 
     // Class Method: Buffer.from(str[, encoding])
     {
-        const buf2: Buffer = Buffer.from('7468697320697320612074c3a97374', 'hex');
+        const buf2: Buffer = Buffer.from(
+            "7468697320697320612074c3a97374",
+            "hex"
+        );
     }
 
     // Class Method: Buffer.alloc(size[, fill[, encoding]])
     {
         const buf1: Buffer = Buffer.alloc(5);
-        const buf2: Buffer = Buffer.alloc(5, 'a');
-        const buf3: Buffer = Buffer.alloc(11, 'aGVsbG8gd29ybGQ=', 'base64');
+        const buf2: Buffer = Buffer.alloc(5, "a");
+        const buf3: Buffer = Buffer.alloc(11, "aGVsbG8gd29ybGQ=", "base64");
     }
     // Class Method: Buffer.allocUnsafe(size)
     {
@@ -550,10 +791,10 @@ function bufferTests() {
     result = b.writeDoubleLE(0, 8);
 
     // fill returns the input buffer.
-    b.fill('a').fill('b');
+    b.fill("a").fill("b");
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         let index: number;
         index = buffer.indexOf("23");
         index = buffer.indexOf("23", 1);
@@ -563,7 +804,7 @@ function bufferTests() {
     }
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         let index: number;
         index = buffer.lastIndexOf("23");
         index = buffer.lastIndexOf("23", 1);
@@ -573,7 +814,7 @@ function bufferTests() {
     }
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         const val: [number, number] = [1, 1];
 
         /* comment out for --target es5
@@ -584,7 +825,7 @@ function bufferTests() {
     }
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         let includes: boolean;
         includes = buffer.includes("23");
         includes = buffer.includes("23", 1);
@@ -598,7 +839,7 @@ function bufferTests() {
     }
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         const val = 1;
 
         /* comment out for --target es5
@@ -609,7 +850,7 @@ function bufferTests() {
     }
 
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         const val = 1;
 
         /* comment out for --target es5
@@ -621,7 +862,7 @@ function bufferTests() {
 
     // Imported Buffer from buffer module works properly
     {
-        const b = new ImportedBuffer('123');
+        const b = new ImportedBuffer("123");
         b.writeUInt8(0, 6);
         const sb = new ImportedSlowBuffer(43);
         b.writeUInt8(0, 6);
@@ -629,7 +870,7 @@ function bufferTests() {
 
     // Buffer has Uint8Array's buffer field (an ArrayBuffer).
     {
-        const buffer = new Buffer('123');
+        const buffer = new Buffer("123");
         const octets = new Uint8Array(buffer.buffer);
     }
 }
@@ -640,99 +881,123 @@ function bufferTests() {
 
 {
     {
-        url.format(url.parse('http://www.example.com/xyz'));
+        url.format(url.parse("http://www.example.com/xyz"));
 
-        url.format('http://www.example.com/xyz');
+        url.format("http://www.example.com/xyz");
 
         // https://google.com/search?q=you're%20a%20lizard%2C%20gary
         url.format({
-            protocol: 'https',
+            protocol: "https",
             host: "google.com",
-            pathname: 'search',
+            pathname: "search",
             query: { q: "you're a lizard, gary" }
         });
 
-        const myURL = new url.URL('https://a:b@你好你好?abc#foo');
+        const myURL = new url.URL("https://a:b@你好你好?abc#foo");
         url.format(myURL, { fragment: false, unicode: true, auth: false });
     }
 
     {
-        const helloUrl = url.parse('http://example.com/?hello=world', true);
-        let helloQuery = helloUrl.query['hello'];
-        assert.equal(helloUrl.query['hello'], 'world');
+        const helloUrl = url.parse("http://example.com/?hello=world", true);
+        let helloQuery = helloUrl.query["hello"];
+        assert.equal(helloUrl.query["hello"], "world");
 
-        let strUrl = url.parse('http://example.com/?hello=world');
+        let strUrl = url.parse("http://example.com/?hello=world");
         let queryStr: string = strUrl.query;
 
-        strUrl = url.parse('http://example.com/?hello=world', false);
+        strUrl = url.parse("http://example.com/?hello=world", false);
         queryStr = strUrl.query;
 
-        function getBoolean(): boolean { return false; }
-        const urlUrl = url.parse('http://example.com/?hello=world', getBoolean());
-        if (typeof(urlUrl.query) === 'string') {
+        function getBoolean(): boolean {
+            return false;
+        }
+        const urlUrl = url.parse(
+            "http://example.com/?hello=world",
+            getBoolean()
+        );
+        if (typeof urlUrl.query === "string") {
             queryStr = urlUrl.query;
         } else if (urlUrl.query) {
-            helloQuery = urlUrl.query['hello'];
+            helloQuery = urlUrl.query["hello"];
         }
     }
 
     {
-        const ascii: string = url.domainToASCII('español.com');
-        const unicode: string = url.domainToUnicode('xn--espaol-zwa.com');
+        const ascii: string = url.domainToASCII("español.com");
+        const unicode: string = url.domainToUnicode("xn--espaol-zwa.com");
     }
 
     {
-        let myURL = new url.URL('https://theuser:thepwd@example.org:81/foo/path?query=string#bar');
-        assert.equal(myURL.hash, '#bar');
-        assert.equal(myURL.host, 'example.org:81');
-        assert.equal(myURL.hostname, 'example.org');
-        assert.equal(myURL.href, 'https://theuser:thepwd@example.org:81/foo/path?query=string#bar');
-        assert.equal(myURL.origin, 'https://example.org:81');
-        assert.equal(myURL.password, 'thepwd');
-        assert.equal(myURL.username, 'theuser');
-        assert.equal(myURL.pathname, '/foo/path');
+        let myURL = new url.URL(
+            "https://theuser:thepwd@example.org:81/foo/path?query=string#bar"
+        );
+        assert.equal(myURL.hash, "#bar");
+        assert.equal(myURL.host, "example.org:81");
+        assert.equal(myURL.hostname, "example.org");
+        assert.equal(
+            myURL.href,
+            "https://theuser:thepwd@example.org:81/foo/path?query=string#bar"
+        );
+        assert.equal(myURL.origin, "https://example.org:81");
+        assert.equal(myURL.password, "thepwd");
+        assert.equal(myURL.username, "theuser");
+        assert.equal(myURL.pathname, "/foo/path");
         assert.equal(myURL.port, "81");
         assert.equal(myURL.protocol, "https:");
         assert.equal(myURL.search, "?query=string");
-        assert.equal(myURL.toString(), 'https://theuser:thepwd@example.org:81/foo/path?query=string#bar');
+        assert.equal(
+            myURL.toString(),
+            "https://theuser:thepwd@example.org:81/foo/path?query=string#bar"
+        );
         assert(myURL.searchParams instanceof url.URLSearchParams);
 
-        myURL.host = 'example.org:82';
-        myURL.hostname = 'example.com';
-        myURL.href = 'http://other.com';
-        myURL.hash = 'baz';
+        myURL.host = "example.org:82";
+        myURL.hostname = "example.com";
+        myURL.href = "http://other.com";
+        myURL.hash = "baz";
         myURL.password = "otherpwd";
         myURL.username = "otheruser";
         myURL.pathname = "/otherPath";
         myURL.port = "82";
         myURL.protocol = "http";
         myURL.search = "a=b";
-        assert.equal(myURL.href, 'http://otheruser:otherpwd@other.com:82/otherPath?a=b#baz');
+        assert.equal(
+            myURL.href,
+            "http://otheruser:otherpwd@other.com:82/otherPath?a=b#baz"
+        );
 
-        myURL = new url.URL('/foo', 'https://example.org/');
-        assert.equal(myURL.href, 'https://example.org/foo');
+        myURL = new url.URL("/foo", "https://example.org/");
+        assert.equal(myURL.href, "https://example.org/foo");
         assert.equal(myURL.toJSON(), myURL.href);
     }
 
     {
-        const searchParams = new url.URLSearchParams('abc=123');
+        const searchParams = new url.URLSearchParams("abc=123");
 
-        assert.equal(searchParams.toString(), 'abc=123');
-        searchParams.forEach((value: string, name: string, me: url.URLSearchParams): void => {
-            assert.equal(name, 'abc');
-            assert.equal(value, '123');
-            assert.equal(me, searchParams);
-        });
+        assert.equal(searchParams.toString(), "abc=123");
+        searchParams.forEach(
+            (value: string, name: string, me: url.URLSearchParams): void => {
+                assert.equal(name, "abc");
+                assert.equal(value, "123");
+                assert.equal(me, searchParams);
+            }
+        );
 
-        assert.equal(searchParams.get('abc'), '123');
+        assert.equal(searchParams.get("abc"), "123");
 
-        searchParams.append('abc', 'xyz');
+        searchParams.append("abc", "xyz");
 
-        assert.deepEqual(searchParams.getAll('abc'), ['123', 'xyz']);
+        assert.deepEqual(searchParams.getAll("abc"), ["123", "xyz"]);
 
         const entries = searchParams.entries();
-        assert.deepEqual(entries.next(), { value: ["abc", "123"], done: false });
-        assert.deepEqual(entries.next(), { value: ["abc", "xyz"], done: false });
+        assert.deepEqual(entries.next(), {
+            value: ["abc", "123"],
+            done: false
+        });
+        assert.deepEqual(entries.next(), {
+            value: ["abc", "xyz"],
+            done: false
+        });
         assert.deepEqual(entries.next(), { value: undefined, done: true });
 
         const keys = searchParams.keys();
@@ -745,43 +1010,43 @@ function bufferTests() {
         assert.deepEqual(values.next(), { value: "xyz", done: false });
         assert.deepEqual(values.next(), { value: undefined, done: true });
 
-        searchParams.set('abc', 'b');
-        assert.deepEqual(searchParams.getAll('abc'), ['b']);
+        searchParams.set("abc", "b");
+        assert.deepEqual(searchParams.getAll("abc"), ["b"]);
 
-        searchParams.delete('a');
-        assert(!searchParams.has('a'));
-        assert.equal(searchParams.get('a'), null);
+        searchParams.delete("a");
+        assert(!searchParams.has("a"));
+        assert.equal(searchParams.get("a"), null);
 
         searchParams.sort();
     }
 
     {
         const searchParams = new url.URLSearchParams({
-            user: 'abc',
-            query: ['first', 'second']
+            user: "abc",
+            query: ["first", "second"]
         });
 
-        assert.equal(searchParams.toString(), 'user=abc&query=first%2Csecond');
-        assert.deepEqual(searchParams.getAll('query'), ['first,second']);
+        assert.equal(searchParams.toString(), "user=abc&query=first%2Csecond");
+        assert.deepEqual(searchParams.getAll("query"), ["first,second"]);
     }
 
     {
         // Using an array
         const params = new url.URLSearchParams([
-            ['user', 'abc'],
-            ['query', 'first'],
-            ['query', 'second']
+            ["user", "abc"],
+            ["query", "first"],
+            ["query", "second"]
         ]);
-        assert.equal(params.toString(), 'user=abc&query=first&query=second');
+        assert.equal(params.toString(), "user=abc&query=first&query=second");
     }
 
     {
-        let path: string = url.fileURLToPath('file://test');
-        path = url.fileURLToPath(new url.URL('file://test'));
+        let path: string = url.fileURLToPath("file://test");
+        path = url.fileURLToPath(new url.URL("file://test"));
     }
 
     {
-        const path: url.URL = url.pathToFileURL('file://test');
+        const path: url.URL = url.pathToFileURL("file://test");
     }
 }
 
@@ -804,7 +1069,7 @@ function bufferTests() {
             compact: true,
             sorted(a, b) {
                 return b.localeCompare(a);
-            },
+            }
         });
         util.inspect(["This is nice"], {
             colors: true,
@@ -814,11 +1079,11 @@ function bufferTests() {
             maxArrayLength: null,
             breakLength: Infinity,
             compact: false,
-            sorted: true,
+            sorted: true
         });
-        assert(typeof util.inspect.custom === 'symbol');
+        assert(typeof util.inspect.custom === "symbol");
 
-        util.formatWithOptions({ colors: true }, 'See object %O', { foo: 42 });
+        util.formatWithOptions({ colors: true }, "See object %O", { foo: 42 });
 
         // util.callbackify
         // tslint:disable-next-line no-unnecessary-class
@@ -832,43 +1097,43 @@ function bufferTests() {
             static fnE(): Promise<void> {
                 assert(arguments.length === 0);
 
-                return Promise.reject(new Error('fail'));
+                return Promise.reject(new Error("fail"));
             }
 
             static fnT1(arg1: string): Promise<void> {
-                assert(arguments.length === 1 && arg1 === 'parameter');
+                assert(arguments.length === 1 && arg1 === "parameter");
 
                 return Promise.resolve();
             }
 
             static fnT1E(arg1: string): Promise<void> {
-                assert(arguments.length === 1 && arg1 === 'parameter');
+                assert(arguments.length === 1 && arg1 === "parameter");
 
-                return Promise.reject(new Error('fail'));
+                return Promise.reject(new Error("fail"));
             }
 
             static fnTResult(): Promise<string> {
                 assert(arguments.length === 0);
 
-                return Promise.resolve('result');
+                return Promise.resolve("result");
             }
 
             static fnTResultE(): Promise<string> {
                 assert(arguments.length === 0);
 
-                return Promise.reject(new Error('fail'));
+                return Promise.reject(new Error("fail"));
             }
 
             static fnT1TResult(arg1: string): Promise<string> {
-                assert(arguments.length === 1 && arg1 === 'parameter');
+                assert(arguments.length === 1 && arg1 === "parameter");
 
-                return Promise.resolve('result');
+                return Promise.resolve("result");
             }
 
             static fnT1TResultE(arg1: string): Promise<string> {
-                assert(arguments.length === 1 && arg1 === 'parameter');
+                assert(arguments.length === 1 && arg1 === "parameter");
 
-                return Promise.reject(new Error('fail'));
+                return Promise.reject(new Error("fail"));
             }
 
             static test(): void {
@@ -881,36 +1146,93 @@ function bufferTests() {
                 const cfnT1TResult = util.callbackify(this.fnT1TResult);
                 const cfnT1TResultE = util.callbackify(this.fnT1TResultE);
 
-                cfn((err: NodeJS.ErrnoException, ...args: string[]) => assert(err === null && args.length === 1 && args[0] === undefined));
-                cfnE((err: NodeJS.ErrnoException, ...args: string[]) => assert(err.message === 'fail' && args.length === 0));
-                cfnT1('parameter', (err: NodeJS.ErrnoException, ...args: string[]) => assert(err === null && args.length === 1 && args[0] === undefined));
-                cfnT1E('parameter', (err: NodeJS.ErrnoException, ...args: string[]) => assert(err.message === 'fail' && args.length === 0));
-                cfnTResult((err: NodeJS.ErrnoException, ...args: string[]) => assert(err === null && args.length === 1 && args[0] === 'result'));
-                cfnTResultE((err: NodeJS.ErrnoException, ...args: string[]) => assert(err.message === 'fail' && args.length === 0));
-                cfnT1TResult('parameter', (err: NodeJS.ErrnoException, ...args: string[]) => assert(err === null && args.length === 1 && args[0] === 'result'));
-                cfnT1TResultE('parameter', (err: NodeJS.ErrnoException, ...args: string[]) => assert(err.message === 'fail' && args.length === 0));
+                cfn((err: NodeJS.ErrnoException, ...args: string[]) =>
+                    assert(
+                        err === null &&
+                            args.length === 1 &&
+                            args[0] === undefined
+                    )
+                );
+                cfnE((err: NodeJS.ErrnoException, ...args: string[]) =>
+                    assert(err.message === "fail" && args.length === 0)
+                );
+                cfnT1(
+                    "parameter",
+                    (err: NodeJS.ErrnoException, ...args: string[]) =>
+                        assert(
+                            err === null &&
+                                args.length === 1 &&
+                                args[0] === undefined
+                        )
+                );
+                cfnT1E(
+                    "parameter",
+                    (err: NodeJS.ErrnoException, ...args: string[]) =>
+                        assert(err.message === "fail" && args.length === 0)
+                );
+                cfnTResult((err: NodeJS.ErrnoException, ...args: string[]) =>
+                    assert(
+                        err === null &&
+                            args.length === 1 &&
+                            args[0] === "result"
+                    )
+                );
+                cfnTResultE((err: NodeJS.ErrnoException, ...args: string[]) =>
+                    assert(err.message === "fail" && args.length === 0)
+                );
+                cfnT1TResult(
+                    "parameter",
+                    (err: NodeJS.ErrnoException, ...args: string[]) =>
+                        assert(
+                            err === null &&
+                                args.length === 1 &&
+                                args[0] === "result"
+                        )
+                );
+                cfnT1TResultE(
+                    "parameter",
+                    (err: NodeJS.ErrnoException, ...args: string[]) =>
+                        assert(err.message === "fail" && args.length === 0)
+                );
             }
         }
         callbackifyTest.test();
 
         // util.promisify
         const readPromised = util.promisify(fs.readFile);
-        const sampleRead: Promise<any> = readPromised(__filename).then((data: Buffer): void => { }).catch((error: Error): void => { });
-        const arg0: () => Promise<number> = util.promisify((cb: (err: Error, result: number) => void): void => { });
-        const arg0NoResult: () => Promise<any> = util.promisify((cb: (err: Error) => void): void => { });
-        const arg1: (arg: string) => Promise<number> = util.promisify((arg: string, cb: (err: Error, result: number) => void): void => { });
-        const arg1NoResult: (arg: string) => Promise<any> = util.promisify((arg: string, cb: (err: Error) => void): void => { });
-        const cbOptionalError: () => Promise<void | {}> = util.promisify((cb: (err?: Error | null) => void): void => { cb(); }); // tslint:disable-line void-return
-        assert(typeof util.promisify.custom === 'symbol');
+        const sampleRead: Promise<any> = readPromised(__filename)
+            .then((data: Buffer): void => {})
+            .catch((error: Error): void => {});
+        const arg0: () => Promise<number> = util.promisify(
+            (cb: (err: Error, result: number) => void): void => {}
+        );
+        const arg0NoResult: () => Promise<any> = util.promisify(
+            (cb: (err: Error) => void): void => {}
+        );
+        const arg1: (arg: string) => Promise<number> = util.promisify(
+            (arg: string, cb: (err: Error, result: number) => void): void => {}
+        );
+        const arg1NoResult: (arg: string) => Promise<any> = util.promisify(
+            (arg: string, cb: (err: Error) => void): void => {}
+        );
+        const cbOptionalError: () => Promise<void | {}> = util.promisify(
+            (cb: (err?: Error | null) => void): void => {
+                cb();
+            }
+        ); // tslint:disable-line void-return
+        assert(typeof util.promisify.custom === "symbol");
         // util.deprecate
         const foo = () => {};
         // $ExpectType () => void
-        util.deprecate(foo, 'foo() is deprecated, use bar() instead');
+        util.deprecate(foo, "foo() is deprecated, use bar() instead");
         // $ExpectType <T extends Function>(fn: T, message: string) => T
-        util.deprecate(util.deprecate, 'deprecate() is deprecated, use bar() instead');
+        util.deprecate(
+            util.deprecate,
+            "deprecate() is deprecated, use bar() instead"
+        );
 
         // util.isDeepStrictEqual
-        util.isDeepStrictEqual({foo: 'bar'}, {foo: 'bar'});
+        util.isDeepStrictEqual({ foo: "bar" }, { foo: "bar" });
 
         // util.TextDecoder()
         const td = new util.TextDecoder();
@@ -961,14 +1283,14 @@ function bufferTests() {
 
 // http://nodejs.org/api/stream.html#stream_readable_pipe_destination_options
 function stream_readable_pipe_test() {
-    const rs = fs.createReadStream(Buffer.from('file.txt'));
-    const r = fs.createReadStream('file.txt');
+    const rs = fs.createReadStream(Buffer.from("file.txt"));
+    const r = fs.createReadStream("file.txt");
     const z = zlib.createGzip({ finishFlush: zlib.constants.Z_FINISH });
-    const w = fs.createWriteStream('file.txt.gz');
+    const w = fs.createWriteStream("file.txt.gz");
 
-    assert(typeof z.bytesRead === 'number');
-    assert(typeof r.bytesRead === 'number');
-    assert(typeof r.path === 'string');
+    assert(typeof z.bytesRead === "number");
+    assert(typeof r.bytesRead === "number");
+    assert(typeof r.path === "string");
     assert(rs.path instanceof Buffer);
 
     r.pipe(z).pipe(w);
@@ -983,30 +1305,89 @@ function stream_readable_pipe_test() {
 const compressMe = new Buffer("some data");
 const compressMeString = "compress me!";
 
-zlib.deflate(compressMe, (err: Error, result: Buffer) => zlib.inflate(result, (err: Error, result: Buffer) => result));
-zlib.deflate(compressMe, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => zlib.inflate(result, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result));
-zlib.deflate(compressMeString, (err: Error, result: Buffer) => zlib.inflate(result, (err: Error, result: Buffer) => result));
-zlib.deflate(compressMeString, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => zlib.inflate(result, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result));
+zlib.deflate(compressMe, (err: Error, result: Buffer) =>
+    zlib.inflate(result, (err: Error, result: Buffer) => result)
+);
+zlib.deflate(
+    compressMe,
+    { finishFlush: zlib.Z_SYNC_FLUSH },
+    (err: Error, result: Buffer) =>
+        zlib.inflate(
+            result,
+            { finishFlush: zlib.Z_SYNC_FLUSH },
+            (err: Error, result: Buffer) => result
+        )
+);
+zlib.deflate(compressMeString, (err: Error, result: Buffer) =>
+    zlib.inflate(result, (err: Error, result: Buffer) => result)
+);
+zlib.deflate(
+    compressMeString,
+    { finishFlush: zlib.Z_SYNC_FLUSH },
+    (err: Error, result: Buffer) =>
+        zlib.inflate(
+            result,
+            { finishFlush: zlib.Z_SYNC_FLUSH },
+            (err: Error, result: Buffer) => result
+        )
+);
 const inflated = zlib.inflateSync(zlib.deflateSync(compressMe));
 const inflatedString = zlib.inflateSync(zlib.deflateSync(compressMeString));
 
-zlib.deflateRaw(compressMe, (err: Error, result: Buffer) => zlib.inflateRaw(result, (err: Error, result: Buffer) => result));
-zlib.deflateRaw(compressMe, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => zlib.inflateRaw(result, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result));
-zlib.deflateRaw(compressMeString, (err: Error, result: Buffer) => zlib.inflateRaw(result, (err: Error, result: Buffer) => result));
+zlib.deflateRaw(compressMe, (err: Error, result: Buffer) =>
+    zlib.inflateRaw(result, (err: Error, result: Buffer) => result)
+);
+zlib.deflateRaw(
+    compressMe,
+    { finishFlush: zlib.Z_SYNC_FLUSH },
+    (err: Error, result: Buffer) =>
+        zlib.inflateRaw(
+            result,
+            { finishFlush: zlib.Z_SYNC_FLUSH },
+            (err: Error, result: Buffer) => result
+        )
+);
+zlib.deflateRaw(compressMeString, (err: Error, result: Buffer) =>
+    zlib.inflateRaw(result, (err: Error, result: Buffer) => result)
+);
 zlib.deflateRaw(
     compressMeString,
     { finishFlush: zlib.Z_SYNC_FLUSH },
-    (err: Error, result: Buffer) => zlib.inflateRaw(result, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result),
+    (err: Error, result: Buffer) =>
+        zlib.inflateRaw(
+            result,
+            { finishFlush: zlib.Z_SYNC_FLUSH },
+            (err: Error, result: Buffer) => result
+        )
 );
-const inflatedRaw: Buffer = zlib.inflateRawSync(zlib.deflateRawSync(compressMe));
-const inflatedRawString: Buffer = zlib.inflateRawSync(zlib.deflateRawSync(compressMeString));
+const inflatedRaw: Buffer = zlib.inflateRawSync(
+    zlib.deflateRawSync(compressMe)
+);
+const inflatedRawString: Buffer = zlib.inflateRawSync(
+    zlib.deflateRawSync(compressMeString)
+);
 
-zlib.gzip(compressMe, (err: Error, result: Buffer) => zlib.gunzip(result, (err: Error, result: Buffer) => result));
-zlib.gzip(compressMe, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => zlib.gunzip(result, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result));
+zlib.gzip(compressMe, (err: Error, result: Buffer) =>
+    zlib.gunzip(result, (err: Error, result: Buffer) => result)
+);
+zlib.gzip(
+    compressMe,
+    { finishFlush: zlib.Z_SYNC_FLUSH },
+    (err: Error, result: Buffer) =>
+        zlib.gunzip(
+            result,
+            { finishFlush: zlib.Z_SYNC_FLUSH },
+            (err: Error, result: Buffer) => result
+        )
+);
 const gunzipped: Buffer = zlib.gunzipSync(zlib.gzipSync(compressMe));
 
 zlib.unzip(compressMe, (err: Error, result: Buffer) => result);
-zlib.unzip(compressMe, { finishFlush: zlib.Z_SYNC_FLUSH }, (err: Error, result: Buffer) => result);
+zlib.unzip(
+    compressMe,
+    { finishFlush: zlib.Z_SYNC_FLUSH },
+    (err: Error, result: Buffer) => result
+);
 const unzipped: Buffer = zlib.unzipSync(compressMe);
 
 // Simplified constructors
@@ -1185,66 +1566,104 @@ async function asyncStreamPipelineFinished() {
 {
     {
         // crypto_hash_string_test
-        const hashResult: string = crypto.createHash('md5').update('world').digest('hex');
+        const hashResult: string = crypto
+            .createHash("md5")
+            .update("world")
+            .digest("hex");
     }
 
     {
         // crypto_hash_buffer_test
-        const hashResult: string = crypto.createHash('md5')
-            .update(new Buffer('world')).digest('hex');
+        const hashResult: string = crypto
+            .createHash("md5")
+            .update(new Buffer("world"))
+            .digest("hex");
     }
 
     {
         // crypto_hash_dataview_test
-        const hashResult: string = crypto.createHash('md5')
-            .update(new DataView(new Buffer('world').buffer)).digest('hex');
+        const hashResult: string = crypto
+            .createHash("md5")
+            .update(new DataView(new Buffer("world").buffer))
+            .digest("hex");
     }
 
     {
         // crypto_hash_int8array_test
-        const hashResult: string = crypto.createHash('md5')
-            .update(new Int8Array(new Buffer('world').buffer)).digest('hex');
+        const hashResult: string = crypto
+            .createHash("md5")
+            .update(new Int8Array(new Buffer("world").buffer))
+            .digest("hex");
     }
 
     {
         // crypto_hmac_string_test
-        const hmacResult: string = crypto.createHmac('md5', 'hello').update('world').digest('hex');
+        const hmacResult: string = crypto
+            .createHmac("md5", "hello")
+            .update("world")
+            .digest("hex");
     }
 
     {
         // crypto_hmac_buffer_test
-        const hmacResult: string = crypto.createHmac('md5', 'hello')
-            .update(new Buffer('world')).digest('hex');
+        const hmacResult: string = crypto
+            .createHmac("md5", "hello")
+            .update(new Buffer("world"))
+            .digest("hex");
     }
 
     {
         // crypto_hmac_dataview_test
-        const hmacResult: string = crypto.createHmac('md5', 'hello')
-            .update(new DataView(new Buffer('world').buffer)).digest('hex');
+        const hmacResult: string = crypto
+            .createHmac("md5", "hello")
+            .update(new DataView(new Buffer("world").buffer))
+            .digest("hex");
     }
 
     {
         // crypto_hmac_int8array_test
-        const hmacResult: string = crypto.createHmac('md5', 'hello')
-            .update(new Int8Array(new Buffer('world').buffer)).digest('hex');
+        const hmacResult: string = crypto
+            .createHmac("md5", "hello")
+            .update(new Int8Array(new Buffer("world").buffer))
+            .digest("hex");
     }
 
     {
         let hmac: crypto.Hmac;
-        (hmac = crypto.createHmac('md5', 'hello')).end('world', 'utf8', () => {
+        (hmac = crypto.createHmac("md5", "hello")).end("world", "utf8", () => {
             const hash: Buffer | string = hmac.read();
         });
     }
 
     {
         // crypto_cipher_decipher_string_test
-        const key: Buffer = new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7]);
+        const key: Buffer = new Buffer([
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]);
         const clearText = "This is the clear text.";
         const cipher: crypto.Cipher = crypto.createCipher("aes-128-ecb", key);
         let cipherText: string = cipher.update(clearText, "utf8", "hex");
         cipherText += cipher.final("hex");
 
-        const decipher: crypto.Decipher = crypto.createDecipher("aes-128-ecb", key);
+        const decipher: crypto.Decipher = crypto.createDecipher(
+            "aes-128-ecb",
+            key
+        );
         let clearText2: string = decipher.update(cipherText, "hex", "utf8");
         clearText2 += decipher.final("utf8");
 
@@ -1253,8 +1672,40 @@ async function asyncStreamPipelineFinished() {
 
     {
         // crypto_cipher_decipher_buffer_test
-        const key: Buffer = new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7]);
-        const clearText: Buffer = new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4]);
+        const key: Buffer = new Buffer([
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]);
+        const clearText: Buffer = new Buffer([
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4
+        ]);
         const cipher: crypto.Cipher = crypto.createCipher("aes-128-ecb", key);
         const cipherBuffers: Buffer[] = [];
         cipherBuffers.push(cipher.update(clearText));
@@ -1262,7 +1713,10 @@ async function asyncStreamPipelineFinished() {
 
         const cipherText: Buffer = Buffer.concat(cipherBuffers);
 
-        const decipher: crypto.Decipher = crypto.createDecipher("aes-128-ecb", key);
+        const decipher: crypto.Decipher = crypto.createDecipher(
+            "aes-128-ecb",
+            key
+        );
         const decipherBuffers: Buffer[] = [];
         decipherBuffers.push(decipher.update(cipherText));
         decipherBuffers.push(decipher.final());
@@ -1274,16 +1728,40 @@ async function asyncStreamPipelineFinished() {
 
     {
         // crypto_cipher_decipher_dataview_test
-        const key: Buffer = new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7]);
-        const clearText: DataView = new DataView(new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4]).buffer);
+        const key: Buffer = new Buffer([
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]);
+        const clearText: DataView = new DataView(
+            new Buffer([1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4]).buffer
+        );
         const cipher: crypto.Cipher = crypto.createCipher("aes-128-ecb", key);
         const cipherBuffers: Buffer[] = [];
         cipherBuffers.push(cipher.update(clearText));
         cipherBuffers.push(cipher.final());
 
-        const cipherText: DataView = new DataView(Buffer.concat(cipherBuffers).buffer);
+        const cipherText: DataView = new DataView(
+            Buffer.concat(cipherBuffers).buffer
+        );
 
-        const decipher: crypto.Decipher = crypto.createDecipher("aes-128-ecb", key);
+        const decipher: crypto.Decipher = crypto.createDecipher(
+            "aes-128-ecb",
+            key
+        );
         const decipherBuffers: Buffer[] = [];
         decipherBuffers.push(decipher.update(cipherText));
         decipherBuffers.push(decipher.final());
@@ -1294,52 +1772,60 @@ async function asyncStreamPipelineFinished() {
     }
 
     {
-        const key = 'keykeykeykeykeykeykeykey';
+        const key = "keykeykeykeykeykeykeykey";
         const nonce = crypto.randomBytes(12);
-        const aad = Buffer.from('0123456789', 'hex');
+        const aad = Buffer.from("0123456789", "hex");
 
-        const cipher = crypto.createCipheriv('aes-192-ccm', key, nonce, {
+        const cipher = crypto.createCipheriv("aes-192-ccm", key, nonce, {
             authTagLength: 16
         });
-        const plaintext = 'Hello world';
+        const plaintext = "Hello world";
         cipher.setAAD(aad, {
             plaintextLength: Buffer.byteLength(plaintext)
         });
-        const ciphertext = cipher.update(plaintext, 'utf8');
+        const ciphertext = cipher.update(plaintext, "utf8");
         cipher.final();
         const tag = cipher.getAuthTag();
 
-        const decipher = crypto.createDecipheriv('aes-192-ccm', key, nonce, {
+        const decipher = crypto.createDecipheriv("aes-192-ccm", key, nonce, {
             authTagLength: 16
         });
         decipher.setAuthTag(tag);
         decipher.setAAD(aad, {
             plaintextLength: ciphertext.length
         });
-        const receivedPlaintext: string = decipher.update(ciphertext, null, 'utf8');
+        const receivedPlaintext: string = decipher.update(
+            ciphertext,
+            null,
+            "utf8"
+        );
         decipher.final();
     }
 
     {
-        const key = 'keykeykeykeykeykeykeykey';
+        const key = "keykeykeykeykeykeykeykey";
         const nonce = crypto.randomBytes(12);
-        const aad = Buffer.from('0123456789', 'hex');
+        const aad = Buffer.from("0123456789", "hex");
 
-        const cipher = crypto.createCipheriv('aes-192-gcm', key, nonce);
-        const plaintext = 'Hello world';
+        const cipher = crypto.createCipheriv("aes-192-gcm", key, nonce);
+        const plaintext = "Hello world";
         cipher.setAAD(aad, {
             plaintextLength: Buffer.byteLength(plaintext)
         });
-        const ciphertext = cipher.update(plaintext, 'utf8');
+        const ciphertext = cipher.update(plaintext, "utf8");
         cipher.final();
         const tag = cipher.getAuthTag();
 
-        const decipher = crypto.createDecipheriv('aes-192-gcm', key, nonce);
+        const decipher = crypto.createDecipheriv("aes-192-gcm", key, nonce);
         decipher.setAuthTag(tag);
         decipher.setAAD(aad, {
             plaintextLength: ciphertext.length
         });
-        const receivedPlaintext: string = decipher.update(ciphertext, null, 'utf8');
+        const receivedPlaintext: string = decipher.update(
+            ciphertext,
+            null,
+            "utf8"
+        );
         decipher.final();
     }
 
@@ -1376,8 +1862,30 @@ async function asyncStreamPipelineFinished() {
     {
         // crypto_timingsafeequal_safe_int8array_variant_test
         const arr1: Int8Array = Int8Array.of(1, 2, 3, 4, 5, ~0, ~1, ~2, ~3, ~4);
-        const arr2: Uint8Array = Uint8Array.of(1, 2, 3, 4, 5, ~0, ~1, ~2, ~3, ~4);
-        const arr3: Uint8ClampedArray = Uint8ClampedArray.of(1, 2, 3, 4, 5, ~0, ~1, ~2, ~3, ~4);
+        const arr2: Uint8Array = Uint8Array.of(
+            1,
+            2,
+            3,
+            4,
+            5,
+            ~0,
+            ~1,
+            ~2,
+            ~3,
+            ~4
+        );
+        const arr3: Uint8ClampedArray = Uint8ClampedArray.of(
+            1,
+            2,
+            3,
+            4,
+            5,
+            ~0,
+            ~1,
+            ~2,
+            ~3,
+            ~4
+        );
 
         assert(crypto.timingSafeEqual(arr1, arr2)); // binary same
         assert(!crypto.timingSafeEqual(arr1, arr3)); // binary differ
@@ -1389,7 +1897,6 @@ async function asyncStreamPipelineFinished() {
         // let arr1: Uint8Array = Uint8Array.of(1, 0, 2, 0, 3, 0, 4, 0);
         // let arr2: Uint16Array = Uint16Array.of(1, 2, 3, 4);
         // let arr3: Uint32Array = Uint8ClampedArray.of(131073, 262147);
-
         // assert(crypto.timingSafeEqual(arr1, arr2)); // binary same
         // assert(crypto.timingSafeEqual(arr1, arr3)); // binary same
     }
@@ -1400,7 +1907,6 @@ async function asyncStreamPipelineFinished() {
         // let arr1: Uint8Array = Uint8Array.of(1, 2, 3, 4);
         // let arr2: Uint16Array = Uint16Array.of(1, 2, 3, 4);
         // let arr3: Uint32Array = Uint8ClampedArray.of(1, 2, 3, 4);
-
         // assert(!crypto.timingSafeEqual(arr1, arr2)); // dumps core
         // assert(!crypto.timingSafeEqual(arr1, arr3)); // dumps core
     }
@@ -1411,10 +1917,26 @@ async function asyncStreamPipelineFinished() {
         const dv2B: Int8Array = Int8Array.of(1, 2, 3, 4, 5);
         const dv3B: Buffer = Buffer.of(5, 4, 3, 2, 1);
         const dv4B: Uint8ClampedArray = Uint8ClampedArray.of(5, 4, 3, 2, 1);
-        const dv1: DataView = new DataView(dv1B.buffer, dv1B.byteOffset, dv1B.byteLength);
-        const dv2: DataView = new DataView(dv2B.buffer, dv2B.byteOffset, dv2B.byteLength);
-        const dv3: DataView = new DataView(dv3B.buffer, dv3B.byteOffset, dv3B.byteLength);
-        const dv4: DataView = new DataView(dv4B.buffer, dv4B.byteOffset, dv4B.byteLength);
+        const dv1: DataView = new DataView(
+            dv1B.buffer,
+            dv1B.byteOffset,
+            dv1B.byteLength
+        );
+        const dv2: DataView = new DataView(
+            dv2B.buffer,
+            dv2B.byteOffset,
+            dv2B.byteLength
+        );
+        const dv3: DataView = new DataView(
+            dv3B.buffer,
+            dv3B.byteOffset,
+            dv3B.byteLength
+        );
+        const dv4: DataView = new DataView(
+            dv4B.buffer,
+            dv4B.byteOffset,
+            dv4B.byteLength
+        );
 
         assert(crypto.timingSafeEqual(dv1, dv2));
         assert(crypto.timingSafeEqual(dv1, dv1B));
@@ -1456,7 +1978,12 @@ async function asyncStreamPipelineFinished() {
 
         crypto.randomFill(ui8arr, (err: Error, buf: Uint8Array) => void {});
         crypto.randomFill(ui8arr, 2, (err: Error, buf: Uint8Array) => void {});
-        crypto.randomFill(ui8arr, 2, 3, (err: Error, buf: Uint8Array) => void {});
+        crypto.randomFill(
+            ui8arr,
+            2,
+            3,
+            (err: Error, buf: Uint8Array) => void {}
+        );
 
         // crypto_randomfill_int32array_test
         const i32arr: Int32Array = new Int32Array(10);
@@ -1466,22 +1993,44 @@ async function asyncStreamPipelineFinished() {
 
         crypto.randomFill(i32arr, (err: Error, buf: Int32Array) => void {});
         crypto.randomFill(i32arr, 2, (err: Error, buf: Int32Array) => void {});
-        crypto.randomFill(i32arr, 2, 3, (err: Error, buf: Int32Array) => void {});
+        crypto.randomFill(
+            i32arr,
+            2,
+            3,
+            (err: Error, buf: Int32Array) => void {}
+        );
     }
 
     {
         // scrypt
         const pwd: string | Buffer | Int32Array | DataView = Buffer.alloc(16);
         const salt: string | Buffer | Int32Array | DataView = Buffer.alloc(16);
-        crypto.scrypt(pwd, salt, 64, (err: Error | null, derivedKey: Buffer): void => {});
+        crypto.scrypt(
+            pwd,
+            salt,
+            64,
+            (err: Error | null, derivedKey: Buffer): void => {}
+        );
         const opts: crypto.ScryptOptions = {
             N: 16384,
             r: 8,
             p: 1,
             maxmem: 32 * 1024 * 1024
         };
-        crypto.scrypt(pwd, salt, 64, opts, (err: Error | null, derivedKey: Buffer): void => {});
-        crypto.scrypt(pwd, salt, 64, { maxmem: 16 * 1024 * 1024 }, (err: Error | null, derivedKey: Buffer): void => {});
+        crypto.scrypt(
+            pwd,
+            salt,
+            64,
+            opts,
+            (err: Error | null, derivedKey: Buffer): void => {}
+        );
+        crypto.scrypt(
+            pwd,
+            salt,
+            64,
+            { maxmem: 16 * 1024 * 1024 },
+            (err: Error | null, derivedKey: Buffer): void => {}
+        );
         let buf: Buffer = crypto.scryptSync(pwd, salt, 64);
         buf = crypto.scryptSync(pwd, salt, 64, opts);
         buf = crypto.scryptSync(pwd, salt, 64, { N: 1024 });
@@ -1504,154 +2053,180 @@ async function asyncStreamPipelineFinished() {
         const rsaRes: {
             publicKey: Buffer;
             privateKey: string;
-        } = crypto.generateKeyPairSync('rsa', {
+        } = crypto.generateKeyPairSync("rsa", {
             modulusLength: 123,
             publicKeyEncoding: {
-                format: 'der',
-                type: 'pkcs1',
+                format: "der",
+                type: "pkcs1"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "pem",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
 
         const dsaRes: {
             publicKey: string;
             privateKey: Buffer;
-        } = crypto.generateKeyPairSync('dsa', {
+        } = crypto.generateKeyPairSync("dsa", {
             modulusLength: 123,
             divisorLength: 123,
             publicKeyEncoding: {
-                format: 'pem',
-                type: 'spki',
+                format: "pem",
+                type: "spki"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'der',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "der",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
 
         const ecRes: {
             publicKey: string;
             privateKey: string;
-        } = crypto.generateKeyPairSync('ec', {
-            namedCurve: 'curve',
+        } = crypto.generateKeyPairSync("ec", {
+            namedCurve: "curve",
             publicKeyEncoding: {
-                format: 'pem',
-                type: 'pkcs1',
+                format: "pem",
+                type: "pkcs1"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "pem",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
     }
 
     {
-        crypto.generateKeyPair('rsa', {
-            modulusLength: 123,
-            publicKeyEncoding: {
-                format: 'der',
-                type: 'pkcs1',
+        crypto.generateKeyPair(
+            "rsa",
+            {
+                modulusLength: 123,
+                publicKeyEncoding: {
+                    format: "der",
+                    type: "pkcs1"
+                },
+                privateKeyEncoding: {
+                    cipher: "some-cipher",
+                    format: "pem",
+                    passphrase: "secret",
+                    type: "pkcs8"
+                }
             },
-            privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
-        }, (err: NodeJS.ErrnoException | null, publicKey: Buffer, privateKey: string) => {});
+            (
+                err: NodeJS.ErrnoException | null,
+                publicKey: Buffer,
+                privateKey: string
+            ) => {}
+        );
 
-        crypto.generateKeyPair('dsa', {
-            modulusLength: 123,
-            divisorLength: 123,
-            publicKeyEncoding: {
-                format: 'pem',
-                type: 'spki',
+        crypto.generateKeyPair(
+            "dsa",
+            {
+                modulusLength: 123,
+                divisorLength: 123,
+                publicKeyEncoding: {
+                    format: "pem",
+                    type: "spki"
+                },
+                privateKeyEncoding: {
+                    cipher: "some-cipher",
+                    format: "der",
+                    passphrase: "secret",
+                    type: "pkcs8"
+                }
             },
-            privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'der',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
-        }, (err: NodeJS.ErrnoException | null, publicKey: string, privateKey: Buffer) => {});
+            (
+                err: NodeJS.ErrnoException | null,
+                publicKey: string,
+                privateKey: Buffer
+            ) => {}
+        );
 
-        crypto.generateKeyPair('ec', {
-            namedCurve: 'curve',
-            publicKeyEncoding: {
-                format: 'pem',
-                type: 'pkcs1',
+        crypto.generateKeyPair(
+            "ec",
+            {
+                namedCurve: "curve",
+                publicKeyEncoding: {
+                    format: "pem",
+                    type: "pkcs1"
+                },
+                privateKeyEncoding: {
+                    cipher: "some-cipher",
+                    format: "pem",
+                    passphrase: "secret",
+                    type: "pkcs8"
+                }
             },
-            privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
-        }, (err: NodeJS.ErrnoException | null, publicKey: string, privateKey: string) => {});
+            (
+                err: NodeJS.ErrnoException | null,
+                publicKey: string,
+                privateKey: string
+            ) => {}
+        );
     }
 
     {
-        const generateKeyPairPromisified = util.promisify(crypto.generateKeyPair);
+        const generateKeyPairPromisified = util.promisify(
+            crypto.generateKeyPair
+        );
 
         const rsaRes: Promise<{
             publicKey: Buffer;
             privateKey: string;
-        }> = generateKeyPairPromisified('rsa', {
+        }> = generateKeyPairPromisified("rsa", {
             modulusLength: 123,
             publicKeyEncoding: {
-                format: 'der',
-                type: 'pkcs1',
+                format: "der",
+                type: "pkcs1"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "pem",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
 
         const dsaRes: Promise<{
             publicKey: string;
             privateKey: Buffer;
-        }> = generateKeyPairPromisified('dsa', {
+        }> = generateKeyPairPromisified("dsa", {
             modulusLength: 123,
             divisorLength: 123,
             publicKeyEncoding: {
-                format: 'pem',
-                type: 'spki',
+                format: "pem",
+                type: "spki"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'der',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "der",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
 
         const ecRes: Promise<{
             publicKey: string;
             privateKey: string;
-        }> = generateKeyPairPromisified('ec', {
-            namedCurve: 'curve',
+        }> = generateKeyPairPromisified("ec", {
+            namedCurve: "curve",
             publicKeyEncoding: {
-                format: 'pem',
-                type: 'pkcs1',
+                format: "pem",
+                type: "pkcs1"
             },
             privateKeyEncoding: {
-                cipher: 'some-cipher',
-                format: 'pem',
-                passphrase: 'secret',
-                type: 'pkcs8',
-            },
+                cipher: "some-cipher",
+                format: "pem",
+                passphrase: "secret",
+                type: "pkcs8"
+            }
         });
     }
 }
@@ -1664,7 +2239,7 @@ async function asyncStreamPipelineFinished() {
     {
         const ctx: tls.SecureContext = tls.createSecureContext({
             key: "NOT REALLY A KEY",
-            cert: "SOME CERTIFICATE",
+            cert: "SOME CERTIFICATE"
         });
         const blah = ctx.context;
 
@@ -1681,8 +2256,8 @@ async function asyncStreamPipelineFinished() {
     {
         let _server: tls.Server;
         let _boolean: boolean;
-        const _func1 = (err: Error, resp: Buffer) => { };
-        const _func2 = (err: Error, sessionData: any) => { };
+        const _func1 = (err: Error, resp: Buffer) => {};
+        const _func2 = (err: Error, sessionData: any) => {};
         /**
          * events.EventEmitter
          * 1. tlsClientError
@@ -1696,21 +2271,30 @@ async function asyncStreamPipelineFinished() {
             const _err: Error = err;
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
-        _server = _server.addListener("newSession", (sessionId, sessionData, callback) => {
-            const _sessionId: any = sessionId;
-            const _sessionData: any = sessionData;
-            const _func1 = callback;
-        });
-        _server = _server.addListener("OCSPRequest", (certificate, issuer, callback) => {
-            const _certificate: Buffer = certificate;
-            const _issuer: Buffer = issuer;
-            const _callback: Function = callback;
-        });
-        _server = _server.addListener("resumeSession", (sessionId, callback) => {
-            const _sessionId: any = sessionId;
-            const _func2 = callback;
-        });
-        _server = _server.addListener("secureConnection", (tlsSocket) => {
+        _server = _server.addListener(
+            "newSession",
+            (sessionId, sessionData, callback) => {
+                const _sessionId: any = sessionId;
+                const _sessionData: any = sessionData;
+                const _func1 = callback;
+            }
+        );
+        _server = _server.addListener(
+            "OCSPRequest",
+            (certificate, issuer, callback) => {
+                const _certificate: Buffer = certificate;
+                const _issuer: Buffer = issuer;
+                const _callback: Function = callback;
+            }
+        );
+        _server = _server.addListener(
+            "resumeSession",
+            (sessionId, callback) => {
+                const _sessionId: any = sessionId;
+                const _func2 = callback;
+            }
+        );
+        _server = _server.addListener("secureConnection", tlsSocket => {
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
 
@@ -1718,7 +2302,7 @@ async function asyncStreamPipelineFinished() {
         const _tlsSocket: tls.TLSSocket = tls.connect(1);
         const _any: any = 1;
         const _func: Function = () => {};
-        const _buffer: Buffer = Buffer.from('a');
+        const _buffer: Buffer = Buffer.from("a");
         _boolean = _server.emit("tlsClientError", _err, _tlsSocket);
         _boolean = _server.emit("newSession", _any, _any, _func1);
         _boolean = _server.emit("OCSPRequest", _buffer, _buffer, _func);
@@ -1729,11 +2313,14 @@ async function asyncStreamPipelineFinished() {
             const _err: Error = err;
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
-        _server = _server.on("newSession", (sessionId, sessionData, callback) => {
-            const _sessionId: any = sessionId;
-            const _sessionData: any = sessionData;
-            const _func1 = callback;
-        });
+        _server = _server.on(
+            "newSession",
+            (sessionId, sessionData, callback) => {
+                const _sessionId: any = sessionId;
+                const _sessionData: any = sessionData;
+                const _func1 = callback;
+            }
+        );
         _server = _server.on("OCSPRequest", (certificate, issuer, callback) => {
             const _certificate: Buffer = certificate;
             const _issuer: Buffer = issuer;
@@ -1743,7 +2330,7 @@ async function asyncStreamPipelineFinished() {
             const _sessionId: any = sessionId;
             const _func2 = callback;
         });
-        _server = _server.on("secureConnection", (tlsSocket) => {
+        _server = _server.on("secureConnection", tlsSocket => {
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
 
@@ -1751,65 +2338,95 @@ async function asyncStreamPipelineFinished() {
             const _err: Error = err;
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
-        _server = _server.once("newSession", (sessionId, sessionData, callback) => {
-            const _sessionId: any = sessionId;
-            const _sessionData: any = sessionData;
-            const _func1 = callback;
-        });
-        _server = _server.once("OCSPRequest", (certificate, issuer, callback) => {
-            const _certificate: Buffer = certificate;
-            const _issuer: Buffer = issuer;
-            const _callback: Function = callback;
-        });
+        _server = _server.once(
+            "newSession",
+            (sessionId, sessionData, callback) => {
+                const _sessionId: any = sessionId;
+                const _sessionData: any = sessionData;
+                const _func1 = callback;
+            }
+        );
+        _server = _server.once(
+            "OCSPRequest",
+            (certificate, issuer, callback) => {
+                const _certificate: Buffer = certificate;
+                const _issuer: Buffer = issuer;
+                const _callback: Function = callback;
+            }
+        );
         _server = _server.once("resumeSession", (sessionId, callback) => {
             const _sessionId: any = sessionId;
             const _func2 = callback;
         });
-        _server = _server.once("secureConnection", (tlsSocket) => {
+        _server = _server.once("secureConnection", tlsSocket => {
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
 
-        _server = _server.prependListener("tlsClientError", (err, tlsSocket) => {
-            const _err: Error = err;
-            const _tlsSocket: tls.TLSSocket = tlsSocket;
-        });
-        _server = _server.prependListener("newSession", (sessionId, sessionData, callback) => {
-            const _sessionId: any = sessionId;
-            const _sessionData: any = sessionData;
-            const _func1 = callback;
-        });
-        _server = _server.prependListener("OCSPRequest", (certificate, issuer, callback) => {
-            const _certificate: Buffer = certificate;
-            const _issuer: Buffer = issuer;
-            const _callback: Function = callback;
-        });
-        _server = _server.prependListener("resumeSession", (sessionId, callback) => {
-            const _sessionId: any = sessionId;
-            const _func2 = callback;
-        });
-        _server = _server.prependListener("secureConnection", (tlsSocket) => {
+        _server = _server.prependListener(
+            "tlsClientError",
+            (err, tlsSocket) => {
+                const _err: Error = err;
+                const _tlsSocket: tls.TLSSocket = tlsSocket;
+            }
+        );
+        _server = _server.prependListener(
+            "newSession",
+            (sessionId, sessionData, callback) => {
+                const _sessionId: any = sessionId;
+                const _sessionData: any = sessionData;
+                const _func1 = callback;
+            }
+        );
+        _server = _server.prependListener(
+            "OCSPRequest",
+            (certificate, issuer, callback) => {
+                const _certificate: Buffer = certificate;
+                const _issuer: Buffer = issuer;
+                const _callback: Function = callback;
+            }
+        );
+        _server = _server.prependListener(
+            "resumeSession",
+            (sessionId, callback) => {
+                const _sessionId: any = sessionId;
+                const _func2 = callback;
+            }
+        );
+        _server = _server.prependListener("secureConnection", tlsSocket => {
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
 
-        _server = _server.prependOnceListener("tlsClientError", (err, tlsSocket) => {
-            const _err: Error = err;
-            const _tlsSocket: tls.TLSSocket = tlsSocket;
-        });
-        _server = _server.prependOnceListener("newSession", (sessionId, sessionData, callback) => {
-            const _sessionId: any = sessionId;
-            const _sessionData: any = sessionData;
-            const _func1 = callback;
-        });
-        _server = _server.prependOnceListener("OCSPRequest", (certificate, issuer, callback) => {
-            const _certificate: Buffer = certificate;
-            const _issuer: Buffer = issuer;
-            const _callback: Function = callback;
-        });
-        _server = _server.prependOnceListener("resumeSession", (sessionId, callback) => {
-            const _sessionId: any = sessionId;
-            const _func2 = callback;
-        });
-        _server = _server.prependOnceListener("secureConnection", (tlsSocket) => {
+        _server = _server.prependOnceListener(
+            "tlsClientError",
+            (err, tlsSocket) => {
+                const _err: Error = err;
+                const _tlsSocket: tls.TLSSocket = tlsSocket;
+            }
+        );
+        _server = _server.prependOnceListener(
+            "newSession",
+            (sessionId, sessionData, callback) => {
+                const _sessionId: any = sessionId;
+                const _sessionData: any = sessionData;
+                const _func1 = callback;
+            }
+        );
+        _server = _server.prependOnceListener(
+            "OCSPRequest",
+            (certificate, issuer, callback) => {
+                const _certificate: Buffer = certificate;
+                const _issuer: Buffer = issuer;
+                const _callback: Function = callback;
+            }
+        );
+        _server = _server.prependOnceListener(
+            "resumeSession",
+            (sessionId, callback) => {
+                const _sessionId: any = sessionId;
+                const _func2 = callback;
+            }
+        );
+        _server = _server.prependOnceListener("secureConnection", tlsSocket => {
             const _tlsSocket: tls.TLSSocket = tlsSocket;
         });
 
@@ -1818,8 +2435,8 @@ async function asyncStreamPipelineFinished() {
 
         // close callback parameter doesn't specify any arguments, so any
         // function is acceptable
-        _server = _server.close(() => { });
-        _server = _server.close((...args: any[]) => { });
+        _server = _server.close(() => {});
+        _server = _server.close((...args: any[]) => {});
     }
 
     {
@@ -1833,34 +2450,37 @@ async function asyncStreamPipelineFinished() {
          * 4. message
          */
 
-        _TLSSocket = _TLSSocket.addListener("OCSPResponse", (response) => {
+        _TLSSocket = _TLSSocket.addListener("OCSPResponse", response => {
             const _response: Buffer = response;
         });
-        _TLSSocket = _TLSSocket.addListener("secureConnect", () => { });
+        _TLSSocket = _TLSSocket.addListener("secureConnect", () => {});
 
         const _buffer: Buffer = Buffer.from("");
         _boolean = _TLSSocket.emit("OCSPResponse", _buffer);
         _boolean = _TLSSocket.emit("secureConnect");
 
-        _TLSSocket = _TLSSocket.on("OCSPResponse", (response) => {
+        _TLSSocket = _TLSSocket.on("OCSPResponse", response => {
             const _response: Buffer = response;
         });
-        _TLSSocket = _TLSSocket.on("secureConnect", () => { });
+        _TLSSocket = _TLSSocket.on("secureConnect", () => {});
 
-        _TLSSocket = _TLSSocket.once("OCSPResponse", (response) => {
+        _TLSSocket = _TLSSocket.once("OCSPResponse", response => {
             const _response: Buffer = response;
         });
-        _TLSSocket = _TLSSocket.once("secureConnect", () => { });
+        _TLSSocket = _TLSSocket.once("secureConnect", () => {});
 
-        _TLSSocket = _TLSSocket.prependListener("OCSPResponse", (response) => {
+        _TLSSocket = _TLSSocket.prependListener("OCSPResponse", response => {
             const _response: Buffer = response;
         });
-        _TLSSocket = _TLSSocket.prependListener("secureConnect", () => { });
+        _TLSSocket = _TLSSocket.prependListener("secureConnect", () => {});
 
-        _TLSSocket = _TLSSocket.prependOnceListener("OCSPResponse", (response) => {
-            const _response: Buffer = response;
-        });
-        _TLSSocket = _TLSSocket.prependOnceListener("secureConnect", () => { });
+        _TLSSocket = _TLSSocket.prependOnceListener(
+            "OCSPResponse",
+            response => {
+                const _response: Buffer = response;
+            }
+        );
+        _TLSSocket = _TLSSocket.prependOnceListener("secureConnect", () => {});
     }
 }
 
@@ -1878,16 +2498,22 @@ async function asyncStreamPipelineFinished() {
         const timeout: number = server.timeout;
         const listening: boolean = server.listening;
         const keepAliveTimeout: number = server.keepAliveTimeout;
-        server.setTimeout().setTimeout(1000).setTimeout(() => {}).setTimeout(100, () => {});
+        server
+            .setTimeout()
+            .setTimeout(1000)
+            .setTimeout(() => {})
+            .setTimeout(100, () => {});
     }
 
     // http IncomingMessage
     // http ServerResponse
     {
         // incoming
-        const incoming: http.IncomingMessage = new http.IncomingMessage(new net.Socket());
+        const incoming: http.IncomingMessage = new http.IncomingMessage(
+            new net.Socket()
+        );
 
-        incoming.setEncoding('utf8');
+        incoming.setEncoding("utf8");
 
         // stream
         incoming.pause();
@@ -1897,30 +2523,30 @@ async function asyncStreamPipelineFinished() {
         const res: http.ServerResponse = new http.ServerResponse(incoming);
 
         // test headers
-        res.setHeader('Content-Type', 'text/plain');
-        const bool: boolean = res.hasHeader('Content-Type');
+        res.setHeader("Content-Type", "text/plain");
+        const bool: boolean = res.hasHeader("Content-Type");
         const headers: string[] = res.getHeaderNames();
 
         // trailers
         res.addTrailers([
-            ['x-fOo', 'xOxOxOx'],
-            ['x-foO', 'OxOxOxO'],
-            ['X-fOo', 'xOxOxOx'],
-            ['X-foO', 'OxOxOxO']
+            ["x-fOo", "xOxOxOx"],
+            ["x-foO", "OxOxOxO"],
+            ["X-fOo", "xOxOxOx"],
+            ["X-foO", "OxOxOxO"]
         ]);
-        res.addTrailers({ 'x-foo': 'bar' });
+        res.addTrailers({ "x-foo": "bar" });
 
         // writeHead
-        res.writeHead(200, 'OK\r\nContent-Type: text/html\r\n');
-        res.writeHead(200, { 'Transfer-Encoding': 'chunked' });
+        res.writeHead(200, "OK\r\nContent-Type: text/html\r\n");
+        res.writeHead(200, { "Transfer-Encoding": "chunked" });
         res.writeHead(200);
 
         // write string
-        res.write('Part of my res.');
+        res.write("Part of my res.");
         // write buffer
-        const chunk = Buffer.alloc(16390, 'Й');
+        const chunk = Buffer.alloc(16390, "Й");
         res.write(chunk);
-        res.write(chunk, 'hex');
+        res.write(chunk, "hex");
 
         // end
         res.end("end msg");
@@ -1933,36 +2559,38 @@ async function asyncStreamPipelineFinished() {
 
     // http ClientRequest
     {
-        let req: http.ClientRequest = new http.ClientRequest("https://www.google.com");
+        let req: http.ClientRequest = new http.ClientRequest(
+            "https://www.google.com"
+        );
         req = new http.ClientRequest(new url.URL("https://www.google.com"));
-        req = new http.ClientRequest({ path: 'http://0.0.0.0' });
+        req = new http.ClientRequest({ path: "http://0.0.0.0" });
         req = new http.ClientRequest({ setHost: false });
 
         // header
-        req.setHeader('Content-Type', 'text/plain');
-        const bool: boolean = req.hasHeader('Content-Type');
+        req.setHeader("Content-Type", "text/plain");
+        const bool: boolean = req.hasHeader("Content-Type");
         const headers: string[] = req.getHeaderNames();
-        req.removeHeader('Date');
+        req.removeHeader("Date");
 
         // write
-        const chunk = Buffer.alloc(16390, 'Й');
+        const chunk = Buffer.alloc(16390, "Й");
         req.write(chunk);
-        req.write('a');
+        req.write("a");
         req.end();
 
         // abort
         req.abort();
 
         // connection
-        req.connection.on('pause', () => { });
+        req.connection.on("pause", () => {});
 
         // event
-        req.on('data', () => { });
+        req.on("data", () => {});
     }
 
     {
         // Status codes
-        let codeMessage: string = http.STATUS_CODES['400'];
+        let codeMessage: string = http.STATUS_CODES["400"];
         codeMessage = http.STATUS_CODES[400];
     }
 
@@ -1983,36 +2611,62 @@ async function asyncStreamPipelineFinished() {
     }
 
     {
-        http.get('http://www.example.com/xyz');
-        http.request('http://www.example.com/xyz');
+        http.get("http://www.example.com/xyz");
+        http.request("http://www.example.com/xyz");
 
-        http.get('http://www.example.com/xyz', (res: http.IncomingMessage): void => {});
-        http.request('http://www.example.com/xyz', (res: http.IncomingMessage): void => {});
+        http.get(
+            "http://www.example.com/xyz",
+            (res: http.IncomingMessage): void => {}
+        );
+        http.request(
+            "http://www.example.com/xyz",
+            (res: http.IncomingMessage): void => {}
+        );
 
-        http.get(new url.URL('http://www.example.com/xyz'));
-        http.request(new url.URL('http://www.example.com/xyz'));
+        http.get(new url.URL("http://www.example.com/xyz"));
+        http.request(new url.URL("http://www.example.com/xyz"));
 
-        http.get(new url.URL('http://www.example.com/xyz'), (res: http.IncomingMessage): void => {});
-        http.request(new url.URL('http://www.example.com/xyz'), (res: http.IncomingMessage): void => {});
+        http.get(
+            new url.URL("http://www.example.com/xyz"),
+            (res: http.IncomingMessage): void => {}
+        );
+        http.request(
+            new url.URL("http://www.example.com/xyz"),
+            (res: http.IncomingMessage): void => {}
+        );
 
         const opts: http.RequestOptions = {
             path: '"/some/path'
         };
-        http.get(new url.URL('http://www.example.com'), opts);
-        http.request(new url.URL('http://www.example.com'), opts);
-        http.get(new url.URL('http://www.example.com/xyz'), opts, (res: http.IncomingMessage): void => {});
-        http.request(new url.URL('http://www.example.com/xyz'), opts, (res: http.IncomingMessage): void => {});
+        http.get(new url.URL("http://www.example.com"), opts);
+        http.request(new url.URL("http://www.example.com"), opts);
+        http.get(
+            new url.URL("http://www.example.com/xyz"),
+            opts,
+            (res: http.IncomingMessage): void => {}
+        );
+        http.request(
+            new url.URL("http://www.example.com/xyz"),
+            opts,
+            (res: http.IncomingMessage): void => {}
+        );
     }
 
     {
         // Make sure .listen() and .close() return a Server instance
-        http.createServer().listen(0).close().address();
-        net.createServer().listen(0).close().address();
+        http.createServer()
+            .listen(0)
+            .close()
+            .address();
+        net.createServer()
+            .listen(0)
+            .close()
+            .address();
     }
 
     {
-        const request = http.request({ path: 'http://0.0.0.0' });
-        request.once('error', () => { });
+        const request = http.request({ path: "http://0.0.0.0" });
+        request.once("error", () => {});
         request.setNoDelay(true);
         request.abort();
     }
@@ -2031,8 +2685,8 @@ async function asyncStreamPipelineFinished() {
     // http headers
     {
         const headers: http.IncomingHttpHeaders = {
-            'content-type': 'application/json',
-            'set-cookie': [ 'type=ninja', 'language=javascript' ]
+            "content-type": "application/json",
+            "set-cookie": ["type=ninja", "language=javascript"]
         };
     }
 }
@@ -2063,25 +2717,45 @@ async function asyncStreamPipelineFinished() {
         agent: undefined
     });
 
-    https.get('http://www.example.com/xyz');
-    https.request('http://www.example.com/xyz');
+    https.get("http://www.example.com/xyz");
+    https.request("http://www.example.com/xyz");
 
-    https.get('http://www.example.com/xyz', (res: http.IncomingMessage): void => {});
-    https.request('http://www.example.com/xyz', (res: http.IncomingMessage): void => {});
+    https.get(
+        "http://www.example.com/xyz",
+        (res: http.IncomingMessage): void => {}
+    );
+    https.request(
+        "http://www.example.com/xyz",
+        (res: http.IncomingMessage): void => {}
+    );
 
-    https.get(new url.URL('http://www.example.com/xyz'));
-    https.request(new url.URL('http://www.example.com/xyz'));
+    https.get(new url.URL("http://www.example.com/xyz"));
+    https.request(new url.URL("http://www.example.com/xyz"));
 
-    https.get(new url.URL('http://www.example.com/xyz'), (res: http.IncomingMessage): void => {});
-    https.request(new url.URL('http://www.example.com/xyz'), (res: http.IncomingMessage): void => {});
+    https.get(
+        new url.URL("http://www.example.com/xyz"),
+        (res: http.IncomingMessage): void => {}
+    );
+    https.request(
+        new url.URL("http://www.example.com/xyz"),
+        (res: http.IncomingMessage): void => {}
+    );
 
     const opts: https.RequestOptions = {
-        path: '/some/path'
+        path: "/some/path"
     };
-    https.get(new url.URL('http://www.example.com'), opts);
-    https.request(new url.URL('http://www.example.com'), opts);
-    https.get(new url.URL('http://www.example.com/xyz'), opts, (res: http.IncomingMessage): void => {});
-    https.request(new url.URL('http://www.example.com/xyz'), opts, (res: http.IncomingMessage): void => {});
+    https.get(new url.URL("http://www.example.com"), opts);
+    https.request(new url.URL("http://www.example.com"), opts);
+    https.get(
+        new url.URL("http://www.example.com/xyz"),
+        opts,
+        (res: http.IncomingMessage): void => {}
+    );
+    https.request(
+        new url.URL("http://www.example.com/xyz"),
+        opts,
+        (res: http.IncomingMessage): void => {}
+    );
 
     https.globalAgent.options.ca = [];
 
@@ -2091,7 +2765,11 @@ async function asyncStreamPipelineFinished() {
         const timeout: number = server.timeout;
         const listening: boolean = server.listening;
         const keepAliveTimeout: number = server.keepAliveTimeout;
-        server.setTimeout().setTimeout(1000).setTimeout(() => {}).setTimeout(100, () => {});
+        server
+            .setTimeout()
+            .setTimeout(1000)
+            .setTimeout(() => {})
+            .setTimeout(100, () => {});
     }
 }
 
@@ -2118,31 +2796,45 @@ async function asyncStreamPipelineFinished() {
 
 {
     {
-        let ds: dgram.Socket = dgram.createSocket("udp4", (msg: Buffer, rinfo: dgram.RemoteInfo): void => {
-        });
+        let ds: dgram.Socket = dgram.createSocket(
+            "udp4",
+            (msg: Buffer, rinfo: dgram.RemoteInfo): void => {}
+        );
         ds.bind();
         ds.bind(41234);
-        ds.bind(4123, 'localhost');
-        ds.bind(4123, 'localhost', () => { });
-        ds.bind(4123, () => { });
-        ds.bind(() => { });
+        ds.bind(4123, "localhost");
+        ds.bind(4123, "localhost", () => {});
+        ds.bind(4123, () => {});
+        ds.bind(() => {});
         const addr: net.AddressInfo | string = ds.address();
-        ds.send(new Buffer("hello"), 0, 5, 5000, "127.0.0.1", (error: Error, bytes: number): void => {
-        });
+        ds.send(
+            new Buffer("hello"),
+            0,
+            5,
+            5000,
+            "127.0.0.1",
+            (error: Error, bytes: number): void => {}
+        );
         ds.send(new Buffer("hello"), 5000, "127.0.0.1");
         ds.setMulticastInterface("127.0.0.1");
-        ds = dgram.createSocket({ type: "udp4", reuseAddr: true, recvBufferSize: 1000, sendBufferSize: 1000, lookup: dns.lookup });
+        ds = dgram.createSocket({
+            type: "udp4",
+            reuseAddr: true,
+            recvBufferSize: 1000,
+            sendBufferSize: 1000,
+            lookup: dns.lookup
+        });
     }
 
     {
         let _socket: dgram.Socket;
         let _boolean: boolean;
         const _err: Error = new Error();
-        const _str = '';
+        const _str = "";
         const _rinfo: net.AddressInfo = {
-            address: 'asd',
-            family: 'asd',
-            port: 1,
+            address: "asd",
+            family: "asd",
+            port: 1
         };
         /**
          * events.EventEmitter
@@ -2152,11 +2844,11 @@ async function asyncStreamPipelineFinished() {
          * 4. message
          */
 
-        _socket = _socket.addListener("close", () => { });
-        _socket = _socket.addListener("error", (err) => {
+        _socket = _socket.addListener("close", () => {});
+        _socket = _socket.addListener("error", err => {
             const _err: Error = err;
         });
-        _socket = _socket.addListener("listening", () => { });
+        _socket = _socket.addListener("listening", () => {});
         _socket = _socket.addListener("message", (msg, rinfo) => {
             const _msg: Buffer = msg;
             const _rinfo: net.AddressInfo = rinfo;
@@ -2167,41 +2859,41 @@ async function asyncStreamPipelineFinished() {
         _boolean = _socket.emit("listening");
         _boolean = _socket.emit("message", _str, _rinfo);
 
-        _socket = _socket.on("close", () => { });
-        _socket = _socket.on("error", (err) => {
+        _socket = _socket.on("close", () => {});
+        _socket = _socket.on("error", err => {
             const _err: Error = err;
         });
-        _socket = _socket.on("listening", () => { });
+        _socket = _socket.on("listening", () => {});
         _socket = _socket.on("message", (msg, rinfo) => {
             const _msg: Buffer = msg;
             const _rinfo: net.AddressInfo = rinfo;
         });
 
-        _socket = _socket.once("close", () => { });
-        _socket = _socket.once("error", (err) => {
+        _socket = _socket.once("close", () => {});
+        _socket = _socket.once("error", err => {
             const _err: Error = err;
         });
-        _socket = _socket.once("listening", () => { });
+        _socket = _socket.once("listening", () => {});
         _socket = _socket.once("message", (msg, rinfo) => {
             const _msg: Buffer = msg;
             const _rinfo: net.AddressInfo = rinfo;
         });
 
-        _socket = _socket.prependListener("close", () => { });
-        _socket = _socket.prependListener("error", (err) => {
+        _socket = _socket.prependListener("close", () => {});
+        _socket = _socket.prependListener("error", err => {
             const _err: Error = err;
         });
-        _socket = _socket.prependListener("listening", () => { });
+        _socket = _socket.prependListener("listening", () => {});
         _socket = _socket.prependListener("message", (msg, rinfo) => {
             const _msg: Buffer = msg;
             const _rinfo: net.AddressInfo = rinfo;
         });
 
-        _socket = _socket.prependOnceListener("close", () => { });
-        _socket = _socket.prependOnceListener("error", (err) => {
+        _socket = _socket.prependOnceListener("close", () => {});
+        _socket = _socket.prependOnceListener("error", err => {
             const _err: Error = err;
         });
-        _socket = _socket.prependOnceListener("listening", () => { });
+        _socket = _socket.prependOnceListener("listening", () => {});
         _socket = _socket.prependOnceListener("message", (msg, rinfo) => {
             const _msg: Buffer = msg;
             const _rinfo: net.AddressInfo = rinfo;
@@ -2210,7 +2902,7 @@ async function asyncStreamPipelineFinished() {
 
     {
         const ds: dgram.Socket = dgram.createSocket({
-            type: 'udp4',
+            type: "udp4",
             recvBufferSize: 10000,
             sendBufferSize: 15000
         });
@@ -2228,12 +2920,14 @@ async function asyncStreamPipelineFinished() {
 ////////////////////////////////////////////////////
 
 {
-    interface SampleObject { a: string; }
+    interface SampleObject {
+        a: string;
+    }
 
     {
         const obj: SampleObject = { a: "" };
-        const sep = '';
-        const eq = '';
+        const sep = "";
+        const eq = "";
         const options: querystring.StringifyOptions = {};
         let result: string;
 
@@ -2245,9 +2939,9 @@ async function asyncStreamPipelineFinished() {
     }
 
     {
-        const str = '';
-        const sep = '';
-        const eq = '';
+        const str = "";
+        const sep = "";
+        const eq = "";
         const options: querystring.ParseOptions = {};
         let result: querystring.ParsedUrlQuery;
 
@@ -2258,7 +2952,7 @@ async function asyncStreamPipelineFinished() {
     }
 
     {
-        const str = '';
+        const str = "";
         let result: string;
 
         result = querystring.escape(str);
@@ -2271,17 +2965,17 @@ async function asyncStreamPipelineFinished() {
 ////////////////////////////////////////////////////
 
 {
-    path.normalize('/foo/bar//baz/asdf/quux/..');
+    path.normalize("/foo/bar//baz/asdf/quux/..");
 
-    path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+    path.join("/foo", "bar", "baz/asdf", "quux", "..");
     // returns
     // '/foo/bar/baz/asdf'
 
     try {
-        path.join('foo', 'bar');
-    } catch (error) { }
+        path.join("foo", "bar");
+    } catch (error) {}
 
-    path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile');
+    path.resolve("foo/bar", "/tmp/file/", "..", "a/../subfile");
     // Is similar to:
     //
     // cd foo/bar
@@ -2290,75 +2984,75 @@ async function asyncStreamPipelineFinished() {
     //    cd a/../subfile
     // pwd
 
-    path.resolve('/foo/bar', './baz');
+    path.resolve("/foo/bar", "./baz");
     // returns
     //    '/foo/bar/baz'
 
-    path.resolve('/foo/bar', '/tmp/file/');
+    path.resolve("/foo/bar", "/tmp/file/");
     // returns
     //    '/tmp/file'
 
-    path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif');
+    path.resolve("wwwroot", "static_files/png/", "../gif/image.gif");
     // if currently in /home/myself/node, it returns
     //    '/home/myself/node/wwwroot/static_files/gif/image.gif'
 
-    path.isAbsolute('/foo/bar'); // true
-    path.isAbsolute('/baz/..');  // true
-    path.isAbsolute('qux/');     // false
-    path.isAbsolute('.');        // false
+    path.isAbsolute("/foo/bar"); // true
+    path.isAbsolute("/baz/.."); // true
+    path.isAbsolute("qux/"); // false
+    path.isAbsolute("."); // false
 
-    path.isAbsolute('//server');  // true
-    path.isAbsolute('C:/foo/..'); // true
-    path.isAbsolute('bar\\baz');   // false
-    path.isAbsolute('.');         // false
+    path.isAbsolute("//server"); // true
+    path.isAbsolute("C:/foo/.."); // true
+    path.isAbsolute("bar\\baz"); // false
+    path.isAbsolute("."); // false
 
-    path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb');
+    path.relative("C:\\orandea\\test\\aaa", "C:\\orandea\\impl\\bbb");
     // returns
     //    '..\\..\\impl\\bbb'
 
-    path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb');
+    path.relative("/data/orandea/test/aaa", "/data/orandea/impl/bbb");
     // returns
     //    '../../impl/bbb'
 
-    path.dirname('/foo/bar/baz/asdf/quux');
+    path.dirname("/foo/bar/baz/asdf/quux");
     // returns
     //    '/foo/bar/baz/asdf'
 
-    path.basename('/foo/bar/baz/asdf/quux.html');
+    path.basename("/foo/bar/baz/asdf/quux.html");
     // returns
     //    'quux.html'
 
-    path.basename('/foo/bar/baz/asdf/quux.html', '.html');
+    path.basename("/foo/bar/baz/asdf/quux.html", ".html");
     // returns
     //    'quux'
 
-    path.extname('index.html');
+    path.extname("index.html");
     // returns
     //    '.html'
 
-    path.extname('index.coffee.md');
+    path.extname("index.coffee.md");
     // returns
     //    '.md'
 
-    path.extname('index.');
+    path.extname("index.");
     // returns
     //    '.'
 
-    path.extname('index');
+    path.extname("index");
     // returns
     //    ''
 
-    'foo/bar/baz'.split(path.sep);
+    "foo/bar/baz".split(path.sep);
     // returns
     //        ['foo', 'bar', 'baz']
 
-    'foo\\bar\\baz'.split(path.sep);
+    "foo\\bar\\baz".split(path.sep);
     // returns
     //        ['foo', 'bar', 'baz']
 
     process.env["PATH"]; // $ExpectType string
 
-    path.parse('/home/user/dir/file.txt');
+    path.parse("/home/user/dir/file.txt");
     // returns
     //    {
     //        root : "/",
@@ -2368,7 +3062,7 @@ async function asyncStreamPipelineFinished() {
     //        name : "file"
     //    }
 
-    path.parse('C:\\path\\dir\\index.html');
+    path.parse("C:\\path\\dir\\index.html");
     // returns
     //    {
     //        root : "C:\",
@@ -2443,7 +3137,9 @@ async function asyncStreamPipelineFinished() {
 ////////////////////////////////////////////////////
 
 {
-    const rl: readline.ReadLine = readline.createInterface(new stream.Readable());
+    const rl: readline.ReadLine = readline.createInterface(
+        new stream.Readable()
+    );
 
     {
         const options: readline.ReadLineOptions = {
@@ -2451,7 +3147,7 @@ async function asyncStreamPipelineFinished() {
         };
         const input: NodeJS.ReadableStream = new stream.Readable();
         const output: NodeJS.WritableStream = new stream.Writable();
-        const completer: readline.Completer = str => [['asd'], 'asd'];
+        const completer: readline.Completer = str => [["asd"], "asd"];
         const terminal = false;
 
         let result: readline.ReadLine;
@@ -2464,13 +3160,16 @@ async function asyncStreamPipelineFinished() {
         result = readline.createInterface({
             input,
             completer(str: string): readline.CompleterResult {
-                return [['test'], 'test'];
+                return [["test"], "test"];
             }
         });
         result = readline.createInterface({
             input,
-            completer(str: string, callback: (err: any, result: readline.CompleterResult) => void): any {
-                callback(null, [['test'], 'test']);
+            completer(
+                str: string,
+                callback: (err: any, result: readline.CompleterResult) => void
+            ): any {
+                callback(null, [["test"], "test"]);
             }
         });
     }
@@ -2523,7 +3222,9 @@ async function asyncStreamPipelineFinished() {
 
     {
         const strm: NodeJS.ReadableStream = new stream.Readable();
-        const readLineInterface: readline.ReadLine = readline.createInterface(new stream.Readable());
+        const readLineInterface: readline.ReadLine = readline.createInterface(
+            new stream.Readable()
+        );
 
         readline.emitKeypressEvents(strm);
         readline.emitKeypressEvents(strm, readLineInterface);
@@ -2552,63 +3253,63 @@ async function asyncStreamPipelineFinished() {
         let _rl: readline.ReadLine;
         let _boolean: boolean;
 
-        _rl = _rl.addListener("close", () => { });
-        _rl = _rl.addListener("line", (input) => {
+        _rl = _rl.addListener("close", () => {});
+        _rl = _rl.addListener("line", input => {
             const _input: any = input;
         });
-        _rl = _rl.addListener("pause", () => { });
-        _rl = _rl.addListener("resume", () => { });
-        _rl = _rl.addListener("SIGCONT", () => { });
-        _rl = _rl.addListener("SIGINT", () => { });
-        _rl = _rl.addListener("SIGTSTP", () => { });
+        _rl = _rl.addListener("pause", () => {});
+        _rl = _rl.addListener("resume", () => {});
+        _rl = _rl.addListener("SIGCONT", () => {});
+        _rl = _rl.addListener("SIGINT", () => {});
+        _rl = _rl.addListener("SIGTSTP", () => {});
 
-        _boolean = _rl.emit("close", () => { });
-        _boolean = _rl.emit("line", () => { });
-        _boolean = _rl.emit("pause", () => { });
-        _boolean = _rl.emit("resume", () => { });
-        _boolean = _rl.emit("SIGCONT", () => { });
-        _boolean = _rl.emit("SIGINT", () => { });
-        _boolean = _rl.emit("SIGTSTP", () => { });
+        _boolean = _rl.emit("close", () => {});
+        _boolean = _rl.emit("line", () => {});
+        _boolean = _rl.emit("pause", () => {});
+        _boolean = _rl.emit("resume", () => {});
+        _boolean = _rl.emit("SIGCONT", () => {});
+        _boolean = _rl.emit("SIGINT", () => {});
+        _boolean = _rl.emit("SIGTSTP", () => {});
 
-        _rl = _rl.on("close", () => { });
-        _rl = _rl.on("line", (input) => {
+        _rl = _rl.on("close", () => {});
+        _rl = _rl.on("line", input => {
             const _input: any = input;
         });
-        _rl = _rl.on("pause", () => { });
-        _rl = _rl.on("resume", () => { });
-        _rl = _rl.on("SIGCONT", () => { });
-        _rl = _rl.on("SIGINT", () => { });
-        _rl = _rl.on("SIGTSTP", () => { });
+        _rl = _rl.on("pause", () => {});
+        _rl = _rl.on("resume", () => {});
+        _rl = _rl.on("SIGCONT", () => {});
+        _rl = _rl.on("SIGINT", () => {});
+        _rl = _rl.on("SIGTSTP", () => {});
 
-        _rl = _rl.once("close", () => { });
-        _rl = _rl.once("line", (input) => {
+        _rl = _rl.once("close", () => {});
+        _rl = _rl.once("line", input => {
             const _input: any = input;
         });
-        _rl = _rl.once("pause", () => { });
-        _rl = _rl.once("resume", () => { });
-        _rl = _rl.once("SIGCONT", () => { });
-        _rl = _rl.once("SIGINT", () => { });
-        _rl = _rl.once("SIGTSTP", () => { });
+        _rl = _rl.once("pause", () => {});
+        _rl = _rl.once("resume", () => {});
+        _rl = _rl.once("SIGCONT", () => {});
+        _rl = _rl.once("SIGINT", () => {});
+        _rl = _rl.once("SIGTSTP", () => {});
 
-        _rl = _rl.prependListener("close", () => { });
-        _rl = _rl.prependListener("line", (input) => {
+        _rl = _rl.prependListener("close", () => {});
+        _rl = _rl.prependListener("line", input => {
             const _input: any = input;
         });
-        _rl = _rl.prependListener("pause", () => { });
-        _rl = _rl.prependListener("resume", () => { });
-        _rl = _rl.prependListener("SIGCONT", () => { });
-        _rl = _rl.prependListener("SIGINT", () => { });
-        _rl = _rl.prependListener("SIGTSTP", () => { });
+        _rl = _rl.prependListener("pause", () => {});
+        _rl = _rl.prependListener("resume", () => {});
+        _rl = _rl.prependListener("SIGCONT", () => {});
+        _rl = _rl.prependListener("SIGINT", () => {});
+        _rl = _rl.prependListener("SIGTSTP", () => {});
 
-        _rl = _rl.prependOnceListener("close", () => { });
-        _rl = _rl.prependOnceListener("line", (input) => {
+        _rl = _rl.prependOnceListener("close", () => {});
+        _rl = _rl.prependOnceListener("line", input => {
             const _input: any = input;
         });
-        _rl = _rl.prependOnceListener("pause", () => { });
-        _rl = _rl.prependOnceListener("resume", () => { });
-        _rl = _rl.prependOnceListener("SIGCONT", () => { });
-        _rl = _rl.prependOnceListener("SIGINT", () => { });
-        _rl = _rl.prependOnceListener("SIGTSTP", () => { });
+        _rl = _rl.prependOnceListener("pause", () => {});
+        _rl = _rl.prependOnceListener("resume", () => {});
+        _rl = _rl.prependOnceListener("SIGCONT", () => {});
+        _rl = _rl.prependOnceListener("SIGINT", () => {});
+        _rl = _rl.prependOnceListener("SIGTSTP", () => {});
     }
 }
 
@@ -2618,13 +3319,13 @@ async function asyncStreamPipelineFinished() {
 
 {
     const StringDecoder = string_decoder.StringDecoder;
-    const buffer = new Buffer('test');
+    const buffer = new Buffer("test");
     const decoder1 = new StringDecoder();
-    const decoder2 = new StringDecoder('utf8');
-    const part1: string = decoder1.write(new Buffer('test'));
+    const decoder2 = new StringDecoder("utf8");
+    const part1: string = decoder1.write(new Buffer("test"));
     const end1: string = decoder1.end();
-    const part2: string = decoder2.write(new Buffer('test'));
-    const end2: string = decoder1.end(new Buffer('test'));
+    const part2: string = decoder2.write(new Buffer("test"));
+    const end2: string = decoder1.end(new Buffer("test"));
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -2638,38 +3339,81 @@ async function asyncStreamPipelineFinished() {
         childProcess.spawn("echo");
         childProcess.spawn("echo", { windowsHide: true });
         childProcess.spawn("echo", ["test"], { windowsHide: true });
-        childProcess.spawn("echo", ["test"], { windowsHide: true, argv0: "echo-test" });
-        childProcess.spawn("echo", ["test"], { stdio: [0xdeadbeef, "inherit", undefined, "pipe"] });
+        childProcess.spawn("echo", ["test"], {
+            windowsHide: true,
+            argv0: "echo-test"
+        });
+        childProcess.spawn("echo", ["test"], {
+            stdio: [0xdeadbeef, "inherit", undefined, "pipe"]
+        });
         childProcess.spawnSync("echo test");
-        childProcess.spawnSync("echo test", {windowsVerbatimArguments: false});
-        childProcess.spawnSync("echo test", {windowsVerbatimArguments: false, argv0: "echo-test"});
-        childProcess.spawnSync("echo test", {input: new Uint8Array([])});
-        childProcess.spawnSync("echo test", {input: new DataView(new ArrayBuffer(1))});
+        childProcess.spawnSync("echo test", {
+            windowsVerbatimArguments: false
+        });
+        childProcess.spawnSync("echo test", {
+            windowsVerbatimArguments: false,
+            argv0: "echo-test"
+        });
+        childProcess.spawnSync("echo test", { input: new Uint8Array([]) });
+        childProcess.spawnSync("echo test", {
+            input: new DataView(new ArrayBuffer(1))
+        });
     }
 
     {
         childProcess.execFile("npm", () => {});
         childProcess.execFile("npm", { windowsHide: true }, () => {});
         childProcess.execFile("npm", ["-v"], () => {});
-        childProcess.execFile("npm", ["-v"], { windowsHide: true, encoding: 'utf-8' }, (stdout, stderr) => { assert(stdout instanceof String); });
-        childProcess.execFile("npm", ["-v"], { windowsHide: true, encoding: 'buffer' }, (stdout, stderr) => { assert(stdout instanceof Buffer); });
-        childProcess.execFile("npm", { encoding: 'utf-8' }, (stdout, stderr) => { assert(stdout instanceof String); });
-        childProcess.execFile("npm", { encoding: 'buffer' }, (stdout, stderr) => { assert(stdout instanceof Buffer); });
+        childProcess.execFile(
+            "npm",
+            ["-v"],
+            { windowsHide: true, encoding: "utf-8" },
+            (stdout, stderr) => {
+                assert(stdout instanceof String);
+            }
+        );
+        childProcess.execFile(
+            "npm",
+            ["-v"],
+            { windowsHide: true, encoding: "buffer" },
+            (stdout, stderr) => {
+                assert(stdout instanceof Buffer);
+            }
+        );
+        childProcess.execFile(
+            "npm",
+            { encoding: "utf-8" },
+            (stdout, stderr) => {
+                assert(stdout instanceof String);
+            }
+        );
+        childProcess.execFile(
+            "npm",
+            { encoding: "buffer" },
+            (stdout, stderr) => {
+                assert(stdout instanceof Buffer);
+            }
+        );
     }
 
     {
-        childProcess.execFileSync("echo test", {input: new Uint8Array([])});
-        childProcess.execFileSync("echo test", {input: new DataView(new ArrayBuffer(1))});
+        childProcess.execFileSync("echo test", { input: new Uint8Array([]) });
+        childProcess.execFileSync("echo test", {
+            input: new DataView(new ArrayBuffer(1))
+        });
     }
 
     async function testPromisify() {
         const execFile = util.promisify(childProcess.execFile);
-        let r: { stdout: string | Buffer, stderr: string | Buffer } = await execFile("npm");
+        let r: {
+            stdout: string | Buffer;
+            stderr: string | Buffer;
+        } = await execFile("npm");
         r = await execFile("npm", ["-v"]);
-        r = await execFile("npm", ["-v"], { encoding: 'utf-8' });
-        r = await execFile("npm", ["-v"], { encoding: 'buffer' });
-        r = await execFile("npm", { encoding: 'utf-8' });
-        r = await execFile("npm", { encoding: 'buffer' });
+        r = await execFile("npm", ["-v"], { encoding: "utf-8" });
+        r = await execFile("npm", ["-v"], { encoding: "buffer" });
+        r = await execFile("npm", { encoding: "utf-8" });
+        r = await execFile("npm", { encoding: "buffer" });
     }
 
     {
@@ -2679,125 +3423,180 @@ async function asyncStreamPipelineFinished() {
         let _boolean: boolean;
 
         _boolean = _cp.send(1);
-        _boolean = _cp.send('one');
+        _boolean = _cp.send("one");
         _boolean = _cp.send({
-            type: 'test'
+            type: "test"
         });
 
-        _boolean = _cp.send(1, (error) => {
+        _boolean = _cp.send(1, error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send('one', (error) => {
+        _boolean = _cp.send("one", error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send({
-            type: 'test'
-        }, (error) => {
-            const _err: Error = error;
-        });
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
 
         _boolean = _cp.send(1, _socket);
-        _boolean = _cp.send('one', _socket);
-        _boolean = _cp.send({
-            type: 'test'
-        }, _socket);
+        _boolean = _cp.send("one", _socket);
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _socket
+        );
 
-        _boolean = _cp.send(1, _socket, (error) => {
+        _boolean = _cp.send(1, _socket, error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send('one', _socket, (error) => {
+        _boolean = _cp.send("one", _socket, error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _socket, (error) => {
-            const _err: Error = error;
-        });
-
-        _boolean = _cp.send(1, _socket, {
-            keepOpen: true
-        });
-        _boolean = _cp.send('one', _socket, {
-            keepOpen: true
-        });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _socket, {
-                keepOpen: true
-            });
-
-        _boolean = _cp.send(1, _socket, {
-            keepOpen: true
-        }, (error) => {
-            const _err: Error = error;
-        });
-        _boolean = _cp.send('one', _socket, {
-            keepOpen: true
-        }, (error) => {
-            const _err: Error = error;
-        });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _socket, {
-                keepOpen: true
-            }, (error) => {
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _socket,
+            error => {
                 const _err: Error = error;
-            });
+            }
+        );
+
+        _boolean = _cp.send(1, _socket, {
+            keepOpen: true
+        });
+        _boolean = _cp.send("one", _socket, {
+            keepOpen: true
+        });
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _socket,
+            {
+                keepOpen: true
+            }
+        );
+
+        _boolean = _cp.send(
+            1,
+            _socket,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
+        _boolean = _cp.send(
+            "one",
+            _socket,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _socket,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
 
         _boolean = _cp.send(1, _server);
-        _boolean = _cp.send('one', _server);
-        _boolean = _cp.send({
-            type: 'test'
-        }, _server);
+        _boolean = _cp.send("one", _server);
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _server
+        );
 
-        _boolean = _cp.send(1, _server, (error) => {
+        _boolean = _cp.send(1, _server, error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send('one', _server, (error) => {
+        _boolean = _cp.send("one", _server, error => {
             const _err: Error = error;
         });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _server, (error) => {
-            const _err: Error = error;
-        });
-
-        _boolean = _cp.send(1, _server, {
-            keepOpen: true
-        });
-        _boolean = _cp.send('one', _server, {
-            keepOpen: true
-        });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _server, {
-                keepOpen: true
-            });
-
-        _boolean = _cp.send(1, _server, {
-            keepOpen: true
-        }, (error) => {
-            const _err: Error = error;
-        });
-        _boolean = _cp.send('one', _server, {
-            keepOpen: true
-        }, (error) => {
-            const _err: Error = error;
-        });
-        _boolean = _cp.send({
-            type: 'test'
-        }, _server, {
-                keepOpen: true
-            }, (error) => {
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _server,
+            error => {
                 const _err: Error = error;
-            });
+            }
+        );
+
+        _boolean = _cp.send(1, _server, {
+            keepOpen: true
+        });
+        _boolean = _cp.send("one", _server, {
+            keepOpen: true
+        });
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _server,
+            {
+                keepOpen: true
+            }
+        );
+
+        _boolean = _cp.send(
+            1,
+            _server,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
+        _boolean = _cp.send(
+            "one",
+            _server,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
+        _boolean = _cp.send(
+            {
+                type: "test"
+            },
+            _server,
+            {
+                keepOpen: true
+            },
+            error => {
+                const _err: Error = error;
+            }
+        );
 
         _cp = _cp.addListener("close", (code, signal) => {
             const _code: number = code;
             const _signal: string = signal;
         });
-        _cp = _cp.addListener("disconnect", () => { });
-        _cp = _cp.addListener("error", (err) => {
+        _cp = _cp.addListener("disconnect", () => {});
+        _cp = _cp.addListener("error", err => {
             const _err: Error = err;
         });
         _cp = _cp.addListener("exit", (code, signal) => {
@@ -2809,18 +3608,18 @@ async function asyncStreamPipelineFinished() {
             const _sendHandle: net.Socket | net.Server = sendHandle;
         });
 
-        _boolean = _cp.emit("close", () => { });
-        _boolean = _cp.emit("disconnect", () => { });
-        _boolean = _cp.emit("error", () => { });
-        _boolean = _cp.emit("exit", () => { });
-        _boolean = _cp.emit("message", () => { });
+        _boolean = _cp.emit("close", () => {});
+        _boolean = _cp.emit("disconnect", () => {});
+        _boolean = _cp.emit("error", () => {});
+        _boolean = _cp.emit("exit", () => {});
+        _boolean = _cp.emit("message", () => {});
 
         _cp = _cp.on("close", (code, signal) => {
             const _code: number = code;
             const _signal: string = signal;
         });
-        _cp = _cp.on("disconnect", () => { });
-        _cp = _cp.on("error", (err) => {
+        _cp = _cp.on("disconnect", () => {});
+        _cp = _cp.on("error", err => {
             const _err: Error = err;
         });
         _cp = _cp.on("exit", (code, signal) => {
@@ -2836,8 +3635,8 @@ async function asyncStreamPipelineFinished() {
             const _code: number = code;
             const _signal: string = signal;
         });
-        _cp = _cp.once("disconnect", () => { });
-        _cp = _cp.once("error", (err) => {
+        _cp = _cp.once("disconnect", () => {});
+        _cp = _cp.once("error", err => {
             const _err: Error = err;
         });
         _cp = _cp.once("exit", (code, signal) => {
@@ -2853,8 +3652,8 @@ async function asyncStreamPipelineFinished() {
             const _code: number = code;
             const _signal: string = signal;
         });
-        _cp = _cp.prependListener("disconnect", () => { });
-        _cp = _cp.prependListener("error", (err) => {
+        _cp = _cp.prependListener("disconnect", () => {});
+        _cp = _cp.prependListener("error", err => {
             const _err: Error = err;
         });
         _cp = _cp.prependListener("exit", (code, signal) => {
@@ -2870,8 +3669,8 @@ async function asyncStreamPipelineFinished() {
             const _code: number = code;
             const _signal: string = signal;
         });
-        _cp = _cp.prependOnceListener("disconnect", () => { });
-        _cp = _cp.prependOnceListener("error", (err) => {
+        _cp = _cp.prependOnceListener("disconnect", () => {});
+        _cp = _cp.prependOnceListener("error", err => {
             const _err: Error = err;
         });
         _cp = _cp.prependOnceListener("exit", (code, signal) => {
@@ -2884,17 +3683,17 @@ async function asyncStreamPipelineFinished() {
         });
     }
     {
-        process.stdin.setEncoding('utf8');
+        process.stdin.setEncoding("utf8");
 
-        process.stdin.on('readable', () => {
+        process.stdin.on("readable", () => {
             const chunk = process.stdin.read();
             if (chunk !== null) {
-              process.stdout.write(`data: ${chunk}`);
+                process.stdout.write(`data: ${chunk}`);
             }
         });
 
-        process.stdin.on('end', () => {
-            process.stdout.write('end');
+        process.stdin.on("end", () => {
+            process.stdout.write("end");
         });
 
         process.stdin.pipe(process.stdout);
@@ -2925,7 +3724,7 @@ async function asyncStreamPipelineFinished() {
         Object.keys(cluster.workers).forEach(key => {
             const worker = cluster.workers[key];
             if (worker.isDead()) {
-                console.log('worker %d is dead', worker.process.pid);
+                console.log("worker %d is dead", worker.process.pid);
             }
         });
     }
@@ -2943,11 +3742,15 @@ async function asyncStreamPipelineFinished() {
                     const worker = new workerThreads.Worker(__filename, {
                         workerData: script
                     });
-                    worker.on('message', resolve);
-                    worker.on('error', reject);
-                    worker.on('exit', (code) => {
+                    worker.on("message", resolve);
+                    worker.on("error", reject);
+                    worker.on("exit", code => {
                         if (code !== 0)
-                            reject(new Error(`Worker stopped with exit code ${code}`));
+                            reject(
+                                new Error(
+                                    `Worker stopped with exit code ${code}`
+                                )
+                            );
                     });
                 });
             };
@@ -2959,22 +3762,24 @@ async function asyncStreamPipelineFinished() {
 
     {
         const { port1, port2 } = new workerThreads.MessageChannel();
-        port1.on('message', (message) => console.log('received', message));
-        port2.postMessage({ foo: 'bar' });
+        port1.on("message", message => console.log("received", message));
+        port2.postMessage({ foo: "bar" });
     }
 
     {
         if (workerThreads.isMainThread) {
             const worker = new workerThreads.Worker(__filename);
             const subChannel = new workerThreads.MessageChannel();
-            worker.postMessage({ hereIsYourPort: subChannel.port1 }, [subChannel.port1]);
-            subChannel.port2.on('message', (value) => {
-                console.log('received:', value);
+            worker.postMessage({ hereIsYourPort: subChannel.port1 }, [
+                subChannel.port1
+            ]);
+            subChannel.port2.on("message", value => {
+                console.log("received:", value);
             });
         } else {
-            workerThreads.parentPort.once('message', (value) => {
+            workerThreads.parentPort.once("message", value => {
                 assert(value.hereIsYourPort instanceof MessagePort);
-                value.hereIsYourPort.postMessage('the worker is sending this');
+                value.hereIsYourPort.postMessage("the worker is sending this");
                 value.hereIsYourPort.close();
             });
         }
@@ -3166,7 +3971,7 @@ async function asyncStreamPipelineFinished() {
 {
     {
         const sandbox = {
-            animal: 'cat',
+            animal: "cat",
             count: 2
         };
 
@@ -3189,31 +3994,33 @@ async function asyncStreamPipelineFinished() {
 
         const script = new vm.Script('globalVar = "set"');
 
-        sandboxes.forEach((sandbox) => {
+        sandboxes.forEach(sandbox => {
             script.runInNewContext(sandbox);
             script.runInThisContext();
         });
 
         console.log(util.inspect(sandboxes));
 
-        const localVar = 'initial value';
+        const localVar = "initial value";
         vm.runInThisContext('localVar = "vm";');
 
         console.log(localVar);
     }
 
     {
-        vm.runInThisContext('console.log("hello world"', './my-file.js');
+        vm.runInThisContext('console.log("hello world"', "./my-file.js");
     }
 
     {
         const fn: Function = vm.compileFunction('console.log("test")', [], {
             parsingContext: vm.createContext(),
-            contextExtensions: [{
-                a: 1,
-            }],
+            contextExtensions: [
+                {
+                    a: 1
+                }
+            ],
             produceCachedData: false,
-            cachedData: Buffer.from('nope'),
+            cachedData: Buffer.from("nope")
         });
     }
 }
@@ -3224,19 +4031,25 @@ async function asyncStreamPipelineFinished() {
 
 {
     {
-        const immediateId = timers.setImmediate(() => { console.log("immediate"); });
+        const immediateId = timers.setImmediate(() => {
+            console.log("immediate");
+        });
         timers.clearImmediate(immediateId);
     }
     {
         const counter = 0;
-        const timeout = timers.setInterval(() => { console.log("interval"); }, 20);
+        const timeout = timers.setInterval(() => {
+            console.log("interval");
+        }, 20);
         timeout.unref();
         timeout.ref();
         timers.clearInterval(timeout);
     }
     {
         const counter = 0;
-        const timeout = timers.setTimeout(() => { console.log("timeout"); }, 20);
+        const timeout = timers.setTimeout(() => {
+            console.log("timeout");
+        }, 20);
         timeout.unref();
         timeout.ref();
         timers.clearTimeout(timeout);
@@ -3294,7 +4107,7 @@ import * as p from "process";
 {
     {
         let eventEmitter: events.EventEmitter;
-        eventEmitter = process;                // Test that process implements EventEmitter...
+        eventEmitter = process; // Test that process implements EventEmitter...
 
         let _p: NodeJS.Process = process;
         _p = p;
@@ -3307,27 +4120,48 @@ import * as p from "process";
         module = process.mainModule;
     }
     {
-        process.on("message", (req: any) => { });
-        process.addListener("beforeExit", (code: number) => { });
-        process.once("disconnect", () => { });
-        process.prependListener("exit", (code: number) => { });
-        process.prependOnceListener("rejectionHandled", (promise: Promise<any>) => { });
-        process.on("uncaughtException", (error: Error) => { });
-        process.addListener("unhandledRejection", (reason: any, promise: Promise<any>) => { });
-        process.once("warning", (warning: Error) => { });
-        process.prependListener("message", (message: any, sendHandle: any) => { });
-        process.prependOnceListener("SIGBREAK", () => { });
-        process.on("newListener", (event: string | symbol, listener: Function) => { });
-        process.once("removeListener", (event: string | symbol, listener: Function) => { });
-        process.on("multipleResolves", (type: NodeJS.MultipleResolveType, prom: Promise<any>, value: any) => {});
+        process.on("message", (req: any) => {});
+        process.addListener("beforeExit", (code: number) => {});
+        process.once("disconnect", () => {});
+        process.prependListener("exit", (code: number) => {});
+        process.prependOnceListener(
+            "rejectionHandled",
+            (promise: Promise<any>) => {}
+        );
+        process.on("uncaughtException", (error: Error) => {});
+        process.addListener(
+            "unhandledRejection",
+            (reason: any, promise: Promise<any>) => {}
+        );
+        process.once("warning", (warning: Error) => {});
+        process.prependListener(
+            "message",
+            (message: any, sendHandle: any) => {}
+        );
+        process.prependOnceListener("SIGBREAK", () => {});
+        process.on(
+            "newListener",
+            (event: string | symbol, listener: Function) => {}
+        );
+        process.once(
+            "removeListener",
+            (event: string | symbol, listener: Function) => {}
+        );
+        process.on(
+            "multipleResolves",
+            (
+                type: NodeJS.MultipleResolveType,
+                prom: Promise<any>,
+                value: any
+            ) => {}
+        );
 
-        const listeners = process.listeners('uncaughtException');
+        const listeners = process.listeners("uncaughtException");
         const oldHandler = listeners[listeners.length - 1];
-        process.addListener('uncaughtException', oldHandler);
+        process.addListener("uncaughtException", oldHandler);
     }
     {
-        function myCb(err: Error): void {
-        }
+        function myCb(err: Error): void {}
         process.setUncaughtExceptionCaptureCallback(myCb);
         process.setUncaughtExceptionCaptureCallback(null);
         const b: boolean = process.hasUncaughtExceptionCaptureCallback();
@@ -3347,7 +4181,7 @@ import * as p from "process";
         _c = console2;
     }
     {
-        const writeStream = fs.createWriteStream('./index.d.ts');
+        const writeStream = fs.createWriteStream("./index.d.ts");
         let consoleInstance: Console = new console.Console(writeStream);
 
         consoleInstance = new console.Console(writeStream, writeStream);
@@ -3355,7 +4189,7 @@ import * as p from "process";
         consoleInstance = new console.Console({
             stdout: writeStream,
             stderr: writeStream,
-            colorMode: 'auto',
+            colorMode: "auto",
             ignoreErrors: true
         });
         consoleInstance = new console.Console({
@@ -3367,63 +4201,63 @@ import * as p from "process";
         });
     }
     {
-        console.assert('value');
-        console.assert('value', 'message');
-        console.assert('value', 'message', 'foo', 'bar');
+        console.assert("value");
+        console.assert("value", "message");
+        console.assert("value", "message", "foo", "bar");
         console.clear();
         console.count();
-        console.count('label');
+        console.count("label");
         console.countReset();
-        console.countReset('label');
+        console.countReset("label");
         console.debug();
-        console.debug('message');
-        console.debug('message', 'foo', 'bar');
-        console.dir('obj');
-        console.dir('obj', { depth: 1 });
+        console.debug("message");
+        console.debug("message", "foo", "bar");
+        console.dir("obj");
+        console.dir("obj", { depth: 1 });
         console.error();
-        console.error('message');
-        console.error('message', 'foo', 'bar');
+        console.error("message");
+        console.error("message", "foo", "bar");
         console.group();
-        console.group('label');
-        console.group('label1', 'label2');
+        console.group("label");
+        console.group("label1", "label2");
         console.groupCollapsed();
         console.groupEnd();
         console.info();
-        console.info('message');
-        console.info('message', 'foo', 'bar');
+        console.info("message");
+        console.info("message", "foo", "bar");
         console.log();
-        console.log('message');
-        console.log('message', 'foo', 'bar');
-        console.table({ foo: 'bar' });
-        console.table([{ foo: 'bar' }]);
-        console.table([{ foo: 'bar' }], ['foo']);
+        console.log("message");
+        console.log("message", "foo", "bar");
+        console.table({ foo: "bar" });
+        console.table([{ foo: "bar" }]);
+        console.table([{ foo: "bar" }], ["foo"]);
         console.time();
-        console.time('label');
+        console.time("label");
         console.timeEnd();
-        console.timeEnd('label');
+        console.timeEnd("label");
         console.timeLog();
-        console.timeLog('label');
-        console.timeLog('label', 'foo', 'bar');
+        console.timeLog("label");
+        console.timeLog("label", "foo", "bar");
         console.trace();
-        console.trace('message');
-        console.trace('message', 'foo', 'bar');
+        console.trace("message");
+        console.trace("message", "foo", "bar");
         console.warn();
-        console.warn('message');
-        console.warn('message', 'foo', 'bar');
+        console.warn("message");
+        console.warn("message", "foo", "bar");
 
         // --- Inspector mode only ---
         console.markTimeline();
-        console.markTimeline('label');
+        console.markTimeline("label");
         console.profile();
-        console.profile('label');
+        console.profile("label");
         console.profileEnd();
-        console.profileEnd('label');
+        console.profileEnd("label");
         console.timeStamp();
-        console.timeStamp('label');
+        console.timeStamp("label");
         console.timeline();
-        console.timeline('label');
+        console.timeline("label");
         console.timelineEnd();
-        console.timelineEnd('label');
+        console.timelineEnd("label");
     }
 }
 
@@ -3438,24 +4272,28 @@ import * as p from "process";
             family: 4,
             host: "localhost",
             port: 443,
-            timeout: 10E3
+            timeout: 10e3
         };
-        const socket: net.Socket = net.createConnection(connectOpts, (): void => {
-            // nothing
-        });
+        const socket: net.Socket = net.createConnection(
+            connectOpts,
+            (): void => {
+                // nothing
+            }
+        );
     }
 
     {
         let server = net.createServer();
         // Check methods which return server instances by chaining calls
-        server = server.listen(0)
+        server = server
+            .listen(0)
             .close()
             .ref()
             .unref();
 
         // close has an optional callback function. No callback parameters are
         // specified, so any callback function is permissible.
-        server = server.close((...args: any[]) => { });
+        server = server.close((...args: any[]) => {});
 
         // test the types of the address object fields
         const address: net.AddressInfo | string = server.address();
@@ -3497,7 +4335,15 @@ import * as p from "process";
             host: "localhost",
             localAddress: "10.0.0.1",
             localPort: 1234,
-            lookup: (_hostname: string, _options: dns.LookupOneOptions, _callback: (err: NodeJS.ErrnoException | null, address: string, family: number) => void): void => {
+            lookup: (
+                _hostname: string,
+                _options: dns.LookupOneOptions,
+                _callback: (
+                    err: NodeJS.ErrnoException | null,
+                    address: string,
+                    family: number
+                ) => void
+            ): void => {
                 // nothing
             },
             port: 80
@@ -3516,27 +4362,30 @@ import * as p from "process";
         _socket = _socket.addListener("close", had_error => {
             bool = had_error;
         });
-        _socket = _socket.addListener("connect", () => { });
+        _socket = _socket.addListener("connect", () => {});
         _socket = _socket.addListener("data", data => {
             buffer = data;
         });
-        _socket = _socket.addListener("drain", () => { });
-        _socket = _socket.addListener("end", () => { });
+        _socket = _socket.addListener("drain", () => {});
+        _socket = _socket.addListener("end", () => {});
         _socket = _socket.addListener("error", err => {
             error = err;
         });
-        _socket = _socket.addListener("lookup", (err, address, family, host) => {
-            error = err;
+        _socket = _socket.addListener(
+            "lookup",
+            (err, address, family, host) => {
+                error = err;
 
-            if (typeof family === 'string') {
-                str = family;
-            } else if (typeof family === 'number') {
-                num = family;
+                if (typeof family === "string") {
+                    str = family;
+                } else if (typeof family === "number") {
+                    num = family;
+                }
+
+                str = host;
             }
-
-            str = host;
-        });
-        _socket = _socket.addListener("timeout", () => { });
+        );
+        _socket = _socket.addListener("timeout", () => {});
 
         /// emit
         bool = _socket.emit("close", bool);
@@ -3553,105 +4402,111 @@ import * as p from "process";
         _socket = _socket.on("close", had_error => {
             bool = had_error;
         });
-        _socket = _socket.on("connect", () => { });
+        _socket = _socket.on("connect", () => {});
         _socket = _socket.on("data", data => {
             buffer = data;
         });
-        _socket = _socket.on("drain", () => { });
-        _socket = _socket.on("end", () => { });
+        _socket = _socket.on("drain", () => {});
+        _socket = _socket.on("end", () => {});
         _socket = _socket.on("error", err => {
             error = err;
         });
         _socket = _socket.on("lookup", (err, address, family, host) => {
             error = err;
 
-            if (typeof family === 'string') {
+            if (typeof family === "string") {
                 str = family;
-            } else if (typeof family === 'number') {
+            } else if (typeof family === "number") {
                 num = family;
             }
 
             str = host;
         });
-        _socket = _socket.on("timeout", () => { });
+        _socket = _socket.on("timeout", () => {});
 
         /// once
         _socket = _socket.once("close", had_error => {
             bool = had_error;
         });
-        _socket = _socket.once("connect", () => { });
+        _socket = _socket.once("connect", () => {});
         _socket = _socket.once("data", data => {
             buffer = data;
         });
-        _socket = _socket.once("drain", () => { });
-        _socket = _socket.once("end", () => { });
+        _socket = _socket.once("drain", () => {});
+        _socket = _socket.once("end", () => {});
         _socket = _socket.once("error", err => {
             error = err;
         });
         _socket = _socket.once("lookup", (err, address, family, host) => {
             error = err;
 
-            if (typeof family === 'string') {
+            if (typeof family === "string") {
                 str = family;
-            } else if (typeof family === 'number') {
+            } else if (typeof family === "number") {
                 num = family;
             }
 
             str = host;
         });
-        _socket = _socket.once("timeout", () => { });
+        _socket = _socket.once("timeout", () => {});
 
         /// prependListener
         _socket = _socket.prependListener("close", had_error => {
             bool = had_error;
         });
-        _socket = _socket.prependListener("connect", () => { });
+        _socket = _socket.prependListener("connect", () => {});
         _socket = _socket.prependListener("data", data => {
             buffer = data;
         });
-        _socket = _socket.prependListener("drain", () => { });
-        _socket = _socket.prependListener("end", () => { });
+        _socket = _socket.prependListener("drain", () => {});
+        _socket = _socket.prependListener("end", () => {});
         _socket = _socket.prependListener("error", err => {
             error = err;
         });
-        _socket = _socket.prependListener("lookup", (err, address, family, host) => {
-            error = err;
+        _socket = _socket.prependListener(
+            "lookup",
+            (err, address, family, host) => {
+                error = err;
 
-            if (typeof family === 'string') {
-                str = family;
-            } else if (typeof family === 'number') {
-                num = family;
+                if (typeof family === "string") {
+                    str = family;
+                } else if (typeof family === "number") {
+                    num = family;
+                }
+
+                str = host;
             }
-
-            str = host;
-        });
-        _socket = _socket.prependListener("timeout", () => { });
+        );
+        _socket = _socket.prependListener("timeout", () => {});
 
         /// prependOnceListener
         _socket = _socket.prependOnceListener("close", had_error => {
             bool = had_error;
         });
-        _socket = _socket.prependOnceListener("connect", () => { });
+        _socket = _socket.prependOnceListener("connect", () => {});
         _socket = _socket.prependOnceListener("data", data => {
             buffer = data;
         });
-        _socket = _socket.prependOnceListener("drain", () => { });
-        _socket = _socket.prependOnceListener("end", () => { });
+        _socket = _socket.prependOnceListener("drain", () => {});
+        _socket = _socket.prependOnceListener("end", () => {});
         _socket = _socket.prependOnceListener("error", err => {
             error = err;
         });
-        _socket = _socket.prependOnceListener("lookup", (err, address, family, host) => {
-            error = err;
+        _socket = _socket.prependOnceListener(
+            "lookup",
+            (err, address, family, host) => {
+                error = err;
 
-            if (typeof family === 'string') {
-                str = family;
-            } else if (typeof family === 'number') {
-                num = family;
+                if (typeof family === "string") {
+                    str = family;
+                } else if (typeof family === "number") {
+                    num = family;
+                }
+
+                str = host;
             }
-
-            str = host;
-        });
-        _socket = _socket.prependOnceListener("timeout", () => { });
+        );
+        _socket = _socket.prependOnceListener("timeout", () => {});
 
         bool = _socket.connecting;
         bool = _socket.destroyed;
@@ -3673,14 +4528,14 @@ import * as p from "process";
         let error: Error;
 
         /// addListener
-        _server = _server.addListener("close", () => { });
+        _server = _server.addListener("close", () => {});
         _server = _server.addListener("connection", socket => {
             _socket = socket;
         });
         _server = _server.addListener("error", err => {
             error = err;
         });
-        _server = _server.addListener("listening", () => { });
+        _server = _server.addListener("listening", () => {});
 
         /// emit
         bool = _server.emit("close");
@@ -3689,34 +4544,34 @@ import * as p from "process";
         bool = _server.emit("listening");
 
         /// once
-        _server = _server.once("close", () => { });
+        _server = _server.once("close", () => {});
         _server = _server.once("connection", socket => {
             _socket = socket;
         });
         _server = _server.once("error", err => {
             error = err;
         });
-        _server = _server.once("listening", () => { });
+        _server = _server.once("listening", () => {});
 
         /// prependListener
-        _server = _server.prependListener("close", () => { });
+        _server = _server.prependListener("close", () => {});
         _server = _server.prependListener("connection", socket => {
             _socket = socket;
         });
         _server = _server.prependListener("error", err => {
             error = err;
         });
-        _server = _server.prependListener("listening", () => { });
+        _server = _server.prependListener("listening", () => {});
 
         /// prependOnceListener
-        _server = _server.prependOnceListener("close", () => { });
+        _server = _server.prependOnceListener("close", () => {});
         _server = _server.prependOnceListener("connection", socket => {
             _socket = socket;
         });
         _server = _server.prependOnceListener("error", err => {
             error = err;
         });
-        _server = _server.prependOnceListener("listening", () => { });
+        _server = _server.prependOnceListener("listening", () => {});
     }
 }
 
@@ -3730,23 +4585,23 @@ import * as p from "process";
         let _boolean: boolean;
         const _ctx: vm.Context = {};
 
-        _server = _server.addListener("exit", () => { });
-        _server = _server.addListener("reset", () => { });
+        _server = _server.addListener("exit", () => {});
+        _server = _server.addListener("reset", () => {});
 
-        _boolean = _server.emit("exit", () => { });
+        _boolean = _server.emit("exit", () => {});
         _boolean = _server.emit("reset", _ctx);
 
-        _server = _server.on("exit", () => { });
-        _server = _server.on("reset", () => { });
+        _server = _server.on("exit", () => {});
+        _server = _server.on("reset", () => {});
 
-        _server = _server.once("exit", () => { });
-        _server = _server.once("reset", () => { });
+        _server = _server.once("exit", () => {});
+        _server = _server.once("reset", () => {});
 
-        _server = _server.prependListener("exit", () => { });
-        _server = _server.prependListener("reset", () => { });
+        _server = _server.prependListener("exit", () => {});
+        _server = _server.prependListener("reset", () => {});
 
-        _server = _server.prependOnceListener("exit", () => { });
-        _server = _server.prependOnceListener("reset", () => { });
+        _server = _server.prependOnceListener("exit", () => {});
+        _server = _server.prependOnceListener("reset", () => {});
 
         _server.outputStream.write("test");
         const line = _server.inputStream.read();
@@ -3786,11 +4641,11 @@ import * as p from "process";
             throw new repl.Recoverable(new Error("test"));
         }
 
-        _server.context['key0'] = 1;
-        _server.context['key1'] = "";
-        _server.context['key2'] = true;
-        _server.context['key3'] = [];
-        _server.context['key4'] = {};
+        _server.context["key0"] = 1;
+        _server.context["key1"] = "";
+        _server.context["key2"] = true;
+        _server.context["key3"] = [];
+        _server.context["key4"] = {};
     }
 }
 
@@ -3836,19 +4691,27 @@ import * as p from "process";
         const _err: NodeJS.ErrnoException = err;
         const _address: dns.LookupAddress[] = addresses;
     });
-    dns.lookup("nodejs.org", { all: true, verbatim: true }, (err, addresses) => {
-        const _err: NodeJS.ErrnoException = err;
-        const _address: dns.LookupAddress[] = addresses;
-    });
+    dns.lookup(
+        "nodejs.org",
+        { all: true, verbatim: true },
+        (err, addresses) => {
+            const _err: NodeJS.ErrnoException = err;
+            const _address: dns.LookupAddress[] = addresses;
+        }
+    );
 
     function trueOrFalse(): boolean {
         return Math.random() > 0.5 ? true : false;
     }
-    dns.lookup("nodejs.org", { all: trueOrFalse() }, (err, addresses, family) => {
-        const _err: NodeJS.ErrnoException = err;
-        const _addresses: string | dns.LookupAddress[] = addresses;
-        const _family: number | undefined = family;
-    });
+    dns.lookup(
+        "nodejs.org",
+        { all: trueOrFalse() },
+        (err, addresses, family) => {
+            const _err: NodeJS.ErrnoException = err;
+            const _addresses: string | dns.LookupAddress[] = addresses;
+            const _family: number | undefined = family;
+        }
+    );
 
     dns.lookupService("127.0.0.1", 0, (err, hostname, service) => {
         const _err: NodeJS.ErrnoException = err;
@@ -3917,7 +4780,7 @@ import * as p from "process";
 /// Constants Tests                                     ///
 ///////////////////////////////////////////////////////////
 
-import * as constants from 'constants';
+import * as constants from "constants";
 {
     let str: string;
     let num: number;
@@ -4070,36 +4933,32 @@ import * as constants from 'constants';
 
     const zapsGarbage: number = heapStats.does_zap_garbage;
 
-    v8.setFlagsFromString('--collect_maps');
+    v8.setFlagsFromString("--collect_maps");
 }
 
 ////////////////////////////////////////////////////
 /// PerfHooks tests : https://nodejs.org/api/perf_hooks.html
 ////////////////////////////////////////////////////
 {
-    perf_hooks.performance.mark('start');
-    (
-        () => {}
-    )();
-    perf_hooks.performance.mark('end');
+    perf_hooks.performance.mark("start");
+    (() => {})();
+    perf_hooks.performance.mark("end");
 
-    const { duration } = perf_hooks.performance.getEntriesByName('discover')[0];
+    const { duration } = perf_hooks.performance.getEntriesByName("discover")[0];
     const timeOrigin = perf_hooks.performance.timeOrigin;
 
-    const performanceObserverCallback: perf_hooks.PerformanceObserverCallback = (list, obs) => {
-        const {
-            duration,
-            entryType,
-            name,
-            startTime,
-        } = list.getEntries()[0];
+    const performanceObserverCallback: perf_hooks.PerformanceObserverCallback = (
+        list,
+        obs
+    ) => {
+        const { duration, entryType, name, startTime } = list.getEntries()[0];
         obs.disconnect();
         perf_hooks.performance.clearFunctions();
     };
     const obs = new perf_hooks.PerformanceObserver(performanceObserverCallback);
     obs.observe({
-        entryTypes: ['function'],
-        buffered: true,
+        entryTypes: ["function"],
+        buffered: true
     });
 }
 
@@ -4112,25 +4971,28 @@ import * as constants from 'constants';
         before() {},
         after() {},
         destroy() {},
-        promiseResolve() {},
+        promiseResolve() {}
     };
 
     const asyncHook = async_hooks.createHook(hooks);
 
-    asyncHook.enable().disable().enable();
+    asyncHook
+        .enable()
+        .disable()
+        .enable();
 
     const tId: number = async_hooks.triggerAsyncId();
     const eId: number = async_hooks.executionAsyncId();
 
     class TestResource extends async_hooks.AsyncResource {
         constructor() {
-            super('TEST_RESOURCE');
+            super("TEST_RESOURCE");
         }
     }
 
     class AnotherTestResource extends async_hooks.AsyncResource {
         constructor() {
-            super('TEST_RESOURCE', 42);
+            super("TEST_RESOURCE", 42);
             const aId: number = this.asyncId();
             const tId: number = this.triggerAsyncId();
         }
@@ -4144,13 +5006,13 @@ import * as constants from 'constants';
     }
 
     // check AsyncResource constructor options.
-    new async_hooks.AsyncResource('');
-    new async_hooks.AsyncResource('', 0);
-    new async_hooks.AsyncResource('', {});
-    new async_hooks.AsyncResource('', { triggerAsyncId: 0 });
-    new async_hooks.AsyncResource('', {
-      triggerAsyncId: 0,
-      requireManualDestroy: true
+    new async_hooks.AsyncResource("");
+    new async_hooks.AsyncResource("", 0);
+    new async_hooks.AsyncResource("", {});
+    new async_hooks.AsyncResource("", { triggerAsyncId: 0 });
+    new async_hooks.AsyncResource("", {
+        triggerAsyncId: 0,
+        requireManualDestroy: true
     });
 }
 
@@ -4160,12 +5022,12 @@ import * as constants from 'constants';
 
 {
     {
-        const gzipped = zlib.gzipSync('test');
+        const gzipped = zlib.gzipSync("test");
         const unzipped = zlib.gunzipSync(gzipped.toString());
     }
 
     {
-        const deflate = zlib.deflateSync('test');
+        const deflate = zlib.deflateSync("test");
         const inflate = zlib.inflateSync(deflate.toString());
     }
 
@@ -4183,9 +5045,9 @@ import * as constants from 'constants';
     // Headers & Settings
     {
         const headers: http2.OutgoingHttpHeaders = {
-            ':status': 200,
-            'content-type': 'text-plain',
-            ABC: ['has', 'more', 'than', 'one', 'value'],
+            ":status": 200,
+            "content-type": "text-plain",
+            ABC: ["has", "more", "than", "one", "value"],
             undef: undefined
         };
 
@@ -4204,16 +5066,32 @@ import * as constants from 'constants';
         const http2Session: http2.Http2Session = {} as any;
         const ee: events.EventEmitter = http2Session;
 
-        http2Session.on('close', () => {});
-        http2Session.on('connect', (session: http2.Http2Session, socket: net.Socket) => {});
-        http2Session.on('error', (err: Error) => {});
-        http2Session.on('frameError', (frameType: number, errorCode: number, streamID: number) => {});
-        http2Session.on('goaway', (errorCode: number, lastStreamID: number, opaqueData: Buffer) => {});
-        http2Session.on('localSettings', (settings: http2.Settings) => {});
-        http2Session.on('remoteSettings', (settings: http2.Settings) => {});
-        http2Session.on('stream', (stream: http2.Http2Stream, headers: http2.IncomingHttpHeaders, flags: number) => {});
-        http2Session.on('timeout', () => {});
-        http2Session.on('ping', () => {});
+        http2Session.on("close", () => {});
+        http2Session.on(
+            "connect",
+            (session: http2.Http2Session, socket: net.Socket) => {}
+        );
+        http2Session.on("error", (err: Error) => {});
+        http2Session.on(
+            "frameError",
+            (frameType: number, errorCode: number, streamID: number) => {}
+        );
+        http2Session.on(
+            "goaway",
+            (errorCode: number, lastStreamID: number, opaqueData: Buffer) => {}
+        );
+        http2Session.on("localSettings", (settings: http2.Settings) => {});
+        http2Session.on("remoteSettings", (settings: http2.Settings) => {});
+        http2Session.on(
+            "stream",
+            (
+                stream: http2.Http2Stream,
+                headers: http2.IncomingHttpHeaders,
+                flags: number
+            ) => {}
+        );
+        http2Session.on("timeout", () => {});
+        http2Session.on("ping", () => {});
 
         http2Session.destroy();
 
@@ -4272,9 +5150,17 @@ import * as constants from 'constants';
 
         http2Session.settings(settings);
 
-      http2Session.ping((err: Error | null, duration: number, payload: Buffer) => {});
-      http2Session.ping(Buffer.from(''), (err: Error | null, duration: number, payload: Buffer) => {});
-      http2Session.ping(new DataView(new Int8Array(1).buffer), (err: Error | null, duration: number, payload: Buffer) => {});
+        http2Session.ping(
+            (err: Error | null, duration: number, payload: Buffer) => {}
+        );
+        http2Session.ping(
+            Buffer.from(""),
+            (err: Error | null, duration: number, payload: Buffer) => {}
+        );
+        http2Session.ping(
+            new DataView(new Int8Array(1).buffer),
+            (err: Error | null, duration: number, payload: Buffer) => {}
+        );
     }
 
     // Http2Stream
@@ -4282,13 +5168,19 @@ import * as constants from 'constants';
         const http2Stream: http2.Http2Stream = {} as any;
         const duplex: stream.Duplex = http2Stream;
 
-        http2Stream.on('aborted', () => {});
-        http2Stream.on('error', (err: Error) => {});
-        http2Stream.on('frameError', (frameType: number, errorCode: number, streamID: number) => {});
-        http2Stream.on('streamClosed', (code: number) => {});
-        http2Stream.on('timeout', () => {});
-        http2Stream.on('trailers', (trailers: http2.IncomingHttpHeaders, flags: number) => {});
-        http2Stream.on('wantTrailers', () => {});
+        http2Stream.on("aborted", () => {});
+        http2Stream.on("error", (err: Error) => {});
+        http2Stream.on(
+            "frameError",
+            (frameType: number, errorCode: number, streamID: number) => {}
+        );
+        http2Stream.on("streamClosed", (code: number) => {});
+        http2Stream.on("timeout", () => {});
+        http2Stream.on(
+            "trailers",
+            (trailers: http2.IncomingHttpHeaders, flags: number) => {}
+        );
+        http2Stream.on("wantTrailers", () => {});
 
         const aborted: boolean = http2Stream.aborted;
         const closed: boolean = http2Stream.closed;
@@ -4323,11 +5215,24 @@ import * as constants from 'constants';
 
         // ClientHttp2Stream
         const clientHttp2Stream: http2.ClientHttp2Stream = {} as any;
-        clientHttp2Stream.on('headers', (headers: http2.IncomingHttpHeaders, flags: number) => {});
-        clientHttp2Stream.on('push', (headers: http2.IncomingHttpHeaders, flags: number) => {});
-        clientHttp2Stream.on('response', (headers: http2.IncomingHttpHeaders & http2.IncomingHttpStatusHeader, flags: number) => {
-            const s: number = headers[':status'];
-        });
+        clientHttp2Stream.on(
+            "headers",
+            (headers: http2.IncomingHttpHeaders, flags: number) => {}
+        );
+        clientHttp2Stream.on(
+            "push",
+            (headers: http2.IncomingHttpHeaders, flags: number) => {}
+        );
+        clientHttp2Stream.on(
+            "response",
+            (
+                headers: http2.IncomingHttpHeaders &
+                    http2.IncomingHttpStatusHeader,
+                flags: number
+            ) => {
+                const s: number = headers[":status"];
+            }
+        );
 
         // ServerHttp2Stream
         const serverHttp2Stream: http2.ServerHttp2Stream = {} as any;
@@ -4336,18 +5241,29 @@ import * as constants from 'constants';
         serverHttp2Stream.additionalHeaders(headers);
         const headerSent: boolean = serverHttp2Stream.headersSent;
         const pushAllowed: boolean = serverHttp2Stream.pushAllowed;
-        serverHttp2Stream.pushStream(headers, (err: Error | null, pushStream: http2.ServerHttp2Stream, headers: http2.OutgoingHttpHeaders) => {});
+        serverHttp2Stream.pushStream(
+            headers,
+            (
+                err: Error | null,
+                pushStream: http2.ServerHttp2Stream,
+                headers: http2.OutgoingHttpHeaders
+            ) => {}
+        );
 
         const options: http2.ServerStreamResponseOptions = {
             endStream: true,
-            waitForTrailers: true,
+            waitForTrailers: true
         };
         serverHttp2Stream.respond();
         serverHttp2Stream.respond(headers);
         serverHttp2Stream.respond(headers, options);
 
         const options2: http2.ServerStreamFileResponseOptions = {
-            statCheck: (stats: fs.Stats, headers: http2.OutgoingHttpHeaders, statOptions: http2.StatOptions) => {},
+            statCheck: (
+                stats: fs.Stats,
+                headers: http2.OutgoingHttpHeaders,
+                statOptions: http2.StatOptions
+            ) => {},
             getTrailers: (trailers: http2.OutgoingHttpHeaders) => {},
             offset: 0,
             length: 0
@@ -4355,18 +5271,24 @@ import * as constants from 'constants';
         serverHttp2Stream.respondWithFD(0);
         serverHttp2Stream.respondWithFD(0, headers);
         serverHttp2Stream.respondWithFD(0, headers, options2);
-        serverHttp2Stream.respondWithFD(0, headers, {statCheck: () => false});
+        serverHttp2Stream.respondWithFD(0, headers, { statCheck: () => false });
         const options3: http2.ServerStreamFileResponseOptionsWithError = {
             onError: (err: NodeJS.ErrnoException) => {},
-            statCheck: (stats: fs.Stats, headers: http2.OutgoingHttpHeaders, statOptions: http2.StatOptions) => {},
+            statCheck: (
+                stats: fs.Stats,
+                headers: http2.OutgoingHttpHeaders,
+                statOptions: http2.StatOptions
+            ) => {},
             getTrailers: (trailers: http2.OutgoingHttpHeaders) => {},
             offset: 0,
             length: 0
         };
-        serverHttp2Stream.respondWithFile('');
-        serverHttp2Stream.respondWithFile('', headers);
-        serverHttp2Stream.respondWithFile('', headers, options3);
-        serverHttp2Stream.respondWithFile('', headers, {statCheck: () => false});
+        serverHttp2Stream.respondWithFile("");
+        serverHttp2Stream.respondWithFile("", headers);
+        serverHttp2Stream.respondWithFile("", headers, options3);
+        serverHttp2Stream.respondWithFile("", headers, {
+            statCheck: () => false
+        });
     }
 
     // Http2Server / Http2SecureServer
@@ -4375,15 +5297,35 @@ import * as constants from 'constants';
         const http2SecureServer: http2.Http2SecureServer = http2.createSecureServer();
         const s1: net.Server = http2Server;
         const s2: tls.Server = http2SecureServer;
-        [http2Server, http2SecureServer].forEach((server) => {
-            server.on('sessionError', (err: Error) => {});
-            server.on('checkContinue', (stream: http2.ServerHttp2Stream, headers: http2.IncomingHttpHeaders, flags: number) => {});
-            server.on('stream', (stream: http2.ServerHttp2Stream, headers: http2.IncomingHttpHeaders, flags: number) => {});
-            server.on('request', (request: http2.Http2ServerRequest, response: http2.Http2ServerResponse) => {});
-            server.on('timeout', () => {});
+        [http2Server, http2SecureServer].forEach(server => {
+            server.on("sessionError", (err: Error) => {});
+            server.on(
+                "checkContinue",
+                (
+                    stream: http2.ServerHttp2Stream,
+                    headers: http2.IncomingHttpHeaders,
+                    flags: number
+                ) => {}
+            );
+            server.on(
+                "stream",
+                (
+                    stream: http2.ServerHttp2Stream,
+                    headers: http2.IncomingHttpHeaders,
+                    flags: number
+                ) => {}
+            );
+            server.on(
+                "request",
+                (
+                    request: http2.Http2ServerRequest,
+                    response: http2.Http2ServerResponse
+                ) => {}
+            );
+            server.on("timeout", () => {});
         });
 
-        http2SecureServer.on('unknownProtocol', (socket: tls.TLSSocket) => {});
+        http2SecureServer.on("unknownProtocol", (socket: tls.TLSSocket) => {});
     }
 
     // Public API (except constants)
@@ -4400,9 +5342,15 @@ import * as constants from 'constants';
             allowHTTP1: true
         };
         // tslint:disable-next-line prefer-object-spread (ts2.1 feature)
-        const secureServerOptions: http2.SecureServerOptions = Object.assign({}, serverOptions);
-        secureServerOptions.ca = '';
-        const onRequestHandler = (request: http2.Http2ServerRequest, response: http2.Http2ServerResponse) => {
+        const secureServerOptions: http2.SecureServerOptions = Object.assign(
+            {},
+            serverOptions
+        );
+        secureServerOptions.ca = "";
+        const onRequestHandler = (
+            request: http2.Http2ServerRequest,
+            response: http2.Http2ServerResponse
+        ) => {
             // Http2ServerRequest
 
             const readable: stream.Readable = request;
@@ -4417,7 +5365,7 @@ import * as constants from 'constants';
             const url: string = request.url;
 
             request.setTimeout(0, () => {});
-            request.on('aborted', (hadError: boolean, code: number) => {});
+            request.on("aborted", (hadError: boolean, code: number) => {});
 
             // Http2ServerResponse
 
@@ -4427,52 +5375,55 @@ import * as constants from 'constants';
             const finished: boolean = response.finished;
             response.sendDate = true;
             response.statusCode = 200;
-            response.statusMessage = '';
+            response.statusMessage = "";
             socket = response.socket;
             stream = response.stream;
 
-            method = response.getHeader(':method');
+            method = response.getHeader(":method");
             const headers: string[] = response.getHeaderNames();
             outgoingHeaders = response.getHeaders();
-            const hasMethod = response.hasHeader(':method');
-            response.removeHeader(':method');
-            response.setHeader(':method', 'GET');
-            response.setHeader(':status', 200);
-            response.setHeader('some-list', ['', '']);
+            const hasMethod = response.hasHeader(":method");
+            response.removeHeader(":method");
+            response.setHeader(":method", "GET");
+            response.setHeader(":status", 200);
+            response.setHeader("some-list", ["", ""]);
             const headersSent: boolean = response.headersSent;
 
             response.setTimeout(0, () => {});
-            response.createPushResponse(outgoingHeaders, (err: Error | null, res: http2.Http2ServerResponse) => {});
+            response.createPushResponse(
+                outgoingHeaders,
+                (err: Error | null, res: http2.Http2ServerResponse) => {}
+            );
 
             response.writeContinue();
             response.writeHead(200);
             response.writeHead(200, outgoingHeaders);
-            response.writeHead(200, 'OK', outgoingHeaders);
-            response.writeHead(200, 'OK');
-            response.write('');
-            response.write('', (err: Error) => {});
-            response.write('', 'utf8');
-            response.write('', 'utf8', (err: Error) => {});
+            response.writeHead(200, "OK", outgoingHeaders);
+            response.writeHead(200, "OK");
+            response.write("");
+            response.write("", (err: Error) => {});
+            response.write("", "utf8");
+            response.write("", "utf8", (err: Error) => {});
             response.write(Buffer.from([]));
             response.write(Buffer.from([]), (err: Error) => {});
-            response.write(Buffer.from([]), 'utf8');
-            response.write(Buffer.from([]), 'utf8', (err: Error) => {});
+            response.write(Buffer.from([]), "utf8");
+            response.write(Buffer.from([]), "utf8", (err: Error) => {});
             response.end();
             response.end(() => {});
-            response.end('');
-            response.end('', () => {});
-            response.end('', 'utf8');
-            response.end('', 'utf8', () => {});
+            response.end("");
+            response.end("", () => {});
+            response.end("", "utf8");
+            response.end("", "utf8", () => {});
             response.end(Buffer.from([]));
             response.end(Buffer.from([]), () => {});
-            response.end(Buffer.from([]), 'utf8');
-            response.end(Buffer.from([]), 'utf8', () => {});
+            response.end(Buffer.from([]), "utf8");
+            response.end(Buffer.from([]), "utf8", () => {});
 
-            request.on('aborted', (hadError: boolean, code: number) => {});
-            request.on('close', () => {});
-            request.on('drain', () => {});
-            request.on('error', (error: Error) => {});
-            request.on('finish', () => {});
+            request.on("aborted", (hadError: boolean, code: number) => {});
+            request.on("close", () => {});
+            request.on("drain", () => {});
+            request.on("error", (error: Error) => {});
+            request.on("finish", () => {});
         };
 
         let http2Server: http2.Http2Server;
@@ -4486,7 +5437,10 @@ import * as constants from 'constants';
         http2SecureServer = http2.createSecureServer();
         http2SecureServer = http2.createSecureServer(secureServerOptions);
         http2SecureServer = http2.createSecureServer(onRequestHandler);
-        http2SecureServer = http2.createSecureServer(secureServerOptions, onRequestHandler);
+        http2SecureServer = http2.createSecureServer(
+            secureServerOptions,
+            onRequestHandler
+        );
 
         const clientSessionOptions: http2.ClientSessionOptions = {
             maxDeflateDynamicTableSize: 0,
@@ -4498,28 +5452,45 @@ import * as constants from 'constants';
             settings
         };
         // tslint:disable-next-line prefer-object-spread (ts2.1 feature)
-        const secureClientSessionOptions: http2.SecureClientSessionOptions = Object.assign({}, clientSessionOptions);
-        secureClientSessionOptions.ca = '';
-        const onConnectHandler = (session: http2.Http2Session, socket: net.Socket) => {};
+        const secureClientSessionOptions: http2.SecureClientSessionOptions = Object.assign(
+            {},
+            clientSessionOptions
+        );
+        secureClientSessionOptions.ca = "";
+        const onConnectHandler = (
+            session: http2.Http2Session,
+            socket: net.Socket
+        ) => {};
 
         const serverHttp2Session: http2.ServerHttp2Session = {} as any;
 
-        serverHttp2Session.altsvc('', '');
-        serverHttp2Session.altsvc('', 0);
-        serverHttp2Session.altsvc('', new url.URL(''));
-        serverHttp2Session.altsvc('', { origin: '' });
-        serverHttp2Session.altsvc('', { origin: 0 });
-        serverHttp2Session.altsvc('', { origin: new url.URL('') });
+        serverHttp2Session.altsvc("", "");
+        serverHttp2Session.altsvc("", 0);
+        serverHttp2Session.altsvc("", new url.URL(""));
+        serverHttp2Session.altsvc("", { origin: "" });
+        serverHttp2Session.altsvc("", { origin: 0 });
+        serverHttp2Session.altsvc("", { origin: new url.URL("") });
 
         let clientHttp2Session: http2.ClientHttp2Session;
 
-        clientHttp2Session = http2.connect('');
-        clientHttp2Session = http2.connect('', onConnectHandler);
-        clientHttp2Session = http2.connect('', clientSessionOptions);
-        clientHttp2Session = http2.connect('', clientSessionOptions, onConnectHandler);
-        clientHttp2Session = http2.connect('', secureClientSessionOptions);
-        clientHttp2Session = http2.connect('', secureClientSessionOptions, onConnectHandler);
-        clientHttp2Session.on('altsvc', (alt: string, origin: string, number: number) => {});
+        clientHttp2Session = http2.connect("");
+        clientHttp2Session = http2.connect("", onConnectHandler);
+        clientHttp2Session = http2.connect("", clientSessionOptions);
+        clientHttp2Session = http2.connect(
+            "",
+            clientSessionOptions,
+            onConnectHandler
+        );
+        clientHttp2Session = http2.connect("", secureClientSessionOptions);
+        clientHttp2Session = http2.connect(
+            "",
+            secureClientSessionOptions,
+            onConnectHandler
+        );
+        clientHttp2Session.on(
+            "altsvc",
+            (alt: string, origin: string, number: number) => {}
+        );
 
         settings = http2.getDefaultSettings();
         settings = http2.getPackedSettings(settings);
@@ -4749,11 +5720,15 @@ import * as constants from 'constants';
 
 {
     {
-        const b: inspector.Console.ConsoleMessage = {source: 'test', text: 'test', level: 'error' };
+        const b: inspector.Console.ConsoleMessage = {
+            source: "test",
+            text: "test",
+            level: "error"
+        };
         inspector.open();
         inspector.open(0);
-        inspector.open(0, 'localhost');
-        inspector.open(0, 'localhost', true);
+        inspector.open(0, "localhost");
+        inspector.open(0, "localhost", true);
         inspector.close();
         const inspectorUrl: string = inspector.url();
 
@@ -4762,34 +5737,57 @@ import * as constants from 'constants';
         session.disconnect();
 
         // Unknown post method
-        session.post('A.b', { key: 'value' }, (err, params) => {});
+        session.post("A.b", { key: "value" }, (err, params) => {});
         // TODO: parameters are implicitly 'any' and need type annotation
-        session.post('A.b', (err: Error | null, params?: {}) => {});
-        session.post('A.b');
+        session.post("A.b", (err: Error | null, params?: {}) => {});
+        session.post("A.b");
         // Known post method
-        const parameter: inspector.Runtime.EvaluateParameterType = { expression: '2 + 2' };
-        session.post('Runtime.evaluate', parameter,
-            (err: Error, params: inspector.Runtime.EvaluateReturnType) => {});
-        session.post('Runtime.evaluate', (err: Error, params: inspector.Runtime.EvaluateReturnType) => {
-            const exceptionDetails: inspector.Runtime.ExceptionDetails = params.exceptionDetails;
-            const resultClassName: string = params.result.className;
-        });
-        session.post('Runtime.evaluate');
+        const parameter: inspector.Runtime.EvaluateParameterType = {
+            expression: "2 + 2"
+        };
+        session.post(
+            "Runtime.evaluate",
+            parameter,
+            (err: Error, params: inspector.Runtime.EvaluateReturnType) => {}
+        );
+        session.post(
+            "Runtime.evaluate",
+            (err: Error, params: inspector.Runtime.EvaluateReturnType) => {
+                const exceptionDetails: inspector.Runtime.ExceptionDetails =
+                    params.exceptionDetails;
+                const resultClassName: string = params.result.className;
+            }
+        );
+        session.post("Runtime.evaluate");
 
         // General event
-        session.on('inspectorNotification', message => {
+        session.on("inspectorNotification", message => {
             message; // $ExpectType InspectorNotification<{}>
         });
         // Known events
-        session.on('Debugger.paused', (message: inspector.InspectorNotification<inspector.Debugger.PausedEventDataType>) => {
-            const method: string = message.method;
-            const pauseReason: string = message.params.reason;
-        });
-        session.on('Debugger.resumed', () => {});
+        session.on(
+            "Debugger.paused",
+            (
+                message: inspector.InspectorNotification<
+                    inspector.Debugger.PausedEventDataType
+                >
+            ) => {
+                const method: string = message.method;
+                const pauseReason: string = message.params.reason;
+            }
+        );
+        session.on("Debugger.resumed", () => {});
         // Node Inspector events
-        session.on('NodeTracing.dataCollected', (message: inspector.InspectorNotification<inspector.NodeTracing.DataCollectedEventDataType>) => {
-          const value: Array<{}> = message.params.value;
-        });
+        session.on(
+            "NodeTracing.dataCollected",
+            (
+                message: inspector.InspectorNotification<
+                    inspector.NodeTracing.DataCollectedEventDataType
+                >
+            ) => {
+                const value: Array<{}> = message.params.value;
+            }
+        );
     }
 }
 
@@ -4799,7 +5797,9 @@ import * as constants from 'constants';
 
 {
     const enabledCategories: string = trace_events.getEnabledCategories();
-    const tracing: trace_events.Tracing = trace_events.createTracing({ categories: ['node', 'v8'] });
+    const tracing: trace_events.Tracing = trace_events.createTracing({
+        categories: ["node", "v8"]
+    });
     const categories: string = tracing.categories;
     const enabled: boolean = tracing.enabled;
     tracing.enable();
@@ -4809,7 +5809,7 @@ import * as constants from 'constants';
 ////////////////////////////////////////////////////
 /// module tests : http://nodejs.org/api/modules.html
 ////////////////////////////////////////////////////
-import moduleModule = require('module');
+import moduleModule = require("module");
 
 {
     require.extensions[".ts"] = () => "";
@@ -4823,7 +5823,7 @@ import moduleModule = require('module');
     let paths: string[] = module.paths;
     paths = m1.paths;
 
-    moduleModule.createRequireFromPath('./test')('test');
+    moduleModule.createRequireFromPath("./test")("test");
 }
 
 ////////////////////////////////////////////////////
@@ -4831,7 +5831,7 @@ import moduleModule = require('module');
 ////////////////////////////////////////////////////
 
 {
-    const s = 'foo';
+    const s = "foo";
     const s1: string = s.trimLeft();
     const s2: string = s.trimRight();
 }

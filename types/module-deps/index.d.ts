@@ -11,7 +11,9 @@ import * as browserResolve from "browser-resolve";
  * Return an object transform stream 'd' that expects entry filenames or '{ id: ..., file: ... }' objects
  * as input and produces objects for every dependency from a recursive module traversal as output.
  */
-declare function moduleDeps(opts?: moduleDeps.Options): moduleDeps.ModuleDepsObject;
+declare function moduleDeps(
+    opts?: moduleDeps.Options
+): moduleDeps.ModuleDepsObject;
 
 /**
  * Walk the dependency graph to generate json output that can be fed into browser-pack
@@ -35,7 +37,16 @@ declare namespace moduleDeps {
         /**
          * Custom resolve function using the opts.resolve(id, parent, cb) signature that browser-resolve has
          */
-        resolve?: (id: string, opts: browserResolve.SyncOpts, cb: (err?: Error | null, file?: string, pkg?: PackageObject, fakePath?: any) => void) => void;
+        resolve?: (
+            id: string,
+            opts: browserResolve.SyncOpts,
+            cb: (
+                err?: Error | null,
+                file?: string,
+                pkg?: PackageObject,
+                fakePath?: any
+            ) => void
+        ) => void;
 
         /**
          * A custom dependency detection function. opts.detect(source) should return an array of dependency module names. By default detective is used
@@ -52,7 +63,11 @@ declare namespace moduleDeps {
          * A function (id, file, pkg) that gets called after id has been resolved.
          * Return false to skip this file
          */
-        postFilter?: (id: string, file: string, pkg: PackageObject) => (void | boolean); // tslint:disable-line:void-return
+        postFilter?: (
+            id: string,
+            file: string,
+            pkg: PackageObject
+        ) => void | boolean; // tslint:disable-line:void-return
 
         /**
          * Transform the parsed package.json contents before using the values.
@@ -85,7 +100,13 @@ declare namespace moduleDeps {
         /**
          * A complex cache handler that allows async and persistent caching of data.
          */
-        persistentCache?: (file: string, id: string, pkg: PackageObject, fallback: (dataAsString: string, cb: CacheCallback) => void, cb: CacheCallback) => void;
+        persistentCache?: (
+            file: string,
+            id: string,
+            pkg: PackageObject,
+            fallback: (dataAsString: string, cb: CacheCallback) => void,
+            cb: CacheCallback
+        ) => void;
 
         /**
          * Array of global paths to search. Defaults to splitting on ':' in process.env.NODE_PATH
@@ -108,22 +129,54 @@ declare namespace moduleDeps {
     }
 
     interface ModuleDepsObject extends NodeJS.ReadWriteStream {
-        resolve(id: string, parent: { id: string }, cb: (err: Error | null, file?: string, pkg?: PackageObject, fakePath?: any) => any): any;
+        resolve(
+            id: string,
+            parent: { id: string },
+            cb: (
+                err: Error | null,
+                file?: string,
+                pkg?: PackageObject,
+                fakePath?: any
+            ) => any
+        ): any;
 
-        readFile(file: string, id?: any, pkg?: PackageObject): NodeJS.ReadableStream;
+        readFile(
+            file: string,
+            id?: any,
+            pkg?: PackageObject
+        ): NodeJS.ReadableStream;
 
-        getTransforms(file: string, pkg: PackageObject, opts?: { builtin?: boolean; inNodeModules?: boolean }): NodeJS.ReadWriteStream;
+        getTransforms(
+            file: string,
+            pkg: PackageObject,
+            opts?: { builtin?: boolean; inNodeModules?: boolean }
+        ): NodeJS.ReadWriteStream;
 
-        walk(id: string | { file: string; id: string; entry?: boolean; expose?: string; noparse?: boolean; source?: string },
+        walk(
+            id:
+                | string
+                | {
+                      file: string;
+                      id: string;
+                      entry?: boolean;
+                      expose?: string;
+                      noparse?: boolean;
+                      source?: string;
+                  },
             parent: { modules: any },
-            cb: (err: Error | null, file?: string) => void): void;
+            cb: (err: Error | null, file?: string) => void
+        ): void;
 
         parseDeps(file: string, src: string, cb: any): any[];
 
         lookupPackage(file: string, cb: (a: any, b: any, c?: any) => any): void;
 
         _isTopLevel(file: string): boolean;
-        _transform(row: string | InputRow | InputTransform, enc: string, next: () => void): void;
+        _transform(
+            row: string | InputRow | InputTransform,
+            enc: string,
+            next: () => void
+        ): void;
         _flush(): void;
 
         /**
@@ -137,7 +190,13 @@ declare namespace moduleDeps {
         /**
          * When opts.ignoreMissing is enabled, this event fires for each missing package.
          */
-        on(event: "missing", listener: (id: string, parent: { id: string; filename: string; [prop: string]: any }) => any): this;
+        on(
+            event: "missing",
+            listener: (
+                id: string,
+                parent: { id: string; filename: string; [prop: string]: any }
+            ) => any
+        ): this;
         /**
          * Every time a package is read, this event fires. The directory name of the package is available in pkg.__dirname.
          */
@@ -145,7 +204,10 @@ declare namespace moduleDeps {
         on(event: string | symbol, listener: (...args: any[]) => void): this;
     }
 
-    type CacheCallback = (err: Error | null, res?: { source: string; package: any; deps: { [dep: string]: boolean } }) => void;
+    type CacheCallback = (
+        err: Error | null,
+        res?: { source: string; package: any; deps: { [dep: string]: boolean } }
+    ) => void;
 
     interface InputRow {
         file: string;

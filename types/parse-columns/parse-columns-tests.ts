@@ -1,13 +1,13 @@
-import parseColumns = require('parse-columns');
+import parseColumns = require("parse-columns");
 
 // $ExpectType { [key: string]: string; }[]
-parseColumns('foo');
+parseColumns("foo");
 // $ExpectType { [key: string]: string; }[]
-parseColumns('foo', { separator: ' ' });
+parseColumns("foo", { separator: " " });
 // $ExpectType { [key: string]: string; }[]
-parseColumns('foo', { headers: ['foo', 'bar'] });
+parseColumns("foo", { headers: ["foo", "bar"] });
 // $ExpectType { [key: string]: string | number; }[]
-parseColumns('foo', {
+parseColumns("foo", {
     transform(el, header, columnIndex, rowIndex) {
         // $ExpectType string
         el;
@@ -23,5 +23,5 @@ parseColumns('foo', {
         }
 
         return el;
-    },
+    }
 });

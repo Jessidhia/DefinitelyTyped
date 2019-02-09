@@ -21,7 +21,12 @@ interface OptionsBase {
     /**
      * Controls a function for handling remote requests; Defaults to the build in `loadRemoteResource` function
      */
-    fetch?: (uri: string, inlineRequest: HttpRequestOptions | HttpsRequestOptions, inlineTimeout: number, done: (message: string | number, body: string) => void) => void;
+    fetch?: (
+        uri: string,
+        inlineRequest: HttpRequestOptions | HttpsRequestOptions,
+        inlineTimeout: number,
+        done: (message: string | number, body: string) => void
+    ) => void;
 
     /**
      * Controls output CSS formatting; defaults to `false`.
@@ -165,7 +170,7 @@ declare namespace CleanCSS {
             /**
              * controls color optimizations; defaults to `true`
              */
-            colors?: boolean,
+            colors?: boolean;
 
             /**
              * Controls keeping IE bang hack; defaults to `false`
@@ -515,7 +520,11 @@ declare namespace CleanCSS {
             /**
              * Defines a callback for fine-grained property optimization; defaults to no-op
              */
-            transform?: (propertyName: string, propertyValue: string, selector?: string) => string;
+            transform?: (
+                propertyName: string,
+                propertyValue: string,
+                selector?: string
+            ) => string;
         };
         2?: {
             /**
@@ -624,7 +633,12 @@ declare namespace CleanCSS {
     /**
      * Union of all types acceptable as input for the minify function
      */
-    type Sources = string | ReadonlyArray<string> | Source | ReadonlyArray<Source> | Buffer;
+    type Sources =
+        | string
+        | ReadonlyArray<string>
+        | Source
+        | ReadonlyArray<Source>
+        | Buffer;
 
     /**
      * Union type for both types of minifier functions
@@ -635,8 +649,15 @@ declare namespace CleanCSS {
      * Interface exposed when a new CleanCSS object is created
      */
     interface MinifierOutput {
-        minify(sources: Sources, callback?: (error: any, output: Output) => void): Output;
-        minify(sources: Sources, sourceMap: string, callback?: (error: any, output: Output) => void): Output;
+        minify(
+            sources: Sources,
+            callback?: (error: any, output: Output) => void
+        ): Output;
+        minify(
+            sources: Sources,
+            sourceMap: string,
+            callback?: (error: any, output: Output) => void
+        ): Output;
     }
     /**
      * Interface exposed when a new CleanCSS object is created with returnPromise set to true
@@ -652,7 +673,7 @@ declare namespace CleanCSS {
         /**
          * If you prefer clean-css to return a Promise object then you need to explicitly ask for it; defaults to `false`
          */
-        returnPromise: true
+        returnPromise: true;
     };
 
     /**
@@ -662,7 +683,7 @@ declare namespace CleanCSS {
         /**
          * If you prefer clean-css to return a Promise object then you need to explicitly ask for it; defaults to `false`
          */
-        returnPromise?: false
+        returnPromise?: false;
     };
 
     /**
@@ -677,8 +698,8 @@ declare namespace CleanCSS {
      * Constructor interface for CleanCSS
      */
     interface Constructor {
-        new(options: OptionsPromise): MinifierPromise;
-        new(options?: OptionsOutput): MinifierOutput;
+        new (options: OptionsPromise): MinifierPromise;
+        new (options?: OptionsOutput): MinifierOutput;
     }
 }
 

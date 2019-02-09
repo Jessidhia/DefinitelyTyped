@@ -5,8 +5,8 @@
 // TypeScript Version: 2.4
 
 export enum MODES {
-    RECORD = 'record',
-    REPLAY = 'replay',
-    PASSTHROUGH = 'passthrough',
-    STOPPED = 'stopped'
+    RECORD = "record",
+    REPLAY = "replay",
+    PASSTHROUGH = "passthrough",
+    STOPPED = "stopped"
 }

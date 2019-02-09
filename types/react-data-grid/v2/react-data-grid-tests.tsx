@@ -1,7 +1,7 @@
-import * as React from 'react';
-import ReactDataGrid = require('react-data-grid');
-import * as ReactDataGridPlugins from 'react-data-grid-addons';
-import faker = require('faker');
+import * as React from "react";
+import ReactDataGrid = require("react-data-grid");
+import * as ReactDataGridPlugins from "react-data-grid-addons";
+import faker = require("faker");
 
 var Editors = ReactDataGridPlugins.Editors;
 var Toolbar = ReactDataGridPlugins.Toolbar;
@@ -10,25 +10,30 @@ var DropDownEditor = Editors.DropDownEditor;
 var { Selectors } = ReactDataGridPlugins.Data;
 
 class CustomFilterHeaderCell extends React.Component<any, any> {
-   state = {
-       filterTerm: ""
-   };
-   handleChange(e: any) {
-       let val = e.target.value;
-       this.setState({filterTerm: val});
-       this.props.onChange({filterTerm: val, column: this.props.column});
-   }
-   render() {
-       return (
-           <div>
-               <input type="text" value={this.state.filterTerm} onChange={(e) => this.handleChange(e)} />
-           </div>
-       );
-   }
+    state = {
+        filterTerm: ""
+    };
+    handleChange(e: any) {
+        let val = e.target.value;
+        this.setState({ filterTerm: val });
+        this.props.onChange({ filterTerm: val, column: this.props.column });
+    }
+    render() {
+        return (
+            <div>
+                <input
+                    type="text"
+                    value={this.state.filterTerm}
+                    onChange={e => this.handleChange(e)}
+                />
+            </div>
+        );
+    }
 }
 
-class CustomRowSelectorCell extends ReactDataGridPlugins.Editors.CheckboxEditor {
-    render(){
+class CustomRowSelectorCell extends ReactDataGridPlugins.Editors
+    .CheckboxEditor {
+    render() {
         return super.render();
     }
 }
@@ -41,26 +46,29 @@ export interface ICustomSelectAllProps {
 class CustomSelectAll extends React.Component<ICustomSelectAllProps> {
     render() {
         return (
-            <div className='react-grid-checkbox-container checkbox-align'>
+            <div className="react-grid-checkbox-container checkbox-align">
                 <input
-                    className='react-grid-checkbox'
-                    type='checkbox'
-                    name='select-all-checkbox'
-                    id='select-all-checkbox'
+                    className="react-grid-checkbox"
+                    type="checkbox"
+                    name="select-all-checkbox"
+                    id="select-all-checkbox"
                     ref={this.props.inputRef}
                     onChange={this.props.onChange}
                 />
-                <label htmlFor='select-all-checkbox' className='react-grid-checkbox-label'></label>
+                <label
+                    htmlFor="select-all-checkbox"
+                    className="react-grid-checkbox-label"
+                />
             </div>
         );
     }
 }
 
-faker.locale = 'en_GB';
+faker.locale = "en_GB";
 
-function createFakeRowObjectData(index:number):Object {
+function createFakeRowObjectData(index: number): Object {
     return {
-        id: 'id_' + index,
+        id: "id_" + index,
         avartar: faker.image.avatar(),
         county: faker.address.county(),
         email: faker.internet.email(),
@@ -78,8 +86,8 @@ function createFakeRowObjectData(index:number):Object {
     };
 }
 
-function createRows(numberOfRows:number) {
-    var rows:Object[] = [];
+function createRows(numberOfRows: number) {
+    var rows: Object[] = [];
     for (var i = 0; i < numberOfRows; i++) {
         rows[i] = createFakeRowObjectData(i);
     }
@@ -87,69 +95,73 @@ function createRows(numberOfRows:number) {
 }
 
 var counties = [
-    {id: 0, title: 'Bedfordshire'},
-    {id: 1, title: 'Berkshire'},
-    {id: 2, title: 'Buckinghamshire'},
-    {id: 3, title: 'Cambridgeshire'},
-    {id: 4, title: 'Cheshire'},
-    {id: 5, title: 'Cornwall'},
-    {id: 6, title: 'Cumbria, (Cumberland)'},
-    {id: 7, title: 'Derbyshire'},
-    {id: 8, title: 'Devon'},
-    {id: 9, title: 'Dorset'},
-    {id: 10, title: 'Durham'},
-    {id: 11, title: 'Essex'},
-    {id: 12, title: 'Gloucestershire'},
-    {id: 13, title: 'Hampshire'},
-    {id: 14, title: 'Hertfordshire'},
-    {id: 15, title: 'Huntingdonshire'},
-    {id: 16, title: 'Kent'},
-    {id: 17, title: 'Lancashire'},
-    {id: 18, title: 'Leicestershire'},
-    {id: 19, title: 'Lincolnshire'},
-    {id: 20, title: 'Middlesex'},
-    {id: 21, title: 'Norfolk'},
-    {id: 22, title: 'Northamptonshire'},
-    {id: 23, title: 'Northumberland'},
-    {id: 24, title: 'Nottinghamshire'},
-    {id: 25, title: 'Northamptonshire'},
-    {id: 26, title: 'Oxfordshire'},
-    {id: 27, title: 'Northamptonshire'},
-    {id: 28, title: 'Rutland'},
-    {id: 29, title: 'Shropshire'},
-    {id: 30, title: 'Somerset'},
-    {id: 31, title: 'Staffordshire'},
-    {id: 32, title: 'Suffolk'},
-    {id: 33, title: 'Surrey'},
-    {id: 34, title: 'Sussex'},
-    {id: 35, title: 'Warwickshire'},
-    {id: 36, title: 'Westmoreland'},
-    {id: 37, title: 'Wiltshire'},
-    {id: 38, title: 'Worcestershire'},
-    {id: 39, title: 'Yorkshire'}
+    { id: 0, title: "Bedfordshire" },
+    { id: 1, title: "Berkshire" },
+    { id: 2, title: "Buckinghamshire" },
+    { id: 3, title: "Cambridgeshire" },
+    { id: 4, title: "Cheshire" },
+    { id: 5, title: "Cornwall" },
+    { id: 6, title: "Cumbria, (Cumberland)" },
+    { id: 7, title: "Derbyshire" },
+    { id: 8, title: "Devon" },
+    { id: 9, title: "Dorset" },
+    { id: 10, title: "Durham" },
+    { id: 11, title: "Essex" },
+    { id: 12, title: "Gloucestershire" },
+    { id: 13, title: "Hampshire" },
+    { id: 14, title: "Hertfordshire" },
+    { id: 15, title: "Huntingdonshire" },
+    { id: 16, title: "Kent" },
+    { id: 17, title: "Lancashire" },
+    { id: 18, title: "Leicestershire" },
+    { id: 19, title: "Lincolnshire" },
+    { id: 20, title: "Middlesex" },
+    { id: 21, title: "Norfolk" },
+    { id: 22, title: "Northamptonshire" },
+    { id: 23, title: "Northumberland" },
+    { id: 24, title: "Nottinghamshire" },
+    { id: 25, title: "Northamptonshire" },
+    { id: 26, title: "Oxfordshire" },
+    { id: 27, title: "Northamptonshire" },
+    { id: 28, title: "Rutland" },
+    { id: 29, title: "Shropshire" },
+    { id: 30, title: "Somerset" },
+    { id: 31, title: "Staffordshire" },
+    { id: 32, title: "Suffolk" },
+    { id: 33, title: "Surrey" },
+    { id: 34, title: "Sussex" },
+    { id: 35, title: "Warwickshire" },
+    { id: 36, title: "Westmoreland" },
+    { id: 37, title: "Wiltshire" },
+    { id: 38, title: "Worcestershire" },
+    { id: 39, title: "Yorkshire" }
 ];
 
-var titles = ['Dr.', 'Mr.', 'Mrs.', 'Miss', 'Ms.'];
+var titles = ["Dr.", "Mr.", "Mrs.", "Miss", "Ms."];
 
-var columns:ReactDataGrid.Column[] = [
+var columns: ReactDataGrid.Column[] = [
     {
-        key: 'id',
-        name: 'ID',
+        key: "id",
+        name: "ID",
         width: 80,
         resizable: true
     },
     {
-        key: 'avartar',
-        name: 'Avartar',
+        key: "avartar",
+        name: "Avartar",
         width: 60,
         formatter: ReactDataGridPlugins.Formatters.ImageFormatter,
         resizable: true,
-        headerRenderer: <ReactDataGridPlugins.Formatters.ImageFormatter value={faker.image.cats()}/>
+        headerRenderer: (
+            <ReactDataGridPlugins.Formatters.ImageFormatter
+                value={faker.image.cats()}
+            />
+        )
     },
     {
-        key: 'county',
-        name: 'County',
-        editor: <AutoCompleteEditor options={counties}/>,
+        key: "county",
+        name: "County",
+        editor: <AutoCompleteEditor options={counties} />,
         width: 200,
         resizable: true,
         getRowMetaData: (rowdata: any, column: ReactDataGrid.Column) => {
@@ -157,76 +169,76 @@ var columns:ReactDataGrid.Column[] = [
         }
     },
     {
-        key: 'title',
-        name: 'Title',
-        editor: <DropDownEditor options={titles}/>,
+        key: "title",
+        name: "Title",
+        editor: <DropDownEditor options={titles} />,
         width: 200,
         resizable: true,
         events: {
-            onDoubleClick: function () {
+            onDoubleClick: function() {
                 console.log("The user double clicked on title column");
             }
         }
     },
     {
-        key: 'firstName',
-        name: 'First Name',
+        key: "firstName",
+        name: "First Name",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'lastName',
-        name: 'Last Name',
+        key: "lastName",
+        name: "Last Name",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'email',
-        name: 'Email',
+        key: "email",
+        name: "Email",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'street',
-        name: 'Street',
+        key: "street",
+        name: "Street",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'zipCode',
-        name: 'ZipCode',
+        key: "zipCode",
+        name: "ZipCode",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'date',
-        name: 'Date',
+        key: "date",
+        name: "Date",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'bs',
-        name: 'bs',
+        key: "bs",
+        name: "bs",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'catchPhrase',
-        name: 'Catch Phrase',
+        key: "catchPhrase",
+        name: "Catch Phrase",
         editable: true,
         width: 200,
         resizable: true
     },
     {
-        key: 'companyName',
-        name: 'Company Name',
+        key: "companyName",
+        name: "Company Name",
         editable: true,
         width: 200,
         resizable: true,
@@ -234,25 +246,28 @@ var columns:ReactDataGrid.Column[] = [
         filterRenderer: CustomFilterHeaderCell
     },
     {
-        key: 'sentence',
-        name: 'Sentence',
+        key: "sentence",
+        name: "Sentence",
         editable: true,
         width: 200,
         resizable: true,
-        cellClass: 'sentence-class'
+        cellClass: "sentence-class"
     }
 ];
 
 class Example extends React.Component<any, any> {
     getInitialState() {
         var fakeRows = createRows(2000);
-        return {rows: fakeRows};
+        return { rows: fakeRows };
     }
 
     getColumns() {
         var clonedColumns = columns.slice();
         clonedColumns[2].events = {
-            onClick: (ev:React.SyntheticEvent<any>, args:{idx:number, rowIdx:number}) => {
+            onClick: (
+                ev: React.SyntheticEvent<any>,
+                args: { idx: number; rowIdx: number }
+            ) => {
                 var idx = args.idx;
                 var rowIdx = args.rowIdx;
                 (this.refs.grid as ReactDataGrid).openCellEditor(rowIdx, idx);
@@ -262,26 +277,37 @@ class Example extends React.Component<any, any> {
         return clonedColumns;
     }
 
-    handleGridRowsUpdated(updatedRowData:ReactDataGrid.GridRowsUpdatedEvent) {
+    handleGridRowsUpdated(updatedRowData: ReactDataGrid.GridRowsUpdatedEvent) {
         var rows = this.state.rows;
 
         for (var i = updatedRowData.fromRow; i <= updatedRowData.toRow; i++) {
             var rowToUpdate = rows[i];
-            var updatedRow = Object.assign({}, rowToUpdate, updatedRowData.updated);
+            var updatedRow = Object.assign(
+                {},
+                rowToUpdate,
+                updatedRowData.updated
+            );
             rows[i] = updatedRow;
         }
 
-        this.setState({rows: rows});
+        this.setState({ rows: rows });
     }
 
-    onRowExpandToggle = ({ columnGroupName, name, shouldExpand }:ReactDataGrid.OnRowExpandToggle ) => {
+    onRowExpandToggle = ({
+        columnGroupName,
+        name,
+        shouldExpand
+    }: ReactDataGrid.OnRowExpandToggle) => {
         let expandedRows = Object.assign({}, this.state.expandedRows);
-        expandedRows[columnGroupName] = Object.assign({}, expandedRows[columnGroupName]);
-        expandedRows[columnGroupName][name] = {isExpanded: shouldExpand};
-        this.setState({expandedRows: expandedRows});
-    }
+        expandedRows[columnGroupName] = Object.assign(
+            {},
+            expandedRows[columnGroupName]
+        );
+        expandedRows[columnGroupName][name] = { isExpanded: shouldExpand };
+        this.setState({ expandedRows: expandedRows });
+    };
 
-    onRowClick(rowIdx:number, row: Object) {
+    onRowClick(rowIdx: number, row: Object) {
         // Do nothing, just test that it accepts an event
     }
 
@@ -291,19 +317,19 @@ class Example extends React.Component<any, any> {
         return rows;
     }
 
-    handleAddRow(e:any) {
+    handleAddRow(e: any) {
         var newRow = {
             value: e.newRowIndex,
-            userStory: '',
-            developer: '',
-            epic: ''
+            userStory: "",
+            developer: "",
+            epic: ""
         };
         var rows = this.state.rows;
         rows.push(newRow);
-        this.setState({rows: rows});
+        this.setState({ rows: rows });
     }
 
-    getRowAt(index:number) {
+    getRowAt(index: number) {
         this.getRows();
         if (index < 0 || index > this.getSize()) {
             return undefined;
@@ -318,19 +344,25 @@ class Example extends React.Component<any, any> {
     onRowsSelected(rows: Array<ReactDataGrid.SelectionParams>) {
         var selectedIndexes = this.state.selectedIndexes as Array<number>;
 
-        this.setState({selectedIndexes: selectedIndexes.concat(rows.map(r => r.rowIdx))});
+        this.setState({
+            selectedIndexes: selectedIndexes.concat(rows.map(r => r.rowIdx))
+        });
     }
     onRowsDeselected(rows: Array<ReactDataGrid.SelectionParams>) {
         var rowIndexes = rows.map(r => r.rowIdx);
         var selectedIndexes = this.state.selectedIndexes as Array<number>;
-        this.setState({selectedIndexes: selectedIndexes.filter(i => rowIndexes.indexOf(i) === -1 )});
+        this.setState({
+            selectedIndexes: selectedIndexes.filter(
+                i => rowIndexes.indexOf(i) === -1
+            )
+        });
     }
 
     render() {
-        let selectedRows = ['id1', 'id2'];
+        let selectedRows = ["id1", "id2"];
         return (
             <ReactDataGrid
-                ref='grid'
+                ref="grid"
                 enableCellSelect={true}
                 enableDragAndDrop={true}
                 columns={this.getColumns()}
@@ -338,7 +370,7 @@ class Example extends React.Component<any, any> {
                 rowsCount={this.getSize()}
                 onGridRowsUpdated={this.handleGridRowsUpdated}
                 onRowExpandToggle={this.onRowExpandToggle}
-                toolbar={<Toolbar onAddRow={this.handleAddRow}/>}
+                toolbar={<Toolbar onAddRow={this.handleAddRow} />}
                 enableRowSelect={true}
                 rowHeight={50}
                 minHeight={600}
@@ -349,14 +381,13 @@ class Example extends React.Component<any, any> {
                     onRowsSelected: this.onRowsSelected,
                     onRowsDeselected: this.onRowsDeselected,
                     selectBy: {
-                        keys: {rowKey: 'id', values: selectedRows}
+                        keys: { rowKey: "id", values: selectedRows }
                     }
                 }}
                 rowActionsCell={CustomRowSelectorCell}
                 selectAllRenderer={CustomSelectAll}
                 onRowClick={this.onRowClick}
             />
-
         );
     }
 }

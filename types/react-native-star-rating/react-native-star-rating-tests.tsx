@@ -1,5 +1,5 @@
-import * as React from 'react';
-import StarRating from 'react-native-star-rating';
+import * as React from "react";
+import StarRating from "react-native-star-rating";
 
 interface State {
     starCount: number;
@@ -14,7 +14,7 @@ class GeneralStarExample extends React.Component<{}, State> {
         this.setState({
             starCount: rating
         });
-    }
+    };
 
     render() {
         return (

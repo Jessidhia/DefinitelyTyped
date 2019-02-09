@@ -8,7 +8,7 @@ import {
     RecordSourceInspector,
     commitLocalUpdate,
     QueryResponseCache,
-    ROOT_ID,
+    ROOT_ID
 } from "relay-runtime";
 
 const source = new RecordSource();
@@ -19,13 +19,17 @@ const store = new Store(source);
 // ~~~~~~~~~~~~~~~~~~~~~
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise:
-function fetchQuery(operation: any, variables: { [key: string]: string }, cacheConfig: {}) {
+function fetchQuery(
+    operation: any,
+    variables: { [key: string]: string },
+    cacheConfig: {}
+) {
     return fetch("/graphql", {
         method: "POST",
         body: JSON.stringify({
             query: operation.text, // GraphQL text from input
-            variables,
-        }),
+            variables
+        })
     }).then((response: any) => {
         return response.json();
     });
@@ -35,7 +39,7 @@ function fetchQuery(operation: any, variables: { [key: string]: string }, cacheC
 const network = Network.create(fetchQuery);
 
 // Create a cache for storing query responses
-const cache = new QueryResponseCache({size: 250, ttl: 60000});
+const cache = new QueryResponseCache({ size: 250, ttl: 60000 });
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // Environment
@@ -43,7 +47,7 @@ const cache = new QueryResponseCache({size: 250, ttl: 60000});
 const environment = new Environment({
     handlerProvider, // Can omit.
     network,
-    store,
+    store
 });
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -72,6 +76,6 @@ const inspector = new RecordSourceInspector(source);
 // ~~~~~~~~~~~~~~~~~~~~~
 
 commitLocalUpdate(environment, store => {
-  const root = store.get(ROOT_ID)!;
-  root.setValue("foo", "localKey");
+    const root = store.get(ROOT_ID)!;
+    root.setValue("foo", "localKey");
 });

@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'rollup';
-import { AsyncOpts as ResolveOptions } from 'resolve';
+import { Plugin } from "rollup";
+import { AsyncOpts as ResolveOptions } from "resolve";
 
 export interface Options {
     /**

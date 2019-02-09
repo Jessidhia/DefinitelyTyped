@@ -1,3 +1,3 @@
-import * as jstz from 'jstimezonedetect';
+import * as jstz from "jstimezonedetect";
 
-jstz.determine().name() === 'America/Montreal';
+jstz.determine().name() === "America/Montreal";

@@ -62,7 +62,10 @@ export interface CreateAccountOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the calendar has been created.
  */
-export function createCalendarObject(calendar: Calendar, options: CreateCalendarObjectOptions): Promise<CalendarObject>;
+export function createCalendarObject(
+    calendar: Calendar,
+    options: CreateCalendarObjectOptions
+): Promise<CalendarObject>;
 
 export interface CreateCalendarObjectOptions {
     /**
@@ -92,7 +95,10 @@ export interface CreateCalendarObjectOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the calendar has been updated.
  */
-export function updateCalendarObject(calendarObject: CalendarObject, options: UpdateCalendarObjectOptions): Promise<CalendarObject>;
+export function updateCalendarObject(
+    calendarObject: CalendarObject,
+    options: UpdateCalendarObjectOptions
+): Promise<CalendarObject>;
 
 export interface UpdateCalendarObjectOptions {
     /**
@@ -112,7 +118,10 @@ export interface UpdateCalendarObjectOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the calendar has been deleted.
  */
-export function deleteCalendarObject(calendarObject: CalendarObject, options: DeleteCalendarObjectOptions): Promise<CalendarObject>;
+export function deleteCalendarObject(
+    calendarObject: CalendarObject,
+    options: DeleteCalendarObjectOptions
+): Promise<CalendarObject>;
 
 export interface DeleteCalendarObjectOptions {
     /**
@@ -132,7 +141,10 @@ export interface DeleteCalendarObjectOptions {
  * @param options
  * @returns a Promise which will be fulfilled with an updated dav.Calendar object once sync is complete.
  */
-export function syncCalendar(calendar: Calendar, options: SyncCalendarOptions): Promise<Calendar>;
+export function syncCalendar(
+    calendar: Calendar,
+    options: SyncCalendarOptions
+): Promise<Calendar>;
 
 export interface SyncCalendarOptions {
     /**
@@ -168,7 +180,10 @@ export interface SyncCalendarOptions {
  * @param options
  * @returns a Promise which will be fulfilled with an updated dav.Account object once sync is complete.
  */
-export function syncCaldavAccount(account: Account, options: SyncCaldavAccountOptions): Promise<Account>;
+export function syncCaldavAccount(
+    account: Account,
+    options: SyncCaldavAccountOptions
+): Promise<Account>;
 
 export interface SyncCaldavAccountOptions {
     /**
@@ -204,7 +219,10 @@ export interface SyncCaldavAccountOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the vcard has been created.
  */
-export function createCard(addressBook: AddressBook, options: CreateCardOptions): Promise<AddressBook>;
+export function createCard(
+    addressBook: AddressBook,
+    options: CreateCardOptions
+): Promise<AddressBook>;
 
 export interface CreateCardOptions {
     /**
@@ -232,7 +250,10 @@ export interface CreateCardOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the vcard has been updated.
  */
-export function updateCard(card: VCard, options: UpdateCardOptions): Promise<VCard>;
+export function updateCard(
+    card: VCard,
+    options: UpdateCardOptions
+): Promise<VCard>;
 
 export interface UpdateCardOptions {
     /**
@@ -251,7 +272,10 @@ export interface UpdateCardOptions {
  * @param options
  * @returns a Promise which will be fulfilled when the vcard has been deleted.
  */
-export function deleteCard(card: VCard, options: DeleteCardOptions): Promise<VCard>;
+export function deleteCard(
+    card: VCard,
+    options: DeleteCardOptions
+): Promise<VCard>;
 
 export interface DeleteCardOptions {
     /**
@@ -270,7 +294,10 @@ export interface DeleteCardOptions {
  * @param options
  * @returns a Promise which will be fulfilled with an updated AddressBook object once sync is complete.
  */
-export function syncAddressBook(addressBook: AddressBook, options: SyncAddressBookOptions): Promise<AddressBook>;
+export function syncAddressBook(
+    addressBook: AddressBook,
+    options: SyncAddressBookOptions
+): Promise<AddressBook>;
 
 export interface SyncAddressBookOptions {
     /**
@@ -295,7 +322,10 @@ export interface SyncAddressBookOptions {
  * @param options
  * @returns a Promise which will be fulfilled with an updated Account object once sync is complete.
  */
-export function syncCarddavAccount(account: Account, options: SyncCarddavAccountOptions): Promise<Account>;
+export function syncCarddavAccount(
+    account: Account,
+    options: SyncCarddavAccountOptions
+): Promise<Account>;
 
 export interface SyncCarddavAccountOptions {
     /**
@@ -353,7 +383,11 @@ export namespace transport {
          */
         constructor(credentials: Credentials);
 
-        send(request: Request, url: string, options?: TransportOptions): Promise<any>;
+        send(
+            request: Request,
+            url: string,
+            options?: TransportOptions
+        ): Promise<any>;
     }
 
     interface TransportOptions {
@@ -382,7 +416,11 @@ export namespace transport {
          * `transformResponse` function to the xhr object after its readyState
          * is 4.
          */
-        send(request: Request, url: string, options?: TransportOptions): Promise<any>;
+        send(
+            request: Request,
+            url: string,
+            options?: TransportOptions
+        ): Promise<any>;
     }
 
     /**
@@ -402,7 +440,11 @@ export namespace transport {
          * `transformResponse` function to the xhr object after its readyState
          * is 4.
          */
-        send(request: Request, url: string, options?: TransportOptions): Promise<any>;
+        send(
+            request: Request,
+            url: string,
+            options?: TransportOptions
+        ): Promise<any>;
     }
 }
 
@@ -563,7 +605,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled when the calendar has been created.
      */
-    createCalendarObject(calendar: Calendar, options?: CreateCalendarObjectOptions): Promise<CalendarObject>;
+    createCalendarObject(
+        calendar: Calendar,
+        options?: CreateCalendarObjectOptions
+    ): Promise<CalendarObject>;
 
     /**
      * Persist updates to the parameter calendar object to the server.
@@ -571,7 +616,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled when the calendar has been updated.
      */
-    updateCalendarObject(calendarObject: CalendarObject, options?: UpdateCalendarObjectOptions): Promise<CalendarObject>;
+    updateCalendarObject(
+        calendarObject: CalendarObject,
+        options?: UpdateCalendarObjectOptions
+    ): Promise<CalendarObject>;
 
     /**
      * Delete the parameter calendar object on the server.
@@ -579,7 +627,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled when the calendar has been deleted.
      */
-    deleteCalendarObject(calendarObject: CalendarObject, options?: DeleteCalendarObjectOptions): Promise<CalendarObject>;
+    deleteCalendarObject(
+        calendarObject: CalendarObject,
+        options?: DeleteCalendarObjectOptions
+    ): Promise<CalendarObject>;
 
     /**
      * Fetch changes from the remote server to the parameter calendar.
@@ -587,7 +638,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled with an updated dav.Calendar object once sync is complete.
      */
-    syncCalendar(calendar: Calendar, options?: SyncCalendarOptions): Promise<Calendar>;
+    syncCalendar(
+        calendar: Calendar,
+        options?: SyncCalendarOptions
+    ): Promise<Calendar>;
 
     /**
      * Fetch changes from the remote server to the account's calendars.
@@ -595,7 +649,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled with an updated dav.Account object once sync is complete.
      */
-    syncCaldavAccount(account: Account, options?: SyncCaldavAccountOptions): Promise<Account>;
+    syncCaldavAccount(
+        account: Account,
+        options?: SyncCaldavAccountOptions
+    ): Promise<Account>;
 
     /**
      * Create a vcard object on the parameter address book.
@@ -603,7 +660,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled when the vcard has been created.
      */
-    createCard(addressBook: AddressBook, options?: CreateCardOptions): Promise<AddressBook>;
+    createCard(
+        addressBook: AddressBook,
+        options?: CreateCardOptions
+    ): Promise<AddressBook>;
 
     /**
      * Persist updates to the parameter vcard object to the server.
@@ -628,7 +688,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled with an updated AddressBook object once sync is complete.
      */
-    syncAddressBook(addressBook: AddressBook, options?: SyncAddressBookOptions): Promise<AddressBook>;
+    syncAddressBook(
+        addressBook: AddressBook,
+        options?: SyncAddressBookOptions
+    ): Promise<AddressBook>;
 
     /**
      * Fetch changes from the remote server to the account's address books.
@@ -636,7 +699,10 @@ export class Client {
      * @param options
      * @returns a Promise which will be fulfilled with an updated Account object once sync is complete.
      */
-    syncCarddavAccount(account: Account, options?: SyncCarddavAccountOptions): Promise<Account>;
+    syncCarddavAccount(
+        account: Account,
+        options?: SyncCarddavAccountOptions
+    ): Promise<Account>;
 }
 
 export interface ClientOptions {
@@ -657,9 +723,7 @@ export interface ClientSendOptions {
     url?: string;
 }
 
-export type Partial<T> = {
-    [P in keyof T]?: T[P];
-};
+export type Partial<T> = { [P in keyof T]?: T[P] };
 
 export class Account {
     constructor(options?: AccountOptions);
@@ -796,9 +860,9 @@ export namespace debug {
 }
 
 export namespace ns {
-    const CALENDAR_SERVER = 'http://calendarserver.org/ns/';
-    const CALDAV_APPLE = 'http://apple.com/ns/ical/';
-    const CALDAV = 'urn:ietf:params:xml:ns:caldav';
-    const CARDDAV = 'urn:ietf:params:xml:ns:carddav';
-    const DAV = 'DAV:';
+    const CALENDAR_SERVER = "http://calendarserver.org/ns/";
+    const CALDAV_APPLE = "http://apple.com/ns/ical/";
+    const CALDAV = "urn:ietf:params:xml:ns:caldav";
+    const CARDDAV = "urn:ietf:params:xml:ns:carddav";
+    const DAV = "DAV:";
 }

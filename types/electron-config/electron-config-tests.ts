@@ -1,29 +1,29 @@
-import ElectronConfig = require('electron-config');
+import ElectronConfig = require("electron-config");
 
 new ElectronConfig({
-    defaults: {},
+    defaults: {}
 });
 
 new ElectronConfig({
-    name: 'myConfiguration',
+    name: "myConfiguration"
 });
 
 const electronConfig = new ElectronConfig();
 
-electronConfig.set('foo', 'bar');
+electronConfig.set("foo", "bar");
 electronConfig.set({
-    foo: 'bar',
-    foo2: 'bar2',
+    foo: "bar",
+    foo2: "bar2"
 });
-electronConfig.delete('foo');
-electronConfig.get('foo');
-electronConfig.has('foo');
+electronConfig.delete("foo");
+electronConfig.get("foo");
+electronConfig.has("foo");
 electronConfig.clear();
 electronConfig.size;
 electronConfig.store;
 
 electronConfig.store = {
-    foo: 'bar',
+    foo: "bar"
 };
 
 electronConfig.path;

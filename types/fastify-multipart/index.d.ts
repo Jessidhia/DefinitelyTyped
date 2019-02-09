@@ -8,12 +8,15 @@
 import busboy = require("busboy");
 import fastify = require("fastify");
 
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse } from "http";
 
 declare module "fastify" {
     interface FastifyRequest<HttpRequest> {
         isMultipart: () => boolean;
-        multipart: (handler: fastifyMultipart.MultipartHandler, next: (err: Error) => void) => busboy.Busboy;
+        multipart: (
+            handler: fastifyMultipart.MultipartHandler,
+            next: (err: Error) => void
+        ) => busboy.Busboy;
     }
 }
 
@@ -25,7 +28,7 @@ declare namespace fastifyMultipart {
         file: any,
         filename: string,
         encoding: string,
-        mimetype: string,
+        mimetype: string
     ) => void;
 
     interface FastifyMultipartOptions {

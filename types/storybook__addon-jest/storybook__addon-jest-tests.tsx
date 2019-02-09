@@ -1,8 +1,8 @@
 /// <reference types="storybook__react" />
 
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withTests } from '@storybook/addon-jest';
+import * as React from "react";
+import { storiesOf } from "@storybook/react";
+import { withTests } from "@storybook/addon-jest";
 
 const testDecorator = withTests({
     results: {
@@ -21,33 +21,27 @@ const testDecorator = withTests({
             {
                 assertionResults: [
                     {
-                        ancestorTitles: [
-                            'TestComponent',
-                            'Basic'
-                        ],
+                        ancestorTitles: ["TestComponent", "Basic"],
                         failureMessages: [],
-                        fullName: 'TestComponent Basic should render without error',
+                        fullName:
+                            "TestComponent Basic should render without error",
                         location: null,
-                        status: 'passed',
-                        title: 'should render without error',
+                        status: "passed",
+                        title: "should render without error"
                     }
                 ],
                 endTime: 1533301381197,
-                message: '',
-                name: '/path/to/tests',
+                message: "",
+                name: "/path/to/tests",
                 startTime: 1533301379074,
-                status: 'passed',
-                summary: ''
+                status: "passed",
+                summary: ""
             }
         ],
-        wasInterrupted: false,
-    },
+        wasInterrupted: false
+    }
 });
 
-storiesOf('Test', module)
-    .addDecorator(testDecorator('test'))
-    .add('test', () => (
-        <button>
-          Hello World!
-        </button>
-    ));
+storiesOf("Test", module)
+    .addDecorator(testDecorator("test"))
+    .add("test", () => <button>Hello World!</button>);

@@ -7,10 +7,10 @@
 // TypeScript Version: 2.3
 
 /// <reference types="node" />
-import { IncomingMessage, ServerResponse } from 'http';
-import * as Keygrip from 'keygrip';
-import * as express from 'express';
-import * as connect from 'connect';
+import { IncomingMessage, ServerResponse } from "http";
+import * as Keygrip from "keygrip";
+import * as express from "express";
+import * as connect from "connect";
 
 interface Cookies {
     secure: boolean;
@@ -87,7 +87,7 @@ declare namespace Cookies {
          * a boolean or string indicating whether the cookie is a "same site" cookie (false by default).
          * This can be set to 'strict', 'lax', or true (which maps to 'strict').
          */
-        sameSite?: 'strict' | 'lax' | boolean;
+        sameSite?: "strict" | "lax" | boolean;
         /**
          * a boolean indicating whether the cookie is to be signed (false by default).
          * If this is true, another cookie of the same name with the .sig suffix
@@ -130,32 +130,60 @@ declare namespace Cookies {
 }
 
 interface CookiesFunction {
-    (request: IncomingMessage, response: ServerResponse, options?: Cookies.Option): Cookies;
+    (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options?: Cookies.Option
+    ): Cookies;
     /**
      * "options" array of key strings is deprecated, provide using options {"keys": keygrip}
      */
     // tslint:disable-next-line:unified-signatures
-    (request: IncomingMessage, response: ServerResponse, options: string[]): Cookies;
+    (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options: string[]
+    ): Cookies;
     /**
      * "options" instance of Keygrip is deprecated, provide using options {"keys": keygrip}
      */
     // tslint:disable-next-line:unified-signatures
-    (request: IncomingMessage, response: ServerResponse, options: Keygrip): Cookies;
+    (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options: Keygrip
+    ): Cookies;
 
-    new (request: IncomingMessage, response: ServerResponse, options?: Cookies.Option): Cookies;
+    new (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options?: Cookies.Option
+    ): Cookies;
     /**
      * "options" array of key strings is deprecated, provide using options {"keys": keygrip}
      */
     // tslint:disable-next-line:unified-signatures
-    new (request: IncomingMessage, response: ServerResponse, options: string[]): Cookies;
+    new (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options: string[]
+    ): Cookies;
     /**
      * "options" instance of Keygrip is deprecated, provide using options {"keys": keygrip}
      */
     // tslint:disable-next-line:unified-signatures
-    new (request: IncomingMessage, response: ServerResponse, options: Keygrip): Cookies;
+    new (
+        request: IncomingMessage,
+        response: ServerResponse,
+        options: Keygrip
+    ): Cookies;
 
     Cookie: {
-        new (name: string, value?: string, attrs?: Cookies.CookieAttr): Cookies.Cookie;
+        new (
+            name: string,
+            value?: string,
+            attrs?: Cookies.CookieAttr
+        ): Cookies.Cookie;
     };
 
     express(keys: string[] | Keygrip): express.Handler;

@@ -3,7 +3,7 @@
  * builders.
  */
 
-import { Image } from './response-builder';
+import { Image } from "./response-builder";
 
 /**
  * Price type.
@@ -676,7 +676,12 @@ export class Order {
      * @param height Height of the image.
      * @return Returns current constructed Order.
      */
-    setImage(url: string, accessibilityText: string, width?: number, height?: number): Order;
+    setImage(
+        url: string,
+        accessibilityText: string,
+        width?: number,
+        height?: number
+    ): Order;
 
     /**
      * Set the TOS for this order.
@@ -695,7 +700,12 @@ export class Order {
      * @param nanos Partial unit count of price.
      * @return Returns current constructed Order.
      */
-    setTotalPrice(priceType: TransactionValues.PriceType, currencyCode: string, units: number, nanos?: number): Order;
+    setTotalPrice(
+        priceType: TransactionValues.PriceType,
+        currencyCode: string,
+        units: number,
+        nanos?: number
+    ): Order;
 
     /**
      * Adds an associated location to the order. Up to 2 locations can be added.
@@ -704,7 +714,10 @@ export class Order {
      * @param location Location to add.
      * @return Returns current constructed Order.
      */
-    addLocation(type: TransactionValues.OrderLocationType, location: Location): Order;
+    addLocation(
+        type: TransactionValues.OrderLocationType,
+        location: Location
+    ): Order;
 
     /**
      * Sets an associated time to the order.
@@ -863,7 +876,12 @@ export class LineItem {
      * @param height Height of the image.
      * @return Returns current constructed LineItem.
      */
-    setImage(url: string, accessibilityText: string, width?: number, height?: number): LineItem;
+    setImage(
+        url: string,
+        accessibilityText: string,
+        width?: number,
+        height?: number
+    ): LineItem;
 
     /**
      * Sets the price of this item.
@@ -874,7 +892,12 @@ export class LineItem {
      * @param nanos Partial unit count of price.
      * @return Returns current constructed LineItem.
      */
-    setPrice(priceType: TransactionValues.PriceType, currencyCode: string, units: number, nanos?: number): LineItem;
+    setPrice(
+        priceType: TransactionValues.PriceType,
+        currencyCode: string,
+        units: number,
+        nanos?: number
+    ): LineItem;
 
     /**
      * Set the type of the item.
@@ -985,7 +1008,10 @@ export class OrderUpdate {
      * @param label Label for the order state.
      * @return Returns current constructed OrderUpdate.
      */
-    setOrderState(state: TransactionValues.OrderState, label: string): OrderUpdate;
+    setOrderState(
+        state: TransactionValues.OrderState,
+        label: string
+    ): OrderUpdate;
 
     /**
      * Set the update time of the order.
@@ -1014,7 +1040,12 @@ export class OrderUpdate {
      * @param nanos Partial unit count of price.
      * @return Returns current constructed OrderUpdate.
      */
-    setTotalPrice(priceType: TransactionValues.PriceType, currencyCode: string, units: number, nanos?: number): OrderUpdate;
+    setTotalPrice(
+        priceType: TransactionValues.PriceType,
+        currencyCode: string,
+        units: number,
+        nanos?: number
+    ): OrderUpdate;
 
     /**
      * Adds an actionable item for the user to manage the order.
@@ -1024,7 +1055,11 @@ export class OrderUpdate {
      * @param url URL to open when button is clicked.
      * @return Returns current constructed OrderUpdate.
      */
-    addOrderManagementAction(type: TransactionValues.ActionType, label: string, url: string): OrderUpdate;
+    addOrderManagementAction(
+        type: TransactionValues.ActionType,
+        label: string,
+        url: string
+    ): OrderUpdate;
 
     /**
      * Adds a single price update for a particular line item in the order.
@@ -1039,7 +1074,14 @@ export class OrderUpdate {
      *     addLineItemStateUpdate.
      * @return Returns current constructed OrderUpdate.
      */
-    addLineItemPriceUpdate(itemId: string, priceType: TransactionValues.PriceType, currencyCode: string, units: number, nanos?: number, reason?: string): OrderUpdate;
+    addLineItemPriceUpdate(
+        itemId: string,
+        priceType: TransactionValues.PriceType,
+        currencyCode: string,
+        units: number,
+        nanos?: number,
+        reason?: string
+    ): OrderUpdate;
 
     /**
      * Adds a single state update for a particular line item in the order.
@@ -1051,7 +1093,12 @@ export class OrderUpdate {
      *     any reason given in addLineitemPriceUpdate.
      * @return Returns current constructed OrderUpdate.
      */
-    addLineItemStateUpdate(itemId: string, state: TransactionValues.OrderState, label: string, reason?: string): OrderUpdate;
+    addLineItemStateUpdate(
+        itemId: string,
+        state: TransactionValues.OrderState,
+        label: string,
+        reason?: string
+    ): OrderUpdate;
 
     /**
      * Sets some extra information about the order. Takes an order update info

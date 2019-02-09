@@ -4,6 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import Persister from '@pollyjs/persister';
+import Persister from "@pollyjs/persister";
 
 export default class FSPersister extends Persister {}

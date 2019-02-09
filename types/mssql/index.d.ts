@@ -12,25 +12,47 @@
 
 /// <reference types="node" />
 
-
-import events = require('events');
+import events = require("events");
 export interface ISqlType {
     type: ISqlTypeFactory;
 }
-export interface ISqlTypeWithNoParams extends ISqlType { type: ISqlTypeFactoryWithNoParams }
-export interface ISqlTypeWithLength extends ISqlType { type: ISqlTypeFactoryWithLength; length: number }
-export interface ISqlTypeWithScale extends ISqlType { type: ISqlTypeFactoryWithScale; scale: number }
-export interface ISqlTypeWithPrecisionScale extends ISqlType { type: ISqlTypeFactoryWithPrecisionScale; precision: number, scale: number }
-export interface ISqlTypeWithTvpType extends ISqlType { type: ISqlTypeFactoryWithTvpType; tvpType: any }
-
-export interface ISqlTypeFactory {
+export interface ISqlTypeWithNoParams extends ISqlType {
+    type: ISqlTypeFactoryWithNoParams;
 }
-export interface ISqlTypeFactoryWithNoParams extends ISqlTypeFactory { (): ISqlTypeWithNoParams; }
-export interface ISqlTypeFactoryWithLength extends ISqlTypeFactory { (length?: number): ISqlTypeWithLength }
-export interface ISqlTypeFactoryWithScale extends ISqlTypeFactory { (scale?: number): ISqlTypeWithScale }
-export interface ISqlTypeFactoryWithPrecisionScale extends ISqlTypeFactory { (precision?: number, scale?: number): ISqlTypeWithPrecisionScale; }
-export interface ISqlTypeFactoryWithTvpType extends ISqlTypeFactory { (tvpType: any): ISqlTypeWithTvpType }
+export interface ISqlTypeWithLength extends ISqlType {
+    type: ISqlTypeFactoryWithLength;
+    length: number;
+}
+export interface ISqlTypeWithScale extends ISqlType {
+    type: ISqlTypeFactoryWithScale;
+    scale: number;
+}
+export interface ISqlTypeWithPrecisionScale extends ISqlType {
+    type: ISqlTypeFactoryWithPrecisionScale;
+    precision: number;
+    scale: number;
+}
+export interface ISqlTypeWithTvpType extends ISqlType {
+    type: ISqlTypeFactoryWithTvpType;
+    tvpType: any;
+}
 
+export interface ISqlTypeFactory {}
+export interface ISqlTypeFactoryWithNoParams extends ISqlTypeFactory {
+    (): ISqlTypeWithNoParams;
+}
+export interface ISqlTypeFactoryWithLength extends ISqlTypeFactory {
+    (length?: number): ISqlTypeWithLength;
+}
+export interface ISqlTypeFactoryWithScale extends ISqlTypeFactory {
+    (scale?: number): ISqlTypeWithScale;
+}
+export interface ISqlTypeFactoryWithPrecisionScale extends ISqlTypeFactory {
+    (precision?: number, scale?: number): ISqlTypeWithPrecisionScale;
+}
+export interface ISqlTypeFactoryWithTvpType extends ISqlTypeFactory {
+    (tvpType: any): ISqlTypeWithTvpType;
+}
 
 export declare var VarChar: ISqlTypeFactoryWithLength;
 export declare var NVarChar: ISqlTypeFactoryWithLength;
@@ -106,7 +128,7 @@ export declare var MAX: number;
 export declare var fix: boolean;
 export declare var Promise: any;
 
-interface IMap extends Array<{ js: any, sql: any }> {
+interface IMap extends Array<{ js: any; sql: any }> {
     register(jstype: any, sql: any): void;
 }
 
@@ -120,12 +142,12 @@ export interface IColumnMetadata {
         length: number;
         type: (() => ISqlType) | ISqlType;
         udt?: any;
-    }
+    };
 }
 export interface IResult<T> {
     recordsets: IRecordSet<T>[];
     recordset: IRecordSet<T>;
-    rowsAffected: number[],
+    rowsAffected: number[];
     output: { [key: string]: any };
 }
 export interface IProcedureResult<T> extends IResult<T> {
@@ -139,12 +161,12 @@ export interface IRecordSet<T> extends Array<T> {
 type IIsolationLevel = number;
 
 export declare var ISOLATION_LEVEL: {
-    READ_UNCOMMITTED: IIsolationLevel
-    READ_COMMITTED: IIsolationLevel
-    REPEATABLE_READ: IIsolationLevel
-    SERIALIZABLE: IIsolationLevel
-    SNAPSHOT: IIsolationLevel
-}
+    READ_UNCOMMITTED: IIsolationLevel;
+    READ_COMMITTED: IIsolationLevel;
+    REPEATABLE_READ: IIsolationLevel;
+    SERIALIZABLE: IIsolationLevel;
+    SNAPSHOT: IIsolationLevel;
+};
 
 export interface IOptions {
     encrypt?: boolean;
@@ -195,8 +217,14 @@ export declare class ConnectionPool extends events.EventEmitter {
     public connecting: boolean;
     public driver: string;
     public constructor(config: config, callback?: (err?: any) => void);
-    public constructor(connectionString: string, callback?: (err?: any) => void);
-    public query(strings: TemplateStringsArray, ...interpolations: any[]): Promise<IResult<any>>;
+    public constructor(
+        connectionString: string,
+        callback?: (err?: any) => void
+    );
+    public query(
+        strings: TemplateStringsArray,
+        ...interpolations: any[]
+    ): Promise<IResult<any>>;
     public connect(): Promise<ConnectionPool>;
     public connect(callback: (err: any) => void): void;
     public close(): Promise<void>;
@@ -206,7 +234,7 @@ export declare class ConnectionPool extends events.EventEmitter {
 }
 
 export declare class ConnectionError implements Error {
-    constructor(message: string, code?: any)
+    constructor(message: string, code?: any);
     public name: string;
     public message: string;
     public code: string;
@@ -224,7 +252,11 @@ export interface IColumn extends ISqlType {
 }
 
 declare class columns extends Array {
-    public add(name: string, type: (() => ISqlType) | ISqlType, options?: IColumnOptions): number;
+    public add(
+        name: string,
+        type: (() => ISqlType) | ISqlType,
+        options?: IColumnOptions
+    ): number;
 }
 
 type IRow = (string | number | boolean | Date | Buffer | undefined)[];
@@ -250,7 +282,7 @@ interface IRequestParameters {
         scale: number;
         precision: number;
         tvpType: any;
-    }
+    };
 }
 
 export declare class Request extends events.EventEmitter {
@@ -265,26 +297,55 @@ export declare class Request extends events.EventEmitter {
     public constructor(transaction: Transaction);
     public constructor(preparedStatement: PreparedStatement);
     public execute(procedure: string): Promise<IProcedureResult<any>>;
-    public execute<Entity>(procedure: string): Promise<IProcedureResult<Entity>>;
-    public execute<Entity>(procedure: string, callback: (err?: any, recordsets?: IProcedureResult<Entity>, returnValue?: any) => void): void;
+    public execute<Entity>(
+        procedure: string
+    ): Promise<IProcedureResult<Entity>>;
+    public execute<Entity>(
+        procedure: string,
+        callback: (
+            err?: any,
+            recordsets?: IProcedureResult<Entity>,
+            returnValue?: any
+        ) => void
+    ): void;
     public input(name: string, value: any): Request;
-    public input(name: string, type: (() => ISqlType) | ISqlType, value: any): Request;
-    public output(name: string, type: (() => ISqlType) | ISqlType, value?: any): Request;
+    public input(
+        name: string,
+        type: (() => ISqlType) | ISqlType,
+        value: any
+    ): Request;
+    public output(
+        name: string,
+        type: (() => ISqlType) | ISqlType,
+        value?: any
+    ): Request;
     public pipe(stream: NodeJS.WritableStream): NodeJS.WritableStream;
     public query(command: string): Promise<IResult<any>>;
     public query<Entity>(command: string): Promise<IResult<Entity>>;
-    public query<Entity>(command: string, callback: (err?: Error, recordset?: IResult<Entity>) => void): void;
+    public query<Entity>(
+        command: string,
+        callback: (err?: Error, recordset?: IResult<Entity>) => void
+    ): void;
     public batch(batch: string): Promise<IResult<any>>;
     public batch<Entity>(batch: string): Promise<IResult<Entity>>;
-    public batch(batch: string, callback: (err?: Error, recordset?: IResult<any>) => void): void;
-    public batch<Entity>(batch: string, callback: (err?: any, recordset?: IResult<Entity>) => void): void;
+    public batch(
+        batch: string,
+        callback: (err?: Error, recordset?: IResult<any>) => void
+    ): void;
+    public batch<Entity>(
+        batch: string,
+        callback: (err?: any, recordset?: IResult<Entity>) => void
+    ): void;
     public bulk(table: Table): Promise<number>;
-    public bulk(table: Table, callback: (err: Error, rowCount: any) => void): void;
+    public bulk(
+        table: Table,
+        callback: (err: Error, rowCount: any) => void
+    ): void;
     public cancel(): void;
 }
 
 export declare class RequestError implements Error {
-    constructor(message: string, code?: any)
+    constructor(message: string, code?: any);
     public name: string;
     public message: string;
     public code: string;
@@ -300,7 +361,10 @@ export declare class Transaction extends events.EventEmitter {
     public isolationLevel: IIsolationLevel;
     public constructor(connection?: ConnectionPool);
     public begin(isolationLevel?: IIsolationLevel): Promise<void>;
-    public begin(isolationLevel?: IIsolationLevel, callback?: (err?: any) => void): void;
+    public begin(
+        isolationLevel?: IIsolationLevel,
+        callback?: (err?: any) => void
+    ): void;
     public commit(): Promise<void>;
     public commit(callback: (err?: any) => void): void;
     public rollback(): Promise<void>;
@@ -309,7 +373,7 @@ export declare class Transaction extends events.EventEmitter {
 }
 
 export declare class TransactionError implements Error {
-    constructor(message: string, code?: any)
+    constructor(message: string, code?: any);
     public name: string;
     public message: string;
     public code: string;
@@ -323,20 +387,35 @@ export declare class PreparedStatement extends events.EventEmitter {
     public stream: any;
     public constructor(connection?: ConnectionPool);
     public constructor(transaction: Transaction);
-    public input(name: string, type: (() => ISqlType) | ISqlType): PreparedStatement;
-    public output(name: string, type: (() => ISqlType) | ISqlType): PreparedStatement;
+    public input(
+        name: string,
+        type: (() => ISqlType) | ISqlType
+    ): PreparedStatement;
+    public output(
+        name: string,
+        type: (() => ISqlType) | ISqlType
+    ): PreparedStatement;
     public prepare(statement?: string): Promise<void>;
-    public prepare(statement?: string, callback?: (err?: Error) => void): PreparedStatement;
+    public prepare(
+        statement?: string,
+        callback?: (err?: Error) => void
+    ): PreparedStatement;
     public execute(values: Object): Promise<IProcedureResult<any>>;
     public execute<Entity>(values: Object): Promise<IProcedureResult<Entity>>;
-    public execute(values: Object, callback: (err?: Error, result?: IProcedureResult<any>) => void): Request;
-    public execute<Entity>(values: Object, callback: (err?: Error, result?: IProcedureResult<Entity>) => void): Request;
+    public execute(
+        values: Object,
+        callback: (err?: Error, result?: IProcedureResult<any>) => void
+    ): Request;
+    public execute<Entity>(
+        values: Object,
+        callback: (err?: Error, result?: IProcedureResult<Entity>) => void
+    ): Request;
     public unprepare(): Promise<void>;
     public unprepare(callback: (err?: Error) => void): PreparedStatement;
 }
 
 export declare class PreparedStatementError implements Error {
-    constructor(message: string, code?: any)
+    constructor(message: string, code?: any);
     public name: string;
     public message: string;
     public code: string;

@@ -3,7 +3,7 @@
 // Definitions by: Scarabe Dore <https://github.com/scarabedore>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module 'collections/sorted-set' {
+declare module "collections/sorted-set" {
     namespace internal {
         // TODO: These methods can be similar in others collection. One's should make some
         // class model.
@@ -63,8 +63,19 @@ declare module 'collections/sorted-set' {
         }
 
         class Node<T> {
-            reduce(cb: (result?: any, val?: any, key?: any, collection?: any) => any,
-                   basis: any, index: number, thisp: any, tree: any, depth: number): any;
+            reduce(
+                cb: (
+                    result?: any,
+                    val?: any,
+                    key?: any,
+                    collection?: any
+                ) => any,
+                basis: any,
+                index: number,
+                thisp: any,
+                tree: any,
+                depth: number
+            ): any;
             touch(...plus: any[]): void;
             checkIntegrity(...plus: any[]): number;
             getNext(...plus: any[]): Node<T> | undefined;
@@ -74,13 +85,13 @@ declare module 'collections/sorted-set' {
         }
 
         class Iterator<T> {
-            next(): {done: true, value: T | null | undefined};
+            next(): { done: true; value: T | null | undefined };
         }
 
         export class SortedSet<T> extends AbstractSet {
             constructor(
                 values?: T[],
-                equals?:  (a: T, b: T) => boolean,
+                equals?: (a: T, b: T) => boolean,
                 compare?: (a: T, b: T) => number,
                 getDefault?: any
             );
@@ -88,7 +99,7 @@ declare module 'collections/sorted-set' {
 
             add(value: T): boolean;
             clear(): void;
-            ['delete'](value: T): boolean;
+            ["delete"](value: T): boolean;
 
             find(value: T): Node<T> | undefined;
             findGreatest(n?: Node<T> | undefined): Node<T> | undefined;
@@ -118,11 +129,25 @@ declare module 'collections/sorted-set' {
             splay(value: T): void;
             splayIndex(index: number): boolean;
 
-            reduce(callback: (result?: any, val?: any, key?: any, collection?: any) => any,
-                   basis?: any, thisp?: any): any;
+            reduce(
+                callback: (
+                    result?: any,
+                    val?: any,
+                    key?: any,
+                    collection?: any
+                ) => any,
+                basis?: any,
+                thisp?: any
+            ): any;
             reduceRight(
-                callback: (result?: any, val?: any, key?: any, collection?: any) => any,
-                basis?: any, thisp?: any
+                callback: (
+                    result?: any,
+                    val?: any,
+                    key?: any,
+                    collection?: any
+                ) => any,
+                basis?: any,
+                thisp?: any
             ): any;
 
             iterate(start: number, stop: number): Iterator<T>;

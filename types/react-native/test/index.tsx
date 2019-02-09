@@ -85,7 +85,7 @@ import {
     DatePickerAndroid,
     ViewPropTypes,
     requireNativeComponent,
-    Keyboard,
+    Keyboard
 } from "react-native";
 
 declare module "react-native" {
@@ -103,13 +103,18 @@ NativeModules.NativeUntypedModule;
 NativeModules.NativeTypedModule.someFunction();
 NativeModules.NativeTypedModule.someProperty = "";
 
-function dimensionsListener(dimensions: { window: ScaledSize; screen: ScaledSize }) {
+function dimensionsListener(dimensions: {
+    window: ScaledSize;
+    screen: ScaledSize;
+}) {
     console.log("window dimensions: ", dimensions.window);
     console.log("screen dimensions: ", dimensions.screen);
 }
 
 function testDimensions() {
-    const { width, height, scale, fontScale } = Dimensions.get(1 === 1 ? "window" : "screen");
+    const { width, height, scale, fontScale } = Dimensions.get(
+        1 === 1 ? "window" : "screen"
+    );
 
     Dimensions.addEventListener("change", dimensionsListener);
     Dimensions.removeEventListener("change", dimensionsListener);
@@ -130,18 +135,18 @@ const styles = StyleSheet.create<LocalStyles>({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#F5FCFF",
+        backgroundColor: "#F5FCFF"
     },
     welcome: {
         fontSize: 20,
         textAlign: "center",
-        margin: 10,
+        margin: 10
     },
     instructions: {
         textAlign: "center",
         color: "#333333",
-        marginBottom: 5,
-    },
+        marginBottom: 5
+    }
 });
 
 //alternative declaration of styles (inline typings)
@@ -150,32 +155,35 @@ const stylesAlt = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#F5FCFF",
+        backgroundColor: "#F5FCFF"
     },
     welcome: {
         fontSize: 20,
         textAlign: "center",
-        margin: 10,
+        margin: 10
     },
     instructions: {
         textAlign: "center",
         color: "#333333",
-        marginBottom: 5,
-    },
+        marginBottom: 5
+    }
 });
 
-StyleSheet.setStyleAttributePreprocessor("fontFamily", (family: string) => family);
+StyleSheet.setStyleAttributePreprocessor(
+    "fontFamily",
+    (family: string) => family
+);
 
 const welcomeFontSize = StyleSheet.flatten(styles.welcome).fontSize;
 
 const viewStyle: StyleProp<ViewStyle> = {
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#F5FCFF"
 };
 const textStyle: StyleProp<TextStyle> = {
-    fontSize: 20,
+    fontSize: 20
 };
 const imageStyle: StyleProp<ImageStyle> = {
-    resizeMode: "contain",
+    resizeMode: "contain"
 };
 
 const viewProperty = StyleSheet.flatten(viewStyle).backgroundColor;
@@ -185,12 +193,14 @@ const imageProperty = StyleSheet.flatten(imageStyle).resizeMode;
 const s = StyleSheet.create({
     shouldWork: {
         fontWeight: "900", // if we comment this line, errors gone
-        marginTop: 5, // if this line commented, errors also gone
-    },
+        marginTop: 5 // if this line commented, errors also gone
+    }
 });
 const f1: TextStyle = s.shouldWork;
 
-const testNativeSyntheticEvent = <T extends {}>(e: NativeSyntheticEvent<T>): void => {
+const testNativeSyntheticEvent = <T extends {}>(
+    e: NativeSyntheticEvent<T>
+): void => {
     e.isDefaultPrevented();
     e.preventDefault();
     e.isPropagationStopped();
@@ -219,14 +229,23 @@ type ElementProps<C> = C extends React.Component<infer P, any> ? P : never;
 
 class CustomView extends React.Component {
     render() {
-        return <Text style={[StyleSheet.absoluteFill, { ...StyleSheet.absoluteFillObject }]}>Custom View</Text>;
+        return (
+            <Text
+                style={[
+                    StyleSheet.absoluteFill,
+                    { ...StyleSheet.absoluteFillObject }
+                ]}
+            >
+                Custom View
+            </Text>
+        );
     }
 }
 
 class Welcome extends React.Component<ElementProps<View> & { color: string }> {
     static propTypes = {
         ...ViewPropTypes,
-        color: ColorPropType,
+        color: ColorPropType
     };
 
     refs: {
@@ -240,7 +259,9 @@ class Welcome extends React.Component<ElementProps<View> & { color: string }> {
 
         const { rootView } = this.refs;
 
-        rootView.measure((x: number, y: number, width: number, height: number) => {});
+        rootView.measure(
+            (x: number, y: number, width: number, height: number) => {}
+        );
     }
 
     testFindNodeHandle() {
@@ -256,9 +277,15 @@ class Welcome extends React.Component<ElementProps<View> & { color: string }> {
     render() {
         const { color, ...props } = this.props;
         return (
-            <View {...props} ref="rootView" style={[[styles.container], undefined, null, false]}>
+            <View
+                {...props}
+                ref="rootView"
+                style={[[styles.container], undefined, null, false]}
+            >
                 <Text style={styles.welcome}>Welcome to React Native</Text>
-                <Text style={styles.instructions}>To get started, edit index.ios.js</Text>
+                <Text style={styles.instructions}>
+                    To get started, edit index.ios.js
+                </Text>
                 <Text style={styles.instructions}>
                     Press Cmd+R to reload,{"\n"}
                     Cmd+D or shake for dev menu
@@ -282,7 +309,9 @@ export class TouchableNativeFeedbackTest extends React.Component {
     render() {
         return (
             <TouchableNativeFeedback onPress={this.onPressButton}>
-                <View style={{ width: 150, height: 100, backgroundColor: "red" }}>
+                <View
+                    style={{ width: 150, height: 100, backgroundColor: "red" }}
+                >
                     <Text style={{ margin: 30 }}>Button</Text>
                 </View>
             </TouchableNativeFeedback>
@@ -349,7 +378,9 @@ export class FlatListTest extends React.Component<FlatListProps<number>, {}> {
         );
     };
 
-    _renderSeparator = () => <View style={{ height: 1, width: "100%", backgroundColor: "gray" }} />;
+    _renderSeparator = () => (
+        <View style={{ height: 1, width: "100%", backgroundColor: "gray" }} />
+    );
 
     render() {
         return (
@@ -365,7 +396,10 @@ export class FlatListTest extends React.Component<FlatListProps<number>, {}> {
     }
 }
 
-export class SectionListTest extends React.Component<SectionListProps<string>, {}> {
+export class SectionListTest extends React.Component<
+    SectionListProps<string>,
+    {}
+> {
     myList: SectionList<any>;
 
     scrollMe = () => {
@@ -376,7 +410,7 @@ export class SectionListTest extends React.Component<SectionListProps<string>, {
         const sections = [
             {
                 title: "Section 1",
-                data: ["A", "B", "C", "D", "E"],
+                data: ["A", "B", "C", "D", "E"]
             },
             {
                 title: "Section 2",
@@ -385,8 +419,8 @@ export class SectionListTest extends React.Component<SectionListProps<string>, {
                     <View>
                         <Text>{info.item}</Text>
                     </View>
-                ),
-            },
+                )
+            }
         ];
 
         return (
@@ -403,7 +437,9 @@ export class SectionListTest extends React.Component<SectionListProps<string>, {
                     )}
                     renderItem={(info: SectionListRenderItemInfo<string>) => (
                         <View>
-                            <Text>{`${info.section.title} - ${info.item}`}</Text>
+                            <Text>{`${info.section.title} - ${
+                                info.item
+                            }`}</Text>
                         </View>
                     )}
                     maxToRenderPerBatch={5}
@@ -420,13 +456,17 @@ export class CapsLockComponent extends React.Component<TextProps> {
     }
 }
 
-const getInitialUrlTest = () => Linking.getInitialURL().then(val => {
-    if (val !== null) {
-        val.indexOf('val is now a string');
-    }
-})
+const getInitialUrlTest = () =>
+    Linking.getInitialURL().then(val => {
+        if (val !== null) {
+            val.indexOf("val is now a string");
+        }
+    });
 
-class ScrollerListComponentTest extends React.Component<{}, { dataSource: ListViewDataSource }> {
+class ScrollerListComponentTest extends React.Component<
+    {},
+    { dataSource: ListViewDataSource }
+> {
     eventHandler = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
         console.log(event);
     };
@@ -434,11 +474,11 @@ class ScrollerListComponentTest extends React.Component<{}, { dataSource: ListVi
     render() {
         const scrollViewStyle1 = StyleSheet.create({
             scrollView: {
-                backgroundColor: "red",
-            },
+                backgroundColor: "red"
+            }
         });
         const scrollViewStyle2 = {
-            flex: 1,
+            flex: 1
         };
         return (
             <ListView
@@ -455,7 +495,10 @@ class ScrollerListComponentTest extends React.Component<{}, { dataSource: ListVi
                             invertStickyHeaders={true}
                             contentOffset={{ x: 0, y: 0 }}
                             {...props}
-                            style={[scrollViewStyle1.scrollView, scrollViewStyle2]}
+                            style={[
+                                scrollViewStyle1.scrollView,
+                                scrollViewStyle2
+                            ]}
                         />
                     );
                 }}
@@ -507,11 +550,11 @@ class AlertTest extends React.Component {
             [
                 { text: "First button", onPress: () => {} },
                 { text: "Second button", onPress: () => {} },
-                { text: "Third button", onPress: () => {} },
+                { text: "Third button", onPress: () => {} }
             ],
             {
                 cancelable: false,
-                onDismiss: () => {},
+                onDismiss: () => {}
             }
         );
     }
@@ -546,8 +589,9 @@ class InputAccessoryViewTest extends React.Component {
 const dataSourceAssetCallback1: DataSourceAssetCallback = {
     rowHasChanged: (r1, r2) => true,
     sectionHeaderHasChanged: (h1, h2) => true,
-    getRowData: (dataBlob, sectionID, rowID) => (sectionID as number) + (rowID as number),
-    getSectionHeaderData: (dataBlob, sectionID) => sectionID as string,
+    getRowData: (dataBlob, sectionID, rowID) =>
+        (sectionID as number) + (rowID as number),
+    getSectionHeaderData: (dataBlob, sectionID) => sectionID as string
 };
 
 const dataSourceAssetCallback2: DataSourceAssetCallback = {};
@@ -578,7 +622,9 @@ class TextInputTest extends React.Component<{}, { username: string }> {
         testNativeSyntheticEvent(e);
     };
 
-    handleOnSelectionChange = (e: NativeSyntheticEvent<TextInputSelectionChangeEventData>) => {
+    handleOnSelectionChange = (
+        e: NativeSyntheticEvent<TextInputSelectionChangeEventData>
+    ) => {
         testNativeSyntheticEvent(e);
 
         console.log(`target: ${e.nativeEvent.target}`);
@@ -586,7 +632,9 @@ class TextInputTest extends React.Component<{}, { username: string }> {
         console.log(`end: ${e.nativeEvent.selection.end}`);
     };
 
-    handleOnKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
+    handleOnKeyPress = (
+        e: NativeSyntheticEvent<TextInputKeyPressEventData>
+    ) => {
         testNativeSyntheticEvent(e);
         console.log(`key: ${e.nativeEvent.key}`);
     };
@@ -599,18 +647,24 @@ class TextInputTest extends React.Component<{}, { username: string }> {
         console.log(`text: ${e.nativeEvent.text}`);
     };
 
-    handleOnContentSizeChange = (e: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => {
+    handleOnContentSizeChange = (
+        e: NativeSyntheticEvent<TextInputContentSizeChangeEventData>
+    ) => {
         testNativeSyntheticEvent(e);
         console.log(`contentSize.width: ${e.nativeEvent.contentSize.width}`);
         console.log(`contentSize.height: ${e.nativeEvent.contentSize.height}`);
     };
 
-    handleOnEndEditing = (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
+    handleOnEndEditing = (
+        e: NativeSyntheticEvent<TextInputEndEditingEventData>
+    ) => {
         testNativeSyntheticEvent(e);
         console.log(`text: ${e.nativeEvent.text}`);
     };
 
-    handleOnSubmitEditing = (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => {
+    handleOnSubmitEditing = (
+        e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
+    ) => {
         testNativeSyntheticEvent(e);
         console.log(`text: ${e.nativeEvent.text}`);
     };
@@ -629,7 +683,10 @@ class TextInputTest extends React.Component<{}, { username: string }> {
 
                 <TextInput multiline onScroll={this.onScroll} />
 
-                <TextInput onBlur={this.handleOnBlur} onFocus={this.handleOnFocus} />
+                <TextInput
+                    onBlur={this.handleOnBlur}
+                    onFocus={this.handleOnFocus}
+                />
 
                 <TextInput onSelectionChange={this.handleOnSelectionChange} />
 
@@ -643,7 +700,10 @@ class TextInputTest extends React.Component<{}, { username: string }> {
 
                 <TextInput onSubmitEditing={this.handleOnSubmitEditing} />
 
-                <TextInput multiline onContentSizeChange={this.handleOnContentSizeChange} />
+                <TextInput
+                    multiline
+                    onContentSizeChange={this.handleOnContentSizeChange}
+                />
 
                 <TextInput contextMenuHidden={true} />
             </View>
@@ -657,7 +717,13 @@ class StatusBarTest extends React.Component {
 
         console.log("height:", StatusBar.currentHeight);
 
-        return <StatusBar backgroundColor="blue" barStyle="light-content" translucent />;
+        return (
+            <StatusBar
+                backgroundColor="blue"
+                barStyle="light-content"
+                translucent
+            />
+        );
     }
 }
 
@@ -666,7 +732,9 @@ class WebViewTest extends React.Component {
         return (
             <WebView
                 nativeConfig={{ component: "test", props: {}, viewManager: {} }}
-                onShouldStartLoadWithRequest={event => event.navigationType !== "formresubmit"}
+                onShouldStartLoadWithRequest={event =>
+                    event.navigationType !== "formresubmit"
+                }
                 originWhitelist={["https://origin.test"]}
                 saveFormDataDisabled={false}
                 useWebKit={true}
@@ -679,7 +747,8 @@ class WebViewTest extends React.Component {
 export class ImageTest extends React.Component {
     componentDidMount(): void {
         const image: ImageResolvedAssetSource = Image.resolveAssetSource({
-            uri: "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png",
+            uri:
+                "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png"
         });
         console.log(image.width, image.height, image.scale, image.uri);
     }
@@ -702,13 +771,19 @@ export class ImageTest extends React.Component {
         return (
             <View>
                 <Image
-                    source={{ uri: "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png" }}
+                    source={{
+                        uri:
+                            "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png"
+                    }}
                     onLoad={this.handleOnLoad}
                     onError={this.handleOnError}
                 />
 
                 <Image
-                    source={{ uri: "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png" }}
+                    source={{
+                        uri:
+                            "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png"
+                    }}
                     resizeMode={resizeMode}
                 />
             </View>
@@ -727,7 +802,10 @@ export class ImageBackgroundProps extends React.Component {
         return (
             <View>
                 <ImageBackground
-                    source={{ uri: "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png" }}
+                    source={{
+                        uri:
+                            "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png"
+                    }}
                     imageRef={this.setImageRef}
                 />
             </View>
@@ -735,7 +813,9 @@ export class ImageBackgroundProps extends React.Component {
     }
 }
 
-const listViewDataSourceTest = new ListView.DataSource({ rowHasChanged: () => true });
+const listViewDataSourceTest = new ListView.DataSource({
+    rowHasChanged: () => true
+});
 
 class AccessibilityTest extends React.Component {
     render() {
@@ -749,7 +829,10 @@ class AccessibilityTest extends React.Component {
                 accessibilityStates={["selected"]}
                 accessibilityHint="Very importent header"
             >
-                <Text accessibilityTraits={["key", "text"]} accessibilityIgnoresInvertColors>
+                <Text
+                    accessibilityTraits={["key", "text"]}
+                    accessibilityIgnoresInvertColors
+                >
                     Text
                 </Text>
                 <View />
@@ -767,14 +850,14 @@ const AlertIOSTest = () => {
         [
             {
                 text: "Cancel",
-                style: "cancel",
+                style: "cancel"
             },
             {
                 text: "Add",
                 onPress: (value: string) => {
                     console.log(value);
-                },
-            },
+                }
+            }
         ],
         "default",
         "email-address"
@@ -788,29 +871,29 @@ const TimePickerAndroidTest = () => {
         hour: 8,
         minute: 15,
         is24Hour: true,
-        mode: "spinner",
+        mode: "spinner"
     }).then(result => {
         if (result.action === TimePickerAndroid.timeSetAction) {
-            console.log('Time', result.hour, result.minute)
+            console.log("Time", result.hour, result.minute);
         }
     });
-}
+};
 
 const DatePickerAndroidTest = () => {
     DatePickerAndroid.open({
         date: new Date(),
-        mode: 'calendar'
+        mode: "calendar"
     }).then(result => {
         if (result.action === DatePickerAndroid.dateSetAction) {
-            console.log('Date', result.year, result.month, result.day)
+            console.log("Date", result.year, result.month, result.day);
         }
     });
-}
+};
 
 class BridgedComponentTest extends React.Component {
     static propTypes = {
         jsProp: PropTypes.string.isRequired,
-        ...ViewPropTypes,
+        ...ViewPropTypes
     };
 
     render() {
@@ -820,7 +903,9 @@ class BridgedComponentTest extends React.Component {
 
 const NativeBridgedComponent = requireNativeComponent("NativeBridgedComponent");
 
-const SwitchColorTest = () => <Switch trackColor={{ true: "pink", false: "red" }} />;
+const SwitchColorTest = () => (
+    <Switch trackColor={{ true: "pink", false: "red" }} />
+);
 
 const SwitchThumbColorTest = () => <Switch thumbColor={"red"} />;
 
@@ -834,7 +919,11 @@ const NativeIDTest = () => (
 const ShareTest = () => {
     Share.share(
         { title: "title", message: "message" },
-        { dialogTitle: "dialogTitle", excludedActivityTypes: ["activity"], tintColor: "red" }
+        {
+            dialogTitle: "dialogTitle",
+            excludedActivityTypes: ["activity"],
+            tintColor: "red"
+        }
     );
     Share.share({ title: "title", url: "url" });
     Share.share({ message: "message" }).then(result => {
@@ -846,6 +935,8 @@ const ShareTest = () => {
 };
 
 const KeyboardTest = () => {
-    const subscriber = Keyboard.addListener("keyboardDidHide", (event) => {event});
+    const subscriber = Keyboard.addListener("keyboardDidHide", event => {
+        event;
+    });
     subscriber.remove();
-}
+};

@@ -1,15 +1,10 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "jsx": "react",
         "strictNullChecks": true,
         "strictFunctionTypes": false,

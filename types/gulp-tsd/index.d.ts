@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import gulp = require('gulp');
+import gulp = require("gulp");
 
 interface IOptions {
     command?: string;
@@ -14,8 +14,11 @@ interface IOptions {
     opts?: Object;
 }
 
-declare function tsd(opts?: IOptions, callback?: gulp.TaskCallback): NodeJS.ReadWriteStream;
+declare function tsd(
+    opts?: IOptions,
+    callback?: gulp.TaskCallback
+): NodeJS.ReadWriteStream;
 
-declare namespace tsd { }
+declare namespace tsd {}
 
 export = tsd;

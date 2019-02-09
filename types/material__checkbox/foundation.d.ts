@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCCheckboxAdapter from './adapter';
-import { cssClasses, strings, numbers } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCCheckboxAdapter from "./adapter";
+import { cssClasses, strings, numbers } from "./constants";
 
-export default class MDCCheckboxFoundation extends MDCFoundation<MDCCheckboxAdapter> {
+export default class MDCCheckboxFoundation extends MDCFoundation<
+    MDCCheckboxAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

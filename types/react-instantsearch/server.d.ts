@@ -1,1 +1,1 @@
-export { createInstantSearch } from 'react-instantsearch-dom/server';
+export { createInstantSearch } from "react-instantsearch-dom/server";

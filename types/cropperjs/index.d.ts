@@ -407,7 +407,7 @@ declare namespace cropperjs {
          * image smoothing
          */
         imageSmoothingEnabled?: boolean;
-        imageSmoothingQuality?: 'low' | 'medium' | 'high';
+        imageSmoothingQuality?: "low" | "medium" | "high";
     }
 }
 
@@ -561,7 +561,9 @@ declare class cropperjs {
     /**
      * Get a canvas drawn the cropped image.
      */
-    getCroppedCanvas(options?: cropperjs.CroppedCanvasOptions): HTMLCanvasElement;
+    getCroppedCanvas(
+        options?: cropperjs.CroppedCanvasOptions
+    ): HTMLCanvasElement;
 
     /**
      * Change the aspect ratio of the crop box.
@@ -571,7 +573,7 @@ declare class cropperjs {
     /**
      * Change the drag mode.
      */
-    setDragMode(mode?: 'none' | 'crop' | 'move'): void;
+    setDragMode(mode?: "none" | "crop" | "move"): void;
 }
 
 export = cropperjs;

@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace Diff2Html {
-
     export interface Options {
         inputFormat?: string;
         outputFormat?: string;
@@ -62,6 +61,6 @@ declare namespace Diff2Html {
 }
 
 declare module "diff2html" {
-    var d2h: { "Diff2Html": Diff2Html.Diff2Html };
+    var d2h: { Diff2Html: Diff2Html.Diff2Html };
     export = d2h;
 }

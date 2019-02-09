@@ -73,8 +73,8 @@ export class Quaternion {
     static identity: Quaternion;
     static zero: Quaternion;
 
-    angleAxis: { axis: Vector3, angle: number };
-    eulerAngles: { x: number, y: number, z: number };
+    angleAxis: { axis: Vector3; angle: number };
+    eulerAngles: { x: number; y: number; z: number };
     x: number;
     y: number;
     z: number;
@@ -94,13 +94,29 @@ export class Quaternion {
 export class Matrix4x4 {
     constructor(data: number[]);
 
-    static FlipMatrix(flipX: boolean, flipY: boolean, flipZ: boolean): Matrix4x4;
+    static FlipMatrix(
+        flipX: boolean,
+        flipY: boolean,
+        flipZ: boolean
+    ): Matrix4x4;
     static ScaleMatrix(scale: number | Vector3): Matrix4x4;
     static RotationMatrix(quaternion: Quaternion): Matrix4x4;
     static TranslationMatrix(translation: Vector3): Matrix4x4;
-    static TRS(translation: Vector3, rotation: Quaternion, scale: number | Vector3): Matrix4x4;
-    static LocalToWorldMatrix(position: Vector3, rotation: Quaternion, scale: number | Vector3): Matrix4x4;
-    static WorldToLocalMatrix(position: Vector3, rotation: Quaternion, scale: number | Vector3): Matrix4x4;
+    static TRS(
+        translation: Vector3,
+        rotation: Quaternion,
+        scale: number | Vector3
+    ): Matrix4x4;
+    static LocalToWorldMatrix(
+        position: Vector3,
+        rotation: Quaternion,
+        scale: number | Vector3
+    ): Matrix4x4;
+    static WorldToLocalMatrix(
+        position: Vector3,
+        rotation: Quaternion,
+        scale: number | Vector3
+    ): Matrix4x4;
 
     static identity: Matrix4x4;
     static zero: Matrix4x4;
@@ -123,7 +139,7 @@ export class Matrix4x4 {
     m43: number;
     m44: number;
     rows: number[][];
-    size: { rows: number, columns: number };
+    size: { rows: number; columns: number };
     values: number[];
 
     determinant(): number;
@@ -158,7 +174,12 @@ export class Transform {
     removeChild(child: Transform): void;
     transformPosition(position: Vector3): Vector3;
     translate(translation: Vector3, relativeTo?: Transform.Space): Transform;
-    rotate(x: number, y: number, z: number, relativeTo?: Transform.Space): Transform;
+    rotate(
+        x: number,
+        y: number,
+        z: number,
+        relativeTo?: Transform.Space
+    ): Transform;
 }
 
 export namespace Transform {

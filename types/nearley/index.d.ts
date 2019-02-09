@@ -38,8 +38,8 @@ export class Parser {
      */
     feed(chunk: string): this;
     finish(): any[];
-    restore(column: {[key: string]: any, lexerState: LexerState}): void;
-    save(): {[key: string]: any, lexerState: LexerState};
+    restore(column: { [key: string]: any; lexerState: LexerState }): void;
+    save(): { [key: string]: any; lexerState: LexerState };
 }
 
 export interface ParserOptions {
@@ -65,7 +65,7 @@ export class Grammar {
 
     rules: Rule[];
     start: string;
-    byName: {[ruleName: string]: Rule[]};
+    byName: { [ruleName: string]: Rule[] };
     lexer?: Lexer;
 
     constructor(rules: Rule[]);
@@ -83,7 +83,11 @@ export interface ParserRule {
     postprocess?: Postprocessor;
 }
 
-export type Postprocessor = (data: any[], reference: number, wantedBy: {}) => void;
+export type Postprocessor = (
+    data: any[],
+    reference: number,
+    wantedBy: {}
+) => void;
 
 export interface Lexer {
     /**
@@ -107,7 +111,7 @@ export interface Lexer {
     formatError(token: Token, message: string): string;
 }
 
-export type Token = string | { value: string; };
+export type Token = string | { value: string };
 
 export interface LexerState {
     [x: string]: any;

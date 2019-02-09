@@ -9,9 +9,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
-declare class Autosuggest<T = any> extends React.Component<Autosuggest.AutosuggestProps<T>> {}
+declare class Autosuggest<T = any> extends React.Component<
+    Autosuggest.AutosuggestProps<T>
+> {}
 
 export = Autosuggest;
 
@@ -22,16 +24,23 @@ declare namespace Autosuggest {
      */
 
     /** @internal */
-    type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never, [x: number]: never })[keyof T]>;
+    type Omit<T, K extends keyof T> = Pick<
+        T,
+        ({ [P in keyof T]: P } &
+            { [P in K]: never } & {
+                [x: string]: never;
+                [x: number]: never;
+            })[keyof T]
+    >;
 
     interface SuggestionsFetchRequestedParams {
         value: string;
         reason:
-            | 'input-changed'
-            | 'input-focused'
-            | 'escape-pressed'
-            | 'suggestions-revealed'
-            | 'suggestion-selected';
+            | "input-changed"
+            | "input-focused"
+            | "escape-pressed"
+            | "suggestions-revealed"
+            | "suggestion-selected";
     }
 
     interface RenderSuggestionParams {
@@ -45,7 +54,7 @@ declare namespace Autosuggest {
 
     interface ChangeEvent {
         newValue: string;
-        method: 'down' | 'up' | 'escape' | 'enter' | 'click' | 'type';
+        method: "down" | "up" | "escape" | "enter" | "click" | "type";
     }
 
     interface BlurEvent<TSuggestion> {
@@ -53,9 +62,12 @@ declare namespace Autosuggest {
     }
 
     interface InputProps<TSuggestion>
-        extends Omit<React.InputHTMLAttributes<any>, 'onChange' | 'onBlur'> {
+        extends Omit<React.InputHTMLAttributes<any>, "onChange" | "onBlur"> {
         onChange(event: React.FormEvent<any>, params: ChangeEvent): void;
-        onBlur?(event: React.FormEvent<any>, params?: BlurEvent<TSuggestion>): void;
+        onBlur?(
+            event: React.FormEvent<any>,
+            params?: BlurEvent<TSuggestion>
+        ): void;
         value: string;
         [key: string]: any;
     }
@@ -65,24 +77,24 @@ declare namespace Autosuggest {
         suggestionValue: string;
         suggestionIndex: number;
         sectionIndex: number | null;
-        method: 'click' | 'enter';
+        method: "click" | "enter";
     }
 
     type ThemeKey =
-        | 'container'
-        | 'containerOpen'
-        | 'input'
-        | 'inputOpen'
-        | 'inputFocused'
-        | 'suggestionsContainer'
-        | 'suggestionsContainerOpen'
-        | 'suggestionsList'
-        | 'suggestion'
-        | 'suggestionFirst'
-        | 'suggestionHighlighted'
-        | 'sectionContainer'
-        | 'sectionContainerFirst'
-        | 'sectionTitle';
+        | "container"
+        | "containerOpen"
+        | "input"
+        | "inputOpen"
+        | "inputFocused"
+        | "suggestionsContainer"
+        | "suggestionsContainerOpen"
+        | "suggestionsList"
+        | "suggestion"
+        | "suggestionFirst"
+        | "suggestionHighlighted"
+        | "sectionContainer"
+        | "sectionContainerFirst"
+        | "sectionTitle";
 
     type Theme =
         | Record<string, string | React.CSSProperties>
@@ -102,19 +114,27 @@ declare namespace Autosuggest {
     // types for functions - allowing reuse externally - e.g. as props and bound in the constructor
     type GetSectionSuggestions<TSuggestion> = (section: any) => TSuggestion[];
     type GetSuggestionValue<TSuggestion> = (suggestion: TSuggestion) => string;
-    type OnSuggestionHighlighted = (params: SuggestionHighlightedParams) => void;
-    type SuggestionsFetchRequested = (request: SuggestionsFetchRequestedParams) => void;
+    type OnSuggestionHighlighted = (
+        params: SuggestionHighlightedParams
+    ) => void;
+    type SuggestionsFetchRequested = (
+        request: SuggestionsFetchRequestedParams
+    ) => void;
     type OnSuggestionsClearRequested = () => void;
     type OnSuggestionSelected<TSuggestion> = (
         event: React.FormEvent<any>,
-        data: SuggestionSelectedEventData<TSuggestion>,
+        data: SuggestionSelectedEventData<TSuggestion>
     ) => void;
-    type RenderInputComponent<TSuggestion> = (inputProps: InputProps<TSuggestion>) => React.ReactNode;
-    type RenderSuggestionsContainer = (params: RenderSuggestionsContainerParams) => React.ReactNode;
+    type RenderInputComponent<TSuggestion> = (
+        inputProps: InputProps<TSuggestion>
+    ) => React.ReactNode;
+    type RenderSuggestionsContainer = (
+        params: RenderSuggestionsContainerParams
+    ) => React.ReactNode;
     type RenderSectionTitle = (section: any) => React.ReactNode;
     type RenderSuggestion<TSuggestion> = (
         suggestion: TSuggestion,
-        params: RenderSuggestionParams,
+        params: RenderSuggestionParams
     ) => React.ReactNode;
     type ShouldRenderSuggestions = (value: string) => boolean;
 

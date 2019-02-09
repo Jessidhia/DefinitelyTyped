@@ -12,11 +12,11 @@ export interface UtilBase {
     /** check browser agent */
     browser: {
         /** Webkit 브라우저 체크 */
-        webkit: boolean,
+        webkit: boolean;
         /** Mozilla 브라우저 체크 */
-        mozilla: boolean,
+        mozilla: boolean;
         /** IE 브라우저 체크 */
-        msie: boolean
+        msie: boolean;
     };
 
     isTouch: boolean;
@@ -27,7 +27,10 @@ export interface UtilBase {
      * @param ctor base Class
      * @param superCtor super Class
      */
-    inherit(ctor: ((...args: any[]) => any), superCtor: ((...args: any[]) => any)): void;
+    inherit(
+        ctor: (...args: any[]) => any,
+        superCtor: (...args: any[]) => any
+    ): void;
 
     /**
      * implements object extend
@@ -58,7 +61,7 @@ export interface UtilBase {
     /**
      * caculate callback runtime
      */
-    runtime(name: string, callback: ((...args: any[]) => void)): void;
+    runtime(name: string, callback: (...args: any[]) => void): void;
 
     /**
      * parsing template string
@@ -69,7 +72,7 @@ export interface UtilBase {
      * add event in window resize event
      * @param ms delay time
      */
-    resize(callback: ((...args: any[]) => void), ms: number): void;
+    resize(callback: (...args: any[]) => void, ms: number): void;
 
     /**
      * IndexParser 객체 생성
@@ -102,7 +105,7 @@ export interface UtilBase {
     /**
      * file 에서 csv 컨텐츠 로드
      */
-    fileToCsv(fileText: string, callback: ((data: any) => void)): void;
+    fileToCsv(fileText: string, callback: (data: any) => void): void;
 
     /**
      * csv 다운로드 링크로 변환
@@ -164,7 +167,7 @@ export interface UtilBase {
      *
      * @param total   loop count
      */
-    timeLoop(total: number, context?: any): ((index: number) => void);
+    timeLoop(total: number, context?: any): (index: number) => void;
 
     /**
      * 최적화된 루프 생성 (5단계로 나눔)
@@ -172,7 +175,10 @@ export interface UtilBase {
      * @param total   loop count
      * @return 최적화된 루프 콜백 (index, groupIndex 2가지 파라미터를 받는다.)
      */
-    loop(total: number, context?: any): ((index: number, groupIndex: number) => void);
+    loop(
+        total: number,
+        context?: any
+    ): (index: number, groupIndex: number) => void;
 
     /**
      * 배열을 사용해서 최적화된 루프로 생성한다.
@@ -181,7 +187,10 @@ export interface UtilBase {
      * @param data 루프로 생성될 배열
      * @return 최적화된 루프 콜백 (data, index, groupIndex 3가지 파라미터를 받는다.)
      */
-    loopArray(data: any[], context?: any): ((data: any, index: number, groupIndex: number) => void);
+    loopArray(
+        data: any[],
+        context?: any
+    ): (data: any, index: number, groupIndex: number) => void;
 
     /**
      * 배열의 키 기반 인덱스를 생성한다.
@@ -210,7 +219,7 @@ export interface UtilBase {
 
     trim(text: string): string;
 
-    ready: ((...args: any[]) => void);
+    ready: (...args: any[]) => void;
 
     param(data: any): string;
 
@@ -232,7 +241,12 @@ export interface JuiStatic {
      * @param depends 'define'이나 'defineUI'로 정의된 클래스나 객체를 인자로 받을 수 있다.
      * @param callback UI 클래스를 해당 콜백 함수 내에서 클래스 형태로 구현하고 리턴해야 한다.
      */
-    defineUI(name: string, depends: string[], callback: () => void, parent?: string): void;
+    defineUI(
+        name: string,
+        depends: string[],
+        callback: () => void,
+        parent?: string
+    ): void;
 
     /**
      * UI 클래스에서 사용될 클래스를 정의하고, 자유롭게 상속할 수 있는 클래스를 정의
@@ -242,7 +256,12 @@ export interface JuiStatic {
      * @param callback UI 클래스를 해당 콜백 함수 내에서 클래스 형태로 구현하고 리턴해야 한다.
      * @param parent 상속받을 클래스
      */
-    define(name: string, depends: string[], callback: () => void, parent?: string): void;
+    define(
+        name: string,
+        depends: string[],
+        callback: () => void,
+        parent?: string
+    ): void;
 
     /**
      * UI 클래스에서 사용될 클래스를 정의하고, 자유롭게 상속할 수 있는 클래스를 정의
@@ -252,7 +271,12 @@ export interface JuiStatic {
      * @param callback UI 클래스를 해당 콜백 함수 내에서 클래스 형태로 구현하고 리턴해야 한다.
      * @param parent 상속받을 클래스
      */
-    redefine(name: string, depends: string[], callback: () => void, parent?: string): void;
+    redefine(
+        name: string,
+        depends: string[],
+        callback: () => void,
+        parent?: string
+    ): void;
 
     /**
      * define과 defineUI로 정의된 클래스 또는 객체를 가져온다.
@@ -516,7 +540,12 @@ export interface UtilMath {
      */
     rotate(x: number, y: number, radian: number): any;
 
-    resize(maxWidth: number, maxHeight: number, objectWidth: number, objectHeight: number): any;
+    resize(
+        maxWidth: number,
+        maxHeight: number,
+        objectWidth: number,
+        objectHeight: number
+    ): any;
 
     /**
      * convert degree to radian
@@ -574,6 +603,10 @@ export interface UtilScaleOrdinal extends Function {
     domain(values: any[]): UtilScaleOrdinal;
     range(values: any[]): UtilScaleOrdinal;
     rangePoints(interval: number, padding?: number): () => void;
-    rangeBands(interval: number, padding?: number, outerPadding?: number): () => void;
+    rangeBands(
+        interval: number,
+        padding?: number,
+        outerPadding?: number
+    ): () => void;
     invert(x: number): number;
 }

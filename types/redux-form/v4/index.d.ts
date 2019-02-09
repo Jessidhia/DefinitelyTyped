@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Dispatch, ActionCreator, Reducer } from 'redux';
+import * as React from "react";
+import { Dispatch, ActionCreator, Reducer } from "redux";
 
 export const actionTypes: { [actionName: string]: string };
 
@@ -192,7 +192,12 @@ export interface ReduxFormProps<T> {
      */
     handleSubmit?(event: React.SyntheticEvent<T>): void;
     handleSubmit?(event: React.MouseEvent<HTMLButtonElement>): void;
-    handleSubmit?(submit: (data: FormData, dispatch?: Dispatch<any>) => Promise<any> | void): React.FormEventHandler<T>;
+    handleSubmit?(
+        submit: (
+            data: FormData,
+            dispatch?: Dispatch<any>
+        ) => Promise<any> | void
+    ): React.FormEventHandler<T>;
 
     /**
      * Initializes the form data to the given values. All dirty and pristine
@@ -273,10 +278,9 @@ export interface ReduxFormProps<T> {
     values?: FormData;
 }
 
-declare class ElementClass extends React.Component<any> {
-}
+declare class ElementClass extends React.Component<any> {}
 interface ClassDecorator {
-    <T extends (typeof ElementClass)>(component: T): T;
+    <T extends typeof ElementClass>(component: T): T;
 }
 
 interface MapStateToProps {
@@ -291,9 +295,11 @@ interface MapDispatchToPropsObject {
     [name: string]: ActionCreator<any>;
 }
 
-export declare function reduxForm(config: ReduxFormConfig,
+export declare function reduxForm(
+    config: ReduxFormConfig,
     mapStateToProps?: MapStateToProps,
-    mapDispatchToProps?: MapDispatchToPropsFunction | MapDispatchToPropsObject): ClassDecorator;
+    mapDispatchToProps?: MapDispatchToPropsFunction | MapDispatchToPropsObject
+): ClassDecorator;
 
 export interface ReduxFormConfig {
     /**
@@ -336,7 +342,11 @@ export interface ReduxFormConfig {
      *
      * See Asynchronous Blur Validation Example for more details.
      */
-    asyncValidate?(values: FormData, dispatch: Dispatch<any>, props: {}): Promise<any>;
+    asyncValidate?(
+        values: FormData,
+        dispatch: Dispatch<any>,
+        props: {}
+    ): Promise<any>;
 
     /**
      * Whether or not to automatically destroy your form's state in the Redux
@@ -435,7 +445,10 @@ export interface ReduxFormConfig {
      * { field1: <String>, field2: <String> }.
      * Defaults to (values, props) => ({}).
      */
-    validate?(values: FormData, props: { [fieldName: string]: FieldProp<any> }): {};
+    validate?(
+        values: FormData,
+        props: { [fieldName: string]: FieldProp<any> }
+    ): {};
 }
 
 /**
@@ -446,9 +459,12 @@ export interface ReduxFormConfig {
  * @param previousAllValues All the values of the form before the current
  * change. Useful to change one field based on a change in another.
  */
-export type Normalizer =
-    (value: FieldValue, previousValue: FieldValue,
-        allValues: FormData, previousAllValues: FormData) => any;
+export type Normalizer = (
+    value: FieldValue,
+    previousValue: FieldValue,
+    allValues: FormData,
+    previousAllValues: FormData
+) => any;
 
 export declare const reducer: {
     (state: any, action: any): any;
@@ -462,8 +478,8 @@ export declare const reducer: {
      */
     normalize(normalizers: {
         [formName: string]: {
-            [fieldName: string]: Normalizer
-        }
+            [fieldName: string]: Normalizer;
+        };
     }): Reducer<any>;
 
     /**

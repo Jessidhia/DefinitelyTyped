@@ -33,19 +33,14 @@
  * see https://github.com/Esri/adlib#optional-transform
  */
 export interface TransformFunction {
-    (
-        key: string,
-        value: any,
-        settings: any,
-        param?: any
-    ): any;
+    (key: string, value: any, settings: any, param?: any): any;
 }
 
 /**
  * Set of transformation functions keyed by the transform function's name.
  */
 export interface TransformsList {
-    [ transformFnName: string ]: TransformFunction;
+    [transformFnName: string]: TransformFunction;
 }
 
 /**
@@ -70,6 +65,4 @@ export function adlib(
  * see https://github.com/Esri/adlib#general-pattern
  * @return List of unique property values in template
  */
-export function listDependencies(
-    template: any
-): string [];
+export function listDependencies(template: any): string[];

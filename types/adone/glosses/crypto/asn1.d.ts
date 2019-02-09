@@ -57,7 +57,11 @@ declare namespace adone.crypto {
                  * @param inputOffset Offset in ASN.1 BER encoded array where decoding should be started
                  * @param inputLength Maximum length of array of bytes which can be using in this function
                  */
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
 
                 /**
                  * Encoding of current ASN.1 block into ASN.1 encoded array (BER rules)
@@ -92,7 +96,11 @@ declare namespace adone.crypto {
                 // ILocalHexBlock implementation
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
@@ -109,12 +117,20 @@ declare namespace adone.crypto {
                 longFormUsed: boolean;
                 length: number;
                 constructor(params?: LocalLengthBlockParams);
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): void;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): void;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
             class LocalValueBlock extends LocalBaseBlock {
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): void;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): void;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
@@ -124,7 +140,8 @@ declare namespace adone.crypto {
                 primitiveSchema?: object;
             }
 
-            interface LocalPrimitiveValueBlockParams extends LocalBaseBlockParams {
+            interface LocalPrimitiveValueBlockParams
+                extends LocalBaseBlockParams {
                 valueHex?: ArrayBuffer;
                 isHexOnly?: boolean;
             }
@@ -132,11 +149,16 @@ declare namespace adone.crypto {
             class LocalPrimitiveValueBlock extends LocalValueBlock {
                 valueHex: ArrayBuffer;
                 isHexOnly: boolean;
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
-            interface LocalConstructedValueBlockParams extends LocalBaseBlockParams {
+            interface LocalConstructedValueBlockParams
+                extends LocalBaseBlockParams {
                 value?: LocalValueBlock;
                 isIndefiniteForm?: boolean;
             }
@@ -144,17 +166,26 @@ declare namespace adone.crypto {
             class LocalConstructedValueBlock extends LocalValueBlock {
                 value: LocalValueBlock[];
                 isIndefiniteForm: boolean;
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
             class LocalEndOfContentValueBlock extends LocalValueBlock {
                 constructor(params?: LocalBaseBlockParams);
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
-            interface LocalBooleanValueBlockParams extends LocalBaseBlockParams {
+            interface LocalBooleanValueBlockParams
+                extends LocalBaseBlockParams {
                 value?: boolean;
                 isHexOnly?: boolean;
                 valueHex?: ArrayBuffer;
@@ -164,11 +195,17 @@ declare namespace adone.crypto {
                 value: boolean;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
-            interface LocalOctetStringValueBlockParams extends LocalConstructedValueBlockParams, LocalHexBlockParams {
+            interface LocalOctetStringValueBlockParams
+                extends LocalConstructedValueBlockParams,
+                    LocalHexBlockParams {
                 isConstructed?: boolean;
             }
 
@@ -180,13 +217,16 @@ declare namespace adone.crypto {
                 constructor(params?: LocalOctetStringValueBlockParams);
             }
 
-            interface LocalBitStringValueBlockParams extends LocalConstructedValueBlockParams, LocalHexBlockParams {
+            interface LocalBitStringValueBlockParams
+                extends LocalConstructedValueBlockParams,
+                    LocalHexBlockParams {
                 unusedBits?: number;
                 isConstructed?: boolean;
                 blockLength?: number;
             }
 
-            class LocalBitStringValueBlock extends LocalConstructedValueBlock implements LocalHexBlock {
+            class LocalBitStringValueBlock extends LocalConstructedValueBlock
+                implements LocalHexBlock {
                 unusedBits: number;
                 isConstructed: boolean;
                 blockLength: number;
@@ -195,15 +235,21 @@ declare namespace adone.crypto {
                 constructor(params?: LocalBitStringValueBlockParams);
             }
 
-            interface LocalIntegerValueBlockParams extends LocalBaseBlockParams, LocalHexBlockParams {
-            }
+            interface LocalIntegerValueBlockParams
+                extends LocalBaseBlockParams,
+                    LocalHexBlockParams {}
 
-            class LocalIntegerValueBlock extends LocalValueBlock implements LocalHexBlock {
+            class LocalIntegerValueBlock extends LocalValueBlock
+                implements LocalHexBlock {
                 valueDec: number;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
                 constructor(params?: LocalIntegerValueBlockParams);
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
                 /**
                  * Base function for converting block from DER encoded array of bytes
@@ -213,7 +259,12 @@ declare namespace adone.crypto {
                  * @param inputLength Maximum length of array of bytes which can be using in this function
                  * @param expectedLength Expected length of converted "valueHex" buffer
                  */
-                fromDER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number, expectedLength?: number): number;
+                fromDER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number,
+                    expectedLength?: number
+                ): number;
                 /**
                  * Encoding of current ASN.1 block into ASN.1 encoded array (DER rules)
                  *
@@ -226,23 +277,31 @@ declare namespace adone.crypto {
                 value?: number;
             }
 
-            interface LocalSidValueBlockParams extends LocalBaseBlockParams, LocalHexBlockParams {
+            interface LocalSidValueBlockParams
+                extends LocalBaseBlockParams,
+                    LocalHexBlockParams {
                 valueDec?: number;
                 isFirstSid?: boolean;
             }
 
-            class LocalSidValueBlock extends LocalBaseBlock implements LocalHexBlock {
+            class LocalSidValueBlock extends LocalBaseBlock
+                implements LocalHexBlock {
                 valueDec: number;
                 isFirstSid: boolean;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
                 constructor(params?: LocalSidValueBlockParams);
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
                 toString(): string;
             }
 
-            interface LocalObjectIdentifierValueBlockParams extends LocalBaseBlockParams {
+            interface LocalObjectIdentifierValueBlockParams
+                extends LocalBaseBlockParams {
                 value?: string;
             }
 
@@ -261,14 +320,20 @@ declare namespace adone.crypto {
                 toString(): string;
             }
 
-            interface LocalUtf8StringValueBlockParams extends LocalBaseBlockParams, LocalHexBlock {
-            }
+            interface LocalUtf8StringValueBlockParams
+                extends LocalBaseBlockParams,
+                    LocalHexBlock {}
 
-            class LocalUtf8StringValueBlock extends LocalBaseBlock implements LocalHexBlock {
+            class LocalUtf8StringValueBlock extends LocalBaseBlock
+                implements LocalHexBlock {
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
                 constructor(params?: LocalSidValueBlockParams);
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
                 toString(): string;
             }
@@ -277,45 +342,65 @@ declare namespace adone.crypto {
                 value?: string;
             }
 
-            interface LocalBmpStringValueBlockParams extends LocalHexBlockParams, LocalBaseBlockParams {
-            }
+            interface LocalBmpStringValueBlockParams
+                extends LocalHexBlockParams,
+                    LocalBaseBlockParams {}
 
-            class LocalBmpStringValueBlock extends LocalBaseBlock implements LocalHexBlock {
+            class LocalBmpStringValueBlock extends LocalBaseBlock
+                implements LocalHexBlock {
                 value: string;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
 
                 constructor(params?: LocalBmpStringValueBlockParams);
 
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
-            interface LocalUniversalStringValueParams extends LocalHexBlockParams, LocalBaseBlockParams {
-            }
+            interface LocalUniversalStringValueParams
+                extends LocalHexBlockParams,
+                    LocalBaseBlockParams {}
 
-            class LocalUniversalStringValueBlock extends LocalBaseBlock implements LocalHexBlock {
+            class LocalUniversalStringValueBlock extends LocalBaseBlock
+                implements LocalHexBlock {
                 value: string;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
 
                 constructor(params?: LocalUniversalStringValueParams);
 
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
-            interface LocalSimpleLocalSimpleStringValueBlockParams extends LocalHexBlockParams, LocalBaseBlockParams {
-            }
+            interface LocalSimpleLocalSimpleStringValueBlockParams
+                extends LocalHexBlockParams,
+                    LocalBaseBlockParams {}
 
-            class LocalSimpleLocalSimpleStringValueBlock extends LocalBaseBlock implements LocalHexBlock {
+            class LocalSimpleLocalSimpleStringValueBlock extends LocalBaseBlock
+                implements LocalHexBlock {
                 value: string;
                 isHexOnly: boolean;
                 valueHex: ArrayBuffer;
 
-                constructor(params?: LocalSimpleLocalSimpleStringValueBlockParams);
+                constructor(
+                    params?: LocalSimpleLocalSimpleStringValueBlockParams
+                );
 
-                fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+                fromBER(
+                    inputBuffer: ArrayBuffer,
+                    inputOffset: number,
+                    inputLength: number
+                ): number;
                 toBER(sizeOnly?: boolean): ArrayBuffer;
             }
 
@@ -323,7 +408,9 @@ declare namespace adone.crypto {
                 value?: string;
             }
 
-            class LocalSimpleStringBlock extends BaseBlock<LocalSimpleLocalSimpleStringValueBlock> {
+            class LocalSimpleStringBlock extends BaseBlock<
+                LocalSimpleLocalSimpleStringValueBlock
+            > {
                 constructor(params?: LocalSimpleStringBlockParams);
                 /**
                  * Function converting ArrayBuffer into ASN.1 internal string
@@ -347,7 +434,8 @@ declare namespace adone.crypto {
                 value?: string;
             }
 
-            interface UTCTimeParams extends LocalSimpleLocalSimpleStringValueBlockParams {
+            interface UTCTimeParams
+                extends LocalSimpleLocalSimpleStringValueBlockParams {
                 value?: string;
                 valueDate?: Date;
             }
@@ -375,28 +463,34 @@ declare namespace adone.crypto {
         }
 
         class BaseBlock<T extends I.LocalValueBlock> extends I.LocalBaseBlock {
-            constructor(parameters?: I.BaseBlockParams, valueBlockType?: typeof I.LocalValueBlock);
+            constructor(
+                parameters?: I.BaseBlockParams,
+                valueBlockType?: typeof I.LocalValueBlock
+            );
             idBlock: I.LocalIdentificationBlock;
             lenBlock: I.LocalLengthBlock;
             valueBlock: T;
-            fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+            fromBER(
+                inputBuffer: ArrayBuffer,
+                inputOffset: number,
+                inputLength: number
+            ): number;
             toBER(sizeOnly?: boolean): ArrayBuffer;
         }
 
-        class Primitive extends BaseBlock<I.LocalPrimitiveValueBlock> {
-        }
+        class Primitive extends BaseBlock<I.LocalPrimitiveValueBlock> {}
 
-        class Constructed extends BaseBlock<I.LocalConstructedValueBlock> { }
+        class Constructed extends BaseBlock<I.LocalConstructedValueBlock> {}
 
-        class EndOfContent extends BaseBlock<I.LocalEndOfContentValueBlock> { }
+        class EndOfContent extends BaseBlock<I.LocalEndOfContentValueBlock> {}
 
-        class Boolean extends BaseBlock<I.LocalBooleanValueBlock> { }
+        class Boolean extends BaseBlock<I.LocalBooleanValueBlock> {}
 
-        class Sequence extends Constructed { }
+        class Sequence extends Constructed {}
 
-        class Set extends Constructed { }
+        class Set extends Constructed {}
 
-        class Null extends BaseBlock<I.LocalValueBlock> { }
+        class Null extends BaseBlock<I.LocalValueBlock> {}
 
         class OctetString extends BaseBlock<I.LocalOctetStringValueBlock> {
             constructor(params?: I.LocalOctetStringValueBlockParams);
@@ -416,7 +510,7 @@ declare namespace adone.crypto {
         }
 
         class Integer extends BaseBlock<I.LocalIntegerValueBlock> {
-            constructor(params?: I.IntegerParams)
+            constructor(params?: I.IntegerParams);
             /**
              * Compare two Integer object, or Integer and ArrayBuffer objects
              */
@@ -431,9 +525,11 @@ declare namespace adone.crypto {
             convertFromDER(): Integer;
         }
 
-        class Enumerated extends Integer { }
+        class Enumerated extends Integer {}
 
-        class ObjectIdentifier extends BaseBlock<I.LocalObjectIdentifierValueBlock> {
+        class ObjectIdentifier extends BaseBlock<
+            I.LocalObjectIdentifierValueBlock
+        > {
             constructor(params?: I.LocalObjectIdentifierValueBlockParams);
         }
 
@@ -469,7 +565,9 @@ declare namespace adone.crypto {
             fromString(inputString: string): void;
         }
 
-        class UniversalString extends BaseBlock<I.LocalUniversalStringValueBlock> {
+        class UniversalString extends BaseBlock<
+            I.LocalUniversalStringValueBlock
+        > {
             constructor(params?: I.UniversalStringParams);
             /**
              * Function converting ArrayBuffer into ASN.1 internal string
@@ -485,23 +583,23 @@ declare namespace adone.crypto {
             fromString(inputString: string): void;
         }
 
-        class NumericString extends I.LocalSimpleStringBlock { }
+        class NumericString extends I.LocalSimpleStringBlock {}
 
-        class PrintableString extends I.LocalSimpleStringBlock { }
+        class PrintableString extends I.LocalSimpleStringBlock {}
 
-        class TeletexString extends I.LocalSimpleStringBlock { }
+        class TeletexString extends I.LocalSimpleStringBlock {}
 
-        class VideotexString extends I.LocalSimpleStringBlock { }
+        class VideotexString extends I.LocalSimpleStringBlock {}
 
-        class IA5String extends I.LocalSimpleStringBlock { }
+        class IA5String extends I.LocalSimpleStringBlock {}
 
-        class GraphicString extends I.LocalSimpleStringBlock { }
+        class GraphicString extends I.LocalSimpleStringBlock {}
 
-        class VisibleString extends I.LocalSimpleStringBlock { }
+        class VisibleString extends I.LocalSimpleStringBlock {}
 
-        class GeneralString extends I.LocalSimpleStringBlock { }
+        class GeneralString extends I.LocalSimpleStringBlock {}
 
-        class CharacterString extends I.LocalSimpleStringBlock { }
+        class CharacterString extends I.LocalSimpleStringBlock {}
 
         class UTCTime extends VisibleString {
             year: number;
@@ -531,15 +629,15 @@ declare namespace adone.crypto {
             millisecond: number;
         }
 
-        class DATE extends Utf8String { }
+        class DATE extends Utf8String {}
 
-        class TimeOfDay extends Utf8String { }
+        class TimeOfDay extends Utf8String {}
 
-        class DateTime extends Utf8String { }
+        class DateTime extends Utf8String {}
 
-        class Duration extends Utf8String { }
+        class Duration extends Utf8String {}
 
-        class TIME extends Utf8String { }
+        class TIME extends Utf8String {}
 
         class Choice {
             value: I.LocalValueBlock[];
@@ -566,7 +664,11 @@ declare namespace adone.crypto {
 
             constructor(params?: I.RawDataParams);
 
-            fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
+            fromBER(
+                inputBuffer: ArrayBuffer,
+                inputOffset: number,
+                inputLength: number
+            ): number;
             toBER(sizeOnly?: boolean): ArrayBuffer;
         }
 
@@ -575,7 +677,9 @@ declare namespace adone.crypto {
          *
          * @param inputBuffer ASN.1 BER encoded array of bytes
          */
-        function fromBER(inputBuffer: ArrayBuffer): { offset: number; result: I.LocalBaseBlock };
+        function fromBER(
+            inputBuffer: ArrayBuffer
+        ): { offset: number; result: I.LocalBaseBlock };
 
         /**
          * Compare of two ASN.1 object trees
@@ -584,7 +688,11 @@ declare namespace adone.crypto {
          * @param inputData Input ASN.1 object tree
          * @param inputSchema Input ASN.1 schema to compare with
          */
-        function compareSchema(root: any, inputData: any, inputSchema: any): { verified: boolean, result?: any };
+        function compareSchema(
+            root: any,
+            inputData: any,
+            inputSchema: any
+        ): { verified: boolean; result?: any };
 
         /**
          * ASN.1 schema verification for ArrayBuffer data
@@ -592,6 +700,9 @@ declare namespace adone.crypto {
          * @param inputBuffer Input BER-encoded ASN.1 data
          * @param inputSchema Input ASN.1 schema to verify against to
          */
-        function verifySchema(inputBuffer: ArrayBuffer, inputSchema: any): { verified: boolean, result?: any };
+        function verifySchema(
+            inputBuffer: ArrayBuffer,
+            inputSchema: any
+        ): { verified: boolean; result?: any };
     }
 }

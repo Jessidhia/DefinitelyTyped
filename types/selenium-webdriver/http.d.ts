@@ -1,4 +1,4 @@
-import * as webdriver from './index';
+import * as webdriver from "./index";
 
 /**
  * Converts a headers map to a HTTP header block string.
@@ -90,7 +90,13 @@ export class HttpClient {
  * @param {?string=} opt_data The data to send with the request.
  * @param {?string=} opt_proxy The proxy server to use for the request.
  */
-export function sendRequest(options: Object, onOk: any, onError: any, opt_data?: string, opt_proxy?: string): any;
+export function sendRequest(
+    options: Object,
+    onOk: any,
+    onError: any,
+    opt_data?: string,
+    opt_proxy?: string
+): any;
 
 /**
  * A command executor that communicates with the server using HTTP + JSON.

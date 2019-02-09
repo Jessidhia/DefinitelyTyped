@@ -8,17 +8,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { ListProps, Index } from 'react-virtualized';
+import * as React from "react";
+import { ListProps, Index } from "react-virtualized";
 import {
     ConnectDragSource,
     ConnectDragPreview,
     ConnectDropTarget,
     DragSourceMonitor
-} from 'react-dnd';
+} from "react-dnd";
 
-export * from './utils/tree-data-utils';
-export * from './utils/default-handlers';
+export * from "./utils/tree-data-utils";
+export * from "./utils/default-handlers";
 
 export interface TreeItem {
     title?: React.ReactNode;
@@ -44,7 +44,7 @@ export interface FullTree {
     treeData: TreeItem[];
 }
 
-export interface NodeData extends TreeNode, TreePath, TreeIndex { }
+export interface NodeData extends TreeNode, TreePath, TreeIndex {}
 
 export interface FlatDataItem extends TreeNode, TreePath {
     lowerSiblingsCounts: number[];
@@ -129,7 +129,9 @@ export interface NodeRendererProps {
     canDrop?: boolean;
 }
 
-export type PlaceholderRenderer = React.ComponentClass<PlaceholderRendererProps>;
+export type PlaceholderRenderer = React.ComponentClass<
+    PlaceholderRendererProps
+>;
 
 export interface PlaceholderRendererProps {
     isOver: boolean;
@@ -185,11 +187,13 @@ export interface ReactSortableTreeProps extends ThemeTreeProps {
     onChange(treeData: TreeItem[]): void;
     getNodeKey?(data: TreeNode & TreeIndex): string | number;
     generateNodeProps?(data: ExtendedNodeData): { [index: string]: any };
-    onMoveNode?(data: NodeData & FullTree & OnMovePreviousAndNextLocation): void;
+    onMoveNode?(
+        data: NodeData & FullTree & OnMovePreviousAndNextLocation
+    ): void;
     onVisibilityToggle?(data: OnVisibilityToggleData): void;
     onDragStateChanged?(data: OnDragStateChangedData): void;
     maxDepth?: number;
-    rowDirection?: 'ltr' | 'rtl';
+    rowDirection?: "ltr" | "rtl";
     canDrag?: ((data: ExtendedNodeData) => boolean) | boolean;
     canDrop?(data: OnDragPreviousAndNextLocation & NodeData): boolean;
     canNodeHaveChildren?(node: TreeItem): boolean;
@@ -207,6 +211,8 @@ export interface ReactSortableTreeProps extends ThemeTreeProps {
 
 declare const SortableTree: React.ComponentClass<ReactSortableTreeProps>;
 
-export const SortableTreeWithoutDndContext: React.ComponentClass<ReactSortableTreeProps>;
+export const SortableTreeWithoutDndContext: React.ComponentClass<
+    ReactSortableTreeProps
+>;
 
 export default SortableTree;

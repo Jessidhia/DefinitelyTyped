@@ -1,3 +1,3 @@
-import detectPassiveEvents from 'detect-passive-events';
+import detectPassiveEvents from "detect-passive-events";
 
 detectPassiveEvents.update();

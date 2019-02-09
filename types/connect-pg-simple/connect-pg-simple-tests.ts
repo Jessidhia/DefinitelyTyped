@@ -1,7 +1,7 @@
 import connectPgSimple = require("connect-pg-simple");
 import session = require("express-session");
 import * as pg from "pg";
-import express = require('express');
+import express = require("express");
 
 const pgSession = connectPgSimple(session);
 
@@ -13,10 +13,12 @@ const store1: session.Store = new pgSession({
 });
 
 const app = express();
-app.use(session({
-    store: store1,
-    secret: "foo"
-}));
+app.use(
+    session({
+        store: store1,
+        secret: "foo"
+    })
+);
 
 const store2: session.Store = new pgSession({
     conString: "postgres://postgres@localhost:5432/foo",

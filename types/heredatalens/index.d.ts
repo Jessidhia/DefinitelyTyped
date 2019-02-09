@@ -37,7 +37,14 @@ declare namespace H.datalens {
          * @param onError - Callback called on an unsuccessful request with the Error object
          * @returns - Response Promise
          */
-        request(method: string, endpoint: string, params?: any, body?: any, onResult?: (result: any) => void, onError?: (error: any) => void): Promise<any>;
+        request(
+            method: string,
+            endpoint: string,
+            params?: any,
+            body?: any,
+            onResult?: (result: any) => void,
+            onError?: (error: any) => void
+        ): Promise<any>;
 
         /**
          * This method fetches query data for a given query ID.
@@ -49,7 +56,12 @@ declare namespace H.datalens {
          * @param onError - Callback called on an unsuccessful request with the Error object
          * @returns - Response Promise
          */
-        fetchQueryData(queryId: string, params?: any, onResult?: (result: any) => void, onError?: (error: any) => void): Promise<any>;
+        fetchQueryData(
+            queryId: string,
+            params?: any,
+            onResult?: (result: any) => void,
+            onError?: (error: any) => void
+        ): Promise<any>;
 
         /**
          * This method fetches statistical data for the Data Lens query (eg minimum and maximum values for the query metric).
@@ -60,7 +72,12 @@ declare namespace H.datalens {
          * @param onError - Callback called on an unsuccessful request with the Error object
          * @returns - Response Promise
          */
-        fetchQueryStats(queryId: string, statsQuery: any, onResult?: (result: any) => void, onError?: (error: any) => void): Promise<any>;
+        fetchQueryStats(
+            queryId: string,
+            statsQuery: any,
+            onResult?: (result: any) => void,
+            onError?: (error: any) => void
+        ): Promise<any>;
 
         /**
          * This method fetches a layer of geometries (eg buildings or administrative boundaries).
@@ -70,7 +87,12 @@ declare namespace H.datalens {
          * @param onError - Callback called on an unsuccessful request with the Error object
          * @returns - Response Promise
          */
-        fetchLayer(layerName: string, params?: any, onResult?: (result: any) => void, onError?: (error: any) => void): Promise<any>;
+        fetchLayer(
+            layerName: string,
+            params?: any,
+            onResult?: (result: any) => void,
+            onError?: (error: any) => void
+        ): Promise<any>;
 
         /**
          * This method fetches vector tile data from the layer.
@@ -82,8 +104,15 @@ declare namespace H.datalens {
          * @param onError - Callback called on an unsuccessful request with the Error object
          * @returns - Typed array with tile data
          */
-        fetchLayerTile(layerName: string, x: QueryTileProvider.X, y: QueryTileProvider.Y, z: QueryTileProvider.Zoom,
-                        params?: any, onResult?: (result: any) => void, onError?: (error: any) => void): Promise<Uint8Array>;
+        fetchLayerTile(
+            layerName: string,
+            x: QueryTileProvider.X,
+            y: QueryTileProvider.Y,
+            z: QueryTileProvider.Zoom,
+            params?: any,
+            onResult?: (result: any) => void,
+            onError?: (error: any) => void
+        ): Promise<Uint8Array>;
 
         /**
          * Sets the access and refresh tokens used to authenticate all requests against the Data Lens REST API.
@@ -102,7 +131,13 @@ declare namespace H.datalens {
          * @param useCIT - A flag to use the staging server (CIT) or not
          * @param baseUrl - The base URL for all requests to the Data Lens REST API
          */
-        configure(appId: string, appCode: string, useHTTPS: boolean, useCIT: boolean, baseUrl?: service.Url): Service;
+        configure(
+            appId: string,
+            appCode: string,
+            useHTTPS: boolean,
+            useCIT: boolean,
+            baseUrl?: service.Url
+        ): Service;
     }
 
     namespace Service {
@@ -156,7 +191,10 @@ declare namespace H.datalens {
          * @param data - JSON object
          * @param options - Configures data accessibility parameters
          */
-        constructor(data?: Service.Data, options?: map.provider.Provider.Options);
+        constructor(
+            data?: Service.Data,
+            options?: map.provider.Provider.Options
+        );
 
         /**
          * Updates the provider data. When data is updated, the update event is triggered so that the consuming layers are redrawn.
@@ -197,7 +235,7 @@ declare namespace H.datalens {
          * This method is normally used when updating your visualization.
          * @param queryParams - Query dynamic parameters
          */
-        setQueryParams(queryParams: any|null): void;
+        setQueryParams(queryParams: any | null): void;
 
         /**
          * Fetches new data from the Data Lens REST API.
@@ -256,14 +294,16 @@ declare namespace H.datalens {
          * Updates the query's dynamic parameters to be used in the next call of the Data Lens REST API.
          * Note that new data will be fetched only after the reload method is called. This method is normally used when updating your visualization.
          */
-        setQueryParams(queryParams: any|null): void;
+        setQueryParams(queryParams: any | null): void;
 
         /**
          * Updates the names of the dynamic parameters that defines tiles. This method is only needed when the query ID is updated.
          * Note that new data will be fetched only after the reload method is called.
          * @param tileParamNames - Names of the URI parameters that control the x/y/z of a tiled query
          */
-        setTileParamNames(tileParamNames: QueryTileProvider.TileParamNames): void;
+        setTileParamNames(
+            tileParamNames: QueryTileProvider.TileParamNames
+        ): void;
     }
 
     namespace QueryTileProvider {
@@ -343,7 +383,10 @@ declare namespace H.datalens {
          * @param points - Input data points within a tile
          * @param canvas - The target canvas
          */
-        static defaultRenderTile(points: RasterLayer.TilePoint[], canvas: HTMLCanvasElement): void;
+        static defaultRenderTile(
+            points: RasterLayer.TilePoint[],
+            canvas: HTMLCanvasElement
+        ): void;
     }
 
     namespace RasterLayer {
@@ -357,7 +400,12 @@ declare namespace H.datalens {
          */
         interface Options {
             /** Defines how the input tile data is split by rows. You can specify this callback to define client-side aggregation and filtering. This callback is called for each tile. */
-            dataToRows?(data: Service.Data, x: QueryTileProvider.X, y: QueryTileProvider.Y, zoom: QueryTileProvider.Zoom): Row[];
+            dataToRows?(
+                data: Service.Data,
+                x: QueryTileProvider.X,
+                y: QueryTileProvider.Y,
+                zoom: QueryTileProvider.Zoom
+            ): Row[];
             /** Defines how the row is translated to the RasterLayer.TilePoint. This callback is called for each row that is returned from dataToRows. */
             rowToTilePoint?(row: Row, x: X, y: Y): TilePoint;
             /**
@@ -369,7 +417,11 @@ declare namespace H.datalens {
              * Defines how tile data is represented on a canvas. Input points for each tile are collected with respect to the buffer.
              * For progressive rendering this callback may be called more than once for the tile.
              */
-            renderTile?(points: TilePoint[], canvas: HTMLCanvasElement, zoom: QueryTileProvider.Zoom): void;
+            renderTile?(
+                points: TilePoint[],
+                canvas: HTMLCanvasElement,
+                zoom: QueryTileProvider.Zoom
+            ): void;
         }
 
         /**
@@ -422,8 +474,12 @@ declare namespace H.datalens {
         /**
          * Default value for dataToRows callback option. It represents each row as an object where property names correspond to data column names.
          */
-        static defaultDataToRows: (data: Service.Data, x: QueryTileProvider.X, y: QueryTileProvider.Y, zoom: QueryTileProvider.Zoom) =>
-            HeatmapLayer.Row[];
+        static defaultDataToRows: (
+            data: Service.Data,
+            x: QueryTileProvider.X,
+            y: QueryTileProvider.Y,
+            zoom: QueryTileProvider.Zoom
+        ) => HeatmapLayer.Row[];
 
         /**
          * Set of possible values for the inputScale option
@@ -461,7 +517,12 @@ declare namespace H.datalens {
          */
         interface Options {
             /** Defines how the input tile data is split by rows. You can specify this callback to define client-side aggregation and filtering. This callback is called for each tile. */
-            dataToRows?(data: Service.Data, x: QueryTileProvider.X, y: QueryTileProvider.Y, zoom: QueryTileProvider.Zoom): Row[];
+            dataToRows?(
+                data: Service.Data,
+                x: QueryTileProvider.X,
+                y: QueryTileProvider.Y,
+                zoom: QueryTileProvider.Zoom
+            ): Row[];
             /** Defines how the row is translated to the HeatmapLayer.TilePoint. This callback is called for each row that is returned from dataToRows. */
             rowToTilePoint(row: Row, x: X, y: Y): TilePoint;
             /**
@@ -471,7 +532,11 @@ declare namespace H.datalens {
              * Alternatively defines the level of smoothing as a function of the zoom level. The callback must return a value in pixels.
              * The cut-off of the Gaussian kernel is defined as 3 * bandwidth , a multiple (default 3) of bandwidth.
              */
-            bandwidth?: Bandwidth | BandwidthStop | BandwidthStop[] | BandwidthCallback;
+            bandwidth?:
+                | Bandwidth
+                | BandwidthStop
+                | BandwidthStop[]
+                | BandwidthCallback;
             /**
              * Defines the range for the color scale as a function of the zoom level.
              * The returned value must be an array of 2 numbers.
@@ -607,7 +672,14 @@ declare namespace H.datalens {
          * @param provider - Data source (tiled or not)
          * @param options - Defines data processing, clustering and data-driven styling
          */
-        constructor(provider: map.provider.RemoteTileProvider | Provider | QueryProvider | QueryTileProvider, options: ObjectLayer.Options);
+        constructor(
+            provider:
+                | map.provider.RemoteTileProvider
+                | Provider
+                | QueryProvider
+                | QueryTileProvider,
+            options: ObjectLayer.Options
+        );
 
         /**
          * Default value for dataToRows callback option. It represents each row as an object where property names correspond to data column names.
@@ -621,7 +693,10 @@ declare namespace H.datalens {
          * @param options.size - When the icon is a square, you can define the size as a number in pixels
          * @returns - Icon which can be used for marker or cluster
          */
-        static createIcon(svg: string | any[], options?: map.Icon.Options): map.Icon;
+        static createIcon(
+            svg: string | any[],
+            options?: map.Icon.Options
+        ): map.Icon;
 
         /**
          * Returns cache of icons created with the createIcon method. Can be used to clean the icon cache.
@@ -658,7 +733,11 @@ declare namespace H.datalens {
              * Defines map object style and icon according to data row and zoom level.
              * Also it can define different styles depending on the StyleState (eg hovered, selected).
              */
-            rowToStyle?(row: Row, z: QueryTileProvider.Zoom, styleState: StyleState): ObjectStyleOptions;
+            rowToStyle?(
+                row: Row,
+                z: QueryTileProvider.Zoom,
+                styleState: StyleState
+            ): ObjectStyleOptions;
             /** Defines quantization of data for improving data-driven styling performance */
             dataDomains?: DataDomains;
             /** When present, client-side clustering is applied */
@@ -675,7 +754,9 @@ declare namespace H.datalens {
             /** Defines data points from rows */
             rowToDataPoint(row: Row): clustering.DataPoint;
             /** Defines clustering options as a function of the zoom level */
-            options(zoom: QueryTileProvider.Zoom): clustering.Provider.ClusteringOptions;
+            options(
+                zoom: QueryTileProvider.Zoom
+            ): clustering.Provider.ClusteringOptions;
         }
 
         /**
@@ -743,8 +824,14 @@ declare namespace H.datalens {
             /** Defines how the input data is mapped to an array of GeoJSON features */
             dataToFeatures?(obj: any): Feature[];
             /** Defines how GeoJSON features on a tile should be mapped to data rows, which are inputs to layers such as ObjectLayer and HeatmapLayer */
-            featuresToRows?(features: Feature[], x: QueryTileProvider.X, y: QueryTileProvider.Y, z: QueryTileProvider.Zoom,
-                            tileSize: TileSize, helpers: Helpers): ObjectLayer.Row[];
+            featuresToRows?(
+                features: Feature[],
+                x: QueryTileProvider.X,
+                y: QueryTileProvider.Y,
+                z: QueryTileProvider.Zoom,
+                tileSize: TileSize,
+                helpers: Helpers
+            ): ObjectLayer.Row[];
         }
 
         /**
@@ -765,10 +852,19 @@ declare namespace H.datalens {
          */
         interface Helpers {
             /** Translates geographical coordinates (latitude, longitude) to world pixel coordinates. */
-            latLngToPixel?(latitude: Latitude, longitude: Longitude, z: QueryTileProvider.Zoom,
-                            tileSize: TileSize): PixelCoordinates;
+            latLngToPixel?(
+                latitude: Latitude,
+                longitude: Longitude,
+                z: QueryTileProvider.Zoom,
+                tileSize: TileSize
+            ): PixelCoordinates;
             /** Translates world pixel coordinates to geographical coordinates (latitude, longitude). */
-            pixelToLatLng?(x: PX, y: PY, z: QueryTileProvider.Zoom, tileSize: TileSize): GeoCoordinates;
+            pixelToLatLng?(
+                x: PX,
+                y: PY,
+                z: QueryTileProvider.Zoom,
+                tileSize: TileSize
+            ): GeoCoordinates;
             /** Takes CSV data as input, parses it, and return the parsed result. */
             parseCSV?(obj: any): any[];
         }
@@ -821,7 +917,11 @@ declare namespace H.datalens {
          * @param spatialProvider - Source of geometry data
          * @param options - Configuration for data processing and rendering
          */
-        constructor(dataProvider: Provider, spatialProvider: SpatialTileProvider, options: SpatialLayer.Options);
+        constructor(
+            dataProvider: Provider,
+            spatialProvider: SpatialTileProvider,
+            options: SpatialLayer.Options
+        );
 
         static DEFAULT_STATE: any;
         static Spatial: any;
@@ -839,7 +939,10 @@ declare namespace H.datalens {
         /**
          * This method changes the state of a map object; for example, style on mouse event.
          */
-        updateSpatialStyle(spatial: map.Object, state: SpatialLayer.StyleState): void;
+        updateSpatialStyle(
+            spatial: map.Object,
+            state: SpatialLayer.StyleState
+        ): void;
     }
 
     namespace SpatialLayer {
@@ -850,15 +953,27 @@ declare namespace H.datalens {
          */
         interface Options {
             /** Defines how the input tile data is split by rows. You can specify this callback to define client-side aggregation and filtering. This callback is called for each tile. */
-            dataToRows?(data: Service.Data, x: QueryTileProvider.X, y: QueryTileProvider.Y, z: QueryTileProvider.Zoom): Row[];
+            dataToRows?(
+                data: Service.Data,
+                x: QueryTileProvider.X,
+                y: QueryTileProvider.Y,
+                z: QueryTileProvider.Zoom
+            ): Row[];
             /** Defines how to get the spatial ID from a data row. This callback is called for each row that is returned from dataToRows. */
             rowToSpatialId(row: Row): string;
             /** Defines how to get the spatial ID from a geometry feature. This callback is called for each geometry feature in the vector tile. */
             featureToSpatialId(feature: Feature): string;
             /** Defines how the row is translated to map object style. This callback is called for each row that is returned from dataToRows. */
-            rowToStyle(row: Row, z: QueryTileProvider.Zoom, styleState: StyleState): any;
+            rowToStyle(
+                row: Row,
+                z: QueryTileProvider.Zoom,
+                styleState: StyleState
+            ): any;
             /** Defines the default map object style. */
-            defaultStyle(z: QueryTileProvider.Zoom, styleState: StyleState): any;
+            defaultStyle(
+                z: QueryTileProvider.Zoom,
+                styleState: StyleState
+            ): any;
             /** Defines how to transform the features. */
             transformFeature: transformFeature;
         }

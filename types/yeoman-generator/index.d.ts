@@ -7,8 +7,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { EventEmitter } from 'events';
-import * as inquirer from 'inquirer';
+import { EventEmitter } from "events";
+import * as inquirer from "inquirer";
 
 type Callback = (err: any) => void;
 
@@ -54,7 +54,7 @@ declare namespace Generator {
         description?: string;
         required?: boolean;
         optional?: boolean;
-        type?: typeof String|typeof Number|typeof Array|typeof Object;
+        type?: typeof String | typeof Number | typeof Array | typeof Object;
         default?: any;
     }
     interface OptionConfig {
@@ -62,17 +62,33 @@ declare namespace Generator {
         default?: any;
         description?: string;
         hide?: boolean;
-        type?: typeof Boolean|typeof String|typeof Number;
+        type?: typeof Boolean | typeof String | typeof Number;
     }
     interface MemFsEditor {
         read(filepath: string, options?: {}): string;
         readJSON(filepath: string, defaults?: {}): any;
         write(filepath: string, contents: string): void;
-        writeJSON(filepath: string, contents: {}, replacer?: (key: string, value: any) => any, space?: number): void;
-        extendJSON(filepath: string, contents: {}, replacer?: (key: string, value: any) => any, space?: number): void;
+        writeJSON(
+            filepath: string,
+            contents: {},
+            replacer?: (key: string, value: any) => any,
+            space?: number
+        ): void;
+        extendJSON(
+            filepath: string,
+            contents: {},
+            replacer?: (key: string, value: any) => any,
+            space?: number
+        ): void;
         delete(filepath: string, options?: {}): void;
         copy(from: string, to: string, options?: {}): void;
-        copyTpl(from: string, to: string, context: {}, templateOptions?: {}, copyOptions?: {}): void;
+        copyTpl(
+            from: string,
+            to: string,
+            context: {},
+            templateOptions?: {},
+            copyOptions?: {}
+        ): void;
         move(from: string, to: string, options?: {}): void;
         exists(filepath: string): boolean;
         commit(callback: Callback): void;
@@ -81,10 +97,10 @@ declare namespace Generator {
 }
 
 declare class Generator extends EventEmitter {
-    constructor(args: string|string[], options: {});
+    constructor(args: string | string[], options: {});
 
     env: {
-        error(...e: Error[]): void
+        error(...e: Error[]): void;
     };
     args: {};
     resolved: string;
@@ -96,13 +112,17 @@ declare class Generator extends EventEmitter {
     log(message?: string, context?: any): void;
 
     argument(name: string, config: Generator.ArgumentConfig): this;
-    composeWith(namespace: string, options: { [name: string]: any }, settings?: { local: string, link: 'weak'|'strong' }): this;
+    composeWith(
+        namespace: string,
+        options: { [name: string]: any },
+        settings?: { local: string; link: "weak" | "strong" }
+    ): this;
     destinationPath(...path: string[]): string;
     destinationRoot(rootPath?: string): string;
     determineAppname(): string;
     option(name: string, config: Generator.OptionConfig): this;
     prompt(questions: Generator.Questions): Promise<Generator.Answers>;
-    registerTransformStream(stream: {}|Array<{}>): this;
+    registerTransformStream(stream: {} | Array<{}>): this;
     rootGeneratorName(): string;
     rootGeneratorVersion(): string;
     run(cb?: Callback): this;
@@ -130,7 +150,11 @@ declare class Generator extends EventEmitter {
      * @param options Options to pass to `dargs` as arguments
      * @param spawnOptions Options to pass `child_process.spawn`.
      */
-    bowerInstall(component?: string|string[], options?: object, spawnOptions?: object): void;
+    bowerInstall(
+        component?: string | string[],
+        options?: object,
+        spawnOptions?: object
+    ): void;
     /**
      * Runs `npm` and `bower`, in sequence, in the generated directory and prints a
      * message to let the user know.
@@ -158,7 +182,11 @@ declare class Generator extends EventEmitter {
      * @param options Options to pass to `dargs` as arguments
      * @param spawnOptions Options to pass `child_process.spawn`.
      */
-    npmInstall(pkgs?: string|string[], options?: object, spawnOptions?: object): void;
+    npmInstall(
+        pkgs?: string | string[],
+        options?: object,
+        spawnOptions?: object
+    ): void;
     /**
      * Combine package manager cmd line arguments and run the `install` command.
      *
@@ -171,7 +199,12 @@ declare class Generator extends EventEmitter {
      * @param spawnOptions Options to pass `child_process.spawn`. ref
      *                     https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
      */
-    scheduleInstallTask(installer: string, paths?: string|string[], options?: object, spawnOptions?: object): void;
+    scheduleInstallTask(
+        installer: string,
+        paths?: string | string[],
+        options?: object,
+        spawnOptions?: object
+    ): void;
     /**
      * Receives a list of `packages` and an `options` object to install through npm.
      *
@@ -181,7 +214,11 @@ declare class Generator extends EventEmitter {
      * @param options Options to pass to `dargs` as arguments
      * @param spawnOptions Options to pass `child_process.spawn`.
      */
-    yarnInstall(pkgs?: string|string[], options?: object, spawnOptions?: object): void;
+    yarnInstall(
+        pkgs?: string | string[],
+        options?: object,
+        spawnOptions?: object
+    ): void;
 
     // actions/user mixin
     readonly user: {
@@ -206,7 +243,7 @@ declare class Generator extends EventEmitter {
              *         get the information
              */
             username(): Promise<string>;
-        }
+        };
     };
 }
 export = Generator;

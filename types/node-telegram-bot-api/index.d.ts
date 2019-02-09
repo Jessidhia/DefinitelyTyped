@@ -10,10 +10,10 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import { Stream, Readable } from 'stream';
-import { ServerOptions } from 'https';
-import { Options } from 'request';
+import { EventEmitter } from "events";
+import { Stream, Readable } from "stream";
+import { ServerOptions } from "https";
+import { Options } from "request";
 
 declare namespace TelegramBot {
     interface TextListener {
@@ -28,45 +28,72 @@ declare namespace TelegramBot {
         callback(msg: Message): void;
     }
 
-    type ChatType = 'private' | 'group' | 'supergroup' | 'channel';
+    type ChatType = "private" | "group" | "supergroup" | "channel";
 
-    type ChatAction = 'typing' | 'upload_photo' | 'record_video' | 'upload_video' | 'record_audio' | 'upload_audio' | 'upload_document' | 'find_location' | 'record_video_note' | 'upload_video_note';
+    type ChatAction =
+        | "typing"
+        | "upload_photo"
+        | "record_video"
+        | "upload_video"
+        | "record_audio"
+        | "upload_audio"
+        | "upload_document"
+        | "find_location"
+        | "record_video_note"
+        | "upload_video_note";
 
-    type ChatMemberStatus = 'creator' | 'administrator' | 'member' | 'restricted' | 'left' | 'kicked';
+    type ChatMemberStatus =
+        | "creator"
+        | "administrator"
+        | "member"
+        | "restricted"
+        | "left"
+        | "kicked";
 
-    type DocumentMimeType = 'application/pdf' | 'application/zip';
+    type DocumentMimeType = "application/pdf" | "application/zip";
 
     type MessageType =
-        'text' |
-        'animation' |
-        'audio' |
-        'channel_chat_created' |
-        'contact' |
-        'delete_chat_photo' |
-        'document' |
-        'game' |
-        'group_chat_created' |
-        'invoice' |
-        'left_chat_member' |
-        'location' |
-        'migrate_from_chat_id' |
-        'migrate_to_chat_id' |
-        'new_chat_members' |
-        'new_chat_photo' |
-        'new_chat_title' |
-        'passport_data' |
-        'photo' |
-        'pinned_message' |
-        'sticker' |
-        'successful_payment' |
-        'supergroup_chat_created' |
-        'video' |
-        'video_note' |
-        'voice';
+        | "text"
+        | "animation"
+        | "audio"
+        | "channel_chat_created"
+        | "contact"
+        | "delete_chat_photo"
+        | "document"
+        | "game"
+        | "group_chat_created"
+        | "invoice"
+        | "left_chat_member"
+        | "location"
+        | "migrate_from_chat_id"
+        | "migrate_to_chat_id"
+        | "new_chat_members"
+        | "new_chat_photo"
+        | "new_chat_title"
+        | "passport_data"
+        | "photo"
+        | "pinned_message"
+        | "sticker"
+        | "successful_payment"
+        | "supergroup_chat_created"
+        | "video"
+        | "video_note"
+        | "voice";
 
-    type MessageEntityType = 'mention' | 'hashtag' | 'bot_command' | 'url' | 'email' | 'bold' | 'italic' | 'code' | 'pre' | 'text_link' | 'text_mention';
+    type MessageEntityType =
+        | "mention"
+        | "hashtag"
+        | "bot_command"
+        | "url"
+        | "email"
+        | "bold"
+        | "italic"
+        | "code"
+        | "pre"
+        | "text_link"
+        | "text_mention";
 
-    type ParseMode = 'Markdown' | 'HTML';
+    type ParseMode = "Markdown" | "HTML";
 
     /// METHODS OPTIONS ///
     interface PollingOptions {
@@ -121,7 +148,11 @@ declare namespace TelegramBot {
     interface SendBasicOptions {
         disable_notification?: boolean;
         reply_to_message_id?: number;
-        reply_markup?: InlineKeyboardMarkup | ReplyKeyboardMarkup | ReplyKeyboardRemove | ForceReply;
+        reply_markup?:
+            | InlineKeyboardMarkup
+            | ReplyKeyboardMarkup
+            | ReplyKeyboardRemove
+            | ForceReply;
     }
 
     interface SendMessageOptions extends SendBasicOptions {
@@ -419,11 +450,11 @@ declare namespace TelegramBot {
     }
 
     interface InputMediaPhoto extends InputMediaBase {
-        type: 'photo';
+        type: "photo";
     }
 
     interface InputMediaVideo extends InputMediaBase {
-        type: 'video';
+        type: "video";
         width?: number;
         height?: number;
         duration?: number;
@@ -576,7 +607,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultArticle extends InlineQueryResultBase {
-        type: 'article';
+        type: "article";
         title: string;
         input_message_content: InputMessageContent;
         url?: string;
@@ -588,7 +619,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultPhoto extends InlineQueryResultBase {
-        type: 'photo';
+        type: "photo";
         photo_url: string;
         thumb_url: string;
         photo_width?: number;
@@ -600,7 +631,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultGif extends InlineQueryResultBase {
-        type: 'gif';
+        type: "gif";
         gif_url: string;
         gif_width?: number;
         gif_height?: number;
@@ -612,7 +643,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultMpeg4Gif extends InlineQueryResultBase {
-        type: 'mpeg4_gif';
+        type: "mpeg4_gif";
         mpeg4_url: string;
         mpeg4_width?: number;
         mpeg4_height?: number;
@@ -624,7 +655,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultVideo extends InlineQueryResultBase {
-        type: 'video';
+        type: "video";
         video_url: string;
         mime_type: string;
         thumb_url: string;
@@ -638,7 +669,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultAudio extends InlineQueryResultBase {
-        type: 'audio';
+        type: "audio";
         audio_url: string;
         title: string;
         caption?: string;
@@ -648,7 +679,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultVoice extends InlineQueryResultBase {
-        type: 'voice';
+        type: "voice";
         voice_url: string;
         title: string;
         caption?: string;
@@ -657,7 +688,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultDocument extends InlineQueryResultBase {
-        type: 'document';
+        type: "document";
         title: string;
         caption?: string;
         document_url: string;
@@ -680,17 +711,17 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultLocation extends InlineQueryResultLocationBase {
-        type: 'location';
+        type: "location";
     }
 
     interface InlineQueryResultVenue extends InlineQueryResultLocationBase {
-        type: 'venue';
+        type: "venue";
         address: string;
         foursquare_id?: string;
     }
 
     interface InlineQueryResultContact extends InlineQueryResultBase {
-        type: 'contact';
+        type: "contact";
         phone_number: string;
         first_name: string;
         last_name?: string;
@@ -701,12 +732,12 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultGame extends InlineQueryResultBase {
-        type: 'game';
+        type: "game";
         game_short_name: string;
     }
 
     interface InlineQueryResultCachedPhoto extends InlineQueryResultBase {
-        type: 'photo';
+        type: "photo";
         photo_file_id: string;
         title?: string;
         description?: string;
@@ -715,7 +746,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedGif extends InlineQueryResultBase {
-        type: 'gif';
+        type: "gif";
         gif_file_id: string;
         title?: string;
         caption?: string;
@@ -723,7 +754,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedMpeg4Gif extends InlineQueryResultBase {
-        type: 'mpeg4_gif';
+        type: "mpeg4_gif";
         mpeg4_file_id: string;
         title?: string;
         caption?: string;
@@ -731,13 +762,13 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedSticker extends InlineQueryResultBase {
-        type: 'sticker';
+        type: "sticker";
         sticker_file_id: string;
         input_message_content?: InputMessageContent;
     }
 
     interface InlineQueryResultCachedDocument extends InlineQueryResultBase {
-        type: 'document';
+        type: "document";
         title: string;
         document_file_id: string;
         description?: string;
@@ -746,7 +777,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedVideo extends InlineQueryResultBase {
-        type: 'video';
+        type: "video";
         video_file_id: string;
         title: string;
         description?: string;
@@ -755,7 +786,7 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedVoice extends InlineQueryResultBase {
-        type: 'voice';
+        type: "voice";
         voice_file_id: string;
         title: string;
         caption?: string;
@@ -763,33 +794,33 @@ declare namespace TelegramBot {
     }
 
     interface InlineQueryResultCachedAudio extends InlineQueryResultBase {
-        type: 'audio';
+        type: "audio";
         audio_file_id: string;
         caption?: string;
         input_message_content?: InputMessageContent;
     }
 
     type InlineQueryResult =
-        InlineQueryResultCachedAudio |
-        InlineQueryResultCachedDocument |
-        InlineQueryResultCachedGif |
-        InlineQueryResultCachedMpeg4Gif |
-        InlineQueryResultCachedPhoto |
-        InlineQueryResultCachedSticker |
-        InlineQueryResultCachedVideo |
-        InlineQueryResultCachedVoice |
-        InlineQueryResultArticle |
-        InlineQueryResultAudio |
-        InlineQueryResultContact |
-        InlineQueryResultGame |
-        InlineQueryResultDocument |
-        InlineQueryResultGif |
-        InlineQueryResultLocation |
-        InlineQueryResultMpeg4Gif |
-        InlineQueryResultPhoto |
-        InlineQueryResultVenue |
-        InlineQueryResultVideo |
-        InlineQueryResultVoice;
+        | InlineQueryResultCachedAudio
+        | InlineQueryResultCachedDocument
+        | InlineQueryResultCachedGif
+        | InlineQueryResultCachedMpeg4Gif
+        | InlineQueryResultCachedPhoto
+        | InlineQueryResultCachedSticker
+        | InlineQueryResultCachedVideo
+        | InlineQueryResultCachedVoice
+        | InlineQueryResultArticle
+        | InlineQueryResultAudio
+        | InlineQueryResultContact
+        | InlineQueryResultGame
+        | InlineQueryResultDocument
+        | InlineQueryResultGif
+        | InlineQueryResultLocation
+        | InlineQueryResultMpeg4Gif
+        | InlineQueryResultPhoto
+        | InlineQueryResultVenue
+        | InlineQueryResultVideo
+        | InlineQueryResultVoice;
 
     type InputMessageContent = object;
 
@@ -938,86 +969,197 @@ declare class TelegramBot extends EventEmitter {
 
     getMe(): Promise<TelegramBot.User>;
 
-    setWebHook(url: string, options?: TelegramBot.SetWebHookOptions): Promise<any>;
+    setWebHook(
+        url: string,
+        options?: TelegramBot.SetWebHookOptions
+    ): Promise<any>;
 
     deleteWebHook(): Promise<boolean>;
 
     getWebHookInfo(): Promise<TelegramBot.WebhookInfo>;
 
-    getUpdates(options?: TelegramBot.GetUpdatesOptions): Promise<TelegramBot.Update[]>;
+    getUpdates(
+        options?: TelegramBot.GetUpdatesOptions
+    ): Promise<TelegramBot.Update[]>;
 
     processUpdate(update: TelegramBot.Update): void;
 
-    sendMessage(chatId: number | string, text: string, options?: TelegramBot.SendMessageOptions): Promise<TelegramBot.Message>;
+    sendMessage(
+        chatId: number | string,
+        text: string,
+        options?: TelegramBot.SendMessageOptions
+    ): Promise<TelegramBot.Message>;
 
-    answerInlineQuery(inlineQueryId: string, results: ReadonlyArray<TelegramBot.InlineQueryResult>, options?: TelegramBot.AnswerInlineQueryOptions): Promise<boolean>;
+    answerInlineQuery(
+        inlineQueryId: string,
+        results: ReadonlyArray<TelegramBot.InlineQueryResult>,
+        options?: TelegramBot.AnswerInlineQueryOptions
+    ): Promise<boolean>;
 
-    forwardMessage(chatId: number | string, fromChatId: number | string, messageId: number | string, options?: TelegramBot.ForwardMessageOptions): Promise<TelegramBot.Message>;
+    forwardMessage(
+        chatId: number | string,
+        fromChatId: number | string,
+        messageId: number | string,
+        options?: TelegramBot.ForwardMessageOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendPhoto(chatId: number | string, photo: string | Stream | Buffer, options?: TelegramBot.SendPhotoOptions): Promise<TelegramBot.Message>;
+    sendPhoto(
+        chatId: number | string,
+        photo: string | Stream | Buffer,
+        options?: TelegramBot.SendPhotoOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendAudio(chatId: number | string, audio: string | Stream | Buffer, options?: TelegramBot.SendAudioOptions): Promise<TelegramBot.Message>;
+    sendAudio(
+        chatId: number | string,
+        audio: string | Stream | Buffer,
+        options?: TelegramBot.SendAudioOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendDocument(chatId: number | string, doc: string | Stream | Buffer, options?: TelegramBot.SendDocumentOptions, fileOpts?: any): Promise<TelegramBot.Message>;
+    sendDocument(
+        chatId: number | string,
+        doc: string | Stream | Buffer,
+        options?: TelegramBot.SendDocumentOptions,
+        fileOpts?: any
+    ): Promise<TelegramBot.Message>;
 
-    sendMediaGroup(chatId: number | string, media: ReadonlyArray<TelegramBot.InputMedia>, options?: TelegramBot.SendMediaGroupOptions): Promise<TelegramBot.Message>;
+    sendMediaGroup(
+        chatId: number | string,
+        media: ReadonlyArray<TelegramBot.InputMedia>,
+        options?: TelegramBot.SendMediaGroupOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendSticker(chatId: number | string, sticker: string | Stream | Buffer, options?: TelegramBot.SendStickerOptions): Promise<TelegramBot.Message>;
+    sendSticker(
+        chatId: number | string,
+        sticker: string | Stream | Buffer,
+        options?: TelegramBot.SendStickerOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendVideo(chatId: number | string, video: string | Stream | Buffer, options?: TelegramBot.SendVideoOptions): Promise<TelegramBot.Message>;
+    sendVideo(
+        chatId: number | string,
+        video: string | Stream | Buffer,
+        options?: TelegramBot.SendVideoOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendVideoNote(chatId: number | string, videoNote: string | Stream | Buffer, options?: TelegramBot.SendVideoNoteOptions): Promise<TelegramBot.Message>;
+    sendVideoNote(
+        chatId: number | string,
+        videoNote: string | Stream | Buffer,
+        options?: TelegramBot.SendVideoNoteOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendVoice(chatId: number | string, voice: string | Stream | Buffer, options?: TelegramBot.SendVoiceOptions): Promise<TelegramBot.Message>;
+    sendVoice(
+        chatId: number | string,
+        voice: string | Stream | Buffer,
+        options?: TelegramBot.SendVoiceOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendChatAction(chatId: number | string, action: TelegramBot.ChatAction): Promise<boolean>;
+    sendChatAction(
+        chatId: number | string,
+        action: TelegramBot.ChatAction
+    ): Promise<boolean>;
 
     kickChatMember(chatId: number | string, userId: string): Promise<boolean>;
 
     unbanChatMember(chatId: number | string, userId: string): Promise<boolean>;
 
-    restrictChatMember(chatId: number | string, userId: string, options?: TelegramBot.RestrictChatMemberOptions): Promise<boolean>;
+    restrictChatMember(
+        chatId: number | string,
+        userId: string,
+        options?: TelegramBot.RestrictChatMemberOptions
+    ): Promise<boolean>;
 
-    promoteChatMember(chatId: number | string, userId: string, options?: TelegramBot.PromoteChatMemberOptions): Promise<boolean>;
+    promoteChatMember(
+        chatId: number | string,
+        userId: string,
+        options?: TelegramBot.PromoteChatMemberOptions
+    ): Promise<boolean>;
 
     exportChatInviteLink(chatId: number | string): Promise<string>;
 
-    setChatPhoto(chatId: number | string, photo: string | Stream | Buffer): Promise<boolean>;
+    setChatPhoto(
+        chatId: number | string,
+        photo: string | Stream | Buffer
+    ): Promise<boolean>;
 
     deleteChatPhoto(chatId: number | string): Promise<boolean>;
 
     setChatTitle(chatId: number | string, title: string): Promise<boolean>;
 
-    setChatDescription(chatId: number | string, description: string): Promise<boolean>;
+    setChatDescription(
+        chatId: number | string,
+        description: string
+    ): Promise<boolean>;
 
-    pinChatMessage(chatId: number | string, messageId: string): Promise<boolean>;
+    pinChatMessage(
+        chatId: number | string,
+        messageId: string
+    ): Promise<boolean>;
 
     unpinChatMessage(chatId: number | string): Promise<boolean>;
 
-    answerCallbackQuery(callbackQueryId: string, options?: Partial<TelegramBot.AnswerCallbackQueryOptions>): Promise<boolean>;
+    answerCallbackQuery(
+        callbackQueryId: string,
+        options?: Partial<TelegramBot.AnswerCallbackQueryOptions>
+    ): Promise<boolean>;
 
     /**
      * @deprecated since version 0.30.0
      */
-    answerCallbackQuery(options?: TelegramBot.AnswerCallbackQueryOptions): Promise<boolean>;
+    answerCallbackQuery(
+        options?: TelegramBot.AnswerCallbackQueryOptions
+    ): Promise<boolean>;
 
-    editMessageText(text: string, options?: TelegramBot.EditMessageTextOptions): Promise<TelegramBot.Message | boolean>;
+    editMessageText(
+        text: string,
+        options?: TelegramBot.EditMessageTextOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    editMessageCaption(caption: string, options?: TelegramBot.EditMessageCaptionOptions): Promise<TelegramBot.Message | boolean>;
+    editMessageCaption(
+        caption: string,
+        options?: TelegramBot.EditMessageCaptionOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    editMessageReplyMarkup(replyMarkup: TelegramBot.InlineKeyboardMarkup, options?: TelegramBot.EditMessageReplyMarkupOptions): Promise<TelegramBot.Message | boolean>;
+    editMessageReplyMarkup(
+        replyMarkup: TelegramBot.InlineKeyboardMarkup,
+        options?: TelegramBot.EditMessageReplyMarkupOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    getUserProfilePhotos(userId: number | string, options?: TelegramBot.GetUserProfilePhotosOptions): Promise<TelegramBot.UserProfilePhotos>;
+    getUserProfilePhotos(
+        userId: number | string,
+        options?: TelegramBot.GetUserProfilePhotosOptions
+    ): Promise<TelegramBot.UserProfilePhotos>;
 
-    sendLocation(chatId: number | string, latitude: number, longitude: number, options?: TelegramBot.SendLocationOptions): Promise<TelegramBot.Message>;
+    sendLocation(
+        chatId: number | string,
+        latitude: number,
+        longitude: number,
+        options?: TelegramBot.SendLocationOptions
+    ): Promise<TelegramBot.Message>;
 
-    editMessageLiveLocation(latitude: number, longitude: number, options?: TelegramBot.EditMessageLiveLocationOptions): Promise<TelegramBot.Message | boolean>;
+    editMessageLiveLocation(
+        latitude: number,
+        longitude: number,
+        options?: TelegramBot.EditMessageLiveLocationOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    stopMessageLiveLocation(options?: TelegramBot.StopMessageLiveLocationOptions): Promise<TelegramBot.Message | boolean>;
+    stopMessageLiveLocation(
+        options?: TelegramBot.StopMessageLiveLocationOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    sendVenue(chatId: number | string, latitude: number, longitude: number, title: string, address: string, options?: TelegramBot.SendVenueOptions): Promise<TelegramBot.Message>;
+    sendVenue(
+        chatId: number | string,
+        latitude: number,
+        longitude: number,
+        title: string,
+        address: string,
+        options?: TelegramBot.SendVenueOptions
+    ): Promise<TelegramBot.Message>;
 
-    sendContact(chatId: number | string, phoneNumber: string, firstName: string, options?: TelegramBot.SendContactOptions): Promise<TelegramBot.Message>;
+    sendContact(
+        chatId: number | string,
+        phoneNumber: string,
+        firstName: string,
+        options?: TelegramBot.SendContactOptions
+    ): Promise<TelegramBot.Message>;
 
     getFile(fileId: string): Promise<TelegramBot.File>;
 
@@ -1027,278 +1169,545 @@ declare class TelegramBot extends EventEmitter {
 
     downloadFile(fileId: string, downloadDir: string): Promise<string>;
 
-    onText(regexp: RegExp, callback: ((msg: TelegramBot.Message, match: RegExpExecArray | null) => void)): void;
+    onText(
+        regexp: RegExp,
+        callback: (
+            msg: TelegramBot.Message,
+            match: RegExpExecArray | null
+        ) => void
+    ): void;
 
     removeTextListener(regexp: RegExp): TelegramBot.TextListener | null;
 
-    onReplyToMessage(chatId: number | string, messageId: number | string, callback: ((msg: TelegramBot.Message) => void)): number;
+    onReplyToMessage(
+        chatId: number | string,
+        messageId: number | string,
+        callback: (msg: TelegramBot.Message) => void
+    ): number;
 
     removeReplyListener(replyListenerId: number): TelegramBot.ReplyListener;
 
     getChat(chatId: number | string): Promise<TelegramBot.Chat>;
 
-    getChatAdministrators(chatId: number | string): Promise<TelegramBot.ChatMember[]>;
+    getChatAdministrators(
+        chatId: number | string
+    ): Promise<TelegramBot.ChatMember[]>;
 
     getChatMembersCount(chatId: number | string): Promise<number>;
 
-    getChatMember(chatId: number | string, userId: string): Promise<TelegramBot.ChatMember>;
+    getChatMember(
+        chatId: number | string,
+        userId: string
+    ): Promise<TelegramBot.ChatMember>;
 
     leaveChat(chatId: number | string): Promise<boolean>;
 
-    setChatStickerSet(chatId: number | string, stickerSetName: string): Promise<boolean>;
+    setChatStickerSet(
+        chatId: number | string,
+        stickerSetName: string
+    ): Promise<boolean>;
 
     deleteChatStickerSet(chatId: number | string): Promise<boolean>;
 
-    sendGame(chatId: number | string, gameShortName: string, options?: TelegramBot.SendGameOptions): Promise<TelegramBot.Message>;
+    sendGame(
+        chatId: number | string,
+        gameShortName: string,
+        options?: TelegramBot.SendGameOptions
+    ): Promise<TelegramBot.Message>;
 
-    setGameScore(userId: string, score: number, options?: TelegramBot.SetGameScoreOptions): Promise<TelegramBot.Message | boolean>;
+    setGameScore(
+        userId: string,
+        score: number,
+        options?: TelegramBot.SetGameScoreOptions
+    ): Promise<TelegramBot.Message | boolean>;
 
-    getGameHighScores(userId: string, options?: TelegramBot.GetGameHighScoresOptions): Promise<TelegramBot.GameHighScore[]>;
+    getGameHighScores(
+        userId: string,
+        options?: TelegramBot.GetGameHighScoresOptions
+    ): Promise<TelegramBot.GameHighScore[]>;
 
-    deleteMessage(chatId: number | string, messageId: string, options?: any): Promise<boolean>;
+    deleteMessage(
+        chatId: number | string,
+        messageId: string,
+        options?: any
+    ): Promise<boolean>;
 
-    sendInvoice(chatId: number | string, title: string, description: string, payload: string, providerToken: string, startParameter: string, currency: string,
-                prices: ReadonlyArray<TelegramBot.LabeledPrice>, options?: TelegramBot.SendInvoiceOptions): Promise<TelegramBot.Message>;
+    sendInvoice(
+        chatId: number | string,
+        title: string,
+        description: string,
+        payload: string,
+        providerToken: string,
+        startParameter: string,
+        currency: string,
+        prices: ReadonlyArray<TelegramBot.LabeledPrice>,
+        options?: TelegramBot.SendInvoiceOptions
+    ): Promise<TelegramBot.Message>;
 
-    answerShippingQuery(shippingQueryId: string, ok: boolean, options?: TelegramBot.AnswerShippingQueryOptions): Promise<boolean>;
+    answerShippingQuery(
+        shippingQueryId: string,
+        ok: boolean,
+        options?: TelegramBot.AnswerShippingQueryOptions
+    ): Promise<boolean>;
 
-    answerPreCheckoutQuery(preCheckoutQueryId: string, ok: boolean, options?: TelegramBot.AnswerPreCheckoutQueryOptions): Promise<boolean>;
-
-    addListener(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    addListener(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    addListener(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    addListener(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    answerPreCheckoutQuery(
+        preCheckoutQueryId: string,
+        ok: boolean,
+        options?: TelegramBot.AnswerPreCheckoutQueryOptions
+    ): Promise<boolean>;
 
     addListener(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    addListener(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    addListener(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    addListener(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    addListener(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    addListener(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    addListener(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    addListener(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    addListener(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    addListener(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    on(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    on(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    on(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    on(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    addListener(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     on(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    on(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    on(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    on(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    on(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    on(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    on(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    on(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    on(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    on(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    once(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    once(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    once(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    once(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    on(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     once(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    once(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    once(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    once(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    once(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    once(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    once(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    once(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    once(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    once(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    prependListener(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    prependListener(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    prependListener(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    prependListener(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    once(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     prependListener(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    prependListener(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    prependListener(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    prependListener(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    prependListener(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    prependListener(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    prependListener(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    prependListener(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    prependListener(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    prependListener(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    prependOnceListener(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    prependOnceListener(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    prependOnceListener(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    prependOnceListener(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    prependListener(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     prependOnceListener(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    prependOnceListener(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    prependOnceListener(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    prependOnceListener(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    prependOnceListener(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    prependOnceListener(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    prependOnceListener(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    prependOnceListener(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    prependOnceListener(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    prependOnceListener(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    removeListener(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    removeListener(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    removeListener(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    removeListener(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    prependOnceListener(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     removeListener(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    removeListener(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    removeListener(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    removeListener(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    removeListener(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    removeListener(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    removeListener(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    removeListener(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    removeListener(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    removeListener(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
-
-    off(event: TelegramBot.MessageType | 'message', listener: (message: TelegramBot.Message, metadata: TelegramBot.Metadata) => void): this;
-
-    off(event: 'callback_query', listener: (query: TelegramBot.CallbackQuery) => void): this;
-
-    off(event: 'inline_query', listener: (query: TelegramBot.InlineQuery) => void): this;
-
-    off(event: 'chosen_inline_result', listener: (result: TelegramBot.ChosenInlineResult) => void): this;
+    removeListener(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     off(
-        event: 'channel_post' | 'edited_message' | 'edited_message_text' | 'edited_message_caption' | 'edited_channel_post' | 'edited_channel_post_text' | 'edited_channel_post_caption',
+        event: TelegramBot.MessageType | "message",
+        listener: (
+            message: TelegramBot.Message,
+            metadata: TelegramBot.Metadata
+        ) => void
+    ): this;
+
+    off(
+        event: "callback_query",
+        listener: (query: TelegramBot.CallbackQuery) => void
+    ): this;
+
+    off(
+        event: "inline_query",
+        listener: (query: TelegramBot.InlineQuery) => void
+    ): this;
+
+    off(
+        event: "chosen_inline_result",
+        listener: (result: TelegramBot.ChosenInlineResult) => void
+    ): this;
+
+    off(
+        event:
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption",
         listener: (message: TelegramBot.Message) => void
     ): this;
 
-    off(event: 'shipping_query', listener: (query: TelegramBot.ShippingQuery) => void): this;
+    off(
+        event: "shipping_query",
+        listener: (query: TelegramBot.ShippingQuery) => void
+    ): this;
 
-    off(event: 'pre_checkout_query', listener: (query: TelegramBot.PreCheckoutQuery) => void): this;
+    off(
+        event: "pre_checkout_query",
+        listener: (query: TelegramBot.PreCheckoutQuery) => void
+    ): this;
 
-    off(event: 'polling_error' | 'webhook_error' | 'error', listener: (error: Error) => void): this;
+    off(
+        event: "polling_error" | "webhook_error" | "error",
+        listener: (error: Error) => void
+    ): this;
 
     removeAllListeners(
         event:
-            TelegramBot.MessageType |
-            'message' |
-            'callback_query' |
-            'inline_query' |
-            'chosen_inline_result' |
-            'channel_post' |
-            'edited_message' |
-            'edited_message_text' |
-            'edited_message_caption' |
-            'edited_channel_post' |
-            'edited_channel_post_text' |
-            'edited_channel_post_caption' |
-            'shipping_query' |
-            'pre_checkout_query' |
-            'polling_error' |
-            'webhook_error' |
-            'error'
+            | TelegramBot.MessageType
+            | "message"
+            | "callback_query"
+            | "inline_query"
+            | "chosen_inline_result"
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption"
+            | "shipping_query"
+            | "pre_checkout_query"
+            | "polling_error"
+            | "webhook_error"
+            | "error"
     ): this;
 
     listeners(
         event:
-            TelegramBot.MessageType |
-            'message' |
-            'callback_query' |
-            'inline_query' |
-            'chosen_inline_result' |
-            'channel_post' |
-            'edited_message' |
-            'edited_message_text' |
-            'edited_message_caption' |
-            'edited_channel_post' |
-            'edited_channel_post_text' |
-            'edited_channel_post_caption' |
-            'shipping_query' |
-            'pre_checkout_query' |
-            'polling_error' |
-            'webhook_error' |
-            'error'
+            | TelegramBot.MessageType
+            | "message"
+            | "callback_query"
+            | "inline_query"
+            | "chosen_inline_result"
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption"
+            | "shipping_query"
+            | "pre_checkout_query"
+            | "polling_error"
+            | "webhook_error"
+            | "error"
     ): Array<(data: any, metadata?: TelegramBot.Metadata) => void>;
 
     rawListeners(
         event:
-            TelegramBot.MessageType |
-            'message' |
-            'callback_query' |
-            'inline_query' |
-            'chosen_inline_result' |
-            'channel_post' |
-            'edited_message' |
-            'edited_message_text' |
-            'edited_message_caption' |
-            'edited_channel_post' |
-            'edited_channel_post_text' |
-            'edited_channel_post_caption' |
-            'shipping_query' |
-            'pre_checkout_query' |
-            'polling_error' |
-            'webhook_error' |
-            'error'
+            | TelegramBot.MessageType
+            | "message"
+            | "callback_query"
+            | "inline_query"
+            | "chosen_inline_result"
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption"
+            | "shipping_query"
+            | "pre_checkout_query"
+            | "polling_error"
+            | "webhook_error"
+            | "error"
     ): Array<(data: any, metadata?: TelegramBot.Metadata) => void>;
 
     eventNames(): Array<
-        TelegramBot.MessageType |
-        'message' |
-        'callback_query' |
-        'inline_query' |
-        'chosen_inline_result' |
-        'channel_post' |
-        'edited_message' |
-        'edited_message_text' |
-        'edited_message_caption' |
-        'edited_channel_post' |
-        'edited_channel_post_text' |
-        'edited_channel_post_caption' |
-        'shipping_query' |
-        'pre_checkout_query' |
-        'polling_error' |
-        'webhook_error' |
-        'error'
+        | TelegramBot.MessageType
+        | "message"
+        | "callback_query"
+        | "inline_query"
+        | "chosen_inline_result"
+        | "channel_post"
+        | "edited_message"
+        | "edited_message_text"
+        | "edited_message_caption"
+        | "edited_channel_post"
+        | "edited_channel_post_text"
+        | "edited_channel_post_caption"
+        | "shipping_query"
+        | "pre_checkout_query"
+        | "polling_error"
+        | "webhook_error"
+        | "error"
     >;
 
     listenerCount(
         event:
-            TelegramBot.MessageType |
-            'message' |
-            'callback_query' |
-            'inline_query' |
-            'chosen_inline_result' |
-            'channel_post' |
-            'edited_message' |
-            'edited_message_text' |
-            'edited_message_caption' |
-            'edited_channel_post' |
-            'edited_channel_post_text' |
-            'edited_channel_post_caption' |
-            'shipping_query' |
-            'pre_checkout_query' |
-            'polling_error' |
-            'webhook_error' |
-            'error'
+            | TelegramBot.MessageType
+            | "message"
+            | "callback_query"
+            | "inline_query"
+            | "chosen_inline_result"
+            | "channel_post"
+            | "edited_message"
+            | "edited_message_text"
+            | "edited_message_caption"
+            | "edited_channel_post"
+            | "edited_channel_post_text"
+            | "edited_channel_post_caption"
+            | "shipping_query"
+            | "pre_checkout_query"
+            | "polling_error"
+            | "webhook_error"
+            | "error"
     ): number;
 }
 

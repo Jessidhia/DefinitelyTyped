@@ -19,11 +19,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-export * from 'react-native-maps';
-export { default as MapView } from 'react-native-maps';
+export * from "react-native-maps";
+export { default as MapView } from "react-native-maps";
 
-import { EventSubscription } from 'fbemitter';
-import { Component, ComponentClass, Ref, ComponentType } from 'react';
+import { EventSubscription } from "fbemitter";
+import { Component, ComponentClass, Ref, ComponentType } from "react";
 import {
     ColorPropType,
     ImageRequireSource,
@@ -34,20 +34,27 @@ import {
     ViewStyle,
     Permission,
     StyleProp
-} from 'react-native';
+} from "react-native";
 
 export type Axis = number;
-export type BarCodeScannedCallback = (result: { type: string; data: string; }) => void;
+export type BarCodeScannedCallback = (result: {
+    type: string;
+    data: string;
+}) => void;
 export type Md5 = string;
-export type Orientation = 'portrait' | 'landscape';
+export type Orientation = "portrait" | "landscape";
 export type RequireSource = ImageRequireSource;
-export type ResizeModeContain = 'contain';
-export type ResizeModeCover = 'cover';
-export type ResizeModeStretch = 'stretch';
+export type ResizeModeContain = "contain";
+export type ResizeModeCover = "cover";
+export type ResizeModeStretch = "stretch";
 export type URISource = ImageURISource;
 
-export interface HashMap { [key: string]: any; }
-export interface StringHashMap { [key: string]: string; }
+export interface HashMap {
+    [key: string]: any;
+}
+export interface StringHashMap {
+    [key: string]: string;
+}
 
 /** Access the device accelerometer sensor(s) to respond to changes in acceleration in 3d space. */
 export namespace Accelerometer {
@@ -62,7 +69,9 @@ export namespace Accelerometer {
      * @param listener A callback that is invoked when an accelerometer update is available. When invoked, the listener is provided a single argumument that is an object containing keys x, y, z.
      * @returns An EventSubscription object that you can call remove() on when you would like to unsubscribe the listener.
      */
-    function addListener(listener: (obj: AccelerometerObject) => any): EventSubscription;
+    function addListener(
+        listener: (obj: AccelerometerObject) => any
+    ): EventSubscription;
 
     /** Remove all listeners. */
     function removeAllListeners(): void;
@@ -78,13 +87,13 @@ export namespace Accelerometer {
  * Admob
  */
 export type AdMobBannerSize =
-    | 'banner'
-    | 'largeBanner'
-    | 'mediumRectangle'
-    | 'fullBanner'
-    | 'leaderboard'
-    | 'smartBannerPortrait'
-    | 'smartBannerLandscape';
+    | "banner"
+    | "largeBanner"
+    | "mediumRectangle"
+    | "fullBanner"
+    | "leaderboard"
+    | "smartBannerPortrait"
+    | "smartBannerLandscape";
 export interface AdMobBannerProperties extends ViewProps {
     bannerSize?: AdMobBannerSize;
     adUnitID?: string;
@@ -97,7 +106,7 @@ export interface AdMobBannerProperties extends ViewProps {
     adViewWillLeaveApplication?(): void;
 }
 
-export class AdMobBanner extends Component<AdMobBannerProperties> { }
+export class AdMobBanner extends Component<AdMobBannerProperties> {}
 export interface AdMobAppEvent {
     name: string;
     info: string;
@@ -105,14 +114,16 @@ export interface AdMobAppEvent {
 export interface PublisherBannerProperties extends AdMobBannerProperties {
     onAdMobDispatchAppEvent?(event: AdMobAppEvent): void;
 }
-export class PublisherBanner extends Component<PublisherBannerProperties> { }
+export class PublisherBanner extends Component<PublisherBannerProperties> {}
 
 export type AdMobInterstitialEmptyEvent =
-    | 'interstitialDidLoad'
-    | 'interstitialDidOpen'
-    | 'interstitialDidClose'
-    | 'interstitialWillLeaveApplication';
-export type AdMobInterstitialEvent = AdMobInterstitialEmptyEvent | 'interstitialDidFailToLoad';
+    | "interstitialDidLoad"
+    | "interstitialDidOpen"
+    | "interstitialDidClose"
+    | "interstitialWillLeaveApplication";
+export type AdMobInterstitialEvent =
+    | AdMobInterstitialEmptyEvent
+    | "interstitialDidFailToLoad";
 export namespace AdMobInterstitial {
     function setAdUnitID(id: string): void;
     function setTestDeviceID(id: string): void;
@@ -120,20 +131,35 @@ export namespace AdMobInterstitial {
     function showAdAsync(): Promise<void>;
     function dismissAdAsync(): Promise<void>;
     function getIsReadyAsync(): Promise<boolean>;
-    function addEventListener(event: 'interstitialDidFailToLoad', handler: (error: string) => void): void;
-    function addEventListener(event: AdMobInterstitialEmptyEvent, handler: () => void): void;
-    function removeEventListener(event: 'interstitialDidFailToLoad', handler: (error: string) => void): void;
-    function removeEventListener(event: AdMobInterstitialEmptyEvent, handler: () => void): void;
+    function addEventListener(
+        event: "interstitialDidFailToLoad",
+        handler: (error: string) => void
+    ): void;
+    function addEventListener(
+        event: AdMobInterstitialEmptyEvent,
+        handler: () => void
+    ): void;
+    function removeEventListener(
+        event: "interstitialDidFailToLoad",
+        handler: (error: string) => void
+    ): void;
+    function removeEventListener(
+        event: AdMobInterstitialEmptyEvent,
+        handler: () => void
+    ): void;
     function removeAllListeners(): void;
 }
 
 export type AdMobRewardedEmptyEvent =
-    | 'rewardedVideoDidLoad'
-    | 'rewardedVideoDidOpen'
-    | 'rewardedVideoDidStart'
-    | 'rewardedVideoDidClose'
-    | 'rewardedVideoWillLeaveApplication';
-export type AdMobRewardedEvent = AdMobRewardedEmptyEvent | 'rewardedVideoDidRewardUser' | 'rewardedVideoDidFailToLoad';
+    | "rewardedVideoDidLoad"
+    | "rewardedVideoDidOpen"
+    | "rewardedVideoDidStart"
+    | "rewardedVideoDidClose"
+    | "rewardedVideoWillLeaveApplication";
+export type AdMobRewardedEvent =
+    | AdMobRewardedEmptyEvent
+    | "rewardedVideoDidRewardUser"
+    | "rewardedVideoDidFailToLoad";
 export namespace AdMobRewarded {
     function setAdUnitID(id: string): void;
     function setTestDeviceID(id: string): void;
@@ -141,12 +167,30 @@ export namespace AdMobRewarded {
     function showAdAsync(): Promise<void>;
     function dismissAdAsync(): Promise<void>;
     function getIsReadyAsync(): Promise<boolean>;
-    function addEventListener(event: 'rewardedVideoDidRewardUser', handler: (type: string, amount: number) => void): void;
-    function addEventListener(event: 'rewardedVideoDidFailToLoad', handler: (error: string) => void): void;
-    function addEventListener(event: AdMobRewardedEmptyEvent, handler: () => void): void;
-    function removeEventListener(event: 'rewardedVideoDidRewardUser', handler: (type: string, amount: number) => void): void;
-    function removeEventListener(event: 'rewardedVideoDidFailToLoad', handler: (error: string) => void): void;
-    function removeEventListener(event: AdMobRewardedEmptyEvent, handler: () => void): void;
+    function addEventListener(
+        event: "rewardedVideoDidRewardUser",
+        handler: (type: string, amount: number) => void
+    ): void;
+    function addEventListener(
+        event: "rewardedVideoDidFailToLoad",
+        handler: (error: string) => void
+    ): void;
+    function addEventListener(
+        event: AdMobRewardedEmptyEvent,
+        handler: () => void
+    ): void;
+    function removeEventListener(
+        event: "rewardedVideoDidRewardUser",
+        handler: (type: string, amount: number) => void
+    ): void;
+    function removeEventListener(
+        event: "rewardedVideoDidFailToLoad",
+        handler: (error: string) => void
+    ): void;
+    function removeEventListener(
+        event: AdMobRewardedEmptyEvent,
+        handler: () => void
+    ): void;
     function removeAllListeners(): void;
 }
 
@@ -174,7 +218,6 @@ export namespace Amplitude {
     /** Log an event to Amplitude with custom properties. */
     function logEventWithProperties(
         eventName: string,
-
         /** A map of custom properties. */
         properties: HashMap
     ): void;
@@ -183,7 +226,6 @@ export namespace Amplitude {
     function setGroup(
         /** The group name, e.g. `'sports'`. */
         groupType: string,
-
         /** An array of group names, e.g. `['tennis', 'soccer']`. */
         groupNames: string[]
     ): void;
@@ -207,12 +249,19 @@ export interface AppLoadingProps {
  *
  * This is incredibly useful to let you download and cache fonts, logo and icon images and other assets that you want to be sure the user has on their device for an optimal experience before rendering they start using the app.
  */
-export class AppLoading extends Component<AppLoadingProps> { }
+export class AppLoading extends Component<AppLoadingProps> {}
 // #endregion AppLoading
 
 /** This module provides an interface to Expo’s asset system. An asset is any file that lives alongside the source code of your app that the app needs at runtime. Examples include images, fonts and sounds. Expo’s asset system integrates with React Native’s, so that you can refer to files with require('path/to/file'). This is how you refer to static image files in React Native for use in an Image component, for example. */
 export class Asset {
-    constructor({ name, type, hash, uri, width, height }: {
+    constructor({
+        name,
+        type,
+        hash,
+        uri,
+        width,
+        height
+    }: {
         name: string;
         type: string;
         hash: string;
@@ -244,7 +293,7 @@ export class Asset {
 
     downloading: boolean;
     downloaded: boolean;
-    downloadCallbacks: Array<{ resolve: () => any, reject: (e?: any) => any }>;
+    downloadCallbacks: Array<{ resolve: () => any; reject: (e?: any) => any }>;
 
     /** Downloads the asset data to a local file in the device’s cache directory. Once the returned promise is fulfilled without error, the localUri field of this asset points to a local file containing the asset data. The asset is only downloaded if an up-to-date local file for the asset isn’t already present due to an earlier download. */
     downloadAsync(): Promise<void>;
@@ -310,40 +359,40 @@ export namespace Audio {
     const RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC_ELD: 5;
     const RECORDING_OPTION_ANDROID_AUDIO_ENCODER_VORBIS: 6;
 
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM: 'lpcm';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AC3: 'ac-3';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_60958AC3: 'cac3';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLEIMA4: 'ima4';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC: 'aac ';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4CELP: 'celp';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4HVXC: 'hvxc';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4TWINVQ: 'twvq';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE3: 'MAC3';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE6: 'MAC6';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ULAW: 'ulaw';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ALAW: 'alaw';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN: 'QDMC';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN2: 'QDM2';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QUALCOMM: 'Qclp';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER1: '.mp1';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER2: '.mp2';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER3: '.mp3';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLELOSSLESS: 'alac';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE: 'aach';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_LD: 'aacl';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD: 'aace';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_SBR: 'aacf';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_V2: 'aacg';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE_V2: 'aacp';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_SPATIAL: 'aacs';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR: 'samr';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR_WB: 'sawb';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AUDIBLE: 'AUDB';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ILBC: 'ilbc';
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM: "lpcm";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AC3: "ac-3";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_60958AC3: "cac3";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLEIMA4: "ima4";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC: "aac ";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4CELP: "celp";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4HVXC: "hvxc";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4TWINVQ: "twvq";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE3: "MAC3";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE6: "MAC6";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ULAW: "ulaw";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ALAW: "alaw";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN: "QDMC";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN2: "QDM2";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_QUALCOMM: "Qclp";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER1: ".mp1";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER2: ".mp2";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER3: ".mp3";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLELOSSLESS: "alac";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE: "aach";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_LD: "aacl";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD: "aace";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_SBR: "aacf";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_V2: "aacg";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE_V2: "aacp";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_SPATIAL: "aacs";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR: "samr";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR_WB: "sawb";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AUDIBLE: "AUDB";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ILBC: "ilbc";
     const RECORDING_OPTION_IOS_OUTPUT_FORMAT_DVIINTELIMA: 0x6d730011;
     const RECORDING_OPTION_IOS_OUTPUT_FORMAT_MICROSOFTGSM: 0x6d730031;
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AES3: 'aes3';
-    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ENHANCEDAC3: 'ec-3';
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_AES3: "aes3";
+    const RECORDING_OPTION_IOS_OUTPUT_FORMAT_ENHANCEDAC3: "ec-3";
 
     const RECORDING_OPTION_IOS_AUDIO_QUALITY_MIN: 0;
     const RECORDING_OPTION_IOS_AUDIO_QUALITY_LOW: 0x20;
@@ -356,18 +405,21 @@ export namespace Audio {
     const RECORDING_OPTION_IOS_BIT_RATE_STRATEGY_VARIABLE_CONSTRAINED: 2;
     const RECORDING_OPTION_IOS_BIT_RATE_STRATEGY_VARIABLE: 3;
 
-    type RecordingStatus = {
-        canRecord: false,
-        isDoneRecording: false
-    } | {
-        canRecord: true,
-        isRecording: boolean,
-        durationMillis: number
-    } | {
-        canRecord: false,
-        isDoneRecording: true,
-        durationMillis: number
-    };
+    type RecordingStatus =
+        | {
+              canRecord: false;
+              isDoneRecording: false;
+          }
+        | {
+              canRecord: true;
+              isRecording: boolean;
+              durationMillis: number;
+          }
+        | {
+              canRecord: false;
+              isDoneRecording: true;
+              durationMillis: number;
+          };
 
     const RECORDING_OPTIONS_PRESET_HIGH_QUALITY: RecordingOptions;
     const RECORDING_OPTIONS_PRESET_LOW_QUALITY: RecordingOptions;
@@ -437,16 +489,13 @@ export namespace Audio {
              * - An `Expo.Asset` object for an audio file asset.
              */
             source: PlaybackSource,
-
             /** The initial intended PlaybackStatusToSet of the sound, whose values will override the default initial playback status. This value defaults to `{}` if no parameter is passed. */
             initialStatus?: PlaybackStatusToSet,
-
             /** A function taking a single parameter PlaybackStatus. This value defaults to `null` if no parameter is passed. */
             onPlaybackStatusUpdate?: ((status: PlaybackStatus) => void) | null,
-
             /** If set to true, the system will attempt to download the resource to the device before loading. This value defaults to `true`. Note that at the moment, this will only work for `source`s of the form `require('path/to/file')` or `Asset` objects. */
             downloadFirst?: boolean
-        ): Promise<{ sound: Sound, status: PlaybackStatus }>;
+        ): Promise<{ sound: Sound; status: PlaybackStatus }>;
     }
 
     class Recording {
@@ -456,7 +505,9 @@ export namespace Audio {
         getStatusAsync(): Promise<RecordingStatus>;
 
         /** Sets a function to be called regularly with the `status` of the `Recording`. */
-        setOnRecordingStatusUpdate(onRecordingStatusUpdate?: (status: RecordingStatus) => void): void;
+        setOnRecordingStatusUpdate(
+            onRecordingStatusUpdate?: (status: RecordingStatus) => void
+        ): void;
 
         /** Sets the interval with which onRecordingStatusUpdate is called while the recording can record. This value defaults to 500 milliseconds. */
         setProgressUpdateInterval(progressUpdateIntervalMillis: number): void;
@@ -497,10 +548,9 @@ export namespace Audio {
         createNewLoadedSound(
             /** The initial intended `PlaybackStatusToSet` of the sound, whose values will override the default initial playback status. This value defaults to `{}` if no parameter is passed. */
             initialStatus?: PlaybackStatusToSet,
-
             /** A function taking a single parameter `PlaybackStatus`. This value defaults to `null` if no parameter is passed. */
             onPlaybackStatusUpdate?: ((status: PlaybackStatus) => void) | null
-        ): Promise<{ sound: Sound, status: PlaybackStatus }>;
+        ): Promise<{ sound: Sound; status: PlaybackStatus }>;
     }
 }
 
@@ -508,22 +558,29 @@ export namespace Audio {
  * AuthSession
  */
 export namespace AuthSession {
-    type StartAsyncResponse = {
-        type: 'cancel';
-    } | {
-        type: 'dismissed';
-    } | {
-        type: 'success';
-        params: HashMap;
-        event: HashMap;
-    } | {
-        type: 'error';
-        params: HashMap;
-        errorCode: string;
-        event: HashMap;
-    };
+    type StartAsyncResponse =
+        | {
+              type: "cancel";
+          }
+        | {
+              type: "dismissed";
+          }
+        | {
+              type: "success";
+              params: HashMap;
+              event: HashMap;
+          }
+        | {
+              type: "error";
+              params: HashMap;
+              errorCode: string;
+              event: HashMap;
+          };
 
-    function startAsync(options: { authUrl: string; returnUrl?: string; }): Promise<StartAsyncResponse>;
+    function startAsync(options: {
+        authUrl: string;
+        returnUrl?: string;
+    }): Promise<StartAsyncResponse>;
     function dismiss(): void;
     function getRedirectUrl(): string;
 }
@@ -532,32 +589,34 @@ export namespace AuthSession {
 /**
  * AV
  */
-export type PlaybackStatus = {
-    isLoaded: false;
-    androidImplementation?: string;
+export type PlaybackStatus =
+    | {
+          isLoaded: false;
+          androidImplementation?: string;
 
-    /** Populated exactly once when an error forces the object to unload. */
-    error?: string;
-} | {
-    isLoaded: true;
-    androidImplementation?: string;
-    uri: string;
-    progressUpdateIntervalMillis: number;
-    durationMillis?: number;
-    positionMillis: number;
-    playableDurationMillis?: number;
-    shouldPlay: boolean;
-    isPlaying: boolean;
-    isBuffering: boolean;
-    rate: number;
-    shouldCorrectPitch: boolean;
-    volume: number;
-    isMuted: boolean;
-    isLooping: boolean;
+          /** Populated exactly once when an error forces the object to unload. */
+          error?: string;
+      }
+    | {
+          isLoaded: true;
+          androidImplementation?: string;
+          uri: string;
+          progressUpdateIntervalMillis: number;
+          durationMillis?: number;
+          positionMillis: number;
+          playableDurationMillis?: number;
+          shouldPlay: boolean;
+          isPlaying: boolean;
+          isBuffering: boolean;
+          rate: number;
+          shouldCorrectPitch: boolean;
+          volume: number;
+          isMuted: boolean;
+          isLooping: boolean;
 
-    /** True exactly once when the track plays to finish. */
-    didJustFinish: boolean;
-};
+          /** True exactly once when the track plays to finish. */
+          didJustFinish: boolean;
+      };
 
 export interface PlaybackStatusToSet {
     androidImplementation?: string;
@@ -596,10 +655,8 @@ export class PlaybackObject {
          * - An `Expo.Asset object` for a media file asset.
          */
         source: PlaybackSource,
-
         /** The initial intended `PlaybackStatusToSet` of the `playbackObject`, whose values will override the default initial playback status. This value defaults to `{}` if no parameter is passed. See below for details on `PlaybackStatusToSet` and the default initial playback status. */
         initialStatus?: PlaybackStatusToSet,
-
         /** If set to `true`, the system will attempt to download the resource to the device before loading. This value defaults to true. Note that at the moment, this will only work for sources of the form `require('path/to/file')` or `Expo.Asset` objects. */
         downloadFirst?: boolean
     ): Promise<PlaybackStatus>;
@@ -622,11 +679,10 @@ export class PlaybackObject {
     playFromPositionAsync(
         /** The desired position of playback in milliseconds. */
         positionMillis: number,
-
         /** This is equivalent to `playbackObject.setStatusAsync({ positionMillis: millis, seekMillisToleranceBefore: toleranceMillisBefore, seekMillisToleranceAfter: toleranceMillisAfter })`. The tolerances are used only on iOS. */
         tolerances?: {
-            toleranceMillisBefore: number,
-            toleranceMillisAfter: number
+            toleranceMillisBefore: number;
+            toleranceMillisAfter: number;
         }
     ): Promise<PlaybackStatus>;
 
@@ -665,11 +721,10 @@ export class PlaybackObject {
     /** This is equivalent to `playbackObject.setStatusAsync({ positionMillis: millis })`. */
     setPositionAsync(
         positionMillis: number,
-
         /** This is equivalent to `playbackObject.setStatusAsync({ positionMillis: millis, seekMillisToleranceBefore: toleranceMillisBefore, seekMillisToleranceAfter: toleranceMillisAfter })`. The tolerances are used only on iOS. */
         tolerances?: {
-            toleranceMillisBefore: number,
-            toleranceMillisAfter: number
+            toleranceMillisBefore: number;
+            toleranceMillisAfter: number;
         }
     ): Promise<PlaybackStatus>;
 
@@ -716,8 +771,8 @@ export class PlaybackObject {
  * BarCodeScanner
  */
 export interface BarCodeScannerProps extends ViewProps {
-    type?: 'front' | 'back';
-    torchMode?: 'on' | 'off';
+    type?: "front" | "back";
+    torchMode?: "on" | "off";
     barCodeTypes?: string[];
     onBarCodeScanned?: BarCodeScannedCallback;
 }
@@ -726,8 +781,8 @@ export class BarCodeScanner extends Component<BarCodeScannerProps> {
     static Constants: {
         TorchMode: {
             on: string;
-            off: string
-        }
+            off: string;
+        };
     } & CameraConstants;
 }
 // #endregion
@@ -737,10 +792,10 @@ export class BarCodeScanner extends Component<BarCodeScannerProps> {
  * BlurView
  */
 export interface BlurViewProps extends ViewProps {
-    tint: 'light' | 'default' | 'dark';
+    tint: "light" | "default" | "dark";
     intensity: number;
 }
-export class BlurView extends Component<BlurViewProps> { }
+export class BlurView extends Component<BlurViewProps> {}
 // #endregion
 
 /**
@@ -777,10 +832,10 @@ export namespace Brightness {
  * Camera
  */
 export interface PictureOptions {
-  quality?: number;
-  base64?: boolean;
-  exif?: boolean;
-  onPictureSaved?: (data: PictureResponse) => void;
+    quality?: number;
+    base64?: boolean;
+    exif?: boolean;
+    onPictureSaved?: (data: PictureResponse) => void;
 }
 
 export interface PictureResponse {
@@ -799,7 +854,7 @@ export interface RecordingOptions {
 
 export class CameraObject {
     takePictureAsync(options?: PictureOptions): Promise<PictureResponse>;
-    recordAsync(options: RecordingOptions): Promise<{ uri: string; }>;
+    recordAsync(options: RecordingOptions): Promise<{ uri: string }>;
     stopRecording(): void;
     getSupportedRatiosAsync(): Promise<string[]>; // Android only
 }
@@ -818,7 +873,7 @@ export interface CameraProps extends ViewProps {
     pictureSize?: string;
     videoStabilizationMode?: number;
     onMountError?: (error: { message: string }) => void;
-    barCodeScannerSettings?: { barCodeTypes?: Array<string | number>; };
+    barCodeScannerSettings?: { barCodeTypes?: Array<string | number> };
     onBarCodeScanned?: BarCodeScannedCallback;
     faceDetectorSettings?: {
         mode?: number;
@@ -888,7 +943,7 @@ export class Camera extends Component<CameraProps> {
  * Constants
  */
 export namespace Constants {
-    const appOwnership: 'expo' | 'standalone' | 'guest';
+    const appOwnership: "expo" | "standalone" | "guest";
     const expoVersion: string;
     const installationId: string;
     const deviceId: string;
@@ -920,76 +975,76 @@ export namespace Constants {
         version?: string;
         orientation?: Orientation;
         primaryColor?: string;
-        privacy?: 'public' | 'unlisted';
+        privacy?: "public" | "unlisted";
         scheme?: string;
         icon?: string;
         platforms?: string[];
         githubUrl?: string;
         notification?: {
-            icon?: string,
-            color?: string,
-            androidMode?: 'default' | 'collapse',
-            androidCollapsedTitle?: string
+            icon?: string;
+            color?: string;
+            androidMode?: "default" | "collapse";
+            androidCollapsedTitle?: string;
         };
         loading?: {
-            icon?: string,
-            exponentIconColor?: 'white' | 'blue',
-            exponentIconGrayscale?: 1 | 0,
-            backgroundImage?: string,
-            backgroundColor?: string,
-            hideExponentText?: boolean
+            icon?: string;
+            exponentIconColor?: "white" | "blue";
+            exponentIconGrayscale?: 1 | 0;
+            backgroundImage?: string;
+            backgroundColor?: string;
+            hideExponentText?: boolean;
         };
         appKey?: string;
         androidStatusBar?: {
-            barStyle?: 'light-content' | 'dark-content',
-            backgroundColor?: string
+            barStyle?: "light-content" | "dark-content";
+            backgroundColor?: string;
         };
         androidShowExponentNotificationInShellApp?: boolean;
         extra?: {
-            [propName: string]: any
+            [propName: string]: any;
         };
         rnCliPath?: any;
         entryPoint?: string;
         packagerOpts?: {
-            hostType?: string,
-            dev?: boolean,
-            strict?: boolean,
-            minify?: boolean,
-            urlType?: string,
-            urlRandomness?: string,
-            lanType?: string,
-            [propName: string]: any
+            hostType?: string;
+            dev?: boolean;
+            strict?: boolean;
+            minify?: boolean;
+            urlType?: string;
+            urlRandomness?: string;
+            lanType?: string;
+            [propName: string]: any;
         };
         ignoreNodeModulesValidation?: any;
         nodeModulesPath?: string;
         ios?: {
-            bundleIdentifier?: string,
-            buildNumber?: string,
+            bundleIdentifier?: string;
+            buildNumber?: string;
             config?: {
-                usesNonExemptEncryption?: boolean,
+                usesNonExemptEncryption?: boolean;
                 googleSignIn?: {
-                    reservedClientId: string
-                }
-            },
-            supportsTablet?: boolean,
-            infoPlist?: any
+                    reservedClientId: string;
+                };
+            };
+            supportsTablet?: boolean;
+            infoPlist?: any;
         };
         android?: {
-            package?: string,
-            versionCode?: string,
+            package?: string;
+            versionCode?: string;
             config?: {
                 fabric?: {
-                    apiKey: string,
-                    buildSecret: string
-                },
+                    apiKey: string;
+                    buildSecret: string;
+                };
                 googleMaps?: {
-                    apiKey: string
-                },
+                    apiKey: string;
+                };
                 googleSignIn?: {
-                    apiKey: string,
-                    certificateHash: string
-                }
-            }
+                    apiKey: string;
+                    certificateHash: string;
+                };
+            };
         };
         facebookScheme?: any;
         facebookAppId?: string;
@@ -1016,36 +1071,36 @@ export namespace Contacts {
     // Constants
 
     namespace Fields {
-        type ID = 'id';
-        type Name = 'name';
-        type FirstName = 'firstName';
-        type MiddleName = 'middleName';
-        type LastName = 'lastName';
-        type NamePrefix = 'namePrefix';
-        type NameSuffix = 'nameSuffix';
-        type PhoneticFirstName = 'phoneticFirstName';
-        type PhoneticMiddleName = 'phoneticMiddleName';
-        type PhoneticLastName = 'phoneticLastName';
-        type Birthday = 'birthday';
-        type Emails = 'emails';
-        type PhoneNumbers = 'phoneNumbers';
-        type Addresses = 'addresses';
-        type InstantMessageAddresses = 'instantMessageAddresses';
-        type UrlAddresses = 'urlAddresses';
-        type Company = 'company';
-        type JobTitle = 'jobTitle';
-        type Department = 'department';
-        type ImageAvailable = 'imageAvailable';
-        type Image = 'image';
-        type Note = 'note';
-        type Dates = 'dates';
-        type Relationships = 'relationships';
-        type Nickname = 'nickname';
-        type RawImage = 'rawImage';
-        type MaidenName = 'maidenName';
-        type ContactType = 'contactType';
-        type SocialProfiles = 'socialProfiles';
-        type NonGregorianBirthday = 'nonGregorianBirthday';
+        type ID = "id";
+        type Name = "name";
+        type FirstName = "firstName";
+        type MiddleName = "middleName";
+        type LastName = "lastName";
+        type NamePrefix = "namePrefix";
+        type NameSuffix = "nameSuffix";
+        type PhoneticFirstName = "phoneticFirstName";
+        type PhoneticMiddleName = "phoneticMiddleName";
+        type PhoneticLastName = "phoneticLastName";
+        type Birthday = "birthday";
+        type Emails = "emails";
+        type PhoneNumbers = "phoneNumbers";
+        type Addresses = "addresses";
+        type InstantMessageAddresses = "instantMessageAddresses";
+        type UrlAddresses = "urlAddresses";
+        type Company = "company";
+        type JobTitle = "jobTitle";
+        type Department = "department";
+        type ImageAvailable = "imageAvailable";
+        type Image = "image";
+        type Note = "note";
+        type Dates = "dates";
+        type Relationships = "relationships";
+        type Nickname = "nickname";
+        type RawImage = "rawImage";
+        type MaidenName = "maidenName";
+        type ContactType = "contactType";
+        type SocialProfiles = "socialProfiles";
+        type NonGregorianBirthday = "nonGregorianBirthday";
 
         const ID: ID;
         const Name: Name;
@@ -1112,9 +1167,9 @@ export namespace Contacts {
         | Fields.NonGregorianBirthday;
 
     namespace FormTypes {
-        type New = 'new';
-        type Unknown = 'unknown';
-        type Default = 'default';
+        type New = "new";
+        type Unknown = "unknown";
+        type Default = "default";
 
         const New: New;
         const Unknown: Unknown;
@@ -1127,8 +1182,8 @@ export namespace Contacts {
      * iOS Only
      */
     namespace ContactTypes {
-        type Person = 'person';
-        type Company = 'company';
+        type Person = "person";
+        type Company = "company";
 
         const Person: Person;
         const Company: Company;
@@ -1137,25 +1192,28 @@ export namespace Contacts {
     type ContactType = ContactTypes.Person | ContactTypes.Company;
 
     namespace SortTypes {
-        type FirstName = 'firstName';
-        type LastName = 'lastName';
-        type UserDefault = 'userDefault';
+        type FirstName = "firstName";
+        type LastName = "lastName";
+        type UserDefault = "userDefault";
 
         const FirstName: FirstName;
         const LastName: LastName;
         const UserDefault: UserDefault;
     }
 
-    type SortType = SortTypes.FirstName | SortTypes.LastName | SortTypes.UserDefault;
+    type SortType =
+        | SortTypes.FirstName
+        | SortTypes.LastName
+        | SortTypes.UserDefault;
 
     /**
      * iOS Only
      */
     namespace ContainerTypes {
-        type Local = 'local';
-        type Exchange = 'exchange';
-        type CardDAV = 'cardDAV';
-        type Unassigned = 'unassigned';
+        type Local = "local";
+        type Exchange = "exchange";
+        type CardDAV = "cardDAV";
+        type Unassigned = "unassigned";
 
         const Local: Local;
         const Exchange: Exchange;
@@ -1163,13 +1221,17 @@ export namespace Contacts {
         const Unassigned: Unassigned;
     }
 
-    type ContainerType = ContainerTypes.Local | ContainerTypes.Exchange | ContainerTypes.CardDAV | ContainerTypes.Unassigned;
+    type ContainerType =
+        | ContainerTypes.Local
+        | ContainerTypes.Exchange
+        | ContainerTypes.CardDAV
+        | ContainerTypes.Unassigned;
 
     namespace CalendarFormats {
-        type Gregorian = 'gregorian';
-        type Chinese = 'chinese';
-        type Hebrew = 'hebrew';
-        type Islamic = 'islamic';
+        type Gregorian = "gregorian";
+        type Chinese = "chinese";
+        type Hebrew = "hebrew";
+        type Islamic = "islamic";
 
         const Gregorian: Gregorian;
         const Chinese: Chinese;
@@ -1177,7 +1239,11 @@ export namespace Contacts {
         const Islamic: Islamic;
     }
 
-    type CalendarFormat = CalendarFormats.Gregorian | CalendarFormats.Chinese | CalendarFormats.Hebrew | CalendarFormats.Islamic;
+    type CalendarFormat =
+        | CalendarFormats.Gregorian
+        | CalendarFormats.Chinese
+        | CalendarFormats.Hebrew
+        | CalendarFormats.Islamic;
 
     // Types
 
@@ -1407,18 +1473,26 @@ export namespace Contacts {
     /**
      * Return a list of contacts that fit a given criteria. You can get all of the contacts by passing no criteria.
      */
-    function getContactsAsync(contactQuery?: ContactQuery): Promise<ContactResponse>;
+    function getContactsAsync(
+        contactQuery?: ContactQuery
+    ): Promise<ContactResponse>;
     /**
      * Returns a contact matching the input id. Used for gathering precise data about a contact.
      */
-    function getContactByIdAsync(contactId: string, fields?: Field[]): Promise<Contact>;
+    function getContactByIdAsync(
+        contactId: string,
+        fields?: Field[]
+    ): Promise<Contact>;
 
     // iOS Only - temporary
     /**
      * Creates a new contact and adds it to the system.
      * iOS Only - temporary
      */
-    function addContactAsync(contact: Contact, containerId?: string): Promise<string>;
+    function addContactAsync(
+        contact: Contact,
+        containerId?: string
+    ): Promise<string>;
     /**
      * Mutate the information of an existing contact.
      * iOS Only - temporary
@@ -1433,29 +1507,44 @@ export namespace Contacts {
      * Query a set of contacts and write them to a local uri that can be used for sharing with `ReactNative.Share`.
      * iOS Only - temporary
      */
-    function writeContactToFileAsync(contactQuery: ContactQuery): Promise<string>;
+    function writeContactToFileAsync(
+        contactQuery: ContactQuery
+    ): Promise<string>;
 
     // iOS Only
     /**
      * Present a native form for manipulating contacts.
      * iOS Only
      */
-    function presentFormAsync(contactId: string, contact?: Contact, formOptions?: FormOptions): Promise<void>;
+    function presentFormAsync(
+        contactId: string,
+        contact?: Contact,
+        formOptions?: FormOptions
+    ): Promise<void>;
     /**
      * Add a group to a container.
      * iOS Only
      */
-    function addExistingGroupToContainerAsync(groupId: string, containerId: string): Promise<void>;
+    function addExistingGroupToContainerAsync(
+        groupId: string,
+        containerId: string
+    ): Promise<void>;
     /**
      * Create a group with a name, and add it to a container. If the container is undefined, the default container will be targeted.
      * iOS Only
      */
-    function createGroupAsync(groupName: string, containerId?: string): Promise<string>;
+    function createGroupAsync(
+        groupName: string,
+        containerId?: string
+    ): Promise<string>;
     /**
      * Change the name of an existing group.
      * iOS Only
      */
-    function updateGroupNameAsync(groupName: string, groupId: string): Promise<void>;
+    function updateGroupNameAsync(
+        groupName: string,
+        groupId: string
+    ): Promise<void>;
     /**
      * Delete a group from the device.
      * iOS Only
@@ -1465,12 +1554,18 @@ export namespace Contacts {
      * Add a contact as a member to a group. A contact can be a member of multiple groups.
      * iOS Only
      */
-    function addExistingContactToGroupAsync(contactId: string, groupId: string): Promise<void>;
+    function addExistingContactToGroupAsync(
+        contactId: string,
+        groupId: string
+    ): Promise<void>;
     /**
      * Remove a contact's membership from a given group. This will not delete the contact.
      * iOS Only
      */
-    function removeContactFromGroupAsync(contactId: string, groupId: string): Promise<void>;
+    function removeContactFromGroupAsync(
+        contactId: string,
+        groupId: string
+    ): Promise<void>;
     /**
      * Query and return a list of system groups.
      * iOS Only
@@ -1485,7 +1580,9 @@ export namespace Contacts {
      * Query a list of system containers.
      * iOS Only
      */
-    function getContainersAsync(containerQuery: ContainerQuery): Promise<Container[]>;
+    function getContainersAsync(
+        containerQuery: ContainerQuery
+    ): Promise<Container[]>;
 }
 
 /**
@@ -1496,14 +1593,16 @@ export namespace DocumentPicker {
         type?: string;
     }
 
-    type Response = {
-        type: 'success';
-        uri: string;
-        name: string;
-        size: number;
-    } | {
-        type: 'cancel';
-    };
+    type Response =
+        | {
+              type: "success";
+              uri: string;
+              name: string;
+              size: number;
+          }
+        | {
+              type: "cancel";
+          };
 
     function getDocumentAsync(options?: Options): Promise<Response>;
 }
@@ -1521,14 +1620,17 @@ export namespace ErrorRecovery {
 export namespace Facebook {
     interface Options {
         permissions?: string[];
-        behavior?: 'web' | 'native' | 'browser' | 'system';
+        behavior?: "web" | "native" | "browser" | "system";
     }
     interface Response {
-        type: 'cancel' | 'success';
+        type: "cancel" | "success";
         token?: string;
         expires?: number;
     }
-    function logInWithReadPermissionsAsync(appId: string, options?: Options): Promise<Response>;
+    function logInWithReadPermissionsAsync(
+        appId: string,
+        options?: Options
+    ): Promise<Response>;
 }
 
 /**
@@ -1545,7 +1647,7 @@ export namespace FacebookAds {
     /**
      * Native Ads
      */
-    type MediaCachePolicy = 'none' | 'icon' | 'image' | 'all';
+    type MediaCachePolicy = "none" | "icon" | "image" | "all";
     class NativeAdsManager {
         constructor(placementId: string, numberOfAdsToRequest?: number);
         disableAutoRefresh(): void;
@@ -1601,18 +1703,20 @@ export namespace FacebookAds {
         sponsoredTranslation?: string;
     }
 
-    function withNativeAd<P>(component: Component<P & { nativeAd: NativeAd }>): Component<
+    function withNativeAd<P>(
+        component: Component<P & { nativeAd: NativeAd }>
+    ): Component<
         {
-            adsManager: NativeAdsManager,
+            adsManager: NativeAdsManager;
             onAdLoaded?: ((ad: NativeAd) => void) | null;
         } & P,
-        { ad: NativeAd | null, canRequestAds: boolean }
+        { ad: NativeAd | null; canRequestAds: boolean }
     >;
 
     /**
      * Banner View
      */
-    type AdType = 'large' | 'rectangle' | 'standard';
+    type AdType = "large" | "rectangle" | "standard";
 
     interface BannerViewProps {
         type: AdType;
@@ -1621,17 +1725,17 @@ export namespace FacebookAds {
         onError: () => void;
     }
 
-    class BannerView extends Component<BannerViewProps> { }
+    class BannerView extends Component<BannerViewProps> {}
 
     type AdTriggerViewProps<P> = {
         renderInteractiveComponent?: (props: P) => React.ReactElement<P>;
     } & P;
 
-    class AdTriggerView<P> extends Component<AdTriggerViewProps<P>> { }
+    class AdTriggerView<P> extends Component<AdTriggerViewProps<P>> {}
 
-    class AdIconView extends Component { }
+    class AdIconView extends Component {}
 
-    class AdMediaView extends Component { }
+    class AdMediaView extends Component {}
 
     /**
      * Ad Settings
@@ -1640,7 +1744,13 @@ export namespace FacebookAds {
         const currentDeviceHash: string;
         function addTestDevice(device: string): void;
         function clearTestDevices(): void;
-        type SDKLogLevel = 'none' | 'debug' | 'verbose' | 'warning' | 'error' | 'notification';
+        type SDKLogLevel =
+            | "none"
+            | "debug"
+            | "verbose"
+            | "warning"
+            | "error"
+            | "notification";
         function setLogLevel(logLevel: SDKLogLevel): void;
         function setIsChildDirected(isDirected: boolean): void;
         function setMediationService(mediationService: string): void;
@@ -1661,7 +1771,7 @@ export interface FaceFeature {
         size: {
             width: number;
             height: number;
-        },
+        };
         origin: Point;
     };
     smilingProbability?: number;
@@ -1697,12 +1807,12 @@ export namespace FaceDetector {
         };
     }
     interface Mode {
-        fast: 'fast';
-        accurate: 'accurate';
+        fast: "fast";
+        accurate: "accurate";
     }
     interface _Shared {
-        all: 'all';
-        none: 'none';
+        all: "all";
+        none: "none";
     }
     type Landmarks = _Shared;
     type Classifications = _Shared;
@@ -1720,7 +1830,10 @@ export namespace FaceDetector {
         runClassifications?: keyof Classifications;
     }
 
-    function detectFaces(uri: string, options?: DetectionOptions): Promise<DetectFaceResult>;
+    function detectFaces(
+        uri: string,
+        options?: DetectionOptions
+    ): Promise<DetectFaceResult>;
 }
 /**
  * FileSystem
@@ -1728,17 +1841,19 @@ export namespace FaceDetector {
 export namespace FileSystem {
     type EncodingType = "utf8" | "base64";
 
-    type FileInfo = {
-        exists: true;
-        isDirectory: boolean;
-        uri: string;
-        size: number;
-        modificationTime: number;
-        md5?: Md5;
-    } | {
-        exists: false;
-        isDirectory: false;
-    };
+    type FileInfo =
+        | {
+              exists: true;
+              isDirectory: boolean;
+              uri: string;
+              size: number;
+              modificationTime: number;
+              md5?: Md5;
+          }
+        | {
+              exists: false;
+              isDirectory: false;
+          };
 
     interface ReadingOptions {
         encoding?: EncodingType;
@@ -1760,27 +1875,50 @@ export namespace FileSystem {
     const documentDirectory: string;
     const cacheDirectory: string;
 
-    function getInfoAsync(fileUri: string, options?: { md5?: string, size?: boolean; }): Promise<FileInfo>;
-    function readAsStringAsync(fileUri: string, options?: ReadingOptions): Promise<string>;
-    function writeAsStringAsync(fileUri: string, contents: string, options?: WritingOptions): Promise<void>;
-    function deleteAsync(fileUri: string, options?: { idempotent: boolean; }): Promise<void>;
-    function moveAsync(options: { from: string, to: string; }): Promise<void>;
-    function copyAsync(options: { from: string, to: string; }): Promise<void>;
-    function makeDirectoryAsync(dirUri: string, options?: { intermediates: boolean }): Promise<void>;
+    function getInfoAsync(
+        fileUri: string,
+        options?: { md5?: string; size?: boolean }
+    ): Promise<FileInfo>;
+    function readAsStringAsync(
+        fileUri: string,
+        options?: ReadingOptions
+    ): Promise<string>;
+    function writeAsStringAsync(
+        fileUri: string,
+        contents: string,
+        options?: WritingOptions
+    ): Promise<void>;
+    function deleteAsync(
+        fileUri: string,
+        options?: { idempotent: boolean }
+    ): Promise<void>;
+    function moveAsync(options: { from: string; to: string }): Promise<void>;
+    function copyAsync(options: { from: string; to: string }): Promise<void>;
+    function makeDirectoryAsync(
+        dirUri: string,
+        options?: { intermediates: boolean }
+    ): Promise<void>;
     function readDirectoryAsync(dirUri: string): Promise<string[]>;
-    function downloadAsync(uri: string, fileUri: string, options?: { md5?: boolean; }): Promise<DownloadResult>;
+    function downloadAsync(
+        uri: string,
+        fileUri: string,
+        options?: { md5?: boolean }
+    ): Promise<DownloadResult>;
     function createDownloadResumable(
         uri: string,
         fileUri: string,
         options?: DownloadOptions,
-        callback?: (totalBytesWritten: number, totalBytesExpectedToWrite: number) => void,
+        callback?: (
+            totalBytesWritten: number,
+            totalBytesExpectedToWrite: number
+        ) => void,
         resumeData?: string | null
     ): DownloadResumable;
 
     interface PauseResult {
         url: string;
         fileUri: string;
-        options: { md5: boolean; };
+        options: { md5: boolean };
         resumeData: string;
     }
 
@@ -1814,14 +1952,16 @@ export namespace FileSystem {
 
 /** Use TouchID/FaceID (iOS) or the Fingerprint API (Android) to authenticate the user with a fingerprint scan. */
 export namespace LocalAuthentication {
-    type LocalAuthenticationResult = {
-        success: true
-    } | {
-        success: false,
+    type LocalAuthenticationResult =
+        | {
+              success: true;
+          }
+        | {
+              success: false;
 
-        /** Error code in the case where authentication fails. */
-        error: string
-    };
+              /** Error code in the case where authentication fails. */
+              error: string;
+          };
 
     interface AuthenticationTypeType {
         FINGERPRINT: number;
@@ -1829,7 +1969,9 @@ export namespace LocalAuthentication {
     }
 
     /** Determine the auhentication types supported on the device. */
-    function supportedAuthenticationTypesAsync(): Promise<AuthenticationTypeType[]>;
+    function supportedAuthenticationTypesAsync(): Promise<
+        AuthenticationTypeType[]
+    >;
 
     /** Determine whether a face or fingerprint scanner is available on the device. */
     function hasHardwareAsync(): Promise<boolean>;
@@ -1842,7 +1984,9 @@ export namespace LocalAuthentication {
      *
      * @param promptMessage A message that is shown alongside the TouchID/FaceID prompt. (iOS only)
      */
-    function authenticateAsync(promptMessageIOS?: string): Promise<LocalAuthenticationResult>;
+    function authenticateAsync(
+        promptMessageIOS?: string
+    ): Promise<LocalAuthenticationResult>;
 
     /** Cancels the fingerprint authentication flow. (Android only) */
     function cancelAuthenticate(): void;
@@ -1881,7 +2025,7 @@ export interface GLViewProps extends ViewProps {
     msaaSamples?: number;
 }
 
-export class GLView extends Component<GLViewProps, { msaaSamples: number }> { }
+export class GLView extends Component<GLViewProps, { msaaSamples: number }> {}
 // #endregion
 
 /**
@@ -1894,27 +2038,29 @@ export namespace Google {
         iosClientId?: string;
         iosStandaloneAppClientId?: string;
         webClientId?: string;
-        behavior?: 'system' | 'web';
+        behavior?: "system" | "web";
         scopes?: string[];
     }
 
-    type LogInResult = {
-        type: 'cancel';
-    } | {
-        type: 'success';
-        accessToken: string;
-        idToken?: string;
-        refreshToken?: string;
-        serverAuthCode?: string;
-        user: {
-            id: string;
-            name: string;
-            givenName: string;
-            familyName: string;
-            photoUrl?: string;
-            email?: string;
-        }
-    };
+    type LogInResult =
+        | {
+              type: "cancel";
+          }
+        | {
+              type: "success";
+              accessToken: string;
+              idToken?: string;
+              refreshToken?: string;
+              serverAuthCode?: string;
+              user: {
+                  id: string;
+                  name: string;
+                  givenName: string;
+                  familyName: string;
+                  photoUrl?: string;
+                  email?: string;
+              };
+          };
 
     function logInAsync(config: LogInConfig): Promise<LogInResult>;
 }
@@ -1928,7 +2074,9 @@ export namespace Gyroscope {
     }
 
     /** A callback that is invoked when an gyroscope update is available. */
-    function addListener(listener: (obj: GyroscopeObject) => any): EventSubscription;
+    function addListener(
+        listener: (obj: GyroscopeObject) => any
+    ): EventSubscription;
 
     /** Remove all listeners. */
     function removeAllListeners(): void;
@@ -1944,7 +2092,7 @@ export namespace ImageManipulator {
     type Action = Resize | Rotate | Flip | Crop;
 
     interface Resize {
-        resize: { width?: number, height?: number };
+        resize: { width?: number; height?: number };
     }
 
     interface Rotate {
@@ -1973,10 +2121,14 @@ export namespace ImageManipulator {
         base64?: boolean;
         /** A value in range `0` - `1` specifying compression level of the result image. `1` means no compression and `0` the highest compression. */
         compress?: number;
-        format?: 'jpeg' | 'png';
+        format?: "jpeg" | "png";
     }
 
-    function manipulateAsync(uri: string, actions: Action[], saveOptions?: SaveOptions): Promise<ImageResult>;
+    function manipulateAsync(
+        uri: string,
+        actions: Action[],
+        saveOptions?: SaveOptions
+    ): Promise<ImageResult>;
 }
 
 /**
@@ -1987,7 +2139,7 @@ export namespace ImagePicker {
         uri: string;
         width: number;
         height: number;
-        type: 'video' | 'image';
+        type: "video" | "image";
         base64?: string;
         exif?: object;
         duration?: number;
@@ -1996,9 +2148,9 @@ export namespace ImagePicker {
     type ImageResult = { cancelled: true } | ({ cancelled: false } & ImageInfo);
 
     interface _MediaTypeOptions {
-        All: 'All';
-        Videos: 'Videos';
-        Images: 'Images';
+        All: "All";
+        Videos: "Videos";
+        Images: "Images";
     }
 
     const MediaTypeOptions: _MediaTypeOptions;
@@ -2015,7 +2167,9 @@ export namespace ImagePicker {
     /**
      * require Permissions.CAMERA_ROLL
      */
-    function launchImageLibraryAsync(options?: ImageLibraryOptions): Promise<ImageResult>;
+    function launchImageLibraryAsync(
+        options?: ImageLibraryOptions
+    ): Promise<ImageResult>;
 
     interface CameraOptions {
         allowsEditing?: boolean;
@@ -2035,88 +2189,91 @@ export namespace ImagePicker {
  * IntentLauncherAndroid
  */
 export namespace IntentLauncherAndroid {
-    const ACTION_ACCESSIBILITY_SETTINGS: 'android.settings.ACCESSIBILITY_SETTINGS';
-    const ACTION_APP_NOTIFICATION_REDACTION: 'android.settings.ACTION_APP_NOTIFICATION_REDACTION';
-    const ACTION_CONDITION_PROVIDER_SETTINGS: 'android.settings.ACTION_CONDITION_PROVIDER_SETTINGS';
-    const ACTION_NOTIFICATION_LISTENER_SETTINGS: 'android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS';
-    const ACTION_PRINT_SETTINGS: 'android.settings.ACTION_PRINT_SETTINGS';
-    const ACTION_ADD_ACCOUNT_SETTINGS: 'android.settings.ADD_ACCOUNT_SETTINGS';
-    const ACTION_AIRPLANE_MODE_SETTINGS: 'android.settings.AIRPLANE_MODE_SETTINGS';
-    const ACTION_APN_SETTINGS: 'android.settings.APN_SETTINGS';
-    const ACTION_APPLICATION_DETAILS_SETTINGS: 'android.settings.APPLICATION_DETAILS_SETTINGS';
-    const ACTION_APPLICATION_DEVELOPMENT_SETTINGS: 'android.settings.APPLICATION_DEVELOPMENT_SETTINGS';
-    const ACTION_APPLICATION_SETTINGS: 'android.settings.APPLICATION_SETTINGS';
-    const ACTION_APP_NOTIFICATION_SETTINGS: 'android.settings.APP_NOTIFICATION_SETTINGS';
-    const ACTION_APP_OPS_SETTINGS: 'android.settings.APP_OPS_SETTINGS';
-    const ACTION_BATTERY_SAVER_SETTINGS: 'android.settings.BATTERY_SAVER_SETTINGS';
-    const ACTION_BLUETOOTH_SETTINGS: 'android.settings.BLUETOOTH_SETTINGS';
-    const ACTION_CAPTIONING_SETTINGS: 'android.settings.CAPTIONING_SETTINGS';
-    const ACTION_CAST_SETTINGS: 'android.settings.CAST_SETTINGS';
-    const ACTION_DATA_ROAMING_SETTINGS: 'android.settings.DATA_ROAMING_SETTINGS';
-    const ACTION_DATE_SETTINGS: 'android.settings.DATE_SETTINGS';
-    const ACTION_DEVICE_INFO_SETTINGS: 'android.settings.DEVICE_INFO_SETTINGS';
-    const ACTION_DEVICE_NAME: 'android.settings.DEVICE_NAME';
-    const ACTION_DISPLAY_SETTINGS: 'android.settings.DISPLAY_SETTINGS';
-    const ACTION_DREAM_SETTINGS: 'android.settings.DREAM_SETTINGS';
-    const ACTION_HARD_KEYBOARD_SETTINGS: 'android.settings.HARD_KEYBOARD_SETTINGS';
-    const ACTION_HOME_SETTINGS: 'android.settings.HOME_SETTINGS';
-    const ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS: 'android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS';
-    const ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS: 'android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS';
-    const ACTION_INPUT_METHOD_SETTINGS: 'android.settings.INPUT_METHOD_SETTINGS';
-    const ACTION_INPUT_METHOD_SUBTYPE_SETTINGS: 'android.settings.INPUT_METHOD_SUBTYPE_SETTINGS';
-    const ACTION_INTERNAL_STORAGE_SETTINGS: 'android.settings.INTERNAL_STORAGE_SETTINGS';
-    const ACTION_LOCALE_SETTINGS: 'android.settings.LOCALE_SETTINGS';
-    const ACTION_LOCATION_SOURCE_SETTINGS: 'android.settings.LOCATION_SOURCE_SETTINGS';
-    const ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS: 'android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS';
-    const ACTION_MANAGE_APPLICATIONS_SETTINGS: 'android.settings.MANAGE_APPLICATIONS_SETTINGS';
-    const ACTION_MANAGE_DEFAULT_APPS_SETTINGS: 'android.settings.MANAGE_DEFAULT_APPS_SETTINGS';
-    const ACTION_MEMORY_CARD_SETTINGS: 'android.settings.MEMORY_CARD_SETTINGS';
-    const ACTION_MONITORING_CERT_INFO: 'android.settings.MONITORING_CERT_INFO';
-    const ACTION_NETWORK_OPERATOR_SETTINGS: 'android.settings.NETWORK_OPERATOR_SETTINGS';
-    const ACTION_NFCSHARING_SETTINGS: 'android.settings.NFCSHARING_SETTINGS';
-    const ACTION_NFC_PAYMENT_SETTINGS: 'android.settings.NFC_PAYMENT_SETTINGS';
-    const ACTION_NFC_SETTINGS: 'android.settings.NFC_SETTINGS';
-    const ACTION_NIGHT_DISPLAY_SETTINGS: 'android.settings.NIGHT_DISPLAY_SETTINGS';
-    const ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS: 'android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS';
-    const ACTION_NOTIFICATION_SETTINGS: 'android.settings.NOTIFICATION_SETTINGS';
-    const ACTION_PAIRING_SETTINGS: 'android.settings.PAIRING_SETTINGS';
-    const ACTION_PRIVACY_SETTINGS: 'android.settings.PRIVACY_SETTINGS';
-    const ACTION_QUICK_LAUNCH_SETTINGS: 'android.settings.QUICK_LAUNCH_SETTINGS';
-    const ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS: 'android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS';
-    const ACTION_SECURITY_SETTINGS: 'android.settings.SECURITY_SETTINGS';
-    const ACTION_SETTINGS: 'android.settings.SETTINGS';
-    const ACTION_SHOW_ADMIN_SUPPORT_DETAILS: 'android.settings.SHOW_ADMIN_SUPPORT_DETAILS';
-    const ACTION_SHOW_INPUT_METHOD_PICKER: 'android.settings.SHOW_INPUT_METHOD_PICKER';
-    const ACTION_SHOW_REGULATORY_INFO: 'android.settings.SHOW_REGULATORY_INFO';
-    const ACTION_SHOW_REMOTE_BUGREPORT_DIALOG: 'android.settings.SHOW_REMOTE_BUGREPORT_DIALOG';
-    const ACTION_SOUND_SETTINGS: 'android.settings.SOUND_SETTINGS';
-    const ACTION_STORAGE_MANAGER_SETTINGS: 'android.settings.STORAGE_MANAGER_SETTINGS';
-    const ACTION_SYNC_SETTINGS: 'android.settings.SYNC_SETTINGS';
-    const ACTION_SYSTEM_UPDATE_SETTINGS: 'android.settings.SYSTEM_UPDATE_SETTINGS';
-    const ACTION_TETHER_PROVISIONING_UI: 'android.settings.TETHER_PROVISIONING_UI';
-    const ACTION_TRUSTED_CREDENTIALS_USER: 'android.settings.TRUSTED_CREDENTIALS_USER';
-    const ACTION_USAGE_ACCESS_SETTINGS: 'android.settings.USAGE_ACCESS_SETTINGS';
-    const ACTION_USER_DICTIONARY_INSERT: 'android.settings.USER_DICTIONARY_INSERT';
-    const ACTION_USER_DICTIONARY_SETTINGS: 'android.settings.USER_DICTIONARY_SETTINGS';
-    const ACTION_USER_SETTINGS: 'android.settings.USER_SETTINGS';
-    const ACTION_VOICE_CONTROL_AIRPLANE_MODE: 'android.settings.VOICE_CONTROL_AIRPLANE_MODE';
-    const ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE: 'android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE';
-    const ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE: 'android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE';
-    const ACTION_VOICE_INPUT_SETTINGS: 'android.settings.VOICE_INPUT_SETTINGS';
-    const ACTION_VPN_SETTINGS: 'android.settings.VPN_SETTINGS';
-    const ACTION_VR_LISTENER_SETTINGS: 'android.settings.VR_LISTENER_SETTINGS';
-    const ACTION_WEBVIEW_SETTINGS: 'android.settings.WEBVIEW_SETTINGS';
-    const ACTION_WIFI_IP_SETTINGS: 'android.settings.WIFI_IP_SETTINGS';
-    const ACTION_WIFI_SETTINGS: 'android.settings.WIFI_SETTINGS';
-    const ACTION_WIRELESS_SETTINGS: 'android.settings.WIRELESS_SETTINGS';
-    const ACTION_ZEN_MODE_AUTOMATION_SETTINGS: 'android.settings.ZEN_MODE_AUTOMATION_SETTINGS';
-    const ACTION_ZEN_MODE_EVENT_RULE_SETTINGS: 'android.settings.ZEN_MODE_EVENT_RULE_SETTINGS';
-    const ACTION_ZEN_MODE_EXTERNAL_RULE_SETTINGS: 'android.settings.ZEN_MODE_EXTERNAL_RULE_SETTINGS';
-    const ACTION_ZEN_MODE_PRIORITY_SETTINGS: 'android.settings.ZEN_MODE_PRIORITY_SETTINGS';
-    const ACTION_ZEN_MODE_SCHEDULE_RULE_SETTINGS: 'android.settings.ZEN_MODE_SCHEDULE_RULE_SETTINGS';
-    const ACTION_ZEN_MODE_SETTINGS: 'android.settings.ZEN_MODE_SETTINGS';
+    const ACTION_ACCESSIBILITY_SETTINGS: "android.settings.ACCESSIBILITY_SETTINGS";
+    const ACTION_APP_NOTIFICATION_REDACTION: "android.settings.ACTION_APP_NOTIFICATION_REDACTION";
+    const ACTION_CONDITION_PROVIDER_SETTINGS: "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS";
+    const ACTION_NOTIFICATION_LISTENER_SETTINGS: "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS";
+    const ACTION_PRINT_SETTINGS: "android.settings.ACTION_PRINT_SETTINGS";
+    const ACTION_ADD_ACCOUNT_SETTINGS: "android.settings.ADD_ACCOUNT_SETTINGS";
+    const ACTION_AIRPLANE_MODE_SETTINGS: "android.settings.AIRPLANE_MODE_SETTINGS";
+    const ACTION_APN_SETTINGS: "android.settings.APN_SETTINGS";
+    const ACTION_APPLICATION_DETAILS_SETTINGS: "android.settings.APPLICATION_DETAILS_SETTINGS";
+    const ACTION_APPLICATION_DEVELOPMENT_SETTINGS: "android.settings.APPLICATION_DEVELOPMENT_SETTINGS";
+    const ACTION_APPLICATION_SETTINGS: "android.settings.APPLICATION_SETTINGS";
+    const ACTION_APP_NOTIFICATION_SETTINGS: "android.settings.APP_NOTIFICATION_SETTINGS";
+    const ACTION_APP_OPS_SETTINGS: "android.settings.APP_OPS_SETTINGS";
+    const ACTION_BATTERY_SAVER_SETTINGS: "android.settings.BATTERY_SAVER_SETTINGS";
+    const ACTION_BLUETOOTH_SETTINGS: "android.settings.BLUETOOTH_SETTINGS";
+    const ACTION_CAPTIONING_SETTINGS: "android.settings.CAPTIONING_SETTINGS";
+    const ACTION_CAST_SETTINGS: "android.settings.CAST_SETTINGS";
+    const ACTION_DATA_ROAMING_SETTINGS: "android.settings.DATA_ROAMING_SETTINGS";
+    const ACTION_DATE_SETTINGS: "android.settings.DATE_SETTINGS";
+    const ACTION_DEVICE_INFO_SETTINGS: "android.settings.DEVICE_INFO_SETTINGS";
+    const ACTION_DEVICE_NAME: "android.settings.DEVICE_NAME";
+    const ACTION_DISPLAY_SETTINGS: "android.settings.DISPLAY_SETTINGS";
+    const ACTION_DREAM_SETTINGS: "android.settings.DREAM_SETTINGS";
+    const ACTION_HARD_KEYBOARD_SETTINGS: "android.settings.HARD_KEYBOARD_SETTINGS";
+    const ACTION_HOME_SETTINGS: "android.settings.HOME_SETTINGS";
+    const ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS: "android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS";
+    const ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS: "android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS";
+    const ACTION_INPUT_METHOD_SETTINGS: "android.settings.INPUT_METHOD_SETTINGS";
+    const ACTION_INPUT_METHOD_SUBTYPE_SETTINGS: "android.settings.INPUT_METHOD_SUBTYPE_SETTINGS";
+    const ACTION_INTERNAL_STORAGE_SETTINGS: "android.settings.INTERNAL_STORAGE_SETTINGS";
+    const ACTION_LOCALE_SETTINGS: "android.settings.LOCALE_SETTINGS";
+    const ACTION_LOCATION_SOURCE_SETTINGS: "android.settings.LOCATION_SOURCE_SETTINGS";
+    const ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS: "android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS";
+    const ACTION_MANAGE_APPLICATIONS_SETTINGS: "android.settings.MANAGE_APPLICATIONS_SETTINGS";
+    const ACTION_MANAGE_DEFAULT_APPS_SETTINGS: "android.settings.MANAGE_DEFAULT_APPS_SETTINGS";
+    const ACTION_MEMORY_CARD_SETTINGS: "android.settings.MEMORY_CARD_SETTINGS";
+    const ACTION_MONITORING_CERT_INFO: "android.settings.MONITORING_CERT_INFO";
+    const ACTION_NETWORK_OPERATOR_SETTINGS: "android.settings.NETWORK_OPERATOR_SETTINGS";
+    const ACTION_NFCSHARING_SETTINGS: "android.settings.NFCSHARING_SETTINGS";
+    const ACTION_NFC_PAYMENT_SETTINGS: "android.settings.NFC_PAYMENT_SETTINGS";
+    const ACTION_NFC_SETTINGS: "android.settings.NFC_SETTINGS";
+    const ACTION_NIGHT_DISPLAY_SETTINGS: "android.settings.NIGHT_DISPLAY_SETTINGS";
+    const ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS: "android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS";
+    const ACTION_NOTIFICATION_SETTINGS: "android.settings.NOTIFICATION_SETTINGS";
+    const ACTION_PAIRING_SETTINGS: "android.settings.PAIRING_SETTINGS";
+    const ACTION_PRIVACY_SETTINGS: "android.settings.PRIVACY_SETTINGS";
+    const ACTION_QUICK_LAUNCH_SETTINGS: "android.settings.QUICK_LAUNCH_SETTINGS";
+    const ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS: "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS";
+    const ACTION_SECURITY_SETTINGS: "android.settings.SECURITY_SETTINGS";
+    const ACTION_SETTINGS: "android.settings.SETTINGS";
+    const ACTION_SHOW_ADMIN_SUPPORT_DETAILS: "android.settings.SHOW_ADMIN_SUPPORT_DETAILS";
+    const ACTION_SHOW_INPUT_METHOD_PICKER: "android.settings.SHOW_INPUT_METHOD_PICKER";
+    const ACTION_SHOW_REGULATORY_INFO: "android.settings.SHOW_REGULATORY_INFO";
+    const ACTION_SHOW_REMOTE_BUGREPORT_DIALOG: "android.settings.SHOW_REMOTE_BUGREPORT_DIALOG";
+    const ACTION_SOUND_SETTINGS: "android.settings.SOUND_SETTINGS";
+    const ACTION_STORAGE_MANAGER_SETTINGS: "android.settings.STORAGE_MANAGER_SETTINGS";
+    const ACTION_SYNC_SETTINGS: "android.settings.SYNC_SETTINGS";
+    const ACTION_SYSTEM_UPDATE_SETTINGS: "android.settings.SYSTEM_UPDATE_SETTINGS";
+    const ACTION_TETHER_PROVISIONING_UI: "android.settings.TETHER_PROVISIONING_UI";
+    const ACTION_TRUSTED_CREDENTIALS_USER: "android.settings.TRUSTED_CREDENTIALS_USER";
+    const ACTION_USAGE_ACCESS_SETTINGS: "android.settings.USAGE_ACCESS_SETTINGS";
+    const ACTION_USER_DICTIONARY_INSERT: "android.settings.USER_DICTIONARY_INSERT";
+    const ACTION_USER_DICTIONARY_SETTINGS: "android.settings.USER_DICTIONARY_SETTINGS";
+    const ACTION_USER_SETTINGS: "android.settings.USER_SETTINGS";
+    const ACTION_VOICE_CONTROL_AIRPLANE_MODE: "android.settings.VOICE_CONTROL_AIRPLANE_MODE";
+    const ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE: "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE";
+    const ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE: "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE";
+    const ACTION_VOICE_INPUT_SETTINGS: "android.settings.VOICE_INPUT_SETTINGS";
+    const ACTION_VPN_SETTINGS: "android.settings.VPN_SETTINGS";
+    const ACTION_VR_LISTENER_SETTINGS: "android.settings.VR_LISTENER_SETTINGS";
+    const ACTION_WEBVIEW_SETTINGS: "android.settings.WEBVIEW_SETTINGS";
+    const ACTION_WIFI_IP_SETTINGS: "android.settings.WIFI_IP_SETTINGS";
+    const ACTION_WIFI_SETTINGS: "android.settings.WIFI_SETTINGS";
+    const ACTION_WIRELESS_SETTINGS: "android.settings.WIRELESS_SETTINGS";
+    const ACTION_ZEN_MODE_AUTOMATION_SETTINGS: "android.settings.ZEN_MODE_AUTOMATION_SETTINGS";
+    const ACTION_ZEN_MODE_EVENT_RULE_SETTINGS: "android.settings.ZEN_MODE_EVENT_RULE_SETTINGS";
+    const ACTION_ZEN_MODE_EXTERNAL_RULE_SETTINGS: "android.settings.ZEN_MODE_EXTERNAL_RULE_SETTINGS";
+    const ACTION_ZEN_MODE_PRIORITY_SETTINGS: "android.settings.ZEN_MODE_PRIORITY_SETTINGS";
+    const ACTION_ZEN_MODE_SCHEDULE_RULE_SETTINGS: "android.settings.ZEN_MODE_SCHEDULE_RULE_SETTINGS";
+    const ACTION_ZEN_MODE_SETTINGS: "android.settings.ZEN_MODE_SETTINGS";
 
-    function startActivityAsync(activity: string, data?: HashMap): Promise<boolean>;
+    function startActivityAsync(
+        activity: string,
+        data?: HashMap
+    ): Promise<boolean>;
 }
 
 /**
@@ -2139,7 +2296,7 @@ export interface LinearGradientProps {
     style?: StyleProp<ViewStyle>;
 }
 
-export class LinearGradient extends Component<LinearGradientProps> { }
+export class LinearGradient extends Component<LinearGradientProps> {}
 // #endregion
 
 /**
@@ -2181,7 +2338,7 @@ export namespace Location {
     interface LocationData {
         coords: {
             heading: number;
-            speed: number
+            speed: number;
         } & Coords;
         timestamp: number;
     }
@@ -2224,19 +2381,34 @@ export namespace Location {
 
     type LocationCallback = (data: LocationData) => void;
 
-    function getCurrentPositionAsync(options: LocationOptions): Promise<LocationData>;
-    function watchPositionAsync(options: LocationOptions, callback: LocationCallback): EventSubscription;
+    function getCurrentPositionAsync(
+        options: LocationOptions
+    ): Promise<LocationData>;
+    function watchPositionAsync(
+        options: LocationOptions,
+        callback: LocationCallback
+    ): EventSubscription;
     function getProviderStatusAsync(): Promise<ProviderStatus>;
     function getHeadingAsync(): Promise<HeadingStatus>;
-    function watchHeadingAsync(callback: (status: HeadingStatus) => void): EventSubscription;
+    function watchHeadingAsync(
+        callback: (status: HeadingStatus) => void
+    ): EventSubscription;
     function geocodeAsync(address: string): Promise<Coords>;
-    function reverseGeocodeAsync(location: LocationProps): Promise<GeocodeData[]>;
+    function reverseGeocodeAsync(
+        location: LocationProps
+    ): Promise<GeocodeData[]>;
     function requestPermissionsAsync(): Promise<void>;
     function hasServicesEnabledAsync(): Promise<boolean>;
-    function startgeocodUpdatesAsync(taskName: string, options: LocationTaskOptions): Promise<void>;
+    function startgeocodUpdatesAsync(
+        taskName: string,
+        options: LocationTaskOptions
+    ): Promise<void>;
     function stopLocationUpdatesAsync(taskName: string): Promise<void>;
     function hasStartedLocationUpdatesAsync(taskName: string): Promise<boolean>;
-    function startGeofencingAsync(taskName: string, regions: Region[]): Promise<void>;
+    function startGeofencingAsync(
+        taskName: string,
+        regions: Region[]
+    ): Promise<void>;
     function stopGeofencingAsync(taskName: string): Promise<void>;
     function hasStartedGeofencingAsync(taskName: string): Promise<boolean>;
     function setApiKey(key: string): void;
@@ -2252,7 +2424,9 @@ export namespace Magnetometer {
         z: Axis;
     }
 
-    function addListener(listener: (obj: MagnetometerObject) => any): EventSubscription;
+    function addListener(
+        listener: (obj: MagnetometerObject) => any
+    ): EventSubscription;
     function removeAllListeners(): void;
     function setUpdateInterval(intervalMs: number): void;
 }
@@ -2262,7 +2436,7 @@ export namespace Magnetometer {
  */
 export namespace Notifications {
     interface Notification {
-        origin: 'selected' | 'received';
+        origin: "selected" | "received";
         data: any;
         remote: boolean;
         isMultiple: boolean;
@@ -2273,7 +2447,7 @@ export namespace Notifications {
         body?: string;
         data?: any;
         ios?: {
-            sound?: boolean
+            sound?: boolean;
         };
         android?: {
             channelId?: string;
@@ -2300,18 +2474,24 @@ export namespace Notifications {
         isDestructive?: boolean;
         isAuthenticationRequired?: boolean;
         textInput?: {
-          submitButtonTitle: string;
-          placeholder: string;
+            submitButtonTitle: string;
+            placeholder: string;
         };
     }
 
-    function createCategoryAsync(categoryId: string, actions: ActionType[]): Promise<void>;
+    function createCategoryAsync(
+        categoryId: string,
+        actions: ActionType[]
+    ): Promise<void>;
     function deleteCategoryAsync(categoryId: string): Promise<void>;
     function getExpoPushTokenAsync(): Promise<string>;
     function getDevicePushTokenAsync(config: {
         gcmSenderId?: string;
     }): Promise<{ type: string; data: string }>;
-    function createChannelAndroidAsync(id: string, channel: Channel): Promise<void>;
+    function createChannelAndroidAsync(
+        id: string,
+        channel: Channel
+    ): Promise<void>;
     function deleteChannelAndroidAsync(id: string): Promise<void>;
 
     /* Shows a notification instantly */
@@ -2323,25 +2503,31 @@ export namespace Notifications {
     function scheduleLocalNotificationAsync(
         notification: LocalNotification,
         options?: {
-          time?: Date | number;
-          repeat?: 'minute' | 'hour' | 'day' | 'week' | 'month' | 'year';
-          intervalMs?: number;
+            time?: Date | number;
+            repeat?: "minute" | "hour" | "day" | "week" | "month" | "year";
+            intervalMs?: number;
         }
     ): Promise<LocalNotificationId>;
 
     /** Dismiss currently shown notification with ID (Android only) */
-    function dismissNotificationAsync(notificationId: LocalNotificationId): Promise<void>;
+    function dismissNotificationAsync(
+        notificationId: LocalNotificationId
+    ): Promise<void>;
 
     /** Dismiss all currently shown notifications (Android only) */
     function dismissAllNotificationsAsync(): Promise<void>;
 
     /** Cancel scheduled notification notification with ID */
-    function cancelScheduledNotificationAsync(notificationId: LocalNotificationId): Promise<void>;
+    function cancelScheduledNotificationAsync(
+        notificationId: LocalNotificationId
+    ): Promise<void>;
 
     /** Cancel all scheduled notifications */
     function cancelAllScheduledNotificationsAsync(): Promise<void>;
 
-    function addListener(listener: (notification: Notification) => any): EventSubscription;
+    function addListener(
+        listener: (notification: Notification) => any
+    ): EventSubscription;
     function getBadgeNumberAsync(): Promise<number>;
     function setBadgeNumberAsync(number: number): Promise<void>;
 }
@@ -2351,26 +2537,40 @@ export namespace Notifications {
  */
 export namespace Pedometer {
     function isAvailableAsync(): Promise<boolean>;
-    function getStepCountAsync(start: Date, end: Date): Promise<{ steps: number; }>;
-    function watchStepCount(callback: (params: { steps: number; }) => void): EventSubscription;
+    function getStepCountAsync(
+        start: Date,
+        end: Date
+    ): Promise<{ steps: number }>;
+    function watchStepCount(
+        callback: (params: { steps: number }) => void
+    ): EventSubscription;
 }
 
 /**
  * Permissions
  */
 export namespace Permissions {
-    type PermissionType = 'audioRecording' | 'calendar' |
-    'cameraRoll' | 'camera' | 'contacts' | 'location' | 'reminders' |
-    'notifications' | 'systemBrightness' | 'userFacingNotifications' | 'SMS';
-    type PermissionStatus = 'undetermined' | 'granted' | 'denied';
-    type PermissionExpires = 'never';
+    type PermissionType =
+        | "audioRecording"
+        | "calendar"
+        | "cameraRoll"
+        | "camera"
+        | "contacts"
+        | "location"
+        | "reminders"
+        | "notifications"
+        | "systemBrightness"
+        | "userFacingNotifications"
+        | "SMS";
+    type PermissionStatus = "undetermined" | "granted" | "denied";
+    type PermissionExpires = "never";
 
     interface PermissionDetailsLocationIOS {
-        scope: 'whenInUse' | 'always';
+        scope: "whenInUse" | "always";
     }
 
     interface PermissionDetailsLocationAndroid {
-        scope: 'fine' | 'coarse' | 'none';
+        scope: "fine" | "coarse" | "none";
     }
 
     interface SinglePermissionResponse {
@@ -2383,28 +2583,30 @@ export namespace Permissions {
     interface PermissionResponse {
         status: PermissionStatus;
         expires: PermissionExpires;
-        permissions: {
-            [key in PermissionType]: SinglePermissionResponse
-        };
+        permissions: { [key in PermissionType]: SinglePermissionResponse };
     }
 
-    function getAsync(...permissionTypes: PermissionType[]): Promise<PermissionResponse>;
-    function askAsync(...permissionTypes: PermissionType[]): Promise<PermissionResponse>;
+    function getAsync(
+        ...permissionTypes: PermissionType[]
+    ): Promise<PermissionResponse>;
+    function askAsync(
+        ...permissionTypes: PermissionType[]
+    ): Promise<PermissionResponse>;
 
-    const AUDIO_RECORDING: 'audioRecording';
-    const CALENDAR: 'calendar';
-    const CAMERA_ROLL: 'cameraRoll';
-    const CAMERA: 'camera';
-    const CONTACTS: 'contacts';
-    const LOCATION: 'location';
-    const NOTIFICATIONS: 'notifications';
-    const REMINDERS: 'reminders';
-    const SYSTEM_BRIGHTNESS: 'systemBrightness';
-    const USER_FACING_NOTIFICATIONS: 'userFacingNotifications';
+    const AUDIO_RECORDING: "audioRecording";
+    const CALENDAR: "calendar";
+    const CAMERA_ROLL: "cameraRoll";
+    const CAMERA: "camera";
+    const CONTACTS: "contacts";
+    const LOCATION: "location";
+    const NOTIFICATIONS: "notifications";
+    const REMINDERS: "reminders";
+    const SYSTEM_BRIGHTNESS: "systemBrightness";
+    const USER_FACING_NOTIFICATIONS: "userFacingNotifications";
     /**
      * Will be removed in SDK 32
      */
-    const SMS: 'SMS';
+    const SMS: "SMS";
 }
 
 /**
@@ -2417,14 +2619,14 @@ export function registerRootComponent(component: ComponentType): void;
  */
 export namespace ScreenOrientation {
     interface Orientations {
-        ALL: 'ALL';
-        ALL_BUT_UPSIDE_DOWN: 'ALL_BUT_UPSIDE_DOWN';
-        PORTRAIT: 'PORTRAIT';
-        PORTRAIT_UP: 'PORTRAIT_UP';
-        PORTRAIT_DOWN: 'PORTRAIT_DOWN';
-        LANDSCAPE: 'LANDSCAPE';
-        LANDSCAPE_LEFT: 'LANDSCAPE_LEFT';
-        LANDSCAPE_RIGHT: 'LANDSCAPE_RIGHT';
+        ALL: "ALL";
+        ALL_BUT_UPSIDE_DOWN: "ALL_BUT_UPSIDE_DOWN";
+        PORTRAIT: "PORTRAIT";
+        PORTRAIT_UP: "PORTRAIT_UP";
+        PORTRAIT_DOWN: "PORTRAIT_DOWN";
+        LANDSCAPE: "LANDSCAPE";
+        LANDSCAPE_LEFT: "LANDSCAPE_LEFT";
+        LANDSCAPE_RIGHT: "LANDSCAPE_RIGHT";
     }
 
     const Orientation: Orientations;
@@ -2444,9 +2646,19 @@ export namespace SecureStore {
         keychainAccessible?: number;
     }
 
-    function setItemAsync(key: string, value: string, options?: SecureStoreSetOptions): Promise<void>;
-    function getItemAsync(key: string, options?: SecureStoreOptions): Promise<string | null>;
-    function deleteItemAsync(key: string, options?: SecureStoreOptions): Promise<void>;
+    function setItemAsync(
+        key: string,
+        value: string,
+        options?: SecureStoreSetOptions
+    ): Promise<void>;
+    function getItemAsync(
+        key: string,
+        options?: SecureStoreOptions
+    ): Promise<string | null>;
+    function deleteItemAsync(
+        key: string,
+        options?: SecureStoreOptions
+    ): Promise<void>;
 
     const WHEN_UNLOCKED: number;
     const AFTER_FIRST_UNLOCK: number;
@@ -2468,7 +2680,10 @@ export namespace Segment {
     function identify(userId: string): void;
     function identifyWithTraits(userId: string, traits: object): void;
     function track(event: string): void;
-    function alias(newId: string, options?: { [key: string]: any }): Promise<boolean>;
+    function alias(
+        newId: string,
+        options?: { [key: string]: any }
+    ): Promise<boolean>;
     function reset(): void;
     function trackWithProperties(event: string, properties: object): void;
     function screen(screenName: string): void;
@@ -2512,7 +2727,7 @@ export namespace SQLite {
     interface Database {
         transaction(
             callback: (transaction: Transaction) => any,
-            error?: (error: Error) => any,     // TODO def of error
+            error?: (error: Error) => any, // TODO def of error
             success?: () => any
         ): void;
     }
@@ -2537,13 +2752,15 @@ export namespace SQLite {
     }
 
     function openDatabase(
-        name: string | {
-            name: string,
-            version?: string,
-            description?: string,
-            size?: number,
-            callback?: () => any
-        },
+        name:
+            | string
+            | {
+                  name: string;
+                  version?: string;
+                  description?: string;
+                  size?: number;
+                  callback?: () => any;
+              },
         version?: string,
         description?: string,
         size?: number,
@@ -2558,7 +2775,7 @@ export namespace SQLite {
 export interface SvgCommonProps {
     fill?: string;
     fillOpacity?: number | string;
-    fillRule?: 'nonzero' | 'evenodd';
+    fillRule?: "nonzero" | "evenodd";
     opacity?: number | string;
     stroke?: string;
     strokeWidth?: number | string;
@@ -2676,7 +2893,12 @@ export interface SvgStopProps extends SvgCommonProps {
     stopOpacity?: string;
 }
 
-export class Svg extends Component<{ width: number, height: number, viewBox?: string, preserveAspectRatio?: string }> {
+export class Svg extends Component<{
+    width: number;
+    height: number;
+    viewBox?: string;
+    preserveAspectRatio?: string;
+}> {
     static Circle: ComponentClass<SvgCircleProps>;
     static ClipPath: ComponentClass<SvgCommonProps>;
     static Defs: ComponentClass;
@@ -2706,7 +2928,7 @@ export function takeSnapshotAsync(
     options?: {
         width?: number;
         height?: number;
-        format: 'png' | 'jpg' | 'raw' | 'webm';
+        format: "png" | "jpg" | "raw" | "webm";
         quality: number;
         snapshotContentContainer: boolean;
         result: "tmpfile" | "base64" | "data-uri" | "zip-base64";
@@ -2728,9 +2950,9 @@ export namespace Util {
     function reload(): void;
 
     /** _Android only_. Invokes a callback when a new version of your app is successfully downloaded in the background. */
-    function addNewVersionListenerExperimental(listener: (event: {
-        manifest: object;
-    }) => void): { remove(): void; };
+    function addNewVersionListenerExperimental(
+        listener: (event: { manifest: object }) => void
+    ): { remove(): void };
 }
 
 // #region Video
@@ -2814,9 +3036,14 @@ export class Video extends Component<VideoProps, VideoState> {
  * Web Browser
  */
 export namespace WebBrowser {
-    function openBrowserAsync(url: string): Promise<{ type: 'cancelled' | 'dismissed' }>;
-    function openAuthSessionAsync(url: string, redirectUrl?: string): Promise<{ type: 'cancelled' | 'dismissed' }>;
-    function dismissBrowser(): Promise<{ type: 'dismissed' }>;
+    function openBrowserAsync(
+        url: string
+    ): Promise<{ type: "cancelled" | "dismissed" }>;
+    function openAuthSessionAsync(
+        url: string,
+        redirectUrl?: string
+    ): Promise<{ type: "cancelled" | "dismissed" }>;
+    function dismissBrowser(): Promise<{ type: "dismissed" }>;
 }
 
 // #region Calendar
@@ -3087,107 +3314,107 @@ export namespace Calendar {
     }
 
     enum EntityTypes {
-        EVENT = 'event',
-        REMINDER = 'reminder',
+        EVENT = "event",
+        REMINDER = "reminder"
     }
 
     enum CalendarType {
-        LOCAL = 'local',
-        CALDAV = 'caldav',
-        EXCHANGE = 'exchange',
-        SUBSCRIBED = 'subscribed',
-        BIRTHDAYS = 'birthdays'
+        LOCAL = "local",
+        CALDAV = "caldav",
+        EXCHANGE = "exchange",
+        SUBSCRIBED = "subscribed",
+        BIRTHDAYS = "birthdays"
     }
 
     enum Availability {
-        NOT_SUPPORTED = 'notSupported', // iOS
-        BUSY = 'busy',
-        FREE = 'free',
-        TENTATIVE = 'tentative',
-        UNAVAILABLE = 'unavailable' // iOS
+        NOT_SUPPORTED = "notSupported", // iOS
+        BUSY = "busy",
+        FREE = "free",
+        TENTATIVE = "tentative",
+        UNAVAILABLE = "unavailable" // iOS
     }
 
     enum AlarmMethod {
-        ALARM = 'alarm',
-        ALERT = 'alert',
-        EMAIL = 'email',
-        SMS = 'sms',
-        DEFAULT = 'default',
+        ALARM = "alarm",
+        ALERT = "alert",
+        EMAIL = "email",
+        SMS = "sms",
+        DEFAULT = "default"
     }
 
     enum AttendeeType {
-        UNKNOWN = 'unknown', // iOS
-        PERSON = 'person', // iOS
-        ROOM = 'room', // iOS
-        GROUP = 'group', // iOS
-        RESOURCE = 'resource',
-        OPTIONAL = 'optional', // Android
-        REQUIRED = 'required', // Android
-        NONE = 'none' // Android
+        UNKNOWN = "unknown", // iOS
+        PERSON = "person", // iOS
+        ROOM = "room", // iOS
+        GROUP = "group", // iOS
+        RESOURCE = "resource",
+        OPTIONAL = "optional", // Android
+        REQUIRED = "required", // Android
+        NONE = "none" // Android
     }
 
     enum CalendarAccessLevel {
-        CONTRIBUTOR = 'contributor',
-        EDITOR = 'editor',
-        FREEBUSY = 'freebusy',
-        OVERRIDE = 'override',
-        OWNER = 'owner',
-        READ = 'read',
-        RESPOND = 'respond',
-        ROOT = 'root',
-        NONE = 'none'
+        CONTRIBUTOR = "contributor",
+        EDITOR = "editor",
+        FREEBUSY = "freebusy",
+        OVERRIDE = "override",
+        OWNER = "owner",
+        READ = "read",
+        RESPOND = "respond",
+        ROOT = "root",
+        NONE = "none"
     }
 
     enum EventAccessLevel {
-        CONFIDENTIAL = 'confidential',
-        PRIVATE = 'private',
-        PUBLIC = 'public',
-        DEFAULT = 'default'
+        CONFIDENTIAL = "confidential",
+        PRIVATE = "private",
+        PUBLIC = "public",
+        DEFAULT = "default"
     }
 
     enum EventStatus {
-        NONE = 'none',
-        CONFIRMED = 'confirmed',
-        TENTATIVE = 'tentative',
-        CANCELED = 'canceled'
+        NONE = "none",
+        CONFIRMED = "confirmed",
+        TENTATIVE = "tentative",
+        CANCELED = "canceled"
     }
 
     enum AttendeeRole {
-        UNKNOWN = 'unknown', // iOS
-        REQUIRED = 'required', // iOS
-        OPTIONAL = 'optional', // iOS
-        CHAIR = 'chair', // iOS
-        NON_PARTICIPANT = 'nonParticipant', // iOS
-        ATTENDEE = 'attendee', // Android
-        ORGANIZER = 'organizer', // Android
-        PERFORMER = 'performer', // Android
-        SPEAKER = 'speaker', // Android
-        NONE = 'none' // Android
+        UNKNOWN = "unknown", // iOS
+        REQUIRED = "required", // iOS
+        OPTIONAL = "optional", // iOS
+        CHAIR = "chair", // iOS
+        NON_PARTICIPANT = "nonParticipant", // iOS
+        ATTENDEE = "attendee", // Android
+        ORGANIZER = "organizer", // Android
+        PERFORMER = "performer", // Android
+        SPEAKER = "speaker", // Android
+        NONE = "none" // Android
     }
 
     enum AttendeeStatus {
-        UNKNOWN = 'unknown', // iOS
-        PENDING = 'pending', // iOS
-        ACCEPTED = 'accepted',
-        DECLINED = 'declined',
-        TENTATIVE = 'tentative',
-        DELEGATED = 'delegated', // iOS
-        COMPLETED = 'completed', // iOS
-        IN_PROCESS = 'inProcess', // iOS
-        INVITED = 'invited', // Android
-        NONE = 'none' // Android
+        UNKNOWN = "unknown", // iOS
+        PENDING = "pending", // iOS
+        ACCEPTED = "accepted",
+        DECLINED = "declined",
+        TENTATIVE = "tentative",
+        DELEGATED = "delegated", // iOS
+        COMPLETED = "completed", // iOS
+        IN_PROCESS = "inProcess", // iOS
+        INVITED = "invited", // Android
+        NONE = "none" // Android
     }
 
     enum Frequency {
-        DAILY = 'daily',
-        WEEKLY = 'weekly',
-        MONTHLY = 'monthly',
-        YEARLY = 'yearly'
+        DAILY = "daily",
+        WEEKLY = "weekly",
+        MONTHLY = "monthly",
+        YEARLY = "yearly"
     }
 
     enum ReminderStatus {
-        COMPLETED = 'completed',
-        INCOMPLETE = 'incomplete'
+        COMPLETED = "completed",
+        INCOMPLETE = "incomplete"
     }
 
     interface RecurringEventOptions {
@@ -3205,7 +3432,10 @@ export namespace Calendar {
     function createCalendarAsync(details: Calendar): Promise<string>;
 
     /** Updates the provided details of an existing calendar stored on the device. To remove a property, explicitly set it to null in details */
-    function updateCalendarAsync(id: string, details?: Calendar | null): Promise<string>;
+    function updateCalendarAsync(
+        id: string,
+        details?: Calendar | null
+    ): Promise<string>;
 
     /** Deletes an existing calendar and all associated events/reminders/attendees from the device. Use with caution. */
     function deleteCalendarAsync(id: string): Promise<void>;
@@ -3214,10 +3444,8 @@ export namespace Calendar {
     function getEventsAsync(
         /** Array of IDs of calendars to search for events in. Required. */
         calendarIds: string[],
-
         /** Beginning of time period to search for events in. Required. */
         startDate: Date,
-
         /** End of time period to search for events in. Required. */
         endDate: Date
     ): Promise<Event[]>;
@@ -3226,7 +3454,6 @@ export namespace Calendar {
     function getEventAsync(
         /** ID of the event to return. Required. */
         id: string,
-
         /** A map of options for recurring events */
         recurringEventOptions?: RecurringEventOptions
     ): Promise<Event>;
@@ -3242,10 +3469,8 @@ export namespace Calendar {
     function updateEventAsync(
         /** ID of the event to be updated. Required. */
         id: string,
-
         /** A map of properties to be updated  */
         details?: Event | null,
-
         /** A map of options for recurring events */
         recurrentEventOptions?: RecurringEventOptions
     ): Promise<string>;
@@ -3254,7 +3479,6 @@ export namespace Calendar {
     function deleteEventAsync(
         /** ID of the event to be deleted. Required. */
         id: string,
-
         /** A map of options for recurring events */
         recurringEventOptions?: RecurringEventOptions
     ): Promise<void>;
@@ -3263,7 +3487,6 @@ export namespace Calendar {
     function getAttendeesForEventAsync(
         /** ID of the event to return attendees for. Required. */
         eventId: string,
-
         /** A map of options for recurring events */
         recurrentEventOptions?: RecurringEventOptions
     ): Promise<Attendee[]>;
@@ -3272,7 +3495,6 @@ export namespace Calendar {
     function createAttendeeAsync(
         /**  ID of the event to add this attendee to. Required. */
         eventId: string,
-
         /** A map of details for the attendee to be created  */
         details?: Attendee
     ): Promise<string>;
@@ -3281,7 +3503,6 @@ export namespace Calendar {
     function updateAttendeeAsync(
         /** ID of the attendee record to be updated. Required. */
         id: string,
-
         /** A map of properties to be updated  */
         details?: Attendee | null
     ): Promise<string>;
@@ -3293,12 +3514,9 @@ export namespace Calendar {
     function getRemindersAsync(
         /**  Array of IDs of calendars to search for reminders in. Required. */
         calendarIds: string[],
-
         status?: ReminderStatus,
-
         /** Beginning of time period to search for reminders in. Required if status is defined. */
         startDate?: Date,
-
         /** End of time period to search for reminders in. Required if status is defined. */
         endDate?: Date
     ): Promise<Reminder[]>;
@@ -3310,7 +3528,6 @@ export namespace Calendar {
     function createReminderAsync(
         /** ID of the calendar to create this reminder in. Required. */
         calendarId: string,
-
         /** A map of details for the reminder to be created */
         details?: Reminder
     ): Promise<string>;
@@ -3319,7 +3536,6 @@ export namespace Calendar {
     function updateReminderAsync(
         /** ID of the reminder to be updated. Required. */
         id: string,
-
         /** A map of properties to be updated */
         details?: Reminder | null
     ): Promise<string>;
@@ -3373,22 +3589,22 @@ export namespace MailComposer {
     function composeAsync(
         /** A map defining the data to fill the mail */
         options: ComposeOptions
-    ): Promise<{ status: 'sent' | 'saved' | 'cancelled' }>;
+    ): Promise<{ status: "sent" | "saved" | "cancelled" }>;
 }
 // #endregion
 
 export namespace Updates {
     namespace EventType {
         /** A new update is available and has started downloading. */
-        type DownloadStart = 'downloadStart';
+        type DownloadStart = "downloadStart";
         /** A new update is currently being downloaded and will be stored in the device's cache. */
-        type DownloadProgress = 'downloadProgress';
+        type DownloadProgress = "downloadProgress";
         /** A new update has finished downloading and is now stored in the device's cache. */
-        type DownloadFinished = 'downloadFinished';
+        type DownloadFinished = "downloadFinished";
         /** No updates are available, and the most up-to-date bundle of this experience is already running. */
-        type NoUpdateAvailable = 'noUpdateAvailable';
+        type NoUpdateAvailable = "noUpdateAvailable";
         /** An error occurred trying to fetch the latest update. */
-        type Error = 'error';
+        type Error = "error";
 
         /** A new update is available and has started downloading. */
         const DOWNLOAD_STARTED: DownloadStart;
@@ -3419,7 +3635,8 @@ export namespace Updates {
     /** An object that is passed into each event listener when a new version is available. */
     interface UpdateEvent {
         /** Type of the event */
-        type: EventType.DownloadStart
+        type:
+            | EventType.DownloadStart
             | EventType.DownloadProgress
             | EventType.DownloadFinished
             | EventType.NoUpdateAvailable
@@ -3454,7 +3671,9 @@ export namespace Updates {
      * Downloads the most recent published version of your experience to the device's local cache.
      * Rejects if `updates.enabled` is `false` in app.json.
      */
-    function fetchUpdateAsync(params?: FetchUpdateAsyncParams): Promise<UpdateBundle>;
+    function fetchUpdateAsync(
+        params?: FetchUpdateAsyncParams
+    ): Promise<UpdateBundle>;
 
     /**
      * Immediately reloads the current experience.
@@ -3478,153 +3697,165 @@ export namespace Updates {
  */
 
 export namespace MediaLibrary {
-  /**
-   * Creates an asset from existing file. The most common use case is to save a picture taken by Camera.
-   */
-  function createAssetAsync(localUri: string): Promise<Asset>;
+    /**
+     * Creates an asset from existing file. The most common use case is to save a picture taken by Camera.
+     */
+    function createAssetAsync(localUri: string): Promise<Asset>;
 
-  /**
-   * Fetches a page of assets matching the provided criteria.
-   */
-  function getAssetsAsync(options: GetAssetsOptions): Promise<GetAssetsResult>;
+    /**
+     * Fetches a page of assets matching the provided criteria.
+     */
+    function getAssetsAsync(
+        options: GetAssetsOptions
+    ): Promise<GetAssetsResult>;
 
-  /**
-   * Provides more informations about an asset, including GPS location, local URI and EXIF metadata.
-   */
-  function getAssetInfoAsync(asset: string | Asset): Promise<Asset>;
+    /**
+     * Provides more informations about an asset, including GPS location, local URI and EXIF metadata.
+     */
+    function getAssetInfoAsync(asset: string | Asset): Promise<Asset>;
 
-  /**
-   * Deletes assets from the library. On iOS it deletes assets from all albums they belong to, while on Android it keeps all copies of them
-   * (album is strictly connected to the asset). Also, there is additional dialog on iOS that requires user to confirm this action.
-   */
-  function deleteAssetsAsync(asset: string[] | Asset[]): Promise<boolean>;
+    /**
+     * Deletes assets from the library. On iOS it deletes assets from all albums they belong to, while on Android it keeps all copies of them
+     * (album is strictly connected to the asset). Also, there is additional dialog on iOS that requires user to confirm this action.
+     */
+    function deleteAssetsAsync(asset: string[] | Asset[]): Promise<boolean>;
 
-  /**
-   * Queries for user-created albums in media gallery.
-   */
-  function getAlbumsAsync(): Promise<Album[]>;
+    /**
+     * Queries for user-created albums in media gallery.
+     */
+    function getAlbumsAsync(): Promise<Album[]>;
 
-  /**
-   * Queries for an album with a specific name.
-   */
-  function getAlbumAsync(albumName: string): Promise<Album>;
+    /**
+     * Queries for an album with a specific name.
+     */
+    function getAlbumAsync(albumName: string): Promise<Album>;
 
-  /**
-   * Creates an album with given name and initial asset.
-   * The asset parameter is required on Android, since it's not possible to create empty album on this platform.
-   */
-  function createAlbumAsync(albumName: string, asset: string | Asset): Promise<Album>;
+    /**
+     * Creates an album with given name and initial asset.
+     * The asset parameter is required on Android, since it's not possible to create empty album on this platform.
+     */
+    function createAlbumAsync(
+        albumName: string,
+        asset: string | Asset
+    ): Promise<Album>;
 
-  /**
-   * Adds array of assets to the album.
-   * On Android, by default it copies assets from the current album to provided one, however it's also possible to move them by passing false as copyAssets argument.
-   * In case they're copied you should keep in mind that getAssetsAsync will return duplicated assets.
-   */
-  function addAssetsToAlbumAsync(assets: Asset[], album: string | Album, copyAssets?: boolean /* default true */): Promise<boolean>;
+    /**
+     * Adds array of assets to the album.
+     * On Android, by default it copies assets from the current album to provided one, however it's also possible to move them by passing false as copyAssets argument.
+     * In case they're copied you should keep in mind that getAssetsAsync will return duplicated assets.
+     */
+    function addAssetsToAlbumAsync(
+        assets: Asset[],
+        album: string | Album,
+        copyAssets?: boolean /* default true */
+    ): Promise<boolean>;
 
-  /**
-   * Removes given assets from album.
-   * On Android, album will be automatically deleted if there are no more assets inside.
-   */
-  function removeAssetsFromAlbumAsync(assets: Asset[], album: string | Album): Promise<boolean>;
+    /**
+     * Removes given assets from album.
+     * On Android, album will be automatically deleted if there are no more assets inside.
+     */
+    function removeAssetsFromAlbumAsync(
+        assets: Asset[],
+        album: string | Album
+    ): Promise<boolean>;
 
-  /**
-   * Available on iOS only. Fetches a list of moments, which is a group of assets taken around the same place and time.
-   */
-  function getMomentsAsync(): Promise<Album[]>;
+    /**
+     * Available on iOS only. Fetches a list of moments, which is a group of assets taken around the same place and time.
+     */
+    function getMomentsAsync(): Promise<Album[]>;
 
-  enum MediaType {
-    audio = 'audio',
-    photo = 'photo',
-    video = 'video',
-    unknow = 'unknow'
-  }
+    enum MediaType {
+        audio = "audio",
+        photo = "photo",
+        video = "video",
+        unknow = "unknow"
+    }
 
-  enum SortBy {
-    default = 'default',
-    id = 'id',
-    creationTime = 'creationTime',
-    modificationTime = 'modificationTime',
-    mediaType = 'mediaType',
-    width = 'width',
-    height = 'height',
-    duration = 'duration'
-  }
+    enum SortBy {
+        default = "default",
+        id = "id",
+        creationTime = "creationTime",
+        modificationTime = "modificationTime",
+        mediaType = "mediaType",
+        width = "width",
+        height = "height",
+        duration = "duration"
+    }
 
-  // region Asset
-  interface AssetAndroid {
-    albumId?: string;
-  }
+    // region Asset
+    interface AssetAndroid {
+        albumId?: string;
+    }
 
-  interface AssetIos {
-    mediaSubtypes?: MediaType[];
-    // *
-    orientation: number;
-    // *
-    isFavorite: boolean;
-  }
+    interface AssetIos {
+        mediaSubtypes?: MediaType[];
+        // *
+        orientation: number;
+        // *
+        isFavorite: boolean;
+    }
 
-  interface Asset extends AssetAndroid, AssetIos {
-    id: string;
-    filename: string;
-    uri: string;
-    mediaType: string;
-    width: number;
-    height: number;
-    creationTime: number;
-    modificationTime: number;
-    duration: number;
-    // *
-    localUri?: string;
-    // *
-    location?: Location.LocationProps;
-    // *
-    exif?: object;
-  }
+    interface Asset extends AssetAndroid, AssetIos {
+        id: string;
+        filename: string;
+        uri: string;
+        mediaType: string;
+        width: number;
+        height: number;
+        creationTime: number;
+        modificationTime: number;
+        duration: number;
+        // *
+        localUri?: string;
+        // *
+        location?: Location.LocationProps;
+        // *
+        exif?: object;
+    }
 
-  /**
-   * These fields can be obtained only by calling getAssetInfoAsync method
-   */
-  //#endregion
+    /**
+     * These fields can be obtained only by calling getAssetInfoAsync method
+     */
+    //#endregion
 
-  // #region Album
-  interface AlbumIos {
-    type?: string;
-    // *
-    startTime: number;
-    // *
-    endTime: number;
-    // *
-    approximateLocation?: Location.LocationProps;
-    // *
-    locationNames?: string[];
-  }
+    // #region Album
+    interface AlbumIos {
+        type?: string;
+        // *
+        startTime: number;
+        // *
+        endTime: number;
+        // *
+        approximateLocation?: Location.LocationProps;
+        // *
+        locationNames?: string[];
+    }
 
-  /**
-   * These fields apply only to albums whose type is moment
-   */
+    /**
+     * These fields apply only to albums whose type is moment
+     */
 
-  interface Album extends AlbumIos {
-    id: string;
-    title: string;
-    assetCount: number;
-  }
-  // #endregion
+    interface Album extends AlbumIos {
+        id: string;
+        title: string;
+        assetCount: number;
+    }
+    // #endregion
 
-  interface GetAssetsOptions {
-    first?: number;
-    after?: string;
-    album?: string | Album;
-    sortBy?: SortBy;
-    mediaType?: MediaType;
-  }
+    interface GetAssetsOptions {
+        first?: number;
+        after?: string;
+        album?: string | Album;
+        sortBy?: SortBy;
+        mediaType?: MediaType;
+    }
 
-  interface GetAssetsResult {
-    assets: Asset[];
-    endCursor: string;
-    hasNextPage: boolean;
-    totalCount: number;
-  }
+    interface GetAssetsResult {
+        assets: Asset[];
+        endCursor: string;
+        hasNextPage: boolean;
+        totalCount: number;
+    }
 }
 // #endregion
 
@@ -3635,23 +3866,23 @@ export namespace MediaLibrary {
  * If this is used in Android the device will use ReactNative.Vibrate instead, it's best to just avoid this.
  */
 export namespace Haptic {
-  /**
-   * Used to let a user know when a selection change has been registered
-   */
-  function selection(): void;
-  function notification(notificationType?: NotificationType): void;
-  function impact(impactStyles?: ImpactStyles): void;
+    /**
+     * Used to let a user know when a selection change has been registered
+     */
+    function selection(): void;
+    function notification(notificationType?: NotificationType): void;
+    function impact(impactStyles?: ImpactStyles): void;
 
-  enum ImpactStyles {
-    Light = 'light',
-    Medium = 'medium',
-    Heavy = 'heavy'
-  }
+    enum ImpactStyles {
+        Light = "light",
+        Medium = "medium",
+        Heavy = "heavy"
+    }
 
-  enum NotificationType {
-    Success = 'success',
-    Warning = 'warning',
-    Error = 'error'
-  }
+    enum NotificationType {
+        Success = "success",
+        Warning = "warning",
+        Error = "error"
+    }
 }
 // #endregion

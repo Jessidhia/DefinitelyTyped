@@ -7,79 +7,157 @@ export function version(): string;
 
 export function time(): Systeminformation.TimeData;
 
-export function system(cb?: (data: Systeminformation.SystemData) => any): Promise<Systeminformation.SystemData>;
+export function system(
+    cb?: (data: Systeminformation.SystemData) => any
+): Promise<Systeminformation.SystemData>;
 
-export function cpu(cb?: (data: Systeminformation.CpuData) => any): Promise<Systeminformation.CpuData>;
+export function cpu(
+    cb?: (data: Systeminformation.CpuData) => any
+): Promise<Systeminformation.CpuData>;
 
 export function cpuFlags(cb?: (data: string) => any): Promise<string>;
 
-export function cpuCache(cb?: (data: Systeminformation.CpuCacheData) => any): Promise<Systeminformation.CpuCacheData>;
+export function cpuCache(
+    cb?: (data: Systeminformation.CpuCacheData) => any
+): Promise<Systeminformation.CpuCacheData>;
 
-export function cpuCurrentspeed(cb?: (data: Systeminformation.CpuCurrentSpeedData) => any): Promise<Systeminformation.CpuCurrentSpeedData>;
+export function cpuCurrentspeed(
+    cb?: (data: Systeminformation.CpuCurrentSpeedData) => any
+): Promise<Systeminformation.CpuCurrentSpeedData>;
 
-export function cpuTemperature(cb?: (data: Systeminformation.CpuTemperatureData) => any): Promise<Systeminformation.CpuTemperatureData>;
+export function cpuTemperature(
+    cb?: (data: Systeminformation.CpuTemperatureData) => any
+): Promise<Systeminformation.CpuTemperatureData>;
 
-export function mem(cb?: (data: Systeminformation.MemData) => any): Promise<Systeminformation.MemData>;
+export function mem(
+    cb?: (data: Systeminformation.MemData) => any
+): Promise<Systeminformation.MemData>;
 
-export function memLayout(cb?: (data: Systeminformation.MemLayoutData) => any): Promise<Systeminformation.MemLayoutData>;
+export function memLayout(
+    cb?: (data: Systeminformation.MemLayoutData) => any
+): Promise<Systeminformation.MemLayoutData>;
 
-export function diskLayout(cb?: (data: Systeminformation.DiskLayoutData) => any): Promise<Systeminformation.DiskLayoutData>;
+export function diskLayout(
+    cb?: (data: Systeminformation.DiskLayoutData) => any
+): Promise<Systeminformation.DiskLayoutData>;
 
-export function battery(cb?: (data: Systeminformation.BatteryData) => any): Promise<Systeminformation.BatteryData>;
+export function battery(
+    cb?: (data: Systeminformation.BatteryData) => any
+): Promise<Systeminformation.BatteryData>;
 
-export function graphics(cb?: (data: Systeminformation.GraphicsData) => any): Promise<Systeminformation.GraphicsData>;
+export function graphics(
+    cb?: (data: Systeminformation.GraphicsData) => any
+): Promise<Systeminformation.GraphicsData>;
 
-export function osInfo(cb?: (data: Systeminformation.OsData) => any): Promise<Systeminformation.OsData>;
+export function osInfo(
+    cb?: (data: Systeminformation.OsData) => any
+): Promise<Systeminformation.OsData>;
 
-export function versions(cb?: (data: Systeminformation.VersionData) => any): Promise<Systeminformation.VersionData>;
+export function versions(
+    cb?: (data: Systeminformation.VersionData) => any
+): Promise<Systeminformation.VersionData>;
 
 export function shell(cb?: (data: string) => any): Promise<string>;
 
-export function users(cb?: (data: Systeminformation.UserData[]) => any): Promise<Systeminformation.UserData[]>;
+export function users(
+    cb?: (data: Systeminformation.UserData[]) => any
+): Promise<Systeminformation.UserData[]>;
 
-export function fsSize(cb?: (data: Systeminformation.FsSizeData[]) => any): Promise<Systeminformation.FsSizeData[]>;
+export function fsSize(
+    cb?: (data: Systeminformation.FsSizeData[]) => any
+): Promise<Systeminformation.FsSizeData[]>;
 
-export function blockDevices(cb?: (data: Systeminformation.BlockDevicesData[]) => any): Promise<Systeminformation.BlockDevicesData[]>;
+export function blockDevices(
+    cb?: (data: Systeminformation.BlockDevicesData[]) => any
+): Promise<Systeminformation.BlockDevicesData[]>;
 
-export function fsStats(cb?: (data: Systeminformation.FsStatsData) => any): Promise<Systeminformation.FsStatsData>;
+export function fsStats(
+    cb?: (data: Systeminformation.FsStatsData) => any
+): Promise<Systeminformation.FsStatsData>;
 
-export function disksIO(cb?: (data: Systeminformation.DisksIoData) => any): Promise<Systeminformation.DisksIoData>;
+export function disksIO(
+    cb?: (data: Systeminformation.DisksIoData) => any
+): Promise<Systeminformation.DisksIoData>;
 
-export function networkInterfaces(cb ?: (data: Systeminformation.NetInterfacesData[]) => any): Promise<Systeminformation.NetInterfacesData[]>;
+export function networkInterfaces(
+    cb?: (data: Systeminformation.NetInterfacesData[]) => any
+): Promise<Systeminformation.NetInterfacesData[]>;
 
-export function networkInterfaceDefault(cb ?: (data: string) => any): Promise<string>;
+export function networkInterfaceDefault(
+    cb?: (data: string) => any
+): Promise<string>;
 
-export function networkStats(iface?: string, cb?: (data: Systeminformation.NetStatsData) => any): Promise<Systeminformation.NetStatsData>;
+export function networkStats(
+    iface?: string,
+    cb?: (data: Systeminformation.NetStatsData) => any
+): Promise<Systeminformation.NetStatsData>;
 
-export function networkConnections(cb?: (data: Systeminformation.NetConnectionsData[]) => any): Promise<Systeminformation.NetConnectionsData[]>;
+export function networkConnections(
+    cb?: (data: Systeminformation.NetConnectionsData[]) => any
+): Promise<Systeminformation.NetConnectionsData[]>;
 
-export function inetChecksite(url: string, cb?: (data: Systeminformation.NetChecksiteData) => any): Promise<Systeminformation.NetChecksiteData>;
+export function inetChecksite(
+    url: string,
+    cb?: (data: Systeminformation.NetChecksiteData) => any
+): Promise<Systeminformation.NetChecksiteData>;
 
-export function inetLatency(host?: string, cb?: (data: number) => any): Promise<number>;
+export function inetLatency(
+    host?: string,
+    cb?: (data: number) => any
+): Promise<number>;
 
-export function currentLoad(cb?: (data: Systeminformation.CurrentLoadData) => any): Promise<Systeminformation.CurrentLoadData>;
+export function currentLoad(
+    cb?: (data: Systeminformation.CurrentLoadData) => any
+): Promise<Systeminformation.CurrentLoadData>;
 
 export function fullLoad(cb?: (data: number) => any): Promise<number>;
 
-export function processes(cb?: (data: Systeminformation.ProcessesData) => any): Promise<Systeminformation.ProcessesData>;
+export function processes(
+    cb?: (data: Systeminformation.ProcessesData) => any
+): Promise<Systeminformation.ProcessesData>;
 
-export function processLoad(processName: string, cb?: (data: Systeminformation.ProcessesProcessLoadData) => any): Promise<Systeminformation.ProcessesProcessLoadData>;
+export function processLoad(
+    processName: string,
+    cb?: (data: Systeminformation.ProcessesProcessLoadData) => any
+): Promise<Systeminformation.ProcessesProcessLoadData>;
 
-export function services(serviceName: string, cb?: (data: Systeminformation.ServicesData[]) => any): Promise<Systeminformation.ServicesData[]>;
+export function services(
+    serviceName: string,
+    cb?: (data: Systeminformation.ServicesData[]) => any
+): Promise<Systeminformation.ServicesData[]>;
 
-export function dockerContainers(all?: boolean, cb?: (data: Systeminformation.DockerContainerData[]) => any): Promise<Systeminformation.DockerContainerData[]>;
+export function dockerContainers(
+    all?: boolean,
+    cb?: (data: Systeminformation.DockerContainerData[]) => any
+): Promise<Systeminformation.DockerContainerData[]>;
 
-export function dockerContainerStats(id?: string, cb?: (data: any) => any): Promise<any>;
+export function dockerContainerStats(
+    id?: string,
+    cb?: (data: any) => any
+): Promise<any>;
 
-export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<any>;
+export function dockerContainerProcesses(
+    id?: string,
+    cb?: (data: any) => any
+): Promise<any>;
 
 export function dockerAll(cb?: (data: any) => any): Promise<any>;
 
-export function getStaticData(cb?: (data: Systeminformation.StaticData) => any): Promise<Systeminformation.StaticData>;
+export function getStaticData(
+    cb?: (data: Systeminformation.StaticData) => any
+): Promise<Systeminformation.StaticData>;
 
-export function getDynamicData(srv?: string, iface?: string, cb?: (data: any) => any): Promise<any>;
+export function getDynamicData(
+    srv?: string,
+    iface?: string,
+    cb?: (data: any) => any
+): Promise<any>;
 
-export function getAllData(srv?: string, iface?: string, cb?: (data: any) => any): Promise<any>;
+export function getAllData(
+    srv?: string,
+    iface?: string,
+    cb?: (data: any) => any
+): Promise<any>;
 
 export namespace Systeminformation {
     interface StaticData {
@@ -424,24 +502,24 @@ export namespace Systeminformation {
                 total_usage: number;
                 usage_in_kernelmode: number;
                 usage_in_usermode: number;
-            },
+            };
             throttling_data: {
                 periods: number;
                 throttled_periods: number;
                 throttled_time: number;
-            }
+            };
         };
         precpu_stats: {
             cpu_usage: {
                 total_usage: number;
                 usage_in_kernelmode: number;
                 usage_in_usermode: number;
-            },
+            };
             throttling_data: {
                 periods: number;
                 throttled_periods: number;
                 throttled_time: number;
-            }
+            };
         };
         memory_stats: {
             usage: number;
@@ -478,13 +556,15 @@ export namespace Systeminformation {
                 total_writeback: number;
                 unevictable: number;
                 writeback: number;
-            },
+            };
             limit: number;
         };
         networks: any;
     }
 
-    interface DockerContainerAllData extends DockerContainerData, DockerContainerStatsData {
+    interface DockerContainerAllData
+        extends DockerContainerData,
+            DockerContainerStatsData {
         pids: number;
         processes: DockerContainerStatsProcessesData[];
     }

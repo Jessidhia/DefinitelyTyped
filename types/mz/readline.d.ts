@@ -16,7 +16,10 @@ export interface ReadLine extends readline.ReadLine {
 }
 
 export interface Completer {
-    (line: string, callback: (err: any, result: [string[], string]) => void): void;
+    (
+        line: string,
+        callback: (err: any, result: [string[], string]) => void
+    ): void;
     (line: string): Promise<[string[], string]> | [string[], string];
 }
 
@@ -28,5 +31,10 @@ export interface ReadLineOptions {
     historySize?: number;
 }
 
-export function createInterface(input: NodeJS.ReadableStream, output?: NodeJS.WritableStream, completer?: Completer, terminal?: boolean): ReadLine;
+export function createInterface(
+    input: NodeJS.ReadableStream,
+    output?: NodeJS.WritableStream,
+    completer?: Completer,
+    terminal?: boolean
+): ReadLine;
 export function createInterface(options: ReadLineOptions): ReadLine;

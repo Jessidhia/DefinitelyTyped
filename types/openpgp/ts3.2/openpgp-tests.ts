@@ -2,83 +2,100 @@
 
 var options: openpgp.KeyOptions = {
     numBits: 2048,
-    userIds: [{
-        name: 'Jon Smith',
-        email: 'jon.smith@example.org',
-    }],
-    passphrase: 'super long and hard to guess secret'
+    userIds: [
+        {
+            name: "Jon Smith",
+            email: "jon.smith@example.org"
+        }
+    ],
+    passphrase: "super long and hard to guess secret"
 };
 
-openpgp.generateKey(options).then(function (keypair) {
-    // success
-    var privkey = keypair.privateKeyArmored;
-    var pubkey = keypair.publicKeyArmored;
-}).catch(function (error) {
-    // failure
-});
+openpgp
+    .generateKey(options)
+    .then(function(keypair) {
+        // success
+        var privkey = keypair.privateKeyArmored;
+        var pubkey = keypair.publicKeyArmored;
+    })
+    .catch(function(error) {
+        // failure
+    });
 
+var spubkey =
+    "-----BEGIN PGP PUBLIC KEY BLOCK ... END PGP PUBLIC KEY BLOCK-----";
 
-var spubkey = '-----BEGIN PGP PUBLIC KEY BLOCK ... END PGP PUBLIC KEY BLOCK-----';
-
-openpgp.key.readArmored(spubkey)
-    .then(function (publicKey) {
+openpgp.key
+    .readArmored(spubkey)
+    .then(function(publicKey) {
         return {
-            message: openpgp.message.fromText('Hello, World!'),
+            message: openpgp.message.fromText("Hello, World!"),
             publicKeys: publicKey.keys
         };
     })
     .then(openpgp.encrypt)
-    .then(function (pgpMessage) {
+    .then(function(pgpMessage) {
         // success
     })
-    .catch(function (error) {
+    .catch(function(error) {
         // failure
     });
 
-var sprivkey = '-----BEGIN PGP PRIVATE KEY BLOCK ... END PGP PRIVATE KEY BLOCK-----';
-var pgpMessageStr = '-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----';
+var sprivkey =
+    "-----BEGIN PGP PRIVATE KEY BLOCK ... END PGP PRIVATE KEY BLOCK-----";
+var pgpMessageStr = "-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----";
 
-openpgp.message.readArmored(pgpMessageStr).then(function(pgpMessage) {
-    const options = {
-        message: pgpMessage
-    };
-    return openpgp.decrypt(options);
-}).then(function (plaintext) {
-    // success
-}).catch(function (error) {
-    // failure
-});
+openpgp.message
+    .readArmored(pgpMessageStr)
+    .then(function(pgpMessage) {
+        const options = {
+            message: pgpMessage
+        };
+        return openpgp.decrypt(options);
+    })
+    .then(function(plaintext) {
+        // success
+    })
+    .catch(function(error) {
+        // failure
+    });
 
-const promises: [Promise<openpgp.key.KeyResult>, Promise<openpgp.message.Message>] = [
+const promises: [
+    Promise<openpgp.key.KeyResult>,
+    Promise<openpgp.message.Message>
+] = [
     openpgp.key.readArmored(sprivkey),
     openpgp.message.readArmored(pgpMessageStr)
 ];
 
-Promise.all(promises).then(function (values) {
-    const keyObject: openpgp.key.KeyResult = values[0];
-    const pgpMessage: openpgp.message.Message = values[1];
-    const privateKey = keyObject.keys[0];
-    privateKey.decrypt('passphrase');
-    const options = {
-        privateKeys: privateKey,
-        message: pgpMessage
-    };
-    return openpgp.decrypt(options);
-}).then(function (plaintext) {
-    // success
-}).catch(function (error) {
-    // failure
-});
+Promise.all(promises)
+    .then(function(values) {
+        const keyObject: openpgp.key.KeyResult = values[0];
+        const pgpMessage: openpgp.message.Message = values[1];
+        const privateKey = keyObject.keys[0];
+        privateKey.decrypt("passphrase");
+        const options = {
+            privateKeys: privateKey,
+            message: pgpMessage
+        };
+        return openpgp.decrypt(options);
+    })
+    .then(function(plaintext) {
+        // success
+    })
+    .catch(function(error) {
+        // failure
+    });
 
-openpgp.initWorker({ path:'openpgp.worker.js' });
+openpgp.initWorker({ path: "openpgp.worker.js" });
 
 (async () => {
     let msgOptions: openpgp.EncryptOptions;
 
     msgOptions = {
         message: openpgp.message.fromBinary(new Uint8Array([0x01, 0x01, 0x01])),
-        passwords: ['secret stuff'],
-        armor: false,
+        passwords: ["secret stuff"],
+        armor: false
     };
 
     let cipher = await openpgp.encrypt(msgOptions);
@@ -86,8 +103,8 @@ openpgp.initWorker({ path:'openpgp.worker.js' });
 
     let plain = await openpgp.decrypt({
         message: await openpgp.message.read(encrypted),
-        passwords: ['secret stuff'],
-        format: 'binary'
+        passwords: ["secret stuff"],
+        format: "binary"
     });
 
     return plain.data;
@@ -95,25 +112,25 @@ openpgp.initWorker({ path:'openpgp.worker.js' });
 
 (async () => {
     let cipher = await openpgp.encrypt({
-        message: openpgp.message.fromText('hello world'),
-        passwords: 'super secure',
-        armor: true,
+        message: openpgp.message.fromText("hello world"),
+        passwords: "super secure",
+        armor: true
     });
     let encrypted = cipher.data;
 
     let plain = await openpgp.decrypt({
         message: await openpgp.message.readArmored(encrypted),
-        passwords: 'super secure',
+        passwords: "super secure"
     });
 
     return plain.data;
 })();
 
 (async () => {
-    const publicKey = (await openpgp.key.readArmored(spubkey))
-    const privateKey = (await openpgp.key.readArmored(sprivkey))
+    const publicKey = await openpgp.key.readArmored(spubkey);
+    const privateKey = await openpgp.key.readArmored(sprivkey);
     const signOptions: openpgp.SignOptions = {
-        message: openpgp.message.fromText('hello world'),
+        message: openpgp.message.fromText("hello world"),
         privateKeys: privateKey.keys,
         detached: true
     };
@@ -136,7 +153,6 @@ openpgp.initWorker({ path:'openpgp.worker.js' });
 
 // Open PGP Tests
 
-
 var keyoptions: openpgp.KeyOptions;
 var mpi: openpgp.crypto.Mpi;
 var mpis: Array<openpgp.crypto.Mpi>;
@@ -149,7 +165,12 @@ openpgp.cleartext.readArmored("");
 openpgp.crypto.generateSessionKey(openpgp.enums.symmetric.aes128);
 openpgp.crypto.getPrefixRandom(openpgp.enums.symmetric.aes128);
 openpgp.crypto.getPrivateMpiCount(openpgp.enums.symmetric.aes128);
-openpgp.crypto.publicKeyDecrypt(openpgp.enums.publicKey.rsa_encrypt, mpis, mpis, mpi);
+openpgp.crypto.publicKeyDecrypt(
+    openpgp.enums.publicKey.rsa_encrypt,
+    mpis,
+    mpis,
+    mpi
+);
 openpgp.crypto.publicKeyEncrypt(openpgp.enums.publicKey.rsa_encrypt, mpis, mpi);
 
 openpgp.crypto.cfb.decrypt("", "", "", true);
@@ -164,8 +185,20 @@ openpgp.crypto.random.getRandomBytes(0);
 openpgp.crypto.random.getRandomValues(openpgp.util.str2Uint8Array(""));
 openpgp.crypto.random.getSecureRandom(0, 1);
 
-openpgp.crypto.signature.sign(openpgp.enums.hash.md5, openpgp.enums.publicKey.rsa_encrypt, mpis, mpis, "");
-openpgp.crypto.signature.verify(openpgp.enums.publicKey.rsa_encrypt, openpgp.enums.hash.md5, mpis, mpis, "");
+openpgp.crypto.signature.sign(
+    openpgp.enums.hash.md5,
+    openpgp.enums.publicKey.rsa_encrypt,
+    mpis,
+    mpis,
+    ""
+);
+openpgp.crypto.signature.verify(
+    openpgp.enums.publicKey.rsa_encrypt,
+    openpgp.enums.hash.md5,
+    mpis,
+    mpis,
+    ""
+);
 
 openpgp.key.generate(keyoptions);
 openpgp.key.readArmored("");

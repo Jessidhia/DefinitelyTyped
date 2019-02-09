@@ -1,5 +1,5 @@
-import { RequestHandler, Request, Response } from 'express';
-import * as Keycloak from 'keycloak-connect';
+import { RequestHandler, Request, Response } from "express";
+import * as Keycloak from "keycloak-connect";
 
 let _string: string;
 let _number: number;
@@ -10,7 +10,7 @@ const config: Keycloak.Config = undefined;
 
 let keycloak: Keycloak = new Keycloak(config);
 keycloak = new Keycloak(config, {});
-keycloak = new Keycloak(config, '');
+keycloak = new Keycloak(config, "");
 
 let request: Request;
 const response: Response = undefined;
@@ -23,16 +23,19 @@ let handler: RequestHandler = keycloak.middleware(options);
 handler = keycloak.middleware();
 handler = keycloak.protect(spec);
 handler = keycloak.protect();
-handler = keycloak.protect('');
+handler = keycloak.protect("");
 keycloak.authenticated(request);
 keycloak.deauthenticated(request);
 keycloak.accessDenied(request, response);
-let grantPromise: Promise<Keycloak.Grant> = keycloak.getGrant(request, response);
+let grantPromise: Promise<Keycloak.Grant> = keycloak.getGrant(
+    request,
+    response
+);
 grant = keycloak.storeGrant(grant, request, response);
-keycloak.unstoreGrant('sessionId');
-grantPromise = keycloak.getGrantFromCode('code', request, response);
-_string = keycloak.loginUrl('uuid', 'redirectUrl');
-_string = keycloak.logoutUrl('redirectUrl');
+keycloak.unstoreGrant("sessionId");
+grantPromise = keycloak.getGrantFromCode("code", request, response);
+_string = keycloak.loginUrl("uuid", "redirectUrl");
+_string = keycloak.logoutUrl("redirectUrl");
 _string = keycloak.accountUrl();
 const account: Promise<any> = keycloak.getAccount(token);
 _boolean = keycloak.redirectToLogin(request);
@@ -62,9 +65,9 @@ tokenContent = token.content;
 const signature: Buffer = token.signature;
 _string = token.signed;
 _boolean = token.isExpired();
-_boolean = token.hasRole('roleName');
-_boolean = token.hasApplicationRole('appName', 'roleName');
-_boolean = token.hasRealmRole('roleName');
+_boolean = token.hasRole("roleName");
+_boolean = token.hasApplicationRole("appName", "roleName");
+_boolean = token.hasRealmRole("roleName");
 
 const specHandler: Keycloak.SpecHandler = undefined;
 _boolean = specHandler(token, request, response);

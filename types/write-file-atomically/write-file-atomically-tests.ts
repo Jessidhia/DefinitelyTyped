@@ -1,10 +1,10 @@
-import writeFileAtomically = require('write-file-atomically');
+import writeFileAtomically = require("write-file-atomically");
 
-writeFileAtomically(1, '_');    // $ExpectError
+writeFileAtomically(1, "_"); // $ExpectError
 
-import { readFileSync } from 'fs';
+import { readFileSync } from "fs";
 
 (() => {
-    writeFileAtomically('file.txt', 'Hi!');
-    readFileSync('file.txt', 'utf8');
+    writeFileAtomically("file.txt", "Hi!");
+    readFileSync("file.txt", "utf8");
 })();

@@ -3,12 +3,11 @@
 // Definitions by: glen-84 <https://github.com/glen-84>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-import parseGlob = require('parse-glob');
+import parseGlob = require("parse-glob");
 
 declare namespace micromatch {
-    type MatchFunction<T> = ((value: T) => boolean);
-    type Pattern = (string | RegExp | MatchFunction<string>);
+    type MatchFunction<T> = (value: T) => boolean;
+    type Pattern = string | RegExp | MatchFunction<string>;
 
     interface Options {
         /**
@@ -62,7 +61,7 @@ declare namespace micromatch {
     interface Glob {
         options: micromatch.Options;
         pattern: string;
-        history: { msg: any, pattern: string }[];
+        history: { msg: any; pattern: string }[];
         tokens: parseGlob.Result;
         orig: string;
         negated: boolean;
@@ -121,24 +120,37 @@ declare namespace micromatch {
 }
 
 interface Micromatch {
-    (files: string | string[], patterns: micromatch.Pattern | micromatch.Pattern[]): string[];
+    (
+        files: string | string[],
+        patterns: micromatch.Pattern | micromatch.Pattern[]
+    ): string[];
 
     isMatch: {
         /**
          * Returns true if a file path matches the given pattern.
          */
-        (filePath: string, pattern: micromatch.Pattern, opts?: micromatch.Options): boolean;
+        (
+            filePath: string,
+            pattern: micromatch.Pattern,
+            opts?: micromatch.Options
+        ): boolean;
         /**
          * Returns a function for matching.
          */
-        (filePath: string, opts?: micromatch.Options): micromatch.MatchFunction<string>;
+        (filePath: string, opts?: micromatch.Options): micromatch.MatchFunction<
+            string
+        >;
     };
 
     /**
      * Returns true if any part of a file path matches the given pattern. Think of this as "has path" versus
      * "is path".
      */
-    contains(filePath: string, pattern: micromatch.Pattern, opts?: micromatch.Options): boolean;
+    contains(
+        filePath: string,
+        pattern: micromatch.Pattern,
+        opts?: micromatch.Options
+    ): boolean;
 
     /**
      * Returns a function for matching using the supplied pattern. e.g. create your own "matcher". The advantage of
@@ -149,17 +161,27 @@ interface Micromatch {
     /**
      * Returns a function that can be passed to Array#filter().
      */
-    filter(patterns: micromatch.Pattern | micromatch.Pattern[], opts?: micromatch.Options): micromatch.MatchFunction<any>;
+    filter(
+        patterns: micromatch.Pattern | micromatch.Pattern[],
+        opts?: micromatch.Options
+    ): micromatch.MatchFunction<any>;
 
     /**
      * Returns true if a file path matches any of the given patterns.
      */
-    any(filePath: string, patterns: micromatch.Pattern | micromatch.Pattern[], opts?: micromatch.Options): boolean;
+    any(
+        filePath: string,
+        patterns: micromatch.Pattern | micromatch.Pattern[],
+        opts?: micromatch.Options
+    ): boolean;
 
     /**
      * Returns an object with a regex-compatible string and tokens.
      */
-    expand(pattern: string, opts?: micromatch.Options): micromatch.Glob | micromatch.GlobData;
+    expand(
+        pattern: string,
+        opts?: micromatch.Options
+    ): micromatch.Glob | micromatch.GlobData;
 
     /**
      * Create a regular expression for matching file paths based on the given pattern.

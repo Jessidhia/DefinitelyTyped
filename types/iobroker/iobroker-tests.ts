@@ -9,20 +9,21 @@ adapter
     .on("stateChange", stateChangeHandler)
     .on("objectChange", objectChangeHandler)
     .on("message", messageHandler)
-    .on("unload", unloadHandler)
-    ;
+    .on("unload", unloadHandler);
 adapter
     .removeListener("ready", readyHandler)
     .removeListener("stateChange", stateChangeHandler)
     .removeListener("objectChange", objectChangeHandler)
     .removeListener("message", messageHandler)
-    .removeListener("unload", unloadHandler)
-    ;
+    .removeListener("unload", unloadHandler);
 adapter.removeAllListeners();
 
-function readyHandler() { }
+function readyHandler() {}
 
-function stateChangeHandler(id: string, state: ioBroker.State | null | undefined) {
+function stateChangeHandler(
+    id: string,
+    state: ioBroker.State | null | undefined
+) {
     // Test State properties
     if (state) {
         state.ack;
@@ -36,7 +37,10 @@ function stateChangeHandler(id: string, state: ioBroker.State | null | undefined
     }
 }
 
-function objectChangeHandler(id: string, object: ioBroker.Object | null | undefined) {
+function objectChangeHandler(
+    id: string,
+    object: ioBroker.Object | null | undefined
+) {
     // Test properties of all objects
     if (object) {
         object._id.toLowerCase();
@@ -76,7 +80,8 @@ function objectChangeHandler(id: string, object: ioBroker.Object | null | undefi
                 object.common.states && object.common.states.toString();
                 object.common.type && object.common.type.toLowerCase();
                 object.common.unit && object.common.unit.toLowerCase();
-                object.common.workingID && object.common.workingID.toLowerCase();
+                object.common.workingID &&
+                    object.common.workingID.toLowerCase();
                 object.common.write.valueOf();
                 break;
 
@@ -111,72 +116,174 @@ function unloadHandler(callback: ioBroker.EmptyCallback) {
 // Test the most important methods
 adapter.setState("state.name", "value");
 adapter.setState("state.name", "value", true);
-adapter.setState("state.name", "value", (err, id) => { });
+adapter.setState("state.name", "value", (err, id) => {});
 adapter.setState("state.name", { val: "value", ack: true });
-adapter.setState("state.name", { val: "value", ack: true }, (err, id) => { });
+adapter.setState("state.name", { val: "value", ack: true }, (err, id) => {});
 
 adapter.setStateAsync("state.name", "value").then(id => id.toLowerCase());
 adapter.setStateAsync("state.name", "value", true).then(id => id.toLowerCase());
-adapter.setStateAsync("state.name", { val: "value", ack: true }).then(id => id.toLowerCase());
+adapter
+    .setStateAsync("state.name", { val: "value", ack: true })
+    .then(id => id.toLowerCase());
 
 adapter.setStateChanged("state.name", "value");
 adapter.setStateChanged("state.name", "value", true);
-adapter.setStateChanged("state.name", "value", (err, id) => { });
+adapter.setStateChanged("state.name", "value", (err, id) => {});
 adapter.setStateChanged("state.name", { val: "value", ack: true });
-adapter.setStateChanged("state.name", { val: "value", ack: true }, (err, id) => { });
+adapter.setStateChanged(
+    "state.name",
+    { val: "value", ack: true },
+    (err, id) => {}
+);
 
-adapter.setStateChangedAsync("state.name", "value").then(id => id.toLowerCase());
-adapter.setStateChangedAsync("state.name", "value", true).then(id => id.toLowerCase());
-adapter.setStateChangedAsync("state.name", { val: "value", ack: true }).then(id => id.toLowerCase());
+adapter
+    .setStateChangedAsync("state.name", "value")
+    .then(id => id.toLowerCase());
+adapter
+    .setStateChangedAsync("state.name", "value", true)
+    .then(id => id.toLowerCase());
+adapter
+    .setStateChangedAsync("state.name", { val: "value", ack: true })
+    .then(id => id.toLowerCase());
 
 adapter.setForeignState("state.name", "value");
 adapter.setForeignState("state.name", "value", true);
-adapter.setForeignState("state.name", "value", (err, id) => { });
+adapter.setForeignState("state.name", "value", (err, id) => {});
 adapter.setForeignState("state.name", { val: "value", ack: true });
-adapter.setForeignState("state.name", { val: "value", ack: true }, (err, id) => { });
+adapter.setForeignState(
+    "state.name",
+    { val: "value", ack: true },
+    (err, id) => {}
+);
 
-adapter.setForeignStateAsync("state.name", "value").then(id => id.toLowerCase());
-adapter.setForeignStateAsync("state.name", "value", true).then(id => id.toLowerCase());
-adapter.setForeignStateAsync("state.name", { val: "value", ack: true }).then(id => id.toLowerCase());
+adapter
+    .setForeignStateAsync("state.name", "value")
+    .then(id => id.toLowerCase());
+adapter
+    .setForeignStateAsync("state.name", "value", true)
+    .then(id => id.toLowerCase());
+adapter
+    .setForeignStateAsync("state.name", { val: "value", ack: true })
+    .then(id => id.toLowerCase());
 
 adapter.setForeignStateChanged("state.name", "value");
 adapter.setForeignStateChanged("state.name", "value", true);
-adapter.setForeignStateChanged("state.name", "value", (err, id) => { });
+adapter.setForeignStateChanged("state.name", "value", (err, id) => {});
 adapter.setForeignStateChanged("state.name", { val: "value", ack: true });
-adapter.setForeignStateChanged("state.name", { val: "value", ack: true }, (err, id) => { });
+adapter.setForeignStateChanged(
+    "state.name",
+    { val: "value", ack: true },
+    (err, id) => {}
+);
 
-adapter.setForeignStateChangedAsync("state.name", "value").then(id => id.toLowerCase());
-adapter.setForeignStateChangedAsync("state.name", "value", true).then(id => id.toLowerCase());
-adapter.setForeignStateChangedAsync("state.name", { val: "value", ack: true }).then(id => id.toLowerCase());
+adapter
+    .setForeignStateChangedAsync("state.name", "value")
+    .then(id => id.toLowerCase());
+adapter
+    .setForeignStateChangedAsync("state.name", "value", true)
+    .then(id => id.toLowerCase());
+adapter
+    .setForeignStateChangedAsync("state.name", { val: "value", ack: true })
+    .then(id => id.toLowerCase());
 
 adapter.getState("state.id", (err, state) => state && state.from.toLowerCase());
-adapter.getStateAsync("state.id").then(state => state && state.from.toLowerCase());
-adapter.getForeignState("state.id", (err, state) => state && state.from.toLowerCase());
-adapter.getForeignStateAsync("state.id").then(state => state && state.from.toLowerCase());
-adapter.getBinaryState("state.id", (err, state) => state && state.writeUInt16BE(0, 0));
-adapter.getBinaryStateAsync("state.id").then(state => state && state.writeUInt16BE(0, 0));
+adapter
+    .getStateAsync("state.id")
+    .then(state => state && state.from.toLowerCase());
+adapter.getForeignState(
+    "state.id",
+    (err, state) => state && state.from.toLowerCase()
+);
+adapter
+    .getForeignStateAsync("state.id")
+    .then(state => state && state.from.toLowerCase());
+adapter.getBinaryState(
+    "state.id",
+    (err, state) => state && state.writeUInt16BE(0, 0)
+);
+adapter
+    .getBinaryStateAsync("state.id")
+    .then(state => state && state.writeUInt16BE(0, 0));
 
-adapter.setObject("obj.id", { type: "state", common: { name: "foo" }, native: {} });
-adapter.setObject("obj.id", { type: "state", common: { name: "foo" }, native: {} }, (err, id) => { });
-adapter.setForeignObject("obj.id", { type: "state", common: { name: "foo" }, native: {} });
-adapter.setForeignObject("obj.id", { type: "state", common: { name: "foo" }, native: {} }, (err, id) => { });
+adapter.setObject("obj.id", {
+    type: "state",
+    common: { name: "foo" },
+    native: {}
+});
+adapter.setObject(
+    "obj.id",
+    { type: "state", common: { name: "foo" }, native: {} },
+    (err, id) => {}
+);
+adapter.setForeignObject("obj.id", {
+    type: "state",
+    common: { name: "foo" },
+    native: {}
+});
+adapter.setForeignObject(
+    "obj.id",
+    { type: "state", common: { name: "foo" }, native: {} },
+    (err, id) => {}
+);
 
-adapter.setObjectAsync("obj.id", { type: "state", common: { name: "foo" }, native: {} }).then(({ id }) => id.toLowerCase());
-adapter.setForeignObjectAsync("obj.id", { type: "state", common: { name: "foo" }, native: {} }).then(({ id }) => id.toLowerCase());
+adapter
+    .setObjectAsync("obj.id", {
+        type: "state",
+        common: { name: "foo" },
+        native: {}
+    })
+    .then(({ id }) => id.toLowerCase());
+adapter
+    .setForeignObjectAsync("obj.id", {
+        type: "state",
+        common: { name: "foo" },
+        native: {}
+    })
+    .then(({ id }) => id.toLowerCase());
 
-adapter.setObjectNotExists("obj.id", { type: "state", common: { name: "foo" }, native: {} });
-adapter.setObjectNotExists("obj.id", { type: "state", common: { name: "foo" }, native: {} }, (err, id) => { });
-adapter.setForeignObjectNotExists("obj.id", { type: "state", common: { name: "foo" }, native: {} });
-adapter.setForeignObjectNotExists("obj.id", { type: "state", common: { name: "foo" }, native: {} }, (err, id) => { });
+adapter.setObjectNotExists("obj.id", {
+    type: "state",
+    common: { name: "foo" },
+    native: {}
+});
+adapter.setObjectNotExists(
+    "obj.id",
+    { type: "state", common: { name: "foo" }, native: {} },
+    (err, id) => {}
+);
+adapter.setForeignObjectNotExists("obj.id", {
+    type: "state",
+    common: { name: "foo" },
+    native: {}
+});
+adapter.setForeignObjectNotExists(
+    "obj.id",
+    { type: "state", common: { name: "foo" }, native: {} },
+    (err, id) => {}
+);
 
-adapter.setObjectNotExistsAsync("obj.id", { type: "state", common: { name: "foo" }, native: {} }).then(({ id }) => id.toLowerCase());
-adapter.setForeignObjectNotExistsAsync("obj.id", { type: "state", common: { name: "foo" }, native: {} }).then(({ id }) => id.toLowerCase());
+adapter
+    .setObjectNotExistsAsync("obj.id", {
+        type: "state",
+        common: { name: "foo" },
+        native: {}
+    })
+    .then(({ id }) => id.toLowerCase());
+adapter
+    .setForeignObjectNotExistsAsync("obj.id", {
+        type: "state",
+        common: { name: "foo" },
+        native: {}
+    })
+    .then(({ id }) => id.toLowerCase());
 
-adapter.getObject("obj.id", (err, obj) => { });
-adapter.getForeignObject("obj.id", (err, obj) => { });
+adapter.getObject("obj.id", (err, obj) => {});
+adapter.getForeignObject("obj.id", (err, obj) => {});
 
 adapter.getObjectAsync("obj.id").then(obj => obj && obj._id.toLowerCase());
-adapter.getForeignObjectAsync("obj.id").then(obj => obj && obj._id.toLowerCase());
+adapter
+    .getForeignObjectAsync("obj.id")
+    .then(obj => obj && obj._id.toLowerCase());
 
 adapter.getForeignObjects("*", (err, objs) => objs["foo"]._id.toLowerCase());
 adapter.getForeignObjectsAsync("*").then(objs => objs["foo"]._id.toLowerCase());
@@ -231,7 +338,9 @@ adapter.sendTo("foo.0", { msg: "message" }, handleMessageResponse);
 
 adapter.sendToAsync("foo.0", "command", "message").then(handleMessageResponse);
 adapter.sendToAsync("foo.0", "message").then(handleMessageResponse);
-adapter.sendToAsync("foo.0", "command", { msg: "message" }).then(handleMessageResponse);
+adapter
+    .sendToAsync("foo.0", "command", { msg: "message" })
+    .then(handleMessageResponse);
 adapter.sendToAsync("foo.0", { msg: "message" }).then(handleMessageResponse);
 
 adapter.sendToHost("host-foo", "command", "message");
@@ -241,15 +350,26 @@ adapter.sendToHost("host-foo", { msg: "message" });
 
 adapter.sendToHost("host-foo", "command", "message", handleMessageResponse);
 adapter.sendToHost("host-foo", "message", handleMessageResponse);
-adapter.sendToHost("host-foo", "command", { msg: "message" }, handleMessageResponse);
+adapter.sendToHost(
+    "host-foo",
+    "command",
+    { msg: "message" },
+    handleMessageResponse
+);
 adapter.sendToHost("host-foo", { msg: "message" }, handleMessageResponse);
 
-adapter.sendToHostAsync("host-foo", "command", "message").then(handleMessageResponse);
+adapter
+    .sendToHostAsync("host-foo", "command", "message")
+    .then(handleMessageResponse);
 adapter.sendToHostAsync("host-foo", "message").then(handleMessageResponse);
-adapter.sendToHostAsync("host-foo", "command", { msg: "message" }).then(handleMessageResponse);
-adapter.sendToHostAsync("host-foo", { msg: "message" }).then(handleMessageResponse);
+adapter
+    .sendToHostAsync("host-foo", "command", { msg: "message" })
+    .then(handleMessageResponse);
+adapter
+    .sendToHostAsync("host-foo", { msg: "message" })
+    .then(handleMessageResponse);
 
-function handleError(err?: string) { }
+function handleError(err?: string) {}
 adapter.subscribeStates("*", handleError);
 adapter.subscribeForeignStates("*", handleError);
 adapter.unsubscribeStates("*", handleError);
@@ -266,12 +386,11 @@ const repro1: ioBroker.ObjectChangeHandler = (id, obj) => {
     if (obj.common.custom) {
         const test1: ioBroker.StateCommon = obj.common;
     }
-    obj
-        && obj.common
-        && obj.common.custom
-        && obj.common.custom["adapter.0"]
-        && obj.common.custom["adapter.0"].enabled
-        ;
+    obj &&
+        obj.common &&
+        obj.common.custom &&
+        obj.common.custom["adapter.0"] &&
+        obj.common.custom["adapter.0"].enabled;
 };
 
 // Repro from https://github.com/ioBroker/adapter-core/issues/4
@@ -284,5 +403,5 @@ function repro2() {
             }
         }
     };
-    adapter.extendForeignObject("obj.id", obj, (err) => { });
+    adapter.extendForeignObject("obj.id", obj, err => {});
 }

@@ -6,7 +6,9 @@
 
 /// <reference types="node" />
 
-declare function jsonquery<T>(query: jsonquery.Query<T>): NodeJS.ReadWriteStream;
+declare function jsonquery<T>(
+    query: jsonquery.Query<T>
+): NodeJS.ReadWriteStream;
 
 declare namespace jsonquery {
     function match<T>(haystack: T, predicate: Query<T>): boolean;
@@ -40,9 +42,7 @@ declare namespace jsonquery {
         [path: string]: any;
     }
 
-    type QueryValue<T> = {
-        [P in keyof T]?: T[P] | BaseCondition<T[P]>;
-    };
+    type QueryValue<T> = { [P in keyof T]?: T[P] | BaseCondition<T[P]> };
 }
 
 export = jsonquery;

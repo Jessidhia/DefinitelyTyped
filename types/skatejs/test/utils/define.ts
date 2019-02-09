@@ -1,12 +1,10 @@
-import { define } from 'skatejs';
+import { define } from "skatejs";
 
-export const MyComponent = define(
-  class extends HTMLElement {
-    static is = 'my-element';
-  }
-);
+export const MyComponent = define(class extends HTMLElement {
+    static is = "my-element";
+});
 
 @define
 export default class extends HTMLElement {
-  static is = 'my-element';
+    static is = "my-element";
 }

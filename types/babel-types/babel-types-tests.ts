@@ -11,7 +11,7 @@ traverse(ast, {
             node.name = "x";
         }
         if (t.isFunctionExpression(node)) {
-            node.params = [t.identifier('param')];
+            node.params = [t.identifier("param")];
         }
     }
 });
@@ -47,7 +47,7 @@ traverse(ast, {
             const children = t.react.buildChildren(node);
             args.push(
                 t.unaryExpression("void", t.numericLiteral(0), true),
-                ...children,
+                ...children
             );
         }
     }

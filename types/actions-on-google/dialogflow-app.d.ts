@@ -1,7 +1,12 @@
-import * as express from 'express';
+import * as express from "express";
 
-import { AssistantApp } from './assistant-app';
-import { Carousel, List, RichResponse, SimpleResponse } from './response-builder';
+import { AssistantApp } from "./assistant-app";
+import {
+    Carousel,
+    List,
+    RichResponse,
+    SimpleResponse
+} from "./response-builder";
 
 // ---------------------------------------------------------------------------
 //                   Dialogflow support
@@ -335,7 +340,10 @@ export class DialogflowApp extends AssistantApp {
      * @return HTTP response.
      * @dialogflow
      */
-    ask(inputPrompt: string | SimpleResponse | RichResponse, noInputs?: string[]): express.Response | null;
+    ask(
+        inputPrompt: string | SimpleResponse | RichResponse,
+        noInputs?: string[]
+    ): express.Response | null;
 
     /**
      * Asks to collect the user's input with a list.
@@ -377,7 +385,10 @@ export class DialogflowApp extends AssistantApp {
      * @return HTTP response.
      * @dialogflow
      */
-    askWithList(inputPrompt: string | RichResponse | SimpleResponse, list: List): express.Response | null;
+    askWithList(
+        inputPrompt: string | RichResponse | SimpleResponse,
+        list: List
+    ): express.Response | null;
 
     /**
      * Asks to collect the user's input with a carousel.
@@ -420,7 +431,10 @@ export class DialogflowApp extends AssistantApp {
      * @return HTTP response.
      * @dialogflow
      */
-    askWithCarousel(inputPrompt: string | RichResponse | SimpleResponse, carousel: Carousel): express.Response | null;
+    askWithCarousel(
+        inputPrompt: string | RichResponse | SimpleResponse,
+        carousel: Carousel
+    ): express.Response | null;
 
     /**
      * Tells the Assistant to render the speech response and close the mic.
@@ -449,7 +463,9 @@ export class DialogflowApp extends AssistantApp {
      * @return The response that is sent back to Assistant.
      * @dialogflow
      */
-    tell(speechResponse: string | SimpleResponse | RichResponse): express.Response | null;
+    tell(
+        speechResponse: string | SimpleResponse | RichResponse
+    ): express.Response | null;
 
     /**
      * Set a new context for the current intent.
@@ -480,7 +496,11 @@ export class DialogflowApp extends AssistantApp {
      * @return Null if the context name is not defined.
      * @dialogflow
      */
-    setContext(name: string, lifespan?: number, parameters?: any): null | undefined;
+    setContext(
+        name: string,
+        lifespan?: number,
+        parameters?: any
+    ): null | undefined;
 
     /**
      * Returns the incoming contexts for this intent.

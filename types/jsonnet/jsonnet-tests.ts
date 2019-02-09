@@ -1,5 +1,5 @@
-import Jsonnet = require('jsonnet');
+import Jsonnet = require("jsonnet");
 var jsonnet = new Jsonnet();
-var code = '{a:1}';
+var code = "{a:1}";
 var result = jsonnet.eval(code);
 console.log(result);

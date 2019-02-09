@@ -1,15 +1,15 @@
-import Clusterize = require('clusterize.js');
+import Clusterize = require("clusterize.js");
 
-const options: Clusterize.Options = { contentId: '', scrollId: '' };
+const options: Clusterize.Options = { contentId: "", scrollId: "" };
 const clusterize = new Clusterize(options);
 
-clusterize.append(['<li></li>']);
+clusterize.append(["<li></li>"]);
 
-clusterize.prepend(['<li></li>']);
+clusterize.prepend(["<li></li>"]);
 
 clusterize.getRowsAmount();
 
-clusterize.update(['<li></li>']);
+clusterize.update(["<li></li>"]);
 
 clusterize.getScrollProgress();
 

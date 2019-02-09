@@ -23,7 +23,4 @@ export {
     CSSTransitionGroupTransitionName
 } from "./CSSTransitionGroup";
 
-export {
-    TransitionGroup,
-    CSSTransitionGroup
-};
+export { TransitionGroup, CSSTransitionGroup };

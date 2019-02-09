@@ -6,5 +6,9 @@
 
 export = pProps;
 
-declare function pProps<V, M extends { [key: string]: PromiseLike<V> | V }>(input: M): Promise<Record<keyof M, V>>;
-declare function pProps<K, V>(input: Map<K, PromiseLike<V> | V>): Promise<Map<K, V>>;
+declare function pProps<V, M extends { [key: string]: PromiseLike<V> | V }>(
+    input: M
+): Promise<Record<keyof M, V>>;
+declare function pProps<K, V>(
+    input: Map<K, PromiseLike<V> | V>
+): Promise<Map<K, V>>;

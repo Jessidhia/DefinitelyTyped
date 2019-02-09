@@ -9,7 +9,9 @@ const obj: any = {
     nil: null,
     undef: undefined,
 
-    fn: function echo(arg: any) { return arg; },
+    fn: function echo(arg: any) {
+        return arg;
+    },
     re: /([^\s]+)/g
 };
 

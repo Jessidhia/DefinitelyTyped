@@ -1,21 +1,14 @@
 {
-    "files": [
-        "index.d.ts",
-        "koa-bouncer-tests.ts"
-    ],
+    "files": ["index.d.ts", "koa-bouncer-tests.ts"],
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true

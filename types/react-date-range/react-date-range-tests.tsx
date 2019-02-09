@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { defaultRanges, DateRange, Range } from "react-date-range";
 
 class ReactDatePicker extends React.Component<any, any> {

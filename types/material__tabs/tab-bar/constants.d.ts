@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    UPGRADED: 'mdc-tab-bar-upgraded';
+    UPGRADED: "mdc-tab-bar-upgraded";
 }
 
 export interface strings extends MDCStrings {
-    TAB_SELECTOR: '.mdc-tab';
-    INDICATOR_SELECTOR: '.mdc-tab-bar__indicator';
-    CHANGE_EVENT: 'MDCTabBar:change';
+    TAB_SELECTOR: ".mdc-tab";
+    INDICATOR_SELECTOR: ".mdc-tab-bar__indicator";
+    CHANGE_EVENT: "MDCTabBar:change";
 }

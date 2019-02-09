@@ -5,13 +5,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
-export type OnChangeIndexCallback = (index: number, indexLatest: number) => void;
+export type OnChangeIndexCallback = (
+    index: number,
+    indexLatest: number
+) => void;
 
 export type OnTransitionEndCallback = () => void;
 
-export type OnSwitchingCallback = (index: number, type: OnSwitchingCallbackTypeDescriptor) => void;
+export type OnSwitchingCallback = (
+    index: number,
+    type: OnSwitchingCallbackTypeDescriptor
+) => void;
 
 export type OnSwitchingCallbackTypeDescriptor = "move" | "end";
 
@@ -53,4 +59,7 @@ export interface SwipeableViewsState {
     displaySameSlide?: boolean;
 }
 
-export default class SwipeableViews extends React.Component<SwipeableViewsProps, SwipeableViewsState> { }
+export default class SwipeableViews extends React.Component<
+    SwipeableViewsProps,
+    SwipeableViewsState
+> {}

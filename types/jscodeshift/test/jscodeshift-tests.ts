@@ -65,7 +65,10 @@ const transformWithRecastParseOptions: Transform = (file, { j }) => {
                 // $ExpectType TSTypeAnnotation
                 node.param.typeAnnotation;
 
-                if (node.param.typeAnnotation.typeAnnotation.type === "TSArrayType") {
+                if (
+                    node.param.typeAnnotation.typeAnnotation.type ===
+                    "TSArrayType"
+                ) {
                     // $ExpectType TSArrayType
                     node.param.typeAnnotation.typeAnnotation;
                 }

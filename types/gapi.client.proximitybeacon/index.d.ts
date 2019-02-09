@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Google Proximity Beacon API v1beta1 */
-    function load(name: "proximitybeacon", version: "v1beta1"): PromiseLike<void>;
-    function load(name: "proximitybeacon", version: "v1beta1", callback: () => any): void;
+    function load(
+        name: "proximitybeacon",
+        version: "v1beta1"
+    ): PromiseLike<void>;
+    function load(
+        name: "proximitybeacon",
+        version: "v1beta1",
+        callback: () => any
+    ): void;
 
     const beaconinfo: proximitybeacon.BeaconinfoResource;
 

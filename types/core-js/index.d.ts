@@ -97,7 +97,7 @@ interface ArrayConstructor {
      * Combines two or more arrays.
      * @param items Additional items to add to the end of array1.
      */
-    concat<T>(array: ArrayLike<T>, ...items: Array<T[]| T>): T[];
+    concat<T>(array: ArrayLike<T>, ...items: Array<T[] | T>): T[];
     /**
      * Adds all the elements of an array separated by the specified separator string.
      * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
@@ -130,7 +130,12 @@ interface ArrayConstructor {
      * @param deleteCount The number of elements to remove.
      * @param items Elements to insert into the array in place of the deleted elements.
      */
-    splice<T>(array: ArrayLike<T>, start: number, deleteCount?: number, ...items: T[]): T[];
+    splice<T>(
+        array: ArrayLike<T>,
+        start: number,
+        deleteCount?: number,
+        ...items: T[]
+    ): T[];
 
     /**
      * Inserts new elements at the start of an array.
@@ -143,14 +148,22 @@ interface ArrayConstructor {
      * @param searchElement The value to locate in the array.
      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
      */
-    indexOf<T>(array: ArrayLike<T>, searchElement: T, fromIndex?: number): number;
+    indexOf<T>(
+        array: ArrayLike<T>,
+        searchElement: T,
+        fromIndex?: number
+    ): number;
 
     /**
      * Returns the index of the last occurrence of a specified value in an array.
      * @param searchElement The value to locate in the array.
      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.
      */
-    lastIndexOf<T>(array: ArrayLike<T>, earchElement: T, fromIndex?: number): number;
+    lastIndexOf<T>(
+        array: ArrayLike<T>,
+        earchElement: T,
+        fromIndex?: number
+    ): number;
 
     /**
      * Determines whether all the members of an array satisfy the specified test.
@@ -158,7 +171,11 @@ interface ArrayConstructor {
      *        The every method calls the callbackfn function for each element in array1 until the callbackfn returns false, or until the end of the array.
      * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
-    every<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): boolean;
+    every<T>(
+        array: ArrayLike<T>,
+        callbackfn: (value: T, index: number, array: T[]) => boolean,
+        thisArg?: any
+    ): boolean;
 
     /**
      * Determines whether the specified callback function returns true for any element of an array.
@@ -166,28 +183,44 @@ interface ArrayConstructor {
      *        The some method calls the callbackfn function for each element in array1 until the callbackfn returns true, or until the end of the array.
      * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
-    some<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): boolean;
+    some<T>(
+        array: ArrayLike<T>,
+        callbackfn: (value: T, index: number, array: T[]) => boolean,
+        thisArg?: any
+    ): boolean;
 
     /**
      * Performs the specified action for each element in an array.
      * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
      * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
-    forEach<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
+    forEach<T>(
+        array: ArrayLike<T>,
+        callbackfn: (value: T, index: number, array: T[]) => void,
+        thisArg?: any
+    ): void;
 
     /**
      * Calls a defined callback function on each element of an array, and returns an array that contains the results.
      * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
      * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
-    map<T, U>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
+    map<T, U>(
+        array: ArrayLike<T>,
+        callbackfn: (value: T, index: number, array: T[]) => U,
+        thisArg?: any
+    ): U[];
 
     /**
      * Returns the elements of an array that meet the condition specified in a callback function.
      * @param callbackfn A function that accepts up to three arguments. The filter method calls the callbackfn function one time for each element in the array.
      * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
      */
-    filter<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): T[];
+    filter<T>(
+        array: ArrayLike<T>,
+        callbackfn: (value: T, index: number, array: T[]) => boolean,
+        thisArg?: any
+    ): T[];
 
     /**
      * Calls the specified callback function for all the elements in an array.
@@ -196,7 +229,16 @@ interface ArrayConstructor {
      * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation.
      *        The first call to the callbackfn function provides this value as an argument instead of an array value.
      */
-    reduce<T, U>(array: ArrayLike<T>, callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;
+    reduce<T, U>(
+        array: ArrayLike<T>,
+        callbackfn: (
+            previousValue: U,
+            currentValue: T,
+            currentIndex: number,
+            array: T[]
+        ) => U,
+        initialValue: U
+    ): U;
 
     /**
      * Calls the specified callback function for all the elements in an array.
@@ -205,7 +247,16 @@ interface ArrayConstructor {
      * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation.
      *        The first call to the callbackfn function provides this value as an argument instead of an array value.
      */
-    reduce<T>(array: ArrayLike<T>, callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue?: T): T;
+    reduce<T>(
+        array: ArrayLike<T>,
+        callbackfn: (
+            previousValue: T,
+            currentValue: T,
+            currentIndex: number,
+            array: T[]
+        ) => T,
+        initialValue?: T
+    ): T;
 
     /**
      * Calls the specified callback function for all the elements in an array, in descending order.
@@ -214,7 +265,16 @@ interface ArrayConstructor {
      * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation.
      *        The first call to the callbackfn function provides this value as an argument instead of an array value.
      */
-    reduceRight<T, U>(array: ArrayLike<T>, callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;
+    reduceRight<T, U>(
+        array: ArrayLike<T>,
+        callbackfn: (
+            previousValue: U,
+            currentValue: T,
+            currentIndex: number,
+            array: T[]
+        ) => U,
+        initialValue: U
+    ): U;
 
     /**
      * Calls the specified callback function for all the elements in an array, in descending order.
@@ -223,7 +283,16 @@ interface ArrayConstructor {
      * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation.
      *        The first call to the callbackfn function provides this value as an argument instead of an array value.
      */
-    reduceRight<T>(array: ArrayLike<T>, callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue?: T): T;
+    reduceRight<T>(
+        array: ArrayLike<T>,
+        callbackfn: (
+            previousValue: T,
+            currentValue: T,
+            currentIndex: number,
+            array: T[]
+        ) => T,
+        initialValue?: T
+    ): T;
 
     /**
      * Returns an array of key, value pairs for every entry in the array
@@ -249,7 +318,11 @@ interface ArrayConstructor {
      * @param thisArg If provided, it will be used as the this value for each invocation of
      * predicate. If it is not provided, undefined is used instead.
      */
-    find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
+    find<T>(
+        array: ArrayLike<T>,
+        predicate: (value: T, index: number, obj: T[]) => boolean,
+        thisArg?: any
+    ): T;
 
     /**
      * Returns the index of the first element in the array where predicate is true, and undefined
@@ -260,7 +333,11 @@ interface ArrayConstructor {
      * @param thisArg If provided, it will be used as the this value for each invocation of
      * predicate. If it is not provided, undefined is used instead.
      */
-    findIndex<T>(array: ArrayLike<T>, predicate: (value: T) => boolean, thisArg?: any): number;
+    findIndex<T>(
+        array: ArrayLike<T>,
+        predicate: (value: T) => boolean,
+        thisArg?: any
+    ): number;
 
     /**
      * Returns the this object after filling the section identified by start and end with value
@@ -281,11 +358,24 @@ interface ArrayConstructor {
      * is treated as length+end.
      * @param end If not specified, length of the this object is used as its default value.
      */
-    copyWithin<T>(array: ArrayLike<T>, target: number, start: number, end?: number): T[];
+    copyWithin<T>(
+        array: ArrayLike<T>,
+        target: number,
+        start: number,
+        end?: number
+    ): T[];
 
     includes<T>(array: ArrayLike<T>, value: T, fromIndex?: number): boolean;
-    turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
-    turn<T>(array: ArrayLike<T>, callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
+    turn<T, U>(
+        array: ArrayLike<T>,
+        callbackfn: (memo: U, value: T, index: number, array: T[]) => void,
+        memo?: U
+    ): U;
+    turn<T>(
+        array: ArrayLike<T>,
+        callbackfn: (memo: T[], value: T, index: number, array: T[]) => void,
+        memo?: T[]
+    ): T[];
 }
 
 // #############################################################################################
@@ -357,20 +447,92 @@ interface DictConstructor {
     has<T>(object: Dict<T>, key: PropertyKey): boolean;
     get<T>(object: Dict<T>, key: PropertyKey): T;
     set<T>(object: Dict<T>, key: PropertyKey, value: T): Dict<T>;
-    forEach<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => void, thisArg?: any): void;
-    map<T, U>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => U, thisArg?: any): Dict<U>;
-    mapPairs<T, U>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => [PropertyKey, U], thisArg?: any): Dict<U>;
-    filter<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean, thisArg?: any): Dict<T>;
-    some<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean, thisArg?: any): boolean;
-    every<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean, thisArg?: any): boolean;
-    find<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean, thisArg?: any): T;
-    findKey<T>(object: Dict<T>, callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean, thisArg?: any): PropertyKey;
+    forEach<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => void,
+        thisArg?: any
+    ): void;
+    map<T, U>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => U,
+        thisArg?: any
+    ): Dict<U>;
+    mapPairs<T, U>(
+        object: Dict<T>,
+        callbackfn: (
+            value: T,
+            key: PropertyKey,
+            dict: Dict<T>
+        ) => [PropertyKey, U],
+        thisArg?: any
+    ): Dict<U>;
+    filter<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean,
+        thisArg?: any
+    ): Dict<T>;
+    some<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean,
+        thisArg?: any
+    ): boolean;
+    every<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean,
+        thisArg?: any
+    ): boolean;
+    find<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean,
+        thisArg?: any
+    ): T;
+    findKey<T>(
+        object: Dict<T>,
+        callbackfn: (value: T, key: PropertyKey, dict: Dict<T>) => boolean,
+        thisArg?: any
+    ): PropertyKey;
     keyOf<T>(object: Dict<T>, value: T): PropertyKey;
     includes<T>(object: Dict<T>, value: T): boolean;
-    reduce<T, U>(object: Dict<T>, callbackfn: (previousValue: U, value: T, key: PropertyKey, dict: Dict<T>) => U, initialValue: U): U;
-    reduce<T>(object: Dict<T>, callbackfn: (previousValue: T, value: T, key: PropertyKey, dict: Dict<T>) => T, initialValue?: T): T;
-    turn<T, U>(object: Dict<T>, callbackfn: (memo: Dict<U>, value: T, key: PropertyKey, dict: Dict<T>) => void, memo: Dict<U>): Dict<U>;
-    turn<T>(object: Dict<T>, callbackfn: (memo: Dict<T>, value: T, key: PropertyKey, dict: Dict<T>) => void, memo?: Dict<T>): Dict<T>;
+    reduce<T, U>(
+        object: Dict<T>,
+        callbackfn: (
+            previousValue: U,
+            value: T,
+            key: PropertyKey,
+            dict: Dict<T>
+        ) => U,
+        initialValue: U
+    ): U;
+    reduce<T>(
+        object: Dict<T>,
+        callbackfn: (
+            previousValue: T,
+            value: T,
+            key: PropertyKey,
+            dict: Dict<T>
+        ) => T,
+        initialValue?: T
+    ): T;
+    turn<T, U>(
+        object: Dict<T>,
+        callbackfn: (
+            memo: Dict<U>,
+            value: T,
+            key: PropertyKey,
+            dict: Dict<T>
+        ) => void,
+        memo: Dict<U>
+    ): Dict<U>;
+    turn<T>(
+        object: Dict<T>,
+        callbackfn: (
+            memo: Dict<T>,
+            value: T,
+            key: PropertyKey,
+            dict: Dict<T>
+        ) => void,
+        memo?: Dict<T>
+    ): Dict<T>;
 }
 
 /**
@@ -416,12 +578,18 @@ interface Array<T> {
     /**
      * Non-standard.
      */
-    turn<U>(callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
+    turn<U>(
+        callbackfn: (memo: U, value: T, index: number, array: T[]) => void,
+        memo?: U
+    ): U;
 
     /**
      * Non-standard.
      */
-    turn(callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
+    turn(
+        callbackfn: (memo: T[], value: T, index: number, array: T[]) => void,
+        memo?: T[]
+    ): T[];
 }
 
 // #############################################################################################
@@ -464,19 +632,42 @@ declare namespace core {
     const version: string;
 
     namespace Reflect {
-        function apply(target: Function, thisArgument: any, argumentsList: ArrayLike<any>): any;
-        function construct(target: Function, argumentsList: ArrayLike<any>): any;
-        function defineProperty(target: any, propertyKey: PropertyKey, attributes: PropertyDescriptor): boolean;
+        function apply(
+            target: Function,
+            thisArgument: any,
+            argumentsList: ArrayLike<any>
+        ): any;
+        function construct(
+            target: Function,
+            argumentsList: ArrayLike<any>
+        ): any;
+        function defineProperty(
+            target: any,
+            propertyKey: PropertyKey,
+            attributes: PropertyDescriptor
+        ): boolean;
         function deleteProperty(target: any, propertyKey: PropertyKey): boolean;
         function enumerate(target: any): IterableIterator<any>;
-        function get(target: any, propertyKey: PropertyKey, receiver?: any): any;
-        function getOwnPropertyDescriptor(target: any, propertyKey: PropertyKey): PropertyDescriptor;
+        function get(
+            target: any,
+            propertyKey: PropertyKey,
+            receiver?: any
+        ): any;
+        function getOwnPropertyDescriptor(
+            target: any,
+            propertyKey: PropertyKey
+        ): PropertyDescriptor;
         function getPrototypeOf(target: any): any;
         function has(target: any, propertyKey: string | symbol): boolean;
         function isExtensible(target: any): boolean;
         function ownKeys(target: any): PropertyKey[];
         function preventExtensions(target: any): boolean;
-        function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
+        function set(
+            target: any,
+            propertyKey: PropertyKey,
+            value: any,
+            receiver?: any
+        ): boolean;
         function setPrototypeOf(target: any, proto: any): boolean;
         /**
          * Define a unique metadata entry on the target.
@@ -500,7 +691,12 @@ declare namespace core {
          *  }
          * ```
          */
-        function defineMetadata(metadataKey: any, metadataValue: any, target: Object, targetKey?: string | symbol): void;
+        function defineMetadata(
+            metadataKey: any,
+            metadataValue: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): void;
         /**
          * Deletes the metadata entry from the target object with the provided key.
          * @param metadataKey A key used to store and retrieve metadata.
@@ -518,7 +714,11 @@ declare namespace core {
          *  result = Reflect.deleteMetadata("custom:annotation", Example);
          * ```
          */
-        function deleteMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean;
+        function deleteMetadata(
+            metadataKey: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): boolean;
         /**
          * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
          * @param metadataKey A key used to store and retrieve metadata.
@@ -536,7 +736,11 @@ declare namespace core {
          *  result = Reflect.getMetadata("custom:annotation", Example);
          * ```
          */
-        function getMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): any;
+        function getMetadata(
+            metadataKey: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): any;
         /**
          * Gets the metadata keys defined on the target object or its prototype chain.
          * @param target The target object on which the metadata is defined.
@@ -553,7 +757,10 @@ declare namespace core {
          *  result = Reflect.getMetadataKeys(Example);
          * ```
          */
-        function getMetadataKeys(target: Object, targetKey?: string | symbol): any[];
+        function getMetadataKeys(
+            target: Object,
+            targetKey?: string | symbol
+        ): any[];
         /**
          * Gets the metadata value for the provided metadata key on the target object.
          * @param metadataKey A key used to store and retrieve metadata.
@@ -571,7 +778,11 @@ declare namespace core {
          *  result = Reflect.getOwnMetadata("custom:annotation", Example);
          * ```
          */
-        function getOwnMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): any;
+        function getOwnMetadata(
+            metadataKey: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): any;
 
         /**
          * Gets the unique metadata keys defined on the target object.
@@ -589,7 +800,10 @@ declare namespace core {
          *  result = Reflect.getOwnMetadataKeys(Example);
          * ```
          */
-        function getOwnMetadataKeys(target: Object, targetKey?: string | symbol): any[];
+        function getOwnMetadataKeys(
+            target: Object,
+            targetKey?: string | symbol
+        ): any[];
         /**
          * Gets a value indicating whether the target object or its prototype chain has the provided metadata key defined.
          * @param metadataKey A key used to store and retrieve metadata.
@@ -607,7 +821,11 @@ declare namespace core {
          *  result = Reflect.hasMetadata("custom:annotation", Example);
          * ```
          */
-        function hasMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean;
+        function hasMetadata(
+            metadataKey: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): boolean;
         /**
          * Gets a value indicating whether the target object has the provided metadata key defined.
          * @param metadataKey A key used to store and retrieve metadata.
@@ -626,7 +844,11 @@ declare namespace core {
          *  result = Reflect.hasOwnMetadata("custom:annotation", Example);
          * ```
          */
-        function hasOwnMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean;
+        function hasOwnMetadata(
+            metadataKey: any,
+            target: Object,
+            targetKey?: string | symbol
+        ): boolean;
         /**
          * A default metadata decorator factory that can be used on a class, class member, or parameter.
          * @param metadataKey The key for the metadata entry.
@@ -670,7 +892,10 @@ declare namespace core {
          *  }
          * ```
          */
-        function metadata(metadataKey: any, metadataValue: any): {
+        function metadata(
+            metadataKey: any,
+            metadataValue: any
+        ): {
             (target: Function): void;
             (target: Object, targetKey: string | symbol): void;
         };
@@ -692,8 +917,15 @@ declare namespace core {
         is(value1: any, value2: any): boolean;
         setPrototypeOf(o: any, proto: any): any;
         getOwnPropertySymbols(o: any): symbol[];
-        getOwnPropertyDescriptor(o: any, propertyKey: PropertyKey): PropertyDescriptor;
-        defineProperty(o: any, propertyKey: PropertyKey, attributes: PropertyDescriptor): any;
+        getOwnPropertyDescriptor(
+            o: any,
+            propertyKey: PropertyKey
+        ): PropertyDescriptor;
+        defineProperty(
+            o: any,
+            propertyKey: PropertyKey,
+            attributes: PropertyDescriptor
+        ): any;
         values(object: any): any[];
         entries(object: any): any[];
         getOwnPropertyDescriptors(object: any): PropertyDescriptorMap;
@@ -709,7 +941,11 @@ declare namespace core {
     };
 
     const Array: {
-        from<T, U>(arrayLike: ArrayLike<T> | Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+        from<T, U>(
+            arrayLike: ArrayLike<T> | Iterable<T>,
+            mapfn: (v: T, k: number) => U,
+            thisArg?: any
+        ): U[];
         from<T>(arrayLike: ArrayLike<T> | Iterable<T>): T[];
         of<T>(...items: T[]): T[];
         isArray(arg: any): arg is any[];
@@ -721,39 +957,151 @@ declare namespace core {
         shift<T>(array: ArrayLike<T>): T;
         slice<T>(array: ArrayLike<T>, start?: number, end?: number): T[];
         sort<T>(array: ArrayLike<T>, compareFn?: (a: T, b: T) => number): T[];
-        splice<T>(array: ArrayLike<T>, start: number, deleteCount?: number, ...items: T[]): T[];
+        splice<T>(
+            array: ArrayLike<T>,
+            start: number,
+            deleteCount?: number,
+            ...items: T[]
+        ): T[];
         unshift<T>(array: ArrayLike<T>, ...items: T[]): number;
-        indexOf<T>(array: ArrayLike<T>, searchElement: T, fromIndex?: number): number;
-        lastIndexOf<T>(array: ArrayLike<T>, earchElement: T, fromIndex?: number): number;
-        every<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): boolean;
-        some<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): boolean;
-        forEach<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
-        map<T, U>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
-        filter<T>(array: ArrayLike<T>, callbackfn: (value: T, index: number, array: T[]) => boolean, thisArg?: any): T[];
-        reduce<T>(array: ArrayLike<T>, callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue?: T): T;
-        reduce<T, U>(array: ArrayLike<T>, callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;
-        reduceRight<T>(array: ArrayLike<T>, callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue?: T): T;
-        reduceRight<T, U>(array: ArrayLike<T>, callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;
+        indexOf<T>(
+            array: ArrayLike<T>,
+            searchElement: T,
+            fromIndex?: number
+        ): number;
+        lastIndexOf<T>(
+            array: ArrayLike<T>,
+            earchElement: T,
+            fromIndex?: number
+        ): number;
+        every<T>(
+            array: ArrayLike<T>,
+            callbackfn: (value: T, index: number, array: T[]) => boolean,
+            thisArg?: any
+        ): boolean;
+        some<T>(
+            array: ArrayLike<T>,
+            callbackfn: (value: T, index: number, array: T[]) => boolean,
+            thisArg?: any
+        ): boolean;
+        forEach<T>(
+            array: ArrayLike<T>,
+            callbackfn: (value: T, index: number, array: T[]) => void,
+            thisArg?: any
+        ): void;
+        map<T, U>(
+            array: ArrayLike<T>,
+            callbackfn: (value: T, index: number, array: T[]) => U,
+            thisArg?: any
+        ): U[];
+        filter<T>(
+            array: ArrayLike<T>,
+            callbackfn: (value: T, index: number, array: T[]) => boolean,
+            thisArg?: any
+        ): T[];
+        reduce<T>(
+            array: ArrayLike<T>,
+            callbackfn: (
+                previousValue: T,
+                currentValue: T,
+                currentIndex: number,
+                array: T[]
+            ) => T,
+            initialValue?: T
+        ): T;
+        reduce<T, U>(
+            array: ArrayLike<T>,
+            callbackfn: (
+                previousValue: U,
+                currentValue: T,
+                currentIndex: number,
+                array: T[]
+            ) => U,
+            initialValue: U
+        ): U;
+        reduceRight<T>(
+            array: ArrayLike<T>,
+            callbackfn: (
+                previousValue: T,
+                currentValue: T,
+                currentIndex: number,
+                array: T[]
+            ) => T,
+            initialValue?: T
+        ): T;
+        reduceRight<T, U>(
+            array: ArrayLike<T>,
+            callbackfn: (
+                previousValue: U,
+                currentValue: T,
+                currentIndex: number,
+                array: T[]
+            ) => U,
+            initialValue: U
+        ): U;
         entries<T>(array: ArrayLike<T>): IterableIterator<[number, T]>;
         keys<T>(array: ArrayLike<T>): IterableIterator<number>;
         values<T>(array: ArrayLike<T>): IterableIterator<T>;
-        find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
-        findIndex<T>(array: ArrayLike<T>, predicate: (value: T) => boolean, thisArg?: any): number;
-        fill<T>(array: ArrayLike<T>, value: T, start?: number, end?: number): T[];
-        copyWithin<T>(array: ArrayLike<T>, target: number, start: number, end?: number): T[];
+        find<T>(
+            array: ArrayLike<T>,
+            predicate: (value: T, index: number, obj: T[]) => boolean,
+            thisArg?: any
+        ): T;
+        findIndex<T>(
+            array: ArrayLike<T>,
+            predicate: (value: T) => boolean,
+            thisArg?: any
+        ): number;
+        fill<T>(
+            array: ArrayLike<T>,
+            value: T,
+            start?: number,
+            end?: number
+        ): T[];
+        copyWithin<T>(
+            array: ArrayLike<T>,
+            target: number,
+            start: number,
+            end?: number
+        ): T[];
         includes<T>(array: ArrayLike<T>, value: T, fromIndex?: number): boolean;
-        turn<T>(array: ArrayLike<T>, callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
-        turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
+        turn<T>(
+            array: ArrayLike<T>,
+            callbackfn: (
+                memo: T[],
+                value: T,
+                index: number,
+                array: T[]
+            ) => void,
+            memo?: T[]
+        ): T[];
+        turn<T, U>(
+            array: ArrayLike<T>,
+            callbackfn: (memo: U, value: T, index: number, array: T[]) => void,
+            memo?: U
+        ): U;
     };
 
     const String: {
         codePointAt(text: string, pos: number): number;
-        includes(text: string, searchString: string, position?: number): boolean;
-        endsWith(text: string, searchString: string, endPosition?: number): boolean;
+        includes(
+            text: string,
+            searchString: string,
+            position?: number
+        ): boolean;
+        endsWith(
+            text: string,
+            searchString: string,
+            endPosition?: number
+        ): boolean;
         repeat(text: string, count: number): string;
         fromCodePoint(...codePoints: number[]): string;
         raw(template: TemplateStringsArray, ...substitutions: any[]): string;
-        startsWith(text: string, searchString: string, position?: number): boolean;
+        startsWith(
+            text: string,
+            searchString: string,
+            position?: number
+        ): boolean;
         at(text: string, index: number): string;
         padStart(text: string, length: number, fillStr?: string): string;
         padEnd(text: string, length: number, fillStr?: string): string;
@@ -1136,8 +1484,7 @@ declare module "core-js/fn/function/has-instance" {
     function hasInstance(value: any): boolean;
     export = hasInstance;
 }
-declare module "core-js/fn/function/name" {
-}
+declare module "core-js/fn/function/name" {}
 declare module "core-js/fn/function/part" {
     const part: typeof core.Function.part;
     export = part;
@@ -1919,8 +2266,7 @@ declare module "core-js/library/fn/function/has-instance" {
     function hasInstance(value: any): boolean;
     export = hasInstance;
 }
-declare module "core-js/library/fn/function/name" {
-}
+declare module "core-js/library/fn/function/name" {}
 declare module "core-js/library/fn/function/part" {
     const part: typeof core.Function.part;
     export = part;

@@ -3,16 +3,14 @@
 // Definitions by: Mick Delaney <https://github.com/mickdelaney/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-var app = angular.module('testModule');
+var app = angular.module("testModule");
 
-interface AppScope extends rx.angular.IRxScope {
-}
+interface AppScope extends rx.angular.IRxScope {}
 
-app.controller('Ctrl', ($scope: AppScope) => {
-    	
-	this.inputObservable = $scope.$toObservable('term')
-								 .safeApply($scope, (results: any) => {
-				                      this.results = results;
-				                  });
-				  
+app.controller("Ctrl", ($scope: AppScope) => {
+    this.inputObservable = $scope
+        .$toObservable("term")
+        .safeApply($scope, (results: any) => {
+            this.results = results;
+        });
 });

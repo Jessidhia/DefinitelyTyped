@@ -21,7 +21,11 @@ export interface Options {
     ext?: boolean;
     before?: HandleFunction[];
     // tslint:disable-next-line prefer-method-signature
-    logFn?: (req: http.IncomingMessage, res: http.ServerResponse, err: Error) => void;
+    logFn?: (
+        req: http.IncomingMessage,
+        res: http.ServerResponse,
+        err: Error
+    ) => void;
     cors?: boolean;
     corsHeaders?: string;
     robots?: string | true;

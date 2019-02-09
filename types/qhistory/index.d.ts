@@ -6,10 +6,10 @@
 
 export as namespace qhistory;
 
-import { History } from 'history';
+import { History } from "history";
 
 // augments the 'history' types when used
-declare module 'history' {
+declare module "history" {
     interface Location {
         // actually a complicated nested object/array system, but giving it a type
         // makes _actually_ using it (or even casting to a known structure) much harder.

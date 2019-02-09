@@ -9,7 +9,11 @@
 interface PaginatorOptions {
     alignment?: string;
     size?: string;
-    itemContainerClass?: (type: string, page: number, current: number) => string;
+    itemContainerClass?: (
+        type: string,
+        page: number,
+        current: number
+    ) => string;
     currentPage?: number;
     numberOfPages?: number;
     totalPages?: number;
@@ -20,8 +24,18 @@ interface PaginatorOptions {
     useBootstrapTooltip?: boolean;
     bootstrapTooltipOptions?: {};
     bootstrapMajorVersion?: number;
-    onPageClicked?: (event: any, originalEvent: any, type: string, page: number) => void;
-    onPageChanged?: (event: any, originalEvent: any, type: string, page: number) => void;
+    onPageClicked?: (
+        event: any,
+        originalEvent: any,
+        type: string,
+        page: number
+    ) => void;
+    onPageChanged?: (
+        event: any,
+        originalEvent: any,
+        type: string,
+        page: number
+    ) => void;
 }
 
 interface JQuery {

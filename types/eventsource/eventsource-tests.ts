@@ -13,9 +13,15 @@ let withCredentials: boolean = eventSource.withCredentials;
 eventSource.onmessage = (event: MessageEvent) => {};
 eventSource.onerror = (event: MessageEvent) => {};
 eventSource.onopen = (event: MessageEvent) => {};
-eventSource.addEventListener = (type: string, listener: (e: Event) => void) => {};
+eventSource.addEventListener = (
+    type: string,
+    listener: (e: Event) => void
+) => {};
 eventSource.dispatchEvent = (event: Event) => true;
-eventSource.removeEventListener = (type: string, listener: (e: Event) => void) => {};
+eventSource.removeEventListener = (
+    type: string,
+    listener: (e: Event) => void
+) => {};
 eventSource.close();
 
 import EventSourcePolyfill = require("eventsource/lib/eventsource-polyfill");
@@ -33,7 +39,13 @@ withCredentials = eventSource.withCredentials;
 eventSourcePolyfill.onmessage = (event: MessageEvent) => {};
 eventSourcePolyfill.onerror = (event: MessageEvent) => {};
 eventSourcePolyfill.onopen = (event: MessageEvent) => {};
-eventSourcePolyfill.addEventListener = (type: string, listener: (e: Event) => void) => {};
+eventSourcePolyfill.addEventListener = (
+    type: string,
+    listener: (e: Event) => void
+) => {};
 eventSourcePolyfill.dispatchEvent = (event: Event) => true;
-eventSourcePolyfill.removeEventListener = (type: string, listener: (e: Event) => void) => {};
+eventSourcePolyfill.removeEventListener = (
+    type: string,
+    listener: (e: Event) => void
+) => {};
 eventSourcePolyfill.close();

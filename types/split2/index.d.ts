@@ -5,9 +5,9 @@
 
 /// <reference types="node" />
 declare module "split2" {
-    import { Transform, TransformOptions } from 'stream';
+    import { Transform, TransformOptions } from "stream";
 
-    type Matcher = string|RegExp;
+    type Matcher = string | RegExp;
     type Mapper = split.Mapper;
     type Options = split.Options;
 
@@ -18,7 +18,11 @@ declare module "split2" {
     function split(matcher: Matcher, mapper: Mapper): Transform;
     function split(matcher: Matcher, options: Options): Transform;
     function split(mapper: Mapper, options: Options): Transform;
-    function split(matcher: Matcher, mapper: Mapper, options: Options): Transform;
+    function split(
+        matcher: Matcher,
+        mapper: Mapper,
+        options: Options
+    ): Transform;
 
     namespace split {
         export interface Mapper {
@@ -26,7 +30,7 @@ declare module "split2" {
         }
 
         export interface Options extends TransformOptions {
-           maxLength?: number;
+            maxLength?: number;
         }
     }
 

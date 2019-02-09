@@ -9,10 +9,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as Backbone from 'backbone';
-import * as JQuery from 'jquery';
-import * as Radio from 'backbone.radio';
-import * as _ from 'underscore';
+import * as Backbone from "backbone";
+import * as JQuery from "jquery";
+import * as Radio from "backbone.radio";
+import * as _ from "underscore";
 
 export as namespace Marionette;
 
@@ -185,27 +185,42 @@ export class Container<TView> {
     /**
      * @see _.forEach
      */
-    forEach(iterator: _.ListIterator<TView, void>, context?: any): Container<TView>;
+    forEach(
+        iterator: _.ListIterator<TView, void>,
+        context?: any
+    ): Container<TView>;
 
     /**
      * @see _.each
      */
-    each(iterator: _.ListIterator<TView, void>, context?: any): Container<TView>;
+    each(
+        iterator: _.ListIterator<TView, void>,
+        context?: any
+    ): Container<TView>;
 
     /**
      * @see _.map
      */
-    map<TResult>(iterator: _.ListIterator<TView, TResult>, context?: any): TResult[];
+    map<TResult>(
+        iterator: _.ListIterator<TView, TResult>,
+        context?: any
+    ): TResult[];
 
     /**
      * @see _.find
      */
-    find(iterator: _.ListIterator<TView, boolean>, context?: any): Container<TView> | undefined;
+    find(
+        iterator: _.ListIterator<TView, boolean>,
+        context?: any
+    ): Container<TView> | undefined;
 
     /**
      * @see _.detect
      */
-    detect(iterator: _.ListIterator<TView, boolean>, context?: any): Container<TView> | undefined;
+    detect(
+        iterator: _.ListIterator<TView, boolean>,
+        context?: any
+    ): Container<TView> | undefined;
 
     /**
      * @see _.filter
@@ -300,12 +315,19 @@ export class Container<TView> {
     /**
      * @see _.reduce
      */
-    reduce<TResult>(iterator: _.MemoIterator<TView, TResult>, memo?: TResult, context?: any): TResult;
+    reduce<TResult>(
+        iterator: _.MemoIterator<TView, TResult>,
+        memo?: TResult,
+        context?: any
+    ): TResult;
 
     /**
      * @see _.partition
      */
-    partition(iterator: _.ListIterator<TView, boolean>, context?: any): TView[][];
+    partition(
+        iterator: _.ListIterator<TView, boolean>,
+        context?: any
+    ): TView[][];
 }
 
 /**
@@ -364,13 +386,21 @@ export function unbindEvents(target: any, entity: any, bindings: any): void;
  * This method is used to bind a radio requests to methods on a target
  * object.
  */
-export function bindRequests(target: any, channel: Radio.Channel, bindings: any): void;
+export function bindRequests(
+    target: any,
+    channel: Radio.Channel,
+    bindings: any
+): void;
 
 /**
  * This method is used to unbind a radio requests to methods on a target
  * object.
  */
-export function unbindRequests(target: any, channel: Radio.Channel, bindings: any): void;
+export function unbindRequests(
+    target: any,
+    channel: Radio.Channel,
+    bindings: any
+): void;
 
 /**
  * Receives a hash of event names and functions and/or function names, and
@@ -410,17 +440,49 @@ export interface ObjectOptions extends RadioMixinOptions {
 export class Object implements CommonMixin, RadioMixin, Backbone.Events {
     constructor(options?: ObjectOptions);
 
-    on(eventName: string, callback?: (...args: any[]) => void, context?: any): any;
+    on(
+        eventName: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
     on(eventMap: EventsHash): any;
     on(eventName: any, callback?: any, context?: any): any;
-    off(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
+    off(
+        eventName?: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
     trigger(eventName: string, ...args: any[]): any;
-    bind(eventName: string, callback: (...args: any[]) => void, context?: any): any;
-    unbind(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
-    once(events: string, callback: (...args: any[]) => void, context?: any): any;
-    listenTo(object: any, events: string, callback: (...args: any[]) => void): any;
-    listenToOnce(object: any, events: string, callback: (...args: any[]) => void): any;
-    stopListening(object?: any, events?: string, callback?: (...args: any[]) => void): any;
+    bind(
+        eventName: string,
+        callback: (...args: any[]) => void,
+        context?: any
+    ): any;
+    unbind(
+        eventName?: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
+    once(
+        events: string,
+        callback: (...args: any[]) => void,
+        context?: any
+    ): any;
+    listenTo(
+        object: any,
+        events: string,
+        callback: (...args: any[]) => void
+    ): any;
+    listenToOnce(
+        object: any,
+        events: string,
+        callback: (...args: any[]) => void
+    ): any;
+    stopListening(
+        object?: any,
+        events?: string,
+        callback?: (...args: any[]) => void
+    ): any;
 
     /**
      * Receives a hash of event names and functions and/or function names,
@@ -755,7 +817,10 @@ export class Region extends Object implements DomMixin {
      * Renders and displays the specified view in this region.
      * @param view the view to display.
      */
-    show(view: Backbone.View<Backbone.Model>, options?: RegionViewOptions): void;
+    show(
+        view: Backbone.View<Backbone.Model>,
+        options?: RegionViewOptions
+    ): void;
 
     /**
      * Override this method to change how the region finds the DOM element
@@ -790,7 +855,9 @@ export class Region extends Object implements DomMixin {
      * Destroys the view taking into consideration if is a View descendant
      * or vanilla Backbone view.
      */
-    destroyView<TModel extends Backbone.Model>(view: Backbone.View<TModel>): Backbone.View<TModel>;
+    destroyView<TModel extends Backbone.Model>(
+        view: Backbone.View<TModel>
+    ): Backbone.View<TModel>;
 
     /**
      * Override the region's removeView method to change how and when the
@@ -849,7 +916,9 @@ export namespace Renderer {
     function render(template: any, data: any): string;
 }
 
-export interface ViewOptions<TModel extends Backbone.Model> extends Backbone.ViewOptions<TModel>, ViewMixinOptions {
+export interface ViewOptions<TModel extends Backbone.Model>
+    extends Backbone.ViewOptions<TModel>,
+        ViewMixinOptions {
     /**
      * The events attribute binds DOM events to actions to perform on the
      * view. It takes DOM event key and a mapping to the handler.
@@ -885,7 +954,8 @@ export interface ViewOptions<TModel extends Backbone.Model> extends Backbone.Vie
  * all. Views are also used to build up your application hierarchy - you can
  * easily nest multiple views through the regions attribute.
  */
-export class View<TModel extends Backbone.Model> extends Backbone.View<TModel> implements ViewMixin, RegionsMixin {
+export class View<TModel extends Backbone.Model> extends Backbone.View<TModel>
+    implements ViewMixin, RegionsMixin {
     constructor(options?: ViewOptions<TModel>);
 
     events(): EventsHash;
@@ -1113,17 +1183,25 @@ export class View<TModel extends Backbone.Model> extends Backbone.View<TModel> i
     /**
      * Show a view inside a region.
      */
-    showChildView(regionName: string, view: any, options?: RegionViewOptions): void;
+    showChildView(
+        regionName: string,
+        view: any,
+        options?: RegionViewOptions
+    ): void;
 
     /**
      * Detach a view from a region.
      */
-    detachChildView<TModel extends Backbone.Model>(regionName: string): Backbone.View<TModel>;
+    detachChildView<TModel extends Backbone.Model>(
+        regionName: string
+    ): Backbone.View<TModel>;
 
     /**
      * Get the view from a region.
      */
-    getChildView<TModel extends Backbone.Model>(regionName: string): Backbone.View<TModel>;
+    getChildView<TModel extends Backbone.Model>(
+        regionName: string
+    ): Backbone.View<TModel>;
 
     /**
      * The results of this method ared passed to this View's template. By
@@ -1262,10 +1340,13 @@ export class View<TModel extends Backbone.Model> extends Backbone.View<TModel> i
     /**
      * Behavior objects to assign to this View.
      */
-    behaviors: Behavior[] | { [index: string]: typeof Behavior; } | Array<{
-        behaviorClass: typeof Behavior;
-        [index: string]: any;
-    }>;
+    behaviors:
+        | Behavior[]
+        | { [index: string]: typeof Behavior }
+        | Array<{
+              behaviorClass: typeof Behavior;
+              [index: string]: any;
+          }>;
 
     /**
      * Bind to events that occur on attached models.
@@ -1292,12 +1373,16 @@ export class View<TModel extends Backbone.Model> extends Backbone.View<TModel> i
 
 export interface CollectionViewOptions<
     TModel extends Backbone.Model,
-    TCollection extends Backbone.Collection<TModel> = Backbone.Collection<TModel>
-    > extends Backbone.ViewOptions<TModel>, ViewMixinOptions {
+    TCollection extends Backbone.Collection<TModel> = Backbone.Collection<
+        TModel
+    >
+> extends Backbone.ViewOptions<TModel>, ViewMixinOptions {
     /**
      * Specify a child view to use.
      */
-    childView?: ((model: TModel) => typeof Backbone.View) | typeof Backbone.View;
+    childView?:
+        | ((model: TModel) => typeof Backbone.View)
+        | typeof Backbone.View;
 
     /**
      * Define options to pass to the childView constructor.
@@ -1342,7 +1427,10 @@ export interface CollectionViewOptions<
      * Render your collection view's children with a different sort order
      * than the underlying Backbone collection.
      */
-    viewComparator?: string | ((element: TModel) => number | string) | ((compare: TModel, to?: TModel) => number); // Mirrors Backbone.Collection.comparator
+    viewComparator?:
+        | string
+        | ((element: TModel) => number | string)
+        | ((compare: TModel, to?: TModel) => number); // Mirrors Backbone.Collection.comparator
 }
 
 /**
@@ -1353,31 +1441,52 @@ export interface CollectionViewOptions<
  * DOM. This behavior can be disabled by specifying {sort: false} on
  * initialize.
  */
-export class CollectionView<TModel extends Backbone.Model, TView extends View<TModel>, TCollection extends Backbone.Collection<TModel> = Backbone.Collection<TModel>> extends View<TModel> {
+export class CollectionView<
+    TModel extends Backbone.Model,
+    TView extends View<TModel>,
+    TCollection extends Backbone.Collection<TModel> = Backbone.Collection<
+        TModel
+    >
+> extends View<TModel> {
     constructor(options?: CollectionViewOptions<TModel, TCollection>);
 
     /**
      * Specify a child view to use.
      */
-    childView: ((model: TModel) => { new(...args: any[]): TView }) | { new(...args: any[]): TView };
+    childView:
+        | ((model: TModel) => { new (...args: any[]): TView })
+        | { new (...args: any[]): TView };
 
     /**
      * Define options to pass to the childView constructor.
      */
-    childViewOptions: ((model: TModel, index: number) => ViewOptions<TModel>) | ViewOptions<TModel>;
+    childViewOptions:
+        | ((model: TModel, index: number) => ViewOptions<TModel>)
+        | ViewOptions<TModel>;
 
     /**
      * Prevent some of the underlying collection's models from being
      * rendered as child views.
      */
-    filter: (child?: TModel, index?: number, collection?: TCollection) => boolean;
+    filter: (
+        child?: TModel,
+        index?: number,
+        collection?: TCollection
+    ) => boolean;
 
     /**
      * Modify the CollectionView's filter attribute, and renders the new
      * ChildViews in a efficient way, instead of rendering the whole DOM
      * structure again.
      */
-    setFilter: (filter: (child?: TModel, index?: number, collection?: TCollection) => boolean, options: { preventRender: boolean }) => void;
+    setFilter: (
+        filter: (
+            child?: TModel,
+            index?: number,
+            collection?: TCollection
+        ) => boolean,
+        options: { preventRender: boolean }
+    ) => void;
 
     /**
      * Remove a filter from the CollectionView.
@@ -1387,12 +1496,16 @@ export class CollectionView<TModel extends Backbone.Model, TView extends View<TM
     /**
      * Specify a view to use if the collection has no children.
      */
-    emptyView: (() => { new(...args: any[]): Backbone.View<TModel> }) | { new(...args: any[]): Backbone.View<TModel> };
+    emptyView:
+        | (() => { new (...args: any[]): Backbone.View<TModel> })
+        | { new (...args: any[]): Backbone.View<TModel> };
 
     /**
      * Define options to pass to the emptyView constructor.
      */
-    emptyViewOptions: ((model: TModel, index: number) => ViewOptions<TModel>) | ViewOptions<TModel>;
+    emptyViewOptions:
+        | ((model: TModel, index: number) => ViewOptions<TModel>)
+        | ViewOptions<TModel>;
 
     /**
      * Method used to determine when emptyView is rendered.
@@ -1410,13 +1523,20 @@ export class CollectionView<TModel extends Backbone.Model, TView extends View<TM
      * This method is used move the HTML from the element buffer into the
      * collection view's el.
      */
-    attachHtml(collectionView: CollectionView<TModel, TView, TCollection>, childView: TView, index: number): void;
+    attachHtml(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        childView: TView,
+        index: number
+    ): void;
 
     /**
      * When overriding attachHtml it may be necessary to also override how
      * the buffer is attached.
      */
-    attachBuffer(collectionView: CollectionView<TModel, TView, TCollection>, buffer: DocumentFragment): void;
+    attachBuffer(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        buffer: DocumentFragment
+    ): void;
 
     /**
      * Customize the event prefix for events that are forwarded through the
@@ -1478,20 +1598,29 @@ export class CollectionView<TModel extends Backbone.Model, TView extends View<TM
      * Render your collection view's children with a different sort order
      * than the underlying Backbone collection.
      */
-    viewComparator: string | ((element: TModel) => number | string) | ((compare: TModel, to?: TModel) => number); // Mirrors Backbone.Collection.comparator
+    viewComparator:
+        | string
+        | ((element: TModel) => number | string)
+        | ((compare: TModel, to?: TModel) => number); // Mirrors Backbone.Collection.comparator
 
     /**
      * Override this method to determine which viewComparator to use.
      */
-    getViewComparator: () => (string | ((element: TModel) => number | string) | ((compare: TModel, to?: TModel) => number)); // Mirrors Backbone.Collection.comparator
+    getViewComparator: () =>
+        | string
+        | ((element: TModel) => number | string)
+        | ((compare: TModel, to?: TModel) => number); // Mirrors Backbone.Collection.comparator
 
     /**
      * Behavior objects to assign to this View.
      */
-    behaviors: Behavior[] | { [index: string]: typeof Behavior; } | Array<{
-        behaviorClass: typeof Behavior;
-        [index: string]: any;
-    }>;
+    behaviors:
+        | Behavior[]
+        | { [index: string]: typeof Behavior }
+        | Array<{
+              behaviorClass: typeof Behavior;
+              [index: string]: any;
+          }>;
 
     /**
      * Name parts of your template to be used throughout the view with the
@@ -1511,7 +1640,11 @@ export class CollectionView<TModel extends Backbone.Model, TView extends View<TM
      * The buildChildView is responsible for taking the ChildView class and
      * instantiating it with the appropriate data.
      */
-    buildChildView(child: TModel, childViewClass: { new(...args: any[]): TView }, childViewOptions: ViewOptions<TModel>): void;
+    buildChildView(
+        child: TModel,
+        childViewClass: { new (...args: any[]): TView },
+        childViewOptions: ViewOptions<TModel>
+    ): void;
 
     /**
      * The addChildView method can be used to add a view that is independent
@@ -1542,27 +1675,39 @@ export class CollectionView<TModel extends Backbone.Model, TView extends View<TM
      * instance is about to be added to the collection view. It provides
      * access to the view instance for the child that was added.
      */
-    onBeforeAddChild(collectionView: CollectionView<TModel, TView, TCollection>, childView: TView): void;
+    onBeforeAddChild(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        childView: TView
+    ): void;
 
     /**
      * This callback function allows you to know when a child / child view
      * instance has been added to the collection view. It provides access to
      * the view instance for the child that was added.
      */
-    onAddChild(collectionView: CollectionView<TModel, TView, TCollection>, childView: TView): void;
+    onAddChild(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        childView: TView
+    ): void;
 
     /**
      * This callback function allows you to know when a childView instance is
      * about to be removed from the collectionView. It provides access to the
      * view instance for the child that was removed.
      */
-    onBeforeRemoveChild(collectionView: CollectionView<TModel, TView, TCollection>, childView: TView): void;
+    onBeforeRemoveChild(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        childView: TView
+    ): void;
 
     /**
      * This callback function allows you to know when a child / childView
      * instance has been deleted or removed from the collection.
      */
-    onRemoveChild(collectionView: CollectionView<TModel, TView, TCollection>, childView: TView): void;
+    onRemoveChild(
+        collectionView: CollectionView<TModel, TView, TCollection>,
+        childView: TView
+    ): void;
 
     /**
      * Automatically destroys this Collection's children and cleans up
@@ -1730,10 +1875,13 @@ export class Behavior extends Object {
      * The behaviors key allows a behavior to group multiple behaviors
      * together.
      */
-    behaviors: Behavior[] | { [index: string]: typeof Behavior; } | Array<{
-        behaviorClass: typeof Behavior;
-        [index: string]: any;
-    }>;
+    behaviors:
+        | Behavior[]
+        | { [index: string]: typeof Behavior }
+        | Array<{
+              behaviorClass: typeof Behavior;
+              [index: string]: any;
+          }>;
 
     /**
      * defaults can be a hash or function to define the default options for

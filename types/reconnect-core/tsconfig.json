@@ -2,9 +2,7 @@
     "compilerOptions": {
         "baseUrl": "../",
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "es2016"
-        ],
+        "lib": ["es2016"],
         "module": "commonjs",
         "noEmit": true,
         "noImplicitAny": true,
@@ -13,12 +11,7 @@
         "strictFunctionTypes": true,
         "target": "es6",
         "types": [],
-        "typeRoots": [
-            "../"
-        ]
+        "typeRoots": ["../"]
     },
-    "files": [
-        "index.d.ts",
-        "reconnect-core-tests.ts"
-    ]
+    "files": ["index.d.ts", "reconnect-core-tests.ts"]
 }

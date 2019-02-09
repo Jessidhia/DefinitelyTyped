@@ -6,10 +6,12 @@
 
 export = ensureError;
 
-declare function ensureError<T>(input: T): T extends Error ? T : ensureError.NonError;
+declare function ensureError<T>(
+    input: T
+): T extends Error ? T : ensureError.NonError;
 
 declare namespace ensureError {
     interface NonError extends Error {
-        name: 'NonError';
+        name: "NonError";
     }
 }

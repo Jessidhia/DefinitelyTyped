@@ -1,4 +1,4 @@
-import * as parser from 'svg-parser';
+import * as parser from "svg-parser";
 
 // $ExpectType Node
-parser.parse('<svg></svg>');
+parser.parse("<svg></svg>");

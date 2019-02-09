@@ -5,4 +5,7 @@
 
 export = pWaitFor;
 
-declare function pWaitFor(condition: () => PromiseLike<boolean> | boolean, interval?: number): Promise<void>;
+declare function pWaitFor(
+    condition: () => PromiseLike<boolean> | boolean,
+    interval?: number
+): Promise<void>;

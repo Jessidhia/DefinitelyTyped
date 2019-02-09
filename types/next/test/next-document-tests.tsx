@@ -42,12 +42,17 @@ class MyDoc extends Document<WithUrlProps> {
         const _page = renderPage();
 
         // with component enhancer
-        const enhancer: Enhancer<PageProps, {}> = Component => props => <Component />;
+        const enhancer: Enhancer<PageProps, {}> = Component => props => (
+            <Component />
+        );
         const _enhancedPage = renderPage(enhancer);
 
         // with app and component enhancers
         const enhanceApp: Enhancer<PageProps, {}> = App => props => <App />;
-        const enhanceComponent: Enhancer<PageProps, {}> = Component => props => <Component />;
+        const enhanceComponent: Enhancer<
+            PageProps,
+            {}
+        > = Component => props => <Component />;
         const { html, head, buildManifest } = renderPage({
             enhanceApp,
             enhanceComponent
@@ -55,7 +60,10 @@ class MyDoc extends Document<WithUrlProps> {
 
         const initialProps = await Document.getInitialProps(ctx);
 
-        const styles = [...(initialProps.styles ? initialProps.styles : []), <style />];
+        const styles = [
+            ...(initialProps.styles ? initialProps.styles : []),
+            <style />
+        ];
 
         // Custom prop
         const url = req!.url;
@@ -116,11 +124,16 @@ const enhancerInferred = (App: React.ComponentType<ProcessedInitialProps>) => ({
 }: PageInitialProps) => <App fooLength={foo.length} bar={!!bar} />;
 const explicitEnhancerRenderResponse = renderPage(enhancerExplicit);
 const inferredEnhancerRenderResponse = renderPage(enhancerInferred);
-const defaultedTypesRenderResponse = renderPage(App => props => <App url={props.url} />);
+const defaultedTypesRenderResponse = renderPage(App => props => (
+    <App url={props.url} />
+));
 const defaultedTypesExtendedRenderResponse = renderPage(App => props => (
     <App foo="bar" url={props.url} />
 ));
-const explicitTypesRenderResponseOne = renderPage<PageProps, {}>(App => props => <App />);
-const explicitTypesRenderResponseTwo = renderPage<PageInitialProps, ProcessedInitialProps>(
-    App => ({ foo, bar }) => <App fooLength={foo.length} bar={!!bar} />
+const explicitTypesRenderResponseOne = renderPage<PageProps, {}>(
+    App => props => <App />
 );
+const explicitTypesRenderResponseTwo = renderPage<
+    PageInitialProps,
+    ProcessedInitialProps
+>(App => ({ foo, bar }) => <App fooLength={foo.length} bar={!!bar} />);

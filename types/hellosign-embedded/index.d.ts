@@ -4,21 +4,21 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 export declare module HelloSign {
     interface SignedMessageEvent {
-        event: 'signature_request_signed';
+        event: "signature_request_signed";
         signature_id: string;
     }
 
     interface DeclinedMessageEvent {
-        event: 'signature_request_declined';
+        event: "signature_request_declined";
         signature_id: string;
     }
 
     interface CanceledMessageEvent {
-        event: 'signature_request_canceled';
+        event: "signature_request_canceled";
     }
 
     interface SentMessageEvent {
-        event: 'signature_request_sent';
+        event: "signature_request_sent";
         signature_request_id: string;
         signature_request_info: {
             title: string;
@@ -39,7 +39,7 @@ export declare module HelloSign {
     }
 
     interface TemplateCreatedMessageEvent {
-        event: 'template_created';
+        event: "template_created";
         template_id: string;
         template_info: {
             title: string;
@@ -55,13 +55,17 @@ export declare module HelloSign {
     }
 
     interface ErrorMessageEvent {
-        event: 'error';
+        event: "error";
         description: string;
     }
 
-    type MessageEvent = SignedMessageEvent | DeclinedMessageEvent |
-        CanceledMessageEvent | SentMessageEvent | TemplateCreatedMessageEvent |
-        ErrorMessageEvent;
+    type MessageEvent =
+        | SignedMessageEvent
+        | DeclinedMessageEvent
+        | CanceledMessageEvent
+        | SentMessageEvent
+        | TemplateCreatedMessageEvent
+        | ErrorMessageEvent;
 
     interface ClientCultures {
         /**

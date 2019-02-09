@@ -17,15 +17,16 @@ const options: SVGO.Options = {
     full: true,
     js2svg: {
         indent: 2,
-        pretty: true,
+        pretty: true
     },
     svg2js: {
-        trim: true,
+        trim: true
     }
 };
 
 svgo = new SVGO(options);
 
 // SVGO instance methods
-svgo.optimize(`<?xml version="1.0" encoding="utf-8"?><svg></svg>`, { path: "filepath" })
-    .then(result => result.data, error => error);
+svgo.optimize(`<?xml version="1.0" encoding="utf-8"?><svg></svg>`, {
+    path: "filepath"
+}).then(result => result.data, error => error);

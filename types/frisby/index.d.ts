@@ -8,7 +8,7 @@
 /// <reference types='jest'/>
 
 // #region Imports
-export import nodeFetch = require('node-fetch'); // Import all definitions from node-fetch.
+export import nodeFetch = require("node-fetch"); // Import all definitions from node-fetch.
 //#endregion
 
 // #region Joi Methods
@@ -53,10 +53,16 @@ export class FrisbySpec {
     promise(): Promise<nodeFetch.Response>;
     put(url: string, params?: {}): FrisbySpec;
     setup(opts: {}, replace: boolean): FrisbySpec;
-    then(onFulfilled: {} | ((...args: any[]) => void), onRejected?: (...args: any[]) => void): FrisbySpec;
+    then(
+        onFulfilled: {} | ((...args: any[]) => void),
+        onRejected?: (...args: any[]) => void
+    ): FrisbySpec;
     timeout(timeout: number): number;
     use(fn: (...args: any[]) => void): FrisbySpec;
-    static addExpectHandler(expectName: string, expectFn: (...args: any[]) => any): void;
+    static addExpectHandler(
+        expectName: string,
+        expectFn: (...args: any[]) => any
+    ): void;
     static removeExpectHandler(expectName: string): void;
 }
 // #endregion
@@ -65,7 +71,10 @@ export class FrisbySpec {
 // Reference file: https://github.com/vlucas/frisby/blob/master/src/frisby.js
 
 export const version: string;
-export function addExpectHandler(expectName: string, expectFn: (...args: any[]) => any): FrisbySpec;
+export function addExpectHandler(
+    expectName: string,
+    expectFn: (...args: any[]) => any
+): FrisbySpec;
 export function baseUrl(url: string): void;
 export function create(name: string): void;
 export function del(...args: any[]): FrisbySpec;
@@ -77,7 +86,10 @@ export function globalSetup(opts: {}): void;
 export function patch(...args: any[]): FrisbySpec;
 export function post(...args: any[]): FrisbySpec;
 export function put(...args: any[]): FrisbySpec;
-export function removeExpectHandler(expectName: string, expectFn: (...args: any[]) => any): FrisbySpec;
+export function removeExpectHandler(
+    expectName: string,
+    expectFn: (...args: any[]) => any
+): FrisbySpec;
 export function setup(...args: any[]): FrisbySpec;
 export function timeout(...args: any[]): FrisbySpec;
 export function use(...args: any[]): FrisbySpec;

@@ -225,7 +225,7 @@ interface JQuery {
     // on(events: "dp.error", selector: string, handler: (eventobject: DatetimepickerEventObject) => any): JQuery;
     // on(events: 'dp.error', handler: (eventObject: DatetimepickerEventObject) => any): JQuery;
 
-    data(key: 'DateTimePicker'): Datetimepicker;
+    data(key: "DateTimePicker"): Datetimepicker;
 }
 
 /**
@@ -260,7 +260,14 @@ interface StoreStatic {
  * messager
  */
 declare enum MessagerTypeEnum {
-    'default', 'primary', 'success', 'info', 'warning', 'danger', 'important', 'special'
+    "default",
+    "primary",
+    "success",
+    "info",
+    "warning",
+    "danger",
+    "important",
+    "special"
 }
 interface Action {
     name?: string;
@@ -297,8 +304,8 @@ interface Messager {
     hide(cb?: CallBack): any;
 }
 interface MessagerStatic {
-    new(option?: MessagerOption): Messager;
-    new(message: string, option?: MessagerOption): Messager;
+    new (option?: MessagerOption): Messager;
+    new (message: string, option?: MessagerOption): Messager;
 }
 
 interface ZuiStatic {
@@ -349,7 +356,7 @@ interface ModalTrigger {
     adjustPostion(option?: ModalTriggerOption): any;
 }
 interface ModalTriggerStatic {
-    new(option?: ModalTriggerOption): ModalTrigger;
+    new (option?: ModalTriggerOption): ModalTrigger;
 }
 
 interface JQuery {
@@ -386,8 +393,8 @@ interface Color {
 }
 
 interface ColorStatic {
-    new(r: number, g: number, b: number, a?: number): Color;
-    new(hexStrOrrgbColorOrRgbaColorOrName?: string): Color;
+    new (r: number, g: number, b: number, a?: number): Color;
+    new (hexStrOrrgbColorOrRgbaColorOrName?: string): Color;
     isColor(str: string): boolean;
     names: string[];
 }
@@ -599,7 +606,12 @@ interface TreeMenu {
 
     show(params?: JQuery, disableAnimate?: boolean): void;
 
-    add(element: JQuery, items: TreeNode[], expand?: boolean, disabledAnimate?: boolean): void;
+    add(
+        element: JQuery,
+        items: TreeNode[],
+        expand?: boolean,
+        disabledAnimate?: boolean
+    ): void;
     toData($ul?: JQuery, filter?: string): object;
 
     reload(data: TreeNode[]): void;
@@ -683,12 +695,15 @@ interface DataTableOption {
 }
 
 interface DataTable {
-    checks: { checkedAll: boolean, checks: number[] };
+    checks: { checkedAll: boolean; checks: number[] };
 }
 
 interface JQuery {
     datatable(option?: DataTableOption): JQuery;
-    datatable(command: string, optionOrData: DataTableOption | DataTableData): JQuery;
+    datatable(
+        command: string,
+        optionOrData: DataTableOption | DataTableData
+    ): JQuery;
 }
 
 /**
@@ -704,7 +719,7 @@ interface UploaderOption {
         mime_type: Array<{
             title?: string;
             extensions?: string;
-        }>,
+        }>;
         max_file_size?: string;
         prevent_duplicates?: string;
     };
@@ -733,8 +748,12 @@ interface UploaderOption {
     limitFilesCount?: boolean | number;
     deleteConfirm?: boolean | string;
     removeUploaded?: boolean;
-    statusCreator?(total: UploadProgress, state: STATUS, uploader: Uploader): void;
-    previewImageSize?: { width: number, height: number };
+    statusCreator?(
+        total: UploadProgress,
+        state: STATUS,
+        uploader: Uploader
+    ): void;
+    previewImageSize?: { width: number; height: number };
     uploadedMessage?: boolean;
     deleteActionOnDone?: boolean;
     renameActionOnDone?: boolean;
@@ -769,7 +788,7 @@ interface UploaderOption {
     onBeforeUpload?(file: FileObj): void;
     onStateChanged?(status: STATUS): void;
     onQueueChanged?(): void;
-    onError?(error: { error: ERRORS, message: string, file: FileObj }): void;
+    onError?(error: { error: ERRORS; message: string; file: FileObj }): void;
 }
 interface ResponseObject {
     response?: string;
@@ -779,7 +798,12 @@ interface ResponseObject {
     total?: number;
 }
 declare enum STATUS {
-    STOPPED = 1, STARTED = 2, QUEUED = 1, UPLOADING = 2, FAILED = 3, DONE = 4
+    STOPPED = 1,
+    STARTED = 2,
+    QUEUED = 1,
+    UPLOADING = 2,
+    FAILED = 3,
+    DONE = 4
 }
 interface FileObj {
     id?: string;

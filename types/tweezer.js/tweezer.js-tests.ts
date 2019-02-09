@@ -1,17 +1,24 @@
-import Tweezer from 'tweezer.js';
+import Tweezer from "tweezer.js";
 
 const tweezer = new Tweezer({
     start: 100,
-    end: 200,
+    end: 200
 });
 
 tweezer
-    .on('tick', (foo) => { foo.toFixed(); })
-    .on('done', () => {})
+    .on("tick", foo => {
+        foo.toFixed();
+    })
+    .on("done", () => {})
     .begin()
     .stop();
 
-function testEaser(currentTime: number, beginningTime: number, changeInValue: number, duration: number) {
+function testEaser(
+    currentTime: number,
+    beginningTime: number,
+    changeInValue: number,
+    duration: number
+) {
     return 42;
 }
 

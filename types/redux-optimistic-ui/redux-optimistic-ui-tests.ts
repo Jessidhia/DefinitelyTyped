@@ -1,5 +1,11 @@
 import { Action } from "redux";
-import { OptimisticState, OptimisticAction, BEGIN, optimistic, ensureState } from "redux-optimistic-ui";
+import {
+    OptimisticState,
+    OptimisticAction,
+    BEGIN,
+    optimistic,
+    ensureState
+} from "redux-optimistic-ui";
 
 interface TestState {
     a: number;
@@ -32,4 +38,4 @@ const myOptimisticAction: Action & OptimisticAction = {
             id: 1
         }
     }
-}
+};

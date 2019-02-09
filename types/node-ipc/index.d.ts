@@ -51,7 +51,12 @@ declare namespace NodeIPC {
          * @param port the port on which the TCP or TLS socket resides
          * @param callback 	this is the function to execute when the socket has been created
          */
-        connectToNet(id: string, host?: string, port?: number, callback?: () => void): void;
+        connectToNet(
+            id: string,
+            host?: string,
+            port?: number,
+            callback?: () => void
+        ): void;
         /**
          * https://www.npmjs.com/package/node-ipc#connecttonet
          * Used to connect as a client to a TCP or TLS socket via the network card.
@@ -77,7 +82,11 @@ declare namespace NodeIPC {
          * @param port the port on which the TCP or TLS socket resides
          * @param callback 	this is the function to execute when the socket has been created
          */
-        connectToNet(id: string, hostOrPort: number | string, callback?: () => void): void;
+        connectToNet(
+            id: string,
+            hostOrPort: number | string,
+            callback?: () => void
+        ): void;
         /**
          * https://www.npmjs.com/package/node-ipc#disconnect
          * Used to disconnect a client from a Unix, Windows, TCP or TLS socket.
@@ -120,7 +129,12 @@ declare namespace NodeIPC {
          * This defaults to not being set. When using udp6 make sure to specify a valid IPv6 host, like ::1
          * @param callback Function to be called when the server is created
          */
-        serveNet(host?: string, port?: number, UDPType?: "udp4" | "udp6", callback?: () => void): void;
+        serveNet(
+            host?: string,
+            port?: number,
+            UDPType?: "udp4" | "udp6",
+            callback?: () => void
+        ): void;
         /**
          * https://www.npmjs.com/package/node-ipc#servenet
          * @param UDPType If set this will create the server as a UDP socket. 'udp4' or 'udp6' are valid values.
@@ -168,11 +182,17 @@ declare namespace NodeIPC {
          * disconnect - triggered by client when socket has disconnected from server
          * destroy - triggered when socket has been totally destroyed, no further auto retries will happen and all references are gone
          */
-        on(event: "connect" | "disconnect" | "destroy", callback: () => void): Client;
+        on(
+            event: "connect" | "disconnect" | "destroy",
+            callback: () => void
+        ): Client;
         /**
          * triggered by server when a client socket has disconnected
          */
-        on(event: "socket.disconnected", callback: (socket: Socket, destroyedSocketID: string) => void): Client;
+        on(
+            event: "socket.disconnected",
+            callback: (socket: Socket, destroyedSocketID: string) => void
+        ): Client;
         /**
          * triggered when ipc.config.rawBuffer is true and a message is received
          */

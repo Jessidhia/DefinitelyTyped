@@ -1,7 +1,7 @@
-import { Base, EmitterBase } from '../base';
-import { Identity } from '../../identity';
-import Transport from '../../transport/transport';
-import { ExternalApplicationEvents } from '../events/externalApplication';
+import { Base, EmitterBase } from "../base";
+import { Identity } from "../../identity";
+import Transport from "../../transport/transport";
+import { ExternalApplicationEvents } from "../events/externalApplication";
 export interface ExternalApplicationInfo {
     parent: Identity;
 }
@@ -33,7 +33,9 @@ export default class ExternalApplicationModule extends Base {
  * @class
  * @hideconstructor
  */
-export declare class ExternalApplication extends EmitterBase<ExternalApplicationEvents> {
+export declare class ExternalApplication extends EmitterBase<
+    ExternalApplicationEvents
+> {
     identity: Identity;
     constructor(wire: Transport, identity: Identity);
     /**

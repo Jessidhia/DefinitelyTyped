@@ -6,10 +6,9 @@
 
 /// <reference types="signals" />
 
-import * as signal from 'signals';
+import * as signal from "signals";
 
 declare namespace CrossroadsJs {
-
     export interface Route {
         matched: signal.Signal;
 
@@ -50,11 +49,14 @@ declare namespace CrossroadsJs {
          * @param listenercontext Context on which listener will be executed (object that should represent the `this` variable inside listener function).
          * @param priority The priority level of the event listener. Listeners with higher priority will be executed before listeners with lower priority. Listeners with same priority level will be executed at the same order as they were added. (default = 0)
          */
-        add(listener: Function, listenerContext?: any, priority?: Number): signal.SignalBinding;
+        add(
+            listener: Function,
+            listenerContext?: any,
+            priority?: Number
+        ): signal.SignalBinding;
     }
 
     export interface CrossRoadsStatic {
-
         NORM_AS_ARRAY: Function;
 
         NORM_AS_OBJECT: Function;

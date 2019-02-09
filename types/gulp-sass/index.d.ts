@@ -5,7 +5,6 @@
 
 /// <reference types="node"/>
 
-
 interface SassResults {
     css: string;
     map: string;
@@ -15,7 +14,7 @@ interface SassResults {
         end: Date;
         duration: number;
         includedFiles: string[];
-    }
+    };
 }
 
 interface SassOptions {

@@ -3,9 +3,19 @@
 // Definitions by: icopp <https://github.com/icopp>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-type RollTransformation = RollTransformationKey | [RollTransformationKey, number] | ((results: number[]) => number[]);
+type RollTransformation =
+    | RollTransformationKey
+    | [RollTransformationKey, number]
+    | ((results: number[]) => number[]);
 
-type RollTransformationKey = 'sum' | 'add' | 'subtract' | 'multiply' | 'divide' | 'best-of' | 'worst-of';
+type RollTransformationKey =
+    | "sum"
+    | "add"
+    | "subtract"
+    | "multiply"
+    | "divide"
+    | "best-of"
+    | "worst-of";
 
 interface RollObject {
     quantity: number;
@@ -22,7 +32,7 @@ interface RollOutput {
 }
 
 declare class InvalidInputError extends Error {
-    name: 'InvalidInputError';
+    name: "InvalidInputError";
 }
 
 declare class Roll {
@@ -39,7 +49,9 @@ declare class Roll {
      * Parse a string into a roll object
      * @throws InvalidInputError
      */
-    parse(input: string): {
+    parse(
+        input: string
+    ): {
         quantity: number;
         sides: number;
         transformations: RollTransformation[];

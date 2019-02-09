@@ -1,7 +1,7 @@
-import { Parser } from 'node-sql-parser';
+import { Parser } from "node-sql-parser";
 
 const parser = new Parser();
-const sql = 'select id from tableA';
+const sql = "select id from tableA";
 
 // $ExpectType Select | Insert_Replace | Update | Delete | AST[]
 const selectAst = parser.astify(sql);
@@ -16,4 +16,4 @@ parser.tableList(sql);
 parser.columnList(sql);
 
 // $ExpectType Error | undefined
-parser.whiteListCheck(sql, ['select::null::tableA'], 'table');
+parser.whiteListCheck(sql, ["select::null::tableA"], "table");

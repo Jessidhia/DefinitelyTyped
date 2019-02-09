@@ -1,4 +1,4 @@
-import activeWin = require('active-win');
+import activeWin = require("active-win");
 
 // $ExpectType Promise<Result>
 activeWin();
@@ -6,12 +6,12 @@ activeWin();
 activeWin.sync();
 
 let win = {
-    title: 'Unicorns - Google Search',
+    title: "Unicorns - Google Search",
     id: 5762,
     owner: {
-        name: 'Google Chrome',
-        processId: 310,
-    },
+        name: "Google Chrome",
+        processId: 310
+    }
 };
 
 win = activeWin.sync();

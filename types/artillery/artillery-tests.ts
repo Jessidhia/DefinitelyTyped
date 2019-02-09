@@ -1,6 +1,6 @@
-import { ScenarioContext, Next } from 'artillery';
+import { ScenarioContext, Next } from "artillery";
 
-const scenarioContext: ScenarioContext = {vars: {}};
+const scenarioContext: ScenarioContext = { vars: {} };
 scenarioContext.vars = {};
 scenarioContext.vars.testing = "value";
 scenarioContext.vars.testing2 = 1;

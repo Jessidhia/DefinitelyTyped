@@ -1,10 +1,10 @@
-import defineLazyProp = require('define-lazy-prop');
+import defineLazyProp = require("define-lazy-prop");
 
 const unicorn = {
-    foo: 'bar'
+    foo: "bar"
 };
 
-const rainbowUnicorn = defineLazyProp(unicorn, 'rainbow', () => 1);
+const rainbowUnicorn = defineLazyProp(unicorn, "rainbow", () => 1);
 
 rainbowUnicorn.rainbow; // $ExpectType number
 rainbowUnicorn.foo; // $ExpectType string

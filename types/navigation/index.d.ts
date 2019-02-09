@@ -65,7 +65,7 @@ export class State implements StateInfo {
     /**
      * Gets the formatted default array NavigationData for this State
      */
-    formattedArrayDefaults: { [index: string]: string[]; };
+    formattedArrayDefaults: { [index: string]: string[] };
     /**
      * Gets the textual description of the state
      */
@@ -99,7 +99,13 @@ export class State implements StateInfo {
      * @param unload The function to call to continue to navigate
      * @param history A value indicating whether browser history was used
      */
-    unloading: (state: State, data: any, url: string, unload: () => void, history?: boolean) => void;
+    unloading: (
+        state: State,
+        data: any,
+        url: string,
+        unload: () => void,
+        history?: boolean
+    ) => void;
     /**
      * Called on the old State after navigating to a different State
      */
@@ -117,7 +123,12 @@ export class State implements StateInfo {
      * @param navigate The function to call to continue to navigate
      * @param history A value indicating whether browser history was used
      */
-    navigating: (data: any, url: string, navigate: (asyncData?: any) => void, history: boolean) => void;
+    navigating: (
+        data: any,
+        url: string,
+        navigate: (asyncData?: any) => void,
+        history: boolean
+    ) => void;
     /**
      * Encodes the Url value
      * @param state The State navigated to
@@ -125,7 +136,12 @@ export class State implements StateInfo {
      * @param val The Url value of the navigation data item
      * @param queryString A value indicating the Url value's location
      */
-    urlEncode(state: State, key: string, val: string, queryString: boolean): string;
+    urlEncode(
+        state: State,
+        key: string,
+        val: string,
+        queryString: boolean
+    ): string;
     /**
      * Decodes the Url value
      * @param state The State navigated to
@@ -133,7 +149,12 @@ export class State implements StateInfo {
      * @param val The Url value of the navigation data item
      * @param queryString A value indicating the Url value's location
      */
-    urlDecode(state: State, key: string, val: string, queryString: boolean): string;
+    urlDecode(
+        state: State,
+        key: string,
+        val: string,
+        queryString: boolean
+    ): string;
     /**
      * Validates the NavigationData before navigating to the new State
      * @param data The new NavigationData
@@ -331,7 +352,13 @@ export class Crumb {
      * @param last A value indicating whether the Crumb is the last in the
      * crumb trail
      */
-    constructor(data: any, state: State, link: string, crumblessLink: string, last: boolean);
+    constructor(
+        data: any,
+        state: State,
+        link: string,
+        crumblessLink: string,
+        last: boolean
+    );
 }
 
 /**
@@ -453,7 +480,7 @@ export class StateNavigator {
     /**
      * Gets a list of States
      */
-    states: { [index: string]: State; };
+    states: { [index: string]: State };
     /**
      * Initializes a new instance of the StateNavigator class
      * @param states A collection of States
@@ -470,12 +497,26 @@ export class StateNavigator {
      * Registers a navigate event listener
      * @param handler The navigate event listener
      */
-    onNavigate(handler: (oldState: State, state: State, data: any, asyncData: any) => void): void;
+    onNavigate(
+        handler: (
+            oldState: State,
+            state: State,
+            data: any,
+            asyncData: any
+        ) => void
+    ): void;
     /**
      * Unregisters a navigate event listener
      * @param handler The navigate event listener
      */
-    offNavigate(handler: (oldState: State, state: State, data: any, asyncData: any) => void): void;
+    offNavigate(
+        handler: (
+            oldState: State,
+            state: State,
+            data: any,
+            asyncData: any
+        ) => void
+    ): void;
     /**
      * Navigates to a State
      * @param stateKey The key of a State
@@ -486,7 +527,11 @@ export class StateNavigator {
      * NavigationData that cannot be converted to a String
      * @throws A mandatory route parameter has not been supplied a value
      */
-    navigate(stateKey: string, navigationData?: any, historyAction?: 'add' | 'replace' | 'none'): void;
+    navigate(
+        stateKey: string,
+        navigationData?: any,
+        historyAction?: "add" | "replace" | "none"
+    ): void;
     /**
      * Gets a Url to navigate to a State
      * @param stateKey The key of a State
@@ -509,7 +554,10 @@ export class StateNavigator {
      * @throws canNavigateBack returns false for this distance
      * @throws A mandatory route parameter has not been supplied a value
      */
-    navigateBack(distance: number, historyAction?: 'add' | 'replace' | 'none'): void;
+    navigateBack(
+        distance: number,
+        historyAction?: "add" | "replace" | "none"
+    ): void;
     /**
      * Gets a Url to navigate back along the crumb trail
      * @param distance Starting at 1, the number of Crumb steps to go back
@@ -524,7 +572,10 @@ export class StateNavigator {
      * @throws There is NavigationData that cannot be converted to a String
      * @throws A mandatory route parameter has not been supplied a value
      */
-    refresh(navigationData?: any, historyAction?: 'add' | 'replace' | 'none'): void;
+    refresh(
+        navigationData?: any,
+        historyAction?: "add" | "replace" | "none"
+    ): void;
     /**
      * Gets a Url to navigate to the current State
      * @param navigationData The NavigationData to be passed to the current
@@ -539,12 +590,16 @@ export class StateNavigator {
      * @param A value determining the effect on browser history
      * @param history A value indicating whether browser history was used
      */
-    navigateLink(url: string, historyAction?: 'add' | 'replace' | 'none', history?: boolean): void;
+    navigateLink(
+        url: string,
+        historyAction?: "add" | "replace" | "none",
+        history?: boolean
+    ): void;
     /**
      * Parses the url out into State and Navigation Data
      * @param url The url to parse
      */
-    parseLink(url: string): { state: State; data: any; };
+    parseLink(url: string): { state: State; data: any };
     /**
      * Creates a FluentNavigator
      * @param withContext a value indicating whether to inherit the current

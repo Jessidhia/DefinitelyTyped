@@ -39,9 +39,15 @@ export default interface MDCTabBarScrollerAdapter {
 
     deregisterForwardIndicatorClickHandler(handler: EventListener): void;
 
-    registerCapturedInteractionHandler(evt: string, handler: EventListener): void;
+    registerCapturedInteractionHandler(
+        evt: string,
+        handler: EventListener
+    ): void;
 
-    deregisterCapturedInteractionHandler(evt: string, handler: EventListener): void;
+    deregisterCapturedInteractionHandler(
+        evt: string,
+        handler: EventListener
+    ): void;
 
     registerWindowResizeHandler(handler: EventListener): void;
 

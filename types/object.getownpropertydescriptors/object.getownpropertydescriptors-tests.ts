@@ -1,9 +1,9 @@
-import descriptors = require('object.getownpropertydescriptors');
+import descriptors = require("object.getownpropertydescriptors");
 
-descriptors({ language: 'TypeScript' });
+descriptors({ language: "TypeScript" });
 // => { language: TypedPropertyDescriptor<string>; }
 
-const { language } = descriptors({ language: 'TypeScript' });
+const { language } = descriptors({ language: "TypeScript" });
 
 language;
 // => {
@@ -20,7 +20,7 @@ descriptors.shim();
 
 const getOwnPropertyDescriptorsPolyfill = descriptors.getPolyfill();
 
-getOwnPropertyDescriptorsPolyfill({ name: 'object.getownpropertydescriptors' });
+getOwnPropertyDescriptorsPolyfill({ name: "object.getownpropertydescriptors" });
 // => { name: TypedPropertyDescriptor<string>; }
 
 descriptors.implementation();

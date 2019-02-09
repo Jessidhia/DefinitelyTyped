@@ -5,7 +5,9 @@ import dynamic, { LoadingComponentProps } from "next/dynamic";
 interface MyComponentProps {
     foo: string;
 }
-const MyComponent: React.FunctionComponent<MyComponentProps> = () => <div>I'm async!</div>;
+const MyComponent: React.FunctionComponent<MyComponentProps> = () => (
+    <div>I'm async!</div>
+);
 const asyncComponent = Promise.resolve(MyComponent);
 
 // Examples from
@@ -24,7 +26,9 @@ const dynamicComponentJSX = <DynamicComponent foo="bar" />;
 const DynamicComponentWithCustomLoading = dynamic(asyncComponent, {
     loading: LoadingComponent
 });
-const dynamicComponentWithCustomLoadingJSX = <DynamicComponentWithCustomLoading foo="bar" />;
+const dynamicComponentWithCustomLoadingJSX = (
+    <DynamicComponentWithCustomLoading foo="bar" />
+);
 
 // 3. With No SSR
 const DynamicComponentWithNoSSR = dynamic(asyncComponent, {

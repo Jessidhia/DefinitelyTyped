@@ -13,8 +13,5 @@
         "typeRoots": ["../"]
     },
 
-    "files": [
-        "nise-tests.ts",
-        "index.d.ts"
-    ]
+    "files": ["nise-tests.ts", "index.d.ts"]
 }

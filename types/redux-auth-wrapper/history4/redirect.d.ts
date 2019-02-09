@@ -13,7 +13,8 @@ export {
     InjectedAuthRouterProps
 } from "../history3/redirect";
 
-export interface ConnectedReduxRedirectConfig<OwnProps = {}, State = {}> extends ConnectedRouterRedirectConfig<OwnProps, State> {
+export interface ConnectedReduxRedirectConfig<OwnProps = {}, State = {}>
+    extends ConnectedRouterRedirectConfig<OwnProps, State> {
     redirectAction(location: Location): Action;
 }
 

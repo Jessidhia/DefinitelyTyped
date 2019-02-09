@@ -5,7 +5,6 @@
 
 /// <reference types="node"/>
 
-
 import events = require("events");
 
 interface Tokenizer {
@@ -32,8 +31,16 @@ declare class WordPunctTokenizer implements Tokenizer {
     tokenize(text: string): string[];
 }
 
-declare function JaroWinklerDistance(s1: string, s2: string, dt?: number): number;
-declare function LevenshteinDistance(source: string, target: string, options?: any): number;
+declare function JaroWinklerDistance(
+    s1: string,
+    s2: string,
+    dt?: number
+): number;
+declare function LevenshteinDistance(
+    source: string,
+    target: string,
+    options?: any
+): number;
 declare function DiceCoefficient(str1: string, str2: string): number;
 
 interface Stemmer {
@@ -41,33 +48,35 @@ interface Stemmer {
 }
 declare var PorterStemmer: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerRu: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerEs: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerFa: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerFr: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerIt: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerNo: {
     stem(token: string): string;
-}
+};
 declare var PorterStemmerPt: {
     stem(token: string): string;
-}
+};
 declare var LancasterStemmer: {
     stem(token: string): string;
-}
+};
 
-interface BayesClassifierCallback { (err: any, classifier: any): void }
+interface BayesClassifierCallback {
+    (err: any, classifier: any): void;
+}
 declare class BayesClassifier {
     events: events.EventEmitter;
     addDocument(text: string, stem: string): void;
@@ -76,11 +85,17 @@ declare class BayesClassifier {
     classify(observation: string): string;
     getClassifications(observation: string): string[];
     save(filename: string, callback: BayesClassifierCallback): void;
-    static load(filename: string, stemmer: Stemmer, callback: BayesClassifierCallback): void;
+    static load(
+        filename: string,
+        stemmer: Stemmer,
+        callback: BayesClassifierCallback
+    ): void;
     static restore(classifier: any, stemmer?: Stemmer): BayesClassifier;
 }
 
-interface LogisticRegressionClassifierCallback { (err: any, classifier: any): void }
+interface LogisticRegressionClassifierCallback {
+    (err: any, classifier: any): void;
+}
 declare class LogisticRegressionClassifier {
     events: events.EventEmitter;
     addDocument(text: string, stem: string): void;
@@ -88,9 +103,19 @@ declare class LogisticRegressionClassifier {
     train(): void;
     classify(observation: string): string;
     getClassifications(observation: string): string[];
-    save(filename: string, callback: LogisticRegressionClassifierCallback): void;
-    static load(filename: string, stemmer: Stemmer, callback: LogisticRegressionClassifierCallback): void;
-    static restore(classifier: any, stemmer?: Stemmer): LogisticRegressionClassifier;
+    save(
+        filename: string,
+        callback: LogisticRegressionClassifierCallback
+    ): void;
+    static load(
+        filename: string,
+        stemmer: Stemmer,
+        callback: LogisticRegressionClassifierCallback
+    ): void;
+    static restore(
+        classifier: any,
+        stemmer?: Stemmer
+    ): LogisticRegressionClassifier;
 }
 
 interface Phonetic {
@@ -116,29 +141,83 @@ declare class NounInflector {
 }
 declare var CountInflector: {
     nth(i: number): string;
-}
+};
 declare class PresentVerbInflector {
     pluralize(token: string): string;
     singularize(token: string): string;
 }
 declare var NGrams: {
-    bigrams(sequence: string, startSymbol?: string, endSymbol?: string): string[][];
-    bigrams(sequence: string[], startSymbol?: string, endSymbol?: string): string[][];
-    trigrams(sequence: string, startSymbol?: string, endSymbol?: string): string[][];
-    trigrams(sequence: string[], startSymbol?: string, endSymbol?: string): string[][];
-    ngrams(sequence: string, n: number, startSymbol?: string, endSymbol?: string): string[][];
-    ngrams(sequence: string[], n: number, startSymbol?: string, endSymbol?: string): string[][];
-}
+    bigrams(
+        sequence: string,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    bigrams(
+        sequence: string[],
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    trigrams(
+        sequence: string,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    trigrams(
+        sequence: string[],
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    ngrams(
+        sequence: string,
+        n: number,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    ngrams(
+        sequence: string[],
+        n: number,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+};
 declare var NGramsZH: {
-    bigrams(sequence: string, startSymbol?: string, endSymbol?: string): string[][];
-    bigrams(sequence: string[], startSymbol?: string, endSymbol?: string): string[][];
-    trigrams(sequence: string, startSymbol?: string, endSymbol?: string): string[][];
-    trigrams(sequence: string[], startSymbol?: string, endSymbol?: string): string[][];
-    ngrams(sequence: string, n: number, startSymbol?: string, endSymbol?: string): string[][];
-    ngrams(sequence: string[], n: number, startSymbol?: string, endSymbol?: string): string[][];
-}
+    bigrams(
+        sequence: string,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    bigrams(
+        sequence: string[],
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    trigrams(
+        sequence: string,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    trigrams(
+        sequence: string[],
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    ngrams(
+        sequence: string,
+        n: number,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+    ngrams(
+        sequence: string[],
+        n: number,
+        startSymbol?: string,
+        endSymbol?: string
+    ): string[][];
+};
 
-interface TfIdfCallback { (i: number, measure: number): void }
+interface TfIdfCallback {
+    (i: number, measure: number): void;
+}
 interface TfIdfTerm {
     term: string;
     tfidf: number;
@@ -147,7 +226,12 @@ declare class TfIdf {
     constructor(deserialized?: any);
     addDocument(document: string, key?: string, restoreCache?: boolean): void;
     addDocument(document: string[], key?: string, restoreCache?: boolean): void;
-    addFileSync(path: string, encoding?: string, key?: string, restoreCache?: boolean): void;
+    addFileSync(
+        path: string,
+        encoding?: string,
+        key?: string,
+        restoreCache?: boolean
+    ): void;
     tfidf(terms: string, d: number): void;
     tfidfs(terms: string, callback: TfIdfCallback): void;
     tfidfs(terms: string[], callback: TfIdfCallback): void;
@@ -189,8 +273,12 @@ interface WordNetLookupResults {
     synonyms: string[];
     gloss: string;
 }
-interface WordNetLookupCallback { (results: WordNetLookupResults[]): void }
-interface WordNetGetCallback { (results: WordNetLookupResults): void }
+interface WordNetLookupCallback {
+    (results: WordNetLookupResults[]): void;
+}
+interface WordNetGetCallback {
+    (results: WordNetLookupResults): void;
+}
 declare class WordNet {
     constructor(filename?: string);
     lookup(word: string, callback: WordNetLookupCallback): void;
@@ -208,12 +296,22 @@ declare class Predicate {
     name: string;
     parameter1: string;
     parameter2?: string;
-    function?: (tagged_sentence: string[][], i: number, parameter: string) => boolean;
+    function?: (
+        tagged_sentence: string[][],
+        i: number,
+        parameter: string
+    ) => boolean;
     evaluate(tagged_sentence: string[][], position: number): boolean;
 }
 
 declare class TransformationRule {
-    constructor(c1: string, c2: string, predicate: string, parameter1: string, parameter2?: string);
+    constructor(
+        c1: string,
+        c2: string,
+        predicate: string,
+        parameter1: string,
+        parameter2?: string
+    );
     literal: string[];
     predicate: Predicate;
     old_category: string;

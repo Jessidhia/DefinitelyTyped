@@ -1,6 +1,6 @@
 import noUiSlider = require("nouislider");
 
-var testHtmlElement = document.getElementById('test');
+var testHtmlElement = document.getElementById("test");
 
 /**
  * Basic
@@ -8,8 +8,8 @@ var testHtmlElement = document.getElementById('test');
 noUiSlider.create(testHtmlElement, {
     start: 80,
     range: {
-        'min': 0,
-        'max': 10000
+        min: 0,
+        max: 10000
     }
 });
 
@@ -17,26 +17,26 @@ noUiSlider.create(testHtmlElement, {
  * All options
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 20, 80 ],
+    start: [20, 80],
     step: 10,
     margin: 20,
     connect: true,
-    direction: 'rtl',
-    orientation: 'vertical',
+    direction: "rtl",
+    orientation: "vertical",
 
     // Configure tapping, or make the selected range dragable.
-    behaviour: 'tap-drag',
+    behaviour: "tap-drag",
 
     // Full number format support.
     format: wNumb({
-        mark: ',',
+        mark: ",",
         decimals: 1
     }),
 
     // Support for non-linear ranges by adding intervals.
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -46,8 +46,8 @@ noUiSlider.create(testHtmlElement, {
 noUiSlider.create(testHtmlElement, {
     start: [20, 80],
     range: {
-        'min': [ 0 ],
-        'max': [ 100 ]
+        min: [0],
+        max: [100]
     }
 });
 
@@ -55,10 +55,10 @@ noUiSlider.create(testHtmlElement, {
  * Handles
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 4000, 8000 ],
+    start: [4000, 8000],
     range: {
-        'min': [  2000 ],
-        'max': [ 10000 ]
+        min: [2000],
+        max: [10000]
     }
 });
 
@@ -66,11 +66,11 @@ noUiSlider.create(testHtmlElement, {
  * More than two handles
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 4000, 8000, 12000, 16000 ],
+    start: [4000, 8000, 12000, 16000],
     connect: [false, true, true, false, true],
     range: {
-        'min': [  2000 ],
-        'max': [ 20000 ]
+        min: [2000],
+        max: [20000]
     }
 });
 
@@ -78,10 +78,10 @@ noUiSlider.create(testHtmlElement, {
  * Range
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 4000 ],
+    start: [4000],
     range: {
-        'min': [  2000 ],
-        'max': [ 10000 ]
+        min: [2000],
+        max: [10000]
     }
 });
 
@@ -89,11 +89,11 @@ noUiSlider.create(testHtmlElement, {
  * Stepping and snapping to values
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 4000 ],
+    start: [4000],
     step: 1000,
     range: {
-        'min': [  2000 ],
-        'max': [ 10000 ]
+        min: [2000],
+        max: [10000]
     }
 });
 
@@ -101,12 +101,12 @@ noUiSlider.create(testHtmlElement, {
  * Non-linear sliders
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 4000 ],
+    start: [4000],
     range: {
-        'min': [  2000 ],
-        '30%': [  4000 ],
-        '70%': [  8000 ],
-        'max': [ 10000 ]
+        min: [2000],
+        "30%": [4000],
+        "70%": [8000],
+        max: [10000]
     }
 });
 
@@ -114,12 +114,12 @@ noUiSlider.create(testHtmlElement, {
  * Stepping in non-linear sliders
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 500, 4000 ],
+    start: [500, 4000],
     range: {
-        'min': [     0 ],
-        '10%': [   500,  500 ],
-        '50%': [  4000, 1000 ],
-        'max': [ 10000 ]
+        min: [0],
+        "10%": [500, 500],
+        "50%": [4000, 1000],
+        max: [10000]
     }
 });
 
@@ -127,17 +127,17 @@ noUiSlider.create(testHtmlElement, {
  * Snapping between steps
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 0, 500 ],
+    start: [0, 500],
     snap: true,
     connect: true,
     range: {
-        'min': 0,
-        '10%': 50,
-        '20%': 100,
-        '30%': 150,
-        '40%': 500,
-        '50%': 800,
-        'max': 1000
+        min: 0,
+        "10%": 50,
+        "20%": 100,
+        "30%": 150,
+        "40%": 500,
+        "50%": 800,
+        max: 1000
     }
 });
 
@@ -148,16 +148,16 @@ noUiSlider.create(testHtmlElement, {
     start: 40,
     connect: [true, false],
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 noUiSlider.create(testHtmlElement, {
     start: [20, 40, 60],
     connect: [true, false, true, true],
     range: {
-        'min': 0,
-        'max': 80
+        min: 0,
+        max: 80
     }
 });
 
@@ -165,11 +165,11 @@ noUiSlider.create(testHtmlElement, {
  * Margin
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 20, 80 ],
+    start: [20, 80],
     margin: 30,
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -177,13 +177,13 @@ noUiSlider.create(testHtmlElement, {
  * Limit
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 10, 120 ],
+    start: [10, 120],
     limit: 40,
-    behaviour: 'drag',
+    behaviour: "drag",
     connect: true,
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -191,11 +191,11 @@ noUiSlider.create(testHtmlElement, {
  * Steps
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 20, 80 ],
+    start: [20, 80],
     step: 10,
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -204,10 +204,10 @@ noUiSlider.create(testHtmlElement, {
  */
 noUiSlider.create(testHtmlElement, {
     start: 40,
-    orientation: 'vertical',
+    orientation: "vertical",
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -216,10 +216,10 @@ noUiSlider.create(testHtmlElement, {
  */
 noUiSlider.create(testHtmlElement, {
     start: 20,
-    direction: 'rtl',
+    direction: "rtl",
     range: {
-        'min': 0,
-        'max': 100
+        min: 0,
+        max: 100
     }
 });
 
@@ -229,10 +229,10 @@ noUiSlider.create(testHtmlElement, {
 noUiSlider.create(testHtmlElement, {
     start: [20, 80, 120],
     range: {
-        'min': 0,
-        'max': 200
+        min: 0,
+        max: 200
     },
-    tooltips: [ false, wNumb({ decimals: 1 }), true ]
+    tooltips: [false, wNumb({ decimals: 1 }), true]
 });
 
 /**
@@ -254,73 +254,73 @@ noUiSlider.create(testHtmlElement, {
         min: 0,
         max: 100
     }
-    });
+});
 
 /**
  * Behaviour
  */
 noUiSlider.create(testHtmlElement, {
-    start: [ 20, 40 ],
+    start: [20, 40],
     step: 10,
-    behaviour: 'drag',
+    behaviour: "drag",
     connect: true,
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
-    });
+});
 noUiSlider.create(testHtmlElement, {
     start: 40,
-    behaviour: 'tap',
+    behaviour: "tap",
     connect: [false, true],
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
 });
 noUiSlider.create(testHtmlElement, {
-    start: [ 40, 60 ],
-    behaviour: 'drag',
+    start: [40, 60],
+    behaviour: "drag",
     connect: true,
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
 });
 noUiSlider.create(testHtmlElement, {
-    start: [ 40, 60 ],
-    behaviour: 'drag-fixed',
+    start: [40, 60],
+    behaviour: "drag-fixed",
     connect: true,
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
 });
 noUiSlider.create(testHtmlElement, {
     start: 40,
-    behaviour: 'snap',
+    behaviour: "snap",
     connect: [true, false],
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
 });
 noUiSlider.create(testHtmlElement, {
     start: 20,
-    behaviour: 'hover-snap',
-    direction: 'rtl',
+    behaviour: "hover-snap",
+    direction: "rtl",
     range: {
-        'min':  0,
-        'max':  10
+        min: 0,
+        max: 10
     }
 });
 noUiSlider.create(testHtmlElement, {
-    start: [ 40, 60 ],
-    behaviour: 'drag-tap',
+    start: [40, 60],
+    behaviour: "drag-tap",
     connect: true,
     range: {
-        'min':  20,
-        'max':  80
+        min: 20,
+        max: 80
     }
 });
 
@@ -334,54 +334,56 @@ noUiSlider.create(testHtmlElement, {
         max: 10
     },
     pips: {
-        mode: 'steps',
+        mode: "steps",
         density: 3,
-        filter: function () { return 1 },
+        filter: function() {
+            return 1;
+        },
         format: wNumb({
             decimals: 2,
-            prefix: '$'
-        }),
+            prefix: "$"
+        })
     }
 });
 var range_all_sliders = {
-    'min': [     0 ],
-    '10%': [   500,  500 ],
-    '50%': [  4000, 1000 ],
-    'max': [ 10000 ]
+    min: [0],
+    "10%": [500, 500],
+    "50%": [4000, 1000],
+    max: [10000]
 };
 noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'range',
-        density: 3
-    }
-})
-noUiSlider.create(testHtmlElement, {
-    range: range_all_sliders,
-    start: 0,
-    direction: 'rtl',
-    pips: {
-        mode: 'range',
+        mode: "range",
         density: 3
     }
 });
 noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
-    orientation: 'vertical',
+    direction: "rtl",
     pips: {
-        mode: 'range',
+        mode: "range",
         density: 3
     }
 });
 noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
-    orientation: 'vertical',
-    direction: 'rtl',
+    orientation: "vertical",
     pips: {
-        mode: 'range',
+        mode: "range",
+        density: 3
+    }
+});
+noUiSlider.create(testHtmlElement, {
+    range: range_all_sliders,
+    start: 0,
+    orientation: "vertical",
+    direction: "rtl",
+    pips: {
+        mode: "range",
         density: 3
     }
 });
@@ -389,19 +391,19 @@ noUiSlider.create(testHtmlElement, {
 /**
  * Pipes: Steps
  */
-function filter500( value: any, type: any ){
+function filter500(value: any, type: any) {
     return value % 1000 ? 2 : 1;
 }
 noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'steps',
+        mode: "steps",
         density: 3,
         filter: filter500,
         format: wNumb({
             decimals: 2,
-            prefix: '$'
+            prefix: "$"
         })
     }
 });
@@ -413,8 +415,8 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'positions',
-        values: [0,25,50,75,100],
+        mode: "positions",
+        values: [0, 25, 50, 75, 100],
         density: 4
     }
 });
@@ -422,8 +424,8 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'positions',
-        values: [0,25,50,75,100],
+        mode: "positions",
+        values: [0, 25, 50, 75, 100],
         density: 4,
         stepped: true
     }
@@ -436,7 +438,7 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'count',
+        mode: "count",
         values: 6,
         density: 4
     }
@@ -445,7 +447,7 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'count',
+        mode: "count",
         values: 6,
         density: 4,
         stepped: true
@@ -459,7 +461,7 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'values',
+        mode: "values",
         values: [50, 552, 2251, 3200, 5000, 7080, 9000],
         density: 4
     }
@@ -468,7 +470,7 @@ noUiSlider.create(testHtmlElement, {
     range: range_all_sliders,
     start: 0,
     pips: {
-        mode: 'values',
+        mode: "values",
         values: [50, 552, 4651, 4952, 5000, 7080, 9000],
         density: 4,
         stepped: true
@@ -498,9 +500,8 @@ noUiSlider.create(testHtmlElement, {
 
 // Events
 var callback: noUiSlider.Callback = (values, handle, unencoded) => {};
-(<noUiSlider.Instance>testHtmlElement).noUiSlider.on('event', callback);
+(<noUiSlider.Instance>testHtmlElement).noUiSlider.on("event", callback);
 
-(<noUiSlider.Instance>testHtmlElement).noUiSlider.off('event');
+(<noUiSlider.Instance>testHtmlElement).noUiSlider.off("event");
 
 (<noUiSlider.Instance>testHtmlElement).noUiSlider.destroy();
-

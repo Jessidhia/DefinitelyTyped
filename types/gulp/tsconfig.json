@@ -1,14 +1,9 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "jsx": "react",
         "types": [],
         "noImplicitAny": true,
@@ -18,8 +13,5 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "test/index.ts"
-    ]
+    "files": ["index.d.ts", "test/index.ts"]
 }

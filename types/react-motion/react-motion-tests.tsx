@@ -1,11 +1,20 @@
-import * as React from 'react';
-import { StaggeredMotion, Motion, spring, TransitionMotion, TransitionPlainStyle, TransitionStyle, Style, PlainStyle } from 'react-motion';
+import * as React from "react";
+import {
+    StaggeredMotion,
+    Motion,
+    spring,
+    TransitionMotion,
+    TransitionPlainStyle,
+    TransitionStyle,
+    Style,
+    PlainStyle
+} from "react-motion";
 
 class Root extends React.Component {
     render() {
         return (
-            <Motion defaultStyle={{ x: 0 }} style = {{ x: spring(10) }}>
-                {(value: any) => <div>{ value.x } </div>}
+            <Motion defaultStyle={{ x: 0 }} style={{ x: spring(10) }}>
+                {(value: any) => <div>{value.x} </div>}
             </Motion>
         );
     }
@@ -14,9 +23,10 @@ class Root extends React.Component {
 class TransitionTest extends React.Component {
     render() {
         return (
-            <TransitionMotion defaultStyles={this.getDefaultStyles() }
-                styles={this.getStyles() }
-                >
+            <TransitionMotion
+                defaultStyles={this.getDefaultStyles()}
+                styles={this.getStyles()}
+            >
                 {this.renderItems.bind(this)}
             </TransitionMotion>
         );
@@ -32,7 +42,7 @@ class TransitionTest extends React.Component {
                 data: num,
                 style: style
             };
-        })
+        });
     }
 
     getStyles(): TransitionStyle[] {
@@ -44,7 +54,7 @@ class TransitionTest extends React.Component {
                 key: `${num}`,
                 data: num,
                 style: style
-            }
+            };
         });
     }
 
@@ -54,44 +64,44 @@ class TransitionTest extends React.Component {
                 {interpolatedItems.map(config => {
                     return (
                         <div key={config.key}>
-                            style={{ height: config.style['height'] }}
-                            >
+                            style={{ height: config.style["height"] }}>
                             {config.data}
                         </div>
                     );
-                }) }
+                })}
             </div>
-        )
+        );
     }
 }
 
 class StaggeredTest extends React.Component {
     render() {
         return (
-            <StaggeredMotion defaultStyles={[{ h: 0 }, { h: 0 }, { h: 0 }]}
+            <StaggeredMotion
+                defaultStyles={[{ h: 0 }, { h: 0 }, { h: 0 }]}
                 styles={this.getStyles.bind(this)}
-                >
-            </StaggeredMotion>
-        )
+            />
+        );
     }
 
     getStyles(prevInterpolatedStyles: PlainStyle[]): Style[] {
         return prevInterpolatedStyles.map((prevStyle, index) => {
             const style: Style = {};
-            style['h'] = (index === 0) ? spring(100) : spring(prevInterpolatedStyles[index - 1]['h']);
+            style["h"] =
+                index === 0
+                    ? spring(100)
+                    : spring(prevInterpolatedStyles[index - 1]["h"]);
             return style;
-        })
+        });
     }
 
     renderItems(interpolatedItems: PlainStyle[]): JSX.Element {
         return (
             <div>
                 {interpolatedItems.map((style, index) => {
-                    return (
-                        <div key={index} style={{ height: style['h'] }}/>
-                    )
+                    return <div key={index} style={{ height: style["h"] }} />;
                 })}
             </div>
-        )
+        );
     }
 }

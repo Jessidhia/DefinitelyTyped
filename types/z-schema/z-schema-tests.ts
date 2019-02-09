@@ -1,32 +1,31 @@
-
-import Validator = require('z-schema');
+import Validator = require("z-schema");
 
 var options: Validator.Options = {
-  noTypeless: true,
-  forceItems: true,
+    noTypeless: true,
+    forceItems: true
 };
 
 var validator: Validator = new Validator(options);
 var json: any = {
-    foo: 'bar',
+    foo: "bar"
 };
 
 var schema: any = {
-    'type': 'object',
+    type: "object",
     properties: {
         foo: {
-            'type': 'string',
-        },
-    },
+            type: "string"
+        }
+    }
 };
 
 validator.validateSchema(schema);
 validator.validate(json, schema);
-validator.validate(json, schema, function (err: any, valid: boolean) {
+validator.validate(json, schema, function(err: any, valid: boolean) {
     if (err) {
         console.log(err);
     } else {
-        console.log('valid = ' + valid);
+        console.log("valid = " + valid);
     }
 });
 

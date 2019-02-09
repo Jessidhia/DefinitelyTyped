@@ -3,5 +3,8 @@
 // Definitions by: Hagai Cohen <https://github.com/DxCx>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function phone(phoneNumber: string, countryCode?: string): Array<string>;
+declare function phone(
+    phoneNumber: string,
+    countryCode?: string
+): Array<string>;
 export = phone;

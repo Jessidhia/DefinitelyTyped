@@ -14,7 +14,7 @@ declare namespace Outlook {
         olHttp = 3,
         olImap = 1,
         olOtherAccount = 5,
-        olPop3 = 2,
+        olPop3 = 2
     }
 
     const enum OlActionCopyLike {
@@ -22,7 +22,7 @@ declare namespace Outlook {
         olReply = 0,
         olReplyAll = 1,
         olReplyFolder = 3,
-        olRespond = 4,
+        olRespond = 4
     }
 
     const enum OlActionReplyStyle {
@@ -32,19 +32,19 @@ declare namespace Outlook {
         olLinkOriginalItem = 4,
         olOmitOriginalText = 0,
         olReplyTickOriginalText = 1000,
-        olUserPreference = 5,
+        olUserPreference = 5
     }
 
     const enum OlActionResponseStyle {
         olOpen = 0,
         olPrompt = 2,
-        olSend = 1,
+        olSend = 1
     }
 
     const enum OlActionShowOn {
         olDontShow = 0,
         olMenu = 1,
-        olMenuAndToolbar = 2,
+        olMenuAndToolbar = 2
     }
 
     const enum OlAddressEntryUserType {
@@ -58,7 +58,7 @@ declare namespace Outlook {
         olOtherAddressEntry = 40,
         olOutlookContactAddressEntry = 10,
         olOutlookDistributionListAddressEntry = 11,
-        olSmtpAddressEntry = 30,
+        olSmtpAddressEntry = 30
     }
 
     const enum OlAddressListType {
@@ -66,101 +66,101 @@ declare namespace Outlook {
         olExchangeContainer = 1,
         olExchangeGlobalAddressList = 0,
         olOutlookAddressList = 2,
-        olOutlookLdapAddressList = 3,
+        olOutlookLdapAddressList = 3
     }
 
     const enum OlAlign {
         olAlignCenter = 1,
         olAlignLeft = 0,
-        olAlignRight = 2,
+        olAlignRight = 2
     }
 
     const enum OlAlignment {
         olAlignmentLeft = 0,
-        olAlignmentRight = 1,
+        olAlignmentRight = 1
     }
 
     const enum OlAlwaysDeleteConversation {
         olAlwaysDelete = 1,
         olAlwaysDeleteUnsupported = 2,
-        olDoNotDelete = 0,
+        olDoNotDelete = 0
     }
 
     const enum OlAppointmentCopyOptions {
         olCopyAsAccept = 2,
         olCreateAppointment = 1,
-        olPromptUser = 0,
+        olPromptUser = 0
     }
 
     const enum OlAppointmentTimeField {
         olAppointmentTimeFieldEnd = 3,
         olAppointmentTimeFieldNone = 1,
-        olAppointmentTimeFieldStart = 2,
+        olAppointmentTimeFieldStart = 2
     }
 
     const enum OlAttachmentBlockLevel {
         olAttachmentBlockLevelNone = 0,
-        olAttachmentBlockLevelOpen = 1,
+        olAttachmentBlockLevelOpen = 1
     }
 
     const enum OlAttachmentType {
         olByReference = 4,
         olByValue = 1,
         olEmbeddeditem = 5,
-        olOLE = 6,
+        olOLE = 6
     }
 
     const enum OlAutoDiscoverConnectionMode {
         olAutoDiscoverConnectionExternal = 1,
         olAutoDiscoverConnectionInternal = 2,
         olAutoDiscoverConnectionInternalDomain = 3,
-        olAutoDiscoverConnectionUnknown = 0,
+        olAutoDiscoverConnectionUnknown = 0
     }
 
     const enum OlAutoPreview {
         olAutoPreviewAll = 0,
         olAutoPreviewNone = 2,
-        olAutoPreviewUnread = 1,
+        olAutoPreviewUnread = 1
     }
 
     const enum OlBackStyle {
         olBackStyleOpaque = 1,
-        olBackStyleTransparent = 0,
+        olBackStyleTransparent = 0
     }
 
     const enum OlBodyFormat {
         olFormatHTML = 2,
         olFormatPlain = 1,
         olFormatRichText = 3,
-        olFormatUnspecified = 0,
+        olFormatUnspecified = 0
     }
 
     const enum OlBorderStyle {
         olBorderStyleNone = 0,
-        olBorderStyleSingle = 1,
+        olBorderStyleSingle = 1
     }
 
     const enum OlBusinessCardType {
         olBusinessCardTypeInterConnect = 1,
-        olBusinessCardTypeOutlook = 0,
+        olBusinessCardTypeOutlook = 0
     }
 
     const enum OlBusyStatus {
         olBusy = 2,
         olFree = 0,
         olOutOfOffice = 3,
-        olTentative = 1,
+        olTentative = 1
     }
 
     const enum OlCalendarDetail {
         olFreeBusyAndSubject = 1,
         olFreeBusyOnly = 0,
-        olFullDetails = 2,
+        olFullDetails = 2
     }
 
     const enum OlCalendarMailFormat {
         olCalendarMailFormatDailySchedule = 0,
-        olCalendarMailFormatEventList = 1,
+        olCalendarMailFormatEventList = 1
     }
 
     const enum OlCalendarViewMode {
@@ -168,7 +168,7 @@ declare namespace Outlook {
         olCalendarViewDay = 0,
         olCalendarViewMonth = 2,
         olCalendarViewMultiDay = 3,
-        olCalendarViewWeek = 1,
+        olCalendarViewWeek = 1
     }
 
     const enum OlCategoryColor {
@@ -197,7 +197,7 @@ declare namespace Outlook {
         olCategoryColorRed = 1,
         olCategoryColorSteel = 11,
         olCategoryColorTeal = 6,
-        olCategoryColorYellow = 4,
+        olCategoryColorYellow = 4
     }
 
     const enum OlCategoryShortcutKey {
@@ -212,7 +212,7 @@ declare namespace Outlook {
         olCategoryShortcutKeyCtrlF7 = 6,
         olCategoryShortcutKeyCtrlF8 = 7,
         olCategoryShortcutKeyCtrlF9 = 8,
-        olCategoryShortcutKeyNone = 0,
+        olCategoryShortcutKeyNone = 0
     }
 
     const enum OlColor {
@@ -232,12 +232,12 @@ declare namespace Outlook {
         olColorSilver = 9,
         olColorTeal = 7,
         olColorWhite = 16,
-        olColorYellow = 12,
+        olColorYellow = 12
     }
 
     const enum OlComboBoxStyle {
         olComboBoxStyleCombo = 0,
-        olComboBoxStyleList = 2,
+        olComboBoxStyleList = 2
     }
 
     const enum OlContactPhoneNumber {
@@ -259,7 +259,7 @@ declare namespace Outlook {
         olContactPhonePrimary = 15,
         olContactPhoneRadio = 16,
         olContactPhoneTelex = 17,
-        olContactPhoneTTYTTD = 18,
+        olContactPhoneTTYTTD = 18
     }
 
     const enum OlContextMenu {
@@ -268,7 +268,7 @@ declare namespace Outlook {
         olItemContextMenu = 0,
         olShortcutContextMenu = 5,
         olStoreContextMenu = 4,
-        olViewContextMenu = 1,
+        olViewContextMenu = 1
     }
 
     const enum OlDaysOfWeek {
@@ -278,7 +278,7 @@ declare namespace Outlook {
         olSunday = 1,
         olThursday = 16,
         olTuesday = 4,
-        olWednesday = 8,
+        olWednesday = 8
     }
 
     const enum OlDayWeekTimeScale {
@@ -287,13 +287,13 @@ declare namespace Outlook {
         olTimeScale30Minutes = 4,
         olTimeScale5Minutes = 0,
         olTimeScale60Minutes = 5,
-        olTimeScale6Minutes = 1,
+        olTimeScale6Minutes = 1
     }
 
     const enum OlDefaultExpandCollapseSetting {
         olAllCollapsed = 1,
         olAllExpanded = 0,
-        olLastViewed = 2,
+        olLastViewed = 2
     }
 
     const enum OlDefaultFolders {
@@ -316,7 +316,7 @@ declare namespace Outlook {
         olFolderSyncIssues = 20,
         olFolderTasks = 13,
         olFolderToDo = 28,
-        olPublicFoldersAllPublicFolders = 18,
+        olPublicFoldersAllPublicFolders = 18
     }
 
     const enum OlDefaultSelectNamesDisplayMode {
@@ -327,7 +327,7 @@ declare namespace Outlook {
         olDefaultPickRooms = 8,
         olDefaultSharingRequest = 4,
         olDefaultSingleName = 7,
-        olDefaultTask = 3,
+        olDefaultTask = 3
     }
 
     const enum OlDisplayType {
@@ -337,29 +337,29 @@ declare namespace Outlook {
         olOrganization = 4,
         olPrivateDistList = 5,
         olRemoteUser = 6,
-        olUser = 0,
+        olUser = 0
     }
 
     const enum OlDownloadState {
         olFullItem = 1,
-        olHeaderOnly = 0,
+        olHeaderOnly = 0
     }
 
     const enum OlDragBehavior {
         olDragBehaviorDisabled = 0,
-        olDragBehaviorEnabled = 1,
+        olDragBehaviorEnabled = 1
     }
 
     const enum OlEditorType {
         olEditorHTML = 2,
         olEditorRTF = 3,
         olEditorText = 1,
-        olEditorWord = 4,
+        olEditorWord = 4
     }
 
     const enum OlEnterFieldBehavior {
         olEnterFieldBehaviorRecallSelection = 1,
-        olEnterFieldBehaviorSelectAll = 0,
+        olEnterFieldBehaviorSelectAll = 0
     }
 
     const enum OlExchangeConnectionMode {
@@ -371,7 +371,7 @@ declare namespace Outlook {
         olDisconnected = 300,
         olNoExchange = 0,
         olOffline = 100,
-        olOnline = 800,
+        olOnline = 800
     }
 
     const enum OlExchangeStoreType {
@@ -379,7 +379,7 @@ declare namespace Outlook {
         olExchangeMailbox = 1,
         olExchangePublicFolder = 2,
         olNotExchange = 3,
-        olPrimaryExchangeMailbox = 0,
+        olPrimaryExchangeMailbox = 0
     }
 
     const enum OlFlagIcon {
@@ -389,24 +389,24 @@ declare namespace Outlook {
         olOrangeFlagIcon = 2,
         olPurpleFlagIcon = 1,
         olRedFlagIcon = 6,
-        olYellowFlagIcon = 4,
+        olYellowFlagIcon = 4
     }
 
     const enum OlFlagStatus {
         olFlagComplete = 1,
         olFlagMarked = 2,
-        olNoFlag = 0,
+        olNoFlag = 0
     }
 
     const enum OlFolderDisplayMode {
         olFolderDisplayFolderOnly = 1,
         olFolderDisplayNoNavigation = 2,
-        olFolderDisplayNormal = 0,
+        olFolderDisplayNormal = 0
     }
 
     const enum OlFormatCurrency {
         olFormatCurrencyDecimal = 1,
-        olFormatCurrencyNonDecimal = 2,
+        olFormatCurrencyNonDecimal = 2
     }
 
     const enum OlFormatDateTime {
@@ -425,30 +425,30 @@ declare namespace Outlook {
         olFormatDateTimeShortDayMonthDateTime = 4,
         olFormatDateTimeShortMonthYear = 11,
         olFormatDateTimeShortMonthYearNumOnly = 12,
-        olFormatDateTimeShortTime = 16,
+        olFormatDateTimeShortTime = 16
     }
 
     const enum OlFormatDuration {
         olFormatDurationLong = 2,
         olFormatDurationLongBusiness = 4,
         olFormatDurationShort = 1,
-        olFormatDurationShortBusiness = 3,
+        olFormatDurationShortBusiness = 3
     }
 
     const enum OlFormatEnumeration {
         olFormatEnumBitmap = 1,
-        olFormatEnumText = 2,
+        olFormatEnumText = 2
     }
 
     const enum OlFormatInteger {
         olFormatIntegerComputer1 = 2,
         olFormatIntegerComputer2 = 3,
         olFormatIntegerComputer3 = 4,
-        olFormatIntegerPlain = 1,
+        olFormatIntegerPlain = 1
     }
 
     const enum OlFormatKeywords {
-        olFormatKeywordsText = 1,
+        olFormatKeywordsText = 1
     }
 
     const enum OlFormatNumber {
@@ -460,30 +460,30 @@ declare namespace Outlook {
         olFormatNumberComputer3 = 8,
         olFormatNumberRaw = 9,
         olFormatNumberScientific = 5,
-        olFormatNumberTruncated = 2,
+        olFormatNumberTruncated = 2
     }
 
     const enum OlFormatPercent {
         olFormatPercent1Decimal = 2,
         olFormatPercent2Decimal = 3,
         olFormatPercentAllDigits = 4,
-        olFormatPercentRounded = 1,
+        olFormatPercentRounded = 1
     }
 
     const enum OlFormatSmartFrom {
         olFormatSmartFromFromOnly = 2,
-        olFormatSmartFromFromTo = 1,
+        olFormatSmartFromFromTo = 1
     }
 
     const enum OlFormatText {
-        olFormatTextText = 1,
+        olFormatTextText = 1
     }
 
     const enum OlFormatYesNo {
         olFormatYesNoIcon = 4,
         olFormatYesNoOnOff = 2,
         olFormatYesNoTrueFalse = 3,
-        olFormatYesNoYesNo = 1,
+        olFormatYesNoYesNo = 1
     }
 
     const enum OlFormRegionIcon {
@@ -498,31 +498,31 @@ declare namespace Outlook {
         olFormRegionIconSubmitted = 7,
         olFormRegionIconUnread = 2,
         olFormRegionIconUnsent = 6,
-        olFormRegionIconWindow = 10,
+        olFormRegionIconWindow = 10
     }
 
     const enum OlFormRegionMode {
         olFormRegionCompose = 1,
         olFormRegionPreview = 2,
-        olFormRegionRead = 0,
+        olFormRegionRead = 0
     }
 
     const enum OlFormRegionSize {
         olFormRegionTypeAdjoining = 1,
-        olFormRegionTypeSeparate = 0,
+        olFormRegionTypeSeparate = 0
     }
 
     const enum OlFormRegistry {
         olDefaultRegistry = 0,
         olFolderRegistry = 3,
         olOrganizationRegistry = 4,
-        olPersonalRegistry = 2,
+        olPersonalRegistry = 2
     }
 
     const enum OlGender {
         olFemale = 1,
         olMale = 2,
-        olUnspecified = 0,
+        olUnspecified = 0
     }
 
     const enum OlGridLineStyle {
@@ -530,7 +530,7 @@ declare namespace Outlook {
         olGridLineLargeDots = 2,
         olGridLineNone = 0,
         olGridLineSmallDots = 1,
-        olGridLineSolid = 4,
+        olGridLineSolid = 4
     }
 
     const enum OlGroupType {
@@ -540,39 +540,39 @@ declare namespace Outlook {
         olOtherFoldersGroup = 3,
         olPeopleFoldersGroup = 2,
         olReadOnlyGroup = 6,
-        olRoomsGroup = 5,
+        olRoomsGroup = 5
     }
 
     const enum OlHorizontalLayout {
         olHorizontalLayoutAlignCenter = 1,
         olHorizontalLayoutAlignLeft = 0,
         olHorizontalLayoutAlignRight = 2,
-        olHorizontalLayoutGrow = 3,
+        olHorizontalLayoutGrow = 3
     }
 
     const enum OlIconViewPlacement {
         olIconAutoArrange = 2,
         olIconDoNotArrange = 0,
         olIconLineUp = 1,
-        olIconSortAndAutoArrange = 3,
+        olIconSortAndAutoArrange = 3
     }
 
     const enum OlIconViewType {
         olIconViewLarge = 0,
         olIconViewList = 2,
-        olIconViewSmall = 1,
+        olIconViewSmall = 1
     }
 
     const enum OlImportance {
         olImportanceHigh = 2,
         olImportanceLow = 0,
-        olImportanceNormal = 1,
+        olImportanceNormal = 1
     }
 
     const enum OlInspectorClose {
         olDiscard = 1,
         olPromptForSave = 2,
-        olSave = 0,
+        olSave = 0
     }
 
     const enum OlItemType {
@@ -585,25 +585,25 @@ declare namespace Outlook {
         olMobileItemSMS = 11,
         olNoteItem = 5,
         olPostItem = 6,
-        olTaskItem = 3,
+        olTaskItem = 3
     }
 
     const enum OlJournalRecipientType {
-        olAssociatedContact = 1,
+        olAssociatedContact = 1
     }
 
     const enum OlMailingAddress {
         olBusiness = 2,
         olHome = 1,
         olNone = 0,
-        olOther = 3,
+        olOther = 3
     }
 
     const enum OlMailRecipientType {
         olBCC = 3,
         olCC = 2,
         olOriginator = 0,
-        olTo = 1,
+        olTo = 1
     }
 
     const enum OlMarkInterval {
@@ -612,26 +612,26 @@ declare namespace Outlook {
         olMarkNoDate = 4,
         olMarkThisWeek = 2,
         olMarkToday = 0,
-        olMarkTomorrow = 1,
+        olMarkTomorrow = 1
     }
 
     const enum OlMatchEntry {
         olMatchEntryComplete = 1,
         olMatchEntryFirstLetter = 0,
-        olMatchEntryNone = 2,
+        olMatchEntryNone = 2
     }
 
     const enum OlMeetingRecipientType {
         olOptional = 2,
         olOrganizer = 0,
         olRequired = 1,
-        olResource = 3,
+        olResource = 3
     }
 
     const enum OlMeetingResponse {
         olMeetingAccepted = 3,
         olMeetingDeclined = 4,
-        olMeetingTentative = 2,
+        olMeetingTentative = 2
     }
 
     const enum OlMeetingStatus {
@@ -639,18 +639,18 @@ declare namespace Outlook {
         olMeetingCanceled = 5,
         olMeetingReceived = 3,
         olMeetingReceivedAndCanceled = 7,
-        olNonMeeting = 0,
+        olNonMeeting = 0
     }
 
     const enum OlMobileFormat {
         olMMS = 1,
-        olSMS = 0,
+        olSMS = 0
     }
 
     const enum OlMouseButton {
         olMouseButtonLeft = 1,
         olMouseButtonMiddle = 4,
-        olMouseButtonRight = 2,
+        olMouseButtonRight = 2
     }
 
     const enum OlMousePointer {
@@ -668,19 +668,19 @@ declare namespace Outlook {
         olMousePointerSizeNS = 7,
         olMousePointerSizeNWSE = 8,
         olMousePointerSizeWE = 9,
-        olMousePointerUpArrow = 10,
+        olMousePointerUpArrow = 10
     }
 
     const enum OlMultiLine {
         olAlwaysMultiLine = 2,
         olAlwaysSingleLine = 1,
-        olWidthMultiLine = 0,
+        olWidthMultiLine = 0
     }
 
     const enum OlMultiSelect {
         olMultiSelectExtended = 2,
         olMultiSelectMulti = 1,
-        olMultiSelectSingle = 0,
+        olMultiSelectSingle = 0
     }
 
     const enum OlNavigationModuleType {
@@ -692,13 +692,13 @@ declare namespace Outlook {
         olModuleNotes = 5,
         olModuleShortcuts = 7,
         olModuleSolutions = 8,
-        olModuleTasks = 3,
+        olModuleTasks = 3
     }
 
     const enum OlNetMeetingType {
         olExchangeConferencing = 2,
         olNetMeeting = 0,
-        olNetShow = 1,
+        olNetShow = 1
     }
 
     const enum OlNoteColor {
@@ -706,7 +706,7 @@ declare namespace Outlook {
         olGreen = 1,
         olPink = 2,
         olWhite = 4,
-        olYellow = 3,
+        olYellow = 3
     }
 
     const enum OlObjectClass {
@@ -857,23 +857,23 @@ declare namespace Outlook {
         olViewField = 142,
         olViewFields = 141,
         olViewFont = 146,
-        olViews = 79,
+        olViews = 79
     }
 
     const enum OlOfficeDocItemsType {
         olExcelWorkSheetItem = 8,
         olPowerPointShowItem = 10,
-        olWordDocumentItem = 9,
+        olWordDocumentItem = 9
     }
 
     const enum OlOutlookBarViewType {
         olLargeIcon = 0,
-        olSmallIcon = 1,
+        olSmallIcon = 1
     }
 
     const enum OlPageType {
         olPageTypePlanner = 0,
-        olPageTypeTracker = 1,
+        olPageTypeTracker = 1
     }
 
     const enum OlPane {
@@ -881,38 +881,38 @@ declare namespace Outlook {
         olNavigationPane = 4,
         olOutlookBar = 1,
         olPreview = 3,
-        olToDoBar = 5,
+        olToDoBar = 5
     }
 
     const enum OlPermission {
         olDoNotForward = 1,
         olPermissionTemplate = 2,
-        olUnrestricted = 0,
+        olUnrestricted = 0
     }
 
     const enum OlPermissionService {
         olPassport = 2,
         olUnknown = 0,
-        olWindows = 1,
+        olWindows = 1
     }
 
     const enum OlPictureAlignment {
         olPictureAlignmentLeft = 0,
-        olPictureAlignmentTop = 1,
+        olPictureAlignmentTop = 1
     }
 
     const enum OlRecipientSelectors {
         olShowNone = 0,
         olShowTo = 1,
         olShowToCc = 2,
-        olShowToCcBcc = 3,
+        olShowToCcBcc = 3
     }
 
     const enum OlRecurrenceState {
         olApptException = 3,
         olApptMaster = 1,
         olApptNotRecurring = 0,
-        olApptOccurrence = 2,
+        olApptOccurrence = 2
     }
 
     const enum OlRecurrenceType {
@@ -921,12 +921,12 @@ declare namespace Outlook {
         olRecursMonthNth = 3,
         olRecursWeekly = 1,
         olRecursYearly = 5,
-        olRecursYearNth = 6,
+        olRecursYearNth = 6
     }
 
     const enum OlReferenceType {
         olStrong = 1,
-        olWeak = 0,
+        olWeak = 0
     }
 
     const enum OlRemoteStatus {
@@ -934,7 +934,7 @@ declare namespace Outlook {
         olMarkedForDelete = 4,
         olMarkedForDownload = 2,
         olRemoteStatusNone = 0,
-        olUnMarked = 1,
+        olUnMarked = 1
     }
 
     const enum OlResponseStatus {
@@ -943,7 +943,7 @@ declare namespace Outlook {
         olResponseNone = 0,
         olResponseNotResponded = 5,
         olResponseOrganized = 1,
-        olResponseTentative = 2,
+        olResponseTentative = 2
     }
 
     const enum OlRuleActionType {
@@ -977,7 +977,7 @@ declare namespace Outlook {
         olRuleActionStartApplication = 18,
         olRuleActionStop = 21,
         olRuleActionTemplate = 10,
-        olRuleActionUnknown = 0,
+        olRuleActionUnknown = 0
     }
 
     const enum OlRuleConditionType {
@@ -1012,18 +1012,18 @@ declare namespace Outlook {
         olConditionSubject = 2,
         olConditionTo = 5,
         olConditionToOrCc = 10,
-        olConditionUnknown = 0,
+        olConditionUnknown = 0
     }
 
     const enum OlRuleExecuteOption {
         olRuleExecuteAllMessages = 0,
         olRuleExecuteReadMessages = 1,
-        olRuleExecuteUnreadMessages = 2,
+        olRuleExecuteUnreadMessages = 2
     }
 
     const enum OlRuleType {
         olRuleReceive = 0,
-        olRuleSend = 1,
+        olRuleSend = 1
     }
 
     const enum OlSaveAsType {
@@ -1037,25 +1037,25 @@ declare namespace Outlook {
         olTemplate = 2,
         olTXT = 0,
         olVCal = 7,
-        olVCard = 6,
+        olVCard = 6
     }
 
     const enum OlScrollBars {
         olScrollBarsBoth = 3,
         olScrollBarsHorizontal = 1,
         olScrollBarsNone = 0,
-        olScrollBarsVertical = 2,
+        olScrollBarsVertical = 2
     }
 
     const enum OlSearchScope {
         olSearchScopeAllFolders = 1,
         olSearchScopeAllOutlookItems = 2,
         olSearchScopeCurrentFolder = 0,
-        olSearchScopeSubfolders = 3,
+        olSearchScopeSubfolders = 3
     }
 
     const enum OlSelectionContents {
-        olConversationHeaders = 1,
+        olConversationHeaders = 1
     }
 
     const enum OlSelectionLocation {
@@ -1063,14 +1063,14 @@ declare namespace Outlook {
         olDailyTaskList = 3,
         olToDoBarAppointmentList = 2,
         olToDoBarTaskList = 1,
-        olViewList = 0,
+        olViewList = 0
     }
 
     const enum OlSensitivity {
         olConfidential = 3,
         olNormal = 0,
         olPersonal = 1,
-        olPrivate = 2,
+        olPrivate = 2
     }
 
     const enum OlSharingMsgType {
@@ -1079,7 +1079,7 @@ declare namespace Outlook {
         olSharingMsgTypeRequest = 1,
         olSharingMsgTypeResponseAllow = 4,
         olSharingMsgTypeResponseDeny = 5,
-        olSharingMsgTypeUnknown = 0,
+        olSharingMsgTypeUnknown = 0
     }
 
     const enum OlSharingProvider {
@@ -1090,82 +1090,82 @@ declare namespace Outlook {
         olProviderRSS = 6,
         olProviderSharePoint = 5,
         olProviderUnknown = 0,
-        olProviderWebCal = 2,
+        olProviderWebCal = 2
     }
 
     const enum OlShiftState {
         olShiftStateAltMask = 4,
         olShiftStateCtrlMask = 2,
-        olShiftStateShiftMask = 1,
+        olShiftStateShiftMask = 1
     }
 
     const enum OlShowItemCount {
         olNoItemCount = 0,
         olShowTotalItemCount = 2,
-        olShowUnreadItemCount = 1,
+        olShowUnreadItemCount = 1
     }
 
     const enum OlSolutionScope {
         olHideInDefaultModules = 0,
-        olShowInDefaultModules = 1,
+        olShowInDefaultModules = 1
     }
 
     const enum OlSortOrder {
         olAscending = 1,
         olDescending = 2,
-        olSortNone = 0,
+        olSortNone = 0
     }
 
     const enum OlSpecialFolders {
         olSpecialFolderAllTasks = 0,
-        olSpecialFolderReminders = 1,
+        olSpecialFolderReminders = 1
     }
 
     const enum OlStorageIdentifierType {
         olIdentifyByEntryID = 1,
         olIdentifyByMessageClass = 2,
-        olIdentifyBySubject = 0,
+        olIdentifyBySubject = 0
     }
 
     const enum OlStoreType {
         olStoreANSI = 3,
         olStoreDefault = 1,
-        olStoreUnicode = 2,
+        olStoreUnicode = 2
     }
 
     const enum OlSyncState {
         olSyncStarted = 1,
-        olSyncStopped = 0,
+        olSyncStopped = 0
     }
 
     const enum OlTableContents {
         olHiddenItems = 1,
-        olUserItems = 0,
+        olUserItems = 0
     }
 
     const enum OlTaskDelegationState {
         olTaskDelegationAccepted = 2,
         olTaskDelegationDeclined = 3,
         olTaskDelegationUnknown = 1,
-        olTaskNotDelegated = 0,
+        olTaskNotDelegated = 0
     }
 
     const enum OlTaskOwnership {
         olDelegatedTask = 1,
         olNewTask = 0,
-        olOwnTask = 2,
+        olOwnTask = 2
     }
 
     const enum OlTaskRecipientType {
         olFinalStatus = 3,
-        olUpdate = 2,
+        olUpdate = 2
     }
 
     const enum OlTaskResponse {
         olTaskAccept = 2,
         olTaskAssign = 1,
         olTaskDecline = 3,
-        olTaskSimple = 0,
+        olTaskSimple = 0
     }
 
     const enum OlTaskStatus {
@@ -1173,25 +1173,25 @@ declare namespace Outlook {
         olTaskDeferred = 4,
         olTaskInProgress = 1,
         olTaskNotStarted = 0,
-        olTaskWaiting = 3,
+        olTaskWaiting = 3
     }
 
     const enum OlTextAlign {
         olTextAlignCenter = 2,
         olTextAlignLeft = 1,
-        olTextAlignRight = 3,
+        olTextAlignRight = 3
     }
 
     const enum OlTimelineViewMode {
         olTimelineViewDay = 0,
         olTimelineViewMonth = 2,
-        olTimelineViewWeek = 1,
+        olTimelineViewWeek = 1
     }
 
     const enum OlTimeStyle {
         olTimeStyleShortDuration = 4,
         olTimeStyleTimeDuration = 1,
-        olTimeStyleTimeOnly = 0,
+        olTimeStyleTimeOnly = 0
     }
 
     const enum OlTrackingStatus {
@@ -1202,7 +1202,7 @@ declare namespace Outlook {
         olTrackingRead = 6,
         olTrackingRecallFailure = 4,
         olTrackingRecallSuccess = 5,
-        olTrackingReplied = 7,
+        olTrackingReplied = 7
     }
 
     const enum OlUserPropertyType {
@@ -1219,20 +1219,20 @@ declare namespace Outlook {
         olPercent = 12,
         olSmartFrom = 22,
         olText = 1,
-        olYesNo = 6,
+        olYesNo = 6
     }
 
     const enum OlVerticalLayout {
         olVerticalLayoutAlignBottom = 2,
         olVerticalLayoutAlignMiddle = 1,
         olVerticalLayoutAlignTop = 0,
-        olVerticalLayoutGrow = 3,
+        olVerticalLayoutGrow = 3
     }
 
     const enum OlViewSaveOption {
         olViewSaveOptionAllFoldersOfType = 2,
         olViewSaveOptionThisFolderEveryone = 0,
-        olViewSaveOptionThisFolderOnlyMe = 1,
+        olViewSaveOptionThisFolderOnlyMe = 1
     }
 
     const enum OlViewType {
@@ -1242,24 +1242,24 @@ declare namespace Outlook {
         olDailyTaskListView = 6,
         olIconView = 3,
         olTableView = 0,
-        olTimelineView = 4,
+        olTimelineView = 4
     }
 
     const enum OlWindowState {
         olMaximized = 0,
         olMinimized = 1,
-        olNormalWindow = 2,
+        olNormalWindow = 2
     }
 
     class _DocSiteControl {
-        private 'Outlook._DocSiteControl_typekey': _DocSiteControl;
+        private "Outlook._DocSiteControl_typekey": _DocSiteControl;
         private constructor();
         ReadOnly: number;
         SuppressAttachments: number;
     }
 
     class _RecipientControl {
-        private 'Outlook._RecipientControl_typekey': _RecipientControl;
+        private "Outlook._RecipientControl_typekey": _RecipientControl;
         private constructor();
         BackColor: number;
         Enabled: number;
@@ -1270,7 +1270,7 @@ declare namespace Outlook {
     }
 
     class Account {
-        private 'Outlook.Account_typekey': Account;
+        private "Outlook.Account_typekey": Account;
         private constructor();
         readonly AccountType: OlAccountType;
         readonly Application: Application;
@@ -1292,7 +1292,7 @@ declare namespace Outlook {
     }
 
     class AccountRuleCondition {
-        private 'Outlook.AccountRuleCondition_typekey': AccountRuleCondition;
+        private "Outlook.AccountRuleCondition_typekey": AccountRuleCondition;
         private constructor();
         Account: Account;
         readonly Application: Application;
@@ -1304,7 +1304,7 @@ declare namespace Outlook {
     }
 
     class Accounts {
-        private 'Outlook.Accounts_typekey': Accounts;
+        private "Outlook.Accounts_typekey": Accounts;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1315,7 +1315,7 @@ declare namespace Outlook {
     }
 
     class AccountSelector {
-        private 'Outlook.AccountSelector_typekey': AccountSelector;
+        private "Outlook.AccountSelector_typekey": AccountSelector;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1325,7 +1325,7 @@ declare namespace Outlook {
     }
 
     class Action {
-        private 'Outlook.Action_typekey': Action;
+        private "Outlook.Action_typekey": Action;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1344,7 +1344,7 @@ declare namespace Outlook {
     }
 
     class Actions {
-        private 'Outlook.Actions_typekey': Actions;
+        private "Outlook.Actions_typekey": Actions;
         private constructor();
         Add(): Action;
         readonly Application: Application;
@@ -1357,7 +1357,7 @@ declare namespace Outlook {
     }
 
     class AddressEntries {
-        private 'Outlook.AddressEntries_typekey': AddressEntries;
+        private "Outlook.AddressEntries_typekey": AddressEntries;
         private constructor();
         Add(Type: string, Name?: any, Address?: any): AddressEntry;
         readonly Application: Application;
@@ -1375,7 +1375,7 @@ declare namespace Outlook {
     }
 
     class AddressEntry {
-        private 'Outlook.AddressEntry_typekey': AddressEntry;
+        private "Outlook.AddressEntry_typekey": AddressEntry;
         private constructor();
         Address: string;
         readonly AddressEntryUserType: OlAddressEntryUserType;
@@ -1387,7 +1387,11 @@ declare namespace Outlook {
         GetContact(): ContactItem;
         GetExchangeDistributionList(): ExchangeDistributionList;
         GetExchangeUser(): ExchangeUser;
-        GetFreeBusy(Start: VarDate, MinPerChar: number, CompleteFormat?: any): string;
+        GetFreeBusy(
+            Start: VarDate,
+            MinPerChar: number,
+            CompleteFormat?: any
+        ): string;
         readonly ID: string;
         readonly Manager: AddressEntry;
         MAPIOBJECT: any;
@@ -1402,7 +1406,7 @@ declare namespace Outlook {
     }
 
     class AddressList {
-        private 'Outlook.AddressList_typekey': AddressList;
+        private "Outlook.AddressList_typekey": AddressList;
         private constructor();
         readonly AddressEntries: AddressEntries;
         readonly AddressListType: OlAddressListType;
@@ -1421,7 +1425,7 @@ declare namespace Outlook {
     }
 
     class AddressLists {
-        private 'Outlook.AddressLists_typekey': AddressLists;
+        private "Outlook.AddressLists_typekey": AddressLists;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1432,7 +1436,7 @@ declare namespace Outlook {
     }
 
     class AddressRuleCondition {
-        private 'Outlook.AddressRuleCondition_typekey': AddressRuleCondition;
+        private "Outlook.AddressRuleCondition_typekey": AddressRuleCondition;
         private constructor();
         Address: any;
         readonly Application: Application;
@@ -1444,12 +1448,17 @@ declare namespace Outlook {
     }
 
     class Application {
-        private 'Outlook.Application_typekey': Application;
+        private "Outlook.Application_typekey": Application;
         private constructor();
         ActiveExplorer(): Explorer;
         ActiveInspector(): Inspector;
         ActiveWindow(): any;
-        AdvancedSearch(Scope: string, Filter?: any, SearchSubFolders?: any, Tag?: any): Search;
+        AdvancedSearch(
+            Scope: string,
+            Filter?: any,
+            SearchSubFolders?: any,
+            Tag?: any
+        ): Search;
         readonly AnswerWizard: Office.AnswerWizard;
         readonly Application: Application;
         readonly Assistance: Office.IAssistance;
@@ -1462,7 +1471,9 @@ declare namespace Outlook {
         CreateItem(ItemType: OlItemType.olDistributionListItem): DistListItem;
         CreateItem(ItemType: OlItemType.olJournalItem): JournalItem;
         CreateItem(ItemType: OlItemType.olMailItem): MailItem;
-        CreateItem(ItemType: OlItemType.olMobileItemMMS | OlItemType.olMobileItemSMS): MobileItem;
+        CreateItem(
+            ItemType: OlItemType.olMobileItemMMS | OlItemType.olMobileItemSMS
+        ): MobileItem;
         CreateItem(ItemType: OlItemType.olNoteItem): NoteItem;
         CreateItem(ItemType: OlItemType.olPostItem): PostItem;
         CreateItem(ItemType: OlItemType.olTaskItem): TaskItem;
@@ -1491,7 +1502,7 @@ declare namespace Outlook {
     }
 
     class AppointmentItem {
-        private 'Outlook.AppointmentItem_typekey': AppointmentItem;
+        private "Outlook.AppointmentItem_typekey": AppointmentItem;
         private constructor();
         readonly Actions: Actions;
         AllDayEvent: boolean;
@@ -1513,7 +1524,10 @@ declare namespace Outlook {
         readonly ConversationIndex: string;
         readonly ConversationTopic: string;
         Copy(): any;
-        CopyTo(DestinationFolder: Folder, CopyOptions: OlAppointmentCopyOptions): AppointmentItem;
+        CopyTo(
+            DestinationFolder: Folder,
+            CopyOptions: OlAppointmentCopyOptions
+        ): AppointmentItem;
         readonly CreationTime: VarDate;
         Delete(): void;
         Display(Modal?: any): void;
@@ -1572,7 +1586,11 @@ declare namespace Outlook {
         ReplyTime: VarDate;
         RequiredAttendees: string;
         Resources: string;
-        Respond(Response: OlMeetingResponse, fNoUI?: any, fAdditionalTextDialog?: any): MeetingItem;
+        Respond(
+            Response: OlMeetingResponse,
+            fNoUI?: any,
+            fAdditionalTextDialog?: any
+        ): MeetingItem;
         ResponseRequested: boolean;
         readonly ResponseStatus: OlResponseStatus;
         RTFBody: any;
@@ -1595,7 +1613,7 @@ declare namespace Outlook {
     }
 
     class AssignToCategoryRuleAction {
-        private 'Outlook.AssignToCategoryRuleAction_typekey': AssignToCategoryRuleAction;
+        private "Outlook.AssignToCategoryRuleAction_typekey": AssignToCategoryRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -1607,7 +1625,7 @@ declare namespace Outlook {
     }
 
     class Attachment {
-        private 'Outlook.Attachment_typekey': Attachment;
+        private "Outlook.Attachment_typekey": Attachment;
         private constructor();
         readonly Application: Application;
         readonly BlockLevel: OlAttachmentBlockLevel;
@@ -1629,9 +1647,14 @@ declare namespace Outlook {
     }
 
     class Attachments {
-        private 'Outlook.Attachments_typekey': Attachments;
+        private "Outlook.Attachments_typekey": Attachments;
         private constructor();
-        Add(Source: any, Type?: any, Position?: any, DisplayName?: any): Attachment;
+        Add(
+            Source: any,
+            Type?: any,
+            Position?: any,
+            DisplayName?: any
+        ): Attachment;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
@@ -1642,7 +1665,7 @@ declare namespace Outlook {
     }
 
     class AttachmentSelection {
-        private 'Outlook.AttachmentSelection_typekey': AttachmentSelection;
+        private "Outlook.AttachmentSelection_typekey": AttachmentSelection;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1655,7 +1678,7 @@ declare namespace Outlook {
     }
 
     class AutoFormatRule {
-        private 'Outlook.AutoFormatRule_typekey': AutoFormatRule;
+        private "Outlook.AutoFormatRule_typekey": AutoFormatRule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1669,7 +1692,7 @@ declare namespace Outlook {
     }
 
     class AutoFormatRules {
-        private 'Outlook.AutoFormatRules_typekey': AutoFormatRules;
+        private "Outlook.AutoFormatRules_typekey": AutoFormatRules;
         private constructor();
         Add(Name: string): AutoFormatRule;
         readonly Application: Application;
@@ -1685,7 +1708,7 @@ declare namespace Outlook {
     }
 
     class BusinessCardView {
-        private 'Outlook.BusinessCardView_typekey': BusinessCardView;
+        private "Outlook.BusinessCardView_typekey": BusinessCardView;
         private constructor();
         readonly Application: Application;
         Apply(): void;
@@ -1711,7 +1734,7 @@ declare namespace Outlook {
     }
 
     class CalendarModule {
-        private 'Outlook.CalendarModule_typekey': CalendarModule;
+        private "Outlook.CalendarModule_typekey": CalendarModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1725,7 +1748,7 @@ declare namespace Outlook {
     }
 
     class CalendarSharing {
-        private 'Outlook.CalendarSharing_typekey': CalendarSharing;
+        private "Outlook.CalendarSharing_typekey": CalendarSharing;
         private constructor();
         readonly Application: Application;
         CalendarDetail: OlCalendarDetail;
@@ -1744,7 +1767,7 @@ declare namespace Outlook {
     }
 
     class CalendarView {
-        private 'Outlook.CalendarView_typekey': CalendarView;
+        private "Outlook.CalendarView_typekey": CalendarView;
         private constructor();
         readonly Application: Application;
         Apply(): void;
@@ -1782,7 +1805,7 @@ declare namespace Outlook {
     }
 
     class CardView {
-        private 'Outlook.CardView_typekey': CardView;
+        private "Outlook.CardView_typekey": CardView;
         private constructor();
         AllowInCellEditing: boolean;
         readonly Application: Application;
@@ -1814,7 +1837,7 @@ declare namespace Outlook {
     }
 
     class Categories {
-        private 'Outlook.Categories_typekey': Categories;
+        private "Outlook.Categories_typekey": Categories;
         private constructor();
         Add(Name: string, Color?: any, ShortcutKey?: any): Category;
         readonly Application: Application;
@@ -1827,7 +1850,7 @@ declare namespace Outlook {
     }
 
     class Category {
-        private 'Outlook.Category_typekey': Category;
+        private "Outlook.Category_typekey": Category;
         private constructor();
         readonly Application: Application;
         readonly CategoryBorderColor: stdole.OLE_COLOR;
@@ -1843,7 +1866,7 @@ declare namespace Outlook {
     }
 
     class CategoryRuleCondition {
-        private 'Outlook.CategoryRuleCondition_typekey': CategoryRuleCondition;
+        private "Outlook.CategoryRuleCondition_typekey": CategoryRuleCondition;
         private constructor();
         readonly Application: Application;
         Categories: any;
@@ -1855,7 +1878,7 @@ declare namespace Outlook {
     }
 
     class Column {
-        private 'Outlook.Column_typekey': Column;
+        private "Outlook.Column_typekey": Column;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1865,7 +1888,7 @@ declare namespace Outlook {
     }
 
     class ColumnFormat {
-        private 'Outlook.ColumnFormat_typekey': ColumnFormat;
+        private "Outlook.ColumnFormat_typekey": ColumnFormat;
         private constructor();
         Align: OlAlign;
         readonly Application: Application;
@@ -1879,7 +1902,7 @@ declare namespace Outlook {
     }
 
     class Columns {
-        private 'Outlook.Columns_typekey': Columns;
+        private "Outlook.Columns_typekey": Columns;
         private constructor();
         Add(Name: string): Column;
         readonly Application: Application;
@@ -1893,7 +1916,7 @@ declare namespace Outlook {
     }
 
     class Conflict {
-        private 'Outlook.Conflict_typekey': Conflict;
+        private "Outlook.Conflict_typekey": Conflict;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1905,7 +1928,7 @@ declare namespace Outlook {
     }
 
     class Conflicts {
-        private 'Outlook.Conflicts_typekey': Conflicts;
+        private "Outlook.Conflicts_typekey": Conflicts;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -1920,7 +1943,7 @@ declare namespace Outlook {
     }
 
     class ContactItem {
-        private 'Outlook.ContactItem_typekey': ContactItem;
+        private "Outlook.ContactItem_typekey": ContactItem;
         private constructor();
         Account: string;
         readonly Actions: Actions;
@@ -2117,7 +2140,7 @@ declare namespace Outlook {
     }
 
     class ContactsModule {
-        private 'Outlook.ContactsModule_typekey': ContactsModule;
+        private "Outlook.ContactsModule_typekey": ContactsModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2131,7 +2154,7 @@ declare namespace Outlook {
     }
 
     class Conversation {
-        private 'Outlook.Conversation_typekey': Conversation;
+        private "Outlook.Conversation_typekey": Conversation;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2149,14 +2172,17 @@ declare namespace Outlook {
         readonly Parent: any;
         readonly Session: NameSpace;
         SetAlwaysAssignCategories(Categories: string, Store: Store): void;
-        SetAlwaysDelete(AlwaysDelete: OlAlwaysDeleteConversation, Store: Store): void;
+        SetAlwaysDelete(
+            AlwaysDelete: OlAlwaysDeleteConversation,
+            Store: Store
+        ): void;
         SetAlwaysMoveToFolder(MoveToFolder: Folder, Store: Store): void;
         StopAlwaysDelete(Store: Store): void;
         StopAlwaysMoveToFolder(Store: Store): void;
     }
 
     class ConversationHeader {
-        private 'Outlook.ConversationHeader_typekey': ConversationHeader;
+        private "Outlook.ConversationHeader_typekey": ConversationHeader;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2169,7 +2195,7 @@ declare namespace Outlook {
     }
 
     class DistListItem {
-        private 'Outlook.DistListItem_typekey': DistListItem;
+        private "Outlook.DistListItem_typekey": DistListItem;
         private constructor();
         readonly Actions: Actions;
         AddMember(Recipient: Recipient): void;
@@ -2247,7 +2273,7 @@ declare namespace Outlook {
     }
 
     class DocumentItem {
-        private 'Outlook.DocumentItem_typekey': DocumentItem;
+        private "Outlook.DocumentItem_typekey": DocumentItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -2299,7 +2325,7 @@ declare namespace Outlook {
     }
 
     class DoNotUseMeFolder {
-        private 'Outlook.DoNotUseMeFolder_typekey': DoNotUseMeFolder;
+        private "Outlook.DoNotUseMeFolder_typekey": DoNotUseMeFolder;
         private constructor();
         AddressBookName: string;
         AddToFavorites(fNoUI?: any, Name?: any): void;
@@ -2321,7 +2347,10 @@ declare namespace Outlook {
         GetCalendarExporter(): CalendarSharing;
         GetCustomIcon(): stdole.StdPicture;
         GetExplorer(DisplayMode?: any): Explorer;
-        GetStorage(StorageIdentifier: string, StorageIdentifierType: OlStorageIdentifierType): StorageItem;
+        GetStorage(
+            StorageIdentifier: string,
+            StorageIdentifierType: OlStorageIdentifierType
+        ): StorageItem;
         GetTable(Filter?: any, TableContents?: any): Table;
         InAppFolderSyncObject: boolean;
         readonly IsSharePointFolder: boolean;
@@ -2347,7 +2376,7 @@ declare namespace Outlook {
     }
 
     class Exception {
-        private 'Outlook.Exception_typekey': Exception;
+        private "Outlook.Exception_typekey": Exception;
         private constructor();
         readonly Application: Application;
         readonly AppointmentItem: AppointmentItem;
@@ -2360,7 +2389,7 @@ declare namespace Outlook {
     }
 
     class Exceptions {
-        private 'Outlook.Exceptions_typekey': Exceptions;
+        private "Outlook.Exceptions_typekey": Exceptions;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2371,7 +2400,7 @@ declare namespace Outlook {
     }
 
     class ExchangeDistributionList {
-        private 'Outlook.ExchangeDistributionList_typekey': ExchangeDistributionList;
+        private "Outlook.ExchangeDistributionList_typekey": ExchangeDistributionList;
         private constructor();
         Address: string;
         readonly AddressEntryUserType: OlAddressEntryUserType;
@@ -2386,7 +2415,11 @@ declare namespace Outlook {
         GetExchangeDistributionList(): ExchangeDistributionList;
         GetExchangeDistributionListMembers(): AddressEntries;
         GetExchangeUser(): ExchangeUser;
-        GetFreeBusy(Start: VarDate, MinPerChar: number, CompleteFormat?: any): string;
+        GetFreeBusy(
+            Start: VarDate,
+            MinPerChar: number,
+            CompleteFormat?: any
+        ): string;
         GetMemberOfList(): AddressEntries;
         GetOwners(): AddressEntries;
         readonly ID: string;
@@ -2404,7 +2437,7 @@ declare namespace Outlook {
     }
 
     class ExchangeUser {
-        private 'Outlook.ExchangeUser_typekey': ExchangeUser;
+        private "Outlook.ExchangeUser_typekey": ExchangeUser;
         private constructor();
         Address: string;
         readonly AddressEntryUserType: OlAddressEntryUserType;
@@ -2426,7 +2459,11 @@ declare namespace Outlook {
         GetExchangeDistributionList(): ExchangeDistributionList;
         GetExchangeUser(): ExchangeUser;
         GetExchangeUserManager(): ExchangeUser;
-        GetFreeBusy(Start: VarDate, MinPerChar: number, CompleteFormat?: any): string;
+        GetFreeBusy(
+            Start: VarDate,
+            MinPerChar: number,
+            CompleteFormat?: any
+        ): string;
         GetMemberOfList(): AddressEntries;
         GetPicture(): stdole.StdPicture;
         readonly ID: string;
@@ -2456,7 +2493,7 @@ declare namespace Outlook {
     }
 
     class Explorer {
-        private 'Outlook.Explorer_typekey': Explorer;
+        private "Outlook.Explorer_typekey": Explorer;
         private constructor();
         readonly AccountSelector: AccountSelector;
         Activate(): void;
@@ -2496,7 +2533,7 @@ declare namespace Outlook {
     }
 
     class Explorers {
-        private 'Outlook.Explorers_typekey': Explorers;
+        private "Outlook.Explorers_typekey": Explorers;
         private constructor();
         Add(Folder: any, DisplayMode: OlFolderDisplayMode): Explorer;
         readonly Application: Application;
@@ -2508,7 +2545,7 @@ declare namespace Outlook {
     }
 
     class Folder {
-        private 'Outlook.Folder_typekey': Folder;
+        private "Outlook.Folder_typekey": Folder;
         private constructor();
         AddressBookName: string;
         AddToFavorites(fNoUI?: any, Name?: any): void;
@@ -2530,7 +2567,10 @@ declare namespace Outlook {
         GetCalendarExporter(): CalendarSharing;
         GetCustomIcon(): stdole.StdPicture;
         GetExplorer(DisplayMode?: any): Explorer;
-        GetStorage(StorageIdentifier: string, StorageIdentifierType: OlStorageIdentifierType): StorageItem;
+        GetStorage(
+            StorageIdentifier: string,
+            StorageIdentifierType: OlStorageIdentifierType
+        ): StorageItem;
         GetTable(Filter?: any, TableContents?: any): Table;
         InAppFolderSyncObject: boolean;
         readonly IsSharePointFolder: boolean;
@@ -2556,7 +2596,7 @@ declare namespace Outlook {
     }
 
     class Folders {
-        private 'Outlook.Folders_typekey': Folders;
+        private "Outlook.Folders_typekey": Folders;
         private constructor();
         Add(Name: string, Type?: any): Folder;
         readonly Application: Application;
@@ -2574,7 +2614,7 @@ declare namespace Outlook {
     }
 
     class FormDescription {
-        private 'Outlook.FormDescription_typekey': FormDescription;
+        private "Outlook.FormDescription_typekey": FormDescription;
         private constructor();
         readonly Application: Application;
         Category: string;
@@ -2602,7 +2642,7 @@ declare namespace Outlook {
     }
 
     class FormNameRuleCondition {
-        private 'Outlook.FormNameRuleCondition_typekey': FormNameRuleCondition;
+        private "Outlook.FormNameRuleCondition_typekey": FormNameRuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2614,7 +2654,7 @@ declare namespace Outlook {
     }
 
     class FormRegion {
-        private 'Outlook.FormRegion_typekey': FormRegion;
+        private "Outlook.FormRegion_typekey": FormRegion;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2638,16 +2678,26 @@ declare namespace Outlook {
     }
 
     class FormRegionStartup {
-        private 'Outlook.FormRegionStartup_typekey': FormRegionStartup;
+        private "Outlook.FormRegionStartup_typekey": FormRegionStartup;
         private constructor();
         BeforeFormRegionShow(FormRegion: FormRegion): void;
-        GetFormRegionIcon(FormRegionName: string, LCID: number, Icon: OlFormRegionIcon): any;
+        GetFormRegionIcon(
+            FormRegionName: string,
+            LCID: number,
+            Icon: OlFormRegionIcon
+        ): any;
         GetFormRegionManifest(FormRegionName: string, LCID: number): any;
-        GetFormRegionStorage(FormRegionName: string, Item: any, LCID: number, FormRegionMode: OlFormRegionMode, FormRegionSize: OlFormRegionSize): any;
+        GetFormRegionStorage(
+            FormRegionName: string,
+            Item: any,
+            LCID: number,
+            FormRegionMode: OlFormRegionMode,
+            FormRegionSize: OlFormRegionSize
+        ): any;
     }
 
     class FromRssFeedRuleCondition {
-        private 'Outlook.FromRssFeedRuleCondition_typekey': FromRssFeedRuleCondition;
+        private "Outlook.FromRssFeedRuleCondition_typekey": FromRssFeedRuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2659,7 +2709,7 @@ declare namespace Outlook {
     }
 
     class IconView {
-        private 'Outlook.IconView_typekey': IconView;
+        private "Outlook.IconView_typekey": IconView;
         private constructor();
         readonly Application: Application;
         Apply(): void;
@@ -2685,7 +2735,7 @@ declare namespace Outlook {
     }
 
     class ImportanceRuleCondition {
-        private 'Outlook.ImportanceRuleCondition_typekey': ImportanceRuleCondition;
+        private "Outlook.ImportanceRuleCondition_typekey": ImportanceRuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2697,7 +2747,7 @@ declare namespace Outlook {
     }
 
     class Inspector {
-        private 'Outlook.Inspector_typekey': Inspector;
+        private "Outlook.Inspector_typekey": Inspector;
         private constructor();
         Activate(): void;
         readonly Application: Application;
@@ -2731,7 +2781,7 @@ declare namespace Outlook {
     }
 
     class Inspectors {
-        private 'Outlook.Inspectors_typekey': Inspectors;
+        private "Outlook.Inspectors_typekey": Inspectors;
         private constructor();
         Add(Item: any): Inspector;
         readonly Application: Application;
@@ -2743,9 +2793,14 @@ declare namespace Outlook {
     }
 
     class ItemProperties {
-        private 'Outlook.ItemProperties_typekey': ItemProperties;
+        private "Outlook.ItemProperties_typekey": ItemProperties;
         private constructor();
-        Add(Name: string, Type: OlUserPropertyType, AddToFolderFields?: any, DisplayFormat?: any): ItemProperty;
+        Add(
+            Name: string,
+            Type: OlUserPropertyType,
+            AddToFolderFields?: any,
+            DisplayFormat?: any
+        ): ItemProperty;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
@@ -2756,7 +2811,7 @@ declare namespace Outlook {
     }
 
     class ItemProperty {
-        private 'Outlook.ItemProperty_typekey': ItemProperty;
+        private "Outlook.ItemProperty_typekey": ItemProperty;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2773,7 +2828,7 @@ declare namespace Outlook {
     }
 
     class Items {
-        private 'Outlook.Items_typekey': Items;
+        private "Outlook.Items_typekey": Items;
         private constructor();
         Add(Type?: any): any;
         readonly Application: Application;
@@ -2798,7 +2853,7 @@ declare namespace Outlook {
     }
 
     class JournalItem {
-        private 'Outlook.JournalItem_typekey': JournalItem;
+        private "Outlook.JournalItem_typekey": JournalItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -2867,7 +2922,7 @@ declare namespace Outlook {
     }
 
     class JournalModule {
-        private 'Outlook.JournalModule_typekey': JournalModule;
+        private "Outlook.JournalModule_typekey": JournalModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2881,7 +2936,7 @@ declare namespace Outlook {
     }
 
     class Link {
-        private 'Outlook.Link_typekey': Link;
+        private "Outlook.Link_typekey": Link;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -2893,7 +2948,7 @@ declare namespace Outlook {
     }
 
     class Links {
-        private 'Outlook.Links_typekey': Links;
+        private "Outlook.Links_typekey": Links;
         private constructor();
         Add(Item: any): Link;
         readonly Application: Application;
@@ -2906,7 +2961,7 @@ declare namespace Outlook {
     }
 
     class MailItem {
-        private 'Outlook.MailItem_typekey': MailItem;
+        private "Outlook.MailItem_typekey": MailItem;
         private constructor();
         readonly Actions: Actions;
         AddBusinessCard(contact: ContactItem): void;
@@ -3027,7 +3082,7 @@ declare namespace Outlook {
     }
 
     class MailModule {
-        private 'Outlook.MailModule_typekey': MailModule;
+        private "Outlook.MailModule_typekey": MailModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3041,7 +3096,7 @@ declare namespace Outlook {
     }
 
     class MarkAsTaskRuleAction {
-        private 'Outlook.MarkAsTaskRuleAction_typekey': MarkAsTaskRuleAction;
+        private "Outlook.MarkAsTaskRuleAction_typekey": MarkAsTaskRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -3054,7 +3109,7 @@ declare namespace Outlook {
     }
 
     class MeetingItem {
-        private 'Outlook.MeetingItem_typekey': MeetingItem;
+        private "Outlook.MeetingItem_typekey": MeetingItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -3140,7 +3195,7 @@ declare namespace Outlook {
     }
 
     class MobileItem {
-        private 'Outlook.MobileItem_typekey': MobileItem;
+        private "Outlook.MobileItem_typekey": MobileItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -3207,7 +3262,7 @@ declare namespace Outlook {
     }
 
     class MoveOrCopyRuleAction {
-        private 'Outlook.MoveOrCopyRuleAction_typekey': MoveOrCopyRuleAction;
+        private "Outlook.MoveOrCopyRuleAction_typekey": MoveOrCopyRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -3219,7 +3274,7 @@ declare namespace Outlook {
     }
 
     class NameSpace {
-        private 'Outlook.NameSpace_typekey': NameSpace;
+        private "Outlook.NameSpace_typekey": NameSpace;
         private constructor();
         readonly Accounts: Accounts;
         readonly AddressLists: AddressLists;
@@ -3249,13 +3304,26 @@ declare namespace Outlook {
         GetItemFromID(EntryIDItem: string, EntryIDStore?: any): any;
         GetRecipientFromID(EntryID: string): Recipient;
         GetSelectNamesDialog(): SelectNamesDialog;
-        GetSharedDefaultFolder(Recipient: Recipient, FolderType: OlDefaultFolders): Folder;
+        GetSharedDefaultFolder(
+            Recipient: Recipient,
+            FolderType: OlDefaultFolders
+        ): Folder;
         GetStoreFromID(ID: string): Store;
         Logoff(): void;
-        Logon(Profile?: any, Password?: any, ShowDialog?: any, NewSession?: any): void;
+        Logon(
+            Profile?: any,
+            Password?: any,
+            ShowDialog?: any,
+            NewSession?: any
+        ): void;
         readonly MAPIOBJECT: any;
         readonly Offline: boolean;
-        OpenSharedFolder(Path: string, Name?: any, DownloadAttachments?: any, UseTTL?: any): Folder;
+        OpenSharedFolder(
+            Path: string,
+            Name?: any,
+            DownloadAttachments?: any,
+            UseTTL?: any
+        ): Folder;
         OpenSharedItem(Path: string): any;
         readonly Parent: any;
         PickFolder(): Folder;
@@ -3269,7 +3337,7 @@ declare namespace Outlook {
     }
 
     class NavigationFolder {
-        private 'Outlook.NavigationFolder_typekey': NavigationFolder;
+        private "Outlook.NavigationFolder_typekey": NavigationFolder;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3284,7 +3352,7 @@ declare namespace Outlook {
     }
 
     class NavigationFolders {
-        private 'Outlook.NavigationFolders_typekey': NavigationFolders;
+        private "Outlook.NavigationFolders_typekey": NavigationFolders;
         private constructor();
         Add(Folder: Folder): NavigationFolder;
         readonly Application: Application;
@@ -3297,7 +3365,7 @@ declare namespace Outlook {
     }
 
     class NavigationGroup {
-        private 'Outlook.NavigationGroup_typekey': NavigationGroup;
+        private "Outlook.NavigationGroup_typekey": NavigationGroup;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3310,21 +3378,23 @@ declare namespace Outlook {
     }
 
     class NavigationGroups {
-        private 'Outlook.NavigationGroups_typekey': NavigationGroups;
+        private "Outlook.NavigationGroups_typekey": NavigationGroups;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
         Create(GroupDisplayName: string): NavigationGroup;
         Delete(Group: NavigationGroup): void;
-        GetDefaultNavigationGroup(DefaultFolderGroup: OlGroupType): NavigationGroup;
+        GetDefaultNavigationGroup(
+            DefaultFolderGroup: OlGroupType
+        ): NavigationGroup;
         Item(Index: any): NavigationGroup;
         readonly Parent: any;
         readonly Session: NameSpace;
     }
 
     class NavigationModule {
-        private 'Outlook.NavigationModule_typekey': NavigationModule;
+        private "Outlook.NavigationModule_typekey": NavigationModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3337,19 +3407,21 @@ declare namespace Outlook {
     }
 
     class NavigationModules {
-        private 'Outlook.NavigationModules_typekey': NavigationModules;
+        private "Outlook.NavigationModules_typekey": NavigationModules;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
-        GetNavigationModule(ModuleType: OlNavigationModuleType): NavigationModule;
+        GetNavigationModule(
+            ModuleType: OlNavigationModuleType
+        ): NavigationModule;
         Item(Index: any): NavigationModule;
         readonly Parent: any;
         readonly Session: NameSpace;
     }
 
     class NavigationPane {
-        private 'Outlook.NavigationPane_typekey': NavigationPane;
+        private "Outlook.NavigationPane_typekey": NavigationPane;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3362,7 +3434,7 @@ declare namespace Outlook {
     }
 
     class NewItemAlertRuleAction {
-        private 'Outlook.NewItemAlertRuleAction_typekey': NewItemAlertRuleAction;
+        private "Outlook.NewItemAlertRuleAction_typekey": NewItemAlertRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -3374,7 +3446,7 @@ declare namespace Outlook {
     }
 
     class NoteItem {
-        private 'Outlook.NoteItem_typekey': NoteItem;
+        private "Outlook.NoteItem_typekey": NoteItem;
         private constructor();
         readonly Application: Application;
         readonly AutoResolvedWinner: boolean;
@@ -3414,7 +3486,7 @@ declare namespace Outlook {
     }
 
     class NotesModule {
-        private 'Outlook.NotesModule_typekey': NotesModule;
+        private "Outlook.NotesModule_typekey": NotesModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3428,14 +3500,14 @@ declare namespace Outlook {
     }
 
     class OlkBusinessCardControl {
-        private 'Outlook.OlkBusinessCardControl_typekey': OlkBusinessCardControl;
+        private "Outlook.OlkBusinessCardControl_typekey": OlkBusinessCardControl;
         private constructor();
         MouseIcon: stdole.StdPicture;
         MousePointer: OlMousePointer;
     }
 
     class OlkCategory {
-        private 'Outlook.OlkCategory_typekey': OlkCategory;
+        private "Outlook.OlkCategory_typekey": OlkCategory;
         private constructor();
         AutoSize: boolean;
         BackColor: stdole.OLE_COLOR;
@@ -3447,7 +3519,7 @@ declare namespace Outlook {
     }
 
     class OlkCheckBox {
-        private 'Outlook.OlkCheckBox_typekey': OlkCheckBox;
+        private "Outlook.OlkCheckBox_typekey": OlkCheckBox;
         private constructor();
         Accelerator: string;
         Alignment: OlAlignment;
@@ -3465,7 +3537,7 @@ declare namespace Outlook {
     }
 
     class OlkComboBox {
-        private 'Outlook.OlkComboBox_typekey': OlkComboBox;
+        private "Outlook.OlkComboBox_typekey": OlkComboBox;
         private constructor();
         AddItem(ItemText: string, Index?: any): void;
         AutoSize: boolean;
@@ -3505,7 +3577,7 @@ declare namespace Outlook {
     }
 
     class OlkCommandButton {
-        private 'Outlook.OlkCommandButton_typekey': OlkCommandButton;
+        private "Outlook.OlkCommandButton_typekey": OlkCommandButton;
         private constructor();
         Accelerator: string;
         AutoSize: boolean;
@@ -3522,7 +3594,7 @@ declare namespace Outlook {
     }
 
     class OlkContactPhoto {
-        private 'Outlook.OlkContactPhoto_typekey': OlkContactPhoto;
+        private "Outlook.OlkContactPhoto_typekey": OlkContactPhoto;
         private constructor();
         Enabled: boolean;
         MouseIcon: stdole.StdPicture;
@@ -3530,7 +3602,7 @@ declare namespace Outlook {
     }
 
     class OlkDateControl {
-        private 'Outlook.OlkDateControl_typekey': OlkDateControl;
+        private "Outlook.OlkDateControl_typekey": OlkDateControl;
         private constructor();
         AutoSize: boolean;
         AutoWordSelect: boolean;
@@ -3553,7 +3625,7 @@ declare namespace Outlook {
     }
 
     class OlkFrameHeader {
-        private 'Outlook.OlkFrameHeader_typekey': OlkFrameHeader;
+        private "Outlook.OlkFrameHeader_typekey": OlkFrameHeader;
         private constructor();
         Alignment: OlAlignment;
         Caption: string;
@@ -3565,14 +3637,14 @@ declare namespace Outlook {
     }
 
     class OlkInfoBar {
-        private 'Outlook.OlkInfoBar_typekey': OlkInfoBar;
+        private "Outlook.OlkInfoBar_typekey": OlkInfoBar;
         private constructor();
         MouseIcon: stdole.StdPicture;
         MousePointer: OlMousePointer;
     }
 
     class OlkLabel {
-        private 'Outlook.OlkLabel_typekey': OlkLabel;
+        private "Outlook.OlkLabel_typekey": OlkLabel;
         private constructor();
         Accelerator: string;
         AutoSize: boolean;
@@ -3592,7 +3664,7 @@ declare namespace Outlook {
     }
 
     class OlkListBox {
-        private 'Outlook.OlkListBox_typekey': OlkListBox;
+        private "Outlook.OlkListBox_typekey": OlkListBox;
         private constructor();
         AddItem(ItemText: string, Index?: any): void;
         BackColor: stdole.OLE_COLOR;
@@ -3621,7 +3693,7 @@ declare namespace Outlook {
     }
 
     class OlkOptionButton {
-        private 'Outlook.OlkOptionButton_typekey': OlkOptionButton;
+        private "Outlook.OlkOptionButton_typekey": OlkOptionButton;
         private constructor();
         Accelerator: string;
         Alignment: OlAlignment;
@@ -3639,13 +3711,13 @@ declare namespace Outlook {
     }
 
     class OlkPageControl {
-        private 'Outlook.OlkPageControl_typekey': OlkPageControl;
+        private "Outlook.OlkPageControl_typekey": OlkPageControl;
         private constructor();
         Page: OlPageType;
     }
 
     class OlkSenderPhoto {
-        private 'Outlook.OlkSenderPhoto_typekey': OlkSenderPhoto;
+        private "Outlook.OlkSenderPhoto_typekey": OlkSenderPhoto;
         private constructor();
         Enabled: boolean;
         MouseIcon: stdole.StdPicture;
@@ -3656,7 +3728,7 @@ declare namespace Outlook {
 
     /** Outlook TextBox */
     class OlkTextBox {
-        private 'Outlook.OlkTextBox_typekey': OlkTextBox;
+        private "Outlook.OlkTextBox_typekey": OlkTextBox;
         private constructor();
         AutoSize: boolean;
         AutoTab: boolean;
@@ -3695,7 +3767,7 @@ declare namespace Outlook {
     }
 
     class OlkTimeControl {
-        private 'Outlook.OlkTimeControl_typekey': OlkTimeControl;
+        private "Outlook.OlkTimeControl_typekey": OlkTimeControl;
         private constructor();
         AutoSize: boolean;
         AutoWordSelect: boolean;
@@ -3720,7 +3792,7 @@ declare namespace Outlook {
     }
 
     class OlkTimeZoneControl {
-        private 'Outlook.OlkTimeZoneControl_typekey': OlkTimeZoneControl;
+        private "Outlook.OlkTimeZoneControl_typekey": OlkTimeZoneControl;
         private constructor();
         AppointmentTimeField: OlAppointmentTimeField;
         BorderStyle: OlBorderStyle;
@@ -3734,7 +3806,7 @@ declare namespace Outlook {
     }
 
     class OrderField {
-        private 'Outlook.OrderField_typekey': OrderField;
+        private "Outlook.OrderField_typekey": OrderField;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3745,13 +3817,17 @@ declare namespace Outlook {
     }
 
     class OrderFields {
-        private 'Outlook.OrderFields_typekey': OrderFields;
+        private "Outlook.OrderFields_typekey": OrderFields;
         private constructor();
         Add(PropertyName: string, IsDescending?: any): OrderField;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
-        Insert(PropertyName: string, Index: any, IsDescending?: any): OrderField;
+        Insert(
+            PropertyName: string,
+            Index: any,
+            IsDescending?: any
+        ): OrderField;
         Item(Index: any): OrderField;
         readonly Parent: any;
         Remove(Index: any): void;
@@ -3760,7 +3836,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarGroup {
-        private 'Outlook.OutlookBarGroup_typekey': OutlookBarGroup;
+        private "Outlook.OutlookBarGroup_typekey": OutlookBarGroup;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3772,7 +3848,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarGroups {
-        private 'Outlook.OutlookBarGroups_typekey': OutlookBarGroups;
+        private "Outlook.OutlookBarGroups_typekey": OutlookBarGroups;
         private constructor();
         Add(Name: string, Index?: any): OutlookBarGroup;
         readonly Application: Application;
@@ -3785,7 +3861,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarPane {
-        private 'Outlook.OutlookBarPane_typekey': OutlookBarPane;
+        private "Outlook.OutlookBarPane_typekey": OutlookBarPane;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3798,7 +3874,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarShortcut {
-        private 'Outlook.OutlookBarShortcut_typekey': OutlookBarShortcut;
+        private "Outlook.OutlookBarShortcut_typekey": OutlookBarShortcut;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3810,7 +3886,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarShortcuts {
-        private 'Outlook.OutlookBarShortcuts_typekey': OutlookBarShortcuts;
+        private "Outlook.OutlookBarShortcuts_typekey": OutlookBarShortcuts;
         private constructor();
         Add(Target: any, Name: string, Index?: any): OutlookBarShortcut;
         readonly Application: Application;
@@ -3823,7 +3899,7 @@ declare namespace Outlook {
     }
 
     class OutlookBarStorage {
-        private 'Outlook.OutlookBarStorage_typekey': OutlookBarStorage;
+        private "Outlook.OutlookBarStorage_typekey": OutlookBarStorage;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3833,7 +3909,7 @@ declare namespace Outlook {
     }
 
     class Panes {
-        private 'Outlook.Panes_typekey': Panes;
+        private "Outlook.Panes_typekey": Panes;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -3844,7 +3920,7 @@ declare namespace Outlook {
     }
 
     class PlaySoundRuleAction {
-        private 'Outlook.PlaySoundRuleAction_typekey': PlaySoundRuleAction;
+        private "Outlook.PlaySoundRuleAction_typekey": PlaySoundRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -3856,7 +3932,7 @@ declare namespace Outlook {
     }
 
     class PostItem {
-        private 'Outlook.PostItem_typekey': PostItem;
+        private "Outlook.PostItem_typekey": PostItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -3938,7 +4014,7 @@ declare namespace Outlook {
     }
 
     class PropertyAccessor {
-        private 'Outlook.PropertyAccessor_typekey': PropertyAccessor;
+        private "Outlook.PropertyAccessor_typekey": PropertyAccessor;
         private constructor();
         readonly Application: Application;
         BinaryToString(Value: any): string;
@@ -3957,7 +4033,7 @@ declare namespace Outlook {
     }
 
     class PropertyPages {
-        private 'Outlook.PropertyPages_typekey': PropertyPages;
+        private "Outlook.PropertyPages_typekey": PropertyPages;
         private constructor();
         Add(Page: any, Title: string): void;
         readonly Application: Application;
@@ -3970,7 +4046,7 @@ declare namespace Outlook {
     }
 
     class Recipient {
-        private 'Outlook.Recipient_typekey': Recipient;
+        private "Outlook.Recipient_typekey": Recipient;
         private constructor();
         readonly Address: string;
         AddressEntry: AddressEntry;
@@ -3980,7 +4056,11 @@ declare namespace Outlook {
         Delete(): void;
         readonly DisplayType: OlDisplayType;
         readonly EntryID: string;
-        FreeBusy(Start: VarDate, MinPerChar: number, CompleteFormat?: any): string;
+        FreeBusy(
+            Start: VarDate,
+            MinPerChar: number,
+            CompleteFormat?: any
+        ): string;
         readonly Index: number;
         readonly MeetingResponseStatus: OlResponseStatus;
         readonly Name: string;
@@ -3996,7 +4076,7 @@ declare namespace Outlook {
     }
 
     class Recipients {
-        private 'Outlook.Recipients_typekey': Recipients;
+        private "Outlook.Recipients_typekey": Recipients;
         private constructor();
         Add(Name: string): Recipient;
         readonly Application: Application;
@@ -4010,7 +4090,7 @@ declare namespace Outlook {
     }
 
     class RecurrencePattern {
-        private 'Outlook.RecurrencePattern_typekey': RecurrencePattern;
+        private "Outlook.RecurrencePattern_typekey": RecurrencePattern;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4035,7 +4115,7 @@ declare namespace Outlook {
     }
 
     class Reminder {
-        private 'Outlook.Reminder_typekey': Reminder;
+        private "Outlook.Reminder_typekey": Reminder;
         private constructor();
         readonly Application: Application;
         readonly Caption: string;
@@ -4051,7 +4131,7 @@ declare namespace Outlook {
     }
 
     class Reminders {
-        private 'Outlook.Reminders_typekey': Reminders;
+        private "Outlook.Reminders_typekey": Reminders;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4063,7 +4143,7 @@ declare namespace Outlook {
     }
 
     class RemoteItem {
-        private 'Outlook.RemoteItem_typekey': RemoteItem;
+        private "Outlook.RemoteItem_typekey": RemoteItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -4121,7 +4201,7 @@ declare namespace Outlook {
     }
 
     class ReportItem {
-        private 'Outlook.ReportItem_typekey': ReportItem;
+        private "Outlook.ReportItem_typekey": ReportItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -4177,7 +4257,7 @@ declare namespace Outlook {
     }
 
     class Results {
-        private 'Outlook.Results_typekey': Results;
+        private "Outlook.Results_typekey": Results;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4197,7 +4277,7 @@ declare namespace Outlook {
     }
 
     class Row {
-        private 'Outlook.Row_typekey': Row;
+        private "Outlook.Row_typekey": Row;
         private constructor();
         readonly Application: Application;
         BinaryToString(Index: any): string;
@@ -4211,7 +4291,7 @@ declare namespace Outlook {
     }
 
     class Rule {
-        private 'Outlook.Rule_typekey': Rule;
+        private "Outlook.Rule_typekey": Rule;
         private constructor();
         readonly Actions: RuleActions;
         readonly Application: Application;
@@ -4219,7 +4299,12 @@ declare namespace Outlook {
         readonly Conditions: RuleConditions;
         Enabled: boolean;
         readonly Exceptions: RuleConditions;
-        Execute(ShowProgress?: any, Folder?: any, IncludeSubfolders?: any, RuleExecuteOption?: any): void;
+        Execute(
+            ShowProgress?: any,
+            Folder?: any,
+            IncludeSubfolders?: any,
+            RuleExecuteOption?: any
+        ): void;
         ExecutionOrder: number;
         readonly IsLocalRule: boolean;
         Name: string;
@@ -4229,7 +4314,7 @@ declare namespace Outlook {
     }
 
     class RuleAction {
-        private 'Outlook.RuleAction_typekey': RuleAction;
+        private "Outlook.RuleAction_typekey": RuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -4240,7 +4325,7 @@ declare namespace Outlook {
     }
 
     class RuleActions {
-        private 'Outlook.RuleActions_typekey': RuleActions;
+        private "Outlook.RuleActions_typekey": RuleActions;
         private constructor();
         readonly Application: Application;
         readonly AssignToCategory: AssignToCategoryRuleAction;
@@ -4268,7 +4353,7 @@ declare namespace Outlook {
     }
 
     class RuleCondition {
-        private 'Outlook.RuleCondition_typekey': RuleCondition;
+        private "Outlook.RuleCondition_typekey": RuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4279,7 +4364,7 @@ declare namespace Outlook {
     }
 
     class RuleConditions {
-        private 'Outlook.RuleConditions_typekey': RuleConditions;
+        private "Outlook.RuleConditions_typekey": RuleConditions;
         private constructor();
         readonly Account: AccountRuleCondition;
         readonly AnyCategory: RuleCondition;
@@ -4315,7 +4400,7 @@ declare namespace Outlook {
     }
 
     class Rules {
-        private 'Outlook.Rules_typekey': Rules;
+        private "Outlook.Rules_typekey": Rules;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4330,7 +4415,7 @@ declare namespace Outlook {
     }
 
     class Search {
-        private 'Outlook.Search_typekey': Search;
+        private "Outlook.Search_typekey": Search;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4348,7 +4433,7 @@ declare namespace Outlook {
     }
 
     class Selection {
-        private 'Outlook.Selection_typekey': Selection;
+        private "Outlook.Selection_typekey": Selection;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4361,7 +4446,7 @@ declare namespace Outlook {
     }
 
     class SelectNamesDialog {
-        private 'Outlook.SelectNamesDialog_typekey': SelectNamesDialog;
+        private "Outlook.SelectNamesDialog_typekey": SelectNamesDialog;
         private constructor();
         AllowMultipleSelection: boolean;
         readonly Application: Application;
@@ -4376,13 +4461,15 @@ declare namespace Outlook {
         readonly Parent: any;
         Recipients: Recipients;
         readonly Session: NameSpace;
-        SetDefaultDisplayMode(defaultMode: OlDefaultSelectNamesDisplayMode): void;
+        SetDefaultDisplayMode(
+            defaultMode: OlDefaultSelectNamesDisplayMode
+        ): void;
         ShowOnlyInitialAddressList: boolean;
         ToLabel: string;
     }
 
     class SenderInAddressListRuleCondition {
-        private 'Outlook.SenderInAddressListRuleCondition_typekey': SenderInAddressListRuleCondition;
+        private "Outlook.SenderInAddressListRuleCondition_typekey": SenderInAddressListRuleCondition;
         private constructor();
         AddressList: AddressList;
         readonly Application: Application;
@@ -4394,7 +4481,7 @@ declare namespace Outlook {
     }
 
     class SendRuleAction {
-        private 'Outlook.SendRuleAction_typekey': SendRuleAction;
+        private "Outlook.SendRuleAction_typekey": SendRuleAction;
         private constructor();
         readonly ActionType: OlRuleActionType;
         readonly Application: Application;
@@ -4406,7 +4493,7 @@ declare namespace Outlook {
     }
 
     class SharingItem {
-        private 'Outlook.SharingItem_typekey': SharingItem;
+        private "Outlook.SharingItem_typekey": SharingItem;
         private constructor();
         readonly Actions: Actions;
         AddBusinessCard(contact: ContactItem): void;
@@ -4531,7 +4618,7 @@ declare namespace Outlook {
     }
 
     class SimpleItems {
-        private 'Outlook.SimpleItems_typekey': SimpleItems;
+        private "Outlook.SimpleItems_typekey": SimpleItems;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4542,7 +4629,7 @@ declare namespace Outlook {
     }
 
     class SolutionsModule {
-        private 'Outlook.SolutionsModule_typekey': SolutionsModule;
+        private "Outlook.SolutionsModule_typekey": SolutionsModule;
         private constructor();
         AddSolution(Solution: Folder, Scope: OlSolutionScope): void;
         readonly Application: Application;
@@ -4556,7 +4643,7 @@ declare namespace Outlook {
     }
 
     class StorageItem {
-        private 'Outlook.StorageItem_typekey': StorageItem;
+        private "Outlook.StorageItem_typekey": StorageItem;
         private constructor();
         readonly Application: Application;
         readonly Attachments: Attachments;
@@ -4577,7 +4664,7 @@ declare namespace Outlook {
     }
 
     class Store {
-        private 'Outlook.Store_typekey': Store;
+        private "Outlook.Store_typekey": Store;
         private constructor();
         readonly Application: Application;
         readonly Categories: Categories;
@@ -4604,7 +4691,7 @@ declare namespace Outlook {
     }
 
     class Stores {
-        private 'Outlook.Stores_typekey': Stores;
+        private "Outlook.Stores_typekey": Stores;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4615,7 +4702,7 @@ declare namespace Outlook {
     }
 
     class SyncObject {
-        private 'Outlook.SyncObject_typekey': SyncObject;
+        private "Outlook.SyncObject_typekey": SyncObject;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4627,7 +4714,7 @@ declare namespace Outlook {
     }
 
     class SyncObjects {
-        private 'Outlook.SyncObjects_typekey': SyncObjects;
+        private "Outlook.SyncObjects_typekey": SyncObjects;
         private constructor();
         readonly AppFolders: SyncObject;
         readonly Application: Application;
@@ -4639,7 +4726,7 @@ declare namespace Outlook {
     }
 
     class Table {
-        private 'Outlook.Table_typekey': Table;
+        private "Outlook.Table_typekey": Table;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -4658,7 +4745,7 @@ declare namespace Outlook {
     }
 
     class TableView {
-        private 'Outlook.TableView_typekey': TableView;
+        private "Outlook.TableView_typekey": TableView;
         private constructor();
         AllowInCellEditing: boolean;
         AlwaysExpandConversation: boolean;
@@ -4707,7 +4794,7 @@ declare namespace Outlook {
     }
 
     class TaskItem {
-        private 'Outlook.TaskItem_typekey': TaskItem;
+        private "Outlook.TaskItem_typekey": TaskItem;
         private constructor();
         readonly Actions: Actions;
         ActualWork: number;
@@ -4774,7 +4861,11 @@ declare namespace Outlook {
         ReminderSet: boolean;
         ReminderSoundFile: string;
         ReminderTime: VarDate;
-        Respond(Response: OlTaskResponse, fNoUI: any, fAdditionalTextDialog: any): TaskItem;
+        Respond(
+            Response: OlTaskResponse,
+            fNoUI: any,
+            fAdditionalTextDialog: any
+        ): TaskItem;
         readonly ResponseState: OlTaskResponse;
         Role: string;
         RTFBody: any;
@@ -4803,7 +4894,7 @@ declare namespace Outlook {
     }
 
     class TaskRequestAcceptItem {
-        private 'Outlook.TaskRequestAcceptItem_typekey': TaskRequestAcceptItem;
+        private "Outlook.TaskRequestAcceptItem_typekey": TaskRequestAcceptItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -4859,7 +4950,7 @@ declare namespace Outlook {
     }
 
     class TaskRequestDeclineItem {
-        private 'Outlook.TaskRequestDeclineItem_typekey': TaskRequestDeclineItem;
+        private "Outlook.TaskRequestDeclineItem_typekey": TaskRequestDeclineItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -4915,7 +5006,7 @@ declare namespace Outlook {
     }
 
     class TaskRequestItem {
-        private 'Outlook.TaskRequestItem_typekey': TaskRequestItem;
+        private "Outlook.TaskRequestItem_typekey": TaskRequestItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -4971,7 +5062,7 @@ declare namespace Outlook {
     }
 
     class TaskRequestUpdateItem {
-        private 'Outlook.TaskRequestUpdateItem_typekey': TaskRequestUpdateItem;
+        private "Outlook.TaskRequestUpdateItem_typekey": TaskRequestUpdateItem;
         private constructor();
         readonly Actions: Actions;
         readonly Application: Application;
@@ -5027,7 +5118,7 @@ declare namespace Outlook {
     }
 
     class TasksModule {
-        private 'Outlook.TasksModule_typekey': TasksModule;
+        private "Outlook.TasksModule_typekey": TasksModule;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5041,7 +5132,7 @@ declare namespace Outlook {
     }
 
     class TextRuleCondition {
-        private 'Outlook.TextRuleCondition_typekey': TextRuleCondition;
+        private "Outlook.TextRuleCondition_typekey": TextRuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5053,7 +5144,7 @@ declare namespace Outlook {
     }
 
     class TimelineView {
-        private 'Outlook.TimelineView_typekey': TimelineView;
+        private "Outlook.TimelineView_typekey": TimelineView;
         private constructor();
         readonly Application: Application;
         Apply(): void;
@@ -5087,7 +5178,7 @@ declare namespace Outlook {
     }
 
     class TimeZone {
-        private 'Outlook.TimeZone_typekey': TimeZone;
+        private "Outlook.TimeZone_typekey": TimeZone;
         private constructor();
         readonly Application: Application;
         readonly Bias: number;
@@ -5105,11 +5196,15 @@ declare namespace Outlook {
     }
 
     class TimeZones {
-        private 'Outlook.TimeZones_typekey': TimeZones;
+        private "Outlook.TimeZones_typekey": TimeZones;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
-        ConvertTime(SourceDateTime: VarDate, SourceTimeZone: TimeZone, DestinationTimeZone: TimeZone): VarDate;
+        ConvertTime(
+            SourceDateTime: VarDate,
+            SourceTimeZone: TimeZone,
+            DestinationTimeZone: TimeZone
+        ): VarDate;
         readonly Count: number;
         readonly CurrentTimeZone: TimeZone;
         Item(Index: any): TimeZone;
@@ -5118,7 +5213,7 @@ declare namespace Outlook {
     }
 
     class ToOrFromRuleCondition {
-        private 'Outlook.ToOrFromRuleCondition_typekey': ToOrFromRuleCondition;
+        private "Outlook.ToOrFromRuleCondition_typekey": ToOrFromRuleCondition;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5130,9 +5225,14 @@ declare namespace Outlook {
     }
 
     class UserDefinedProperties {
-        private 'Outlook.UserDefinedProperties_typekey': UserDefinedProperties;
+        private "Outlook.UserDefinedProperties_typekey": UserDefinedProperties;
         private constructor();
-        Add(Name: string, Type: OlUserPropertyType, DisplayFormat?: any, Formula?: any): UserDefinedProperty;
+        Add(
+            Name: string,
+            Type: OlUserPropertyType,
+            DisplayFormat?: any,
+            Formula?: any
+        ): UserDefinedProperty;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
@@ -5145,7 +5245,7 @@ declare namespace Outlook {
     }
 
     class UserDefinedProperty {
-        private 'Outlook.UserDefinedProperty_typekey': UserDefinedProperty;
+        private "Outlook.UserDefinedProperty_typekey": UserDefinedProperty;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5159,9 +5259,14 @@ declare namespace Outlook {
     }
 
     class UserProperties {
-        private 'Outlook.UserProperties_typekey': UserProperties;
+        private "Outlook.UserProperties_typekey": UserProperties;
         private constructor();
-        Add(Name: string, Type: OlUserPropertyType, AddToFolderFields?: any, DisplayFormat?: any): UserProperty;
+        Add(
+            Name: string,
+            Type: OlUserPropertyType,
+            AddToFolderFields?: any,
+            DisplayFormat?: any
+        ): UserProperty;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
@@ -5173,7 +5278,7 @@ declare namespace Outlook {
     }
 
     class UserProperty {
-        private 'Outlook.UserProperty_typekey': UserProperty;
+        private "Outlook.UserProperty_typekey": UserProperty;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5190,7 +5295,7 @@ declare namespace Outlook {
     }
 
     class View {
-        private 'Outlook.View_typekey': View;
+        private "Outlook.View_typekey": View;
         private constructor();
         readonly Application: Application;
         Apply(): void;
@@ -5213,7 +5318,7 @@ declare namespace Outlook {
     }
 
     class ViewField {
-        private 'Outlook.ViewField_typekey': ViewField;
+        private "Outlook.ViewField_typekey": ViewField;
         private constructor();
         readonly Application: Application;
         readonly Class: OlObjectClass;
@@ -5224,7 +5329,7 @@ declare namespace Outlook {
     }
 
     class ViewFields {
-        private 'Outlook.ViewFields_typekey': ViewFields;
+        private "Outlook.ViewFields_typekey": ViewFields;
         private constructor();
         Add(PropertyName: string): ViewField;
         readonly Application: Application;
@@ -5238,7 +5343,7 @@ declare namespace Outlook {
     }
 
     class ViewFont {
-        private 'Outlook.ViewFont_typekey': ViewFont;
+        private "Outlook.ViewFont_typekey": ViewFont;
         private constructor();
         readonly Application: Application;
         Bold: boolean;
@@ -5255,9 +5360,13 @@ declare namespace Outlook {
     }
 
     class Views {
-        private 'Outlook.Views_typekey': Views;
+        private "Outlook.Views_typekey": Views;
         private constructor();
-        Add(Name: string, ViewType: OlViewType, SaveOption: OlViewSaveOption): View;
+        Add(
+            Name: string,
+            ViewType: OlViewType,
+            SaveOption: OlViewSaveOption
+        ): View;
         readonly Application: Application;
         readonly Class: OlObjectClass;
         readonly Count: number;
@@ -5269,620 +5378,2835 @@ declare namespace Outlook {
 }
 
 interface ActiveXObject {
-    on(obj: Outlook.Accounts, event: 'AutoDiscoverComplete', argNames: ['Account'], handler: (this: Outlook.Accounts, parameter: {readonly Account: Outlook.Account}) => void): void;
     on(
-        obj: Outlook.AccountSelector, event: 'SelectedAccountChange', argNames: ['SelectedAccount'], handler: (
-            this: Outlook.AccountSelector, parameter: {readonly SelectedAccount: Outlook.Account}) => void): void;
+        obj: Outlook.Accounts,
+        event: "AutoDiscoverComplete",
+        argNames: ["Account"],
+        handler: (
+            this: Outlook.Accounts,
+            parameter: { readonly Account: Outlook.Account }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'AdvancedSearchComplete' | 'AdvancedSearchStopped', argNames: ['SearchObject'], handler: (
-            this: Outlook.Application, parameter: {readonly SearchObject: Outlook.Search}) => void): void;
+        obj: Outlook.AccountSelector,
+        event: "SelectedAccountChange",
+        argNames: ["SelectedAccount"],
+        handler: (
+            this: Outlook.AccountSelector,
+            parameter: { readonly SelectedAccount: Outlook.Account }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'AttachmentContextMenuDisplay', argNames: ['CommandBar', 'Attachments'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly Attachments: Outlook.AttachmentSelection}) => void): void;
+        obj: Outlook.Application,
+        event: "AdvancedSearchComplete" | "AdvancedSearchStopped",
+        argNames: ["SearchObject"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly SearchObject: Outlook.Search }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'BeforeFolderSharingDialog', argNames: ['FolderToShare', 'Cancel'], handler: (
-            this: Outlook.Application, parameter: {readonly FolderToShare: Outlook.Folder, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Application, event: 'ContextMenuClose', argNames: ['ContextMenu'], handler: (this: Outlook.Application, parameter: {readonly ContextMenu: Outlook.OlContextMenu}) => void): void;
+        obj: Outlook.Application,
+        event: "AttachmentContextMenuDisplay",
+        argNames: ["CommandBar", "Attachments"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly Attachments: Outlook.AttachmentSelection;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'FolderContextMenuDisplay', argNames: ['CommandBar', 'Folder'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly Folder: Outlook.Folder}) => void): void;
+        obj: Outlook.Application,
+        event: "BeforeFolderSharingDialog",
+        argNames: ["FolderToShare", "Cancel"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly FolderToShare: Outlook.Folder;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'ItemContextMenuDisplay', argNames: ['CommandBar', 'Selection'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly Selection: Outlook.Selection}) => void): void;
-    on(obj: Outlook.Application, event: 'ItemLoad' | 'Reminder', argNames: ['Item'], handler: (this: Outlook.Application, parameter: {readonly Item: any}) => void): void;
-    on(obj: Outlook.Application, event: 'ItemSend', argNames: ['Item', 'Cancel'], handler: (this: Outlook.Application, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Application, event: 'NewMailEx', argNames: ['EntryIDCollection'], handler: (this: Outlook.Application, parameter: {readonly EntryIDCollection: string}) => void): void;
-    on(obj: Outlook.Application, event: 'OptionsPagesAdd', argNames: ['Pages'], handler: (this: Outlook.Application, parameter: {readonly Pages: Outlook.PropertyPages}) => void): void;
+        obj: Outlook.Application,
+        event: "ContextMenuClose",
+        argNames: ["ContextMenu"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly ContextMenu: Outlook.OlContextMenu }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'ShortcutContextMenuDisplay', argNames: ['CommandBar', 'Shortcut'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly Shortcut: Outlook.OutlookBarShortcut}) => void): void;
+        obj: Outlook.Application,
+        event: "FolderContextMenuDisplay",
+        argNames: ["CommandBar", "Folder"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly Folder: Outlook.Folder;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'StoreContextMenuDisplay', argNames: ['CommandBar', 'Store'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly Store: Outlook.Store}) => void): void;
+        obj: Outlook.Application,
+        event: "ItemContextMenuDisplay",
+        argNames: ["CommandBar", "Selection"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly Selection: Outlook.Selection;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Application, event: 'ViewContextMenuDisplay', argNames: ['CommandBar', 'View'], handler: (
-            this: Outlook.Application, parameter: {readonly CommandBar: Office.CommandBar, readonly View: Outlook.View}) => void): void;
+        obj: Outlook.Application,
+        event: "ItemLoad" | "Reminder",
+        argNames: ["Item"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly Item: any }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.AppointmentItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.AppointmentItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.Application,
+        event: "ItemSend",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.AppointmentItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.AppointmentItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.Application,
+        event: "NewMailEx",
+        argNames: ["EntryIDCollection"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly EntryIDCollection: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.AppointmentItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.AppointmentItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.AppointmentItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.AppointmentItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Application,
+        event: "OptionsPagesAdd",
+        argNames: ["Pages"],
+        handler: (
+            this: Outlook.Application,
+            parameter: { readonly Pages: Outlook.PropertyPages }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.AppointmentItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.AppointmentItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.AppointmentItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.AppointmentItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.AppointmentItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.AppointmentItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Application,
+        event: "ShortcutContextMenuDisplay",
+        argNames: ["CommandBar", "Shortcut"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly Shortcut: Outlook.OutlookBarShortcut;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.AppointmentItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.AppointmentItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Application,
+        event: "StoreContextMenuDisplay",
+        argNames: ["CommandBar", "Store"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly Store: Outlook.Store;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ContactItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.ContactItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.Application,
+        event: "ViewContextMenuDisplay",
+        argNames: ["CommandBar", "View"],
+        handler: (
+            this: Outlook.Application,
+            parameter: {
+                readonly CommandBar: Office.CommandBar;
+                readonly View: Outlook.View;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ContactItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.ContactItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ContactItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.ContactItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.ContactItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.ContactItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ContactItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.ContactItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.ContactItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.ContactItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.ContactItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.ContactItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ContactItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.ContactItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DistListItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.DistListItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DistListItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.DistListItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DistListItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.DistListItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.DistListItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.DistListItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DistListItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.DistListItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.DistListItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.DistListItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.DistListItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.DistListItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.AppointmentItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.AppointmentItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DistListItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.DistListItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DocumentItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.DocumentItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.ContactItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DocumentItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.DocumentItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DocumentItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.DocumentItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.DocumentItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.DocumentItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DocumentItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.DocumentItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.DocumentItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.DocumentItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.DocumentItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.DocumentItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.DocumentItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.DocumentItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Explorer, event: 'BeforeFolderSwitch', argNames: ['NewFolder', 'Cancel'], handler: (this: Outlook.Explorer, parameter: {readonly NewFolder: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Explorer, event: 'BeforeItemCopy' | 'BeforeItemCut' | 'BeforeMaximize' | 'BeforeMinimize' | 'BeforeMove' | 'BeforeSize', argNames: ['Cancel'],
-        handler: (this: Outlook.Explorer, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Explorer, event: 'BeforeItemPaste', argNames: ['ClipboardContent', 'Target', 'Cancel'], handler: (
-            this: Outlook.Explorer, parameter: {readonly ClipboardContent: any, readonly Target: Outlook.Folder, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Explorer, event: 'BeforeViewSwitch', argNames: ['NewView', 'Cancel'], handler: (this: Outlook.Explorer, parameter: {readonly NewView: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Explorers, event: 'NewExplorer', argNames: ['Explorer'], handler: (this: Outlook.Explorers, parameter: {readonly Explorer: Outlook.Explorer}) => void): void;
-    on(obj: Outlook.Folder, event: 'BeforeFolderMove', argNames: ['MoveTo', 'Cancel'], handler: (this: Outlook.Folder, parameter: {readonly MoveTo: Outlook.Folder, Cancel: boolean}) => void): void;
+        obj: Outlook.ContactItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.ContactItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Folder, event: 'BeforeItemMove', argNames: ['Item', 'MoveTo', 'Cancel'], handler: (
-            this: Outlook.Folder, parameter: {readonly Item: any, readonly MoveTo: Outlook.Folder, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Folders, event: 'FolderAdd' | 'FolderChange', argNames: ['Folder'], handler: (this: Outlook.Folders, parameter: {readonly Folder: Outlook.Folder}) => void): void;
-    on(obj: Outlook.FormRegion, event: 'Expanded', argNames: ['Expand'], handler: (this: Outlook.FormRegion, parameter: {readonly Expand: boolean}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Inspector, event: 'BeforeMaximize' | 'BeforeMinimize' | 'BeforeMove' | 'BeforeSize', argNames: ['Cancel'], handler: (
-            this: Outlook.Inspector, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.Inspector, event: 'PageChange', argNames: ['ActivePageName'], handler: (this: Outlook.Inspector, parameter: {readonly ActivePageName: string}) => void): void;
-    on(obj: Outlook.Inspectors, event: 'NewInspector', argNames: ['Inspector'], handler: (this: Outlook.Inspectors, parameter: {readonly Inspector: Outlook.Inspector}) => void): void;
-    on(obj: Outlook.Items, event: 'ItemAdd' | 'ItemChange', argNames: ['Item'], handler: (this: Outlook.Items, parameter: {readonly Item: any}) => void): void;
+        obj: Outlook.DistListItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.JournalItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.JournalItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.DistListItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.JournalItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.JournalItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.JournalItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.JournalItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.JournalItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.JournalItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.JournalItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.JournalItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.JournalItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.JournalItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.JournalItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.JournalItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.JournalItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.JournalItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MailItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.MailItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.DistListItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.DistListItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MailItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile',
-        argNames: ['Attachment', 'Cancel'], handler: (this: Outlook.MailItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MailItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'], handler: (
-            this: Outlook.MailItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.MailItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.MailItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MailItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.MailItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.MailItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.MailItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.MailItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.MailItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.MailItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.MailItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MeetingItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.MeetingItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MeetingItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.MeetingItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MeetingItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.MeetingItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.MeetingItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.MeetingItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MeetingItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.MeetingItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.MeetingItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.MeetingItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.MeetingItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.MeetingItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MeetingItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.MeetingItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.DocumentItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.DocumentItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MobileItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.MobileItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.Explorer,
+        event: "BeforeFolderSwitch",
+        argNames: ["NewFolder", "Cancel"],
+        handler: (
+            this: Outlook.Explorer,
+            parameter: { readonly NewFolder: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MobileItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.MobileItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.Explorer,
+        event:
+            | "BeforeItemCopy"
+            | "BeforeItemCut"
+            | "BeforeMaximize"
+            | "BeforeMinimize"
+            | "BeforeMove"
+            | "BeforeSize",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.Explorer,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MobileItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.MobileItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.MobileItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.MobileItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Explorer,
+        event: "BeforeItemPaste",
+        argNames: ["ClipboardContent", "Target", "Cancel"],
+        handler: (
+            this: Outlook.Explorer,
+            parameter: {
+                readonly ClipboardContent: any;
+                readonly Target: Outlook.Folder;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.MobileItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.MobileItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.MobileItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.MobileItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.MobileItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.MobileItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.MobileItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.MobileItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Explorer,
+        event: "BeforeViewSwitch",
+        argNames: ["NewView", "Cancel"],
+        handler: (
+            this: Outlook.Explorer,
+            parameter: { readonly NewView: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.NameSpace, event: 'OptionsPagesAdd', argNames: ['Pages', 'Folder'], handler: (
-            this: Outlook.NameSpace, parameter: {readonly Pages: Outlook.PropertyPages, readonly Folder: Outlook.Folder}) => void): void;
+        obj: Outlook.Explorers,
+        event: "NewExplorer",
+        argNames: ["Explorer"],
+        handler: (
+            this: Outlook.Explorers,
+            parameter: { readonly Explorer: Outlook.Explorer }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.NavigationGroups, event: 'NavigationFolderAdd' | 'SelectedChange', argNames: ['NavigationFolder'], handler: (
-            this: Outlook.NavigationGroups, parameter: {readonly NavigationFolder: Outlook.NavigationFolder}) => void): void;
+        obj: Outlook.Folder,
+        event: "BeforeFolderMove",
+        argNames: ["MoveTo", "Cancel"],
+        handler: (
+            this: Outlook.Folder,
+            parameter: { readonly MoveTo: Outlook.Folder; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.NavigationPane, event: 'ModuleSwitch', argNames: ['CurrentModule'], handler: (
-            this: Outlook.NavigationPane, parameter: {readonly CurrentModule: Outlook.NavigationModule}) => void): void;
+        obj: Outlook.Folder,
+        event: "BeforeItemMove",
+        argNames: ["Item", "MoveTo", "Cancel"],
+        handler: (
+            this: Outlook.Folder,
+            parameter: {
+                readonly Item: any;
+                readonly MoveTo: Outlook.Folder;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkBusinessCardControl, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'],
+        obj: Outlook.Folders,
+        event: "FolderAdd" | "FolderChange",
+        argNames: ["Folder"],
+        handler: (
+            this: Outlook.Folders,
+            parameter: { readonly Folder: Outlook.Folder }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.FormRegion,
+        event: "Expanded",
+        argNames: ["Expand"],
+        handler: (
+            this: Outlook.FormRegion,
+            parameter: { readonly Expand: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Inspector,
+        event:
+            | "BeforeMaximize"
+            | "BeforeMinimize"
+            | "BeforeMove"
+            | "BeforeSize",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.Inspector,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Inspector,
+        event: "PageChange",
+        argNames: ["ActivePageName"],
+        handler: (
+            this: Outlook.Inspector,
+            parameter: { readonly ActivePageName: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Inspectors,
+        event: "NewInspector",
+        argNames: ["Inspector"],
+        handler: (
+            this: Outlook.Inspectors,
+            parameter: { readonly Inspector: Outlook.Inspector }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Items,
+        event: "ItemAdd" | "ItemChange",
+        argNames: ["Item"],
+        handler: (
+            this: Outlook.Items,
+            parameter: { readonly Item: any }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.JournalItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.MailItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.MeetingItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.MobileItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.NameSpace,
+        event: "OptionsPagesAdd",
+        argNames: ["Pages", "Folder"],
+        handler: (
+            this: Outlook.NameSpace,
+            parameter: {
+                readonly Pages: Outlook.PropertyPages;
+                readonly Folder: Outlook.Folder;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.NavigationGroups,
+        event: "NavigationFolderAdd" | "SelectedChange",
+        argNames: ["NavigationFolder"],
+        handler: (
+            this: Outlook.NavigationGroups,
+            parameter: { readonly NavigationFolder: Outlook.NavigationFolder }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.NavigationPane,
+        event: "ModuleSwitch",
+        argNames: ["CurrentModule"],
+        handler: (
+            this: Outlook.NavigationPane,
+            parameter: { readonly CurrentModule: Outlook.NavigationModule }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkBusinessCardControl,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
         handler: (
             this: Outlook.OlkBusinessCardControl,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkCategory, event: 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkCategory, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkCategory, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkCategory, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkCategory, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkCategory, parameter: {readonly KeyAscii: number}) => void): void;
-    on(
-        obj: Outlook.OlkCategory, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkCategory,
+        event: "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkCategory,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkCheckBox, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkCheckBox, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkCheckBox, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkCheckBox, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkCheckBox, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkCheckBox, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkCategory,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkCategory,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkCheckBox, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkCategory,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkCategory,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCategory,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkCategory,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCheckBox,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkCheckBox,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkComboBox, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkComboBox, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkComboBox, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkComboBox, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkComboBox, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkComboBox, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkCheckBox,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkCheckBox,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkComboBox, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkCheckBox,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkCheckBox,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCheckBox,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkCheckBox,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkComboBox,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkComboBox,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkCommandButton, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkCommandButton, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkCommandButton, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkCommandButton, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkCommandButton, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkCommandButton, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkComboBox,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkComboBox,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkCommandButton, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkComboBox,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkComboBox,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkComboBox,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkComboBox,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCommandButton,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkCommandButton,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkContactPhoto, event: 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkContactPhoto, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkContactPhoto, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkContactPhoto, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkContactPhoto, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkContactPhoto, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkCommandButton,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkCommandButton,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkContactPhoto, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkCommandButton,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkCommandButton,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCommandButton,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkCommandButton,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkContactPhoto,
+        event: "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkContactPhoto,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkDateControl, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkDateControl, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkDateControl, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkDateControl, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkDateControl, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkDateControl, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkContactPhoto,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkContactPhoto,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkDateControl, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkContactPhoto,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkContactPhoto,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkContactPhoto,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkContactPhoto,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkDateControl,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkDateControl,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkInfoBar, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkDateControl,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkDateControl,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkDateControl,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkDateControl,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkDateControl,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkDateControl,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkInfoBar,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
             this: Outlook.OlkInfoBar,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkLabel, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkLabel,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
             this: Outlook.OlkLabel,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkListBox, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkListBox, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkListBox, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkListBox, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkListBox, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkListBox, parameter: {readonly KeyAscii: number}) => void): void;
-    on(
-        obj: Outlook.OlkListBox, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkListBox,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkListBox,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkOptionButton, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkOptionButton, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkOptionButton, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkOptionButton, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkOptionButton, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkOptionButton, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkListBox,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkListBox,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkOptionButton, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkListBox,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkListBox,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkListBox,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkListBox,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkOptionButton,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkOptionButton,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkSenderPhoto, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkOptionButton,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkOptionButton,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkOptionButton,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkOptionButton,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkOptionButton,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkOptionButton,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkSenderPhoto,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
             this: Outlook.OlkSenderPhoto,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkTextBox, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkTextBox, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTextBox, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkTextBox, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkTextBox, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkTextBox, parameter: {readonly KeyAscii: number}) => void): void;
-    on(
-        obj: Outlook.OlkTextBox, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkTextBox,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkTextBox,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkTimeControl, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkTimeControl, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTimeControl, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkTimeControl, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkTimeControl, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkTimeControl, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkTextBox,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkTextBox,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTimeControl, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkTextBox,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkTextBox,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTextBox,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkTextBox,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTimeControl,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkTimeControl,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OlkTimeZoneControl, event: 'BeforeUpdate' | 'Exit', argNames: ['Cancel'], handler: (this: Outlook.OlkTimeZoneControl, parameter: {readonly Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTimeZoneControl, event: 'KeyDown' | 'KeyUp', argNames: ['KeyCode', 'Shift'], handler: (
-            this: Outlook.OlkTimeZoneControl, parameter: {readonly KeyCode: number, readonly Shift: Outlook.OlShiftState}) => void): void;
-    on(obj: Outlook.OlkTimeZoneControl, event: 'KeyPress', argNames: ['KeyAscii'], handler: (this: Outlook.OlkTimeZoneControl, parameter: {readonly KeyAscii: number}) => void): void;
+        obj: Outlook.OlkTimeControl,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkTimeControl,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTimeZoneControl, event: 'MouseDown' | 'MouseMove' | 'MouseUp', argNames: ['Button', 'Shift', 'X', 'Y'], handler: (
+        obj: Outlook.OlkTimeControl,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkTimeControl,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTimeControl,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkTimeControl,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTimeZoneControl,
+        event: "BeforeUpdate" | "Exit",
+        argNames: ["Cancel"],
+        handler: (
             this: Outlook.OlkTimeZoneControl,
-            parameter: {readonly Button: Outlook.OlMouseButton, readonly Shift: Outlook.OlShiftState, readonly X: stdole.OLE_XPOS_CONTAINER, readonly Y: stdole.OLE_YPOS_CONTAINER}) => void): void;
-    on(obj: Outlook.OutlookBarGroups, event: 'BeforeGroupAdd', argNames: ['Cancel'], handler: (this: Outlook.OutlookBarGroups, parameter: {Cancel: boolean}) => void): void;
+            parameter: { readonly Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OutlookBarGroups, event: 'BeforeGroupRemove', argNames: ['Group', 'Cancel'], handler: (
-            this: Outlook.OutlookBarGroups, parameter: {readonly Group: Outlook.OutlookBarGroup, Cancel: boolean}) => void): void;
-    on(obj: Outlook.OutlookBarGroups, event: 'GroupAdd', argNames: ['NewGroup'], handler: (this: Outlook.OutlookBarGroups, parameter: {readonly NewGroup: Outlook.OutlookBarGroup}) => void): void;
+        obj: Outlook.OlkTimeZoneControl,
+        event: "KeyDown" | "KeyUp",
+        argNames: ["KeyCode", "Shift"],
+        handler: (
+            this: Outlook.OlkTimeZoneControl,
+            parameter: {
+                readonly KeyCode: number;
+                readonly Shift: Outlook.OlShiftState;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OutlookBarPane, event: 'BeforeGroupSwitch', argNames: ['ToGroup', 'Cancel'], handler: (
-            this: Outlook.OutlookBarPane, parameter: {readonly ToGroup: Outlook.OutlookBarGroup, Cancel: boolean}) => void): void;
+        obj: Outlook.OlkTimeZoneControl,
+        event: "KeyPress",
+        argNames: ["KeyAscii"],
+        handler: (
+            this: Outlook.OlkTimeZoneControl,
+            parameter: { readonly KeyAscii: number }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OutlookBarPane, event: 'BeforeNavigate', argNames: ['Shortcut', 'Cancel'], handler: (
-            this: Outlook.OutlookBarPane, parameter: {readonly Shortcut: Outlook.OutlookBarShortcut, Cancel: boolean}) => void): void;
-    on(obj: Outlook.OutlookBarShortcuts, event: 'BeforeShortcutAdd', argNames: ['Cancel'], handler: (this: Outlook.OutlookBarShortcuts, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.OlkTimeZoneControl,
+        event: "MouseDown" | "MouseMove" | "MouseUp",
+        argNames: ["Button", "Shift", "X", "Y"],
+        handler: (
+            this: Outlook.OlkTimeZoneControl,
+            parameter: {
+                readonly Button: Outlook.OlMouseButton;
+                readonly Shift: Outlook.OlShiftState;
+                readonly X: stdole.OLE_XPOS_CONTAINER;
+                readonly Y: stdole.OLE_YPOS_CONTAINER;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OutlookBarShortcuts, event: 'BeforeShortcutRemove', argNames: ['Shortcut', 'Cancel'], handler: (
-            this: Outlook.OutlookBarShortcuts, parameter: {readonly Shortcut: Outlook.OutlookBarShortcut, Cancel: boolean}) => void): void;
+        obj: Outlook.OutlookBarGroups,
+        event: "BeforeGroupAdd",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.OutlookBarGroups,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OutlookBarShortcuts, event: 'ShortcutAdd', argNames: ['NewShortcut'], handler: (
-            this: Outlook.OutlookBarShortcuts, parameter: {readonly NewShortcut: Outlook.OutlookBarShortcut}) => void): void;
+        obj: Outlook.OutlookBarGroups,
+        event: "BeforeGroupRemove",
+        argNames: ["Group", "Cancel"],
+        handler: (
+            this: Outlook.OutlookBarGroups,
+            parameter: {
+                readonly Group: Outlook.OutlookBarGroup;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.PostItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.PostItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.OutlookBarGroups,
+        event: "GroupAdd",
+        argNames: ["NewGroup"],
+        handler: (
+            this: Outlook.OutlookBarGroups,
+            parameter: { readonly NewGroup: Outlook.OutlookBarGroup }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.PostItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile',
-        argNames: ['Attachment', 'Cancel'], handler: (this: Outlook.PostItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.OutlookBarPane,
+        event: "BeforeGroupSwitch",
+        argNames: ["ToGroup", "Cancel"],
+        handler: (
+            this: Outlook.OutlookBarPane,
+            parameter: {
+                readonly ToGroup: Outlook.OutlookBarGroup;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.PostItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'], handler: (
-            this: Outlook.PostItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.PostItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.PostItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.OutlookBarPane,
+        event: "BeforeNavigate",
+        argNames: ["Shortcut", "Cancel"],
+        handler: (
+            this: Outlook.OutlookBarPane,
+            parameter: {
+                readonly Shortcut: Outlook.OutlookBarShortcut;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.PostItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.PostItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.PostItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.PostItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.PostItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.PostItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.PostItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.PostItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Reminders, event: 'BeforeReminderShow', argNames: ['Cancel'], handler: (this: Outlook.Reminders, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.OutlookBarShortcuts,
+        event: "BeforeShortcutAdd",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.OutlookBarShortcuts,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Reminders, event: 'ReminderAdd' | 'ReminderChange' | 'ReminderFire' | 'Snooze', argNames: ['ReminderObject'], handler: (
-            this: Outlook.Reminders, parameter: {readonly ReminderObject: Outlook.Reminder}) => void): void;
+        obj: Outlook.OutlookBarShortcuts,
+        event: "BeforeShortcutRemove",
+        argNames: ["Shortcut", "Cancel"],
+        handler: (
+            this: Outlook.OutlookBarShortcuts,
+            parameter: {
+                readonly Shortcut: Outlook.OutlookBarShortcut;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.RemoteItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.RemoteItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.OutlookBarShortcuts,
+        event: "ShortcutAdd",
+        argNames: ["NewShortcut"],
+        handler: (
+            this: Outlook.OutlookBarShortcuts,
+            parameter: { readonly NewShortcut: Outlook.OutlookBarShortcut }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.RemoteItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.RemoteItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.PostItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.RemoteItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.RemoteItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.RemoteItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.RemoteItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.PostItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.RemoteItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.RemoteItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.RemoteItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.RemoteItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.RemoteItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.RemoteItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.RemoteItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.RemoteItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.PostItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ReportItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.ReportItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.PostItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ReportItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.ReportItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.PostItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ReportItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.ReportItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.ReportItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.ReportItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.PostItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.ReportItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.ReportItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.ReportItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.ReportItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.ReportItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.ReportItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.ReportItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.ReportItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Results, event: 'ItemAdd' | 'ItemChange', argNames: ['Item'], handler: (this: Outlook.Results, parameter: {readonly Item: any}) => void): void;
+        obj: Outlook.PostItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SharingItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.SharingItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.PostItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.PostItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SharingItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.SharingItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.Reminders,
+        event: "BeforeReminderShow",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.Reminders,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SharingItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.SharingItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.SharingItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.SharingItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Reminders,
+        event: "ReminderAdd" | "ReminderChange" | "ReminderFire" | "Snooze",
+        argNames: ["ReminderObject"],
+        handler: (
+            this: Outlook.Reminders,
+            parameter: { readonly ReminderObject: Outlook.Reminder }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SharingItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.SharingItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.SharingItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.SharingItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.SharingItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.SharingItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SharingItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.SharingItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Stores, event: 'BeforeStoreRemove', argNames: ['Store', 'Cancel'], handler: (this: Outlook.Stores, parameter: {readonly Store: Outlook.Store, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Stores, event: 'StoreAdd', argNames: ['Store'], handler: (this: Outlook.Stores, parameter: {readonly Store: Outlook.Store}) => void): void;
+        obj: Outlook.RemoteItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SyncObject, event: 'OnError', argNames: ['Code', 'Description'], handler: (
-            this: Outlook.SyncObject, parameter: {readonly Code: number, readonly Description: string}) => void): void;
+        obj: Outlook.RemoteItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.SyncObject, event: 'Progress', argNames: ['State', 'Description', 'Value', 'Max'], handler: (
-            this: Outlook.SyncObject, parameter: {readonly State: Outlook.OlSyncState, readonly Description: string, readonly Value: number, readonly Max: number}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.TaskItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile',
-        argNames: ['Attachment', 'Cancel'], handler: (this: Outlook.TaskItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'], handler: (
-            this: Outlook.TaskItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.TaskItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.TaskItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.TaskItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.TaskItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.TaskItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.TaskItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.TaskItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.TaskItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (this: Outlook.TaskItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.RemoteItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.RemoteItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'],
-        handler: (this: Outlook.TaskRequestAcceptItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.TaskRequestAcceptItem, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Name: string}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestAcceptItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestAcceptItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.ReportItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.ReportItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'],
-        handler: (this: Outlook.TaskRequestDeclineItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.Results,
+        event: "ItemAdd" | "ItemChange",
+        argNames: ["Item"],
+        handler: (
+            this: Outlook.Results,
+            parameter: { readonly Item: any }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.TaskRequestDeclineItem, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Name: string}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestDeclineItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestDeclineItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'], handler: (
-            this: Outlook.TaskRequestItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.SharingItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.SharingItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.TaskRequestItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.Stores,
+        event: "BeforeStoreRemove",
+        argNames: ["Store", "Cancel"],
+        handler: (
+            this: Outlook.Stores,
+            parameter: { readonly Store: Outlook.Store; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.TaskRequestItem, parameter: {Cancel: boolean}) => void): void;
-    on(obj: Outlook.TaskRequestItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (this: Outlook.TaskRequestItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.Stores,
+        event: "StoreAdd",
+        argNames: ["Store"],
+        handler: (
+            this: Outlook.Stores,
+            parameter: { readonly Store: Outlook.Store }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.TaskRequestItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (this: Outlook.TaskRequestItem, parameter: {readonly Name: string}) => void): void;
-    on(obj: Outlook.TaskRequestItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (this: Outlook.TaskRequestItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SyncObject,
+        event: "OnError",
+        argNames: ["Code", "Description"],
+        handler: (
+            this: Outlook.SyncObject,
+            parameter: { readonly Code: number; readonly Description: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.SyncObject,
+        event: "Progress",
+        argNames: ["State", "Description", "Value", "Max"],
+        handler: (
+            this: Outlook.SyncObject,
+            parameter: {
+                readonly State: Outlook.OlSyncState;
+                readonly Description: string;
+                readonly Value: number;
+                readonly Max: number;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'AttachmentAdd' | 'AttachmentRead' | 'AttachmentRemove', argNames: ['Attachment'],
-        handler: (this: Outlook.TaskRequestUpdateItem, parameter: {readonly Attachment: Outlook.Attachment}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'BeforeAttachmentAdd' | 'BeforeAttachmentPreview' | 'BeforeAttachmentRead' | 'BeforeAttachmentSave' |
-        'BeforeAttachmentWriteToTempFile', argNames: ['Attachment', 'Cancel'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Attachment: Outlook.Attachment, Cancel: boolean}) => void): void;
+        obj: Outlook.TaskItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'BeforeAutoSave' | 'BeforeCheckNames' | 'Close' | 'Open' | 'Send' | 'Write', argNames: ['Cancel'],
-        handler: (this: Outlook.TaskRequestUpdateItem, parameter: {Cancel: boolean}) => void): void;
+        obj: Outlook.TaskItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'BeforeDelete', argNames: ['Item', 'Cancel'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Item: any, Cancel: boolean}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'CustomAction', argNames: ['Action', 'Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Action: any, readonly Response: any, Cancel: boolean}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'CustomPropertyChange' | 'PropertyChange', argNames: ['Name'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Name: string}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'Forward', argNames: ['Forward', 'Cancel'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Forward: any, Cancel: boolean}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.TaskRequestUpdateItem, event: 'Reply' | 'ReplyAll', argNames: ['Response', 'Cancel'], handler: (
-            this: Outlook.TaskRequestUpdateItem, parameter: {readonly Response: any, Cancel: boolean}) => void): void;
-    on(obj: Outlook.Views, event: 'ViewAdd' | 'ViewRemove', argNames: ['View'], handler: (this: Outlook.Views, parameter: {readonly View: Outlook.View}) => void): void;
-    on(obj: Outlook.Application, event: 'MAPILogonComplete' | 'NewMail' | 'Quit' | 'Startup', handler: (this: Outlook.Application, parameter: {}) => void): void;
-    on(obj: Outlook.AppointmentItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.AppointmentItem, parameter: {}) => void): void;
-    on(obj: Outlook.ContactItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.ContactItem, parameter: {}) => void): void;
-    on(obj: Outlook.DistListItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.DistListItem, parameter: {}) => void): void;
-    on(obj: Outlook.DocumentItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.DocumentItem, parameter: {}) => void): void;
+        obj: Outlook.TaskItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.Explorer, event: 'Activate' | 'AttachmentSelectionChange' | 'Close' | 'Deactivate' | 'FolderSwitch' | 'SelectionChange' | 'ViewSwitch',
-        handler: (this: Outlook.Explorer, parameter: {}) => void): void;
-    on(obj: Outlook.Folders, event: 'FolderRemove', handler: (this: Outlook.Folders, parameter: {}) => void): void;
-    on(obj: Outlook.FormRegion, event: 'Close', handler: (this: Outlook.FormRegion, parameter: {}) => void): void;
-    on(obj: Outlook.Inspector, event: 'Activate' | 'AttachmentSelectionChange' | 'Close' | 'Deactivate', handler: (this: Outlook.Inspector, parameter: {}) => void): void;
-    on(obj: Outlook.Items, event: 'ItemRemove', handler: (this: Outlook.Items, parameter: {}) => void): void;
-    on(obj: Outlook.JournalItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.JournalItem, parameter: {}) => void): void;
-    on(obj: Outlook.MailItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.MailItem, parameter: {}) => void): void;
-    on(obj: Outlook.MeetingItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.MeetingItem, parameter: {}) => void): void;
-    on(obj: Outlook.MobileItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.MobileItem, parameter: {}) => void): void;
-    on(obj: Outlook.NameSpace, event: 'AutoDiscoverComplete', handler: (this: Outlook.NameSpace, parameter: {}) => void): void;
-    on(obj: Outlook.NavigationGroups, event: 'NavigationFolderRemove', handler: (this: Outlook.NavigationGroups, parameter: {}) => void): void;
-    on(obj: Outlook.OlkBusinessCardControl, event: 'Click' | 'DoubleClick', handler: (this: Outlook.OlkBusinessCardControl, parameter: {}) => void): void;
-    on(obj: Outlook.OlkCategory, event: 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkCategory, parameter: {}) => void): void;
-    on(obj: Outlook.OlkCheckBox, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkCheckBox, parameter: {}) => void): void;
-    on(obj: Outlook.OlkComboBox, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'DropButtonClick' | 'Enter', handler: (this: Outlook.OlkComboBox, parameter: {}) => void): void;
-    on(obj: Outlook.OlkCommandButton, event: 'AfterUpdate' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkCommandButton, parameter: {}) => void): void;
-    on(obj: Outlook.OlkContactPhoto, event: 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkContactPhoto, parameter: {}) => void): void;
-    on(obj: Outlook.OlkDateControl, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'DropButtonClick' | 'Enter', handler: (this: Outlook.OlkDateControl, parameter: {}) => void): void;
-    on(obj: Outlook.OlkInfoBar, event: 'Click' | 'DoubleClick', handler: (this: Outlook.OlkInfoBar, parameter: {}) => void): void;
-    on(obj: Outlook.OlkLabel, event: 'Click' | 'DoubleClick', handler: (this: Outlook.OlkLabel, parameter: {}) => void): void;
-    on(obj: Outlook.OlkListBox, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkListBox, parameter: {}) => void): void;
-    on(obj: Outlook.OlkOptionButton, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkOptionButton, parameter: {}) => void): void;
-    on(obj: Outlook.OlkSenderPhoto, event: 'Change' | 'Click' | 'DoubleClick', handler: (this: Outlook.OlkSenderPhoto, parameter: {}) => void): void;
-    on(obj: Outlook.OlkTextBox, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'Enter', handler: (this: Outlook.OlkTextBox, parameter: {}) => void): void;
-    on(obj: Outlook.OlkTimeControl, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'DropButtonClick' | 'Enter', handler: (this: Outlook.OlkTimeControl, parameter: {}) => void): void;
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
     on(
-        obj: Outlook.OlkTimeZoneControl, event: 'AfterUpdate' | 'Change' | 'Click' | 'DoubleClick' | 'DropButtonClick' | 'Enter',
-        handler: (this: Outlook.OlkTimeZoneControl, parameter: {}) => void): void;
-    on(obj: Outlook.PostItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.PostItem, parameter: {}) => void): void;
-    on(obj: Outlook.Reminders, event: 'ReminderRemove', handler: (this: Outlook.Reminders, parameter: {}) => void): void;
-    on(obj: Outlook.RemoteItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.RemoteItem, parameter: {}) => void): void;
-    on(obj: Outlook.ReportItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.ReportItem, parameter: {}) => void): void;
-    on(obj: Outlook.Results, event: 'ItemRemove', handler: (this: Outlook.Results, parameter: {}) => void): void;
-    on(obj: Outlook.SharingItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.SharingItem, parameter: {}) => void): void;
-    on(obj: Outlook.SyncObject, event: 'SyncEnd' | 'SyncStart', handler: (this: Outlook.SyncObject, parameter: {}) => void): void;
-    on(obj: Outlook.TaskItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.TaskItem, parameter: {}) => void): void;
-    on(obj: Outlook.TaskRequestAcceptItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.TaskRequestAcceptItem, parameter: {}) => void): void;
-    on(obj: Outlook.TaskRequestDeclineItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.TaskRequestDeclineItem, parameter: {}) => void): void;
-    on(obj: Outlook.TaskRequestItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.TaskRequestItem, parameter: {}) => void): void;
-    on(obj: Outlook.TaskRequestUpdateItem, event: 'AfterWrite' | 'BeforeRead' | 'Read' | 'Unload', handler: (this: Outlook.TaskRequestUpdateItem, parameter: {}) => void): void;
+        obj: Outlook.TaskRequestAcceptItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestAcceptItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestDeclineItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "AttachmentAdd" | "AttachmentRead" | "AttachmentRemove",
+        argNames: ["Attachment"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { readonly Attachment: Outlook.Attachment }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event:
+            | "BeforeAttachmentAdd"
+            | "BeforeAttachmentPreview"
+            | "BeforeAttachmentRead"
+            | "BeforeAttachmentSave"
+            | "BeforeAttachmentWriteToTempFile",
+        argNames: ["Attachment", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: {
+                readonly Attachment: Outlook.Attachment;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event:
+            | "BeforeAutoSave"
+            | "BeforeCheckNames"
+            | "Close"
+            | "Open"
+            | "Send"
+            | "Write",
+        argNames: ["Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "BeforeDelete",
+        argNames: ["Item", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { readonly Item: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "CustomAction",
+        argNames: ["Action", "Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: {
+                readonly Action: any;
+                readonly Response: any;
+                Cancel: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "CustomPropertyChange" | "PropertyChange",
+        argNames: ["Name"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { readonly Name: string }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "Forward",
+        argNames: ["Forward", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { readonly Forward: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "Reply" | "ReplyAll",
+        argNames: ["Response", "Cancel"],
+        handler: (
+            this: Outlook.TaskRequestUpdateItem,
+            parameter: { readonly Response: any; Cancel: boolean }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Views,
+        event: "ViewAdd" | "ViewRemove",
+        argNames: ["View"],
+        handler: (
+            this: Outlook.Views,
+            parameter: { readonly View: Outlook.View }
+        ) => void
+    ): void;
+    on(
+        obj: Outlook.Application,
+        event: "MAPILogonComplete" | "NewMail" | "Quit" | "Startup",
+        handler: (this: Outlook.Application, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.AppointmentItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.AppointmentItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.ContactItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.ContactItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.DistListItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.DistListItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.DocumentItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.DocumentItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Explorer,
+        event:
+            | "Activate"
+            | "AttachmentSelectionChange"
+            | "Close"
+            | "Deactivate"
+            | "FolderSwitch"
+            | "SelectionChange"
+            | "ViewSwitch",
+        handler: (this: Outlook.Explorer, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Folders,
+        event: "FolderRemove",
+        handler: (this: Outlook.Folders, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.FormRegion,
+        event: "Close",
+        handler: (this: Outlook.FormRegion, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Inspector,
+        event:
+            | "Activate"
+            | "AttachmentSelectionChange"
+            | "Close"
+            | "Deactivate",
+        handler: (this: Outlook.Inspector, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Items,
+        event: "ItemRemove",
+        handler: (this: Outlook.Items, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.JournalItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.JournalItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.MailItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.MailItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.MeetingItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.MeetingItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.MobileItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.MobileItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.NameSpace,
+        event: "AutoDiscoverComplete",
+        handler: (this: Outlook.NameSpace, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.NavigationGroups,
+        event: "NavigationFolderRemove",
+        handler: (this: Outlook.NavigationGroups, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkBusinessCardControl,
+        event: "Click" | "DoubleClick",
+        handler: (this: Outlook.OlkBusinessCardControl, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCategory,
+        event: "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkCategory, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCheckBox,
+        event: "AfterUpdate" | "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkCheckBox, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkComboBox,
+        event:
+            | "AfterUpdate"
+            | "Change"
+            | "Click"
+            | "DoubleClick"
+            | "DropButtonClick"
+            | "Enter",
+        handler: (this: Outlook.OlkComboBox, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkCommandButton,
+        event: "AfterUpdate" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkCommandButton, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkContactPhoto,
+        event: "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkContactPhoto, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkDateControl,
+        event:
+            | "AfterUpdate"
+            | "Change"
+            | "Click"
+            | "DoubleClick"
+            | "DropButtonClick"
+            | "Enter",
+        handler: (this: Outlook.OlkDateControl, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkInfoBar,
+        event: "Click" | "DoubleClick",
+        handler: (this: Outlook.OlkInfoBar, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkLabel,
+        event: "Click" | "DoubleClick",
+        handler: (this: Outlook.OlkLabel, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkListBox,
+        event: "AfterUpdate" | "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkListBox, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkOptionButton,
+        event: "AfterUpdate" | "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkOptionButton, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkSenderPhoto,
+        event: "Change" | "Click" | "DoubleClick",
+        handler: (this: Outlook.OlkSenderPhoto, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTextBox,
+        event: "AfterUpdate" | "Change" | "Click" | "DoubleClick" | "Enter",
+        handler: (this: Outlook.OlkTextBox, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTimeControl,
+        event:
+            | "AfterUpdate"
+            | "Change"
+            | "Click"
+            | "DoubleClick"
+            | "DropButtonClick"
+            | "Enter",
+        handler: (this: Outlook.OlkTimeControl, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.OlkTimeZoneControl,
+        event:
+            | "AfterUpdate"
+            | "Change"
+            | "Click"
+            | "DoubleClick"
+            | "DropButtonClick"
+            | "Enter",
+        handler: (this: Outlook.OlkTimeZoneControl, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.PostItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.PostItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Reminders,
+        event: "ReminderRemove",
+        handler: (this: Outlook.Reminders, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.RemoteItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.RemoteItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.ReportItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.ReportItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.Results,
+        event: "ItemRemove",
+        handler: (this: Outlook.Results, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.SharingItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.SharingItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.SyncObject,
+        event: "SyncEnd" | "SyncStart",
+        handler: (this: Outlook.SyncObject, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.TaskItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.TaskItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestAcceptItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.TaskRequestAcceptItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestDeclineItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.TaskRequestDeclineItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.TaskRequestItem, parameter: {}) => void
+    ): void;
+    on(
+        obj: Outlook.TaskRequestUpdateItem,
+        event: "AfterWrite" | "BeforeRead" | "Read" | "Unload",
+        handler: (this: Outlook.TaskRequestUpdateItem, parameter: {}) => void
+    ): void;
 }
 
 interface ActiveXObjectNameMap {
-    'DOCSITE.DocSiteControl': Outlook._DocSiteControl;
-    'Outlook.Application': Outlook.Application;
-    'Outlook.OlkBusinessCardControl': Outlook.OlkBusinessCardControl;
-    'Outlook.OlkCategoryStrip': Outlook.OlkCategory;
-    'Outlook.OlkCheckBox': Outlook.OlkCheckBox;
-    'Outlook.OlkComboBox': Outlook.OlkComboBox;
-    'Outlook.OlkCommandButton': Outlook.OlkCommandButton;
-    'Outlook.OlkContactPhoto': Outlook.OlkContactPhoto;
-    'Outlook.OlkDateControl': Outlook.OlkDateControl;
-    'Outlook.OlkFrameHeader': Outlook.OlkFrameHeader;
-    'Outlook.OlkInfoBar': Outlook.OlkInfoBar;
-    'Outlook.OlkLabel': Outlook.OlkLabel;
-    'Outlook.OlkListBox': Outlook.OlkListBox;
-    'Outlook.OlkOptionButton': Outlook.OlkOptionButton;
-    'Outlook.OlkPageControl': Outlook.OlkPageControl;
-    'Outlook.OlkSenderPhoto': Outlook.OlkSenderPhoto;
-    'Outlook.OlkTextBox': Outlook.OlkTextBox;
-    'Outlook.OlkTimeControl': Outlook.OlkTimeControl;
-    'Outlook.OlkTimeZone': Outlook.OlkTimeZoneControl;
-    'RECIP.RecipCtl': Outlook._RecipientControl;
+    "DOCSITE.DocSiteControl": Outlook._DocSiteControl;
+    "Outlook.Application": Outlook.Application;
+    "Outlook.OlkBusinessCardControl": Outlook.OlkBusinessCardControl;
+    "Outlook.OlkCategoryStrip": Outlook.OlkCategory;
+    "Outlook.OlkCheckBox": Outlook.OlkCheckBox;
+    "Outlook.OlkComboBox": Outlook.OlkComboBox;
+    "Outlook.OlkCommandButton": Outlook.OlkCommandButton;
+    "Outlook.OlkContactPhoto": Outlook.OlkContactPhoto;
+    "Outlook.OlkDateControl": Outlook.OlkDateControl;
+    "Outlook.OlkFrameHeader": Outlook.OlkFrameHeader;
+    "Outlook.OlkInfoBar": Outlook.OlkInfoBar;
+    "Outlook.OlkLabel": Outlook.OlkLabel;
+    "Outlook.OlkListBox": Outlook.OlkListBox;
+    "Outlook.OlkOptionButton": Outlook.OlkOptionButton;
+    "Outlook.OlkPageControl": Outlook.OlkPageControl;
+    "Outlook.OlkSenderPhoto": Outlook.OlkSenderPhoto;
+    "Outlook.OlkTextBox": Outlook.OlkTextBox;
+    "Outlook.OlkTimeControl": Outlook.OlkTimeControl;
+    "Outlook.OlkTimeZone": Outlook.OlkTimeZoneControl;
+    "RECIP.RecipCtl": Outlook._RecipientControl;
 }
 
 interface EnumeratorConstructor {
-    new(col: Outlook.ItemProperties): Enumerator<Outlook.ItemProperty>;
-    new(col: Outlook.Reminders): Enumerator<Outlook.Reminder>;
-    new(col: Outlook.Views): Enumerator<Outlook.View>;
+    new (col: Outlook.ItemProperties): Enumerator<Outlook.ItemProperty>;
+    new (col: Outlook.Reminders): Enumerator<Outlook.Reminder>;
+    new (col: Outlook.Views): Enumerator<Outlook.View>;
 }

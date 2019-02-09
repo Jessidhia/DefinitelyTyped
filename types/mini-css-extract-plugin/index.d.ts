@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Loader, Plugin } from 'webpack';
+import { Loader, Plugin } from "webpack";
 
 /**
  * Lightweight CSS extraction webpack plugin

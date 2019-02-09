@@ -7,10 +7,19 @@
 /// <reference types="angular" />
 
 declare namespace angularModal {
+    type AngularModalControllerDefinition =
+        | (new (...args: any[]) => any)
+        | Function
+        | string; // Possible arguments to IControllerService
 
-    type AngularModalControllerDefinition = (new (...args: any[]) => any) | Function | string; // Possible arguments to IControllerService
-
-    type AngularModalJQuerySelector = string | Element | Element[] | JQuery | Function | any[] | {}; // Possible arguments to IAugmentedJQueryStatic
+    type AngularModalJQuerySelector =
+        | string
+        | Element
+        | Element[]
+        | JQuery
+        | Function
+        | any[]
+        | {}; // Possible arguments to IAugmentedJQueryStatic
 
     interface AngularModalSettings {
         controller?: AngularModalControllerDefinition;
@@ -18,11 +27,13 @@ declare namespace angularModal {
         container?: AngularModalJQuerySelector;
     }
 
-    export interface AngularModalSettingsWithTemplate extends AngularModalSettings {
+    export interface AngularModalSettingsWithTemplate
+        extends AngularModalSettings {
         template: any;
     }
 
-    export interface AngularModalSettingsWithTemplateUrl extends AngularModalSettings {
+    export interface AngularModalSettingsWithTemplateUrl
+        extends AngularModalSettings {
         templateUrl: string;
     }
 
@@ -34,6 +45,10 @@ declare namespace angularModal {
     }
 
     export interface AngularModalFactory {
-        (settings: AngularModalSettingsWithTemplate | AngularModalSettingsWithTemplateUrl): AngularModal;
+        (
+            settings:
+                | AngularModalSettingsWithTemplate
+                | AngularModalSettingsWithTemplateUrl
+        ): AngularModal;
     }
 }

@@ -18,7 +18,7 @@ declare global {
     const atom: AtomEnvironment;
 
     interface HTMLElementTagNameMap {
-      "atom-text-editor": TextEditorElement;
+        "atom-text-editor": TextEditorElement;
     }
 }
 
@@ -27,8 +27,11 @@ declare global {
  *  If you only need to watch events within the project's root paths, use
  *  Project::onDidChangeFiles instead.
  */
-export function watchPath(rootPath: string, options: {}, eventCallback: (events:
-    FilesystemChangeEvent) => void): Promise<PathWatcher>;
+export function watchPath(
+    rootPath: string,
+    options: {},
+    eventCallback: (events: FilesystemChangeEvent) => void
+): Promise<PathWatcher>;
 
 // Essential Classes ==========================================================
 
@@ -100,10 +103,14 @@ export interface AtomEnvironment {
      *  Invoke the given callback when there is an unhandled error, but before
      *  the devtools pop open.
      */
-    onWillThrowError(callback: (event: PreventableExceptionThrownEvent) => void): Disposable;
+    onWillThrowError(
+        callback: (event: PreventableExceptionThrownEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback whenever there is an unhandled error. */
-    onDidThrowError(callback: (event: ExceptionThrownEvent) => void): Disposable;
+    onDidThrowError(
+        callback: (event: ExceptionThrownEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback as soon as the shell environment is loaded (or
@@ -128,7 +135,7 @@ export interface AtomEnvironment {
      *  Gets the release channel of the Atom application.
      *  Returns the release channel, which can be 'dev', 'beta', or 'stable'.
      */
-    getReleaseChannel(): "dev"|"beta"|"stable";
+    getReleaseChannel(): "dev" | "beta" | "stable";
 
     /** Returns a boolean that is true if the current version is an official release. */
     isReleasedVersion(): boolean;
@@ -142,29 +149,29 @@ export interface AtomEnvironment {
     // Managing the Atom Window
     /** Open a new Atom window using the given options. */
     open(params?: {
-        pathsToOpen: ReadonlyArray<string>,
-        newWindow?: boolean,
-        devMode?: boolean,
-        safeMode?: boolean,
+        pathsToOpen: ReadonlyArray<string>;
+        newWindow?: boolean;
+        devMode?: boolean;
+        safeMode?: boolean;
     }): void;
 
     /** Close the current window. */
     close(): void;
 
     /** Get the size of current window. */
-    getSize(): { width: number, height: number };
+    getSize(): { width: number; height: number };
 
     /** Set the size of current window. */
     setSize(width: number, height: number): void;
 
     /** Get the position of current window. */
-    getPosition(): { x: number, y: number };
+    getPosition(): { x: number; y: number };
 
     /** Set the position of current window. */
     setPosition(x: number, y: number): void;
 
     /** Prompt the user to select one or more folders. */
-    pickFolder(callback: (paths: string[]|null) => void): void;
+    pickFolder(callback: (paths: string[] | null) => void): void;
 
     /** Get the current window. */
     getCurrentWindow(): object;
@@ -217,8 +224,10 @@ export interface AtomEnvironment {
      *  @param checkboxChecked The checked state of the checkbox if `checkboxLabel` was set.
      *  Otherwise false.
      */
-    confirm(options: ConfirmationOptions, callback: (response: number,
-        checkboxChecked: boolean) => void): void;
+    confirm(
+        options: ConfirmationOptions,
+        callback: (response: number, checkboxChecked: boolean) => void
+    ): void;
 
     /**
      *  A flexible way to open a dialog akin to an alert dialog. If a callback
@@ -232,9 +241,9 @@ export interface AtomEnvironment {
      *  Returns the chosen button index number if the buttons option was an array.
      */
     confirm(options: {
-        message: string,
-        detailedMessage?: string,
-        buttons?: ReadonlyArray<string>,
+        message: string;
+        detailedMessage?: string;
+        buttons?: ReadonlyArray<string>;
     }): void;
 
     /**
@@ -249,11 +258,11 @@ export interface AtomEnvironment {
      *  Returns the chosen button index number if the buttons option was an array.
      */
     confirm(options: {
-        message: string,
-        detailedMessage?: string,
+        message: string;
+        detailedMessage?: string;
         buttons?: {
-            [key: string]: () => void
-        },
+            [key: string]: () => void;
+        };
     }): number;
 
     // Managing the Dev Tools
@@ -283,15 +292,17 @@ export interface Color {
 }
 
 export interface CommandRegistryTargetMap extends HTMLElementTagNameMap {
-  [key: string]: EventTarget;
+    [key: string]: EventTarget;
 }
 
-export type CommandRegistryListener<TargetType extends EventTarget> = {
-    didDispatch(event: CommandEvent<TargetType>): void | Promise<void>,
-    displayName?: string,
-    description?: string,
-    hiddenInCommandPalette?: boolean,
-} | ((event: CommandEvent<TargetType>) => void | Promise<void>);
+export type CommandRegistryListener<TargetType extends EventTarget> =
+    | {
+          didDispatch(event: CommandEvent<TargetType>): void | Promise<void>;
+          displayName?: string;
+          description?: string;
+          hiddenInCommandPalette?: boolean;
+      }
+    | ((event: CommandEvent<TargetType>) => void | Promise<void>);
 
 /**
  *  Associates listener functions with commands in a context-sensitive way
@@ -300,30 +311,40 @@ export type CommandRegistryListener<TargetType extends EventTarget> = {
 export interface CommandRegistry {
     /** Register a single command. */
     add<T extends keyof CommandRegistryTargetMap>(
-        target: T, commandName: string,
+        target: T,
+        commandName: string,
         listener: CommandRegistryListener<CommandRegistryTargetMap[T]>
-      ): Disposable;
+    ): Disposable;
     /** Register a single command. */
     add<T extends Node>(
-        target: T, commandName: string,
+        target: T,
+        commandName: string,
         listener: CommandRegistryListener<T>
-      ): Disposable;
+    ): Disposable;
 
     /** Register multiple commands. */
-    add<T extends keyof CommandRegistryTargetMap>(target: T, commands: {
-        [key: string]: CommandRegistryListener<CommandRegistryTargetMap[T]>
-    }): CompositeDisposable;
+    add<T extends keyof CommandRegistryTargetMap>(
+        target: T,
+        commands: {
+            [key: string]: CommandRegistryListener<CommandRegistryTargetMap[T]>;
+        }
+    ): CompositeDisposable;
     /** Register multiple commands. */
-    add<T extends Node>(target: T, commands: {
-        [key: string]: CommandRegistryListener<T>
-    }): CompositeDisposable;
+    add<T extends Node>(
+        target: T,
+        commands: {
+            [key: string]: CommandRegistryListener<T>;
+        }
+    ): CompositeDisposable;
 
     /** Find all registered commands matching a query. */
-    findCommands(params: { target: string|Node }): Array<{
-        name: string,
-        displayName: string,
-        description?: string,
-        tags?: string[],
+    findCommands(params: {
+        target: string | Node;
+    }): Array<{
+        name: string;
+        displayName: string;
+        description?: string;
+        tags?: string[];
     }>;
 
     /**
@@ -381,63 +402,91 @@ export interface Config {
      *  Add a listener for changes to a given key path. This is different than ::onDidChange in
      *  that it will immediately call your callback with the current value of the config entry.
      */
-    observe<T extends keyof ConfigValues>(keyPath: T, callback:
-        (value: ConfigValues[T]) => void): Disposable;
+    observe<T extends keyof ConfigValues>(
+        keyPath: T,
+        callback: (value: ConfigValues[T]) => void
+    ): Disposable;
     /**
      *  Add a listener for changes to a given key path. This is different than ::onDidChange in
      *  that it will immediately call your callback with the current value of the config entry.
      */
-    observe<T extends keyof ConfigValues>(keyPath: T, options:
-        { scope: string[]|ScopeDescriptor }, callback: (value: ConfigValues[T]) => void):
-        Disposable;
+    observe<T extends keyof ConfigValues>(
+        keyPath: T,
+        options: { scope: string[] | ScopeDescriptor },
+        callback: (value: ConfigValues[T]) => void
+    ): Disposable;
 
     /**
      *  Add a listener for changes to a given key path. If keyPath is not specified, your
      *  callback will be called on changes to any key.
      */
     // tslint:disable-next-line:no-any
-    onDidChange<T = any>(callback: (values: { newValue: T, oldValue: T }) => void):
-        Disposable;
+    onDidChange<T = any>(
+        callback: (values: { newValue: T; oldValue: T }) => void
+    ): Disposable;
     /**
      *  Add a listener for changes to a given key path. If keyPath is not specified, your
      *  callback will be called on changes to any key.
      */
-    onDidChange<T extends keyof ConfigValues>(keyPath: T, callback: (values: {
-        newValue: ConfigValues[T],
-        oldValue?: ConfigValues[T],
-    }) => void): Disposable;
+    onDidChange<T extends keyof ConfigValues>(
+        keyPath: T,
+        callback: (values: {
+            newValue: ConfigValues[T];
+            oldValue?: ConfigValues[T];
+        }) => void
+    ): Disposable;
     /**
      *  Add a listener for changes to a given key path. If keyPath is not specified, your
      *  callback will be called on changes to any key.
      */
-    onDidChange<T extends keyof ConfigValues>(keyPath: T, options:
-        { scope: string[]|ScopeDescriptor }, callback:
-        (values: { newValue: ConfigValues[T], oldValue?: ConfigValues[T] }) => void):
-        Disposable;
+    onDidChange<T extends keyof ConfigValues>(
+        keyPath: T,
+        options: { scope: string[] | ScopeDescriptor },
+        callback: (values: {
+            newValue: ConfigValues[T];
+            oldValue?: ConfigValues[T];
+        }) => void
+    ): Disposable;
 
     // Managing Settings
     /** Retrieves the setting for the given key. */
-    get<T extends keyof ConfigValues>(keyPath: T, options?: { sources?: string[],
-        excludeSources?: string[], scope?: string[]|ScopeDescriptor }):
-        ConfigValues[T];
+    get<T extends keyof ConfigValues>(
+        keyPath: T,
+        options?: {
+            sources?: string[];
+            excludeSources?: string[];
+            scope?: string[] | ScopeDescriptor;
+        }
+    ): ConfigValues[T];
 
     /**
      *  Sets the value for a configuration setting.
      *  This value is stored in Atom's internal configuration file.
      */
-    set<T extends keyof ConfigValues>(keyPath: T, value: ConfigValues[T], options?:
-        { scopeSelector?: string, source?: string }): void;
+    set<T extends keyof ConfigValues>(
+        keyPath: T,
+        value: ConfigValues[T],
+        options?: { scopeSelector?: string; source?: string }
+    ): void;
 
     /** Restore the setting at keyPath to its default value. */
-    unset(keyPath: string, options?: { scopeSelector?: string, source?: string }): void;
+    unset(
+        keyPath: string,
+        options?: { scopeSelector?: string; source?: string }
+    ): void;
 
     /**
      *  Get all of the values for the given key-path, along with their associated
      *  scope selector.
      */
-    getAll<T extends keyof ConfigValues>(keyPath: T, options?: { sources?: string[],
-        excludeSources?: string[], scope?: ScopeDescriptor }):
-        Array<{ scopeDescriptor: ScopeDescriptor, value: ConfigValues[T] }>;
+    getAll<T extends keyof ConfigValues>(
+        keyPath: T,
+        options?: {
+            sources?: string[];
+            excludeSources?: string[];
+            scope?: ScopeDescriptor;
+        }
+    ): Array<{ scopeDescriptor: ScopeDescriptor; value: ConfigValues[T] }>;
 
     /**
      *  Get an Array of all of the source Strings with which settings have been added
@@ -449,7 +498,7 @@ export interface Config {
      *  Retrieve the schema for a specific key path. The schema will tell you what type
      *  the keyPath expects, and other metadata about the config option.
      */
-    getSchema(keyPath: string): object|null;
+    getSchema(keyPath: string): object | null;
 
     /** Get the string path to the config file being used. */
     getUserConfigPath(): string;
@@ -481,7 +530,9 @@ export interface Decoration {
 
     // Event Subscription
     /** When the Decoration is updated via Decoration::setProperties. */
-    onDidChangeProperties(callback: (event: DecorationPropsChangedEvent) => void): Disposable;
+    onDidChangeProperties(
+        callback: (event: DecorationPropsChangedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when the Decoration is destroyed. */
     onDidDestroy(callback: () => void): Disposable;
@@ -499,7 +550,7 @@ export interface Decoration {
      *  be an array of decoration types, with isType returning true if the decoration's
      *  type matches any in the array.
      */
-    isType(type: string|string[]): boolean;
+    isType(type: string | string[]): boolean;
 
     // Properties
     /** Returns the Decoration's properties. */
@@ -531,7 +582,9 @@ export interface DisplayMarker {
 
     // Event Subscription
     /** Invoke the given callback when the state of the marker changes. */
-    onDidChange(callback: (event: DisplayMarkerChangedEvent) => void): Disposable;
+    onDidChange(
+        callback: (event: DisplayMarkerChangedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when the marker is destroyed. */
     onDidDestroy(callback: () => void): Disposable;
@@ -592,26 +645,35 @@ export interface DisplayMarker {
     getScreenRange(): Range;
 
     /** Modifies the buffer range of this marker. */
-    setBufferRange(bufferRange: RangeCompatible, properties?: { reversed: boolean }):
-        void;
+    setBufferRange(
+        bufferRange: RangeCompatible,
+        properties?: { reversed: boolean }
+    ): void;
 
     /** Modifies the screen range of this marker. */
-    setScreenRange(screenRange: RangeCompatible, options?: { reversed?: boolean,
-        clipDirection?: "backward"|"forward"|"closest" }): void;
+    setScreenRange(
+        screenRange: RangeCompatible,
+        options?: {
+            reversed?: boolean;
+            clipDirection?: "backward" | "forward" | "closest";
+        }
+    ): void;
 
     /**
      *  Retrieves the screen position of the marker's start. This will always be
      *  less than or equal to the result of DisplayMarker::getEndScreenPosition.
      */
-    getStartScreenPosition(options?: { clipDirection: "backward"|"forward"|"closest" }):
-        Point;
+    getStartScreenPosition(options?: {
+        clipDirection: "backward" | "forward" | "closest";
+    }): Point;
 
     /**
      *  Retrieves the screen position of the marker's end. This will always be
      *  greater than or equal to the result of DisplayMarker::getStartScreenPosition.
      */
-    getEndScreenPosition(options?: { clipDirection: "backward"|"forward"|"closest" }):
-        Point;
+    getEndScreenPosition(options?: {
+        clipDirection: "backward" | "forward" | "closest";
+    }): Point;
 
     /** Retrieves the buffer position of the marker's head. */
     getHeadBufferPosition(): Point;
@@ -620,12 +682,15 @@ export interface DisplayMarker {
     setHeadBufferPosition(bufferPosition: PointCompatible): void;
 
     /** Retrieves the screen position of the marker's head. */
-    getHeadScreenPosition(options?: { clipDirection: "backward"|"forward"|"closest" }):
-        Point;
+    getHeadScreenPosition(options?: {
+        clipDirection: "backward" | "forward" | "closest";
+    }): Point;
 
     /** Sets the screen position of the marker's head. */
-    setHeadScreenPosition(screenPosition: PointCompatible,
-        options?: { clipDirection: "backward"|"forward"|"closest" }): void;
+    setHeadScreenPosition(
+        screenPosition: PointCompatible,
+        options?: { clipDirection: "backward" | "forward" | "closest" }
+    ): void;
 
     /** Retrieves the buffer position of the marker's tail. */
     getTailBufferPosition(): Point;
@@ -634,12 +699,15 @@ export interface DisplayMarker {
     setTailBufferPosition(bufferPosition: PointCompatible): void;
 
     /** Retrieves the screen position of the marker's tail. */
-    getTailScreenPosition(options?: { clipDirection: "backward"|"forward"|"closest" }):
-        Point;
+    getTailScreenPosition(options?: {
+        clipDirection: "backward" | "forward" | "closest";
+    }): Point;
 
     /** Sets the screen position of the marker's tail. */
-    setTailScreenPosition(screenPosition: PointCompatible,
-        options?: { clipDirection: "backward"|"forward"|"closest" }): void;
+    setTailScreenPosition(
+        screenPosition: PointCompatible,
+        options?: { clipDirection: "backward" | "forward" | "closest" }
+    ): void;
 
     /**
      *  Retrieves the buffer position of the marker's start. This will always be less
@@ -706,34 +774,56 @@ export interface DisplayMarkerLayer {
      *  layer. Avoid this method for optimal performance when interacting with layers
      *  that could contain large numbers of markers.
      */
-    onDidCreateMarker(callback: (marker: DisplayMarker|Marker) => void): Disposable;
+    onDidCreateMarker(
+        callback: (marker: DisplayMarker | Marker) => void
+    ): Disposable;
 
     // Marker creation
     /** Create a marker with the given screen range. */
-    markScreenRange(range: RangeCompatible, options?: { reversed?: boolean,
-        invalidate?: "never"|"surround"|"overlap"|"inside"|"touch", exclusive?:
-        boolean, clipDirection?: "backward"|"forward"|"closest" }): DisplayMarker;
+    markScreenRange(
+        range: RangeCompatible,
+        options?: {
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+            clipDirection?: "backward" | "forward" | "closest";
+        }
+    ): DisplayMarker;
 
     /**
      *  Create a marker on this layer with its head at the given screen position
      *  and no tail.
      */
-    markScreenPosition(screenPosition: PointCompatible, options?: { invalidate?:
-        "never"|"surround"|"overlap"|"inside"|"touch", exclusive?: boolean,
-        clipDirection?: "backward"|"forward"|"closest" }): DisplayMarker;
+    markScreenPosition(
+        screenPosition: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+            clipDirection?: "backward" | "forward" | "closest";
+        }
+    ): DisplayMarker;
 
     /** Create a marker with the given buffer range. */
-    markBufferRange(range: RangeCompatible, options?: {
-        reversed?: boolean, invalidate?: "never"|"surround"|"overlap"|"inside"|"touch",
-        exclusive?: boolean }): DisplayMarker;
+    markBufferRange(
+        range: RangeCompatible,
+        options?: {
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): DisplayMarker;
 
     /**
      *  Create a marker on this layer with its head at the given buffer position
      *  and no tail.
      */
-    markBufferPosition(bufferPosition: PointCompatible, options?: { invalidate?:
-        "never"|"surround"|"overlap"|"inside"|"touch", exclusive?: boolean }):
-        DisplayMarker;
+    markBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): DisplayMarker;
 
     // Querying
     /** Get an existing marker by its id. */
@@ -779,8 +869,10 @@ export class Disposable implements DisposableLike {
  *  for handlers registered via ::on to be invoked with calls to ::emit.
  */
 // tslint:disable-next-line:no-any
-export class Emitter<OptionalEmissions = { [key: string]: any }, RequiredEmissions = {}>
-        implements DisposableLike {
+export class Emitter<
+    OptionalEmissions = { [key: string]: any },
+    RequiredEmissions = {}
+> implements DisposableLike {
     /** Construct an emitter. */
     constructor();
 
@@ -792,47 +884,63 @@ export class Emitter<OptionalEmissions = { [key: string]: any }, RequiredEmissio
 
     // Event Subscription
     /** Registers a handler to be invoked whenever the given event is emitted. */
-    on<T extends keyof OptionalEmissions>(eventName: T, handler: (value?:
-        OptionalEmissions[T]) => void): Disposable;
+    on<T extends keyof OptionalEmissions>(
+        eventName: T,
+        handler: (value?: OptionalEmissions[T]) => void
+    ): Disposable;
     /** Registers a handler to be invoked whenever the given event is emitted. */
-    on<T extends keyof RequiredEmissions>(eventName: T, handler: (value:
-        RequiredEmissions[T]) => void): Disposable;
+    on<T extends keyof RequiredEmissions>(
+        eventName: T,
+        handler: (value: RequiredEmissions[T]) => void
+    ): Disposable;
 
     /**
      *  Register the given handler function to be invoked the next time an event
      *  with the given name is emitted via ::emit.
      */
-    once<T extends keyof OptionalEmissions>(eventName: T, handler: (value?:
-        OptionalEmissions[T]) => void): Disposable;
+    once<T extends keyof OptionalEmissions>(
+        eventName: T,
+        handler: (value?: OptionalEmissions[T]) => void
+    ): Disposable;
     /**
      *  Register the given handler function to be invoked the next time an event
      *  with the given name is emitted via ::emit.
      */
-    once<T extends keyof RequiredEmissions>(eventName: T, handler: (value:
-        RequiredEmissions[T]) => void): Disposable;
+    once<T extends keyof RequiredEmissions>(
+        eventName: T,
+        handler: (value: RequiredEmissions[T]) => void
+    ): Disposable;
 
     /**
      *  Register the given handler function to be invoked before all other
      *  handlers existing at the time of subscription whenever events by the
      *  given name are emitted via ::emit.
      */
-    preempt<T extends keyof OptionalEmissions>(eventName: T, handler: (value?:
-        OptionalEmissions[T]) => void): Disposable;
+    preempt<T extends keyof OptionalEmissions>(
+        eventName: T,
+        handler: (value?: OptionalEmissions[T]) => void
+    ): Disposable;
     /**
      *  Register the given handler function to be invoked before all other
      *  handlers existing at the time of subscription whenever events by the
      *  given name are emitted via ::emit.
      */
-    preempt<T extends keyof RequiredEmissions>(eventName: T, handler: (value:
-        RequiredEmissions[T]) => void): Disposable;
+    preempt<T extends keyof RequiredEmissions>(
+        eventName: T,
+        handler: (value: RequiredEmissions[T]) => void
+    ): Disposable;
 
     // Event Emission
     /** Invoke the handlers registered via ::on for the given event name. */
-    emit<T extends keyof OptionalEmissions>(eventName: T, value?:
-        OptionalEmissions[T]): void;
+    emit<T extends keyof OptionalEmissions>(
+        eventName: T,
+        value?: OptionalEmissions[T]
+    ): void;
     /** Invoke the handlers registered via ::on for the given event name. */
-    emit<T extends keyof RequiredEmissions>(eventName: T, value:
-        RequiredEmissions[T]): void;
+    emit<T extends keyof RequiredEmissions>(
+        eventName: T,
+        value: RequiredEmissions[T]
+    ): void;
 }
 
 /**
@@ -853,8 +961,10 @@ export interface LayerDecoration {
     setProperties(newProperties: DecorationLayerOptions): void;
 
     /** Override the decoration properties for a specific marker. */
-    setPropertiesForMarker(marker: DisplayMarker|Marker, properties: DecorationLayerOptions):
-        void;
+    setPropertiesForMarker(
+        marker: DisplayMarker | Marker,
+        properties: DecorationLayerOptions
+    ): void;
 }
 
 /**
@@ -930,8 +1040,10 @@ export interface Marker {
      *  Sets the range of the marker.
      *  Returns a boolean indicating whether or not the marker was updated.
      */
-    setRange(range: RangeCompatible, params?: { reversed?: boolean, exclusive?:
-        boolean }): boolean;
+    setRange(
+        range: RangeCompatible,
+        params?: { reversed?: boolean; exclusive?: boolean }
+    ): boolean;
 
     /**
      *  Sets the head position of the marker.
@@ -993,7 +1105,7 @@ export interface MarkerLayer {
 
     // Querying
     /** Get an existing marker by its id. */
-    getMarker(id: number): Marker|undefined;
+    getMarker(id: number): Marker | undefined;
 
     /** Get all existing markers on the marker layer. */
     getMarkers(): Marker[];
@@ -1009,12 +1121,23 @@ export interface MarkerLayer {
 
     // Marker Creation
     /** Create a marker with the given range. */
-    markRange(range: RangeCompatible, options?: { reversed?: boolean, invalidate?:
-        "never"|"surround"|"overlap"|"inside"|"touch", exclusive?: boolean }): Marker;
+    markRange(
+        range: RangeCompatible,
+        options?: {
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): Marker;
 
     /** Create a marker at with its head at the given position with no tail. */
-    markPosition(position: PointCompatible, options?: { invalidate?: "never"|"surround"
-        |"overlap"|"inside"|"touch", exclusive?: boolean }): Marker;
+    markPosition(
+        position: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): Marker;
 
     // Event Subscription
     /**
@@ -1035,9 +1158,16 @@ export interface MarkerLayer {
 
 /** A notification to the user containing a message and type. */
 export class Notification {
-    constructor(type: "warning"|"info"|"success", message: string,
-        options?: NotificationOptions);
-    constructor(type: "fatal"|"error", message: string, options?: ErrorNotificationOptions);
+    constructor(
+        type: "warning" | "info" | "success",
+        message: string,
+        options?: NotificationOptions
+    );
+    constructor(
+        type: "fatal" | "error",
+        message: string,
+        options?: ErrorNotificationOptions
+    );
 
     // Event Subscription
     /** Invoke the given callback when the notification is dismissed. */
@@ -1064,7 +1194,9 @@ export class Notification {
 export interface NotificationManager {
     // Events
     /** Invoke the given callback after a notification has been added. */
-    onDidAddNotification(callback: (notification: Notification) => void): Disposable;
+    onDidAddNotification(
+        callback: (notification: Notification) => void
+    ): Disposable;
 
     /** Invoke the given callback after the notifications have been cleared. */
     onDidClearNotifications(callback: () => void): Disposable;
@@ -1083,7 +1215,10 @@ export interface NotificationManager {
     addError(message: string, options?: ErrorNotificationOptions): Notification;
 
     /** Add a fatal error notification. */
-    addFatalError(message: string, options?: ErrorNotificationOptions): Notification;
+    addFatalError(
+        message: string,
+        options?: ErrorNotificationOptions
+    ): Notification;
 
     // Getting Notifications
     /** Get all the notifications. */
@@ -1326,17 +1461,22 @@ export class TextEditor {
      *  asynchronously 300ms after the last buffer change. This is a good place
      *  to handle changes to the buffer without compromising typing performance.
      */
-    onDidStopChanging(callback: (event: BufferStoppedChangingEvent) => void): Disposable;
+    onDidStopChanging(
+        callback: (event: BufferStoppedChangingEvent) => void
+    ): Disposable;
 
     /**
      *  Calls your callback when a Cursor is moved. If there are multiple cursors,
      *  your callback will be called for each cursor.
      */
-    onDidChangeCursorPosition(callback: (event: CursorPositionChangedEvent) => void):
-        Disposable;
+    onDidChangeCursorPosition(
+        callback: (event: CursorPositionChangedEvent) => void
+    ): Disposable;
 
     /** Calls your callback when a selection's screen range changes. */
-    onDidChangeSelectionRange(callback: (event: SelectionChangedEvent) => void): Disposable;
+    onDidChangeSelectionRange(
+        callback: (event: SelectionChangedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback after the buffer is saved to disk. */
     onDidSave(callback: (event: { path: string }) => void): Disposable;
@@ -1366,7 +1506,9 @@ export class TextEditor {
     onDidRemoveGutter(callback: (name: string) => void): Disposable;
 
     /** Calls your callback when soft wrap was enabled or disabled. */
-    onDidChangeSoftWrapped(callback: (softWrapped: boolean) => void): Disposable;
+    onDidChangeSoftWrapped(
+        callback: (softWrapped: boolean) => void
+    ): Disposable;
 
     /** Calls your callback when the buffer's encoding has changed. */
     onDidChangeEncoding(callback: (encoding: string) => void): Disposable;
@@ -1393,7 +1535,9 @@ export class TextEditor {
     onDidConflict(callback: () => void): Disposable;
 
     /** Calls your callback before text has been inserted. */
-    onWillInsertText(callback: (event: { text: string, cancel(): void }) => void): Disposable;
+    onWillInsertText(
+        callback: (event: { text: string; cancel(): void }) => void
+    ): Disposable;
 
     /** Calls your callback after text has been inserted. */
     onDidInsertText(callback: (event: { text: string }) => void): Disposable;
@@ -1432,10 +1576,14 @@ export class TextEditor {
     onDidAddDecoration(callback: (decoration: Decoration) => void): Disposable;
 
     /** Calls your callback when a Decoration is removed from the editor. */
-    onDidRemoveDecoration(callback: (decoration: Decoration) => void): Disposable;
+    onDidRemoveDecoration(
+        callback: (decoration: Decoration) => void
+    ): Disposable;
 
     /** Calls your callback when the placeholder text is changed. */
-    onDidChangePlaceholderText(callback: (placeholderText: string) => void): Disposable;
+    onDidChangePlaceholderText(
+        callback: (placeholderText: string) => void
+    ): Disposable;
 
     // File Details
     /**
@@ -1456,7 +1604,7 @@ export class TextEditor {
     getLongTitle(): string;
 
     /** Returns the string path of this editor's text buffer. */
-    getPath(): string|undefined;
+    getPath(): string | undefined;
 
     /** Returns boolean true if this editor has been modified. */
     isModified(): boolean;
@@ -1531,11 +1679,17 @@ export class TextEditor {
     setText(text: string, options?: ReadonlyEditOptions): void;
 
     /** Set the text in the given Range in buffer coordinates. */
-    setTextInBufferRange(range: RangeCompatible, text: string, options?:
-        TextEditOptions & ReadonlyEditOptions): Range;
+    setTextInBufferRange(
+        range: RangeCompatible,
+        text: string,
+        options?: TextEditOptions & ReadonlyEditOptions
+    ): Range;
 
     /* For each selection, replace the selected text with the given text. */
-    insertText(text: string, options?: TextInsertionOptions & ReadonlyEditOptions): Range|false;
+    insertText(
+        text: string,
+        options?: TextInsertionOptions & ReadonlyEditOptions
+    ): Range | false;
 
     /** For each selection, replace the selected text with a newline. */
     insertNewline(options?: ReadonlyEditOptions): void;
@@ -1695,12 +1849,16 @@ export class TextEditor {
 
     // TextEditor Coordinates
     /** Convert a position in buffer-coordinates to screen-coordinates. */
-    screenPositionForBufferPosition(bufferPosition: PointCompatible, options?:
-        { clipDirection?: "backward"|"forward"|"closest"}): Point;
+    screenPositionForBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: { clipDirection?: "backward" | "forward" | "closest" }
+    ): Point;
 
     /** Convert a position in screen-coordinates to buffer-coordinates. */
-    bufferPositionForScreenPosition(bufferPosition: PointCompatible, options?:
-        { clipDirection?: "backward"|"forward"|"closest"}): Point;
+    bufferPositionForScreenPosition(
+        bufferPosition: PointCompatible,
+        options?: { clipDirection?: "backward" | "forward" | "closest" }
+    ): Point;
 
     /** Convert a range in buffer-coordinates to screen-coordinates. */
     screenRangeForBufferRange(bufferRange: RangeCompatible): Range;
@@ -1718,15 +1876,19 @@ export class TextEditor {
     clipBufferRange(range: RangeCompatible): Range;
 
     /** Clip the given Point to a valid position on screen. */
-    clipScreenPosition(screenPosition: PointCompatible, options?:
-        { clipDirection?: "backward"|"forward"|"closest"}): Point;
+    clipScreenPosition(
+        screenPosition: PointCompatible,
+        options?: { clipDirection?: "backward" | "forward" | "closest" }
+    ): Point;
 
     /**
      *  Clip the start and end of the given range to valid positions on screen.
      *  See ::clipScreenPosition for more information.
      */
-    clipScreenRange(range: RangeCompatible, options?: { clipDirection?:
-        "backward"|"forward"|"closest"}): Range;
+    clipScreenRange(
+        range: RangeCompatible,
+        options?: { clipDirection?: "backward" | "forward" | "closest" }
+    ): Range;
 
     // Decorations
     /**
@@ -1734,15 +1896,20 @@ export class TextEditor {
      *  invalidated, or is destroyed, the decoration will be updated to reflect
      *  the marker's state.
      */
-    decorateMarker(marker: DisplayMarker, decorationParams: DecorationOptions): Decoration;
+    decorateMarker(
+        marker: DisplayMarker,
+        decorationParams: DecorationOptions
+    ): Decoration;
 
     /**
      *  Add a decoration to every marker in the given marker layer. Can be used to
      *  decorate a large number of markers without having to create and manage many
      *  individual decorations.
      */
-    decorateMarkerLayer(markerLayer: MarkerLayer|DisplayMarkerLayer,
-        decorationParams: DecorationLayerOptions): LayerDecoration;
+    decorateMarkerLayer(
+        markerLayer: MarkerLayer | DisplayMarkerLayer,
+        decorationParams: DecorationLayerOptions
+    ): LayerDecoration;
 
     /** Get all decorations. */
     getDecorations(propertyFilter?: DecorationOptions): Decoration[];
@@ -1766,11 +1933,14 @@ export class TextEditor {
      *  a particular word, the marker will remain over that word even if the word's location
      *  in the buffer changes.
      */
-    markBufferRange(range: RangeCompatible, properties?: {
-        maintainHistory?: boolean,
-        reversed?: boolean,
-        invalidate?: "never"|"surround"|"overlap"|"inside"|"touch",
-    }): DisplayMarker;
+    markBufferRange(
+        range: RangeCompatible,
+        properties?: {
+            maintainHistory?: boolean;
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+        }
+    ): DisplayMarker;
 
     /**
      *  Create a marker on the default marker layer with the given range in screen coordinates.
@@ -1778,27 +1948,37 @@ export class TextEditor {
      *  a particular word, the marker will remain over that word even if the word's location in
      *  the buffer changes.
      */
-    markScreenRange(range: RangeCompatible, properties?: {
-        maintainHistory?: boolean, reversed?: boolean,
-        invalidate?: "never"|"surround"|"overlap"|"inside" |"touch",
-    }): DisplayMarker;
+    markScreenRange(
+        range: RangeCompatible,
+        properties?: {
+            maintainHistory?: boolean;
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+        }
+    ): DisplayMarker;
 
     /**
      *  Create a marker on the default marker layer with the given buffer position and no tail.
      *  To group multiple markers together in their own private layer, see ::addMarkerLayer.
      */
-    markBufferPosition(bufferPosition: PointCompatible, options?: {
-        invalidate?: "never"|"surround"|"overlap"|"inside"|"touch",
-    }): DisplayMarker;
+    markBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+        }
+    ): DisplayMarker;
 
     /**
      *  Create a marker on the default marker layer with the given screen position and no tail.
      *  To group multiple markers together in their own private layer, see ::addMarkerLayer.
      */
-    markScreenPosition(screenPosition: PointCompatible, options?: {
-        invalidate?: "never"|"surround"|"overlap"|"inside"|"touch",
-        clipDirection?: "backward"|"forward"|"closest",
-    }): DisplayMarker;
+    markScreenPosition(
+        screenPosition: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            clipDirection?: "backward" | "forward" | "closest";
+        }
+    ): DisplayMarker;
 
     /**
      *  Find all DisplayMarkers on the default marker layer that match the given properties.
@@ -1811,11 +1991,13 @@ export class TextEditor {
     findMarkers(properties: FindDisplayMarkerOptions): DisplayMarker[];
 
     /** Create a marker layer to group related markers. */
-    addMarkerLayer(options?: { maintainHistory?: boolean, persistent?: boolean }):
-        DisplayMarkerLayer;
+    addMarkerLayer(options?: {
+        maintainHistory?: boolean;
+        persistent?: boolean;
+    }): DisplayMarkerLayer;
 
     /** Get a DisplayMarkerLayer by id. */
-    getMarkerLayer(id: number): DisplayMarkerLayer|undefined;
+    getMarkerLayer(id: number): DisplayMarkerLayer | undefined;
 
     /**
      *  Get the default DisplayMarkerLayer.
@@ -1843,11 +2025,13 @@ export class TextEditor {
      *  Move the cursor to the given position in buffer coordinates.
      *  If there are multiple cursors, they will be consolidated to a single cursor.
      */
-    setCursorBufferPosition(position: PointCompatible, options?: { autoscroll?: boolean }):
-        void;
+    setCursorBufferPosition(
+        position: PointCompatible,
+        options?: { autoscroll?: boolean }
+    ): void;
 
     /** Get a Cursor at given screen coordinates Point. */
-    getCursorAtScreenPosition(position: PointCompatible): Cursor|undefined;
+    getCursorAtScreenPosition(position: PointCompatible): Cursor | undefined;
 
     /** Get the position of the most recently added cursor in screen coordinates. */
     getCursorScreenPosition(): Point;
@@ -1859,12 +2043,16 @@ export class TextEditor {
      *  Move the cursor to the given position in screen coordinates.
      *  If there are multiple cursors, they will be consolidated to a single cursor.
      */
-    setCursorScreenPosition(position: PointCompatible, options?: { autoscroll?: boolean }):
-        void;
+    setCursorScreenPosition(
+        position: PointCompatible,
+        options?: { autoscroll?: boolean }
+    ): void;
 
     /** Add a cursor at the given position in buffer coordinates. */
-    addCursorAtBufferPosition(bufferPosition: PointCompatible, options?:
-        { autoscroll?: boolean }): Cursor;
+    addCursorAtBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: { autoscroll?: boolean }
+    ): Cursor;
 
     /** Add a cursor at the position in screen coordinates. */
     addCursorAtScreenPosition(screenPosition: PointCompatible): Cursor;
@@ -1943,9 +2131,9 @@ export class TextEditor {
 
     /** Returns the word surrounding the most recently added cursor. */
     getWordUnderCursor(options?: {
-        wordRegex?: RegExp,
-        includeNonWordCharacters?: boolean,
-        allowPrevious?: boolean,
+        wordRegex?: RegExp;
+        includeNonWordCharacters?: boolean;
+        allowPrevious?: boolean;
     }): string;
 
     /** Get an Array of all Cursors. */
@@ -1974,15 +2162,19 @@ export class TextEditor {
      *  Set the selected range in buffer coordinates. If there are multiple selections,
      *  they are reduced to a single selection with the given range.
      */
-    setSelectedBufferRange(bufferRange: RangeCompatible, options?:
-        { reversed?: boolean, preserveFolds?: boolean}): void;
+    setSelectedBufferRange(
+        bufferRange: RangeCompatible,
+        options?: { reversed?: boolean; preserveFolds?: boolean }
+    ): void;
 
     /**
      *  Set the selected ranges in buffer coordinates. If there are multiple selections,
      *  they are replaced by new selections with the given ranges.
      */
-    setSelectedBufferRanges(bufferRanges: ReadonlyArray<RangeCompatible>, options?:
-        { reversed?: boolean, preserveFolds?: boolean}): void;
+    setSelectedBufferRanges(
+        bufferRanges: ReadonlyArray<RangeCompatible>,
+        options?: { reversed?: boolean; preserveFolds?: boolean }
+    ): void;
 
     /** Get the Range of the most recently added selection in screen coordinates. */
     getSelectedScreenRange(): Range;
@@ -1997,23 +2189,31 @@ export class TextEditor {
      *  Set the selected range in screen coordinates. If there are multiple selections,
      *  they are reduced to a single selection with the given range.
      */
-    setSelectedScreenRange(screenRange: RangeCompatible, options?: { reversed?: boolean }):
-        void;
+    setSelectedScreenRange(
+        screenRange: RangeCompatible,
+        options?: { reversed?: boolean }
+    ): void;
 
     /**
      *  Set the selected ranges in screen coordinates. If there are multiple selections,
      *  they are replaced by new selections with the given ranges.
      */
-    setSelectedScreenRanges(screenRanges: ReadonlyArray<RangeCompatible>, options?:
-        { reversed?: boolean }): void;
+    setSelectedScreenRanges(
+        screenRanges: ReadonlyArray<RangeCompatible>,
+        options?: { reversed?: boolean }
+    ): void;
 
     /** Add a selection for the given range in buffer coordinates. */
-    addSelectionForBufferRange(bufferRange: RangeCompatible, options?:
-        { reversed?: boolean, preserveFolds?: boolean }): Selection;
+    addSelectionForBufferRange(
+        bufferRange: RangeCompatible,
+        options?: { reversed?: boolean; preserveFolds?: boolean }
+    ): Selection;
 
     /** Add a selection for the given range in screen coordinates. */
-    addSelectionForScreenRange(screenRange: RangeCompatible, options?:
-        { reversed?: boolean, preserveFolds?: boolean }): Selection;
+    addSelectionForScreenRange(
+        screenRange: RangeCompatible,
+        options?: { reversed?: boolean; preserveFolds?: boolean }
+    ): Selection;
 
     /**
      *  Select from the current cursor position to the given position in buffer coordinates.
@@ -2174,7 +2374,7 @@ export class TextEditor {
     selectSmallerSyntaxNode(): void;
 
     /** Select the range of the given marker if it is valid. */
-    selectMarker(marker: DisplayMarker): Range|undefined;
+    selectMarker(marker: DisplayMarker): Range | undefined;
 
     /** Get the most recently added Selection. */
     getLastSelection(): Selection;
@@ -2201,8 +2401,11 @@ export class TextEditor {
      *
      *  ::scan functions as the replace method as well via the replace.
      */
-    scan(regex: RegExp, options: ScanContextOptions, iterator: (params:
-        ContextualBufferScanResult) => void): void;
+    scan(
+        regex: RegExp,
+        options: ScanContextOptions,
+        iterator: (params: ContextualBufferScanResult) => void
+    ): void;
     /**
      *  Scan regular expression matches in the entire buffer, calling the given
      *  iterator function on each match.
@@ -2215,15 +2418,21 @@ export class TextEditor {
      *  Scan regular expression matches in a given range, calling the given iterator.
      *  function on each match.
      */
-    scanInBufferRange(regex: RegExp, range: RangeCompatible, iterator:
-        (params: BufferScanResult) => void): void;
+    scanInBufferRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        iterator: (params: BufferScanResult) => void
+    ): void;
 
     /**
      *  Scan regular expression matches in a given range in reverse order, calling the
      *  given iterator function on each match.
      */
-    backwardsScanInBufferRange(regex: RegExp, range: RangeCompatible,
-        iterator: (params: BufferScanResult) => void): void;
+    backwardsScanInBufferRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        iterator: (params: BufferScanResult) => void
+    ): void;
 
     // Tab Behavior
     /** Returns a boolean indicating whether softTabs are enabled for this editor. */
@@ -2245,7 +2454,7 @@ export class TextEditor {
     setTabLength(tabLength: number): void;
 
     /** Determine if the buffer uses hard or soft tabs. */
-    usesSoftTabs(): boolean|undefined;
+    usesSoftTabs(): boolean | undefined;
 
     /**
      *  Get the text representing a single level of indent.
@@ -2283,8 +2492,11 @@ export class TextEditor {
      *  tabs are enabled and the tab length is 2, a row with 4 leading spaces would have an
      *  indentation level of 2.
      */
-    setIndentationForBufferRow(bufferRow: number, newLevel: number, options?:
-        { preserveLeadingWhitespace?: boolean }): void;
+    setIndentationForBufferRow(
+        bufferRow: number,
+        newLevel: number,
+        options?: { preserveLeadingWhitespace?: boolean }
+    ): void;
 
     /** Indent rows intersecting selections by one level. */
     indentSelectedRows(options?: ReadonlyEditOptions): void;
@@ -2315,7 +2527,9 @@ export class TextEditor {
     getRootScopeDescriptor(): ScopeDescriptor;
 
     /** Get the syntactic scopeDescriptor for the given position in buffer coordinates. */
-    scopeDescriptorForBufferPosition(bufferPosition: PointCompatible): ScopeDescriptor;
+    scopeDescriptorForBufferPosition(
+        bufferPosition: PointCompatible
+    ): ScopeDescriptor;
 
     /**
      *  Get the range in buffer coordinates of all tokens surrounding the cursor
@@ -2421,19 +2635,23 @@ export class TextEditor {
     getGutters(): Gutter[];
 
     /** Get the gutter with the given name. */
-    gutterWithName(name: string): Gutter|null;
+    gutterWithName(name: string): Gutter | null;
 
     // Scrolling the TextEditor
     /** Scroll the editor to reveal the most recently added cursor if it is off-screen. */
     scrollToCursorPosition(options?: { center?: boolean }): void;
 
     /** Scrolls the editor to the given buffer position. */
-    scrollToBufferPosition(bufferPosition: PointCompatible, options?: { center?: boolean }):
-        void;
+    scrollToBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: { center?: boolean }
+    ): void;
 
     /** Scrolls the editor to the given screen position. */
-    scrollToScreenPosition(screenPosition: PointCompatible, options?: { center?: boolean }):
-        void;
+    scrollToScreenPosition(
+        screenPosition: PointCompatible,
+        options?: { center?: boolean }
+    ): void;
 
     // TextEditor Rendering
     /** Retrieves the rendered line height in pixels. */
@@ -2452,7 +2670,9 @@ export class TextEditor {
     bufferRangeForScopeAtPosition(scope: string, point: PointCompatible): Range;
 
     /** Undocumented: Get syntax token at buffer position */
-    tokenForBufferPosition(pos: PointCompatible): {value: string, scopes: string[]};
+    tokenForBufferPosition(
+        pos: PointCompatible
+    ): { value: string; scopes: string[] };
 }
 
 export interface GutterOptions {
@@ -2477,7 +2697,7 @@ export interface GutterOptions {
      * Gutter::decorateMarker.
      * 'line-number' gutters.
      */
-    type?: 'decorated' | 'line-number';
+    type?: "decorated" | "line-number";
 
     /** String added to the CSS classnames of the gutter's root DOM element. */
     class?: string;
@@ -2532,57 +2752,61 @@ export interface PixelPosition {
  *  Undocumented: Rendering component for TextEditor
  */
 export interface TextEditorComponent {
-  /** Does not clip screenPosition, unlike similar method on TextEditorElement */
-  pixelPositionForScreenPosition(screenPosition: PointLike): PixelPosition;
-  screenPositionForPixelPosition(pos: PixelPosition): Point;
-  pixelPositionForMouseEvent(event: {
-    clientX: number, clientY: number
-  }): PixelPosition;
-  screenPositionForMouseEvent(event: {clientX: number, clientY: number}): Point;
+    /** Does not clip screenPosition, unlike similar method on TextEditorElement */
+    pixelPositionForScreenPosition(screenPosition: PointLike): PixelPosition;
+    screenPositionForPixelPosition(pos: PixelPosition): Point;
+    pixelPositionForMouseEvent(event: {
+        clientX: number;
+        clientY: number;
+    }): PixelPosition;
+    screenPositionForMouseEvent(event: {
+        clientX: number;
+        clientY: number;
+    }): Point;
 }
 
 /**
  *  Undocumented: Custom HTML elemnent for TextEditor, atom-text-editor
  */
 export interface TextEditorElement extends HTMLElement {
-  getModel(): TextEditor;
-  getComponent(): TextEditorComponent;
-  /**
-   * Extended: Get a promise that resolves the next time the element's
-   * DOM is updated in any way.
-   */
-  getNextUpdatePromise(): Promise<void>;
+    getModel(): TextEditor;
+    getComponent(): TextEditorComponent;
+    /**
+     * Extended: Get a promise that resolves the next time the element's
+     * DOM is updated in any way.
+     */
+    getNextUpdatePromise(): Promise<void>;
 
-  /** Extended: get the width of an `x` character displayed in this element. */
-  getBaseCharacterWidth(): number;
+    /** Extended: get the width of an `x` character displayed in this element. */
+    getBaseCharacterWidth(): number;
 
-  /** Essential: Scrolls the editor to the top. */
-  scrollToTop(): void;
+    /** Essential: Scrolls the editor to the top. */
+    scrollToTop(): void;
 
-  /** Essential: Scrolls the editor to the bottom. */
-  scrollToBottom(): void;
+    /** Essential: Scrolls the editor to the bottom. */
+    scrollToBottom(): void;
 
-  setScrollTop(scrollTop: number): void;
-  getScrollTop(): number;
+    setScrollTop(scrollTop: number): void;
+    getScrollTop(): number;
 
-  setScrollLeft(scrollLeft: number): void;
-  getScrollLeft(): number;
+    setScrollLeft(scrollLeft: number): void;
+    getScrollLeft(): number;
 
-  getScrollHeight(): number;
+    getScrollHeight(): number;
 
-  /** Extended: Converts a buffer position to a pixel position. */
-  pixelPositionForBufferPosition(bufferPosition: PointLike): PixelPosition;
+    /** Extended: Converts a buffer position to a pixel position. */
+    pixelPositionForBufferPosition(bufferPosition: PointLike): PixelPosition;
 
-  /** Extended: Converts a screen position to a pixel position. */
-  pixelPositionForScreenPosition(screenPosition: PointLike): PixelPosition;
+    /** Extended: Converts a screen position to a pixel position. */
+    pixelPositionForScreenPosition(screenPosition: PointLike): PixelPosition;
 
-  // Event subscription
-  onDidChangeScrollTop(callback: (scrollTop: number) => void): Disposable;
-  onDidChangeScrollLeft(callback: (scrollLeft: number) => void): Disposable;
-  /** Called when the editor is attached to the DOM. */
-  onDidAttach(callback: () => void): Disposable;
-  /** Called when the editor is detached from the DOM. */
-  onDidDetach(callback: () => void): Disposable;
+    // Event subscription
+    onDidChangeScrollTop(callback: (scrollTop: number) => void): Disposable;
+    onDidChangeScrollLeft(callback: (scrollLeft: number) => void): Disposable;
+    /** Called when the editor is attached to the DOM. */
+    onDidAttach(callback: () => void): Disposable;
+    /** Called when the editor is detached from the DOM. */
+    onDidDetach(callback: () => void): Disposable;
 }
 
 /** Experimental: This global registry tracks registered TextEditors. */
@@ -2617,7 +2841,7 @@ export interface TextEditorRegistry {
      *  Retrieve the grammar scope name that has been set as a grammar override
      *  for the given TextEditor.
      */
-    getGrammarOverride(editor: TextEditor): string|null;
+    getGrammarOverride(editor: TextEditor): string | null;
 
     /** Remove any grammar override that has been set for the given TextEditor. */
     clearGrammarOverride(editor: TextEditor): void;
@@ -2628,25 +2852,37 @@ export interface TextEditorRegistry {
 }
 
 export type TooltipPlacement =
-    |"top"|"bottom"|"left"|"right"
-    |"auto"|"auto top"|"auto bottom"|"auto left"|"auto right";
+    | "top"
+    | "bottom"
+    | "left"
+    | "right"
+    | "auto"
+    | "auto top"
+    | "auto bottom"
+    | "auto left"
+    | "auto right";
 
 /** Associates tooltips with HTML elements or selectors. */
 export interface TooltipManager {
     /** Add a tooltip to the given element. */
-    add(target: HTMLElement | JQueryCompatible, options: {
-        item?: object,
-    } | {
-        title?: string|(() => string),
-        html?: boolean,
-        keyBindingCommand?: string,
-        keyBindingTarget?: HTMLElement
-    } & {
-        class?: string;
-        placement?: TooltipPlacement|(() => TooltipPlacement),
-        trigger?: "click"|"hover"|"focus"|"manual",
-        delay?: { show: number, hide: number }
-    }): Disposable;
+    add(
+        target: HTMLElement | JQueryCompatible,
+        options:
+            | {
+                  item?: object;
+              }
+            | {
+                  title?: string | (() => string);
+                  html?: boolean;
+                  keyBindingCommand?: string;
+                  keyBindingTarget?: HTMLElement;
+              } & {
+                  class?: string;
+                  placement?: TooltipPlacement | (() => TooltipPlacement);
+                  trigger?: "click" | "hover" | "focus" | "manual";
+                  delay?: { show: number; hide: number };
+              }
+    ): Disposable;
 
     /** Find the tooltips that have been applied to the given element. */
     findTooltips(target: HTMLElement): Tooltip[];
@@ -2663,14 +2899,18 @@ export interface ViewRegistry {
      *  Add a provider that will be used to construct views in the workspace's view
      *  layer based on model objects in its model layer.
      */
-    addViewProvider(createView: (model: object) => HTMLElement|undefined): Disposable;
+    addViewProvider(
+        createView: (model: object) => HTMLElement | undefined
+    ): Disposable;
     /**
      *  Add a provider that will be used to construct views in the workspace's view
      *  layer based on model objects in its model layer.
      */
     // tslint:disable-next-line:no-any
-    addViewProvider<T>(modelConstructor: { new (...args: any[]): T }, createView:
-        (instance: T) => HTMLElement|undefined): Disposable;
+    addViewProvider<T>(
+        modelConstructor: { new (...args: any[]): T },
+        createView: (instance: T) => HTMLElement | undefined
+    ): Disposable;
 
     /** Get the view associated with an object in the workspace. */
     getView(obj: TextEditor): TextEditorElement;
@@ -2696,13 +2936,17 @@ export interface Workspace {
     onDidChangeActivePaneItem(callback: (item: object) => void): Disposable;
 
     /** Invoke the given callback when the active pane item stops changing. */
-    onDidStopChangingActivePaneItem(callback: (item: object) => void): Disposable;
+    onDidStopChangingActivePaneItem(
+        callback: (item: object) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when a text editor becomes the active text editor and
      *  when there is no longer an active text editor.
      */
-    onDidChangeActiveTextEditor(callback: (editor?: TextEditor) => void): Disposable;
+    onDidChangeActiveTextEditor(
+        callback: (editor?: TextEditor) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback with the current active pane item and with all
@@ -2714,7 +2958,9 @@ export interface Workspace {
      *  Invoke the given callback with the current active text editor (if any), with all
      *  future active text editors, and when there is no longer an active text editor.
      */
-    observeActiveTextEditor(callback: (editor?: TextEditor) => void): Disposable;
+    observeActiveTextEditor(
+        callback: (editor?: TextEditor) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback whenever an item is opened. Unlike ::onDidAddPaneItem,
@@ -2745,7 +2991,9 @@ export interface Workspace {
     observeActivePane(callback: (pane: Pane) => void): Disposable;
 
     /** Invoke the given callback when a pane item is added to the workspace. */
-    onDidAddPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidAddPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when a pane item is about to be destroyed,
@@ -2754,14 +3002,19 @@ export interface Workspace {
      *      If this function returns a Promise, then the item will not be destroyed
      *      until the promise resolves.
      */
-    onWillDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void|Promise<void>):
-        Disposable;
+    onWillDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void | Promise<void>
+    ): Disposable;
 
     /** Invoke the given callback when a pane item is destroyed. */
-    onDidDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when a text editor is added to the workspace. */
-    onDidAddTextEditor(callback: (event: TextEditorObservedEvent) => void): Disposable;
+    onDidAddTextEditor(
+        callback: (event: TextEditorObservedEvent) => void
+    ): Disposable;
 
     // Opening
     /**
@@ -2775,8 +3028,10 @@ export interface Workspace {
      *  the existing item will be activated. If no item is given, a new empty TextEditor
      *  will be created.
      */
-    open<T extends ViewModel = ViewModel>(item: T, options?: WorkspaceOpenOptions):
-        Promise<T>;
+    open<T extends ViewModel = ViewModel>(
+        item: T,
+        options?: WorkspaceOpenOptions
+    ): Promise<T>;
     /**
      *  Opens the given URI in Atom asynchronously. If the URI is already open,
      *  the existing item for that URI will be activated. If no URI is given, or
@@ -2788,21 +3043,21 @@ export interface Workspace {
      *  Search the workspace for items matching the given URI and hide them.
      *  Returns a boolean indicating whether any items were found (and hidden).
      */
-    hide(itemOrURI: object|string): boolean;
+    hide(itemOrURI: object | string): boolean;
 
     /**
      *  Search the workspace for items matching the given URI. If any are found,
      *  hide them. Otherwise, open the URL.
      *  Returns a Promise that resolves when the item is shown or hidden.
      */
-    toggle(itemOrURI: object|string): Promise<void>;
+    toggle(itemOrURI: object | string): Promise<void>;
 
     /**
      *  Creates a new item that corresponds to the provided URI.
      *  If no URI is given, or no registered opener can open the URI, a new empty TextEditor
      *  will be created.
      */
-    createItemForURI(uri: string): Promise<object|TextEditor>;
+    createItemForURI(uri: string): Promise<object | TextEditor>;
 
     /** Returns a boolean that is true if object is a TextEditor. */
     isTextEditor(object: object): object is TextEditor;
@@ -2811,11 +3066,15 @@ export interface Workspace {
      *  Asynchronously reopens the last-closed item's URI if it hasn't already
      *  been reopened.
      */
-    reopenItem(): Promise<object|undefined>;
+    reopenItem(): Promise<object | undefined>;
 
     /** Register an opener for a URI. */
-    addOpener(opener: (uri: string, options?: WorkspaceOpenOptions) =>
-        ViewModel|undefined): Disposable;
+    addOpener(
+        opener: (
+            uri: string,
+            options?: WorkspaceOpenOptions
+        ) => ViewModel | undefined
+    ): Disposable;
 
     /** Create a new text editor. */
     buildTextEditor(params: object): TextEditor;
@@ -2831,11 +3090,11 @@ export interface Workspace {
     getTextEditors(): TextEditor[];
 
     /** Get the workspace center's active item if it is a TextEditor. */
-    getActiveTextEditor(): TextEditor|undefined;
+    getActiveTextEditor(): TextEditor | undefined;
 
     // Panes
     /** Get the most recently focused pane container. */
-    getActivePaneContainer(): Dock|WorkspaceCenter;
+    getActivePaneContainer(): Dock | WorkspaceCenter;
 
     /** Get all panes in the workspace. */
     getPanes(): Pane[];
@@ -2850,16 +3109,16 @@ export interface Workspace {
     activatePreviousPane(): boolean;
 
     /** Get the first pane container that contains an item with the given URI. */
-    paneContainerForURI(uri: string): Dock|WorkspaceCenter|undefined;
+    paneContainerForURI(uri: string): Dock | WorkspaceCenter | undefined;
 
     /** Get the first pane container that contains the given item. */
-    paneContainerForItem(item: object): Dock|WorkspaceCenter|undefined;
+    paneContainerForItem(item: object): Dock | WorkspaceCenter | undefined;
 
     /** Get the first Pane with an item for the given URI. */
-    paneForURI(uri: string): Pane|undefined;
+    paneForURI(uri: string): Pane | undefined;
 
     /** Get the Pane containing the given item. */
-    paneForItem(item: object): Pane|undefined;
+    paneForItem(item: object): Pane | undefined;
 
     // Pane Locations
     /** Get the WorkspaceCenter at the center of the editor window. */
@@ -2883,9 +3142,9 @@ export interface Workspace {
 
     /** Adds a panel item to the bottom of the editor window. */
     addBottomPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the panel items to the left of the editor window. */
@@ -2893,9 +3152,9 @@ export interface Workspace {
 
     /** Adds a panel item to the left of the editor window. */
     addLeftPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the panel items to the right of the editor window. */
@@ -2903,9 +3162,9 @@ export interface Workspace {
 
     /** Adds a panel item to the right of the editor window. */
     addRightPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the panel items at the top of the editor window. */
@@ -2913,9 +3172,9 @@ export interface Workspace {
 
     /** Adds a panel item to the top of the editor window above the tabs. */
     addTopPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the panel items in the header. */
@@ -2923,9 +3182,9 @@ export interface Workspace {
 
     /** Adds a panel item to the header. */
     addHeaderPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the panel items in the footer. */
@@ -2933,9 +3192,9 @@ export interface Workspace {
 
     /** Adds a panel item to the footer. */
     addFooterPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
+        item: T;
+        visible?: boolean;
+        priority?: number;
     }): Panel<T>;
 
     /** Get an Array of all the modal panel items. */
@@ -2943,30 +3202,41 @@ export interface Workspace {
 
     /** Adds a panel item as a modal dialog. */
     addModalPanel<T>(options: {
-        item: T,
-        visible?: boolean,
-        priority?: number,
-        autoFocus?: boolean,
+        item: T;
+        visible?: boolean;
+        priority?: number;
+        autoFocus?: boolean;
     }): Panel<T>;
 
     /**
      *  Returns the Panel associated with the given item or null when the item
      *  has no panel.
      */
-    panelForItem<T>(item: T): Panel<T>|null;
+    panelForItem<T>(item: T): Panel<T> | null;
 
     // Searching and Replacing
     /** Performs a search across all files in the workspace. */
-    scan(regex: RegExp, iterator: (result: ScandalResult) => void):
-        CancellablePromise<string|null>;
+    scan(
+        regex: RegExp,
+        iterator: (result: ScandalResult) => void
+    ): CancellablePromise<string | null>;
     /** Performs a search across all files in the workspace. */
-    scan(regex: RegExp, options: WorkspaceScanOptions, iterator:
-        (result: ScandalResult) => void): CancellablePromise<string|null>;
+    scan(
+        regex: RegExp,
+        options: WorkspaceScanOptions,
+        iterator: (result: ScandalResult) => void
+    ): CancellablePromise<string | null>;
 
     /** Performs a replace across all the specified files in the project. */
-    replace(regex: RegExp, replacementText: string, filePaths: ReadonlyArray<string>,
-        iterator: (result: { filePath: string|undefined, replacements: number }) => void):
-        Promise<void>;
+    replace(
+        regex: RegExp,
+        replacementText: string,
+        filePaths: ReadonlyArray<string>,
+        iterator: (result: {
+            filePath: string | undefined;
+            replacements: number;
+        }) => void
+    ): Promise<void>;
 }
 
 // https://github.com/atom/atom/blob/master/src/workspace-center.js
@@ -2989,7 +3259,9 @@ export interface WorkspaceCenter {
     onDidChangeActivePaneItem(callback: (item: object) => void): Disposable;
 
     /** Invoke the given callback when the active pane item stops changing. */
-    onDidStopChangingActivePaneItem(callback: (item: object) => void): Disposable;
+    onDidStopChangingActivePaneItem(
+        callback: (item: object) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback with the current active pane item and with all future
@@ -3019,7 +3291,9 @@ export interface WorkspaceCenter {
     observeActivePane(callback: (pane: Pane) => void): Disposable;
 
     /** Invoke the given callback when a pane item is added to the workspace center. */
-    onDidAddPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidAddPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when a pane item is about to be destroyed, before the user
@@ -3028,27 +3302,32 @@ export interface WorkspaceCenter {
      *      If this function returns a Promise, then the item will not be destroyed
      *      until the promise resolves.
      */
-    onWillDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void|Promise<void>):
-        Disposable;
+    onWillDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void | Promise<void>
+    ): Disposable;
 
     /** Invoke the given callback when a pane item is destroyed. */
-    onDidDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when a text editor is added to the workspace center. */
-    onDidAddTextEditor(callback: (event: TextEditorObservedEvent) => void): Disposable;
+    onDidAddTextEditor(
+        callback: (event: TextEditorObservedEvent) => void
+    ): Disposable;
 
     // Pane Items
     /** Get all pane items in the workspace center. */
     getPaneItems(): object[];
 
     /** Get the active Pane's active item. */
-    getActivePaneItem(): object|undefined;
+    getActivePaneItem(): object | undefined;
 
     /** Get all text editors in the workspace center. */
     getTextEditors(): TextEditor[];
 
     /** Get the active item if it is an TextEditor. */
-    getActiveTextEditor(): TextEditor|undefined;
+    getActiveTextEditor(): TextEditor | undefined;
 
     /** Save all pane items. */
     saveAll(): void;
@@ -3067,10 +3346,10 @@ export interface WorkspaceCenter {
     activatePreviousPane(): void;
 
     /** Retrieve the Pane associated with the given URI. */
-    paneForURI(uri: string): Pane|undefined;
+    paneForURI(uri: string): Pane | undefined;
 
     /** Retrieve the Pane associated with the given item. */
-    paneForItem(item: object): Pane|undefined;
+    paneForItem(item: object): Pane | undefined;
 
     /** Destroy (close) the active pane. */
     destroyActivePane(): void;
@@ -3094,8 +3373,9 @@ export class BufferedProcess {
      *  call handle() on the object passed to your callback to indicate that you
      *  have handled this error.
      */
-    onWillThrowError(callback: (errorObject: HandleableErrorEvent) =>
-        void): Disposable;
+    onWillThrowError(
+        callback: (errorObject: HandleableErrorEvent) => void
+    ): Disposable;
 
     // Helper Methods
     /** Terminate the process. */
@@ -3126,13 +3406,15 @@ export interface Clipboard {
      *  Read the text from the clipboard and return both the text and the associated
      *  metadata.
      */
-    readWithMetadata(): { text: string, metadata: object };
+    readWithMetadata(): { text: string; metadata: object };
 }
 
 /** Provides a registry for commands that you'd like to appear in the context menu. */
 export interface ContextMenuManager {
     /** Add context menu items scoped by CSS selectors. */
-    add(itemsBySelector: { [key: string]: ReadonlyArray<ContextMenuOptions> }): Disposable;
+    add(itemsBySelector: {
+        [key: string]: ReadonlyArray<ContextMenuOptions>;
+    }): Disposable;
 }
 
 /**
@@ -3142,7 +3424,9 @@ export interface ContextMenuManager {
 export interface Cursor {
     // Event Subscription
     /** Calls your callback when the cursor has been moved. */
-    onDidChangePosition(callback: (event: CursorPositionChangedEvent) => void): Disposable;
+    onDidChangePosition(
+        callback: (event: CursorPositionChangedEvent) => void
+    ): Disposable;
 
     /** Calls your callback when the cursor is destroyed. */
     onDidDestroy(callback: () => void): Disposable;
@@ -3152,15 +3436,19 @@ export interface Cursor {
 
     // Managing Cursor Position
     /** Moves a cursor to a given screen position. */
-    setScreenPosition(screenPosition: PointCompatible, options?: { autoscroll?: boolean }):
-        void;
+    setScreenPosition(
+        screenPosition: PointCompatible,
+        options?: { autoscroll?: boolean }
+    ): void;
 
     /** Returns the screen position of the cursor as a Point. */
     getScreenPosition(): Point;
 
     /** Moves a cursor to a given buffer position. */
-    setBufferPosition(bufferPosition: PointCompatible, options?: { autoscroll?: boolean }):
-        void;
+    setBufferPosition(
+        bufferPosition: PointCompatible,
+        options?: { autoscroll?: boolean }
+    ): void;
 
     /** Returns the current buffer position as an Array. */
     getBufferPosition(): Point;
@@ -3226,16 +3514,28 @@ export interface Cursor {
 
     // Moving the Cursor
     /** Moves the cursor up one screen row. */
-    moveUp(rowCount?: number, options?: { moveToEndOfSelection?: boolean }): void;
+    moveUp(
+        rowCount?: number,
+        options?: { moveToEndOfSelection?: boolean }
+    ): void;
 
     /** Moves the cursor down one screen row. */
-    moveDown(rowCount?: number, options?: { moveToEndOfSelection?: boolean }): void;
+    moveDown(
+        rowCount?: number,
+        options?: { moveToEndOfSelection?: boolean }
+    ): void;
 
     /** Moves the cursor left one screen column. */
-    moveLeft(columnCount?: number, options?: { moveToEndOfSelection?: boolean }): void;
+    moveLeft(
+        columnCount?: number,
+        options?: { moveToEndOfSelection?: boolean }
+    ): void;
 
     /** Moves the cursor right one screen column. */
-    moveRight(columnCount?: number, options?: { moveToEndOfSelection?: boolean }): void;
+    moveRight(
+        columnCount?: number,
+        options?: { moveToEndOfSelection?: boolean }
+    ): void;
 
     /** Moves the cursor to the top of the buffer. */
     moveToTop(): void;
@@ -3293,7 +3593,9 @@ export interface Cursor {
      *  Returns buffer position of previous word boundary. It might be on the current
      *  word, or the previous word.
      */
-    getPreviousWordBoundaryBufferPosition(options?: { wordRegex?: RegExp }): Point;
+    getPreviousWordBoundaryBufferPosition(options?: {
+        wordRegex?: RegExp;
+    }): Point;
 
     /**
      *  Returns buffer position of the next word boundary. It might be on the current
@@ -3303,19 +3605,21 @@ export interface Cursor {
 
     /** Retrieves the buffer position of where the current word starts. */
     getBeginningOfCurrentWordBufferPosition(options?: {
-        wordRegex?: RegExp,
-        includeNonWordCharacters?: boolean,
-        allowPrevious?: boolean
+        wordRegex?: RegExp;
+        includeNonWordCharacters?: boolean;
+        allowPrevious?: boolean;
     }): Point;
 
     /** Retrieves the buffer position of where the current word ends. */
     getEndOfCurrentWordBufferPosition(options?: {
-        wordRegex?: RegExp,
-        includeNonWordCharacters?: boolean
+        wordRegex?: RegExp;
+        includeNonWordCharacters?: boolean;
     }): Point;
 
     /** Retrieves the buffer position of where the next word starts. */
-    getBeginningOfNextWordBufferPosition(options?: { wordRegex?: RegExp }): Point;
+    getBeginningOfNextWordBufferPosition(options?: {
+        wordRegex?: RegExp;
+    }): Point;
 
     /** Returns the buffer Range occupied by the word located under the cursor. */
     getCurrentWordBufferRange(options?: { wordRegex?: RegExp }): Range;
@@ -3366,7 +3670,7 @@ export interface DeserializerManager {
     add(...deserializers: Deserializer[]): Disposable;
 
     /** Deserialize the state and params. */
-    deserialize(state: object): object|undefined;
+    deserialize(state: object): object | undefined;
 }
 
 /** Represents a directory on disk that can be watched for changes. */
@@ -3446,10 +3750,15 @@ export class Directory {
     getSubdirectory(dirname: string): Directory;
 
     /** Reads file entries in this directory from disk synchronously. */
-    getEntriesSync(): Array<File|Directory>;
+    getEntriesSync(): Array<File | Directory>;
 
     /** Reads file entries in this directory from disk asynchronously. */
-    getEntries(callback: (error: Error|null, entries: Array<File|Directory>) => void): void;
+    getEntries(
+        callback: (
+            error: Error | null,
+            entries: Array<File | Directory>
+        ) => void
+    ): void;
 
     /**
      *  Determines if the given path (real or symbolic) is inside this directory. This
@@ -3506,7 +3815,9 @@ export interface Dock {
     onDidChangeActivePaneItem(callback: (item: object) => void): Disposable;
 
     /** Invoke the given callback when the active pane item stops changing. */
-    onDidStopChangingActivePaneItem(callback: (item: object) => void): Disposable;
+    onDidStopChangingActivePaneItem(
+        callback: (item: object) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback with the current active pane item and with all future
@@ -3536,7 +3847,9 @@ export interface Dock {
     observeActivePane(callback: (pane: Pane) => void): Disposable;
 
     /** Invoke the given callback when a pane item is added to the dock. */
-    onDidAddPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidAddPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when a pane item is about to be destroyed, before the user is
@@ -3545,11 +3858,14 @@ export interface Dock {
      *      If this function returns a Promise, then the item will not be destroyed
      *      until the promise resolves.
      */
-    onWillDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void|Promise<void>):
-        Disposable;
+    onWillDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void | Promise<void>
+    ): Disposable;
 
     /** Invoke the given callback when a pane item is destroyed. */
-    onDidDestroyPaneItem(callback: (event: PaneItemObservedEvent) => void): Disposable;
+    onDidDestroyPaneItem(
+        callback: (event: PaneItemObservedEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when the hovered state of the dock changes.
@@ -3605,8 +3921,9 @@ export class File {
      *  your callback has been invoked, the file will have unsubscribed from the
      *  file watches.
      */
-    onWillThrowWatchError(callback: (event: PathWatchErrorThrownEvent) =>
-        void): Disposable;
+    onWillThrowWatchError(
+        callback: (event: PathWatchErrorThrownEvent) => void
+    ): Disposable;
 
     // File Metadata
     /** Returns a boolean, always true. */
@@ -3680,10 +3997,19 @@ export class File {
 export class GitRepository {
     // Construction
     /** Creates a new GitRepository instance. */
-    static open(path: string, options?: { refreshOnWindowFocus?: boolean }): GitRepository;
+    static open(
+        path: string,
+        options?: { refreshOnWindowFocus?: boolean }
+    ): GitRepository;
 
-    constructor(path: string, options?: { refreshOnWindowFocus?: boolean, config?: Config,
-        project?: Project });
+    constructor(
+        path: string,
+        options?: {
+            refreshOnWindowFocus?: boolean;
+            config?: Config;
+            project?: Project;
+        }
+    );
 
     // Lifecycle
     /** Destroy this GitRepository object. */
@@ -3703,7 +4029,9 @@ export class GitRepository {
      *  Invoke the given callback when a specific file's status has changed. When
      *  a file is updated, reloaded, etc, and the status changes, this will be fired.
      */
-    onDidChangeStatus(callback: (event: RepoStatusChangedEvent) => void): Disposable;
+    onDidChangeStatus(
+        callback: (event: RepoStatusChangedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when a multiple files' statuses have changed. */
     onDidChangeStatuses(callback: () => void): Disposable;
@@ -3742,13 +4070,18 @@ export class GitRepository {
      *  @return Returns the number of commits behind the current branch is from its
      *  upstream remote branch.
      */
-    getAheadBehindCount(reference: string, path?: string): { ahead: number, behind: number };
+    getAheadBehindCount(
+        reference: string,
+        path?: string
+    ): { ahead: number; behind: number };
 
     /**
      *  Get the cached ahead/behind commit counts for the current branch's
      *  upstream branch.
      */
-    getCachedUpstreamAheadBehindCount(path?: string): { ahead: number, behind: number };
+    getCachedUpstreamAheadBehindCount(
+        path?: string
+    ): { ahead: number; behind: number };
 
     /** Returns the git configuration value specified by the key. */
     getConfigValue(key: string, path?: string): string;
@@ -3760,10 +4093,12 @@ export class GitRepository {
      *  Returns the upstream branch for the current HEAD, or null if there is no
      *  upstream branch for the current HEAD.
      */
-    getUpstreamBranch(path?: string): string|null;
+    getUpstreamBranch(path?: string): string | null;
 
     /** Gets all the local and remote references. */
-    getReferences(path?: string): { heads: string[], remotes: string[], tags: string[] };
+    getReferences(
+        path?: string
+    ): { heads: string[]; remotes: string[]; tags: string[] };
 
     /** Returns the current string SHA for the given reference. */
     getReferenceTarget(reference: string, path?: string): string;
@@ -3785,7 +4120,7 @@ export class GitRepository {
     getPathStatus(path: string): number;
 
     /** Get the cached status for the given path. */
-    getCachedPathStatus(path: string): number|null;
+    getCachedPathStatus(path: string): number | null;
 
     /** Returns true if the given status indicates modification. */
     isStatusModified(status: number): boolean;
@@ -3798,14 +4133,21 @@ export class GitRepository {
      *  Retrieves the number of lines added and removed to a path.
      *  This compares the working directory contents of the path to the HEAD version.
      */
-    getDiffStats(path: string): { added: number, deleted: number };
+    getDiffStats(path: string): { added: number; deleted: number };
 
     /**
      *  Retrieves the line diffs comparing the HEAD version of the given path
      *  and the given text.
      */
-    getLineDiffs(path: string, text: string): Array<{ oldStart: number,
-        newStart: number, oldLines: number, newLines: number }>;
+    getLineDiffs(
+        path: string,
+        text: string
+    ): Array<{
+        oldStart: number;
+        newStart: number;
+        oldLines: number;
+        newLines: number;
+    }>;
 
     // Checking Out
     /**
@@ -3846,7 +4188,11 @@ export interface Grammar {
      *  in the file which defaults to `false`.
      *  @return An object representing the result of the tokenize.
      */
-    tokenizeLine(line: string, ruleStack?: null, firstLine?: boolean): TokenizeLineResult;
+    tokenizeLine(
+        line: string,
+        ruleStack?: null,
+        firstLine?: boolean
+    ): TokenizeLineResult;
     /**
      *  Tokenizes the line of text.
      *  @param line A string of text to tokenize.
@@ -3856,8 +4202,11 @@ export interface Grammar {
      *  in the file which defaults to `false`.
      *  @return An object representing the result of the tokenize.
      */
-    tokenizeLine(line: string, ruleStack: GrammarRule[], firstLine?: false):
-        TokenizeLineResult;
+    tokenizeLine(
+        line: string,
+        ruleStack: GrammarRule[],
+        firstLine?: false
+    ): TokenizeLineResult;
 }
 
 /** Registry containing one or more grammars. */
@@ -3897,7 +4246,7 @@ export interface GrammarRegistry {
      *  @param scopeName A string such as `source.js`.
      *  @return A Grammar or undefined.
      */
-    grammarForScopeName(scopeName: string): Grammar|undefined;
+    grammarForScopeName(scopeName: string): Grammar | undefined;
 
     /**
      *  Add a grammar to this registry.
@@ -3921,7 +4270,7 @@ export interface GrammarRegistry {
      *  @param scopeName A string such as `source.js`.
      *  @return Returns the removed Grammar or undefined.
      */
-    removeGrammarForScopeName(scopeName: string): Grammar|undefined;
+    removeGrammarForScopeName(scopeName: string): Grammar | undefined;
 
     /**
      *  Read a grammar synchronously but don't add it to the registry.
@@ -3935,8 +4284,10 @@ export interface GrammarRegistry {
      *  @param grammarPath The absolute file path to the grammar.
      *  @param callback The function to be invoked once the Grammar has been read in.
      */
-    readGrammar(grammarPath: string, callback: (error: Error|null, grammar?: Grammar) =>
-        void): void;
+    readGrammar(
+        grammarPath: string,
+        callback: (error: Error | null, grammar?: Grammar) => void
+    ): void;
 
     /**
      *  Read a grammar synchronously and add it to this registry.
@@ -3951,8 +4302,10 @@ export interface GrammarRegistry {
      *  @param callback The function to be invoked once the Grammar has been read in
      *  and added to the registry.
      */
-    loadGrammar(grammarPath: string, callback: (error: Error|null, grammar?: Grammar) =>
-        void): void;
+    loadGrammar(
+        grammarPath: string,
+        callback: (error: Error | null, grammar?: Grammar) => void
+    ): void;
 
     /**
      *  Convert compact tags representation into convenient, space-inefficient tokens.
@@ -3960,7 +4313,10 @@ export interface GrammarRegistry {
      *  @param tags The tags returned from a call to Grammar::tokenizeLine().
      *  @return An array of Token instances decoded from the given tags.
      */
-    decodeTokens(lineText: string, tags: Array<number|string>): GrammarToken[];
+    decodeTokens(
+        lineText: string,
+        tags: Array<number | string>
+    ): GrammarToken[];
 
     /**
      *  Set a TextBuffer's language mode based on its path and content, and continue
@@ -4005,7 +4361,11 @@ export interface GrammarRegistry {
      *  @param filePath A string file path.
      *  @param contents A string of text for that file path.
      */
-    getGrammarScore(grammar: Grammar, filePath: string, contents: string): number;
+    getGrammarScore(
+        grammar: Grammar,
+        filePath: string,
+        contents: string
+    ): number;
 }
 
 /** Represents a gutter within a TextEditor. */
@@ -4036,7 +4396,10 @@ export interface Gutter {
      *  invalidated, or is destroyed, the decoration will be updated to reflect
      *  the marker's state.
      */
-    decorateMarker(marker: DisplayMarker, decorationParams: DecorationOptions): Decoration;
+    decorateMarker(
+        marker: DisplayMarker,
+        decorationParams: DecorationOptions
+    ): Decoration;
 }
 
 /**
@@ -4056,7 +4419,9 @@ export interface HistoryManager {
     clearProjects(): void;
 
     /** Invoke the given callback when the list of projects changes. */
-    onDidChangeProjects(callback: (args: { reloaded: boolean }) => void): Disposable;
+    onDidChangeProjects(
+        callback: (args: { reloaded: boolean }) => void
+    ): Disposable;
 }
 
 /**
@@ -4072,15 +4437,19 @@ export interface KeymapManager {
 
     // Event Subscription
     /** Invoke the given callback when one or more keystrokes completely match a key binding. */
-    onDidMatchBinding(callback: (event: FullKeybindingMatchEvent) => void): Disposable;
+    onDidMatchBinding(
+        callback: (event: FullKeybindingMatchEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when one or more keystrokes partially match a binding. */
-    onDidPartiallyMatchBindings(callback: (event: PartialKeybindingMatchEvent) =>
-        void): Disposable;
+    onDidPartiallyMatchBindings(
+        callback: (event: PartialKeybindingMatchEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when one or more keystrokes fail to match any bindings. */
-    onDidFailToMatchBinding(callback: (event: FailedKeybindingMatchEvent) =>
-        void): Disposable;
+    onDidFailToMatchBinding(
+        callback: (event: FailedKeybindingMatchEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when a keymap file is reloaded. */
     onDidReloadKeymap(callback: (event: KeymapLoadedEvent) => void): Disposable;
@@ -4089,16 +4458,24 @@ export interface KeymapManager {
     onDidUnloadKeymap(callback: (event: KeymapLoadedEvent) => void): Disposable;
 
     /** Invoke the given callback when a keymap file not able to be loaded. */
-    onDidFailToReadFile(callback: (error: FailedKeymapFileReadEvent) => void): Disposable;
+    onDidFailToReadFile(
+        callback: (error: FailedKeymapFileReadEvent) => void
+    ): Disposable;
 
     // Adding and Removing Bindings
     /** Construct KeyBindings from an object grouping them by CSS selector. */
-    build(source: string, bindings: { [key: string]: { [key: string]: string }},
-        priority?: number): KeyBinding[];
+    build(
+        source: string,
+        bindings: { [key: string]: { [key: string]: string } },
+        priority?: number
+    ): KeyBinding[];
 
     /** Add sets of key bindings grouped by CSS selector. */
-    add(source: string, bindings: { [key: string]: { [key: string]: string }},
-        priority?: number): Disposable;
+    add(
+        source: string,
+        bindings: { [key: string]: { [key: string]: string } },
+        priority?: number
+    ): Disposable;
 
     // Accessing Bindings
     /** Get all current key bindings. */
@@ -4106,15 +4483,17 @@ export interface KeymapManager {
 
     /** Get the key bindings for a given command and optional target. */
     findKeyBindings(params?: {
-        keystrokes?: string, // e.g. 'ctrl-x ctrl-s'
-        command?: string, // e.g. 'editor:backspace'
-        target?: Element,
+        keystrokes?: string; // e.g. 'ctrl-x ctrl-s'
+        command?: string; // e.g. 'editor:backspace'
+        target?: Element;
     }): KeyBinding[];
 
     // Managing Keymap Files
     /** Load the key bindings from the given path. */
-    loadKeymap(bindingsPath: string, options?: { watch?: boolean, priority?: number }):
-        void;
+    loadKeymap(
+        bindingsPath: string,
+        options?: { watch?: boolean; priority?: number }
+    ): void;
 
     /**
      *  Cause the keymap to reload the key bindings file at the given path whenever
@@ -4133,7 +4512,9 @@ export interface KeymapManager {
     keystrokeForKeyboardEvent(event: KeyboardEvent): string;
 
     /** Customize translation of raw keyboard events to keystroke strings. */
-    addKeystrokeResolver(resolver: (event: AddedKeystrokeResolverEvent) => string): Disposable;
+    addKeystrokeResolver(
+        resolver: (event: AddedKeystrokeResolverEvent) => string
+    ): Disposable;
 
     /**
      *  Get the number of milliseconds allowed before pending states caused by
@@ -4177,10 +4558,10 @@ export interface Package {
      *  Rebuild native modules in this package's dependencies for the current
      *  version of Atom.
      */
-    rebuild(): Promise<{ code: number, stdout: string, stderr: string }>;
+    rebuild(): Promise<{ code: number; stdout: string; stderr: string }>;
 
     /** If a previous rebuild failed, get the contents of stderr. */
-    getBuildFailureOutput(): string|null;
+    getBuildFailureOutput(): string | null;
 }
 
 /** Package manager for coordinating the lifecycle of Atom packages. */
@@ -4216,17 +4597,17 @@ export interface PackageManager {
 
     // General Package Data
     /** Resolve the given package name to a path on disk. */
-    resolvePackagePath(name: string): string|undefined;
+    resolvePackagePath(name: string): string | undefined;
 
     /** Is the package with the given name bundled with Atom? */
     isBundledPackage(name: string): boolean;
 
     // Enabling and Disabling Packages
     /** Enable the package with the given name. */
-    enablePackage(name: string): Package|undefined;
+    enablePackage(name: string): Package | undefined;
 
     /** Disable the package with the given name. */
-    disablePackage(name: string): Package|undefined;
+    disablePackage(name: string): Package | undefined;
 
     /** Is the package with the given name disabled? */
     isPackageDisabled(name: string): boolean;
@@ -4236,7 +4617,7 @@ export interface PackageManager {
     getActivePackages(): Package[];
 
     /** Get the active Package with the given name. */
-    getActivePackage(name: string): Package|undefined;
+    getActivePackage(name: string): Package | undefined;
 
     /** Is the Package with the given name active? */
     isPackageActive(name: string): boolean;
@@ -4249,7 +4630,7 @@ export interface PackageManager {
     getLoadedPackages(): Package[];
 
     /** Get the loaded Package with the given name. */
-    getLoadedPackage(name: string): Package|undefined;
+    getLoadedPackage(name: string): Package | undefined;
 
     /** Is the package with the given name loaded? */
     isPackageLoaded(name: string): boolean;
@@ -4271,7 +4652,10 @@ export interface PackageManager {
     activatePackage(nameOrPath: string): Promise<Package>;
 
     /** Deactivate a single package by name or path. */
-    deactivatePackage(nameOrPath: string, suppressSerialization?: boolean): Promise<void>;
+    deactivatePackage(
+        nameOrPath: string,
+        suppressSerialization?: boolean
+    ): Promise<void>;
 
     /** Triggers the given package activation hook. */
     triggerActivationHook(hook: string): void;
@@ -4308,13 +4692,19 @@ export interface Pane {
     observeActive(callback: (active: boolean) => void): Disposable;
 
     /** Invoke the given callback when an item is added to the pane. */
-    onDidAddItem(callback: (event: PaneListItemShiftedEvent) => void): Disposable;
+    onDidAddItem(
+        callback: (event: PaneListItemShiftedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when an item is removed from the pane. */
-    onDidRemoveItem(callback: (event: PaneListItemShiftedEvent) => void): Disposable;
+    onDidRemoveItem(
+        callback: (event: PaneListItemShiftedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback before an item is removed from the pane. */
-    onWillRemoveItem(callback: (event: PaneListItemShiftedEvent) => void): Disposable;
+    onWillRemoveItem(
+        callback: (event: PaneListItemShiftedEvent) => void
+    ): Disposable;
 
     /** Invoke the given callback when an item is moved within the pane. */
     onDidMoveItem(callback: (event: PaneItemMovedEvent) => void): Disposable;
@@ -4329,13 +4719,17 @@ export interface Pane {
      *  Invoke the given callback when ::activateNextRecentlyUsedItem has been called,
      *  either initiating or continuing a forward MRU traversal of pane items.
      */
-    onChooseNextMRUItem(callback: (nextRecentlyUsedItem: object) => void): Disposable;
+    onChooseNextMRUItem(
+        callback: (nextRecentlyUsedItem: object) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when ::activatePreviousRecentlyUsedItem has been called,
      *  either initiating or continuing a reverse MRU traversal of pane items.
      */
-    onChooseLastMRUItem(callback: (previousRecentlyUsedItem: object) => void): Disposable;
+    onChooseLastMRUItem(
+        callback: (previousRecentlyUsedItem: object) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when ::moveActiveItemToTopOfStack has been called,
@@ -4348,7 +4742,9 @@ export interface Pane {
     observeActiveItem(callback: (activeItem: object) => void): Disposable;
 
     /** Invoke the given callback before items are destroyed. */
-    onWillDestroyItem(callback: (event: PaneListItemShiftedEvent) => void): Disposable;
+    onWillDestroyItem(
+        callback: (event: PaneListItemShiftedEvent) => void
+    ): Disposable;
 
     // Items
     /** Get the items in this pane. */
@@ -4358,7 +4754,7 @@ export interface Pane {
     getActiveItem(): object;
 
     /** Return the item at the given index. */
-    itemAtIndex(index: number): object|undefined;
+    itemAtIndex(index: number): object | undefined;
 
     /** Makes the next item active. */
     activateNextItem(): void;
@@ -4382,7 +4778,10 @@ export interface Pane {
     activateItem(item: object, options?: { pending: boolean }): void;
 
     /** Add the given item to the pane. */
-    addItem(item: object, options?: { index?: number, pending?: boolean }): object;
+    addItem(
+        item: object,
+        options?: { index?: number; pending?: boolean }
+    ): object;
 
     /** Add the given items to the pane. */
     addItems(items: object[], index?: number): object[];
@@ -4406,32 +4805,38 @@ export interface Pane {
     destroyInactiveItems(): Promise<boolean[]>;
 
     /** Save the active item. */
-    saveActiveItem<T = void>(nextAction?: (error?: Error) => T):
-        Promise<T>|undefined;
+    saveActiveItem<T = void>(
+        nextAction?: (error?: Error) => T
+    ): Promise<T> | undefined;
 
     /**
      *  Prompt the user for a location and save the active item with the path
      *  they select.
      */
-    saveActiveItemAs<T = void>(nextAction?: (error?: Error) => T):
-        Promise<T>|undefined;
+    saveActiveItemAs<T = void>(
+        nextAction?: (error?: Error) => T
+    ): Promise<T> | undefined;
 
     /** Save the given item. */
-    saveItem<T = void>(item: object, nextAction?: (error?: Error) => T):
-        Promise<T>|undefined;
+    saveItem<T = void>(
+        item: object,
+        nextAction?: (error?: Error) => T
+    ): Promise<T> | undefined;
 
     /**
      *  Prompt the user for a location and save the active item with the path
      *  they select.
      */
-    saveItemAs<T = void>(item: object, nextAction?: (error?: Error) => T):
-        Promise<T>|undefined;
+    saveItemAs<T = void>(
+        item: object,
+        nextAction?: (error?: Error) => T
+    ): Promise<T> | undefined;
 
     /** Save all items. */
     saveItems(): void;
 
     /** Return the first item that matches the given URI or undefined if none exists. */
-    itemForURI(uri: string): object|undefined;
+    itemForURI(uri: string): object | undefined;
 
     /** Activate the first item that matches the given URI. */
     activateItemForURI(uri: string): boolean;
@@ -4451,28 +4856,16 @@ export interface Pane {
 
     // Splitting
     /** Create a new pane to the left of this pane. */
-    splitLeft(params?: {
-        items?: object[],
-        copyActiveItem?: boolean,
-    }): Pane;
+    splitLeft(params?: { items?: object[]; copyActiveItem?: boolean }): Pane;
 
     /** Create a new pane to the right of this pane. */
-    splitRight(params?: {
-        items?: object[],
-        copyActiveItem?: boolean,
-    }): Pane;
+    splitRight(params?: { items?: object[]; copyActiveItem?: boolean }): Pane;
 
     /** Creates a new pane above the receiver. */
-    splitUp(params?: {
-        items?: object[],
-        copyActiveItem?: boolean,
-    }): Pane;
+    splitUp(params?: { items?: object[]; copyActiveItem?: boolean }): Pane;
 
     /** Creates a new pane below the receiver. */
-    splitDown(params?: {
-        items?: object[],
-        copyActiveItem?: boolean,
-    }): Pane;
+    splitDown(params?: { items?: object[]; copyActiveItem?: boolean }): Pane;
 }
 
 /**
@@ -4547,11 +4940,14 @@ export interface Project {
     observeBuffers(callback: (buffer: TextBuffer) => void): Disposable;
 
     /** Invoke a callback when a filesystem change occurs within any open project path. */
-    onDidChangeFiles(callback: (events: FilesystemChangeEvent) => void): Disposable;
+    onDidChangeFiles(
+        callback: (events: FilesystemChangeEvent) => void
+    ): Disposable;
 
     /** Invoke a callback whenever the project's configuration has been replaced. */
-    onDidReplace(callback: (projectSpec: ProjectSpecification | null | undefined) => void):
-        Disposable;
+    onDidReplace(
+        callback: (projectSpec: ProjectSpecification | null | undefined) => void
+    ): Disposable;
 
     // Accessing the Git Repository
     /**
@@ -4562,13 +4958,17 @@ export interface Project {
     getRepositories(): GitRepository[];
 
     /** Invoke the given callback with all current and future repositories in the project. */
-    observeRepositories(callback: (repository: GitRepository) => void): Disposable;
+    observeRepositories(
+        callback: (repository: GitRepository) => void
+    ): Disposable;
 
     /** Invoke the given callback when a repository is added to the project. */
-    onDidAddRepository(callback: (repository: GitRepository) => void): Disposable;
+    onDidAddRepository(
+        callback: (repository: GitRepository) => void
+    ): Disposable;
 
     /** Get the repository for a given directory asynchronously. */
-    repositoryForDirectory(directory: Directory): Promise<GitRepository|null>;
+    repositoryForDirectory(directory: Directory): Promise<GitRepository | null>;
 
     // Managing Paths
     /** Get an Array of strings containing the paths of the project's directories. */
@@ -4599,7 +4999,7 @@ export interface Project {
      *  Get the path to the project directory that contains the given path, and
      *  the relative path from that project directory to the given path.
      */
-    relativizePath(fullPath: string): [string|null, string];
+    relativizePath(fullPath: string): [string | null, string];
 
     /**
      *  Determines whether the given path (real or symbolic) is inside the
@@ -4621,7 +5021,9 @@ export interface ScopeDescriptor {
 export interface Selection {
     // Event Subscription
     /** Calls your callback when the selection was moved. */
-    onDidChangeRange(callback: (event: SelectionChangedEvent) => void): Disposable;
+    onDidChangeRange(
+        callback: (event: SelectionChangedEvent) => void
+    ): Disposable;
 
     /** Calls your callback when the selection was destroyed. */
     onDidDestroy(callback: () => void): Disposable;
@@ -4631,19 +5033,25 @@ export interface Selection {
     getScreenRange(): Range;
 
     /** Modifies the screen range for the selection. */
-    setScreenRange(screenRange: RangeCompatible, options?: {
-        preserveFolds?: boolean,
-        autoscroll?: boolean
-    }): void;
+    setScreenRange(
+        screenRange: RangeCompatible,
+        options?: {
+            preserveFolds?: boolean;
+            autoscroll?: boolean;
+        }
+    ): void;
 
     /** Returns the buffer Range for the selection. */
     getBufferRange(): Range;
 
     /** Modifies the buffer Range for the selection. */
-    setBufferRange(bufferRange: RangeCompatible, options?: {
-        preserveFolds?: boolean,
-        autoscroll?: boolean,
-    }): void;
+    setBufferRange(
+        bufferRange: RangeCompatible,
+        options?: {
+            preserveFolds?: boolean;
+            autoscroll?: boolean;
+        }
+    ): void;
 
     /** Returns the starting and ending buffer rows the selection is highlighting. */
     getBufferRowRange(): [number, number];
@@ -4793,7 +5201,10 @@ export interface Selection {
 
     // Modifying the selected text
     /** Replaces text at the current selection. */
-    insertText(text: string, options?: TextInsertionOptions & ReadonlyEditOptions): void;
+    insertText(
+        text: string,
+        options?: TextInsertionOptions & ReadonlyEditOptions
+    ): void;
 
     /**
      *  Removes the first character before the selection if the selection is empty
@@ -4887,13 +5298,23 @@ export interface Selection {
     toggleLineComments(options?: ReadonlyEditOptions): void;
 
     /** Cuts the selection until the end of the screen line. */
-    cutToEndOfLine(maintainClipboard?: boolean, options?: ReadonlyEditOptions): void;
+    cutToEndOfLine(
+        maintainClipboard?: boolean,
+        options?: ReadonlyEditOptions
+    ): void;
 
     /** Cuts the selection until the end of the buffer line. */
-    cutToEndOfBufferLine(maintainClipboard?: boolean, options?: ReadonlyEditOptions): void;
+    cutToEndOfBufferLine(
+        maintainClipboard?: boolean,
+        options?: ReadonlyEditOptions
+    ): void;
 
     /** Copies the selection to the clipboard and then deletes it. */
-    cut(maintainClipboard?: boolean, fullLine?: boolean, options?: ReadonlyEditOptions): void;
+    cut(
+        maintainClipboard?: boolean,
+        fullLine?: boolean,
+        options?: ReadonlyEditOptions
+    ): void;
 
     /** Copies the current selection to the clipboard. */
     copy(maintainClipboard?: boolean, fullLine?: boolean): void;
@@ -4915,8 +5336,10 @@ export interface Selection {
      *  Combines the given selection into this selection and then destroys the
      *  given selection.
      */
-    merge(otherSelection: Selection, options?: { preserveFolds?: boolean,
-        autoscroll?: boolean }): void;
+    merge(
+        otherSelection: Selection,
+        options?: { preserveFolds?: boolean; autoscroll?: boolean }
+    ): void;
 
     // Comparing to other selections
     /**
@@ -4933,19 +5356,24 @@ export interface Selection {
 export interface StyleManager {
     // Event Subscription
     /** Invoke callback for all current and future style elements. */
-    observeStyleElements(callback: (styleElement: StyleElementObservedEvent) =>
-        void): Disposable;
+    observeStyleElements(
+        callback: (styleElement: StyleElementObservedEvent) => void
+    ): Disposable;
 
     /** Invoke callback when a style element is added. */
-    onDidAddStyleElement(callback: (styleElement: StyleElementObservedEvent) =>
-        void): Disposable;
+    onDidAddStyleElement(
+        callback: (styleElement: StyleElementObservedEvent) => void
+    ): Disposable;
 
     /** Invoke callback when a style element is removed. */
-    onDidRemoveStyleElement(callback: (styleElement: HTMLStyleElement) => void): Disposable;
+    onDidRemoveStyleElement(
+        callback: (styleElement: HTMLStyleElement) => void
+    ): Disposable;
 
     /** Invoke callback when an existing style element is updated. */
-    onDidUpdateStyleElement(callback: (styleElement: StyleElementObservedEvent) =>
-        void): Disposable;
+    onDidUpdateStyleElement(
+        callback: (styleElement: StyleElementObservedEvent) => void
+    ): Disposable;
 
     // Reading Style Elements
     /** Get all loaded style elements. */
@@ -5016,7 +5444,10 @@ export class TextBuffer {
     readonly destroyed: boolean;
 
     /** Create a new buffer backed by the given file path. */
-    static load(filePath: string, params?: BufferLoadOptions): Promise<TextBuffer>;
+    static load(
+        filePath: string,
+        params?: BufferLoadOptions
+    ): Promise<TextBuffer>;
 
     /**
      *  Create a new buffer backed by the given file path. For better performance,
@@ -5035,16 +5466,16 @@ export class TextBuffer {
     /** Create a new buffer with the given params. */
     constructor(params?: {
         /** The initial string text of the buffer. */
-        text?: string
+        text?: string;
         /**
          *  A function that returns a Boolean indicating whether the buffer should
          *  be destroyed if its file is deleted.
          */
-        shouldDestroyOnFileDelete?(): boolean
+        shouldDestroyOnFileDelete?(): boolean;
     });
 
     /** Returns a plain javascript object representation of the TextBuffer. */
-    serialize(options?: { markerLayers?: boolean, history?: boolean }): object;
+    serialize(options?: { markerLayers?: boolean; history?: boolean }): object;
 
     /** Returns the unique identifier for this buffer. */
     getId(): string;
@@ -5066,14 +5497,17 @@ export class TextBuffer {
      *  Invoke the given callback synchronously when a transaction finishes with
      *  a list of all the changes in the transaction.
      */
-    onDidChangeText(callback: (event: BufferStoppedChangingEvent) => void): Disposable;
+    onDidChangeText(
+        callback: (event: BufferStoppedChangingEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback asynchronously following one or more changes after
      *  ::getStoppedChangingDelay milliseconds elapse without an additional change.
      */
-    onDidStopChanging(callback: (event: BufferStoppedChangingEvent) => void):
-        Disposable;
+    onDidStopChanging(
+        callback: (event: BufferStoppedChangingEvent) => void
+    ): Disposable;
 
     /**
      *  Invoke the given callback when the in-memory contents of the buffer become
@@ -5103,7 +5537,7 @@ export class TextBuffer {
      *  given callback returns a promise, then the buffer will not be saved until
      *  the promise resolves.
      */
-    onWillSave(callback: () => Promise<void>|void): Disposable;
+    onWillSave(callback: () => Promise<void> | void): Disposable;
 
     /** Invoke the given callback after the buffer is saved to disk. */
     onDidSave(callback: (event: FileSavedEvent) => void): Disposable;
@@ -5127,8 +5561,9 @@ export class TextBuffer {
     onDidDestroy(callback: () => void): Disposable;
 
     /** Invoke the given callback when there is an error in watching the file. */
-    onWillThrowWatchError(callback: (errorObject: HandleableErrorEvent) => void):
-        Disposable;
+    onWillThrowWatchError(
+        callback: (errorObject: HandleableErrorEvent) => void
+    ): Disposable;
 
     /**
      *  Get the number of milliseconds that will elapse without a change before
@@ -5151,7 +5586,7 @@ export class TextBuffer {
     isInConflict(): boolean;
 
     /** Get the path of the associated file. */
-    getPath(): string|undefined;
+    getPath(): string | undefined;
 
     /** Set the path for the buffer's associated file. */
     setPath(filePath: string): void;
@@ -5185,10 +5620,10 @@ export class TextBuffer {
      *  Get the text of the line at the given 0-indexed row, without its line ending.
      *  @param row A number representing the row.
      */
-    lineForRow(row: number): string|undefined;
+    lineForRow(row: number): string | undefined;
 
     /** Get the line ending for the given 0-indexed row. */
-    lineEndingForRow(row: number): string|undefined;
+    lineEndingForRow(row: number): string | undefined;
 
     /**
      *  Get the length of the line for the given 0-indexed row, without its line
@@ -5203,13 +5638,13 @@ export class TextBuffer {
      *  Given a row, find the first preceding row that's not blank.
      *  Returns a number or null if there's no preceding non-blank row.
      */
-    previousNonBlankRow(startRow: number): number|null;
+    previousNonBlankRow(startRow: number): number | null;
 
     /**
      *  Given a row, find the next row that's not blank.
      *  Returns a number or null if there's no next non-blank row.
      */
-    nextNonBlankRow(startRow: number): number|null;
+    nextNonBlankRow(startRow: number): number | null;
 
     /**
      *  Return true if the buffer contains any astral-plane Unicode characters that
@@ -5228,10 +5663,18 @@ export class TextBuffer {
     setTextViaDiff(text: string): void;
 
     /** Set the text in the given range. */
-    setTextInRange(range: RangeCompatible, text: string, options?: TextEditOptions): Range;
+    setTextInRange(
+        range: RangeCompatible,
+        text: string,
+        options?: TextEditOptions
+    ): Range;
 
     /** Insert text at the given position. */
-    insert(position: PointCompatible, text: string, options?: TextEditOptions): Range;
+    insert(
+        position: PointCompatible,
+        text: string,
+        options?: TextEditOptions
+    ): Range;
 
     /** Append text to the end of the buffer. */
     append(text: string, options?: TextEditOptions): Range;
@@ -5255,26 +5698,39 @@ export class TextBuffer {
 
     // Markers
     /** Create a layer to contain a set of related markers. */
-    addMarkerLayer(options?: { maintainHistory?: boolean, persistent?: boolean, role?: string }):
-        MarkerLayer;
+    addMarkerLayer(options?: {
+        maintainHistory?: boolean;
+        persistent?: boolean;
+        role?: string;
+    }): MarkerLayer;
 
     /**
      *  Get a MarkerLayer by id.
      *  Returns a MarkerLayer or undefined if no layer exists with the given id.
      */
-    getMarkerLayer(id: string): MarkerLayer|undefined;
+    getMarkerLayer(id: string): MarkerLayer | undefined;
 
     /** Get the default MarkerLayer. */
     getDefaultMarkerLayer(): MarkerLayer;
 
     /** Create a marker with the given range in the default marker layer. */
-    markRange(range: RangeCompatible, properties?: { reversed?: boolean,
-        invalidate?: "never"|"surround"|"overlap"|"inside"|"touch",
-        exclusive?: boolean }): Marker;
+    markRange(
+        range: RangeCompatible,
+        properties?: {
+            reversed?: boolean;
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): Marker;
 
     /** Create a marker at the given position with no tail in the default marker layer. */
-    markPosition(position: PointCompatible, options?: { invalidate?: "never"|"surround"
-        |"overlap"|"inside"|"touch", exclusive?: boolean }): Marker;
+    markPosition(
+        position: PointCompatible,
+        options?: {
+            invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
+            exclusive?: boolean;
+        }
+    ): Marker;
 
     /** Get all existing markers on the default marker layer. */
     getMarkers(): Marker[];
@@ -5302,8 +5758,12 @@ export class TextBuffer {
     redo(options?: HistoryTraversalOptions): boolean;
 
     /** Batch multiple operations as a single undo/redo step. */
-    transact<T>(optionsOrInterval: number | { groupingInterval?: number } &
-        HistoryTransactionOptions, fn: () => T): T;
+    transact<T>(
+        optionsOrInterval:
+            | number
+            | { groupingInterval?: number } & HistoryTransactionOptions,
+        fn: () => T
+    ): T;
     /** Batch multiple operations as a single undo/redo step. */
     transact<T>(fn: () => T): T;
 
@@ -5328,15 +5788,20 @@ export class TextBuffer {
      *  Revert the buffer to the state it was in when the given checkpoint was created.
      *  @return A boolean indicating whether the operation succeeded.
      */
-    revertToCheckpoint(checkpoint: number, options?: HistoryTraversalOptions):
-        boolean;
+    revertToCheckpoint(
+        checkpoint: number,
+        options?: HistoryTraversalOptions
+    ): boolean;
 
     /**
      *  Group all changes since the given checkpoint into a single transaction for
      *  purposes of undo/redo.
      *  @return A boolean indicating whether the operation succeeded.
      */
-    groupChangesSinceCheckpoint(checkpoint: number, options?: HistoryTransactionOptions): boolean;
+    groupChangesSinceCheckpoint(
+        checkpoint: number,
+        options?: HistoryTransactionOptions
+    ): boolean;
 
     /**
      *  Group the last two text changes for purposes of undo/redo.
@@ -5352,18 +5817,20 @@ export class TextBuffer {
      *  If the given checkpoint is no longer present in the undo history, this method
      *  will return an empty Array.
      */
-    getChangesSinceCheckpoint(checkpoint: number): Array<{
+    getChangesSinceCheckpoint(
+        checkpoint: number
+    ): Array<{
         /** A Point representing where the change started. */
-        start: Point,
+        start: Point;
 
         /** A Point representing the replaced extent. */
-        oldExtent: Point,
+        oldExtent: Point;
 
         /** A Point representing the replacement extent. */
-        newExtent: Point,
+        newExtent: Point;
 
         /** A String representing the replacement text. */
-        newText: string
+        newText: string;
     }>;
 
     // Search and Replace
@@ -5376,46 +5843,69 @@ export class TextBuffer {
      *  Scan regular expression matches in the entire buffer, calling the given
      *  iterator function on each match.
      */
-    scan(regex: RegExp, options: ScanContextOptions, iterator: (params:
-        ContextualBufferScanResult) => void): void;
+    scan(
+        regex: RegExp,
+        options: ScanContextOptions,
+        iterator: (params: ContextualBufferScanResult) => void
+    ): void;
 
     /**
      *  Scan regular expression matches in the entire buffer in reverse order,
      *  calling the given iterator function on each match.
      */
-    backwardsScan(regex: RegExp, iterator: (params: BufferScanResult) => void): void;
+    backwardsScan(
+        regex: RegExp,
+        iterator: (params: BufferScanResult) => void
+    ): void;
     /**
      *  Scan regular expression matches in the entire buffer in reverse order,
      *  calling the given iterator function on each match.
      */
-    backwardsScan(regex: RegExp, options: ScanContextOptions, iterator: (params:
-        ContextualBufferScanResult) => void): void;
+    backwardsScan(
+        regex: RegExp,
+        options: ScanContextOptions,
+        iterator: (params: ContextualBufferScanResult) => void
+    ): void;
 
     /**
      *  Scan regular expression matches in a given range , calling the given
      *  iterator function on each match.
      */
-    scanInRange(regex: RegExp, range: RangeCompatible, iterator:
-        (params: BufferScanResult) => void): void;
+    scanInRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        iterator: (params: BufferScanResult) => void
+    ): void;
     /**
      *  Scan regular expression matches in a given range , calling the given
      *  iterator function on each match.
      */
-    scanInRange(regex: RegExp, range: RangeCompatible, options: ScanContextOptions,
-        iterator: (params: ContextualBufferScanResult) => void): void;
+    scanInRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        options: ScanContextOptions,
+        iterator: (params: ContextualBufferScanResult) => void
+    ): void;
 
     /**
      *  Scan regular expression matches in a given range in reverse order,
      *  calling the given iterator function on each match.
      */
-    backwardsScanInRange(regex: RegExp, range: RangeCompatible, iterator:
-        (params: BufferScanResult) => void): void;
+    backwardsScanInRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        iterator: (params: BufferScanResult) => void
+    ): void;
     /**
      *  Scan regular expression matches in a given range in reverse order,
      *  calling the given iterator function on each match.
      */
-    backwardsScanInRange(regex: RegExp, range: RangeCompatible, options: ScanContextOptions,
-        iterator: (params: ContextualBufferScanResult) => void): void;
+    backwardsScanInRange(
+        regex: RegExp,
+        range: RangeCompatible,
+        options: ScanContextOptions,
+        iterator: (params: ContextualBufferScanResult) => void
+    ): void;
 
     /** Replace all regular expression matches in the entire buffer. */
     replace(regex: RegExp, replacementText: string): number;
@@ -5518,17 +6008,17 @@ export interface ThemeManager {
 
     // Accessing Loaded Themes
     /** Returns an Array of strings of all the loaded theme names. */
-    getLoadedThemeNames(): string[]|undefined;
+    getLoadedThemeNames(): string[] | undefined;
 
     /** Returns an Array of all the loaded themes. */
-    getLoadedThemes(): Package[]|undefined;
+    getLoadedThemes(): Package[] | undefined;
 
     // Managing Enabled Themes
     /** Returns an Array of strings all the active theme names. */
-    getActiveThemeNames(): string[]|undefined;
+    getActiveThemeNames(): string[] | undefined;
 
     /** Returns an Array of all the active themes. */
-    getActiveThemes(): Package[]|undefined;
+    getActiveThemes(): Package[] | undefined;
 
     // Managing Enabled Themes
     /** Get the enabled theme names from the config. */
@@ -5607,7 +6097,8 @@ export interface BufferStoppedChangingEvent {
  *  intent to stop propagation so event bubbling can be properly simulated for
  *  detached elements.
  */
-export interface CommandEvent<CurrentTarget extends EventTarget = EventTarget> extends CustomEvent {
+export interface CommandEvent<CurrentTarget extends EventTarget = EventTarget>
+    extends CustomEvent {
     keyBindingAborted: boolean;
     propagationStopped: boolean;
 
@@ -5623,7 +6114,7 @@ export interface CursorPositionChangedEvent {
     newBufferPosition: Point;
     newScreenPosition: Point;
     textChanged: boolean;
-    cursor:	Cursor;
+    cursor: Cursor;
 }
 
 export interface DecorationPropsChangedEvent {
@@ -5731,8 +6222,10 @@ export interface FileSavedEvent {
 }
 
 export interface FilesystemChangeBasic<
-  Action extends "created"|"modified"|"deleted"|"renamed"
-  = "created"|"modified"|"deleted"
+    Action extends "created" | "modified" | "deleted" | "renamed" =
+        | "created"
+        | "modified"
+        | "deleted"
 > {
     /** A string describing the filesystem action that occurred. */
     action: Action;
@@ -5741,7 +6234,8 @@ export interface FilesystemChangeBasic<
     path: string;
 }
 
-export interface FilesystemChangeRename extends FilesystemChangeBasic<"renamed"> {
+export interface FilesystemChangeRename
+    extends FilesystemChangeBasic<"renamed"> {
     /**
      *  For rename events, a string containing the filesystem entry's former
      *  absolute path.
@@ -5749,19 +6243,19 @@ export interface FilesystemChangeRename extends FilesystemChangeBasic<"renamed">
     oldPath: string;
 }
 
-export type FilesystemChange = FilesystemChangeBasic|FilesystemChangeRename;
+export type FilesystemChange = FilesystemChangeBasic | FilesystemChangeRename;
 
 export type FilesystemChangeEvent = FilesystemChange[];
 
 export interface FullKeybindingMatchEvent {
-  /** The string of keystrokes that matched the binding. */
-  keystrokes: string;
+    /** The string of keystrokes that matched the binding. */
+    keystrokes: string;
 
-  /** The KeyBinding that the keystrokes matched. */
-  binding: KeyBinding;
+    /** The KeyBinding that the keystrokes matched. */
+    binding: KeyBinding;
 
-  /** The DOM element that was the target of the most recent keyboard event. */
-  keyboardEventTarget: Element;
+    /** The DOM element that was the target of the most recent keyboard event. */
+    keyboardEventTarget: Element;
 }
 
 export interface HandleableErrorEvent {
@@ -5996,7 +6490,7 @@ export interface ConfigValues {
      *  selected 'always', restores the last state of all Atom windows always, no matter
      *  how Atom is started.
      */
-    "core.restorePreviousWindowsOnStart": "no"|"yes"|"always";
+    "core.restorePreviousWindowsOnStart": "no" | "yes" | "always";
 
     /** How many recent projects to show in the Reopen Project menu. */
     "core.reopenProjectMenuCount": number;
@@ -6017,7 +6511,7 @@ export interface ConfigValues {
      *  Allow usage statistics and exception reports to be sent to the Atom team to help
      *  improve the product.
      */
-    "core.telemetryConsent": "limited"|"no"|"undecided";
+    "core.telemetryConsent": "limited" | "no" | "undecided";
 
     /** Warn before opening files larger than this number of megabytes. */
     "core.warnOnLargeFileLimit": number;
@@ -6027,7 +6521,7 @@ export interface ConfigValues {
      *  changes will miss any events caused by applications other than Atom, but may help
      *  prevent crashes or freezes.
      */
-    "core.fileSystemWatcher": "native"|"experimental"|"poll"|"atom";
+    "core.fileSystemWatcher": "native" | "experimental" | "poll" | "atom";
 
     /** Experimental: Use the new Tree-sitter parsing system for supported languages. */
     "core.useTreeSitterParsers": boolean;
@@ -6036,17 +6530,17 @@ export interface ConfigValues {
      * Specify whether Atom should use the operating system's color profile (recommended)
      * or an alternative color profile.
      */
-    "core.colorProfile": "default"|"srgb";
+    "core.colorProfile": "default" | "srgb";
 
-    "editor.commentStart": string|null;
+    "editor.commentStart": string | null;
 
-    "editor.commentEnd": string|null;
+    "editor.commentEnd": string | null;
 
-    "editor.increaseIndentPattern": string|null;
+    "editor.increaseIndentPattern": string | null;
 
-    "editor.decreaseIndentPattern": string|null;
+    "editor.decreaseIndentPattern": string | null;
 
-    "editor.foldEndPattern": string|null;
+    "editor.foldEndPattern": string | null;
 
     /** The name of the font family used for editor text. */
     "editor.fontFamily": string;
@@ -6055,7 +6549,7 @@ export interface ConfigValues {
     "editor.fontSize": number;
 
     /** Height of editor lines, as a multiplier of font size. */
-    "editor.lineHeight": string|number;
+    "editor.lineHeight": string | number;
 
     /** Show cursor while there is a selection. */
     "editor.showCursorOnSelection": boolean;
@@ -6118,7 +6612,7 @@ export interface ConfigValues {
      *  on a non-comment line), or uses the value of the Soft Tabs config setting if
      *  auto-detection fails.
      */
-    "editor.tabType": "auto"|"soft"|"hard";
+    "editor.tabType": "auto" | "soft" | "hard";
 
     /**
      *  Instead of wrapping lines to the window's width, wrap lines to the number of
@@ -6211,7 +6705,7 @@ export interface BuildEnvironmentOptions {
 
 export interface ConfirmationOptions {
     /** The type of the confirmation prompt. */
-    type?: "none"|"info"|"error"|"question"|"warning";
+    type?: "none" | "info" | "error" | "question" | "warning";
 
     /** The text for the buttons. */
     buttons?: ReadonlyArray<string>;
@@ -6325,7 +6819,7 @@ export interface CopyMarkerOptions {
     reversed?: boolean;
 
     /** Determines the rules by which changes to the buffer invalidate the marker. */
-    invalidate?: "never"|"surround"|"overlap"|"inside"|"touch";
+    invalidate?: "never" | "surround" | "overlap" | "inside" | "touch";
 
     /**
      *  Indicates whether insertions at the start or end of the marked range should
@@ -6339,12 +6833,18 @@ export interface CopyMarkerOptions {
 
 export interface DecorationLayerOptions extends SharedDecorationOptions {
     /** One of several supported decoration types. */
-    type?: "line"|"line-number"|"highlight"|"block";
+    type?: "line" | "line-number" | "highlight" | "block";
 }
 
 export interface DecorationOptions extends SharedDecorationOptions {
     /** One of several supported decoration types. */
-    type?: "line"|"line-number"|"highlight"|"overlay"|"gutter"|"block";
+    type?:
+        | "line"
+        | "line-number"
+        | "highlight"
+        | "overlay"
+        | "gutter"
+        | "block";
 
     /** The name of the gutter we're decorating, if type is "gutter". */
     gutterName?: string;
@@ -6568,7 +7068,7 @@ export interface SharedDecorationOptions {
      *  'head' (the default) or 'tail' for overlay decorations, and 'before' (the default)
      *  or 'after' for block decorations.
      */
-    position?: "head"|"tail"|"before"|"after";
+    position?: "head" | "tail" | "before" | "after";
 
     /**
      *  Only applicable to decorations of type overlay. Determines whether the decoration
@@ -6586,7 +7086,7 @@ export interface SpawnProcessOptions {
     env?: { [key: string]: string };
 
     /** The child's stdio configuration. */
-    stdio?: string|Array<string|number>;
+    stdio?: string | Array<string | number>;
 
     /** Prepare child to run independently of its parent process. */
     detached?: boolean;
@@ -6646,19 +7146,19 @@ export interface TooltipOptions {
     animation?: boolean;
 
     /** Appends the tooltip to a specific element. */
-    container?: string|HTMLElement|false;
+    container?: string | HTMLElement | false;
 
     /**
      *  Delay showing and hiding the tooltip (ms) - does not apply to manual
      *  trigger type.
      */
-    delay?: number|{ show: number, hide: number };
+    delay?: number | { show: number; hide: number };
 
     /** Allow HTML in the tooltip. */
     html?: boolean;
 
     /** How to position the tooltip. */
-    placement?: "top"|"bottom"|"left"|"right"|"auto";
+    placement?: "top" | "bottom" | "left" | "right" | "auto";
 
     /**
      *  If a selector is provided, tooltip objects will be delegated to the
@@ -6674,7 +7174,7 @@ export interface TooltipOptions {
      *  If a function is given, it will be called with its this reference set to
      *  the element that the tooltip is attached to.
      */
-    title?: string|HTMLElement|(() => string);
+    title?: string | HTMLElement | (() => string);
 
     /**
      *  How tooltip is triggered - click | hover | focus | manual.
@@ -6699,7 +7199,7 @@ export interface WorkspaceOpenOptions {
      *  opened in the bottommost pane of the current active pane's column. If only one pane
      *  exists in the column, a new pane will be created.
      */
-    split?: "left"|"right"|"up"|"down";
+    split?: "left" | "right" | "up" | "down";
 
     /**
      *  A boolean indicating whether to call Pane::activate on containing pane.
@@ -6734,7 +7234,7 @@ export interface WorkspaceOpenOptions {
      *  by the item.
      *  NOTE: This option should almost always be omitted to honor user preference.
      */
-    location?: "left"|"right"|"bottom"|"center";
+    location?: "left" | "right" | "bottom" | "center";
 }
 
 export interface WorkspaceScanOptions {
@@ -6763,12 +7263,13 @@ export interface DisposableLike {
     dispose(): void;
 }
 
-export interface JQueryCompatible<Element extends Node = HTMLElement> extends Iterable<Element> {
+export interface JQueryCompatible<Element extends Node = HTMLElement>
+    extends Iterable<Element> {
     jquery: string;
 }
 
 /** The types usable when constructing a point via the Point::fromObject method. */
-export type PointCompatible = PointLike|[number, number];
+export type PointCompatible = PointLike | [number, number];
 
 /** The interface that should be implemented for all "point-compatible" objects. */
 export interface PointLike {
@@ -6823,46 +7324,46 @@ export interface ContextualBufferScanResult extends BufferScanResult {
 }
 
 export type FileEncoding =
-    | "iso88596"       // Arabic (ISO 8859-6)
-    | "windows1256"    // Arabic (Windows 1256)
-    | "iso88594"       // Baltic (ISO 8859-4)
-    | "windows1257"    // Baltic (Windows 1257)
-    | "iso885914"      // Celtic (ISO 8859-14)
-    | "iso88592"       // Central European (ISO 8859-2)
-    | "windows1250"    // Central European (Windows 1250)
-    | "gb18030"        // Chinese (GB18030)
-    | "gbk"            // Chinese (GBK)
-    | "cp950"          // Traditional Chinese (Big5)
-    | "big5hkscs"      // Traditional Chinese (Big5-HKSCS)
-    | "cp866"          // Cyrillic (CP 866)
-    | "iso88595"       // Cyrillic (ISO 8859-5)
-    | "koi8r"          // Cyrillic (KOI8-R)
-    | "koi8u"          // Cyrillic (KOI8-U)
-    | "windows1251"    // Cyrillic (Windows 1251)
-    | "cp437"          // DOS (CP 437)
-    | "cp850"          // DOS (CP 850)
-    | "iso885913"      // Estonian (ISO 8859-13)
-    | "iso88597"       // Greek (ISO 8859-7)
-    | "windows1253"    // Greek (Windows 1253)
-    | "iso88598"       // Hebrew (ISO 8859-8)
-    | "windows1255"    // Hebrew (Windows 1255)
-    | "cp932"          // Japanese (CP 932)
-    | "eucjp"          // Japanese (EUC-JP)
-    | "shiftjis"       // Japanese (Shift JIS)
-    | "euckr"          // Korean (EUC-KR)
-    | "iso885910"      // Nordic (ISO 8859-10)
-    | "iso885916"      // Romanian (ISO 8859-16)
-    | "iso88599"       // Turkish (ISO 8859-9)
-    | "windows1254"    // Turkish (Windows 1254)
-    | "utf8"           // Unicode (UTF-8)
-    | "utf16le"        // Unicode (UTF-16 LE)
-    | "utf16be"        // Unicode (UTF-16 BE)
-    | "windows1258"    // Vietnamese (Windows 1258)
-    | "iso88591"       // Western (ISO 8859-1)
-    | "iso88593"       // Western (ISO 8859-3)
-    | "iso885915"      // Western (ISO 8859-15)
-    | "macroman"       // Western (Mac Roman)
-    | "windows1252";   // Western (Windows 1252)
+    | "iso88596" // Arabic (ISO 8859-6)
+    | "windows1256" // Arabic (Windows 1256)
+    | "iso88594" // Baltic (ISO 8859-4)
+    | "windows1257" // Baltic (Windows 1257)
+    | "iso885914" // Celtic (ISO 8859-14)
+    | "iso88592" // Central European (ISO 8859-2)
+    | "windows1250" // Central European (Windows 1250)
+    | "gb18030" // Chinese (GB18030)
+    | "gbk" // Chinese (GBK)
+    | "cp950" // Traditional Chinese (Big5)
+    | "big5hkscs" // Traditional Chinese (Big5-HKSCS)
+    | "cp866" // Cyrillic (CP 866)
+    | "iso88595" // Cyrillic (ISO 8859-5)
+    | "koi8r" // Cyrillic (KOI8-R)
+    | "koi8u" // Cyrillic (KOI8-U)
+    | "windows1251" // Cyrillic (Windows 1251)
+    | "cp437" // DOS (CP 437)
+    | "cp850" // DOS (CP 850)
+    | "iso885913" // Estonian (ISO 8859-13)
+    | "iso88597" // Greek (ISO 8859-7)
+    | "windows1253" // Greek (Windows 1253)
+    | "iso88598" // Hebrew (ISO 8859-8)
+    | "windows1255" // Hebrew (Windows 1255)
+    | "cp932" // Japanese (CP 932)
+    | "eucjp" // Japanese (EUC-JP)
+    | "shiftjis" // Japanese (Shift JIS)
+    | "euckr" // Korean (EUC-KR)
+    | "iso885910" // Nordic (ISO 8859-10)
+    | "iso885916" // Romanian (ISO 8859-16)
+    | "iso88599" // Turkish (ISO 8859-9)
+    | "windows1254" // Turkish (Windows 1254)
+    | "utf8" // Unicode (UTF-8)
+    | "utf16le" // Unicode (UTF-16 LE)
+    | "utf16be" // Unicode (UTF-16 BE)
+    | "windows1258" // Vietnamese (Windows 1258)
+    | "iso88591" // Western (ISO 8859-1)
+    | "iso88593" // Western (ISO 8859-3)
+    | "iso885915" // Western (ISO 8859-15)
+    | "macroman" // Western (Mac Roman)
+    | "windows1252"; // Western (Windows 1252)
 
 export interface GrammarRule {
     // https://github.com/atom/first-mate/blob/v7.0.7/src/rule.coffee
@@ -6882,25 +7383,25 @@ export interface Invisibles {
      *  Character used to render newline characters (\n) when the `Show Invisibles`
      *  setting is enabled.
      */
-    eol?: boolean|string;
+    eol?: boolean | string;
 
     /**
      *  Character used to render leading and trailing space characters when the
      *  `Show Invisibles` setting is enabled.
      */
-    space?: boolean|string;
+    space?: boolean | string;
 
     /**
      *  Character used to render hard tab characters (\t) when the `Show Invisibles`
      *  setting is enabled.
      */
-    tab?: boolean|string;
+    tab?: boolean | string;
 
     /**
      *  Character used to render carriage return characters (for Microsoft-style line
      *  endings) when the `Show Invisibles` setting is enabled.
      */
-    cr?: boolean|string;
+    cr?: boolean | string;
 }
 
 export interface KeyBinding {
@@ -6998,7 +7499,7 @@ export interface TokenizeLineResult {
      *  to scope names, call GrammarRegistry::scopeForId with the absolute
      *  value of the id.
      */
-    tags: Array<number|string>;
+    tags: Array<number | string>;
 
     /**
      *  This is a dynamic property. Invoking it will incur additional overhead,
@@ -7023,7 +7524,7 @@ export interface Tooltip {
     readonly options: TooltipOptions;
     readonly enabled: boolean;
     readonly timeout: number;
-    readonly hoverState: "in"|"out"|null;
+    readonly hoverState: "in" | "out" | null;
     readonly element: HTMLElement;
 
     getTitle(): string;
@@ -7046,6 +7547,6 @@ export interface WindowLoadSettings {
     readonly devMode: boolean;
     readonly resourcePath: string;
     readonly safeMode: boolean;
-    readonly env?: { [key: string]: string|undefined };
+    readonly env?: { [key: string]: string | undefined };
     readonly profileStartup?: boolean;
 }

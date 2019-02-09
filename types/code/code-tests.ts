@@ -5,7 +5,9 @@ expect("abc").to.be.a.string();
 expect([1, 2]).to.be.an.array();
 expect(20).to.be.at.least(20);
 expect("abc").to.have.length(3);
-expect("abc").to.be.a.string().and.contain(["a", "b"]);
+expect("abc")
+    .to.be.a.string()
+    .and.contain(["a", "b"]);
 expect(6).to.be.in.range(5, 6);
 
 expect(10).to.not.be.above(20);
@@ -16,7 +18,9 @@ expect([1, 2, 3]).to.part.include([1, 4]);
 
 expect(10, "Age").to.be.above(5);
 
-const func = function() { return arguments; }; // tslint:disable-line only-arrow-functions
+const func = function() {
+    return arguments;
+}; // tslint:disable-line only-arrow-functions
 expect(func()).to.be.arguments();
 
 expect([1, 2]).to.be.an.array();
@@ -147,7 +151,9 @@ fail("This should not occur");
 
 expect(count()).to.be.a.number();
 
-expect(incomplete() as null).to.be.null().and.not.be.an.array();
+expect(incomplete() as null)
+    .to.be.null()
+    .and.not.be.an.array();
 
 const error = thrownAt(new Error("oops"));
 expect(error).to.not.be.undefined();
@@ -161,10 +167,10 @@ const bar = Object.create(null);
 settings.comparePrototypes = false;
 expect(bar).to.equal({});
 
-const rejection = Promise.reject(new Error('Oh no!'));
-/* await */ expect(rejection).to.reject('Oh no!');
-/* await */  expect(rejection).rejects('Oh no!');
+const rejection = Promise.reject(new Error("Oh no!"));
+/* await */ expect(rejection).to.reject("Oh no!");
+/* await */ expect(rejection).rejects("Oh no!");
 
-const typedRejection = Promise.reject(new CustomError('Oh no!'));
-/* await */  expect(typedRejection).to.reject(CustomError, 'Oh no!');
-/* await */  expect(typedRejection).rejects(CustomError, 'Oh no!');
+const typedRejection = Promise.reject(new CustomError("Oh no!"));
+/* await */ expect(typedRejection).to.reject(CustomError, "Oh no!");
+/* await */ expect(typedRejection).rejects(CustomError, "Oh no!");

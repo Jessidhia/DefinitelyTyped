@@ -1,4 +1,4 @@
-import Resolver = require('./Resolver');
+import Resolver = require("./Resolver");
 declare class NextPlugin {
     source: string;
     target: string;

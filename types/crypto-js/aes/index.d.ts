@@ -1,3 +1,3 @@
-import { AES } from '../index';
+import { AES } from "../index";
 
 export = AES;

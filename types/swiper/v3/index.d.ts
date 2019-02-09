@@ -99,10 +99,22 @@ interface SwiperOptions {
     paginationHide?: boolean;
     paginationClickable?: boolean;
     paginationElement?: string;
-    paginationBulletRender?(swiper: Swiper, index: number, className: string): void;
-    paginationFractionRender?(swiper: Swiper, currentClassName: string, totalClassName: string): void;
+    paginationBulletRender?(
+        swiper: Swiper,
+        index: number,
+        className: string
+    ): void;
+    paginationFractionRender?(
+        swiper: Swiper,
+        currentClassName: string,
+        totalClassName: string
+    ): void;
     paginationProgressRender?(swiper: Swiper, progressbarClass: string): void;
-    paginationCustomRender?(swiper: Swiper, current: number, total: number): void;
+    paginationCustomRender?(
+        swiper: Swiper,
+        current: number,
+        total: number
+    ): void;
 
     // Navigation Buttons
     nextButton?: string | Element;
@@ -217,10 +229,10 @@ interface SwiperOptions {
 }
 
 interface SwiperScrollbarOptions {
-    container: string;          // Default: '.swiper-scrollbar'
-    draggable?: boolean;        // Default: true
-    hide?: boolean;             // Default: true
-    snapOnRelease?: boolean;    // Default: false
+    container: string; // Default: '.swiper-scrollbar'
+    draggable?: boolean; // Default: true
+    hide?: boolean; // Default: true
+    snapOnRelease?: boolean; // Default: false
 }
 
 declare class SwiperSlide {
@@ -228,7 +240,7 @@ declare class SwiperSlide {
     clone(): SwiperSlide;
     getWidth(): number;
     getHeight(): number;
-    getOffset(): { top: number; left: number; };
+    getOffset(): { top: number; left: number };
     insertAfter(index: number): SwiperSlide;
     prepend(): SwiperSlide;
     remove(): void;
@@ -289,7 +301,7 @@ declare class Swiper {
     stopAutoplay(): void;
 
     // Other methods
-    getWrapperTranslate(axis: string): number;  // 'x' or 'y'
+    getWrapperTranslate(axis: string): number; // 'x' or 'y'
     setWrapperTranslate(x: number, y: number, z: number): void;
     setWrapperTransition(duration: any): void;
 

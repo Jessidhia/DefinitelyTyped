@@ -5,7 +5,7 @@
 // TypeScript Version: 2.8
 
 import * as moment from "moment";
-import * as React from 'react';
+import * as React from "react";
 
 interface DrawerProps {
     className?: string;
@@ -17,9 +17,12 @@ interface DrawerProps {
     overlayStyle?: React.CSSProperties;
     dragHandleStyle?: React.CSSProperties;
     sidebar?: React.ReactNode;
-    onOpenChange?: (open: boolean, overlay?: { overlayClicked: boolean }) => void;
+    onOpenChange?: (
+        open: boolean,
+        overlay?: { overlayClicked: boolean }
+    ) => void;
     open?: boolean;
-    position?: 'left' | 'right' | 'top' | 'bottom';
+    position?: "left" | "right" | "top" | "bottom";
     docked?: boolean;
     transitions?: boolean;
     touch?: boolean;
@@ -27,7 +30,6 @@ interface DrawerProps {
     dragToggleDistance?: number;
 }
 
-declare class Drawer extends React.Component<Partial<DrawerProps>> {
-}
+declare class Drawer extends React.Component<Partial<DrawerProps>> {}
 
 export = Drawer;

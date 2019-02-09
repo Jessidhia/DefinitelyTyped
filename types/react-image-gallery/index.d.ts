@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface ReactImageGalleryItem {
     original?: string;
@@ -29,7 +29,7 @@ export interface ReactImageGalleryProps {
     lazyLoad?: boolean;
     showNav?: boolean;
     showThumbnails?: boolean;
-    thumbnailPosition?: 'top' | 'right' | 'bottom' | 'left';
+    thumbnailPosition?: "top" | "right" | "bottom" | "left";
     showFullscreenButton?: boolean;
     useBrowserFullscreen?: boolean;
     showPlayButton?: boolean;
@@ -51,8 +51,13 @@ export interface ReactImageGalleryProps {
     preventDefaultTouchmoveEvent?: boolean;
     startIndex?: number;
     onImageError?: (event: React.ReactEventHandler<HTMLImageElement>) => void;
-    onThumbnailError?: (event: React.ReactEventHandler<HTMLImageElement>) => void;
-    onThumbnailClick?: (event: React.MouseEventHandler<HTMLAnchorElement>, index: number) => void;
+    onThumbnailError?: (
+        event: React.ReactEventHandler<HTMLImageElement>
+    ) => void;
+    onThumbnailClick?: (
+        event: React.MouseEventHandler<HTMLAnchorElement>,
+        index: number
+    ) => void;
     onImageLoad?: (event: React.ReactEventHandler<HTMLImageElement>) => void;
     onSlide?: (currentIndex: number) => void;
     onScreenChange?: (fullScreenElement: Element) => void;
@@ -67,13 +72,27 @@ export interface ReactImageGalleryProps {
     renderCustomControls?: () => React.ReactNode;
     renderItem?: (item: ReactImageGalleryItem) => React.ReactNode;
     renderThumbInner?: (item: ReactImageGalleryItem) => React.ReactNode;
-    renderLeftNav?: (onClick: React.MouseEventHandler<HTMLElement>, isDisabled: boolean) => React.ReactNode;
-    renderRightNav?: (onClick: React.MouseEventHandler<HTMLElement>, isDisabled: boolean) => React.ReactNode;
-    renderPlayPauseButton?: (onClick: React.MouseEventHandler<HTMLElement>, isPlaying: boolean) => React.ReactNode;
-    renderFullscreenButton?: (onClick: React.MouseEventHandler<HTMLElement>, isFullscreen: boolean) => React.ReactNode;
+    renderLeftNav?: (
+        onClick: React.MouseEventHandler<HTMLElement>,
+        isDisabled: boolean
+    ) => React.ReactNode;
+    renderRightNav?: (
+        onClick: React.MouseEventHandler<HTMLElement>,
+        isDisabled: boolean
+    ) => React.ReactNode;
+    renderPlayPauseButton?: (
+        onClick: React.MouseEventHandler<HTMLElement>,
+        isPlaying: boolean
+    ) => React.ReactNode;
+    renderFullscreenButton?: (
+        onClick: React.MouseEventHandler<HTMLElement>,
+        isFullscreen: boolean
+    ) => React.ReactNode;
 }
 
-declare class ReactImageGallery extends React.Component<ReactImageGalleryProps> {
+declare class ReactImageGallery extends React.Component<
+    ReactImageGalleryProps
+> {
     play: (callback?: boolean) => void;
     pause: (callback?: boolean) => void;
     fullScreen: () => void;

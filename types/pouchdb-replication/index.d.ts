@@ -35,7 +35,7 @@ declare namespace PouchDB {
              * where "bar" will be available in the filter function as params.query.foo.
              * To access the params, define your filter function like function (doc, params).
              */
-            query_params?: {[paramName: string]: any};
+            query_params?: { [paramName: string]: any };
 
             /**
              * Specify a view function (e.g. 'design_doc_name/view_name' or 'view_name' as shorthand for 'view_name/view_name') to act as a filter.
@@ -89,22 +89,29 @@ declare namespace PouchDB {
              * Setting it to source will only write checkpoints on the source.
              * Setting it to target will only write checkpoints on the target.
              */
-            checkpoint?: boolean | 'target' | 'source';
+            checkpoint?: boolean | "target" | "source";
         }
 
-        interface ReplicationEventEmitter<Content extends {}, C, F> extends EventEmitter {
-            on(event: 'change', listener: (info: C) => any): this;
-            on(event: 'paused' | 'denied' | 'error', listener: (err: {}) => any): this;
-            on(event: 'active', listener: () => any): this;
-            on(event: 'complete', listener: (info: F) => any): this;
+        interface ReplicationEventEmitter<Content extends {}, C, F>
+            extends EventEmitter {
+            on(event: "change", listener: (info: C) => any): this;
+            on(
+                event: "paused" | "denied" | "error",
+                listener: (err: {}) => any
+            ): this;
+            on(event: "active", listener: () => any): this;
+            on(event: "complete", listener: (info: F) => any): this;
 
             cancel(): void;
         }
 
         interface Replication<Content extends {}>
-            extends ReplicationEventEmitter<Content, ReplicationResult<Content>, ReplicationResultComplete<Content>>,
-                    Promise<ReplicationResultComplete<Content>> {
-        }
+            extends ReplicationEventEmitter<
+                    Content,
+                    ReplicationResult<Content>,
+                    ReplicationResultComplete<Content>
+                >,
+                Promise<ReplicationResultComplete<Content>> {}
 
         interface ReplicationResult<Content extends {}> {
             doc_write_failures: number;
@@ -117,7 +124,8 @@ declare namespace PouchDB {
             docs: Array<Core.ExistingDocument<Content>>;
         }
 
-        interface ReplicationResultComplete<Content extends {}> extends ReplicationResult<Content> {
+        interface ReplicationResultComplete<Content extends {}>
+            extends ReplicationResult<Content> {
             end_time: Date;
             status: string;
         }
@@ -128,12 +136,15 @@ declare namespace PouchDB {
         }
 
         interface Sync<Content extends {}>
-            extends ReplicationEventEmitter<Content, SyncResult<Content>, SyncResultComplete<Content>>,
-                    Promise<SyncResultComplete<Content>> {
-        }
+            extends ReplicationEventEmitter<
+                    Content,
+                    SyncResult<Content>,
+                    SyncResultComplete<Content>
+                >,
+                Promise<SyncResultComplete<Content>> {}
 
         interface SyncResult<Content extends {}> {
-            direction: 'push' | 'pull';
+            direction: "push" | "pull";
             change: ReplicationResult<Content>;
         }
 
@@ -154,7 +165,9 @@ declare namespace PouchDB {
             source: string | Database<Content>,
             target: string | Database<Content>,
             options?: Replication.ReplicateOptions,
-            callback?: Core.Callback<Replication.ReplicationResultComplete<Content>>
+            callback?: Core.Callback<
+                Replication.ReplicationResultComplete<Content>
+            >
         ): Replication.Replication<Content>;
 
         /**
@@ -185,7 +198,9 @@ declare namespace PouchDB {
             to<Content>(
                 target: string | Database<Content>,
                 options?: Replication.ReplicateOptions,
-                callback?: Core.Callback<Replication.ReplicationResultComplete<Content>>
+                callback?: Core.Callback<
+                    Replication.ReplicationResultComplete<Content>
+                >
             ): Replication.Replication<Content>;
 
             /**
@@ -197,7 +212,9 @@ declare namespace PouchDB {
             from<Content>(
                 source: string | Database<Content>,
                 options?: Replication.ReplicateOptions,
-                callback?: Core.Callback<Replication.ReplicationResultComplete<Content>>
+                callback?: Core.Callback<
+                    Replication.ReplicationResultComplete<Content>
+                >
             ): Replication.Replication<Content>;
         };
 
@@ -218,7 +235,7 @@ declare namespace PouchDB {
     }
 }
 
-declare module 'pouchdb-replication' {
+declare module "pouchdb-replication" {
     const plugin: PouchDB.Plugin;
     export = plugin;
 }

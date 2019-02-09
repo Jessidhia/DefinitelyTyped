@@ -1,12 +1,17 @@
-import feathers, { Application } from '@feathersjs/feathers';
-import feathersAuthenticationOAuth2, { Verifier, FeathersAuthenticationOAuth2Options } from '@feathersjs/authentication-oauth2';
-import { RequestHandler, Response, NextFunction } from 'express';
-import { Request } from 'express-serve-static-core';
-import { Strategy } from 'passport';
-import { Profile as GithubProfile } from 'passport-github';
-import { Profile as FacebookProfile } from 'passport-facebook';
+import feathers, { Application } from "@feathersjs/feathers";
+import feathersAuthenticationOAuth2, {
+    Verifier,
+    FeathersAuthenticationOAuth2Options
+} from "@feathersjs/authentication-oauth2";
+import { RequestHandler, Response, NextFunction } from "express";
+import { Request } from "express-serve-static-core";
+import { Strategy } from "passport";
+import { Profile as GithubProfile } from "passport-github";
+import { Profile as FacebookProfile } from "passport-facebook";
 
-const app: Application<{}> = feathers().configure(feathersAuthenticationOAuth2());
+const app: Application<{}> = feathers().configure(
+    feathersAuthenticationOAuth2()
+);
 
 class CustomVerifier extends Verifier {
     constructor(app: Application<{}>, options: any = {}) {
@@ -14,7 +19,11 @@ class CustomVerifier extends Verifier {
     }
 }
 
-const handler: RequestHandler = (req: Request, res: Response, next: NextFunction) => { };
+const handler: RequestHandler = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {};
 
 class someStrategy extends Strategy {
     something = "foo";
@@ -36,14 +45,18 @@ interface VerifierOptions extends FeathersAuthenticationOAuth2Options {
 
 type IProfileType = GithubProfile | FacebookProfile;
 
-export default class TestVerifier extends Verifier<User, VerifierOptions, IProfileType> { }
+export default class TestVerifier extends Verifier<
+    User,
+    VerifierOptions,
+    IProfileType
+> {}
 
 const testVerifier = new TestVerifier(app, {
     name: "test",
     foo: false,
     successRedirect: "foo",
     failureRedirect: "bar",
-    service: 'Users',
+    service: "Users",
     Strategy: someStrategy,
     passReqToCallback: false,
     session: false

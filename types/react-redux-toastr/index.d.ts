@@ -6,14 +6,27 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import { Component } from 'react';
-import { Action, Reducer } from 'redux';
+import { Component } from "react";
+import { Action, Reducer } from "redux";
 
-export type iconType = 'success' | 'info' | 'warning' | 'error';
-export type positionType = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-export type toastType = 'success' | 'info' | 'warning' | 'light' | 'error' | 'confirm' | 'message';
-export type transitionInType = 'bounceIn' | 'bounceInDown' | 'fadeIn';
-export type transitionOutType = 'bounceOut' | 'bounceOutUp' | 'fadeOut';
+export type iconType = "success" | "info" | "warning" | "error";
+export type positionType =
+    | "top-left"
+    | "top-center"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-center"
+    | "bottom-right";
+export type toastType =
+    | "success"
+    | "info"
+    | "warning"
+    | "light"
+    | "error"
+    | "confirm"
+    | "message";
+export type transitionInType = "bounceIn" | "bounceInDown" | "fadeIn";
+export type transitionOutType = "bounceOut" | "bounceOutUp" | "fadeOut";
 
 interface BasicToastrOptions {
     attention?: boolean;
@@ -94,7 +107,7 @@ interface ReduxToastrProps {
     };
     newestOnTop?: boolean;
     options?: any; // This is currently not used, waiting for response from the package author to remove
-    position?: positionType
+    position?: positionType;
     preventDuplicates?: boolean;
     progressBar?: boolean;
     timeOut?: number;
@@ -108,13 +121,37 @@ interface ReduxToastrProps {
 interface ToastrEmitter {
     clean: () => void;
     confirm: (message: string, options: ConfirmToastrOptions) => void;
-    error: (title: string, message: string, options?: BasicToastrOptions) => void;
-    info: (title: string, message: string, options?: BasicToastrOptions) => void;
-    light: (title: string, message: string, options?: LightToastrOptions) => void;
-    message: (title: string, message: string, options?: BasicToastrOptions) => void;
+    error: (
+        title: string,
+        message: string,
+        options?: BasicToastrOptions
+    ) => void;
+    info: (
+        title: string,
+        message: string,
+        options?: BasicToastrOptions
+    ) => void;
+    light: (
+        title: string,
+        message: string,
+        options?: LightToastrOptions
+    ) => void;
+    message: (
+        title: string,
+        message: string,
+        options?: BasicToastrOptions
+    ) => void;
     removeByType: (type: string) => void;
-    success: (title: string, message: string, options?: BasicToastrOptions) => void;
-    warning: (title: string, message: string, options?: BasicToastrOptions) => void;
+    success: (
+        title: string,
+        message: string,
+        options?: BasicToastrOptions
+    ) => void;
+    warning: (
+        title: string,
+        message: string,
+        options?: BasicToastrOptions
+    ) => void;
 }
 
 interface ToastrActionCreators {
@@ -123,7 +160,9 @@ interface ToastrActionCreators {
     hideConfirm: () => Action;
     remove: (id: string) => Action;
     removeByType: (type: toastType) => Action;
-    showConfirm: (confirm: ConfirmToastrOptions | ConfirmToastrCustomOptions) => Action;
+    showConfirm: (
+        confirm: ConfirmToastrOptions | ConfirmToastrCustomOptions
+    ) => Action;
 }
 
 export default class ReduxToastr extends Component<ReduxToastrProps> {}

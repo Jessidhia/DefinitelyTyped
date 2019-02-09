@@ -18,6 +18,7 @@ export interface ReactScrollLinkProps {
     ignoreCancelEvents?: boolean;
 }
 
-export type LinkProps = ReactScrollLinkProps & React.HTMLProps<HTMLButtonElement>;
+export type LinkProps = ReactScrollLinkProps &
+    React.HTMLProps<HTMLButtonElement>;
 
-export default class Link extends React.Component<LinkProps> { }
+export default class Link extends React.Component<LinkProps> {}

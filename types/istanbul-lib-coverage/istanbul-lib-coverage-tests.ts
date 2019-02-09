@@ -1,29 +1,29 @@
 import {
-	CoverageMapData,
-	CoverageSummary,
-	FileCoverageData,
-	createCoverageSummary,
-	createCoverageMap,
-	createFileCoverage
-} from 'istanbul-lib-coverage';
+    CoverageMapData,
+    CoverageSummary,
+    FileCoverageData,
+    createCoverageSummary,
+    createCoverageMap,
+    createFileCoverage
+} from "istanbul-lib-coverage";
 
 const summaryData: CoverageSummary = {
-	lines: { total: 0, covered: 0, skipped: 0, pct: 0 },
-	statements: { total: 0, covered: 0, skipped: 0, pct: 0 },
-	functions: { total: 0, covered: 0, skipped: 0, pct: 0 },
-	branches: { total: 0, covered: 0, skipped: 0, pct: 0 }
+    lines: { total: 0, covered: 0, skipped: 0, pct: 0 },
+    statements: { total: 0, covered: 0, skipped: 0, pct: 0 },
+    functions: { total: 0, covered: 0, skipped: 0, pct: 0 },
+    branches: { total: 0, covered: 0, skipped: 0, pct: 0 }
 };
 
 const coverageMapData: CoverageMapData = {};
 
 const fileCoverageData: FileCoverageData = {
-	path: 'foo',
-	statementMap: {},
-	fnMap: {},
-	branchMap: {},
-	s: {},
-	f: {},
-	b: {}
+    path: "foo",
+    statementMap: {},
+    fnMap: {},
+    branchMap: {},
+    s: {},
+    f: {},
+    b: {}
 };
 
 const summary = createCoverageSummary(summaryData);
@@ -37,7 +37,7 @@ map1.data;
 const map2 = createCoverageMap(map1);
 map2.data;
 
-const fileCoverage1 = createFileCoverage('path/to/foo');
+const fileCoverage1 = createFileCoverage("path/to/foo");
 fileCoverage1.data;
 const fileCoverage2 = createFileCoverage(fileCoverage1.data);
 fileCoverage2.data;
@@ -45,10 +45,10 @@ const fileCoverage3 = createFileCoverage(fileCoverageData);
 fileCoverage3.data;
 
 // CoverageMap methods and properties
-map1.addFileCoverage('foo.js');
+map1.addFileCoverage("foo.js");
 map1.addFileCoverage(fileCoverageData);
 map1.files()[0];
-map1.fileCoverageFor('foo').path;
+map1.fileCoverageFor("foo").path;
 map1.filter(name => false);
 map1.merge(map2);
 map1.merge(coverageMapData);

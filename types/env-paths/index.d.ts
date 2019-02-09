@@ -5,14 +5,17 @@
 
 export = envPaths;
 
-declare function envPaths(name: string, opts?: { suffix: string | boolean }): envPaths.Paths;
+declare function envPaths(
+    name: string,
+    opts?: { suffix: string | boolean }
+): envPaths.Paths;
 
 declare namespace envPaths {
-  interface Paths {
-    readonly data: string;
-    readonly config: string;
-    readonly cache: string;
-    readonly log: string;
-    readonly temp: string;
-  }
+    interface Paths {
+        readonly data: string;
+        readonly config: string;
+        readonly cache: string;
+        readonly log: string;
+        readonly temp: string;
+    }
 }

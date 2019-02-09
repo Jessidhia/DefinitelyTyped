@@ -1,4 +1,4 @@
-import JSON2CSVBase from './JSON2CSVBase';
+import JSON2CSVBase from "./JSON2CSVBase";
 
 declare class JSON2CSVParser<T> extends JSON2CSVBase<T> {
     /**

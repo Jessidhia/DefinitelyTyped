@@ -12,18 +12,26 @@ function testAnalytics() {
     firebase.Analytics.screenName = screenName;
     firebase.Analytics.userId = userId;
 
-    const properties: firebase.AnalyticsProperties = {analyticsCollectionEnabled, screenName, userId};
+    const properties: firebase.AnalyticsProperties = {
+        analyticsCollectionEnabled,
+        screenName,
+        userId
+    };
     const partialProperties: firebase.AnalyticsProperties = {};
     firebase.Analytics.set(properties);
     firebase.Analytics.set(partialProperties);
 
     // Methods
     let thisReturnValue: firebase.Analytics;
-    const name = '';
-    const property = '';
+    const name = "";
+    const property = "";
 
-    thisReturnValue = firebase.Analytics.set({analyticsCollectionEnabled, screenName, userId});
-    firebase.Analytics.logEvent(name, {foo: property});
+    thisReturnValue = firebase.Analytics.set({
+        analyticsCollectionEnabled,
+        screenName,
+        userId
+    });
+    firebase.Analytics.logEvent(name, { foo: property });
     firebase.Analytics.logEvent(name);
     firebase.Analytics.setUserProperty(name, property);
 }
@@ -44,17 +52,32 @@ function testMessaging() {
     // Events
     const target: firebase.Messaging = firebase.Messaging;
     const timeStamp = 0;
-    const type = 'foo';
-    const value = 'bar';
+    const type = "foo";
+    const value = "bar";
     const data: any = {};
 
-    const instanceIdChangedEvent: PropertyChangedEvent<firebase.Messaging, string> = {target, timeStamp, type, value};
-    const tokenChangedEvent: PropertyChangedEvent<firebase.Messaging, string> = {target, timeStamp, type, value};
-    const messageEvent: firebase.MessageEvent = {target, timeStamp, type, data};
+    const instanceIdChangedEvent: PropertyChangedEvent<
+        firebase.Messaging,
+        string
+    > = { target, timeStamp, type, value };
+    const tokenChangedEvent: PropertyChangedEvent<
+        firebase.Messaging,
+        string
+    > = { target, timeStamp, type, value };
+    const messageEvent: firebase.MessageEvent = {
+        target,
+        timeStamp,
+        type,
+        data
+    };
 
     firebase.Messaging.on({
-        instanceIdChanged: (event: PropertyChangedEvent<firebase.Messaging, string>) => {},
-        tokenChanged: (event: PropertyChangedEvent<firebase.Messaging, string>) => {},
+        instanceIdChanged: (
+            event: PropertyChangedEvent<firebase.Messaging, string>
+        ) => {},
+        tokenChanged: (
+            event: PropertyChangedEvent<firebase.Messaging, string>
+        ) => {},
         message: (event: firebase.MessageEvent) => {}
     });
 }

@@ -53,22 +53,18 @@ export class FullblownReactableTestComponent extends React.Component {
         const rows: JSX.Element[] = [];
         for (const d of data) {
             const tds: JSX.Element[] = [];
-            displayedColumns.forEach(col => tds.push(
-                <PersonTableTd column={col}>
-                    <p>d[col]</p>
-                </PersonTableTd>
-            ));
-            rows.push(
-                <PersonRow>
-                    {tds}
-                </PersonRow>
+            displayedColumns.forEach(col =>
+                tds.push(
+                    <PersonTableTd column={col}>
+                        <p>d[col]</p>
+                    </PersonTableTd>
+                )
             );
+            rows.push(<PersonRow>{tds}</PersonRow>);
         }
         return (
-            <PersonTable defaultSort={{ column: "name", direction: 'asc' }}>
-                <PersonTableHeader>
-                    {columns}
-                </PersonTableHeader>
+            <PersonTable defaultSort={{ column: "name", direction: "asc" }}>
+                <PersonTableHeader>{columns}</PersonTableHeader>
                 {rows}
                 <PersonTableTfoot>
                     <tr className="reactable-footer">

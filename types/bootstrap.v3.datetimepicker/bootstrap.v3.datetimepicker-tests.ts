@@ -1,6 +1,8 @@
 import * as moment from "moment";
 
-const dp = $("#picker").datetimepicker().data("DateTimePicker");
+const dp = $("#picker")
+    .datetimepicker()
+    .data("DateTimePicker");
 
 function test_cases() {
     $("#datetimepicker").datetimepicker();
@@ -8,7 +10,9 @@ function test_cases() {
         minDate: "2012-12-31"
     });
 
-    $("#datetimepicker").data("DateTimePicker").maxDate("2012-12-31");
+    $("#datetimepicker")
+        .data("DateTimePicker")
+        .maxDate("2012-12-31");
 
     let startDate = moment(new Date(2012, 1, 20));
     const endDate = moment(new Date(2012, 1, 25));
@@ -17,7 +21,10 @@ function test_cases() {
         .datetimepicker()
         .on("dp.change", ev => {
             if (ev.date.valueOf() > endDate.valueOf()) {
-                $("#alert").show().find("strong").text("The start date must be before the end date.");
+                $("#alert")
+                    .show()
+                    .find("strong")
+                    .text("The start date must be before the end date.");
             } else {
                 $("#alert").hide();
                 startDate = ev.date;
@@ -28,7 +35,9 @@ function test_cases() {
             console.log(`Error: ${ev.date.format("YYYY-MM-DD")}`);
         })
         .on("dp.update", ev => {
-            console.log(`Change: ${ev.change}, ${ev.viewDate.format("YYYY-MM-DD")}`);
+            console.log(
+                `Change: ${ev.change}, ${ev.viewDate.format("YYYY-MM-DD")}`
+            );
         });
 }
 
@@ -94,7 +103,9 @@ function test_extraFormats() {
     strFormats = dp.extraFormats() as string[];
 
     dp.extraFormats(mixFormats);
-    mixFormats = dp.extraFormats() as Array<(string | moment.MomentBuiltinFormat)>;
+    mixFormats = dp.extraFormats() as Array<
+        string | moment.MomentBuiltinFormat
+    >;
 }
 
 function test_timeZone() {

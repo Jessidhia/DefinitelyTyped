@@ -4,10 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ScaleBand, ScaleLinear, ScaleLogarithmic, ScalePower, ScaleTime } from 'd3-scale';
-import { CurveFactory, Series } from 'd3-shape';
-import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import {
+    ScaleBand,
+    ScaleLinear,
+    ScaleLogarithmic,
+    ScalePower,
+    ScaleTime
+} from "d3-scale";
+import { CurveFactory, Series } from "d3-shape";
+import * as React from "react";
+import { StyleProp, ViewStyle } from "react-native";
 import {
     CommonPathProps,
     LinearGradientProps,
@@ -15,18 +21,21 @@ import {
     PathProps,
     RadialGradientProps,
     TextProps
-} from 'react-native-svg';
+} from "react-native-svg";
 
 export type ScaleType<Range, Output> =
-| ScaleLinear<Range, Output>
-| ScaleLogarithmic<Range, Output>
-| ScalePower<Range, Output>
-| ScaleTime<Range, Output>;
+    | ScaleLinear<Range, Output>
+    | ScaleLogarithmic<Range, Output>
+    | ScalePower<Range, Output>
+    | ScaleTime<Range, Output>;
 
 export type ScaleFunction = () => ScaleType<any, any> | ScaleBand<any>;
-export type AccessorFunction<T, U> = (props: { item: T, index: number }) => U;
+export type AccessorFunction<T, U> = (props: { item: T; index: number }) => U;
 export type SortFunction<T> = (a: T, b: T) => number;
-export type OffsetFunction = (series: Series<any, any>, order: number[]) => void;
+export type OffsetFunction = (
+    series: Series<any, any>,
+    order: number[]
+) => void;
 export type OrderFunction = (series: Series<any, any>) => number[];
 
 // Chart
@@ -41,10 +50,10 @@ export interface ChartProps<T> {
     height?: number;
     curve?: CurveFactory;
     contentInset?: {
-        top?: number,
-        left?: number,
-        right?: number,
-        bottom?: number,
+        top?: number;
+        left?: number;
+        right?: number;
+        bottom?: number;
     };
     gridMin?: number;
     gridMax?: number;
@@ -58,8 +67,7 @@ export interface ChartProps<T> {
 
 // Line Chart
 
-export class LineChart<T> extends React.PureComponent<ChartProps<T>> {
-}
+export class LineChart<T> extends React.PureComponent<ChartProps<T>> {}
 
 // Pie Chart
 
@@ -82,8 +90,9 @@ export interface PieChartProps<T extends PieChartData> extends ChartProps<T> {
     valueAccessor?: AccessorFunction<T, number>;
 }
 
-export class PieChart<T extends PieChartData> extends React.PureComponent<PieChartProps<T>> {
-}
+export class PieChart<T extends PieChartData> extends React.PureComponent<
+    PieChartProps<T>
+> {}
 
 // Area Chart
 
@@ -91,8 +100,7 @@ export interface AreaChartProps<T> extends ChartProps<T> {
     start?: number;
 }
 
-export class AreaChart<T> extends React.PureComponent<AreaChartProps<T>> {
-}
+export class AreaChart<T> extends React.PureComponent<AreaChartProps<T>> {}
 
 // Stacked Area Chart
 
@@ -102,22 +110,29 @@ export interface StackedAreaChartProps<T> extends ChartProps<T> {
     offset?: OffsetFunction;
     order?: OrderFunction;
     renderGradient?: (props: {
-        id: string,
-        width: number,
-        height: number,
-        x: number,
-        y: number,
-        index: number,
-        key: keyof T,
-        color: string,
+        id: string;
+        width: number;
+        height: number;
+        x: number;
+        y: number;
+        index: number;
+        key: keyof T;
+        color: string;
     }) => React.Component<LinearGradientProps | RadialGradientProps>;
     showGrid?: boolean;
     extras?: any[];
     renderDecorator?: () => {};
 }
 
-export class StackedAreaChart<T> extends React.PureComponent<StackedAreaChartProps<T>> {
-    static extractDataPoints<T>(data: T[], keys: ReadonlyArray<keyof T>, order?: OrderFunction, offset?: OffsetFunction): number[];
+export class StackedAreaChart<T> extends React.PureComponent<
+    StackedAreaChartProps<T>
+> {
+    static extractDataPoints<T>(
+        data: T[],
+        keys: ReadonlyArray<keyof T>,
+        order?: OrderFunction,
+        offset?: OffsetFunction
+    ): number[];
 }
 
 // Stacked Bar Chart
@@ -129,7 +144,9 @@ export interface StackedBarChartProps<T> extends ChartProps<T> {
     order?: OrderFunction;
     strokeColor?: string;
     horizontal?: boolean;
-    renderGradient?: (props: { id: string }) => React.Component<LinearGradientProps | RadialGradientProps>;
+    renderGradient?: (props: {
+        id: string;
+    }) => React.Component<LinearGradientProps | RadialGradientProps>;
     spacingInner?: number;
     spacingOuter?: number;
     showGrid?: boolean;
@@ -137,8 +154,15 @@ export interface StackedBarChartProps<T> extends ChartProps<T> {
     extra?: () => {};
 }
 
-export class StackedBarChart<T> extends React.PureComponent<StackedBarChartProps<T>> {
-    static extractDataPoints<T>(data: T, keys: ReadonlyArray<keyof T>, order?: OrderFunction, offset?: OffsetFunction): number[];
+export class StackedBarChart<T> extends React.PureComponent<
+    StackedBarChartProps<T>
+> {
+    static extractDataPoints<T>(
+        data: T,
+        keys: ReadonlyArray<keyof T>,
+        order?: OrderFunction,
+        offset?: OffsetFunction
+    ): number[];
 }
 
 // Bar Chart
@@ -148,8 +172,7 @@ export interface BarChartProps<T> extends ChartProps<T> {
     spacingOuter?: number;
 }
 
-export class BarChart<T> extends React.PureComponent<BarChartProps<T>> {
-}
+export class BarChart<T> extends React.PureComponent<BarChartProps<T>> {}
 
 // Axis
 
@@ -169,13 +192,12 @@ export interface AxisProps<T> {
 export interface XAxisProps<T> extends AxisProps<T> {
     contentInset?: {
         left?: number;
-        right?: number
+        right?: number;
     };
     xAccessor?: AccessorFunction<T, any>;
 }
 
-export class XAxis<T> extends React.PureComponent<XAxisProps<T>> {
-}
+export class XAxis<T> extends React.PureComponent<XAxisProps<T>> {}
 
 // YAxis
 
@@ -190,8 +212,7 @@ export interface YAxisProps<T> extends AxisProps<T> {
     yAccessor?: AccessorFunction<T, any>;
 }
 
-export class YAxis<T> extends React.PureComponent<YAxisProps<T>> {
-}
+export class YAxis<T> extends React.PureComponent<YAxisProps<T>> {}
 
 // Progress Circle
 
@@ -207,8 +228,7 @@ export interface ProgressCircleProps {
     animateDuration?: number;
 }
 
-export class ProgressCircle extends React.PureComponent<ProgressCircleProps> {
-}
+export class ProgressCircle extends React.PureComponent<ProgressCircleProps> {}
 
 // Horizontal Line
 
@@ -240,7 +260,7 @@ export namespace Decorators {
     export class Tooltip extends React.Component<TooltipProps> {}
 }
 
-export type GridDirection = 'VERTICAL' | 'HORIZONTAL' | 'BOTH';
+export type GridDirection = "VERTICAL" | "HORIZONTAL" | "BOTH";
 
 export interface GridProps<T> {
     direction?: GridDirection;
@@ -254,9 +274,9 @@ export interface GridProps<T> {
 // Export as Component despite it's SFC.
 export class Grid<T> extends React.Component<GridProps<T>> {
     static Direction: {
-        VERTICAL: 'VERTICAL',
-        HORIZONTAL: 'HORIZONTAL',
-        BOTH: 'BOTH',
+        VERTICAL: "VERTICAL";
+        HORIZONTAL: "HORIZONTAL";
+        BOTH: "BOTH";
     };
 }
 
@@ -266,5 +286,4 @@ export interface AnimatedPathProps extends CommonPathProps {
     renderPlaceholder?: () => any;
 }
 
-export class Path extends React.Component<AnimatedPathProps> {
-}
+export class Path extends React.Component<AnimatedPathProps> {}

@@ -4,12 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import * as minimist from 'minimist';
+import * as minimist from "minimist";
 
 declare function build(options?: build.Options): minimist.Opts;
 
 declare namespace build {
-    type Type = 'string' | 'boolean';
+    type Type = "string" | "boolean";
 
     interface Option {
         type?: Type;
@@ -19,9 +19,7 @@ declare namespace build {
 
     type Options = {
         [key: string]: Type | Option;
-    } & {
-        [K in 'stopEarly' | 'unknown' | '--']?: minimist.Opts[K];
-    };
+    } & { [K in "stopEarly" | "unknown" | "--"]?: minimist.Opts[K] };
 }
 
 export = build;

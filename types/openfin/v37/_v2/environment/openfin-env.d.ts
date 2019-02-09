@@ -1,5 +1,5 @@
-import { Environment } from './environment';
-import { NewConnectConfig } from '../transport/wire';
+import { Environment } from "./environment";
+import { NewConnectConfig } from "../transport/wire";
 export default class OpenFinEnvironment implements Environment {
     writeToken: (path: string, token: string) => Promise<string>;
     retrievePort: (config: NewConnectConfig) => Promise<number>;

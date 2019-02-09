@@ -1,9 +1,9 @@
 import * as ESTree from "estree";
-export { };
+export {};
 
 // #### Context ####
 interface ContextConstructor {
-    new(defs: any[]): Context;
+    new (defs: any[]): Context;
 }
 export const Context: ContextConstructor;
 export interface Context {
@@ -33,18 +33,27 @@ export function analyze(ast: ESTree.Program, name: string, scope?: Scope): void;
  * context won’t be back where it was before the file was analyzed — but it prevents most of the
  * noticeable inaccuracies that re-analysis tends to produce.
  */
-export function purgeTypes(origins: string[], start?: number, end?: number): void;
+export function purgeTypes(
+    origins: string[],
+    start?: number,
+    end?: number
+): void;
 /**
  * Cleaning up variables is slightly trickier than cleaning up types. This does a first pass over the given scope,
  * and marks variables defined by the given origins. This is indended to be followed by a call to `analyze` and then a call to `purgeMarkedVariables`.
  */
-export function markVariablesDefinedBy(scope: Scope, origins: string[], start?: number, end?: number): void;
+export function markVariablesDefinedBy(
+    scope: Scope,
+    origins: string[],
+    start?: number,
+    end?: number
+): void;
 /** Purges variables that were marked by a call to markVariablesDefinedBy and not re-defined in the meantime. */
 export function purgeMarkedVariables(): void;
 
 // #### Types ####
 interface ObjConstructor {
-    new(proto: object | true | null, name?: string): Obj;
+    new (proto: object | true | null, name?: string): Obj;
 }
 /** Constructor for the type that represents JavaScript objects. `proto` may be another object, or `true` as a short-hand for `Object.prototype`, or `null` for prototype-less objects. */
 export const Obj: ObjConstructor;
@@ -62,7 +71,13 @@ export interface Obj extends Type {
 }
 
 interface FnConstructor {
-    new(name: string | undefined, self: AVal, args: AVal[], argNames: string[], retval: AVal): Fn;
+    new (
+        name: string | undefined,
+        self: AVal,
+        args: AVal[],
+        argNames: string[],
+        retval: AVal
+    ): Fn;
 }
 /** Constructor for the type that implements functions. Inherits from `Obj`. The `AVal` types are used to track the input and output types of the function. */
 export const Fn: FnConstructor;
@@ -70,7 +85,7 @@ export type Fn = Obj;
 
 interface ArrConstructor {
     /** Constructor that creates an array type with the given content type. */
-    new(contentType: AVal): Arr;
+    new (contentType: AVal): Arr;
 }
 export const Arr: ArrConstructor;
 export type Arr = Obj;
@@ -97,7 +112,7 @@ export interface Type extends AVal {
 // #### Abstract Values ####
 
 interface AValConstructor {
-    new(): AVal;
+    new (): AVal;
 }
 export const AVal: AValConstructor;
 export interface AVal {
@@ -153,7 +168,7 @@ export interface ANull extends AVal {
 
 // #### Constraints ####
 interface ConstraintConstructor {
-    new(methods: { [key: string]: any }): { new(): Constraint };
+    new (methods: { [key: string]: any }): { new (): Constraint };
 }
 /**
  * This is a constructor-constructor for constraints. It’ll create a
@@ -170,7 +185,7 @@ export interface Constraint extends AVal {
 
 // #### Scopes ####
 interface ScopeConstructor {
-    new(parent?: Scope): Scope;
+    new (parent?: Scope): Scope;
 }
 export const Scope: ScopeConstructor;
 export interface Scope extends Obj {
@@ -190,28 +205,58 @@ export interface Scope extends Obj {
  * object if successful, where `node` is AST node, and `state` is the scope at that point.
  * Returns `null` if unsuccessful.
  */
-export function findExpressionAt(ast: ESTree.Program, start: number | undefined, end: number, scope?: Scope): { node: ESTree.Node, state: Scope } | null;
+export function findExpressionAt(
+    ast: ESTree.Program,
+    start: number | undefined,
+    end: number,
+    scope?: Scope
+): { node: ESTree.Node; state: Scope } | null;
 /**
  * Similar to `findExpressionAt`, except that it will return the innermost expression
  * node that spans the given range, rather than only exact matches.
  */
-export function findExpressionAround(ast: ESTree.Program, start: number | undefined, end: number, scope?: Scope): { node: ESTree.Node, state: Scope } | null;
+export function findExpressionAround(
+    ast: ESTree.Program,
+    start: number | undefined,
+    end: number,
+    scope?: Scope
+): { node: ESTree.Node; state: Scope } | null;
 /** Similar to `findExpressionAround`, except that it use the same AST walker as `findExpressionAt`. */
-export function findClosestExpression(ast: ESTree.Program, start: number | undefined, end: number, scope?: Scope): { node: ESTree.Node, state: Scope } | null;
+export function findClosestExpression(
+    ast: ESTree.Program,
+    start: number | undefined,
+    end: number,
+    scope?: Scope
+): { node: ESTree.Node; state: Scope } | null;
 /** Determine an expression for the given node and scope (as returned by the functions above). Will return an `AVal` or plain `Type`. */
-export function expressionType(expr: { node: ESTree.Node, state: Scope }): AVal | Type;
+export function expressionType(expr: {
+    node: ESTree.Node;
+    state: Scope;
+}): AVal | Type;
 /** Find the scope at a given position in the syntax tree. The `scope` parameter can be used to override the scope used for code that isn’t wrapped in any function. */
 export function scopeAt(ast: ESTree.Program, pos: number, scope?: Scope): Scope;
 /**
  * Will traverse the given syntax tree, using `scope` as the starting scope, looking for references to variable `name` that
  * resolve to scope `refScope`, and call `f` with the node of the reference and its local scope for each of them.
  */
-export function findRefs(ast: ESTree.Program, scope: Scope, name: string, refScope: Scope, f: (Node: ESTree.Node, Scope: Scope) => void): void;
+export function findRefs(
+    ast: ESTree.Program,
+    scope: Scope,
+    name: string,
+    refScope: Scope,
+    f: (Node: ESTree.Node, Scope: Scope) => void
+): void;
 /**
  * Analogous to `findRefs`, but used to look for references to a specific property instead. Whereas `findRefs`
  * is precise, this is dependent on type inference, and thus can not be relied on to be precise.
  */
-export function findPropRefs(ast: ESTree.Program, scope: Scope, objType: Obj, propName: string, f: (Node: ESTree.Node) => void): void;
+export function findPropRefs(
+    ast: ESTree.Program,
+    scope: Scope,
+    objType: Obj,
+    propName: string,
+    f: (Node: ESTree.Node) => void
+): void;
 /** Whenever infer guesses a type through fuzzy heuristics (through `getType` or `expressionType`), it sets a flag. `didGuess` tests whether the guessing flag is set. */
 export function didGuess(): boolean;
 /** Whenever infer guesses a type through fuzzy heuristics (through `getType` or `expressionType`), it sets a flag. `resetGuessing` resets the guessing flag. */

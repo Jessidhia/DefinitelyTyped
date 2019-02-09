@@ -1,4 +1,4 @@
-import pWaterfall = require('p-waterfall');
+import pWaterfall = require("p-waterfall");
 
 pWaterfall([() => `I ❤️ unicorn`]).then(finalValue => {
     // $ExpectType string
@@ -8,7 +8,11 @@ pWaterfall([() => `I ❤️ unicorn`, (str: string) => true]).then(finalValue =>
     // $ExpectType boolean
     finalValue;
 });
-pWaterfall([() => `I ❤️ unicorn`, (str: string) => true, (bool: boolean) => 1]).then(finalValue => {
+pWaterfall([
+    () => `I ❤️ unicorn`,
+    (str: string) => true,
+    (bool: boolean) => 1
+]).then(finalValue => {
     // $ExpectType number
     finalValue;
 });
@@ -16,7 +20,7 @@ pWaterfall([
     () => `I ❤️ unicorn`,
     (str: string) => true,
     (bool: boolean) => 1,
-    (num: number) => null,
+    (num: number) => null
 ]).then(finalValue => {
     // $ExpectType null
     finalValue;
@@ -26,7 +30,7 @@ pWaterfall([
     (str: string) => true,
     (bool: boolean) => 1,
     (num: number) => null,
-    (n: null) => undefined,
+    (n: null) => undefined
 ]).then(finalValue => {
     // $ExpectType undefined
     finalValue;
@@ -37,7 +41,7 @@ pWaterfall([
     (bool: boolean) => 1,
     (num: number) => null,
     (n: null) => undefined,
-    (u: undefined) => ({}),
+    (u: undefined) => ({})
 ]).then(finalValue => {
     // $ExpectType {}
     finalValue;
@@ -49,7 +53,7 @@ pWaterfall([
     (num: number) => null,
     (n: null) => undefined,
     (u: undefined) => ({}),
-    (o: {}) => 'foo',
+    (o: {}) => "foo"
 ]).then(finalValue => {
     // $ExpectType string
     finalValue;
@@ -61,26 +65,33 @@ pWaterfall([
     (num: number) => null,
     (n: null) => undefined,
     (u: undefined) => ({}),
-    (o: {}) => 'foo',
-    (s: string) => 1,
+    (o: {}) => "foo",
+    (s: string) => 1
 ]).then(finalValue => {
     // $ExpectType number
     finalValue;
 });
 
-pWaterfall([previousValue => `I ❤️ ${previousValue}`], 'unicorn').then(finalValue => {
-    // $ExpectType string
-    finalValue;
-});
-pWaterfall([previousValue => `I ❤️ ${previousValue}`, (str: string) => true], 'unicorn').then(
+pWaterfall([previousValue => `I ❤️ ${previousValue}`], "unicorn").then(
     finalValue => {
-        // $ExpectType boolean
+        // $ExpectType string
         finalValue;
     }
 );
 pWaterfall(
-    [previousValue => `I ❤️ ${previousValue}`, (str: string) => true, (bool: boolean) => 1],
-    'unicorn'
+    [previousValue => `I ❤️ ${previousValue}`, (str: string) => true],
+    "unicorn"
+).then(finalValue => {
+    // $ExpectType boolean
+    finalValue;
+});
+pWaterfall(
+    [
+        previousValue => `I ❤️ ${previousValue}`,
+        (str: string) => true,
+        (bool: boolean) => 1
+    ],
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType number
     finalValue;
@@ -90,9 +101,9 @@ pWaterfall(
         previousValue => `I ❤️ ${previousValue}`,
         (str: string) => true,
         (bool: boolean) => 1,
-        (num: number) => null,
+        (num: number) => null
     ],
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType null
     finalValue;
@@ -103,9 +114,9 @@ pWaterfall(
         (str: string) => true,
         (bool: boolean) => 1,
         (num: number) => null,
-        (n: null) => undefined,
+        (n: null) => undefined
     ],
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType undefined
     finalValue;
@@ -117,9 +128,9 @@ pWaterfall(
         (bool: boolean) => 1,
         (num: number) => null,
         (n: null) => undefined,
-        (u: undefined) => ({}),
+        (u: undefined) => ({})
     ],
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType {}
     finalValue;
@@ -132,9 +143,9 @@ pWaterfall(
         (num: number) => null,
         (n: null) => undefined,
         (u: undefined) => ({}),
-        (o: {}) => 'foo',
+        (o: {}) => "foo"
     ],
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType string
     finalValue;
@@ -147,10 +158,10 @@ pWaterfall(
         (num: number) => null,
         (n: null) => undefined,
         (u: undefined) => ({}),
-        (o: {}) => 'foo',
-        (s: string) => 1,
+        (o: {}) => "foo",
+        (s: string) => 1
     ],
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType number
     finalValue;
@@ -162,9 +173,9 @@ pWaterfall(
         (str: string) => true,
         (bool: boolean) => 1,
         (num: number) => null,
-        (n: null) => undefined,
+        (n: null) => undefined
     ]),
-    'unicorn'
+    "unicorn"
 ).then(finalValue => {
     // $ExpectType any
     finalValue;

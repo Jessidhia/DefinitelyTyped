@@ -12,26 +12,46 @@ interface ADProperties {
     username: string;
     password: string;
     pageSize?: 1000;
-    entryParser?: (entry: object, raw: string, cb: (entry: object) => void) => void;
+    entryParser?: (
+        entry: object,
+        raw: string,
+        cb: (entry: object) => void
+    ) => void;
     referrals?: {
-        enabled: false,
+        enabled: false;
         exclude: [
-            'ldaps?://ForestDnsZones\\..*/.*',
-            'ldaps?://DomainDnsZones\\..*/.*',
-            'ldaps?://.*/CN=Configuration,.*'
-        ]
+            "ldaps?://ForestDnsZones\\..*/.*",
+            "ldaps?://DomainDnsZones\\..*/.*",
+            "ldaps?://.*/CN=Configuration,.*"
+        ];
     };
     attributes?: {
         user: [
-            'dn', 'distinguishedName',
-            'userPrincipalName', 'sAMAccountName', 'mail',
-            'lockoutTime', 'whenCreated', 'pwdLastSet', 'userAccountControl',
-            'employeeID', 'sn', 'givenName', 'initials', 'cn', 'displayName',
-            'comment', 'description'
-        ],
+            "dn",
+            "distinguishedName",
+            "userPrincipalName",
+            "sAMAccountName",
+            "mail",
+            "lockoutTime",
+            "whenCreated",
+            "pwdLastSet",
+            "userAccountControl",
+            "employeeID",
+            "sn",
+            "givenName",
+            "initials",
+            "cn",
+            "displayName",
+            "comment",
+            "description"
+        ];
         group: [
-            'dn', 'cn', 'description', 'distinguishedName', 'objectCategory'
-        ]
+            "dn",
+            "cn",
+            "description",
+            "distinguishedName",
+            "objectCategory"
+        ];
     };
 }
 
@@ -52,13 +72,13 @@ interface LDAPjsReqProps {
     strictDN?: boolean;
 }
 
-type MembershipType = 'all'|'user'|'group';
+type MembershipType = "all" | "user" | "group";
 
 interface ReqProps extends LDAPjsReqProps {
     baseDN?: string;
     bindDN?: string;
     bindCredentials?: string;
-    scope?: 'base' | 'one' | 'sub';
+    scope?: "base" | "one" | "sub";
     filter: string | Filter;
     attributes: AttributeSpec;
     sizeLimit: 0;
@@ -72,28 +92,28 @@ interface AttributeSpec {
 }
 
 type GroupAttributes =
-    | 'distinguishedName'
-    | 'objectCategory'
-    | 'cn'
-    | 'description';
+    | "distinguishedName"
+    | "objectCategory"
+    | "cn"
+    | "description";
 
 type UserAttributes =
-    | 'distinguishedName'
-    | 'userPrincipalName'
-    | 'sAMAccountName'
-    | 'mail'
-    | 'lockoutTime'
-    | 'whenCreated'
-    | 'pwdLastSet'
-    | 'userAccountControl'
-    | 'employeeID'
-    | 'sn'
-    | 'givenName'
-    | 'initials'
-    | 'cn'
-    | 'displayName'
-    | 'comment'
-    | 'description';
+    | "distinguishedName"
+    | "userPrincipalName"
+    | "sAMAccountName"
+    | "mail"
+    | "lockoutTime"
+    | "whenCreated"
+    | "pwdLastSet"
+    | "userAccountControl"
+    | "employeeID"
+    | "sn"
+    | "givenName"
+    | "initials"
+    | "cn"
+    | "displayName"
+    | "comment"
+    | "description";
 
 interface FindResult {
     groups: object[];

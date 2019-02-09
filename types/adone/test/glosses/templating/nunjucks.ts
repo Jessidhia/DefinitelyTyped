@@ -1,8 +1,6 @@
 namespace adoneTests.templating.nunjucks {
     const {
-        templating: {
-            nunjucks
-        }
+        templating: { nunjucks }
     } = adone;
 
     let str: string;
@@ -10,16 +8,18 @@ namespace adoneTests.templating.nunjucks {
     let pstr: Promise<string>;
 
     namespace Environment {
-        const {
-            Environment
-        } = nunjucks;
+        const { Environment } = nunjucks;
 
         new Environment();
         new Environment(new nunjucks.FileSystemLoader());
         new Environment(new nunjucks.FileSystemLoader(), { autoescape: true });
         new Environment(new nunjucks.FileSystemLoader(), { dev: true });
-        new Environment(new nunjucks.FileSystemLoader(), { lstripBlocks: true });
-        new Environment(new nunjucks.FileSystemLoader(), { throOnUndefined: true });
+        new Environment(new nunjucks.FileSystemLoader(), {
+            lstripBlocks: true
+        });
+        new Environment(new nunjucks.FileSystemLoader(), {
+            throOnUndefined: true
+        });
         new Environment(new nunjucks.FileSystemLoader(), { trimBlocks: true });
 
         const e = new Environment();
@@ -33,7 +33,12 @@ namespace adoneTests.templating.nunjucks {
         e.addFilter("name", () => 2, true);
         e.getFilter("name")();
 
-        e.addExtension("name", { parse() { return "a"; }, tags: ["a"] });
+        e.addExtension("name", {
+            parse() {
+                return "a";
+            },
+            tags: ["a"]
+        });
         e.removeExtension("name");
         e.getExtension("name").parse({}, {}, {});
         str = e.getExtension("name").tags[0];
@@ -44,9 +49,7 @@ namespace adoneTests.templating.nunjucks {
     }
 
     namespace Template {
-        const {
-            Template
-        } = nunjucks;
+        const { Template } = nunjucks;
 
         new Template("asd");
         new Template("asd", new nunjucks.Environment());
@@ -56,9 +59,7 @@ namespace adoneTests.templating.nunjucks {
     }
 
     namespace Loader {
-        const {
-            Loader
-        } = nunjucks;
+        const { Loader } = nunjucks;
 
         new Loader();
         new Loader().on("asd", () => {});
@@ -80,23 +81,22 @@ namespace adoneTests.templating.nunjucks {
     }
 
     namespace FileSystemLoader {
-        const {
-            FileSystemLoader
-        } = nunjucks;
+        const { FileSystemLoader } = nunjucks;
 
         new FileSystemLoader();
         new FileSystemLoader(["a"]);
         new FileSystemLoader(["a"], { noCache: true });
         new FileSystemLoader(["a"], { watch: true });
-        bool = new FileSystemLoader(["a"], { watch: true }).getSource("name").noCache;
-        str = new FileSystemLoader(["a"], { watch: true }).getSource("name").path;
-        str = new FileSystemLoader(["a"], { watch: true }).getSource("name").src;
+        bool = new FileSystemLoader(["a"], { watch: true }).getSource("name")
+            .noCache;
+        str = new FileSystemLoader(["a"], { watch: true }).getSource("name")
+            .path;
+        str = new FileSystemLoader(["a"], { watch: true }).getSource("name")
+            .src;
     }
 
     namespace PrecompiledLoader {
-        const {
-            PrecompiledLoader
-        } = nunjucks;
+        const { PrecompiledLoader } = nunjucks;
 
         new PrecompiledLoader();
         bool = new PrecompiledLoader().getSource("name").noCache;

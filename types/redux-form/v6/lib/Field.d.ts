@@ -90,18 +90,28 @@ interface BaseFieldProps {
  * @param previousAllValues All the values in the entire form before the current change.
  *                          This will be an Immutable Map if you are using Immutable JS.
  */
-export type Normalizer = (value: FieldValue, previousValue?: FieldValue, allValues?: any, previousAllValues?: any) => FieldValue;
+export type Normalizer = (
+    value: FieldValue,
+    previousValue?: FieldValue,
+    allValues?: any,
+    previousAllValues?: any
+) => FieldValue;
 
 export type Formatter = (value: FieldValue, name: string) => FieldValue;
 
 export type Parser = (value: FieldValue, name: string) => FieldValue;
 
-export type Validator = (value: FieldValue, allValues?: any, props?: any) => any;
+export type Validator = (
+    value: FieldValue,
+    allValues?: any,
+    props?: any
+) => any;
 
 /**
  * Declare Field as this interface to specify the generic.
  */
-export interface GenericField<FieldCustomProps, S> extends Component<BaseFieldProps & FieldCustomProps> {
+export interface GenericField<FieldCustomProps, S>
+    extends Component<BaseFieldProps & FieldCustomProps> {
     /**
      * true if the current value is different from the initialized value,
      * false otherwise.

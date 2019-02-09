@@ -1,16 +1,13 @@
-import {
-    Server,
-    Lifecycle,
-} from 'hapi';
+import { Server, Lifecycle } from "hapi";
 
-import * as path from 'path';
-import * as inert from 'inert';
+import * as path from "path";
+import * as inert from "inert";
 
 const server = new Server({
     port: 3000,
     routes: {
         files: {
-            relativeTo: path.join(__dirname, 'public')
+            relativeTo: path.join(__dirname, "public")
         }
     }
 });
@@ -20,20 +17,20 @@ const provision = async () => {
 
     await server.register({
         plugin: inert,
-        options: { etagsCacheMaxSize: 400 },
+        options: { etagsCacheMaxSize: 400 }
     });
 
     await server.register({
         plugin: inert,
-        once: true,
+        once: true
     });
 
     server.route({
-        method: 'GET',
-        path: '/{param*}',
+        method: "GET",
+        path: "/{param*}",
         handler: {
             directory: {
-                path: '.',
+                path: ".",
                 redirectToSlash: true,
                 index: true
             }
@@ -42,64 +39,64 @@ const provision = async () => {
 
     // https://github.com/hapijs/inert#serving-a-single-file
     server.route({
-        method: 'GET',
-        path: '/{path*}',
+        method: "GET",
+        path: "/{path*}",
         handler: {
-            file: 'page.html'
+            file: "page.html"
         }
     });
 
     // https://github.com/hapijs/inert#customized-file-response
     server.route({
-        method: 'GET',
-        path: '/file',
+        method: "GET",
+        path: "/file",
         handler(request, reply) {
-            let path = 'plain.txt';
-            if (request.headers['x-magic'] === 'sekret') {
-                path = 'awesome.png';
+            let path = "plain.txt";
+            if (request.headers["x-magic"] === "sekret") {
+                path = "awesome.png";
             }
 
-            return reply.file(path).vary('x-magic');
+            return reply.file(path).vary("x-magic");
         }
     });
 
     const handler: Lifecycle.Method = (request, h) => {
         const response = request.response;
         if (response instanceof Error && response.output.statusCode === 404) {
-            return h.file('404.html').code(404);
+            return h.file("404.html").code(404);
         }
 
         return h.continue;
     };
 
-    server.ext('onPostHandler', handler);
+    server.ext("onPostHandler", handler);
 
     const file: inert.FileHandlerRouteObject = {
-        path: '',
-        confine: true,
+        path: "",
+        confine: true
     };
 
     const directory: inert.DirectoryHandlerRouteObject = {
-        path: '',
+        path: "",
         listing: true
     };
 
     server.route({
-        path: '',
-        method: 'GET',
+        path: "",
+        method: "GET",
         handler: {
             file,
             directory: {
                 path() {
                     if (Math.random() > 0.5) {
-                        return '';
+                        return "";
                     } else if (Math.random() > 0) {
-                        return [''];
+                        return [""];
                     }
-                    return new Error('');
+                    return new Error("");
                 },
-                BAD_listing: true,
-            },
+                BAD_listing: true
+            }
         },
         options: { files: { relativeTo: __dirname } }
     });

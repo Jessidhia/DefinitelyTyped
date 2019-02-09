@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as passport from 'passport';
-import * as express from 'express';
+import * as passport from "passport";
+import * as express from "express";
 
 export interface Profile extends passport.Profile {
     gender?: string;

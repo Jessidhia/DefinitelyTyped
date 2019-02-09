@@ -7,7 +7,6 @@ import {
     OKShareCount, // $ExpectType FunctionComponent<ShareCountComponentProps>
     RedditShareCount, // $ExpectType FunctionComponent<ShareCountComponentProps>
     TumblrShareCount, // $ExpectType FunctionComponent<ShareCountComponentProps>
-
     FacebookIcon, // $ExpectType FunctionComponent<IconComponentProps>
     TwitterIcon, // $ExpectType FunctionComponent<IconComponentProps>
     TelegramIcon, // $ExpectType FunctionComponent<IconComponentProps>
@@ -21,5 +20,5 @@ import {
     TumblrIcon, // $ExpectType FunctionComponent<IconComponentProps>
     LivejournalIcon, // $ExpectType FunctionComponent<IconComponentProps>
     MailruIcon, // $ExpectType FunctionComponent<IconComponentProps>
-    EmailIcon, // $ExpectType FunctionComponent<IconComponentProps>
-} from 'react-share';
+    EmailIcon // $ExpectType FunctionComponent<IconComponentProps>
+} from "react-share";

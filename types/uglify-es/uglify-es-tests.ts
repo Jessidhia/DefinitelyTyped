@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { OutputQuoteStyle, minify } from 'uglify-es';
+import { OutputQuoteStyle, minify } from "uglify-es";
 
 let code: any;
 
@@ -21,14 +21,14 @@ minify(code, {
 });
 
 const output = minify(code, {
-    warnings: 'verbose',
+    warnings: "verbose",
     mangle: {
         properties: {
             regex: /reg/
         }
     },
     sourceMap: {
-        filename: 'foo.map'
+        filename: "foo.map"
     },
     compress: {
         arguments: true
@@ -36,5 +36,5 @@ const output = minify(code, {
 });
 
 if (output.warnings) {
-    output.warnings.filter(x => x === 'Dropping unused variable');
+    output.warnings.filter(x => x === "Dropping unused variable");
 }

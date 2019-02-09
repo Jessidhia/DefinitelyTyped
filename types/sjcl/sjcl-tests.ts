@@ -1,4 +1,4 @@
-import sjcl = require("sjcl"); 
+import sjcl = require("sjcl");
 
 var b: boolean;
 var n: number;
@@ -146,7 +146,11 @@ function testCodecs() {
 
 function testHashes() {
     var hash: sjcl.SjclHash;
-    ba = hash.reset().update("xxx").update(ba).finalize();
+    ba = hash
+        .reset()
+        .update("xxx")
+        .update(ba)
+        .finalize();
 
     hash = new sjcl.hash.sha1();
     hash = new sjcl.hash.sha1(hash);
@@ -262,6 +266,11 @@ function testConvenince() {
     sjcl.encrypt("xxx", "text", { iv: ba, salt: ba, mode: "gcm" }, x);
     s = sjcl.decrypt(ba, x, { iv: ba, salt: ba, mode: "gcm" }, y);
 
-    sjcl.encrypt("xxx", "text", { iv: ba, salt: ba, mode: "gcm", iter: 200 }, x);
+    sjcl.encrypt(
+        "xxx",
+        "text",
+        { iv: ba, salt: ba, mode: "gcm", iter: 200 },
+        x
+    );
     s = sjcl.decrypt(ba, x, { iv: ba, salt: ba, mode: "gcm", iter: 200 }, y);
 }

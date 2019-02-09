@@ -26,14 +26,16 @@ const oidcStrategyOptions: IOIDCStrategyOptionWithRequest = {
 };
 
 const verifyBearer: VerifyBearerFunctionWithReq = (req, token, done) => {
-    if (!token.oid)
-        done(null, token);
+    if (!token.oid) done(null, token);
     else done(new Error("Invalid token"));
 };
 
-const verifyOidc: VerifyOIDCFunctionWithReq = (req: Request, profile: IProfile, done: VerifyCallback) => {
-    if (!profile.oid)
-        done(null, profile);
+const verifyOidc: VerifyOIDCFunctionWithReq = (
+    req: Request,
+    profile: IProfile,
+    done: VerifyCallback
+) => {
+    if (!profile.oid) done(null, profile);
     else done(new Error("Invalid token"));
 };
 

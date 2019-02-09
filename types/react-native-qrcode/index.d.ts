@@ -4,13 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
-export default class QRCode extends React.Component<QRCodeProperties> { }
+export default class QRCode extends React.Component<QRCodeProperties> {}
 
 export interface QRCodeProperties {
-  value?: string;
-  size?: number;
-  bgColor?: string;
-  fgColor?: string;
+    value?: string;
+    size?: number;
+    bgColor?: string;
+    fgColor?: string;
 }

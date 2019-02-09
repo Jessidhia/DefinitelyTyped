@@ -37,7 +37,6 @@ const customDetector: LngDetector.CustomDetector = {
     cacheUserLanguage(lng: string, options: LngDetector.DetectorOptions) {
         // options -> are passed in options
         // lng -> current language, will be called after init and on changeLanguage
-
         // store it
     }
 };
@@ -54,8 +53,6 @@ const lngDetector = new LngDetector(null, options);
 lngDetector.init(options);
 lngDetector.addDetector(customDetector);
 
-i18next
-    .use(lngDetector)
-    .init({
-        detection: options
-    });
+i18next.use(lngDetector).init({
+    detection: options
+});

@@ -28,17 +28,17 @@ Vue.use(vuexI18n.plugin, store);
 // structured as object trees and will automatically be flattened by the the
 // plugin
 const translationsEn = {
-  content: "This is some {type} content",
-  tree: {
-    nested: "This is nested content"
-  }
+    content: "This is some {type} content",
+    tree: {
+        nested: "This is nested content"
+    }
 };
 
 // translations can be kept in separate files for each language
 // i.e. resources/i18n/de.json.
 const translationsDe = {
-  "My nice title": "Ein schöner Titel",
-  content: "Dies ist ein toller Inhalt"
+    "My nice title": "Ein schöner Titel",
+    content: "Dies ist ein toller Inhalt"
 };
 
 // add translations directly to the application

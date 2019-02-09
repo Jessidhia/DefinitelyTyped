@@ -22,23 +22,18 @@ declare namespace zrender {
         new (
             /** @default 0 */
             x?: X,
-
             /** @default 0 */
             y?: Y,
-
             /** @default 1 */
             x2?: X2,
-
             /** @default 0 */
             y2?: Y2,
-
             /** @default [] */
             colorStops?: ColorStops,
-
             /** @default false */
-            globalCoord?: GlobalCoords,
+            globalCoord?: GlobalCoords
         ): {
-            type: 'linear';
+            type: "linear";
             x: X;
             y: Y;
             x2: X2;
@@ -51,6 +46,6 @@ declare namespace zrender {
     }
 }
 
-declare module 'zrender' {
+declare module "zrender" {
     export = zrender;
 }

@@ -51,7 +51,8 @@ interface BaseFieldArrayProps {
 /**
  * Declare FieldArray as this interface to specify the generics.
  */
-export interface GenericFieldArray<T, FieldCustomProps> extends Component<BaseFieldArrayProps & FieldCustomProps> {
+export interface GenericFieldArray<T, FieldCustomProps>
+    extends Component<BaseFieldArrayProps & FieldCustomProps> {
     /**
      * The name prop that you passed in.
      */
@@ -67,13 +68,16 @@ export interface GenericFieldArray<T, FieldCustomProps> extends Component<BaseFi
      * provide a withRef prop, and your component must not be a stateless function
      * component.
      */
-    getRenderedComponent(): Component<WrappedFieldArrayProps<T> & FieldCustomProps>;
+    getRenderedComponent(): Component<
+        WrappedFieldArrayProps<T> & FieldCustomProps
+    >;
 }
 
 /**
  * The FieldArray Instance API.
  */
-export class FieldArray extends Component<any> implements GenericFieldArray<any, any> {
+export class FieldArray extends Component<any>
+    implements GenericFieldArray<any, any> {
     /**
      * The name prop that you passed in.
      */
@@ -104,11 +108,13 @@ interface FieldsProps<T> {
     /**
      * true if field is field array
      */
-    _isFieldArray: boolean
+    _isFieldArray: boolean;
     /**
      * A method to iterate over each value of the array.
      */
-    forEach(callback: (name: string, index: number, fields: FieldsProps<T>) => void): void;
+    forEach(
+        callback: (name: string, index: number, fields: FieldsProps<T>) => void
+    ): void;
 
     /**
      * A method to get a single value from the array value.
@@ -134,7 +140,9 @@ interface FieldsProps<T> {
      * A method to iterate over each value of the array. Returns an array of the
      * results of each call to the callback.
      */
-    map(callback: (name: string, index: number, fields: FieldsProps<T>) => any): any;
+    map(
+        callback: (name: string, index: number, fields: FieldsProps<T>) => any
+    ): any;
 
     /**
      * A method to move value in array on on different index in the field array
@@ -159,7 +167,7 @@ interface FieldsProps<T> {
      * TODO: Need to figure out what does this do, its taken
      * directly form redux-form repo and flow types
      */
-    reduce(callback: Function): any
+    reduce(callback: Function): any;
 
     /**
      * Removes an item from the array at an arbitrary index.
@@ -169,7 +177,7 @@ interface FieldsProps<T> {
     /**
      * It will remove all fields in field array
      */
-    removeAll(): void
+    removeAll(): void;
 
     /**
      * Removes an item from beginning of the array. Returns the item removed.
@@ -180,7 +188,7 @@ interface FieldsProps<T> {
      * TODO: Need to figure out what does this do, its taken
      * directly form redux-form repo and flow types
      */
-    some(callback: Function): void
+    some(callback: Function): void;
     /**
      * Swaps two items in the array at the given indexes.
      */
@@ -231,7 +239,7 @@ interface FieldArrayMetaProps {
 
     /**
      * true if some field value in the field array fails validation on submit
-    */
+     */
     submitFailed: boolean;
     /**
      * true if any of the fields have been touched.

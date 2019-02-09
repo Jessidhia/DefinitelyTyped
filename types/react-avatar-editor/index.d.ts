@@ -45,7 +45,10 @@ export interface AvatarEditorProps {
     onPositionChange?(): void;
 }
 
-export default class AvatarEditor extends React.Component<AvatarEditorProps, any> {
+export default class AvatarEditor extends React.Component<
+    AvatarEditorProps,
+    any
+> {
     getImage(): HTMLCanvasElement;
     getImageScaledToCanvas(): HTMLCanvasElement;
     getCroppingRect(): CroppedRect;

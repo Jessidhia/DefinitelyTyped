@@ -179,7 +179,10 @@ declare module "maildev" {
          * @public
          * @param {string} id The e-mail identifier.
          */
-        getRawEmail(id: string, callback?: (error: Error, readStream: fs.ReadStream) => void): void;
+        getRawEmail(
+            id: string,
+            callback?: (error: Error, readStream: fs.ReadStream) => void
+        ): void;
 
         /**
          * Returns array of all e-mail.

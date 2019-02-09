@@ -8,17 +8,17 @@ import {
     TextStyles,
     render,
     renderToJSON,
-    Platform,
-} from 'react-sketchapp';
+    Platform
+} from "react-sketchapp";
 
 // the styles object should be a mapped typed mapping the keys of the object literal to numbers
 const styles = StyleSheet.create({
     red: {
-        backgroundColor: '#FF00000',
+        backgroundColor: "#FF00000"
     },
     flexRow: {
-        flexDirection: 'row',
-    },
+        flexDirection: "row"
+    }
 });
 
 // style references are numbers
@@ -59,12 +59,12 @@ Artboard.prototype.componentDidMount;
 // and the return type isn't used anyway
 TextStyles.create(context as any, {
     normal: {
-        fontSize: 16,
+        fontSize: 16
     },
     heading: {
         fontSize: 16 * 1.618,
-        fontWeight: 'bold',
-    },
+        fontWeight: "bold"
+    }
 });
 
 const shouldBeSketch = Platform.OS;

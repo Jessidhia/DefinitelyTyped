@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import * as fs from 'fs';
+import * as fs from "fs";
 import { AffixOptions, OpenFile, Stats } from "temp";
 export { AffixOptions, OpenFile, Stats } from "temp";
 

@@ -9,7 +9,11 @@
 import * as fs from "fs";
 
 export = youtubedl;
-declare function youtubedl(url: string, arg: string[], opt: {[key: string]: string}): youtubedl.Youtubedl;
+declare function youtubedl(
+    url: string,
+    arg: string[],
+    opt: { [key: string]: string }
+): youtubedl.Youtubedl;
 declare namespace youtubedl {
     interface Youtubedl {
         on(event: string, func: (info: Info) => void): this;
@@ -31,19 +35,59 @@ declare namespace youtubedl {
         cwd?: string;
     }
 
-    function exec(url: string, args: string[], options: Options, callback: (err: any, output: string[]) => void): void;
+    function exec(
+        url: string,
+        args: string[],
+        options: Options,
+        callback: (err: any, output: string[]) => void
+    ): void;
 
-    function getInfo(url: string, args: string[], options: Options, callback: (err: any, output: Info) => void): void;
-    function getInfo(url: string, args: string[], callback: (err: any, output: Info) => void): void;
-    function getInfo(url: string, callback: (err: any, output: Info) => void): void;
+    function getInfo(
+        url: string,
+        args: string[],
+        options: Options,
+        callback: (err: any, output: Info) => void
+    ): void;
+    function getInfo(
+        url: string,
+        args: string[],
+        callback: (err: any, output: Info) => void
+    ): void;
+    function getInfo(
+        url: string,
+        callback: (err: any, output: Info) => void
+    ): void;
 
-    function getSubs(url: string, options: Options, callback: (err: any, output: string[]) => void): void;
-    function getSubs(url: string, callback: (err: any, output: string[]) => void): void;
+    function getSubs(
+        url: string,
+        options: Options,
+        callback: (err: any, output: string[]) => void
+    ): void;
+    function getSubs(
+        url: string,
+        callback: (err: any, output: string[]) => void
+    ): void;
 
-    function getThumbs(url: string, options: Options, callback: (err: any, output: string[]) => void): void;
-    function getThumbs(url: string, callback: (err: any, output: string[]) => void): void;
+    function getThumbs(
+        url: string,
+        options: Options,
+        callback: (err: any, output: string[]) => void
+    ): void;
+    function getThumbs(
+        url: string,
+        callback: (err: any, output: string[]) => void
+    ): void;
 
-    function getExtractors(descriptions: boolean, options: Options, callback: (err: any, output: string[]) => void): void;
-    function getExtractors(descriptions: boolean, callback: (err: any, output: string[]) => void): void;
-    function getExtractors(callback: (err: any, output: string[]) => void): void;
+    function getExtractors(
+        descriptions: boolean,
+        options: Options,
+        callback: (err: any, output: string[]) => void
+    ): void;
+    function getExtractors(
+        descriptions: boolean,
+        callback: (err: any, output: string[]) => void
+    ): void;
+    function getExtractors(
+        callback: (err: any, output: string[]) => void
+    ): void;
 }

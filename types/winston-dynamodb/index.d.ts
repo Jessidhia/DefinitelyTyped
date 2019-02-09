@@ -3,8 +3,8 @@
 // Definitions by: nickiannone <https://github.com/nickiannone>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as winston from 'winston';
-import { TransportInstance } from 'winston';
+import * as winston from "winston";
+import { TransportInstance } from "winston";
 export interface DynamoDBTransportOptions {
     useEnvironment?: boolean;
     accessKeyId?: string;
@@ -17,7 +17,8 @@ export interface DynamoDBTransportOptions {
 export interface DynamoDBTransportInstance extends TransportInstance {
     new (options?: DynamoDBTransportOptions): DynamoDBTransportInstance;
 }
-export declare class DynamoDB extends winston.Transport implements DynamoDBTransportInstance {
+export declare class DynamoDB extends winston.Transport
+    implements DynamoDBTransportInstance {
     regions: string[];
     name: string;
     level: string;

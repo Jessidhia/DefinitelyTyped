@@ -6,7 +6,11 @@
 export = Configstore;
 
 declare class Configstore {
-    constructor(packageName: string, defaults?: any, options?: Configstore.ConfigstoreOptions);
+    constructor(
+        packageName: string,
+        defaults?: any,
+        options?: Configstore.ConfigstoreOptions
+    );
 
     /**
      * Get the path to the config file. Can be used to show the user
@@ -62,7 +66,7 @@ declare class Configstore {
      * Equivalent to <code>Configstore.all = {};</code>
      */
     clear(): void;
-  }
+}
 
 declare namespace Configstore {
     interface ConfigstoreOptions {

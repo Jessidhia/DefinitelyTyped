@@ -1,7 +1,7 @@
 // http://www.html5canvastutorials.com/kineticjs/html5-canvas-kineticjs-rect-tutorial/
 namespace RectTutorial {
     var stage = new Kinetic.Stage({
-        container: 'container',
+        container: "container",
         width: 578,
         height: 200
     });
@@ -13,8 +13,8 @@ namespace RectTutorial {
         y: 75,
         width: 100,
         height: 50,
-        fill: 'green',
-        stroke: 'black',
+        fill: "green",
+        stroke: "black",
         strokeWidth: 4
     });
 
@@ -28,7 +28,7 @@ namespace RectTutorial {
 // http://www.html5canvastutorials.com/kineticjs/html5-canvas-kineticjs-circle-tutorial/
 namespace CircleTutorial {
     var stage = new Kinetic.Stage({
-        container: 'container',
+        container: "container",
         width: 578,
         height: 200
     });
@@ -39,8 +39,8 @@ namespace CircleTutorial {
         x: stage.getWidth() / 2,
         y: stage.getHeight() / 2,
         radius: 70,
-        fill: 'red',
-        stroke: 'black',
+        fill: "red",
+        stroke: "black",
         strokeWidth: 4
     });
 

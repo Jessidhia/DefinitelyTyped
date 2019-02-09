@@ -28,5 +28,8 @@ export interface RuleSet {
 
 export namespace HTMLHint {
     function verify(fileContent: string, ruleSet?: RuleSet): LintResult[];
-    function format(arrMessages: LintResult[], options?: FormatOptions): string[];
+    function format(
+        arrMessages: LintResult[],
+        options?: FormatOptions
+    ): string[];
 }

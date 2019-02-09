@@ -38,9 +38,12 @@ declare class StateInline extends State {
      * @param start - position to scan from (it should point to a valid marker)
      * @param canSplitWord - determine if these markers can be found inside a word
      */
-    scanDelims(start: number, canSplitWord: boolean): {
-        can_open: boolean,
-        can_close: boolean,
-        length: number
+    scanDelims(
+        start: number,
+        canSplitWord: boolean
+    ): {
+        can_open: boolean;
+        can_close: boolean;
+        length: number;
     };
 }

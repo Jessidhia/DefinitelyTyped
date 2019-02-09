@@ -4,7 +4,6 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare namespace Jsen {
-
     export interface JsenFormats {
         [key: string]: string | RegExp | Function;
     }
@@ -35,7 +34,11 @@ declare namespace Jsen {
 
     export interface JsenUnique {
         (array: any[]): boolean;
-        findIndex(array: any[], value: any, comparator: (obj1: any, obj2: any) => boolean): number;
+        findIndex(
+            array: any[],
+            value: any,
+            comparator: (obj1: any, obj2: any) => boolean
+        ): number;
     }
 
     export interface JsenMain {

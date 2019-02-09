@@ -6,7 +6,7 @@
 
 import * as React from "react";
 
-declare class ReactTooltip extends React.Component<ReactTooltip.Props> { }
+declare class ReactTooltip extends React.Component<ReactTooltip.Props> {}
 
 declare namespace ReactTooltip {
     /**
@@ -61,21 +61,21 @@ declare namespace ReactTooltip {
      * to ensure they're using attributes which ReactTooltip support
      */
     interface DataProps {
-        'data-place'?: Place;
-        'data-type'?: Type;
-        'data-effect'?: Effect;
-        'data-event'?: ElementEvents;
-        'data-event-off'?: ElementEvents;
-        'data-iscapture'?: boolean;
-        'data-offset'?: Offset;
-        'data-multiline'?: boolean;
-        'data-class'?: string;
-        'data-html'?: boolean;
-        'data-delay-hide'?: number;
-        'data-delay-show'?: number;
-        'data-border'?: boolean;
-        'data-tip-disable'?: boolean;
-        'data-scroll-hide'?: boolean;
+        "data-place"?: Place;
+        "data-type"?: Type;
+        "data-effect"?: Effect;
+        "data-event"?: ElementEvents;
+        "data-event-off"?: ElementEvents;
+        "data-iscapture"?: boolean;
+        "data-offset"?: Offset;
+        "data-multiline"?: boolean;
+        "data-class"?: string;
+        "data-html"?: boolean;
+        "data-delay-hide"?: number;
+        "data-delay-show"?: number;
+        "data-border"?: boolean;
+        "data-tip-disable"?: boolean;
+        "data-scroll-hide"?: boolean;
     }
 
     interface Props {

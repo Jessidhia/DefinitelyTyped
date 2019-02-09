@@ -23,7 +23,7 @@ interface IEnigmaClass {
 }
 
 declare namespace enigmaJS {
-    type MixinType = "Doc"| "GenericObject"| "GenericBookmark" | string;
+    type MixinType = "Doc" | "GenericObject" | "GenericBookmark" | string;
 
     interface IMixin {
         /**
@@ -33,7 +33,7 @@ declare namespace enigmaJS {
          */
         types: MixinType[];
 
-        init(args: {config: any, api: IGeneratedAPI}): void;
+        init(args: { config: any; api: IGeneratedAPI }): void;
 
         /**
          * mixin.extend is an object containing methods to extend the generated API with. These method names cannot already exist or enigma.js will throw an error.
@@ -64,7 +64,11 @@ declare namespace enigmaJS {
          * @param request is the JSON-RPC request resulting in this error. You may use .retry() to retry sending it to QIX Engine.
          * @param error is whatever the previous interceptor resolved with.
          */
-        onFulfilled?(session: ISession, request: any, result: any): Promise<any>;
+        onFulfilled?(
+            session: ISession,
+            request: any,
+            result: any
+        ): Promise<any>;
     }
 
     interface IRequestInterceptors {
@@ -182,7 +186,10 @@ declare namespace enigmaJS {
          * @param event - Event that triggers the function
          * @param func - Called function
          */
-        on(event: "opened" | "closed" | "suspended" | "resumed" | string, func: any): void;
+        on(
+            event: "opened" | "closed" | "suspended" | "resumed" | string,
+            func: any
+        ): void;
     }
 
     interface IGeneratedAPI {

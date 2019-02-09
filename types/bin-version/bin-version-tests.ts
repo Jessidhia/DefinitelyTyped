@@ -1,6 +1,6 @@
-import binVersion = require('bin-version');
+import binVersion = require("bin-version");
 
 // $ExpectType Promise<string>
-binVersion('curl');
+binVersion("curl");
 // $ExpectType Promise<string>
-binVersion('openssl', { args: ['version'] });
+binVersion("openssl", { args: ["version"] });

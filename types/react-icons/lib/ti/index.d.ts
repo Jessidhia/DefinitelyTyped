@@ -8,16 +8,22 @@ export { default as TiArrowBack } from "../../ti/arrow-back";
 export { default as TiArrowDownOutline } from "../../ti/arrow-down-outline";
 export { default as TiArrowDownThick } from "../../ti/arrow-down-thick";
 export { default as TiArrowDown } from "../../ti/arrow-down";
-export { default as TiArrowForwardOutline } from "../../ti/arrow-forward-outline";
+export {
+    default as TiArrowForwardOutline
+} from "../../ti/arrow-forward-outline";
 export { default as TiArrowForward } from "../../ti/arrow-forward";
 export { default as TiArrowLeftOutline } from "../../ti/arrow-left-outline";
 export { default as TiArrowLeftThick } from "../../ti/arrow-left-thick";
 export { default as TiArrowLeft } from "../../ti/arrow-left";
 export { default as TiArrowLoopOutline } from "../../ti/arrow-loop-outline";
 export { default as TiArrowLoop } from "../../ti/arrow-loop";
-export { default as TiArrowMaximiseOutline } from "../../ti/arrow-maximise-outline";
+export {
+    default as TiArrowMaximiseOutline
+} from "../../ti/arrow-maximise-outline";
 export { default as TiArrowMaximise } from "../../ti/arrow-maximise";
-export { default as TiArrowMinimiseOutline } from "../../ti/arrow-minimise-outline";
+export {
+    default as TiArrowMinimiseOutline
+} from "../../ti/arrow-minimise-outline";
 export { default as TiArrowMinimise } from "../../ti/arrow-minimise";
 export { default as TiArrowMoveOutline } from "../../ti/arrow-move-outline";
 export { default as TiArrowMove } from "../../ti/arrow-move";
@@ -72,10 +78,14 @@ export { default as TiChartPieOutline } from "../../ti/chart-pie-outline";
 export { default as TiChartPie } from "../../ti/chart-pie";
 export { default as TiChevronLeftOutline } from "../../ti/chevron-left-outline";
 export { default as TiChevronLeft } from "../../ti/chevron-left";
-export { default as TiChevronRightOutline } from "../../ti/chevron-right-outline";
+export {
+    default as TiChevronRightOutline
+} from "../../ti/chevron-right-outline";
 export { default as TiChevronRight } from "../../ti/chevron-right";
 export { default as TiClipboard } from "../../ti/clipboard";
-export { default as TiCloudStorageOutline } from "../../ti/cloud-storage-outline";
+export {
+    default as TiCloudStorageOutline
+} from "../../ti/cloud-storage-outline";
 export { default as TiCloudStorage } from "../../ti/cloud-storage";
 export { default as TiCodeOutline } from "../../ti/code-outline";
 export { default as TiCode } from "../../ti/code";
@@ -149,7 +159,9 @@ export { default as TiInfoLargeOutline } from "../../ti/info-large-outline";
 export { default as TiInfoLarge } from "../../ti/info-large";
 export { default as TiInfoOutline } from "../../ti/info-outline";
 export { default as TiInfo } from "../../ti/info";
-export { default as TiInputCheckedOutline } from "../../ti/input-checked-outline";
+export {
+    default as TiInputCheckedOutline
+} from "../../ti/input-checked-outline";
 export { default as TiInputChecked } from "../../ti/input-checked";
 export { default as TiKeyOutline } from "../../ti/key-outline";
 export { default as TiKey } from "../../ti/key";
@@ -158,7 +170,9 @@ export { default as TiLeaf } from "../../ti/leaf";
 export { default as TiLightbulb } from "../../ti/lightbulb";
 export { default as TiLinkOutline } from "../../ti/link-outline";
 export { default as TiLink } from "../../ti/link";
-export { default as TiLocationArrowOutline } from "../../ti/location-arrow-outline";
+export {
+    default as TiLocationArrowOutline
+} from "../../ti/location-arrow-outline";
 export { default as TiLocationArrow } from "../../ti/location-arrow";
 export { default as TiLocationOutline } from "../../ti/location-outline";
 export { default as TiLocation } from "../../ti/location";
@@ -170,12 +184,16 @@ export { default as TiMail } from "../../ti/mail";
 export { default as TiMap } from "../../ti/map";
 export { default as TiMediaEjectOutline } from "../../ti/media-eject-outline";
 export { default as TiMediaEject } from "../../ti/media-eject";
-export { default as TiMediaFastForwardOutline } from "../../ti/media-fast-forward-outline";
+export {
+    default as TiMediaFastForwardOutline
+} from "../../ti/media-fast-forward-outline";
 export { default as TiMediaFastForward } from "../../ti/media-fast-forward";
 export { default as TiMediaPauseOutline } from "../../ti/media-pause-outline";
 export { default as TiMediaPause } from "../../ti/media-pause";
 export { default as TiMediaPlayOutline } from "../../ti/media-play-outline";
-export { default as TiMediaPlayReverseOutline } from "../../ti/media-play-reverse-outline";
+export {
+    default as TiMediaPlayReverseOutline
+} from "../../ti/media-play-reverse-outline";
 export { default as TiMediaPlayReverse } from "../../ti/media-play-reverse";
 export { default as TiMediaPlay } from "../../ti/media-play";
 export { default as TiMediaRecordOutline } from "../../ti/media-record-outline";
@@ -209,7 +227,9 @@ export { default as TiPlane } from "../../ti/plane";
 export { default as TiPlug } from "../../ti/plug";
 export { default as TiPlusOutline } from "../../ti/plus-outline";
 export { default as TiPlus } from "../../ti/plus";
-export { default as TiPointOfInterestOutline } from "../../ti/point-of-interest-outline";
+export {
+    default as TiPointOfInterestOutline
+} from "../../ti/point-of-interest-outline";
 export { default as TiPointOfInterest } from "../../ti/point-of-interest";
 export { default as TiPowerOutline } from "../../ti/power-outline";
 export { default as TiPower } from "../../ti/power";
@@ -227,37 +247,67 @@ export { default as TiScissors } from "../../ti/scissors";
 export { default as TiShoppingBag } from "../../ti/shopping-bag";
 export { default as TiShoppingCart } from "../../ti/shopping-cart";
 export { default as TiSocialAtCircular } from "../../ti/social-at-circular";
-export { default as TiSocialDribbbleCircular } from "../../ti/social-dribbble-circular";
+export {
+    default as TiSocialDribbbleCircular
+} from "../../ti/social-dribbble-circular";
 export { default as TiSocialDribbble } from "../../ti/social-dribbble";
-export { default as TiSocialFacebookCircular } from "../../ti/social-facebook-circular";
+export {
+    default as TiSocialFacebookCircular
+} from "../../ti/social-facebook-circular";
 export { default as TiSocialFacebook } from "../../ti/social-facebook";
-export { default as TiSocialFlickrCircular } from "../../ti/social-flickr-circular";
+export {
+    default as TiSocialFlickrCircular
+} from "../../ti/social-flickr-circular";
 export { default as TiSocialFlickr } from "../../ti/social-flickr";
-export { default as TiSocialGithubCircular } from "../../ti/social-github-circular";
+export {
+    default as TiSocialGithubCircular
+} from "../../ti/social-github-circular";
 export { default as TiSocialGithub } from "../../ti/social-github";
-export { default as TiSocialGooglePlusCircular } from "../../ti/social-google-plus-circular";
+export {
+    default as TiSocialGooglePlusCircular
+} from "../../ti/social-google-plus-circular";
 export { default as TiSocialGooglePlus } from "../../ti/social-google-plus";
-export { default as TiSocialInstagramCircular } from "../../ti/social-instagram-circular";
+export {
+    default as TiSocialInstagramCircular
+} from "../../ti/social-instagram-circular";
 export { default as TiSocialInstagram } from "../../ti/social-instagram";
-export { default as TiSocialLastFmCircular } from "../../ti/social-last-fm-circular";
+export {
+    default as TiSocialLastFmCircular
+} from "../../ti/social-last-fm-circular";
 export { default as TiSocialLastFm } from "../../ti/social-last-fm";
-export { default as TiSocialLinkedinCircular } from "../../ti/social-linkedin-circular";
+export {
+    default as TiSocialLinkedinCircular
+} from "../../ti/social-linkedin-circular";
 export { default as TiSocialLinkedin } from "../../ti/social-linkedin";
-export { default as TiSocialPinterestCircular } from "../../ti/social-pinterest-circular";
+export {
+    default as TiSocialPinterestCircular
+} from "../../ti/social-pinterest-circular";
 export { default as TiSocialPinterest } from "../../ti/social-pinterest";
 export { default as TiSocialSkypeOutline } from "../../ti/social-skype-outline";
 export { default as TiSocialSkype } from "../../ti/social-skype";
-export { default as TiSocialTumblerCircular } from "../../ti/social-tumbler-circular";
+export {
+    default as TiSocialTumblerCircular
+} from "../../ti/social-tumbler-circular";
 export { default as TiSocialTumbler } from "../../ti/social-tumbler";
-export { default as TiSocialTwitterCircular } from "../../ti/social-twitter-circular";
+export {
+    default as TiSocialTwitterCircular
+} from "../../ti/social-twitter-circular";
 export { default as TiSocialTwitter } from "../../ti/social-twitter";
-export { default as TiSocialVimeoCircular } from "../../ti/social-vimeo-circular";
+export {
+    default as TiSocialVimeoCircular
+} from "../../ti/social-vimeo-circular";
 export { default as TiSocialVimeo } from "../../ti/social-vimeo";
-export { default as TiSocialYoutubeCircular } from "../../ti/social-youtube-circular";
+export {
+    default as TiSocialYoutubeCircular
+} from "../../ti/social-youtube-circular";
 export { default as TiSocialYoutube } from "../../ti/social-youtube";
-export { default as TiSortAlphabeticallyOutline } from "../../ti/sort-alphabetically-outline";
+export {
+    default as TiSortAlphabeticallyOutline
+} from "../../ti/sort-alphabetically-outline";
 export { default as TiSortAlphabetically } from "../../ti/sort-alphabetically";
-export { default as TiSortNumericallyOutline } from "../../ti/sort-numerically-outline";
+export {
+    default as TiSortNumericallyOutline
+} from "../../ti/sort-numerically-outline";
 export { default as TiSortNumerically } from "../../ti/sort-numerically";
 export { default as TiSpannerOutline } from "../../ti/spanner-outline";
 export { default as TiSpanner } from "../../ti/spanner";

@@ -1,3 +1,3 @@
-import { SHA512 } from '../index';
+import { SHA512 } from "../index";
 
 export = SHA512;

@@ -3,7 +3,7 @@
 // Definitions by: BendingBender <https://github.com/BendingBender>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import { Options as NormalizeUrlOptions } from 'normalize-url';
+import { Options as NormalizeUrlOptions } from "normalize-url";
 
 export = getUrls;
 

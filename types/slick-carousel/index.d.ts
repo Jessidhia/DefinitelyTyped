@@ -7,7 +7,6 @@
 /// <reference types="jquery"/>
 
 interface JQuerySlickOptions {
-
     /**
      * Enables tabbing and arrow key navigation
      * Default: true
@@ -298,12 +297,9 @@ interface JQuerySlickOptions {
      * Default: 1000
      */
     zIndex?: number;
-    
 }
 
-
 interface JQuery {
-
     /**
      * Create slick component
      */
@@ -363,7 +359,12 @@ interface JQuery {
      * @param index/div>
      * @param addBefore
      */
-    slick(methodName: "slickAdd", html: string | Object, index?: number, addBefore?: number): JQuery;
+    slick(
+        methodName: "slickAdd",
+        html: string | Object,
+        index?: number,
+        addBefore?: number
+    ): JQuery;
 
     /**
      * Remove slide by index. If removeBefore is set true, remove slide preceding index, or the first slide if no index is specified.
@@ -372,21 +373,28 @@ interface JQuery {
      * @param index
      * @param removeBefore
      */
-    slick(methodName: "slickRemove", index: number, removeBefore?: number): JQuery;
+    slick(
+        methodName: "slickRemove",
+        index: number,
+        removeBefore?: number
+    ): JQuery;
 
     /**
      * Filters slides using jQuery .filter()
      * @param methodName The name of the method
      * @param selector
      */
-    slick(methodName : "slickFilter", selector: string): JQuery;
+    slick(methodName: "slickFilter", selector: string): JQuery;
 
     /**
      * Filters slides using jQuery .filter()
      * @param methodName The name of the method
      * @param func
      */
-    slick(methodName : "slickFilter", func: (index: number, element: Element) => any): JQuery;
+    slick(
+        methodName: "slickFilter",
+        func: (index: number, element: Element) => any
+    ): JQuery;
 
     /**
      * Removes applied filtering
@@ -409,7 +417,12 @@ interface JQuery {
      * @param value depends on option
      * @param refresh
      */
-    slick(methodName: "slickSetOption", option: string, value: JQuerySlickOptions, refresh?: boolean): JQuery;
+    slick(
+        methodName: "slickSetOption",
+        option: string,
+        value: JQuerySlickOptions,
+        refresh?: boolean
+    ): JQuery;
 
     /**
      * Deconstructs slick
@@ -422,5 +435,4 @@ interface JQuery {
      * @param methodName The name of the method
      */
     slick(methodName: "getSlick"): Object;
-
 }

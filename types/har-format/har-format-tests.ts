@@ -19,7 +19,8 @@ const testPage: harFormat.Page = {
 
 const testHeader: harFormat.Header = {
     name: "Accept",
-    value: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    value:
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
 };
 
 const testRequest: harFormat.Request = {
@@ -92,16 +93,15 @@ const testEntry: harFormat.Entry = {
 };
 
 // Examples from http://www.softwareishard.com/blog/har-12-spec/#cache
-const testCacheNoInformation: harFormat.Cache = {
-};
+const testCacheNoInformation: harFormat.Cache = {};
 
 const testNoCacheAfter: harFormat.Cache = {
-  afterRequest: null
+    afterRequest: null
 };
 
 const testCacheNotCached: harFormat.Cache = {
-  beforeRequest: null,
-  afterRequest: null
+    beforeRequest: null,
+    afterRequest: null
 };
 
 const testLog: harFormat.Log = {

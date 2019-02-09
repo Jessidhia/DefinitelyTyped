@@ -1,10 +1,10 @@
-import { Data, Point, Position, Node, Literal, Parent } from 'unist';
+import { Data, Point, Position, Node, Literal, Parent } from "unist";
 
 const data: Data = {
-    string: 'string',
+    string: "string",
     number: 1,
     object: {
-        key: 'value'
+        key: "value"
     },
     array: [],
     boolean: true,
@@ -24,20 +24,20 @@ const position: Position = {
 };
 
 const node: Node = {
-    type: 'node',
+    type: "node",
     data,
     position
 };
 
 const text: Literal = {
-    type: 'text',
+    type: "text",
     data,
     position,
-    value: 'value'
+    value: "value"
 };
 
 const parent: Parent = {
-    type: 'parent',
+    type: "parent",
     data,
     position,
     children: [node, text]

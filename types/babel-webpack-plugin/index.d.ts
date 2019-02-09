@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Plugin } from 'webpack';
-import { TransformOptions } from 'babel-core';
+import { Plugin } from "webpack";
+import { TransformOptions } from "babel-core";
 
 export = BabelWebpackPlugin;
 

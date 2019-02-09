@@ -1,27 +1,27 @@
-import { Oid } from './oid';
-import { Buf } from './buf';
-import { Reference } from './reference';
-import { Odb } from './odb';
-import { Object } from './object';
-import { Index } from './index_';
-import { Commit } from './commit';
-import { Blob } from './blob';
-import { Tree } from './tree';
-import { Signature } from './signature';
-import { AnnotatedCommit } from './annotated-commit';
-import { FetchOptions } from './fetch-options';
-import { CheckoutOptions } from './checkout-options';
-import { Remote } from './remote';
-import { Tag } from './tag';
-import { Config } from './config';
-import { Merge } from './merge';
-import { MergeOptions } from './merge-options';
-import { Refdb } from './ref-db';
-import { Revwalk } from './rev-walk';
-import { StatusFile } from './status-file';
-import { StatusOptions } from './status-options';
-import { DiffLine } from './diff-line';
-import { Treebuilder } from './tree-builder';
+import { Oid } from "./oid";
+import { Buf } from "./buf";
+import { Reference } from "./reference";
+import { Odb } from "./odb";
+import { Object } from "./object";
+import { Index } from "./index_";
+import { Commit } from "./commit";
+import { Blob } from "./blob";
+import { Tree } from "./tree";
+import { Signature } from "./signature";
+import { AnnotatedCommit } from "./annotated-commit";
+import { FetchOptions } from "./fetch-options";
+import { CheckoutOptions } from "./checkout-options";
+import { Remote } from "./remote";
+import { Tag } from "./tag";
+import { Config } from "./config";
+import { Merge } from "./merge";
+import { MergeOptions } from "./merge-options";
+import { Refdb } from "./ref-db";
+import { Revwalk } from "./rev-walk";
+import { StatusFile } from "./status-file";
+import { StatusOptions } from "./status-options";
+import { DiffLine } from "./diff-line";
+import { Treebuilder } from "./tree-builder";
 
 export interface RepositoryInitOptions {
     description: string;
@@ -38,12 +38,23 @@ export class Repository {
     /**
      * Creates a branch with the passed in name pointing to the commit
      */
-    static discover(startPath: string, acrossFs: number, ceilingDirs: string): Promise<Buf>;
+    static discover(
+        startPath: string,
+        acrossFs: number,
+        ceilingDirs: string
+    ): Promise<Buf>;
     static init(path: string, isBare: number): Promise<Repository>;
-    static initExt(repoPath: string, options?: RepositoryInitOptions): Promise<Repository>;
+    static initExt(
+        repoPath: string,
+        options?: RepositoryInitOptions
+    ): Promise<Repository>;
     static open(path: string): Promise<Repository>;
     static openBare(barePath: string): Promise<Repository>;
-    static openExt(path: string, flags?: number, ceilingDirs?: string): Promise<Repository>;
+    static openExt(
+        path: string,
+        flags?: number,
+        ceilingDirs?: string
+    ): Promise<Repository>;
     static wrapOdb(odb: Odb): Promise<Repository>;
 
     cleanup(): void;
@@ -78,7 +89,11 @@ export class Repository {
     /**
      * Creates a branch with the passed in name pointing to the commit
      */
-    createBranch(name: string, commit: Commit | string | Oid, force?: boolean): Promise<Reference>;
+    createBranch(
+        name: string,
+        commit: Commit | string | Oid,
+        force?: boolean
+    ): Promise<Reference>;
     /**
      * Look up a refs's commit.
      */
@@ -107,7 +122,7 @@ export class Repository {
      * Lookup reference names for a repository.
      */
     getReferenceNames(type: Reference.TYPE): Promise<string[]>;
-    getCommit(string: string | Commit| Oid): Promise<Commit>;
+    getCommit(string: string | Commit | Oid): Promise<Commit>;
     /**
      * Retrieve the blob represented by the oid.
      */
@@ -116,11 +131,18 @@ export class Repository {
      * Retrieve the tree represented by the oid.
      */
     getTree(string: string | Oid): Promise<Tree>;
-    createTag(string: string | Oid, name: string, message: string): Promise<Tag>;
+    createTag(
+        string: string | Oid,
+        name: string,
+        message: string
+    ): Promise<Tag>;
     /**
      * Creates a new lightweight tag
      */
-    createLightweightTag(string: string | Oid, name: string): Promise<Reference>;
+    createLightweightTag(
+        string: string | Oid,
+        name: string
+    ): Promise<Reference>;
     /**
      * Retrieve the tag represented by the oid.
      */
@@ -145,11 +167,24 @@ export class Repository {
      * Retrieve the commit that HEAD is currently pointing to
      */
     getHeadCommit(): Promise<Commit>;
-    createCommit(updateRef: string, author: Signature, committer: Signature, message: string, Tree: Tree | Oid | string, parents: Array<string | Commit | Oid>, callback?: Function): Promise<Oid>;
+    createCommit(
+        updateRef: string,
+        author: Signature,
+        committer: Signature,
+        message: string,
+        Tree: Tree | Oid | string,
+        parents: Array<string | Commit | Oid>,
+        callback?: Function
+    ): Promise<Oid>;
     /**
      * Creates a new commit on HEAD from the list of passed in files
      */
-    createCommitOnHead(filesToAdd: string[], author: Signature, committer: Signature, message: string): Promise<Oid>;
+    createCommitOnHead(
+        filesToAdd: string[],
+        author: Signature,
+        committer: Signature,
+        message: string
+    ): Promise<Oid>;
     /**
      * Create a blob from a buffer
      */
@@ -175,11 +210,23 @@ export class Repository {
      * Fetches from all remotes. This is done in series due to deadlocking issues with fetching from many remotes that can happen.
      */
     fetchAll(fetchOptions?: FetchOptions, callback?: Function): Promise<void>;
-    mergeBranches(to: string | Reference, from: string | Reference, signature?: Signature, mergePreference?: Merge.PREFERENCE, mergeOptions?: MergeOptions): Promise<Oid>;
+    mergeBranches(
+        to: string | Reference,
+        from: string | Reference,
+        signature?: Signature,
+        mergePreference?: Merge.PREFERENCE,
+        mergeOptions?: MergeOptions
+    ): Promise<Oid>;
     /**
      * Rebases a branch onto another branch
      */
-    rebaseBranches(branch: string, upstream: string, onto: string, signature: Signature, beforeNextFn: Function): Promise<Oid>;
+    rebaseBranches(
+        branch: string,
+        upstream: string,
+        onto: string,
+        signature: Signature,
+        beforeNextFn: Function
+    ): Promise<Oid>;
     continueRebase(signature: Signature, beforeNextFn: Function): Promise<Oid>;
     /**
      * Get the status of a repo to it's working directory
@@ -196,19 +243,32 @@ export class Repository {
     /**
      * This will set the HEAD to point to the reference and then attempt to update the index and working tree to match the content of the latest commit on that reference
      */
-    checkoutRef(reference: Reference, opts?: CheckoutOptions): Promise<Reference>;
+    checkoutRef(
+        reference: Reference,
+        opts?: CheckoutOptions
+    ): Promise<Reference>;
     /**
      * This will set the HEAD to point to the local branch and then attempt to update the index and working tree to match the content of the latest commit on that branch
      */
-    checkoutBranch(branch: string | Reference, opts?: CheckoutOptions): Promise<Reference>;
+    checkoutBranch(
+        branch: string | Reference,
+        opts?: CheckoutOptions
+    ): Promise<Reference>;
     /**
      * Stages or unstages line selection of a specified file
      */
-    stageFilemode(filePath: string | string[], stageNew: boolean): Promise<number>;
+    stageFilemode(
+        filePath: string | string[],
+        stageNew: boolean
+    ): Promise<number>;
     /**
      * Stages or unstages line selection of a specified file
      */
-    stageLines(filePath: string, newLines: DiffLine[], isStaged: boolean): Promise<number>;
+    stageLines(
+        filePath: string,
+        newLines: DiffLine[],
+        isStaged: boolean
+    ): Promise<number>;
     /**
      * Returns true if the repository is in the default NONE state.
      */

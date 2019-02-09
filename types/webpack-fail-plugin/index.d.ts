@@ -11,7 +11,7 @@ declare module "webpack-fail-plugin" {
 
     /**
      * Webpack plugin that will make the process return status code 1 when it finishes with errors in single-run mode.
-    */
+     */
     function WebpackFailPlugin(): Plugin;
 
     export = WebpackFailPlugin;

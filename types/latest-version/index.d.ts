@@ -5,7 +5,10 @@
 
 export = latestVersion;
 
-declare function latestVersion(name: string, options?: latestVersion.Options): Promise<string>;
+declare function latestVersion(
+    name: string,
+    options?: latestVersion.Options
+): Promise<string>;
 
 declare namespace latestVersion {
     interface Options {

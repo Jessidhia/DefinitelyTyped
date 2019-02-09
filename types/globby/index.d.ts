@@ -5,10 +5,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { IOptions as NodeGlobOptions } from 'glob';
-import { Options as FastGlobOptions } from 'fast-glob';
+import { IOptions as NodeGlobOptions } from "glob";
+import { Options as FastGlobOptions } from "fast-glob";
 
-type ExpandDirectoriesOption = boolean | string[] | { files: string[]; extensions: string[] };
+type ExpandDirectoriesOption =
+    | boolean
+    | string[]
+    | { files: string[]; extensions: string[] };
 
 interface Options extends FastGlobOptions {
     /**
@@ -42,7 +45,10 @@ interface Options extends FastGlobOptions {
 /**
  * Returns a `Promise<Array>` of matching paths.
  */
-declare function globby(patterns: string | string[], options?: Options): Promise<string[]>;
+declare function globby(
+    patterns: string | string[],
+    options?: Options
+): Promise<string[]>;
 
 declare namespace globby {
     /**
@@ -57,7 +63,10 @@ declare namespace globby {
      * Note that you should avoid running the same tasks multiple times as they contain a file system cache.
      * Instead, run this method each time to ensure file system changes are taken into consideration.
      */
-    function generateGlobTasks(patterns: string | string[], options?: Options): Array<{ pattern: string; options: Options }>;
+    function generateGlobTasks(
+        patterns: string | string[],
+        options?: Options
+    ): Array<{ pattern: string; options: Options }>;
     /**
      * Returns a boolean of whether there are any special glob characters in the `patterns`.
      *
@@ -67,7 +76,10 @@ declare namespace globby {
      *
      * This function is backed by [`node-glob`](https://github.com/isaacs/node-glob#globhasmagicpattern-options)
      */
-    function hasMagic(patterns: string | string[], options?: NodeGlobOptions): boolean;
+    function hasMagic(
+        patterns: string | string[],
+        options?: NodeGlobOptions
+    ): boolean;
     /**
      * Returns a Promise<(path: string) => boolean> indicating whether a given path is ignored
      * via a `.gitignore` file.
@@ -84,7 +96,10 @@ declare namespace globby {
      * })();
      * ```
      */
-    function gitignore(options?: { cwd?: string; ignore?: string[]; }): Promise<(path: string) => boolean>;
+    function gitignore(options?: {
+        cwd?: string;
+        ignore?: string[];
+    }): Promise<(path: string) => boolean>;
 
     namespace gitignore {
         /**
@@ -92,7 +107,10 @@ declare namespace globby {
          *
          * Takes the same options as `globby.gitignore`.
          */
-        function sync(options?: { cwd?: string; ignore?: string[]; }): (path: string) => boolean;
+        function sync(options?: {
+            cwd?: string;
+            ignore?: string[];
+        }): (path: string) => boolean;
     }
 }
 

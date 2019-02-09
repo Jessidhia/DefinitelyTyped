@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 interface REACT_STATICS {
     childContextTypes: true;
@@ -32,12 +32,12 @@ declare function hoistNonReactStatics<
     T extends React.ComponentType<any>,
     S extends React.ComponentType<any>,
     C extends {
-        [key: string]: true
+        [key: string]: true;
     } = {}
 >(
     TargetComponent: T,
     SourceComponent: S,
-    customStatic?: C,
+    customStatic?: C
 ): T &
     {
         [key in Exclude<

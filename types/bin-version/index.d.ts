@@ -5,7 +5,10 @@
 
 export = binVersion;
 
-declare function binVersion(binary: string, options?: binVersion.Options): Promise<string>;
+declare function binVersion(
+    binary: string,
+    options?: binVersion.Options
+): Promise<string>;
 
 declare namespace binVersion {
     interface Options {

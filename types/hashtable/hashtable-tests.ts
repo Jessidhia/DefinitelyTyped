@@ -1,8 +1,5 @@
-
-
 class Point {
-    constructor(public x: number, public y: number) {
-    }
+    constructor(public x: number, public y: number) {}
 }
 
 function hashPoint(p: Point) {
@@ -13,7 +10,10 @@ function pointsEqual(p1: Point, p2: Point) {
     return p1.x === p2.x && p1.y === p2.y;
 }
 
-var coloursForPoints = new Hashtable<Point, string>({ hashCode: hashPoint, equals: pointsEqual });
+var coloursForPoints = new Hashtable<Point, string>({
+    hashCode: hashPoint,
+    equals: pointsEqual
+});
 
 function getColourAt(x: number, y: number) {
     var point = new Point(x, y);

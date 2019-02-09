@@ -1,4 +1,4 @@
-import webpack = require('webpack');
+import webpack = require("webpack");
 
 /**
  * Creates a class name for CSS Modules that uses either the filename or folder
@@ -12,7 +12,7 @@ declare function getCSSModuleLocalIdent(
     context: webpack.loader.LoaderContext,
     localIdentName: string,
     localName: string,
-    options: object,
+    options: object
 ): string;
 
 export = getCSSModuleLocalIdent;

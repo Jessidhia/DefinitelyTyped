@@ -28,7 +28,14 @@ declare class Transport<TDescriptor extends Descriptor = string> {
     off(eventName: string, cb: any): void;
     setDebugMode(debug: boolean | ((log: string) => void)): void;
     setExchangeTimeout(exchangeTimeout: number): void;
-    send(cla: number, ins: number, p1: number, p2: number, data: Buffer, statusList: ReadonlyArray<number>): Promise<Buffer>;
+    send(
+        cla: number,
+        ins: number,
+        p1: number,
+        p2: number,
+        data: Buffer,
+        statusList: ReadonlyArray<number>
+    ): Promise<Buffer>;
 }
 
 export type Device = any;
@@ -47,6 +54,6 @@ export interface Subscription {
     readonly unsubscribe: () => void;
 }
 export function getAltStatusMessage(code: number): string;
-export const StatusCodes: {[k in string]: number};
+export const StatusCodes: { [k in string]: number };
 
 export default Transport;

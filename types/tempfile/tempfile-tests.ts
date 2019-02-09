@@ -1,4 +1,4 @@
-import tempfile = require('tempfile');
+import tempfile = require("tempfile");
 
 tempfile(); // $ExpectType string
-tempfile('.png');
+tempfile(".png");

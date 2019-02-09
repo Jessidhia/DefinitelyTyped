@@ -1,5 +1,13 @@
-import Vue, { ComponentOptions } from 'vue';
-import { addDecorator, configure, getStorybook, setAddon, storiesOf, StoryFunction, Story } from '@storybook/vue';
+import Vue, { ComponentOptions } from "vue";
+import {
+    addDecorator,
+    configure,
+    getStorybook,
+    setAddon,
+    storiesOf,
+    StoryFunction,
+    Story
+} from "@storybook/vue";
 
 interface CustomStory extends Story {
     addCentered(storyName: string, storyFn: StoryFunction): this;
@@ -18,33 +26,35 @@ const Decorator = (story: () => ComponentOptions<Vue>) => {
         components: { wrapper },
         template: '<div :style="{ border: borderStyle }"><wrapper/></div>',
         data() {
-            return { borderStyle: 'medium solid red' };
+            return { borderStyle: "medium solid red" };
         }
     };
 };
 
 addDecorator(Decorator);
 configure(() => undefined, module);
-getStorybook().forEach(({ fileName, kind, stories }) => stories.forEach(({ name, render }) => render()));
+getStorybook().forEach(({ fileName, kind, stories }) =>
+    stories.forEach(({ name, render }) => render())
+);
 setAddon(addCenteredAddon);
 
-storiesOf('Storybook__vue', module)
+storiesOf("Storybook__vue", module)
     .addDecorator(Decorator)
-    .add('story as a template', () => '<div></div>')
-    .add('story as a component', () => ({
+    .add("story as a template", () => "<div></div>")
+    .add("story as a component", () => ({
         components: {},
-        template: '<div></div>'
+        template: "<div></div>"
     }));
 
-(storiesOf('Custom_Story', module) as CustomStory)
-    .addCentered('custom story', () => ({
-        template: '<div></div>'
+(storiesOf("Custom_Story", module) as CustomStory)
+    .addCentered("custom story", () => ({
+        template: "<div></div>"
     }))
-    .add('story as a template', () => '<div></div>')
-    .add('story as a component', () => ({
+    .add("story as a template", () => "<div></div>")
+    .add("story as a component", () => ({
         components: {},
-        template: '<div></div>'
+        template: "<div></div>"
     }))
-    .addCentered('custom story', () => ({
-        template: '<div></div>'
+    .addCentered("custom story", () => ({
+        template: "<div></div>"
     }));

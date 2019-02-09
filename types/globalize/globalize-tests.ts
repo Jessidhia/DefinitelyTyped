@@ -1,8 +1,8 @@
 let en = new Globalize("en");
 en = new Globalize(new Cldr("en"));
 
-Globalize( "de-Latn-CH" ).cldr.main( "test-bundle" )
-Globalize( new Cldr("de-Latn-CH") ).cldr.main( "test-bundle" )
+Globalize("de-Latn-CH").cldr.main("test-bundle");
+Globalize(new Cldr("de-Latn-CH")).cldr.main("test-bundle");
 
 let locale = Globalize.locale();
 locale = Globalize.locale("en");
@@ -24,12 +24,12 @@ Globalize.loadTimeZone({});
 let dateOutput: Date;
 
 let dateFormatter = en.dateFormatter({
-	skeleton: "",
-	date: "full",
-	time: "full",
-	datetime: "full",
-	raw: "",
-	timeZone: ""
+    skeleton: "",
+    date: "full",
+    time: "full",
+    datetime: "full",
+    raw: "",
+    timeZone: ""
 });
 strOutput = dateFormatter(new Date());
 
@@ -37,12 +37,12 @@ dateFormatter = Globalize.dateFormatter({});
 strOutput = dateFormatter(new Date());
 
 let dateParser = en.dateParser({
-	skeleton: "",
-	date: "full",
-	time: "full",
-	datetime: "full",
-	raw: "",
-	timeZone: ""
+    skeleton: "",
+    date: "full",
+    time: "full",
+    datetime: "full",
+    raw: "",
+    timeZone: ""
 });
 dateOutput = dateParser("");
 
@@ -95,7 +95,9 @@ strOutput = Globalize.plural(20, { type: "ordinal" });
 let relativeTimeFormatter = en.relativeTimeFormatter("week");
 strOutput = relativeTimeFormatter(20);
 
-relativeTimeFormatter = Globalize.relativeTimeFormatter("day", { form: "short" });
+relativeTimeFormatter = Globalize.relativeTimeFormatter("day", {
+    form: "short"
+});
 strOutput = relativeTimeFormatter(20);
 
 strOutput = en.formatRelativeTime(20, "day");
@@ -108,4 +110,6 @@ unitFormatter = Globalize.unitFormatter("week", { form: "narrow" });
 strOutput = unitFormatter(10);
 
 strOutput = en.formatUnit(10, "day");
-strOutput = Globalize.formatUnit(10, "week", { numberFormatter: { style: "decimal" } });
+strOutput = Globalize.formatUnit(10, "week", {
+    numberFormatter: { style: "decimal" }
+});

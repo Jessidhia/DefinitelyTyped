@@ -3,7 +3,10 @@
 // Definitions by: Anthony Trinh <https://github.com/tony19>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export function transliterate(str: string, options?: transliterate.Options): string;
+export function transliterate(
+    str: string,
+    options?: transliterate.Options
+): string;
 
 export namespace transliterate {
     /**
@@ -23,7 +26,7 @@ export namespace transliterate {
         /**
          * Custom replacement of the strings before transliteration
          */
-        replace?: string[][] |  {[source: string]: string};
+        replace?: string[][] | { [source: string]: string };
 
         /**
          * Strings in the ignore list will be bypassed from transliteration
@@ -58,7 +61,7 @@ export namespace slugify {
         /**
          * Custom replacement of the strings before transliteration
          */
-        replace?: string[][] |  {[source: string]: string};
+        replace?: string[][] | { [source: string]: string };
 
         /**
          * Strings in the ignore list will be bypassed from transliteration

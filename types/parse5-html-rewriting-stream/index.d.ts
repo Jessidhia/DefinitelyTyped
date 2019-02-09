@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import * as parse5 from 'parse5-sax-parser';
-import * as stream from 'stream';
+import * as parse5 from "parse5-sax-parser";
+import * as stream from "stream";
 
 /**
  * Streaming SAX-style HTML rewriter. A transform stream (which means you can
@@ -20,33 +20,42 @@ export default class RewritingStream extends stream.Transform {
     /**
      * Raised when the rewriter encounters a start tag.
      */
-    on(type: 'startTag',
-        callback: (startTag: parse5.StartTagToken, rawHtml: string) => void):
-        this;
+    on(
+        type: "startTag",
+        callback: (startTag: parse5.StartTagToken, rawHtml: string) => void
+    ): this;
 
     /**
      * Raised when rewriter encounters an end tag.
      */
-    on(type: 'endTag',
-        callback: (endTag: parse5.EndTagToken, rawHtml: string) => void): this;
+    on(
+        type: "endTag",
+        callback: (endTag: parse5.EndTagToken, rawHtml: string) => void
+    ): this;
 
     /**
      * Raised when rewriter encounters a comment.
      */
-    on(type: 'comment',
-        callback: (comment: parse5.CommentToken, rawHtml: string) => void): this;
+    on(
+        type: "comment",
+        callback: (comment: parse5.CommentToken, rawHtml: string) => void
+    ): this;
 
     /**
      * Raised when rewriter encounters text content.
      */
-    on(type: 'text',
-        callback: (text: parse5.TextToken, rawHtml: string) => void): this;
+    on(
+        type: "text",
+        callback: (text: parse5.TextToken, rawHtml: string) => void
+    ): this;
 
     /**
      * Raised when rewriter encounters a document type declaration.
      */
-    on(type: 'doctype',
-        callback: (doctype: parse5.DoctypeToken, rawHtml: string) => void): this;
+    on(
+        type: "doctype",
+        callback: (doctype: parse5.DoctypeToken, rawHtml: string) => void
+    ): this;
 
     /**
      * Emits serialized start tag token into the output stream.

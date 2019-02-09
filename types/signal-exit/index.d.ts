@@ -16,7 +16,13 @@ declare namespace signalExit {
     function unload(): void;
     function signals(): Signal[];
 
-    type Signal = 'SIGABRT' | 'SIGALRM' | 'SIGHUP' | 'SIGINT' | 'SIGTERM' | string;
+    type Signal =
+        | "SIGABRT"
+        | "SIGALRM"
+        | "SIGHUP"
+        | "SIGINT"
+        | "SIGTERM"
+        | string;
 
     interface Options {
         alwaysLast?: boolean;

@@ -1,6 +1,6 @@
-import * as webdriver from './index';
+import * as webdriver from "./index";
 
-export class Server { }
+export class Server {}
 
 /**
  * @return {!Promise<string>} A promise that will resolve with the path
@@ -20,7 +20,9 @@ export function createConnectFile(serverUrl: string): any;
  * @param {!Object} desiredCapabilities .
  * @return {!Array<promise.Promise>} A list of promises for the deleted files.
  */
-export function cleanSession(desiredCapabilities: webdriver.Capabilities): any[];
+export function cleanSession(
+    desiredCapabilities: webdriver.Capabilities
+): any[];
 
 /** @return {string} . */
 export function getRandomString(): string;
@@ -28,8 +30,7 @@ export function getRandomString(): string;
 /**
  * @implements {command.Executor}
  */
-export class CommandExecutor {
-}
+export class CommandExecutor {}
 
 /**
  * Configuration options specific to the {@link Driver SafariDriver}.
@@ -65,7 +66,9 @@ export class Options {
      *     merge these options into, if any.
      * @return {!Capabilities} The capabilities.
      */
-    toCapabilities(opt_capabilities: webdriver.Capabilities): webdriver.Capabilities;
+    toCapabilities(
+        opt_capabilities: webdriver.Capabilities
+    ): webdriver.Capabilities;
 }
 
 /**
@@ -84,6 +87,8 @@ export class Driver extends webdriver.WebDriver {
      * @param {promise.ControlFlow=} opt_flow The control flow to create
      *     the driver under.
      */
-    constructor(opt_config?: Options | webdriver.Capabilities, opt_flow?: webdriver.promise.ControlFlow);
-
+    constructor(
+        opt_config?: Options | webdriver.Capabilities,
+        opt_flow?: webdriver.promise.ControlFlow
+    );
 }

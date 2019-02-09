@@ -1,13 +1,9 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "forceConsistentCasingInFileNames": true,
         "noImplicitAny": true,
@@ -16,8 +12,5 @@
         "strictFunctionTypes": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "net-keepalive-tests.ts"
-    ]
+    "files": ["index.d.ts", "net-keepalive-tests.ts"]
 }

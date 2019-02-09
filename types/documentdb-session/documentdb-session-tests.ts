@@ -14,5 +14,5 @@ const store = new DocumentDBStore({
 const app = express();
 session({
     store,
-    secret: "I can count all the way to 55",
+    secret: "I can count all the way to 55"
 });

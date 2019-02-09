@@ -957,7 +957,10 @@ export interface PathUtils {
 }
 
 export interface EditorProperties {
-    onChange?: (change: { operations: Immutable.List<Operation>, value: Value }) => void;
+    onChange?: (change: {
+        operations: Immutable.List<Operation>;
+        value: Value;
+    }) => void;
     plugins?: any[];
     readOnly?: boolean;
     value?: Value;
@@ -965,11 +968,14 @@ export interface EditorProperties {
 
 export class Editor implements Controller {
     object: "editor";
-    onChange: (change: { operations: Immutable.List<Operation>, value: Value }) => void;
+    onChange: (change: {
+        operations: Immutable.List<Operation>;
+        value: Value;
+    }) => void;
     plugins: any[];
     readOnly: boolean;
     value: Value;
-    constructor(attributes: EditorProperties)
+    constructor(attributes: EditorProperties);
 
     /**
      * Synchronously flush the current changes to editor, calling onChange.
@@ -1156,20 +1162,50 @@ export class Editor implements Controller {
     deleteLineForwardAtRange(range: Range): Editor;
     deleteWordForwardAtRange(range: Range): Editor;
     deleteForwardAtRange(range: Range, n: number): Editor;
-    insertBlockAtRange(range: Range, block: Block | BlockProperties | string): Editor;
+    insertBlockAtRange(
+        range: Range,
+        block: Block | BlockProperties | string
+    ): Editor;
     insertFragmentAtRange(range: Range, fragment: Document): Editor;
-    insertInlineAtRange(range: Range, inline: Inline | InlineProperties): Editor;
+    insertInlineAtRange(
+        range: Range,
+        inline: Inline | InlineProperties
+    ): Editor;
     insertTextAtRange(range: Range, text: string): Editor;
-    setBlocksAtRange(range: Range, properties: BlockProperties | string): Editor;
-    setInlinesAtRange(range: Range, properties: InlineProperties | string): Editor;
+    setBlocksAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Editor;
+    setInlinesAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Editor;
     splitBlockAtRange(range: Range, depth: number): Editor;
     splitInlineAtRange(range: Range, depth: number): Editor;
-    removeMarkAtRange(range: Range, mark: Mark | MarkProperties | string): Editor;
-    toggleMarkAtRange(range: Range, mark: Mark | MarkProperties | string): Editor;
-    unwrapBlockAtRange(range: Range, properties: BlockProperties | string): Editor;
-    unwrapInlineAtRange(range: Range, properties: InlineProperties | string): Editor;
-    wrapBlockAtRange(range: Range, properties: BlockProperties | string): Editor;
-    wrapInlineAtRange(range: Range, properties: InlineProperties | string): Editor;
+    removeMarkAtRange(
+        range: Range,
+        mark: Mark | MarkProperties | string
+    ): Editor;
+    toggleMarkAtRange(
+        range: Range,
+        mark: Mark | MarkProperties | string
+    ): Editor;
+    unwrapBlockAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Editor;
+    unwrapInlineAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Editor;
+    wrapBlockAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Editor;
+    wrapInlineAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Editor;
     wrapTextAtRange(range: Range, prefix: string, suffix?: string): Editor;
     addMarkByKey(
         key: string,
@@ -1235,12 +1271,24 @@ export class Editor implements Controller {
         mark: Mark,
         properties: MarkProperties
     ): Editor;
-    setNodeByKey(key: string, properties: BlockProperties | InlineProperties | string): Editor;
-    setNodeByPath(path: Path, properties: NodeProperties | InlineProperties | string): Editor;
+    setNodeByKey(
+        key: string,
+        properties: BlockProperties | InlineProperties | string
+    ): Editor;
+    setNodeByPath(
+        path: Path,
+        properties: NodeProperties | InlineProperties | string
+    ): Editor;
     splitNodeByKey(key: string, offset: number): Editor;
     splitNodeByPath(path: Path, position: number): Editor;
-    unwrapInlineByKey(key: string, properties: InlineProperties | string): Editor;
-    unwrapInlineByPath(path: Path, properties: InlineProperties | string): Editor;
+    unwrapInlineByKey(
+        key: string,
+        properties: InlineProperties | string
+    ): Editor;
+    unwrapInlineByPath(
+        path: Path,
+        properties: InlineProperties | string
+    ): Editor;
     unwrapBlockByKey(key: string, properties: BlockProperties | string): Editor;
     unwrapBlockByPath(path: Path, properties: BlockProperties | string): Editor;
     unwrapNodeByKey(key: string): Editor;
@@ -1945,7 +1993,10 @@ export interface Controller {
      * Add a mark to the characters in the range.
      * Passing a string as `mark` will implicitly create a mark with that `type`
      */
-    addMarkAtRange(range: Range, mark: Mark | MarkProperties | string): Controller;
+    addMarkAtRange(
+        range: Range,
+        mark: Mark | MarkProperties | string
+    ): Controller;
     /**
      * Delete everything in the range
      */
@@ -1987,7 +2038,10 @@ export interface Controller {
      * Insert a block node at range, splitting text to make room if it is non-empty.
      * If the range is expanded, it will be deleted first.
      */
-    insertBlockAtRange(range: Range, block: Block | BlockProperties | string): Controller;
+    insertBlockAtRange(
+        range: Range,
+        block: Block | BlockProperties | string
+    ): Controller;
     /**
      * Insert a document fragment at a range, if the range is expanded, it will be deleted first.
      */
@@ -1996,7 +2050,10 @@ export interface Controller {
      * Insert a new inline at range, splitting text to make room if it is non-empty.
      * If the range is expanded, it will be deleted first.
      */
-    insertInlineAtRange(range: Range, inline: Inline | InlineProperties): Controller;
+    insertInlineAtRange(
+        range: Range,
+        inline: Inline | InlineProperties
+    ): Controller;
     /**
      * Insert text at range. If the range is expanded it will be deleted first
      */
@@ -2005,12 +2062,18 @@ export interface Controller {
      * Set the properties of the block nodes in a range.
      * Passing a string will set the nodes' type only
      */
-    setBlocksAtRange(range: Range, properties: BlockProperties | string): Controller;
+    setBlocksAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * Set the properties of the inline nodes in a range.
      * Passing a string will set the nodes' type only
      */
-    setInlinesAtRange(range: Range, properties: InlineProperties | string): Controller;
+    setInlinesAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Split the block in a range by depth levels. If the range is expanded it will be deleted first.
      */
@@ -2023,28 +2086,46 @@ export interface Controller {
      * Remove a mark from characters in the range. Passing a string will
      * implicitly create a mark of that type for deletion.
      */
-    removeMarkAtRange(range: Range, mark: Mark | MarkProperties | string): Controller;
+    removeMarkAtRange(
+        range: Range,
+        mark: Mark | MarkProperties | string
+    ): Controller;
     /**
      * Add or remove a mark from characters in the range. Passing a string will
      * implicitly create a mark of that type for deletion.
      */
-    toggleMarkAtRange(range: Range, mark: Mark | MarkProperties | string): Controller;
+    toggleMarkAtRange(
+        range: Range,
+        mark: Mark | MarkProperties | string
+    ): Controller;
     /**
      * Unwrap all block nodes in a range that match properties
      */
-    unwrapBlockAtRange(range: Range, properties: BlockProperties | string): Controller;
+    unwrapBlockAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * Unwrap all inline nodes in a range that match properties
      */
-    unwrapInlineAtRange(range: Range, properties: InlineProperties | string): Controller;
+    unwrapInlineAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * wrap all block nodes in a range with a new block node with the provided properties
      */
-    wrapBlockAtRange(range: Range, properties: BlockProperties | string): Controller;
+    wrapBlockAtRange(
+        range: Range,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * wrap all inline nodes in a range with a new inline node with the provided properties
      */
-    wrapInlineAtRange(range: Range, properties: InlineProperties | string): Controller;
+    wrapInlineAtRange(
+        range: Range,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Surround the text in a range with a prefix and suffix. If the suffix is ommitted,
      * the prefix will be used instead.
@@ -2081,11 +2162,19 @@ export interface Controller {
     /**
      * Insert a document fragment at index inside a parent node by key
      */
-    insertFragmentByKey(key: string, index: number, fragment: Document): Controller;
+    insertFragmentByKey(
+        key: string,
+        index: number,
+        fragment: Document
+    ): Controller;
     /**
      * Insert a document fragment at index inside a parent node by path
      */
-    insertFragmentByPath(path: Path, index: number, fragment: Document): Controller;
+    insertFragmentByPath(
+        path: Path,
+        index: number,
+        fragment: Document
+    ): Controller;
     /**
      * Insert text at an offset in a text node by its key with optional marks
      */
@@ -2185,11 +2274,17 @@ export interface Controller {
     /**
      * Set a dictionary of properties on a node by its key.
      */
-    setNodeByKey(key: string, properties: BlockProperties | InlineProperties | string): Controller;
+    setNodeByKey(
+        key: string,
+        properties: BlockProperties | InlineProperties | string
+    ): Controller;
     /**
      * Set a dictionary of properties on a node by its key.
      */
-    setNodeByPath(path: Path, properties: NodeProperties | InlineProperties | string): Controller;
+    setNodeByPath(
+        path: Path,
+        properties: NodeProperties | InlineProperties | string
+    ): Controller;
     /**
      * Split a node by its key at an offset
      */
@@ -2201,19 +2296,31 @@ export interface Controller {
     /**
      * Unwrap all inner content of an inline node by its key that match properties
      */
-    unwrapInlineByKey(key: string, properties: InlineProperties | string): Controller;
+    unwrapInlineByKey(
+        key: string,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Unwrap all inner content of an inline node by its path that match properties
      */
-    unwrapInlineByPath(path: Path, properties: InlineProperties | string): Controller;
+    unwrapInlineByPath(
+        path: Path,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Unwrap all inner content of a block node by its key that match properties
      */
-    unwrapBlockByKey(key: string, properties: BlockProperties | string): Controller;
+    unwrapBlockByKey(
+        key: string,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * Unwrap all inner content of a block node by its path that match properties
      */
-    unwrapBlockByPath(path: Path, properties: BlockProperties | string): Controller;
+    unwrapBlockByPath(
+        path: Path,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * Unwrap a single node from its parent. if the node is surrounded with siblings the parent will be split.
      * If the node is an only child, it will replace the parent
@@ -2227,15 +2334,24 @@ export interface Controller {
     /**
      * Wrap the given node by key in an Inline node that matches properties.
      */
-    wrapInlineByKey(key: string, properties: InlineProperties | string): Controller;
+    wrapInlineByKey(
+        key: string,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Wrap the given node by path in an Inline node that matches properties.
      */
-    wrapInlineByPath(path: Path, properties: InlineProperties | string): Controller;
+    wrapInlineByPath(
+        path: Path,
+        properties: InlineProperties | string
+    ): Controller;
     /**
      * Wrap the given node by key in a block node that matches properties.
      */
-    wrapBlockByKey(key: string, properties: BlockProperties | string): Controller;
+    wrapBlockByKey(
+        key: string,
+        properties: BlockProperties | string
+    ): Controller;
     /**
      * Wrap the given node by path in a block node that matches properties.
      */

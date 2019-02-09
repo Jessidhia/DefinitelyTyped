@@ -1,4 +1,4 @@
-import debounceFn = require('debounce-fn');
+import debounceFn = require("debounce-fn");
 
 const debounced = debounceFn((s: string) => true);
 debounced; // $ExpectType ((s: string) => boolean | undefined) & { cancel(): void; }

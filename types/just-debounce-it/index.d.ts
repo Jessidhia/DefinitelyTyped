@@ -4,7 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never;
+type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any
+    ? A
+    : never;
 
 /*~ This declaration specifies that the function
  *~ is the exported object from the file

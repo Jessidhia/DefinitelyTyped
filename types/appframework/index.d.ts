@@ -170,7 +170,10 @@ interface appFrameworkStatic {
      * @param {Function} success
      * @title $.get(url,success)
      */
-    get(url: string, fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void): XMLHttpRequest;
+    get(
+        url: string,
+        fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void
+    ): XMLHttpRequest;
 
     /**
      * Shorthand call to an Ajax POST request
@@ -184,8 +187,17 @@ interface appFrameworkStatic {
      * @param {String} [dataType]
      * @title $.post(url,[data],success,[dataType])
      */
-    post(url: string, fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void, dataType?: string): XMLHttpRequest;
-    post(url: string, data: any, fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void, dataType?: string): XMLHttpRequest;
+    post(
+        url: string,
+        fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void,
+        dataType?: string
+    ): XMLHttpRequest;
+    post(
+        url: string,
+        data: any,
+        fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void,
+        dataType?: string
+    ): XMLHttpRequest;
 
     /**
      * Shorthand call to an Ajax request that expects a JSON response
@@ -198,8 +210,15 @@ interface appFrameworkStatic {
      * @param {Function} [success]
      * @title $.getJSON(url,data,success)
      */
-    getJSON(url: string, fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void): XMLHttpRequest;
-    getJSON(url: string, data: any, fn: (data: any, status: string, xhr: XMLHttpRequest) => void ): XMLHttpRequest;
+    getJSON(
+        url: string,
+        fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void
+    ): XMLHttpRequest;
+    getJSON(
+        url: string,
+        data: any,
+        fn: (data: any, status: string, xhr: XMLHttpRequest) => void
+    ): XMLHttpRequest;
 
     /**
      * Converts an object into a key/value par with an optional prefix.  Used for converting objects to a query string
@@ -431,11 +450,19 @@ interface appFrameworkStatic {
         cssPrefix: string;
         cssTransformStart: string;
         cssTransformEnd: string;
-    }
+    };
 }
 
 interface appFrameworkCollection {
-    reduce(callbackfn: (previousValue: appFrameworkCollection, currentValue: appFrameworkCollection, currentIndex: number, array: appFrameworkCollection[]) => appFrameworkCollection, initialValue?: appFrameworkCollection): appFrameworkCollection;
+    reduce(
+        callbackfn: (
+            previousValue: appFrameworkCollection,
+            currentValue: appFrameworkCollection,
+            currentIndex: number,
+            array: appFrameworkCollection[]
+        ) => appFrameworkCollection,
+        initialValue?: appFrameworkCollection
+    ): appFrameworkCollection;
     push(...items: appFrameworkCollection[]): number;
     indexOf(searchElement: appFrameworkCollection, fromIndex?: number): number;
     concat(...items: appFrameworkCollection[]): appFrameworkCollection[];
@@ -763,7 +790,10 @@ interface appFrameworkCollection {
      * @return {Object} appframework object
      * @title $().replaceClass(old, new)
      */
-    replaceClass(oldClassName: string, newClassName: string): appFrameworkCollection;
+    replaceClass(
+        oldClassName: string,
+        newClassName: string
+    ): appFrameworkCollection;
 
     /**
      * Checks to see if an element has a class.
@@ -1161,7 +1191,11 @@ interface appFrameworkCollection {
      * @title $().delegate(selector,event,callback)
      */
     delegate(selector: any, eventHash: {}): appFrameworkCollection;
-    delegate(selector: any, eventName: string, fn: (e: Event) => any): appFrameworkCollection;
+    delegate(
+        selector: any,
+        eventName: string,
+        fn: (e: Event) => any
+    ): appFrameworkCollection;
 
     /**
      * Unbinds events that were registered through delegate.  It acts upon the selector and event.  If a callback is specified, it will remove that one, otherwise it removes all of them.
@@ -1177,7 +1211,11 @@ interface appFrameworkCollection {
      * @title $().undelegate(selector,event,[callback]);
      */
     undelegate(selector: any, eventHash: {}): appFrameworkCollection;
-    undelegate(selector: any, eventName: string, fn: (e: Event) => any): appFrameworkCollection;
+    undelegate(
+        selector: any,
+        eventName: string,
+        fn: (e: Event) => any
+    ): appFrameworkCollection;
 
     /**
      * Similar to delegate, but the function parameter order is easier to understand.
@@ -1194,7 +1232,11 @@ interface appFrameworkCollection {
      */
     on(eventHash: {}, selector?: any): appFrameworkCollection;
     on(eventName: string, fn: (e: Event) => any): appFrameworkCollection;
-    on(eventName: string, selector: string, fn: (e: Event) => any): appFrameworkCollection;
+    on(
+        eventName: string,
+        selector: string,
+        fn: (e: Event) => any
+    ): appFrameworkCollection;
 
     /**
      * Removes event listeners for .on()
@@ -1212,7 +1254,11 @@ interface appFrameworkCollection {
      */
     off(eventHash: {}, selector?: any): appFrameworkCollection;
     off(eventName: string, fn: (e: Event) => any): appFrameworkCollection;
-    off(eventName: string, selector: string, fn: (e: Event) => any): appFrameworkCollection;
+    off(
+        eventName: string,
+        selector: string,
+        fn: (e: Event) => any
+    ): appFrameworkCollection;
 
     /**
      This triggers an event to be dispatched.  Usefull for emulating events, etc.
@@ -1291,7 +1337,10 @@ interface appFrameworkCollection {
 
 interface appFrameworkAjaxSettings {
     type?: string;
-    beforeSend?: (xhr: XMLHttpRequest, settings: appFrameworkAjaxSettings) => boolean;
+    beforeSend?: (
+        xhr: XMLHttpRequest,
+        settings: appFrameworkAjaxSettings
+    ) => boolean;
     success?: (data: any, status: string, xhr: XMLHttpRequest) => void;
     error?: (xhr: XMLHttpRequest, errorType: string, error: Error) => void;
     complete?: (xhr: XMLHttpRequest, status: string) => void;

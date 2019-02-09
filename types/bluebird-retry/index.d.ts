@@ -4,9 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Promise = require('bluebird');
+import Promise = require("bluebird");
 
-declare function retry<T>(func: (param: T) => void, options?: retry.Options): Promise<T>;
+declare function retry<T>(
+    func: (param: T) => void,
+    options?: retry.Options
+): Promise<T>;
 
 declare namespace retry {
     interface Options {

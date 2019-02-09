@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Firebase Dynamic Links API v1 */
-    function load(name: "firebasedynamiclinks", version: "v1"): PromiseLike<void>;
-    function load(name: "firebasedynamiclinks", version: "v1", callback: () => any): void;
+    function load(
+        name: "firebasedynamiclinks",
+        version: "v1"
+    ): PromiseLike<void>;
+    function load(
+        name: "firebasedynamiclinks",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const shortLinks: firebasedynamiclinks.ShortLinksResource;
 

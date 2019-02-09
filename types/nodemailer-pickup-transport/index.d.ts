@@ -3,7 +3,7 @@
 // Definitions by: Peter Snider <https://github.com/psnider>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import nodemailer = require('nodemailer');
+import nodemailer = require("nodemailer");
 
 declare namespace PickupTransport {
     export interface Options {
@@ -11,5 +11,7 @@ declare namespace PickupTransport {
     }
 }
 
-declare function PickupTransport(options: PickupTransport.Options): nodemailer.Transport;
+declare function PickupTransport(
+    options: PickupTransport.Options
+): nodemailer.Transport;
 export = PickupTransport;

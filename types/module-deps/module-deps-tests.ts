@@ -9,14 +9,14 @@ function coreDepsTest() {
     };
 
     const opts = {
-        resolve: () => { },
+        resolve: () => {},
         modules: coreModules,
         extensions: [".js", ".json"]
     };
 
     const s = moduleDeps(opts);
 
-    s.on("data", (obj) => {
+    s.on("data", obj => {
         for (const dep of Object.keys(obj.deps)) {
             if (dep in coreModules) {
                 coreDeps[dep] = true;
@@ -35,7 +35,7 @@ function rifiTest() {
         cache: {}
     });
 
-    md.once("error", (err) => {
+    md.once("error", err => {
         console.error(err);
     });
 }
@@ -50,7 +50,7 @@ function browserifyTest(opts: moduleDeps.Options) {
         raw: opts["raw"] || false,
         sourceMapPrefix: opts["sourceMapPrefix"] || "//#",
         standalone: opts["standalone"] || undefined,
-        standaloneModule: opts["standaloneModule"] || undefined,
+        standaloneModule: opts["standaloneModule"] || undefined
     };
 
     const res = moduleDeps(); // 'opts' are optional
@@ -65,10 +65,10 @@ function browserifyTest(opts: moduleDeps.Options) {
 
     const inst: moduleDeps.ModuleDepsObject = moduleDeps({
         expose: { id: "file.txt" },
-        extensions: [ ".js", ".json" ],
+        extensions: [".js", ".json"],
         transform: [],
         transformKey: ["browserify", "transform"],
-        filter: (id) => {
+        filter: id => {
             if (opts.filter && !opts.filter(id)) return false;
             if (["name"].indexOf(id) >= 0) return false;
             return true;
@@ -86,7 +86,7 @@ function browserifyTest(opts: moduleDeps.Options) {
     inst.on("file", (file, id) => {
         console.log("file", file, id);
     });
-    inst.on("package", (pkg) => {
+    inst.on("package", pkg => {
         console.log("package", pkg);
     });
     inst.on("transform", (tr, file) => {

@@ -4,8 +4,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export function get(): Promise<string>;
-export function set(imagePath: string, options?: WallpaperOptions): Promise<void>;
+export function set(
+    imagePath: string,
+    options?: WallpaperOptions
+): Promise<void>;
 
 export interface WallpaperOptions {
-    scale?: 'fill' | 'fit' | 'stretch' | 'center';
+    scale?: "fill" | "fit" | "stretch" | "center";
 }

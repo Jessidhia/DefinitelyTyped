@@ -8,7 +8,7 @@ declare namespace jsontoxml {
     function cdata(str: string): string;
     interface JsonToXmlOptions {
         escape?: boolean;
-        xmlHeader?: boolean | {standalone?: boolean};
+        xmlHeader?: boolean | { standalone?: boolean };
         docType?: string;
         prettyPrint?: boolean;
         indent?: string;
@@ -17,6 +17,9 @@ declare namespace jsontoxml {
     }
 }
 
-declare function jsontoxml(data: any, options?: jsontoxml.JsonToXmlOptions): string;
+declare function jsontoxml(
+    data: any,
+    options?: jsontoxml.JsonToXmlOptions
+): string;
 
 export = jsontoxml;

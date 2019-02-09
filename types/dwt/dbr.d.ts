@@ -46,7 +46,7 @@ declare namespace dynamsoft {
         /** Barcode Formats */
         enum EnumBarcodeFormat {
             All = 503317503,
-            OneD = 0x3FF,
+            OneD = 0x3ff,
             CODE_39 = 0x1,
             CODE_128 = 0x2,
             CODE_93 = 0x4,

@@ -8,7 +8,6 @@ export class CSS3DObject extends Object3D {
 
 export class CSS3DSprite extends CSS3DObject {
     constructor(element: any);
-
 }
 
 // This renderer does not work in IE. Can be found here for more information.

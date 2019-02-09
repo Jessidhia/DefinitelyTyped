@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-import { MDCFoundation } from 'material__base';
-import { strings } from './constants';
-import MDCGridListAdapter from './adapter';
+import { MDCFoundation } from "material__base";
+import { strings } from "./constants";
+import MDCGridListAdapter from "./adapter";
 
-export default class MDCGridListFoundation extends MDCFoundation<MDCGridListAdapter> {
+export default class MDCGridListFoundation extends MDCFoundation<
+    MDCGridListAdapter
+> {
     static readonly strings: strings;
 
     static readonly defaultAdapter: MDCGridListAdapter;

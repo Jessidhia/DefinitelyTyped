@@ -5,7 +5,7 @@ declare abstract class Plugin {
         [event: string]: Promise<any>;
     };
 
-    constructor(serverless: Serverless, options: Serverless.Options)
+    constructor(serverless: Serverless, options: Serverless.Options);
 }
 
 export = Plugin;

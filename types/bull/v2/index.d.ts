@@ -6,29 +6,31 @@
 /// <reference types="redis" />
 
 declare module "bull" {
-
     import * as Redis from "redis";
 
     /**
-    * This is the Queue constructor.
-    * It creates a new Queue that is persisted in Redis.
-    * Everytime the same queue is instantiated it tries to process all the old jobs that may exist from a previous unfinished session.
-    */
-    function Bull(queueName: string, redisPort: number, redisHost: string, redisOpt?: Redis.ClientOpts): Bull.Queue;
+     * This is the Queue constructor.
+     * It creates a new Queue that is persisted in Redis.
+     * Everytime the same queue is instantiated it tries to process all the old jobs that may exist from a previous unfinished session.
+     */
+    function Bull(
+        queueName: string,
+        redisPort: number,
+        redisHost: string,
+        redisOpt?: Redis.ClientOpts
+    ): Bull.Queue;
 
     namespace Bull {
-
         export interface DoneCallback {
-            (error?: Error, value?: any): void
+            (error?: Error, value?: any): void;
         }
 
         export interface Job {
-
-            jobId: string
+            jobId: string;
 
             /**
-            * The custom data passed when the job was created
-            */
+             * The custom data passed when the job was created
+             */
             data: Object;
 
             /**
@@ -63,7 +65,10 @@ declare module "bull" {
              * @param ignoreLock True when wanting to ignore the redis lock on this job.
              * @returns Contains the next jobs data and id or null if job left in 'waiting' queue.
              */
-            moveToCompleted(returnValue: string, ignoreLock: boolean): Promise<string[] | null>;
+            moveToCompleted(
+                returnValue: string,
+                ignoreLock: boolean
+            ): Promise<string[] | null>;
 
             /**
              * Moves a job to the failed queue.
@@ -71,15 +76,17 @@ declare module "bull" {
              * @param ignoreLock True when wanting to ignore the redis lock on this job.
              * @returns void
              */
-            moveToFailed(errorInfo: ErrorMessage, ignoreLock: boolean): Promise<void>;
+            moveToFailed(
+                errorInfo: ErrorMessage,
+                ignoreLock: boolean
+            ): Promise<void>;
         }
 
         export interface Backoff {
-
             /**
              * Backoff type, which can be either `fixed` or `exponential`
              */
-            type: string
+            type: string;
 
             /**
              * Backoff delay, in milliseconds
@@ -102,7 +109,7 @@ declare module "bull" {
             /**
              * Backoff setting for automatic retries if the job fails
              */
-            backoff?: number | Backoff
+            backoff?: number | Backoff;
 
             /**
              * A boolean which, if true, adds the job to the right
@@ -117,7 +124,6 @@ declare module "bull" {
         }
 
         export interface Queue {
-
             /**
              * Defines a processing function for the jobs placed into a given Queue.
              *
@@ -130,8 +136,11 @@ declare module "bull" {
              * results, as a second argument to the "completed" event.
              *
              * concurrency: Bull will then call you handler in parallel respecting this max number.
-            */
-            process(concurrency: number, callback: (job: Job, done: DoneCallback) => void): void;
+             */
+            process(
+                concurrency: number,
+                callback: (job: Job, done: DoneCallback) => void
+            ): void;
 
             /**
              * Defines a processing function for the jobs placed into a given Queue.
@@ -143,7 +152,7 @@ declare module "bull" {
              * or with a result as second argument as second argument (e.g.: done(null, result);) when the job is successful.
              * Errors will be passed as a second argument to the "failed" event;
              * results, as a second argument to the "completed" event.
-            */
+             */
             process(callback: (job: Job, done: DoneCallback) => void): void;
 
             /**
@@ -157,8 +166,11 @@ declare module "bull" {
              * If it is resolved, its value will be the "completed" event's second argument.
              *
              * concurrency: Bull will then call you handler in parallel respecting this max number.
-            */
-            process(concurrency: number, callback: (job: Job) => void): Promise<any>;
+             */
+            process(
+                concurrency: number,
+                callback: (job: Job) => void
+            ): Promise<any>;
 
             /**
              * Defines a processing function for the jobs placed into a given Queue.
@@ -169,7 +181,7 @@ declare module "bull" {
              * A promise must be returned to signal job completion.
              * If the promise is rejected, the error will be passed as a second argument to the "failed" event.
              * If it is resolved, its value will be the "completed" event's second argument.
-            */
+             */
             process(callback: (job: Job) => void): Promise<any>;
 
             // process(callback: (job: Job, done?: DoneCallback) => void): Promise<any>;
@@ -242,7 +254,7 @@ declare module "bull" {
              * @param jobId If specified, will move a specific job from 'waiting' to 'active',
              * @returns Returns the job moved from waiting to active queue.
              */
-            getNextJob:(jobId?: string) => Promise<Job | null>;
+            getNextJob: (jobId?: string) => Promise<Job | null>;
         }
 
         interface ErrorMessage {
@@ -250,7 +262,7 @@ declare module "bull" {
         }
 
         interface EventCallback {
-            (...args: any[]): void
+            (...args: any[]): void;
         }
 
         interface ReadyEventCallback extends EventCallback {
@@ -265,7 +277,7 @@ declare module "bull" {
             /**
              * Abort this job
              */
-            cancel(): void
+            cancel(): void;
         }
 
         interface ActiveEventCallback extends EventCallback {
@@ -304,7 +316,6 @@ declare module "bull" {
 }
 
 declare module "bull/lib/priority-queue" {
-
     import * as Bull from "bull";
     import * as Redis from "redis";
 
@@ -317,28 +328,28 @@ declare module "bull/lib/priority-queue" {
      *
      * The priority queue will process more often highter priority jobs than lower.
      */
-    function PQueue(queueName: string, redisPort: number, redisHost: string, redisOpt?: Redis.ClientOpts): PQueue.PriorityQueue;
+    function PQueue(
+        queueName: string,
+        redisPort: number,
+        redisHost: string,
+        redisOpt?: Redis.ClientOpts
+    ): PQueue.PriorityQueue;
 
     namespace PQueue {
-
         export interface AddOptions extends Bull.AddOptions {
-
             /**
              * "low", "normal", "medium", "high", "critical"
              */
             priority?: string;
         }
 
-
         export interface PriorityQueue extends Bull.Queue {
-
             /**
              * Creates a new job and adds it to the queue.
              * If the queue is empty the job will be executed directly,
              * otherwise it will be placed in the queue and executed as soon as possible.
              */
             add(data: Object, opts?: PQueue.AddOptions): Promise<Bull.Job>;
-
         }
     }
 

@@ -1,8 +1,6 @@
 namespace adoneTests.system.process.user {
     const {
-        system: {
-            user
-        }
+        system: { user }
     } = adone;
 
     let str: string;

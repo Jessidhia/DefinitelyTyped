@@ -1,6 +1,6 @@
-import pReflect = require('p-reflect');
+import pReflect = require("p-reflect");
 
-pReflect(Promise.resolve('foo')).then(result => {
+pReflect(Promise.resolve("foo")).then(result => {
     if (result.isFulfilled) {
         const fulfilled: true = result.isFulfilled;
         const rejected: false = result.isRejected;

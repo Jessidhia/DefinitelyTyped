@@ -9,7 +9,14 @@ declare namespace i18nextBrowserLanguageDetector {
         /**
          * order and from where user language should be detected
          */
-        order?: Array<"querystring" | "cookie" | "localStorage" | "navigator" | "htmlTag" | string>;
+        order?: Array<
+            | "querystring"
+            | "cookie"
+            | "localStorage"
+            | "navigator"
+            | "htmlTag"
+            | string
+        >;
 
         /**
          * keys or params to lookup language from
@@ -50,11 +57,16 @@ declare namespace i18nextBrowserLanguageDetector {
 }
 
 declare class i18nextBrowserLanguageDetector {
-    constructor(services?: any, options?: i18nextBrowserLanguageDetector.DetectorOptions);
+    constructor(
+        services?: any,
+        options?: i18nextBrowserLanguageDetector.DetectorOptions
+    );
     /**
      * Adds detector.
      */
-    addDetector(detector: i18nextBrowserLanguageDetector.CustomDetector): i18nextBrowserLanguageDetector;
+    addDetector(
+        detector: i18nextBrowserLanguageDetector.CustomDetector
+    ): i18nextBrowserLanguageDetector;
 
     /**
      * Initializes detector.

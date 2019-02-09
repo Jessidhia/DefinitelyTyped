@@ -1,17 +1,17 @@
-import powerbi from './index';
+import powerbi from "./index";
 
 import IVisualPlugin = powerbi.visuals.plugins.IVisualPlugin;
 import IVisual = powerbi.extensibility.visual.IVisual;
 
 const visualPlugin: IVisualPlugin = {
-    name: 'string',
+    name: "string",
     create: (options?: powerbi.extensibility.VisualConstructorOptions) => {
         const value: IVisual = {
             update: (options: powerbi.extensibility.VisualUpdateOptions) => {}
         };
         return value;
     },
-    class: 'string',
+    class: "string",
     custom: true,
     apiVersion: "1.11.0",
     displayName: "string"
@@ -21,10 +21,16 @@ import ISelectionIdBuilder = powerbi.visuals.ISelectionIdBuilder;
 import ISelectionId = powerbi.visuals.ISelectionId;
 
 const selectionBuilder: ISelectionIdBuilder = {
-    withCategory: (categoryColumn: powerbi.DataViewCategoryColumn, index: number): ISelectionIdBuilder => {
+    withCategory: (
+        categoryColumn: powerbi.DataViewCategoryColumn,
+        index: number
+    ): ISelectionIdBuilder => {
         return selectionBuilder;
     },
-    withSeries: (ser: powerbi.DataViewValueColumns, val: powerbi.DataViewValueColumn | powerbi.DataViewValueColumnGroup): ISelectionIdBuilder => {
+    withSeries: (
+        ser: powerbi.DataViewValueColumns,
+        val: powerbi.DataViewValueColumn | powerbi.DataViewValueColumnGroup
+    ): ISelectionIdBuilder => {
         return selectionBuilder;
     },
     withMeasure: (measure: string): ISelectionIdBuilder => {
@@ -36,13 +42,11 @@ const selectionBuilder: ISelectionIdBuilder = {
             includes: (sel: ISelectionId, ignoreHL: boolean) => false,
             getKey: () => "string",
             getSelector: () => {
-                const selector: powerbi.data.Selector = {
-                };
+                const selector: powerbi.data.Selector = {};
                 return selector;
             },
             getSelectorsByColumn: () => {
-                const selector: powerbi.data.SelectorsByColumn = {
-                };
+                const selector: powerbi.data.SelectorsByColumn = {};
                 return selector;
             },
             hasIdentity: () => false
@@ -62,12 +66,10 @@ import DataViewScriptResultData = powerbi.DataViewScriptResultData;
 
 const dataView: DataView = {
     metadata: {
-        columns: [
-        ],
+        columns: [],
         objects: undefined,
         dataReduction: undefined,
-        segment: {
-        }
+        segment: {}
     },
     categorical: {
         categories: [
@@ -91,7 +93,9 @@ const dataView: DataView = {
                     },
                     isMeasure: false,
                     queryName: "string",
-                    sort: powerbi.SortDirection.Ascending || powerbi.SortDirection.Descending,
+                    sort:
+                        powerbi.SortDirection.Ascending ||
+                        powerbi.SortDirection.Descending,
                     index: 0,
                     type: {
                         text: true

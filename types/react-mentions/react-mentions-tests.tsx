@@ -10,7 +10,7 @@ interface TestProps {
     regex: RegExp;
 }
 
-export const TestSimple: React.SFC<TestProps> = (props) => {
+export const TestSimple: React.SFC<TestProps> = props => {
     const inputEl = React.createRef<HTMLTextAreaElement>();
 
     function handleClick() {
@@ -28,11 +28,7 @@ export const TestSimple: React.SFC<TestProps> = (props) => {
                 displayTransform={login => `@${login}`}
                 inputRef={inputEl}
             >
-                <Mention
-                    trigger="@"
-                    data={props.data}
-                    onAdd={props.onAdd}
-                />
+                <Mention trigger="@" data={props.data} onAdd={props.onAdd} />
             </MentionsInput>
 
             <button onClick={handleClick}>Focus</button>
@@ -40,7 +36,7 @@ export const TestSimple: React.SFC<TestProps> = (props) => {
     );
 };
 
-export const TestMultipleTrigger: React.SFC<TestProps> = (props) => {
+export const TestMultipleTrigger: React.SFC<TestProps> = props => {
     return (
         <MentionsInput
             value={props.value}
@@ -52,9 +48,15 @@ export const TestMultipleTrigger: React.SFC<TestProps> = (props) => {
                 type="user"
                 trigger="@"
                 data={props.data}
-                renderSuggestion={(suggestion: SuggestionDataItem, search: string, highlightedDisplay: React.ReactNode, index: number, focused: boolean) => (
-                    <div className={`user ${focused ? 'focused' : ''}`}>
-                    {highlightedDisplay}
+                renderSuggestion={(
+                    suggestion: SuggestionDataItem,
+                    search: string,
+                    highlightedDisplay: React.ReactNode,
+                    index: number,
+                    focused: boolean
+                ) => (
+                    <div className={`user ${focused ? "focused" : ""}`}>
+                        {highlightedDisplay}
                     </div>
                 )}
                 onAdd={props.onAdd}

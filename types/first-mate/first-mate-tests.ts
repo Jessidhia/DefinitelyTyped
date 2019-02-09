@@ -25,7 +25,7 @@ let str: string;
 new GrammarRegistry({ maxTokensPerLine: 100 });
 registry.loadGrammarSync("javascript.json");
 const result = grammar.tokenizeLine('var text = "hello world";');
-result.tokens.forEach((token) => {
+result.tokens.forEach(token => {
     console.log(`Token text: '${token.value}' with scopes: ${token.scopes}`);
 });
 

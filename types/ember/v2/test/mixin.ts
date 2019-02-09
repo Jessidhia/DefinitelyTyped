@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 import { assertType } from "./lib/assert";
 
 interface EditableMixin {
@@ -6,11 +6,14 @@ interface EditableMixin {
     isEditing: boolean;
 }
 
-const EditableMixin: Ember.Mixin<EditableMixin, Ember.Route> = Ember.Mixin.create({
+const EditableMixin: Ember.Mixin<
+    EditableMixin,
+    Ember.Route
+> = Ember.Mixin.create({
     edit() {
-        this.get('controller');
-        console.log('starting to edit');
-        this.set('isEditing', true);
+        this.get("controller");
+        console.log("starting to edit");
+        this.set("isEditing", true);
     },
     isEditing: false
 });
@@ -47,10 +50,12 @@ assertType<number>(obj.c);
 
 /* Test composition of mixins */
 const EditableAndCancelableMixin = Ember.Mixin.create(EditableMixin, {
-    cancelled: false,
+    cancelled: false
 });
 
-const EditableAndCancelableComment = Ember.Route.extend(EditableAndCancelableMixin);
+const EditableAndCancelableComment = Ember.Route.extend(
+    EditableAndCancelableMixin
+);
 
 const editableAndCancelable = EditableAndCancelableComment.create();
 assertType<boolean>(editableAndCancelable.isEditing);

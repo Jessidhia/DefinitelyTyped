@@ -20,14 +20,30 @@ declare namespace I18n {
     let missingTranslationPrefix: string;
 
     // tslint:disable-next-line prefer-declare-function
-    let missingTranslation: (scope: string, options?: TranslateOptions) => string | null | undefined;
+    let missingTranslation: (
+        scope: string,
+        options?: TranslateOptions
+    ) => string | null | undefined;
     // tslint:disable-next-line prefer-declare-function
-    let missingPlaceholder: (placeholder: string, message: string, options?: InterpolateOptions) => string | null | undefined;
+    let missingPlaceholder: (
+        placeholder: string,
+        message: string,
+        options?: InterpolateOptions
+    ) => string | null | undefined;
     // tslint:disable-next-line prefer-declare-function
-    let nullPlaceholder: (placeholder: string, message: string, options?: InterpolateOptions) => string | null | undefined;
+    let nullPlaceholder: (
+        placeholder: string,
+        message: string,
+        options?: InterpolateOptions
+    ) => string | null | undefined;
 
     let translations: { [locale: string]: object };
-    let locales: { [key: string]: string | string[] | ((locale: string) => string | string[]) };
+    let locales: {
+        [key: string]:
+            | string
+            | string[]
+            | ((locale: string) => string | string[]);
+    };
     let pluralization: { [locale: string]: (count: number) => string[] };
 
     function reset(): void;
@@ -47,10 +63,26 @@ declare namespace I18n {
     function translate(scope: Scope, options?: TranslateOptions): string;
     function t(scope: Scope, options?: TranslateOptions): string;
 
-    function localize(scope: "currency" | "number" | "percentage", value: number, options?: InterpolateOptions): string;
-    function localize(scope: Scope, value: string | number | Date, options?: InterpolateOptions): string;
-    function l(scope: "currency" | "number" | "percentage", value: number, options?: InterpolateOptions): string;
-    function l(scope: Scope, value: string | number | Date, options?: InterpolateOptions): string;
+    function localize(
+        scope: "currency" | "number" | "percentage",
+        value: number,
+        options?: InterpolateOptions
+    ): string;
+    function localize(
+        scope: Scope,
+        value: string | number | Date,
+        options?: InterpolateOptions
+    ): string;
+    function l(
+        scope: "currency" | "number" | "percentage",
+        value: number,
+        options?: InterpolateOptions
+    ): string;
+    function l(
+        scope: Scope,
+        value: string | number | Date,
+        options?: InterpolateOptions
+    ): string;
 
     interface ToNumberOptions {
         precision?: number;

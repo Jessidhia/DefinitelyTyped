@@ -1,5 +1,10 @@
 import * as React from "react";
-import { NextStatelessComponent, NextContext, NextComponentType, NextFunctionComponent } from "next";
+import {
+    NextStatelessComponent,
+    NextContext,
+    NextComponentType,
+    NextFunctionComponent
+} from "next";
 import { DefaultQuery } from "next/router";
 
 interface NextComponentProps {
@@ -29,18 +34,18 @@ class ClassNextWithTypedQuery extends React.Component {
     }
 }
 
-const LegacyStatelessNext: NextStatelessComponent<NextComponentProps> = ({ example }) => (
-    <div>I'm a stateless component! {example}</div>
-);
+const LegacyStatelessNext: NextStatelessComponent<NextComponentProps> = ({
+    example
+}) => <div>I'm a stateless component! {example}</div>;
 
 LegacyStatelessNext.getInitialProps = async ({ query }: NextContext) => {
     const { example } = query;
     return { example: example as string };
 };
 
-const FunctionNext: NextFunctionComponent<NextComponentProps> = ({ example }) => (
-    <div>I'm a functional component! {example}</div>
-);
+const FunctionNext: NextFunctionComponent<NextComponentProps> = ({
+    example
+}) => <div>I'm a functional component! {example}</div>;
 
 FunctionNext.getInitialProps = async ({ query }: NextContext) => {
     const { example } = query;
@@ -61,12 +66,15 @@ interface TestProps {
 
 // Stateful HOC that adds props to wrapped component. Similar to what withRedux does.
 // tslint:disable-next-line use-default-type-parameter
-const withExample = <P extends {}>(Page: NextComponentType<P & WithExampleProps, P>) =>
+const withExample = <P extends {}>(
+    Page: NextComponentType<P & WithExampleProps, P>
+) =>
     class extends React.Component<P & WithExampleHocProps> {
         test: string;
 
         static async getInitialProps(ctx: NextContext) {
-            const pageProps = Page.getInitialProps && (await Page.getInitialProps(ctx));
+            const pageProps =
+                Page.getInitialProps && (await Page.getInitialProps(ctx));
 
             // tslint:disable-next-line prefer-object-spread
             return Object.assign({}, pageProps, { test: "test" });
@@ -87,7 +95,8 @@ const withExample = <P extends {}>(Page: NextComponentType<P & WithExampleProps,
 const withBasic = <P extends {}>(Page: NextComponentType<P>) =>
     class extends React.Component<P> {
         static async getInitialProps(ctx: NextContext) {
-            const pageProps = Page.getInitialProps && (await Page.getInitialProps(ctx));
+            const pageProps =
+                Page.getInitialProps && (await Page.getInitialProps(ctx));
 
             // tslint:disable-next-line prefer-object-spread
             const props = Object.assign({}, pageProps);
@@ -116,7 +125,8 @@ class NextWithExample extends React.Component<TestProps & WithExampleProps> {
         const { ownProp, example } = this.props;
         return (
             <div>
-                I'm wrapped in a HOC that gives me an example prop! {example} {ownProp}
+                I'm wrapped in a HOC that gives me an example prop! {example}{" "}
+                {ownProp}
             </div>
         );
     }

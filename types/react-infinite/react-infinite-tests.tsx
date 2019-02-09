@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Infinite = require('react-infinite');
+import * as React from "react";
+import Infinite = require("react-infinite");
 
 class Test1 extends React.Component {
     render() {
@@ -28,8 +28,11 @@ class Test2 extends React.Component {
 class Test3 extends React.Component {
     render() {
         return (
-            <Infinite containerHeight={200} elementHeight={[111, 252, 143]}
-                useWindowAsScrollContainer>
+            <Infinite
+                containerHeight={200}
+                elementHeight={[111, 252, 143]}
+                useWindowAsScrollContainer
+            >
                 <div className="111-px" />
                 <div className="252-px" />
                 <div className="143-px" />
@@ -41,8 +44,11 @@ class Test3 extends React.Component {
 class Test4 extends React.Component {
     render() {
         return (
-            <Infinite containerHeight={200} elementHeight={[111, 252, 143]}
-                displayBottomUpwards>
+            <Infinite
+                containerHeight={200}
+                elementHeight={[111, 252, 143]}
+                displayBottomUpwards
+            >
                 <div className="third-latest-chat" />
                 <div className="second-latest-chat" />
                 <div className="latest-chat-message" />
@@ -54,8 +60,11 @@ class Test4 extends React.Component {
 class Test5 extends React.Component<Infinite.InfiniteProps> {
     render() {
         return (
-            <Infinite containerHeight={200} elementHeight={[111, 252, 143]}
-                displayBottomUpwards>
+            <Infinite
+                containerHeight={200}
+                elementHeight={[111, 252, 143]}
+                displayBottomUpwards
+            >
                 <div className="third-latest-chat" />
                 <div className="second-latest-chat" />
                 <div className="latest-chat-message" />
@@ -66,13 +75,16 @@ class Test5 extends React.Component<Infinite.InfiniteProps> {
 
 class ListItem extends React.Component<{ key: number; num: number }, {}> {
     render() {
-        return <div className="infinite-list-item">
-            List Item {this.props.num}
-        </div>;
+        return (
+            <div className="infinite-list-item">List Item {this.props.num}</div>
+        );
     }
 }
 
-class InfiniteList extends React.Component<{}, { elements: React.ReactElement<any>[], isInfiniteLoading: boolean }> {
+class InfiniteList extends React.Component<
+    {},
+    { elements: React.ReactElement<any>[]; isInfiniteLoading: boolean }
+> {
     state = {
         elements: this.buildElements(0, 20),
         isInfiniteLoading: false
@@ -81,7 +93,7 @@ class InfiniteList extends React.Component<{}, { elements: React.ReactElement<an
     buildElements(start: number, end: number) {
         var elements = [] as React.ReactElement<any>[];
         for (var i = start; i < end; i++) {
-            elements.push(<ListItem key={i} num={i} />)
+            elements.push(<ListItem key={i} num={i} />);
         }
         return elements;
     }
@@ -91,7 +103,7 @@ class InfiniteList extends React.Component<{}, { elements: React.ReactElement<an
         this.setState({
             isInfiniteLoading: true
         });
-        setTimeout(function () {
+        setTimeout(function() {
             var elemLength = that.state.elements.length,
                 newElements = that.buildElements(elemLength, elemLength + 1000);
             that.setState({
@@ -102,20 +114,21 @@ class InfiniteList extends React.Component<{}, { elements: React.ReactElement<an
     }
 
     elementInfiniteLoad() {
-        return <div className="infinite-list-item">
-            Loading...
-        </div>;
+        return <div className="infinite-list-item">Loading...</div>;
     }
 
     render() {
-        return <Infinite elementHeight={40}
-            containerHeight={250}
-            infiniteLoadBeginEdgeOffset={200}
-            onInfiniteLoad={this.handleInfiniteLoad}
-            loadingSpinnerDelegate={this.elementInfiniteLoad()}
-            isInfiniteLoading={this.state.isInfiniteLoading}
-        >
-            {this.state.elements}
-        </Infinite>;
+        return (
+            <Infinite
+                elementHeight={40}
+                containerHeight={250}
+                infiniteLoadBeginEdgeOffset={200}
+                onInfiniteLoad={this.handleInfiniteLoad}
+                loadingSpinnerDelegate={this.elementInfiniteLoad()}
+                isInfiniteLoading={this.state.isInfiniteLoading}
+            >
+                {this.state.elements}
+            </Infinite>
+        );
     }
 }

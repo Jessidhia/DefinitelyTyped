@@ -1,11 +1,34 @@
-import * as Delaunator from 'delaunator';
+import * as Delaunator from "delaunator";
 
 // Zipped points [x0, y0, x1, y1, ...]
-const zippedPoints = [168, 180, 168, 178, 168, 179, 168, 181, 168, 183, 167, 183, 167, 184];
+const zippedPoints = [
+    168,
+    180,
+    168,
+    178,
+    168,
+    179,
+    168,
+    181,
+    168,
+    183,
+    167,
+    183,
+    167,
+    184
+];
 const zipped = new Delaunator(zippedPoints);
 
 // Default [x, y]
-const defaultPoints = [[168, 180], [168, 178], [168, 179], [168, 181], [168, 183], [167, 183], [167, 184]];
+const defaultPoints = [
+    [168, 180],
+    [168, 178],
+    [168, 179],
+    [168, 181],
+    [168, 183],
+    [167, 183],
+    [167, 184]
+];
 const d = Delaunator.from(defaultPoints);
 
 // Custom getX & getY
@@ -13,7 +36,15 @@ interface CustomPoint {
     x: number;
     y: number;
 }
-const customPoints = [{x: 168, y: 180}, {x: 168, y: 178}, {x: 168, y: 179}, {x: 168, y: 181}, {x: 168, y: 183}, {x: 167, y: 183}, {x: 167, y: 184}];
+const customPoints = [
+    { x: 168, y: 180 },
+    { x: 168, y: 178 },
+    { x: 168, y: 179 },
+    { x: 168, y: 181 },
+    { x: 168, y: 183 },
+    { x: 167, y: 183 },
+    { x: 167, y: 184 }
+];
 
 const getX = (point: CustomPoint) => point.x;
 const getY = (point: CustomPoint) => point.y;

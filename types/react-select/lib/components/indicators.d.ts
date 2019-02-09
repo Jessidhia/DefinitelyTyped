@@ -1,7 +1,7 @@
-import { ComponentType, ReactElement as ElementType } from 'react';
+import { ComponentType, ReactElement as ElementType } from "react";
 
-import { colors, spacing } from '../theme';
-import { CommonProps } from '../types';
+import { colors, spacing } from "../theme";
+import { CommonProps } from "../types";
 
 // ==============================
 // Dropdown & Clear Icons
@@ -15,14 +15,14 @@ export function DownChevron(props: any): any; // TODO svg type
 // ==============================
 
 export type IndicatorProps<OptionType> = CommonProps<OptionType> & {
-  /** The children to be rendered inside the indicator. */
-  children: ElementType<any>,
-  /** Props that will be passed on to the children. */
-  innerProps: any,
-  /** The focused state of the select. */
-  isFocused: boolean,
-  /** Whether the text is right to left */
-  isRtl: boolean,
+    /** The children to be rendered inside the indicator. */
+    children: ElementType<any>;
+    /** Props that will be passed on to the children. */
+    innerProps: any;
+    /** The focused state of the select. */
+    isFocused: boolean;
+    /** Whether the text is right to left */
+    isRtl: boolean;
 };
 
 export type baseCSS = (props: IndicatorProps<any>) => React.CSSProperties;
@@ -37,9 +37,13 @@ export const ClearIndicator: ComponentType<IndicatorProps<any>>;
 // Separator
 // ==============================
 
-export interface SeparatorState { isDisabled: boolean; }
+export interface SeparatorState {
+    isDisabled: boolean;
+}
 
-export function indicatorSeparatorCSS(state: SeparatorState): React.CSSProperties;
+export function indicatorSeparatorCSS(
+    state: SeparatorState
+): React.CSSProperties;
 
 export const IndicatorSeparator: ComponentType<IndicatorProps<any>>;
 
@@ -48,20 +52,20 @@ export const IndicatorSeparator: ComponentType<IndicatorProps<any>>;
 // ==============================
 
 export function loadingIndicatorCSS(state: {
-  isFocused: boolean,
-  size: number,
+    isFocused: boolean;
+    size: number;
 }): React.CSSProperties;
 
 export type LoadingIconProps<OptionType> = {
-  /** Props that will be passed on to the children. */
-  innerProps: any,
-  /** The focused state of the select. */
-  isFocused: boolean,
-  /** Whether the text is right to left */
-  isRtl: boolean,
+    /** Props that will be passed on to the children. */
+    innerProps: any;
+    /** The focused state of the select. */
+    isFocused: boolean;
+    /** Whether the text is right to left */
+    isRtl: boolean;
 } & CommonProps<OptionType> & {
-  /** Set size of the container. */
-  size: number,
-};
+        /** Set size of the container. */
+        size: number;
+    };
 export const LoadingIndicator: ComponentType<LoadingIconProps<any>>;
 // TODO LoadingIndicator.defaultProps: { size: number };

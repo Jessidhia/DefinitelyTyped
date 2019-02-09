@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Firebase Remote Config API v1 */
-    function load(name: "firebaseremoteconfig", version: "v1"): PromiseLike<void>;
-    function load(name: "firebaseremoteconfig", version: "v1", callback: () => any): void;
+    function load(
+        name: "firebaseremoteconfig",
+        version: "v1"
+    ): PromiseLike<void>;
+    function load(
+        name: "firebaseremoteconfig",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const projects: firebaseremoteconfig.ProjectsResource;
 

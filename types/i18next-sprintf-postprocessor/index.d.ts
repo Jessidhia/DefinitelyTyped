@@ -8,17 +8,19 @@ declare module "i18next-sprintf-postprocessor" {
 
     module "i18next" {
         interface I18n {
-          t(key: string, ...args: any[]): string;
+            t(key: string, ...args: any[]): string;
         }
     }
-  
+
     interface I18nextSprintfPostProcessor {
         name: string;
         type: string;
         process(value: any, key: string, options: any): any;
-        overloadTranslationOptionHandler(args: string[]): {
-          postProcess: "sprintf",
-          sprintf: string[]
+        overloadTranslationOptionHandler(
+            args: string[]
+        ): {
+            postProcess: "sprintf";
+            sprintf: string[];
         };
     }
 

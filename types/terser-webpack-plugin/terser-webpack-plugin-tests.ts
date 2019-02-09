@@ -1,10 +1,8 @@
-import * as webpack from 'webpack';
+import * as webpack from "webpack";
 import * as TerserPlugin from "terser-webpack-plugin";
 
 const compiler = webpack({
-    plugins: [
-        new TerserPlugin(),
-    ],
+    plugins: [new TerserPlugin()]
 });
 
 const compilerOptions = webpack({
@@ -12,12 +10,12 @@ const compilerOptions = webpack({
         new TerserPlugin({
             // Uncomment lines below for cache invalidation correctly
             cache: true,
-            cacheKeys: (defaultCacheKeys) => {
+            cacheKeys: defaultCacheKeys => {
                 delete defaultCacheKeys.terser;
 
                 return {
                     ...defaultCacheKeys,
-                    'uglify-js': require('uglify-js/package.json').version,
+                    "uglify-js": require("uglify-js/package.json").version
                 };
             },
             minify: (file, sourceMap) => {
@@ -25,12 +23,12 @@ const compilerOptions = webpack({
                 const uglifyJsOptions = {
                     /* your `uglify-js` package options */
                 };
-                return require('uglify-js').minify(file, uglifyJsOptions);
+                return require("uglify-js").minify(file, uglifyJsOptions);
             },
             include: /src\//,
             exclude: /node_modules\//,
             sourceMap: true,
             terserOptions: { mangle: true }
-        }),
-    ],
+        })
+    ]
 });

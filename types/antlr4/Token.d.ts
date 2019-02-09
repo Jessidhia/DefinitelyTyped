@@ -21,7 +21,13 @@ export class Token {
 }
 
 export class CommonToken extends Token {
-    constructor(source: any, type: any, channel: any, start: number, stop: number);
+    constructor(
+        source: any,
+        type: any,
+        channel: any,
+        start: number,
+        stop: number
+    );
 
     clone(): Token;
 

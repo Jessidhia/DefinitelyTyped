@@ -7,9 +7,9 @@
 import * as React from "react";
 
 export enum PlayStatus {
-    Playing = 'PLAYING',
-    Stopped = 'STOPPED',
-    Paused = 'PAUSED'
+    Playing = "PLAYING",
+    Stopped = "STOPPED",
+    Paused = "PAUSED"
 }
 
 export interface ReactSoundProps {

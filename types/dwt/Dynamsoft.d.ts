@@ -20,8 +20,19 @@ interface dwtEnv {
     CloseDialog(): void;
     ContainerMap: {};
     Containers: Container[];
-    CreateDWTObject(newObjID: string, successFn: (dwtObject: WebTwain) => void, failurefn: (...args: any[]) => void): void;
-    CreateDWTObject(newObjID: string, ip: number | string, port: number | string, portSSL: number | string, successFn: (dwtObject: WebTwain) => void, failurefn: (...args: any[]) => void): void;
+    CreateDWTObject(
+        newObjID: string,
+        successFn: (dwtObject: WebTwain) => void,
+        failurefn: (...args: any[]) => void
+    ): void;
+    CreateDWTObject(
+        newObjID: string,
+        ip: number | string,
+        port: number | string,
+        portSSL: number | string,
+        successFn: (dwtObject: WebTwain) => void,
+        failurefn: (...args: any[]) => void
+    ): void;
     Debug: boolean;
     DeleteDWTObject(objID: string): void;
     DynamicContainers: string[];
@@ -49,7 +60,13 @@ interface dwtEnv {
     RemoveAllAuthorizations(): void;
     ResourcesPath: string;
     ServerVersionInfo: string;
-    ShowDialog(_dialogWidth: number, _dialogHeight: number, _strDialogMessageWithHtmlFormat: string, _bChangeImage: boolean, bHideCloseButton: boolean): void;
+    ShowDialog(
+        _dialogWidth: number,
+        _dialogHeight: number,
+        _strDialogMessageWithHtmlFormat: string,
+        _bChangeImage: boolean,
+        bHideCloseButton: boolean
+    ): void;
     Trial: boolean;
     Unload(): void;
     UseDefaultInstallUI: boolean;
@@ -80,11 +97,25 @@ interface DynamsoftLib {
     */
 
     env: {
-        WSSession: number, WSVersion: string,
-        bChrome: boolean, bEdge: boolean, bFileSystem: boolean, bFirefox: boolean,
-        bIE: boolean, bLinux: boolean, bMac: boolean, bSafari: boolean, bWin: boolean, bWin64: boolean,
-        basePath: string, iPluginLength: number, isX64: boolean, pathType: number,
-        strChromeVersion: string, strFirefoxVersion: string, strIEVersion: string
+        WSSession: number;
+        WSVersion: string;
+        bChrome: boolean;
+        bEdge: boolean;
+        bFileSystem: boolean;
+        bFirefox: boolean;
+        bIE: boolean;
+        bLinux: boolean;
+        bMac: boolean;
+        bSafari: boolean;
+        bWin: boolean;
+        bWin64: boolean;
+        basePath: string;
+        iPluginLength: number;
+        isX64: boolean;
+        pathType: number;
+        strChromeVersion: string;
+        strFirefoxVersion: string;
+        strIEVersion: string;
     };
 
     /*ignored

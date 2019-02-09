@@ -1,14 +1,14 @@
-import Cookies = require('cookies');
-import * as http from 'http';
-import Keygrip = require('keygrip');
-import express = require('express');
-import connect = require('connect');
+import Cookies = require("cookies");
+import * as http from "http";
+import Keygrip = require("keygrip");
+import express = require("express");
+import connect = require("connect");
 
 const server = http.createServer((req, res) => {
     const cookies = new Cookies(req, res);
-    new Cookies(req, res, {keys: []});
-    new Cookies(req, res, {keys: new Keygrip([])});
-    new Cookies(req, res, {secure: true});
+    new Cookies(req, res, { keys: [] });
+    new Cookies(req, res, { keys: new Keygrip([]) });
+    new Cookies(req, res, { secure: true });
 
     let unsigned: string;
     let signed: string;
@@ -27,9 +27,9 @@ const server = http.createServer((req, res) => {
             .set("tampered.sig", "bogus")
 
             // sameSite option
-            .set("samesite", "same", {sameSite: 'lax'})
-            .set("samesite", "same", {sameSite: 'strict'})
-            .set("samesite", "same", {sameSite: false});
+            .set("samesite", "same", { sameSite: "lax" })
+            .set("samesite", "same", { sameSite: "strict" })
+            .set("samesite", "same", { sameSite: false });
 
         res.writeHead(302, { Location: "/" });
         res.end("Now let's check.");
@@ -54,7 +54,8 @@ tampered expected: undefined
 
 tampered: ${tampered}
 
-`);
+`
+    );
 });
 
 const eApp = express();

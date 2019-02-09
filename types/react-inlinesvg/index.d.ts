@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ComponentType, ReactNode } from 'react';
+import { ComponentType, ReactNode } from "react";
 
 export interface RequestError extends Error {
     isHttpError: boolean;
@@ -12,7 +12,7 @@ export interface RequestError extends Error {
 }
 
 export interface InlineSVGError extends Error {
-    name: 'InlineSVGError';
+    name: "InlineSVGError";
     isSupportedBrowser: boolean;
     isConfigurationError: boolean;
     isUnsupportedBrowserError: boolean;

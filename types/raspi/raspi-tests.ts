@@ -1,3 +1,3 @@
-import { init } from 'raspi';
+import { init } from "raspi";
 
 init(() => {});

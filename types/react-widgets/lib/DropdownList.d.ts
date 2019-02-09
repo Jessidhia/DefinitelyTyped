@@ -1,11 +1,13 @@
-import * as React from 'react';
-import { ReactWidgetsCommonDropdownProps, AutoFocus } from './CommonProps';
+import * as React from "react";
+import { ReactWidgetsCommonDropdownProps, AutoFocus } from "./CommonProps";
 
-interface DropdownListProps extends ReactWidgetsCommonDropdownProps<DropdownListClass>, AutoFocus {
+interface DropdownListProps
+    extends ReactWidgetsCommonDropdownProps<DropdownListClass>,
+        AutoFocus {
     /**
      * Allow to create a new option on the data list.
      */
-    allowCreate?: boolean | 'onFilter';
+    allowCreate?: boolean | "onFilter";
     /**
      * The current value of the DropdownList. This can be an object (such as a member of the
      * data array) or a primitive value, hinted to by the valueField. The widget value does not
@@ -123,7 +125,12 @@ interface DropdownListProps extends ReactWidgetsCommonDropdownProps<DropdownList
      * To handle custom filtering techniques provide a function that returns true or false
      * for each passed in item (analogous to the array.filter builtin)
      */
-    filter?: false | "startsWith" | "endsWith" | "contains" | ((dataItem: any, str: string) => boolean);
+    filter?:
+        | false
+        | "startsWith"
+        | "endsWith"
+        | "contains"
+        | ((dataItem: any, str: string) => boolean);
     /**
      * Use in conjunction with the filter prop. Filter the list without regard for case. This
      * only applies to non function values for filter
@@ -195,7 +202,7 @@ interface DropdownListMessages {
     createOption?: string | ((props: DropdownListProps) => string);
 }
 
-interface DropdownList extends React.ReactElement<DropdownListProps> { }
-interface DropdownListClass extends React.ComponentClass<DropdownListProps> { }
+interface DropdownList extends React.ReactElement<DropdownListProps> {}
+interface DropdownListClass extends React.ComponentClass<DropdownListProps> {}
 declare var DropdownList: DropdownListClass;
 export = DropdownList;

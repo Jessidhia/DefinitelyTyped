@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
-export type Axis = 'x' | 'y' | 'xy';
+export type Axis = "x" | "y" | "xy";
 
 export type Offset = number | string;
 
@@ -19,9 +19,9 @@ export interface SortStart {
 export type SortEvent = React.MouseEvent<any> | React.TouchEvent<any>;
 
 export type SortEventWithTag = SortEvent & {
-  target: {
-    tagName: string
-  }
+    target: {
+        tagName: string;
+    };
 };
 
 export type SortStartHandler = (sort: SortStart, event: SortEvent) => void;
@@ -76,12 +76,27 @@ export interface Config {
 
 export type WrappedComponentFactory<P> = (props: P) => JSX.Element;
 
-export type WrappedComponent<P> = React.ComponentClass<P> | WrappedComponentFactory<P>;
+export type WrappedComponent<P> =
+    | React.ComponentClass<P>
+    | WrappedComponentFactory<P>;
 
-export function SortableContainer<P>(wrappedComponent: WrappedComponent<P>, config?: Config): React.ComponentClass<P & SortableContainerProps>;
+export function SortableContainer<P>(
+    wrappedComponent: WrappedComponent<P>,
+    config?: Config
+): React.ComponentClass<P & SortableContainerProps>;
 
-export function SortableElement<P>(wrappedComponent: WrappedComponent<P>, config?: Config): React.ComponentClass<P & SortableElementProps>;
+export function SortableElement<P>(
+    wrappedComponent: WrappedComponent<P>,
+    config?: Config
+): React.ComponentClass<P & SortableElementProps>;
 
-export function SortableHandle<P>(wrappedComponent: WrappedComponent<P>, config?: Config): React.ComponentClass<P>;
+export function SortableHandle<P>(
+    wrappedComponent: WrappedComponent<P>,
+    config?: Config
+): React.ComponentClass<P>;
 
-export function arrayMove<T>(collection: T[], previousIndex: number, newIndex: number): T[];
+export function arrayMove<T>(
+    collection: T[],
+    previousIndex: number,
+    newIndex: number
+): T[];

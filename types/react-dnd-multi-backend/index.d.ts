@@ -42,7 +42,10 @@ export interface Transition {
  * @param check The CheckFunction to use to verify if an event matches the event type.
  * @returns A Transition to indicate when a particular Backend should be used.
  */
-export function createTransition(eventType: string, check: CheckFunction<any>): Transition;
+export function createTransition(
+    eventType: string,
+    check: CheckFunction<any>
+): Transition;
 
 /**
  * Declaration for a Drag and Drop backend to be used.

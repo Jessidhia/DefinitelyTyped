@@ -5,8 +5,7 @@
 
 /// <reference types="node" />
 
-
-import stream = require('stream');
+import stream = require("stream");
 
 export interface IImageOptions {
     width?: number;
@@ -24,7 +23,7 @@ export declare enum EDeflateStrategy {
     FILTERED = 1,
     HUFFMAN_ONLY = 2,
     RLE = 3,
-    FIXED = 4,
+    FIXED = 4
 }
 
 export declare enum EFilterType {
@@ -33,7 +32,7 @@ export declare enum EFilterType {
     Sub = 1,
     Up = 2,
     Average = 3,
-    Paeth = 4,
+    Paeth = 4
 }
 
 export declare function createImage(option?: IImageOptions): Image;
@@ -48,5 +47,13 @@ export declare class Image extends stream.Duplex {
     parse(data: Buffer, callback?: (err: Error, image: Image) => void): Image;
     write(data: any, cb?: any): boolean;
     end(data?: any): void;
-    bitblt(dst: Image, sx: number, sy: number, w: number, h: number, dx: number, dy: number): Image;
+    bitblt(
+        dst: Image,
+        sx: number,
+        sy: number,
+        w: number,
+        h: number,
+        dx: number,
+        dy: number
+    ): Image;
 }

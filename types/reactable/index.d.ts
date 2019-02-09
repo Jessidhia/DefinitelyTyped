@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface KeyLabelObject {
     key: string;
@@ -13,7 +13,7 @@ export interface KeyLabelObject {
 
 export type ColumnsType = string | KeyLabelObject;
 
-export type SortDirection = 'asc' | 'desc';
+export type SortDirection = "asc" | "desc";
 
 export type FilterMethodType = (text: string) => void;
 
@@ -21,7 +21,7 @@ export interface TableComponentProperties<T> {
     data?: T[];
     className?: string;
     columns?: ColumnsType[];
-    defaultSort?: { column: string, direction: SortDirection };
+    defaultSort?: { column: string; direction: SortDirection };
     id?: string;
     sortable?: string[] | boolean;
     sortBy?: boolean;
@@ -51,20 +51,14 @@ export interface TdProperties {
     data?: any;
 }
 
-export class Table<T> extends React.Component<TableComponentProperties<T>> {
-}
+export class Table<T> extends React.Component<TableComponentProperties<T>> {}
 
-export class Thead extends React.Component {
-}
+export class Thead extends React.Component {}
 
-export class Th extends React.Component<ThProperties> {
-}
+export class Th extends React.Component<ThProperties> {}
 
-export class Tr<T> extends React.Component<TrProperties<T>> {
-}
+export class Tr<T> extends React.Component<TrProperties<T>> {}
 
-export class Td extends React.Component<TdProperties> {
-}
+export class Td extends React.Component<TdProperties> {}
 
-export class Tfoot extends React.Component {
-}
+export class Tfoot extends React.Component {}

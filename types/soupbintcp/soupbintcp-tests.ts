@@ -1,76 +1,76 @@
-import { Client, Server } from 'soupbintcp';
+import { Client, Server } from "soupbintcp";
 
 // Arrange
-const client = new Client({port: 8000, host: ''});
-const server = new Server({port: 8000, host: ''});
+const client = new Client({ port: 8000, host: "" });
+const server = new Server({ port: 8000, host: "" });
 
 // Act & Assert
 // $ExpectType Client
-new Client({port: 8000, host: ''});
+new Client({ port: 8000, host: "" });
 
 // $ExpectType Server
-new Server({port: 8000, host: ''});
+new Server({ port: 8000, host: "" });
 
 // Invalid type
 // $ExpectError
-new Client({host: ''});
+new Client({ host: "" });
 // Invalid type
 
 // $ExpectError
-new Client({host: 8000});
+new Client({ host: 8000 });
 
 // $ExpectError
-new Client({port: ''});
+new Client({ port: "" });
 
 // $ExpectError
-new Client({port: 8000});
+new Client({ port: 8000 });
 
 // $ExpectError
 new Client();
 
 // Invalid type
 // $ExpectError
-new Server({host: ''});
+new Server({ host: "" });
 // Invalid type
 
 // $ExpectError
-new Server({host: 8000});
+new Server({ host: 8000 });
 
 // $ExpectError
-new Server({port: ''});
+new Server({ port: "" });
 
 // $ExpectError
-new Server({port: 8000});
+new Server({ port: 8000 });
 
 // $ExpectError
 new Server();
 
 // $ExpectError
 client.login({
-    password: '',
-    requestedSession: '',
+    password: "",
+    requestedSession: "",
     requestedSequenceNumber: 8000
 });
 
 // $ExpectError
 client.login({
-    username: '',
-    requestedSession: '',
+    username: "",
+    requestedSession: "",
     requestedSequenceNumber: 8000
 });
 
 // $ExpectError
 client.login({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
     requestedSequenceNumber: 8000
 });
 
 // $ExpectError
 client.login({
-    username: '',
-    password: '',
-    requestedSession: '',
+    username: "",
+    password: "",
+    requestedSession: ""
 });
 
 // $ExpectError

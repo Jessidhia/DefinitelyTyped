@@ -14,7 +14,7 @@ const options: pinyin.Options = {
 };
 pinyin("中心", options);
 
-pinyin.compare('测', '这');
+pinyin.compare("测", "这");
 
 pinyin.STYLE_NORMAL;
 pinyin.STYLE_TONE;

@@ -7,7 +7,9 @@
 
 export = PQueue;
 
-declare class PQueue<O extends PQueue.QueueAddOptions = PQueue.DefaultAddOptions> {
+declare class PQueue<
+    O extends PQueue.QueueAddOptions = PQueue.DefaultAddOptions
+> {
     /**
      * Size of the queue.
      */
@@ -78,7 +80,7 @@ declare namespace PQueue {
     }
 
     interface QueueClassConstructor<O extends QueueAddOptions> {
-        new(): QueueClass<O>;
+        new (): QueueClass<O>;
     }
 
     interface QueueClass<O extends QueueAddOptions> {

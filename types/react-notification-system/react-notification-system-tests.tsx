@@ -1,13 +1,13 @@
-import * as React from 'react';
-import NotificationSystem = require('react-notification-system');
+import * as React from "react";
+import NotificationSystem = require("react-notification-system");
 
 class MyComponent extends React.Component {
     private notificationSystem: NotificationSystem.System = null;
 
     private notification: NotificationSystem.Notification = {
-        title: 'Notification title',
-        message: 'Notification message',
-        level: 'success',
+        title: "Notification title",
+        message: "Notification message",
+        level: "success",
         action: {
             label: "Button inside this notification",
             callback: () => {
@@ -17,7 +17,9 @@ class MyComponent extends React.Component {
     };
 
     private addNotification() {
-        this.notification = this.notificationSystem.addNotification(this.notification);
+        this.notification = this.notificationSystem.addNotification(
+            this.notification
+        );
     }
 
     componentDidMount() {
@@ -25,15 +27,17 @@ class MyComponent extends React.Component {
     }
 
     render() {
-
         const style: NotificationSystem.Style = {
-            NotificationItem: { // Override the notification item
-                DefaultStyle: { // Applied to every notification, regardless of the notification level
-                    margin: '10px 5px 2px 1px'
+            NotificationItem: {
+                // Override the notification item
+                DefaultStyle: {
+                    // Applied to every notification, regardless of the notification level
+                    margin: "10px 5px 2px 1px"
                 },
 
-                success: { // Applied only to the success notification item
-                    color: 'red'
+                success: {
+                    // Applied only to the success notification item
+                    color: "red"
                 }
             }
         };
@@ -43,23 +47,21 @@ class MyComponent extends React.Component {
                 ...style,
                 Containers: {
                     DefaultStyle: {
-                        margin: '10px 5px 2px 1px'
+                        margin: "10px 5px 2px 1px"
                     }
                 },
                 Title: {
                     success: {
-                        color: 'green'
+                        color: "green"
                     }
                 }
             }
         };
 
         const ref = (instance: NotificationSystem.System) => {
-            this.notificationSystem = instance
-        }
+            this.notificationSystem = instance;
+        };
 
-        return (
-            <NotificationSystem style={style} ref={ref}/>
-        )
+        return <NotificationSystem style={style} ref={ref} />;
     }
 }

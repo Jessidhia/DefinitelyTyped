@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
 declare const exportedString: "ui.router";
 export default exportedString;
@@ -24,7 +24,7 @@ export type IUrlRouterService = angular.ui.IUrlRouterService;
 export type IUiViewScrollProvider = angular.ui.IUiViewScrollProvider;
 export type IType = angular.ui.IType;
 
-declare module 'angular' {
+declare module "angular" {
     export namespace ui {
         interface IState {
             name?: string;
@@ -58,7 +58,6 @@ declare module 'angular' {
              * Specifies the parent state of this state
              */
             parent?: string | IState;
-
 
             resolve?: { [name: string]: any };
             /**
@@ -104,19 +103,21 @@ declare module 'angular' {
              * Synchronously or asynchronously redirects Transitions to a different state/params
              */
             redirectTo?: string | Function | IState;
-
         }
 
         interface IUnfoundState {
-            to: string,
-            toParams: {},
-            options: IStateOptions
+            to: string;
+            toParams: {};
+            options: IStateOptions;
         }
 
         interface IStateProvider extends angular.IServiceProvider {
             state(name: string, config: IState): IStateProvider;
             state(config: IState): IStateProvider;
-            decorator(name?: string, decorator?: (state: IState, parent: Function) => any): any;
+            decorator(
+                name?: string,
+                decorator?: (state: IState, parent: Function) => any
+            ): any;
         }
 
         interface IUrlMatcher {
@@ -159,7 +160,11 @@ declare module 'angular' {
              *
              * @returns {IUrlMatcherFactory} Returns $urlMatcherFactoryProvider.
              */
-            type(name: string, definition: IType, inlineAnnotedDefinitionFn?: any[]): IUrlMatcherFactory;
+            type(
+                name: string,
+                definition: IType,
+                inlineAnnotedDefinitionFn?: any[]
+            ): IUrlMatcherFactory;
             /**
              * Registers a custom Type object that can be used to generate URLs with typed parameters.
              *
@@ -168,7 +173,11 @@ declare module 'angular' {
              *
              * @returns {IUrlMatcherFactory} Returns $urlMatcherFactoryProvider.
              */
-            type(name: string, definition: IType, definitionFn?: (...args: any[]) => IType): IUrlMatcherFactory;
+            type(
+                name: string,
+                definition: IType,
+                definitionFn?: (...args: any[]) => IType
+            ): IUrlMatcherFactory;
             /**
              * Defines whether URL matching should be case sensitive (the default behavior), or not.
              *
@@ -236,7 +245,7 @@ declare module 'angular' {
              */
             notify?: boolean;
             /**
-         * {boolean=false|string|IState}, If true will force transition even if the state or params have not changed, aka a reload of the same state. It differs from reloadOnSearch because you'd use this when you want to force a reload when everything is the same, including search params.
+             * {boolean=false|string|IState}, If true will force transition even if the state or params have not changed, aka a reload of the same state. It differs from reloadOnSearch because you'd use this when you want to force a reload when everything is the same, including search params.
              */
             reload?: boolean | string | IState;
         }
@@ -263,12 +272,36 @@ declare module 'angular' {
              *
              * @param options Options object.
              */
-            go(to: string, params?: {}, options?: IStateOptions): angular.IPromise<any>;
-            go(to: IState, params?: {}, options?: IStateOptions): angular.IPromise<any>;
-            transitionTo(state: string, params?: {}, updateLocation?: boolean): angular.IPromise<any>;
-            transitionTo(state: IState, params?: {}, updateLocation?: boolean): angular.IPromise<any>;
-            transitionTo(state: string, params?: {}, options?: IStateOptions): angular.IPromise<any>;
-            transitionTo(state: IState, params?: {}, options?: IStateOptions): angular.IPromise<any>;
+            go(
+                to: string,
+                params?: {},
+                options?: IStateOptions
+            ): angular.IPromise<any>;
+            go(
+                to: IState,
+                params?: {},
+                options?: IStateOptions
+            ): angular.IPromise<any>;
+            transitionTo(
+                state: string,
+                params?: {},
+                updateLocation?: boolean
+            ): angular.IPromise<any>;
+            transitionTo(
+                state: IState,
+                params?: {},
+                updateLocation?: boolean
+            ): angular.IPromise<any>;
+            transitionTo(
+                state: string,
+                params?: {},
+                options?: IStateOptions
+            ): angular.IPromise<any>;
+            transitionTo(
+                state: IState,
+                params?: {},
+                options?: IStateOptions
+            ): angular.IPromise<any>;
             includes(state: string, params?: {}): boolean;
             includes(state: string, params?: {}, options?: any): boolean;
             is(state: string, params?: {}): boolean;
@@ -294,7 +327,7 @@ declare module 'angular' {
                 /**
                  * Currently resolved "resolve" values from the current state
                  */
-                globals: { [key: string]: any; };
+                globals: { [key: string]: any };
             };
         }
 
@@ -315,9 +348,17 @@ declare module 'angular' {
              */
             sync(): void;
             listen(): Function;
-            href(urlMatcher: IUrlMatcher, params?: IStateParamsService, options?: IHrefOptions): string;
+            href(
+                urlMatcher: IUrlMatcher,
+                params?: IStateParamsService,
+                options?: IHrefOptions
+            ): string;
             update(read?: boolean): void;
-            push(urlMatcher: IUrlMatcher, params?: IStateParamsService, options?: IHrefOptions): void;
+            push(
+                urlMatcher: IUrlMatcher,
+                params?: IStateParamsService,
+                options?: IHrefOptions
+            ): void;
         }
 
         interface IUiViewScrollProvider {
@@ -371,5 +412,4 @@ declare module 'angular' {
             pattern?: RegExp;
         }
     }
-
 }

@@ -5,10 +5,16 @@
 
 export = locatePath;
 
-declare function locatePath(input: Iterable<string>, options?: locatePath.Options): Promise<string | undefined>;
+declare function locatePath(
+    input: Iterable<string>,
+    options?: locatePath.Options
+): Promise<string | undefined>;
 
 declare namespace locatePath {
-    function sync(input: Iterable<string>, options?: {cwd?: string}): string | undefined;
+    function sync(
+        input: Iterable<string>,
+        options?: { cwd?: string }
+    ): string | undefined;
 
     interface Options {
         concurrency?: number;

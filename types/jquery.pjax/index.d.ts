@@ -13,7 +13,7 @@ interface PjaxPopStateEventObject extends JQuery.Event {
     /**
      * Navigation direction. Could be "back" or "forward".
      */
-    direction: string
+    direction: string;
 }
 
 interface PjaxSettings extends JQuery.AjaxSettings {
@@ -89,9 +89,16 @@ interface JQuery {
      * - replace: a boolean indicates whether to use replaceState instead of pushState. Default is false.
      * @return Returns the jQuery object
      */
-    pjax(delegationSelector: string, containerSelector?: string, options?: PjaxSettings): JQuery;
+    pjax(
+        delegationSelector: string,
+        containerSelector?: string,
+        options?: PjaxSettings
+    ): JQuery;
 
-    on(event: 'pjax:popstate', handler: (e: PjaxPopStateEventObject) => void): this;
+    on(
+        event: "pjax:popstate",
+        handler: (e: PjaxPopStateEventObject) => void
+    ): this;
 }
 
 interface JQueryStatic {
@@ -133,7 +140,11 @@ interface PjaxStatic {
      * - push: a boolean indicates whether to pushState the URL. Default is true.
      * - replace: a boolean indicates whether to use replaceState instead of pushState. Default is false.
      */
-    click(event: JQuery.Event, containerSelector?: string, options?: PjaxSettings): void;
+    click(
+        event: JQuery.Event,
+        containerSelector?: string,
+        options?: PjaxSettings
+    ): void;
 
     /**
      * PJAX on form submit handler
@@ -154,7 +165,11 @@ interface PjaxStatic {
      * - push: a boolean indicates whether to pushState the URL. Default is true.
      * - replace: a boolean indicates whether to use replaceState instead of pushState. Default is false.
      */
-    submit(event: JQuery.Event, containerSelector?: string, options?: PjaxSettings): void;
+    submit(
+        event: JQuery.Event,
+        containerSelector?: string,
+        options?: PjaxSettings
+    ): void;
 
     /**
      * Install pjax functions on $.pjax to enable pushState behavior. Does nothing if already enabled.

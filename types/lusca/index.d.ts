@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import express = require('express');
+import express = require("express");
 
 declare function lusca(options?: lusca.LuscaOptions): express.RequestHandler;
 
@@ -39,13 +39,15 @@ declare namespace lusca {
 
     type csrfOptions = csrfOptionsAngular | csrfOptionsNonAngular;
 
-    interface csrfOptionsAngular  {
+    interface csrfOptionsAngular {
         key?: string;
         secret?: string;
         impl?: () => any;
-        cookie?: string | {
-            options?: object;
-        };
+        cookie?:
+            | string
+            | {
+                  options?: object;
+              };
         angular: true;
     }
 
@@ -53,10 +55,12 @@ declare namespace lusca {
         key?: string;
         secret?: string;
         impl?: () => any;
-        cookie?: string | {
-            name: string;
-            options?: object;
-        };
+        cookie?:
+            | string
+            | {
+                  name: string;
+                  options?: object;
+              };
         angular?: false;
     }
 
@@ -70,7 +74,9 @@ declare namespace lusca {
     function xframe(value: string): express.RequestHandler;
     function p3p(value: string): express.RequestHandler;
     function hsts(options?: hstsOptions): express.RequestHandler;
-    function xssProtection(options?: xssProtectionOptions | true): express.RequestHandler;
+    function xssProtection(
+        options?: xssProtectionOptions | true
+    ): express.RequestHandler;
     function nosniff(): express.RequestHandler;
     function referrerPolicy(value: string): express.RequestHandler;
 }

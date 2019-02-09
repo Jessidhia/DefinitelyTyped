@@ -4,10 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import * as busboy from 'busboy';
-import { RequestHandler } from 'express';
+import * as busboy from "busboy";
+import { RequestHandler } from "express";
 
-declare function connectBusboy(options?: connectBusboy.ConnectBusboyOptions): RequestHandler;
+declare function connectBusboy(
+    options?: connectBusboy.ConnectBusboyOptions
+): RequestHandler;
 
 declare namespace connectBusboy {
     interface ConnectBusboyOptions extends busboy.BusboyConfig {

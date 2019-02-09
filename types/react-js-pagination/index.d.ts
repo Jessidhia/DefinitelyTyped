@@ -12,7 +12,7 @@ export interface ReactJsPaginationProps {
     activePage: number;
     itemsCountPerPage?: number;
     pageRangeDisplayed?: number;
-    prevPageText?: string| React.ReactElement<any>;
+    prevPageText?: string | React.ReactElement<any>;
     nextPageText?: string | React.ReactElement<any>;
     lastPageText?: string | React.ReactElement<any>;
     firstPageText?: string | React.ReactElement<any>;

@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ACTIVE: 'mdc-tab--active';
-    ANIMATING_ACTIVATE: 'mdc-tab--animating-activate';
-    ANIMATING_DEACTIVATE: 'mdc-tab--animating-deactivate';
+    ACTIVE: "mdc-tab--active";
+    ANIMATING_ACTIVATE: "mdc-tab--animating-activate";
+    ANIMATING_DEACTIVATE: "mdc-tab--animating-deactivate";
 }
 
 export interface strings extends MDCStrings {
-    ARIA_SELECTED: 'aria-selected';
+    ARIA_SELECTED: "aria-selected";
 }

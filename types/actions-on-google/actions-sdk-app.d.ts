@@ -1,7 +1,12 @@
-import * as express from 'express';
+import * as express from "express";
 
-import { AssistantApp } from './assistant-app';
-import { Carousel, List, RichResponse, SimpleResponse } from './response-builder';
+import { AssistantApp } from "./assistant-app";
+import {
+    Carousel,
+    List,
+    RichResponse,
+    SimpleResponse
+} from "./response-builder";
 
 // ---------------------------------------------------------------------------
 //                   Actions SDK support
@@ -269,7 +274,10 @@ export class ActionsSdkApp extends AssistantApp {
      * @return The response that is sent to Assistant to ask user to provide input.
      * @actionssdk
      */
-    ask(inputPrompt: object | SimpleResponse | RichResponse, dialogState?: object): express.Response | null;
+    ask(
+        inputPrompt: object | SimpleResponse | RichResponse,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks to collect user's input with a list.
@@ -311,7 +319,11 @@ export class ActionsSdkApp extends AssistantApp {
      * @return The response that is sent to Assistant to ask user to provide input.
      * @actionssdk
      */
-    askWithList(inputPrompt: object | SimpleResponse | RichResponse, list: List, dialogState?: object): express.Response | null;
+    askWithList(
+        inputPrompt: object | SimpleResponse | RichResponse,
+        list: List,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks to collect user's input with a carousel.
@@ -354,7 +366,11 @@ export class ActionsSdkApp extends AssistantApp {
      * @return The response that is sent to Assistant to ask user to provide input.
      * @actionssdk
      */
-    askWithCarousel(inputPrompt: object | SimpleResponse | RichResponse, carousel: Carousel, dialogState?: object): express.Response | null;
+    askWithCarousel(
+        inputPrompt: object | SimpleResponse | RichResponse,
+        carousel: Carousel,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Tells Assistant to render the speech response and close the mic.
@@ -398,7 +414,9 @@ export class ActionsSdkApp extends AssistantApp {
      * @return The HTTP response that is sent back to Assistant.
      * @actionssdk
      */
-    tell(textToSpeech: string | SimpleResponse | RichResponse): express.Response | null;
+    tell(
+        textToSpeech: string | SimpleResponse | RichResponse
+    ): express.Response | null;
 
     /**
      * Builds the {@link https://developers.google.com/actions/reference/conversation#InputPrompt|InputPrompt object}
@@ -423,5 +441,9 @@ export class ActionsSdkApp extends AssistantApp {
      * @return.
      * @actionssdk
      */
-    buildInputPrompt(isSsml: boolean, initialPrompt: string, noInputs?: string[]): object;
+    buildInputPrompt(
+        isSsml: boolean,
+        initialPrompt: string,
+        noInputs?: string[]
+    ): object;
 }

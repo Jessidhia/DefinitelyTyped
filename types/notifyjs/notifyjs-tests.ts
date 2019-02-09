@@ -1,8 +1,8 @@
-import Notify from 'notifyjs';
+import Notify from "notifyjs";
 
 function test_Notify_constructor() {
     //Min
-    var n = new Notify("hoge")
+    var n = new Notify("hoge");
     n.show();
 
     //With option
@@ -24,14 +24,16 @@ function test_Notify_constructor() {
         requireInteraction: true
     });
     n.show();
-
 }
 
 function test_Notify_static_methods() {
     Notify.needsPermission;
     Notify.requestPermission();
     Notify.requestPermission(() => console.log("onPermissionGrantedCallback"));
-    Notify.requestPermission(() => console.log("onPermissionGrantedCallback"), () => console.log("onPermissionDeniedCallback"));
+    Notify.requestPermission(
+        () => console.log("onPermissionGrantedCallback"),
+        () => console.log("onPermissionDeniedCallback")
+    );
     Notify.isSupported();
     Notify.permissionLevel;
 }

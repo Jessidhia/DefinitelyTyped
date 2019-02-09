@@ -13,7 +13,12 @@ StatelessComponent.defaultProps = {
 <StatelessComponent />;
 
 const StatelessComponent2: React.SFC<SCProps> = ({ foo, children }) => {
-    return <div>{foo}{children}</div>;
+    return (
+        <div>
+            {foo}
+            {children}
+        </div>
+    );
 };
 StatelessComponent2.displayName = "StatelessComponent4";
 StatelessComponent2.defaultProps = {
@@ -24,7 +29,13 @@ StatelessComponent2.defaultProps = {
 // svg sanity check
 <svg viewBox="0 0 1000 1000">
     <g>
-        <text x="200" y="300" strokeWidth="5" stroke="black" alignmentBaseline="middle">
+        <text
+            x="200"
+            y="300"
+            strokeWidth="5"
+            stroke="black"
+            alignmentBaseline="middle"
+        >
             Hello, world!
         </text>
         <div slot="Some Div"> Hello again! </div>
@@ -44,9 +55,9 @@ StatelessComponent2.defaultProps = {
 // WAI-ARIA 1.1 Attributes
 <div
     aria-atomic={false}
-    aria-checked='true'
+    aria-checked="true"
     aria-colcount={7}
-    aria-label='test'
+    aria-label="test"
 >
     <b>bar</b>
 </div>;
@@ -57,46 +68,46 @@ interface Props {
 interface State {
     foobar: string;
 }
-class ComponentWithPropsAndState extends React.Component<Props, State> {
-}
+class ComponentWithPropsAndState extends React.Component<Props, State> {}
 <ComponentWithPropsAndState hello="TypeScript" />;
 
-class ComponentWithoutState extends React.Component<Props> {
-}
+class ComponentWithoutState extends React.Component<Props> {}
 <ComponentWithoutState hello="TypeScript" />;
 
-class ComponentWithoutPropsAndState extends React.Component {
-}
+class ComponentWithoutPropsAndState extends React.Component {}
 <ComponentWithoutPropsAndState />;
 
-const StatelessComponentWithoutProps: React.SFC = (props) => {
+const StatelessComponentWithoutProps: React.SFC = props => {
     return <div />;
 };
 <StatelessComponentWithoutProps />;
 
 // Below tests that setState() works properly for both regular and callback modes
-class SetStateTest extends React.Component<{}, { foo: boolean, bar: boolean }> {
+class SetStateTest extends React.Component<{}, { foo: boolean; bar: boolean }> {
     handleSomething = () => {
-      this.setState({ foo: '' }); // $ExpectError
-      this.setState({ foo: true });
-      this.setState({ foo: true, bar: true });
-      this.setState({});
-      this.setState({ foo: true, foo2: true }); // $ExpectError
-      this.setState(() => ({ foo: '' })); // $ExpectError
-      this.setState(() => ({ foo: true }));
-      this.setState(() => ({ foo: true, bar: true }));
-      this.setState(() => ({ foo: true, foo2: true })); // $ExpectError
-      this.setState(() => ({ foo: '', foo2: true })); // $ExpectError
-      this.setState(() => ({ })); // ok!
-      this.setState({ foo: true, bar: undefined}); // $ExpectError
-    }
+        this.setState({ foo: "" }); // $ExpectError
+        this.setState({ foo: true });
+        this.setState({ foo: true, bar: true });
+        this.setState({});
+        this.setState({ foo: true, foo2: true }); // $ExpectError
+        this.setState(() => ({ foo: "" })); // $ExpectError
+        this.setState(() => ({ foo: true }));
+        this.setState(() => ({ foo: true, bar: true }));
+        this.setState(() => ({ foo: true, foo2: true })); // $ExpectError
+        this.setState(() => ({ foo: "", foo2: true })); // $ExpectError
+        this.setState(() => ({})); // ok!
+        this.setState({ foo: true, bar: undefined }); // $ExpectError
+    };
 }
 
 // Below tests that extended types for state work
-export abstract class SetStateTestForExtendsState<P, S extends { baseProp: string }> extends React.Component<P, S> {
-	foo() {
-		this.setState({ baseProp: 'foobar' });
-	}
+export abstract class SetStateTestForExtendsState<
+    P,
+    S extends { baseProp: string }
+> extends React.Component<P, S> {
+    foo() {
+        this.setState({ baseProp: "foobar" });
+    }
 }
 
 // Below tests that & generic still works

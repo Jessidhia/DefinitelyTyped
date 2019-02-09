@@ -1,17 +1,21 @@
-import PQueue = require('p-queue');
+import PQueue = require("p-queue");
 
-const queue = new PQueue({concurrency: 1});
+const queue = new PQueue({ concurrency: 1 });
 
-queue.add(() => Promise.resolve('sindresorhus.com')).then((sindre) => {
-    const str: string = sindre;
-});
+queue
+    .add(() => Promise.resolve("sindresorhus.com"))
+    .then(sindre => {
+        const str: string = sindre;
+    });
 
-queue.addAll([() => Promise.resolve('oh'), () => Promise.resolve('hi')]).then(r => {
-    r.indexOf('h');
-});
+queue
+    .addAll([() => Promise.resolve("oh"), () => Promise.resolve("hi")])
+    .then(r => {
+        r.indexOf("h");
+    });
 
-Promise.resolve((): Promise<string> => Promise.resolve('unicorn'))
-    .then(task => queue.add(task, {priority: 5}))
+Promise.resolve((): Promise<string> => Promise.resolve("unicorn"))
+    .then(task => queue.add(task, { priority: 5 }))
     .then(unicorn => {
         const str: string = unicorn;
     });
@@ -45,5 +49,5 @@ class QueueClass implements PQueue.QueueClass<{ any: string }> {
     }
 }
 
-const queue2 = new PQueue({queueClass: QueueClass});
-queue2.add(() => Promise.resolve(), {any: 'hi'});
+const queue2 = new PQueue({ queueClass: QueueClass });
+queue2.add(() => Promise.resolve(), { any: "hi" });

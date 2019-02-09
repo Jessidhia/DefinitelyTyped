@@ -1,29 +1,29 @@
-import { sha1, sha256, sha384, sha512 } from 'crypto-hash';
+import { sha1, sha256, sha384, sha512 } from "crypto-hash";
 
 // $ExpectType Promise<string>
-sha1('🦄');
+sha1("🦄");
 // $ExpectType Promise<ArrayBuffer>
-sha1('🦄', { outputFormat: 'buffer' });
+sha1("🦄", { outputFormat: "buffer" });
 // $ExpectType Promise<string>
-sha1('🦄', { outputFormat: 'hex' });
+sha1("🦄", { outputFormat: "hex" });
 
 // $ExpectType Promise<string>
-sha256('🦄');
+sha256("🦄");
 // $ExpectType Promise<ArrayBuffer>
-sha256('🦄', { outputFormat: 'buffer' });
+sha256("🦄", { outputFormat: "buffer" });
 // $ExpectType Promise<string>
-sha256('🦄', { outputFormat: 'hex' });
+sha256("🦄", { outputFormat: "hex" });
 
 // $ExpectType Promise<string>
-sha384('🦄');
+sha384("🦄");
 // $ExpectType Promise<ArrayBuffer>
-sha384('🦄', { outputFormat: 'buffer' });
+sha384("🦄", { outputFormat: "buffer" });
 // $ExpectType Promise<string>
-sha384('🦄', { outputFormat: 'hex' });
+sha384("🦄", { outputFormat: "hex" });
 
 // $ExpectType Promise<string>
-sha512('🦄');
+sha512("🦄");
 // $ExpectType Promise<ArrayBuffer>
-sha512('🦄', { outputFormat: 'buffer' });
+sha512("🦄", { outputFormat: "buffer" });
 // $ExpectType Promise<string>
-sha512('🦄', { outputFormat: 'hex' });
+sha512("🦄", { outputFormat: "hex" });

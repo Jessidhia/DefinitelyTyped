@@ -8,40 +8,115 @@
 
 export type CallbackFunction = (...args: any[]) => any;
 
-export interface Error {name: string; message: string; method: string; }
+export interface Error {
+    name: string;
+    message: string;
+    method: string;
+}
 
-export interface PasswordError extends Error {name: "PasswordError"; message: string; method: string; }
-export interface PrivacyError extends Error {name: "PrivacyError"; message: string; method: string; }
-export interface InvalidTrackLanguageError extends Error {name: "InvalidTrackLanguageError"; message: string; method: string; }
-export interface InvalidTrackError extends Error {name: "InvalidTrackError"; message: string; method: string; }
-export interface UnsupportedError extends Error {name: "UnsupportedError"; message: string; method: string; }
-export interface ContrastError extends Error {name: "ContrastError"; message: string; method: string; }
-export interface InvalidCuePoint extends Error {name: "InvalidCuePoint"; message: string; method: string; }
-export interface RangeError extends Error {name: "RangeError"; message: string; method: string; }
-export interface TypeError extends Error {name: "TypeError"; message: string; method: string; }
+export interface PasswordError extends Error {
+    name: "PasswordError";
+    message: string;
+    method: string;
+}
+export interface PrivacyError extends Error {
+    name: "PrivacyError";
+    message: string;
+    method: string;
+}
+export interface InvalidTrackLanguageError extends Error {
+    name: "InvalidTrackLanguageError";
+    message: string;
+    method: string;
+}
+export interface InvalidTrackError extends Error {
+    name: "InvalidTrackError";
+    message: string;
+    method: string;
+}
+export interface UnsupportedError extends Error {
+    name: "UnsupportedError";
+    message: string;
+    method: string;
+}
+export interface ContrastError extends Error {
+    name: "ContrastError";
+    message: string;
+    method: string;
+}
+export interface InvalidCuePoint extends Error {
+    name: "InvalidCuePoint";
+    message: string;
+    method: string;
+}
+export interface RangeError extends Error {
+    name: "RangeError";
+    message: string;
+    method: string;
+}
+export interface TypeError extends Error {
+    name: "TypeError";
+    message: string;
+    method: string;
+}
 
-export type EventName = "play" | "pause" | "ended" | "timeupdate" | "progress" | "seeked" | "texttrackchange" |
-                        "cuechange" | "cuepoint" | "volumechange" | "playbackratechange" | "bufferstart" | "bufferend" | "error" | "loaded" |  string;
+export type EventName =
+    | "play"
+    | "pause"
+    | "ended"
+    | "timeupdate"
+    | "progress"
+    | "seeked"
+    | "texttrackchange"
+    | "cuechange"
+    | "cuepoint"
+    | "volumechange"
+    | "playbackratechange"
+    | "bufferstart"
+    | "bufferend"
+    | "error"
+    | "loaded"
+    | string;
 export type EventCallback = (data: any) => any;
 
 export class Player {
-    constructor(element: HTMLIFrameElement|HTMLElement|string, options?: Options);
+    constructor(
+        element: HTMLIFrameElement | HTMLElement | string,
+        options?: Options
+    );
 
     on(event: EventName, callback: EventCallback): void;
     off(event: EventName, callback?: EventCallback): void;
-    loadVideo(id: number): VimeoPromise<number, TypeError | PasswordError | PrivacyError | Error>;
+    loadVideo(
+        id: number
+    ): VimeoPromise<number, TypeError | PasswordError | PrivacyError | Error>;
     ready(): VimeoPromise<void, Error>;
-    enableTextTrack(language: string, kind?: string): VimeoPromise<VimeoTextTrack, InvalidTrackLanguageError | InvalidTrackError | Error>;
+    enableTextTrack(
+        language: string,
+        kind?: string
+    ): VimeoPromise<
+        VimeoTextTrack,
+        InvalidTrackLanguageError | InvalidTrackError | Error
+    >;
     disableTextTrack(): VimeoPromise<void, Error>;
-    pause(): VimeoPromise<void, PasswordError | PrivacyError |Error>;
-    play(): VimeoPromise<void, PasswordError | PrivacyError |Error>;
+    pause(): VimeoPromise<void, PasswordError | PrivacyError | Error>;
+    play(): VimeoPromise<void, PasswordError | PrivacyError | Error>;
     unload(): VimeoPromise<void, Error>;
     getAutopause(): VimeoPromise<boolean, UnsupportedError | Error>;
-    setAutopause(autopause: boolean): VimeoPromise<boolean, UnsupportedError | Error>;
+    setAutopause(
+        autopause: boolean
+    ): VimeoPromise<boolean, UnsupportedError | Error>;
     getColor(): VimeoPromise<string, Error>;
-    setColor(color: string): VimeoPromise<string, ContrastError | TypeError | Error>;
-    addCuePoint(time: number, data: VimeoCuePointData): VimeoPromise<string, UnsupportedError | RangeError | Error>;
-    removeCuePoint(id: string): VimeoPromise<string, UnsupportedError | InvalidCuePoint | Error>;
+    setColor(
+        color: string
+    ): VimeoPromise<string, ContrastError | TypeError | Error>;
+    addCuePoint(
+        time: number,
+        data: VimeoCuePointData
+    ): VimeoPromise<string, UnsupportedError | RangeError | Error>;
+    removeCuePoint(
+        id: string
+    ): VimeoPromise<string, UnsupportedError | InvalidCuePoint | Error>;
     getCuePoints(): VimeoPromise<VimeoCuePoint[], UnsupportedError | Error>;
     getCurrentTime(): VimeoPromise<number, Error>;
     setCurrentTime(seconds: number): VimeoPromise<number, RangeError | Error>;
@@ -51,7 +126,9 @@ export class Player {
     setLoop(loop: boolean): VimeoPromise<boolean, Error>;
     getPaused(): VimeoPromise<boolean, Error>;
     getPlaybackRate(): VimeoPromise<number, Error>;
-    setPlaybackRate(playbackRate: number): VimeoPromise<number, RangeError | Error>;
+    setPlaybackRate(
+        playbackRate: number
+    ): VimeoPromise<number, RangeError | Error>;
     getTextTracks(): VimeoPromise<VimeoTextTrack[], Error>;
     getVideoEmbedCode(): VimeoPromise<string, Error>;
     getVideoId(): VimeoPromise<number, Error>;

@@ -1,6 +1,6 @@
-import { Base, EmitterBase } from '../base';
-import { Identity } from '../../identity';
-import Transport from '../../transport/transport';
+import { Base, EmitterBase } from "../base";
+import { Identity } from "../../identity";
+import Transport from "../../transport/transport";
 export declare class NotificationOptions {
     url: string;
     message: string;

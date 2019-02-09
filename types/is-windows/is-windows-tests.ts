@@ -1,3 +1,3 @@
-import * as isWindows from 'is-windows';
+import * as isWindows from "is-windows";
 
 const bool: boolean = isWindows();

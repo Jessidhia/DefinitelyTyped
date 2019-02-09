@@ -10,15 +10,15 @@ export = __ONOFF;
 
 declare namespace __ONOFF {
     var version: string;
-    
+
     interface GpioOptions {
         debounceTimeout?: number;
         activeLow?: boolean;
     }
-    
-    type Direction = 'in' | 'out' | 'high' | 'low';
-    type Edge = 'none' | 'falling' | 'rising' | 'both';
-    
+
+    type Direction = "in" | "out" | "high" | "low";
+    type Edge = "none" | "falling" | "rising" | "both";
+
     class Gpio {
         constructor(gpio: number, direction: Direction, options?: GpioOptions);
         constructor(
@@ -27,7 +27,7 @@ declare namespace __ONOFF {
             edge?: Edge,
             options?: GpioOptions
         );
-        
+
         static accessible: boolean;
 
         gpio: number;
@@ -36,29 +36,29 @@ declare namespace __ONOFF {
         readBuffer: Buffer;
         listeners: Array<(err: Error, value: number) => void>;
         _valueFd: number;
-        
+
         read(cb: (err: Error, value: number) => void): void;
         readSync(): number;
-        
+
         write(value: number, cb: (err: Error, value: number) => void): void;
         writeSync(value: number): void;
-        
+
         watch(cb: (err: Error, value: number) => void): void;
         unwatch(): void;
         unwatch(cb: (err: Error, value: number) => void): void;
         unwatchAll(): void;
-        
+
         direction(): Direction;
         setDirection(value: Direction): void;
-        
+
         edge(): Edge;
         setEdge(value: Edge): void;
-        
+
         activeLow(): boolean;
         setActiveLow(invert?: boolean): void;
-        
+
         options(): GpioOptions;
-        
+
         unexport(): void;
     }
 }

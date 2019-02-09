@@ -21,14 +21,17 @@
  * limitations under the License.
  */
 
-import MDCComponent from 'material__base/component';
-import MDCFormFieldFoundation from './foundation';
-import MDCFormFieldAdapter from './adapter';
-import { MDCSelectionControl } from 'material__selection-control';
+import MDCComponent from "material__base/component";
+import MDCFormFieldFoundation from "./foundation";
+import MDCFormFieldAdapter from "./adapter";
+import { MDCSelectionControl } from "material__selection-control";
 
-export {MDCFormFieldAdapter, MDCFormFieldFoundation};
+export { MDCFormFieldAdapter, MDCFormFieldFoundation };
 
-export class MDCFormField extends MDCComponent<MDCFormFieldAdapter, MDCFormFieldFoundation> {
+export class MDCFormField extends MDCComponent<
+    MDCFormFieldAdapter,
+    MDCFormFieldFoundation
+> {
     static attachTo(root: Element): MDCFormField;
 
     input: MDCSelectionControl;

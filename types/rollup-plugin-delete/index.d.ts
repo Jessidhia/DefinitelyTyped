@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import del = require('del');
-import { Plugin } from 'rollup';
+import del = require("del");
+import { Plugin } from "rollup";
 
 export interface Options extends del.Options {
     /**

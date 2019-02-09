@@ -3,7 +3,10 @@
 // Definitions by: Junyoung Choi <https://github.com/rokt33r>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function filenamify(input: string, options?: filenamify.Options): string;
+declare function filenamify(
+    input: string,
+    options?: filenamify.Options
+): string;
 
 declare namespace filenamify {
     interface Options {

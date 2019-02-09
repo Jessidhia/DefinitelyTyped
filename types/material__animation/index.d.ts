@@ -22,6 +22,12 @@
 
 export const transformStyleProperties: string[];
 
-export function getCorrectEventName(windowObj: Window, eventType: string): string;
+export function getCorrectEventName(
+    windowObj: Window,
+    eventType: string
+): string;
 
-export function getCorrectPropertyName(windowObj: Window, eventType: string): string;
+export function getCorrectPropertyName(
+    windowObj: Window,
+    eventType: string
+): string;

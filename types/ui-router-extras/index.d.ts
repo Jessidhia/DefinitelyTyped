@@ -6,9 +6,9 @@
 
 /// <reference types="angular-ui-router" />
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     namespace ui {
         /*
          * $deepStateRedirect
@@ -21,7 +21,10 @@ declare module 'angular' {
              *    'paramName': 'paramvalue' | ['list', 'of', 'possible', 'paramvalues']
              *  }
              */
-            reset(stateName: string, stateParams?: { [key: string]: string | string[] }): void;
+            reset(
+                stateName: string,
+                stateParams?: { [key: string]: string | string[] }
+            ): void;
         }
 
         /*
@@ -41,9 +44,12 @@ declare module 'angular' {
             params?: boolean | string[];
             /*
              * A callback function that determines whether or not the redirect should actually occur, or changes the redirect to some other state.
-            * Return an object: IRedirectParams to change the redirect
+             * Return an object: IRedirectParams to change the redirect
              */
-            fn?($dsr$: { redirect: IRedirectParams; to: IRedirectParams }): boolean | IRedirectParams;
+            fn?($dsr$: {
+                redirect: IRedirectParams;
+                to: IRedirectParams;
+            }): boolean | IRedirectParams;
         }
 
         interface IRedirectParams {
@@ -84,7 +90,11 @@ declare module 'angular' {
              * @param defaultStateName Default state name
              * @param defaultStateParams Default state parameters
              */
-            memo(memoName: string, defaultStateName?: string, defaultStateParams?: {}): void;
+            memo(
+                memoName: string,
+                defaultStateName?: string,
+                defaultStateParams?: {}
+            ): void;
 
             /**
              * Forget a memorized name
@@ -98,9 +108,9 @@ declare module 'angular' {
          */
         interface IStickyState extends IState {
             /*
-            * When marking a state sticky, the state must target its own unique named ui-view.
-            * Docs: http://christopherthielen.github.io/ui-router-extras/#/sticky
-            */
+             * When marking a state sticky, the state must target its own unique named ui-view.
+             * Docs: http://christopherthielen.github.io/ui-router-extras/#/sticky
+             */
             sticky?: boolean;
             /*
              * The most-recently-activate substate of the DSR marked state is remembered.
@@ -131,12 +141,15 @@ declare module 'angular' {
          */
         interface IStickyStateService {
             getInactiveStates(): IStickyState[];
-             /*
+            /*
              * If there is an inactive state named inactiveStateName, this method exits that state.
              * If stateParams is provided, then the state is only exited if the params match the inactive params.
              * If inactiveStateName === '*', then all inactive states are exited
              */
-            reset(inactiveStateName: string, stateParams?: { [key: string]: string | string[] }): void;
+            reset(
+                inactiveStateName: string,
+                stateParams?: { [key: string]: string | string[] }
+            ): void;
         }
 
         /**
@@ -201,7 +214,9 @@ declare module 'angular' {
         /**
          * `StateFactory` factories convert `FutureState` into a full UI-Router `state`, or `state` tree
          */
-        type IFutureStateFactory = Injectable<(...args: any[]) => IPromise<IState | undefined>>;
+        type IFutureStateFactory = Injectable<
+            (...args: any[]) => IPromise<IState | undefined>
+        >;
 
         type IResolveFunction = Injectable<(...args: any[]) => IPromise<any>>;
     }

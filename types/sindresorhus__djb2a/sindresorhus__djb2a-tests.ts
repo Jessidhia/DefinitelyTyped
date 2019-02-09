@@ -1,4 +1,4 @@
-import djb2a = require('@sindresorhus/djb2a');
+import djb2a = require("@sindresorhus/djb2a");
 
 // $ExpectType number
-djb2a('🦄🌈');
+djb2a("🦄🌈");

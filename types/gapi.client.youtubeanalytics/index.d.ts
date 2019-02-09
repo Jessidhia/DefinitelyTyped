@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load YouTube Analytics API v1 */
     function load(name: "youtubeanalytics", version: "v1"): PromiseLike<void>;
-    function load(name: "youtubeanalytics", version: "v1", callback: () => any): void;
+    function load(
+        name: "youtubeanalytics",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const groupItems: youtubeanalytics.GroupItemsResource;
 

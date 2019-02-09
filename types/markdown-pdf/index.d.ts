@@ -5,7 +5,9 @@
 
 export = MarkdownPDF;
 
-declare function MarkdownPDF(options?: MarkdownPDF.Options): MarkdownPDF.OptionsBuilder;
+declare function MarkdownPDF(
+    options?: MarkdownPDF.Options
+): MarkdownPDF.OptionsBuilder;
 
 declare namespace MarkdownPDF {
     /** Configuration options */

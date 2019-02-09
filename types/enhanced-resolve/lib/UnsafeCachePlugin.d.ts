@@ -1,6 +1,6 @@
-import Resolver = require('./Resolver');
-import { ResolverRequest } from './common-types';
-import { Dictionary } from './concord';
+import Resolver = require("./Resolver");
+import { ResolverRequest } from "./common-types";
+import { Dictionary } from "./concord";
 
 declare class UnsafeCachePlugin {
     source: string;

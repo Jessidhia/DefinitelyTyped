@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Ember from 'ember';
+import Ember from "ember";
 
 /**
  * An Ember `Resolver` implementation used by ember-cli.

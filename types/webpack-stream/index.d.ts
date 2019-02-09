@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import * as webpack from 'webpack';
+import * as webpack from "webpack";
 
 export = webpackStream;
 
@@ -18,10 +18,9 @@ export = webpackStream;
  * @param callback - A callback with the webpack stats and error objects.
  */
 declare function webpackStream(
-	config?: webpack.Configuration,
-	wp?: typeof webpack,
-	callback?: webpack.Compiler.Handler,
+    config?: webpack.Configuration,
+    wp?: typeof webpack,
+    callback?: webpack.Compiler.Handler
 ): NodeJS.ReadWriteStream;
 
-declare namespace webpackStream {
-}
+declare namespace webpackStream {}

@@ -14,25 +14,25 @@ export function create(options: ModuleOptions): OAuthClient;
 export interface ModuleOptions {
     client: {
         /** Service registered client id. Required. */
-        id: string,
+        id: string;
         /** Service registered client secret. Required. */
-        secret: string,
+        secret: string;
         /** Parameter name used to send the client secret. Default to client_secret. */
-        secretParamName?: string,
+        secretParamName?: string;
         /** Parameter name used to send the client id. Default to client_id. */
-        idParamName?: string
+        idParamName?: string;
     };
     auth: {
         /** String used to set the host to request the tokens to. Required. */
-        tokenHost: string,
+        tokenHost: string;
         /** String path to request an access token. Default to /oauth/token. */
-        tokenPath?: string,
+        tokenPath?: string;
         /** String path to revoke an access token. Default to /oauth/revoke. */
-        revokePath?: string,
+        revokePath?: string;
         /** String used to set the host to request an "authorization code". Default to the value set on auth.tokenHost. */
-        authorizeHost?: string,
+        authorizeHost?: string;
         /** String path to request an authorization code. Default to /oauth/authorize. */
-        authorizePath?: string
+        authorizePath?: string;
     };
     /**
      * Used to set global options to the internal http library (wreck).
@@ -42,13 +42,13 @@ export interface ModuleOptions {
     http?: {};
     options?: {
         /** Format of data sent in the request body. Defaults to form. */
-        bodyFormat?: "json" | "form",
+        bodyFormat?: "json" | "form";
         /**
          * Indicates the method used to send the client.id/client.secret authorization params at the token request.
          * If set to body, the bodyFormat option will be used to format the credentials.
          * Defaults to header.
          */
-        authorizationMethod?: "header" | "body"
+        authorizationMethod?: "header" | "body";
     };
 }
 
@@ -64,10 +64,18 @@ export interface AccessToken {
     /** Check if the access token is expired or not */
     expired(): boolean;
     /** Refresh the access token */
-    refresh(params: {}, callback: (error: any, result: AccessToken) => void): Bluebird<AccessToken>;
-    refresh(callback?: (error: any, result: AccessToken) => void): Bluebird<AccessToken>;
+    refresh(
+        params: {},
+        callback: (error: any, result: AccessToken) => void
+    ): Bluebird<AccessToken>;
+    refresh(
+        callback?: (error: any, result: AccessToken) => void
+    ): Bluebird<AccessToken>;
     /** Revoke access or refresh token */
-    revoke(tokenType: TokenType, callback?: (error: any) => void): Bluebird<void>;
+    revoke(
+        tokenType: TokenType,
+        callback?: (error: any) => void
+    ): Bluebird<void>;
 }
 
 export type AuthorizationCode = string;
@@ -101,29 +109,38 @@ export interface OAuthClient {
         authorizeURL(
             params?: {
                 /** A key-value pair where key is ModuleOptions#client.idParamName and the value represents the Client-ID */
-                [ idParamName: string ]: string | undefined
+                [idParamName: string]: string | undefined;
             } & {
                 /** A string that represents the registered application URI where the user is redirected after authentication */
-                redirect_uri?: string,
+                redirect_uri?: string;
                 /** A string or array of strings that represents the application privileges */
-                scope?: string | string[],
+                scope?: string | string[];
                 /** A string that represents an option opaque value used by the client to main the state between the request and the callback */
-                state?: string
+                state?: string;
             }
-        ): string,
+        ): string;
 
         /** Returns the Access Token object */
-        getToken(params: AuthorizationTokenConfig, callback?: (error: any, result: Token) => void): Bluebird<Token>;
+        getToken(
+            params: AuthorizationTokenConfig,
+            callback?: (error: any, result: Token) => void
+        ): Bluebird<Token>;
     };
 
     ownerPassword: {
         /** Returns the Access Token Object */
-        getToken(params: PasswordTokenConfig, callback?: (error: any, result: Token) => void): Bluebird<Token>;
+        getToken(
+            params: PasswordTokenConfig,
+            callback?: (error: any, result: Token) => void
+        ): Bluebird<Token>;
     };
 
     clientCredentials: {
         /** Returns the Access Token Object */
-        getToken(params: ClientCredentialTokenConfig, callback?: (error: any, result: Token) => void): Bluebird<Token>;
+        getToken(
+            params: ClientCredentialTokenConfig,
+            callback?: (error: any, result: Token) => void
+        ): Bluebird<Token>;
     };
 
     accessToken: {

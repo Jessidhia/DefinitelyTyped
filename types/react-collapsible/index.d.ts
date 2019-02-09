@@ -29,7 +29,14 @@ export interface CollapsibleProp {
     triggerWhenOpen?: string | React.ReactNode;
     triggerDisabled?: boolean;
     lazyRender?: boolean;
-    overflowWhenOpen?: 'hidden' | 'visible' | 'auto' | 'scroll' | 'inherit' | 'initial' | 'unset';
+    overflowWhenOpen?:
+        | "hidden"
+        | "visible"
+        | "auto"
+        | "scroll"
+        | "inherit"
+        | "initial"
+        | "unset";
     triggerSibling?: React.ReactNode | string | (() => void);
     tabIndex?: number;
 }

@@ -10,7 +10,7 @@ declare namespace formatWebpackMessages {
  * [stats](https://github.com/webpack/docs/wiki/node.js-api#stats) object.
  */
 declare function formatWebpackMessages(
-    json: formatWebpackMessages.WebpackMessages,
+    json: formatWebpackMessages.WebpackMessages
 ): formatWebpackMessages.WebpackMessages;
 
 export = formatWebpackMessages;

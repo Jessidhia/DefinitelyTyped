@@ -20,13 +20,26 @@ declare namespace NodePersist {
         interval?: milliseconds | boolean;
         ttl?: milliseconds | boolean;
     }
-    export function init(options?: InitOptions, callback?: Function): Q.Promise<any>;
+    export function init(
+        options?: InitOptions,
+        callback?: Function
+    ): Q.Promise<any>;
     export function initSync(options?: InitOptions): void;
-    export function getItem(key: string, callback?: (err: any, value: any) => any): Q.Promise<any>;
+    export function getItem(
+        key: string,
+        callback?: (err: any, value: any) => any
+    ): Q.Promise<any>;
     export function getItemSync(key: string): any;
-    export function setItem(key: string, value: any, callback?: (err: any) => any): Q.Promise<any>;
+    export function setItem(
+        key: string,
+        value: any,
+        callback?: (err: any) => any
+    ): Q.Promise<any>;
     export function setItemSync(key: string, value: any): void;
-    export function removeItem(key: string, callback?: (err: any) => any): Q.Promise<any>;
+    export function removeItem(
+        key: string,
+        callback?: (err: any) => any
+    ): Q.Promise<any>;
     export function removeItemSync(key: string): void;
     export function clear(callback?: (err: any) => any): Q.Promise<any>;
     export function clearSync(): void;
@@ -38,7 +51,10 @@ declare namespace NodePersist {
 
     export function persist(callback?: (err: any) => any): Q.Promise<any>;
     export function persistSync(): void;
-    export function persistKey(key: string, callback?: (err: any) => any): Q.Promise<any>;
+    export function persistKey(
+        key: string,
+        callback?: (err: any) => any
+    ): Q.Promise<any>;
     export function persistKeySync(key: string): void;
 }
 export = NodePersist;

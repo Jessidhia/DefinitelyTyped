@@ -13,4 +13,6 @@ export interface CloseOnEscapeProps {
     onEscape(): void;
 }
 
-export default class CloseOnEscape extends React.Component<CloseOnEscapeProps> {}
+export default class CloseOnEscape extends React.Component<
+    CloseOnEscapeProps
+> {}

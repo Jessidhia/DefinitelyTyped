@@ -1,13 +1,14 @@
 import * as React from "react";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
 
 // https://github.com/troybetz/react-youtube
 class Example extends React.Component {
     render() {
         const opts = {
-            height: '390',
-            width: '640',
-            playerVars: { // https://developers.google.com/youtube/player_parameters
+            height: "390",
+            width: "640",
+            playerVars: {
+                // https://developers.google.com/youtube/player_parameters
                 autoplay: 1 as 1
             }
         };

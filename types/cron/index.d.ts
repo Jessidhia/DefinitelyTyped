@@ -11,7 +11,11 @@ export declare class CronTime {
      * @param zone Timezone name. You can check all timezones available at [Moment Timezone Website](http://momentjs.com/timezone/).
      * @param utcOffset UTC offset. Don't use both ```zone``` and ```utcOffset``` together or weird things may happen.
      */
-    constructor(source: string | Date, zone?: string, utcOffset?: string | number);
+    constructor(
+        source: string | Date,
+        zone?: string,
+        utcOffset?: string | number
+    );
 
     /**
      * Tells you when ```CronTime``` will be run.
@@ -85,7 +89,17 @@ export declare class CronJob {
      * @param utcOffset This allows you to specify the offset of your timezone rather than using the ```timeZone``` param. Probably don't use both ```timeZone``` and ```utcOffset``` together or weird things may happen.
      * @param unrefTimeout If you have code that keeps the event loop running and want to stop the node process when that finishes regardless of the state of your cronjob, you can do so making use of this parameter. This is off by default and cron will run as if it needs to control the event loop. For more information take a look at [timers#timers_timeout_unref](https://nodejs.org/api/timers.html#timers_timeout_unref) from the NodeJS docs.
      */
-    constructor(cronTime: string | Date, onTick: () => void, onComplete?: () => void, start?: boolean, timeZone?: string, context?: any, runOnInit?: boolean, utcOffset?: string | number, unrefTimeout?: boolean);
+    constructor(
+        cronTime: string | Date,
+        onTick: () => void,
+        onComplete?: () => void,
+        start?: boolean,
+        timeZone?: string,
+        context?: any,
+        runOnInit?: boolean,
+        utcOffset?: string | number,
+        unrefTimeout?: boolean
+    );
     /**
      * Create a new ```CronJob```.
      * @param options Job parameters.
@@ -122,7 +136,17 @@ export declare class CronJob {
 }
 
 export declare var job:
-    ((cronTime: string | Date, onTick: () => void, onComplete?: () => void, start?: boolean, timeZone?: string, context?: any, runOnInit?: boolean, utcOffset?: string | number, unrefTimeout?: boolean) => CronJob)
+    | ((
+          cronTime: string | Date,
+          onTick: () => void,
+          onComplete?: () => void,
+          start?: boolean,
+          timeZone?: string,
+          context?: any,
+          runOnInit?: boolean,
+          utcOffset?: string | number,
+          unrefTimeout?: boolean
+      ) => CronJob)
     | ((options: CronJobParameters) => CronJob);
 export declare var time: (source: string | Date, zone?: string) => CronTime;
 export declare var sendAt: (cronTime: CronTime) => Date;

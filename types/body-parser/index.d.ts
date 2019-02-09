@@ -11,20 +11,29 @@
 
 /// <reference types="node" />
 
-import { NextHandleFunction } from 'connect';
-import * as http from 'http';
+import { NextHandleFunction } from "connect";
+import * as http from "http";
 
 // for docs go to https://github.com/expressjs/body-parser/tree/1.16.0#body-parser
 
 // @deprecated
-declare function bodyParser(options?: bodyParser.OptionsJson & bodyParser.OptionsText & bodyParser.OptionsUrlencoded): NextHandleFunction;
+declare function bodyParser(
+    options?: bodyParser.OptionsJson &
+        bodyParser.OptionsText &
+        bodyParser.OptionsUrlencoded
+): NextHandleFunction;
 
 declare namespace bodyParser {
     interface Options {
         inflate?: boolean;
         limit?: number | string;
         type?: string | string[] | ((req: http.IncomingMessage) => any);
-        verify?(req: http.IncomingMessage, res: http.ServerResponse, buf: Buffer, encoding: string): void;
+        verify?(
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            buf: Buffer,
+            encoding: string
+        ): void;
     }
 
     interface OptionsJson extends Options {

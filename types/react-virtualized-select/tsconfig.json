@@ -1,33 +1,21 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "jsx": "react",
         "noImplicitAny": true,
         "noImplicitThis": true,
-		"strictFunctionTypes": true,
+        "strictFunctionTypes": true,
         "strictNullChecks": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "paths": {
-            "react-select": [
-                "react-select/v1"
-            ],
-            "react-select/*": [
-                "react-select/v1/*"
-            ]
+            "react-select": ["react-select/v1"],
+            "react-select/*": ["react-select/v1/*"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "react-virtualized-select-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-virtualized-select-tests.tsx"]
 }

@@ -7,7 +7,7 @@ import {
     GraphQLField,
     GraphQLArgument,
     GraphQLEnumValue,
-    GraphQLType,
+    GraphQLType
 } from "../type/definition";
 import { GraphQLDirective } from "../type/directives";
 import { ASTNode, FieldNode } from "../language/ast";

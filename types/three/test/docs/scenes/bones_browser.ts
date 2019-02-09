@@ -14,7 +14,12 @@
     };
     function initScene() {
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 200);
+        camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            200
+        );
         camera.position.z = 30;
         camera.position.y = 30;
         renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -30,33 +35,41 @@
         lights[2] = new THREE.PointLight(0xffffff, 1, 0);
         lights[0].position.set(0, 200, 0);
         lights[1].position.set(100, 200, 100);
-        lights[2].position.set(- 100, - 200, - 100);
+        lights[2].position.set(-100, -200, -100);
         scene.add(lights[0]);
         scene.add(lights[1]);
         scene.add(lights[2]);
-        window.addEventListener('resize', function () {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }, false);
+        window.addEventListener(
+            "resize",
+            function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            },
+            false
+        );
         initBones();
     }
     function createGeometry(sizing: any) {
         var geometry = new THREE.CylinderGeometry(
-            5,                       // radiusTop
-            5,                       // radiusBottom
-            sizing.height,           // height
-            8,                       // radiusSegments
+            5, // radiusTop
+            5, // radiusBottom
+            sizing.height, // height
+            8, // radiusSegments
             sizing.segmentCount * 3, // heightSegments
-            true                     // openEnded
+            true // openEnded
         );
         for (var i = 0; i < geometry.vertices.length; i++) {
             var vertex = geometry.vertices[i];
-            var y = (vertex.y + sizing.halfHeight);
+            var y = vertex.y + sizing.halfHeight;
             var skinIndex = Math.floor(y / sizing.segmentHeight);
             var skinWeight = (y % sizing.segmentHeight) / sizing.segmentHeight;
-            geometry.skinIndices.push(new THREE.Vector4(skinIndex, skinIndex + 1, 0, 0));
-            geometry.skinWeights.push(new THREE.Vector4(1 - skinWeight, skinWeight, 0, 0));
+            geometry.skinIndices.push(
+                new THREE.Vector4(skinIndex, skinIndex + 1, 0, 0)
+            );
+            geometry.skinWeights.push(
+                new THREE.Vector4(1 - skinWeight, skinWeight, 0, 0)
+            );
         }
         return geometry;
     }
@@ -64,7 +77,7 @@
         bones = [];
         var prevBone = new THREE.Bone();
         bones.push(prevBone);
-        prevBone.position.y = - sizing.halfHeight;
+        prevBone.position.y = -sizing.halfHeight;
         for (var i = 0; i < sizing.segmentCount; i++) {
             var bone = new THREE.Bone();
             bone.position.y = sizing.segmentHeight;
@@ -114,11 +127,12 @@
         //Wiggle the bones
         if (state.animateBones) {
             for (var i = 0; i < mesh.skeleton.bones.length; i++) {
-                mesh.skeleton.bones[i].rotation.z = Math.sin(time) * 2 / mesh.skeleton.bones.length;
+                mesh.skeleton.bones[i].rotation.z =
+                    (Math.sin(time) * 2) / mesh.skeleton.bones.length;
             }
         }
         renderer.render(scene, camera);
     }
     initScene();
     render();
-}
+};

@@ -1,7 +1,7 @@
-import beeper = require('beeper');
+import beeper = require("beeper");
 
 beeper();
 beeper(3);
 beeper(3, () => {});
-beeper('****-*-*');
-beeper('****-*-*', () => {});
+beeper("****-*-*");
+beeper("****-*-*", () => {});

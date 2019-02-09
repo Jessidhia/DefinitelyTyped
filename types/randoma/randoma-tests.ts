@@ -1,7 +1,7 @@
-import Randoma = require('randoma');
+import Randoma = require("randoma");
 
 const random = new Randoma({ seed: 10 });
-new Randoma({ seed: '🦄' });
+new Randoma({ seed: "🦄" });
 new Randoma({ seed: Randoma.seed() });
 
 // $ExpectType number
@@ -15,7 +15,7 @@ random.floatInRange(0, 1);
 // $ExpectType boolean
 random.boolean();
 // $ExpectType string
-random.arrayItem(['🦄']);
+random.arrayItem(["🦄"]);
 // $ExpectType Date
 random.date();
 // $ExpectType Date

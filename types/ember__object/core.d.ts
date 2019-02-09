@@ -6,7 +6,7 @@ import {
     MixinOrLiteral,
     EmberClassArguments,
     Fix
-} from '@ember/object/-private/types';
+} from "@ember/object/-private/types";
 
 export default class CoreObject {
     /**

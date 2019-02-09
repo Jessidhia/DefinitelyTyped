@@ -1,3 +1,3 @@
-import { MD5 } from '../index';
+import { MD5 } from "../index";
 
 export = MD5;

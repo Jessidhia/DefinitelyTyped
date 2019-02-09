@@ -4,12 +4,34 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-export type Event = 'location' | 'stationary' | 'activity' | 'start' | 'stop' | 'error' | 'authorization' | 'foreground' | 'background' | 'abort_requested';
-export type iOSActivityType = 'AutomotiveNavigation' | 'OtherNavigation' | 'Fitness' | 'Other';
-export type Provider = 'gps' | 'network' | 'passive' | 'fused';
-export type ActivityType = 'IN_VEHICLE' | 'ON_BICYCLE' | 'ON_FOOT' | 'RUNNING' | 'STILL' | 'TILTING' | 'UNKNOWN' | 'WALKING';
-export type LogLevel = 'TRACE' | 'DEBUG' | 'INFO' | 'WARN' | 'ERROR';
-export type HeadlessTaskEventName = 'location' | 'stationary' | 'activity';
+export type Event =
+    | "location"
+    | "stationary"
+    | "activity"
+    | "start"
+    | "stop"
+    | "error"
+    | "authorization"
+    | "foreground"
+    | "background"
+    | "abort_requested";
+export type iOSActivityType =
+    | "AutomotiveNavigation"
+    | "OtherNavigation"
+    | "Fitness"
+    | "Other";
+export type Provider = "gps" | "network" | "passive" | "fused";
+export type ActivityType =
+    | "IN_VEHICLE"
+    | "ON_BICYCLE"
+    | "ON_FOOT"
+    | "RUNNING"
+    | "STILL"
+    | "TILTING"
+    | "UNKNOWN"
+    | "WALKING";
+export type LogLevel = "TRACE" | "DEBUG" | "INFO" | "WARN" | "ERROR";
+export type HeadlessTaskEventName = "location" | "stationary" | "activity";
 
 export interface ConfigureOptions {
     /**
@@ -340,11 +362,11 @@ export interface BackgroundGeolocationStatic {
     LOW_ACCURACY: 1000;
     PASSIVE_ACCURACY: 10000;
 
-    LOG_ERROR: 'ERROR';
-    LOG_WARN: 'WARN';
-    LOG_INFO: 'INFO';
-    LOG_DEBUG: 'DEBUG';
-    LOG_TRACE: 'TRACE';
+    LOG_ERROR: "ERROR";
+    LOG_WARN: "WARN";
+    LOG_INFO: "INFO";
+    LOG_DEBUG: "DEBUG";
+    LOG_TRACE: "TRACE";
 
     PERMISSION_DENIED: 1;
     LOCATION_UNAVAILABLE: 2;
@@ -359,7 +381,11 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#configureoptions-success-fail|Docs}
      */
-    configure(options: ConfigureOptions, success?: () => void, fail?: () => void): void;
+    configure(
+        options: ConfigureOptions,
+        success?: () => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Start background geolocation.
@@ -383,7 +409,11 @@ export interface BackgroundGeolocationStatic {
      * @param options
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getcurrentlocationsuccess-fail-options|Docs}
      */
-    getCurrentLocation(success: (location: Location) => void, fail: (error: LocationError) => void, options: LocationOptions): void;
+    getCurrentLocation(
+        success: (location: Location) => void,
+        fail: (error: LocationError) => void,
+        options: LocationOptions
+    ): void;
 
     /**
      * One time check for status of location services. In case of error, fail callback will be executed.
@@ -394,7 +424,10 @@ export interface BackgroundGeolocationStatic {
      * @deprecated
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#islocationenabledsuccess-fail|Docs}
      */
-    isLocationEnabled(success: (enabled: boolean) => void, fail?: () => void): void;
+    isLocationEnabled(
+        success: (enabled: boolean) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Check status of the service.
@@ -402,7 +435,10 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#checkstatussuccess-fail|Docs}
      */
-    checkStatus(success: (status: ServiceStatus) => void, fail?: () => void): void;
+    checkStatus(
+        success: (status: ServiceStatus) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Show app settings to allow change of app location permissions.
@@ -425,7 +461,10 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getlocationssuccess-fail|Docs}
      */
-    getLocations(success: (locations: Location[]) => void, fail?: () => void): void;
+    getLocations(
+        success: (locations: Location[]) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Method will return locations which have not yet been posted to server.
@@ -434,7 +473,10 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getvalidlocationssuccess-fail|Docs}
      */
-    getValidLocations(success: (location: Location[]) => void, fail?: () => void): void;
+    getValidLocations(
+        success: (location: Location[]) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Delete location with locationId.
@@ -444,7 +486,11 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#deletelocationlocationid-success-fail|Docs}
      */
-    deleteLocation(locationId: number, success?: () => void, fail?: () => void): void;
+    deleteLocation(
+        locationId: number,
+        success?: () => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Delete all stored locations.
@@ -487,7 +533,13 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getlogentrieslimit-fromid-minlevel-success-fail|Docs}
      */
-    getLogEntries(limit: number, fromId: number, minLevel: LogLevel, success: (entries: LogEntry[]) => void, fail?: () => void): void;
+    getLogEntries(
+        limit: number,
+        fromId: number,
+        minLevel: LogLevel,
+        success: (entries: LogEntry[]) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Return all logged events. Useful for plugin debugging.
@@ -498,7 +550,12 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getlogentrieslimit-fromid-minlevel-success-fail|Docs}
      */
-    getLogEntries(limit: number, fromId: number, success: (entries: LogEntry[]) => void, fail?: () => void): void;
+    getLogEntries(
+        limit: number,
+        fromId: number,
+        success: (entries: LogEntry[]) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Return all logged events. Useful for plugin debugging.
@@ -508,7 +565,11 @@ export interface BackgroundGeolocationStatic {
      * @param fail
      * @see {@link https://github.com/mauron85/react-native-background-geolocation#getlogentrieslimit-fromid-minlevel-success-fail|Docs}
      */
-    getLogEntries(limit: number, success: (entries: LogEntry[]) => void, fail?: () => void): void;
+    getLogEntries(
+        limit: number,
+        success: (entries: LogEntry[]) => void,
+        fail?: () => void
+    ): void;
 
     /**
      * Unregister all event listeners for given event.

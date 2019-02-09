@@ -7,7 +7,7 @@
 //                 Che Coxshall <https://github.com/chemass>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import moment = require('moment');
+import moment = require("moment");
 
 export class DateRange {
     start: moment.Moment;
@@ -16,7 +16,10 @@ export class DateRange {
     constructor(range: string | Date[] | moment.Moment[]);
     constructor(start: Date | moment.Moment, end: Date | moment.Moment);
 
-    contains(other: DateRange | moment.Moment | Date, options?: { exclusive?: boolean }): boolean;
+    contains(
+        other: DateRange | moment.Moment | Date,
+        options?: { exclusive?: boolean }
+    ): boolean;
 
     overlaps(range: DateRange, options?: { adjacent?: boolean }): boolean;
 
@@ -26,9 +29,15 @@ export class DateRange {
 
     subtract(other: DateRange): DateRange[];
 
-    by(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+    by(
+        interval: moment.unitOfTime.Diff,
+        options?: { exclusive?: boolean; step?: number }
+    ): Iterable<moment.Moment>;
 
-    byRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+    byRange(
+        interval: DateRange,
+        options?: { exclusive?: boolean; step?: number }
+    ): Iterable<moment.Moment>;
 
     isSame(other: DateRange): boolean;
 
@@ -50,9 +59,15 @@ export class DateRange {
 
     duration(unit?: moment.unitOfTime.Diff, precise?: boolean): number;
 
-    reverseBy(interval: moment.unitOfTime.Diff, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+    reverseBy(
+        interval: moment.unitOfTime.Diff,
+        options?: { exclusive?: boolean; step?: number }
+    ): Iterable<moment.Moment>;
 
-    reverseByRange(interval: DateRange, options?: { exclusive?: boolean, step?: number }): Iterable<moment.Moment>;
+    reverseByRange(
+        interval: DateRange,
+        options?: { exclusive?: boolean; step?: number }
+    ): Iterable<moment.Moment>;
 }
 
 export interface MomentRangeMethods {
@@ -66,4 +81,6 @@ export interface MomentRangeExtends extends MomentRangeMethods {
     (...args: any[]): MomentRangeMethods & moment.Moment;
 }
 
-export function extendMoment(momentInstance: moment.Moment | typeof moment): MomentRangeExtends & moment.Moment;
+export function extendMoment(
+    momentInstance: moment.Moment | typeof moment
+): MomentRangeExtends & moment.Moment;

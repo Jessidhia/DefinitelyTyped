@@ -6,7 +6,7 @@
 
 // tslint:disable-next-line no-single-declare-module
 declare module "@mapbox/geojson-area" {
-  import { Geometry } from 'geojson';
+    import { Geometry } from "geojson";
 
-  function geometry(geo: Geometry): number;
+    function geometry(geo: Geometry): number;
 }

@@ -1,8 +1,6 @@
 namespace adoneTests.crypto.asn1 {
     const {
-        crypto: {
-            asn1
-        }
+        crypto: { asn1 }
     } = adone;
 
     let arrBuf: ArrayBuffer;
@@ -12,9 +10,7 @@ namespace adoneTests.crypto.asn1 {
     let date: Date;
 
     namespace BaseBlock {
-        const {
-            BaseBlock
-        } = asn1;
+        const { BaseBlock } = asn1;
 
         new BaseBlock({
             blockLength: 10
@@ -113,9 +109,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Primitive {
-        const {
-            Primitive
-        } = asn1;
+        const { Primitive } = asn1;
 
         new Primitive({
             blockLength: 10
@@ -215,9 +209,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Constructed {
-        const {
-            Constructed
-        } = asn1;
+        const { Constructed } = asn1;
 
         new Constructed({
             blockLength: 10
@@ -317,9 +309,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace EndOfContent {
-        const {
-            EndOfContent
-        } = asn1;
+        const { EndOfContent } = asn1;
 
         new EndOfContent({
             blockLength: 10
@@ -418,9 +408,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Boolean {
-        const {
-            Boolean: _Boolean
-        } = asn1;
+        const { Boolean: _Boolean } = asn1;
 
         new _Boolean({
             blockLength: 10
@@ -520,9 +508,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Sequence {
-        const {
-            Sequence
-        } = asn1;
+        const { Sequence } = asn1;
 
         new Sequence({
             blockLength: 10
@@ -622,9 +608,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Set {
-        const {
-            Set
-        } = asn1;
+        const { Set } = asn1;
 
         new Set({
             blockLength: 10
@@ -724,9 +708,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Null {
-        const {
-            Null: Null
-        } = asn1;
+        const { Null: Null } = asn1;
 
         new Null({
             blockLength: 10
@@ -825,9 +807,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace OctetString {
-        const {
-            OctetString
-        } = asn1;
+        const { OctetString } = asn1;
 
         new OctetString({
             blockLength: 10
@@ -935,9 +915,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace BitString {
-        const {
-            BitString
-        } = asn1;
+        const { BitString } = asn1;
 
         new BitString({
             blockLength: 10
@@ -1045,9 +1023,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Integer {
-        const {
-            Integer
-        } = asn1;
+        const { Integer } = asn1;
 
         new Integer({
             value: 10
@@ -1130,9 +1106,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Enumerated {
-        const {
-            Enumerated
-        } = asn1;
+        const { Enumerated } = asn1;
 
         new Enumerated({
             value: 10
@@ -1215,9 +1189,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace ObjectIdentifier {
-        const {
-            ObjectIdentifier
-        } = asn1;
+        const { ObjectIdentifier } = asn1;
 
         new ObjectIdentifier({
             blockLength: 10
@@ -1313,9 +1285,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Utf8String {
-        const {
-            Utf8String
-        } = asn1;
+        const { Utf8String } = asn1;
 
         new Utf8String({
             value: "ha"
@@ -1403,9 +1373,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace BmpString {
-        const {
-            BmpString
-        } = asn1;
+        const { BmpString } = asn1;
 
         new BmpString({
             value: "ha"
@@ -1492,9 +1460,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace UniversalString {
-        const {
-            UniversalString
-        } = asn1;
+        const { UniversalString } = asn1;
 
         new UniversalString({
             value: "ha"
@@ -1581,9 +1547,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace NumericString {
-        const {
-            NumericString
-        } = asn1;
+        const { NumericString } = asn1;
 
         new NumericString({
             value: "123"
@@ -1669,9 +1633,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace PrintableString {
-        const {
-            PrintableString
-        } = asn1;
+        const { PrintableString } = asn1;
 
         new PrintableString({
             value: "123"
@@ -1757,9 +1719,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace TeletexString {
-        const {
-            TeletexString
-        } = asn1;
+        const { TeletexString } = asn1;
 
         new TeletexString({
             value: "123"
@@ -1845,9 +1805,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace VideotexString {
-        const {
-            VideotexString
-        } = asn1;
+        const { VideotexString } = asn1;
 
         new VideotexString({
             value: "123"
@@ -1933,9 +1891,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace IA5String {
-        const {
-            IA5String
-        } = asn1;
+        const { IA5String } = asn1;
 
         new IA5String({
             value: "123"
@@ -2021,9 +1977,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace GraphicString {
-        const {
-            GraphicString
-        } = asn1;
+        const { GraphicString } = asn1;
 
         new GraphicString({
             value: "123"
@@ -2109,9 +2063,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace VisibleString {
-        const {
-            VisibleString
-        } = asn1;
+        const { VisibleString } = asn1;
 
         new VisibleString({
             value: "123"
@@ -2197,9 +2149,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace GeneralString {
-        const {
-            GeneralString
-        } = asn1;
+        const { GeneralString } = asn1;
 
         new GeneralString({
             value: "123"
@@ -2285,9 +2235,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace CharacterString {
-        const {
-            CharacterString
-        } = asn1;
+        const { CharacterString } = asn1;
 
         new CharacterString({
             value: "123"
@@ -2373,9 +2321,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace UTCTime {
-        const {
-            UTCTime
-        } = asn1;
+        const { UTCTime } = asn1;
 
         new UTCTime({
             value: "123"
@@ -2502,9 +2448,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace GeneralizedTime {
-        const {
-            GeneralizedTime
-        } = asn1;
+        const { GeneralizedTime } = asn1;
 
         new GeneralizedTime({
             value: "123"
@@ -2632,9 +2576,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace DATE {
-        const {
-            DATE
-        } = asn1;
+        const { DATE } = asn1;
 
         new DATE({
             value: "ha"
@@ -2722,9 +2664,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace TimeOfDay {
-        const {
-            TimeOfDay
-        } = asn1;
+        const { TimeOfDay } = asn1;
 
         new TimeOfDay({
             value: "ha"
@@ -2812,9 +2752,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace DateTime {
-        const {
-            DateTime
-        } = asn1;
+        const { DateTime } = asn1;
 
         new DateTime({
             value: "ha"
@@ -2902,9 +2840,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Duration {
-        const {
-            Duration
-        } = asn1;
+        const { Duration } = asn1;
 
         new Duration({
             value: "ha"
@@ -2992,9 +2928,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace TIME {
-        const {
-            TIME
-        } = asn1;
+        const { TIME } = asn1;
 
         new TIME({
             value: "ha"
@@ -3082,9 +3016,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Choice {
-        const {
-            Choice
-        } = asn1;
+        const { Choice } = asn1;
 
         new Choice({
             optional: true
@@ -3099,9 +3031,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Any {
-        const {
-            Any
-        } = asn1;
+        const { Any } = asn1;
 
         const a = new Any({
             name: "A",
@@ -3113,9 +3043,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace Repeated {
-        const {
-            Repeated
-        } = asn1;
+        const { Repeated } = asn1;
 
         new Repeated();
         new Repeated({
@@ -3139,9 +3067,7 @@ namespace adoneTests.crypto.asn1 {
     }
 
     namespace RawData {
-        const {
-            RawData
-        } = asn1;
+        const { RawData } = asn1;
 
         const r = new RawData({
             data: new ArrayBuffer(10)

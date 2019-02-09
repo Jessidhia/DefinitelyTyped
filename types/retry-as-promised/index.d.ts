@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Promise = require('bluebird');
+import Promise = require("bluebird");
 
 declare namespace retryAsPromised {
     type MatchOption = string | RegExp | Error;
@@ -19,8 +19,15 @@ declare namespace retryAsPromised {
         name?: string;
     }
 
-    type RetryCallback<T> = ({ current }: { current: Options['$current'] }) => Promise.Thenable<T>;
-    type RetryAsPromisedStatic = <T = any>(callback: RetryCallback<T>, options: Options | number) => Promise<T>;
+    type RetryCallback<T> = ({
+        current
+    }: {
+        current: Options["$current"];
+    }) => Promise.Thenable<T>;
+    type RetryAsPromisedStatic = <T = any>(
+        callback: RetryCallback<T>,
+        options: Options | number
+    ) => Promise<T>;
 }
 
 declare const retryAsPromised: retryAsPromised.RetryAsPromisedStatic;

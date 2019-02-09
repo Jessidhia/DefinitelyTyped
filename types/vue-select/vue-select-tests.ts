@@ -1,33 +1,32 @@
-import Vue from 'vue';
-import VueSelect from 'vue-select';
+import Vue from "vue";
+import VueSelect from "vue-select";
 
 const options = [
     {
-        name: 'SomeName'
+        name: "SomeName"
     },
     {
-        name: 'SomeName2'
+        name: "SomeName2"
     }
 ];
 
 new Vue({
-    el: '#app',
+    el: "#app",
     data: {
         options,
-        value: null,
+        value: null
     },
     components: {
-        'vue-select': VueSelect
+        "vue-select": VueSelect
     },
     methods: {
         getOptionLabel(option: any) {
             if (option && option.name) {
                 return option.name;
             }
-            return '';
+            return "";
         },
-        optionConsumer(option: any) {
-        },
+        optionConsumer(option: any) {},
         optionToOption(option: any) {
             return option;
         },

@@ -3,11 +3,16 @@
 // Definitions by: Jeff Dickey <https://github.com/jdxcode>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import normalize = require('normalize-package-data');
+import normalize = require("normalize-package-data");
 
 declare namespace ReadPkg {
-    function sync(path: string, options: Options & {normalize: false}): {[k: string]: any};
-    function sync(options: Options & {normalize: false}): {[k: string]: any};
+    function sync(
+        path: string,
+        options: Options & { normalize: false }
+    ): { [k: string]: any };
+    function sync(
+        options: Options & { normalize: false }
+    ): { [k: string]: any };
     function sync(options?: Options): normalize.Package;
     function sync(path?: string, options?: Options): normalize.Package;
 
@@ -23,9 +28,17 @@ declare namespace ReadPkg {
     type Package = normalize.Package;
 }
 
-declare function ReadPkg(path: string, options: ReadPkg.Options & {normalize: false}): Promise<{[k: string]: any}>;
-declare function ReadPkg(options: ReadPkg.Options & {normalize: false}): Promise<{[k: string]: any}>;
+declare function ReadPkg(
+    path: string,
+    options: ReadPkg.Options & { normalize: false }
+): Promise<{ [k: string]: any }>;
+declare function ReadPkg(
+    options: ReadPkg.Options & { normalize: false }
+): Promise<{ [k: string]: any }>;
 declare function ReadPkg(options?: ReadPkg.Options): Promise<normalize.Package>;
-declare function ReadPkg(path?: string, options?: ReadPkg.Options): Promise<normalize.Package>;
+declare function ReadPkg(
+    path?: string,
+    options?: ReadPkg.Options
+): Promise<normalize.Package>;
 
 export = ReadPkg;

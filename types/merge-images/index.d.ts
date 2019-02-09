@@ -13,7 +13,9 @@ declare function mergeImages(
 ): Promise<string>;
 
 declare namespace mergeImages {
-    type ImageSource = string | { src: string; x?: number; y?: number; opacity?: number };
+    type ImageSource =
+        | string
+        | { src: string; x?: number; y?: number; opacity?: number };
 
     interface Options {
         format?: string;

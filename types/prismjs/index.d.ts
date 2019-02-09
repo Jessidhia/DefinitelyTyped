@@ -21,7 +21,10 @@ export const hooks: Hooks;
  * @param callback An optional callback to be invoked after the highlighting is done. Mostly useful when async
  * is true, since in that case, the highlighting is done asynchronously.
  */
-export function highlightAll(async?: boolean, callback?: (element: Element) => void): void;
+export function highlightAll(
+    async?: boolean,
+    callback?: (element: Element) => void
+): void;
 
 /**
  * This is the most high-level function in Prism’s API. It fetches all the elements inside `container` that
@@ -33,7 +36,11 @@ export function highlightAll(async?: boolean, callback?: (element: Element) => v
  * @param callback An optional callback to be invoked after the highlighting is done. Mostly useful when async
  * is true, since in that case, the highlighting is done asynchronously.
  */
-export function highlightAllUnder(container: Element, async?: boolean, callback?: (element: Element) => void): void;
+export function highlightAllUnder(
+    container: Element,
+    async?: boolean,
+    callback?: (element: Element) => void
+): void;
 
 /**
  * Highlights the code inside a single element.
@@ -45,7 +52,11 @@ export function highlightAllUnder(container: Element, async?: boolean, callback?
  * @param callback An optional callback to be invoked after the highlighting is done.
  * Mostly useful when async is true, since in that case, the highlighting is done asynchronously.
  */
-export function highlightElement(element: Element, async?: boolean, callback?: (element: Element) => void): void;
+export function highlightElement(
+    element: Element,
+    async?: boolean,
+    callback?: (element: Element) => void
+): void;
 
 /**
  * Low-level function, only use if you know what you’re doing. It accepts a string of text as input and the language
@@ -56,7 +67,11 @@ export function highlightElement(element: Element, async?: boolean, callback?: (
  * Prism.languages.markup
  * @returns The highlighted HTML
  */
-export function highlight(text: string, grammar: LanguageDefinition, language?: LanguageDefinition): string;
+export function highlight(
+    text: string,
+    grammar: LanguageDefinition,
+    language?: LanguageDefinition
+): string;
 
 /**
  * This is the heart of Prism, and the most low-level function you can use. It accepts a string of text as input and the
@@ -69,7 +84,10 @@ export function highlight(text: string, grammar: LanguageDefinition, language?: 
  * Prism.languages.markup
  * @returns An array of strings, tokens (class Prism.Token) and other arrays.
  */
-export function tokenize(text: string, grammar: LanguageDefinition): Array<Token | string>;
+export function tokenize(
+    text: string,
+    grammar: LanguageDefinition
+): Array<Token | string>;
 
 export function fileHighlight(): void;
 
@@ -150,9 +168,7 @@ export interface LanguageDefinition {
     rest?: Token[];
 }
 
-export type Languages
-    = LanguageMap
-    & LanguageMapProtocol;
+export type Languages = LanguageMap & LanguageMapProtocol;
 export interface LanguageMap {
     /** Get a defined language's definition */
     [key: string]: LanguageDefinition;
@@ -174,12 +190,17 @@ export interface LanguageMapProtocol {
      * @param insert Object with the key/value pairs to insert
      * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
      */
-    insertBefore(inside: string, before: string, insert: LanguageDefinition, root: LanguageDefinition): LanguageDefinition;
+    insertBefore(
+        inside: string,
+        before: string,
+        insert: LanguageDefinition,
+        root: LanguageDefinition
+    ): LanguageDefinition;
 }
 
 export type HookCallback = (env: Environment) => void;
-export type AvailableHooks
-    = "before-highlightall"
+export type AvailableHooks =
+    | "before-highlightall"
     | "before-sanity-check"
     | "before-highlight"
     | "before-insert"
@@ -205,7 +226,11 @@ export class Token {
      * @param parent The parent element element to pass into hook callbacks
      * @returns The HTML that represents the given token(s)
      */
-    static stringify(token: TokenNode, language: LanguageDefinition, parent: HTMLPreElement): string;
+    static stringify(
+        token: TokenNode,
+        language: LanguageDefinition,
+        parent: HTMLPreElement
+    ): string;
 
     /**
      * The constructor for the Prism Token class
@@ -215,7 +240,13 @@ export class Token {
      * @param matchedStr The matched string that generated this token
      * @param greedy Value that determines whether or not this token was generated using a greedy parsing algorithm
      */
-    constructor(type: string, content: TokenNode, alias: any, matchedStr: string, greedy: boolean);
+    constructor(
+        type: string,
+        content: TokenNode,
+        alias: any,
+        matchedStr: string,
+        greedy: boolean
+    );
 
     /** The type of the token */
     type: string;

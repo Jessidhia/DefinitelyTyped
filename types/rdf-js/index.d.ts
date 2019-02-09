@@ -175,32 +175,32 @@ export type Quad_Graph = DefaultGraph | NamedNode | BlankNode | Variable;
  * An RDF quad, taking any Term in its positions, containing the subject, predicate, object and graph terms.
  */
 export interface BaseQuad {
-  /**
-   * The subject.
-   * @see Quad_Subject
-   */
-  subject: Term;
-  /**
-   * The predicate.
-   * @see Quad_Predicate
-   */
-  predicate: Term;
-  /**
-   * The object.
-   * @see Quad_Object
-   */
-  object: Term;
-  /**
-   * The named graph.
-   * @see Quad_Graph
-   */
-  graph: Term;
+    /**
+     * The subject.
+     * @see Quad_Subject
+     */
+    subject: Term;
+    /**
+     * The predicate.
+     * @see Quad_Predicate
+     */
+    predicate: Term;
+    /**
+     * The object.
+     * @see Quad_Object
+     */
+    object: Term;
+    /**
+     * The named graph.
+     * @see Quad_Graph
+     */
+    graph: Term;
 
-  /**
-   * @param other The term to compare with.
-   * @return True if and only if the argument is a) of the same type b) has all components equal.
-   */
-  equals(other: BaseQuad): boolean;
+    /**
+     * @param other The term to compare with.
+     * @return True if and only if the argument is a) of the same type b) has all components equal.
+     */
+    equals(other: BaseQuad): boolean;
 }
 
 /**
@@ -297,7 +297,11 @@ export interface DataFactory {
      * @see Triple
      * @see DefaultGraph
      */
-    triple<Q extends BaseQuad = Quad>(subject: Q['subject'], predicate: Q['predicate'], object: Q['object']): Q;
+    triple<Q extends BaseQuad = Quad>(
+        subject: Q["subject"],
+        predicate: Q["predicate"],
+        object: Q["object"]
+    ): Q;
 
     /**
      * @param subject   The quad subject term.
@@ -307,7 +311,12 @@ export interface DataFactory {
      * @return A new instance of Quad.
      * @see Quad
      */
-    quad<Q extends BaseQuad = Quad>(subject: Q['subject'], predicate: Q['predicate'], object: Q['object'], graph?: Q['graph']): Q;
+    quad<Q extends BaseQuad = Quad>(
+        subject: Q["subject"],
+        predicate: Q["predicate"],
+        object: Q["object"],
+        graph?: Q["graph"]
+    ): Q;
 }
 
 /* Stream Interfaces */
@@ -353,7 +362,12 @@ export interface Source<Q extends BaseQuad = Quad> {
      * @param graph     The optional exact graph or graph regex to match.
      * @return The resulting quad stream.
      */
-    match(subject?: Term | RegExp, predicate?: Term | RegExp, object?: Term | RegExp, graph?: Term | RegExp): Stream<Q>;
+    match(
+        subject?: Term | RegExp,
+        predicate?: Term | RegExp,
+        object?: Term | RegExp,
+        graph?: Term | RegExp
+    ): Stream<Q>;
 }
 
 /**
@@ -409,8 +423,12 @@ export interface Store<Q extends BaseQuad = Quad> extends Source, Sink {
      * @param graph     The optional exact graph or graph regex to match.
      * @return The resulting event emitter.
      */
-    removeMatches(subject?: Term | RegExp, predicate?: Term | RegExp, object?: Term | RegExp, graph?: Term | RegExp)
-        : EventEmitter;
+    removeMatches(
+        subject?: Term | RegExp,
+        predicate?: Term | RegExp,
+        object?: Term | RegExp,
+        graph?: Term | RegExp
+    ): EventEmitter;
 
     /**
      * Deletes the given named graph.
@@ -421,5 +439,5 @@ export interface Store<Q extends BaseQuad = Quad> extends Source, Sink {
      * @param graph The graph term or string to match.
      * @return The resulting event emitter.
      */
-    deleteGraph(graph: Q['graph'] | string): EventEmitter;
+    deleteGraph(graph: Q["graph"] | string): EventEmitter;
 }

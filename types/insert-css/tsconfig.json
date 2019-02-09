@@ -2,10 +2,7 @@
     "compilerOptions": {
         "baseUrl": "../",
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "dom",
-            "es6"
-        ],
+        "lib": ["dom", "es6"],
         "module": "commonjs",
         "noEmit": true,
         "noImplicitAny": true,
@@ -19,8 +16,5 @@
         "typeRoots": ["../"],
         "types": []
     },
-    "files": [
-        "index.d.ts",
-        "insert-css-tests.ts"
-    ]
+    "files": ["index.d.ts", "insert-css-tests.ts"]
 }

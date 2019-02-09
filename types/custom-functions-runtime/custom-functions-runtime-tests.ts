@@ -3,7 +3,7 @@ function add10(n: number) {
     return n + 10;
 }
 
-CustomFunctions.associate('ADD10', add10);
+CustomFunctions.associate("ADD10", add10);
 
 CustomFunctions.associate({
     ADD10: add10,
@@ -19,8 +19,10 @@ async function getStockValues(ticker: string): Promise<number> {
     return (await response.json())["price"];
 }
 
-async function getStockValuesCancellable(ticker: string,
-    invocation: CustomFunctions.CancelableInvocation): Promise<number> {
+async function getStockValuesCancellable(
+    ticker: string,
+    invocation: CustomFunctions.CancelableInvocation
+): Promise<number> {
     const address = invocation.address;
     let shouldStop = false;
     invocation.onCanceled = () => (shouldStop = true);
@@ -34,8 +36,10 @@ async function getStockValuesCancellable(ticker: string,
     return (await response.json())["price"];
 }
 
-function stockPriceStream(ticker: string,
-    invocation: CustomFunctions.StreamingInvocation<number>) {
+function stockPriceStream(
+    ticker: string,
+    invocation: CustomFunctions.StreamingInvocation<number>
+) {
     const address = invocation.address;
     const updateFrequency = 10 /* milliseconds*/;
     let isPending = false;

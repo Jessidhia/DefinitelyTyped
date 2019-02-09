@@ -18,60 +18,62 @@ A very simple component with markdown
 
 // withReadme usages. Both Decorator/HOC style
 storiesOf("withReadme Example", module)
-  .addDecorator(withReadme(DocExample1))
-  .addDecorator(withReadme([DocExample1, DocExample2]))
-  .add(
-    "StoryName Here",
-    withReadme(DocExample1, () => <div>your react component</div>)
-  )
-  .add(
-    "StoryName Here",
-    withReadme([DocExample1, DocExample2], () => (
-      <div>your react component</div>
-    ))
-  );
+    .addDecorator(withReadme(DocExample1))
+    .addDecorator(withReadme([DocExample1, DocExample2]))
+    .add(
+        "StoryName Here",
+        withReadme(DocExample1, () => <div>your react component</div>)
+    )
+    .add(
+        "StoryName Here",
+        withReadme([DocExample1, DocExample2], () => (
+            <div>your react component</div>
+        ))
+    );
 
 // withDocs usages.
 const withDocsCustom = withDocs({
-  PreviewComponent: ({ children }) => <div>{children}</div>,
-  FooterComponent: ({ children }) => <div>{children}</div>
+    PreviewComponent: ({ children }) => <div>{children}</div>,
+    FooterComponent: ({ children }) => <div>{children}</div>
 });
 
 withDocs.addFooterDocs(DocExample1);
 
 storiesOf("withDocs Example", module)
-  .addDecorator(withDocs(DocExample1))
-  .addDecorator(withDocs([DocExample1, DocExample2]))
-  .addDecorator(withDocsCustom(DocExample1))
-  .addDecorator(withDocsCustom([DocExample1, DocExample2]))
-  .add(
-    "StoryName Here",
-    withDocs(DocExample1, () => <div>your react component</div>)
-  )
-  .add(
-    "StoryName Here",
-    withDocs([DocExample1, DocExample2], () => <div>your react component</div>)
-  );
+    .addDecorator(withDocs(DocExample1))
+    .addDecorator(withDocs([DocExample1, DocExample2]))
+    .addDecorator(withDocsCustom(DocExample1))
+    .addDecorator(withDocsCustom([DocExample1, DocExample2]))
+    .add(
+        "StoryName Here",
+        withDocs(DocExample1, () => <div>your react component</div>)
+    )
+    .add(
+        "StoryName Here",
+        withDocs([DocExample1, DocExample2], () => (
+            <div>your react component</div>
+        ))
+    );
 
 // doc usage.
 storiesOf("Doc", module).add("StoryName Here", doc(DocExample1));
 
 // Marked usage.
 storiesOf("Custom Layout", module).add("StoryName Here", () => {
-  return (
-    <React.Fragment>
-      <div>
-        <div>your react component</div>
-      </div>
-      <Marked md={"### INTRO "} />
-      <div>
-        <div>your react component</div>
-      </div>
-      <Marked md={DocExample1} />
-      <div>
-        <div>your react component</div>
-      </div>
-      <Marked md={"### OUTRO "} />
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+            <div>
+                <div>your react component</div>
+            </div>
+            <Marked md={"### INTRO "} />
+            <div>
+                <div>your react component</div>
+            </div>
+            <Marked md={DocExample1} />
+            <div>
+                <div>your react component</div>
+            </div>
+            <Marked md={"### OUTRO "} />
+        </React.Fragment>
+    );
 });

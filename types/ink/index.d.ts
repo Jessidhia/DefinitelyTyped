@@ -38,7 +38,7 @@ export function h<T extends keyof JSX.IntrinsicElements>(
 export function render(
     tree: InkElement,
     stream?: NodeJS.WriteStream
-): (() => void);
+): () => void;
 export function renderToString(tree: InkElement, prevTree?: InkElement): string;
 
 export type InkComponent<P extends Record<string, any> = {}> =
@@ -100,7 +100,7 @@ export interface Component<
     ): void;
     componentDidUpdate?(): void;
 
-    getChildContext?(): (() => Record<string, any>);
+    getChildContext?(): () => Record<string, any>;
 }
 
 export interface ComponentClass<

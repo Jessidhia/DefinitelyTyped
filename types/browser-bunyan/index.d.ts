@@ -7,7 +7,7 @@
 
 /// <reference types="node" />
 
-import * as bunyan from 'bunyan';
+import * as bunyan from "bunyan";
 
 declare namespace BrowserBunyan {
     interface ConsoleFormattedStreamLevelStyle {
@@ -31,14 +31,18 @@ declare namespace BrowserBunyan {
         css?: Partial<ConsoleFormattedStreamStyle>;
     }
 
-    type ConsoleFormattedStream = new(options?: ConsoleFormattedStreamOptions) => NodeJS.WritableStream;
+    type ConsoleFormattedStream = new (
+        options?: ConsoleFormattedStreamOptions
+    ) => NodeJS.WritableStream;
 
-    type ConsoleRawStream = new(options?: ConsoleFormattedStreamOptions) => NodeJS.WritableStream;
+    type ConsoleRawStream = new (
+        options?: ConsoleFormattedStreamOptions
+    ) => NodeJS.WritableStream;
 }
 
 type BrowserBunyan = typeof bunyan & {
-    ConsoleFormattedStream: BrowserBunyan.ConsoleFormattedStream
-    ConsoleRawStream: BrowserBunyan.ConsoleRawStream
+    ConsoleFormattedStream: BrowserBunyan.ConsoleFormattedStream;
+    ConsoleRawStream: BrowserBunyan.ConsoleRawStream;
 };
 
 declare const browserBunyan: BrowserBunyan;

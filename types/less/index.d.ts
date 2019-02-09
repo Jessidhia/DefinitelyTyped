@@ -105,18 +105,24 @@ declare namespace Less {
         /** Add a path to every generated import and url in output css files. */
         rootpath?: string;
         /** Math mode options for avoiding symbol conficts on math expressions. */
-        math?: 'always' | 'strict' | 'parens-division' | 'parens' | 'strict-legacy' | number;
+        math?:
+            | "always"
+            | "strict"
+            | "parens-division"
+            | "parens"
+            | "strict-legacy"
+            | number;
         /** If true, stops any warnings from being shown. */
         silent?: boolean;
         /** Without this option, Less attempts to guess at the output unit when it does maths. */
         strictUnits?: boolean;
         /** Defines a variable that can be referenced by the file. */
         globalVars?: {
-          [key: string] : string,
+            [key: string]: string;
         };
         /** Puts Var declaration at the end of base file. */
         modifyVars?: {
-          [key: string] : string,
+            [key: string]: string;
         };
     }
 
@@ -154,13 +160,24 @@ interface LessStatic {
 
     refreshStyles(): void;
 
-    render(input: string, callback: (error: Less.RenderError, output: Less.RenderOutput) => void): void;
-    render(input: string, options: Less.Options, callback: (error: Less.RenderError, output: Less.RenderOutput) => void): void;
+    render(
+        input: string,
+        callback: (error: Less.RenderError, output: Less.RenderOutput) => void
+    ): void;
+    render(
+        input: string,
+        options: Less.Options,
+        callback: (error: Less.RenderError, output: Less.RenderOutput) => void
+    ): void;
 
     render(input: string): Promise<Less.RenderOutput>;
     render(input: string, options: Less.Options): Promise<Less.RenderOutput>;
 
-    refresh(reload?: boolean, modifyVars?: { [variable: string]: string }, clearFileCache?: boolean): Promise<Less.RefreshOutput>;
+    refresh(
+        reload?: boolean,
+        modifyVars?: { [variable: string]: string },
+        clearFileCache?: boolean
+    ): Promise<Less.RefreshOutput>;
 
     version: number[];
 

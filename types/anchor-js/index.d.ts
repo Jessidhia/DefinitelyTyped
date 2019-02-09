@@ -12,8 +12,8 @@ declare namespace anchorjs {
         removeAll(): void;
     }
 
-    type AnchorPlacement = 'left' | 'right';
-    type AnchorVisibility = 'always' | 'hover' | 'touch';
+    type AnchorPlacement = "left" | "right";
+    type AnchorVisibility = "always" | "hover" | "touch";
 
     interface AnchorOptions {
         arialabel?: string;
@@ -25,7 +25,7 @@ declare namespace anchorjs {
     }
 
     interface AnchorStatic {
-        new(options?: AnchorOptions): Anchor;
+        new (options?: AnchorOptions): Anchor;
     }
 }
 

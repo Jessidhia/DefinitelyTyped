@@ -7,7 +7,10 @@ export as namespace zxcvbn;
 
 export = zxcvbn;
 
-declare function zxcvbn(password: string, userInputs?: string[]): zxcvbn.ZXCVBNResult;
+declare function zxcvbn(
+    password: string,
+    userInputs?: string[]
+): zxcvbn.ZXCVBNResult;
 
 declare namespace zxcvbn {
     interface ZXCVBNResult {

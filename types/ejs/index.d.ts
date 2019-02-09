@@ -24,24 +24,56 @@ export let localsName: string;
  * Get the path to the included file from the parent file path and the
  * specified path.
  */
-export function resolveInclude(name: string, filename: string, isDir: boolean): string;
+export function resolveInclude(
+    name: string,
+    filename: string,
+    isDir: boolean
+): string;
 /**
  * Compile the given `str` of ejs into a template function.
  */
-export function compile(template: string, opts?: Options & { async: false }): TemplateFunction;
-export function compile(template: string, opts: Options & { async: true }): AsyncTemplateFunction;
-export function compile(template: string, opts: Options & { async?: never }): TemplateFunction;
-export function compile(template: string, opts?: Options): TemplateFunction | AsyncTemplateFunction;
+export function compile(
+    template: string,
+    opts?: Options & { async: false }
+): TemplateFunction;
+export function compile(
+    template: string,
+    opts: Options & { async: true }
+): AsyncTemplateFunction;
+export function compile(
+    template: string,
+    opts: Options & { async?: never }
+): TemplateFunction;
+export function compile(
+    template: string,
+    opts?: Options
+): TemplateFunction | AsyncTemplateFunction;
 /**
  * Render the given `template` of ejs.
  *
  * If you would like to include options but not data, you need to explicitly
  * call this function with `data` being an empty object or `null`.
  */
-export function render(template: string, data?: Data, opts?: Options & { async: false }): string;
-export function render(template: string, data: Data | undefined, opts: Options & { async: true }): Promise<string>;
-export function render(template: string, data: Data | undefined, opts: Options & { async?: never }): string;
-export function render(template: string, data?: Data, opts?: Options): string | Promise<string>;
+export function render(
+    template: string,
+    data?: Data,
+    opts?: Options & { async: false }
+): string;
+export function render(
+    template: string,
+    data: Data | undefined,
+    opts: Options & { async: true }
+): Promise<string>;
+export function render(
+    template: string,
+    data: Data | undefined,
+    opts: Options & { async?: never }
+): string;
+export function render(
+    template: string,
+    data?: Data,
+    opts?: Options
+): string | Promise<string>;
 
 export type RenderFileCallback<T> = (err: Error, str?: string) => T;
 
@@ -52,10 +84,23 @@ export type RenderFileCallback<T> = (err: Error, str?: string) => T;
  * call this function with `data` being an empty object or `null`.
  */
 export function renderFile<T>(path: string, cb: RenderFileCallback<T>): T;
-export function renderFile<T>(path: string, data: Data, cb: RenderFileCallback<T>): T;
-export function renderFile<T>(path: string, data: Data, opts: Options, cb: RenderFileCallback<T>): T;
+export function renderFile<T>(
+    path: string,
+    data: Data,
+    cb: RenderFileCallback<T>
+): T;
+export function renderFile<T>(
+    path: string,
+    data: Data,
+    opts: Options,
+    cb: RenderFileCallback<T>
+): T;
 // tslint:disable-next-line no-unnecessary-generics
-export function renderFile<T>(path: string, data?: Data, opts?: Options): Promise<T>;
+export function renderFile<T>(
+    path: string,
+    data?: Data,
+    opts?: Options
+): Promise<T>;
 
 /**
  * Clear intermediate JavaScript cache. Calls {@link Cache#reset}.

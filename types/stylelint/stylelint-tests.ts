@@ -1,4 +1,13 @@
-import { LinterOptions, FormatterType, SyntaxType, lint, LintResult, LinterResult, createPlugin, utils } from "stylelint";
+import {
+    LinterOptions,
+    FormatterType,
+    SyntaxType,
+    lint,
+    LintResult,
+    LinterResult,
+    createPlugin,
+    utils
+} from "stylelint";
 
 const options: LinterOptions = {
     code: "div { color: red }",
@@ -26,30 +35,35 @@ const syntax: SyntaxType = "scss";
 const ruleName = "sample-rule";
 const messages = utils.ruleMessages(ruleName, {
     violation: "This a rule violation message",
-    warning: (reason: string) => `This is not allowed because ${reason}`,
+    warning: (reason: string) => `This is not allowed because ${reason}`
 });
 
 createPlugin(ruleName, options => {
     return (root, result) => {
-        const validOptions = utils.validateOptions(result, ruleName, { actual: options });
+        const validOptions = utils.validateOptions(result, ruleName, {
+            actual: options
+        });
         if (!validOptions) {
             return;
         }
 
-        utils.checkAgainstRule({
-            ruleName: "at-rule-empty-line-before",
-            ruleSettings: ["always"],
-            root,
-        }, warning => {
-            utils.report({
-                ruleName,
-                result,
-                message: messages.warning(warning),
-                node: root,
-                index: 1,
-                word: "foo",
-                line: 2,
-            });
-        });
+        utils.checkAgainstRule(
+            {
+                ruleName: "at-rule-empty-line-before",
+                ruleSettings: ["always"],
+                root
+            },
+            warning => {
+                utils.report({
+                    ruleName,
+                    result,
+                    message: messages.warning(warning),
+                    node: root,
+                    index: 1,
+                    word: "foo",
+                    line: 2
+                });
+            }
+        );
     };
 });

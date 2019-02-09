@@ -20,10 +20,7 @@ declare namespace NavigatorPermissions {
     /**
      * Permission state values.
      */
-    type PermissionState =
-        'granted' |
-        'denied' |
-        'prompt';
+    type PermissionState = "granted" | "denied" | "prompt";
 
     /**
      * The `PermissionStatus` interface of the Permissions API provides the state
@@ -54,22 +51,22 @@ declare namespace NavigatorPermissions {
      * Permission name options.
      */
     type PermissionName =
-        'accelerometer' |
-        'accessibility-events' |
-        'ambient-light-sensor' |
-        'background-sync' |
-        'camera' |
-        'clipboard-read' |
-        'clipboard-write' |
-        'geolocation' |
-        'gyroscope' |
-        'magnetometer' |
-        'microphone' |
-        'midi' |
-        'notifications' |
-        'payment-handler' |
-        'persistent-storage' |
-        'push';
+        | "accelerometer"
+        | "accessibility-events"
+        | "ambient-light-sensor"
+        | "background-sync"
+        | "camera"
+        | "clipboard-read"
+        | "clipboard-write"
+        | "geolocation"
+        | "gyroscope"
+        | "magnetometer"
+        | "microphone"
+        | "midi"
+        | "notifications"
+        | "payment-handler"
+        | "persistent-storage"
+        | "push";
 
     /**
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Permissions/query}
@@ -85,7 +82,7 @@ declare namespace NavigatorPermissions {
         name: N;
     }
 
-    interface PushPermissionDescriptor extends PermissionDescriptor<'push'> {
+    interface PushPermissionDescriptor extends PermissionDescriptor<"push"> {
         /**
          * Indicates whether you want to show a notification for every message
          * or be able to send silent push
@@ -94,7 +91,7 @@ declare namespace NavigatorPermissions {
         userVisibleOnly?: boolean;
     }
 
-    interface MidiPermissionDescriptor extends PermissionDescriptor<'midi'> {
+    interface MidiPermissionDescriptor extends PermissionDescriptor<"midi"> {
         /**
          * Indicates whether you need and/or receive system exclusive
          * messages. The default is false.
@@ -111,30 +108,30 @@ declare namespace NavigatorPermissions {
         //   [n in N]: D; // this line to cover all basic cases
         //   // and the custom permission descriptors for midi and push
         // }
-        'accelerometer': PermissionDescriptor<'accelerometer'>;
-        'accessibility-events': PermissionDescriptor<'accessibility-events'>;
-        'ambient-light-sensor': PermissionDescriptor<'ambient-light-sensor'>;
-        'background-sync': PermissionDescriptor<'background-sync'>;
-        'camera': PermissionDescriptor<'camera'>;
-        'clipboard-read': PermissionDescriptor<'clipboard-read'>;
-        'clipboard-write': PermissionDescriptor<'clipboard-write'>;
-        'geolocation': PermissionDescriptor<'geolocation'>;
-        'gyroscope': PermissionDescriptor<'gyroscope'>;
-        'magnetometer': PermissionDescriptor<'magnetometer'>;
-        'microphone': PermissionDescriptor<'microphone'>;
-        'notifications': PermissionDescriptor<'notifications'>;
-        'payment-handler': PermissionDescriptor<'payment-handler'>;
-        'persistent-storage': PermissionDescriptor<'persistent-storage'>;
+        accelerometer: PermissionDescriptor<"accelerometer">;
+        "accessibility-events": PermissionDescriptor<"accessibility-events">;
+        "ambient-light-sensor": PermissionDescriptor<"ambient-light-sensor">;
+        "background-sync": PermissionDescriptor<"background-sync">;
+        camera: PermissionDescriptor<"camera">;
+        "clipboard-read": PermissionDescriptor<"clipboard-read">;
+        "clipboard-write": PermissionDescriptor<"clipboard-write">;
+        geolocation: PermissionDescriptor<"geolocation">;
+        gyroscope: PermissionDescriptor<"gyroscope">;
+        magnetometer: PermissionDescriptor<"magnetometer">;
+        microphone: PermissionDescriptor<"microphone">;
+        notifications: PermissionDescriptor<"notifications">;
+        "payment-handler": PermissionDescriptor<"payment-handler">;
+        "persistent-storage": PermissionDescriptor<"persistent-storage">;
         // These permission descriptors support extra properties
-        'midi': MidiPermissionDescriptor;
-        'push': PushPermissionDescriptor;
+        midi: MidiPermissionDescriptor;
+        push: PushPermissionDescriptor;
     }
 
     interface RevokeNameDescriptorMap {
-        'geolocation': PermissionDescriptor<'geolocation'>;
-        'notifications': PermissionDescriptor<'notifications'>;
-        'midi': MidiPermissionDescriptor;
-        'push': PushPermissionDescriptor;
+        geolocation: PermissionDescriptor<"geolocation">;
+        notifications: PermissionDescriptor<"notifications">;
+        midi: MidiPermissionDescriptor;
+        push: PushPermissionDescriptor;
     }
 
     /**
@@ -160,14 +157,18 @@ declare namespace NavigatorPermissions {
          * unsupported (e.g. `midi`, or `push` with `userVisibleOnly`).
          * @see  {@link https://developer.mozilla.org/en-US/docs/Web/API/Permissions/query}
          */
-        query(permissionDescriptor: QueryNameDescriptorMap[keyof QueryNameDescriptorMap]): Promise<PermissionStatus>;
+        query(
+            permissionDescriptor: QueryNameDescriptorMap[keyof QueryNameDescriptorMap]
+        ): Promise<PermissionStatus>;
         /**
          * The `Permissions.revoke()` method of the `Permissions` interface reverts a
          * currently set permission back to its default state, which is usually `prompt`.
          *
          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Permissions/revoke}
          */
-        revoke(permissionDescriptor: RevokeNameDescriptorMap[keyof RevokeNameDescriptorMap]): Promise<PermissionStatus>;
+        revoke(
+            permissionDescriptor: RevokeNameDescriptorMap[keyof RevokeNameDescriptorMap]
+        ): Promise<PermissionStatus>;
     }
 
     /**

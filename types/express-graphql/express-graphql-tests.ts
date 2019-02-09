@@ -10,26 +10,33 @@ const graphqlOption: graphqlHTTP.OptionsData = {
     graphiql: true,
     schema,
     formatError: (error: Error) => ({
-        message: error.message,
+        message: error.message
     }),
     validationRules: [() => false, () => true],
-    extensions: ({ document, variables, operationName, result }) => ({ key: "value", key2: "value" }),
+    extensions: ({ document, variables, operationName, result }) => ({
+        key: "value",
+        key2: "value"
+    })
 };
 
-const graphqlOptionRequest = (request: express.Request): graphqlHTTP.OptionsData => ({
+const graphqlOptionRequest = (
+    request: express.Request
+): graphqlHTTP.OptionsData => ({
     graphiql: true,
     schema,
     context: request.session,
-    validationRules: [() => false, () => true],
+    validationRules: [() => false, () => true]
 });
 
-const graphqlOptionRequestAsync = async (request: express.Request): Promise<graphqlHTTP.OptionsData> => {
+const graphqlOptionRequestAsync = async (
+    request: express.Request
+): Promise<graphqlHTTP.OptionsData> => {
     return {
         graphiql: true,
         schema: await Promise.resolve(schema),
         context: request.session,
         extensions: async args => {},
-        validationRules: [() => false, () => true],
+        validationRules: [() => false, () => true]
     };
 };
 

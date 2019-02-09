@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import { EventEmitter } from 'events';
-import { Element } from './Element';
+import { EventEmitter } from "events";
+import { Element } from "./Element";
 
 export class Parser extends EventEmitter {
     constructor(options?: ParserOptions);

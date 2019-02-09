@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Json = require('react-json');
+import * as React from "react";
+import Json = require("react-json");
 
 const TestObject = {
     s: "Hello, world",
@@ -12,9 +12,9 @@ const TestObject = {
         o: {
             s: "Hello, world",
             b: true,
-            n: 666,
+            n: 666
         }
     }
 };
 
-<Json value={TestObject} onChange={(val: any) => console.log(val)}/>;
+<Json value={TestObject} onChange={(val: any) => console.log(val)} />;

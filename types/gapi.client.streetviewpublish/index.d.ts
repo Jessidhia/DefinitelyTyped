@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Street View Publish API v1 */
     function load(name: "streetviewpublish", version: "v1"): PromiseLike<void>;
-    function load(name: "streetviewpublish", version: "v1", callback: () => any): void;
+    function load(
+        name: "streetviewpublish",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const photo: streetviewpublish.PhotoResource;
 

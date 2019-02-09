@@ -9,7 +9,6 @@ import * as Q from "q";
 export = MsPortalTestFx;
 
 declare namespace MsPortalTestFx {
-
     export module Locators {
         export class Locator {
             seleniumLocator: any;
@@ -49,7 +48,10 @@ declare namespace MsPortalTestFx {
 
     export module ActionBars {
         export class ActionBarButton extends PortalElement {
-            constructor(parentLocator?: Locators.Locator, baseLocator?: Locators.Locator);
+            constructor(
+                parentLocator?: Locators.Locator,
+                baseLocator?: Locators.Locator
+            );
             click(): Q.Promise<void>;
         }
 
@@ -114,7 +116,11 @@ declare namespace MsPortalTestFx {
         export class FormElement extends MsPortalTestFx.PortalElement {
             protected label: string;
 
-            constructor(baseLocator: Locators.Locator, parentLocator?: Locators.Locator, label?: string);
+            constructor(
+                baseLocator: Locators.Locator,
+                parentLocator?: Locators.Locator,
+                label?: string
+            );
         }
 
         export class CheckBoxField extends FormElement {
@@ -127,10 +133,16 @@ declare namespace MsPortalTestFx {
         }
 
         export class CreatorAndSelectorField extends FormElement {
-            constructor(parentLocator?: Locators.Locator, selectModeLabel?: string, createModeLabel?: string);
+            constructor(
+                parentLocator?: Locators.Locator,
+                selectModeLabel?: string,
+                createModeLabel?: string
+            );
             openPicker(): Q.Promise<void>;
             clickCreateNew(): Q.Promise<CreatorAndSelectorField>;
-            enterNewValue(...var_args: string[]): Q.Promise<CreatorAndSelectorField>;
+            enterNewValue(
+                ...var_args: string[]
+            ): Q.Promise<CreatorAndSelectorField>;
         }
 
         export class GridCell extends MsPortalTestFx.PortalElement {
@@ -139,7 +151,11 @@ declare namespace MsPortalTestFx {
         }
 
         export class TextField extends FormElement {
-            constructor(parentLocator?: Locators.Locator, label?: string, baseLocator?: Locators.Locator);
+            constructor(
+                parentLocator?: Locators.Locator,
+                label?: string,
+                baseLocator?: Locators.Locator
+            );
             sendKeys(...var_args: string[]): Q.Promise<void>;
         }
 
@@ -148,7 +164,10 @@ declare namespace MsPortalTestFx {
         }
 
         export class HotSpot extends PortalElement {
-            constructor(parentLocator?: Locators.Locator, baseLocator?: Locators.Locator);
+            constructor(
+                parentLocator?: Locators.Locator,
+                baseLocator?: Locators.Locator
+            );
             isSelected(): Q.Promise<boolean>;
         }
     }
@@ -157,7 +176,11 @@ declare namespace MsPortalTestFx {
         export class Part extends MsPortalTestFx.PortalElement {
             public innerText: string;
 
-            constructor(parentLocator?: Locators.Locator, innerText?: string, baseLocator?: Locators.Locator);
+            constructor(
+                parentLocator?: Locators.Locator,
+                innerText?: string,
+                baseLocator?: Locators.Locator
+            );
             isSelected(): Q.Promise<boolean>;
             isLoaded(): Q.Promise<boolean>;
             waitUntilLoaded(timeout?: number): Q.Promise<boolean>;
@@ -181,8 +204,7 @@ declare namespace MsPortalTestFx {
             constructor(parentLocator?: Locators.Locator);
         }
 
-        class PricingTierPart extends Part {
-        }
+        class PricingTierPart extends Part {}
 
         export class Tile extends MsPortalTestFx.PortalElement {
             public progressLocator: Locators.Locator;
@@ -215,13 +237,21 @@ declare namespace MsPortalTestFx {
 
         export class NotificationsMenu extends PortalElement {
             constructor();
-            waitForNewNotification(title?: string, description?: string, timeout?: number): Q.Promise<Notification>;
+            waitForNewNotification(
+                title?: string,
+                description?: string,
+                timeout?: number
+            ): Q.Promise<Notification>;
         }
     }
 
     export module Tests {
         export module Parts {
-            export function canPinAllBladeParts(targetBladeDeepLink: string, targetBladeTitle: string, timeout?: number): Q.Promise<boolean>;
+            export function canPinAllBladeParts(
+                targetBladeDeepLink: string,
+                targetBladeTitle: string,
+                timeout?: number
+            ): Q.Promise<boolean>;
         }
     }
 
@@ -229,7 +259,10 @@ declare namespace MsPortalTestFx {
         public baseLocator: Locators.Locator;
         protected parentLocator: Locators.Locator;
 
-        constructor(baseLocator: Locators.Locator, parentLocator?: Locators.Locator);
+        constructor(
+            baseLocator: Locators.Locator,
+            parentLocator?: Locators.Locator
+        );
         click(): Q.Promise<void>;
         rightClick(): Q.Promise<void>;
         getAttribute(attributeName: string): Q.Promise<string>;
@@ -255,10 +288,10 @@ declare namespace MsPortalTestFx {
         capabilities: {
             browserName: string;
             chromeOptions: {
-                args: string[]
-            }
-        },
-        chromeDriverPath?: string,
+                args: string[];
+            };
+        };
+        chromeDriverPath?: string;
         portalUrl: string;
         signInUrl?: string;
         signInEmail?: string;
@@ -280,16 +313,51 @@ declare namespace MsPortalTestFx {
         portalContext: PortalContext;
 
         goHome(timeout?: number): Q.Promise<void>;
-        openGalleryCreateBlade(galleryPackageName: string, bladeTitle: string, timeout?: number): Q.Promise<Blades.CreateBlade>;
-        openBrowseBlade(resourceProvider: string, resourceType: string, bladeTitle: string, timeout?: number): Q.Promise<Blades.BrowseResourceBlade>;
-        openResourceBlade(resourceId: string, bladeTitle: string, timeout?: number): Q.Promise<Blades.Blade>;
+        openGalleryCreateBlade(
+            galleryPackageName: string,
+            bladeTitle: string,
+            timeout?: number
+        ): Q.Promise<Blades.CreateBlade>;
+        openBrowseBlade(
+            resourceProvider: string,
+            resourceType: string,
+            bladeTitle: string,
+            timeout?: number
+        ): Q.Promise<Blades.BrowseResourceBlade>;
+        openResourceBlade(
+            resourceId: string,
+            bladeTitle: string,
+            timeout?: number
+        ): Q.Promise<Blades.Blade>;
         navigateToDeepLink(deepLink: string, timeout?: number): Q.Promise<any>;
-        waitForElementVisible(locator: Locators.Locator, timeout?: number): Q.Promise<boolean>;
-        waitForElementNotVisible(locator: Locators.Locator, timeout?: number): Q.Promise<boolean>;
-        waitUntilElementContainsAttribute(locator: Locators.Locator, attributeName: string, attributeValue: string, timeout?: number): Q.Promise<any>;
-        waitUntilElementDoesNotContainAttribute(locator: Locators.Locator, attributeName: string, attributeValue: string, timeout?: number): Q.Promise<any>;
-        waitForElementLocated(locator: Locators.Locator, timeout?: number): Q.Promise<any>;
-        waitForElementsLocated(locator: Locators.Locator, timeout?: number): Q.Promise<any[]>;
+        waitForElementVisible(
+            locator: Locators.Locator,
+            timeout?: number
+        ): Q.Promise<boolean>;
+        waitForElementNotVisible(
+            locator: Locators.Locator,
+            timeout?: number
+        ): Q.Promise<boolean>;
+        waitUntilElementContainsAttribute(
+            locator: Locators.Locator,
+            attributeName: string,
+            attributeValue: string,
+            timeout?: number
+        ): Q.Promise<any>;
+        waitUntilElementDoesNotContainAttribute(
+            locator: Locators.Locator,
+            attributeName: string,
+            attributeValue: string,
+            timeout?: number
+        ): Q.Promise<any>;
+        waitForElementLocated(
+            locator: Locators.Locator,
+            timeout?: number
+        ): Q.Promise<any>;
+        waitForElementsLocated(
+            locator: Locators.Locator,
+            timeout?: number
+        ): Q.Promise<any[]>;
         takeScreenshot(filePrefix?: string): Q.Promise<string>;
         getBrowserLogs(level: LogLevel): Q.Promise<string[]>;
         executeScript<T>(script: string): Q.Promise<T>;

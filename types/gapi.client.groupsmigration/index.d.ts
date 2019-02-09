@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Groups Migration API v1 */
     function load(name: "groupsmigration", version: "v1"): PromiseLike<void>;
-    function load(name: "groupsmigration", version: "v1", callback: () => any): void;
+    function load(
+        name: "groupsmigration",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const archive: groupsmigration.ArchiveResource;
 

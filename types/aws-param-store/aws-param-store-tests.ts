@@ -1,4 +1,4 @@
-import { SSM } from 'aws-sdk';
+import { SSM } from "aws-sdk";
 import {
     ParameterQuery,
     parameterQuery,
@@ -7,8 +7,8 @@ import {
     getParametersByPath,
     getParameterSync,
     getParametersSync,
-    getParametersByPathSync,
-} from 'aws-param-store';
+    getParametersByPathSync
+} from "aws-param-store";
 
 declare let bool: boolean;
 declare let query: ParameterQuery;
@@ -18,7 +18,10 @@ declare let options: SSM.Types.ClientConfiguration;
 declare let paramResult: SSM.Types.Parameter;
 declare let paramsResult: SSM.Types.GetParametersResult;
 declare let paramsByPathResult: SSM.Types.ParameterList;
-declare let allParamResults: SSM.Types.Parameter | SSM.Types.GetParametersByPathResult | SSM.Types.ParameterList;
+declare let allParamResults:
+    | SSM.Types.Parameter
+    | SSM.Types.GetParametersByPathResult
+    | SSM.Types.ParameterList;
 declare let promiseParamResult: Promise<SSM.Types.Parameter>;
 declare let promiseParamsResult: Promise<SSM.Types.GetParametersResult>;
 declare let promiseParamsByPathResult: Promise<SSM.Types.ParameterList>;
@@ -37,27 +40,27 @@ allParamResults = query.executeSync();
 
 // test chaining
 query = query
-.path(psName)
-.named(psName)
-.named(psNames)
-.decryption(bool)
-.recursive(bool);
+    .path(psName)
+    .named(psName)
+    .named(psNames)
+    .decryption(bool)
+    .recursive(bool);
 
 promiseAllParamResults = query
-.path(psName)
-.named(psName)
-.named(psNames)
-.decryption(bool)
-.recursive(bool)
-.execute();
+    .path(psName)
+    .named(psName)
+    .named(psNames)
+    .decryption(bool)
+    .recursive(bool)
+    .execute();
 
 allParamResults = query
-.path(psName)
-.named(psName)
-.named(psNames)
-.decryption(bool)
-.recursive(bool)
-.executeSync();
+    .path(psName)
+    .named(psName)
+    .named(psNames)
+    .decryption(bool)
+    .recursive(bool)
+    .executeSync();
 
 promiseParamResult = getParameter(psName);
 promiseParamResult = getParameter(psName, options);

@@ -5,10 +5,15 @@
 
 /// <reference types="node" />
 
-import stream = require('stream');
+import stream = require("stream");
 
-declare function GulpModernizr(parames?: GulpModernizr.Params): stream.Transform;
-declare function GulpModernizr(file?: string, parames?: GulpModernizr.Params): stream.Transform;
+declare function GulpModernizr(
+    parames?: GulpModernizr.Params
+): stream.Transform;
+declare function GulpModernizr(
+    file?: string,
+    parames?: GulpModernizr.Params
+): stream.Transform;
 
 declare namespace GulpModernizr {
     interface Params {
@@ -31,9 +36,9 @@ declare namespace GulpModernizr {
          * Based on default settings on http://modernizr.com/download/
          */
         options?: {
-          classPrefix: string;
-          enableJSClass: boolean;
-          enableClasses: boolean;
+            classPrefix: string;
+            enableJSClass: boolean;
+            enableClasses: boolean;
         };
 
         /**

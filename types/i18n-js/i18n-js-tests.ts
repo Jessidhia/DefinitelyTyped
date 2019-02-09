@@ -30,10 +30,17 @@ I18n.missingTranslation = (scope, options) => undefined;
 
 I18n.t("inbox.counting", { count: 10 });
 I18n.pluralization["ru"] = count => {
-    const key = count % 10 === 1 && count % 100 !== 11 ? "one"
-        : [2, 3, 4].indexOf(count % 10) >= 0 && [12, 13, 14].indexOf(count % 100) < 0 ? "few"
-            : count % 10 === 0 || [5, 6, 7, 8, 9].indexOf(count % 10) >= 0 || [11, 12, 13, 14].indexOf(count % 100) >= 0 ? "many"
-                : "other";
+    const key =
+        count % 10 === 1 && count % 100 !== 11
+            ? "one"
+            : [2, 3, 4].indexOf(count % 10) >= 0 &&
+              [12, 13, 14].indexOf(count % 100) < 0
+            ? "few"
+            : count % 10 === 0 ||
+              [5, 6, 7, 8, 9].indexOf(count % 10) >= 0 ||
+              [11, 12, 13, 14].indexOf(count % 100) >= 0
+            ? "many"
+            : "other";
     return [key];
 };
 
@@ -63,19 +70,22 @@ I18n.l("time.formats.short", "2009-11-09T18:10:34");
 I18n.l("time.formats.short", "2009-11-09T18:10:34Z");
 I18n.l("date.formats.short", 1251862029000);
 I18n.l("date.formats.short", "09/18/2009");
-I18n.l("date.formats.short", (new Date()));
+I18n.l("date.formats.short", new Date());
 
 I18n.l("date.formats.ordinal_day", "2009-09-18", { day: "18th" });
 
 I18n.strftime(new Date(), "%d/%m/%Y");
 
 const point_in_number = 1000;
-I18n.t("point", { count: point_in_number, formatted_number: I18n.toNumber(point_in_number) });
+I18n.t("point", {
+    count: point_in_number,
+    formatted_number: I18n.toNumber(point_in_number)
+});
 
 I18n.translations = {};
 I18n.translations["en"] = {
-  message: "Some special message for you"
+    message: "Some special message for you"
 };
 I18n.translations["pt-BR"] = {
-  message: "Uma mensagem especial para você"
+    message: "Uma mensagem especial para você"
 };

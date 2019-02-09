@@ -1,3 +1,5 @@
-import { MenuRendererProps } from '../../../';
+import { MenuRendererProps } from "../../../";
 
-export default function defaultMenuRenderer(props: MenuRendererProps): JSX.Element[];
+export default function defaultMenuRenderer(
+    props: MenuRendererProps
+): JSX.Element[];

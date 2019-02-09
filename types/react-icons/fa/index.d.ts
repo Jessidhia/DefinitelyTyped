@@ -7,7 +7,9 @@ export { default as FaAlignLeft } from "./align-left";
 export { default as FaAlignRight } from "./align-right";
 export { default as FaAmazon } from "./amazon";
 export { default as FaAmbulance } from "./ambulance";
-export { default as FaAmericanSignLanguageInterpreting } from "./american-sign-language-interpreting";
+export {
+    default as FaAmericanSignLanguageInterpreting
+} from "./american-sign-language-interpreting";
 export { default as FaAnchor } from "./anchor";
 export { default as FaAndroid } from "./android";
 export { default as FaAngellist } from "./angellist";
@@ -38,7 +40,9 @@ export { default as FaArrowsAlt } from "./arrows-alt";
 export { default as FaArrowsH } from "./arrows-h";
 export { default as FaArrowsV } from "./arrows-v";
 export { default as FaArrows } from "./arrows";
-export { default as FaAssistiveListeningSystems } from "./assistive-listening-systems";
+export {
+    default as FaAssistiveListeningSystems
+} from "./assistive-listening-systems";
 export { default as FaAsterisk } from "./asterisk";
 export { default as FaAt } from "./at";
 export { default as FaAudioDescription } from "./audio-description";

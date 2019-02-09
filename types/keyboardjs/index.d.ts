@@ -14,10 +14,9 @@
 // with a locale that better matches your needs.
 
 declare namespace keyboardjs {
-
     /**
-	 * Information and functions in the current callback.
-	 */
+     * Information and functions in the current callback.
+     */
     interface KeyEvent extends KeyboardEvent {
         preventRepeat(): void;
         pressedKeys: string[];
@@ -29,8 +28,8 @@ declare namespace keyboardjs {
      */
     interface Callback {
         /**
-		 * Keyevent
-		 */
+         * Keyevent
+         */
         (e?: KeyEvent): void;
     }
 
@@ -43,7 +42,12 @@ declare namespace keyboardjs {
      * @param released Callback that gets executed when the keyComboState is 'released'
      * @param preventRepeatByDefault Whether or not to prevent repeat by default. Defaults to false.
      */
-    export function bind(keyCombo: string | string[], pressed: Callback, released?: Callback, preventRepeatByDefault?: boolean): void;
+    export function bind(
+        keyCombo: string | string[],
+        pressed: Callback,
+        released?: Callback,
+        preventRepeatByDefault?: boolean
+    ): void;
 
     /**
      * Unbinds a keyCombo completely or only specific pressed & released callback combos.
@@ -51,7 +55,11 @@ declare namespace keyboardjs {
      * @param pressed Callback that gets executed when the keyComboState is 'pressed', can be null.
      * @param released Callback that gets executed when the keyComboState is 'released', can be null.
      */
-    export function unbind(keyCombo: string | string[], pressed?: Callback, released?: Callback): void;
+    export function unbind(
+        keyCombo: string | string[],
+        pressed?: Callback,
+        released?: Callback
+    ): void;
 
     // ---------- Context ---------- //
 
@@ -67,7 +75,10 @@ declare namespace keyboardjs {
      * @param identifier The name of the context the callback should be in. If the context doesn't exists, it will be created.
      * @param inContextCallBack The callback function. Will be executed in the given context.
      */
-    export function withContext(identifier: string, inContextCallBack: () => void): void;
+    export function withContext(
+        identifier: string,
+        inContextCallBack: () => void
+    ): void;
     /**
      * Returns the context KeyboardJS currently operates in.
      */
@@ -101,7 +112,10 @@ declare namespace keyboardjs {
      * @param keyCombo String of keys or keyCode to be released to execute 'released' callbacks.
      * @param event The KeyEvent, can be null.
      */
-    export function releaseKey(keyCombo: string | number, event?: KeyEvent): void;
+    export function releaseKey(
+        keyCombo: string | number,
+        event?: KeyEvent
+    ): void;
     /**
      * Releases all keys.
      */
@@ -114,7 +128,10 @@ declare namespace keyboardjs {
      * @param myWin The window to attach to.
      * @param myDoc The document or form to attach to.
      */
-    export function watch(myWin: Window, myDoc: Document | HTMLFormElement): void;
+    export function watch(
+        myWin: Window,
+        myDoc: Document | HTMLFormElement
+    ): void;
     /**
      * Attaches keyboardJS to the current window and a specific document or form.
      * @param myDoc The document or form to attach to.
@@ -130,6 +147,6 @@ declare namespace keyboardjs {
      */
     export function stop(): void;
 }
-    
+
 export = keyboardjs;
 export as namespace keyboardJS;

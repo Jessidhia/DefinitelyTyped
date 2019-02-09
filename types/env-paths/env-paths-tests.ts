@@ -1,10 +1,10 @@
-import envPaths = require('env-paths');
+import envPaths = require("env-paths");
 
 // $ExpectType Paths
-envPaths('./');
+envPaths("./");
 // $ExpectType Paths
-envPaths('./', {suffix: 'test'});
+envPaths("./", { suffix: "test" });
 // $ExpectType Paths
-envPaths('./', {suffix: false});
+envPaths("./", { suffix: false });
 // $ExpectType Paths
-envPaths('./', {suffix: true});
+envPaths("./", { suffix: true });

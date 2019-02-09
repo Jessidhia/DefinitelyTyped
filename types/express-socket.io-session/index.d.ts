@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import socketio = require('socket.io');
-import express = require('express');
+import socketio = require("socket.io");
+import express = require("express");
 
 declare module "socket.io" {
     interface Handshake {
@@ -17,11 +17,13 @@ declare module "socket.io" {
 declare function sharedsession(
     expressSessionMiddleware: express.RequestHandler,
     cookieParserMiddleware: express.RequestHandler,
-    options?: sharedsession.SharedSessionOptions): sharedsession.SocketIoSharedSessionMiddleware;
+    options?: sharedsession.SharedSessionOptions
+): sharedsession.SocketIoSharedSessionMiddleware;
 
 declare function sharedsession(
     expressSessionMiddleware: express.RequestHandler,
-    options?: sharedsession.SharedSessionOptions): sharedsession.SocketIoSharedSessionMiddleware;
+    options?: sharedsession.SharedSessionOptions
+): sharedsession.SocketIoSharedSessionMiddleware;
 
 declare namespace sharedsession {
     interface SharedSessionOptions {
@@ -29,7 +31,10 @@ declare namespace sharedsession {
         saveUninitialized?: boolean;
     }
 
-    type SocketIoSharedSessionMiddleware = (socket: socketio.Socket, next: (err?: any) => void) => void;
+    type SocketIoSharedSessionMiddleware = (
+        socket: socketio.Socket,
+        next: (err?: any) => void
+    ) => void;
 }
 
 export = sharedsession;

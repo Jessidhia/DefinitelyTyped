@@ -1,4 +1,8 @@
-import JSONEditor, {JSONEditorMode, JSONEditorNode, JSONEditorOptions } from 'jsoneditor';
+import JSONEditor, {
+    JSONEditorMode,
+    JSONEditorNode,
+    JSONEditorOptions
+} from "jsoneditor";
 
 let options: JSONEditorOptions;
 options = {
@@ -13,36 +17,36 @@ options = {
     escapeUnicode: false,
     sortObjectKeys: true,
     history: true,
-    mode: 'tree',
-    modes: ['tree', 'view', 'form', 'code', 'text'],
-    name: 'foo',
+    mode: "tree",
+    modes: ["tree", "view", "form", "code", "text"],
+    name: "foo",
     schema: {},
-    schemaRefs: { "otherSchema": {}},
+    schemaRefs: { otherSchema: {} },
     search: false,
     indentation: 2,
-    theme: 'default'
+    theme: "default"
 };
 options = {
     onEditable(node: JSONEditorNode) {
-        return {field: true, value: false};
+        return { field: true, value: false };
     }
 };
 
 let jsonEditor: JSONEditor;
 jsonEditor = new JSONEditor(document.body);
 jsonEditor = new JSONEditor(document.body, {});
-jsonEditor = new JSONEditor(document.body, options, {foo: 'bar'});
+jsonEditor = new JSONEditor(document.body, options, { foo: "bar" });
 
 jsonEditor.collapseAll();
 jsonEditor.destroy();
 jsonEditor.expandAll();
 jsonEditor.focus();
-jsonEditor.set({foo: 'bar'});
-jsonEditor.setMode('text');
-jsonEditor.setName('foo');
+jsonEditor.set({ foo: "bar" });
+jsonEditor.setMode("text");
+jsonEditor.setName("foo");
 jsonEditor.setName();
 jsonEditor.setSchema({});
-jsonEditor.setText('{foo: 1}');
+jsonEditor.setText("{foo: 1}");
 
 const json: any = jsonEditor.get();
 const name: string = jsonEditor.getName();

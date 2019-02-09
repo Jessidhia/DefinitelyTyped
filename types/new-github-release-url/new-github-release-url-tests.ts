@@ -1,44 +1,44 @@
-import newGithubReleaseUrl = require('new-github-release-url');
+import newGithubReleaseUrl = require("new-github-release-url");
 
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    user: 'sindresorhus',
-    repo: 'new-github-release-url',
+    user: "sindresorhus",
+    repo: "new-github-release-url"
 });
 // $ExpectError
 newGithubReleaseUrl({
-    user: 'sindresorhus',
+    user: "sindresorhus"
 });
 // $ExpectError
 newGithubReleaseUrl({
-    repo: 'new-github-release-url',
+    repo: "new-github-release-url"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    tag: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    tag: "foo"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    target: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    target: "foo"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    title: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    title: "foo"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    body: 'foo',
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    body: "foo"
 });
 // $ExpectType string
 newGithubReleaseUrl({
-    repoUrl: 'https://github.com/sindresorhus/new-github-release-url.git',
-    isPrerelease: true,
+    repoUrl: "https://github.com/sindresorhus/new-github-release-url.git",
+    isPrerelease: true
 });

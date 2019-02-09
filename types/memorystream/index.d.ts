@@ -17,10 +17,7 @@ interface Options {
 }
 
 declare class MemoryStream extends Duplex {
-    constructor(
-        data?: DataType | DataType[],
-        options?: Options,
-    );
+    constructor(data?: DataType | DataType[], options?: Options);
 }
 
 export = MemoryStream;

@@ -16,7 +16,10 @@ declare namespace OfficeRuntime {
      * @param url
      * @param options
      */
-    function displayWebDialog(url: string, options: DisplayWebDialogOptions): Promise<Dialog>;
+    function displayWebDialog(
+        url: string,
+        options: DisplayWebDialogOptions
+    ): Promise<Dialog>;
     /**
      * Asynchronous, global, and persistent key-value storage that can be used by Excel Custom Functions.
      */
@@ -38,37 +41,58 @@ declare namespace OfficeRuntime {
          * @beta
          * Retrieves an object based on a key and invokes a callback when finished. Returns a Promise.
          */
-        getItem(key: string, callback?: (error?: Error, result?: string) => void): Promise<string>;
+        getItem(
+            key: string,
+            callback?: (error?: Error, result?: string) => void
+        ): Promise<string>;
         /**
          * @beta
          * Assigns the value for a key-value pair and invokes a callback when finished. Returns a Promise.
          */
-        setItem(key: string, value: string, callback?: (error?: Error) => void): Promise<void>;
+        setItem(
+            key: string,
+            value: string,
+            callback?: (error?: Error) => void
+        ): Promise<void>;
         /**
          * @beta
          * Removes an item for specified key and invokes a callback when finished. Returns a Promise.
          */
-        removeItem(key: string, callback?: (error?: Error) => void): Promise<void>;
+        removeItem(
+            key: string,
+            callback?: (error?: Error) => void
+        ): Promise<void>;
         /**
          * @beta
          * Returns a Promise with all keys.
          */
-        getAllKeys(callback?: (error?: Error, keys?: string[]) => void): Promise<string[]>;
+        getAllKeys(
+            callback?: (error?: Error, keys?: string[]) => void
+        ): Promise<string[]>;
         /**
          * @beta
          * Stores multiple key-value pairs in one batch. Returns a Promise. When a key doesn't exist, returns null.
          */
-        multiSet(keyValuePairs: string[][], callback?: (errors?: Error[]) => void): Promise<void>;
+        multiSet(
+            keyValuePairs: string[][],
+            callback?: (errors?: Error[]) => void
+        ): Promise<void>;
         /**
          * @beta
          * Deletes a batch of keys, specified in the `keys` array.
          */
-        multiRemove(keys: string[], callback?: (errors?: Error[]) => void): Promise<void>;
+        multiRemove(
+            keys: string[],
+            callback?: (errors?: Error[]) => void
+        ): Promise<void>;
         /**
          * @beta
          * Fetches a batch of keys, specified in the `keys` array. When a key doesn't exist, returns null.
          */
-        multiGet(keys: string[], callback?: (errors?: Error[], result?: string[][]) => void): Promise<string[][]>;
+        multiGet(
+            keys: string[],
+            callback?: (errors?: Error[], result?: string[][]) => void
+        ): Promise<string[][]>;
     }
     /**
      * @beta

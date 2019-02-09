@@ -1,8 +1,8 @@
-import debug = require('electron-debug')
+import debug = require("electron-debug");
 
-debug({enabled: false});
+debug({ enabled: false });
 
-debug({showDevTools: true});
-debug({showDevTools: 'right'});
-debug({showDevTools: 'bottom'});
-debug({showDevTools: 'undocked'});
+debug({ showDevTools: true });
+debug({ showDevTools: "right" });
+debug({ showDevTools: "bottom" });
+debug({ showDevTools: "undocked" });

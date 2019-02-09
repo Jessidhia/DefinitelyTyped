@@ -29,7 +29,7 @@ import {
     globalIdField,
     pluralIdentifyingRootField,
     // Mutations
-    mutationWithClientMutationId,
+    mutationWithClientMutationId
 } from "graphql-relay";
 
 // Connections
@@ -45,7 +45,12 @@ forwardConnectionArgs.first = { type: GraphQLInt };
 backwardConnectionArgs.before = { type: GraphQLString };
 backwardConnectionArgs.last = { type: GraphQLInt };
 // connectionDefinitions returns a connectionType and its associated edgeType, given a node type.
-const resolve: GraphQLFieldResolver<any, any> = (source, args, context, info) => {
+const resolve: GraphQLFieldResolver<any, any> = (
+    source,
+    args,
+    context,
+    info
+) => {
     context.flag = "f";
 };
 const fields: GraphQLFieldConfigMap<any, any> = {};
@@ -57,10 +62,10 @@ const def = connectionDefinitions({
     name: "N",
     nodeType: new GraphQLObjectType({
         name: "N",
-        fields: {},
+        fields: {}
     }),
     resolveCursor: resolve,
-    resolveNode: resolve,
+    resolveNode: resolve
 });
 t = def.connectionType;
 e = def.edgeType;
@@ -70,23 +75,29 @@ const conn = connectionFromArray([1, 2, 3], {
     after: "a",
     before: "b",
     first: 1,
-    last: 5,
+    last: 5
 });
-conn.edges.map((e) => { e.cursor.toLowerCase(); e.node.toExponential(); });
+conn.edges.map(e => {
+    e.cursor.toLowerCase();
+    e.node.toExponential();
+});
 conn.pageInfo.endCursor = "e";
 conn.pageInfo.hasNextPage = true;
 conn.pageInfo.hasPreviousPage = true;
 conn.pageInfo.startCursor = "s";
 // connectionFromPromisedArray is similar to connectionFromArray, but it takes a promise that resolves to an array, and returns a promise that resolves to the expected shape by connectionType.
-const conn2 = connectionFromPromisedArray(new Promise<number[]>((resolve) => {
-    resolve();
-}), {
+const conn2 = connectionFromPromisedArray(
+    new Promise<number[]>(resolve => {
+        resolve();
+    }),
+    {
         after: "a",
         before: "b",
         first: 1,
-        last: 5,
-    });
-conn2.then((res) => {
+        last: 5
+    }
+);
+conn2.then(res => {
     res = conn;
 });
 // cursorForObjectInConnection is a helper method that takes an array and a member object, and returns a cursor for use in the mutation payload.
@@ -94,22 +105,21 @@ cursorForObjectInConnection(["a"], "b").toLowerCase();
 // An example usage of these methods from the test schema:
 const shipType: GraphQLObjectType = new GraphQLObjectType({
     name: "ShipType",
-    fields: {},
+    fields: {}
 });
-const {connectionType: ShipConnection} =
-    connectionDefinitions({ nodeType: shipType });
+const { connectionType: ShipConnection } = connectionDefinitions({
+    nodeType: shipType
+});
 const factionType = new GraphQLObjectType({
     name: "Faction",
     fields: () => ({
         ships: {
             type: ShipConnection,
             args: connectionArgs,
-            resolve: (faction, args) => connectionFromArray(
-                faction.ships.map((id: any) => id),
-                args
-            ),
+            resolve: (faction, args) =>
+                connectionFromArray(faction.ships.map((id: any) => id), args)
         }
-    }),
+    })
 });
 // Object Identification
 // nodeDefinitions returns the Node interface that objects can implement, and returns the node root field to include on the query type.
@@ -117,7 +127,7 @@ const factionType = new GraphQLObjectType({
 const resolver: GraphQLTypeResolver<any, any> = () => {
     return new GraphQLObjectType({
         name: "T",
-        fields: {},
+        fields: {}
     });
 };
 const idFetcher = (id: string, context: any, info: GraphQLResolveInfo) => {
@@ -144,32 +154,36 @@ const prf: GraphQLFieldConfig<any, any> = pluralIdentifyingRootField({
     argName: "a",
     inputType: input,
     outputType: input,
-    resolveSingleInput: (input: any, context: any, info: GraphQLResolveInfo) => {
+    resolveSingleInput: (
+        input: any,
+        context: any,
+        info: GraphQLResolveInfo
+    ) => {
         return "";
     },
-    description: "d",
+    description: "d"
 });
 // An example usage of these methods from the test schema:
-const {nodeInterface, nodeField} = nodeDefinitions(
-    (globalId) => {
-        const {type, id} = fromGlobalId(globalId);
+const { nodeInterface, nodeField } = nodeDefinitions(
+    globalId => {
+        const { type, id } = fromGlobalId(globalId);
         return "data[type][id]";
     },
-    (obj) => {
+    obj => {
         return obj.ships ? factionType : shipType;
     }
 );
 
 const factionType2 = new GraphQLObjectType({
-    name: 'Faction',
+    name: "Faction",
     fields: () => ({
-        id: globalIdField(),
+        id: globalIdField()
     }),
     interfaces: [nodeInterface]
 });
 
 const queryType = new GraphQLObjectType({
-    name: 'Query',
+    name: "Query",
     fields: () => ({
         node: nodeField
     })
@@ -186,17 +200,18 @@ mutationWithClientMutationId({
     mutateAndGetPayload: (
         object: any,
         context: any,
-        info: GraphQLResolveInfo) => {
-        return new Promise<string>((resolve) => {
+        info: GraphQLResolveInfo
+    ) => {
+        return new Promise<string>(resolve => {
             resolve(context.flag);
         });
     },
-    outputFields: gfcm,
+    outputFields: gfcm
 });
 // An example usage of these methods from the test schema:
 const data: any = {};
 const shipMutation = mutationWithClientMutationId({
-    name: 'IntroduceShip',
+    name: "IntroduceShip",
     inputFields: {
         shipName: {
             type: new GraphQLNonNull(GraphQLString)
@@ -208,14 +223,14 @@ const shipMutation = mutationWithClientMutationId({
     outputFields: {
         ship: {
             type: shipType,
-            resolve: (payload) => data['Ship'][payload.shipId]
+            resolve: payload => data["Ship"][payload.shipId]
         },
         faction: {
             type: factionType,
-            resolve: (payload) => data['Faction'][payload.factionId]
+            resolve: payload => data["Faction"][payload.factionId]
         }
     },
-    mutateAndGetPayload: ({shipName, factionId}) => {
+    mutateAndGetPayload: ({ shipName, factionId }) => {
         const newShip = {
             id: "11",
             name: shipName
@@ -224,13 +239,13 @@ const shipMutation = mutationWithClientMutationId({
         // data.Faction[factionId].ships.push(newShip.id);
         return {
             shipId: newShip.id,
-            factionId,
+            factionId
         };
     }
 });
 
 const mutationType = new GraphQLObjectType({
-    name: 'Mutation',
+    name: "Mutation",
     fields: () => ({
         introduceShip: shipMutation
     })

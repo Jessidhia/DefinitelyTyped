@@ -1,5 +1,5 @@
-import Spinner  = require('react-spinkit');
-import * as React from 'react';
+import Spinner = require("react-spinkit");
+import * as React from "react";
 
 // Examples taken from http://kyleamathews.github.io/react-spinkit/
 const spinners = [
@@ -18,6 +18,9 @@ const spinners = [
 
     // Spinner options
     <Spinner spinnerName="wordpress" noFadeIn />,
-    <Spinner spinnerName="wordpress" overrideSpinnerClassName="my-class-to-override" />,
-    <Spinner spinnerName="wordpress" className="my-class" />,
+    <Spinner
+        spinnerName="wordpress"
+        overrideSpinnerClassName="my-class-to-override"
+    />,
+    <Spinner spinnerName="wordpress" className="my-class" />
 ];

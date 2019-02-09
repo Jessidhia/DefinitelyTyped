@@ -1,4 +1,4 @@
-import pDoWhilst = require('p-do-whilst');
+import pDoWhilst = require("p-do-whilst");
 
 let count = 0;
 

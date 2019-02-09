@@ -1,15 +1,15 @@
-import cpy = require('cpy');
+import cpy = require("cpy");
 
-cpy(['src/*.png', '!src/goat.png'], 'dist').then(() => {});
-cpy('foo.js', 'destination', {
+cpy(["src/*.png", "!src/goat.png"], "dist").then(() => {});
+cpy("foo.js", "destination", {
     rename: basename => `prefix-${basename}`,
-    cwd: '/',
+    cwd: "/",
     parents: true,
     stat: true,
-    overwrite: false,
+    overwrite: false
 });
-cpy('foo.js', 'destination')
-    .on('progress', progress => {
+cpy("foo.js", "destination")
+    .on("progress", progress => {
         let num: number;
         num = progress.completedFiles;
         num = progress.totalFiles;

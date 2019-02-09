@@ -6,13 +6,13 @@
  * are not intended as functional tests.
  */
 
-import * as d3ScaleChromatic from 'd3-scale-chromatic';
+import * as d3ScaleChromatic from "d3-scale-chromatic";
 
 // -----------------------------------------------------------------------
 // Preparatory Steps
 // -----------------------------------------------------------------------
 
-let colorInterpolator: ((t: number) => string);
+let colorInterpolator: (t: number) => string;
 let simpleScheme: ReadonlyArray<string>;
 let nestedScheme: ReadonlyArray<ReadonlyArray<string>>;
 
@@ -138,7 +138,9 @@ const Rainbow: string = d3ScaleChromatic.interpolateRainbow(0.7);
 const Sinebow: string = d3ScaleChromatic.interpolateSinebow(0.7);
 const Warm: string = d3ScaleChromatic.interpolateWarm(0.7);
 const Cool: string = d3ScaleChromatic.interpolateCool(0.7);
-const CubehelixDefault: string = d3ScaleChromatic.interpolateCubehelixDefault(0.7);
+const CubehelixDefault: string = d3ScaleChromatic.interpolateCubehelixDefault(
+    0.7
+);
 
 colorInterpolator = d3ScaleChromatic.interpolateBuGn;
 colorInterpolator = d3ScaleChromatic.interpolateBuPu;

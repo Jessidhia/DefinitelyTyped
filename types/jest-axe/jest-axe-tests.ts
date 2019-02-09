@@ -9,9 +9,9 @@ const newJestWithOptions: JestAxe = configureAxe({
     iframes: false,
     rules: {},
     runOnly: {
-        type: "rules",
+        type: "rules"
     },
-    selectors: false,
+    selectors: false
 });
 
 const sameJest: JestAxe = axe;

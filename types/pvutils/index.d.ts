@@ -3,7 +3,7 @@
 // Definitions by: Stepan Miroshin <https://github.com/microshine>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-export = PvUtils
+export = PvUtils;
 
 declare namespace PvUtils {
     /**
@@ -19,7 +19,11 @@ declare namespace PvUtils {
      * @param {string} name
      * @param defaultValue
      */
-    function getParametersValue<T>(parameters: any, name: string, defaultValue?: T): T;
+    function getParametersValue<T>(
+        parameters: any,
+        name: string,
+        defaultValue?: T
+    ): T;
 
     /**
      * Converts "ArrayBuffer" into a hexdecimal string
@@ -28,7 +32,11 @@ declare namespace PvUtils {
      * @param {number} [inputLength=inputBuffer.byteLength]
      * @returns {string}
      */
-    function bufferToHexCodes(inputBuffer: ArrayBuffer, inputOffset?: number, inputLength?: number): string;
+    function bufferToHexCodes(
+        inputBuffer: ArrayBuffer,
+        inputOffset?: number,
+        inputLength?: number
+    ): string;
 
     /**
      * Check input "ArrayBuffer" for common functions
@@ -38,7 +46,12 @@ declare namespace PvUtils {
      * @param {number} inputLength
      * @returns {boolean}
      */
-    function checkBufferParams(baseBlock: any, inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): boolean;
+    function checkBufferParams(
+        baseBlock: any,
+        inputBuffer: ArrayBuffer,
+        inputOffset: number,
+        inputLength: number
+    ): boolean;
 
     /**
      * Convert number from 2^base to 2^10
@@ -55,7 +68,11 @@ declare namespace PvUtils {
      * @param {number} [reserved=0] Pre-defined number of bytes in output array (-1 = limited by function itself)
      * @returns {ArrayBuffer}
      */
-    function utilToBase(value: number, base: number, reserved?: number): ArrayBuffer;
+    function utilToBase(
+        value: number,
+        base: number,
+        reserved?: number
+    ): ArrayBuffer;
 
     /**
      * Concatenate two ArrayBuffers
@@ -84,7 +101,10 @@ declare namespace PvUtils {
      * @param {!ArrayBuffer} inputBuffer2
      * @returns {boolean}
      */
-    function isEqualBuffer(inputBuffer1: ArrayBuffer, inputBuffer2: ArrayBuffer): boolean;
+    function isEqualBuffer(
+        inputBuffer1: ArrayBuffer,
+        inputBuffer2: ArrayBuffer
+    ): boolean;
 
     /**
      * Pad input number with leade "0" if needed
@@ -101,7 +121,11 @@ declare namespace PvUtils {
      * @param {boolean} [skipPadding = false] skipPadding Skip BASE-64 padding or not
      * @returns {string}
      */
-    function toBase64(input: string, useUrlTemplate?: boolean, skipPadding?: boolean): string;
+    function toBase64(
+        input: string,
+        useUrlTemplate?: boolean,
+        skipPadding?: boolean
+    ): string;
 
     /**
      * Decode string from BASE64 (or "base64url")
@@ -110,7 +134,11 @@ declare namespace PvUtils {
      * @param {boolean} [cutTailZeros=false] If "true" then cut tailing zeroz from function result
      * @returns {string}
      */
-    function fromBase64(input: string, useUrlTemplate?: boolean, cutTailZeros?: boolean): string;
+    function fromBase64(
+        input: string,
+        useUrlTemplate?: boolean,
+        cutTailZeros?: boolean
+    ): string;
 
     function arrayBufferToString(buffer: BufferSource): string;
     function stringToArrayBuffer(str: string): ArrayBuffer;

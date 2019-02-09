@@ -1,9 +1,13 @@
-import * as highcharts from 'highcharts';
-import * as geojson from 'geojson';
+import * as highcharts from "highcharts";
+import * as geojson from "geojson";
 
-declare module 'highcharts' {
+declare module "highcharts" {
     interface Static {
-        mapChart(renderTo: string | HTMLElement, options: MapOptions, callback?: (chart: ChartObject) => void): ChartObject;
+        mapChart(
+            renderTo: string | HTMLElement,
+            options: MapOptions,
+            callback?: (chart: ChartObject) => void
+        ): ChartObject;
     }
 
     interface MapOptions {
@@ -18,7 +22,11 @@ declare module 'highcharts' {
     }
 
     interface MapSeriesOptions {
-        data?: number[] | Array<[number, number]> | Array<[string, number]> |  DataPoint[];
+        data?:
+            | number[]
+            | Array<[number, number]>
+            | Array<[string, number]>
+            | DataPoint[];
 
         dataLabels?: MapSeriesOptionsDataLabels;
 

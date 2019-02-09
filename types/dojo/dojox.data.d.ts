@@ -3,10 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
-
     namespace data {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/data/restListener.html
@@ -15,7 +12,9 @@ declare namespace dojox {
          *
          * @param message
          */
-        interface restListener{(message: any): void}
+        interface restListener {
+            (message: any): void;
+        }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/data/AndOrReadStore.html
          *
@@ -87,7 +86,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -101,7 +100,11 @@ declare namespace dojox {
              * @param attribute
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              *
              * @param type
@@ -166,7 +169,11 @@ declare namespace dojox {
              * @param arrayOfItems
              * @param findCallback
              */
-            filter(requestArgs: any, arrayOfItems: any, findCallback: any): void;
+            filter(
+                requestArgs: any,
+                arrayOfItems: any,
+                findCallback: any
+            ): void;
             /**
              * See dojo/data/api/Read.getAttributes()
              *
@@ -209,7 +216,11 @@ declare namespace dojox {
              * @param attribute
              * @param defaultValue               Optional
              */
-            getValue(item: dojo.data.api.Item, attribute: String, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                defaultValue: any
+            ): any;
             /**
              * See dojo/data/api/Read.getValues()
              *
@@ -255,7 +266,8 @@ declare namespace dojox {
          *
          * @param keywordParameters The structure of the typeMap object is as follows:{    type0: function || object,    type1: function || object,    ...    typeN: function || object}Where if it is a function, it is assumed to be an object constructor that takes thevalue of _value as the initialization parameters.  It is serialized assuming object.toString()serialization.  If it is an object, then it is assumedto be an object of general form:{    type: function, //constructor.    deserialize:    function(value) //The function that parses the value and constructs the object defined by type appropriately.    serialize:  function(object) //The function that converts the object back into the proper file format form.}
          */
-        class AndOrWriteStore extends dojo.data.ItemFileWriteStore implements dojox.data.AndOrReadStore {
+        class AndOrWriteStore extends dojo.data.ItemFileWriteStore
+            implements dojox.data.AndOrReadStore {
             constructor(keywordParameters: Object);
             /**
              * Parameter to allow users to specify if a close call should force a reload or not.
@@ -318,7 +330,11 @@ declare namespace dojox {
              * @param attribute
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              * See dojo/data/api/Write.deleteItem()
              *
@@ -390,7 +406,11 @@ declare namespace dojox {
              * @param arrayOfItems
              * @param findCallback
              */
-            filter(requestArgs: Object, arrayOfItems: any[], findCallback: Function): void;
+            filter(
+                requestArgs: Object,
+                arrayOfItems: any[],
+                findCallback: Function
+            ): void;
             /**
              * See dojo/data/api/Read.getAttributes()
              *
@@ -433,7 +453,11 @@ declare namespace dojox {
              * @param attribute
              * @param defaultValue               Optional
              */
-            getValue(item: dojo.data.api.Item, attribute: String, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                defaultValue: any
+            ): any;
             /**
              * See dojo/data/api/Read.getValues()
              *
@@ -503,7 +527,11 @@ declare namespace dojox {
              * @param attribute
              * @param value
              */
-            setValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            setValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              * See dojo/data/api/Write.setValues()
              *
@@ -511,7 +539,11 @@ declare namespace dojox {
              * @param attribute
              * @param values
              */
-            setValues(item: dojo.data.api.Item, attribute: String, values: any[]): any;
+            setValues(
+                item: dojo.data.api.Item,
+                attribute: String,
+                values: any[]
+            ): any;
             /**
              * See dojo/data/api/Write.unsetAttribute()
              *
@@ -540,7 +572,12 @@ declare namespace dojox {
              * @param oldValue
              * @param newValue
              */
-            onSet(item: dojo.data.api.Item, attribute: String, oldValue: Object, newValue: Object): void;
+            onSet(
+                item: dojo.data.api.Item,
+                attribute: String,
+                oldValue: Object,
+                newValue: Object
+            ): void;
             /**
              * See dojo/data/api/Notification.onSet()
              *
@@ -549,7 +586,12 @@ declare namespace dojox {
              * @param oldValue
              * @param newValue
              */
-            onSet(item: dojo.data.api.Item, attribute: String, oldValue: any[], newValue: Object): void;
+            onSet(
+                item: dojo.data.api.Item,
+                attribute: String,
+                oldValue: any[],
+                newValue: Object
+            ): void;
             /**
              * See dojo/data/api/Notification.onSet()
              *
@@ -558,7 +600,12 @@ declare namespace dojox {
              * @param oldValue
              * @param newValue
              */
-            onSet(item: dojo.data.api.Item, attribute: String, oldValue: Object, newValue: any[]): void;
+            onSet(
+                item: dojo.data.api.Item,
+                attribute: String,
+                oldValue: Object,
+                newValue: any[]
+            ): void;
             /**
              * See dojo/data/api/Notification.onSet()
              *
@@ -567,7 +614,12 @@ declare namespace dojox {
              * @param oldValue
              * @param newValue
              */
-            onSet(item: dojo.data.api.Item, attribute: String, oldValue: any[], newValue: any[]): void;
+            onSet(
+                item: dojo.data.api.Item,
+                attribute: String,
+                oldValue: any[],
+                newValue: any[]
+            ): void;
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/data/AppStore.html
@@ -597,7 +649,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -783,7 +835,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -797,7 +849,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: Attr, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                value: any
+            ): any;
             /**
              * Check whether the attribute values contain the value
              *
@@ -805,7 +861,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              * Return an array of attribute names
              * 'item' must be have been created by the AtomReadStore instance.
@@ -862,7 +922,11 @@ declare namespace dojox {
              * @param attribute A attribute of the Atom Entry
              * @param defaultValue               OptionalA default value
              */
-            getValue(item: dojo.data.api.Item, attribute: Attr, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                defaultValue: any
+            ): any;
             /**
              * Return an attribute value
              * 'item' must be an instance of an object created by the AtomReadStore instance.
@@ -873,7 +937,11 @@ declare namespace dojox {
              * @param attribute A attribute of the Atom Entry
              * @param defaultValue               OptionalA default value
              */
-            getValue(item: dojo.data.api.Item, attribute: String, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                defaultValue: any
+            ): any;
             /**
              * Return an attribute value
              * 'item' must be an instance of an object created by the AtomReadStore instance.
@@ -992,7 +1060,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -1595,7 +1663,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -2379,7 +2447,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -2545,7 +2613,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -2694,7 +2762,8 @@ declare namespace dojox {
          *
          * @param options Keyword argumentsThe schema parameterThis is a schema object for this store. This should be JSON Schema format.The service parameterThis is the service object that is used to retrieve lazy data and save resultsThe function should be directly callable with a single parameter of an object id to be loadedThe function should also have the following methods:put(id,value) - puts the value at the given idpost(id,value) - posts (appends) the value at the given iddelete(id) - deletes the value corresponding to the given idNote that it is critical that the service parses responses as JSON.If you are using dojox.rpc.Service, the easiest way to make sure thishappens is to make the responses have a content type ofapplication/json. If you are creating your own service, make sure youuse handleAs: "json" with your XHR requests.The target parameterThis is the target URL for this Service store. This may be used in placeof a service parameter to connect directly to RESTful URL withoutusing a dojox.rpc.Service object.The idAttribute parameterDefaults to 'id'. The name of the attribute that holds an objects id.This can be a preexisting id provided by the server.If an ID isn't already provided when an objectis fetched or added to the store, the autoIdentity systemwill generate an id for it and add it to the index.The syncMode parameterSetting this to true will set the store to using synchronous calls by default.Sync calls return their data immediately from the calling function, socallbacks are unnecessary
          */
-        class JsonQueryRestStore extends dojox.data.JsonRestStore implements dojox.data.util.JsonQuery {
+        class JsonQueryRestStore extends dojox.data.JsonRestStore
+            implements dojox.data.util.JsonQuery {
             constructor(options?: any);
             /**
              * Allow no trailing slash on target paths. This is generally discouraged since
@@ -3346,7 +3415,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -3716,7 +3785,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -4125,7 +4194,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              *
              * @param request               Optional
@@ -5051,7 +5120,7 @@ declare namespace dojox {
              *
              * @param request               Optional
              */
-            close(request: dojo.data.api.Request ): void;
+            close(request: dojo.data.api.Request): void;
             /**
              * See dojo/data/api/Read.close()
              *
@@ -5065,7 +5134,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: Attr, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                value: any
+            ): any;
             /**
              * Check whether the attribute values contain the value
              *
@@ -5073,7 +5146,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value
              */
-            containsValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            containsValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              * Delete an dojox.data.XmlItem (wrapper to a XML element).
              *
@@ -5201,7 +5278,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param defaultValue               OptionalA default value
              */
-            getValue(item: dojo.data.api.Item, attribute: Attr, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                defaultValue: any
+            ): any;
             /**
              * Return an attribute value
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -5223,7 +5304,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param defaultValue               OptionalA default value
              */
-            getValue(item: dojo.data.api.Item, attribute: String, defaultValue: any): any;
+            getValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                defaultValue: any
+            ): any;
             /**
              * Return an array of attribute values
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -5352,7 +5437,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value A attribute value to set
              */
-            setValue(item: dojo.data.api.Item, attribute: Attr, value: any): any;
+            setValue(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                value: any
+            ): any;
             /**
              * Set an attribute value
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -5375,7 +5464,11 @@ declare namespace dojox {
              * @param attribute A tag name of a child element, An XML attribute name or one ofspecial names
              * @param value A attribute value to set
              */
-            setValue(item: dojo.data.api.Item, attribute: String, value: any): any;
+            setValue(
+                item: dojo.data.api.Item,
+                attribute: String,
+                value: any
+            ): any;
             /**
              * Set attribute values
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -5398,7 +5491,11 @@ declare namespace dojox {
              * @param attribute A tag name of child elements, an XML attribute name or one ofspecial names
              * @param values
              */
-            setValues(item: dojo.data.api.Item, attribute: Attr, values: any[]): any;
+            setValues(
+                item: dojo.data.api.Item,
+                attribute: Attr,
+                values: any[]
+            ): any;
             /**
              * Set attribute values
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -5421,7 +5518,11 @@ declare namespace dojox {
              * @param attribute A tag name of child elements, an XML attribute name or one ofspecial names
              * @param values
              */
-            setValues(item: dojo.data.api.Item, attribute: String, values: any[]): any;
+            setValues(
+                item: dojo.data.api.Item,
+                attribute: String,
+                values: any[]
+            ): any;
             /**
              * Remove an attribute
              * 'item' must be an instance of a dojox.data.XmlItem from the store instance.
@@ -6594,188 +6695,186 @@ declare namespace dojox {
                 loadItem(keywordArgs: any): void;
             }
         }
-
     }
-
 }
 
 declare module "dojox/data/restListener" {
-    var exp: dojox.data.restListener
-    export=exp;
+    var exp: dojox.data.restListener;
+    export = exp;
 }
 declare module "dojox/data/css" {
-    var exp: dojox.data.css
-    export=exp;
+    var exp: dojox.data.css;
+    export = exp;
 }
 declare module "dojox/data/css.rules" {
-    var exp: dojox.data.css.rules
-    export=exp;
+    var exp: dojox.data.css.rules;
+    export = exp;
 }
 declare module "dojox/data/dom" {
-    var exp: dojox.data.dom
-    export=exp;
+    var exp: dojox.data.dom;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore" {
-    var exp: dojox.data.GoogleSearchStore
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.ImageSearch" {
-    var exp: dojox.data.GoogleSearchStore.ImageSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.ImageSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.BookSearch" {
-    var exp: dojox.data.GoogleSearchStore.BookSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.BookSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.LocalSearch" {
-    var exp: dojox.data.GoogleSearchStore.LocalSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.LocalSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.BlogSearch" {
-    var exp: dojox.data.GoogleSearchStore.BlogSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.BlogSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.VideoSearch" {
-    var exp: dojox.data.GoogleSearchStore.VideoSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.VideoSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.Search" {
-    var exp: dojox.data.GoogleSearchStore.Search
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.Search;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.WebSearch" {
-    var exp: dojox.data.GoogleSearchStore.WebSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.WebSearch;
+    export = exp;
 }
 declare module "dojox/data/GoogleSearchStore.NewsSearch" {
-    var exp: dojox.data.GoogleSearchStore.NewsSearch
-    export=exp;
+    var exp: dojox.data.GoogleSearchStore.NewsSearch;
+    export = exp;
 }
 declare module "dojox/data/AndOrReadStore" {
-    var exp: dojox.data.AndOrReadStore
-    export=exp;
+    var exp: dojox.data.AndOrReadStore;
+    export = exp;
 }
 declare module "dojox/data/AppStore" {
-    var exp: dojox.data.AppStore
-    export=exp;
+    var exp: dojox.data.AppStore;
+    export = exp;
 }
 declare module "dojox/data/AndOrWriteStore" {
-    var exp: dojox.data.AndOrWriteStore
-    export=exp;
+    var exp: dojox.data.AndOrWriteStore;
+    export = exp;
 }
 declare module "dojox/data/AtomReadStore" {
-    var exp: dojox.data.AtomReadStore
-    export=exp;
+    var exp: dojox.data.AtomReadStore;
+    export = exp;
 }
 declare module "dojox/data/ClientFilter" {
-    var exp: dojox.data.ClientFilter
-    export=exp;
+    var exp: dojox.data.ClientFilter;
+    export = exp;
 }
 declare module "dojox/data/CouchDBRestStore" {
-    var exp: dojox.data.CouchDBRestStore
-    export=exp;
+    var exp: dojox.data.CouchDBRestStore;
+    export = exp;
 }
 declare module "dojox/data/CdfStore" {
-    var exp: dojox.data.CdfStore
-    export=exp;
+    var exp: dojox.data.CdfStore;
+    export = exp;
 }
 declare module "dojox/data/CssRuleStore" {
-    var exp: dojox.data.CssRuleStore
-    export=exp;
+    var exp: dojox.data.CssRuleStore;
+    export = exp;
 }
 declare module "dojox/data/CssClassStore" {
-    var exp: dojox.data.CssClassStore
-    export=exp;
+    var exp: dojox.data.CssClassStore;
+    export = exp;
 }
 declare module "dojox/data/CsvStore" {
-    var exp: dojox.data.CsvStore
-    export=exp;
+    var exp: dojox.data.CsvStore;
+    export = exp;
 }
 declare module "dojox/data/FileStore" {
-    var exp: dojox.data.FileStore
-    export=exp;
+    var exp: dojox.data.FileStore;
+    export = exp;
 }
 declare module "dojox/data/FlickrRestStore" {
-    var exp: dojox.data.FlickrRestStore
-    export=exp;
+    var exp: dojox.data.FlickrRestStore;
+    export = exp;
 }
 declare module "dojox/data/GoogleFeedStore" {
-    var exp: dojox.data.GoogleFeedStore
-    export=exp;
+    var exp: dojox.data.GoogleFeedStore;
+    export = exp;
 }
 declare module "dojox/data/FlickrStore" {
-    var exp: dojox.data.FlickrStore
-    export=exp;
+    var exp: dojox.data.FlickrStore;
+    export = exp;
 }
 declare module "dojox/data/HtmlStore" {
-    var exp: dojox.data.HtmlStore
-    export=exp;
+    var exp: dojox.data.HtmlStore;
+    export = exp;
 }
 declare module "dojox/data/HtmlTableStore" {
-    var exp: dojox.data.HtmlTableStore
-    export=exp;
+    var exp: dojox.data.HtmlTableStore;
+    export = exp;
 }
 declare module "dojox/data/KeyValueStore" {
-    var exp: dojox.data.KeyValueStore
-    export=exp;
+    var exp: dojox.data.KeyValueStore;
+    export = exp;
 }
 declare module "dojox/data/JsonRestStore" {
-    var exp: dojox.data.JsonRestStore
-    export=exp;
+    var exp: dojox.data.JsonRestStore;
+    export = exp;
 }
 declare module "dojox/data/JsonQueryRestStore" {
-    var exp: dojox.data.JsonQueryRestStore
-    export=exp;
+    var exp: dojox.data.JsonQueryRestStore;
+    export = exp;
 }
 declare module "dojox/data/PersevereStore" {
-    var exp: dojox.data.PersevereStore
-    export=exp;
+    var exp: dojox.data.PersevereStore;
+    export = exp;
 }
 declare module "dojox/data/OpenSearchStore" {
-    var exp: dojox.data.OpenSearchStore
-    export=exp;
+    var exp: dojox.data.OpenSearchStore;
+    export = exp;
 }
 declare module "dojox/data/PicasaStore" {
-    var exp: dojox.data.PicasaStore
-    export=exp;
+    var exp: dojox.data.PicasaStore;
+    export = exp;
 }
 declare module "dojox/data/OpmlStore" {
-    var exp: dojox.data.OpmlStore
-    export=exp;
+    var exp: dojox.data.OpmlStore;
+    export = exp;
 }
 declare module "dojox/data/RailsStore" {
-    var exp: dojox.data.RailsStore
-    export=exp;
+    var exp: dojox.data.RailsStore;
+    export = exp;
 }
 declare module "dojox/data/QueryReadStore" {
-    var exp: dojox.data.QueryReadStore
-    export=exp;
+    var exp: dojox.data.QueryReadStore;
+    export = exp;
 }
 declare module "dojox/data/S3Store" {
-    var exp: dojox.data.S3Store
-    export=exp;
+    var exp: dojox.data.S3Store;
+    export = exp;
 }
 declare module "dojox/data/SnapLogicStore" {
-    var exp: dojox.data.SnapLogicStore
-    export=exp;
+    var exp: dojox.data.SnapLogicStore;
+    export = exp;
 }
 declare module "dojox/data/XmlItem" {
-    var exp: dojox.data.XmlItem
-    export=exp;
+    var exp: dojox.data.XmlItem;
+    export = exp;
 }
 declare module "dojox/data/ServiceStore" {
-    var exp: dojox.data.ServiceStore
-    export=exp;
+    var exp: dojox.data.ServiceStore;
+    export = exp;
 }
 declare module "dojox/data/WikipediaStore" {
-    var exp: dojox.data.WikipediaStore
-    export=exp;
+    var exp: dojox.data.WikipediaStore;
+    export = exp;
 }
 declare module "dojox/data/XmlStore" {
-    var exp: dojox.data.XmlStore
-    export=exp;
+    var exp: dojox.data.XmlStore;
+    export = exp;
 }
 declare module "dojox/data/util/JsonQuery" {
-    var exp: dojox.data.util.JsonQuery
-    export=exp;
+    var exp: dojox.data.util.JsonQuery;
+    export = exp;
 }

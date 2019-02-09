@@ -1,10 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "experimentalDecorators": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
@@ -12,23 +9,14 @@
         "strictFunctionTypes": true,
         "jsx": "react",
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "redux-form": [
-                "redux-form/v6"
-            ],
-            "redux-form/*": [
-                "redux-form/v6/*"
-            ]
+            "redux-form": ["redux-form/v6"],
+            "redux-form/*": ["redux-form/v6/*"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "redux-form-tests.tsx"
-    ]
+    "files": ["index.d.ts", "redux-form-tests.tsx"]
 }

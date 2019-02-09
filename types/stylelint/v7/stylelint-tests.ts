@@ -1,4 +1,11 @@
-import { LinterOptions, FormatterType, SyntaxType, lint, LintResult, LinterResult } from "stylelint";
+import {
+    LinterOptions,
+    FormatterType,
+    SyntaxType,
+    lint,
+    LintResult,
+    LinterResult
+} from "stylelint";
 
 const options: LinterOptions = {
     code: "div { color: red }",

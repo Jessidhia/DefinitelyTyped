@@ -1,4 +1,4 @@
-import allPropertyNames = require('all-property-names');
+import allPropertyNames = require("all-property-names");
 
 // $ExpectType Set<string>
 allPropertyNames(Symbol.prototype);

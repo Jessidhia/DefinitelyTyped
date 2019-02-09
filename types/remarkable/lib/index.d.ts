@@ -27,7 +27,10 @@ declare class Remarkable {
      * Remarkable offers some "presets" as a convenience to quickly enable/disable
      * active syntax rules and options for common use cases.
      */
-    constructor(preset: "commonmark" | "full" | "remarkable", options?: Remarkable.Options);
+    constructor(
+        preset: "commonmark" | "full" | "remarkable",
+        options?: Remarkable.Options
+    );
 
     /**
      * `"# Remarkable rulezz!"` => `"<h1>Remarkable rulezz!</h1>"`
@@ -127,71 +130,76 @@ declare namespace Remarkable {
     interface Presets {
         components: {
             [name: string]: {
-                rules: Rules,
-            },
+                rules: Rules;
+            };
         };
 
         options: Options;
     }
 
     interface StateBlock {
-      src: string;
-      /** Shortcuts to simplify nested calls */
-      parser: ParserBlock;
-      options: Options;
-      env: Env;
-      tokens: [ContentToken];
-      bMarks: number[];
-      eMarks: number[];
-      tShift: number[];
-      /** required block content indent */
-      blkIndent: number;
-      /** line index in src */
-      line: number;
-      /** lines count */
-      lineMax: number;
-      /** loose/tight mode for lists */
-      tight: boolean;
-      /** If `list`, block parser stops on two newlines */
-      parentType: 'root' | 'list';
-      /** Indent of the current dd block, -1 if there isn't any */
-      ddIndent: number;
-      level: number;
-      result: string;
-      isEmpty: (line: number) => boolean;
-      skipEmptyLines: (from: number) => number;
-      skipSpaces: (pos: number) => number;
-      skipChars: (pos: number, code: number) => number;
-      getLines: (begin: number, end: number, indent: number, keepLastLF: boolean) => string;
+        src: string;
+        /** Shortcuts to simplify nested calls */
+        parser: ParserBlock;
+        options: Options;
+        env: Env;
+        tokens: [ContentToken];
+        bMarks: number[];
+        eMarks: number[];
+        tShift: number[];
+        /** required block content indent */
+        blkIndent: number;
+        /** line index in src */
+        line: number;
+        /** lines count */
+        lineMax: number;
+        /** loose/tight mode for lists */
+        tight: boolean;
+        /** If `list`, block parser stops on two newlines */
+        parentType: "root" | "list";
+        /** Indent of the current dd block, -1 if there isn't any */
+        ddIndent: number;
+        level: number;
+        result: string;
+        isEmpty: (line: number) => boolean;
+        skipEmptyLines: (from: number) => number;
+        skipSpaces: (pos: number) => number;
+        skipChars: (pos: number, code: number) => number;
+        getLines: (
+            begin: number,
+            end: number,
+            indent: number,
+            keepLastLF: boolean
+        ) => string;
     }
     interface StateInline {
-      src: string;
-      env: Env;
-      parser: ParserInline;
-      tokens: [ContentToken];
-      pos: number;
-      posMax: number;
-      level: number;
-      pending: string;
-      pendingLevel: number;
-      /** Set true when seek link label */
-      isInLabel: boolean;
-      /**
-       * Increment for each nesting link.
-       * Used to prevent nesting in definitions.
-       */
-      linkLevel: number;
-      /**
-       * Temporary storage for link url.
-       */
-      linkContent: string;
+        src: string;
+        env: Env;
+        parser: ParserInline;
+        tokens: [ContentToken];
+        pos: number;
+        posMax: number;
+        level: number;
+        pending: string;
+        pendingLevel: number;
+        /** Set true when seek link label */
+        isInLabel: boolean;
+        /**
+         * Increment for each nesting link.
+         * Used to prevent nesting in definitions.
+         */
+        linkLevel: number;
+        /**
+         * Temporary storage for link url.
+         */
+        linkContent: string;
 
-      /**
-       * Track unpaired `[` for link labels.
-       */
-      labelUnmatchedScopes: number;
-      push: (token: ContentToken) => void;
-      pushPending: () => void;
+        /**
+         * Track unpaired `[` for link labels.
+         */
+        labelUnmatchedScopes: number;
+        push: (token: ContentToken) => void;
+        pushPending: () => void;
     }
 
     /**
@@ -199,12 +207,12 @@ declare namespace Remarkable {
      * in the input as one if its tokens.
      */
     type CoreParsingRule = (
-      /**
-       * Representation of the current input stream, and the results of
-       * parsing it so far.
-       */
-      state: StateInline,
-  ) => boolean;
+        /**
+         * Representation of the current input stream, and the results of
+         * parsing it so far.
+         */
+        state: StateInline
+    ) => boolean;
 
     /**
      * Return `true` if the parsing function has recognized the current position
@@ -216,7 +224,6 @@ declare namespace Remarkable {
          * parsing it so far.
          */
         state: StateInline,
-
         /**
          * If `true` we just do the recognition part, and don't bother to push a
          * token.
@@ -234,17 +241,14 @@ declare namespace Remarkable {
          * parsing it so far.
          */
         state: StateBlock,
-
         /**
          * The index of the current line.
          */
         startLine: number,
-
         /**
          * The index of the last available line.
          */
         endLine: number,
-
         /**
          * If `true` we just do the recognition part, and don't bother to push a
          * token.
@@ -257,87 +261,84 @@ declare namespace Remarkable {
          * The list of tokens currently being processed.
          */
         tokens: ContentToken[],
-
         /**
          * The index of the token currently being processed.
          */
         idx: number,
-
         /**
          * The options given to remarkable.
          */
         options: Options,
-
         /**
          * The key-value store created by the parsing rules.
          */
-        env: Env,
+        env: Env
     ) => string;
 
     interface Rules {
         [name: string]: Rule;
-        "blockquote_open": Rule;
-        "blockquote_close": Rule;
-        "code": Rule;
-        "fence": Rule;
-        "fence_custom": Rule;
-        "heading_open": Rule;
-        "heading_close": Rule;
-        "hr": Rule;
-        "bullet_list_open": Rule;
-        "bullet_list_close": Rule;
-        "list_item_open": Rule;
-        "list_item_close": Rule;
-        "ordered_list_open": Rule;
-        "ordered_list_close": Rule;
-        "paragraph_open": Rule;
-        "paragraph_close": Rule;
-        "link_open": Rule;
-        "link_close": Rule;
-        "image": Rule;
-        "table_open": Rule;
-        "table_close": Rule;
-        "thead_open": Rule;
-        "thead_close": Rule;
-        "tbody_open": Rule;
-        "tbody_close": Rule;
-        "tr_open": Rule;
-        "tr_close": Rule;
-        "th_open": Rule;
-        "th_close": Rule;
-        "td_open": Rule;
-        "td_close": Rule;
-        "strong_open": Rule;
-        "strong_close": Rule;
-        "em_open": Rule;
-        "em_close": Rule;
-        "del_open": Rule;
-        "del_close": Rule;
-        "ins_open": Rule;
-        "ins_close": Rule;
-        "mark_open": Rule;
-        "mark_close": Rule;
-        "sub": Rule;
-        "sup": Rule;
-        "hardbreak": Rule;
-        "softbreak": Rule;
-        "text": Rule;
-        "htmlblock": Rule;
-        "htmltag": Rule;
-        "abbr_open": Rule;
-        "abbr_close": Rule;
-        "footnote_ref": Rule;
-        "footnote_block_open": Rule;
-        "footnote_block_close": Rule;
-        "footnote_open": Rule;
-        "footnote_close": Rule;
-        "footnote_anchor": Rule;
-        "dl_open": Rule;
-        "dt_open": Rule;
-        "dd_open": Rule;
-        "dl_close": Rule;
-        "dt_close": Rule;
-        "dd_close": Rule;
+        blockquote_open: Rule;
+        blockquote_close: Rule;
+        code: Rule;
+        fence: Rule;
+        fence_custom: Rule;
+        heading_open: Rule;
+        heading_close: Rule;
+        hr: Rule;
+        bullet_list_open: Rule;
+        bullet_list_close: Rule;
+        list_item_open: Rule;
+        list_item_close: Rule;
+        ordered_list_open: Rule;
+        ordered_list_close: Rule;
+        paragraph_open: Rule;
+        paragraph_close: Rule;
+        link_open: Rule;
+        link_close: Rule;
+        image: Rule;
+        table_open: Rule;
+        table_close: Rule;
+        thead_open: Rule;
+        thead_close: Rule;
+        tbody_open: Rule;
+        tbody_close: Rule;
+        tr_open: Rule;
+        tr_close: Rule;
+        th_open: Rule;
+        th_close: Rule;
+        td_open: Rule;
+        td_close: Rule;
+        strong_open: Rule;
+        strong_close: Rule;
+        em_open: Rule;
+        em_close: Rule;
+        del_open: Rule;
+        del_close: Rule;
+        ins_open: Rule;
+        ins_close: Rule;
+        mark_open: Rule;
+        mark_close: Rule;
+        sub: Rule;
+        sup: Rule;
+        hardbreak: Rule;
+        softbreak: Rule;
+        text: Rule;
+        htmlblock: Rule;
+        htmltag: Rule;
+        abbr_open: Rule;
+        abbr_close: Rule;
+        footnote_ref: Rule;
+        footnote_block_open: Rule;
+        footnote_block_close: Rule;
+        footnote_open: Rule;
+        footnote_close: Rule;
+        footnote_anchor: Rule;
+        dl_open: Rule;
+        dt_open: Rule;
+        dd_open: Rule;
+        dl_close: Rule;
+        dt_close: Rule;
+        dd_close: Rule;
 
         /**
          * Check to see if `\n` is needed before the next token.
@@ -463,13 +464,27 @@ declare namespace Remarkable {
 }
 
 declare class ParserBlock {
-    tokenize(state: Remarkable.StateBlock, startLine: number, endLine: number): void;
-    parse(str: string, options: Remarkable.Options, env: Remarkable.Env, tokens: [Remarkable.Token]): void;
+    tokenize(
+        state: Remarkable.StateBlock,
+        startLine: number,
+        endLine: number
+    ): void;
+    parse(
+        str: string,
+        options: Remarkable.Options,
+        env: Remarkable.Env,
+        tokens: [Remarkable.Token]
+    ): void;
 }
 
 declare class ParserInline {
     skipToken(state: Remarkable.StateInline): void;
     tokenize(state: Remarkable.StateInline): void;
-    parse(str: string, options: Remarkable.Options, env: Remarkable.Env, tokens: [Remarkable.Token]): void;
+    parse(
+        str: string,
+        options: Remarkable.Options,
+        env: Remarkable.Env,
+        tokens: [Remarkable.Token]
+    ): void;
     validateLink(url: string): boolean;
 }

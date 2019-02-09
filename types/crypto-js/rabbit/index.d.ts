@@ -1,3 +1,3 @@
-import { Rabbit } from '../index';
+import { Rabbit } from "../index";
 
 export = Rabbit;

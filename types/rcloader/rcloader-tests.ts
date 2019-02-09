@@ -1,4 +1,3 @@
-
 import RcLoader = require("rcloader");
 
 const rcLoader = new RcLoader(".configfilename", {

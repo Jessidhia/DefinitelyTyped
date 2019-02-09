@@ -7,7 +7,7 @@
 
 /// <reference types="node"/>
 
-import { Transform } from 'stream';
+import { Transform } from "stream";
 
 export interface BrotliEncodeParams {
     disable_literal_context_modeling?: boolean;
@@ -19,20 +19,35 @@ export interface BrotliEncodeParams {
 }
 
 export interface BrotliFlushable {
-	flush(): void;
+    flush(): void;
 }
 
-export type IltorbCallback = (err: Error | null | undefined, output: Buffer) => void;
+export type IltorbCallback = (
+    err: Error | null | undefined,
+    output: Buffer
+) => void;
 
-export function compress(buffer: Buffer, options: BrotliEncodeParams, callback: IltorbCallback): void;
+export function compress(
+    buffer: Buffer,
+    options: BrotliEncodeParams,
+    callback: IltorbCallback
+): void;
 export function compress(buffer: Buffer, callback: IltorbCallback): void;
-export function compress(buffer: Buffer, options?: BrotliEncodeParams): Promise<Buffer>;
+export function compress(
+    buffer: Buffer,
+    options?: BrotliEncodeParams
+): Promise<Buffer>;
 
 export function decompress(buffer: Buffer, callback: IltorbCallback): void;
 export function decompress(buffer: Buffer): Promise<Buffer>;
 
-export function compressSync(buffer: Buffer, options?: BrotliEncodeParams): Buffer;
+export function compressSync(
+    buffer: Buffer,
+    options?: BrotliEncodeParams
+): Buffer;
 export function decompressSync(buffer: Buffer): Buffer;
 
-export function compressStream(options?: BrotliEncodeParams): Transform & BrotliFlushable;
+export function compressStream(
+    options?: BrotliEncodeParams
+): Transform & BrotliFlushable;
 export function decompressStream(): Transform;

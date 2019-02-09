@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface ReactWidgetsCommonProps<C> extends React.Props<C> {
     /**
@@ -32,7 +32,8 @@ export interface AutoFocus {
     autoFocus?: boolean;
 }
 
-export interface ReactWidgetsCommonDropdownProps<C> extends ReactWidgetsCommonProps<C> {
+export interface ReactWidgetsCommonDropdownProps<C>
+    extends ReactWidgetsCommonProps<C> {
     /**
      * Show "drop up" not "drop down"
      * @default false

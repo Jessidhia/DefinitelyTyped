@@ -9,7 +9,7 @@ var d = new Drop({
     constrainToWindow: true,
     constrainToScrollParent: true,
     classes: "",
-    tetherOptions: {attachment: "bottom left"},
+    tetherOptions: { attachment: "bottom left" },
     remove: true,
     target: yellowBox,
     beforeClose: () => true,
@@ -37,7 +37,7 @@ var e = new Drop({
 });
 
 var Tooltip = Drop.createContext({
-    classPrefix: 'tooltip'
+    classPrefix: "tooltip"
 });
 
 var t = new Tooltip({

@@ -1,14 +1,12 @@
 // https://github.com/mrdoob/three.js/blob/master/examples/js/loaders/MTLLoader.js
 
-
 import { Material } from "./three-core";
-import {LoadingManager} from "./three-core";
-import {EventDispatcher} from "./three-core";
-import {BufferGeometry} from "./three-core";
-import {Texture} from "./three-core";
+import { LoadingManager } from "./three-core";
+import { EventDispatcher } from "./three-core";
+import { BufferGeometry } from "./three-core";
+import { Texture } from "./three-core";
 
 export class MTLLoader extends EventDispatcher {
-
     constructor(manager?: LoadingManager);
     manager: LoadingManager;
     materialOptions: {};
@@ -17,38 +15,47 @@ export class MTLLoader extends EventDispatcher {
     texturePath: string;
     crossOrigin: boolean;
 
-    load(url: string, onLoad: (materialCreator: MaterialCreator) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): void;
-    parse(text: string) : MaterialCreator;
-    setPath(path: string) : void;
-    setTexturePath(path: string) : void;
-    setBaseUrl(path: string) : void;
-    setCrossOrigin(value: boolean) : void;
-    setMaterialOptions(value: any) : void;
+    load(
+        url: string,
+        onLoad: (materialCreator: MaterialCreator) => void,
+        onProgress?: (event: ProgressEvent) => void,
+        onError?: (event: ErrorEvent) => void
+    ): void;
+    parse(text: string): MaterialCreator;
+    setPath(path: string): void;
+    setTexturePath(path: string): void;
+    setBaseUrl(path: string): void;
+    setCrossOrigin(value: boolean): void;
+    setMaterialOptions(value: any): void;
 }
 
 export class MaterialCreator {
-
     constructor(baseUrl?: string, options?: any);
 
-    baseUrl : string;
-    options : any;
-    materialsInfo : any;
-    materials : any;
-    materialsArray : Material[];
-    nameLookup : any;
-    side : number;
-    wrap : number;
+    baseUrl: string;
+    options: any;
+    materialsInfo: any;
+    materials: any;
+    materialsArray: Material[];
+    nameLookup: any;
+    side: number;
+    wrap: number;
 
-    setCrossOrigin( value: boolean ) : void;
-    setManager( value: any ) : void;
-    setMaterials( materialsInfo: any ) : void;
-    convert( materialsInfo: any ) : any;
-    preload() : void;
-    getIndex( materialName: string ) : Material;
-    getAsArray() : Material[];
-    create( materialName: string ) : Material;
-    createMaterial_( materialName: string ) : Material;
-    getTextureParams( value: string, matParams: any ) : any;
-    loadTexture(url: string, mapping: any, onLoad: (bufferGeometry: BufferGeometry) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): Texture;
-
+    setCrossOrigin(value: boolean): void;
+    setManager(value: any): void;
+    setMaterials(materialsInfo: any): void;
+    convert(materialsInfo: any): any;
+    preload(): void;
+    getIndex(materialName: string): Material;
+    getAsArray(): Material[];
+    create(materialName: string): Material;
+    createMaterial_(materialName: string): Material;
+    getTextureParams(value: string, matParams: any): any;
+    loadTexture(
+        url: string,
+        mapping: any,
+        onLoad: (bufferGeometry: BufferGeometry) => void,
+        onProgress?: (event: ProgressEvent) => void,
+        onError?: (event: ErrorEvent) => void
+    ): Texture;
 }

@@ -21,8 +21,11 @@ declare namespace Sammy {
 
     export function Cache(app: any, options: any): any;
     export function DataCacheProxy(initial: any, $element: any): any;
-    export var DataLocationProxy:DataLocationProxy;
-    export function DefaultLocationProxy(app: any, run_interval_every: any): any;
+    export var DataLocationProxy: DataLocationProxy;
+    export function DefaultLocationProxy(
+        app: any,
+        run_interval_every: any
+    ): any;
     export function EJS(app: any, method_alias: any): any;
 
     export function Exceptional(app: any, errorReporter: any): any;
@@ -51,10 +54,9 @@ declare namespace Sammy {
     export function Template(app: any, method_alias: any): any;
     export function Tmpl(app: any, method_alias: any): any;
     export function addLogger(logger: any): any;
-    export function log(...args:any[]): any;
+    export function log(...args: any[]): any;
 
     export class Object {
-
         constructor(obj: any);
 
         escapeHTML(s: string): string;
@@ -70,7 +72,6 @@ declare namespace Sammy {
     }
 
     export interface Application extends Object {
-
         ROUTE_VERBS: string[];
         APP_EVENTS: string[];
 
@@ -86,7 +87,11 @@ declare namespace Sammy {
         bind(name: string, data: any, callback: Function): Application;
         bindToAllEvents(callback: Function): Application;
         clearTemplateCache(): any;
-        contextMatchesOptions(context: any, match_options: any, positive?: boolean): boolean;
+        contextMatchesOptions(
+            context: any,
+            match_options: any,
+            positive?: boolean
+        ): boolean;
         del(path: string, callback: Function): Application;
         del(path: RegExp, callback: Function): Application;
         destroy(): Application;
@@ -121,17 +126,16 @@ declare namespace Sammy {
         trigger(name: string, data?: any): Application;
         unload(): Application;
         use(...params: any[]): void;
-    last_location: string[];
+        last_location: string[];
 
         // Features provided by oauth2 plugin
         oauthorize: string;
         requireOAuth(): any;
-        requireOAuth(path?:string): any;
+        requireOAuth(path?: string): any;
         requireOAuth(callback?: Function): any;
     }
 
     export interface DataLocationProxy {
-
         new (app: any, run_interval_every?: any): DataLocationProxy;
         new (app: any, data_name: any, href_attribute: any): DataLocationProxy;
 
@@ -143,24 +147,42 @@ declare namespace Sammy {
     }
 
     export interface EventContext extends Object {
-
         new (app: any, verb: any, path: any, params: any, target: any): any;
 
         $element(): JQuery;
         engineFor(engine: any): any;
         eventNamespace(): string;
-        interpolate(content: any, data: any, engine: any, partials?: any): EventContext;
+        interpolate(
+            content: any,
+            data: any,
+            engine: any,
+            partials?: any
+        ): EventContext;
         json(str: any): any;
         json(str: string): any;
         load(location: any, options?: any, callback?: Function): any;
         loadPartials(partials?: any): any;
         notFound(): any;
-        partial(location: string, data?: any, callback?: Function, partials?: any): RenderContext;
+        partial(
+            location: string,
+            data?: any,
+            callback?: Function,
+            partials?: any
+        ): RenderContext;
         partials: any;
         params: any;
         redirect(...params: any[]): void;
-        render(location: string, data?: any, callback?: Function, partials?: any): RenderContext;
-        renderEach(location: any, data?: { name: string;data?:any}[],callback?: Function): RenderContext;
+        render(
+            location: string,
+            data?: any,
+            callback?: Function,
+            partials?: any
+        ): RenderContext;
+        renderEach(
+            location: any,
+            data?: { name: string; data?: any }[],
+            callback?: Function
+        ): RenderContext;
         send(...params: any[]): RenderContext;
         swap(contents: any, callback: Function): string;
         toString(): string;
@@ -172,7 +194,6 @@ declare namespace Sammy {
     }
 
     export interface FormBuilder {
-
         new (name: any, object: any): any;
 
         checkbox(keypath: string, value: any, ...attributes: any[]): string;
@@ -189,46 +210,75 @@ declare namespace Sammy {
     }
 
     export interface Form {
-        formFor(name: string, object: any, content_callback: Function): FormBuilder;
+        formFor(
+            name: string,
+            object: any,
+            content_callback: Function
+        ): FormBuilder;
     }
 
     export interface GoogleAnalytics {
-
         new (app: any, tracker: any): any;
 
         noTrack(): any;
         track(path: any): any;
     }
 
-    export interface Haml extends EventContext { }
+    export interface Haml extends EventContext {}
 
-    export interface Handlebars extends EventContext { }
+    export interface Handlebars extends EventContext {}
 
-    export interface Hogan extends EventContext { }
+    export interface Hogan extends EventContext {}
 
-    export interface JSON extends EventContext { }
+    export interface JSON extends EventContext {}
 
-    export interface Mustache extends EventContext { }
+    export interface Mustache extends EventContext {}
 
     export interface RenderContext extends Object {
-
         new (event_context: any): any;
 
         appendTo(selector: string): RenderContext;
         collect(array: any[], callback: Function, now?: boolean): RenderContext;
         interpolate(data: any, engine?: any, retain?: boolean): RenderContext;
-        load(location: string, options?: any, callback?: Function): RenderContext;
+        load(
+            location: string,
+            options?: any,
+            callback?: Function
+        ): RenderContext;
         loadPartials(partials?: any): RenderContext;
         next(content: any): void;
-        partial(location: string, callback: Function, partials: any): RenderContext;
-        partial(location: string, data: any, callback: Function, partials: any): RenderContext;
+        partial(
+            location: string,
+            callback: Function,
+            partials: any
+        ): RenderContext;
+        partial(
+            location: string,
+            data: any,
+            callback: Function,
+            partials: any
+        ): RenderContext;
         prependTo(selector: string): RenderContext;
         render(callback: Function): RenderContext;
         render(location: string, data: any): RenderContext;
-        render(location: string, callback: Function, partials?: any): RenderContext;
+        render(
+            location: string,
+            callback: Function,
+            partials?: any
+        ): RenderContext;
         render(location: string, data: any, callback: Function): RenderContext;
-        render(location: string, data: any, callback: Function, partials: any): RenderContext;
-        renderEach(location: string, name?: string, data?: any, callback?: Function): RenderContext;
+        render(
+            location: string,
+            data: any,
+            callback: Function,
+            partials: any
+        ): RenderContext;
+        renderEach(
+            location: string,
+            name?: string,
+            data?: any,
+            callback?: Function
+        ): RenderContext;
         replace(selector: string): RenderContext;
         send(...params: any[]): RenderContext;
         swap(callback?: Function): RenderContext;
@@ -249,10 +299,9 @@ declare namespace Sammy {
     }
 
     export interface Store {
-
         stores: any;
 
-        new (options?:any): any;
+        new (options?: any): any;
 
         clear(key: string): any;
         clearAll(): void;

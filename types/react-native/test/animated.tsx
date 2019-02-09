@@ -1,6 +1,11 @@
 import * as React from "react";
 
-import { Animated, View, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import {
+    Animated,
+    View,
+    NativeSyntheticEvent,
+    NativeScrollEvent
+} from "react-native";
 
 function TestAnimatedAPI() {
     // Value
@@ -15,7 +20,7 @@ function TestAnimatedAPI() {
 
     const v200 = v1.interpolate({
         inputRange: [0, 1],
-        outputRange: [0, 200],
+        outputRange: [0, 200]
     });
 
     // ValueXY
@@ -25,32 +30,38 @@ function TestAnimatedAPI() {
     const spring1 = Animated.spring(v1, {
         toValue: 0.5,
         tension: 10,
-        delay: 100,
+        delay: 100
     });
 
     const springXY = Animated.spring(position, {
         toValue: {
             x: 1,
-            y: 2,
-        },
+            y: 2
+        }
     });
 
     spring1.start();
     spring1.stop();
 
-    Animated.parallel([Animated.spring(v1, { toValue: 1 }), Animated.spring(v2, { toValue: 1 })], {
-        stopTogether: true,
-    });
+    Animated.parallel(
+        [
+            Animated.spring(v1, { toValue: 1 }),
+            Animated.spring(v2, { toValue: 1 })
+        ],
+        {
+            stopTogether: true
+        }
+    );
 
     Animated.decay(v1, {
-        velocity: 2,
+        velocity: 2
     });
 
     Animated.timing(v1, {
         toValue: 1,
         duration: 100,
         delay: 100,
-        easing: v => v,
+        easing: v => v
     });
 
     Animated.add(v1, v2);
@@ -71,7 +82,10 @@ function TestAnimatedAPI() {
         }
     };
 
-    Animated.event([{ nativeEvent: { contentOffset: { y: v1 } } }], { useNativeDriver: true, listener });
+    Animated.event([{ nativeEvent: { contentOffset: { y: v1 } } }], {
+        useNativeDriver: true,
+        listener
+    });
 
     return (
         <View>
@@ -79,8 +93,8 @@ function TestAnimatedAPI() {
                 style={[
                     position.getLayout(),
                     {
-                        opacity: v1,
-                    },
+                        opacity: v1
+                    }
                 ]}
             />
 

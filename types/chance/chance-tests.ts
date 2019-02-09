@@ -1,4 +1,4 @@
-import { Chance } from 'chance';
+import { Chance } from "chance";
 // Instantiation
 const chance = new Chance();
 const createYourOwn = new Chance(Math.random);
@@ -33,7 +33,7 @@ chance.mixin({
         const h = chance.hour({ twentyfour: true });
         const m = chance.minute();
         return `${h}:${m}`;
-    },
+    }
 });
 
 const chanceConstructedWithSeed100 = new Chance(100);
@@ -43,46 +43,46 @@ const chanceConstructedWithStringSeed = new Chance("test");
 // Test new added typed functions
 
 let letter = chance.letter();
-letter = chance.letter({opt: 'abc'});
+letter = chance.letter({ opt: "abc" });
 
 let cf = chance.cf();
-cf = chance.cf({opt: 'abc'});
+cf = chance.cf({ opt: "abc" });
 
 let animal = chance.animal();
-animal = chance.animal({opt: 'abc'});
+animal = chance.animal({ opt: "abc" });
 
 let avatar = chance.avatar();
-avatar = chance.avatar({opt: 'abc'});
+avatar = chance.avatar({ opt: "abc" });
 
 let company = chance.company();
 company = chance.company();
 
 let profession = chance.profession();
-profession = chance.profession({opt: 'abc'});
+profession = chance.profession({ opt: "abc" });
 
 let timezone = chance.timezone();
 timezone = chance.timezone();
 
-let weekday = chance.weekday({opt: 'abc'});
-weekday = chance.weekday({opt: 'abc'});
+let weekday = chance.weekday({ opt: "abc" });
+weekday = chance.weekday({ opt: "abc" });
 
 let euro = chance.euro();
-euro = chance.euro({opt: 'abc'});
+euro = chance.euro({ opt: "abc" });
 
 let coin = chance.coin();
 coin = chance.coin();
 
 // Make sure date works with min and max parameters
-let date: string|Date = chance.date();
+let date: string | Date = chance.date();
 
 let min = new Date();
 let max = new Date();
-date = chance.date({min, max});
+date = chance.date({ min, max });
 
 min = new Date();
 min.setFullYear(new Date().getFullYear() - 15);
 max = new Date();
 max.setFullYear(new Date().getFullYear() + 15);
-date = chance.date({min, max});
-date = chance.date({min});
-date = chance.date({max});
+date = chance.date({ min, max });
+date = chance.date({ min });
+date = chance.date({ max });

@@ -5,7 +5,7 @@
 // TypeScript Version: 2.8
 
 import * as moment from "moment";
-import * as React from 'react';
+import * as React from "react";
 
 interface TimePickerProps {
     prefixCls: string;
@@ -45,7 +45,7 @@ interface TimePickerProps {
 }
 
 declare class TimePicker extends React.Component<Partial<TimePickerProps>> {
-    constructor(props: Readonly<Partial<TimePickerProps>>)
+    constructor(props: Readonly<Partial<TimePickerProps>>);
 
     close(): void;
     isAM(): boolean;

@@ -7,11 +7,10 @@
 declare var _: string;
 export = _;
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     export namespace translate {
-
         interface ITranslationTable {
             [key: string]: string | ITranslationTable;
         }
@@ -37,24 +36,57 @@ declare module 'angular' {
             isPartAvailable(name: string): boolean;
         }
 
-        interface ITranslatePartialLoaderService extends IPartialLoader<ITranslatePartialLoaderService> {
+        interface ITranslatePartialLoaderService
+            extends IPartialLoader<ITranslatePartialLoaderService> {
             getRegisteredParts(): Array<string>;
             isPartLoaded(name: string, lang: string): boolean;
         }
 
-        interface ITranslatePartialLoaderProvider extends angular.IServiceProvider, IPartialLoader<ITranslatePartialLoaderProvider> {
-            setPart(lang: string, part: string, table: ITranslationTable): ITranslatePartialLoaderProvider;
+        interface ITranslatePartialLoaderProvider
+            extends angular.IServiceProvider,
+                IPartialLoader<ITranslatePartialLoaderProvider> {
+            setPart(
+                lang: string,
+                part: string,
+                table: ITranslationTable
+            ): ITranslatePartialLoaderProvider;
         }
 
         interface ITranslateService {
-            (translationId: string, interpolateParams?: any, interpolationId?: string, defaultTranslationText?: string, forceLanguage?: string, sanitizeStrategy?: string): angular.IPromise<string>;
-            (translationId: string[], interpolateParams?: any, interpolationId?: string, defaultTranslationText?: string, forceLanguage?: string, sanitizeStrategy?: string): angular.IPromise<{ [key: string]: string }>;
+            (
+                translationId: string,
+                interpolateParams?: any,
+                interpolationId?: string,
+                defaultTranslationText?: string,
+                forceLanguage?: string,
+                sanitizeStrategy?: string
+            ): angular.IPromise<string>;
+            (
+                translationId: string[],
+                interpolateParams?: any,
+                interpolationId?: string,
+                defaultTranslationText?: string,
+                forceLanguage?: string,
+                sanitizeStrategy?: string
+            ): angular.IPromise<{ [key: string]: string }>;
             cloakClassName(): string;
             cloakClassName(name: string): ITranslateProvider;
             fallbackLanguage(langKey?: string): string;
             fallbackLanguage(langKey?: string[]): string;
-            instant(translationId: string, interpolateParams?: any, interpolationId?: string, forceLanguage?: string, sanitizeStrategy?: string): string;
-            instant(translationId: string[], interpolateParams?: any, interpolationId?: string, forceLanguage?: string, sanitizeStrategy?: string): { [key: string]: string };
+            instant(
+                translationId: string,
+                interpolateParams?: any,
+                interpolationId?: string,
+                forceLanguage?: string,
+                sanitizeStrategy?: string
+            ): string;
+            instant(
+                translationId: string[],
+                interpolateParams?: any,
+                interpolationId?: string,
+                forceLanguage?: string,
+                sanitizeStrategy?: string
+            ): { [key: string]: string };
             isPostCompilingEnabled(): boolean;
             preferredLanguage(langKey?: string): string;
             proposedLanguage(): string;
@@ -74,7 +106,10 @@ declare module 'angular' {
 
         interface ITranslateProvider extends angular.IServiceProvider {
             translations(key?: string): ITranslationTable;
-            translations(key: string, translationTable: ITranslationTable): ITranslateProvider;
+            translations(
+                key: string,
+                translationTable: ITranslationTable
+            ): ITranslateProvider;
             cloakClassName(): string;
             cloakClassName(name: string): ITranslateProvider;
             addInterpolation(factory: any): ITranslateProvider;
@@ -85,9 +120,13 @@ declare module 'angular' {
             preferredLanguage(language: string): ITranslateProvider;
             translationNotFoundIndicator(indicator: string): ITranslateProvider;
             translationNotFoundIndicatorLeft(): string;
-            translationNotFoundIndicatorLeft(indicator: string): ITranslateProvider;
+            translationNotFoundIndicatorLeft(
+                indicator: string
+            ): ITranslateProvider;
             translationNotFoundIndicatorRight(): string;
-            translationNotFoundIndicatorRight(indicator: string): ITranslateProvider;
+            translationNotFoundIndicatorRight(
+                indicator: string
+            ): ITranslateProvider;
             fallbackLanguage(): ITranslateProvider;
             fallbackLanguage(language: string): ITranslateProvider;
             fallbackLanguage(languages: string[]): ITranslateProvider;
@@ -98,7 +137,11 @@ declare module 'angular' {
             storageKey(key: string): void; // JeroMiya - the library should probably return ITranslateProvider but it doesn't here
             uniformLanguageTag(options: string | Object): ITranslateProvider;
             useUrlLoader(url: string): ITranslateProvider;
-            useStaticFilesLoader(options: IStaticFilesLoaderOptions | { files: IStaticFilesLoaderOptions[] }): ITranslateProvider;
+            useStaticFilesLoader(
+                options:
+                    | IStaticFilesLoaderOptions
+                    | { files: IStaticFilesLoaderOptions[] }
+            ): ITranslateProvider;
             useLoader(loaderFactory: string, options?: any): ITranslateProvider;
             useLocalStorage(): ITranslateProvider;
             useCookieStorage(): ITranslateProvider;
@@ -112,15 +155,23 @@ declare module 'angular' {
             directivePriority(priority: number): ITranslateProvider;
             determinePreferredLanguage(fn?: () => void): ITranslateProvider;
             registerAvailableLanguageKeys(): string[];
-            registerAvailableLanguageKeys(languageKeys: string[], aliases?: ILanguageKeyAlias): ITranslateProvider;
+            registerAvailableLanguageKeys(
+                languageKeys: string[],
+                aliases?: ILanguageKeyAlias
+            ): ITranslateProvider;
             useLoaderCache(cache?: any): ITranslateProvider;
             resolveClientLocale(): string;
         }
     }
 
     interface IFilterService {
-        (name: 'translate'): {
-            (translationId: string, interpolateParams?: any, interpolation?: string, forceLanguage?: string): string;
+        (name: "translate"): {
+            (
+                translationId: string,
+                interpolateParams?: any,
+                interpolation?: string,
+                forceLanguage?: string
+            ): string;
         };
     }
 }

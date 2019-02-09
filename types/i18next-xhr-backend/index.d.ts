@@ -5,7 +5,9 @@
 // TypeScript Version: 2.3
 
 declare namespace I18NextXhrBackend {
-    type LoadPathOption = string | ((lngs: string[], namespaces: string[]) => string);
+    type LoadPathOption =
+        | string
+        | ((lngs: string[], namespaces: string[]) => string);
 
     interface BackendOptions {
         /**
@@ -43,7 +45,13 @@ declare namespace I18NextXhrBackend {
          * define a custom xhr function
          * can be used to support XDomainRequest in IE 8 and 9
          */
-        ajax?(url: string, options: BackendOptions, callback: AjaxRequestCallback, data: {} | string, cache: boolean): void;
+        ajax?(
+            url: string,
+            options: BackendOptions,
+            callback: AjaxRequestCallback,
+            data: {} | string,
+            cache: boolean
+        ): void;
         /**
          * adds parameters to resource URL. 'example.com' -> 'example.com?v=1.3.5'
          */
@@ -63,10 +71,23 @@ declare namespace I18NextXhrBackend {
 declare class I18NextXhrBackend {
     constructor(services?: any, options?: I18NextXhrBackend.BackendOptions);
     init(options?: I18NextXhrBackend.BackendOptions): void;
-    readMulti(languages: string[], namespaces: string[], callback: I18NextXhrBackend.LoadCallback): void;
-    read(language: string, namespace: string, callback: I18NextXhrBackend.LoadCallback): void;
+    readMulti(
+        languages: string[],
+        namespaces: string[],
+        callback: I18NextXhrBackend.LoadCallback
+    ): void;
+    read(
+        language: string,
+        namespace: string,
+        callback: I18NextXhrBackend.LoadCallback
+    ): void;
     loadUrl(url: string, callback: I18NextXhrBackend.LoadCallback): void;
-    create(languages: string | string[], namespace: string, key: string, fallbackValue: string): void;
+    create(
+        languages: string | string[],
+        namespace: string,
+        key: string,
+        fallbackValue: string
+    ): void;
     type: "backend";
     services: any;
     options: I18NextXhrBackend.BackendOptions;

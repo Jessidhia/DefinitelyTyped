@@ -1,10 +1,11 @@
-import ngAnnotate = require('gulp-ng-annotate');
-import gulp = require('gulp');
+import ngAnnotate = require("gulp-ng-annotate");
+import gulp = require("gulp");
 
-gulp.task('default', function () {
-    return gulp.src('src/app.js')
+gulp.task("default", function() {
+    return gulp
+        .src("src/app.js")
         .pipe(ngAnnotate())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest("dist"));
 });
 
 ngAnnotate({

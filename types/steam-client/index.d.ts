@@ -81,7 +81,10 @@ export class CMClient extends NodeJS.EventEmitter {
 
     // Events
 
-    on<T extends keyof CMEventCallback>(eventType: T, callback: CMEventCallback[T]): this;
+    on<T extends keyof CMEventCallback>(
+        eventType: T,
+        callback: CMEventCallback[T]
+    ): this;
 }
 
 /**
@@ -101,19 +104,17 @@ export type SendMessage = (
         /**
          * A value from EMsg
          */
-        msg: EMsg,
+        msg: EMsg;
 
         /**
          * A CMsgProtoBufHeader object if this message is protobuf-backed, otherwise header.proto is falsy.
          */
-        proto?: CMsgProtoBufHeader | false
+        proto?: CMsgProtoBufHeader | false;
     },
-
     /**
      * A Buffer or ByteBuffer containing the rest of the message
      */
     body: Buffer | ByteBuffer,
-
     /**
      * If not falsy, then this message is a request, and callback shall be called with any response to it instead of 'message'/send. callback has the same arguments as 'message'/send.
      */
@@ -227,27 +228,27 @@ export interface CMsgClientLogonResponse {
 }
 
 export interface CMsgProtoBufHeader {
-	steamid?: string;
-	client_sessionid?: number;
-	routing_appid?: number;
-	jobid_source?: string;
-	jobid_target?: string;
-	target_job_name?: string;
-	seq_num?: number;
-	eresult?: number;
-	error_message?: string;
-	ip?: number;
-	auth_account_flags?: number;
-	token_source?: number;
-	admin_spoofing_user?: boolean;
-	transport_error?: number;
-	messageid?: string;
-	publisher_group_id?: number;
-	sysid?: number;
-	trace_tag?: string;
-	webapi_key_id?: number;
-	is_from_external_source?: boolean;
-	forward_to_sysid?: number[];
+    steamid?: string;
+    client_sessionid?: number;
+    routing_appid?: number;
+    jobid_source?: string;
+    jobid_target?: string;
+    target_job_name?: string;
+    seq_num?: number;
+    eresult?: number;
+    error_message?: string;
+    ip?: number;
+    auth_account_flags?: number;
+    token_source?: number;
+    admin_spoofing_user?: boolean;
+    transport_error?: number;
+    messageid?: string;
+    publisher_group_id?: number;
+    sysid?: number;
+    trace_tag?: string;
+    webapi_key_id?: number;
+    is_from_external_source?: boolean;
+    forward_to_sysid?: number[];
 }
 
 // Enums
@@ -255,7 +256,7 @@ export interface CMsgProtoBufHeader {
 export enum EConnectionProtocol {
     TCP = 1,
     UDP = 2,
-    WebSocket = 3,
+    WebSocket = 3
 }
 
 export enum EMsg {
@@ -2159,7 +2160,7 @@ export enum EMsg {
 
     BaseClient3 = 9800,
     ClientVoiceCallPreAuthorize = 9800,
-    ClientVoiceCallPreAuthorizeResponse = 9801,
+    ClientVoiceCallPreAuthorizeResponse = 9801
 }
 
 export enum EUniverse {
@@ -2170,7 +2171,7 @@ export enum EUniverse {
     Internal = 3,
     Dev = 4,
 
-    Max = 5,
+    Max = 5
 }
 
 export enum EChatEntryType {
@@ -2189,7 +2190,7 @@ export enum EChatEntryType {
     HistoricalChat = 11,
     Reserved1 = 12,
     Reserved2 = 13,
-    LinkBlocked = 14,
+    LinkBlocked = 14
 }
 
 export enum EPersonaState {
@@ -2202,7 +2203,7 @@ export enum EPersonaState {
     LookingToTrade = 5,
     LookingToPlay = 6,
 
-    Max = 7,
+    Max = 7
 }
 
 export enum EAccountType {
@@ -2219,7 +2220,7 @@ export enum EAccountType {
     ConsoleUser = 9,
     AnonUser = 10,
 
-    Max = 11,
+    Max = 11
 }
 
 export enum EFriendRelationship {
@@ -2233,7 +2234,7 @@ export enum EFriendRelationship {
     IgnoredFriend = 6,
     SuggestedFriend = 7,
 
-    Max = 8,
+    Max = 8
 }
 
 export enum EAccountFlags {
@@ -2269,7 +2270,7 @@ export enum EAccountFlags {
     GlobalModerator = 134217728,
     ParentalSettings = 268435456,
     ThirdPartySupport = 536870912,
-    NeedsSSANextSteamLogon = 1073741824,
+    NeedsSSANextSteamLogon = 1073741824
 }
 
 export enum EClanPermission {
@@ -2292,7 +2293,7 @@ export enum EClanPermission {
     ModeratorAllowed = NonMember | Member | Moderator, // 140
     OfficerAllowed = NonMember | Member | Moderator | Officer, // 142
     OwnerAllowed = NonMember | Member | Moderator | Officer | Owner, // 143
-    Anybody = NonMember | Member | Moderator | Officer | Owner, // 143
+    Anybody = NonMember | Member | Moderator | Officer | Owner // 143
 }
 
 export enum EChatPermission {
@@ -2313,9 +2314,16 @@ export enum EChatPermission {
     MemberDefault = Ban | Kick | Talk | Invite, // 282
 
     OfficerDefault = Ban | Kick | Talk | Invite, // 282
-    OwnerDefault = ChangeAccess | Ban | SetMetadata | Mute | Kick | Talk | Invite | Close, // 891
+    OwnerDefault = ChangeAccess |
+        Ban |
+        SetMetadata |
+        Mute |
+        Kick |
+        Talk |
+        Invite |
+        Close, // 891
 
-    Mask = 1019,
+    Mask = 1019
 }
 
 export enum EFriendFlags {
@@ -2332,7 +2340,7 @@ export enum EFriendFlags {
     Suggested = 2048,
     ChatMember = 4096,
 
-    FlagAll = 65535,
+    FlagAll = 65535
 }
 
 export enum EPersonaStateFlag {
@@ -2348,7 +2356,7 @@ export enum EPersonaStateFlag {
     ClientTypeTenfoot = 1024,
     OnlineUsingVR = 2048, // removed "renamed to ClientTypeVR"
     ClientTypeVR = 2048,
-    LaunchTypeGamepad = 4096,
+    LaunchTypeGamepad = 4096
 }
 
 export enum EClientPersonaStateFlag {
@@ -2363,7 +2371,7 @@ export enum EClientPersonaStateFlag {
     GameExtraInfo = 256,
     GameDataBlob = 512,
     ClanTag = 1024,
-    Facebook = 2048,
+    Facebook = 2048
 }
 
 export enum EAppUsageEvent {
@@ -2374,7 +2382,7 @@ export enum EAppUsageEvent {
     PreloadFinish = 5,
     MarketingMessageView = 6,
     InGameAdViewed = 7,
-    GameLaunchFreeWeekend = 8,
+    GameLaunchFreeWeekend = 8
 }
 
 export enum ELicenseFlags {
@@ -2390,7 +2398,7 @@ export enum ELicenseFlags {
     ForceRunRestriction = 0x100,
     RegionRestrictionExpired = 0x200,
     CancelledByFriendlyFraudLock = 0x400,
-    NotActivated = 0x800,
+    NotActivated = 0x800
 }
 
 export enum ELicenseType {
@@ -2401,7 +2409,7 @@ export enum ELicenseType {
     RecurringChargeLimitedUse = 4,
     RecurringChargeLimitedUseWithOverages = 5,
     RecurringOption = 6,
-    LimitedUseDelayedActivation = 7,
+    LimitedUseDelayedActivation = 7
 }
 
 export enum EPaymentMethod {
@@ -2494,7 +2502,7 @@ export enum EPaymentMethod {
     Promotional = 131,
     OEMTicket = 256,
     Split = 512,
-    Complimentary = 1024,
+    Complimentary = 1024
 }
 
 export enum EPurchaseResultDetail {
@@ -2565,13 +2573,13 @@ export enum EPurchaseResultDetail {
     PhysicalProductLimitExceeded = 64,
     PurchaseCannotBeReplayed = 65,
     DelayedCompletion = 66,
-    BundleTypeCannotBeGifted = 67,
+    BundleTypeCannotBeGifted = 67
 }
 
 export enum EIntroducerRouting {
     FileShare = 0, // removed
     P2PVoiceChat = 1,
-    P2PNetworking = 2,
+    P2PNetworking = 2
 }
 
 export enum EServerFlags {
@@ -2581,7 +2589,7 @@ export enum EServerFlags {
     Dedicated = 4,
     Linux = 8,
     Passworded = 16,
-    Private = 32,
+    Private = 32
 }
 
 export enum EDenyReason {
@@ -2599,7 +2607,7 @@ export enum EDenyReason {
     SteamConnectionError = 12,
     SteamResponseTimedOut = 13,
     SteamValidationStalled = 14,
-    SteamOwnerLeftGuestUser = 15,
+    SteamOwnerLeftGuestUser = 15
 }
 
 export enum EClanRank {
@@ -2607,7 +2615,7 @@ export enum EClanRank {
     Owner = 1,
     Officer = 2,
     Member = 3,
-    Moderator = 4,
+    Moderator = 4
 }
 
 export enum EClanRelationship {
@@ -2616,7 +2624,7 @@ export enum EClanRelationship {
     Invited = 2,
     Member = 3,
     Kicked = 4,
-    KickAcknowledged = 5,
+    KickAcknowledged = 5
 }
 
 export enum EAuthSessionResponse {
@@ -2629,7 +2637,7 @@ export enum EAuthSessionResponse {
     AuthTicketCanceled = 6,
     AuthTicketInvalidAlreadyUsed = 7,
     AuthTicketInvalid = 8,
-    PublisherIssuedBan = 9,
+    PublisherIssuedBan = 9
 }
 
 export enum EChatRoomEnterResponse {
@@ -2648,19 +2656,19 @@ export enum EChatRoomEnterResponse {
     // these appear to have been removed
     NoRankingDataLobby = 12, // removed
     NoRankingDataUser = 13, // removed
-    RankOutOfRange = 14, // removed
+    RankOutOfRange = 14 // removed
 }
 
 export enum EChatRoomType {
     Friend = 1,
     MUC = 2,
-    Lobby = 3,
+    Lobby = 3
 }
 
 export enum EChatInfoType {
     StateChange = 1,
     InfoUpdate = 2,
-    MemberLimitChange = 3,
+    MemberLimitChange = 3
 }
 
 export enum EChatAction {
@@ -2679,7 +2687,7 @@ export enum EChatAction {
     SetInvisibleToFriends = 13,
     SetVisibleToFriends = 14,
     SetModerated = 15,
-    SetUnmoderated = 16,
+    SetUnmoderated = 16
 }
 
 export enum EChatActionResult {
@@ -2692,7 +2700,7 @@ export enum EChatActionResult {
     NotAllowedOnSelf = 7,
     ChatDoesntExist = 8,
     ChatFull = 9,
-    VoiceSlotsFull = 10,
+    VoiceSlotsFull = 10
 }
 
 export enum EAppInfoSection {
@@ -2719,7 +2727,7 @@ export enum EAppInfoSection {
     Community = 15,
     Store = 16,
 
-    Max = 17,
+    Max = 17
 }
 
 export enum EContentDownloadSourceType {
@@ -2731,7 +2739,7 @@ export enum EContentDownloadSourceType {
     ProxyCache = 4,
     LANPeer = 5,
 
-    Max = 5,
+    Max = 5
 }
 
 export enum EPlatformType {
@@ -2745,7 +2753,7 @@ export enum EPlatformType {
     PS3 = 5,
     Linux32 = 6,
 
-    Max = 6,
+    Max = 6
 }
 
 export enum EOSType {
@@ -2810,7 +2818,7 @@ export enum EOSType {
 
     WinMAX = 15,
 
-    Max = 26,
+    Max = 26
 }
 
 export enum EServerType {
@@ -2920,7 +2928,7 @@ export enum EServerType {
     StoreCatalog = 95,
     HLTVRelay = 96,
 
-    Max = 97,
+    Max = 97
 }
 
 export enum EBillingType {
@@ -2941,7 +2949,7 @@ export enum EBillingType {
     CommercialLicense = 14,
     FreeCommercialLicense = 15,
 
-    NumBillingTypes = 16,
+    NumBillingTypes = 16
 }
 
 export enum EActivationCodeClass {
@@ -2952,7 +2960,7 @@ export enum EActivationCodeClass {
     Steam2010Key = 4,
     Max = 5,
     Test = 2147483647,
-    Invalid = 4294967295,
+    Invalid = 4294967295
 }
 
 export enum EChatMemberStateChange {
@@ -2963,7 +2971,7 @@ export enum EChatMemberStateChange {
     Banned = 0x10,
 
     VoiceSpeaking = 0x1000,
-    VoiceDoneSpeaking = 0x2000,
+    VoiceDoneSpeaking = 0x2000
 }
 
 export enum ERegionCode {
@@ -2975,7 +2983,7 @@ export enum ERegionCode {
     Australia = 0x05,
     MiddleEast = 0x06,
     Africa = 0x07,
-    World = 0xFF,
+    World = 0xff
 }
 
 export enum ECurrencyCode {
@@ -3022,7 +3030,7 @@ export enum ECurrencyCode {
     CRC = 40,
     UYU = 41,
 
-    Max = 42,
+    Max = 42
 }
 
 export enum EDepotFileFlag {
@@ -3035,7 +3043,7 @@ export enum EDepotFileFlag {
     Directory = 64,
     CustomExecutable = 128,
     InstallScript = 256,
-    Symlink = 512,
+    Symlink = 512
 }
 
 export enum EWorkshopEnumerationType {
@@ -3045,13 +3053,13 @@ export enum EWorkshopEnumerationType {
     FavoriteOfFriends = 3,
     VotedByFriends = 4,
     ContentByFriends = 5,
-    RecentFromFollowedUsers = 6,
+    RecentFromFollowedUsers = 6
 }
 
 export enum EPublishedFileVisibility {
     Public = 0,
     FriendsOnly = 1,
-    Private = 2,
+    Private = 2
 }
 
 export enum EWorkshopFileType {
@@ -3074,12 +3082,12 @@ export enum EWorkshopFileType {
     SteamVideo = 14,
     GameManagedItem = 15,
 
-    Max = 16,
+    Max = 16
 }
 
 export enum EWorkshopFileAction {
     Played = 0,
-    Completed = 1,
+    Completed = 1
 }
 
 export enum EEconTradeResponse {
@@ -3114,7 +3122,7 @@ export enum EEconTradeResponse {
     NeedsMobileConfirmation = 29,
     TradingHoldForClearedTradeOffersInitiator = 30,
     WouldExceedMaxAssetCount = 31,
-    OKToDeliver = 50,
+    OKToDeliver = 50
 }
 
 export enum EMarketingMessageFlags {
@@ -3124,7 +3132,7 @@ export enum EMarketingMessageFlags {
     PlatformWindows = 2,
     PlatformMac = 4,
     PlatformLinux = 8,
-    PlatformRestrictions = PlatformWindows | PlatformMac | PlatformLinux,
+    PlatformRestrictions = PlatformWindows | PlatformMac | PlatformLinux
 }
 
 export enum ENewsUpdateType {
@@ -3132,7 +3140,7 @@ export enum ENewsUpdateType {
     SteamAds = 1,
     SteamNews = 2,
     CDDBUpdate = 3,
-    ClientUpdate = 4,
+    ClientUpdate = 4
 }
 
 export enum ESystemIMType {
@@ -3147,14 +3155,14 @@ export enum ESystemIMType {
     SupportMessage = 8,
     SupportMessageClearAlert = 9,
 
-    Max = 10,
+    Max = 10
 }
 
 export enum EChatFlags {
     Locked = 1,
     InvisibleToFriends = 2,
     Moderated = 4,
-    Unjoinable = 8,
+    Unjoinable = 8
 }
 
 export enum ERemoteStoragePlatform {
@@ -3167,7 +3175,7 @@ export enum ERemoteStoragePlatform {
     Reserved1 = 8, // removed
     Reserved2 = 16,
 
-    All = -1,
+    All = -1
 }
 
 export enum EDRMBlobDownloadType {
@@ -3180,7 +3188,7 @@ export enum EDRMBlobDownloadType {
     IsJob = 8,
     HighPriority = 16,
     AddTimestamp = 32,
-    LowPriority = 64,
+    LowPriority = 64
 }
 
 export enum EDRMBlobDownloadErrorDetail {
@@ -3209,7 +3217,7 @@ export enum EDRMBlobDownloadErrorDetail {
     TargetLocked_Base = 65536,
     TargetLocked_Max = 131071,
 
-    NextBase = 131072,
+    NextBase = 131072
 }
 
 export enum EClientStat {
@@ -3219,42 +3227,42 @@ export enum EClientStat {
     P2PVoiceConnections = 3,
     BytesDownloaded = 4,
 
-    Max = 5,
+    Max = 5
 }
 
 export enum EClientStatAggregateMethod {
     LatestOnly = 0,
     Sum = 1,
     Event = 2,
-    Scalar = 3,
+    Scalar = 3
 }
 
 export enum ELeaderboardDataRequest {
     Global = 0,
     GlobalAroundUser = 1,
     Friends = 2,
-    Users = 3,
+    Users = 3
 }
 
 export enum ELeaderboardSortMethod {
     None = 0,
 
     Ascending = 1,
-    Descending = 2,
+    Descending = 2
 }
 
 export enum ELeaderboardDisplayType {
     None = 0,
     Numeric = 1,
     TimeSeconds = 2,
-    TimeMilliSeconds = 3,
+    TimeMilliSeconds = 3
 }
 
 export enum ELeaderboardUploadScoreMethod {
     None = 0,
 
     KeepBest = 1,
-    ForceUpdate = 2,
+    ForceUpdate = 2
 }
 
 export enum EUCMFilePrivacyState {
@@ -3263,7 +3271,7 @@ export enum EUCMFilePrivacyState {
     FriendsOnly = 4,
     Public = 8,
 
-    All = Public | FriendsOnly | Private, // 14
+    All = Public | FriendsOnly | Private // 14
 }
 
 export enum EResult {
@@ -3386,5 +3394,5 @@ export enum EResult {
     InsufficientFunds = 107,
     TooManyPending = 108,
     NoSiteLicensesFound = 109,
-    WGNetworkSendExceeded = 110,
+    WGNetworkSendExceeded = 110
 }

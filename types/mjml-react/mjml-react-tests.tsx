@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     render,
     Mjml,
@@ -10,11 +10,11 @@ import {
     MjmlColumn,
     MjmlButton,
     MjmlImage
-} from 'mjml-react';
+} from "mjml-react";
 
 function renderOutTestEmail() {
     // $ExpectType { html: string; errors: Error[]; }
-    const result = render((
+    const result = render(
         <Mjml>
             <MjmlHead>
                 <MjmlTitle>Last Minute Offer</MjmlTitle>
@@ -29,12 +29,17 @@ function renderOutTestEmail() {
                 </MjmlSection>
                 <MjmlSection>
                     <MjmlColumn>
-                        <MjmlButton padding="20px" backgroundColor="#346DB7" href="https://www.wix.com/">
+                        <MjmlButton
+                            padding="20px"
+                            backgroundColor="#346DB7"
+                            href="https://www.wix.com/"
+                        >
                             I like it!
-                    </MjmlButton>
+                        </MjmlButton>
                     </MjmlColumn>
                 </MjmlSection>
             </MjmlBody>
-        </Mjml>
-    ), { validationLevel: 'soft' });
+        </Mjml>,
+        { validationLevel: "soft" }
+    );
 }

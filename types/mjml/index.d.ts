@@ -5,11 +5,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface MJMLParsingOpts {
-    fonts?: { [key: string]: string; };
+    fonts?: { [key: string]: string };
     keepComments?: boolean;
     beautify?: boolean;
     minify?: boolean;
-    validationLevel?: 'strict' | 'soft' | 'skip';
+    validationLevel?: "strict" | "soft" | "skip";
     filePath?: string;
 }
 
@@ -25,6 +25,9 @@ interface MJMLParseResults {
     errors: MJMLParseError[];
 }
 
-declare function mjml2html(inp: string, opts?: MJMLParsingOpts): MJMLParseResults;
+declare function mjml2html(
+    inp: string,
+    opts?: MJMLParsingOpts
+): MJMLParseResults;
 
 export = mjml2html;

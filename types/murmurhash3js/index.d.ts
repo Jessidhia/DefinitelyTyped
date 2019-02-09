@@ -3,12 +3,12 @@
 // Definitions by: Dave Lee <https://github.com/dlee-nvisia>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module 'murmurhash3js' {
+declare module "murmurhash3js" {
     export module x86 {
         function hash32(val: string, seed?: number): number;
         function hash128(val: string, seed?: number): string;
     }
-    
+
     export module x64 {
         function hash128(val: string, seed?: number): string;
     }

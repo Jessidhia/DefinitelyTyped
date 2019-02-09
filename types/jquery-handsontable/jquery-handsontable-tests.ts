@@ -6,8 +6,8 @@ var data = [
     ["2012", 2, 2422, 5399, 776, 4151]
 ];
 
-var div = $('div');
-$('body').append(div);
+var div = $("div");
+$("body").append(div);
 
 div.handsontable({
     data: data,
@@ -16,7 +16,7 @@ div.handsontable({
     contextMenu: true
 });
 
-var instance: Handsontable.Context = div.handsontable('getInstance');
+var instance: Handsontable.Context = div.handsontable("getInstance");
 for (var i = 1; i < instance.countCols(); i++) {
     for (var j = 1; j < instance.countRows(); j++) {
         var value = parseInt(instance.getDataAtCell(j, i)) * 2;

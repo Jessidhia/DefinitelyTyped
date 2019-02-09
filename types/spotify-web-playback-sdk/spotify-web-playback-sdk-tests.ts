@@ -20,7 +20,7 @@ player.connect().then((success: boolean) => {
 
 player.disconnect();
 
-player.addListener("ready", (data) => {
+player.addListener("ready", data => {
     console.log("The Web Playback SDK is ready to play music!");
 });
 
@@ -36,12 +36,14 @@ player.getCurrentState().then((playbackState: Spotify.PlaybackState | null) => {
         console.log("Currently Playing", current_track);
         console.log("Playing Next", next_tracks[0]);
     } else {
-        console.error("The user is not playing music through the Web Playback SDK");
+        console.error(
+            "The user is not playing music through the Web Playback SDK"
+        );
     }
 });
 
 player.getVolume().then((volume: number) => {
-    const volume_percentage = (volume * 100);
+    const volume_percentage = volume * 100;
     console.log(`The volume of the player is ${volume_percentage}%`);
 });
 
@@ -92,24 +94,24 @@ player.on("player_state_changed", (playbackState: Spotify.PlaybackState) => {
     console.log("Duration of Song", duration);
 });
 
-player.addListener('initialization_error', (e: Spotify.Error) => {
+player.addListener("initialization_error", (e: Spotify.Error) => {
     console.error("Failed to initialize", e.message);
 });
 
-player.addListener('authentication_error', (e: Spotify.Error) => {
+player.addListener("authentication_error", (e: Spotify.Error) => {
     console.error("Failed to authenticate", e.message);
 });
 
-player.addListener('account_error', (e: Spotify.Error) => {
+player.addListener("account_error", (e: Spotify.Error) => {
     console.error("Failed to validate Spotify account", e.message);
 });
 
 const listener = (e: Spotify.Error) => {
     console.error("Failed to perform playback", e.message);
 };
-player.addListener('playback_error', listener);
-player.addListener('playback_error', () => {});
-player.removeListener('playback_error', () => {});
+player.addListener("playback_error", listener);
+player.addListener("playback_error", () => {});
+player.removeListener("playback_error", () => {});
 
-player.removeListener('playback_error');
-player.removeListener('playback_error', listener);
+player.removeListener("playback_error");
+player.removeListener("playback_error", listener);

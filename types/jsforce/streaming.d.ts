@@ -1,16 +1,16 @@
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
-import { Connection } from './connection';
-import { Record } from './record';
-import { Channel } from './channel';
-import { Topic } from './topic';
+import { Connection } from "./connection";
+import { Record } from "./record";
+import { Channel } from "./channel";
+import { Topic } from "./topic";
 
 export interface StreamingMessage {
     event: {
-        type: object
+        type: object;
         createdDate: any;
     };
-    sobject: Record
+    sobject: Record;
 }
 
 export class Streaming extends EventEmitter {

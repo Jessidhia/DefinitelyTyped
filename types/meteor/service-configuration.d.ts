@@ -5,5 +5,5 @@ declare module "meteor/service-configuration" {
     }
     var ServiceConfiguration: {
         configurations: Mongo.Collection<Configuration>;
-    }
+    };
 }

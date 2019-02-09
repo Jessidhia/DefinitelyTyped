@@ -6,11 +6,13 @@
 
 /// <reference types="node" />
 
-import { Url } from 'url';
+import { Url } from "url";
 
 import * as core from "express-serve-static-core";
 
-declare function historyApiFallback(options?: historyApiFallback.Options): core.RequestHandler;
+declare function historyApiFallback(
+    options?: historyApiFallback.Options
+): core.RequestHandler;
 
 declare namespace historyApiFallback {
     interface Options {

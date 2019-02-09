@@ -1,25 +1,25 @@
-import depcheck = require('depcheck');
+import depcheck = require("depcheck");
 
 const options: depcheck.Options = {
     withoutDev: false,
     ignoreBinPackage: false,
-    ignoreDirs: ['sandbox', 'dist', 'bower_components'],
-    ignoreMatches: ['grunt-*'],
+    ignoreDirs: ["sandbox", "dist", "bower_components"],
+    ignoreMatches: ["grunt-*"],
     parsers: {
-        '*.js': depcheck.parser.es6,
-        '*.jsx': depcheck.parser.jsx,
+        "*.js": depcheck.parser.es6,
+        "*.jsx": depcheck.parser.jsx
     },
     detectors: [
         depcheck.detector.requireCallExpression,
-        depcheck.detector.importDeclaration,
+        depcheck.detector.importDeclaration
     ],
-    specials: [depcheck.special.eslint, depcheck.special.webpack],
+    specials: [depcheck.special.eslint, depcheck.special.webpack]
 };
 
 // $ExpectType Promise<Results>
-depcheck('/', options);
+depcheck("/", options);
 
-depcheck('/', options, unused => {
+depcheck("/", options, unused => {
     const dependencies: string[] = unused.dependencies;
     const devDependencies: string[] = unused.devDependencies;
     const missing: string[] = unused.missing;

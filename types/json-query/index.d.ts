@@ -17,18 +17,68 @@ declare namespace JsonQuery {
     // No way to support [Selector, ...QueryParam[]]?
     // 10 params should be more than enough, hopefully.
     type SelectorWithQueryParams =
-        [Selector, QueryParam]
+        | [Selector, QueryParam]
         | [Selector, QueryParam]
         | [Selector, QueryParam]
         | [Selector, QueryParam, QueryParam]
         | [Selector, QueryParam, QueryParam, QueryParam]
         | [Selector, QueryParam, QueryParam, QueryParam, QueryParam]
         | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam]
-        | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam]
-        | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam]
-        | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam]
-        | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam]
-        | [Selector, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam, QueryParam];
+        | [
+              Selector,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam
+          ]
+        | [
+              Selector,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam
+          ]
+        | [
+              Selector,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam
+          ]
+        | [
+              Selector,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam
+          ]
+        | [
+              Selector,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam,
+              QueryParam
+          ];
 
     type Context = any;
 

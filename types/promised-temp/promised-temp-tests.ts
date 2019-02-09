@@ -13,11 +13,13 @@ function testCleanup() {
 }
 
 function testOpen() {
-    temp.open({ dir: "tempDir", prefix: "pref", suffix: "suff" }).then((result: OpenFile) => {
-        const { path, fd } = result;
-        path.length;
-        fd.toPrecision(5);
-    });
+    temp.open({ dir: "tempDir", prefix: "pref", suffix: "suff" }).then(
+        (result: OpenFile) => {
+            const { path, fd } = result;
+            path.length;
+            fd.toPrecision(5);
+        }
+    );
 
     temp.open("strPrefix").then((result: OpenFile) => {
         const { path, fd } = result;
@@ -27,9 +29,9 @@ function testOpen() {
 }
 
 function testCreateWriteStream() {
-    const stream =
-        temp.createWriteStream("HelloStreamAffix")
-            .then((stream: fs.WriteStream) => stream.write("data"));
+    const stream = temp
+        .createWriteStream("HelloStreamAffix")
+        .then((stream: fs.WriteStream) => stream.write("data"));
 
     const stream2 = temp.createWriteStream();
 }
@@ -48,7 +50,10 @@ function testPath() {
 }
 
 function testTrack() {
-    const tempChained = temp.track().track(true).track(false);
+    const tempChained = temp
+        .track()
+        .track(true)
+        .track(false);
     tempChained.dir;
     tempChained.cleanup();
 }

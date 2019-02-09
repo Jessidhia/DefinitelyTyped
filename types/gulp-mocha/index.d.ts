@@ -7,7 +7,8 @@
 /// <reference types="mocha"/>
 /// <reference types="node"/>
 
-
-declare function mocha(setupOptions?: MochaSetupOptions): NodeJS.ReadWriteStream;
-declare namespace mocha { }
+declare function mocha(
+    setupOptions?: MochaSetupOptions
+): NodeJS.ReadWriteStream;
+declare namespace mocha {}
 export = mocha;

@@ -5,9 +5,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Icon } from './Icon';
-import { TextProps } from 'react-native';
+import * as React from "react";
+import { Icon } from "./Icon";
+import { TextProps } from "react-native";
 
 /**
  * Returns your own custom font based on the glyphMap where the key is the icon name
@@ -18,9 +18,9 @@ import { TextProps } from 'react-native';
  *
  */
 export function createIconSet(
-  glyphMap: {},
-  fontFamily: string,
-  fontFile?: string
+    glyphMap: {},
+    fontFamily: string,
+    fontFile?: string
 ): typeof Icon;
 
 /**
@@ -35,7 +35,11 @@ export function createIconSet(
  *
  * @see http://fontello.com
  */
-export function createIconSetFromFontello(config: {}, fontName?: string, fontFile?: string): typeof Icon;
+export function createIconSetFromFontello(
+    config: {},
+    fontName?: string,
+    fontFile?: string
+): typeof Icon;
 
 /**
  * Convenience method to create a custom font from IcoMoon
@@ -50,4 +54,8 @@ export function createIconSetFromFontello(config: {}, fontName?: string, fontFil
  *
  * @see https://icomoon.io/app
  */
-export function createIconSetFromIcoMoon(config: {}, fontName?: string, fontFile?: string): typeof Icon;
+export function createIconSetFromIcoMoon(
+    config: {},
+    fontName?: string,
+    fontFile?: string
+): typeof Icon;

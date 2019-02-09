@@ -8,8 +8,6 @@
 import fb = facebook;
 declare var FB: fb.FacebookStatic;
 declare namespace facebook {
-
-
     interface FacebookStatic {
         api: any;
         AppEvents: any;
@@ -31,7 +29,10 @@ declare namespace facebook {
          * @param callback function to handle the response.
          * @param roundtrip force a roundtrip to Facebook - effectively refreshing the cache of the response object
          */
-        getLoginStatus(callback: (response: StatusResponse) => void, roundtrip?: boolean): void;
+        getLoginStatus(
+            callback: (response: StatusResponse) => void,
+            roundtrip?: boolean
+        ): void;
 
         /**
          * The method FB.init() is used to initialize and setup the SDK.
@@ -50,7 +51,10 @@ declare namespace facebook {
          * @param callback function to handle the response.
          * @param options optional ILoginOption to add params such as scope.
          */
-        login(callback: (response: StatusResponse) => void, options?: LoginOptions): void;
+        login(
+            callback: (response: StatusResponse) => void,
+            options?: LoginOptions
+        ): void;
 
         /**
          * Use this function to log the user in
@@ -73,67 +77,106 @@ declare namespace facebook {
         /**
          * @see https://developers.facebook.com/docs/sharing/reference/share-dialog
          */
-        ui(params: ShareDialogParams, callback?: (response: ShareDialogResponse) => void): void;
+        ui(
+            params: ShareDialogParams,
+            callback?: (response: ShareDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/sharing/reference/share-dialog
          */
-        ui(params: ShareOpenGraphDialogParams, callback?: (response: ShareOpenGraphDialogResponse) => void): void;
+        ui(
+            params: ShareOpenGraphDialogParams,
+            callback?: (response: ShareOpenGraphDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/pages/page-tab-dialog
          */
-        ui(params: AddPageTabDialogParams, callback?: (response: DialogResponse) => void): void;
+        ui(
+            params: AddPageTabDialogParams,
+            callback?: (response: DialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/games/services/gamerequests
          */
-        ui(params: GameRequestDialogParams, callback?: (response: GameRequestDialogResponse) => void): void;
+        ui(
+            params: GameRequestDialogParams,
+            callback?: (response: GameRequestDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/payments/reference/paydialog
          */
-        ui(params: PayDialogParams, callback?: (response: PayDialogResponse) => void): void;
+        ui(
+            params: PayDialogParams,
+            callback?: (response: PayDialogResponse) => void
+        ): void;
 
-		/**
+        /**
          * @see https://developers.facebook.com/docs/games_payments/payments_lite
          */
-        ui(params: PaymentsLiteDialogParams, callback?: (response: PaymentsLiteDialogResponse) => void): void;
+        ui(
+            params: PaymentsLiteDialogParams,
+            callback?: (response: PaymentsLiteDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/videos/live-video/exploring-live#golivedialog
          */
-        ui(params: LiveDialogParams, callback?: (response: LiveDialogResponse) => void): void;
+        ui(
+            params: LiveDialogParams,
+            callback?: (response: LiveDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/sharing/reference/send-dialog
          */
-        ui(params: SendDialogParams, callback?: (response: DialogResponse) => void): void;
+        ui(
+            params: SendDialogParams,
+            callback?: (response: DialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/marketing-api/guides/offer-ads/#create-offer-dialog
          */
-        ui(params: CreateOfferDialogParams, callback?: (response: CreateOfferDialogResponse) => void): void;
+        ui(
+            params: CreateOfferDialogParams,
+            callback?: (response: CreateOfferDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/marketing-api/guides/lead-ads/create#create-leadgen-dialog
          */
-        ui(params: LeadgenDialogParams, callback?: (response: LeadgenDialogResponse) => void): void;
+        ui(
+            params: LeadgenDialogParams,
+            callback?: (response: LeadgenDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/marketing-api/guides/canvas-ads#canvas-ads-dialog
          */
-        ui(params: InstantExperiencesAdsDialogParams, callback?: (response: InstantExperiencesAdsDialogResponse) => void): void;
+        ui(
+            params: InstantExperiencesAdsDialogParams,
+            callback?: (response: InstantExperiencesAdsDialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/marketing-api/guides/canvas-ads#canvas-preview-dialog
          */
-        ui(params: InstantExperiencesPreviewDialogParams, callback?: (response: DialogResponse) => void): void;
+        ui(
+            params: InstantExperiencesPreviewDialogParams,
+            callback?: (response: DialogResponse) => void
+        ): void;
 
         /**
          * @see https://developers.facebook.com/docs/marketing-api/guides/collection#collection-ads-dialog
          */
-        ui(params: CollectionAdsDialogParams, callback?: (response: CollectionAdsDialogResponse) => void): void;
+        ui(
+            params: CollectionAdsDialogParams,
+            callback?: (response: CollectionAdsDialogResponse) => void
+        ): void;
 
         XFBML: any;
     }
@@ -150,7 +193,7 @@ declare namespace facebook {
     }
 
     interface LoginOptions {
-        auth_type?: 'rerequest';
+        auth_type?: "rerequest";
         scope?: string;
         return_scopes?: boolean;
         enable_profile_selector?: boolean;
@@ -166,11 +209,11 @@ declare namespace facebook {
     interface DialogParams {
         app_id?: string;
         redirect_uri?: string;
-        display?: 'page' | 'iframe' | 'async' | 'popup';
+        display?: "page" | "iframe" | "async" | "popup";
     }
 
     interface ShareDialogParams extends DialogParams {
-        method: 'share';
+        method: "share";
         href: string;
         hashtag?: string;
         quote?: string;
@@ -178,7 +221,7 @@ declare namespace facebook {
     }
 
     interface ShareOpenGraphDialogParams extends DialogParams {
-        method: 'share_open_graph';
+        method: "share_open_graph";
         action_type: string;
         action_properties: { [property: string]: any };
         href: string;
@@ -188,17 +231,20 @@ declare namespace facebook {
     }
 
     interface AddPageTabDialogParams extends DialogParams {
-        method: 'pagetab';
+        method: "pagetab";
         redirect_uri: string;
     }
 
     interface GameRequestDialogParams extends DialogParams {
-        method: 'apprequests';
+        method: "apprequests";
         message: string;
-        action_type?: 'send' | 'askfor' | 'turn';
+        action_type?: "send" | "askfor" | "turn";
         data?: string;
         exclude_ids?: string[];
-        filters?: 'app_users' | 'app_non_users' | Array<{ name: string, user_ids: string[] }>;
+        filters?:
+            | "app_users"
+            | "app_non_users"
+            | Array<{ name: string; user_ids: string[] }>;
         max_recipients?: number;
         object_id?: string;
         suggestions?: string[];
@@ -207,14 +253,14 @@ declare namespace facebook {
     }
 
     interface SendDialogParams extends DialogParams {
-        method: 'send';
+        method: "send";
         to?: string;
         link: string;
     }
 
     interface PayDialogParams extends DialogParams {
-        method: 'pay';
-        action: 'purchaseitem';
+        method: "pay";
+        action: "purchaseitem";
         product: string;
         quantity?: number;
         quantity_min?: number;
@@ -224,51 +270,58 @@ declare namespace facebook {
         test_currency?: string;
     }
 
-	interface PaymentsLiteDialogParams extends DialogParams {
-        method: 'pay';
-        action: 'purchaseiap';
+    interface PaymentsLiteDialogParams extends DialogParams {
+        method: "pay";
+        action: "purchaseiap";
         product_id: string;
         developer_payload?: string;
-		quantity?: number;
+        quantity?: number;
     }
 
     interface LiveDialogParams extends DialogParams {
-        method: 'live_broadcast';
-        display: 'popup' | 'iframe';
-        phase: 'create' | 'publish';
+        method: "live_broadcast";
+        display: "popup" | "iframe";
+        phase: "create" | "publish";
         broadcast_data?: LiveDialogResponse;
     }
 
     interface CreateOfferDialogParams extends DialogParams {
         account_id: string;
-        display: 'popup';
-        method: 'create_offer';
-        objective: 'APP_INSTALLS' | 'CONVERSIONS' | 'LINK_CLICKS' | 'OFFER_CLAIMS' | 'PRODUCT_CATALOG_SALES' | 'STORE_VISITS';
+        display: "popup";
+        method: "create_offer";
+        objective:
+            | "APP_INSTALLS"
+            | "CONVERSIONS"
+            | "LINK_CLICKS"
+            | "OFFER_CLAIMS"
+            | "PRODUCT_CATALOG_SALES"
+            | "STORE_VISITS";
         page_id: string;
     }
 
     interface LeadgenDialogParams extends DialogParams {
         account_id: string;
-        display: 'popup';
-        method: 'lead_gen';
+        display: "popup";
+        method: "lead_gen";
         page_id: string;
     }
 
     interface InstantExperiencesAdsDialogParams extends DialogParams {
-        display: 'popup';
-        method: 'canvas_editor';
+        display: "popup";
+        method: "canvas_editor";
         business_id: string;
         page_id: string;
         canvas_id?: string;
     }
 
     interface InstantExperiencesPreviewDialogParams extends DialogParams {
-        display: 'popup';
-        method: 'canvas_preview';
+        display: "popup";
+        method: "canvas_preview";
         canvas_id: string;
     }
 
-    interface CollectionAdsDialogParams extends InstantExperiencesAdsDialogParams {
+    interface CollectionAdsDialogParams
+        extends InstantExperiencesAdsDialogParams {
         account_id: string;
         canvas_id?: undefined;
         template_id: string;
@@ -291,7 +344,11 @@ declare namespace facebook {
     }
 
     interface StatusResponse {
-        status: 'authorization_expired' | 'connected' | 'not_authorized' | 'unknown';
+        status:
+            | "authorization_expired"
+            | "connected"
+            | "not_authorized"
+            | "unknown";
         authResponse: AuthResponse;
     }
 
@@ -319,11 +376,11 @@ declare namespace facebook {
         currency: string;
         quantity: string;
         request_id?: string;
-        status: 'completed' | 'initiated';
+        status: "completed" | "initiated";
         signed_request: string;
     }
 
-	interface PaymentsLiteDialogResponse extends DialogResponse {
+    interface PaymentsLiteDialogResponse extends DialogResponse {
         app_id: number;
         developer_payload?: string;
         payment_id: number;
@@ -355,5 +412,6 @@ declare namespace facebook {
         success: boolean;
     }
 
-    interface CollectionAdsDialogResponse extends InstantExperiencesAdsDialogResponse {}
+    interface CollectionAdsDialogResponse
+        extends InstantExperiencesAdsDialogResponse {}
 }

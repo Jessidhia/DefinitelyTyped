@@ -1,7 +1,6 @@
 import { Camera, EventDispatcher, Object3D, Vector3 } from "./three-core";
 
 export class EditorControls extends EventDispatcher {
-
     constructor(object: Camera, domElement?: HTMLElement);
 
     enabled: boolean;

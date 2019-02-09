@@ -48,7 +48,14 @@ declare namespace SystemJSLoader {
      * Represents a module name for System.import that must resolve to either Traceur, Babel or TypeScript.
      * When set to traceur, babel or typescript, loading will be automatically configured as far as possible.
      */
-    type Transpiler = "plugin-traceur" | "plugin-babel" | "plugin-typescript" | "traceur" | "babel" | "typescript" | false;
+    type Transpiler =
+        | "plugin-traceur"
+        | "plugin-babel"
+        | "plugin-typescript"
+        | "traceur"
+        | "babel"
+        | "typescript"
+        | false;
 
     type ConfigMap = PackageList<string | PackageList<string>>;
 
@@ -259,9 +266,9 @@ declare namespace SystemJSLoader {
              * which will be resolved using normal SystemJS resolution.
              * Note: This setting is specific to plugin-typescript.
              */
-            tsconfig?: boolean | string,
+            tsconfig?: boolean | string;
 
-            [key: string]: any
+            [key: string]: any;
         };
     }
 
@@ -328,15 +335,28 @@ declare namespace SystemJSLoader {
         /**
          * Declaration function for defining modules of the System.register polyfill module format.
          */
-        register(name: string, deps: string[], declare: (...modules: any[]) => any): void;
+        register(
+            name: string,
+            deps: string[],
+            declare: (...modules: any[]) => any
+        ): void;
         register(deps: string[], declare: (...modules: any[]) => any): void;
 
         /**
          * Companion module format to System.register for non-ES6 modules.
          * Provides a <script>-injection-compatible module format that any CommonJS or Global module can be converted into for CSP compatibility.
          */
-        registerDynamic(name: string, deps: string[], executingRequire: boolean, declare: (...modules: any[]) => any): void;
-        registerDynamic(deps: string[], executingRequire: boolean, declare: (...modules: any[]) => any): void;
+        registerDynamic(
+            name: string,
+            deps: string[],
+            executingRequire: boolean,
+            declare: (...modules: any[]) => any
+        ): void;
+        registerDynamic(
+            deps: string[],
+            executingRequire: boolean,
+            declare: (...modules: any[]) => any
+        ): void;
 
         /**
          * Sets a module into the registry directly and synchronously.

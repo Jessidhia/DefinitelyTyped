@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
+import { Node as ProsemirrorNode, Schema } from "prosemirror-model";
 
 export interface NodeTypeAttributes extends Record<string, any> {
     nodeType: string;
@@ -24,30 +24,30 @@ export interface TaggedProsemirrorNode<S extends Schema = any>
         ProsemirrorNode {}
 
 type TestNodesUnion =
-    | 'p'
-    | 'pre'
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'li'
-    | 'ul'
-    | 'ol'
-    | 'br'
-    | 'img'
-    | 'hr'
-    | 'ordered_list'
-    | 'bullet_list'
-    | 'list_item'
-    | 'doc'
-    | 'paragraph'
-    | 'blockquote'
-    | 'horizontal_rule'
-    | 'heading'
-    | 'code_block'
-    | 'text'
-    | 'image'
-    | 'hard_break';
-type TestMarksUnion = 'a' | 'link' | 'em' | 'strong' | 'code';
+    | "p"
+    | "pre"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "li"
+    | "ul"
+    | "ol"
+    | "br"
+    | "img"
+    | "hr"
+    | "ordered_list"
+    | "bullet_list"
+    | "list_item"
+    | "doc"
+    | "paragraph"
+    | "blockquote"
+    | "horizontal_rule"
+    | "heading"
+    | "code_block"
+    | "text"
+    | "image"
+    | "hard_break";
+type TestMarksUnion = "a" | "link" | "em" | "strong" | "code";
 
 export type TestSchema = Schema<TestNodesUnion, TestMarksUnion>;
 
@@ -74,7 +74,7 @@ export type Builder = <
     M extends string = string
 >(
     testSchema: Schema<N, M>,
-    names: Obj,
+    names: Obj
 ) => Record<N, NodeBuilderMethod<Schema<N, M>>> &
     Record<M, MarkBuilderMethod<Schema<N, M>>> &
     {

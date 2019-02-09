@@ -57,7 +57,7 @@ export interface Submittable {
 }
 
 export interface QueryArrayConfig extends QueryConfig {
-    rowMode: 'array';
+    rowMode: "array";
 }
 
 export interface FieldDef {
@@ -105,7 +105,7 @@ export interface BindConfig {
     portal?: string;
     statement?: string;
     binary?: string;
-    values?: Array<(Buffer | null | undefined | string)>;
+    values?: Array<Buffer | null | undefined | string>;
 }
 
 export interface ExecuteConfig {
@@ -148,21 +148,49 @@ export class Pool extends events.EventEmitter {
     readonly waitingCount: number;
 
     connect(): Promise<PoolClient>;
-    connect(callback: (err: Error, client: PoolClient, done: (release?: any) => void) => void): void;
+    connect(
+        callback: (
+            err: Error,
+            client: PoolClient,
+            done: (release?: any) => void
+        ) => void
+    ): void;
 
     end(): Promise<void>;
     end(callback: () => void): void;
 
     query<T extends Submittable>(queryStream: T): T;
-    query(queryConfig: QueryArrayConfig, values?: any[]): Promise<QueryArrayResult>;
+    query(
+        queryConfig: QueryArrayConfig,
+        values?: any[]
+    ): Promise<QueryArrayResult>;
     query(queryConfig: QueryConfig): Promise<QueryResult>;
-    query(queryTextOrConfig: string | QueryConfig, values?: any[]): Promise<QueryResult>;
-    query(queryConfig: QueryArrayConfig, callback: (err: Error, result: QueryArrayResult) => void): Query;
-    query(queryTextOrConfig: string | QueryConfig, callback: (err: Error, result: QueryResult) => void): Query;
-    query(queryText: string, values: any[], callback: (err: Error, result: QueryResult) => void): Query;
+    query(
+        queryTextOrConfig: string | QueryConfig,
+        values?: any[]
+    ): Promise<QueryResult>;
+    query(
+        queryConfig: QueryArrayConfig,
+        callback: (err: Error, result: QueryArrayResult) => void
+    ): Query;
+    query(
+        queryTextOrConfig: string | QueryConfig,
+        callback: (err: Error, result: QueryResult) => void
+    ): Query;
+    query(
+        queryText: string,
+        values: any[],
+        callback: (err: Error, result: QueryResult) => void
+    ): Query;
 
-    on(event: "error", listener: (err: Error, client: PoolClient) => void): this;
-    on(event: "connect" | "acquire" | "remove", listener: (client: PoolClient) => void): this;
+    on(
+        event: "error",
+        listener: (err: Error, client: PoolClient) => void
+    ): this;
+    on(
+        event: "connect" | "acquire" | "remove",
+        listener: (client: PoolClient) => void
+    ): this;
 }
 
 export class ClientBase extends events.EventEmitter {
@@ -172,12 +200,28 @@ export class ClientBase extends events.EventEmitter {
     connect(callback: (err: Error) => void): void;
 
     query<T extends Submittable>(queryStream: T): T;
-    query(queryConfig: QueryArrayConfig, values?: any[]): Promise<QueryArrayResult>;
+    query(
+        queryConfig: QueryArrayConfig,
+        values?: any[]
+    ): Promise<QueryArrayResult>;
     query(queryConfig: QueryConfig): Promise<QueryResult>;
-    query(queryTextOrConfig: string | QueryConfig, values?: any[]): Promise<QueryResult>;
-    query(queryConfig: QueryArrayConfig, callback: (err: Error, result: QueryArrayResult) => void): Query;
-    query(queryTextOrConfig: string | QueryConfig, callback: (err: Error, result: QueryResult) => void): Query;
-    query(queryText: string, values: any[], callback: (err: Error, result: QueryResult) => void): Query;
+    query(
+        queryTextOrConfig: string | QueryConfig,
+        values?: any[]
+    ): Promise<QueryResult>;
+    query(
+        queryConfig: QueryArrayConfig,
+        callback: (err: Error, result: QueryArrayResult) => void
+    ): Query;
+    query(
+        queryTextOrConfig: string | QueryConfig,
+        callback: (err: Error, result: QueryResult) => void
+    ): Query;
+    query(
+        queryText: string,
+        values: any[],
+        callback: (err: Error, result: QueryResult) => void
+    ): Query;
 
     copyFrom(queryText: string): stream.Writable;
     copyTo(queryText: string): stream.Readable;
@@ -207,7 +251,10 @@ export interface PoolClient extends ClientBase {
 }
 
 export class Query extends events.EventEmitter {
-    on(event: "row", listener: (row: any, result?: ResultBuilder) => void): this;
+    on(
+        event: "row",
+        listener: (row: any, result?: ResultBuilder) => void
+    ): this;
     on(event: "error", listener: (err: Error) => void): this;
     on(event: "end", listener: (result: ResultBuilder) => void): this;
 }
@@ -220,6 +267,6 @@ export const types: typeof pgTypes;
 
 export const defaults: Defaults & ClientConfig;
 
-import * as Pg from '.';
+import * as Pg from ".";
 
 export const native: typeof Pg | null;

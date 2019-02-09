@@ -7,23 +7,35 @@
 /// <reference types="passport"/>
 /// <reference types="express"/>
 
-import * as passport from 'passport';
-import * as express from  'express';
+import * as passport from "passport";
+import * as express from "express";
 
 interface StrategyOptionsWithRequestInterface {
     passReqToCallback: boolean;
 }
 
 interface VerifyFunctionWithRequest {
-    (req: express.Request, clientId: string, clientSecret: string, done: (error: any, client?: any, info?: any) => void): void;
+    (
+        req: express.Request,
+        clientId: string,
+        clientSecret: string,
+        done: (error: any, client?: any, info?: any) => void
+    ): void;
 }
 
 interface VerifyFunction {
-    (clientId: string, clientSecret: string, done: (error: any, client?: any, info?: any) => void): void;
+    (
+        clientId: string,
+        clientSecret: string,
+        done: (error: any, client?: any, info?: any) => void
+    ): void;
 }
 
 declare class Strategy extends passport.Strategy {
-    constructor(options: StrategyOptionsWithRequestInterface, verify: VerifyFunctionWithRequest);
+    constructor(
+        options: StrategyOptionsWithRequestInterface,
+        verify: VerifyFunctionWithRequest
+    );
     constructor(verify: VerifyFunction);
 
     name: string;

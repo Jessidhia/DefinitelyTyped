@@ -1,11 +1,10 @@
-
 import username = require("username");
 
 username()
-    .then((username) => {
+    .then(username => {
         username === "string";
     })
-    .catch((err) => {
+    .catch(err => {
         err === new Error();
     });
 

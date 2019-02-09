@@ -14,12 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import MDCChipFoundation from './foundation';
-import MDCChipSetAdapter from './adapter';
-import { strings, cssClasses } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCChipFoundation from "./foundation";
+import MDCChipSetAdapter from "./adapter";
+import { strings, cssClasses } from "./constants";
 
-export default class MDCChipSetFoundation extends MDCFoundation<MDCChipSetAdapter> {
+export default class MDCChipSetFoundation extends MDCFoundation<
+    MDCChipSetAdapter
+> {
     static readonly strings: strings;
 
     static readonly cssClasses: cssClasses;
@@ -30,7 +32,11 @@ export default class MDCChipSetFoundation extends MDCFoundation<MDCChipSetAdapte
      * Returns a new chip element with the given text, leading icon, and trailing icon,
      * added to the root chip set element.
      */
-    addChip(text: string, leadingIcon?: Element | null, trailingIcon?: Element | null): Element;
+    addChip(
+        text: string,
+        leadingIcon?: Element | null,
+        trailingIcon?: Element | null
+    ): Element;
 
     /**
      * Selects the given chip. Deselects all other chips if the chip set is of the choice variant.

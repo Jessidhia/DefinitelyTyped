@@ -16,7 +16,9 @@ it("Using AppContainer", () => {
     }
 
     const DummyComponent = () => <p>Dummy component</p>;
-    const ErrorReporter = ({ error }: ErrorReporterProps) => <ErrorReporterComponent error={error} />;
+    const ErrorReporter = ({ error }: ErrorReporterProps) => (
+        <ErrorReporterComponent error={error} />
+    );
 
     class AppContainerTest extends React.Component {
         render() {

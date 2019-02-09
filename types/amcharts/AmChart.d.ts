@@ -270,7 +270,7 @@ export default class AmChart {
         rotation?: number,
         alpha?: number,
         bold?: boolean,
-        url?: string,
+        url?: string
     ): any;
     /**
      * Adds a legend to the chart.
@@ -301,7 +301,13 @@ export default class AmChart {
      * text - text of a title size - font size color - title color alpha - title opacity bold -
      * boolean value indicating if title should be bold.
      */
-    addTitle(text: string, size: number, color: string, alpha: number, bold: boolean): void;
+    addTitle(
+        text: string,
+        size: number,
+        color: string,
+        alpha: number,
+        bold: boolean
+    ): void;
     /**
      * Clears the chart area, intervals, etc.
      */
@@ -344,12 +350,10 @@ export default class AmChart {
      */
     addListener(
         type: string,
-        handler: (
-            e: {
-                type: string; // Either "dataUpdated" or "init".
-                chart: AmChart;
-            },
-        ) => void,
+        handler: (e: {
+            type: string; // Either "dataUpdated" or "init".
+            chart: AmChart;
+        }) => void
     ): void;
     /**
      * Removes event listener from chart object.

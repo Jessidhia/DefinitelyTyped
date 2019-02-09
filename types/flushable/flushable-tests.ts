@@ -3,11 +3,11 @@
  * from the package's README
  */
 
-import flushable from 'flushable';
+import flushable from "flushable";
 
 // prints a message to the console after 1 second
 const operation = flushable(flushed => {
-    const result = `I completed ${flushed ? 'early' : 'on time'}`;
+    const result = `I completed ${flushed ? "early" : "on time"}`;
 }, 1000);
 
 // true if the callback has not been executed

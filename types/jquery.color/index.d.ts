@@ -46,7 +46,7 @@ interface JQueryColor {
      * Returns a copy of the color object with the blue set to val.
      */
     blue(val: number): JQueryColor;
-    
+
     /**
      * Returns a copy of the color object with the blue set to val.
      */
@@ -140,7 +140,12 @@ interface JQueryColor {
     /**
      * Returns a copy of the color with any defined values set to the new value.
      */
-    hsla(hue: number, saturation: number, lightness: number, alpha?: number): JQueryColor;
+    hsla(
+        hue: number,
+        saturation: number,
+        lightness: number,
+        alpha?: number
+    ): JQueryColor;
 
     /**
      * Returns a copy of the color with any defined values set to the new value.

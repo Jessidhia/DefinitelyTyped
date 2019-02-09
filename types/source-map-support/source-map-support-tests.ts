@@ -1,27 +1,29 @@
-import sms = require('source-map-support');
+import sms = require("source-map-support");
 
 sms.install();
 
 function retrieveFile(path: string): string {
-	return "foo";
+    return "foo";
 }
 
 function retrieveSourceMap(source: string): sms.UrlAndMap | null {
-	return source ? {
-		url: "http://foo",
-		map: "foo"
-	} : null;
+    return source
+        ? {
+              url: "http://foo",
+              map: "foo"
+          }
+        : null;
 }
 
 const options: sms.Options = {
-	emptyCacheBetweenOperations: false,
-	handleUncaughtExceptions: false,
-	retrieveFile,
-	retrieveSourceMap,
-	environment: 'node',
-	hookRequire: false,
-	overrideRetrieveSourceMap: false,
-	overrideRetrieveFile: false
+    emptyCacheBetweenOperations: false,
+    handleUncaughtExceptions: false,
+    retrieveFile,
+    retrieveSourceMap,
+    environment: "node",
+    hookRequire: false,
+    overrideRetrieveSourceMap: false,
+    overrideRetrieveFile: false
 };
 
 sms.install(options);
@@ -33,9 +35,9 @@ let s: string | null;
 s = sms.getErrorSource(new Error("foo"));
 
 let p: sms.Position = {
-	column: 0,
-	line: 0,
-	source: "foo"
+    column: 0,
+    line: 0,
+    source: "foo"
 };
 p = sms.mapSourcePosition(p);
 

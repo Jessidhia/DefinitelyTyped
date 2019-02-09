@@ -2,23 +2,16 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "node-ssdp-tests.ts"
-    ]
+    "files": ["index.d.ts", "node-ssdp-tests.ts"]
 }

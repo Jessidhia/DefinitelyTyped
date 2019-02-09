@@ -50,8 +50,8 @@ let uuid: string = Random.uuid4(engine);
 let str: string = Random.string()(engine);
 str = Random.string()(engine);
 str = Random.string()(engine, 10);
-str = Random.string('abc')(engine);
-str = Random.string('abc')(engine, 2);
+str = Random.string("abc")(engine);
+str = Random.string("abc")(engine, 2);
 
 let hex: string = Random.hex()(engine);
 hex = Random.hex()(engine, 5);
@@ -91,7 +91,7 @@ uuid = random.uuid4();
 
 str = random.string();
 str = random.string(10);
-str = random.string(10, 'abc');
+str = random.string(10, "abc");
 
 hex = random.hex();
 hex = random.hex(5);
@@ -107,7 +107,7 @@ date = random.date(new Date(), new Date());
 
 engine = Random.engines.mt19937().autoSeed();
 // create a distribution that will consistently produce integers within inclusive range [0, 99].
-const distribution: ((engine: Engine) => number) = Random.integer(0, 99);
+const distribution: (engine: Engine) => number = Random.integer(0, 99);
 // generate a number that is guaranteed to be within [0, 99] without any particular bias.
 function generateNaturalLessThan100(): number {
     return distribution(engine);
@@ -117,13 +117,17 @@ function generateNaturalLessThan100(): number {
 // using essentially Math.random()
 const engine2: Engine = Random.engines.nativeMath;
 // lower-case Hex string distribution
-const distribution2: ((engine: Engine, length: number) => string) = Random.hex(false);
+const distribution2: (engine: Engine, length: number) => string = Random.hex(
+    false
+);
 // generate a 40-character hex string
 function generateSHA1(): string {
     return distribution2(engine2, 40);
 }
 
-let r: Random = new Random(Random.engines.mt19937().seedWithArray([0x12345678, 0x90abcdef]));
+let r: Random = new Random(
+    Random.engines.mt19937().seedWithArray([0x12345678, 0x90abcdef])
+);
 const value = r.integer(0, 99);
 
 r = new Random(); // same as new Random(Random.engines.nativeMath)

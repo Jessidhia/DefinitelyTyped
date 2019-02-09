@@ -4,11 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ExternalsFunctionElement } from 'webpack';
+import { ExternalsFunctionElement } from "webpack";
 
 export = webpackNodeExternals;
 
-declare function webpackNodeExternals(options?: webpackNodeExternals.Options): ExternalsFunctionElement;
+declare function webpackNodeExternals(
+    options?: webpackNodeExternals.Options
+): ExternalsFunctionElement;
 
 declare namespace webpackNodeExternals {
     type WhitelistOption = string | RegExp;
@@ -33,7 +35,7 @@ declare namespace webpackNodeExternals {
          * 'commonjs' for node modules.
          * @default 'commonjs'
          */
-        importType?: 'var' | 'this' | 'commonjs' | 'amd' | 'umd';
+        importType?: "var" | "this" | "commonjs" | "amd" | "umd";
         /**
          * The folder in which to search for the node modules.
          * @default 'node_modules'

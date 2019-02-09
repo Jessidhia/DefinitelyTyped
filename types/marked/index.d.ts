@@ -16,7 +16,10 @@ export = marked;
  * @param callback Function called when the markdownString has been fully parsed when using async highlighting
  * @return String of compiled HTML
  */
-declare function marked(src: string, callback: (error: any | undefined, parseResult: string) => void): string;
+declare function marked(
+    src: string,
+    callback: (error: any | undefined, parseResult: string) => void
+): string;
 
 /**
  * Compiles markdown to HTML.
@@ -26,7 +29,11 @@ declare function marked(src: string, callback: (error: any | undefined, parseRes
  * @param callback Function called when the markdownString has been fully parsed when using async highlighting
  * @return String of compiled HTML
  */
-declare function marked(src: string, options?: marked.MarkedOptions, callback?: (error: any | undefined, parseResult: string) => void): string;
+declare function marked(
+    src: string,
+    options?: marked.MarkedOptions,
+    callback?: (error: any | undefined, parseResult: string) => void
+): string;
 
 declare namespace marked {
     /**
@@ -42,7 +49,11 @@ declare namespace marked {
      * @return String of compiled HTML
      */
 
-    function inlineLexer(src: string, links: string[], options?: MarkedOptions): string;
+    function inlineLexer(
+        src: string,
+        links: string[],
+        options?: MarkedOptions
+    ): string;
 
     /**
      * Compiles markdown to HTML.
@@ -51,7 +62,10 @@ declare namespace marked {
      * @param callback Function called when the markdownString has been fully parsed when using async highlighting
      * @return String of compiled HTML
      */
-    function parse(src: string, callback: (error: any | undefined, parseResult: string) => void): string;
+    function parse(
+        src: string,
+        callback: (error: any | undefined, parseResult: string) => void
+    ): string;
 
     /**
      * Compiles markdown to HTML.
@@ -61,7 +75,11 @@ declare namespace marked {
      * @param callback Function called when the markdownString has been fully parsed when using async highlighting
      * @return String of compiled HTML
      */
-    function parse(src: string, options?: MarkedOptions, callback?: (error: any | undefined, parseResult: string) => void): string;
+    function parse(
+        src: string,
+        options?: MarkedOptions,
+        callback?: (error: any | undefined, parseResult: string) => void
+    ): string;
 
     /**
      * @param src Tokenized source as array of tokens
@@ -81,17 +99,25 @@ declare namespace marked {
         code(code: string, language: string, isEscaped: boolean): string;
         blockquote(quote: string): string;
         html(html: string): string;
-        heading(text: string, level: number, raw: string, slugger: Slugger): string;
+        heading(
+            text: string,
+            level: number,
+            raw: string,
+            slugger: Slugger
+        ): string;
         hr(): string;
         list(body: string, ordered: boolean, start: number): string;
         listitem(text: string): string;
         paragraph(text: string): string;
         table(header: string, body: string): string;
         tablerow(content: string): string;
-        tablecell(content: string, flags: {
-            header: boolean;
-            align: 'center' | 'left' | 'right' | null;
-        }): string;
+        tablecell(
+            content: string,
+            flags: {
+                header: boolean;
+                align: "center" | "left" | "right" | null;
+            }
+        ): string;
         strong(text: string): string;
         em(text: string): string;
         codespan(code: string): string;
@@ -119,12 +145,12 @@ declare namespace marked {
 
     type TokensList = Token[] & {
         links: {
-            [key: string]: { href: string; title: string; }
-        }
+            [key: string]: { href: string; title: string };
+        };
     };
 
     type Token =
-        Tokens.Space
+        | Tokens.Space
         | Tokens.Code
         | Tokens.Heading
         | Tokens.Table
@@ -142,75 +168,75 @@ declare namespace marked {
 
     namespace Tokens {
         interface Space {
-            type: 'space';
+            type: "space";
         }
 
         interface Code {
-            type: 'code';
+            type: "code";
             lang?: string;
             text: string;
         }
 
         interface Heading {
-            type: 'heading';
+            type: "heading";
             depth: number;
             text: string;
         }
 
         interface Table {
-            type: 'table';
+            type: "table";
             header: string[];
-            align: Array<'center' | 'left' | 'right' | null>;
+            align: Array<"center" | "left" | "right" | null>;
             cells: string[][];
         }
 
         interface Hr {
-            type: 'hr';
+            type: "hr";
         }
 
         interface BlockquoteStart {
-            type: 'blockquote_start';
+            type: "blockquote_start";
         }
 
         interface BlockquoteEnd {
-            type: 'blockquote_end';
+            type: "blockquote_end";
         }
 
         interface ListStart {
-            type: 'list_start';
+            type: "list_start";
             ordered: boolean;
         }
 
         interface LooseItemStart {
-            type: 'loose_item_start';
+            type: "loose_item_start";
         }
 
         interface ListItemStart {
-            type: 'list_item_start';
+            type: "list_item_start";
         }
 
         interface ListItemEnd {
-            type: 'list_item_end';
+            type: "list_item_end";
         }
 
         interface ListEnd {
-            type: 'list_end';
+            type: "list_end";
         }
 
         interface Paragraph {
-            type: 'paragraph';
+            type: "paragraph";
             pre?: boolean;
             text: string;
         }
 
         interface HTML {
-            type: 'html';
+            type: "html";
             pre: boolean;
             text: string;
         }
 
         interface Text {
-            type: 'text';
+            type: "text";
             text: string;
         }
     }
@@ -244,7 +270,11 @@ declare namespace marked {
         /**
          * A function to highlight code blocks. The function takes three arguments: code, lang, and callback.
          */
-        highlight?(code: string, lang: string, callback?: (error: any | undefined, code: string) => void): string;
+        highlight?(
+            code: string,
+            lang: string,
+            callback?: (error: any | undefined, code: string) => void
+        ): string;
 
         /**
          * Set the prefix for code block classes.

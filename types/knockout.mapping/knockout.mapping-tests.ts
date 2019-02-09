@@ -1,35 +1,36 @@
 var inputJSON = '{ name: "foo" }';
-var inputData = { name: 'foo' };
-var inputModel = { name: 'bar' };
-var inputParent = { name: 'parent' };
+var inputData = { name: "foo" };
+var inputModel = { name: "bar" };
+var inputParent = { name: "parent" };
 var options = {};
 
 var createOptions = {
     data: inputData,
     parent: parent
-}
+};
 
 var updateOptions = {
     data: inputData,
     parent: parent,
     target: inputModel,
     observable: ko.observable(7)
-}
+};
 
 var targetOptions = {};
 var inputOptions = {};
 
 var mappingOptions = {
-    ignore: ['age'],
-    include: ['name'],
-    copy: ['height'],
-    mappedProperties: ['age', 'name'],
+    ignore: ["age"],
+    include: ["name"],
+    copy: ["height"],
+    mappedProperties: ["age", "name"],
     deferEvaluation: false,
-    create: function (options: KnockoutMappingCreateOptions) { },
-    update: function (options: KnockoutMappingUpdateOptions) { },
-    key: function (data: any) { return data; }
-}
-
+    create: function(options: KnockoutMappingCreateOptions) {},
+    update: function(options: KnockoutMappingUpdateOptions) {},
+    key: function(data: any) {
+        return data;
+    }
+};
 
 // Utility functions
 mapping.isMapped(inputModel);
@@ -68,10 +69,58 @@ mapping.toJSON(inputModel);
 mapping.toJSON(inputModel, mappingOptions);
 
 // visitModel function
-mapping.visitModel(inputModel, function (x: any) { return x; }, {});
-mapping.visitModel(inputModel, function (x: any) { return x; }, { visitedObjects: null });
-mapping.visitModel(inputModel, function (x: any) { return x; }, { parentName: 'parent' });
-mapping.visitModel(inputModel, function (x: any) { return x; }, { ignore: ['age'] });
-mapping.visitModel(inputModel, function (x: any) { return x; }, { copy: ['height'] });
-mapping.visitModel(inputModel, function (x: any) { return x; }, { include: ['name'] });
-mapping.visitModel(inputModel, function (x: any) { return x; }, { visitedObjects: null, parentName: 'parent', ignore: ['age'], copy: ['height'], include: ['name'] });
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    {}
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    { visitedObjects: null }
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    { parentName: "parent" }
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    { ignore: ["age"] }
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    { copy: ["height"] }
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    { include: ["name"] }
+);
+mapping.visitModel(
+    inputModel,
+    function(x: any) {
+        return x;
+    },
+    {
+        visitedObjects: null,
+        parentName: "parent",
+        ignore: ["age"],
+        copy: ["height"],
+        include: ["name"]
+    }
+);

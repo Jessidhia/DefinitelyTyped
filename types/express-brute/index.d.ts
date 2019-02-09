@@ -33,7 +33,11 @@ declare class ExpressBrute {
      * @param {Function}    next        The next middleware.
      * @return {RequestHandler} The Request handler.
      */
-    prevent(request: express.Request, response: express.Response, next: Function): express.RequestHandler;
+    prevent(
+        request: express.Request,
+        response: express.Response,
+        next: Function
+    ): express.RequestHandler;
 
     /**
      * @summary Resets the wait time between requests back to its initial value.
@@ -114,7 +118,12 @@ declare namespace ExpressBrute {
         /**
          * @summary Gets called with (req, res, next, nextValidRequestDate) when a request is rejected (default: ExpressBrute.FailForbidden)
          */
-        failCallback?: (req: express.Request, res: express.Response, next: Function, nextValidRequestDate: any) => void;
+        failCallback?: (
+            req: express.Request,
+            res: express.Response,
+            next: Function,
+            nextValidRequestDate: any
+        ) => void;
         /**
          * @summary Gets called whenever an error occurs with the persistent store from which ExpressBrute cannot recover. It is passed an object containing the properties message (a description of the message), parent (the error raised by the session store), and [key, ip] or [req, res, next] depending on whether or the error occurs during reset or in the middleware itself.
          */
@@ -146,7 +155,12 @@ declare namespace ExpressBrute {
          * @param {number}      lifetime The lifetime.
          * @param {Function}    callback The callback.
          */
-        set(key: string, value: any, lifetime: number, callback: (error: any) => void): void;
+        set(
+            key: string,
+            value: any,
+            lifetime: number,
+            callback: (error: any) => void
+        ): void;
 
         /**
          * @summary Deletes the key.
@@ -156,11 +170,11 @@ declare namespace ExpressBrute {
         reset(key: string, callback: (error: any) => void): void;
     }
 }
-    
+
 declare module "express-serve-static-core" {
     export interface Request {
         brute?: {
-            reset?: (callback?: () => void) => void
+            reset?: (callback?: () => void) => void;
         };
     }
 }

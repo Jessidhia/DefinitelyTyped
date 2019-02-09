@@ -14,18 +14,20 @@ ClearBlade.init({
     callback: genericCallback
 });
 
-ClearBlade.init({request: {
-    isLogging: false,
-    params: {
-      param1: "1",
-      param2: 2
-    },
-    systemKey: "abcdef",
-    systemSecret: "abcdef",
-    userEmail: "test@test.com",
-    userToken: "abcdef",
-    userid: "abcdef",
-}});
+ClearBlade.init({
+    request: {
+        isLogging: false,
+        params: {
+            param1: "1",
+            param2: 2
+        },
+        systemKey: "abcdef",
+        systemSecret: "abcdef",
+        userEmail: "test@test.com",
+        userToken: "abcdef",
+        userid: "abcdef"
+    }
+});
 
 const about = ClearBlade.about();
 ClearBlade.setUser("test@test.com", "authtoken", "userId");
@@ -38,7 +40,7 @@ ClearBlade.loginUser("test@test.com", "password", genericCallback);
 ClearBlade.getAllCollections(genericCallback);
 const edgeID = ClearBlade.edgeId();
 const isEdge = ClearBlade.isEdge(genericCallback);
-if (ClearBlade.isObjectEmpty({test: "test"})) {
+if (ClearBlade.isObjectEmpty({ test: "test" })) {
     ClearBlade.logger("Object is empty");
 }
 const kvPair = ClearBlade.makeKVPair("key", "value");
@@ -82,9 +84,19 @@ const parseOperation = ClearBlade.parseOperationQuery(query1.query);
 const parseQuery1 = ClearBlade.parseQuery(query1);
 const parseQuery2 = ClearBlade.parseQuery(query1.query);
 
-ClearBlade.createDevice("devicename", {type: "devicetype"}, false, genericCallback);
+ClearBlade.createDevice(
+    "devicename",
+    { type: "devicetype" },
+    false,
+    genericCallback
+);
 ClearBlade.deleteDevice("devicename", true, genericCallback);
-ClearBlade.updateDevice("devicename", {type: "devicetype"}, true, genericCallback);
+ClearBlade.updateDevice(
+    "devicename",
+    { type: "devicetype" },
+    true,
+    genericCallback
+);
 ClearBlade.getDeviceByName("devicename", genericCallback);
 ClearBlade.getAllDevicesForSystem(genericCallback);
 ClearBlade.validateEmailPassword("test@test.com", "password");
@@ -92,7 +104,7 @@ ClearBlade.validateEmailPassword("test@test.com", "password");
 ///////////////////////////////////////
 // Collection API invocations
 ///////////////////////////////////////
-coll1.addColumn({name: "column1"}, genericCallback);
+coll1.addColumn({ name: "column1" }, genericCallback);
 coll1.dropColumn("column1", genericCallback);
 coll1.deleteCollection(genericCallback);
 coll1.fetch(query1.query, genericCallback);
@@ -137,7 +149,12 @@ code.getAllServices(genericCallback);
 ///////////////////////////////////////
 // Deployment API invocations
 ///////////////////////////////////////
-deployment.create("deploymentname", "deployment description", {}, genericCallback);
+deployment.create(
+    "deploymentname",
+    "deployment description",
+    {},
+    genericCallback
+);
 deployment.update("deploymentname", {}, genericCallback);
 deployment.delete("deploymentname", genericCallback);
 deployment.read("deploymentname", genericCallback);
@@ -148,14 +165,21 @@ deployment.readAll(query1, genericCallback);
 ///////////////////////////////////////
 user.getUser(genericCallback);
 user.setUser({}, genericCallback);
-user.setUsers(query2, {name: "Fred"}, genericCallback);
+user.setUsers(query2, { name: "Fred" }, genericCallback);
 user.allUsers(query1, genericCallback);
 user.count(query1, genericCallback);
 
 ///////////////////////////////////////
 // Messaging API invocations
 ///////////////////////////////////////
-messaging.getMessageHistoryWithTimeFrame("topic", 5, 10, 15, 20, genericCallback);
+messaging.getMessageHistoryWithTimeFrame(
+    "topic",
+    5,
+    10,
+    15,
+    20,
+    genericCallback
+);
 messaging.getMessageHistory("topic", 5, 15, genericCallback);
 messaging.getAndDeleteMessageHistory("topic", 5, 10, 1, 20, genericCallback);
 messaging.getCurrentTopics(genericCallback);
@@ -176,13 +200,14 @@ ClearBlade.Trigger.Create(
     "triggername",
     {
         system_key: "key",
-	    name: "triggername",
-	    def_module: CbServer.TriggerModule.DEVICE,
-	    def_name: "someName",
-	    key_value_pairs: [],
+        name: "triggername",
+        def_module: CbServer.TriggerModule.DEVICE,
+        def_name: "someName",
+        key_value_pairs: [],
         service_name: "ServiceName"
     },
-    genericCallback);
+    genericCallback
+);
 ClearBlade.Trigger.Fetch("triggername", genericCallback);
 
 ///////////////////////////////////////

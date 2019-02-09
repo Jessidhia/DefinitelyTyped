@@ -11,10 +11,22 @@ declare module "express-mung" {
     import { Request, Response, RequestHandler } from "express";
 
     type Transform = (body: {}, request: Request, response: Response) => any;
-    type TransformAsync = (body: {}, request: Request, response: Response) => PromiseLike<any>;
+    type TransformAsync = (
+        body: {},
+        request: Request,
+        response: Response
+    ) => PromiseLike<any>;
     type TransformHeader = (request: Request, response: Response) => any;
-    type TransformHeaderAsync = (request: Request, response: Response) => PromiseLike<any>;
-    type TransformChunk = (chunk: string | Buffer, encoding: string | null, request: Request, response: Response) => string | Buffer;
+    type TransformHeaderAsync = (
+        request: Request,
+        response: Response
+    ) => PromiseLike<any>;
+    type TransformChunk = (
+        chunk: string | Buffer,
+        encoding: string | null,
+        request: Request,
+        response: Response
+    ) => string | Buffer;
     type Options = { mungError: boolean };
 
     /**
@@ -31,7 +43,10 @@ declare module "express-mung" {
      * @param {Options} [options] jsonAsync options.
      * @return {RequestHandler} Middleware to transform the body
      */
-    export function jsonAsync(fn: TransformAsync, options?: Options): RequestHandler;
+    export function jsonAsync(
+        fn: TransformAsync,
+        options?: Options
+    ): RequestHandler;
 
     /**
      * Transform the HTTP headers of the response.
@@ -53,5 +68,8 @@ declare module "express-mung" {
      * @param {Options} [options] Write options.
      * @return {RequestHandler} Middleware to transform chunks.
      */
-    export function write(fn: TransformChunk, options?: Options): RequestHandler;
+    export function write(
+        fn: TransformChunk,
+        options?: Options
+    ): RequestHandler;
 }

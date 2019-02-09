@@ -9,10 +9,14 @@
 
 /// <reference types="node" />
 
-import glob = require('glob');
-import fs = require('fs');
+import glob = require("glob");
+import fs = require("fs");
 
-declare function rimraf(path: string, options: rimraf.Options, callback: (error: Error) => void): void;
+declare function rimraf(
+    path: string,
+    options: rimraf.Options,
+    callback: (error: Error) => void
+): void;
 declare function rimraf(path: string, callback: (error: Error) => void): void;
 declare namespace rimraf {
     function __promisify__(path: string, options?: Options): Promise<void>;

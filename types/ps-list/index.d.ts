@@ -6,7 +6,9 @@
 
 export = psList;
 
-declare function psList(options?: psList.Options): Promise<psList.ProcessDescriptor[]>;
+declare function psList(
+    options?: psList.Options
+): Promise<psList.ProcessDescriptor[]>;
 
 declare namespace psList {
     interface Options {

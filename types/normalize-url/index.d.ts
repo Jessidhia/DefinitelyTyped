@@ -22,6 +22,9 @@ declare namespace normalizeUrl {
     }
 }
 
-declare function normalizeUrl(url: string, options?: normalizeUrl.Options): string;
+declare function normalizeUrl(
+    url: string,
+    options?: normalizeUrl.Options
+): string;
 
 export = normalizeUrl;

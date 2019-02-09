@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import * as React from 'react';
-import { ProgressColors } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes } from '../utils';
+import * as React from "react";
+import { ProgressColors } from "../enums";
+import { GeneralPropTypes, FlexboxPropTypes } from "../utils";
 /**
  * Progress component.
  * http://foundation.zurb.com/sites/docs/progress-bar.html
@@ -10,7 +10,9 @@ import { GeneralPropTypes, FlexboxPropTypes } from '../utils';
  * @returns {Object}
  */
 export declare const Progress: React.StatelessComponent<PaginationProps>;
-export interface PaginationProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLDivElement> {
+export interface PaginationProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLDivElement> {
     min?: number;
     max?: number;
     value?: number;
@@ -24,17 +26,24 @@ export interface PaginationProps extends FlexboxPropTypes, React.HTMLAttributes<
  * @param {Object} props
  * @returns {Object}
  */
-export declare const ProgressMeter: React.StatelessComponent<ProgressMeterProps>;
-export interface ProgressMeterProps extends GeneralPropTypes, React.HTMLAttributes<HTMLDivElement> {
-}
+export declare const ProgressMeter: React.StatelessComponent<
+    ProgressMeterProps
+>;
+export interface ProgressMeterProps
+    extends GeneralPropTypes,
+        React.HTMLAttributes<HTMLDivElement> {}
 /**
  * Progress meter with text sub-component.
  *
  * @param {Object} props
  * @returns {Object}
  */
-export declare const ProgressMeterWithText: React.StatelessComponent<ProgressMeterWithTextProps>;
-export interface ProgressMeterWithTextProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLSpanElement> {
+export declare const ProgressMeterWithText: React.StatelessComponent<
+    ProgressMeterWithTextProps
+>;
+export interface ProgressMeterWithTextProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLSpanElement> {
     text: string;
 }
 /**
@@ -43,8 +52,12 @@ export interface ProgressMeterWithTextProps extends FlexboxPropTypes, React.HTML
  * @param {Object} props
  * @returns {Object}
  */
-export declare const ProgressMeterText: React.StatelessComponent<ProgressMeterTextProps>;
-export interface ProgressMeterTextProps extends FlexboxPropTypes, React.HTMLAttributes<HTMLParagraphElement> {
+export declare const ProgressMeterText: React.StatelessComponent<
+    ProgressMeterTextProps
+>;
+export interface ProgressMeterTextProps
+    extends FlexboxPropTypes,
+        React.HTMLAttributes<HTMLParagraphElement> {
     children?: string;
 }
 /**
@@ -53,8 +66,12 @@ export interface ProgressMeterTextProps extends FlexboxPropTypes, React.HTMLAttr
  *
  * @returns {Object}
  */
-export declare const NativeProgress: React.StatelessComponent<NativeProgressProps>;
-export interface NativeProgressProps extends FlexboxPropTypes, React.ProgressHTMLAttributes<HTMLProgressElement> {
+export declare const NativeProgress: React.StatelessComponent<
+    NativeProgressProps
+>;
+export interface NativeProgressProps
+    extends FlexboxPropTypes,
+        React.ProgressHTMLAttributes<HTMLProgressElement> {
     max?: number;
     value?: number;
     color?: ProgressColors;

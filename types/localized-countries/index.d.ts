@@ -13,6 +13,8 @@ interface LocalizedCountries {
     object(): { [code: string]: string };
 }
 
-declare function localizedCountries(locale: string|object): LocalizedCountries;
+declare function localizedCountries(
+    locale: string | object
+): LocalizedCountries;
 
 export = localizedCountries;

@@ -32,7 +32,10 @@ export interface PipeOptions {
     preventCancel?: boolean;
 }
 
-export interface WritableReadablePair<T extends WritableStream<any>, U extends ReadableStream<any>> {
+export interface WritableReadablePair<
+    T extends WritableStream<any>,
+    U extends ReadableStream<any>
+> {
     writable: T;
     readable: U;
 }
@@ -43,15 +46,24 @@ export interface ReadResult<T> {
 }
 
 declare class ReadableStream<R = ArrayBufferView> {
-    constructor(underlyingSource?: ReadableStreamSource<R>, strategy?: QueuingStrategy<R>);
-    constructor(underlyingSource?: ReadableByteStreamSource, strategy?: QueuingStrategy<R>);
+    constructor(
+        underlyingSource?: ReadableStreamSource<R>,
+        strategy?: QueuingStrategy<R>
+    );
+    constructor(
+        underlyingSource?: ReadableByteStreamSource,
+        strategy?: QueuingStrategy<R>
+    );
 
     readonly locked: boolean;
 
     cancel(reason: any): Promise<void>;
     getReader(): ReadableStreamDefaultReader<R>;
     getReader({ mode }: { mode: "byob" }): ReadableStreamBYOBReader<R>;
-    pipeThrough<T extends ReadableStream<any>>({ writable, readable }: WritableReadablePair<WritableStream<R>, T>, options?: PipeOptions): T;
+    pipeThrough<T extends ReadableStream<any>>(
+        { writable, readable }: WritableReadablePair<WritableStream<R>, T>,
+        options?: PipeOptions
+    ): T;
     pipeTo(dest: WritableStream<R>, options?: PipeOptions): Promise<void>;
     tee(): [ReadableStream<R>, ReadableStream<R>];
 }
@@ -102,13 +114,19 @@ declare class ReadableStreamBYOBRequest {
 
 interface WritableStreamSink<W = ArrayBufferView> {
     start?(controller: WritableStreamDefaultController<W>): void | Promise<any>;
-    write?(chunk: W, controller?: WritableStreamDefaultController<W>): void | Promise<any>;
+    write?(
+        chunk: W,
+        controller?: WritableStreamDefaultController<W>
+    ): void | Promise<any>;
     close?(controller: WritableStreamDefaultController<W>): void | Promise<any>;
     abort?(reason: any): void | Promise<any>;
 }
 
 declare class WritableStream<W = ArrayBufferView> {
-    constructor(underlyingSink?: WritableStreamSink<W>, strategy?: QueuingStrategy<W>);
+    constructor(
+        underlyingSink?: WritableStreamSink<W>,
+        strategy?: QueuingStrategy<W>
+    );
 
     readonly locked: boolean;
 
@@ -146,13 +164,25 @@ declare class CountQueuingStrategy {
 }
 
 export interface TransformStreamTransformer<R, W> {
-    start?(controller: TransformStreamDefaultController<R>): void | Promise<any>;
-    transform?(chunk: W, controller: TransformStreamDefaultController<R>): void | Promise<any>;
-    flush?(controller: TransformStreamDefaultController<R>): void | Promise<any>;
+    start?(
+        controller: TransformStreamDefaultController<R>
+    ): void | Promise<any>;
+    transform?(
+        chunk: W,
+        controller: TransformStreamDefaultController<R>
+    ): void | Promise<any>;
+    flush?(
+        controller: TransformStreamDefaultController<R>
+    ): void | Promise<any>;
 }
 
-declare class TransformStream<R, W> implements WritableReadablePair<WritableStream<W>, ReadableStream<R>> {
-    constructor(transformer?: TransformStreamTransformer<R, W>, writableStrategy?: QueuingStrategy<W>, readableStrategy?: QueuingStrategy<R>);
+declare class TransformStream<R, W>
+    implements WritableReadablePair<WritableStream<W>, ReadableStream<R>> {
+    constructor(
+        transformer?: TransformStreamTransformer<R, W>,
+        writableStrategy?: QueuingStrategy<W>,
+        readableStrategy?: QueuingStrategy<R>
+    );
 
     readonly readable: ReadableStream<R>;
     readonly writable: WritableStream<W>;

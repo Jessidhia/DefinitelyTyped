@@ -1,30 +1,30 @@
-import SagaTester from 'redux-saga-tester';
+import SagaTester from "redux-saga-tester";
 
 // constructor with all options
 new SagaTester({
     initialState: {
-        orders: [],
+        orders: []
     },
     reducers: {
-        orders: (state, action) => state,
+        orders: (state, action) => state
     },
     middlewares: [
-        ({dispatch, getState}) => (next) => (action) => {
-            dispatch({type: 'BLA'});
+        ({ dispatch, getState }) => next => action => {
+            dispatch({ type: "BLA" });
             getState();
 
             return next(action);
-        },
+        }
     ],
     ignoreReduxActions: false,
     options: {
-        a: 23,
-    },
+        a: 23
+    }
 });
 
 // constructor with function as reducers
 new SagaTester({
-    reducers: (state = {}, action) => state,
+    reducers: (state = {}, action) => state
 });
 
 // constructor with reducer map
@@ -32,7 +32,7 @@ new SagaTester({
     reducers: {
         a: (state, action) => state,
         b: (state, action) => state,
-        c: (state, action) => state,
+        c: (state, action) => state
     }
 });
 
@@ -41,7 +41,9 @@ interface MockStateType {
     orders: Array<{ name: string }>;
 }
 
-const sagaTester = new SagaTester<MockStateType>({initialState: {orders: []}});
+const sagaTester = new SagaTester<MockStateType>({
+    initialState: { orders: [] }
+});
 
 // start
 function* fakeSaga() {
@@ -53,28 +55,26 @@ function* fakeSagaWithParams(param1: string, param2: number) {
 }
 
 sagaTester.start(fakeSaga);
-sagaTester.start(fakeSagaWithParams, 'foo', 3);
+sagaTester.start(fakeSagaWithParams, "foo", 3);
 
 // dispatch
-sagaTester.dispatch({type: 'LOAD_ORDERS', orders: []});
+sagaTester.dispatch({ type: "LOAD_ORDERS", orders: [] });
 
 // updateState
-sagaTester.updateState({orders: []});
+sagaTester.updateState({ orders: [] });
 
 // getState
 sagaTester.getState().orders;
 
 // waitFor
-sagaTester.waitFor('LOAD_ORDERS').then(() => {
-});
-sagaTester.waitFor('LOAD_ORDERS', true).then(() => {
-});
+sagaTester.waitFor("LOAD_ORDERS").then(() => {});
+sagaTester.waitFor("LOAD_ORDERS", true).then(() => {});
 
 // wasCalled
-sagaTester.wasCalled('LOAD_ORDERS');
+sagaTester.wasCalled("LOAD_ORDERS");
 
 // numCalled
-sagaTester.numCalled('LOAD_ORDERS') === 1;
+sagaTester.numCalled("LOAD_ORDERS") === 1;
 
 // getLatestCalledAction
 sagaTester.getLatestCalledAction().type;

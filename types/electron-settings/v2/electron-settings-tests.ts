@@ -1,4 +1,4 @@
-import settings = require('electron-settings');
+import settings = require("electron-settings");
 
 function test_configure() {
     settings.configure({
@@ -10,50 +10,50 @@ function test_configure() {
 function test_defaults() {
     settings.defaults({
         a: 1,
-        b: '',
+        b: "",
         c: false,
         d: {
-            d1: 'd1',
+            d1: "d1",
             d2: true
         },
-        e: ['e1', 'e2']
+        e: ["e1", "e2"]
     }) === undefined;
 }
 
 async function test_has() {
-    await settings.has('a') === true;
+    (await settings.has("a")) === true;
 }
 
 function test_hasSync() {
-    settings.hasSync('a') === true;
+    settings.hasSync("a") === true;
 }
 
 async function test_get() {
-    await settings.get('b') === '';
+    (await settings.get("b")) === "";
 }
 
 function test_getSync() {
-    settings.getSync('b') === '';
+    settings.getSync("b") === "";
 }
 
 async function test_set() {
-    await settings.set('c', true) === undefined;
+    (await settings.set("c", true)) === undefined;
 }
 
 function test_setSync() {
-    settings.setSync('c', true) === undefined;
+    settings.setSync("c", true) === undefined;
 }
 
 async function test_delete() {
-    await settings.delete('d') === undefined;
+    (await settings.delete("d")) === undefined;
 }
 
 function test_deleteSync() {
-    settings.deleteSync('d') === undefined;
+    settings.deleteSync("d") === undefined;
 }
 
 async function test_clear() {
-    await settings.clear() === undefined;
+    (await settings.clear()) === undefined;
 }
 
 function test_clearSync() {
@@ -61,7 +61,7 @@ function test_clearSync() {
 }
 
 async function test_applyDefaults() {
-    await settings.applyDefaults({ overwrite: true }) === undefined;
+    (await settings.applyDefaults({ overwrite: true })) === undefined;
 }
 
 function test_applyDefaultsSync() {
@@ -69,7 +69,7 @@ function test_applyDefaultsSync() {
 }
 
 async function test_resetToDefaults() {
-    await settings.resetToDefaults() === undefined;
+    (await settings.resetToDefaults()) === undefined;
 }
 
 function test_resetToDefaultsSync() {
@@ -77,7 +77,7 @@ function test_resetToDefaultsSync() {
 }
 
 function test_observe() {
-    const observer = settings.observe('b', evt => {
+    const observer = settings.observe("b", evt => {
         if (evt.oldValue !== evt.newValue) {
             console.log(evt.newValue);
         }
@@ -91,13 +91,13 @@ function test_getSettingsFilePath() {
 }
 
 function test_on_create() {
-    settings.on('create', pathToSettings => {
+    settings.on("create", pathToSettings => {
         pathToSettings === __dirname;
     }) === settings;
 }
 
 function test_on_write() {
-    settings.on('write', () => {
+    settings.on("write", () => {
         console.log();
     }) === settings;
 }
@@ -114,7 +114,9 @@ function test_options_type_annotation(options: settings.Options) {
     options.atomicSaving;
 }
 
-function test_applyDefaultOptions_type_annotation(options: settings.ApplyDefaultsOptions) {
+function test_applyDefaultOptions_type_annotation(
+    options: settings.ApplyDefaultsOptions
+) {
     options.overwrite;
 }
 

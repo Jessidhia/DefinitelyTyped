@@ -1,5 +1,5 @@
-import * as collab from 'prosemirror-collab';
-import { EditorState } from 'prosemirror-state';
+import * as collab from "prosemirror-collab";
+import { EditorState } from "prosemirror-state";
 
 const state = new EditorState();
 const version = collab.getVersion(state);

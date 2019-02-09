@@ -7,20 +7,12 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "jsx": "react"
     },
-    "files": [
-        "index.d.ts",
-        "react-portal-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-portal-tests.tsx"]
 }

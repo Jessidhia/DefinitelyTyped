@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-import { MDCFoundation } from 'material__base';
-import { cssClasses, strings } from './constants';
-import MDCSelectAdapter from './adapter';
+import { MDCFoundation } from "material__base";
+import { cssClasses, strings } from "./constants";
+import MDCSelectAdapter from "./adapter";
 
-export default class MDCSelectFoundation extends MDCFoundation<MDCSelectAdapter> {
+export default class MDCSelectFoundation extends MDCFoundation<
+    MDCSelectAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

@@ -6,7 +6,14 @@ declare namespace adone.system.process {
     function stdio(opts: object): any[];
 
     namespace I {
-        type StdIOOption = "pipe" | "ipc" | "ignore" | nodestd.stream.Stream | number | null | undefined;
+        type StdIOOption =
+            | "pipe"
+            | "ipc"
+            | "ignore"
+            | nodestd.stream.Stream
+            | number
+            | null
+            | undefined;
 
         interface ExecCommonOptions {
             /**
@@ -218,24 +225,46 @@ declare namespace adone.system.process {
         type ExecError = Error & ExecReturns;
 
         interface ExecChildPromise {
-            catch<TResult = never>(onrejected?: ((reason: ExecError) => TResult | PromiseLike<TResult>) | null): Promise<ExecReturns | TResult>;
+            catch<TResult = never>(
+                onrejected?:
+                    | ((reason: ExecError) => TResult | PromiseLike<TResult>)
+                    | null
+            ): Promise<ExecReturns | TResult>;
         }
 
-        type ExecChildProcess = nodestd.child_process.ChildProcess & ExecChildPromise & Promise<ExecReturns>;
+        type ExecChildProcess = nodestd.child_process.ChildProcess &
+            ExecChildPromise &
+            Promise<ExecReturns>;
     }
 
-    function exec(cmd: string, args?: string[], opts?: I.ExecOptions): I.ExecChildProcess;
+    function exec(
+        cmd: string,
+        args?: string[],
+        opts?: I.ExecOptions
+    ): I.ExecChildProcess;
     function exec(cmd: string, opts?: I.ExecOptions): I.ExecChildProcess;
 
-    function execStdout(cmd: string, args?: string[], opts?: I.ExecOptions): Promise<string>;
+    function execStdout(
+        cmd: string,
+        args?: string[],
+        opts?: I.ExecOptions
+    ): Promise<string>;
     function execStdout(cmd: string, opts?: I.ExecOptions): Promise<string>;
 
-    function execStderr(cmd: string, args?: string[], opts?: I.ExecOptions): Promise<string>;
+    function execStderr(
+        cmd: string,
+        args?: string[],
+        opts?: I.ExecOptions
+    ): Promise<string>;
     function execStderr(cmd: string, opts?: I.ExecOptions): Promise<string>;
 
     function shell(cmd: string, opts?: I.ExecOptions): I.ExecChildProcess;
 
-    function execSync(cmd: string, args?: string[], opts?: I.ExecSyncOptions): I.ExecReturns;
+    function execSync(
+        cmd: string,
+        args?: string[],
+        opts?: I.ExecSyncOptions
+    ): I.ExecReturns;
 
     function shellSync(cmd: string, opts?: I.ExecSyncOptions): I.ExecReturns;
 }

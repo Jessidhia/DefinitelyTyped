@@ -9,7 +9,7 @@ declare namespace Handlebars {
         (context: T, options?: RuntimeOptions): string;
     }
 
-    export type Template<T = any> = TemplateDelegate<T>|string;
+    export type Template<T = any> = TemplateDelegate<T> | string;
 
     export interface RuntimeOptions {
         partial?: boolean;
@@ -29,15 +29,23 @@ declare namespace Handlebars {
     }
 
     export interface HelperDelegate {
-        (context?: any, arg1?: any, arg2?: any, arg3?: any, arg4?: any, arg5?: any, options?: HelperOptions): any;
+        (
+            context?: any,
+            arg1?: any,
+            arg2?: any,
+            arg3?: any,
+            arg4?: any,
+            arg5?: any,
+            options?: HelperOptions
+        ): any;
     }
     export interface HelperDeclareSpec {
         [key: string]: HelperDelegate;
     }
 
     export interface ParseOptions {
-        srcName?: string,
-        ignoreStandalone?: boolean
+        srcName?: string;
+        ignoreStandalone?: boolean;
     }
 
     export function registerHelper(name: string, fn: HelperDelegate): void;
@@ -45,7 +53,9 @@ declare namespace Handlebars {
     export function unregisterHelper(name: string): void;
 
     export function registerPartial(name: string, fn: Template): void;
-    export function registerPartial(spec: { [name: string]: HandlebarsTemplateDelegate }): void;
+    export function registerPartial(spec: {
+        [name: string]: HandlebarsTemplateDelegate;
+    }): void;
     export function unregisterPartial(name: string): void;
 
     // TODO: replace Function with actual signature
@@ -57,10 +67,21 @@ declare namespace Handlebars {
     export function blockParams(obj: any[], ids: any[]): any[];
     export function Exception(message: string): void;
     export function log(level: number, obj: any): void;
-    export function parse(input: string, options?: ParseOptions): hbs.AST.Program;
-    export function compile<T = any>(input: any, options?: CompileOptions): HandlebarsTemplateDelegate<T>;
-    export function precompile(input: any, options?: PrecompileOptions): TemplateSpecification;
-    export function template<T = any>(precompilation: TemplateSpecification): HandlebarsTemplateDelegate<T>;
+    export function parse(
+        input: string,
+        options?: ParseOptions
+    ): hbs.AST.Program;
+    export function compile<T = any>(
+        input: any,
+        options?: CompileOptions
+    ): HandlebarsTemplateDelegate<T>;
+    export function precompile(
+        input: any,
+        options?: PrecompileOptions
+    ): TemplateSpecification;
+    export function template<T = any>(
+        precompilation: TemplateSpecification
+    ): HandlebarsTemplateDelegate<T>;
 
     export function create(): typeof Handlebars;
 
@@ -85,7 +106,7 @@ declare namespace Handlebars {
         export function escapeExpression(str: string): string;
         export function createFrame(object: any): any;
         export function blockParams(obj: any[], ids: any[]): any[];
-        export function isEmpty(obj: any) : boolean;
+        export function isEmpty(obj: any): boolean;
         export function extend(obj: any, ...source: any[]): any;
         export function toString(obj: any): string;
         export function isArray(obj: any): boolean;
@@ -142,8 +163,8 @@ declare namespace Handlebars {
 }
 
 /**
-* Implement this interface on your MVW/MVVM/MVC views such as Backbone.View
-**/
+ * Implement this interface on your MVW/MVVM/MVC views such as Backbone.View
+ **/
 interface HandlebarsTemplatable {
     template: HandlebarsTemplateDelegate;
 }
@@ -155,9 +176,7 @@ interface HandlebarsTemplates {
     [index: string]: HandlebarsTemplateDelegate;
 }
 
-interface TemplateSpecification {
-
-}
+interface TemplateSpecification {}
 
 // for backward compatibility of this typing
 type RuntimeOptions = Handlebars.RuntimeOptions;
@@ -241,7 +260,7 @@ declare namespace hbs {
             strip: StripFlags;
         }
 
-        interface Decorator extends MustacheStatement { }
+        interface Decorator extends MustacheStatement {}
 
         interface BlockStatement extends Statement {
             path: PathExpression;
@@ -254,7 +273,7 @@ declare namespace hbs {
             closeStrip: StripFlags;
         }
 
-        interface DecoratorBlock extends BlockStatement { }
+        interface DecoratorBlock extends BlockStatement {}
 
         interface PartialStatement extends Statement {
             name: PathExpression | SubExpression;

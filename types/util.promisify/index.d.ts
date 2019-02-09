@@ -12,7 +12,9 @@
  */
 export = promisify;
 
-declare function promisify(f: (...args: any[]) => void): (...args: any[]) => Promise<any>;
+declare function promisify(
+    f: (...args: any[]) => void
+): (...args: any[]) => Promise<any>;
 
 declare namespace promisify {
     interface implementation {

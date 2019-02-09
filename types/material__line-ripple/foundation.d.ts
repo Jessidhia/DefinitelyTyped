@@ -14,11 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses } from './constants';
-import MDCLineRippleAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses } from "./constants";
+import MDCLineRippleAdapter from "./adapter";
 
-export default class MDCLineRippleFoundation extends MDCFoundation<MDCLineRippleAdapter> {
+export default class MDCLineRippleFoundation extends MDCFoundation<
+    MDCLineRippleAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly defaultAdapter: MDCLineRippleAdapter;

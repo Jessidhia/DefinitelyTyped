@@ -5,8 +5,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import request = require('request');
-import http = require('http');
+import request = require("request");
+import http = require("http");
 
 declare namespace requestPromise {
     interface RequestPromise<T = any> extends request.Request {
@@ -17,7 +17,11 @@ declare namespace requestPromise {
 
     interface RequestPromiseOptions extends request.CoreOptions {
         simple?: boolean;
-        transform?(body: any, response: request.Response, resolveWithFullResponse?: boolean): any;
+        transform?(
+            body: any,
+            response: request.Response,
+            resolveWithFullResponse?: boolean
+        ): any;
         transform2xxOnly?: boolean;
         resolveWithFullResponse?: boolean;
     }
@@ -28,5 +32,9 @@ declare namespace requestPromise {
     type Options = OptionsWithUri | OptionsWithUrl;
 }
 
-declare const requestPromise: request.RequestAPI<requestPromise.RequestPromise, requestPromise.RequestPromiseOptions, request.RequiredUriUrl>;
+declare const requestPromise: request.RequestAPI<
+    requestPromise.RequestPromise,
+    requestPromise.RequestPromiseOptions,
+    request.RequiredUriUrl
+>;
 export = requestPromise;

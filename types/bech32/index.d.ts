@@ -5,7 +5,10 @@
 
 /// <reference types="node" />
 
-export function decode(str: string, LIMIT?: number): { prefix: string, words: Buffer };
+export function decode(
+    str: string,
+    LIMIT?: number
+): { prefix: string; words: Buffer };
 
 export function encode(prefix: string, words: Buffer, LIMIT?: number): string;
 

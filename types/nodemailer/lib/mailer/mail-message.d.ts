@@ -1,9 +1,9 @@
 /// <reference types="node" />
 
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
-import Mail = require('.');
-import MimeNode = require('../mime-node');
+import Mail = require(".");
+import MimeNode = require("../mime-node");
 
 declare class MailMessage {
     mailer: Mail;
@@ -12,11 +12,19 @@ declare class MailMessage {
 
     constructor(mailer: Mail, data: Mail.Options);
 
-    resolveContent(data: object | any[], key: string | number, callback: (err: Error | null, value?: any) => any): Promise<any>;
+    resolveContent(
+        data: object | any[],
+        key: string | number,
+        callback: (err: Error | null, value?: any) => any
+    ): Promise<any>;
 
-    resolveAll(callback: (err?: Error | null, data?: Mail.Options) => void): void;
+    resolveAll(
+        callback: (err?: Error | null, data?: Mail.Options) => void
+    ): void;
 
-    normalize(callback: (err?: Error | null, data?: Mail.Options) => void): void;
+    normalize(
+        callback: (err?: Error | null, data?: Mail.Options) => void
+    ): void;
 
     setMailerHeader(): void;
 

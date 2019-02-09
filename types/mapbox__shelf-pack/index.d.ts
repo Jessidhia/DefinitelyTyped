@@ -8,9 +8,16 @@ declare module "@mapbox/shelf-pack" {
     export = ShelfPack;
 
     class ShelfPack {
-        constructor(width?: number, height?: number, options?: ShelfPack.CreateOption);
+        constructor(
+            width?: number,
+            height?: number,
+            options?: ShelfPack.CreateOption
+        );
 
-        pack(bins: Array<ShelfPack.RequestShort | ShelfPack.RequestLong>, options?: ShelfPack.PackOption): ShelfPack.Bin[];
+        pack(
+            bins: Array<ShelfPack.RequestShort | ShelfPack.RequestLong>,
+            options?: ShelfPack.PackOption
+        ): ShelfPack.Bin[];
         packOne(w: number, h: number, id?: ShelfPack.ID): ShelfPack.Bin;
         getBin(id: ShelfPack.ID): ShelfPack.Bin;
         ref(bin: ShelfPack.Bin): number;
@@ -24,7 +31,15 @@ declare module "@mapbox/shelf-pack" {
 
     namespace ShelfPack {
         class Bin {
-            constructor(id: ID, x: number, y: number, w: number, h: number, maxw?: number, maxh?: number);
+            constructor(
+                id: ID,
+                x: number,
+                y: number,
+                w: number,
+                h: number,
+                maxw?: number,
+                maxh?: number
+            );
 
             id: ID;
             x: number;

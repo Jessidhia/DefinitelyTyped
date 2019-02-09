@@ -1,7 +1,7 @@
 // borrowed from the Backbone.Associations tutorials
 // separated out into modules to avoid namespace clashes
 
-import * as Backbone from 'backbone';
+import * as Backbone from "backbone";
 
 // one-to-one tests
 class EmployeeWithManager extends Backbone.AssociatedModel {
@@ -10,8 +10,8 @@ class EmployeeWithManager extends Backbone.AssociatedModel {
         this.relations = [
             {
                 type: Backbone.One, //nature of the relationship
-                key: 'manager', // attribute of Employee
-                relatedModel: 'Employee' //AssociatedModel for attribute key
+                key: "manager", // attribute of Employee
+                relatedModel: "Employee" //AssociatedModel for attribute key
             }
         ];
     }
@@ -41,7 +41,7 @@ class Location extends Backbone.AssociatedModel {
 class Locations extends Backbone.Collection<Location> {
     comparator = (c: Backbone.Model) => {
         return c.get("Number");
-    }
+    };
 }
 
 class Project extends Backbone.AssociatedModel {
@@ -50,7 +50,7 @@ class Project extends Backbone.AssociatedModel {
         this.relations = [
             {
                 type: Backbone.Many, //nature of the relation
-                key: 'locations', //attribute of Project
+                key: "locations", //attribute of Project
                 collectionType: Locations, //Collection to be used.
                 relatedModel: Location //Optional
             }
@@ -62,7 +62,7 @@ class Project extends Backbone.AssociatedModel {
             name: "",
             number: 0,
             locations: []
-        }
+        };
     }
 }
 

@@ -16,7 +16,12 @@ interface IComparator {
      * @param sourceFile File to operate on
      * @param destPath Destination for sourceFile as an absolute path
      */
-    (stream: Transform, callback: Function, sourceFile: File, destPath: string): void;
+    (
+        stream: Transform,
+        callback: Function,
+        sourceFile: File,
+        destPath: string
+    ): void;
 }
 
 interface IDestination {
@@ -43,7 +48,10 @@ interface IOptions {
 }
 
 interface IGulpChanged {
-    (destination: string | IDestination, options?: IOptions): NodeJS.ReadWriteStream;
+    (
+        destination: string | IDestination,
+        options?: IOptions
+    ): NodeJS.ReadWriteStream;
 
     compareLastModifiedTime: IComparator;
     compareSha1Digest: IComparator;

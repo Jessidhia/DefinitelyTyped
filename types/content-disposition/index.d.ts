@@ -17,5 +17,8 @@ declare namespace contentDisposition {
     function parse(contentDispositionHeader: string): ContentDisposition;
 }
 
-declare function contentDisposition(filename?: string, options?: contentDisposition.Options): string;
+declare function contentDisposition(
+    filename?: string,
+    options?: contentDisposition.Options
+): string;
 export = contentDisposition;

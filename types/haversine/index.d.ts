@@ -18,17 +18,21 @@ declare namespace haversine {
 
     interface GeoJSON {
         geometry: {
-            coordinates: LatLonTuple
+            coordinates: LatLonTuple;
         };
     }
 
-    type Coordinate = (CoordinateLongitudeLatitude | CoordinateLonLat | LatLonTuple | GeoJSON);
+    type Coordinate =
+        | CoordinateLongitudeLatitude
+        | CoordinateLonLat
+        | LatLonTuple
+        | GeoJSON;
 
     interface Options {
         /**
          * Unit of measurement applied to result. Default: "km".
          */
-        unit?: 'km' | 'mile' | 'meter' | 'nmi';
+        unit?: "km" | "mile" | "meter" | "nmi";
         /**
          * If passed, will result in library returning boolean value of whether or not the start and end points are within that supplied threshold. Default: null.
          */
@@ -36,7 +40,7 @@ declare namespace haversine {
         /**
          * Format of coordinate arguments.
          */
-        format?: '[lat,lon]' | '[lon,lat]' | '{lon,lat}' | 'geojson';
+        format?: "[lat,lon]" | "[lon,lat]" | "{lon,lat}" | "geojson";
     }
 }
 

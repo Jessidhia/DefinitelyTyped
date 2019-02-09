@@ -1,8 +1,10 @@
-import copy = require('copy-text-to-clipboard');
+import copy = require("copy-text-to-clipboard");
 
-const button: HTMLButtonElement | null = <HTMLButtonElement> document.getElementById('my-button');
+const button: HTMLButtonElement | null = <HTMLButtonElement>(
+    document.getElementById("my-button")
+);
 if (button) {
-    button.addEventListener('click', () => {
-        copy('🦄🌈');
+    button.addEventListener("click", () => {
+        copy("🦄🌈");
     });
 }

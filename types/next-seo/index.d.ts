@@ -81,4 +81,4 @@ export interface OpenGraphArticle {
     tags?: ReadonlyArray<string>;
 }
 
-export default class NextSeo extends Component<NextSeoProps> { }
+export default class NextSeo extends Component<NextSeoProps> {}

@@ -2,8 +2,8 @@ var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/javascript");
 
-editor.on("blur", (e) => e);
-editor.on("change", (e) => e);
+editor.on("blur", e => e);
+editor.on("change", e => e);
 
 editor.setTheme("ace/theme/twilight");
 
@@ -26,7 +26,7 @@ editor.getSession().setTabSize(4);
 
 editor.getSession().setUseSoftTabs(true);
 
-document.getElementById('editor').style.fontSize = '12px';
+document.getElementById("editor").style.fontSize = "12px";
 
 editor.getSession().setUseWrapMode(true);
 
@@ -34,11 +34,11 @@ editor.setHighlightActiveLine(false);
 
 editor.setShowPrintMargin(false);
 
-editor.setReadOnly(true);  // false to make it editable
+editor.setReadOnly(true); // false to make it editable
 
-editor.resize()
+editor.resize();
 
-editor.find('needle', {
+editor.find("needle", {
     backwards: false,
     wrap: false,
     caseSensitive: false,
@@ -48,28 +48,26 @@ editor.find('needle', {
 editor.findNext();
 editor.findPrevious();
 
-editor.find('foo');
-editor.replace('bar');
+editor.find("foo");
+editor.replace("bar");
 
-editor.replaceAll('bar');
+editor.replaceAll("bar");
 
-editor.getSession().on('change', function (e) {
-// e.type, etc
+editor.getSession().on("change", function(e) {
+    // e.type, etc
 });
 
-editor.getSession().selection.on('changeSelection', function (e) {
-});
+editor.getSession().selection.on("changeSelection", function(e) {});
 
-editor.getSession().selection.on('changeCursor', function (e) {
-});
+editor.getSession().selection.on("changeCursor", function(e) {});
 
 editor.commands.addCommand({
-name: 'myCommand',
-bindKey: { win: 'Ctrl-M', mac: 'Command-M' },
-exec: function (editor) {
-//...
-},
-readOnly: true // false if this command should not apply in readOnly mode
+    name: "myCommand",
+    bindKey: { win: "Ctrl-M", mac: "Command-M" },
+    exec: function(editor) {
+        //...
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
 });
 
 editor.moveCursorTo(1, 1);
@@ -145,12 +143,10 @@ editor.removeLines();
 assert.equal(session.toString(), "a\nd");
 assert.position(editor.getCursorPosition(), 1, 0);
 
-
 editor.removeLines();
 
 assert.equal(session.toString(), "b\nc");
 assert.position(editor.getCursorPosition(), 0, 0);
-
 
 editor.moveCursorTo(3, 0);
 
@@ -162,13 +158,15 @@ editor.removeLines();
 assert.equal(session.toString(), "a\nb");
 assert.position(editor.getCursorPosition(), 1, 1);
 
-
 editor.moveCursorTo(1, 3);
 editor.getSelection().selectDown();
 
 editor.indent();
 
-assert.equal(["a12345", "    b12345", "    c12345"].join("\n"), session.toString());
+assert.equal(
+    ["a12345", "    b12345", "    c12345"].join("\n"),
+    session.toString()
+);
 
 assert.position(editor.getCursorPosition(), 2, 7);
 
@@ -176,25 +174,25 @@ range = editor.getSelectionRange();
 assert.position(range.start, 1, 7);
 assert.position(range.end, 2, 7);
 
-
 editor.moveCursorTo(1, 0);
 editor.getSelection().selectDown();
 
 editor.indent();
 assert.equal(["a12345", "    b12345", "c12345"].join("\n"), session.toString());
 
-
 editor.moveCursorTo(0, 0);
 editor.onTextInput("\n");
 assert.equal(["", "{"].join("\n"), session.toString());
-
 
 editor.moveCursorTo(0, 5);
 editor.getSelection().selectDown();
 editor.getSelection().selectDown();
 
 editor.blockOutdent();
-assert.equal(session.toString(), ["    a12345", "b12345", "    c12345"].join("\n"));
+assert.equal(
+    session.toString(),
+    ["    a12345", "b12345", "    c12345"].join("\n")
+);
 
 assert.position(editor.getCursorPosition(), 2, 1);
 
@@ -209,13 +207,11 @@ range = editor.getSelectionRange();
 assert.position(range.start, 0, 0);
 assert.position(range.end, 2, 0);
 
-
 editor.moveCursorTo(0, 3);
 editor.blockOutdent("  ");
 
 assert.equal(session.toString(), "    12");
 assert.position(editor.getCursorPosition(), 0, 0);
-
 
 editor.moveCursorTo(0, 2);
 editor.getSelection().selectDown();
@@ -227,7 +223,6 @@ var selection = editor.getSelectionRange();
 assert.position(selection.start, 0, 4);
 assert.position(selection.end, 1, 4);
 
-
 editor.moveCursorTo(0, 1);
 editor.getSelection().selectDown();
 editor.getSelection().selectRight();
@@ -238,7 +233,6 @@ editor.toggleCommentLines();
 assert.equal(["  abc", "cde"].join("\n"), session.toString());
 assert.range(editor.getSelectionRange(), 0, 0, 1, 1);
 
-
 editor.moveCursorTo(0, 0);
 editor.getSelection().selectDown();
 editor.getSelection().selectDown();
@@ -248,21 +242,17 @@ editor.toggleCommentLines();
 
 assert.equal(["  abc", "cde", "fg"].join("\n"), session.toString());
 
-
 editor.moveCursorTo(0, 0);
 editor.getSelection().selectDown();
 
 editor.toggleCommentLines();
 assert.range(editor.getSelectionRange(), 0, 2, 1, 0);
 
-
-
 editor.moveCursorTo(1, 0);
 editor.getSelection().selectUp();
 
 editor.toggleCommentLines();
 assert.range(editor.getSelectionRange(), 0, 2, 1, 0);
-
 
 editor.moveCursorTo(0, 1);
 editor.getSelection().selectDown();
@@ -286,7 +276,6 @@ assert.position(editor.getCursorPosition(), 2, 0);
 assert.position(editor.getSelection().getSelectionAnchor(), 3, 2);
 assert.position(editor.getSelection().getSelectionLead(), 2, 0);
 
-
 editor.moveCursorTo(2, 1);
 editor.getSelection().selectDown();
 
@@ -302,7 +291,6 @@ assert.position(editor.getCursorPosition(), 0, 0);
 assert.position(editor.getSelection().getSelectionAnchor(), 2, 0);
 assert.position(editor.getSelection().getSelectionLead(), 0, 0);
 
-
 editor.moveCursorTo(1, 1);
 editor.clearSelection();
 
@@ -316,28 +304,31 @@ editor.moveLinesUp();
 assert.equal(["11", "22", "33", "44"].join("\n"), session.toString());
 assert.position(editor.getCursorPosition(), 1, 1);
 
-
 editor.moveCursorTo(1, 1);
 editor.getSelection().selectDown();
 
 editor.copyLinesDown();
-assert.equal(["11", "22", "33", "22", "33", "44"].join("\n"), session.toString());
+assert.equal(
+    ["11", "22", "33", "22", "33", "44"].join("\n"),
+    session.toString()
+);
 
 assert.position(editor.getCursorPosition(), 3, 0);
 assert.position(editor.getSelection().getSelectionAnchor(), 5, 0);
 assert.position(editor.getSelection().getSelectionLead(), 3, 0);
 
-
 editor.moveCursorTo(1, 1);
 editor.getSelection().selectDown();
 
 editor.copyLinesUp();
-assert.equal(["11", "22", "33", "22", "33", "44"].join("\n"), session.toString());
+assert.equal(
+    ["11", "22", "33", "22", "33", "44"].join("\n"),
+    session.toString()
+);
 
 assert.position(editor.getCursorPosition(), 1, 0);
 assert.position(editor.getSelection().getSelectionAnchor(), 3, 0);
 assert.position(editor.getSelection().getSelectionLead(), 1, 0);
-
 
 session.setTabSize(2);
 session.setUseSoftTabs(true);
@@ -348,7 +339,6 @@ assert.equal(session.toString(), "  ");
 session.setTabSize(5);
 editor.onTextInput("\t");
 assert.equal(session.toString(), "       ");
-
 
 session.setUseSoftTabs(false);
 
@@ -432,20 +422,20 @@ assert.equal(session.getValue(), ["123", "456789"].join("\n"));
 
 editor.moveCursorTo(1, 0);
 editor.getSelection().selectLineEnd();
-editor.toUpperCase()
+editor.toUpperCase();
 assert.equal(session.getValue(), ["ajax", "DOT", "org"].join("\n"));
 
 editor.moveCursorTo(1, 0);
-editor.toUpperCase()
+editor.toUpperCase();
 assert.equal(session.getValue(), ["ajax", "DOT", "org"].join("\n"));
 assert.position(editor.getCursorPosition(), 1, 0);
 
 editor.moveCursorTo(1, 0);
 editor.getSelection().selectLineEnd();
-editor.toLowerCase()
+editor.toLowerCase();
 assert.equal(session.getValue(), ["AJAX", "dot", "ORG"].join("\n"));
 
 editor.moveCursorTo(1, 0);
-editor.toLowerCase()
+editor.toLowerCase();
 assert.equal(session.getValue(), ["AJAX", "dot", "ORG"].join("\n"));
 assert.position(editor.getCursorPosition(), 1, 0);

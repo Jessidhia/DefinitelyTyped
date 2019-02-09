@@ -1,13 +1,13 @@
-import cors = require('micro-cors');
-import micro from 'micro';
+import cors = require("micro-cors");
+import micro from "micro";
 
 const handler = cors();
 
-cors({ allowMethods: ['PUT', 'POST'] });
+cors({ allowMethods: ["PUT", "POST"] });
 
 cors({
-    maxAge: '1000',
-    origin: '*',
+    maxAge: "1000",
+    origin: "*",
     allowHeaders: [],
     allowMethods: [],
     exposeHeaders: []

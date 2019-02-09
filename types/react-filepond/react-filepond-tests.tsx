@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as filepond from 'react-filepond';
+import * as React from "react";
+import * as filepond from "react-filepond";
 
 interface AppState {
     filenames: string[];
@@ -15,34 +15,36 @@ class App extends React.Component<{}, AppState> {
 
         this.state = {
             // Set initial files
-            filenames: ['index.html']
+            filenames: ["index.html"]
         };
     }
 
     private handleInit() {
-        console.log('FilePond instance has initialized', this.pond);
+        console.log("FilePond instance has initialized", this.pond);
     }
 
     render() {
         return (
-            <div className='App'>
+            <div className="App">
                 {/* Pass FilePond properties as attributes */}
                 <filepond.FilePond
-                    ref={ref => this.pond = ref}
+                    ref={ref => (this.pond = ref)}
                     allowMultiple={true}
                     maxFiles={3}
-                    server='/api'
-                    oninit={() => this.handleInit() }
-                    onupdatefiles={(fileItems) => {
+                    server="/api"
+                    oninit={() => this.handleInit()}
+                    onupdatefiles={fileItems => {
                         // Set current file objects to this.state
                         this.setState({
-                            filenames: fileItems.map(fileItem => fileItem.file.name)
+                            filenames: fileItems.map(
+                                fileItem => fileItem.file.name
+                            )
                         });
                     }}
                 >
                     {/* Update current files  */}
                     {this.state.filenames.map(file => (
-                        <filepond.File key={file} src={file} origin='local' />
+                        <filepond.File key={file} src={file} origin="local" />
                     ))}
                 </filepond.FilePond>
             </div>

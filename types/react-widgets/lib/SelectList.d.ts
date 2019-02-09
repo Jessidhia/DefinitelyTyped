@@ -1,7 +1,9 @@
-import * as React from 'react';
-import { ReactWidgetsCommonProps, AutoFocus } from './CommonProps';
+import * as React from "react";
+import { ReactWidgetsCommonProps, AutoFocus } from "./CommonProps";
 
-interface SelectListProps extends ReactWidgetsCommonProps<SelectListClass>, AutoFocus {
+interface SelectListProps
+    extends ReactWidgetsCommonProps<SelectListClass>,
+        AutoFocus {
     /**
      * The current value or values of the SelectList. This can be an object (such as a member of
      * the data array) or a primitive value, hinted to by the valueField. The widget value does
@@ -78,7 +80,11 @@ interface SelectListProps extends ReactWidgetsCommonProps<SelectListClass>, Auto
      * relevant DOM nodes needed to implement scroll behavior: the list element, the element
      * that is currently focused, and a focused value.
      */
-    onMove?: (list: HTMLElement, focusedNode: HTMLElement, focusedItem: any) => void;
+    onMove?: (
+        list: HTMLElement,
+        focusedNode: HTMLElement,
+        focusedItem: any
+    ) => void;
     /**
      * Mark whether the widget is in a busy or loading state. If true the widget will display a
      * spinner gif, useful when loading data via an ajax call.

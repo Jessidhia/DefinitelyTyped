@@ -44,7 +44,7 @@ interface ModalProps extends TransitionCallbacks, PortalProps {
     /**
      * Include a backdrop component.
      */
-    backdrop?: boolean | 'static';
+    backdrop?: boolean | "static";
 
     /**
      * A function that returns the dialog component. Useful for custom

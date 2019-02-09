@@ -1,14 +1,12 @@
-import { Interval } from '../IntervalSet';
-import { Token } from '../Token';
-import { ParserRuleContext } from '../ParserRuleContext';
+import { Interval } from "../IntervalSet";
+import { Token } from "../Token";
+import { ParserRuleContext } from "../ParserRuleContext";
 
 export const INVALID_INTERVAL: Interval;
 
-export class ParseTree {
-}
+export class ParseTree {}
 
-export class RuleNode extends ParseTree {
-}
+export class RuleNode extends ParseTree {}
 
 export class TerminalNode implements ParseTree {
     constructor(symbol: Token);
@@ -35,8 +33,7 @@ export class TerminalNode implements ParseTree {
     readonly symbol: Token;
 }
 
-export class ErrorNode extends TerminalNode {
-}
+export class ErrorNode extends TerminalNode {}
 
 export class ParseTreeVisitor {
     visit(ctx: ParserRuleContext): any;
@@ -58,8 +55,7 @@ export interface ParseTreeListener {
     exitEveryRule(node: ParserRuleContext): void;
 }
 
-export class TerminalNodeImpl extends TerminalNode {
-}
+export class TerminalNodeImpl extends TerminalNode {}
 
 export class ErrorNodeImpl extends TerminalNode {
     constructor(token: Token);

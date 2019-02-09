@@ -7,7 +7,11 @@
 /**
  * Tests a path against the pattern using the options.
  */
-declare function M(target: string, pattern: string, options?: M.IOptions): boolean;
+declare function M(
+    target: string,
+    pattern: string,
+    options?: M.IOptions
+): boolean;
 
 declare namespace M {
     /**
@@ -15,12 +19,23 @@ declare namespace M {
      * If nothing is matched, and options.nonull is set,
      * then return a list containing the pattern itself.
      */
-    function match(list: ReadonlyArray<string>, pattern: string, options?: IOptions): string[];
+    function match(
+        list: ReadonlyArray<string>,
+        pattern: string,
+        options?: IOptions
+    ): string[];
 
     /**
      * Returns a function that tests its supplied argument, suitable for use with Array.filter
      */
-    function filter(pattern: string, options?: IOptions): (element: string, indexed: number, array: ReadonlyArray<string>) => boolean;
+    function filter(
+        pattern: string,
+        options?: IOptions
+    ): (
+        element: string,
+        indexed: number,
+        array: ReadonlyArray<string>
+    ) => boolean;
 
     /**
      * Make a regular expression object from the pattern.
@@ -115,7 +130,7 @@ declare namespace M {
     }
 
     interface IMinimatchStatic {
-        new(pattern: string, options?: IOptions): IMinimatch;
+        new (pattern: string, options?: IOptions): IMinimatch;
         prototype: IMinimatch;
     }
 

@@ -4,10 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 export = GenerateJsonWebpackPlugin;
 
 declare class GenerateJsonWebpackPlugin extends Plugin {
-	constructor(fileName: string, value: object, replacer?: (key: string, value: any) => any, space?: string | number);
+    constructor(
+        fileName: string,
+        value: object,
+        replacer?: (key: string, value: any) => any,
+        space?: string | number
+    );
 }

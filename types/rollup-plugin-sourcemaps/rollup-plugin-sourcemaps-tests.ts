@@ -1,15 +1,15 @@
-import sourcemaps from 'rollup-plugin-sourcemaps';
-import * as fs from 'fs';
+import sourcemaps from "rollup-plugin-sourcemaps";
+import * as fs from "fs";
 
- // $ExpectType Plugin
+// $ExpectType Plugin
 sourcemaps();
 
- // $ExpectType Plugin
+// $ExpectType Plugin
 sourcemaps({});
 
- // $ExpectType Plugin
+// $ExpectType Plugin
 sourcemaps({
-    include: 'node_modules/**',
-    exclude: [ 'node_modules/foo/**', 'node_modules/bar/**' ],
+    include: "node_modules/**",
+    exclude: ["node_modules/foo/**", "node_modules/bar/**"],
     readFile: fs.readFile
 });

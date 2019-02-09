@@ -4,14 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { ImageSourcePropType, StyleProp, ImageStyle } from 'react-native';
+import * as React from "react";
+import { ImageSourcePropType, StyleProp, ImageStyle } from "react-native";
 
 export interface ScaledImageProps {
-  source: ImageSourcePropType;
-  height?: number;
-  width?: number;
-  style?: StyleProp<ImageStyle>;
+    source: ImageSourcePropType;
+    height?: number;
+    width?: number;
+    style?: StyleProp<ImageStyle>;
 }
 
 export default class ScaledImage extends React.Component<ScaledImageProps> {}

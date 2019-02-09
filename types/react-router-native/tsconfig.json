@@ -1,14 +1,10 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "jsx": "react",
         "strictNullChecks": true,
         "strictFunctionTypes": true,
@@ -17,8 +13,5 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "react-router-native-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-router-native-tests.tsx"]
 }

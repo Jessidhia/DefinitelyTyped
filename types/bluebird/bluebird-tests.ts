@@ -10,7 +10,7 @@ import Promise = require("bluebird");
 let obj: object = {};
 let bool = false;
 let num = 0;
-let str = '';
+let str = "";
 let err: Error = new Error();
 let x: any = 0;
 let f: (...args: any[]) => any = () => {};
@@ -29,44 +29,56 @@ let reason: any;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 interface Foo {
-	foo(): string;
+    foo(): string;
 }
 interface Bar {
-	bar(): string;
+    bar(): string;
 }
 interface Baz {
-  	baz(): string;
+    baz(): string;
 }
 interface Qux {
-	qux: string;
+    qux: string;
 }
 
 // - - - - - - - - - - - - - - - - -
 
 interface StrFooMap {
-	[key: string]: Foo;
+    [key: string]: Foo;
 }
 
 interface StrBarMap {
-	[key: string]: Bar;
+    [key: string]: Bar;
 }
 
 // - - - - - - - - - - - - - - - - -
 
 interface StrFooArrMap {
-	[key: string]: Foo[];
+    [key: string]: Foo[];
 }
 
 interface StrBarArrMap {
-	[key: string]: Bar[];
+    [key: string]: Bar[];
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-let foo: Foo = { foo() { return 'foo'; } };
-let bar: Bar = { bar() { return 'bar'; } };
-let baz: Baz = { baz() { return 'baz'; } };
-let qux: Qux = { qux: 'quix' };
+let foo: Foo = {
+    foo() {
+        return "foo";
+    }
+};
+let bar: Bar = {
+    bar() {
+        return "bar";
+    }
+};
+let baz: Baz = {
+    baz() {
+        return "baz";
+    }
+};
+let qux: Qux = { qux: "quix" };
 
 let fooArr: Foo[] = [foo];
 let barArr: Bar[];
@@ -137,7 +149,9 @@ let barThenArr: Array<PromiseLike<Bar>>;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // booya!
-let fooThenArrThen: PromiseLike<Array<PromiseLike<Foo>>> = Promise.resolve(fooThenArr);
+let fooThenArrThen: PromiseLike<Array<PromiseLike<Foo>>> = Promise.resolve(
+    fooThenArr
+);
 
 let fooResolver: Promise.Resolver<Foo>;
 let fooInspection: Promise.Inspection<Foo>;
@@ -163,31 +177,33 @@ barThen = barProm;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-fooProm = new Promise((resolve: (value: Foo) => void, reject: (reason: any) => void) => {
-	if (bool) {
-		resolve(foo);
-	} else {
-		reject(new Error(str));
-	}
-});
+fooProm = new Promise(
+    (resolve: (value: Foo) => void, reject: (reason: any) => void) => {
+        if (bool) {
+            resolve(foo);
+        } else {
+            reject(new Error(str));
+        }
+    }
+);
 fooProm = new Promise((resolve: (value: Foo) => void) => {
-	if (bool) {
-		resolve(foo);
-	}
+    if (bool) {
+        resolve(foo);
+    }
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - -
 
 // needs a hint when used untyped?
 fooProm = new Promise<Foo>((resolve, reject) => {
-	if (bool) {
-		resolve(fooThen);
-	} else {
-		reject(new Error(str));
-	}
+    if (bool) {
+        resolve(fooThen);
+    } else {
+        reject(new Error(str));
+    }
 });
-fooProm = new Promise<Foo>((resolve) => {
-	resolve(fooThen);
+fooProm = new Promise<Foo>(resolve => {
+    resolve(fooThen);
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -195,176 +211,207 @@ fooProm = new Promise<Foo>((resolve) => {
 fooInspectionPromise = fooProm.reflect();
 
 fooInspectionPromise.then(value => {
-	fooInspection = value;
-	bool = fooInspection.isFulfilled();
-	bool = fooInspection.isRejected();
-	bool = fooInspection.isPending();
-	foo = fooInspection.value();
-	x = fooInspection.reason();
+    fooInspection = value;
+    bool = fooInspection.isFulfilled();
+    bool = fooInspection.isRejected();
+    bool = fooInspection.isPending();
+    foo = fooInspection.value();
+    x = fooInspection.reason();
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-barProm = fooProm.then((value: Foo) => {
-	return bar;
-}, (reason: any) => {
-	return bar;
-});
-barProm = fooProm.then((value: Foo) => {
-	return bar;
-}, (reason: any) => {
-	return barProm;
-});
+barProm = fooProm.then(
+    (value: Foo) => {
+        return bar;
+    },
+    (reason: any) => {
+        return bar;
+    }
+);
+barProm = fooProm.then(
+    (value: Foo) => {
+        return bar;
+    },
+    (reason: any) => {
+        return barProm;
+    }
+);
 // $ExpectType Bluebird<void | Bar>
-fooProm.then((value: Foo) => {
-	return bar;
-}, (reason: any) => {
-	return;
-});
+fooProm.then(
+    (value: Foo) => {
+        return bar;
+    },
+    (reason: any) => {
+        return;
+    }
+);
 // $ExpectType Bluebird<void | Bar>
-fooProm.then((value: Foo) => {
-	return bar;
-}, (reason: any) => {
-	return voidProm;
-});
+fooProm.then(
+    (value: Foo) => {
+        return bar;
+    },
+    (reason: any) => {
+        return voidProm;
+    }
+);
 barProm = fooProm.then((value: Foo) => {
-	return bar;
+    return bar;
 });
 barProm = barProm.then((value: Bar) => {
-	if (value) return value;
-	return Promise.resolve(bar);
+    if (value) return value;
+    return Promise.resolve(bar);
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch((reason: any) => {
-	return;
+    return;
 });
 
 // $ExpectType Bluebird<void | Foo>
 fooProm.caught((reason: any) => {
-	return;
+    return;
 });
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch((error: any) => {
-	return true;
-}, (reason: any) => {
-	return;
-});
+fooProm.catch(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return;
+    }
+);
 // $ExpectType Bluebird<void | Foo>
-fooProm.caught((error: any) => {
-	return true;
-}, (reason: any) => {
-	return;
-});
+fooProm.caught(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return;
+    }
+);
 
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch((reason: any) => {
-	return voidProm;
+    return voidProm;
 });
 // $ExpectType Bluebird<void | Foo>
 fooProm.caught((reason: any) => {
-	return voidProm;
+    return voidProm;
 });
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch((error: any) => {
-	return true;
-}, (reason: any) => {
-	return voidProm;
-});
+fooProm.catch(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return voidProm;
+    }
+);
 // $ExpectType Bluebird<void | Foo>
-fooProm.caught((error: any) => {
-	return true;
-}, (reason: any) => {
-	return voidProm;
-});
+fooProm.caught(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return voidProm;
+    }
+);
 
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch<void | Foo>((reason: any) => { // tslint:disable-line:void-return
-	// handle multiple valid return types simultaneously
-	if (foo === null) {
-		return;
-	} else if (!reason) {
-		return voidProm;
-	} else if (foo) {
-		return foo;
-	}
+fooProm.catch<void | Foo>((reason: any) => {
+    // tslint:disable-line:void-return
+    // handle multiple valid return types simultaneously
+    if (foo === null) {
+        return;
+    } else if (!reason) {
+        return voidProm;
+    } else if (foo) {
+        return foo;
+    }
 });
 
 fooOrBarProm = fooProm.catch((reason: any) => {
-	return bar;
+    return bar;
 });
 fooOrBarProm = fooProm.caught((reason: any) => {
-	return bar;
+    return bar;
 });
 
-fooOrBarProm = fooProm.catch((error: any) => {
-	return true;
-}, (reason: any) => {
-	return bar;
-});
-fooOrBarProm = fooProm.caught((error: any) => {
-	return true;
-}, (reason: any) => {
-	return bar;
-});
+fooOrBarProm = fooProm.catch(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return bar;
+    }
+);
+fooOrBarProm = fooProm.caught(
+    (error: any) => {
+        return true;
+    },
+    (reason: any) => {
+        return bar;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(Error, (reason: any) => {
-	return;
+    return;
 });
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(Promise.CancellationError, (reason: any) => {
-	return;
+    return;
 });
 // $ExpectType Bluebird<void | Foo>
 fooProm.caught(Error, (reason: any) => {
-	return;
+    return;
 });
 // $ExpectType Bluebird<void | Foo>
 fooProm.caught(Promise.CancellationError, (reason: any) => {
-	return;
+    return;
 });
 
 fooOrBarProm = fooProm.catch(Error, (reason: any) => {
-	return bar;
+    return bar;
 });
 fooOrBarProm = fooProm.catch(Promise.CancellationError, (reason: any) => {
-	return bar;
+    return bar;
 });
 fooOrBarProm = fooProm.caught(Error, (reason: any) => {
-	return bar;
+    return bar;
 });
 fooOrBarProm = fooProm.caught(Promise.CancellationError, (reason: any) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 class CustomError extends Error {
-	customField: number;
+    customField: number;
 }
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(CustomError, reason => {
-	let a: number = reason.customField;
+    let a: number = reason.customField;
 });
 
 class CustomErrorWithConstructor extends Error {
-	arg1: boolean;
-	arg2: number;
-	constructor(arg1: boolean, arg2: number) {
-		super();
-		this.arg1 = arg1;
-		this.arg2 = arg2;
-	}
+    arg1: boolean;
+    arg2: number;
+    constructor(arg1: boolean, arg2: number) {
+        super();
+        this.arg1 = arg1;
+        this.arg2 = arg2;
+    }
 }
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(CustomErrorWithConstructor, reason => {
-	let a: boolean = reason.arg1;
-	let b: number = reason.arg2;
+    let a: boolean = reason.arg1;
+    let b: number = reason.arg2;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -382,9 +429,22 @@ fooProm.catch(CustomError1, CustomError2, error => {});
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(CustomError1, CustomError2, CustomError3, error => {});
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch(CustomError1, CustomError2, CustomError3, CustomError4, error => {});
+fooProm.catch(
+    CustomError1,
+    CustomError2,
+    CustomError3,
+    CustomError4,
+    error => {}
+);
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch(CustomError1, CustomError2, CustomError3, CustomError4, CustomError5, error => {});
+fooProm.catch(
+    CustomError1,
+    CustomError2,
+    CustomError3,
+    CustomError4,
+    CustomError5,
+    error => {}
+);
 
 const booPredicate1 = (error: CustomError1) => true;
 const booPredicate2 = (error: [number]) => true;
@@ -399,14 +459,27 @@ fooProm.catch(booPredicate1, booPredicate2, error => {});
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(booPredicate1, booPredicate2, booPredicate3, error => {});
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch(booPredicate1, booPredicate2, booPredicate3, booPredicate4, error => {});
+fooProm.catch(
+    booPredicate1,
+    booPredicate2,
+    booPredicate3,
+    booPredicate4,
+    error => {}
+);
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch(booPredicate1, booPredicate2, booPredicate3, booPredicate4, booPredicate5, error => {});
+fooProm.catch(
+    booPredicate1,
+    booPredicate2,
+    booPredicate3,
+    booPredicate4,
+    booPredicate5,
+    error => {}
+);
 
 const booObject1 = new CustomError1();
 const booObject2 = [400, 500];
 const booObject3 = ["Error1", "Error2"];
-const booObject4 = {code: 400};
+const booObject4 = { code: 400 };
 const booObject5: any = null;
 
 // $ExpectType Bluebird<void | Foo>
@@ -418,38 +491,45 @@ fooProm.catch(booObject1, booObject2, booObject3, error => {});
 // $ExpectType Bluebird<void | Foo>
 fooProm.catch(booObject1, booObject2, booObject3, booObject4, error => {});
 // $ExpectType Bluebird<void | Foo>
-fooProm.catch(booObject1, booObject2, booObject3, booObject4, booObject5, error => {});
+fooProm.catch(
+    booObject1,
+    booObject2,
+    booObject3,
+    booObject4,
+    booObject5,
+    error => {}
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.error((reason: any) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.finally(() => {
-	// non-Thenable return is ignored
-	return "foo";
+    // non-Thenable return is ignored
+    return "foo";
 });
 fooProm = fooProm.finally(() => {
-	return fooThen;
+    return fooThen;
 });
 fooProm = fooProm.finally(() => {
-	// non-Thenable return is ignored
+    // non-Thenable return is ignored
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.lastly(() => {
-	// non-Thenable return is ignored
-	return "foo";
+    // non-Thenable return is ignored
+    return "foo";
 });
 fooProm = fooProm.lastly(() => {
-	return fooThen;
+    return fooThen;
 });
 fooProm = fooProm.lastly(() => {
-	// non-Thenable return is ignored
+    // non-Thenable return is ignored
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -459,62 +539,71 @@ fooProm = fooProm.bind(obj);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $ExpectType void
-fooProm.done((value: Foo) => {
-	return bar;
-}, (reason: any) => {
-	return bar;
-});
+fooProm.done(
+    (value: Foo) => {
+        return bar;
+    },
+    (reason: any) => {
+        return bar;
+    }
+);
 // $ExpectType void
 fooProm.done((value: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $ExpectType void
-fooProm.done((value: Foo) => {
-	return barThen;
-}, (reason: any) => {
-	return barThen;
-});
+fooProm.done(
+    (value: Foo) => {
+        return barThen;
+    },
+    (reason: any) => {
+        return barThen;
+    }
+);
 // $ExpectType void
 fooProm.done((value: Foo) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.tap((value: Foo) => {
-	// non-Thenable return is ignored
-	return "foo";
+    // non-Thenable return is ignored
+    return "foo";
 });
 fooProm = fooProm.tap((value: Foo) => {
-	return fooThen;
+    return fooThen;
 });
 fooProm = fooProm.tap((value: Foo) => {
-	return voidThen;
+    return voidThen;
 });
 fooProm = fooProm.tap(() => {
-	// non-Thenable return is ignored
+    // non-Thenable return is ignored
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-fooProm = fooProm.tapCatch((err) => {
-	return "foo";
+fooProm = fooProm.tapCatch(err => {
+    return "foo";
 });
 
 fooProm = fooProm.tapCatch(err => {
-	return Promise.resolve("foo");
+    return Promise.resolve("foo");
 });
 
 fooProm.tapCatch(CustomError, (err: CustomError) => {
-	return err.customField;
+    return err.customField;
 });
 
-fooProm.tapCatch((e: any) => e instanceof CustomError, (err: CustomError) => {
-	return err.customField;
-});
+fooProm.tapCatch(
+    (e: any) => e instanceof CustomError,
+    (err: CustomError) => {
+        return err.customField;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -528,12 +617,12 @@ fooProm = fooProm.timeout(num, str);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm.nodeify();
-fooProm = fooProm.nodeify((err: any) => { });
-fooProm = fooProm.nodeify((err: any, foo?: Foo) => { });
+fooProm = fooProm.nodeify((err: any) => {});
+fooProm = fooProm.nodeify((err: any, foo?: Foo) => {});
 
 fooProm.nodeify({ spread: true });
-fooProm = fooProm.nodeify((err: any) => { }, { spread: true });
-fooProm = fooProm.nodeify((err: any, foo?: Foo) => { }, { spread: true });
+fooProm = fooProm.nodeify((err: any) => {}, { spread: true });
+fooProm = fooProm.nodeify((err: any, foo?: Foo) => {}, { spread: true });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -590,13 +679,13 @@ obj = fooProm.toJSON();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooArrProm.spread((one: Foo, two: Foo, twotwo: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - -
 
 barProm = fooArrProm.spread((one: Foo, two: Foo, twotwo: Foo) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -623,135 +712,181 @@ fooProm.race();
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-let propsValue: { num: number, str: string };
-Promise.resolve({ num: 1, str: Promise.resolve('a') }).props().then(val => { propsValue = val; });
-Promise.props({ num: 1, str: Promise.resolve('a') }).then(val => { propsValue = val; });
-Promise.props(Promise.props({ num: 1, str: Promise.resolve('a') })).then(val => { propsValue = val; });
+let propsValue: { num: number; str: string };
+Promise.resolve({ num: 1, str: Promise.resolve("a") })
+    .props()
+    .then(val => {
+        propsValue = val;
+    });
+Promise.props({ num: 1, str: Promise.resolve("a") }).then(val => {
+    propsValue = val;
+});
+Promise.props(Promise.props({ num: 1, str: Promise.resolve("a") })).then(
+    val => {
+        propsValue = val;
+    }
+);
 
 let propsMapValue: Map<number, string>;
-Promise.resolve(new Map<number, string>()).props().then(val => { propsMapValue = val; });
-Promise.resolve(new Map<number, PromiseLike<string>>()).props().then(val => { propsMapValue = val; });
-Promise.props(new Map<number, string>()).then(val => { propsMapValue = val; });
-Promise.props(new Map<number, PromiseLike<string>>()).then(val => { propsMapValue = val; });
+Promise.resolve(new Map<number, string>())
+    .props()
+    .then(val => {
+        propsMapValue = val;
+    });
+Promise.resolve(new Map<number, PromiseLike<string>>())
+    .props()
+    .then(val => {
+        propsMapValue = val;
+    });
+Promise.props(new Map<number, string>()).then(val => {
+    propsMapValue = val;
+});
+Promise.props(new Map<number, PromiseLike<string>>()).then(val => {
+    propsMapValue = val;
+});
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Promise.all([fooProm, barProm]).then(result => {
-  	foo = result[0];
-  	bar = result[1];
+    foo = result[0];
+    bar = result[1];
 });
 
 Promise.all([fooProm, fooProm]).then(result => {
-	foo = result[0];
-	foo = result[1];
+    foo = result[0];
+    foo = result[1];
 });
 
 Promise.all([fooProm, barProm, bazProm]).then(result => {
-	foo = result[0];
-	bar = result[1];
-	baz = result[2];
+    foo = result[0];
+    bar = result[1];
+    baz = result[2];
 });
 
 Promise.all([fooProm, barProm, fooProm]).then(result => {
-	foo = result[0];
-	bar = result[1];
-	foo = result[2];
+    foo = result[0];
+    bar = result[1];
+    foo = result[2];
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barArrProm = fooArrProm.map((item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barArrProm = fooArrProm.map((item: Foo) => {
-	return bar;
+    return bar;
 });
 
-barArrProm = fooArrProm.map((item: Foo, index: number, arrayLength: number) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = fooArrProm.map((item: Foo) => {
-	return bar;
-}, {
-	concurrency: 1
-});
+barArrProm = fooArrProm.map(
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = fooArrProm.map(
+    (item: Foo) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-barArrProm = fooArrProm.mapSeries((item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
+barArrProm = fooArrProm.mapSeries(
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
 barArrProm = fooArrProm.mapSeries((item: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-barProm = fooArrProm.reduce((memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
-});
+barProm = fooArrProm.reduce(
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return memo;
+    }
+);
 barProm = fooArrProm.reduce((memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-fooArrProm = fooArrProm.filter((item: Foo, index: number, arrayLength: number) => {
-	return bool;
-});
+fooArrProm = fooArrProm.filter(
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    }
+);
 fooArrProm = fooArrProm.filter((item: Foo) => {
-	return bool;
+    return bool;
 });
 
-fooArrProm = fooArrProm.filter((item: Foo, index: number, arrayLength: number) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = fooArrProm.filter((item: Foo) => {
-	return bool;
-}, {
-	concurrency: 1
-});
+fooArrProm = fooArrProm.filter(
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = fooArrProm.filter(
+    (item: Foo) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooArrProm = fooArrProm.each((item: Foo): Bar => bar);
-fooArrProm = fooArrProm.each((item: Foo, index: number) => index ? bar : null);
-fooArrProm = fooArrProm.each((item: Foo, index: number, arrayLength: number): Bar => bar);
-fooArrProm = fooArrProm.each((item: Foo, index: number, arrayLength: number): Promise<Bar> => barProm);
+fooArrProm = fooArrProm.each((item: Foo, index: number) =>
+    index ? bar : null
+);
+fooArrProm = fooArrProm.each(
+    (item: Foo, index: number, arrayLength: number): Bar => bar
+);
+fooArrProm = fooArrProm.each(
+    (item: Foo, index: number, arrayLength: number): Promise<Bar> => barProm
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = new Promise.Promise<Foo>((resolve, reject) => {
-	resolve(foo);
+    resolve(foo);
 });
 fooProm = Promise.Promise.try<Foo>(() => {
-	return foo;
+    return foo;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function getMaybePromise(): Foo|Promise<Foo> {
+function getMaybePromise(): Foo | Promise<Foo> {
     return foo;
 }
 
 fooProm = Promise.try(() => {
-	return getMaybePromise();
+    return getMaybePromise();
 });
 fooProm = Promise.try<Foo>(() => {
-	return getMaybePromise();
+    return getMaybePromise();
 });
 fooProm = Promise.try(() => {
-	return foo;
+    return foo;
 });
 
 // - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.try(() => {
-	return fooThen;
+    return fooThen;
 });
 
 // - - - - - - - - - - - - - - - - -
@@ -766,13 +901,13 @@ fooProm = Promise.try(() => {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.attempt(() => {
-	return getMaybePromise();
+    return getMaybePromise();
 });
 fooProm = Promise.attempt<Foo>(() => {
-	return getMaybePromise();
+    return getMaybePromise();
 });
 fooProm = Promise.attempt(() => {
-	return foo;
+    return foo;
 });
 
 // - - - - - - - - - - - - - - - - -
@@ -787,16 +922,20 @@ fooProm = Promise.attempt(() => {
 // - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.attempt(() => {
-	return fooThen;
+    return fooThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 asyncfunc = Promise.method(() => {});
 {
-	const noArg: () => Promise<void> = Promise.method(() => {});
-	const oneArg: (x1: number) => Promise<void> = Promise.method((x1: number) => {});
-	const twoArg: (x1: number, x2: string) => Promise<void> = Promise.method((x1: number, x2: string) => {});
+    const noArg: () => Promise<void> = Promise.method(() => {});
+    const oneArg: (x1: number) => Promise<void> = Promise.method(
+        (x1: number) => {}
+    );
+    const twoArg: (x1: number, x2: string) => Promise<void> = Promise.method(
+        (x1: number, x2: string) => {}
+    );
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -845,22 +984,22 @@ asyncfunc = Promise.promisify(f, obj);
 obj = Promise.promisifyAll(obj);
 anyProm = Promise.fromNode(nodeCallbackFunc);
 anyProm = Promise.fromNode(nodeCallbackFuncErrorOnly);
-anyProm = Promise.fromNode(nodeCallbackFunc, {multiArgs : true});
-anyProm = Promise.fromNode(nodeCallbackFuncErrorOnly, {multiArgs : true});
+anyProm = Promise.fromNode(nodeCallbackFunc, { multiArgs: true });
+anyProm = Promise.fromNode(nodeCallbackFuncErrorOnly, { multiArgs: true });
 
 anyProm = Promise.fromCallback(nodeCallbackFunc);
 anyProm = Promise.fromCallback(nodeCallbackFuncErrorOnly);
-anyProm = Promise.fromCallback(nodeCallbackFunc, {multiArgs : true});
-anyProm = Promise.fromCallback(nodeCallbackFuncErrorOnly, {multiArgs : true});
+anyProm = Promise.fromCallback(nodeCallbackFunc, { multiArgs: true });
+anyProm = Promise.fromCallback(nodeCallbackFuncErrorOnly, { multiArgs: true });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare let util: any;
 
 function defaultFilter(name: string, func: (...args: any[]) => any) {
-    return util.isIdentifier(name) &&
-        name.charAt(0) !== "_" &&
-        !util.isClass(func);
+    return (
+        util.isIdentifier(name) && name.charAt(0) !== "_" && !util.isClass(func)
+    );
 }
 
 function DOMPromisifier(originalMethod: (...args: any[]) => any) {
@@ -875,25 +1014,29 @@ function DOMPromisifier(originalMethod: (...args: any[]) => any) {
 }
 
 obj = Promise.promisifyAll(obj, {
-	suffix: "",
-	filter: defaultFilter,
-	promisifier: DOMPromisifier
+    suffix: "",
+    filter: defaultFilter,
+    promisifier: DOMPromisifier
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const generator1 = function*(a: number, b: string) { return "string"; };
+const generator1 = function*(a: number, b: string) {
+    return "string";
+};
 const coroutine1 = Promise.coroutine<string, number, string>(generator1);
 strProm = coroutine1(5, "foo");
 
 const generator2 = function*(a: number, b: string) {
-	yield foo;
-	return bar;
+    yield foo;
+    return bar;
 };
 const coroutine2 = Promise.coroutine<Bar, number, string>(generator2);
 barProm = coroutine2(5, "foo");
 
-const coroutineCustomYield = Promise.coroutine(generator1, { yieldHandler: (value) => "whatever" });
+const coroutineCustomYield = Promise.coroutine(generator1, {
+    yieldHandler: value => "whatever"
+});
 /*
  barProm = Promise.spawn<number>(f);
  */
@@ -954,151 +1097,239 @@ fooArrProm = Promise.join(fooThen, fooThen, fooThen);
 // fooThenArrThen
 
 barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
-barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArrThen
 
 barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
-barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooThenArr
 
 barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
-barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArr
 
 barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
-barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-}, {
-	concurrency: 1
-});
-barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, {
-	concurrency: 1
-});
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    },
+    {
+        concurrency: 1
+    }
+);
+barArrProm = Promise.map(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1109,68 +1340,92 @@ barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number)
 // fooThenArrThen
 
 barArrProm = Promise.mapSeries(fooThenArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.mapSeries(fooThenArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.mapSeries(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.mapSeries(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.mapSeries(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.mapSeries(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArrThen
 
 barArrProm = Promise.mapSeries(fooArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.mapSeries(fooArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.mapSeries(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.mapSeries(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.mapSeries(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.mapSeries(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooThenArr
 
 barArrProm = Promise.mapSeries(fooThenArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.mapSeries(fooThenArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.mapSeries(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.mapSeries(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.mapSeries(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.mapSeries(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArr
 
 barArrProm = Promise.mapSeries(fooArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.mapSeries(fooArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
-barArrProm = Promise.mapSeries(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
-});
-barArrProm = Promise.mapSeries(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-});
+barArrProm = Promise.mapSeries(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bar;
+    }
+);
+barArrProm = Promise.mapSeries(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1180,69 +1435,133 @@ barArrProm = Promise.mapSeries(fooArr, (item: Foo, index: number, arrayLength: n
 
 // fooThenArrThen
 
-barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo) => {
-	return barThen;
-}, bar);
-barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, bar);
+barProm = Promise.reduce(
+    fooThenArrThen,
+    (memo: Bar, item: Foo) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArrThen,
+    (memo: Bar, item: Foo) => {
+        return barThen;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArrThen,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArrThen,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    bar
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArrThen
 
-barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo) => {
-	return barThen;
-}, bar);
-barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, bar);
+barProm = Promise.reduce(
+    fooArrThen,
+    (memo: Bar, item: Foo) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArrThen,
+    (memo: Bar, item: Foo) => {
+        return barThen;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArrThen,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArrThen,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    bar
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooThenArr
 
-barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo) => {
-	return barThen;
-}, bar);
-barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, bar);
+barProm = Promise.reduce(
+    fooThenArr,
+    (memo: Bar, item: Foo) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArr,
+    (memo: Bar, item: Foo) => {
+        return barThen;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArr,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooThenArr,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    bar
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArr
 
-barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo) => {
-	return barThen;
-}, bar);
-barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
-}, bar);
-barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
-}, bar);
+barProm = Promise.reduce(
+    fooArr,
+    (memo: Bar, item: Foo) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArr,
+    (memo: Bar, item: Foo) => {
+        return barThen;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArr,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return memo;
+    },
+    bar
+);
+barProm = Promise.reduce(
+    fooArr,
+    (memo: Bar, item: Foo, index: number, arrayLength: number) => {
+        return barThen;
+    },
+    bar
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1253,152 +1572,240 @@ barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLeng
 // fooThenArrThen
 
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-});
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-});
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    }
+);
 
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArrThen
 
 fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
-fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-});
-fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-});
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    }
+);
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    }
+);
 
-fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooThenArr
 
 fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
-fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-});
-fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-});
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    }
+);
 
-fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // fooArr
 
 fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
-fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-});
-fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-});
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    }
+);
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    }
+);
 
-fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
-}, {
-	concurrency: 1
-});
-fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
-}, {
-	concurrency: 1
-});
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return bool;
+    },
+    {
+        concurrency: 1
+    }
+);
+fooArrProm = Promise.filter(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => {
+        return boolThen;
+    },
+    {
+        concurrency: 1
+    }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1410,8 +1817,14 @@ fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: numb
 
 fooArrThen = Promise.each(fooThenArrThen, (item: Foo) => bar);
 fooArrThen = Promise.each(fooThenArrThen, (item: Foo) => barThen);
-fooArrThen = Promise.each(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => bar);
-fooArrThen = Promise.each(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => barThen);
+fooArrThen = Promise.each(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => bar
+);
+fooArrThen = Promise.each(
+    fooThenArrThen,
+    (item: Foo, index: number, arrayLength: number) => barThen
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1419,8 +1832,14 @@ fooArrThen = Promise.each(fooThenArrThen, (item: Foo, index: number, arrayLength
 
 fooArrThen = Promise.each(fooArrThen, (item: Foo) => bar);
 fooArrThen = Promise.each(fooArrThen, (item: Foo) => barThen);
-fooArrThen = Promise.each(fooArrThen, (item: Foo, index: number, arrayLength: number) => bar);
-fooArrThen = Promise.each(fooArrThen, (item: Foo, index: number, arrayLength: number) => barThen);
+fooArrThen = Promise.each(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => bar
+);
+fooArrThen = Promise.each(
+    fooArrThen,
+    (item: Foo, index: number, arrayLength: number) => barThen
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1428,8 +1847,14 @@ fooArrThen = Promise.each(fooArrThen, (item: Foo, index: number, arrayLength: nu
 
 fooArrThen = Promise.each(fooThenArr, (item: Foo) => bar);
 fooArrThen = Promise.each(fooThenArr, (item: Foo) => barThen);
-fooArrThen = Promise.each(fooThenArr, (item: Foo, index: number, arrayLength: number) => bar);
-fooArrThen = Promise.each(fooThenArr, (item: Foo, index: number, arrayLength: number) => barThen);
+fooArrThen = Promise.each(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => bar
+);
+fooArrThen = Promise.each(
+    fooThenArr,
+    (item: Foo, index: number, arrayLength: number) => barThen
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1437,7 +1862,13 @@ fooArrThen = Promise.each(fooThenArr, (item: Foo, index: number, arrayLength: nu
 
 fooArrThen = Promise.each(fooArr, (item: Foo) => bar);
 fooArrThen = Promise.each(fooArr, (item: Foo) => barThen);
-fooArrThen = Promise.each(fooArr, (item: Foo, index: number, arrayLength: number) => bar);
-fooArrThen = Promise.each(fooArr, (item: Foo, index: number, arrayLength: number) => barThen);
+fooArrThen = Promise.each(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => bar
+);
+fooArrThen = Promise.each(
+    fooArr,
+    (item: Foo, index: number, arrayLength: number) => barThen
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

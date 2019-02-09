@@ -5,4 +5,4 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-export * from './dist-es';
+export * from "./dist-es";

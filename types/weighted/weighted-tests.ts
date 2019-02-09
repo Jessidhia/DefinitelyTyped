@@ -1,29 +1,29 @@
-import * as weighted from 'weighted';
+import * as weighted from "weighted";
 
 function testSet() {
-    var options = ['Wake Up', 'Snooze Alarm'];
+    var options = ["Wake Up", "Snooze Alarm"];
     var weights = [0.25, 0.75];
 
-    console.log('Decision:', weighted.select(options, weights));
+    console.log("Decision:", weighted.select(options, weights));
 }
 
 function testObj() {
     var options = {
-        'Wake Up': 0.25,
-        'Snooze Alarm': 0.75
+        "Wake Up": 0.25,
+        "Snooze Alarm": 0.75
     };
 
-    console.log('Decision:', weighted.select(options));
+    console.log("Decision:", weighted.select(options));
 }
 
 function testOverrideRand() {
-    var options = ['Wake Up', 'Snooze Alarm'];
-	var weights = [0.25, 0.75];
+    var options = ["Wake Up", "Snooze Alarm"];
+    var weights = [0.25, 0.75];
 
     function rand() {
         return 4; // chosen by fair dice roll.
-                  // guaranteed to be random.
+        // guaranteed to be random.
     }
 
-    console.log('Decision:', weighted.select(options, weights, rand));
+    console.log("Decision:", weighted.select(options, weights, rand));
 }

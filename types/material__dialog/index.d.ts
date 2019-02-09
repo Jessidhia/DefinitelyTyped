@@ -20,14 +20,17 @@
  * limitations under the License.
  */
 
-import { MDCComponent } from 'material__base';
-import MDCDialogFoundation from './foundation';
-import MDCDialogAdapter from './adapter';
-import * as util from './util';
+import { MDCComponent } from "material__base";
+import MDCDialogFoundation from "./foundation";
+import MDCDialogAdapter from "./adapter";
+import * as util from "./util";
 
-export {MDCDialogAdapter, MDCDialogFoundation, util};
+export { MDCDialogAdapter, MDCDialogFoundation, util };
 
-export class MDCDialog extends MDCComponent<MDCDialogAdapter, MDCDialogFoundation> {
+export class MDCDialog extends MDCComponent<
+    MDCDialogAdapter,
+    MDCDialogFoundation
+> {
     static attachTo(root: Element): MDCDialog;
 
     readonly open: boolean;

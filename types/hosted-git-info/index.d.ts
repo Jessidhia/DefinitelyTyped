@@ -90,7 +90,7 @@ declare namespace HostedGitInfo {
         treepath?: string;
     }
 
-    type hosts = 'github' | 'bitbucket' | 'gitlab' | 'gist';
+    type hosts = "github" | "bitbucket" | "gitlab" | "gist";
 }
 
 export = HostedGitInfo;

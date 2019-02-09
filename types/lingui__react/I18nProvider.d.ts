@@ -1,5 +1,5 @@
-import { Component, ReactNode } from 'react';
-import { I18n, Catalogs } from '@lingui/core';
+import { Component, ReactNode } from "react";
+import { I18n, Catalogs } from "@lingui/core";
 
 // tslint:disable-next-line:interface-name
 export interface I18nProviderProps {
@@ -11,4 +11,4 @@ export interface I18nProviderProps {
     defaultRender?: ReactNode;
 }
 
-export default class I18nProvider extends Component<I18nProviderProps> { }
+export default class I18nProvider extends Component<I18nProviderProps> {}

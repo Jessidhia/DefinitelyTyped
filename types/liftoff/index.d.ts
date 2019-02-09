@@ -5,9 +5,9 @@
 
 /// <reference types="node" />
 
-import { Extensions, Extension, ExtensionDescriptor } from 'interpret';
-import { PathSpec } from 'fined';
-import { EventEmitter } from 'events';
+import { Extensions, Extension, ExtensionDescriptor } from "interpret";
+import { PathSpec } from "fined";
+import { EventEmitter } from "events";
 
 export = Liftoff;
 
@@ -27,55 +27,91 @@ declare class Liftoff extends EventEmitter {
     ): void;
 
     addListener(
-        event: 'require',
+        event: "require",
         listener: (name: string, module: ExtensionDescriptor) => void
     ): this;
-    addListener(event: 'requireFail', listener: (name: string, err: any) => void): this;
-    addListener(event: 'respawn', listener: (flags: string[], child: NodeJS.Process) => void): this;
-    on(event: 'require', listener: (name: string, module: ExtensionDescriptor) => void): this;
-    on(event: 'requireFail', listener: (name: string, err: any) => void): this;
-    on(event: 'respawn', listener: (flags: string[], child: NodeJS.Process) => void): this;
-    once(event: 'require', listener: (name: string, module: ExtensionDescriptor) => void): this;
-    once(event: 'requireFail', listener: (name: string, err: any) => void): this;
-    once(event: 'respawn', listener: (flags: string[], child: NodeJS.Process) => void): this;
-    prependListener(
-        event: 'require',
+    addListener(
+        event: "requireFail",
+        listener: (name: string, err: any) => void
+    ): this;
+    addListener(
+        event: "respawn",
+        listener: (flags: string[], child: NodeJS.Process) => void
+    ): this;
+    on(
+        event: "require",
         listener: (name: string, module: ExtensionDescriptor) => void
     ): this;
-    prependListener(event: 'requireFail', listener: (name: string, err: any) => void): this;
+    on(event: "requireFail", listener: (name: string, err: any) => void): this;
+    on(
+        event: "respawn",
+        listener: (flags: string[], child: NodeJS.Process) => void
+    ): this;
+    once(
+        event: "require",
+        listener: (name: string, module: ExtensionDescriptor) => void
+    ): this;
+    once(
+        event: "requireFail",
+        listener: (name: string, err: any) => void
+    ): this;
+    once(
+        event: "respawn",
+        listener: (flags: string[], child: NodeJS.Process) => void
+    ): this;
     prependListener(
-        event: 'respawn',
+        event: "require",
+        listener: (name: string, module: ExtensionDescriptor) => void
+    ): this;
+    prependListener(
+        event: "requireFail",
+        listener: (name: string, err: any) => void
+    ): this;
+    prependListener(
+        event: "respawn",
         listener: (flags: string[], child: NodeJS.Process) => void
     ): this;
     prependOnceListener(
-        event: 'require',
+        event: "require",
         listener: (name: string, module: ExtensionDescriptor) => void
     ): this;
-    prependOnceListener(event: 'requireFail', listener: (name: string, err: any) => void): this;
     prependOnceListener(
-        event: 'respawn',
+        event: "requireFail",
+        listener: (name: string, err: any) => void
+    ): this;
+    prependOnceListener(
+        event: "respawn",
         listener: (flags: string[], child: NodeJS.Process) => void
     ): this;
     removeListener(
-        event: 'require',
+        event: "require",
         listener: (name: string, module: ExtensionDescriptor) => void
     ): this;
-    removeListener(event: 'requireFail', listener: (name: string, err: any) => void): this;
     removeListener(
-        event: 'respawn',
+        event: "requireFail",
+        listener: (name: string, err: any) => void
+    ): this;
+    removeListener(
+        event: "respawn",
         listener: (flags: string[], child: NodeJS.Process) => void
     ): this;
-    off(event: 'require', listener: (name: string, module: ExtensionDescriptor) => void): this;
-    off(event: 'requireFail', listener: (name: string, err: any) => void): this;
-    off(event: 'respawn', listener: (flags: string[], child: NodeJS.Process) => void): this;
-    removeAllListeners(event?: 'require' | 'requireFail' | 'respawn'): this;
-    listeners(event: 'require' | 'requireFail' | 'respawn'): Function[]; // tslint:disable-line:ban-types
-    rawListeners(event: 'require' | 'requireFail' | 'respawn'): Function[]; // tslint:disable-line:ban-types
-    emit(event: 'require', name: string, module: ExtensionDescriptor): boolean;
-    emit(event: 'requireFail', name: string, err: any): boolean;
-    emit(event: 'respawn', flags: string[], child: NodeJS.Process): boolean;
-    eventNames(): Array<'require' | 'requireFail' | 'respawn'>;
-    listenerCount(type: 'require' | 'requireFail' | 'respawn'): number;
+    off(
+        event: "require",
+        listener: (name: string, module: ExtensionDescriptor) => void
+    ): this;
+    off(event: "requireFail", listener: (name: string, err: any) => void): this;
+    off(
+        event: "respawn",
+        listener: (flags: string[], child: NodeJS.Process) => void
+    ): this;
+    removeAllListeners(event?: "require" | "requireFail" | "respawn"): this;
+    listeners(event: "require" | "requireFail" | "respawn"): Function[]; // tslint:disable-line:ban-types
+    rawListeners(event: "require" | "requireFail" | "respawn"): Function[]; // tslint:disable-line:ban-types
+    emit(event: "require", name: string, module: ExtensionDescriptor): boolean;
+    emit(event: "requireFail", name: string, err: any): boolean;
+    emit(event: "respawn", flags: string[], child: NodeJS.Process): boolean;
+    eventNames(): Array<"require" | "requireFail" | "respawn">;
+    listenerCount(type: "require" | "requireFail" | "respawn"): number;
 }
 
 declare namespace Liftoff {
@@ -110,7 +146,9 @@ declare namespace Liftoff {
          * To support all v8flags, see `v8flags`.
          * @default null
          */
-        v8flags?: string[] | ((cb: (err: any, flags: string[]) => void) => void);
+        v8flags?:
+            | string[]
+            | ((cb: (err: any, flags: string[]) => void) => void);
         /**
          * Sets what the process title will be.
          * @default null
@@ -161,7 +199,10 @@ declare namespace Liftoff {
          * (as these flags aren't validated against opts.v8flags).
          * @default null
          */
-        forcedFlags?: string | string[] | ((env: LiftoffEnv) => string | string[]);
+        forcedFlags?:
+            | string
+            | string[]
+            | ((env: LiftoffEnv) => string | string[]);
 
         completion?: string;
     }
@@ -198,6 +239,8 @@ declare namespace Liftoff {
         /**
          * an object of filepaths for each found config file (filepath values will be null if not found)
          */
-        configFiles: { [extensions: string]: { [path: string]: string | null } } | undefined;
+        configFiles:
+            | { [extensions: string]: { [path: string]: string | null } }
+            | undefined;
     }
 }

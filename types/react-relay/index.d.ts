@@ -19,7 +19,7 @@ export {
     commitRelayModernMutation as commitMutation,
     fetchRelayModernQuery as fetchQuery,
     GraphQLTaggedNode,
-    requestRelaySubscription as requestSubscription,
+    requestRelaySubscription as requestSubscription
 } from "relay-runtime";
 
 import * as React from "react";
@@ -38,9 +38,13 @@ export interface _FragmentRefs<T> {
 
 export type FragmentOrRegularProp<T> = T extends _RefType<infer U>
     ? _FragmentRefs<U>
-    : T extends ReadonlyArray<_RefType<infer U>> ? ReadonlyArray<_FragmentRefs<U>> : T;
+    : T extends ReadonlyArray<_RefType<infer U>>
+    ? ReadonlyArray<_FragmentRefs<U>>
+    : T;
 
-export type MappedFragmentProps<T> = { [K in keyof T]: FragmentOrRegularProp<T[K]> };
+export type MappedFragmentProps<T> = {
+    [K in keyof T]: FragmentOrRegularProp<T[K]>
+};
 
 export type RemoveRelayProp<P> = Pick<P, Exclude<keyof P, "relay">>;
 
@@ -48,7 +52,9 @@ export interface ComponentRef {
     componentRef?: (ref: any) => void;
 }
 
-export type RelayContainer<P> = React.ComponentType<MappedFragmentProps<RemoveRelayProp<P>> & ComponentRef>;
+export type RelayContainer<P> = React.ComponentType<
+    MappedFragmentProps<RemoveRelayProp<P>> & ComponentRef
+>;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // Maybe Fix
@@ -67,7 +73,10 @@ export interface RelayProp {
 // ~~~~~~~~~~~~~~~~~~~~~
 // RelayQL
 // ~~~~~~~~~~~~~~~~~~~~~
-export function RelayQL(strings: string[], ...substitutions: any[]): RelayRuntimeTypes.RelayConcreteNode;
+export function RelayQL(
+    strings: string[],
+    ...substitutions: any[]
+): RelayRuntimeTypes.RelayConcreteNode;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // ReactRelayTypes
@@ -81,8 +90,12 @@ export interface GeneratedNodeMap {
  * All calls to this function should be transformed by the plugin.
  */
 export interface GraphqlInterface {
-    (strings: string[] | TemplateStringsArray): RelayRuntimeTypes.GraphQLTaggedNode;
-    experimental(strings: string[] | TemplateStringsArray): RelayRuntimeTypes.GraphQLTaggedNode;
+    (
+        strings: string[] | TemplateStringsArray
+    ): RelayRuntimeTypes.GraphQLTaggedNode;
+    experimental(
+        strings: string[] | TemplateStringsArray
+    ): RelayRuntimeTypes.GraphQLTaggedNode;
 }
 export const graphql: GraphqlInterface;
 
@@ -90,24 +103,30 @@ export const graphql: GraphqlInterface;
 // ReactRelayQueryRenderer
 // ~~~~~~~~~~~~~~~~~~~~~
 
-export interface QueryRendererProps<T extends RelayRuntimeTypes.OperationBase = RelayRuntimeTypes.OperationDefaults> {
+export interface QueryRendererProps<
+    T extends RelayRuntimeTypes.OperationBase = RelayRuntimeTypes.OperationDefaults
+> {
     cacheConfig?: RelayRuntimeTypes.CacheConfig;
-    dataFrom?: "NETWORK_ONLY"|"STORE_THEN_NETWORK";
+    dataFrom?: "NETWORK_ONLY" | "STORE_THEN_NETWORK";
     environment: RelayRuntimeTypes.Environment;
     query?: RelayRuntimeTypes.GraphQLTaggedNode | null;
-    render(readyState: ReadyState<T["response"]>): React.ReactElement<any> | undefined | null;
+    render(
+        readyState: ReadyState<T["response"]>
+    ): React.ReactElement<any> | undefined | null;
     variables: T["variables"];
     rerunParamExperimental?: RelayRuntimeTypes.RerunParam;
 }
-export interface ReadyState<T extends RelayRuntimeTypes.Variables = RelayRuntimeTypes.Variables> {
+export interface ReadyState<
+    T extends RelayRuntimeTypes.Variables = RelayRuntimeTypes.Variables
+> {
     error: Error | undefined | null;
     props: T | undefined | null;
     retry?(): void;
 }
 
-export class ReactRelayQueryRenderer<T extends RelayRuntimeTypes.OperationBase> extends React.Component<
-    QueryRendererProps<T>
-> {}
+export class ReactRelayQueryRenderer<
+    T extends RelayRuntimeTypes.OperationBase
+> extends React.Component<QueryRendererProps<T>> {}
 export class QueryRenderer<
     T extends RelayRuntimeTypes.OperationBase = RelayRuntimeTypes.OperationDefaults
 > extends ReactRelayQueryRenderer<T> {}
@@ -180,7 +199,9 @@ export type RelayRefetchProp = RelayProp & {
     refetch(
         refetchVariables:
             | RelayRuntimeTypes.Variables
-            | ((fragmentVariables: RelayRuntimeTypes.Variables) => RelayRuntimeTypes.Variables),
+            | ((
+                  fragmentVariables: RelayRuntimeTypes.Variables
+              ) => RelayRuntimeTypes.Variables),
         renderVariables?: RelayRuntimeTypes.Variables,
         callback?: (error?: Error) => void,
         options?: RefetchOptions

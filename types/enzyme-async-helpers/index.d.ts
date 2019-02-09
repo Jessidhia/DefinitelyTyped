@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ReactWrapper, EnzymeSelector } from 'enzyme';
+import { ReactWrapper, EnzymeSelector } from "enzyme";
 
 export function waitForState(
     wrapper: ReactWrapper,

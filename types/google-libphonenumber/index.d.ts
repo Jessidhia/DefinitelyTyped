@@ -32,7 +32,7 @@ declare namespace libphonenumber {
             FROM_NUMBER_WITH_PLUS_SIGN = 1,
             FROM_NUMBER_WITH_IDD = 5,
             FROM_NUMBER_WITHOUT_PLUS_SIGN = 10,
-            FROM_DEFAULT_COUNTRY = 20,
+            FROM_DEFAULT_COUNTRY = 20
         }
     }
 
@@ -117,34 +117,65 @@ declare namespace libphonenumber {
     }
 
     export class PhoneNumberUtil {
-        static getInstance(): PhoneNumberUtil
-        extractCountryCode(fullNumber: StringBuffer, nationalNumber: StringBuffer): number;
+        static getInstance(): PhoneNumberUtil;
+        extractCountryCode(
+            fullNumber: StringBuffer,
+            nationalNumber: StringBuffer
+        ): number;
         format(phoneNumber: PhoneNumber, format: PhoneNumberFormat): string;
-        formatOutOfCountryCallingNumber(phoneNumber: PhoneNumber, regionDialingFrom?: string): string;
-        getNddPrefixForRegion(regionCode?: string, stripNonDigits?: boolean): string | undefined;
+        formatOutOfCountryCallingNumber(
+            phoneNumber: PhoneNumber,
+            regionDialingFrom?: string
+        ): string;
+        getNddPrefixForRegion(
+            regionCode?: string,
+            stripNonDigits?: boolean
+        ): string | undefined;
         getNumberType(phoneNumber: PhoneNumber): PhoneNumberType;
-        getCountryCodeForRegion(supportedRegion:string):string;
+        getCountryCodeForRegion(supportedRegion: string): string;
         getExampleNumber(regionCode: string): PhoneNumber;
-        getExampleNumberForType(regionCode: string, type: PhoneNumberType): PhoneNumber;
+        getExampleNumberForType(
+            regionCode: string,
+            type: PhoneNumberType
+        ): PhoneNumber;
         getRegionCodeForCountryCode(countryCallingCode: number): string;
         getRegionCodeForNumber(phoneNumber: PhoneNumber): string | undefined;
-        getSupportedRegions():string [];
+        getSupportedRegions(): string[];
         isAlphaNumber(number: string): boolean;
         isLeadingZeroPossible(countryCallingCode: number): boolean;
         isNANPACountry(regionCode?: string): boolean;
         isPossibleNumber(number: PhoneNumber): boolean;
         isPossibleNumber(phoneNumber: PhoneNumber): boolean;
-        isPossibleNumberForType(number: PhoneNumber, type: PhoneNumberType): boolean;
-        isPossibleNumberForTypeWithReason(number: PhoneNumber, type: PhoneNumberType): PhoneNumberUtil.ValidationResult;
-        isPossibleNumberString(number: string, regionDialingFrom: string): boolean;
-        isPossibleNumberWithReason(number: PhoneNumber): PhoneNumberUtil.ValidationResult;
-        isPossibleNumberWithReason(phoneNumber: PhoneNumber): PhoneNumberUtil.ValidationResult;
+        isPossibleNumberForType(
+            number: PhoneNumber,
+            type: PhoneNumberType
+        ): boolean;
+        isPossibleNumberForTypeWithReason(
+            number: PhoneNumber,
+            type: PhoneNumberType
+        ): PhoneNumberUtil.ValidationResult;
+        isPossibleNumberString(
+            number: string,
+            regionDialingFrom: string
+        ): boolean;
+        isPossibleNumberWithReason(
+            number: PhoneNumber
+        ): PhoneNumberUtil.ValidationResult;
+        isPossibleNumberWithReason(
+            phoneNumber: PhoneNumber
+        ): PhoneNumberUtil.ValidationResult;
         isValidNumber(phoneNumber: PhoneNumber): boolean;
-        isValidNumberForRegion(phoneNumber: PhoneNumber, region?: string): boolean;
+        isValidNumberForRegion(
+            phoneNumber: PhoneNumber,
+            region?: string
+        ): boolean;
         parse(number?: string, region?: string): PhoneNumber;
         parseAndKeepRawInput(number: string, regionCode?: string): PhoneNumber;
         truncateTooLongNumber(number: PhoneNumber): boolean;
-        isNumberMatch(firstNumber: string | PhoneNumber, secondNumber: string | PhoneNumber): PhoneNumberUtil.MatchType;
+        isNumberMatch(
+            firstNumber: string | PhoneNumber,
+            secondNumber: string | PhoneNumber
+        ): PhoneNumberUtil.MatchType;
     }
 
     export class AsYouTypeFormatter {
@@ -154,7 +185,6 @@ declare namespace libphonenumber {
     }
 }
 
-
-declare module 'google-libphonenumber' {
+declare module "google-libphonenumber" {
     export = libphonenumber;
 }

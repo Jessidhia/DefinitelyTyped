@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace rpc {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/rpc/Rest.html
@@ -35,35 +33,36 @@ declare namespace dojox {
          * @param schema       Optional
          * @param getRequest       Optional
          */
-        interface Rest{(path: String, isJson?: boolean, schema?: Object, getRequest?: Function): void}
+        interface Rest {
+            (
+                path: String,
+                isJson?: boolean,
+                schema?: Object,
+                getRequest?: Function
+            ): void;
+        }
         namespace Rest {
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/rpc/Rest._index.html
              *
              *
              */
-            interface _index {
-            }
+            interface _index {}
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/rpc/Rest._timeStamps.html
              *
              *
              */
-            interface _timeStamps {
-            }
+            interface _timeStamps {}
         }
 
-        namespace Client {
-        }
+        namespace Client {}
 
-        namespace JsonRPC {
-        }
+        namespace JsonRPC {}
 
-        namespace ProxiedPath {
-        }
+        namespace ProxiedPath {}
 
-        namespace Service {
-        }
+        namespace Service {}
 
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/rpc/OfflineRest.html
@@ -206,7 +205,11 @@ declare namespace dojox {
              * @param servicePath This is the path that is used for all the ids for the objects returned by service
              * @param schema               OptionalThis is a JSON Schema object to associate with objects returned by this service
              */
-            registerService(service: Function, servicePath: String, schema: Object): void;
+            registerService(
+                service: Function,
+                servicePath: String,
+                schema: Object
+            ): void;
             /**
              * Reverts all the changes made to JSON/REST data
              *
@@ -245,7 +248,12 @@ declare namespace dojox {
              * @param schema               Optional
              * @param getRequest               Optional
              */
-            serviceClass(path: String, isJson: boolean, schema: Object, getRequest: Function): Function;
+            serviceClass(
+                path: String,
+                isJson: boolean,
+                schema: Object,
+                getRequest: Function
+            ): Function;
         }
         namespace JsonRest {
             /**
@@ -253,45 +261,41 @@ declare namespace dojox {
              *
              *
              */
-            interface services {
-            }
+            interface services {}
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/rpc/JsonRest.schemas.html
              *
              *
              */
-            interface schemas {
-            }
+            interface schemas {}
         }
-
     }
-
 }
 declare module "dojox/rpc/Rest" {
-    var exp: dojox.rpc.Rest
-    export=exp;
+    var exp: dojox.rpc.Rest;
+    export = exp;
 }
 declare module "dojox/rpc/Rest._index" {
-    var exp: dojox.rpc.Rest._index
-    export=exp;
+    var exp: dojox.rpc.Rest._index;
+    export = exp;
 }
 declare module "dojox/rpc/Rest._timeStamps" {
-    var exp: dojox.rpc.Rest._timeStamps
-    export=exp;
+    var exp: dojox.rpc.Rest._timeStamps;
+    export = exp;
 }
 declare module "dojox/rpc/OfflineRest" {
-    var exp: dojox.rpc.OfflineRest
-    export=exp;
+    var exp: dojox.rpc.OfflineRest;
+    export = exp;
 }
 declare module "dojox/rpc/JsonRest" {
-    var exp: dojox.rpc.JsonRest
-    export=exp;
+    var exp: dojox.rpc.JsonRest;
+    export = exp;
 }
 declare module "dojox/rpc/JsonRest.services" {
-    var exp: dojox.rpc.JsonRest.services
-    export=exp;
+    var exp: dojox.rpc.JsonRest.services;
+    export = exp;
 }
 declare module "dojox/rpc/JsonRest.schemas" {
-    var exp: dojox.rpc.JsonRest.schemas
-    export=exp;
+    var exp: dojox.rpc.JsonRest.schemas;
+    export = exp;
 }

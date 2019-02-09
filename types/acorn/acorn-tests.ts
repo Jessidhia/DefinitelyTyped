@@ -1,5 +1,5 @@
-import acorn = require('acorn');
-import * as ESTree from 'estree';
+import acorn = require("acorn");
+import * as ESTree from "estree";
 
 declare let token: acorn.Token;
 declare let tokens: acorn.Token[];
@@ -11,12 +11,16 @@ let string: string;
 
 // acorn
 string = acorn.version;
-program = acorn.parse('code');
-program = acorn.parse('code', { ranges: true, onToken: tokens, onComment: comments });
-program = acorn.parse('code', {
+program = acorn.parse("code");
+program = acorn.parse("code", {
     ranges: true,
-    onToken: (token) => tokens.push(token),
-    onComment: (isBlock, text, start, end) => { }
+    onToken: tokens,
+    onComment: comments
+});
+program = acorn.parse("code", {
+    ranges: true,
+    onToken: token => tokens.push(token),
+    onComment: (isBlock, text, start, end) => {}
 });
 
 // Token
@@ -37,19 +41,23 @@ class LooseParser {
     // this means you can extend LooseParser
     test() {}
 }
-acorn.addLooseExports(() => {
-    return {
-        type: 'Program',
-        sourceType: 'script',
-        body: [
-            {
-                type: 'EmptyStatement'
-            }
-        ]
-    };
-}, LooseParser, {});
+acorn.addLooseExports(
+    () => {
+        return {
+            type: "Program",
+            sourceType: "script",
+            body: [
+                {
+                    type: "EmptyStatement"
+                }
+            ]
+        };
+    },
+    LooseParser,
+    {}
+);
 
-acorn.parseExpressionAt('string', 2);
+acorn.parseExpressionAt("string", 2);
 
 acorn.isNewLine(56);
 
@@ -57,9 +65,12 @@ acorn.isIdentifierStart(56);
 
 acorn.isIdentifierChar(56);
 
-acorn.getLineInfo('string', 56);
+acorn.getLineInfo("string", 56);
 
-acorn.plugins['test'] = (p: acorn.Parser, config: any) => {};
+acorn.plugins["test"] = (p: acorn.Parser, config: any) => {};
 
-acorn.tokenizer('console.log("hello world)', {locations: true}).getToken();
-acorn.tokenizer('console.log("hello world)', {locations: true})[Symbol.iterator]().next();
+acorn.tokenizer('console.log("hello world)', { locations: true }).getToken();
+acorn
+    .tokenizer('console.log("hello world)', { locations: true })
+    [Symbol.iterator]()
+    .next();

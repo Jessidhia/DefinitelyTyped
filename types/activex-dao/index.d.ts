@@ -12,7 +12,7 @@ declare namespace DAO {
         LogMessages = 0,
         Replicable = 0,
         ReplicableBool = 0,
-        V1xNullBehavior = 0,
+        V1xNullBehavior = 0
     }
 
     const enum CollatingOrderEnum {
@@ -42,11 +42,11 @@ declare namespace DAO {
         dbSortSwedFin = 1053,
         dbSortThai = 1054,
         dbSortTurkish = 1055,
-        dbSortUndefined = -1,
+        dbSortUndefined = -1
     }
 
     const enum CommitTransOptionsEnum {
-        dbForceOSFlush = 1,
+        dbForceOSFlush = 1
     }
 
     const enum CursorDriverEnum {
@@ -54,7 +54,7 @@ declare namespace DAO {
         dbUseDefaultCursor = -1,
         dbUseNoCursor = 4,
         dbUseODBCCursor = 1,
-        dbUseServerCursor = 2,
+        dbUseServerCursor = 2
     }
 
     const enum DatabaseTypeEnum {
@@ -69,7 +69,7 @@ declare namespace DAO {
         dbVersion150 = 512,
         dbVersion20 = 16,
         dbVersion30 = 32,
-        dbVersion40 = 64,
+        dbVersion40 = 64
     }
 
     const enum DataTypeEnum {
@@ -102,20 +102,20 @@ declare namespace DAO {
         dbText = 10,
         dbTime = 22,
         dbTimeStamp = 23,
-        dbVarBinary = 17,
+        dbVarBinary = 17
     }
 
     const enum DriverPromptEnum {
         dbDriverComplete = 0,
         dbDriverCompleteRequired = 3,
         dbDriverNoPrompt = 1,
-        dbDriverPrompt = 2,
+        dbDriverPrompt = 2
     }
 
     const enum EditModeEnum {
         dbEditAdd = 2,
         dbEditInProgress = 1,
-        dbEditNone = 0,
+        dbEditNone = 0
     }
 
     const enum FieldAttributeEnum {
@@ -125,12 +125,12 @@ declare namespace DAO {
         dbHyperlinkField = 32768,
         dbSystemField = 8192,
         dbUpdatableField = 32,
-        dbVariableField = 2,
+        dbVariableField = 2
     }
 
     const enum IdleEnum {
         dbFreeLocks = 1,
-        dbRefreshCache = 8,
+        dbRefreshCache = 8
     }
 
     const enum ISAMStatsEnum {
@@ -139,47 +139,47 @@ declare namespace DAO {
         LocksPlaced = 4,
         LocksReleased = 5,
         ReadsFromCache = 2,
-        ReadsFromReadAheadCache = 3,
+        ReadsFromReadAheadCache = 3
     }
 
     const enum LanguageConstants {
-        dbLangArabic = ';LANGID=0x0401;CP=1256;COUNTRY=0',
-        dbLangChineseSimplified = ';LANGID=0x0804;CP=936;COUNTRY=0',
-        dbLangChineseTraditional = ';LANGID=0x0404;CP=950;COUNTRY=0',
-        dbLangCyrillic = ';LANGID=0x0419;CP=1251;COUNTRY=0',
-        dbLangCzech = ';LANGID=0x0405;CP=1250;COUNTRY=0',
-        dbLangDutch = ';LANGID=0x0413;CP=1252;COUNTRY=0',
-        dbLangGeneral = ';LANGID=0x0409;CP=1252;COUNTRY=0',
-        dbLangGreek = ';LANGID=0x0408;CP=1253;COUNTRY=0',
-        dbLangHebrew = ';LANGID=0x040D;CP=1255;COUNTRY=0',
-        dbLangHindi = ';LANGID=0x00000439;CP=65001;COUNTRY=0',
-        dbLangHungarian = ';LANGID=0x040E;CP=1250;COUNTRY=0',
-        dbLangIcelandic = ';LANGID=0x040F;CP=1252;COUNTRY=0',
-        dbLangJapanese = ';LANGID=0x0411;CP=932;COUNTRY=0',
-        dbLangJapaneseRadicalStrokeCount = ';LANGID=0x00040411;CP=65001;COUNTRY=0',
-        dbLangKorean = ';LANGID=0x0412;CP=949;COUNTRY=0',
-        dbLangNordic = ';LANGID=0x041D;CP=1252;COUNTRY=0',
-        dbLangNorwDan = ';LANGID=0x0406;CP=1252;COUNTRY=0',
-        dbLangPolish = ';LANGID=0x0415;CP=1250;COUNTRY=0',
-        dbLangSlovenian = ';LANGID=0x0424;CP=1250;COUNTRY=0',
-        dbLangSpanish = ';LANGID=0x040A;CP=1252;COUNTRY=0',
-        dbLangSwedFin = ';LANGID=0x041D;CP=1252;COUNTRY=0',
-        dbLangThai = ';LANGID=0x041E;CP=874;COUNTRY=0',
-        dbLangTurkish = ';LANGID=0x041F;CP=1254;COUNTRY=0',
+        dbLangArabic = ";LANGID=0x0401;CP=1256;COUNTRY=0",
+        dbLangChineseSimplified = ";LANGID=0x0804;CP=936;COUNTRY=0",
+        dbLangChineseTraditional = ";LANGID=0x0404;CP=950;COUNTRY=0",
+        dbLangCyrillic = ";LANGID=0x0419;CP=1251;COUNTRY=0",
+        dbLangCzech = ";LANGID=0x0405;CP=1250;COUNTRY=0",
+        dbLangDutch = ";LANGID=0x0413;CP=1252;COUNTRY=0",
+        dbLangGeneral = ";LANGID=0x0409;CP=1252;COUNTRY=0",
+        dbLangGreek = ";LANGID=0x0408;CP=1253;COUNTRY=0",
+        dbLangHebrew = ";LANGID=0x040D;CP=1255;COUNTRY=0",
+        dbLangHindi = ";LANGID=0x00000439;CP=65001;COUNTRY=0",
+        dbLangHungarian = ";LANGID=0x040E;CP=1250;COUNTRY=0",
+        dbLangIcelandic = ";LANGID=0x040F;CP=1252;COUNTRY=0",
+        dbLangJapanese = ";LANGID=0x0411;CP=932;COUNTRY=0",
+        dbLangJapaneseRadicalStrokeCount = ";LANGID=0x00040411;CP=65001;COUNTRY=0",
+        dbLangKorean = ";LANGID=0x0412;CP=949;COUNTRY=0",
+        dbLangNordic = ";LANGID=0x041D;CP=1252;COUNTRY=0",
+        dbLangNorwDan = ";LANGID=0x0406;CP=1252;COUNTRY=0",
+        dbLangPolish = ";LANGID=0x0415;CP=1250;COUNTRY=0",
+        dbLangSlovenian = ";LANGID=0x0424;CP=1250;COUNTRY=0",
+        dbLangSpanish = ";LANGID=0x040A;CP=1252;COUNTRY=0",
+        dbLangSwedFin = ";LANGID=0x041D;CP=1252;COUNTRY=0",
+        dbLangThai = ";LANGID=0x041E;CP=874;COUNTRY=0",
+        dbLangTurkish = ";LANGID=0x041F;CP=1254;COUNTRY=0"
     }
 
     const enum LockTypeEnum {
         dbOptimistic = 3,
         dbOptimisticBatch = 5,
         dbOptimisticValue = 1,
-        dbPessimistic = 2,
+        dbPessimistic = 2
     }
 
     const enum ParameterDirectionEnum {
         dbParamInput = 1,
         dbParamInputOutput = 3,
         dbParamOutput = 2,
-        dbParamReturnValue = 4,
+        dbParamReturnValue = 4
     }
 
     const enum PermissionEnum {
@@ -199,12 +199,12 @@ declare namespace DAO {
         dbSecRetrieveData = 20,
         dbSecWriteDef = 65548,
         dbSecWriteOwner = 524288,
-        dbSecWriteSec = 262144,
+        dbSecWriteSec = 262144
     }
 
     const enum QueryDefStateEnum {
         dbQPrepare = 1,
-        dbQUnprepare = 2,
+        dbQUnprepare = 2
     }
 
     const enum QueryDefTypeEnum {
@@ -220,7 +220,7 @@ declare namespace DAO {
         dbQSetOperation = 128,
         dbQSPTBulk = 144,
         dbQSQLPassThrough = 112,
-        dbQUpdate = 48,
+        dbQUpdate = 48
     }
 
     const enum RecordsetOptionEnum {
@@ -235,7 +235,7 @@ declare namespace DAO {
         dbReadOnly = 4,
         dbRunAsync = 1024,
         dbSeeChanges = 512,
-        dbSQLPassThrough = 64,
+        dbSQLPassThrough = 64
     }
 
     const enum RecordsetTypeEnum {
@@ -243,7 +243,7 @@ declare namespace DAO {
         dbOpenDynaset = 2,
         dbOpenForwardOnly = 8,
         dbOpenSnapshot = 4,
-        dbOpenTable = 1,
+        dbOpenTable = 1
     }
 
     const enum RecordStatusEnum {
@@ -251,7 +251,7 @@ declare namespace DAO {
         dbRecordDeleted = 3,
         dbRecordModified = 1,
         dbRecordNew = 2,
-        dbRecordUnmodified = 0,
+        dbRecordUnmodified = 0
     }
 
     const enum RelationAttributeEnum {
@@ -261,12 +261,12 @@ declare namespace DAO {
         dbRelationLeft = 16777216,
         dbRelationRight = 33554432,
         dbRelationUnique = 1,
-        dbRelationUpdateCascade = 256,
+        dbRelationUpdateCascade = 256
     }
 
     const enum ReplicaTypeEnum {
         dbRepMakePartial = 1,
-        dbRepMakeReadOnly = 2,
+        dbRepMakeReadOnly = 2
     }
 
     const enum SetOptionEnum {
@@ -283,14 +283,14 @@ declare namespace DAO {
         dbPasswordEncryptionProvider = 80,
         dbRecycleLVs = 65,
         dbSharedAsyncDelay = 61,
-        dbUserCommitSync = 58,
+        dbUserCommitSync = 58
     }
 
     const enum SynchronizeTypeEnum {
         dbRepExportChanges = 1,
         dbRepImpExpChanges = 4,
         dbRepImportChanges = 2,
-        dbRepSyncInternet = 16,
+        dbRepSyncInternet = 16
     }
 
     const enum TableDefAttributeEnum {
@@ -299,7 +299,7 @@ declare namespace DAO {
         dbAttachExclusive = 65536,
         dbAttachSavePWD = 131072,
         dbHiddenObject = 1,
-        dbSystemObject = -2147483646,
+        dbSystemObject = -2147483646
     }
 
     const enum UpdateCriteriaEnum {
@@ -308,30 +308,30 @@ declare namespace DAO {
         dbCriteriaKey = 1,
         dbCriteriaModValues = 2,
         dbCriteriaTimestamp = 8,
-        dbCriteriaUpdate = 32,
+        dbCriteriaUpdate = 32
     }
 
     const enum UpdateTypeEnum {
         dbUpdateBatch = 4,
         dbUpdateCurrentRecord = 2,
-        dbUpdateRegular = 1,
+        dbUpdateRegular = 1
     }
 
     const enum WorkspaceTypeEnum {
         dbUseJet = 2,
-        dbUseODBC = 1,
+        dbUseODBC = 1
     }
 
     type Bookmark = SafeArray<number>;
 
     class ComplexType {
-        private 'DAO.ComplexType_typekey': ComplexType;
+        private "DAO.ComplexType_typekey": ComplexType;
         private constructor();
         readonly Fields: Fields;
     }
 
     class Connection {
-        private 'DAO.Connection_typekey': Connection;
+        private "DAO.Connection_typekey": Connection;
         private constructor();
         Cancel(): void;
         Close(): void;
@@ -341,7 +341,12 @@ declare namespace DAO {
         Execute(Query: string, Options?: RecordsetOptionEnum): void;
         readonly hDbc: number;
         readonly Name: string;
-        OpenRecordset(Name: string, Type?: RecordsetTypeEnum, Options?: RecordsetOptionEnum, LockEdit?: LockTypeEnum): Recordset;
+        OpenRecordset(
+            Name: string,
+            Type?: RecordsetTypeEnum,
+            Options?: RecordsetOptionEnum,
+            LockEdit?: LockTypeEnum
+        ): Recordset;
         readonly QueryDefs: QueryDefs;
         QueryTimeout: number;
         readonly RecordsAffected: number;
@@ -359,7 +364,7 @@ declare namespace DAO {
     }
 
     class Container {
-        private 'DAO.Container_typekey': Container;
+        private "DAO.Container_typekey": Container;
         private constructor();
         readonly AllPermissions: number;
         readonly Documents: Documents;
@@ -379,23 +384,47 @@ declare namespace DAO {
     }
 
     class Database {
-        private 'DAO.Database_typekey': Database;
+        private "DAO.Database_typekey": Database;
         private constructor();
         Close(): void;
         readonly CollatingOrder: number;
         Connect: string;
         readonly Connection: Connection;
         readonly Containers: Containers;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         CreateQueryDef(Name?: string, SQLText?: string): QueryDef;
-        CreateRelation(Name?: string, Table?: string, ForeignTable?: string, Attributes?: RelationAttributeEnum): Relation;
-        CreateTableDef(Name?: string, Attributes?: TableDefAttributeEnum, SourceTableName?: string, Connect?: string): TableDef;
+        CreateRelation(
+            Name?: string,
+            Table?: string,
+            ForeignTable?: string,
+            Attributes?: RelationAttributeEnum
+        ): Relation;
+        CreateTableDef(
+            Name?: string,
+            Attributes?: TableDefAttributeEnum,
+            SourceTableName?: string,
+            Connect?: string
+        ): TableDef;
         DesignMasterID: string;
         Execute(Query: string, Options?: RecordsetOptionEnum): void;
-        MakeReplica(PathName: string, Description: string, Options?: ReplicaTypeEnum): void;
+        MakeReplica(
+            PathName: string,
+            Description: string,
+            Options?: ReplicaTypeEnum
+        ): void;
         readonly Name: string;
         NewPassword(bstrOld: string, bstrNew: string): void;
-        OpenRecordset(Name: string, Type?: RecordsetTypeEnum, Options?: RecordsetOptionEnum, LockEdit?: LockTypeEnum): Recordset;
+        OpenRecordset(
+            Name: string,
+            Type?: RecordsetTypeEnum,
+            Options?: RecordsetOptionEnum,
+            LockEdit?: LockTypeEnum
+        ): Recordset;
         PopulatePartial(DbPathName: string): void;
         readonly Properties: Properties;
         readonly QueryDefs: QueryDefs;
@@ -404,7 +433,10 @@ declare namespace DAO {
         readonly Recordsets: Recordsets;
         readonly Relations: Relations;
         readonly ReplicaID: string;
-        Synchronize(DbPathName: string, ExchangeType?: SynchronizeTypeEnum): void;
+        Synchronize(
+            DbPathName: string,
+            ExchangeType?: SynchronizeTypeEnum
+        ): void;
         readonly TableDefs: TableDefs;
         readonly Transactions: boolean;
         readonly Updatable: boolean;
@@ -419,7 +451,7 @@ declare namespace DAO {
     }
 
     class DBEngine {
-        private 'DAO.DBEngine_typekey': DBEngine;
+        private "DAO.DBEngine_typekey": DBEngine;
         private constructor();
         BeginTrans(): void;
 
@@ -437,7 +469,13 @@ declare namespace DAO {
          * @param Options `dbEncrypt` and `dbDecrypt` are deprecated, and unsupported for ACCDB
          * @param password Deprecated, and unsupported for ACCDB
          */
-        CompactDatabase(SrcName: string, DstName: string, DstLocale?: LanguageConstants | string, Options?: DatabaseTypeEnum, password?: string): void;
+        CompactDatabase(
+            SrcName: string,
+            DstName: string,
+            DstLocale?: LanguageConstants | string,
+            Options?: DatabaseTypeEnum,
+            password?: string
+        ): void;
 
         /**
          * @param Locale  Specify one of the following:
@@ -445,8 +483,17 @@ declare namespace DAO {
          * * the password, in the form `;pwd=MyNewPassword'`
          * * both the constant and a password, e.g. `dbLangGreek + ';pwd=MyNewPassword'`
          */
-        CreateDatabase(Name: string, Locale: LanguageConstants | string, Option?: DatabaseTypeEnum): Database;
-        CreateWorkspace(Name: string, UserName: string, Password: string, UseType?: WorkspaceTypeEnum): Workspace;
+        CreateDatabase(
+            Name: string,
+            Locale: LanguageConstants | string,
+            Option?: DatabaseTypeEnum
+        ): Database;
+        CreateWorkspace(
+            Name: string,
+            UserName: string,
+            Password: string,
+            UseType?: WorkspaceTypeEnum
+        ): Workspace;
         readonly DefaultPassword: string;
         DefaultType: number;
         readonly DefaultUser: string;
@@ -461,10 +508,25 @@ declare namespace DAO {
         /**
          * @param Connect ODBC connection string; prepend with `ODBC;`
          */
-        OpenConnection(Name: string, Options?: DriverPromptEnum | RecordsetOptionEnum.dbRunAsync, ReadOnly?: boolean, Connect?: string): Connection;
-        OpenDatabase(Name: string, Exclusive?: boolean, ReadOnly?: boolean, Connect?: string): Database;
+        OpenConnection(
+            Name: string,
+            Options?: DriverPromptEnum | RecordsetOptionEnum.dbRunAsync,
+            ReadOnly?: boolean,
+            Connect?: string
+        ): Connection;
+        OpenDatabase(
+            Name: string,
+            Exclusive?: boolean,
+            ReadOnly?: boolean,
+            Connect?: string
+        ): Database;
         readonly Properties: Properties;
-        RegisterDatabase(Dsn: string, Driver: string, Silent: boolean, Attributes: string): void;
+        RegisterDatabase(
+            Dsn: string,
+            Driver: string,
+            Silent: boolean,
+            Attributes: string
+        ): void;
         RepairDatabase(Name: string): void;
         Rollback(): void;
         SetOption(Option: SetOptionEnum, Value: any): void;
@@ -474,11 +536,16 @@ declare namespace DAO {
     }
 
     class Document {
-        private 'DAO.Document_typekey': Document;
+        private "DAO.Document_typekey": Document;
         private constructor();
         readonly AllPermissions: number;
         readonly Container: string;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         readonly DateCreated: VarDate;
         readonly LastUpdated: VarDate;
         readonly Name: string;
@@ -496,7 +563,7 @@ declare namespace DAO {
     }
 
     class Error {
-        private 'DAO.Error_typekey': Error;
+        private "DAO.Error_typekey": Error;
         private constructor();
         readonly Description: string;
         readonly HelpContext: number;
@@ -514,7 +581,7 @@ declare namespace DAO {
 
     class Field {
         private constructor();
-        private 'DAO.Field2_typekey': Field;
+        private "DAO.Field2_typekey": Field;
         AllowZeroLength: boolean;
         AppendChunk(Val: any): void;
         AppendOnly: boolean;
@@ -522,7 +589,12 @@ declare namespace DAO {
         readonly CollatingOrder: number;
         readonly CollectionIndex: number;
         readonly ComplexType: ComplexType;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         readonly DataUpdatable: boolean;
         DefaultValue: any;
         Expression: string;
@@ -558,7 +630,7 @@ declare namespace DAO {
     }
 
     class Group {
-        private 'DAO.Group_typekey': Group;
+        private "DAO.Group_typekey": Group;
         private constructor();
         CreateUser(Name?: string, PID?: string, Password?: string): User;
         Name: string;
@@ -577,11 +649,16 @@ declare namespace DAO {
     }
 
     class Index {
-        private 'DAO.Index_typekey': Index;
+        private "DAO.Index_typekey": Index;
         private constructor();
         Clustered: boolean;
         CreateField(Name?: string): Field;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         readonly DistinctCount: number;
         Fields: Fields;
         readonly Foreign: boolean;
@@ -604,7 +681,7 @@ declare namespace DAO {
     }
 
     class Parameter {
-        private 'DAO.Parameter_typekey': Parameter;
+        private "DAO.Parameter_typekey": Parameter;
         private constructor();
         Direction: number;
         readonly Name: string;
@@ -630,7 +707,7 @@ declare namespace DAO {
     }
 
     class Property {
-        private 'DAO.Property_typekey': Property;
+        private "DAO.Property_typekey": Property;
         private constructor();
         readonly Inherited: boolean;
         Name: string;
@@ -640,13 +717,18 @@ declare namespace DAO {
     }
 
     class QueryDef {
-        private 'DAO.QueryDef_typekey': QueryDef;
+        private "DAO.QueryDef_typekey": QueryDef;
         private constructor();
         CacheSize: number;
         Cancel(): void;
         Close(): void;
         Connect: string;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         readonly DateCreated: VarDate;
         Execute(Options?: RecordsetOptionEnum): void;
         readonly Fields: Fields;
@@ -655,7 +737,11 @@ declare namespace DAO {
         MaxRecords: number;
         Name: string;
         ODBCTimeout: number;
-        OpenRecordset(Type?: RecordsetTypeEnum, Options?: RecordsetOptionEnum, LockEdit?: LockTypeEnum): Recordset;
+        OpenRecordset(
+            Type?: RecordsetTypeEnum,
+            Options?: RecordsetOptionEnum,
+            LockEdit?: LockTypeEnum
+        ): Recordset;
         readonly Parameters: Parameters;
         Prepare: QueryDefStateEnum;
         readonly Properties: Properties;
@@ -726,7 +812,10 @@ declare namespace DAO {
         readonly NoMatch: boolean;
         readonly ODBCFetchCount: number;
         readonly ODBCFetchDelay: number;
-        OpenRecordset(Type?: RecordsetTypeEnum, Options?: RecordsetOptionEnum): Recordset;
+        OpenRecordset(
+            Type?: RecordsetTypeEnum,
+            Options?: RecordsetOptionEnum
+        ): Recordset;
         readonly Parent: Database;
         PercentPosition: number;
         readonly Properties: Properties;
@@ -734,7 +823,22 @@ declare namespace DAO {
         readonly RecordStatus: number;
         Requery(NewQueryDef?: QueryDef): void;
         readonly Restartable: boolean;
-        Seek(Comparison: string, Key1: any, Key2?: any, Key3?: any, Key4?: any, Key5?: any, Key6?: any, Key7?: any, Key8?: any, Key9?: any, Key10?: any, Key11?: any, Key12?: any, Key13?: any): void;
+        Seek(
+            Comparison: string,
+            Key1: any,
+            Key2?: any,
+            Key3?: any,
+            Key4?: any,
+            Key5?: any,
+            Key6?: any,
+            Key7?: any,
+            Key8?: any,
+            Key9?: any,
+            Key10?: any,
+            Key11?: any,
+            Key12?: any,
+            Key13?: any
+        ): void;
         Sort: string;
         readonly StillExecuting: boolean;
         readonly Transactions: boolean;
@@ -760,7 +864,7 @@ declare namespace DAO {
     }
 
     class Relation {
-        private 'DAO.Relation_typekey': Relation;
+        private "DAO.Relation_typekey": Relation;
         private constructor();
         Attributes: RelationAttributeEnum;
         CreateField(Name?: string): Field;
@@ -782,20 +886,28 @@ declare namespace DAO {
     }
 
     class TableDef {
-        private 'DAO.TableDef_typekey': TableDef;
+        private "DAO.TableDef_typekey": TableDef;
         private constructor();
         Attributes: TableDefAttributeEnum;
         readonly ConflictTable: string;
         Connect: string;
         CreateField(Name?: string, Type?: DataTypeEnum, Size?: number): Field;
         CreateIndex(Name?: string): Index;
-        CreateProperty(Name?: string, Type?: DataTypeEnum, Value?: any, DDL?: boolean): Property;
+        CreateProperty(
+            Name?: string,
+            Type?: DataTypeEnum,
+            Value?: any,
+            DDL?: boolean
+        ): Property;
         readonly DateCreated: VarDate;
         readonly Fields: Fields;
         readonly Indexes: Indexes;
         readonly LastUpdated: VarDate;
         Name: string;
-        OpenRecordset(Type?: RecordsetTypeEnum, Options?: RecordsetOptionEnum): Recordset;
+        OpenRecordset(
+            Type?: RecordsetTypeEnum,
+            Options?: RecordsetOptionEnum
+        ): Recordset;
         readonly Properties: Properties;
         readonly RecordCount: number;
         RefreshLink(): void;
@@ -816,7 +928,7 @@ declare namespace DAO {
     }
 
     class User {
-        private 'DAO.User_typekey': User;
+        private "DAO.User_typekey": User;
         private constructor();
         CreateGroup(Name?: string, PID?: string): Group;
         readonly Groups: Groups;
@@ -837,7 +949,7 @@ declare namespace DAO {
     }
 
     class Workspace {
-        private 'DAO.Workspace_typekey': Workspace;
+        private "DAO.Workspace_typekey": Workspace;
         private constructor();
         BeginTrans(): void;
         Close(): void;
@@ -852,7 +964,11 @@ declare namespace DAO {
          * * the password, in the form `;pwd=MyNewPassword'`
          * * both the constant and a password, e.g. `dbLangGreek + ';pwd=MyNewPassword'`
          */
-        CreateDatabase(Name: string, Connect: string, Option?: DatabaseTypeEnum): Database;
+        CreateDatabase(
+            Name: string,
+            Connect: string,
+            Option?: DatabaseTypeEnum
+        ): Database;
         CreateGroup(Name?: string, PID?: string): Group;
         CreateUser(Name?: string, PID?: string, Password?: string): User;
         readonly Databases: Databases;
@@ -866,8 +982,18 @@ declare namespace DAO {
         /**
          * @param Connect ODBC connection string; prepend with `ODBC;`
          */
-        OpenConnection(Name: string, Options?: DriverPromptEnum | RecordsetOptionEnum.dbRunAsync, ReadOnly?: boolean, Connect?: string): Connection;
-        OpenDatabase(Name: string, Exclusive?: boolean, ReadOnly?: boolean, Connect?: string): Database;
+        OpenConnection(
+            Name: string,
+            Options?: DriverPromptEnum | RecordsetOptionEnum.dbRunAsync,
+            ReadOnly?: boolean,
+            Connect?: string
+        ): Connection;
+        OpenDatabase(
+            Name: string,
+            Exclusive?: boolean,
+            ReadOnly?: boolean,
+            Connect?: string
+        ): Database;
         readonly Properties: Properties;
         Rollback(): void;
         readonly Type: number;
@@ -886,13 +1012,13 @@ declare namespace DAO {
 }
 
 interface ActiveXObjectNameMap {
-    'DAO.DBEngine': DAO.DBEngine;
-    'DAO.Field': DAO.Field;
-    'DAO.Group': DAO.Group;
-    'DAO.Index': DAO.Index;
-    'DAO.PrivateDBEngine': DAO.DBEngine;
-    'DAO.QueryDef': DAO.QueryDef;
-    'DAO.Relation': DAO.Relation;
-    'DAO.TableDef': DAO.TableDef;
-    'DAO.User': DAO.User;
+    "DAO.DBEngine": DAO.DBEngine;
+    "DAO.Field": DAO.Field;
+    "DAO.Group": DAO.Group;
+    "DAO.Index": DAO.Index;
+    "DAO.PrivateDBEngine": DAO.DBEngine;
+    "DAO.QueryDef": DAO.QueryDef;
+    "DAO.Relation": DAO.Relation;
+    "DAO.TableDef": DAO.TableDef;
+    "DAO.User": DAO.User;
 }

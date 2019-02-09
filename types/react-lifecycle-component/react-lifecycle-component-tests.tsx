@@ -1,20 +1,19 @@
-import * as React from 'react';
-import { Dispatch } from 'redux';
-import { connect } from 'react-redux';
+import * as React from "react";
+import { Dispatch } from "redux";
+import { connect } from "react-redux";
 import {
     connectWithLifecycle,
     LifecycleDispatchProps,
     applyLifecycle,
     LifecycleStateProps,
-    LifecycleComponent,
-} from 'react-lifecycle-component';
+    LifecycleComponent
+} from "react-lifecycle-component";
 
 interface State {
     stateFoo: number;
 }
 
-interface Props extends StateProps, DispatchProps {
-}
+interface Props extends StateProps, DispatchProps {}
 
 interface StateProps {
     propsFoo: number;
@@ -28,7 +27,7 @@ class ComponentFoo extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            stateFoo: 0,
+            stateFoo: 0
         };
     }
     render() {
@@ -47,7 +46,7 @@ type MapStateProps = StateProps & LifecycleStateProps<Props>;
 function mapStateToProps(): MapStateProps {
     return {
         component: ComponentFoo,
-        propsFoo: 8675309,
+        propsFoo: 8675309
     };
 }
 
@@ -56,43 +55,52 @@ type MapDispatchProps = DispatchProps & LifecycleDispatchProps<Props, State>;
 function mapDispatchToProps(dispatch: Dispatch): MapDispatchProps {
     return {
         bar() {
-            dispatch({ type: 'Bar'});
+            dispatch({ type: "Bar" });
         },
         componentWillMount() {
-            dispatch({ type: 'ComponentWillMount'});
+            dispatch({ type: "ComponentWillMount" });
         },
         componentDidMount() {
-            dispatch({ type: 'ComponentDidMount'});
+            dispatch({ type: "ComponentDidMount" });
         },
         componentWillUpdate(nextProps, nextState, nextContext) {
-            const fooIsEqual: boolean = nextProps.propsFoo === nextState.stateFoo;
+            const fooIsEqual: boolean =
+                nextProps.propsFoo === nextState.stateFoo;
             const hasNextContext: boolean = !!nextContext;
-            dispatch({ type: 'ComponentWillUpdate'});
+            dispatch({ type: "ComponentWillUpdate" });
         },
         componentDidUpdate(nextProps, nextState, nextContext) {
-            const fooIsEqual: boolean = nextProps.propsFoo === nextState.stateFoo;
+            const fooIsEqual: boolean =
+                nextProps.propsFoo === nextState.stateFoo;
             const hasNextContext: boolean = !!nextContext;
-            dispatch({ type: 'ComponentDidUpdate'});
+            dispatch({ type: "ComponentDidUpdate" });
         },
         componentWillReceiveProps(nextProps, nextContext) {
             const fooIsGreaterThanZero: boolean = nextProps.propsFoo > 0;
             const hasNextContext: boolean = !!nextContext;
-            dispatch({ type: 'ComponentWillReceiveProps'});
+            dispatch({ type: "ComponentWillReceiveProps" });
         },
         componentWillUnmount() {
-            dispatch({ type: 'ComponentWillUnmount'});
+            dispatch({ type: "ComponentWillUnmount" });
         },
         shouldComponentUpdate(nextProps, nextState, nextContext) {
-            const fooIsEqual: boolean = nextProps.propsFoo === nextState.stateFoo;
+            const fooIsEqual: boolean =
+                nextProps.propsFoo === nextState.stateFoo;
             const hasNextContext: boolean = !!nextContext;
             return !fooIsEqual;
-        },
+        }
     };
 }
 
-const connectWithLifecylceContainer =
-    connectWithLifecycle<StateProps, MapDispatchProps>(mapStateToProps, mapDispatchToProps)(ComponentFoo);
-const applyLifecycleContainer =
-    connect<StateProps, MapDispatchProps>(mapStateToProps, mapDispatchToProps)(applyLifecycle(ComponentFoo));
-const lifecycleContainer =
-    connect<MapStateProps, MapDispatchProps>(mapStateToProps, mapDispatchToProps)(LifecycleComponent);
+const connectWithLifecylceContainer = connectWithLifecycle<
+    StateProps,
+    MapDispatchProps
+>(mapStateToProps, mapDispatchToProps)(ComponentFoo);
+const applyLifecycleContainer = connect<StateProps, MapDispatchProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(applyLifecycle(ComponentFoo));
+const lifecycleContainer = connect<MapStateProps, MapDispatchProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(LifecycleComponent);

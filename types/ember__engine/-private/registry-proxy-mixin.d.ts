@@ -1,4 +1,4 @@
-import Mixin from '@ember/object/mixin';
+import Mixin from "@ember/object/mixin";
 
 /**
  * RegistryProxyMixin is used to provide public access to specific

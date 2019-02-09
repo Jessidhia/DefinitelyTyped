@@ -5,7 +5,6 @@
 
 /// <reference types="node"/>
 
-
 interface Options {
     remoteUrl?: string;
     origin?: string;
@@ -17,6 +16,6 @@ interface Options {
 
 declare function ghPages(opts?: Options): NodeJS.ReadWriteStream;
 
-declare namespace ghPages { }
+declare namespace ghPages {}
 
 export = ghPages;

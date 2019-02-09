@@ -20,7 +20,10 @@ declare namespace DataTables {
     }
 
     interface ButtonStaticFunctions {
-        new (dt: Api, settings: boolean | string[] | ButtonsSettings | ButtonSettings[]): undefined;
+        new (
+            dt: Api,
+            settings: boolean | string[] | ButtonsSettings | ButtonSettings[]
+        ): undefined;
         version: string;
         defaults: ButtonsSettings;
     }
@@ -50,12 +53,16 @@ declare namespace DataTables {
         /**
          * Get meta information that is common to many different button types.
          */
-        exportInfo(options?: ButtonsApiExportInfoParameter): ButtonsApiExportInfoReturn;
+        exportInfo(
+            options?: ButtonsApiExportInfoParameter
+        ): ButtonsApiExportInfoReturn;
 
         /**
          * Obtain data from a DataTable that is suitable for exporting by saving into a file or copying to clipboard.
          */
-        exportData(options?: ButtonsApiExportDataParameter): ButtonsApiExportDataReturn;
+        exportData(
+            options?: ButtonsApiExportDataParameter
+        ): ButtonsApiExportDataReturn;
     }
 
     interface ButtonApi {
@@ -82,7 +89,10 @@ declare namespace DataTables {
         /**
          * Create a new button, adding it to the selected button instance and inserting immediately into the document.
          */
-        add(index: number | string, config: string|FunctionButtom|ButtonSettings): Api;
+        add(
+            index: number | string,
+            config: string | FunctionButtom | ButtonSettings
+        ): Api;
 
         /**
          * Disable the selected buttons.
@@ -182,7 +192,7 @@ declare namespace DataTables {
     interface ButtonsSettings {
         name?: string;
         tabIndex?: number;
-        buttons: Array<string|FunctionButtom|ButtonSettings>;
+        buttons: Array<string | FunctionButtom | ButtonSettings>;
         dom?: ButtonDomSettings;
     }
 
@@ -285,9 +295,14 @@ declare namespace DataTables {
 
     type FunctionButtonInit = (dt: Api, node: JQuery, config: any) => void;
 
-    type FunctionButtonAction = (e: any, dt: Api, node: JQuery, config: ButtonSettings) => void;
+    type FunctionButtonAction = (
+        e: any,
+        dt: Api,
+        node: JQuery,
+        config: ButtonSettings
+    ) => void;
 
-    type FunctionButtonCustomize = (win: Window|string) => void;
+    type FunctionButtonCustomize = (win: Window | string) => void;
 
     type FunctionExtButtonsCollectionText = (a: any) => string;
 
@@ -349,7 +364,7 @@ declare namespace DataTables {
         /**
          * CSV: charset
          */
-        charset?: string|boolean;
+        charset?: string | boolean;
 
         /**
          * CSV: escape char
@@ -413,7 +428,7 @@ declare namespace DataTables {
         /**
          * PDF / PRINT: Extra message
          */
-        message?: string|Api|JQuery|object;
+        message?: string | Api | JQuery | object;
 
         /**
          * PRINT: Show print dialoge on click
@@ -443,7 +458,11 @@ declare namespace DataTables {
 
     type FunctionButtonCustomizeData = (content: any) => void;
 
-    type FunctionButtonColvisColumnText = (dt: Api, i: number, title: string) => string;
+    type FunctionButtonColvisColumnText = (
+        dt: Api,
+        i: number,
+        title: string
+    ) => string;
 
     //#endregion "button-settings
 }

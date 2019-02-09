@@ -19,7 +19,10 @@ export interface AuthorizerPolicy {
 }
 
 export class Authorizer {
-    constructor(logFunction: (msg: any) => void, configuration: AuthorizerConfiguration);
+    constructor(
+        logFunction: (msg: any) => void,
+        configuration: AuthorizerConfiguration
+    );
     getPolicy(request: object): Promise<AuthorizerPolicy>;
 }
 
@@ -42,14 +45,43 @@ export interface PlatformClientResponse<T> {
 }
 
 export class PlatformClient {
-    constructor(logFunction: (msg: any) => void, tokenResolverFunction?: () => Promise<string>, configuration?: PlatformClientConfiguration)
-    get<T>(url: string, headers?: { [s: string]: string; }, type?: string): Promise<PlatformClientResponse<T>>;
-    post<T>(url: string, data: object, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
-    put<T>(url: string, data: object, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
-    patch<T>(url: string, data: object, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
-    delete <T>(url: string, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
-    head<T>(url: string, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
-    options<T>(url: string, headers?: { [s: string]: string; }): Promise<PlatformClientResponse<T>>;
+    constructor(
+        logFunction: (msg: any) => void,
+        tokenResolverFunction?: () => Promise<string>,
+        configuration?: PlatformClientConfiguration
+    );
+    get<T>(
+        url: string,
+        headers?: { [s: string]: string },
+        type?: string
+    ): Promise<PlatformClientResponse<T>>;
+    post<T>(
+        url: string,
+        data: object,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
+    put<T>(
+        url: string,
+        data: object,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
+    patch<T>(
+        url: string,
+        data: object,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
+    delete<T>(
+        url: string,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
+    head<T>(
+        url: string,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
+    options<T>(
+        url: string,
+        headers?: { [s: string]: string }
+    ): Promise<PlatformClientResponse<T>>;
 }
 /* tslint:enable:no-unnecessary-generics */
 
@@ -80,7 +112,11 @@ export interface ServiceTokenProviderConfiguration {
 }
 
 export class ServiceTokenProvider {
-    constructor(httpClient: object, kmsClient: object, configuration?: ServiceTokenProviderConfiguration);
+    constructor(
+        httpClient: object,
+        kmsClient: object,
+        configuration?: ServiceTokenProviderConfiguration
+    );
     getToken(): Promise<string>;
     getTokenWithoutCache(): Promise<string>;
 }

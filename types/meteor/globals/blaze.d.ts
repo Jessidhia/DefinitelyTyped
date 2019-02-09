@@ -12,7 +12,9 @@ declare module Blaze {
         isRendered: boolean;
         isDestroyed: boolean;
         renderCount: number;
-        autorun(runFunc: (computation: Tracker.Computation) => void): Tracker.Computation;
+        autorun(
+            runFunc: (computation: Tracker.Computation) => void
+        ): Tracker.Computation;
         onViewCreated(func: Function): void;
         onViewReady(func: Function): void;
         onViewDestroyed(func: Function): void;
@@ -70,7 +72,9 @@ declare module Blaze {
 
     interface TemplateInstance {
         $(selector: string): any;
-        autorun(runFunc: (computation: Tracker.Computation) => void): Tracker.Computation;
+        autorun(
+            runFunc: (computation: Tracker.Computation) => void
+        ): Tracker.Computation;
         data: Object;
         find(selector: string): HTMLElement;
         findAll(selector: string): HTMLElement[];
@@ -81,11 +85,23 @@ declare module Blaze {
         view: Object;
     }
 
-    function Each(argFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+    function Each(
+        argFunc: Function,
+        contentFunc: Function,
+        elseFunc?: Function
+    ): View;
 
-    function Unless(conditionFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+    function Unless(
+        conditionFunc: Function,
+        contentFunc: Function,
+        elseFunc?: Function
+    ): View;
 
-    function If(conditionFunc: Function, contentFunc: Function, elseFunc?: Function): View;
+    function If(
+        conditionFunc: Function,
+        contentFunc: Function,
+        elseFunc?: Function
+    ): View;
 
     function Let(bindings: Function, contentFunc: Function): View;
 
@@ -97,11 +113,25 @@ declare module Blaze {
 
     function remove(renderedView: View): void;
 
-    function render(templateOrView: Template | View, parentNode: Node, nextNode?: Node, parentView?: View): View;
+    function render(
+        templateOrView: Template | View,
+        parentNode: Node,
+        nextNode?: Node,
+        parentView?: View
+    ): View;
 
-    function renderWithData(templateOrView: Template | View, data: Object | Function, parentNode: Node, nextNode?: Node, parentView?: View): View;
+    function renderWithData(
+        templateOrView: Template | View,
+        data: Object | Function,
+        parentNode: Node,
+        nextNode?: Node,
+        parentView?: View
+    ): View;
 
     function toHTML(templateOrView: Template | View): string;
 
-    function toHTMLWithData(templateOrView: Template | View, data: Object | Function): string;
+    function toHTMLWithData(
+        templateOrView: Template | View,
+        data: Object | Function
+    ): string;
 }

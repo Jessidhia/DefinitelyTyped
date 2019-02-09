@@ -10,7 +10,13 @@ export interface UploadOptions {
     resume?: boolean;
     metadata?: { [key: string]: string };
     onProgress?: ((bytesSent: number, bytesTotal: number) => void) | null;
-    onChunkComplete?: ((chunkSize: number, bytesAccepted: number, bytesTotal: number) => void) | null;
+    onChunkComplete?:
+        | ((
+              chunkSize: number,
+              bytesAccepted: number,
+              bytesTotal: number
+          ) => void)
+        | null;
     onSuccess?: (() => void) | null;
     onError?: ((error: Error) => void) | null;
     headers?: { [key: string]: string };

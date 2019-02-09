@@ -8,7 +8,10 @@ export interface BodyScrollOptions {
     allowTouchMove?: (el: HTMLElement) => void;
 }
 
-export function disableBodyScroll(targetElement: HTMLElement, options?: BodyScrollOptions): void;
+export function disableBodyScroll(
+    targetElement: HTMLElement,
+    options?: BodyScrollOptions
+): void;
 export function enableBodyScroll(targetElement: HTMLElement): void;
 export function clearAllBodyScrollLocks(): void;
 

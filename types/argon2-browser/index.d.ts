@@ -5,7 +5,9 @@
 // TypeScript Version: 2.1
 
 export namespace argon2 {
-    function hash(options: Argon2BrowserHashOptions): Promise<Argon2BrowserHashResult>;
+    function hash(
+        options: Argon2BrowserHashOptions
+    ): Promise<Argon2BrowserHashResult>;
 
     interface Argon2BrowserHashOptions {
         distPath?: string;

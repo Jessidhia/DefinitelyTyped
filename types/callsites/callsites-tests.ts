@@ -1,4 +1,4 @@
-import callsites = require('callsites');
+import callsites = require("callsites");
 
 function unicorn() {
     callsites(); // $ExpectType CallSite[]

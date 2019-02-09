@@ -1,43 +1,43 @@
-import openEditor = require('open-editor');
+import openEditor = require("open-editor");
 
 openEditor([
-    'unicorn.js:5:3',
+    "unicorn.js:5:3",
     {
-        file: 'readme.md',
+        file: "readme.md",
         line: 10,
-        column: 2,
-    },
+        column: 2
+    }
 ]);
 openEditor(
     [
-        'unicorn.js:5:3',
+        "unicorn.js:5:3",
         {
-            file: 'readme.md',
+            file: "readme.md",
             line: 10,
-            column: 2,
-        },
+            column: 2
+        }
     ],
-    { editor: 'vi' }
+    { editor: "vi" }
 );
 
 // $ExpectType EditorRunConfig
 openEditor.make([
-    'unicorn.js:5:3',
+    "unicorn.js:5:3",
     {
-        file: 'readme.md',
+        file: "readme.md",
         line: 10,
-        column: 2,
-    },
+        column: 2
+    }
 ]);
 // $ExpectType EditorRunConfig
 openEditor.make(
     [
-        'unicorn.js:5:3',
+        "unicorn.js:5:3",
         {
-            file: 'readme.md',
+            file: "readme.md",
             line: 10,
-            column: 2,
-        },
+            column: 2
+        }
     ],
-    { editor: 'vi' }
+    { editor: "vi" }
 );

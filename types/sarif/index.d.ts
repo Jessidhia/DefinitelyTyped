@@ -31,8 +31,7 @@ export interface Log {
 }
 
 export namespace Log {
-    type version =
-        "2.0.0-csd.2.beta.2019-01-09";
+    type version = "2.0.0-csd.2.beta.2019-01-09";
 }
 
 /**
@@ -342,18 +341,18 @@ export interface File {
 
 export namespace File {
     type roles =
-        "analysisTarget" |
-        "attachment" |
-        "responseFile" |
-        "resultFile" |
-        "standardStream" |
-        "traceFile" |
-        "unmodifiedFile" |
-        "modifiedFile" |
-        "addedFile" |
-        "deletedFile" |
-        "renamedFile" |
-        "uncontrolledFile";
+        | "analysisTarget"
+        | "attachment"
+        | "responseFile"
+        | "resultFile"
+        | "standardStream"
+        | "traceFile"
+        | "unmodifiedFile"
+        | "modifiedFile"
+        | "addedFile"
+        | "deletedFile"
+        | "renamedFile"
+        | "uncontrolledFile";
 }
 
 /**
@@ -838,10 +837,7 @@ export interface Notification {
 }
 
 export namespace Notification {
-    type level =
-        "note" |
-        "warning" |
-        "error";
+    type level = "note" | "warning" | "error";
 }
 
 /**
@@ -1169,21 +1165,16 @@ export interface Result {
 
 export namespace Result {
     type level =
-        "notApplicable" |
-        "pass" |
-        "note" |
-        "warning" |
-        "error" |
-        "open";
+        | "notApplicable"
+        | "pass"
+        | "note"
+        | "warning"
+        | "error"
+        | "open";
 
-    type suppressionStates =
-        "suppressedInSource" |
-        "suppressedExternally";
+    type suppressionStates = "suppressedInSource" | "suppressedExternally";
 
-    type baselineState =
-        "new" |
-        "existing" |
-        "absent";
+    type baselineState = "new" | "existing" | "absent";
 }
 
 /**
@@ -1330,10 +1321,7 @@ export interface RuleConfiguration {
 }
 
 export namespace RuleConfiguration {
-    type defaultLevel =
-        "note" |
-        "warning" |
-        "error";
+    type defaultLevel = "note" | "warning" | "error";
 }
 
 /**
@@ -1456,9 +1444,7 @@ export interface Run {
 }
 
 export namespace Run {
-    type columnKind =
-        "utf16CodeUnits" |
-        "unicodeCodePoints";
+    type columnKind = "utf16CodeUnits" | "unicodeCodePoints";
 }
 
 /**
@@ -1639,10 +1625,7 @@ export interface ThreadFlowLocation {
 }
 
 export namespace ThreadFlowLocation {
-    type importance =
-        "important" |
-        "essential" |
-        "unimportant";
+    type importance = "important" | "essential" | "unimportant";
 }
 
 /**

@@ -1,12 +1,10 @@
-require.d.ts
-==========
+# require.d.ts
 
 This is a typescript definitions file for require.js.
 
-Usage
-=====
+# Usage
 
-Compile *.ts files as AMD modules:
+Compile \*.ts files as AMD modules:
 
 <pre>
 tsc --module AMD main.ts
@@ -18,59 +16,62 @@ export classes so they can be accessed from an import:
 // File main.ts
 export class Main  {
 
-	run() {  
+	run() {
 		...
 	}
 }
 ```
 
-Reference require.js statically in your html page (normally how you would do this with vanilla javascript)
+Reference require.js statically in your html page (normally how you would do
+this with vanilla javascript)
 
 ```html
-<script data-main="config.ts" type="text/javascript" src="lib/require.js"></script>
+<script
+    data-main="config.ts"
+    type="text/javascript"
+    src="lib/require.js"
+></script>
 ```
 
-where main.ts is the source file containing imports/configuration/require initialization.
-where type is javascript since require.js is javascript.
-where src is the reference to require.js.
+where main.ts is the source file containing imports/configuration/require
+initialization. where type is javascript since require.js is javascript. where
+src is the reference to require.js.
 
-Sample contents of config.ts:
-The sample config will load all required shims and AMD modules and then kick off main.ts once everything is loaded.
+Sample contents of config.ts: The sample config will load all required shims and
+AMD modules and then kick off main.ts once everything is loaded.
 
 ```javascript
 //file config.ts
 require.config({
-	baseUrl: 'lib',
+    baseUrl: "lib",
 
-	paths: {
-		'jquery': 'lib/jquery-x.x.x',
-		'underscore': 'lib/underscore-x.x.x',
-		'backbone': 'lib/backbone-x.x.x'
-	},
+    paths: {
+        jquery: "lib/jquery-x.x.x",
+        underscore: "lib/underscore-x.x.x",
+        backbone: "lib/backbone-x.x.x"
+    },
 
-	shim: {
-		jquery: {
-			exports: '$'
-		},
+    shim: {
+        jquery: {
+            exports: "$"
+        },
 
-		underscore: {
-			exports: '_'
-		},
+        underscore: {
+            exports: "_"
+        },
 
-		backbone: {
-			deps: ['underscore', 'jquery'],
-			exports: 'Backbone'
-		}
-	}
+        backbone: {
+            deps: ["underscore", "jquery"],
+            exports: "Backbone"
+        }
+    }
 });
 
 // load AMD module main.ts (compiled to main.js)
 // and include shims $, _, Backbone
 
-require(['main'], (main, $, _, Backbone) => {
-
-	var app = main.AppMain();
-	app.run();
-
+require(["main"], (main, $, _, Backbone) => {
+    var app = main.AppMain();
+    app.run();
 });
 ```

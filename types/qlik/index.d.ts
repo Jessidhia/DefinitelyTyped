@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import 'jquery';
+import "jquery";
 
 export interface Size {
     qcx: number;
@@ -29,7 +29,7 @@ export interface NxStateCounts {
 }
 
 export interface FieldAttributes {
-    qType: 'U' | 'A' | 'I' | 'R' | 'F' | 'M' | 'D' | 'T' | 'TS' | 'IV';
+    qType: "U" | "A" | "I" | "R" | "F" | "M" | "D" | "T" | "TS" | "IV";
     qnDec: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15;
     qUseThou: 0 | 1;
     qFmt: string;
@@ -76,7 +76,7 @@ export interface NxPivotDimensioncell {
     qValue: number;
     qCanExpand: boolean;
     qCanCollapse: boolean;
-    qType: 'V' | 'E' | 'N' | 'T' | 'P' | 'R' | 'U';
+    qType: "V" | "E" | "N" | "T" | "P" | "R" | "U";
     qUp: number;
     qDown: number;
     qSubNodes: NxPivotDimensioncell[];
@@ -88,7 +88,7 @@ export interface NxPivotValuePoint {
     qLabel?: string;
     qText: string;
     qNum: number;
-    qType: 'V' | 'E' | 'N' | 'T' | 'P' | 'R' | 'U';
+    qType: "V" | "E" | "N" | "T" | "P" | "R" | "U";
     qAttrExps: NxAttributeExpressionValues;
 }
 
@@ -105,7 +105,7 @@ export interface NxStackedPivotCell {
     qValue: number;
     qCanExpand: boolean;
     qCanCollapse: boolean;
-    qType: 'V' | 'E' | 'N' | 'T' | 'P' | 'R' | 'U';
+    qType: "V" | "E" | "N" | "T" | "P" | "R" | "U";
     qMaxPos: number;
     qMinNeg: number;
     qUp: number;
@@ -146,7 +146,7 @@ export interface NxCell {
     qText: string;
     qNum: number;
     qElemNumber: number;
-    qState: 'L' | 'S' | 'O' | 'D' | 'A' | 'X' | 'XS' | 'XL';
+    qState: "L" | "S" | "O" | "D" | "A" | "X" | "XS" | "XL";
     qIsEmpty: boolean;
     qIsTotalCell: boolean;
     qIsOtherCell: boolean;
@@ -177,7 +177,7 @@ export interface ColumnInfo {
     qFallbackTitle: string;
     qApprMaxGlyphCount: number;
     qCardinal: string;
-    qSortIndicator: 'N' | 'A' | 'D';
+    qSortIndicator: "N" | "A" | "D";
     qNumFormat: FieldAttributes;
     qIsAutoFormat: boolean;
     qMin: number;
@@ -194,8 +194,8 @@ export interface NxDimensionInfo extends ColumnInfo {
     qGroupPos: number;
     qStateCounts: NxStateCounts;
     qTags: string[];
-    qDimensionType: 'D' | 'N' | 'T';
-    qGrouping: 'N' | 'H' | 'C';
+    qDimensionType: "D" | "N" | "T";
+    qGrouping: "N" | "H" | "C";
     qIsSemantic: boolean;
     qGroupFieldDefs: string[];
     qContinuousAxes: boolean;
@@ -216,7 +216,7 @@ export interface HyperCube {
     qDataPages: NxDataPage[];
     qPivotDataPages: NxPivotPage[];
     qStackedDataPages: NxStackPage[];
-    qMode: 'S' | 'P' | 'K';
+    qMode: "S" | "P" | "K";
     qNoOfLeftDims: number;
     qIndentMode: boolean;
     qLastExpandedPos: NxCellPosition;
@@ -253,7 +253,7 @@ export interface RangeSelectInfo {
 
 export interface NxFieldSelectionInfo {
     qName: string;
-    qFieldSelectionmode: 'NORMAL' | 'AND' | 'NOT';
+    qFieldSelectionmode: "NORMAL" | "AND" | "NOT";
 }
 
 export interface Selectionobject {
@@ -283,7 +283,7 @@ export interface SortCriteria {
 }
 
 export interface NxInlineDimensionDef {
-    qGrouping: 'N' | 'H' | 'C';
+    qGrouping: "N" | "H" | "C";
     qFieldDefs: string[];
     qSortCriteries: SortCriteria[];
     qNumberPresentations: FieldAttributes[];
@@ -292,19 +292,30 @@ export interface NxInlineDimensionDef {
 }
 
 export interface OtherTotalSpecProp {
-    qOtherMode: 'OTHER_OFF' | 'OTHER_COUNTED'
-    | 'OTHER_ABS_LIMITED' | 'OTHER_ABS_ACC_TARGET'
-    | 'OTHER_REL_LIMITED' | 'OTHER_REL_ACC_TARGET';
+    qOtherMode:
+        | "OTHER_OFF"
+        | "OTHER_COUNTED"
+        | "OTHER_ABS_LIMITED"
+        | "OTHER_ABS_ACC_TARGET"
+        | "OTHER_REL_LIMITED"
+        | "OTHER_REL_ACC_TARGET";
     qOtherCounted: ValueExpr;
     qOtherLimit: ValueExpr;
-    qOtherLimitMode: 'OTHER_GE_LIMIT' | 'OTHER_LE_LIMIT' | 'OTHER_GT_LIMIT' | 'OTHER_LT_LIMIT';
+    qOtherLimitMode:
+        | "OTHER_GE_LIMIT"
+        | "OTHER_LE_LIMIT"
+        | "OTHER_GT_LIMIT"
+        | "OTHER_LT_LIMIT";
     qSupressOther: boolean;
     qForceBadValueKeeping: boolean;
     qApplyEvenWhenPossiblyWrongResult: boolean;
     qGlobalOtherGrouping: boolean;
     qOtherCollapseInnerDimensions: boolean;
-    qOtherSortMode: 'OTHER_SORT_DEFAULT' | 'OTHER_SORT_DESCENDING' | 'OTHER_SORT_ASCENDING';
-    qTotalMode: 'TOTAL_OFF' | 'TOTAL_EXPR';
+    qOtherSortMode:
+        | "OTHER_SORT_DEFAULT"
+        | "OTHER_SORT_DESCENDING"
+        | "OTHER_SORT_ASCENDING";
+    qTotalMode: "TOTAL_OFF" | "TOTAL_EXPR";
     qReferencedExpression: string;
 }
 
@@ -361,7 +372,7 @@ export interface HyperCubeDef {
     qSuppressZero?: boolean;
     qSupressMissing?: boolean;
     qInitialDataFetch?: NxPage[];
-    qMode?: 'S' | 'P' | 'K';
+    qMode?: "S" | "P" | "K";
     qNoOfLeftDims?: number;
     qAlwaysFullyExpanded?: boolean;
     qMaxStackedCells?: number;
@@ -386,7 +397,11 @@ export interface ListobjectDef {
     qLibraryId: string;
     qDef: NxInlineDimensionDef;
     qAutoSortByState: NxAutoSortByStateDef;
-    qFrequencyMode: 'NX_FREQUENCY_NONE' | 'NX_FREQUENCY_VALUE' | 'NX_FREQUENCY_PERCENT' | 'NX_FREQUENCY_RELATIVE';
+    qFrequencyMode:
+        | "NX_FREQUENCY_NONE"
+        | "NX_FREQUENCY_VALUE"
+        | "NX_FREQUENCY_PERCENT"
+        | "NX_FREQUENCY_RELATIVE";
     qShowAlternatives: boolean;
     qInitialDataFetch: NxPage[];
     qExpressions: NxListobjectExpressionDef[];
@@ -404,7 +419,9 @@ export interface InitialPropertiesListobject {
     [key: string]: any;
 }
 
-export type InitialProperties = InitialPropertiesHyperCube | InitialPropertiesListobject;
+export type InitialProperties =
+    | InitialPropertiesHyperCube
+    | InitialPropertiesListobject;
 
 export interface SnapshotLegacy {
     canTakeSnapshot: boolean;
@@ -445,25 +462,28 @@ export interface VisualizationCommon {
 export type VisualizationOptions = VisualizationCommon;
 
 // TODO: Figure out other types
-export type ShowFunction = (layout: Layout, cls: any, obj: any) => boolean
-    | ((measure: NxMeasure) => boolean);
+export type ShowFunction = (
+    layout: Layout,
+    cls: any,
+    obj: any
+) => boolean | ((measure: NxMeasure) => boolean);
 
 export interface CustomPropertyCommon {
-    type?: 'string' | 'integer' | 'number' | 'array' | 'boolean' | 'items';
+    type?: "string" | "integer" | "number" | "array" | "boolean" | "items";
     ref?: string;
     label?: string;
     show?: boolean | ShowFunction;
 }
 
 export interface CustomPropertyString extends CustomPropertyCommon {
-    type: 'string';
-    expression?: 'always' | 'optional' | '';
+    type: "string";
+    expression?: "always" | "optional" | "";
     maxLength?: number;
     defaultValue?: string;
 }
 
 export interface CustomPropertyInteger extends CustomPropertyCommon {
-    type: 'integer';
+    type: "integer";
     component?: string;
     min?: string;
     max?: string;
@@ -471,7 +491,7 @@ export interface CustomPropertyInteger extends CustomPropertyCommon {
 }
 
 export interface CustomPropertyNumber extends CustomPropertyCommon {
-    type: 'number';
+    type: "number";
     component?: string;
     min?: string;
     max?: string;
@@ -479,7 +499,7 @@ export interface CustomPropertyNumber extends CustomPropertyCommon {
 }
 
 export interface CustomPropertyArray extends CustomPropertyCommon {
-    type: 'array';
+    type: "array";
     component?: undefined;
     itemTitleRef?: string;
     allowAdd?: boolean;
@@ -489,7 +509,7 @@ export interface CustomPropertyArray extends CustomPropertyCommon {
 }
 
 export interface CustomPropertyButton extends CustomPropertyCommon {
-    component: 'button';
+    component: "button";
     action(data: VisualizationOptions): void;
 }
 
@@ -500,20 +520,20 @@ export interface ButtonGroupOption {
 }
 
 export interface CustomPropertyButtonGroup extends CustomPropertyCommon {
-    type: 'string';
-    component: 'buttongroup';
+    type: "string";
+    component: "buttongroup";
     defaultValue?: string;
     options?: ButtonGroupOption[] | (() => ButtonGroupOption[]);
 }
 
 export interface CustomPropertyCheckbox extends CustomPropertyCommon {
-    type: 'boolean';
+    type: "boolean";
     defaultValue?: boolean;
 }
 
 export interface CustomPropertyColorPicker extends CustomPropertyCommon {
-    type: 'integer';
-    component: 'color-picker';
+    type: "integer";
+    component: "color-picker";
     defaultValue?: number;
 }
 
@@ -522,37 +542,39 @@ export interface CustomPropertyOption {
     label: string;
 }
 
-export type CustomPropertyOptions = CustomPropertyOption[] | (() => CustomPropertyOption[]);
+export type CustomPropertyOptions =
+    | CustomPropertyOption[]
+    | (() => CustomPropertyOption[]);
 
 export interface CustomPropertyDropdown extends CustomPropertyCommon {
-    type: 'string';
+    type: "string";
     ref: string;
-    component: 'dropdown';
+    component: "dropdown";
     defaultValue?: string;
     options?: CustomPropertyOptions;
 }
 
 export interface CustomPropertyLink extends CustomPropertyCommon {
-    component: 'link';
+    component: "link";
     url?: string;
 }
 
 export interface CustomProperyMedia extends CustomPropertyCommon {
-    type: 'string';
-    component: 'media';
+    type: "string";
+    component: "media";
     layoutRef?: string;
 }
 
 export interface CustomPropertyRadio extends CustomPropertyCommon {
-    type: 'string';
-    component: 'radiobuttons';
+    type: "string";
+    component: "radiobuttons";
     defaultValue?: string;
     options?: CustomPropertyOptions;
 }
 
 export interface CustomPropertySlider extends CustomPropertyCommon {
-    type: 'number';
-    component: 'slider';
+    type: "number";
+    component: "slider";
     defaultValue?: number;
     min?: number;
     max?: number;
@@ -560,8 +582,8 @@ export interface CustomPropertySlider extends CustomPropertyCommon {
 }
 
 export interface CustomPropertyRangeSlider extends CustomPropertyCommon {
-    type: 'array';
-    component: 'slider';
+    type: "array";
+    component: "slider";
     defaultValue?: number;
     min?: number;
     max?: number;
@@ -569,19 +591,19 @@ export interface CustomPropertyRangeSlider extends CustomPropertyCommon {
 }
 
 export interface CustomPropertySwitch extends CustomPropertyCommon {
-    type: 'boolean';
-    component: 'switch';
+    type: "boolean";
+    component: "switch";
     defaultValue?: string;
     options?: CustomPropertyOptions;
 }
 
 export interface CustomPropertyText extends CustomPropertyCommon {
-    component: 'text';
+    component: "text";
 }
 
 export interface CustomPropertyTextArea extends CustomPropertyCommon {
-    type: 'string';
-    component: 'textarea';
+    type: "string";
+    component: "textarea";
     rows?: number;
     maxlength?: number;
     defaultValue?: string;
@@ -589,62 +611,81 @@ export interface CustomPropertyTextArea extends CustomPropertyCommon {
 
 export interface CustomPropertyExpression extends CustomPropertyCommon {
     type: undefined;
-    component: 'expression';
-    expressionType: 'dimension' | 'measure' | 'StringExpr' | 'ValueExpr' | 'ValueExpression' | 'StringExpression';
+    component: "expression";
+    expressionType:
+        | "dimension"
+        | "measure"
+        | "StringExpr"
+        | "ValueExpr"
+        | "ValueExpression"
+        | "StringExpression";
     defaultValue?: string;
 }
 
 export interface CustomPropertyItems extends CustomPropertyCommon {
-    type: 'items';
+    type: "items";
     items: {
         [key: string]: CustomProperty;
     };
 }
 
-export type CustomProperty = CustomPropertyString | CustomPropertyInteger | CustomPropertyNumber
-    | CustomPropertyArray | CustomPropertyButton | CustomPropertyButtonGroup
-    | CustomPropertyCheckbox | CustomPropertyColorPicker | CustomPropertyDropdown
-    | CustomPropertyLink | CustomProperyMedia | CustomPropertyRadio
-    | CustomPropertySlider | CustomPropertyRangeSlider | CustomPropertySwitch
-    | CustomPropertyText | CustomPropertyTextArea | CustomPropertyExpression
+export type CustomProperty =
+    | CustomPropertyString
+    | CustomPropertyInteger
+    | CustomPropertyNumber
+    | CustomPropertyArray
+    | CustomPropertyButton
+    | CustomPropertyButtonGroup
+    | CustomPropertyCheckbox
+    | CustomPropertyColorPicker
+    | CustomPropertyDropdown
+    | CustomPropertyLink
+    | CustomProperyMedia
+    | CustomPropertyRadio
+    | CustomPropertySlider
+    | CustomPropertyRangeSlider
+    | CustomPropertySwitch
+    | CustomPropertyText
+    | CustomPropertyTextArea
+    | CustomPropertyExpression
     | CustomPropertyItems;
 
 export interface Definition {
-    type: 'items';
-    component: 'accordion';
+    type: "items";
+    component: "accordion";
     items: {
         data?: {
-            uses: 'data';
+            uses: "data";
         };
         dimensions?: {
-            uses: 'dimensions';
+            uses: "dimensions";
             ref?: string;
             min?: number;
             max?: number;
             items?: {
                 [key: string]: CustomProperty;
-            }
+            };
         };
         measures?: {
-            uses: 'measures';
+            uses: "measures";
             ref?: string;
             min?: number;
             max?: number;
             items?: {
                 [key: string]: CustomProperty;
-            }
+            };
         };
         sorting?: {
-            uses: 'sorting';
+            uses: "sorting";
             items?: {
                 [key: string]: CustomProperty;
-            }
+            };
         };
         settings?: {
-            uses: 'settings';
+            uses: "settings";
             items?: {
                 [key: string]: CustomProperty;
-            }
+            };
         };
     };
 }
@@ -657,7 +698,7 @@ export interface Extension {
 }
 
 export interface Patch {
-    qOp: 'add' | 'remove' | 'replace';
+    qOp: "add" | "remove" | "replace";
     qPath: string;
     qValue: string;
 }
@@ -670,7 +711,9 @@ export interface BackendApi {
     clearSoftPatches(): Promise<any>;
     collapseLeft(qRow: number, qCol: number, qAll?: boolean): Promise<any>;
     collapseTop(qRow: number, qCol: number, qAll?: boolean): Promise<any>;
-    eachDataRow(callback: (i: number, d: NxCellRows) => boolean | void): NxCellRows;
+    eachDataRow(
+        callback: (i: number, d: NxCellRows) => boolean | void
+    ): NxCellRows;
     expandLeft(qRow: number, qCol: number, qAll?: boolean): Promise<any>;
     expandTop(qRow: number, qCol: number, qAll?: boolean): Promise<any>;
     getData(qPages: NxPage[]): Promise<NxDataPage[]>;
@@ -681,7 +724,10 @@ export interface BackendApi {
     // TODO: getProperties(): Promise<Properties>;
     // TODO: getReducedData(qPages: NxPage[], qZoomFactor: number, qReductionMode: 'N' | 'D1' | 'S' | 'C' | 'ST'): Promise<ReducedDataPage>;
     getRowCount(): number;
-    getStackeddata(qPages: NxPage[], qMaxNbrCells: number): Promise<NxStackPage>;
+    getStackeddata(
+        qPages: NxPage[],
+        qMaxNbrCells: number
+    ): Promise<NxStackPage>;
     hasSelections(): boolean;
     save(): Promise<undefined>;
     search(term: string): void;
@@ -733,7 +779,7 @@ export interface QRow {
 
 export interface QHeader {
     qFallbackTitle: string;
-    qSortIndicator: 'A' | 'B';
+    qSortIndicator: "A" | "B";
     isOrderedBy: boolean;
     qReverseSort: boolean;
     col: number;
@@ -747,13 +793,18 @@ export interface QHeader {
 
     orderBy(): void;
     reverseOrder(): void;
-    selectRange(min: number, max: number, inclMin: boolean, inclMax: boolean): Promise<any>;
+    selectRange(
+        min: number,
+        max: number,
+        inclMin: boolean,
+        inclMax: boolean
+    ): Promise<any>;
 }
 
 export interface ExportDataOptions {
-    format: 'OOXML' | 'CSV_C' | 'CSV_T';
+    format: "OOXML" | "CSV_C" | "CSV_T";
     filename?: string;
-    state: 'A' | 'P';
+    state: "A" | "P";
     download: boolean;
 }
 
@@ -764,7 +815,10 @@ export interface QTable {
     rowCount: number;
     colCount: number;
 
-    exportData(options: ExportDataOptions, callback: (url: string) => void): void;
+    exportData(
+        options: ExportDataOptions,
+        callback: (url: string) => void
+    ): void;
     getColByName(fld: string): number | undefined;
     getMoreData(): void;
 }
@@ -788,45 +842,69 @@ export interface QFieldValue {
 
 export interface GetDataOptions {
     rows: number;
-    frequencyMode: 'V' | 'P' | 'R' | 'N';
+    frequencyMode: "V" | "P" | "R" | "N";
 }
 
 export interface QField {
     rows?: QFieldValue[];
     rowCount?: number;
-    qStateCounts?: { [state: string]: number; };
+    qStateCounts?: { [state: string]: number };
 
     clear(): Promise<any>;
     clearOther(softlock: boolean): Promise<any>;
     getData(options: GetDataOptions): this;
     getMoreData(): this;
     lock(): Promise<any>;
-    select(values: number[], toggle?: boolean, softlock?: boolean): Promise<any>;
+    select(
+        values: number[],
+        toggle?: boolean,
+        softlock?: boolean
+    ): Promise<any>;
     selectAll(softlock?: boolean): Promise<any>;
     selectAlternative(softlock?: boolean): Promise<any>;
     selectExcluded(softlock?: boolean): Promise<any>;
     selectMatch(match: string, softlock?: boolean): Promise<any>;
     selectPossible(softlock?: boolean): Promise<any>;
-    selectValues(values: QFieldValue[], toggle?: boolean, softlock?: boolean): Promise<any>;
+    selectValues(
+        values: QFieldValue[],
+        toggle?: boolean,
+        softlock?: boolean
+    ): Promise<any>;
     toggleSelect(match: string, softlock?: boolean): Promise<any>;
     unlock(): Promise<any>;
 }
 
-export type ListTypes = 'FieldList' | 'MeasureList' | 'DimensionList' | 'BookmarkList'
-    | 'Selectionobject' | 'SnapshotList' | 'MediaList' | 'sheet'
-    | 'Materobject' | 'VariableList' | 'story';
+export type ListTypes =
+    | "FieldList"
+    | "MeasureList"
+    | "DimensionList"
+    | "BookmarkList"
+    | "Selectionobject"
+    | "SnapshotList"
+    | "MediaList"
+    | "sheet"
+    | "Materobject"
+    | "VariableList"
+    | "story";
 
 export interface App {
     addAlternateState(qStateName: string): Promise<any>;
     back(): Promise<any>;
     clearrAll(lockedAlso?: boolean, state?: string): Promise<any>;
     close(): void;
-    createCube(qHyperCubeDef: HyperCubeDef, callback?: (hypercube: HyperCube) => void): Promise<any>; // TODO: Returns Promise<object Model>
+    createCube(
+        qHyperCubeDef: HyperCubeDef,
+        callback?: (hypercube: HyperCube) => void
+    ): Promise<any>; // TODO: Returns Promise<object Model>
     // TODO: createGenericobject
     // TODO: createList(qListobjectDef: ListobjectDef, callback?: (hypercube: TODO) => void): Promise<any>;
     // TODO: createTable(dimensions: Array<string | NxDimension>, measures: Array<string | NxMeasure>, options?: object): QTable;
     destroySession(id: string): Promise<any>;
-    doReload(qMode?: '0' | '1' | '2', qPartial?: boolean, qDebug?: boolean): Promise<any>;
+    doReload(
+        qMode?: "0" | "1" | "2",
+        qPartial?: boolean,
+        qDebug?: boolean
+    ): Promise<any>;
     doSave(qFileName?: string): Promise<any>;
     field(field: string, state?: string): QField;
     forward(): Promise<any>;
@@ -834,7 +912,11 @@ export interface App {
     // getAppobjectList(type: 'sheet' | 'masterobject', callback: (list: ))
     getFullPropertyTree(id: string): Promise<any>;
     // getList(type: ListTypes, callback): Promise<any>;
-    getobject(elem?: HTMLElement | string, id?: string | 'CurrentSelections', options?: { noInteraction?: boolean, noSelections?: boolean }): Promise<any>;
+    getobject(
+        elem?: HTMLElement | string,
+        id?: string | "CurrentSelections",
+        options?: { noInteraction?: boolean; noSelections?: boolean }
+    ): Promise<any>;
     getobjectProperties(id: string): Promise<any>;
     getSnapshot(elem?: HTMLElement | string, id?: string): Promise<any>;
     lockAll(state?: string): Promise<any>;
@@ -846,12 +928,19 @@ export interface App {
     unlockAll(state?: string): Promise<any>;
 
     variable: {
-        getContent(variable: string, callback: (value: Variable, app: App) => void): Promise<any>;
+        getContent(
+            variable: string,
+            callback: (value: Variable, app: App) => void
+        ): Promise<any>;
         setContent(variable: string, value: string): void;
     };
 }
 
-export function callRepository(path: string, method: string, body: string): Promise<any>;
+export function callRepository(
+    path: string,
+    method: string,
+    body: string
+): Promise<any>;
 export function currApp(reference: object): App;
 
 export interface GetAppConfig {
@@ -880,29 +969,46 @@ export interface GetGlobalConfig {
 
 export function getGlobal(config: GetGlobalConfig): Global;
 export function openApp(appId: string, config: GetAppConfig): App;
-export function registerExtension(id: string, impl: Extension, metadata: object): void;
+export function registerExtension(
+    id: string,
+    impl: Extension,
+    metadata: object
+): void;
 export function resize(ID?: string): void;
 
 export namespace LanguageCodes {
-    type German = 'de' | 'de-DE';
-    type English = 'en' | 'en-US';
-    type Spanish = 'es' | 'es-ES';
-    type French = 'fr' | 'fr-FR';
-    type Italian = 'it' | 'it-IT';
-    type Japanese = 'ja' | 'ja-JP';
-    type Korean = 'ko' | 'ko-KR';
-    type Dutch = 'nl' | 'nl-NL';
-    type Polish = 'pl' | 'pl-PL';
-    type BrazilianPortuguese = 'pt' | 'pt-BR';
-    type Russian = 'ru' | 'ru-RU';
-    type Swedish = 'sv' | 'sv-SE';
-    type Turkish = 'ts' | 'ts-TR';
-    type SimplifiedChinese = 'zh-CN';
-    type TraditionalChinese = 'zh-TW';
+    type German = "de" | "de-DE";
+    type English = "en" | "en-US";
+    type Spanish = "es" | "es-ES";
+    type French = "fr" | "fr-FR";
+    type Italian = "it" | "it-IT";
+    type Japanese = "ja" | "ja-JP";
+    type Korean = "ko" | "ko-KR";
+    type Dutch = "nl" | "nl-NL";
+    type Polish = "pl" | "pl-PL";
+    type BrazilianPortuguese = "pt" | "pt-BR";
+    type Russian = "ru" | "ru-RU";
+    type Swedish = "sv" | "sv-SE";
+    type Turkish = "ts" | "ts-TR";
+    type SimplifiedChinese = "zh-CN";
+    type TraditionalChinese = "zh-TW";
 
-    type ALL = German | English | Spanish | French | Italian | Japanese
-        | Korean | Dutch | Polish | BrazilianPortuguese | Russian
-        | Swedish | Turkish | SimplifiedChinese | TraditionalChinese;
+    type ALL =
+        | German
+        | English
+        | Spanish
+        | French
+        | Italian
+        | Japanese
+        | Korean
+        | Dutch
+        | Polish
+        | BrazilianPortuguese
+        | Russian
+        | Swedish
+        | Turkish
+        | SimplifiedChinese
+        | TraditionalChinese;
 }
 export function setLanguage(lang: LanguageCodes.ALL): void;
 
@@ -910,5 +1016,8 @@ export interface Error {
     code: any; // TODO: Find out if String or number
     message: string;
 }
-export function setOnError(onError: (error: Error) => void, onWarning: (warning: string) => void): void;
+export function setOnError(
+    onError: (error: Error) => void,
+    onWarning: (warning: string) => void
+): void;
 export function table(ext: object, path?: string): void;

@@ -11,7 +11,11 @@ export interface LanguageData {
 }
 
 export interface Messages {
-    [key: string]: string | ((context: (name: string, type?: string, format?: any) => string) => (string | string[]));
+    [key: string]:
+        | string
+        | ((
+              context: (name: string, type?: string, format?: any) => string
+          ) => string | string[]);
 }
 
 export interface Catalog {

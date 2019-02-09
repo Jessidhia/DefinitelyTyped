@@ -1,5 +1,5 @@
-import logger, { createLogger } from 'redux-logger';
-import { applyMiddleware, createStore } from 'redux';
+import logger, { createLogger } from "redux-logger";
+import { applyMiddleware, createStore } from "redux";
 
 const loggerSimple = createLogger();
 
@@ -45,28 +45,28 @@ const loggerColorsBoolean = createLogger({
 
 const loggerColorsFunction = createLogger({
     colors: {
-        title: action => '#000',
-        prevState: state => '#000',
-        action: action => '#000',
-        nextState: state => '#000',
-        error: (error, prevState) => '#000'
+        title: action => "#000",
+        prevState: state => "#000",
+        action: action => "#000",
+        nextState: state => "#000",
+        error: (error, prevState) => "#000"
     }
 });
 
 const loggerLevelString = createLogger({
-    level: 'log'
+    level: "log"
 });
 
 const loggerLevelFunction = createLogger({
-    level: action => 'log'
+    level: action => "log"
 });
 
 const loggerLevelObjectFunction = createLogger({
     level: {
-        prevState: state => 'log',
-        action: action => 'log',
-        nextState: state => 'log',
-        error: (error, prevState) => 'log'
+        prevState: state => "log",
+        action: action => "log",
+        nextState: state => "log",
+        error: (error, prevState) => "log"
     }
 });
 
@@ -81,10 +81,10 @@ const loggerLevelObjectBoolean = createLogger({
 
 const loggerLevelObjectString = createLogger({
     level: {
-        prevState: 'log',
-        action: 'log',
-        nextState: 'log',
-        error: 'log'
+        prevState: "log",
+        action: "log",
+        nextState: "log",
+        error: "log"
     }
 });
 

@@ -5,7 +5,7 @@
 
 /// <reference types="resolve" />
 
-import * as resolve from 'resolve';
+import * as resolve from "resolve";
 
 /**
  * Callback invoked when resolving asynchronously
@@ -30,7 +30,11 @@ declare function browserResolve(id: string, cb: resolveCallback): void;
  * @param options Options to use for resolving, optional.
  * @param callback
  */
-declare function browserResolve(id: string, opts: browserResolve.AsyncOpts, cb: resolveCallback): void;
+declare function browserResolve(
+    id: string,
+    opts: browserResolve.AsyncOpts,
+    cb: resolveCallback
+): void;
 
 /**
  * Returns a module path
@@ -38,22 +42,25 @@ declare function browserResolve(id: string, opts: browserResolve.AsyncOpts, cb: 
  * @param id Identifier to resolve
  * @param options Options to use for resolving, optional.
  */
-declare function browserResolveSync(id: string, opts?: browserResolve.SyncOpts): string;
+declare function browserResolveSync(
+    id: string,
+    opts?: browserResolve.SyncOpts
+): string;
 
 declare namespace browserResolve {
-  interface Opts {
-    // the 'browser' property to use from package.json (defaults to 'browser')
-    browser?: string;
-    // the calling filename where the require() call originated (in the source)
-    filename?: string;
-    // modules object with id to path mappings to consult before doing manual resolution (use to provide core modules)
-    modules?: any;
-  }
+    interface Opts {
+        // the 'browser' property to use from package.json (defaults to 'browser')
+        browser?: string;
+        // the calling filename where the require() call originated (in the source)
+        filename?: string;
+        // modules object with id to path mappings to consult before doing manual resolution (use to provide core modules)
+        modules?: any;
+    }
 
-  export interface AsyncOpts extends resolve.AsyncOpts, Opts { }
-  export interface SyncOpts extends resolve.SyncOpts, Opts { }
+    export interface AsyncOpts extends resolve.AsyncOpts, Opts {}
+    export interface SyncOpts extends resolve.SyncOpts, Opts {}
 
-  export var sync: typeof browserResolveSync;
+    export var sync: typeof browserResolveSync;
 }
 
 export = browserResolve;

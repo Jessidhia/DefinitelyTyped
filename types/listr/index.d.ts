@@ -24,9 +24,18 @@ declare namespace Listr {
     interface ListrTask {
         title: string;
         output?: string;
-        task: (ctx: any, task: ListrTaskWrapper) => void | string | Promise<any> | stream.Readable | Listr;
-        skip?: (ctx: any, task: ListrTaskWrapper) => boolean | Promise<boolean> | string | void;
-        enabled?: (ctx: any, task: ListrTaskWrapper) => boolean | Promise<boolean>;
+        task: (
+            ctx: any,
+            task: ListrTaskWrapper
+        ) => void | string | Promise<any> | stream.Readable | Listr;
+        skip?: (
+            ctx: any,
+            task: ListrTaskWrapper
+        ) => boolean | Promise<boolean> | string | void;
+        enabled?: (
+            ctx: any,
+            task: ListrTaskWrapper
+        ) => boolean | Promise<boolean>;
     }
 
     interface ListrTaskWrapper {
@@ -39,7 +48,10 @@ declare namespace Listr {
 }
 
 declare class Listr {
-    constructor(tasks?: ReadonlyArray<Listr.ListrTask>, options?: Listr.ListrOptions);
+    constructor(
+        tasks?: ReadonlyArray<Listr.ListrTask>,
+        options?: Listr.ListrOptions
+    );
     constructor(options?: Listr.ListrOptions);
     add(tasks: Listr.ListrTask | ReadonlyArray<Listr.ListrTask>): void;
     run(ctx?: any): Promise<any>;

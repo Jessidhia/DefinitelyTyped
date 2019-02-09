@@ -10,10 +10,9 @@ export {
     cached,
     RunResult,
     Statement,
-    verbose } from 'sqlite3';
-import {
-    Database as OriginalDatabase
-} from 'sqlite3';
+    verbose
+} from "sqlite3";
+import { Database as OriginalDatabase } from "sqlite3";
 
 export class Database extends OriginalDatabase {
     spatialite(cb: (err: Error) => void): void;

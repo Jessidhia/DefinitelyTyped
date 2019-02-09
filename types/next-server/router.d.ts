@@ -67,7 +67,10 @@ export interface RouterProps<Q = DefaultQuery> {
 
     // events API (6.1.1+)
     readonly events: {
-        on: (eventName: EventName, handler: EventHandler | ErrorEventHandler) => void;
+        on: (
+            eventName: EventName,
+            handler: EventHandler | ErrorEventHandler
+        ) => void;
         off: (eventName: EventName, handler: (url: string) => any) => void;
     };
 }
@@ -87,13 +90,15 @@ export interface WithRouterProps<Q = DefaultQuery> {
  *
  * @internal
  */
-export type Omit<T, K extends keyof any> = T extends any ? Pick<T, Exclude<keyof T, K>> : never;
+export type Omit<T, K extends keyof any> = T extends any
+    ? Pick<T, Exclude<keyof T, K>>
+    : never;
 
 // Manually disabling the no-unnecessary-generics rule so users can
 // retain type inference if they wrap their component in withRouter
 // without defining props explicitly
 export function withRouter<T extends {}, Q = DefaultQuery>(
-  Component: React.ComponentType<T & WithRouterProps<Q>>
+    Component: React.ComponentType<T & WithRouterProps<Q>>
 ): React.ComponentType<Omit<T, keyof WithRouterProps<Q>>>;
 
 declare const Router: SingletonRouter;

@@ -11,13 +11,18 @@ import {
     IHelmetXssFilterConfiguration,
     IHelmetDnsPrefetchControlConfiguration,
     IHelmetHpkpConfiguration,
-    IHelmetReferrerPolicyConfiguration } from 'helmet';
-import { Middleware, Context } from 'koa';
+    IHelmetReferrerPolicyConfiguration
+} from "helmet";
+import { Middleware, Context } from "koa";
 
 declare namespace koaHelmet {
-    type KoaHelmetContentSecurityPolicyDirectiveFunction = (ctx: Context) => string;
+    type KoaHelmetContentSecurityPolicyDirectiveFunction = (
+        ctx: Context
+    ) => string;
 
-    type KoaHelmetCspDirectiveValue = string | KoaHelmetContentSecurityPolicyDirectiveFunction;
+    type KoaHelmetCspDirectiveValue =
+        | string
+        | KoaHelmetContentSecurityPolicyDirectiveFunction;
 
     interface KoaHelmetContentSecurityPolicyDirectives {
         baseUri?: KoaHelmetCspDirectiveValue[];
@@ -48,15 +53,21 @@ declare namespace koaHelmet {
 
     interface KoaHelmet {
         (options?: IHelmetConfiguration): Middleware;
-        contentSecurityPolicy(options?: KoaHelmetContentSecurityPolicyConfiguration): Middleware;
-        dnsPrefetchControl(options?: IHelmetDnsPrefetchControlConfiguration): Middleware;
+        contentSecurityPolicy(
+            options?: KoaHelmetContentSecurityPolicyConfiguration
+        ): Middleware;
+        dnsPrefetchControl(
+            options?: IHelmetDnsPrefetchControlConfiguration
+        ): Middleware;
         frameguard(options?: IHelmetFrameguardConfiguration): Middleware;
         hpkp(options?: IHelmetHpkpConfiguration): Middleware;
         hsts(options?: IHelmetHstsConfiguration): Middleware;
         ieNoOpen(): Middleware;
         noCache(options?: any): Middleware;
         noSniff(): Middleware;
-        referrerPolicy(options?: IHelmetReferrerPolicyConfiguration): Middleware;
+        referrerPolicy(
+            options?: IHelmetReferrerPolicyConfiguration
+        ): Middleware;
         xssFilter(options?: IHelmetXssFilterConfiguration): Middleware;
     }
 }

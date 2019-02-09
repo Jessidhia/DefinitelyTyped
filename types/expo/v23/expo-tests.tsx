@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
     Accelerometer,
@@ -22,9 +22,9 @@ import {
     FileSystem,
     ImagePicker,
     PublisherBanner
-} from 'expo';
+} from "expo";
 
-Accelerometer.addListener((obj) => {
+Accelerometer.addListener(obj => {
     obj.x;
     obj.y;
     obj.z;
@@ -53,31 +53,31 @@ Accelerometer.setUpdateInterval(1000);
     />
 );
 
-AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-AdMobInterstitial.setTestDeviceID('EMULATOR');
+AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); // Test ID, Replace with your-admob-unit-id
+AdMobInterstitial.setTestDeviceID("EMULATOR");
 AdMobInterstitial.requestAd(() => AdMobInterstitial.showAd());
 
-AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-AdMobRewarded.setTestDeviceID('EMULATOR');
+AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); // Test ID, Replace with your-admob-unit-id
+AdMobRewarded.setTestDeviceID("EMULATOR");
 AdMobRewarded.requestAd(() => AdMobRewarded.showAd());
 
-Amplitude.initialize('key');
-Amplitude.setUserId('userId');
-Amplitude.setUserProperties({key: 1});
+Amplitude.initialize("key");
+Amplitude.setUserId("userId");
+Amplitude.setUserProperties({ key: 1 });
 Amplitude.clearUserProperties();
-Amplitude.logEvent('name');
-Amplitude.logEventWithProperties('event', {key: 'value'});
-Amplitude.setGroup('type', {key: 'value'});
+Amplitude.logEvent("name");
+Amplitude.logEventWithProperties("event", { key: "value" });
+Amplitude.setGroup("type", { key: "value" });
 
 const asset = Asset.fromModule(1);
 asset.downloadAsync();
 Asset.loadAsync(1);
 Asset.loadAsync([1, 2, 3]);
 const asset1 = new Asset({
-    uri: 'uri',
-    type: 'type',
-    name: 'name',
-    hash: 'hash',
+    uri: "uri",
+    type: "type",
+    name: "name",
+    hash: "hash",
     width: 122,
     height: 122
 });
@@ -85,21 +85,21 @@ const asset1 = new Asset({
 const url = AuthSession.getRedirectUrl();
 AuthSession.dismiss();
 AuthSession.startAsync({
-    authUrl: 'url1',
-    returnUrl: 'url2'
+    authUrl: "url1",
+    returnUrl: "url2"
 }).then(result => {
     switch (result.type) {
-        case 'success':
+        case "success":
             result.event;
             result.params;
             break;
-        case 'error':
+        case "error":
             result.errorCode;
             result.params;
             result.event;
             break;
-        case 'dismissed':
-        case 'cancel':
+        case "dismissed":
+        case "cancel":
             result.type;
             break;
     }
@@ -114,10 +114,15 @@ Audio.setAudioModeAsync({
 });
 Audio.setIsEnabledAsync(true);
 async () => {
-    const result = await Audio.Sound.create('uri', {
-        volume: 0.5,
-        rate: 0.6
-    }, null, true);
+    const result = await Audio.Sound.create(
+        "uri",
+        {
+            volume: 0.5,
+            rate: 0.6
+        },
+        null,
+        true
+    );
 
     const sound = result.sound;
     const status = result.status;
@@ -130,37 +135,33 @@ async () => {
     }
 
     const _status = await sound.getStatusAsync();
-    await sound.loadAsync('uri');
+    await sound.loadAsync("uri");
 };
 
 () => (
     <AppLoading
         startAsync={() => Promise.resolve()}
         onFinish={() => {}}
-        onError={(error) => console.log(error)} />
+        onError={error => console.log(error)}
+    />
 );
-() => (
-    <AppLoading />
-);
+() => <AppLoading />;
 
 const barcodeReadCallback = () => {};
 () => (
     <BarCodeScanner
         type="front"
         torchMode="off"
-        barCodeTypes={['s']}
-        onBarCodeRead={barcodeReadCallback} />
+        barCodeTypes={["s"]}
+        onBarCodeRead={barcodeReadCallback}
+    />
 );
 
-() => (
-    <BlurView
-        tint="dark"
-        intensity={2} />
-);
+() => <BlurView tint="dark" intensity={2} />;
 
 async () => {
-    await Brightness.setBrightnessAsync(.6);
-    await Brightness.setSystemBrightnessAsync(.7);
+    await Brightness.setBrightnessAsync(0.6);
+    await Brightness.setSystemBrightnessAsync(0.7);
     const br1 = await Brightness.getBrightnessAsync();
     const br2 = await Brightness.getSystemBrightnessAsync();
 };
@@ -172,17 +173,21 @@ Camera.Constants.WhiteBalance;
 Camera.Constants.VideoQuality;
 Camera.Constants.BarCodeType;
 () => {
-    return(<Camera ref={(component: any) => {
-        if (component) {
-            component.recordAsync();
-        }
-    }} />);
+    return (
+        <Camera
+            ref={(component: any) => {
+                if (component) {
+                    component.recordAsync();
+                }
+            }}
+        />
+    );
 };
 
 async () => {
     const result = await DocumentPicker.getDocumentAsync();
 
-    if (result.type === 'success') {
+    if (result.type === "success") {
         result.name;
         result.uri;
         result.size;
@@ -190,7 +195,11 @@ async () => {
 };
 
 async () => {
-    const { type, expires, token } = await Facebook.logInWithReadPermissionsAsync("appId");
+    const {
+        type,
+        expires,
+        token
+    } = await Facebook.logInWithReadPermissionsAsync("appId");
 };
 
 () => (
@@ -198,11 +207,12 @@ async () => {
         type="large"
         placementId="str"
         onPress={() => {}}
-        onError={() => {}} />
+        onError={() => {}}
+    />
 );
 
 async () => {
-    const info = await FileSystem.getInfoAsync('file');
+    const info = await FileSystem.getInfoAsync("file");
 
     info.exists;
     info.isDirectory;
@@ -214,14 +224,14 @@ async () => {
         info.modificationTime;
     }
 
-    const string: string = await FileSystem.readAsStringAsync('file');
-    await FileSystem.writeAsStringAsync('file', 'content');
-    await FileSystem.deleteAsync('file');
-    await FileSystem.moveAsync({ from: 'from', to: 'to'});
-    await FileSystem.copyAsync({ from: 'from', to: 'to' });
-    await FileSystem.makeDirectoryAsync('dir');
-    const dirs: string[] = await FileSystem.readDirectoryAsync('dir');
-    const result = await FileSystem.downloadAsync('from', 'to');
+    const string: string = await FileSystem.readAsStringAsync("file");
+    await FileSystem.writeAsStringAsync("file", "content");
+    await FileSystem.deleteAsync("file");
+    await FileSystem.moveAsync({ from: "from", to: "to" });
+    await FileSystem.copyAsync({ from: "from", to: "to" });
+    await FileSystem.makeDirectoryAsync("dir");
+    const dirs: string[] = await FileSystem.readDirectoryAsync("dir");
+    const result = await FileSystem.downloadAsync("from", "to");
 
     result.headers;
     result.status;

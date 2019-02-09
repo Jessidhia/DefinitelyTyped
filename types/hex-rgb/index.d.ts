@@ -10,7 +10,7 @@ declare function hexRgb(hex: string, options: hexRgb.Options): hexRgb.RgbaArr;
 
 declare namespace hexRgb {
     interface Options {
-        format: 'array';
+        format: "array";
     }
 
     interface RgbaObj {

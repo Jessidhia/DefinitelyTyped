@@ -125,10 +125,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 authentication information. */
                 oauth2?: {
                     /** Available OAuth 2.0 scopes. */
-                    scopes?: Record<string, {
-                        /** Description of scope. */
-                        description?: string;
-                    }>;
+                    scopes?: Record<
+                        string,
+                        {
+                            /** Description of scope. */
+                            description?: string;
+                        }
+                    >;
                 };
             };
             /** [DEPRECATED] The base path for REST requests. */

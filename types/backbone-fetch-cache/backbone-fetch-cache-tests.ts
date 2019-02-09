@@ -8,22 +8,25 @@ const fc: BackboneFetchCache.Static = Backbone.fetchCache;
 fc.enabled = true;
 fc.localStorage = true;
 
-const opts: BackboneFetchCache.GetCacheOptions = {url: "string url", data: {}};
+const opts: BackboneFetchCache.GetCacheOptions = {
+    url: "string url",
+    data: {}
+};
 const strKey: string = "string key";
-const getCacheKeyOpts = {getCacheKey: () => "string key"};
+const getCacheKeyOpts = { getCacheKey: () => "string key" };
 
-let cache: BackboneFetchCache.Cache
+let cache: BackboneFetchCache.Cache;
 cache = fc.getCache(strKey);
 cache = fc.getCache(() => strKey);
 cache = fc.getCache(getCacheKeyOpts);
-cache = fc.getCache({url: strKey});
-cache = fc.getCache({url: () => strKey});
+cache = fc.getCache({ url: strKey });
+cache = fc.getCache({ url: () => strKey });
 cache = fc.getCache(strKey, opts);
 
-const cacheExpires: number        = cache.expires;
-const cacheLastSync: number       = cache.lastSync;
+const cacheExpires: number = cache.expires;
+const cacheLastSync: number = cache.lastSync;
 const cachePrefillExpires: number = cache.prefillExpires;
-const cacheValue: any             = cache.value;
+const cacheValue: any = cache.value;
 
 let key: string;
 key = fc.getCacheKey(strKey);
@@ -37,17 +40,18 @@ lastSync = fc.getLastSync(getCacheKeyOpts, opts);
 fc.getLocalStorage();
 const localStorageKey: string = fc.getLocalStorageKey();
 
-fc.priorityFn = (a: BackboneFetchCache.Cache, b: BackboneFetchCache.Cache) => 12345;
+fc.priorityFn = (a: BackboneFetchCache.Cache, b: BackboneFetchCache.Cache) =>
+    12345;
 
 fc.reset();
 
 const setOpts: BackboneFetchCache.SetCacheOptions = {
-    data:           {},
-    url:            strKey,
-    cache:          true,
-    expires:        12345,
-    prefill:        true,
-    prefillExpires: 12345,
+    data: {},
+    url: strKey,
+    cache: true,
+    expires: 12345,
+    prefill: true,
+    prefillExpires: 12345
 };
 fc.setCache(strKey, setOpts, {});
 
@@ -60,8 +64,12 @@ const modelOpts: Backbone.ModelFetchWithCacheOptions = {
     expires: new Date().getTime(),
     prefill: true,
     prefillExpires: new Date().getTime(),
-    prefillSuccess: (self: any, attributes: any, opts: Backbone.ModelFetchWithCacheOptions) => { },
-    context: {},
+    prefillSuccess: (
+        self: any,
+        attributes: any,
+        opts: Backbone.ModelFetchWithCacheOptions
+    ) => {},
+    context: {}
 };
 
 const hoge = new Backbone.Model() as Backbone.ModelWithCache;
@@ -73,7 +81,7 @@ const collectionOpts: Backbone.CollectionFetchWithCacheOptions = {
     expires: new Date().getTime(),
     prefill: true,
     prefillExpires: new Date().getTime(),
-    prefillSuccess: (self: any) => { },
+    prefillSuccess: (self: any) => {}
 };
 
 const fuga = new Backbone.Collection() as Backbone.CollectionWithCache;

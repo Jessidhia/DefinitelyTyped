@@ -1,11 +1,11 @@
-import * as treeify from 'treeify';
+import * as treeify from "treeify";
 
 function log(s: string): void {}
 
 treeify.asTree(
     {
-        apples: 'gala', //      ├─ apples: gala
-        oranges: 'mandarin' //  └─ oranges: mandarin
+        apples: "gala", //      ├─ apples: gala
+        oranges: "mandarin" //  └─ oranges: mandarin
     },
     true,
     true
@@ -13,11 +13,12 @@ treeify.asTree(
 
 treeify.asLines(
     {
-        apples: 'gala', //                       ├─ apples: gala
-        oranges: 'mandarin', //                  ├─ oranges: mandarin
-        grapes: {  //                            └─ grapes
-            seedless: 'Thompson, Selma Pete', //     ├─ seedless: Thompson, Selma Pete
-            seeded: 'concord' //                     └─ seeded: Concord
+        apples: "gala", //                       ├─ apples: gala
+        oranges: "mandarin", //                  ├─ oranges: mandarin
+        grapes: {
+            //                            └─ grapes
+            seedless: "Thompson, Selma Pete", //     ├─ seedless: Thompson, Selma Pete
+            seeded: "concord" //                     └─ seeded: Concord
         }
     },
     true,
@@ -26,8 +27,8 @@ treeify.asLines(
 
 treeify.asLines(
     {
-        apples: 'gala', //      ├─ apples: gala
-        oranges: 'mandarin' //  └─ oranges: mandarin
+        apples: "gala", //      ├─ apples: gala
+        oranges: "mandarin" //  └─ oranges: mandarin
     },
     true,
     false,

@@ -10,10 +10,7 @@ declare module "../index" {
          * @param addend The second number to add.
          * @return Returns the sum.
          */
-        add(
-            augend: number,
-            addend: number
-        ): number;
+        add(augend: number, addend: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -40,10 +37,7 @@ declare module "../index" {
          * @param precision The precision to round up to.
          * @return Returns the rounded up number.
          */
-        ceil(
-            n: number,
-            precision?: number
-        ): number;
+        ceil(n: number, precision?: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -63,17 +57,14 @@ declare module "../index" {
     // divide
 
     interface LoDashStatic {
-       /**
-        * Divide two numbers.
-        *
-        * @param dividend The first number in a division.
-        * @param divisor The second number in a division.
-        * @returns Returns the quotient.
-        */
-        divide(
-            dividend: number,
-            divisor: number
-        ): number;
+        /**
+         * Divide two numbers.
+         *
+         * @param dividend The first number in a division.
+         * @param divisor The second number in a division.
+         * @returns Returns the quotient.
+         */
+        divide(dividend: number, divisor: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -100,10 +91,7 @@ declare module "../index" {
          * @param precision The precision to round down to.
          * @return Returns the rounded down number.
          */
-        floor(
-            n: number,
-            precision?: number
-        ): number;
+        floor(n: number, precision?: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -123,31 +111,33 @@ declare module "../index" {
     // max
 
     interface LoDashStatic {
-         /**
-          * Computes the maximum value of `array`. If `array` is empty or falsey
-          * `undefined` is returned.
-          *
-          * @category Math
-          * @param array The array to iterate over.
-          * @returns Returns the maximum value.
-          */
-        max<T>(
-            collection: List<T> | null | undefined
-        ): T | undefined;
+        /**
+         * Computes the maximum value of `array`. If `array` is empty or falsey
+         * `undefined` is returned.
+         *
+         * @category Math
+         * @param array The array to iterate over.
+         * @returns Returns the maximum value.
+         */
+        max<T>(collection: List<T> | null | undefined): T | undefined;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.max
          */
-        max<T>(this: LoDashImplicitWrapper<List<T> | null | undefined>): T | undefined;
+        max<T>(
+            this: LoDashImplicitWrapper<List<T> | null | undefined>
+        ): T | undefined;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.max
          */
-        max<T>(this: LoDashExplicitWrapper<List<T> | null | undefined>): LoDashExplicitWrapper<T | undefined>;
+        max<T>(
+            this: LoDashExplicitWrapper<List<T> | null | undefined>
+        ): LoDashExplicitWrapper<T | undefined>;
     }
 
     // maxBy
@@ -213,9 +203,7 @@ declare module "../index" {
          * _.mean([4, 2, 8, 6]);
          * // => 5
          */
-        mean(
-            collection: List<any> | null | undefined
-        ): number;
+        mean(collection: List<any> | null | undefined): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -235,18 +223,18 @@ declare module "../index" {
     // meanBy
 
     interface LoDashStatic {
-      /**
-       * Computes the mean of the provided propties of the objects in the `array`
-       *
-       * @category Math
-       * @param array The array to iterate over.
-       * @param iteratee The iteratee invoked per element.
-       * @returns Returns the mean.
-       * @example
-       *
-       * _.mean([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], 'n');
-       * // => 5
-       */
+        /**
+         * Computes the mean of the provided propties of the objects in the `array`
+         *
+         * @category Math
+         * @param array The array to iterate over.
+         * @param iteratee The iteratee invoked per element.
+         * @returns Returns the mean.
+         * @example
+         *
+         * _.mean([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], 'n');
+         * // => 5
+         */
         meanBy<T>(
             collection: List<T> | null | undefined,
             iteratee?: ValueIteratee<T>
@@ -284,23 +272,25 @@ declare module "../index" {
          * @param array The array to iterate over.
          * @returns Returns the minimum value.
          */
-        min<T>(
-            collection: List<T> | null | undefined
-        ): T | undefined;
+        min<T>(collection: List<T> | null | undefined): T | undefined;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.min
          */
-        min<T>(this: LoDashImplicitWrapper<List<T> | null | undefined>): T | undefined;
+        min<T>(
+            this: LoDashImplicitWrapper<List<T> | null | undefined>
+        ): T | undefined;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.min
          */
-        min<T>(this: LoDashExplicitWrapper<List<T> | null | undefined>): LoDashExplicitWrapper<T | undefined>;
+        min<T>(
+            this: LoDashExplicitWrapper<List<T> | null | undefined>
+        ): LoDashExplicitWrapper<T | undefined>;
     }
 
     // minBy
@@ -361,10 +351,7 @@ declare module "../index" {
          * @param multiplicand The second number in a multiplication.
          * @returns Returns the product.
          */
-        multiply(
-            multiplier: number,
-            multiplicand: number
-        ): number;
+        multiply(multiplier: number, multiplicand: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -391,10 +378,7 @@ declare module "../index" {
          * @param precision The precision to round to.
          * @return Returns the rounded number.
          */
-        round(
-            n: number,
-            precision?: number
-        ): number;
+        round(n: number, precision?: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
@@ -426,28 +410,21 @@ declare module "../index" {
          * _.subtract(6, 4);
          * // => 2
          */
-        subtract(
-            minuend: number,
-            subtrahend: number
-        ): number;
+        subtract(minuend: number, subtrahend: number): number;
     }
 
     interface LoDashImplicitWrapper<TValue> {
         /**
          * @see _.subtract
          */
-        subtract(
-            subtrahend: number
-        ): number;
+        subtract(subtrahend: number): number;
     }
 
     interface LoDashExplicitWrapper<TValue> {
         /**
          * @see _.subtract
          */
-        subtract(
-            subtrahend: number
-        ): LoDashExplicitWrapper<number>;
+        subtract(subtrahend: number): LoDashExplicitWrapper<number>;
     }
 
     // sum

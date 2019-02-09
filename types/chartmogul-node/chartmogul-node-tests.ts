@@ -1,4 +1,4 @@
-import * as ChartMogul from 'chartmogul-node';
+import * as ChartMogul from "chartmogul-node";
 
 const config = new ChartMogul.Config("token", "secret", "baseURL");
 config.retries = 10;
@@ -35,12 +35,17 @@ ChartMogul.Customer.create(config, {
     name: "",
     external_id: "",
     attributes: {
-		tags: ["important", "Prio1"],
-		custom: [
-			{type: "String", key: "channel", value: "Facebook", source: "integration"},
-			{type: "Integer", key: "age", value: 18}
-		]
-	}
+        tags: ["important", "Prio1"],
+        custom: [
+            {
+                type: "String",
+                key: "channel",
+                value: "Facebook",
+                source: "integration"
+            },
+            { type: "Integer", key: "age", value: 18 }
+        ]
+    }
 });
 
 // $ExpectType Promise<Customer>
@@ -59,7 +64,7 @@ ChartMogul.Customer.all(config, {
 
 ChartMogul.Customer.all(config).then(data => {
     data.entries[0]; // $ExpectType Customer
-    data.entries[0].attributes!.stripe!['something']; // $ExpectType any
+    data.entries[0].attributes!.stripe!["something"]; // $ExpectType any
     data.page!; // $ExpectType number
 });
 
@@ -69,8 +74,8 @@ ChartMogul.Customer.search(config, {
 });
 // $ExpectType Promise<{}>
 ChartMogul.Customer.merge(config, {
-    from: {customer_uuid: ""},
-    into: {customer_uuid: ""}
+    from: { customer_uuid: "" },
+    into: { customer_uuid: "" }
 });
 // $ExpectType Promise<Attributes>
 ChartMogul.Customer.attributes(config, "");
@@ -174,16 +179,12 @@ ChartMogul.Tag.remove(config, "", {
 
 // $ExpectType Promise<CustomAttributes>
 ChartMogul.CustomAttribute.add(config, "", {
-    custom: [
-        {type: "", key: "", value: 0}
-    ]
+    custom: [{ type: "", key: "", value: 0 }]
 });
 // $ExpectType Promise<Entries<Customer>>
 ChartMogul.CustomAttribute.add(config, "", {
     email: "",
-    custom: [
-        {type: "", key: "", value: 0}
-    ]
+    custom: [{ type: "", key: "", value: 0 }]
 });
 
 // $ExpectType Promise<CustomAttributes>
@@ -202,60 +203,60 @@ ChartMogul.CustomAttribute.remove(config, "", {
 
 // $ExpectType Promise<All>
 ChartMogul.Metrics.all(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-24',
-    interval: '',
-    geo: '',
-    plans: ''
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-24",
+    interval: "",
+    geo: "",
+    plans: ""
 });
 
 // $ExpectType Promise<EntriesSummary<MRR>>
 ChartMogul.Metrics.mrr(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 // $ExpectType Promise<EntriesSummary<ARR>>
 ChartMogul.Metrics.arr(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 // $ExpectType Promise<EntriesSummary<ARPA>>
 ChartMogul.Metrics.arpa(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 // $ExpectType Promise<EntriesSummary<ASP>>
 ChartMogul.Metrics.asp(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 // $ExpectType Promise<EntriesSummary<CustomerCount>>
 ChartMogul.Metrics.customerCount(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 // $ExpectType Promise<EntriesSummary<CustomerChurnRate>>
 ChartMogul.Metrics.customerChurnRate(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01',
-    geo: '',
-    plans: ''
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01",
+    geo: "",
+    plans: ""
 });
 
 // $ExpectType Promise<EntriesSummary<MRRChurnRate>>
 ChartMogul.Metrics.mrrChurnRate(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 });
 
 ChartMogul.Metrics.ltv(config, {
-    'start-date': '2015-01-01',
-    'end-date': '2015-11-01'
+    "start-date": "2015-01-01",
+    "end-date": "2015-11-01"
 }).then(data => {
     data.entries[0].ltv; // $ExpectType number
     data.summary; // $ExpectType Summary
@@ -272,6 +273,6 @@ ChartMogul.Metrics.Customer.activities(config, "", {
 }).then(data => {
     data.entries; // $ExpectType MetricsActivity[]
     data.entries[0]; // $ExpectType MetricsActivity
-    data.entries[0]['activity-mrr']; // $ExpectType number
+    data.entries[0]["activity-mrr"]; // $ExpectType number
     data.page!; // $ExpectType number
 });

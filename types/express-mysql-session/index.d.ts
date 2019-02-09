@@ -30,7 +30,11 @@ declare namespace MySQLStore {
 }
 
 declare class MySQLStore {
-    constructor(options: MySQLStore.Options, connection?: any, callback?: (error: any) => void);
+    constructor(
+        options: MySQLStore.Options,
+        connection?: any,
+        callback?: (error: any) => void
+    );
 
     setDefaultOptions(): void;
 

@@ -1,12 +1,12 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-import ReactTable, { Column } from 'react-table';
+import ReactTable, { Column } from "react-table";
 import selectTableHOC, {
     SelectTableAdditionalProps,
     SelectInputComponentProps,
     SelectAllInputComponentProps
-} from 'react-table/lib/hoc/selectTable';
+} from "react-table/lib/hoc/selectTable";
 
 const SelectTable = selectTableHOC(ReactTable);
 
@@ -31,20 +31,20 @@ const SelectAllInput: React.StatelessComponent<
 
 const selectTableAdditionalProps: SelectTableAdditionalProps = {
     isSelected: () => true,
-    keyField: 'id',
+    keyField: "id",
     selectAll: true,
-    selectType: 'checkbox',
+    selectType: "checkbox",
     toggleAll: () => null,
     toggleSelection: () => null,
     SelectInputComponent: SelectInput,
     SelectAllInputComponent: SelectAllInput
 };
 
-const data = [{ id: 1, name: 'Foo' }, { id: 2, name: 'Bar' }];
+const data = [{ id: 1, name: "Foo" }, { id: 2, name: "Bar" }];
 
 const columns: Column[] = [
-    { Header: 'ID', accessor: 'id' },
-    { Header: 'Name', accessor: 'name' }
+    { Header: "ID", accessor: "id" },
+    { Header: "Name", accessor: "name" }
 ];
 
 ReactDOM.render(
@@ -54,5 +54,5 @@ ReactDOM.render(
         columns={columns}
         ref={React.createRef()}
     />,
-    document.getElementById('root')
+    document.getElementById("root")
 );

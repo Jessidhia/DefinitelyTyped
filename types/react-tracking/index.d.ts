@@ -50,12 +50,20 @@ interface Options<T> {
     process?(ownTrackingData: T): T | Falsy;
 }
 
-export type TrackingInfo<T, P, S> = T | ((props: P, state: S, args: any[any]) => T);
+export type TrackingInfo<T, P, S> =
+    | T
+    | ((props: P, state: S, args: any[any]) => T);
 
 // Duplicated from ES6 lib to remove the `void` typing, otherwise `track` can’t be used as a HOC function that passes
 // through a JSX component that be used without casting.
-type ClassDecorator = <TFunction extends Function>(target: TFunction) => TFunction;
-type MethodDecorator = <T>(target: object, propertyKey: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T>;
+type ClassDecorator = <TFunction extends Function>(
+    target: TFunction
+) => TFunction;
+type MethodDecorator = <T>(
+    target: object,
+    propertyKey: string | symbol,
+    descriptor: TypedPropertyDescriptor<T>
+) => TypedPropertyDescriptor<T>;
 type Decorator = ClassDecorator & MethodDecorator;
 
 /**
@@ -65,7 +73,10 @@ type Decorator = ClassDecorator & MethodDecorator;
  * For examples of such extensions see: https://github.com/artsy/reaction/blob/master/src/utils/track.ts
  */
 export interface Track<T = any, P = any, S = any> {
-    <K extends keyof T>(trackingInfo?: TrackingInfo<Pick<T, K>, P, S>, options?: Options<Partial<T>>): Decorator;
+    <K extends keyof T>(
+        trackingInfo?: TrackingInfo<Pick<T, K>, P, S>,
+        options?: Options<Partial<T>>
+    ): Decorator;
 }
 
 export const track: Track;

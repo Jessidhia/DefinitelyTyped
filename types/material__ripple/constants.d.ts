@@ -15,26 +15,26 @@
  * limitations under the License.
  */
 
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
     // Ripple is a special case where the "root" component is really a "mixin" of sorts,
     // given that it's an 'upgrade' to an existing component. That being said it is the root
     // CSS class that all other CSS classes derive from.
-    ROOT: 'mdc-ripple-upgraded';
-    UNBOUNDED: 'mdc-ripple-upgraded--unbounded';
-    BG_FOCUSED: 'mdc-ripple-upgraded--background-focused';
-    FG_ACTIVATION: 'mdc-ripple-upgraded--foreground-activation';
-    FG_DEACTIVATION: 'mdc-ripple-upgraded--foreground-deactivation';
+    ROOT: "mdc-ripple-upgraded";
+    UNBOUNDED: "mdc-ripple-upgraded--unbounded";
+    BG_FOCUSED: "mdc-ripple-upgraded--background-focused";
+    FG_ACTIVATION: "mdc-ripple-upgraded--foreground-activation";
+    FG_DEACTIVATION: "mdc-ripple-upgraded--foreground-deactivation";
 }
 
 export interface strings extends MDCStrings {
-    VAR_LEFT: '--mdc-ripple-left';
-    VAR_TOP: '--mdc-ripple-top';
-    VAR_FG_SIZE: '--mdc-ripple-fg-size';
-    VAR_FG_SCALE: '--mdc-ripple-fg-scale';
-    VAR_FG_TRANSLATE_START: '--mdc-ripple-fg-translate-start';
-    VAR_FG_TRANSLATE_END: '--mdc-ripple-fg-translate-end';
+    VAR_LEFT: "--mdc-ripple-left";
+    VAR_TOP: "--mdc-ripple-top";
+    VAR_FG_SIZE: "--mdc-ripple-fg-size";
+    VAR_FG_SCALE: "--mdc-ripple-fg-scale";
+    VAR_FG_TRANSLATE_START: "--mdc-ripple-fg-translate-start";
+    VAR_FG_TRANSLATE_END: "--mdc-ripple-fg-translate-end";
 }
 
 export interface numbers extends MDCNumbers {

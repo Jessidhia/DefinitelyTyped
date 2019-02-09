@@ -1,9 +1,30 @@
-import * as express from 'express';
+import * as express from "express";
 
-import { BasicCard, BrowseCarousel, BrowseItem, Carousel, ImageDisplays, List, MediaObject,
-         MediaResponse, MediaValues, OptionItem, RichResponse, SimpleResponse } from './response-builder';
-import { ActionPaymentTransactionConfig, Cart, GooglePaymentTransactionConfig, LineItem,
-         Location, Order, OrderUpdate, TransactionDecision, TransactionValues } from './transactions';
+import {
+    BasicCard,
+    BrowseCarousel,
+    BrowseItem,
+    Carousel,
+    ImageDisplays,
+    List,
+    MediaObject,
+    MediaResponse,
+    MediaValues,
+    OptionItem,
+    RichResponse,
+    SimpleResponse
+} from "./response-builder";
+import {
+    ActionPaymentTransactionConfig,
+    Cart,
+    GooglePaymentTransactionConfig,
+    LineItem,
+    Location,
+    Order,
+    OrderUpdate,
+    TransactionDecision,
+    TransactionValues
+} from "./transactions";
 
 //
 // Note: These enums are exported due to limitations with Typescript and this
@@ -171,7 +192,7 @@ export enum ConversationTypes {
     /**
      * An active (ongoing) conversation.
      */
-    ACTIVE,
+    ACTIVE
 }
 
 /**
@@ -600,7 +621,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    handleRequest(handler: ((app: AssistantApp) => any) | (Map<string, (app: AssistantApp) => any>)): void;
+    handleRequest(
+        handler:
+            | ((app: AssistantApp) => any)
+            | (Map<string, (app: AssistantApp) => any>)
+    ): void;
 
     /**
      * Asynchronously handles the incoming Assistant request using a handler or Map of handlers.
@@ -681,7 +706,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    handleRequestAsync(handler: ((app: AssistantApp) => any) | (Map<string, (app: AssistantApp) => any>)): Promise<any>;
+    handleRequestAsync(
+        handler:
+            | ((app: AssistantApp) => any)
+            | (Map<string, (app: AssistantApp) => any>)
+    ): Promise<any>;
 
     /**
      * Equivalent to {@link AssistantApp#askForPermission|askForPermission},
@@ -737,7 +766,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForPermissions(context: string, permissions: string[], dialogState?: object): express.Response | null;
+    askForPermissions(
+        context: string,
+        permissions: string[],
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Prompts the user for permission to send proactive updates at any time.
@@ -789,7 +822,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForUpdatePermission(intent: string, intentArguments: IntentArgument[], dialogState?: object): express.Response | null;
+    askForUpdatePermission(
+        intent: string,
+        intentArguments: IntentArgument[],
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Checks whether user is in transactable state.
@@ -831,7 +868,12 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForTransactionRequirements(transactionConfig?: ActionPaymentTransactionConfig | GooglePaymentTransactionConfig, dialogState?: object): express.Response | null;
+    askForTransactionRequirements(
+        transactionConfig?:
+            | ActionPaymentTransactionConfig
+            | GooglePaymentTransactionConfig,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks user to confirm transaction information.
@@ -872,7 +914,13 @@ export class AssistantApp {
      * @return HTTP response
      * @dialogflow
      */
-    askForTransactionDecision(order: Order, transactionConfig: ActionPaymentTransactionConfig | GooglePaymentTransactionConfig, dialogState?: object): express.Response | null;
+    askForTransactionDecision(
+        order: Order,
+        transactionConfig:
+            | ActionPaymentTransactionConfig
+            | GooglePaymentTransactionConfig,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks the Assistant to guide the user to grant a permission. For example,
@@ -930,7 +978,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForPermission(context: string, permission: string, dialogState?: object): express.Response | null;
+    askForPermission(
+        context: string,
+        permission: string,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Returns true if the request follows a previous request asking for
@@ -1014,7 +1066,10 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForDeliveryAddress(reason: string, dialogState?: object): express.Response | null;
+    askForDeliveryAddress(
+        reason: string,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks user to provide a geo-located place, possibly using contextual information,
@@ -1088,7 +1143,11 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForPlace(requestPrompt: string, permissionContext: string, dialogState?: object): express.Response | null;
+    askForPlace(
+        requestPrompt: string,
+        permissionContext: string,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks user for a confirmation.
@@ -1124,7 +1183,10 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForConfirmation(prompt?: string, dialogState?: object): express.Response | null;
+    askForConfirmation(
+        prompt?: string,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Asks user for a timezone-agnostic date and time.
@@ -1169,7 +1231,12 @@ export class AssistantApp {
      * @actionssdk
      * @dialogflow
      */
-    askForDateTime(initialPrompt?: string, datePrompt?: string, timePrompt?: string, dialogState?: object): express.Response | null;
+    askForDateTime(
+        initialPrompt?: string,
+        datePrompt?: string,
+        timePrompt?: string,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Hands the user off to a web sign in flow. App sign in and OAuth credentials
@@ -1256,7 +1323,12 @@ export class AssistantApp {
      * @dialogflow
      * @actionssdk
      */
-    askForNewSurface(context: string, notificationTitle: string, capabilities: SurfaceCapabilities[], dialogState?: object): express.Response | null;
+    askForNewSurface(
+        context: string,
+        notificationTitle: string,
+        capabilities: SurfaceCapabilities[],
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Requests the user to register for daily updates.
@@ -1296,7 +1368,11 @@ export class AssistantApp {
      * @dialogflow
      * @actionssdk
      */
-    askToRegisterDailyUpdate(intent: string, intentArguments: IntentArgument[], dialogState?: object): express.Response | null;
+    askToRegisterDailyUpdate(
+        intent: string,
+        intentArguments: IntentArgument[],
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Requests the user to transfer to a linked out Android app intent. Using this feature
@@ -1362,7 +1438,14 @@ export class AssistantApp {
      * @dialogflow
      * @actionssdk
      */
-    askToDeepLink(prompt: string | SimpleResponse | null, destinationName: string, url: string, packageName: string, reason?: string | null, dialogState?: object): express.Response | null;
+    askToDeepLink(
+        prompt: string | SimpleResponse | null,
+        destinationName: string,
+        url: string,
+        packageName: string,
+        reason?: string | null,
+        dialogState?: object
+    ): express.Response | null;
 
     /**
      * Gets the {@link User} object.
@@ -1642,7 +1725,9 @@ export class AssistantApp {
      * @dialogflow
      * @actionssdk
      */
-    hasAvailableSurfaceCapabilities(capabilities: SurfaceCapabilities | SurfaceCapabilities[]): boolean;
+    hasAvailableSurfaceCapabilities(
+        capabilities: SurfaceCapabilities | SurfaceCapabilities[]
+    ): boolean;
 
     /**
      * Returns the result of the AskForNewSurface helper.

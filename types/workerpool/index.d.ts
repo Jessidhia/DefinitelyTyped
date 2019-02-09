@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import * as cp from 'child_process';
+import * as cp from "child_process";
 
 export interface WorkerPoolStats {
     totalWorkers: number;
@@ -26,7 +26,10 @@ export interface WorkerPool {
      * and executed there with the provided parameters. The provided function must be static,
      * it must not depend on variables in a surrounding scope.
      */
-    exec(method: ((...args: any[]) => any) | string, params: any[] | null): Promise<any>;
+    exec(
+        method: ((...args: any[]) => any) | string,
+        params: any[] | null
+    ): Promise<any>;
 
     /**
      * Create a proxy for the worker pool.
@@ -60,7 +63,10 @@ export class Promise<T, E = Error> {
     readonly pending: boolean;
 
     always<TT>(handler: () => Promise<TT>): Promise<TT>;
-    then<TT, EE = Error>(result: (r: T) => TT, err?: (r: E) => EE): Promise<TT, EE>;
+    then<TT, EE = Error>(
+        result: (r: T) => TT,
+        err?: (r: E) => EE
+    ): Promise<TT, EE>;
     catch<TT>(err: (error: E) => TT): Promise<TT>;
     cancel(): this;
     timeout(delay: number): this;
@@ -71,12 +77,12 @@ export class Promise<T, E = Error> {
 export namespace Promise {
     // tslint:disable-next-line:strict-export-declare-modifiers
     export class CancellationError extends Error {
-        name: 'CancellationError';
+        name: "CancellationError";
     }
 
     // tslint:disable-next-line:strict-export-declare-modifiers
     export class TimeoutError extends Error {
-        name: 'TimeoutError';
+        name: "TimeoutError";
     }
 }
 
@@ -85,7 +91,7 @@ export interface WorkerPoolOptions {
      * The minimum number of workers that must be initialized and kept available.
      * Setting this to 'max' will create maxWorkers default workers.
      */
-    minWorkers?: number | 'max';
+    minWorkers?: number | "max";
     /**
      * The default number of maxWorkers is the number of CPU's minus one.
      * When the number of CPU's could not be determined (for example in older browsers), maxWorkers is set to 3.
@@ -103,7 +109,10 @@ export interface WorkerPoolOptions {
  * When no script argument is provided, a default worker is started which can be used to offload functions dynamically via Pool.exec.
  * Note that on node.js, script must be an absolute file path like __dirname + '/myWorker.js'.
  */
-export function pool(pathToScript?: string, options?: WorkerPoolOptions): WorkerPool;
+export function pool(
+    pathToScript?: string,
+    options?: WorkerPoolOptions
+): WorkerPool;
 
 /**
  * When a script argument is provided, the provided script will be started as a dedicated worker.
@@ -116,7 +125,7 @@ export function pool(options?: WorkerPoolOptions): WorkerPool;
  * Argument methods is optional can can be an object with functions available in the worker.
  * Registered functions will be available via the worker pool.
  */
-export function worker(methods?: {[k: string]: (...args: any[]) => any}): any;
-export const platform: 'node' | 'browser';
+export function worker(methods?: { [k: string]: (...args: any[]) => any }): any;
+export const platform: "node" | "browser";
 export const isMainThread: boolean;
 export const cpus: number;

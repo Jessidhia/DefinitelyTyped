@@ -1,5 +1,5 @@
-import * as webdriver from './index';
-import * as remote from './remote';
+import * as webdriver from "./index";
+import * as remote from "./remote";
 
 /**
  * Creates {@link remote.DriverService} instances that manages an
@@ -150,7 +150,9 @@ export class Options {
      *     merge these options into, if any.
      * @return {!capabilities.Capabilities} The capabilities.
      */
-    toCapabilities(opt_capabilities?: webdriver.Capabilities): webdriver.Capabilities;
+    toCapabilities(
+        opt_capabilities?: webdriver.Capabilities
+    ): webdriver.Capabilities;
 }
 
 export class Driver extends webdriver.WebDriver {
@@ -162,7 +164,11 @@ export class Driver extends webdriver.WebDriver {
      * @param {promise.ControlFlow=} opt_flow The control flow to use,
      *     or {@code null} to use the currently active flow.
      */
-    constructor(opt_config?: webdriver.Capabilities | Options, opt_service?: remote.DriverService, opt_flow?: webdriver.promise.ControlFlow);
+    constructor(
+        opt_config?: webdriver.Capabilities | Options,
+        opt_service?: remote.DriverService,
+        opt_flow?: webdriver.promise.ControlFlow
+    );
 
     /**
      * This function is a no-op as file detectors are not supported by this

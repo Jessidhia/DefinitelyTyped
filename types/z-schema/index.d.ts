@@ -90,7 +90,10 @@ declare class Validator {
      * @param validatorFunction - custom format validator function.
      *   Returns `true` if `value` matches the custom format.
      */
-    public static registerFormat(formatName: string, validatorFunction: (value: any) => boolean): void;
+    public static registerFormat(
+        formatName: string,
+        validatorFunction: (value: any) => boolean
+    ): void;
 
     /**
      * Unregister a format.
@@ -130,7 +133,11 @@ declare class Validator {
      * @param json - either a JSON string or a parsed JSON object
      * @param schema - the JSON object representing the schema
      */
-    validate(json: any, schema: any, callback: (err: any, valid: boolean) => void): void;
+    validate(
+        json: any,
+        schema: any,
+        callback: (err: any, valid: boolean) => void
+    ): void;
 
     /**
      * Returns an Error object for the most recent failed validation, or null if the validation was successful.
@@ -156,7 +163,13 @@ declare class Report {
      * @param schemaDescription - description from the schema used in the validation
      * Adds custom error to the errors array in the validation instance and sets valid to false if it is not already set as false
      */
-    addCustomError: (errorCode: string, errorMessage: string, params: string[], subReports: string, schemaDescription: string) => void;
+    addCustomError: (
+        errorCode: string,
+        errorMessage: string,
+        params: string[],
+        subReports: string,
+        schemaDescription: string
+    ) => void;
 }
 
 export = Validator;

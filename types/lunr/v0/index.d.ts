@@ -37,7 +37,7 @@ declare namespace lunr {
 
         const label: string;
 
-        const registeredFunctions: {[label: string]: TokenizerFunction};
+        const registeredFunctions: { [label: string]: TokenizerFunction };
 
         /**
          * Register a tokenizer function.
@@ -108,10 +108,32 @@ declare namespace lunr {
          *                   function to a specific event(s).
          */
         addListener(eventName: string, handler: Function): void;
-        addListener(eventName: string, eventName2: string, handler: Function): void;
-        addListener(eventName: string, eventName2: string, eventName3: string, handler: Function): void;
-        addListener(eventName: string, eventName2: string, eventName3: string, eventName4: string, handler: Function): void;
-        addListener(eventName: string, eventName2: string, eventName3: string, eventName4: string, eventName5: string, handler: Function): void;
+        addListener(
+            eventName: string,
+            eventName2: string,
+            handler: Function
+        ): void;
+        addListener(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            handler: Function
+        ): void;
+        addListener(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            eventName4: string,
+            handler: Function
+        ): void;
+        addListener(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            eventName4: string,
+            eventName5: string,
+            handler: Function
+        ): void;
 
         /**
          * Removes a handler function from a specific event.
@@ -138,7 +160,11 @@ declare namespace lunr {
         hasHandler(eventName: string): boolean;
     }
 
-    type IPipelineFunction = (token: string, tokenIndex?: number, tokens?: string[]) => string;
+    type IPipelineFunction = (
+        token: string,
+        tokenIndex?: number,
+        tokens?: string[]
+    ) => string;
 
     /**
      * lunr.Pipelines maintain an ordered list of functions to be applied to all tokens in documents
@@ -162,7 +188,7 @@ declare namespace lunr {
      * If not planning on serialising the pipeline then registering pipeline functions is not necessary.
      */
     class Pipeline {
-        registeredFunctions: {[label: string]: Function};
+        registeredFunctions: { [label: string]: Function };
 
         /**
          * Register a function with the pipeline.
@@ -438,7 +464,7 @@ declare namespace lunr {
 
         _ref: string;
 
-        _idfCache: {[key: string]: string};
+        _idfCache: { [key: string]: string };
 
         /**
          * Bind a handler to events being emitted by the index.
@@ -451,9 +477,27 @@ declare namespace lunr {
          */
         on(eventName: string, handler: Function): void;
         on(eventName: string, eventName2: string, handler: Function): void;
-        on(eventName: string, eventName2: string, eventName3: string, handler: Function): void;
-        on(eventName: string, eventName2: string, eventName3: string, eventName4: string, handler: Function): void;
-        on(eventName: string, eventName2: string, eventName3: string, eventName4: string, eventName5: string, handler: Function): void;
+        on(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            handler: Function
+        ): void;
+        on(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            eventName4: string,
+            handler: Function
+        ): void;
+        on(
+            eventName: string,
+            eventName2: string,
+            eventName3: string,
+            eventName4: string,
+            eventName5: string,
+            handler: Function
+        ): void;
 
         /**
          * Removes a handler from an event being emitted by the index.
@@ -475,7 +519,7 @@ declare namespace lunr {
          * @param fieldName  The name of the field within the document that
          * @param options    An optional boost that can be applied to terms in this field.
          */
-        field(fieldName: string, options?: {boost?: number}): Index;
+        field(fieldName: string, options?: { boost?: number }): Index;
 
         /**
          * Sets the property used to uniquely identify documents added to the index, by default this
@@ -628,7 +672,7 @@ declare namespace lunr {
      * stored in index.
      */
     class Store<T> {
-        store: {[id: string]: SortedSet<T>};
+        store: { [id: string]: SortedSet<T> };
 
         length: number;
 
@@ -685,9 +729,9 @@ declare namespace lunr {
      * to document ref.
      */
     class TokenStore {
-        root: {[token: string]: TokenStore};
+        root: { [token: string]: TokenStore };
 
-        docs: {[ref: string]: TokenDocument};
+        docs: { [ref: string]: TokenDocument };
 
         length: number;
 
@@ -726,7 +770,7 @@ declare namespace lunr {
          * @param token  The token to get the documents for.
          * @param root   An optional node at which to start.
          */
-        get(token: string, root: TokenStore): {[ref: string]: TokenDocument};
+        get(token: string, root: TokenStore): { [ref: string]: TokenDocument };
 
         count(token: string, root: TokenStore): number;
 

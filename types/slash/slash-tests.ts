@@ -1,3 +1,3 @@
-import slash = require('slash');
+import slash = require("slash");
 
-slash('foo\\bar'); // $ExpectType string
+slash("foo\\bar"); // $ExpectType string

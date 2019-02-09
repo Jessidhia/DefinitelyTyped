@@ -12,9 +12,20 @@ export declare class InputObserver implements IInputTypeObserver {
     private am;
     isOutside: boolean;
     moveDistance: Axis;
-    constructor(options: AxesOption, itm: InterruptManager, em: EventManager, axm: AxisManager, am: AnimationManager);
+    constructor(
+        options: AxesOption,
+        itm: InterruptManager,
+        em: EventManager,
+        axm: AxisManager,
+        am: AnimationManager
+    );
     private atOutside(pos);
     hold(inputType: IInputType, event: any): void;
     change(inputType: any, event: any, offset: Axis): void;
-    release(inputType: IInputType, event: any, offset: Axis, inputDuration?: number): void;
+    release(
+        inputType: IInputType,
+        event: any,
+        offset: Axis,
+        inputDuration?: number
+    ): void;
 }

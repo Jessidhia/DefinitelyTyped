@@ -1,4 +1,4 @@
-import termSize = require('term-size');
+import termSize = require("term-size");
 
 const size: termSize.TermSize = termSize();
 // $ExpectType number

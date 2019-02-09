@@ -3,10 +3,14 @@
  * for more details, please see http://idangero.us/swiper/demos/
  * @author Eugene Matseruk
  */
-import Swiper from 'swiper';
-import { Swiper as SwiperESM, Navigation, History } from 'swiper/dist/js/swiper.esm';
+import Swiper from "swiper";
+import {
+    Swiper as SwiperESM,
+    Navigation,
+    History
+} from "swiper/dist/js/swiper.esm";
 
-const containerSelector = '.swiper-container';
+const containerSelector = ".swiper-container";
 
 /**
  *  010-default
@@ -21,9 +25,9 @@ function defaultDemo() {
 function navigation() {
     const swiper = new Swiper(containerSelector, {
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 
     swiper.navigation.update();
@@ -35,8 +39,8 @@ function navigation() {
 function pagination() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
-        },
+            el: ".swiper-pagination"
+        }
     });
 
     swiper.pagination.update();
@@ -48,9 +52,9 @@ function pagination() {
 function paginationDynamic() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
-            dynamicBullets: true,
-        },
+            el: ".swiper-pagination",
+            dynamicBullets: true
+        }
     });
 
     swiper.pagination.update();
@@ -62,13 +66,13 @@ function paginationDynamic() {
 function paginationProgress() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
-            type: 'progressbar',
+            el: ".swiper-pagination",
+            type: "progressbar"
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 
     swiper.pagination.update();
@@ -81,13 +85,13 @@ function paginationProgress() {
 function paginationFraction() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
-            type: 'fraction',
+            el: ".swiper-pagination",
+            type: "fraction"
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 
     swiper.pagination.update();
@@ -100,12 +104,12 @@ function paginationFraction() {
 function paginationCustom() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination",
             clickable: true,
             renderBullet: (index, className) => {
                 return `<span class="${className}">${index + 1}</span>`;
-            },
-        },
+            }
+        }
     });
 
     swiper.pagination.render();
@@ -117,9 +121,9 @@ function paginationCustom() {
 function scrollbar() {
     const swiper = new Swiper(containerSelector, {
         scrollbar: {
-            el: '.swiper-scrollbar',
-            hide: true,
-        },
+            el: ".swiper-scrollbar",
+            hide: true
+        }
     });
 
     swiper.scrollbar.updateSize();
@@ -130,11 +134,11 @@ function scrollbar() {
  */
 function verticalSlider() {
     const swiper = new Swiper(containerSelector, {
-        direction: 'vertical',
+        direction: "vertical",
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -145,9 +149,9 @@ function spaceBetween() {
     const swiper = new Swiper(containerSelector, {
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -159,9 +163,9 @@ function multipleSlidesPerView() {
         slidesPerView: 3,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -170,12 +174,12 @@ function multipleSlidesPerView() {
  */
 function autoSlidesPerViewAndCarouserMode() {
     const swiper = new Swiper(containerSelector, {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -188,9 +192,9 @@ function centeredSlides() {
         spaceBetween: 30,
         centeredSlides: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -199,13 +203,13 @@ function centeredSlides() {
  */
 function centeredSlidesAndAutoSlidesPerView() {
     const swiper = new Swiper(containerSelector, {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         centeredSlides: true,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -218,9 +222,9 @@ function freeModeAndNoFixedPositions() {
         spaceBetween: 30,
         freeMode: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -229,13 +233,13 @@ function freeModeAndNoFixedPositions() {
  */
 function scrollContainer() {
     const swiper = new Swiper(containerSelector, {
-        direction: 'vertical',
-        slidesPerView: 'auto',
+        direction: "vertical",
+        slidesPerView: "auto",
         freeMode: true,
         scrollbar: {
-            el: '.swiper-scrollbar',
+            el: ".swiper-scrollbar"
         },
-        mousewheel: true,
+        mousewheel: true
     });
 }
 
@@ -248,9 +252,9 @@ function multiRowSlides() {
         slidesPerColumn: 2,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -258,20 +262,20 @@ function multiRowSlides() {
  * Nested Swipers
  */
 function nestedSwipers() {
-    const swiperH = new Swiper('.swiper-container-h', {
+    const swiperH = new Swiper(".swiper-container-h", {
         spaceBetween: 50,
         pagination: {
-            el: '.swiper-pagination-h',
-            clickable: true,
-        },
+            el: ".swiper-pagination-h",
+            clickable: true
+        }
     });
-    const swiperV = new Swiper('.swiper-container-v', {
-        direction: 'vertical',
+    const swiperV = new Swiper(".swiper-container-v", {
+        direction: "vertical",
         spaceBetween: 50,
         pagination: {
-            el: '.swiper-pagination-v',
-            clickable: true,
-        },
+            el: ".swiper-pagination-v",
+            clickable: true
+        }
     });
 }
 /**
@@ -284,9 +288,9 @@ function grabCursor() {
         spaceBetween: 30,
         grabCursor: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -299,13 +303,13 @@ function loopMode() {
         spaceBetween: 30,
         loop: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -320,13 +324,13 @@ function loopModeWithMultipleSlides() {
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -336,15 +340,15 @@ function loopModeWithMultipleSlides() {
 function fadeEffect() {
     const swiper = new Swiper(containerSelector, {
         spaceBetween: 30,
-        effect: 'fade',
+        effect: "fade",
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -353,17 +357,17 @@ function fadeEffect() {
  */
 function cube3dEffect() {
     const swiper = new Swiper(containerSelector, {
-        effect: 'cube',
+        effect: "cube",
         grabCursor: true,
         cubeEffect: {
             shadow: true,
             slideShadows: true,
             shadowOffset: 20,
-            shadowScale: 0.94,
+            shadowScale: 0.94
         },
         pagination: {
-            el: '.swiper-pagination',
-        },
+            el: ".swiper-pagination"
+        }
     });
 }
 
@@ -372,20 +376,20 @@ function cube3dEffect() {
  */
 function coverflow3dEffect() {
     const swiper = new Swiper(containerSelector, {
-        effect: 'coverflow',
+        effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
             depth: 100,
             modifier: 1,
-            slideShadows: true,
+            slideShadows: true
         },
         pagination: {
-            el: '.swiper-pagination',
-        },
+            el: ".swiper-pagination"
+        }
     });
 }
 
@@ -394,15 +398,15 @@ function coverflow3dEffect() {
  */
 function flip3dEffect() {
     const swiper = new Swiper(containerSelector, {
-        effect: 'flip',
+        effect: "flip",
         grabCursor: true,
         pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination"
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -414,16 +418,16 @@ function keyboardControl() {
         slidesPerView: 1,
         spaceBetween: 30,
         keyboard: {
-            enabled: true,
+            enabled: true
         },
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -432,14 +436,14 @@ function keyboardControl() {
  */
 function mouseWheelControl() {
     const swiper = new Swiper(containerSelector, {
-        direction: 'vertical',
+        direction: "vertical",
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+            el: ".swiper-pagination",
+            clickable: true
+        }
     });
 }
 
@@ -452,16 +456,16 @@ function autoplay() {
         centeredSlides: true,
         autoplay: {
             delay: 2500,
-            disableOnInteraction: false,
+            disableOnInteraction: false
         },
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -476,30 +480,34 @@ function dynamicSlides() {
         centeredSlides: true,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
-    document.querySelector('.prepend-2-slides').addEventListener('click', e => {
+    document.querySelector(".prepend-2-slides").addEventListener("click", e => {
         e.preventDefault();
         swiper.prependSlide([
             `<div class="swiper-slide">Slide ${--prependNumber}</div>`,
-            `<div class="swiper-slide">Slide ${--prependNumber}</div>`,
+            `<div class="swiper-slide">Slide ${--prependNumber}</div>`
         ]);
     });
-    document.querySelector('.prepend-slide').addEventListener('click', e => {
+    document.querySelector(".prepend-slide").addEventListener("click", e => {
         e.preventDefault();
-        swiper.prependSlide(`<div class="swiper-slide">Slide ${--prependNumber}</div>`);
+        swiper.prependSlide(
+            `<div class="swiper-slide">Slide ${--prependNumber}</div>`
+        );
     });
-    document.querySelector('.append-slide').addEventListener('click', e => {
+    document.querySelector(".append-slide").addEventListener("click", e => {
         e.preventDefault();
-        swiper.appendSlide(`<div class="swiper-slide">Slide ${--appendNumber}</div>`);
+        swiper.appendSlide(
+            `<div class="swiper-slide">Slide ${--appendNumber}</div>`
+        );
     });
-    document.querySelector('.append-2-slides').addEventListener('click', e => {
+    document.querySelector(".append-2-slides").addEventListener("click", e => {
         e.preventDefault();
         swiper.appendSlide([
             `<div class="swiper-slide">Slide ${--appendNumber}</div>`,
@@ -512,19 +520,19 @@ function dynamicSlides() {
  * Thumbs Gallery With Two-way Control
  */
 function thumbsGalleryWithTwoWayControl() {
-    const galleryTop = new Swiper('.gallery-top', {
+    const galleryTop = new Swiper(".gallery-top", {
         spaceBetween: 10,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
-    const galleryThumbs = new Swiper('.gallery-thumbs', {
+    const galleryThumbs = new Swiper(".gallery-thumbs", {
         spaceBetween: 10,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         touchRatio: 0.2,
-        slideToClickedSlide: true,
+        slideToClickedSlide: true
     });
     galleryTop.controller.control = galleryThumbs;
     galleryThumbs.controller.control = galleryTop;
@@ -537,16 +545,16 @@ function hashNavigation() {
     const swiper = new Swiper(containerSelector, {
         spaceBetween: 30,
         hashNavigation: {
-            watchState: true,
+            watchState: true
         },
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -558,15 +566,15 @@ function historyApi() {
         spaceBetween: 50,
         slidesPerView: 1,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
         },
         pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination"
         },
         history: {
-            key: 'slide',
-        },
+            key: "slide"
+        }
     });
 }
 
@@ -576,13 +584,13 @@ function historyApi() {
 function rtlLayout() {
     const swiper = new Swiper(containerSelector, {
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -594,13 +602,13 @@ function parallax() {
         speed: 600,
         parallax: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -612,13 +620,13 @@ function lazyLoadingImages() {
         // Enable lazy loading
         lazy: true,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -631,25 +639,25 @@ function responsiveBreakpoints() {
         spaceBetween: 50,
         // init: false,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         breakpoints: {
             1024: {
                 slidesPerView: 4,
-                spaceBetween: 40,
+                spaceBetween: 40
             },
             768: {
                 slidesPerView: 3,
-                spaceBetween: 30,
+                spaceBetween: 30
             },
             640: {
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 20
             },
             320: {
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 10
             }
         }
     });
@@ -663,13 +671,13 @@ function autoHeight() {
         autoHeight: true, // enable auto height
         spaceBetween: 20,
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: ".swiper-pagination",
+            clickable: true
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 }
 
@@ -680,18 +688,18 @@ function zoom() {
     const swiper = new Swiper(containerSelector, {
         zoom: true,
         pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination"
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
     });
 
     swiper.zoom.out();
     swiper.zoom.disable();
 
-    if (swiper.zoom.enabled) throw new Error('Zoom should be disabled!');
+    if (swiper.zoom.enabled) throw new Error("Zoom should be disabled!");
 
     swiper.zoom.enable();
     swiper.zoom.in();
@@ -703,7 +711,7 @@ function zoom() {
 function virtualSlides() {
     const slides = [];
     for (let i = 0; i < 600; i += 1) {
-        slides.push('Slide ' + (i + 1));
+        slides.push("Slide " + (i + 1));
     }
 
     const swiper = new Swiper(containerSelector, {
@@ -711,26 +719,26 @@ function virtualSlides() {
         centeredSlides: true,
         spaceBetween: 30,
         pagination: {
-            el: '.swiper-pagination',
-            type: 'fraction',
+            el: ".swiper-pagination",
+            type: "fraction"
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
         },
         virtual: {
             slides
-        },
+        }
     });
-    document.querySelector('.slide-1').addEventListener('click', e => {
+    document.querySelector(".slide-1").addEventListener("click", e => {
         e.preventDefault();
         swiper.slideTo(0, 0);
     });
-    document.querySelector('.slide-250').addEventListener('click', e => {
+    document.querySelector(".slide-250").addEventListener("click", e => {
         e.preventDefault();
         swiper.slideTo(249, 0);
     });
-    document.querySelector('.slide-500').addEventListener('click', e => {
+    document.querySelector(".slide-500").addEventListener("click", e => {
         e.preventDefault();
         swiper.slideTo(499, 0);
     });
@@ -740,31 +748,35 @@ function virtualSlides() {
  * Slideable Navigation Drawer
  */
 function slideableNavigation() {
-    const menuButton = document.querySelector('.menu-button');
+    const menuButton = document.querySelector(".menu-button");
     const swiper = new Swiper(containerSelector, {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         initialSlide: 1,
         resistanceRatio: 0,
         slideToClickedSlide: true,
         on: {
             init: () => {
                 const slider = this;
-                menuButton.addEventListener('click', () => {
-                    if (slider.activeIndex === 0) {
-                        slider.slideNext();
-                    } else {
-                        slider.slidePrev();
-                    }
-                }, true);
+                menuButton.addEventListener(
+                    "click",
+                    () => {
+                        if (slider.activeIndex === 0) {
+                            slider.slideNext();
+                        } else {
+                            slider.slidePrev();
+                        }
+                    },
+                    true
+                );
             },
             slideChange: () => {
                 const slider = this;
                 if (slider.activeIndex === 0) {
-                    menuButton.classList.add('cross');
+                    menuButton.classList.add("cross");
                 } else {
-                    menuButton.classList.remove('cross');
+                    menuButton.classList.remove("cross");
                 }
-            },
+            }
         }
     });
 }

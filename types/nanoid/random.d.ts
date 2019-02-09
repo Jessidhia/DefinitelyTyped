@@ -1,5 +1,5 @@
 /// <reference types="node" />
 
-import crypto = require('crypto');
+import crypto = require("crypto");
 
 export = crypto.randomBytes;

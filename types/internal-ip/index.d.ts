@@ -6,7 +6,8 @@
 export const v6: IPGetterFn;
 export const v4: IPGetterFn;
 
-export interface IPGetterFn { // tslint:disable-line:interface-name
+export interface IPGetterFn {
+    // tslint:disable-line:interface-name
     (): Promise<string | null>;
     sync(): string | null;
 }

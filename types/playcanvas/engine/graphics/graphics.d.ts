@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @static
      * @readonly

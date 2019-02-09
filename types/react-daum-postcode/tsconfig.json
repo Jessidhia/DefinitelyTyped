@@ -1,14 +1,8 @@
 {
-    "files": [
-        "index.d.ts",
-        "react-daum-postcode-tests.tsx"
-    ],
+    "files": ["index.d.ts", "react-daum-postcode-tests.tsx"],
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
@@ -16,9 +10,7 @@
         "baseUrl": "../",
         "jsx": "react",
         "experimentalDecorators": true,
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true

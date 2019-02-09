@@ -1,9 +1,7 @@
 namespace adoneTests.net.http.client {
     const {
         net: {
-            http: {
-                client
-            }
+            http: { client }
         }
     } = adone;
 
@@ -14,9 +12,7 @@ namespace adoneTests.net.http.client {
     let stream: nodestd.stream.Readable;
 
     namespace Client {
-        const {
-            Client
-        } = client;
+        const { Client } = client;
 
         new Client();
         new Client({});
@@ -122,12 +118,14 @@ namespace adoneTests.net.http.client {
         });
         new Client({
             formData: {
-                a: [{
-                    value: "string",
-                    options: {
-                        knownLength: 100500
+                a: [
+                    {
+                        value: "string",
+                        options: {
+                            knownLength: 100500
+                        }
                     }
-                }]
+                ]
             }
         });
         new Client({
@@ -195,14 +193,18 @@ namespace adoneTests.net.http.client {
             timeout: 100
         });
         new Client({
-            transformRequest: [(data, headers, config) => {
-                return data;
-            }]
+            transformRequest: [
+                (data, headers, config) => {
+                    return data;
+                }
+            ]
         });
         new Client({
-            transformResponse: [(data, headers, config) => {
-                return data;
-            }]
+            transformResponse: [
+                (data, headers, config) => {
+                    return data;
+                }
+            ]
         });
         new Client({
             transport: adone.std.http
@@ -224,7 +226,7 @@ namespace adoneTests.net.http.client {
         namespace request {
             req.request({
                 method: "GET"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const len = resp.headers["content-length"];
@@ -239,7 +241,7 @@ namespace adoneTests.net.http.client {
             req.request({
                 method: "GET",
                 responseType: "string"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
@@ -247,7 +249,7 @@ namespace adoneTests.net.http.client {
             req.request({
                 method: "GET",
                 responseType: "buffer"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
@@ -255,7 +257,7 @@ namespace adoneTests.net.http.client {
             req.request({
                 method: "GET",
                 responseType: "stream"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -263,7 +265,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace get {
-            req.get("url").then((resp) => {
+            req.get("url").then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -273,21 +275,21 @@ namespace adoneTests.net.http.client {
             });
             req.get("url", {
                 responseType: "string"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
             req.get("url", {
                 responseType: "buffer"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
             req.get("url", {
                 responseType: "stream"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -295,7 +297,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace post {
-            req.post("url", {}).then((resp) => {
+            req.post("url", {}).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -303,23 +305,35 @@ namespace adoneTests.net.http.client {
                     str = data;
                 }
             });
-            req.post("url", {}, {
-                responseType: "string"
-            }).then((resp) => {
+            req.post(
+                "url",
+                {},
+                {
+                    responseType: "string"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
-            req.post("url", {}, {
-                responseType: "buffer"
-            }).then((resp) => {
+            req.post(
+                "url",
+                {},
+                {
+                    responseType: "buffer"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
-            req.post("url", {}, {
-                responseType: "stream"
-            }).then((resp) => {
+            req.post(
+                "url",
+                {},
+                {
+                    responseType: "stream"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -327,7 +341,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace put {
-            req.put("url", {}).then((resp) => {
+            req.put("url", {}).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -335,23 +349,35 @@ namespace adoneTests.net.http.client {
                     str = data;
                 }
             });
-            req.put("url", {}, {
-                responseType: "string"
-            }).then((resp) => {
+            req.put(
+                "url",
+                {},
+                {
+                    responseType: "string"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
-            req.put("url", {}, {
-                responseType: "buffer"
-            }).then((resp) => {
+            req.put(
+                "url",
+                {},
+                {
+                    responseType: "buffer"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
-            req.put("url", {}, {
-                responseType: "stream"
-            }).then((resp) => {
+            req.put(
+                "url",
+                {},
+                {
+                    responseType: "stream"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -359,7 +385,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace patch {
-            req.patch("url", {}).then((resp) => {
+            req.patch("url", {}).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -367,23 +393,35 @@ namespace adoneTests.net.http.client {
                     str = data;
                 }
             });
-            req.patch("url", {}, {
-                responseType: "string"
-            }).then((resp) => {
+            req.patch(
+                "url",
+                {},
+                {
+                    responseType: "string"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
-            req.patch("url", {}, {
-                responseType: "buffer"
-            }).then((resp) => {
+            req.patch(
+                "url",
+                {},
+                {
+                    responseType: "buffer"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
-            req.patch("url", {}, {
-                responseType: "stream"
-            }).then((resp) => {
+            req.patch(
+                "url",
+                {},
+                {
+                    responseType: "stream"
+                }
+            ).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -391,7 +429,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace _delete {
-            req.delete("url").then((resp) => {
+            req.delete("url").then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -401,21 +439,21 @@ namespace adoneTests.net.http.client {
             });
             req.delete("url", {
                 responseType: "string"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
             req.delete("url", {
                 responseType: "buffer"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
             req.delete("url", {
                 responseType: "stream"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -423,7 +461,7 @@ namespace adoneTests.net.http.client {
         }
 
         namespace options {
-            req.options("url").then((resp) => {
+            req.options("url").then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 const data = resp.data;
@@ -433,21 +471,21 @@ namespace adoneTests.net.http.client {
             });
             req.options("url", {
                 responseType: "string"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 str = resp.data;
             });
             req.options("url", {
                 responseType: "buffer"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 buf = resp.data;
             });
             req.options("url", {
                 responseType: "stream"
-            }).then((resp) => {
+            }).then(resp => {
                 num = resp.status;
                 str = resp.statusText;
                 stream = resp.data;
@@ -456,7 +494,7 @@ namespace adoneTests.net.http.client {
     }
 
     namespace request {
-        client.request.get("htllo").then((x) => {
+        client.request.get("htllo").then(x => {
             num = x.status;
         });
     }
@@ -469,19 +507,15 @@ namespace adoneTests.net.http.client {
                 "User-Agent": "Hello"
             }
         });
-        req.get("hello world").then((x) => {
+        req.get("hello world").then(x => {
             num = x.status;
         });
     }
 
     namespace cancel {
-        const {
-            Cancel,
-            CancelToken,
-            isCancel
-        } = client;
+        const { Cancel, CancelToken, isCancel } = client;
 
-        new CancelToken((s: string) => 123).promise.then((x) => {
+        new CancelToken((s: string) => 123).promise.then(x => {
             str = x.message;
         });
         new CancelToken((s: string) => 123).reason;

@@ -12,4 +12,4 @@ const filter: Transform<any, any> = createFilter(
 
 const store: Store<any> = createStore(reducer);
 
-createPersistor(store, { transforms : [filter] });
+createPersistor(store, { transforms: [filter] });

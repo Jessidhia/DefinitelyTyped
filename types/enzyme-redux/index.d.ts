@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ReactWrapper, ShallowWrapper } from 'enzyme';
-import { ReactElement } from 'react';
+import { ReactWrapper, ShallowWrapper } from "enzyme";
+import { ReactElement } from "react";
 
 export function shallowWithStore<P>(
     Component: ReactElement<P>,

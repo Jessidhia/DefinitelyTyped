@@ -5,9 +5,11 @@ interface PersonProps {
     age: number;
 }
 export function Person(props: PersonProps) {
-    return <div>
-        hello! I'm {props.name} and I'm {props.age} years old!
-    </div>;
+    return (
+        <div>
+            hello! I'm {props.name} and I'm {props.age} years old!
+        </div>
+    );
 }
 
 export interface FancyButtonProps {
@@ -17,32 +19,39 @@ export interface FancyButtonProps {
 export interface FancyButton {
     fancyClick(): void;
 }
-export const FancyButton = React.forwardRef((props: FancyButtonProps, ref: React.Ref<FancyButton>) => {
-    const buttonRef = React.useRef<HTMLButtonElement | null>(null);
-    const [count, setCount] = React.useState(0);
+export const FancyButton = React.forwardRef(
+    (props: FancyButtonProps, ref: React.Ref<FancyButton>) => {
+        const buttonRef = React.useRef<HTMLButtonElement | null>(null);
+        const [count, setCount] = React.useState(0);
 
-    React.useImperativeHandle(ref, () => ({
-        fancyClick() {
-            buttonRef.current!; // $ExpectType HTMLButtonElement
-        },
-        getClickCount() {
-            return count;
-        }
-    }));
+        React.useImperativeHandle(ref, () => ({
+            fancyClick() {
+                buttonRef.current!; // $ExpectType HTMLButtonElement
+            },
+            getClickCount() {
+                return count;
+            }
+        }));
 
-    return <button onClick={() => { setCount(count + 1); props.onClick(); }}>
-        {props.children}
-    </button>;
-});
+        return (
+            <button
+                onClick={() => {
+                    setCount(count + 1);
+                    props.onClick();
+                }}
+            >
+                {props.children}
+            </button>
+        );
+    }
+);
 
 interface AppState {
     name: string;
     age: number;
 }
 
-type AppActions =
-    | { type: "getOlder" }
-    | { type: "resetAge" };
+type AppActions = { type: "getOlder" } | { type: "resetAge" };
 
 function reducer(s: AppState, action: AppActions): AppState {
     switch (action.type) {
@@ -72,15 +81,17 @@ export function App() {
         }
     });
 
-    return <>
-        <Person {...state} />
-        <FancyButton onClick={() => dispatch({ type: "getOlder" })}>
-            Birthday time!
-        </FancyButton>
-        <FancyButton onClick={() => dispatch({ type: "resetAge" })}>
-            Let's start over.
-        </FancyButton>
-    </>;
+    return (
+        <>
+            <Person {...state} />
+            <FancyButton onClick={() => dispatch({ type: "getOlder" })}>
+                Birthday time!
+            </FancyButton>
+            <FancyButton onClick={() => dispatch({ type: "resetAge" })}>
+                Let's start over.
+            </FancyButton>
+        </>
+    );
 }
 
 interface Context {
@@ -88,17 +99,23 @@ interface Context {
 }
 const context = React.createContext<Context>({ test: true });
 
-function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
+function useEveryHook(
+    ref: React.Ref<{ id: number }> | undefined
+): () => boolean {
     const value: Context = React.useContext(context);
     const [, setState] = React.useState(() => 0);
     // Bonus typescript@next version
     // const [reducerState, dispatch] = React.useReducer(reducer, true as const, arg => arg && initialState);
     // Compile error in typescript@3.0 but not in typescript@3.1.
     // const [reducerState, dispatch] = React.useReducer(reducer, true as true, arg => arg && initialState);
-    const [reducerState, dispatch] = React.useReducer(reducer, true as true, (arg: true): AppState => arg && initialState);
+    const [reducerState, dispatch] = React.useReducer(
+        reducer,
+        true as true,
+        (arg: true): AppState => arg && initialState
+    );
 
     // inline object, to (manually) check if autocomplete works
-    React.useReducer(reducer, { age: 42, name: 'The Answer' });
+    React.useReducer(reducer, { age: 42, name: "The Answer" });
 
     // make sure this is not going to the |null overload
     // $ExpectType MutableRefObject<boolean>
@@ -116,7 +133,7 @@ function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
         didLayout.current = true;
     }, []);
     React.useEffect(() => {
-        dispatch({ type: 'getOlder' });
+        dispatch({ type: "getOlder" });
         setState(reducerState.age);
     }, []);
 
@@ -127,11 +144,11 @@ function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
     // $ExpectError
     React.useEffect(() => null);
     // $ExpectError
-    React.useEffect(() => Math.random() ? null : undefined);
+    React.useEffect(() => (Math.random() ? null : undefined));
     // $ExpectError
     React.useEffect(() => () => null);
     // $ExpectError
-    React.useEffect(() => () => Math.random() ? null : undefined);
+    React.useEffect(() => () => (Math.random() ? null : undefined));
     // $ExpectError
     React.useEffect(() => async () => {});
     // $ExpectError
@@ -143,16 +160,17 @@ function useEveryHook(ref: React.Ref<{ id: number }>|undefined): () => boolean {
     return React.useCallback(() => didLayout.current, []);
 }
 
-const UsesEveryHook = React.forwardRef(
-    function UsesEveryHook(props: {}, ref?: React.Ref<{ id: number }>) {
-        // $ExpectType boolean
-        useEveryHook(ref)();
+const UsesEveryHook = React.forwardRef(function UsesEveryHook(
+    props: {},
+    ref?: React.Ref<{ id: number }>
+) {
+    // $ExpectType boolean
+    useEveryHook(ref)();
 
-        return null;
-    }
-);
+    return null;
+});
 const everyHookRef = React.createRef<{ id: number }>();
-<UsesEveryHook ref={everyHookRef}/>;
+<UsesEveryHook ref={everyHookRef} />;
 
 // TODO: "implicit any" in typescript@3.0 but not in typescript@3.1
 // <UsesEveryHook ref={ref => { ref && console.log(ref.id); }}/>;

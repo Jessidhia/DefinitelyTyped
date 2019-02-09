@@ -17,35 +17,48 @@ function onEndOfAnimation(v: Vivus) {
             assertNever(status);
     }
 
-    v.setFrameProgress(0.5).play().reset().finish().destroy();
+    v.setFrameProgress(0.5)
+        .play()
+        .reset()
+        .finish()
+        .destroy();
 }
 
 // Documentation tests.
 
 new Vivus("my-svg", { duration: 200 }, onEndOfAnimation);
 
-new Vivus("my-div", { duration: 200, file: "link/to/my.svg" }, onEndOfAnimation);
+new Vivus(
+    "my-div",
+    { duration: 200, file: "link/to/my.svg" },
+    onEndOfAnimation
+);
 
 var myVivus = new Vivus("my-svg-element");
-myVivus.stop().reset().play(2);
+myVivus
+    .stop()
+    .reset()
+    .play(2);
 
-new Vivus("my-svg-element", {
-    type: "delayed",
-    duration: 200,
-    animTimingFunction: Vivus.EASE
-}, onEndOfAnimation);
-
-
+new Vivus(
+    "my-svg-element",
+    {
+        type: "delayed",
+        duration: 200,
+        animTimingFunction: Vivus.EASE
+    },
+    onEndOfAnimation
+);
 
 // Empty options tests.
 
 new Vivus("svg-element", {});
 
-const el = document.getElementById("my-element") !;
+const el = document.getElementById("my-element")!;
 
 // 'duration' & 'delay' options tests.
 
-new Vivus(el, { duration: 200, delay: 199 })
+new Vivus(el, { duration: 200, delay: 199 });
 
 // 'type' option tests.
 
@@ -66,7 +79,7 @@ new Vivus(el, { start: "autostart" });
 
 new Vivus("my-svg-element", {
     animTimingFunction: Vivus.EASE_OUT_BOUNCE,
-    pathTimingFunction: x => x ** 0.5,
+    pathTimingFunction: x => x ** 0.5
 });
 
 function testEasingFunctions() {

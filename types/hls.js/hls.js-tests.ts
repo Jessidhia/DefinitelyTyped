@@ -1,4 +1,4 @@
-import * as Hls from 'hls.js';
+import * as Hls from "hls.js";
 
 function process(playlist: string) {
     return playlist;
@@ -8,10 +8,18 @@ class pLoader extends Hls.DefaultConfig.loader {
     constructor(config: Hls.LoaderConfig) {
         super(config);
         const load = this.load.bind(this);
-        this.load = (context: Hls.LoaderContext, cfg: Hls.LoaderConfig, callbacks: Hls.LoaderCallbacks) => {
-            if (context.type === 'manifest') {
+        this.load = (
+            context: Hls.LoaderContext,
+            cfg: Hls.LoaderConfig,
+            callbacks: Hls.LoaderCallbacks
+        ) => {
+            if (context.type === "manifest") {
                 const onSuccess = callbacks.onSuccess;
-                callbacks.onSuccess = (response: Hls.LoaderResponse, stats: Hls.LoaderStats, context: Hls.LoaderContext) => {
+                callbacks.onSuccess = (
+                    response: Hls.LoaderResponse,
+                    stats: Hls.LoaderStats,
+                    context: Hls.LoaderContext
+                ) => {
                     response.data = process(response.data as string);
                     onSuccess(response, stats, context);
                 };
@@ -22,7 +30,7 @@ class pLoader extends Hls.DefaultConfig.loader {
 }
 
 if (Hls.isSupported()) {
-    const video = <HTMLVideoElement> document.getElementById('video');
+    const video = <HTMLVideoElement>document.getElementById("video");
     const hls = new Hls({
         pLoader,
         startFragPrefetch: true,
@@ -32,23 +40,35 @@ if (Hls.isSupported()) {
     });
 
     const version: string = Hls.version;
-    hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');
+    hls.loadSource("http://www.streambox.fr/playlists/test_001/stream.m3u8");
     hls.attachMedia(video);
 
-    hls.once(Hls.Events.MANIFEST_PARSED, (event: "hlsManifestParsed", data: Hls.manifestParsedData) => {
-        video.play();
-    });
+    hls.once(
+        Hls.Events.MANIFEST_PARSED,
+        (event: "hlsManifestParsed", data: Hls.manifestParsedData) => {
+            video.play();
+        }
+    );
 
-    const onFragBuffered = (event: "hlsFragBuffered", data: Hls.fragBufferedData) => {
+    const onFragBuffered = (
+        event: "hlsFragBuffered",
+        data: Hls.fragBufferedData
+    ) => {
         // DO SOMETHING
     };
 
     hls.on(Hls.Events.FRAG_BUFFERED, onFragBuffered);
     hls.off(Hls.Events.FRAG_BUFFERED, onFragBuffered);
 
-    hls.on(Hls.Events.FRAG_LOAD_EMERGENCY_ABORTED, (event: "hlsFragLoadEmergencyAborted", data: Hls.fragLoadEmergencyAbortedData) => {
-        console.log('frag: ', data.frag);
-    });
+    hls.on(
+        Hls.Events.FRAG_LOAD_EMERGENCY_ABORTED,
+        (
+            event: "hlsFragLoadEmergencyAborted",
+            data: Hls.fragLoadEmergencyAbortedData
+        ) => {
+            console.log("frag: ", data.frag);
+        }
+    );
 
     hls.on(Hls.Events.ERROR, (event: "hlsError", data: Hls.errorData) => {
         const errorType = data.type;
@@ -67,11 +87,13 @@ if (Hls.isSupported()) {
         if (errorFatal) {
             switch (data.type) {
                 case Hls.ErrorTypes.NETWORK_ERROR:
-                    console.log('fatal network error encoutered, try to recover');
+                    console.log(
+                        "fatal network error encoutered, try to recover"
+                    );
                     hls.startLoad();
                     break;
                 case Hls.ErrorTypes.MEDIA_ERROR:
-                    console.log('fatal media error encourted, try to recover');
+                    console.log("fatal media error encourted, try to recover");
                     hls.recoverMediaError();
                     break;
                 default:

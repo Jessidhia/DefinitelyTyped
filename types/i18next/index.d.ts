@@ -19,16 +19,13 @@ declare namespace i18next {
     type FormatFunction = (value: any, format?: string, lng?: string) => string;
 
     /* tslint:disable-next-line:no-empty-interface */
-    interface DetectionPluginOptions {
-    }
+    interface DetectionPluginOptions {}
 
     /* tslint:disable-next-line:no-empty-interface */
-    interface BackendPluginOptions {
-    }
+    interface BackendPluginOptions {}
 
     /* tslint:disable-next-line:no-empty-interface */
-    interface CachePluginOptions {
-    }
+    interface CachePluginOptions {}
 
     interface InterpolationOptions {
         /**
@@ -129,7 +126,7 @@ declare namespace i18next {
          * set it to fallback to let passed namespaces to translated hoc act as fallbacks
          * @default 'default'
          */
-        nsMode?: 'default' | 'fallback';
+        nsMode?: "default" | "fallback";
         /**
          * set it to the default parent element created by the Trans component.
          * @default 'div'
@@ -253,7 +250,14 @@ declare namespace i18next {
          * Used for custom missing key handling (needs saveMissing set to true!)
          * @default false
          */
-        missingKeyHandler?: false | ((lngs: string[], ns: string, key: string, fallbackValue: string) => void);
+        missingKeyHandler?:
+            | false
+            | ((
+                  lngs: string[],
+                  ns: string,
+                  key: string,
+                  fallbackValue: string
+              ) => void);
 
         /**
          * receives a key that was not found in `t()` and returns a value, that will be returned by `t()`
@@ -401,7 +405,9 @@ declare namespace i18next {
     }
 
     // Add an indexer to assure that interpolation arguments can be passed
-    type TranslationOptions<TCustomOptions extends object = object> = TranslationOptionsBase & TCustomOptions & { [key: string]: any };
+    type TranslationOptions<
+        TCustomOptions extends object = object
+    > = TranslationOptionsBase & TCustomOptions & { [key: string]: any };
 
     interface TranslationOptionsBase {
         /**
@@ -464,8 +470,14 @@ declare namespace i18next {
 
     type Callback = (error: any, t: TranslationFunction) => void;
 
-    type TranslationFunction<TResult = any, TValues extends object = object, TKeys extends string = string> =
-        (key: TKeys | TKeys[], options?: TranslationOptions<TValues>) => TResult;
+    type TranslationFunction<
+        TResult = any,
+        TValues extends object = object,
+        TKeys extends string = string
+    > = (
+        key: TKeys | TKeys[],
+        options?: TranslationOptions<TValues>
+    ) => TResult;
 
     interface Resource {
         [language: string]: ResourceLanguage;
@@ -480,14 +492,14 @@ declare namespace i18next {
     }
 
     interface Services {
-      backendConnector: any;
-      i18nFormat: any;
-      interpolator: any;
-      languageDetector: any;
-      languageUtils: any;
-      logger: any;
-      pluralResolver: any;
-      resourceStore: Resource;
+        backendConnector: any;
+        i18nFormat: any;
+        interpolator: any;
+        languageDetector: any;
+        languageUtils: any;
+        logger: any;
+        pluralResolver: any;
+        resourceStore: Resource;
     }
 
     interface i18n {
@@ -529,7 +541,10 @@ declare namespace i18next {
          * Both params could be arrays of languages or namespaces and will be treated as fallbacks in that case.
          * On the returned function you can like in the t function override the languages or namespaces by passing them in options or by prepending namespace.
          */
-        getFixedT(lng: string | string[], ns?: string | string[]): TranslationFunction;
+        getFixedT(
+            lng: string | string[],
+            ns?: string | string[]
+        ): TranslationFunction;
         getFixedT(lng: null, ns: string | string[]): TranslationFunction;
 
         /**
@@ -597,7 +612,10 @@ declare namespace i18next {
         /**
          * Gets fired after initialization.
          */
-        on(event: "initialized", callback: (options: InitOptions) => void): void;
+        on(
+            event: "initialized",
+            callback: (options: InitOptions) => void
+        ): void;
 
         /**
          * Gets fired on loaded resources.
@@ -607,17 +625,31 @@ declare namespace i18next {
         /**
          * Gets fired if loading resources failed.
          */
-        on(event: "failedLoading", callback: (lng: string, ns: string, msg: string) => void): void;
+        on(
+            event: "failedLoading",
+            callback: (lng: string, ns: string, msg: string) => void
+        ): void;
 
         /**
          * Gets fired on accessing a key not existing.
          */
-        on(event: "missingKey", callback: (lngs: string[], namespace: string, key: string, res: string) => void): void;
+        on(
+            event: "missingKey",
+            callback: (
+                lngs: string[],
+                namespace: string,
+                key: string,
+                res: string
+            ) => void
+        ): void;
 
         /**
          * Gets fired when resources got added or removed.
          */
-        on(event: "added" | "removed", callback: (lng: string, ns: string) => void): void;
+        on(
+            event: "added" | "removed",
+            callback: (lng: string, ns: string) => void
+        ): void;
 
         /**
          * Gets fired when changeLanguage got called.
@@ -637,12 +669,23 @@ declare namespace i18next {
         /**
          * Gets one value by given key.
          */
-        getResource(lng: string, ns: string, key: string, options?: { keySeparator?: string }): any;
+        getResource(
+            lng: string,
+            ns: string,
+            key: string,
+            options?: { keySeparator?: string }
+        ): any;
 
         /**
          * Adds one key/value.
          */
-        addResource(lng: string, ns: string, key: string, value: string, options?: { keySeparator?: string, silent?: boolean }): void;
+        addResource(
+            lng: string,
+            ns: string,
+            key: string,
+            value: string,
+            options?: { keySeparator?: string; silent?: boolean }
+        ): void;
 
         /**
          * Adds multiple key/values.
@@ -654,7 +697,13 @@ declare namespace i18next {
          * Setting deep param to true will extend existing translations in that file.
          * Setting overwrite to true it will overwrite existing translations in that file.
          */
-        addResourceBundle(lng: string, ns: string, resources: any, deep?: boolean, overwrite?: boolean): void;
+        addResourceBundle(
+            lng: string,
+            ns: string,
+            resources: any,
+            deep?: boolean,
+            overwrite?: boolean
+        ): void;
 
         /**
          * Checks if a resource bundle exists.

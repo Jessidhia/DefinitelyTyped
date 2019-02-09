@@ -17,9 +17,17 @@ export default class Geosuggest extends Component<GeosuggestProps> {
 }
 
 // Replace with Exclude once on 2.8+
-export type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never, [x: number]: never })[keyof T]>;
+export type Omit<T, K extends keyof T> = Pick<
+    T,
+    ({ [P in keyof T]: P } &
+        { [P in K]: never } & {
+            [x: string]: never;
+            [x: number]: never;
+        })[keyof T]
+>;
 
-export interface GeosuggestProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'style'> {
+export interface GeosuggestProps
+    extends Omit<InputHTMLAttributes<HTMLInputElement>, "style"> {
     placeholder?: string;
     initialValue?: string;
     className?: string;
@@ -47,9 +55,15 @@ export interface GeosuggestProps extends Omit<InputHTMLAttributes<HTMLInputEleme
     onUpdateSuggests?(suggests: any, activeSuggest: any): void;
     onActivateSuggest?(suggest: Suggest): void;
     onSuggestNoResults?(userInput: string): void;
-    getSuggestLabel?(googleSuggest: google.maps.places.AutocompletePrediction): string;
-    renderSuggestItem?(googleSuggest: google.maps.places.AutocompletePrediction): any;
-    skipSuggest?(googleSuggest: google.maps.places.AutocompletePrediction): boolean;
+    getSuggestLabel?(
+        googleSuggest: google.maps.places.AutocompletePrediction
+    ): string;
+    renderSuggestItem?(
+        googleSuggest: google.maps.places.AutocompletePrediction
+    ): any;
+    skipSuggest?(
+        googleSuggest: google.maps.places.AutocompletePrediction
+    ): boolean;
     autoActivateFirstSuggest?: boolean;
     label?: string;
     suggestsClassName?: string;
@@ -65,12 +79,12 @@ export interface Styles {
     suggests?: Record<string, any>;
 }
 
-export type QueryType
-    = 'address'
-    | 'establishment'
-    | 'geocode'
-    | '(cities)'
-    | '(regions)';
+export type QueryType =
+    | "address"
+    | "establishment"
+    | "geocode"
+    | "(cities)"
+    | "(regions)";
 
 export interface Fixture {
     className?: string;
@@ -81,6 +95,6 @@ export interface Fixture {
 export interface Suggest {
     gmaps?: google.maps.GeocoderResult;
     label: string;
-    location: {lat: string, lng: string};
+    location: { lat: string; lng: string };
     placeId: string;
 }

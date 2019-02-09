@@ -45,7 +45,11 @@ interface InstabugStatic {
     setChatNotificationEnabled(enabled: boolean): void;
     getUnreadMessagesCount(callBack: (count: number) => void): void;
     setOnNewMessageHandler(callBacck: () => void): void;
-    setPromptOptionsEnabled(chat: boolean, bug: boolean, feedback: boolean): void;
+    setPromptOptionsEnabled(
+        chat: boolean,
+        bug: boolean,
+        feedback: boolean
+    ): void;
     setSurveysEnabled(enabled: boolean): void;
     setPostInvocationHandler(): void;
 }

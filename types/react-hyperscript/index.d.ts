@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ComponentClass, StatelessComponent, ReactElement } from 'react';
+import { ComponentClass, StatelessComponent, ReactElement } from "react";
 
 declare namespace h {}
 
@@ -15,7 +15,7 @@ declare function h(
     children?: ReadonlyArray<Element> | Element
 ): ReactElement<any>;
 
-declare function h<P extends {[attr: string]: any}>(
+declare function h<P extends { [attr: string]: any }>(
     componentOrTag: ComponentClass<P> | StatelessComponent<P> | string,
     properties: P,
     children?: ReadonlyArray<Element> | Element

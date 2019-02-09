@@ -4,26 +4,55 @@
 //                 cspotcode <https://github.com/cspotcode>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 /** Finds all instances of a specified executable in the PATH environment variable */
-declare function which(cmd: string, options: which.AsyncOptions & which.OptionsAll, cb: (err: Error | null, paths: Array<string> | undefined) => void): void;
+declare function which(
+    cmd: string,
+    options: which.AsyncOptions & which.OptionsAll,
+    cb: (err: Error | null, paths: Array<string> | undefined) => void
+): void;
 /** Finds the first instance of a specified executable in the PATH environment variable */
-declare function which(cmd: string, options: which.AsyncOptions & which.OptionsFirst, cb: (err: Error | null, path: string | undefined) => void): void;
+declare function which(
+    cmd: string,
+    options: which.AsyncOptions & which.OptionsFirst,
+    cb: (err: Error | null, path: string | undefined) => void
+): void;
 /** Finds the first instance of a specified executable in the PATH environment variable */
-declare function which(cmd: string, options: which.AsyncOptions, cb: (err: Error | null, path: string | Array<string> | undefined) => void): void;
+declare function which(
+    cmd: string,
+    options: which.AsyncOptions,
+    cb: (err: Error | null, path: string | Array<string> | undefined) => void
+): void;
 /** Finds the first instance of a specified executable in the PATH environment variable */
-declare function which(cmd: string, cb: (err: Error | null, path: string | undefined) => void): void;
+declare function which(
+    cmd: string,
+    cb: (err: Error | null, path: string | undefined) => void
+): void;
 declare namespace which {
     /** Finds all instances of a specified executable in the PATH environment variable */
-    function sync(cmd: string, options: which.Options & which.OptionsAll & which.OptionsNoThrow): Array<string> | null;
+    function sync(
+        cmd: string,
+        options: which.Options & which.OptionsAll & which.OptionsNoThrow
+    ): Array<string> | null;
     /** Finds the first instance of a specified executable in the PATH environment variable */
-    function sync(cmd: string, options: which.Options & which.OptionsFirst & which.OptionsNoThrow): string | null;
+    function sync(
+        cmd: string,
+        options: which.Options & which.OptionsFirst & which.OptionsNoThrow
+    ): string | null;
     /** Finds all instances of a specified executable in the PATH environment variable */
-    function sync(cmd: string, options: which.Options & which.OptionsAll & which.OptionsThrow): Array<string>;
+    function sync(
+        cmd: string,
+        options: which.Options & which.OptionsAll & which.OptionsThrow
+    ): Array<string>;
     /** Finds the first instance of a specified executable in the PATH environment variable */
-    function sync(cmd: string, options: which.Options & which.OptionsFirst & which.OptionsThrow): string;
+    function sync(
+        cmd: string,
+        options: which.Options & which.OptionsFirst & which.OptionsThrow
+    ): string;
     /** Finds the first instance of a specified executable in the PATH environment variable */
-    function sync(cmd: string, options: which.Options): string | Array<string> | null;
+    function sync(
+        cmd: string,
+        options: which.Options
+    ): string | Array<string> | null;
     /** Finds the first instance of a specified executable in the PATH environment variable */
     function sync(cmd: string): string;
 
@@ -56,7 +85,7 @@ declare namespace which {
         /** Use instead of the PATHEXT environment variable. */
         pathExt?: string;
     }
-    
+
     /** Options for which() sync and async APIs */
     interface Options extends AsyncOptions {
         /** If true, returns null when not found */

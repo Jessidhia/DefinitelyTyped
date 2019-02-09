@@ -7,7 +7,7 @@
 // TypeScript Version: 2.1
 
 type Keys = string;
-type State = {[k in Keys]: any};
+type State = { [k in Keys]: any };
 type Params = State;
 
 interface NavigoHooks {
@@ -22,7 +22,9 @@ interface GenericHooks {
     after?(params?: Params): void;
 }
 
-type RouteHandler = ((params: Params, query: string) => void) | { as: string; uses(params: Params, query: string): void };
+type RouteHandler =
+    | ((params: Params, query: string) => void)
+    | { as: string; uses(params: Params, query: string): void };
 
 declare class Navigo {
     /**
@@ -33,14 +35,18 @@ declare class Navigo {
     constructor(root?: string | null, useHash?: boolean, hash?: string);
 
     on(location: string, handler: RouteHandler, hooks?: NavigoHooks): Navigo;
-    on(location: RegExp, handler: (...parameters: string[]) => void, hooks?: NavigoHooks): Navigo;
+    on(
+        location: RegExp,
+        handler: (...parameters: string[]) => void,
+        hooks?: NavigoHooks
+    ): Navigo;
     on(routes: { [key: string]: RouteHandler }): Navigo;
 
     on(rootHandler: RouteHandler, hooks?: NavigoHooks): Navigo;
 
     off(location: string, handler: RouteHandler): void;
 
-    notFound(handler: ((query: string) => void), hooks?: NavigoHooks): void;
+    notFound(handler: (query: string) => void, hooks?: NavigoHooks): void;
 
     navigate(path: string, absolute?: boolean): void;
 
@@ -54,7 +60,13 @@ declare class Navigo {
 
     link(path: string): string;
 
-    lastRouteResolved(): {url: string, query: string, hooks: NavigoHooks, params?: Params, name?: string};
+    lastRouteResolved(): {
+        url: string;
+        query: string;
+        hooks: NavigoHooks;
+        params?: Params;
+        name?: string;
+    };
 
     disableIfAPINotAvailable(): void;
 

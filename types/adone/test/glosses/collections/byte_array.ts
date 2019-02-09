@@ -1,8 +1,6 @@
 namespace adoneTests.collection.ByteArray {
     const {
-        collection: {
-            ByteArray
-        }
+        collection: { ByteArray }
     } = adone;
 
     new ByteArray();
@@ -125,7 +123,9 @@ namespace adoneTests.collection.ByteArray {
         const a: adone.collection.ByteArray = buffer.write("1");
         const b: adone.collection.ByteArray = buffer.write(new ByteArray());
         const c: adone.collection.ByteArray = buffer.write(Buffer.alloc(10));
-        const d: adone.collection.ByteArray = buffer.write(new Uint8Array([1, 2, 3]));
+        const d: adone.collection.ByteArray = buffer.write(
+            new Uint8Array([1, 2, 3])
+        );
         const e: adone.collection.ByteArray = buffer.write(new ArrayBuffer(10));
         const f: adone.collection.ByteArray = buffer.write("1", 10);
         const g: adone.collection.ByteArray = buffer.write("1", 10, 10);
@@ -244,12 +244,14 @@ namespace adoneTests.collection.ByteArray {
 
     namespace readVarint32 {
         const a: number = buffer.readVarint32();
-        const b: { value: number, length: number } = buffer.readVarint32(10);
+        const b: { value: number; length: number } = buffer.readVarint32(10);
     }
 
     namespace readVarint32ZigZag {
         const a: number = buffer.readVarint32ZigZag();
-        const b: { value: number, length: number } = buffer.readVarint32ZigZag(10);
+        const b: { value: number; length: number } = buffer.readVarint32ZigZag(
+            10
+        );
     }
 
     namespace writeVarint64 {
@@ -264,12 +266,18 @@ namespace adoneTests.collection.ByteArray {
 
     namespace readVarint64 {
         const a: adone.math.Long = buffer.readVarint64();
-        const b: { value: adone.math.Long, length: number } = buffer.readVarint64(10);
+        const b: {
+            value: adone.math.Long;
+            length: number;
+        } = buffer.readVarint64(10);
     }
 
     namespace readVarint64ZigZag {
         const a: adone.math.Long = buffer.readVarint64ZigZag();
-        const b: { value: adone.math.Long, length: number } = buffer.readVarint64ZigZag(10);
+        const b: {
+            value: adone.math.Long;
+            length: number;
+        } = buffer.readVarint64ZigZag(10);
     }
 
     namespace writeCString {
@@ -279,7 +287,7 @@ namespace adoneTests.collection.ByteArray {
 
     namespace readCString {
         const a: string = buffer.readCString();
-        const b: { string: string, length: number } = buffer.readCString(10);
+        const b: { string: string; length: number } = buffer.readCString(10);
     }
 
     namespace writeString {
@@ -291,7 +299,11 @@ namespace adoneTests.collection.ByteArray {
         const a: string = buffer.readString(10);
         const b: string = buffer.readString(10, "b");
         const c: string = buffer.readString(10, "c");
-        const d: { string: string, length: number } = buffer.readString(10, "c", 10);
+        const d: { string: string; length: number } = buffer.readString(
+            10,
+            "c",
+            10
+        );
     }
 
     namespace writeVString {
@@ -301,12 +313,15 @@ namespace adoneTests.collection.ByteArray {
 
     namespace readVString {
         const a: string = buffer.readVString();
-        const b: { string: string, length: number } = buffer.readVString(10);
+        const b: { string: string; length: number } = buffer.readVString(10);
     }
 
     namespace appendTo {
         const a: adone.collection.ByteArray = buffer.appendTo(new ByteArray());
-        const b: adone.collection.ByteArray = buffer.appendTo(new ByteArray(), 10);
+        const b: adone.collection.ByteArray = buffer.appendTo(
+            new ByteArray(),
+            10
+        );
     }
 
     namespace assert {
@@ -336,8 +351,17 @@ namespace adoneTests.collection.ByteArray {
     namespace copyTo {
         const a: adone.collection.ByteArray = buffer.copyTo(new ByteArray());
         const b: adone.collection.ByteArray = buffer.copyTo(new ByteArray(), 0);
-        const c: adone.collection.ByteArray = buffer.copyTo(new ByteArray(), 0, 0);
-        const d: adone.collection.ByteArray = buffer.copyTo(new ByteArray(), 0, 0, 10);
+        const c: adone.collection.ByteArray = buffer.copyTo(
+            new ByteArray(),
+            0,
+            0
+        );
+        const d: adone.collection.ByteArray = buffer.copyTo(
+            new ByteArray(),
+            0,
+            0,
+            10
+        );
     }
 
     namespace ensureCapacity {
@@ -364,8 +388,12 @@ namespace adoneTests.collection.ByteArray {
         const a: adone.collection.ByteArray = buffer.prepend("");
         const b: adone.collection.ByteArray = buffer.prepend(new ByteArray());
         const c: adone.collection.ByteArray = buffer.prepend(Buffer.alloc(10));
-        const d: adone.collection.ByteArray = buffer.prepend(new Uint8Array([1, 2, 3]));
-        const e: adone.collection.ByteArray = buffer.prepend(new ArrayBuffer(10));
+        const d: adone.collection.ByteArray = buffer.prepend(
+            new Uint8Array([1, 2, 3])
+        );
+        const e: adone.collection.ByteArray = buffer.prepend(
+            new ArrayBuffer(10)
+        );
         const f: adone.collection.ByteArray = buffer.prepend("", "utf8");
         const g: adone.collection.ByteArray = buffer.prepend("", "utf8", 10);
         const h: adone.collection.ByteArray = buffer.prepend("", 10);
@@ -373,7 +401,10 @@ namespace adoneTests.collection.ByteArray {
 
     namespace prependTo {
         const a: adone.collection.ByteArray = buffer.prependTo(new ByteArray());
-        const b: adone.collection.ByteArray = buffer.prependTo(new ByteArray(), 10);
+        const b: adone.collection.ByteArray = buffer.prependTo(
+            new ByteArray(),
+            10
+        );
     }
 
     namespace remaining {
@@ -463,18 +494,25 @@ namespace adoneTests.collection.ByteArray {
                 new Uint8Array([1, 2, 3]),
                 new ArrayBuffer(10)
             ]);
-            const b: adone.collection.ByteArray = ByteArray.concat([
-                new ByteArray(),
-                Buffer.alloc(10),
-                new Uint8Array([1, 2, 3]),
-                new ArrayBuffer(10)
-            ], "utf8");
-            const c: adone.collection.ByteArray = ByteArray.concat([
-                new ByteArray(),
-                Buffer.alloc(10),
-                new Uint8Array([1, 2, 3]),
-                new ArrayBuffer(10)
-            ], "utf8", true);
+            const b: adone.collection.ByteArray = ByteArray.concat(
+                [
+                    new ByteArray(),
+                    Buffer.alloc(10),
+                    new Uint8Array([1, 2, 3]),
+                    new ArrayBuffer(10)
+                ],
+                "utf8"
+            );
+            const c: adone.collection.ByteArray = ByteArray.concat(
+                [
+                    new ByteArray(),
+                    Buffer.alloc(10),
+                    new Uint8Array([1, 2, 3]),
+                    new ArrayBuffer(10)
+                ],
+                "utf8",
+                true
+            );
         }
 
         namespace type {
@@ -483,12 +521,24 @@ namespace adoneTests.collection.ByteArray {
 
         namespace wrap {
             const a: adone.collection.ByteArray = ByteArray.wrap("");
-            const b: adone.collection.ByteArray = ByteArray.wrap(new ByteArray());
-            const c: adone.collection.ByteArray = ByteArray.wrap(Buffer.alloc(10));
-            const d: adone.collection.ByteArray = ByteArray.wrap(new Uint8Array([1, 2, 3]));
-            const e: adone.collection.ByteArray = ByteArray.wrap(new ArrayBuffer(10));
+            const b: adone.collection.ByteArray = ByteArray.wrap(
+                new ByteArray()
+            );
+            const c: adone.collection.ByteArray = ByteArray.wrap(
+                Buffer.alloc(10)
+            );
+            const d: adone.collection.ByteArray = ByteArray.wrap(
+                new Uint8Array([1, 2, 3])
+            );
+            const e: adone.collection.ByteArray = ByteArray.wrap(
+                new ArrayBuffer(10)
+            );
             const f: adone.collection.ByteArray = ByteArray.wrap("", "utf8");
-            const g: adone.collection.ByteArray = ByteArray.wrap("", "utf8", true);
+            const g: adone.collection.ByteArray = ByteArray.wrap(
+                "",
+                "utf8",
+                true
+            );
         }
 
         namespace calculateVarint32 {
@@ -511,13 +561,17 @@ namespace adoneTests.collection.ByteArray {
         namespace zigZagEncode64 {
             const a: adone.math.Long = ByteArray.zigZagEncode64(10);
             const b: adone.math.Long = ByteArray.zigZagEncode64("10");
-            const c: adone.math.Long = ByteArray.zigZagEncode64(adone.math.Long.fromValue(10));
+            const c: adone.math.Long = ByteArray.zigZagEncode64(
+                adone.math.Long.fromValue(10)
+            );
         }
 
         namespace zigZagDecode64 {
             const a: adone.math.Long = ByteArray.zigZagDecode64(10);
             const b: adone.math.Long = ByteArray.zigZagDecode64("10");
-            const c: adone.math.Long = ByteArray.zigZagDecode64(adone.math.Long.fromValue(10));
+            const c: adone.math.Long = ByteArray.zigZagDecode64(
+                adone.math.Long.fromValue(10)
+            );
         }
 
         namespace calculateUTF8Chars {
@@ -546,17 +600,26 @@ namespace adoneTests.collection.ByteArray {
 
         namespace fromDebug {
             const a: adone.collection.ByteArray = ByteArray.fromDebug("12");
-            const b: adone.collection.ByteArray = ByteArray.fromDebug("12", true);
+            const b: adone.collection.ByteArray = ByteArray.fromDebug(
+                "12",
+                true
+            );
         }
 
         namespace fromHex {
             const a: adone.collection.ByteArray = ByteArray.fromHex("192");
-            const b: adone.collection.ByteArray = ByteArray.fromHex("192", true);
+            const b: adone.collection.ByteArray = ByteArray.fromHex(
+                "192",
+                true
+            );
         }
 
         namespace fromUTF8 {
             const a: adone.collection.ByteArray = ByteArray.fromUTF8("123");
-            const b: adone.collection.ByteArray = ByteArray.fromUTF8("123", true);
+            const b: adone.collection.ByteArray = ByteArray.fromUTF8(
+                "123",
+                true
+            );
         }
 
         namespace constants {

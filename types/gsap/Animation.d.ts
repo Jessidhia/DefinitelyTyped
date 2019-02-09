@@ -30,7 +30,12 @@ declare namespace gsap {
          * parameters that should be passed to that callback.
          */
         eventCallback(type: string): () => void;
-        eventCallback(type: string, callback: () => void, params?: any[], scope?: any): Animation;
+        eventCallback(
+            type: string,
+            callback: () => void,
+            params?: any[],
+            scope?: any
+        ): Animation;
 
         /**
          * Clears any initialization data (like starting/ending values in tweens) which can be useful if, for example, you want to restart a tween without reverting to any previously recorded

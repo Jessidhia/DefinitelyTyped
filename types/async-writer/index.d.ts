@@ -5,9 +5,8 @@
 
 /// <reference types="node" />
 
-
-import stream = require('stream');
-import events = require('events');
+import stream = require("stream");
+import events = require("events");
 
 declare namespace async_writer {
     interface EventFunction {
@@ -40,7 +39,12 @@ declare namespace async_writer {
     class AsyncWriter {
         static enableAsyncStackTrace(): void;
 
-        constructor(writer?: any, global?: { [s: string]: any }, async?: boolean, buffer?: boolean);
+        constructor(
+            writer?: any,
+            global?: { [s: string]: any },
+            async?: boolean,
+            buffer?: boolean
+        );
         isAsyncWriter: AsyncWriter;
         sync(): void;
         getAttributes(): { [s: string]: any };
@@ -48,10 +52,17 @@ declare namespace async_writer {
         write(str: string): AsyncWriter;
         getOutput(): string;
         captureString(func: Function, thisObj: Object): string;
-        swapWriter(newWriter: StringWriter | BufferedWriter, func: Function, thisObj: Object): void;
+        swapWriter(
+            newWriter: StringWriter | BufferedWriter,
+            func: Function,
+            thisObj: Object
+        ): void;
         createNestedWriter(writer: StringWriter | BufferedWriter): AsyncWriter;
         beginAsync(options?: number | BeginAsyncOptions): AsyncWriter;
-        handleBeginAsync(options: number | BeginAsyncOptions, parent: AsyncWriter): void;
+        handleBeginAsync(
+            options: number | BeginAsyncOptions,
+            parent: AsyncWriter
+        ): void;
         on(event: string, callback: Function): AsyncWriter;
         once(event: string, callback: Function): AsyncWriter;
         onLast(callback: Function): AsyncWriter;

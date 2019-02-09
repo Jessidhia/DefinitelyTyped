@@ -14,17 +14,34 @@
 
 // TODO express type of Schema in a type-parameter (.default, .valid, .example etc)
 
-export type Types = 'any' | 'alternatives' | 'array' | 'boolean' | 'binary' | 'date' | 'function' | 'lazy' | 'number' | 'object' | 'string';
+export type Types =
+    | "any"
+    | "alternatives"
+    | "array"
+    | "boolean"
+    | "binary"
+    | "date"
+    | "function"
+    | "lazy"
+    | "number"
+    | "object"
+    | "string";
 
-export type LanguageOptions = string | boolean | null | {
-    [key: string]: LanguageOptions;
-};
+export type LanguageOptions =
+    | string
+    | boolean
+    | null
+    | {
+          [key: string]: LanguageOptions;
+      };
 
 export type LanguageRootOptions = {
     root?: string;
     key?: string;
-    messages?: { wrapArrays?: boolean; };
-} & Partial<Record<Types, LanguageOptions>> & { [key: string]: LanguageOptions; };
+    messages?: { wrapArrays?: boolean };
+} & Partial<Record<Types, LanguageOptions>> & {
+        [key: string]: LanguageOptions;
+    };
 
 export interface ValidationOptions {
     /**
@@ -58,7 +75,7 @@ export interface ValidationOptions {
     /**
      * sets the default presence requirements. Supported modes: 'optional', 'required', and 'forbidden'. Defaults to 'optional'.
      */
-    presence?: 'optional' | 'required' | 'forbidden';
+    presence?: "optional" | "required" | "forbidden";
     /**
      * provides an external data set to be used in references
      */
@@ -114,7 +131,7 @@ export interface IpOptions {
     cidr?: string;
 }
 
-export type GuidVersions = 'uuidv1' | 'uuidv2' | 'uuidv3' | 'uuidv4' | 'uuidv5';
+export type GuidVersions = "uuidv1" | "uuidv2" | "uuidv3" | "uuidv4" | "uuidv5";
 
 export interface GuidOptions {
     version: GuidVersions[] | GuidVersions;
@@ -183,7 +200,11 @@ export interface ValidationErrorItem {
 }
 
 export interface ValidationErrorFunction {
-    (errors: ValidationErrorItem[]): string | ValidationErrorItem | ValidationErrorItem[] | Error;
+    (errors: ValidationErrorItem[]):
+        | string
+        | ValidationErrorItem
+        | ValidationErrorItem[]
+        | Error;
 }
 
 export interface ValidationResult<T> {
@@ -191,13 +212,21 @@ export interface ValidationResult<T> {
     value: T;
 }
 
-export type SchemaLike = string | number | boolean | object | null | Schema | SchemaMap;
+export type SchemaLike =
+    | string
+    | number
+    | boolean
+    | object
+    | null
+    | Schema
+    | SchemaMap;
 
 export interface SchemaMap {
     [key: string]: SchemaLike | SchemaLike[];
 }
 
-export type Schema = AnySchema
+export type Schema =
+    | AnySchema
     | ArraySchema
     | AlternativesSchema
     | BinarySchema
@@ -215,8 +244,15 @@ export interface AnySchema extends JoiObject {
      */
     validate<T>(value: T): ValidationResult<T>;
     validate<T>(value: T, options: ValidationOptions): ValidationResult<T>;
-    validate<T, R>(value: T, callback: (err: ValidationError, value: T) => R): R;
-    validate<T, R>(value: T, options: ValidationOptions, callback: (err: ValidationError, value: T) => R): R;
+    validate<T, R>(
+        value: T,
+        callback: (err: ValidationError, value: T) => R
+    ): R;
+    validate<T, R>(
+        value: T,
+        options: ValidationOptions,
+        callback: (err: ValidationError, value: T) => R
+    ): R;
 
     /**
      * Whitelists a value
@@ -522,7 +558,7 @@ export interface StringSchema extends AnySchema {
      * Requires the string value to be in a unicode normalized form. If the validation convert option is on (enabled by default), the string will be normalized.
      * @param form - The unicode normalization form to use. Valid values: NFC [default], NFD, NFKC, NFKD
      */
-    normalize(form?: 'NFC' | 'NFD' | 'NFKC' | 'NFKD'): this;
+    normalize(form?: "NFC" | "NFD" | "NFKC" | "NFKD"): this;
 
     /**
      * Requires the number to be a credit card number (Using Lunh Algorithm).
@@ -855,7 +891,7 @@ export interface DateSchema extends AnySchema {
      * Requires the value to be a timestamp interval from Unix Time.
      * @param type - the type of timestamp (allowed values are unix or javascript [default])
      */
-    timestamp(type?: 'javascript' | 'unix'): this;
+    timestamp(type?: "javascript" | "unix"): this;
 }
 
 export interface FunctionSchema extends AnySchema {
@@ -891,8 +927,7 @@ export interface AlternativesSchema extends AnySchema {
     when(ref: Schema, options: WhenSchemaOptions): this;
 }
 
-export interface LazySchema extends AnySchema {
-}
+export interface LazySchema extends AnySchema {}
 
 export interface Reference extends JoiObject {
     (value: any, validationOptions: ValidationOptions): any;
@@ -911,14 +946,25 @@ export type ExtensionBoundSchema = Schema & {
      * @param state - should the context passed into the `validate` function in a custom rule
      * @param options - should the context passed into the `validate` function in a custom rule
      */
-    createError(type: string, context: Context, state: State, options: ValidationOptions): Err;
+    createError(
+        type: string,
+        context: Context,
+        state: State,
+        options: ValidationOptions
+    ): Err;
 };
 
 export interface Rules<P extends object = any> {
     name: string;
-    params?: ObjectSchema | {[key in keyof P]: SchemaLike; };
+    params?: ObjectSchema | { [key in keyof P]: SchemaLike };
     setup?(this: ExtensionBoundSchema, params: P): Schema | void;
-    validate?<R = any>(this: ExtensionBoundSchema, params: P, value: any, state: State, options: ValidationOptions): Err | R;
+    validate?<R = any>(
+        this: ExtensionBoundSchema,
+        params: P,
+        value: any,
+        state: State,
+        options: ValidationOptions
+    ): Err | R;
     description?: string | ((params: P) => string);
 }
 
@@ -926,8 +972,18 @@ export interface Extension {
     name: string;
     base?: Schema;
     language?: LanguageOptions;
-    coerce?<R = any>(this: ExtensionBoundSchema, value: any, state: State, options: ValidationOptions): Err | R;
-    pre?<R = any>(this: ExtensionBoundSchema, value: any, state: State, options: ValidationOptions): Err | R;
+    coerce?<R = any>(
+        this: ExtensionBoundSchema,
+        value: any,
+        state: State,
+        options: ValidationOptions
+    ): Err | R;
+    pre?<R = any>(
+        this: ExtensionBoundSchema,
+        value: any,
+        state: State,
+        options: ValidationOptions
+    ): Err | R;
     describe?(this: Schema, description: Description): Description;
     rules?: Rules[];
 }
@@ -1013,10 +1069,23 @@ export function lazy(cb: () => Schema): LazySchema;
  * Validates a value using the given schema and options.
  */
 export function validate<T>(value: T, schema: SchemaLike): ValidationResult<T>;
-export function validate<T, R>(value: T, schema: SchemaLike, callback: (err: ValidationError, value: T) => R): R;
+export function validate<T, R>(
+    value: T,
+    schema: SchemaLike,
+    callback: (err: ValidationError, value: T) => R
+): R;
 
-export function validate<T>(value: T, schema: SchemaLike, options: ValidationOptions): ValidationResult<T>;
-export function validate<T, R>(value: T, schema: SchemaLike, options: ValidationOptions, callback: (err: ValidationError, value: T) => R): R;
+export function validate<T>(
+    value: T,
+    schema: SchemaLike,
+    options: ValidationOptions
+): ValidationResult<T>;
+export function validate<T, R>(
+    value: T,
+    schema: SchemaLike,
+    options: ValidationOptions,
+    callback: (err: ValidationError, value: T) => R
+): R;
 
 /**
  * Converts literal schema definition to joi schema object (or returns the same back if already a joi schema object).
@@ -1031,7 +1100,11 @@ export function compile<T extends Schema>(schema: SchemaLike): T;
  * @param schema - the schema object.
  * @param message - optional message string prefix added in front of the error message. may also be an Error object.
  */
-export function assert(value: any, schema: SchemaLike, message?: string | Error): void;
+export function assert(
+    value: any,
+    schema: SchemaLike,
+    message?: string | Error
+): void;
 
 /**
  * Validates a value against a schema, returns valid object, and throws if validation fails where:
@@ -1040,7 +1113,11 @@ export function assert(value: any, schema: SchemaLike, message?: string | Error)
  * @param schema - the schema object.
  * @param message - optional message string prefix added in front of the error message. may also be an Error object.
  */
-export function attempt<T>(value: T, schema: SchemaLike, message?: string | Error): T;
+export function attempt<T>(
+    value: T,
+    schema: SchemaLike,
+    message?: string | Error
+): T;
 
 /**
  * Generates a reference to the value of the named key.
@@ -1170,7 +1247,10 @@ export function concat<T>(schema: T): T;
  */
 export function when(ref: string, options: WhenOptions): AlternativesSchema;
 export function when(ref: Reference, options: WhenOptions): AlternativesSchema;
-export function when(ref: Schema, options: WhenSchemaOptions): AlternativesSchema;
+export function when(
+    ref: Schema,
+    options: WhenSchemaOptions
+): AlternativesSchema;
 
 /**
  * Overrides the key name in error messages.

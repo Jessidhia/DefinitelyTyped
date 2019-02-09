@@ -4,9 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node" />
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
-declare function neatCsv(input: neatCsv.Input, options?: neatCsv.Options): Promise<neatCsv.Row[]>;
+declare function neatCsv(
+    input: neatCsv.Input,
+    options?: neatCsv.Options
+): Promise<neatCsv.Row[]>;
 
 declare namespace neatCsv {
     /** The CSV data to parse. */
@@ -17,7 +20,11 @@ declare namespace neatCsv {
         escape?: string;
         headers?: ReadonlyArray<string> | boolean;
         mapHeaders?: (args: { header: string; index: number }) => string | null;
-        mapValues?: (args: { header: string; index: number; value: any }) => any;
+        mapValues?: (args: {
+            header: string;
+            index: number;
+            value: any;
+        }) => any;
         newline?: string;
         quote?: string;
         raw?: boolean;

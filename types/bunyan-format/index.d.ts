@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { Writable } from 'stream';
+import { Writable } from "stream";
 
 declare namespace BunyanFormatWritable {
     interface ColorFromLevel {
@@ -14,7 +14,7 @@ declare namespace BunyanFormatWritable {
     }
 
     interface Options {
-        outputMode?: 'short' | 'long' | 'simple' | 'json' | 'bunyan';
+        outputMode?: "short" | "long" | "simple" | "json" | "bunyan";
         color?: boolean;
         colorFromLevel?: ColorFromLevel;
         levelInString?: boolean;

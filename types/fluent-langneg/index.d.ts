@@ -4,8 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface LanguageNegotiationOptions {
-    strategy?: 'filtering' | 'matching' | 'lookup';
+    strategy?: "filtering" | "matching" | "lookup";
     defaultLocale?: string;
 }
 
-export function negotiateLanguages(requestedLocales: ReadonlyArray<string>, availableLocales: ReadonlyArray<string>, options?: LanguageNegotiationOptions): string[];
+export function negotiateLanguages(
+    requestedLocales: ReadonlyArray<string>,
+    availableLocales: ReadonlyArray<string>,
+    options?: LanguageNegotiationOptions
+): string[];

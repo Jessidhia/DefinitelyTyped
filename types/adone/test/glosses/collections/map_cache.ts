@@ -1,8 +1,6 @@
 namespace adoneTests.collection.MapCache {
     const {
-        collection: {
-            MapCache
-        }
+        collection: { MapCache }
     } = adone;
 
     new MapCache();

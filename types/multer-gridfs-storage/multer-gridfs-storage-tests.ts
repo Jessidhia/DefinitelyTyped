@@ -1,29 +1,29 @@
-import MulterGridfsStorage = require('multer-gridfs-storage');
-import { Db, MongoClient, Server } from 'mongodb';
-import * as mongoose from 'mongoose';
+import MulterGridfsStorage = require("multer-gridfs-storage");
+import { Db, MongoClient, Server } from "mongodb";
+import * as mongoose from "mongoose";
 
 // Exported interfaces
 const conf: MulterGridfsStorage.FileConfig = {
-    filename: 'name',
-    bucketName: 'plants'
+    filename: "name",
+    bucketName: "plants"
 };
 
 // Connection promise
-const dbPromise = MongoClient.connect('mongodb://yourhost:27017/database');
+const dbPromise = MongoClient.connect("mongodb://yourhost:27017/database");
 // Mongoose promise
-const mongoosePromise = mongoose.connect('mongodb://yourhost:27017/database');
+const mongoosePromise = mongoose.connect("mongodb://yourhost:27017/database");
 const mgConnectionPromise = mongoose
-    .connect('mongodb://yourhost:27017/database')
+    .connect("mongodb://yourhost:27017/database")
     .then(instance => instance.connection);
 
-const server = new Server('localhost', 27017);
-const db = new Db('database', server);
+const server = new Server("localhost", 27017);
+const db = new Db("database", server);
 
 // Database instance
 const opt1: MulterGridfsStorage.DbStorageOptions = {
     db,
     file: (req, file) => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
             resolve({
                 filename: file.originalname
             });
@@ -54,7 +54,7 @@ const mgConnectionStorage = new MulterGridfsStorage(opt3);
 
 // Url based instance
 const opt4: MulterGridfsStorage.UrlStorageOptions = {
-    url: 'mongodb://yourhost:27017/database',
+    url: "mongodb://yourhost:27017/database",
     options: {},
     file: (req, file) => {
         return {
@@ -67,26 +67,24 @@ const urlFileStorage = new MulterGridfsStorage(opt4);
 
 // Cache
 const opt5: MulterGridfsStorage.UrlStorageOptions = {
-    url: 'mongodb://yourhost:27017/database',
-    cache: 'cache'
+    url: "mongodb://yourhost:27017/database",
+    cache: "cache"
 };
 
 const cachedStorage = new MulterGridfsStorage(opt5);
 
 // Other properties are optional
-const promiseStorage = new MulterGridfsStorage({db: dbPromise});
+const promiseStorage = new MulterGridfsStorage({ db: dbPromise });
 
-const dbStorage = new MulterGridfsStorage({db});
+const dbStorage = new MulterGridfsStorage({ db });
 
 const urlStorage = new MulterGridfsStorage({
-    url: 'mongodb://yourhost:27017/database'
+    url: "mongodb://yourhost:27017/database"
 });
 
 // Extends event emitter
-promiseStorage.on('connection', () => {
-});
-urlStorage.addListener('conection', () => {
-});
-dbStorage.removeAllListeners('conection');
+promiseStorage.on("connection", () => {});
+urlStorage.addListener("conection", () => {});
+dbStorage.removeAllListeners("conection");
 
 MulterGridfsStorage.cache.connections();

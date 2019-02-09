@@ -1,4 +1,4 @@
-import buble from 'rollup-plugin-buble';
+import buble from "rollup-plugin-buble";
 
 // No options (default)
 (() => {
@@ -12,7 +12,7 @@ import buble from 'rollup-plugin-buble';
     buble({
         target: {
             chrome: 71,
-            firefox: 64,
+            firefox: 64
         },
         objectAssign: true,
         transforms: {
@@ -36,7 +36,7 @@ import buble from 'rollup-plugin-buble';
             spreadRest: false,
             stickyRegExp: true,
             templateString: false,
-            unicodeRegExp: true,
+            unicodeRegExp: true
         }
     });
 })();
@@ -45,13 +45,13 @@ import buble from 'rollup-plugin-buble';
 (() => {
     // $ExpectType Plugin
     buble({
-        include: '*.js',
-        exclude: '*.js',
+        include: "*.js",
+        exclude: "*.js"
     });
 
     // $ExpectType Plugin
     buble({
         include: /.js$/,
-        exclude: ['foo.js', 'bar.js'],
+        exclude: ["foo.js", "bar.js"]
     });
 })();

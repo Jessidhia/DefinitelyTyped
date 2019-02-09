@@ -20,13 +20,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCLineRippleFoundation from './foundation';
-import MDCLineRippleAdapter from './adapter';
+import MDCComponent from "material__base/component";
+import MDCLineRippleFoundation from "./foundation";
+import MDCLineRippleAdapter from "./adapter";
 
 export { MDCLineRippleFoundation, MDCLineRippleAdapter };
 
-export class MDCLineRipple extends MDCComponent<MDCLineRippleAdapter, MDCLineRippleFoundation> {
+export class MDCLineRipple extends MDCComponent<
+    MDCLineRippleAdapter,
+    MDCLineRippleFoundation
+> {
     static attachTo(root: Element): MDCLineRipple;
 
     /**

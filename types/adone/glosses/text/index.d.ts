@@ -32,7 +32,11 @@ declare namespace adone {
 
         function splitLines(str: string): string[];
 
-        function regExpIndexOf(str: string, regex: RegExp, index?: number): string;
+        function regExpIndexOf(
+            str: string,
+            regex: RegExp,
+            index?: number
+        ): string;
 
         function stripAnsi(str: string): string;
 
@@ -50,12 +54,28 @@ declare namespace adone {
             }
         }
 
-        function wordwrap(str: string, stop: number, options: I.WordWrapOptions & { join: false}): string[];
-        function wordwrap(str: string, stop: number, options?: I.WordWrapOptions): string;
+        function wordwrap(
+            str: string,
+            stop: number,
+            options: I.WordWrapOptions & { join: false }
+        ): string[];
+        function wordwrap(
+            str: string,
+            stop: number,
+            options?: I.WordWrapOptions
+        ): string;
 
-        function stringDistance(strA: string, strB: string, memo?: number[][]): number;
+        function stringDistance(
+            strA: string,
+            strB: string,
+            memo?: number[][]
+        ): number;
 
-        function stringDistanceCapped(strA: string, strB: string, cap: number): number;
+        function stringDistanceCapped(
+            strA: string,
+            strB: string,
+            cap: number
+        ): number;
 
         function capitalize(str: string): string;
 

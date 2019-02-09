@@ -3,7 +3,14 @@
 // Definitions by: ChartMogul <https://github.com/chartmogul>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import { Map, Cursor, CursorParams, Strings, Entries, EntriesSummary } from './common';
+import {
+    Map,
+    Cursor,
+    CursorParams,
+    Strings,
+    Entries,
+    EntriesSummary
+} from "./common";
 
 export class Config {
     VERSION: string;
@@ -38,7 +45,10 @@ export namespace DataSource {
     function create(config: Config, data: DataSource): Promise<DataSource>;
     function retrieve(config: Config, uuid: string): Promise<DataSource>;
     function destroy(config: Config, uuid: string): Promise<{}>;
-    function all(config: Config, params?: ListDataSourcesParams): Promise<DataSources>;
+    function all(
+        config: Config,
+        params?: ListDataSourcesParams
+    ): Promise<DataSources>;
 }
 
 export namespace Customer {
@@ -52,7 +62,7 @@ export namespace Customer {
         name?: string;
         email?: string;
         status?: string;
-        ['customer-since']?: string;
+        ["customer-since"]?: string;
         attributes?: Attributes;
         address?: {
             address_zip?: string;
@@ -62,11 +72,11 @@ export namespace Customer {
         };
         mrr?: number;
         arr?: number;
-        ['billing-system-url']?: string;
-        ['chartmogul-url']?: string;
-        ['billing-system-type']?: string;
+        ["billing-system-url"]?: string;
+        ["chartmogul-url"]?: string;
+        ["billing-system-type"]?: string;
         currency?: string;
-        ['currency-sign']?: string;
+        ["currency-sign"]?: string;
         company?: string;
         country?: string;
         state?: string;
@@ -137,10 +147,20 @@ export namespace Customer {
 
     function create(config: Config, data: NewCustomer): Promise<Customer>;
     function retrieve(config: Config, uuid: string): Promise<Customer>;
-    function modify(config: Config, uuid: string, data: UpdateCustomer): Promise<Customer>;
+    function modify(
+        config: Config,
+        uuid: string,
+        data: UpdateCustomer
+    ): Promise<Customer>;
     function destroy(config: Config, uuid: string): Promise<{}>;
-    function all(config: Config, params?: ListCustomersParams): Promise<Entries<Customer>>;
-    function search(config: Config, params?: SearchCustomersParams): Promise<Entries<Customer>>;
+    function all(
+        config: Config,
+        params?: ListCustomersParams
+    ): Promise<Entries<Customer>>;
+    function search(
+        config: Config,
+        params?: SearchCustomersParams
+    ): Promise<Entries<Customer>>;
     function merge(config: Config, params?: MergeCustomersParams): Promise<{}>;
     function attributes(config: Config, uuid: string): Promise<Attributes>;
 }
@@ -209,7 +229,7 @@ export namespace Invoice {
         result?: string;
         type?: string;
     }
-    interface ListInvoicesParams  extends CursorParams {
+    interface ListInvoicesParams extends CursorParams {
         data_source_uuid?: string;
         customer_uuid?: string;
         external_id?: string;
@@ -219,13 +239,24 @@ export namespace Invoice {
         invoices: Invoice[];
     }
 
-    function create(config: Config, uuid: string, data: {
-        invoices: Invoice[]
-    }): Promise<Invoice>;
+    function create(
+        config: Config,
+        uuid: string,
+        data: {
+            invoices: Invoice[];
+        }
+    ): Promise<Invoice>;
     function retrieve(config: Config, uuid: string): Promise<Invoice>;
     function destroy(config: Config, uuid: string): Promise<{}>;
-    function all(config: Config, uuid: string, params?: ListInvoicesParams): Promise<Invoices>;
-    function all(config: Config, params?: ListInvoicesParams): Promise<Invoices>;
+    function all(
+        config: Config,
+        uuid: string,
+        params?: ListInvoicesParams
+    ): Promise<Invoices>;
+    function all(
+        config: Config,
+        params?: ListInvoicesParams
+    ): Promise<Invoices>;
 }
 
 export namespace Transaction {
@@ -237,7 +268,11 @@ export namespace Transaction {
         type: string;
     }
 
-    function create(config: Config, uuid: string, data: Transaction): Promise<Transaction>;
+    function create(
+        config: Config,
+        uuid: string,
+        data: Transaction
+    ): Promise<Transaction>;
 }
 
 export namespace Subscription {
@@ -258,8 +293,16 @@ export namespace Subscription {
         subscriptions: Subscription[];
     }
 
-    function all(config: Config, uuid: string, data: CursorParams): Promise<Subscriptions>;
-    function cancel(config: Config, uuid: string, data: CancelSubscriptionParams): Promise<Subscription>;
+    function all(
+        config: Config,
+        uuid: string,
+        data: CursorParams
+    ): Promise<Subscriptions>;
+    function cancel(
+        config: Config,
+        uuid: string,
+        data: CancelSubscriptionParams
+    ): Promise<Subscription>;
 }
 
 export namespace Tag {
@@ -270,7 +313,11 @@ export namespace Tag {
         email: string;
         tags: Strings;
     }
-    function add(config: Config, uuid: string, data: TagsWithEmail): Promise<Entries<Customer.Customer>>;
+    function add(
+        config: Config,
+        uuid: string,
+        data: TagsWithEmail
+    ): Promise<Entries<Customer.Customer>>;
     function add(config: Config, uuid: string, data: Tags): Promise<Tags>;
     function remove(config: Config, uuid: string, data: Tags): Promise<Tags>;
 }
@@ -281,17 +328,33 @@ export namespace CustomAttribute {
     interface CustomAttributes {
         custom: Map;
     }
-    function add(config: Config, uuid: string, data: {
-        email: string;
-        custom: NewCustomAttributes[];
-    }): Promise<Entries<Customer.Customer>>;
-    function add(config: Config, uuid: string, data: {
-        custom: NewCustomAttributes[];
-    }): Promise<CustomAttributes>;
-    function update(config: Config, uuid: string, data: CustomAttributes): Promise<CustomAttributes>;
-    function remove(config: Config, uuid: string, data: {
-        custom: Strings;
-    }): Promise<CustomAttributes>;
+    function add(
+        config: Config,
+        uuid: string,
+        data: {
+            email: string;
+            custom: NewCustomAttributes[];
+        }
+    ): Promise<Entries<Customer.Customer>>;
+    function add(
+        config: Config,
+        uuid: string,
+        data: {
+            custom: NewCustomAttributes[];
+        }
+    ): Promise<CustomAttributes>;
+    function update(
+        config: Config,
+        uuid: string,
+        data: CustomAttributes
+    ): Promise<CustomAttributes>;
+    function remove(
+        config: Config,
+        uuid: string,
+        data: {
+            custom: Strings;
+        }
+    ): Promise<CustomAttributes>;
 }
 
 export namespace Metrics {
@@ -299,16 +362,16 @@ export namespace Metrics {
         interval?: string;
     }
     interface ParamsNoInterval {
-        ['start-date']: string;
-        ['end-date']: string;
+        ["start-date"]: string;
+        ["end-date"]: string;
         geo?: string;
         plans?: string;
     }
     interface All {
         entries: {
             date: string;
-            ['customer-churn-rate']: number;
-            ['mrr-churn-rate']: number;
+            ["customer-churn-rate"]: number;
+            ["mrr-churn-rate"]: number;
             ltv: number;
             customers: number;
             asp: number;
@@ -321,11 +384,11 @@ export namespace Metrics {
     interface MRR {
         date: string;
         mrr: number;
-        ['mrr-new-business']: number;
-        ['mrr-expansion']: number;
-        ['mrr-contraction']: number;
-        ['mrr-churn']: number;
-        ['mrr-reactivation']: number;
+        ["mrr-new-business"]: number;
+        ["mrr-expansion"]: number;
+        ["mrr-contraction"]: number;
+        ["mrr-churn"]: number;
+        ["mrr-reactivation"]: number;
     }
     interface ARR {
         date: string;
@@ -345,11 +408,11 @@ export namespace Metrics {
     }
     interface CustomerChurnRate {
         date: string;
-        ['customer-churn-rate']: number;
+        ["customer-churn-rate"]: number;
     }
     interface MRRChurnRate {
         date: string;
-        ['mrr-churn-rate']: number;
+        ["mrr-churn-rate"]: number;
     }
     interface LTV {
         date: string;
@@ -360,11 +423,26 @@ export namespace Metrics {
     function mrr(config: Config, params: Params): Promise<EntriesSummary<MRR>>;
     function arr(config: Config, params: Params): Promise<EntriesSummary<ARR>>;
     function asp(config: Config, params: Params): Promise<EntriesSummary<ASP>>;
-    function arpa(config: Config, params: Params): Promise<EntriesSummary<ARPA>>;
-    function customerCount(config: Config, params: Params): Promise<EntriesSummary<CustomerCount>>;
-    function customerChurnRate(config: Config, params: ParamsNoInterval): Promise<EntriesSummary<CustomerChurnRate>>;
-    function mrrChurnRate(config: Config, params: ParamsNoInterval): Promise<EntriesSummary<MRRChurnRate>>;
-    function ltv(config: Config, params: ParamsNoInterval): Promise<EntriesSummary<LTV>>;
+    function arpa(
+        config: Config,
+        params: Params
+    ): Promise<EntriesSummary<ARPA>>;
+    function customerCount(
+        config: Config,
+        params: Params
+    ): Promise<EntriesSummary<CustomerCount>>;
+    function customerChurnRate(
+        config: Config,
+        params: ParamsNoInterval
+    ): Promise<EntriesSummary<CustomerChurnRate>>;
+    function mrrChurnRate(
+        config: Config,
+        params: ParamsNoInterval
+    ): Promise<EntriesSummary<MRRChurnRate>>;
+    function ltv(
+        config: Config,
+        params: ParamsNoInterval
+    ): Promise<EntriesSummary<LTV>>;
 
     namespace Customer {
         interface MetricsSubscription {
@@ -375,27 +453,35 @@ export namespace Metrics {
             mrr: number;
             arr: number;
             status: string;
-            ['billing-cycle']: string;
-            ['billing-cycle-count']: number;
-            ['start-date']: string;
-            ['end-date']: string;
+            ["billing-cycle"]: string;
+            ["billing-cycle-count"]: number;
+            ["start-date"]: string;
+            ["end-date"]: string;
             currency: string;
-            ['currency-sign']: string;
+            ["currency-sign"]: string;
         }
         interface MetricsActivity {
             id: number;
             date: string;
-            ['activity-arr']: number;
-            ['activity-mrr']: number;
-            ['activity-mrr-movement']: number;
+            ["activity-arr"]: number;
+            ["activity-mrr"]: number;
+            ["activity-mrr-movement"]: number;
             currency: string;
-            ['currency-sign']: string;
+            ["currency-sign"]: string;
             description: string;
             type: string;
         }
 
-        function subscriptions(config: Config, uuid: string, params?: CursorParams): Promise<Entries<MetricsSubscription>>;
-        function activities(config: Config, uuid: string, params?: CursorParams): Promise<Entries<MetricsActivity>>;
+        function subscriptions(
+            config: Config,
+            uuid: string,
+            params?: CursorParams
+        ): Promise<Entries<MetricsSubscription>>;
+        function activities(
+            config: Config,
+            uuid: string,
+            params?: CursorParams
+        ): Promise<Entries<MetricsActivity>>;
     }
 }
 

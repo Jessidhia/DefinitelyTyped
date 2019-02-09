@@ -52,10 +52,10 @@ declare namespace koaSession {
     const MemoryStore: SessionStore;
 }
 
-declare module 'koa' {
+declare module "koa" {
     interface Context {
-        session: koaSession.Session|null;
-        sessionSave: boolean|null;
+        session: koaSession.Session | null;
+        sessionSave: boolean | null;
         regenerateSession(): Generator;
     }
 }

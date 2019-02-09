@@ -10,7 +10,11 @@
  * @param tickCount        The count of ticks
  * @param allowDecimals    Allow the ticks to be decimals or not - defaults to true
  */
-export function getTickValues(domain: [number, number], tickCount?: number, allowDecimals?: boolean): number[];
+export function getTickValues(
+    domain: [number, number],
+    tickCount?: number,
+    allowDecimals?: boolean
+): number[];
 
 /**
  * Calculate the ticks of an interval
@@ -18,7 +22,11 @@ export function getTickValues(domain: [number, number], tickCount?: number, allo
  * @param tickCount        The count of ticks
  * @param allowDecimals    Allow the ticks to be decimals or not - defaults to true
  */
-export function getNiceTickValues(domain: [number, number], tickCount?: number, allowDecimals?: boolean): number[];
+export function getNiceTickValues(
+    domain: [number, number],
+    tickCount?: number,
+    allowDecimals?: boolean
+): number[];
 
 /**
  * Calculate the ticks of an interval
@@ -26,4 +34,8 @@ export function getNiceTickValues(domain: [number, number], tickCount?: number, 
  * @param tickCount        The count of ticks
  * @param allowDecimals    Allow the ticks to be decimals or not - defaults to true
  */
-export function getTickValuesFixedDomain(domain: [number, number], tickCount?: number, allowDecimals?: boolean): number[];
+export function getTickValuesFixedDomain(
+    domain: [number, number],
+    tickCount?: number,
+    allowDecimals?: boolean
+): number[];

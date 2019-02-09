@@ -30,7 +30,7 @@ interface MediaRecorderOptions {
     bitsPerSecond?: number;
 }
 
-type RecordingState = 'inactive' | 'recording' | 'paused';
+type RecordingState = "inactive" | "recording" | "paused";
 
 declare class MediaRecorder extends EventTarget {
     readonly stream: MediaStream;

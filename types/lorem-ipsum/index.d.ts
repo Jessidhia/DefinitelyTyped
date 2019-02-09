@@ -12,7 +12,7 @@ interface LoremIpsumOptions {
     /**
      * Generate words, sentences, or paragraphs.
      */
-    units?: 'words' | 'sentences' | 'paragraphs';
+    units?: "words" | "sentences" | "paragraphs";
 
     /**
      * Minimum words per sentence.
@@ -37,7 +37,7 @@ interface LoremIpsumOptions {
     /**
      * Plain text or html.
      */
-    format?: 'plain' | 'html';
+    format?: "plain" | "html";
 
     /**
      * Custom word dictionary.

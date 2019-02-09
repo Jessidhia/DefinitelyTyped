@@ -17,5 +17,7 @@ declare namespace s3Stream {
     }
 }
 
-declare function s3Stream(options: s3Stream.S3StreamDownloaderOptions): Readable;
+declare function s3Stream(
+    options: s3Stream.S3StreamDownloaderOptions
+): Readable;
 export = s3Stream;

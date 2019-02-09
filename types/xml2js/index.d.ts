@@ -9,15 +9,22 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node"/>
-import { EventEmitter } from 'events';
-import * as processors from './lib/processors';
+import { EventEmitter } from "events";
+import * as processors from "./lib/processors";
 
-export function parseString(xml: convertableToString, callback: (err: any, result: any) => void): void;
-export function parseString(xml: convertableToString, options: OptionsV2, callback: (err: any, result: any) => void): void;
+export function parseString(
+    xml: convertableToString,
+    callback: (err: any, result: any) => void
+): void;
+export function parseString(
+    xml: convertableToString,
+    options: OptionsV2,
+    callback: (err: any, result: any) => void
+): void;
 
 export const defaults: {
-    '0.1': Options;
-    '0.2': OptionsV2;
+    "0.1": Options;
+    "0.2": OptionsV2;
 };
 
 export class Builder {

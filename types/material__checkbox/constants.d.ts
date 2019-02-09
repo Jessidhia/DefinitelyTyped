@@ -14,29 +14,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    UPGRADED: 'mdc-checkbox--upgraded';
-    CHECKED: 'mdc-checkbox--checked';
-    INDETERMINATE: 'mdc-checkbox--indeterminate';
-    DISABLED: 'mdc-checkbox--disabled';
-    ANIM_UNCHECKED_CHECKED: 'mdc-checkbox--anim-unchecked-checked';
-    ANIM_UNCHECKED_INDETERMINATE: 'mdc-checkbox--anim-unchecked-indeterminate';
-    ANIM_CHECKED_UNCHECKED: 'mdc-checkbox--anim-checked-unchecked';
-    ANIM_CHECKED_INDETERMINATE: 'mdc-checkbox--anim-checked-indeterminate';
-    ANIM_INDETERMINATE_CHECKED: 'mdc-checkbox--anim-indeterminate-checked';
-    ANIM_INDETERMINATE_UNCHECKED: 'mdc-checkbox--anim-indeterminate-unchecked';
+    UPGRADED: "mdc-checkbox--upgraded";
+    CHECKED: "mdc-checkbox--checked";
+    INDETERMINATE: "mdc-checkbox--indeterminate";
+    DISABLED: "mdc-checkbox--disabled";
+    ANIM_UNCHECKED_CHECKED: "mdc-checkbox--anim-unchecked-checked";
+    ANIM_UNCHECKED_INDETERMINATE: "mdc-checkbox--anim-unchecked-indeterminate";
+    ANIM_CHECKED_UNCHECKED: "mdc-checkbox--anim-checked-unchecked";
+    ANIM_CHECKED_INDETERMINATE: "mdc-checkbox--anim-checked-indeterminate";
+    ANIM_INDETERMINATE_CHECKED: "mdc-checkbox--anim-indeterminate-checked";
+    ANIM_INDETERMINATE_UNCHECKED: "mdc-checkbox--anim-indeterminate-unchecked";
 }
 
 export interface strings extends MDCStrings {
-    NATIVE_CONTROL_SELECTOR: '.mdc-checkbox__native-control';
-    TRANSITION_STATE_INIT: 'init';
-    TRANSITION_STATE_CHECKED: 'checked';
-    TRANSITION_STATE_UNCHECKED: 'unchecked';
-    TRANSITION_STATE_INDETERMINATE: 'indeterminate';
-    ARIA_CHECKED_ATTR: 'aria-checked';
-    ARIA_CHECKED_INDETERMINATE_VALUE: 'mixed';
+    NATIVE_CONTROL_SELECTOR: ".mdc-checkbox__native-control";
+    TRANSITION_STATE_INIT: "init";
+    TRANSITION_STATE_CHECKED: "checked";
+    TRANSITION_STATE_UNCHECKED: "unchecked";
+    TRANSITION_STATE_INDETERMINATE: "indeterminate";
+    ARIA_CHECKED_ATTR: "aria-checked";
+    ARIA_CHECKED_INDETERMINATE_VALUE: "mixed";
 }
 
 export interface numbers extends MDCNumbers {

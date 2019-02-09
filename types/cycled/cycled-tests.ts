@@ -1,4 +1,4 @@
-import Cycled = require('cycled');
+import Cycled = require("cycled");
 
 const cycled = new Cycled([1, 2, 3]);
 // $ExpectType Cycled<number>

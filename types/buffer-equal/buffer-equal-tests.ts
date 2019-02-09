@@ -1,5 +1,4 @@
-
-import bufferEqual = require('buffer-equal');
+import bufferEqual = require("buffer-equal");
 
 var bool: boolean;
 var buf: Buffer;

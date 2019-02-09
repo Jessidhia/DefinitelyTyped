@@ -72,7 +72,7 @@ export interface CookieSerializeOptions {
      * - `'strict'` will set the `SameSite` attribute to Strict for strict same
      * site enforcement.
      */
-    sameSite?: boolean | 'lax' | 'strict';
+    sameSite?: boolean | "lax" | "strict";
     /**
      * Specifies the boolean value for the `Secure` `Set-Cookie` attribute. When
      * truthy, the `Secure` attribute is set, otherwise it is not. By default,
@@ -108,7 +108,10 @@ export interface CookieParseOptions {
  * @param str the string representing a `Cookie` header value
  * @param options object containing parsing options
  */
-export function parse(str: string, options?: CookieParseOptions): { [key: string]: string };
+export function parse(
+    str: string,
+    options?: CookieParseOptions
+): { [key: string]: string };
 
 /**
  * Serialize a cookie name-value pair into a `Set-Cookie` header string.
@@ -117,4 +120,8 @@ export function parse(str: string, options?: CookieParseOptions): { [key: string
  * @param val value to set the cookie to
  * @param options object containing serialization options
  */
-export function serialize(name: string, val: string, options?: CookieSerializeOptions): string;
+export function serialize(
+    name: string,
+    val: string,
+    options?: CookieSerializeOptions
+): string;

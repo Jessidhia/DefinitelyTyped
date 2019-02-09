@@ -53,7 +53,9 @@ export class Delaunay<P> {
     /**
      * Returns the Delaunay triangulation for the given array or iterable of points where each point is an array in the form: [x, y].
      */
-    static from(points: ArrayLike<Delaunay.Point>|Iterable<Delaunay.Point>): Delaunay<Delaunay.Point>;
+    static from(
+        points: ArrayLike<Delaunay.Point> | Iterable<Delaunay.Point>
+    ): Delaunay<Delaunay.Point>;
 
     /**
      * Returns the Delaunay triangulation for the given array or iterable of points.
@@ -61,10 +63,12 @@ export class Delaunay<P> {
      * If that is specified, the functions getX and getY are invoked with that as this.
      * (See Array.from for reference.)
      */
-    static from<P>(points: ArrayLike<P>|Iterable<P>,
-        getX: Delaunay.GetCoordinate<P, ArrayLike<P>|Iterable<P>>,
-        getY: Delaunay.GetCoordinate<P, ArrayLike<P>|Iterable<P>>,
-        that?: any): Delaunay<P>;
+    static from<P>(
+        points: ArrayLike<P> | Iterable<P>,
+        getX: Delaunay.GetCoordinate<P, ArrayLike<P> | Iterable<P>>,
+        getY: Delaunay.GetCoordinate<P, ArrayLike<P> | Iterable<P>>,
+        that?: any
+    ): Delaunay<P>;
 
     /**
      * Returns the index of the input point that is closest to the specified point ⟨x, y⟩.
@@ -124,7 +128,12 @@ export class Delaunay<P> {
      * Renders triangle i of the Delaunay triangulation to the specified context.
      * The specified context must implement the context.moveTo, context.lineTo and context.closePath methods from the CanvasPathMethods API.
      */
-    renderTriangle(i: number, context: Delaunay.MoveContext & Delaunay.LineContext & Delaunay.ClosableContext): void;
+    renderTriangle(
+        i: number,
+        context: Delaunay.MoveContext &
+            Delaunay.LineContext &
+            Delaunay.ClosableContext
+    ): void;
 
     /**
      * Renders the input points of the Delaunay triangulation to an SVG path string as circles with radius 2.
@@ -141,7 +150,10 @@ export class Delaunay<P> {
      * If radius is not specified, it defaults to 2.
      * The specified context must implement the context.moveTo and context.arc methods from the CanvasPathMethods API.
      */
-    renderPoints(context: Delaunay.MoveContext & Delaunay.ArcContext, radius?: number): void;
+    renderPoints(
+        context: Delaunay.MoveContext & Delaunay.ArcContext,
+        radius?: number
+    ): void;
 
     /**
      * Returns the Voronoi diagram for the associated points.
@@ -255,9 +267,14 @@ export namespace Delaunay {
         /**
          * arc() method of the CanvasPathMethods API.
          */
-        arc(x: number, y: number, radius: number,
-            startAngle: number, endAngle: number,
-            counterclockwise?: boolean): void;
+        arc(
+            x: number,
+            y: number,
+            radius: number,
+            startAngle: number,
+            endAngle: number,
+            counterclockwise?: boolean
+        ): void;
     }
 
     /**
@@ -355,5 +372,10 @@ export class Voronoi<P> {
      * Renders the cell with the specified index i to the specified context.
      * The specified context must implement the context.moveTo, context.lineTo, and context.closePath methods from the CanvasPathMethods API.
      */
-    renderCell(i: number, context: Delaunay.MoveContext & Delaunay.LineContext & Delaunay.ClosableContext): void;
+    renderCell(
+        i: number,
+        context: Delaunay.MoveContext &
+            Delaunay.LineContext &
+            Delaunay.ClosableContext
+    ): void;
 }

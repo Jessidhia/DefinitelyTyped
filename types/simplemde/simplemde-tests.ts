@@ -1,12 +1,13 @@
 function testSimplemde() {
-
     function customMarkdownParser(markdown: string) {
         return "<div>" + markdown + "</div>";
     }
 
     function testInit() {
         var simplemde1 = new SimpleMDE();
-        var simplemde2 = new SimpleMDE({ element: document.getElementById("MyID") });
+        var simplemde2 = new SimpleMDE({
+            element: document.getElementById("MyID")
+        });
     }
 
     function testAccessValue() {
@@ -39,7 +40,10 @@ function testSimplemde() {
                 horizontalRule: ["", "\n\n-----\n\n"],
                 image: ["![](http://", ")"],
                 link: ["[", "](http://)"],
-                table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"]
+                table: [
+                    "",
+                    "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"
+                ]
             },
             lineWrapping: false,
             parsingConfig: {
@@ -48,7 +52,7 @@ function testSimplemde() {
                 underscoresBreakWords: true
             },
             placeholder: "Type here...",
-            previewRender: function (plainText) {
+            previewRender: function(plainText) {
                 return customMarkdownParser(plainText); // Returns HTML from a custom parser
             },
             promptURLs: true,
@@ -70,8 +74,9 @@ function testSimplemde() {
         });
 
         simplemde = new SimpleMDE({
-            previewRender: function (plainText, preview) { // Async method
-                setTimeout(function () {
+            previewRender: function(plainText, preview) {
+                // Async method
+                setTimeout(function() {
                     preview.innerHTML = customMarkdownParser(plainText);
                 }, 250);
 
@@ -81,16 +86,22 @@ function testSimplemde() {
         });
 
         simplemde = new SimpleMDE({
-            status: ["autosave", "lines", "words", "cursor", {
-                className: "keystrokes",
-                defaultValue: function (el) {
-                    this.keystrokes = 0;
-                    el.innerHTML = "0 Keystrokes";
-                },
-                onUpdate: function (el) {
-                    el.innerHTML = ++this.keystrokes + " Keystrokes";
+            status: [
+                "autosave",
+                "lines",
+                "words",
+                "cursor",
+                {
+                    className: "keystrokes",
+                    defaultValue: function(el) {
+                        this.keystrokes = 0;
+                        el.innerHTML = "0 Keystrokes";
+                    },
+                    onUpdate: function(el) {
+                        el.innerHTML = ++this.keystrokes + " Keystrokes";
+                    }
                 }
-            }] // Another optional usage, with a custom status bar item that counts keystrokes
+            ] // Another optional usage, with a custom status bar item that counts keystrokes
         });
     }
 
@@ -104,12 +115,13 @@ function testSimplemde() {
 
         // Customize all information and/or add your own icons
         simplemde = new SimpleMDE({
-            toolbar: [{
-                name: "bold",
-                action: SimpleMDE.toggleBold,
-                className: "fa fa-bold",
-                title: "Bold"
-            },
+            toolbar: [
+                {
+                    name: "bold",
+                    action: SimpleMDE.toggleBold,
+                    className: "fa fa-bold",
+                    title: "Bold"
+                },
                 {
                     name: "custom",
                     action: function customFunction(editor) {
@@ -126,16 +138,16 @@ function testSimplemde() {
     function testKeyboardShortcuts() {
         var simplemde = new SimpleMDE({
             shortcuts: {
-                "toggleOrderedList": "Ctrl-Alt-K", // alter the shortcut for toggleOrderedList
-                "toggleCodeBlock": null, // unbind Ctrl-Alt-C
-                "drawTable": "Cmd-Alt-T" // bind Cmd-Alt-T to drawTable action, which doesn't come with a default shortcut
+                toggleOrderedList: "Ctrl-Alt-K", // alter the shortcut for toggleOrderedList
+                toggleCodeBlock: null, // unbind Ctrl-Alt-C
+                drawTable: "Cmd-Alt-T" // bind Cmd-Alt-T to drawTable action, which doesn't come with a default shortcut
             }
         });
     }
 
     function testEventHandling() {
         var simplemde = new SimpleMDE();
-        simplemde.codemirror.on("change", function () {
+        simplemde.codemirror.on("change", function() {
             console.log(simplemde.value());
         });
     }

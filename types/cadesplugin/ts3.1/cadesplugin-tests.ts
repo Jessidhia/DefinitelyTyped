@@ -7,6 +7,9 @@ cadesplugin.then(async () => {
     }
     if ("CreateObject" in cadesplugin) {
         const pluginSync: CADESPluginSync = cadesplugin;
-        pluginSync.CreateObject("CAdESCOM.About").CSPVersion().toString();
+        pluginSync
+            .CreateObject("CAdESCOM.About")
+            .CSPVersion()
+            .toString();
     }
 });

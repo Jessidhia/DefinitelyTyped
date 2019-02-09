@@ -1,7 +1,7 @@
-import isArchive = require('is-archive');
+import isArchive = require("is-archive");
 
-isArchive('src/unicorn.zip');
+isArchive("src/unicorn.zip");
 // => true
 
-isArchive('src/unicorn.txt');
+isArchive("src/unicorn.txt");
 // => false

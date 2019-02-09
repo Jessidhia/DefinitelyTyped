@@ -5,7 +5,10 @@
 
 export = cleanStack;
 
-declare function cleanStack(stack: string, options?: cleanStack.Options): string;
+declare function cleanStack(
+    stack: string,
+    options?: cleanStack.Options
+): string;
 
 declare namespace cleanStack {
     interface Options {

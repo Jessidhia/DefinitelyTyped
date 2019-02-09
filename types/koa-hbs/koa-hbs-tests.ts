@@ -1,10 +1,10 @@
-import Koa = require('koa');
+import Koa = require("koa");
 import hbs = require("koa-hbs");
-import * as Path from 'path';
+import * as Path from "path";
 
 const app = new Koa();
 
-hbs.registerHelper('link', (text: string, url: string) => {
+hbs.registerHelper("link", (text: string, url: string) => {
     text = hbs.Utils.escapeExpression(text);
     url = hbs.Utils.escapeExpression(url);
 
@@ -13,13 +13,15 @@ hbs.registerHelper('link', (text: string, url: string) => {
     return new hbs.SafeString(result);
 });
 
-app.use(hbs.middleware({
-    viewPath: Path.join(__dirname, './views')
-}));
+app.use(
+    hbs.middleware({
+        viewPath: Path.join(__dirname, "./views")
+    })
+);
 
 app.use(async (ctx, next) => {
-    await ctx.render('index', {
-        title: 'Hello World!'
+    await ctx.render("index", {
+        title: "Hello World!"
     });
 });
 

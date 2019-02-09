@@ -1,5 +1,3 @@
-
-
 interface Dependency {
     dependencies?: string;
 }
@@ -8,10 +6,10 @@ function doTest(test: (ctx: any, ...obj: Dependency[]) => void) {
     // create di context
     var ctx = di.createContext(),
         A: Dependency = {
-            dependencies: "b, c",
+            dependencies: "b, c"
         },
         B: Dependency = {
-            dependencies: "c",
+            dependencies: "c"
         },
         C: Dependency = {};
 
@@ -66,7 +64,7 @@ namespace PrototypeStrategy {
 }
 
 namespace PassingConstructorArguments {
-    class ProfileView { }
+    class ProfileView {}
 
     doTest(ctx => {
         ctx.register("str", String, "hello world"); // signle simple argument
@@ -100,7 +98,9 @@ namespace FunctionalObject {
             },
             spec: any = [];
 
-        ctx.register("funcObjSingleton", FuncObject, spec).factory(di.factory.func);
+        ctx.register("funcObjSingleton", FuncObject, spec).factory(
+            di.factory.func
+        );
 
         // function chaining can be used to customize your object registration
         ctx.register("funcObjProto", FuncObject, spec)
@@ -116,8 +116,7 @@ namespace FunctionalObject {
 
 namespace RuntimeDependenciesOverride {
     doTest((ctx, A) => {
-        ctx.register("a", A)
-            .dependencies("bee=b"); // dependencies specified here will take precedence
+        ctx.register("a", A).dependencies("bee=b"); // dependencies specified here will take precedence
         ctx.get("a").bee === ctx.get("b"); // true
     });
 }

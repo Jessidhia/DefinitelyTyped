@@ -18,7 +18,9 @@ export = FileType;
  * - ext - One of the [supported file types](https://github.com/sindresorhus/file-type/blob/master/readme.md#supported-file-types)
  * - mime - The [MIME type](http://en.wikipedia.org/wiki/Internet_media_type)
  */
-declare function FileType(buf: Buffer | Uint8Array): FileType.FileTypeResult | null;
+declare function FileType(
+    buf: Buffer | Uint8Array
+): FileType.FileTypeResult | null;
 
 declare namespace FileType {
     interface FileTypeResult {

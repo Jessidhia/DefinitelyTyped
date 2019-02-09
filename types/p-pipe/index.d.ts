@@ -8,9 +8,15 @@ export = pPipe;
 
 // tslint:disable:no-unnecessary-generics
 declare function pPipe<T1, R>(...args: Tasks1<T1, R>): PromiseTask<T1, R>;
-declare function pPipe<T1, T2, R>(...args: Tasks2<T1, T2, R>): PromiseTask<T1, R>;
-declare function pPipe<T1, T2, T3, R>(...args: Tasks3<T1, T2, T3, R>): PromiseTask<T1, R>;
-declare function pPipe<T1, T2, T3, T4, R>(...args: Tasks4<T1, T2, T3, T4, R>): PromiseTask<T1, R>;
+declare function pPipe<T1, T2, R>(
+    ...args: Tasks2<T1, T2, R>
+): PromiseTask<T1, R>;
+declare function pPipe<T1, T2, T3, R>(
+    ...args: Tasks3<T1, T2, T3, R>
+): PromiseTask<T1, R>;
+declare function pPipe<T1, T2, T3, T4, R>(
+    ...args: Tasks4<T1, T2, T3, T4, R>
+): PromiseTask<T1, R>;
 declare function pPipe<T1, T2, T3, T4, T5, R>(
     ...args: Tasks5<T1, T2, T3, T4, T5, R>
 ): PromiseTask<T1, R>;
@@ -27,8 +33,12 @@ declare function pPipe(...args: Array<Task<any, any>>): PromiseTask<any, any>;
 
 declare function pPipe<T1, R>(tasks: Tasks1<T1, R>): PromiseTask<T1, R>;
 declare function pPipe<T1, T2, R>(tasks: Tasks2<T1, T2, R>): PromiseTask<T1, R>;
-declare function pPipe<T1, T2, T3, R>(tasks: Tasks3<T1, T2, T3, R>): PromiseTask<T1, R>;
-declare function pPipe<T1, T2, T3, T4, R>(tasks: Tasks4<T1, T2, T3, T4, R>): PromiseTask<T1, R>;
+declare function pPipe<T1, T2, T3, R>(
+    tasks: Tasks3<T1, T2, T3, R>
+): PromiseTask<T1, R>;
+declare function pPipe<T1, T2, T3, T4, R>(
+    tasks: Tasks4<T1, T2, T3, T4, R>
+): PromiseTask<T1, R>;
 declare function pPipe<T1, T2, T3, T4, T5, R>(
     tasks: Tasks5<T1, T2, T3, T4, T5, R>
 ): PromiseTask<T1, R>;
@@ -46,7 +56,12 @@ declare function pPipe(tasks: Array<Task<any, any>>): PromiseTask<any, any>;
 type Tasks1<T1, R> = [PromiseTask<T1, R>];
 type Tasks2<T1, T2, R> = [Task<T1, T2>, Task<T2, R>];
 type Tasks3<T1, T2, T3, R> = [Task<T1, T2>, Task<T2, T3>, Task<T3, R>];
-type Tasks4<T1, T2, T3, T4, R> = [Task<T1, T2>, Task<T2, T3>, Task<T3, T4>, Task<T4, R>];
+type Tasks4<T1, T2, T3, T4, R> = [
+    Task<T1, T2>,
+    Task<T2, T3>,
+    Task<T3, T4>,
+    Task<T4, R>
+];
 type Tasks5<T1, T2, T3, T4, T5, R> = [
     Task<T1, T2>,
     Task<T2, T3>,

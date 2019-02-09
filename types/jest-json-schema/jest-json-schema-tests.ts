@@ -1,13 +1,13 @@
-import { matchers } from 'jest-json-schema';
+import { matchers } from "jest-json-schema";
 
 expect.extend(matchers);
 
-it('validates my json', () => {
+it("validates my json", () => {
     const schema = {
         properties: {
-            hello: { type: 'string' },
+            hello: { type: "string" }
         },
-        required: ['hello'],
+        required: ["hello"]
     };
-    expect({ hello: 'world' }).toMatchSchema(schema);
+    expect({ hello: "world" }).toMatchSchema(schema);
 });

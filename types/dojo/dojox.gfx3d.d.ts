@@ -3,11 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
-
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx3d.html
      *
@@ -15,15 +11,14 @@ declare namespace dojox {
      * this module.
      *
      */
-    interface gfx3d {
-    }
+    interface gfx3d {}
     namespace gfx3d {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx3d/object.html
          *
          *
          */
-        const object: { new(): objectInstance };
+        const object: { new (): objectInstance };
         interface objectInstance {
             /**
              * multiplies the existing matrix with an argument on left side
@@ -186,7 +181,15 @@ declare namespace dojox {
              * @param to from position in radians
              * @param matrix the cumulative transformation matrix
              */
-            gradient(model: dojox.gfx3d.lighting.Model, material: Object, center: Object, radius: number, from: number, to: number, matrix: Object): Object;
+            gradient(
+                model: dojox.gfx3d.lighting.Model,
+                material: Object,
+                center: Object,
+                radius: number,
+                from: number,
+                to: number,
+                matrix: Object
+            ): Object;
             /**
              * a 3D matrix object
              * Normalizes a 3D matrix-like object. If arrays is passed,
@@ -242,14 +245,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -335,14 +342,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -421,14 +432,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -515,14 +530,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -602,14 +621,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -695,14 +718,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -782,14 +809,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -884,14 +915,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -979,14 +1014,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -1093,14 +1132,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx.shape.Shape.applyRightTransform
                  *
@@ -1114,7 +1157,11 @@ declare namespace dojox {
                  * @param rawObject properties to be passed in to the classes "setShape" method
                  * @param style
                  */
-                create3DObject(objectType: Function, rawObject: Object, style: any): any;
+                create3DObject(
+                    objectType: Function,
+                    rawObject: Object,
+                    style: any
+                ): any;
                 /**
                  * creates an cube object
                  *
@@ -1296,14 +1343,18 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx3d.matrix.Matrix3Dconstructor for a list of acceptable arguments)
                  */
-                applyCameraLeftTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyCameraLeftTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * multiplies the existing matrix with an argument on right side
                  * (this.matrix * matrix)
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx3d.matrix.Matrix3Dconstructor for a list of acceptable arguments)
                  */
-                applyCameraRightTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                applyCameraRightTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * a shortcut for dojox.gfx3d.Object.applyRightTransform
                  *
@@ -1323,7 +1374,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -1357,7 +1410,11 @@ declare namespace dojox {
                  * @param rawObject properties to be passed in to the classes "setShape" method
                  * @param style
                  */
-                create3DObject(objectType: Function, rawObject: Object, style: any): any;
+                create3DObject(
+                    objectType: Function,
+                    rawObject: Object,
+                    style: any
+                ): any;
                 /**
                  * creates a circle shape
                  *
@@ -1609,7 +1666,10 @@ declare namespace dojox {
                  * @param shape the shape to remove
                  * @param silently if true, do not redraw a picture yet
                  */
-                remove(shape: dojox.gfx.shape.Shape, silently: boolean): Function;
+                remove(
+                    shape: dojox.gfx.shape.Shape,
+                    silently: boolean
+                ): Function;
                 /**
                  * removes the shape from its parent's list of shapes
                  *
@@ -1626,7 +1686,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox.gfx.matrix.Matrixconstructor for a list of acceptable arguments)
                  */
-                setCameraTransform(matrix: dojox.gfx3d.matrix.Matrix3D): Function;
+                setCameraTransform(
+                    matrix: dojox.gfx3d.matrix.Matrix3D
+                ): Function;
                 /**
                  * sets the clipping area of this shape.
                  * The clipping area defines the shape area that will be effectively visible. Everything that
@@ -1670,7 +1732,11 @@ declare namespace dojox {
                  * @param ambient               Optionalan ambient object
                  * @param specular               Optionalan specular object
                  */
-                setLights(lights: any[], ambient: dojo._base.Color, specular: dojo._base.Color): Function;
+                setLights(
+                    lights: any[],
+                    ambient: dojo._base.Color,
+                    specular: dojo._base.Color
+                ): Function;
                 /**
                  *
                  * @param scheduler
@@ -1724,7 +1790,11 @@ declare namespace dojox {
                  * @param rawObject properties to be passed in to the classes "setShape" method
                  * @param style
                  */
-                create3DObject(objectType: Function, rawObject: Object, style: any): any;
+                create3DObject(
+                    objectType: Function,
+                    rawObject: Object,
+                    style: any
+                ): any;
                 /**
                  * creates an cube object
                  *
@@ -2222,7 +2292,12 @@ declare namespace dojox {
                  * @param b               Optionala y coordinate of a point
                  * @param c               Optionala z coordinate of a point
                  */
-                multiplyPoint(matrix: Object, a: number, b: number, c: number): any;
+                multiplyPoint(
+                    matrix: Object,
+                    a: number,
+                    b: number,
+                    c: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2231,7 +2306,12 @@ declare namespace dojox {
                  * @param b               Optionala y coordinate of a point
                  * @param c               Optionala z coordinate of a point
                  */
-                multiplyPoint(matrix: Object, a: Object, b: number, c: number): any;
+                multiplyPoint(
+                    matrix: Object,
+                    a: Object,
+                    b: number,
+                    c: number
+                ): any;
                 /**
                  * converts an object to a matrix, if necessary
                  * Converts any 3D matrix-like object or an array of
@@ -2257,7 +2337,12 @@ declare namespace dojox {
                  * @param b               Optionala y coordinate of a point
                  * @param c               Optionala z coordinate of a point
                  */
-                project(matrix: Object, a: dojox.geo.openlayers.Point, b: number, c: number): any;
+                project(
+                    matrix: Object,
+                    a: dojox.geo.openlayers.Point,
+                    b: number,
+                    c: number
+                ): any;
                 /**
                  * forms a rotating matrix (about the x axis)
                  * The resulting matrix is used to rotate points
@@ -2401,7 +2486,14 @@ declare namespace dojox {
                  * @param e y coordinate of second point
                  * @param f z coordinate of second point
                  */
-                crossProduct(a: number, b: number, c: number, d: number, e: number, f: number): any;
+                crossProduct(
+                    a: number,
+                    b: number,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2412,7 +2504,14 @@ declare namespace dojox {
                  * @param e y coordinate of second point
                  * @param f z coordinate of second point
                  */
-                crossProduct(a: dojox.geo.openlayers.Point, b: number, c: number, d: number, e: number, f: number): any;
+                crossProduct(
+                    a: dojox.geo.openlayers.Point,
+                    b: number,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2423,7 +2522,14 @@ declare namespace dojox {
                  * @param e y coordinate of second point
                  * @param f z coordinate of second point
                  */
-                crossProduct(a: number, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+                crossProduct(
+                    a: number,
+                    b: dojox.geo.openlayers.Point,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2434,7 +2540,14 @@ declare namespace dojox {
                  * @param e y coordinate of second point
                  * @param f z coordinate of second point
                  */
-                crossProduct(a: dojox.geo.openlayers.Point, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+                crossProduct(
+                    a: dojox.geo.openlayers.Point,
+                    b: dojox.geo.openlayers.Point,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2445,7 +2558,14 @@ declare namespace dojox {
                  * @param e               Optionaly coordinate of second point
                  * @param f               Optionalz coordinate of second point
                  */
-                dotProduct(a: number, b: number, c: number, d: number, e: number, f: number): any;
+                dotProduct(
+                    a: number,
+                    b: number,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2456,7 +2576,14 @@ declare namespace dojox {
                  * @param e               Optionaly coordinate of second point
                  * @param f               Optionalz coordinate of second point
                  */
-                dotProduct(a: dojox.geo.openlayers.Point, b: number, c: number, d: number, e: number, f: number): any;
+                dotProduct(
+                    a: dojox.geo.openlayers.Point,
+                    b: number,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2467,7 +2594,14 @@ declare namespace dojox {
                  * @param e               Optionaly coordinate of second point
                  * @param f               Optionalz coordinate of second point
                  */
-                dotProduct(a: number, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+                dotProduct(
+                    a: number,
+                    b: dojox.geo.openlayers.Point,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * applies a matrix to a point
                  *
@@ -2478,7 +2612,14 @@ declare namespace dojox {
                  * @param e               Optionaly coordinate of second point
                  * @param f               Optionalz coordinate of second point
                  */
-                dotProduct(a: dojox.geo.openlayers.Point, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+                dotProduct(
+                    a: dojox.geo.openlayers.Point,
+                    b: dojox.geo.openlayers.Point,
+                    c: number,
+                    d: number,
+                    e: number,
+                    f: number
+                ): any;
                 /**
                  * find the normal of the implicit surface
                  *
@@ -2619,7 +2760,14 @@ declare namespace dojox {
              * @param e y coordinate of second point
              * @param f z coordinate of second point
              */
-            crossProduct(a: number, b: number, c: number, d: number, e: number, f: number): any;
+            crossProduct(
+                a: number,
+                b: number,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2630,7 +2778,14 @@ declare namespace dojox {
              * @param e y coordinate of second point
              * @param f z coordinate of second point
              */
-            crossProduct(a: dojox.geo.openlayers.Point, b: number, c: number, d: number, e: number, f: number): any;
+            crossProduct(
+                a: dojox.geo.openlayers.Point,
+                b: number,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2641,7 +2796,14 @@ declare namespace dojox {
              * @param e y coordinate of second point
              * @param f z coordinate of second point
              */
-            crossProduct(a: number, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+            crossProduct(
+                a: number,
+                b: dojox.geo.openlayers.Point,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2652,7 +2814,14 @@ declare namespace dojox {
              * @param e y coordinate of second point
              * @param f z coordinate of second point
              */
-            crossProduct(a: dojox.geo.openlayers.Point, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+            crossProduct(
+                a: dojox.geo.openlayers.Point,
+                b: dojox.geo.openlayers.Point,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2663,7 +2832,14 @@ declare namespace dojox {
              * @param e               Optionaly coordinate of second point
              * @param f               Optionalz coordinate of second point
              */
-            dotProduct(a: number, b: number, c: number, d: number, e: number, f: number): any;
+            dotProduct(
+                a: number,
+                b: number,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2674,7 +2850,14 @@ declare namespace dojox {
              * @param e               Optionaly coordinate of second point
              * @param f               Optionalz coordinate of second point
              */
-            dotProduct(a: dojox.geo.openlayers.Point, b: number, c: number, d: number, e: number, f: number): any;
+            dotProduct(
+                a: dojox.geo.openlayers.Point,
+                b: number,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2685,7 +2868,14 @@ declare namespace dojox {
              * @param e               Optionaly coordinate of second point
              * @param f               Optionalz coordinate of second point
              */
-            dotProduct(a: number, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+            dotProduct(
+                a: number,
+                b: dojox.geo.openlayers.Point,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * applies a matrix to a point
              *
@@ -2696,7 +2886,14 @@ declare namespace dojox {
              * @param e               Optionaly coordinate of second point
              * @param f               Optionalz coordinate of second point
              */
-            dotProduct(a: dojox.geo.openlayers.Point, b: dojox.geo.openlayers.Point, c: number, d: number, e: number, f: number): any;
+            dotProduct(
+                a: dojox.geo.openlayers.Point,
+                b: dojox.geo.openlayers.Point,
+                c: number,
+                d: number,
+                e: number,
+                f: number
+            ): any;
             /**
              * find the normal of the implicit surface
              *
@@ -2869,7 +3066,12 @@ declare namespace dojox {
              * @param specular
              */
             class Model {
-                constructor(incident: any, lights: any, ambient: any, specular: any);
+                constructor(
+                    incident: any,
+                    lights: any,
+                    ambient: any,
+                    specular: any
+                );
                 /**
                  *
                  * @param normal
@@ -3109,7 +3311,12 @@ declare namespace dojox {
              * @param b               Optionala y coordinate of a point
              * @param c               Optionala z coordinate of a point
              */
-            project(matrix: Object, a: dojox.geo.openlayers.Point, b: number, c: number): any;
+            project(
+                matrix: Object,
+                a: dojox.geo.openlayers.Point,
+                b: number,
+                c: number
+            ): any;
             /**
              * forms a rotating matrix (about the x axis)
              * The resulting matrix is used to rotate points
@@ -3223,168 +3430,175 @@ declare namespace dojox {
          * @param to from position in radians
          * @param matrix the cumulative transformation matrix
          */
-        interface gradient { (model: dojox.gfx3d.lighting.Model, material: Object, center: Object, radius: number, from: number, to: number, matrix: Object): void }
+        interface gradient {
+            (
+                model: dojox.gfx3d.lighting.Model,
+                material: Object,
+                center: Object,
+                radius: number,
+                from: number,
+                to: number,
+                matrix: Object
+            ): void;
+        }
         namespace gradient {
             /**
              * tolerable difference in colors between gradient steps
              *
              */
-            var tolerance: number
+            var tolerance: number;
         }
-
     }
-
 }
 declare module "dojox/gfx3d" {
-    var exp: dojox.gfx3d
-    export=exp;
+    var exp: dojox.gfx3d;
+    export = exp;
 }
 declare module "dojox/gfx3d/object" {
     var exp: dojox.gfx3d.objectInstance;
-    export=exp;
+    export = exp;
 }
 declare module "dojox/gfx3d/gradient" {
-    var exp: dojox.gfx3d.gradient
-    export=exp;
+    var exp: dojox.gfx3d.gradient;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base" {
-    var exp: dojox.gfx3d._base
-    export=exp;
+    var exp: dojox.gfx3d._base;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Cube" {
-    var exp: dojox.gfx3d._base.Cube
-    export=exp;
+    var exp: dojox.gfx3d._base.Cube;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Cylinder" {
-    var exp: dojox.gfx3d._base.Cylinder
-    export=exp;
+    var exp: dojox.gfx3d._base.Cylinder;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Edges" {
-    var exp: dojox.gfx3d._base.Edges
-    export=exp;
+    var exp: dojox.gfx3d._base.Edges;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Polygon" {
-    var exp: dojox.gfx3d._base.Polygon
-    export=exp;
+    var exp: dojox.gfx3d._base.Polygon;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Orbit" {
-    var exp: dojox.gfx3d._base.Orbit
-    export=exp;
+    var exp: dojox.gfx3d._base.Orbit;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Object" {
-    var exp: dojox.gfx3d._base.Object
-    export=exp;
+    var exp: dojox.gfx3d._base.Object;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Path3d" {
-    var exp: dojox.gfx3d._base.Path3d
-    export=exp;
+    var exp: dojox.gfx3d._base.Path3d;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Quads" {
-    var exp: dojox.gfx3d._base.Quads
-    export=exp;
+    var exp: dojox.gfx3d._base.Quads;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Triangles" {
-    var exp: dojox.gfx3d._base.Triangles
-    export=exp;
+    var exp: dojox.gfx3d._base.Triangles;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Scene" {
-    var exp: dojox.gfx3d._base.Scene
-    export=exp;
+    var exp: dojox.gfx3d._base.Scene;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.Viewport" {
-    var exp: dojox.gfx3d._base.Viewport
-    export=exp;
+    var exp: dojox.gfx3d._base.Viewport;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base._creators" {
-    var exp: dojox.gfx3d._base._creators
-    export=exp;
+    var exp: dojox.gfx3d._base._creators;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultCube" {
-    var exp: dojox.gfx3d._base.defaultCube
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultCube;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultEdges" {
-    var exp: dojox.gfx3d._base.defaultEdges
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultEdges;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultOrbit" {
-    var exp: dojox.gfx3d._base.defaultOrbit
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultOrbit;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultCylinder" {
-    var exp: dojox.gfx3d._base.defaultCylinder
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultCylinder;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultPath3d" {
-    var exp: dojox.gfx3d._base.defaultPath3d
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultPath3d;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultPolygon" {
-    var exp: dojox.gfx3d._base.defaultPolygon
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultPolygon;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultQuads" {
-    var exp: dojox.gfx3d._base.defaultQuads
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultQuads;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.defaultTriangles" {
-    var exp: dojox.gfx3d._base.defaultTriangles
-    export=exp;
+    var exp: dojox.gfx3d._base.defaultTriangles;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.drawer" {
-    var exp: dojox.gfx3d._base.drawer
-    export=exp;
+    var exp: dojox.gfx3d._base.drawer;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.lighting" {
-    var exp: dojox.gfx3d._base.lighting
-    export=exp;
+    var exp: dojox.gfx3d._base.lighting;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.scheduler" {
-    var exp: dojox.gfx3d._base.scheduler
-    export=exp;
+    var exp: dojox.gfx3d._base.scheduler;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.matrix" {
-    var exp: dojox.gfx3d._base.matrix
-    export=exp;
+    var exp: dojox.gfx3d._base.matrix;
+    export = exp;
 }
 declare module "dojox/gfx3d/_base.vector" {
-    var exp: dojox.gfx3d._base.vector
-    export=exp;
+    var exp: dojox.gfx3d._base.vector;
+    export = exp;
 }
 declare module "dojox/gfx3d/scheduler" {
-    var exp: dojox.gfx3d.scheduler
-    export=exp;
+    var exp: dojox.gfx3d.scheduler;
+    export = exp;
 }
 declare module "dojox/gfx3d/scheduler.BinarySearchTree" {
-    var exp: dojox.gfx3d.scheduler.BinarySearchTree
-    export=exp;
+    var exp: dojox.gfx3d.scheduler.BinarySearchTree;
+    export = exp;
 }
 declare module "dojox/gfx3d/scheduler.drawer" {
-    var exp: dojox.gfx3d.scheduler.drawer
-    export=exp;
+    var exp: dojox.gfx3d.scheduler.drawer;
+    export = exp;
 }
 declare module "dojox/gfx3d/scheduler.scheduler" {
-    var exp: dojox.gfx3d.scheduler.scheduler
-    export=exp;
+    var exp: dojox.gfx3d.scheduler.scheduler;
+    export = exp;
 }
 declare module "dojox/gfx3d/lighting" {
-    var exp: dojox.gfx3d.lighting
-    export=exp;
+    var exp: dojox.gfx3d.lighting;
+    export = exp;
 }
 declare module "dojox/gfx3d/lighting.Model" {
-    var exp: dojox.gfx3d.lighting.Model
-    export=exp;
+    var exp: dojox.gfx3d.lighting.Model;
+    export = exp;
 }
 declare module "dojox/gfx3d/lighting.finish" {
-    var exp: dojox.gfx3d.lighting.finish
-    export=exp;
+    var exp: dojox.gfx3d.lighting.finish;
+    export = exp;
 }
 declare module "dojox/gfx3d/vector" {
-    var exp: dojox.gfx3d.vector
-    export=exp;
+    var exp: dojox.gfx3d.vector;
+    export = exp;
 }
 declare module "dojox/gfx3d/matrix" {
-    var exp: dojox.gfx3d.matrix
-    export=exp;
+    var exp: dojox.gfx3d.matrix;
+    export = exp;
 }
-

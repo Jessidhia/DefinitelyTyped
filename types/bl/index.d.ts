@@ -6,22 +6,40 @@
 
 /// <reference types="node" />
 
-
-import stream = require('stream');
+import stream = require("stream");
 
 declare class BufferList extends stream.Duplex {
-    constructor(callbackOrData?: ((err: Error, buffer: Buffer) => void) | Buffer | Buffer[] | BufferList | BufferList[] | string);
+    constructor(
+        callbackOrData?:
+            | ((err: Error, buffer: Buffer) => void)
+            | Buffer
+            | Buffer[]
+            | BufferList
+            | BufferList[]
+            | string
+    );
 
     length: number;
-    append(buffer: Buffer | Buffer[] | BufferList | BufferList[] | string): void;
+    append(
+        buffer: Buffer | Buffer[] | BufferList | BufferList[] | string
+    ): void;
     get(index: number): number;
     slice(start?: number, end?: number): Buffer;
     shallowSlice(start?: number, end?: number): BufferList;
-    copy(dest: Buffer, destStart?: number, srcStart?: number, srcEnd?: number): void;
+    copy(
+        dest: Buffer,
+        destStart?: number,
+        srcStart?: number,
+        srcEnd?: number
+    ): void;
     duplicate(): BufferList;
     consume(bytes?: number): void;
     toString(encoding?: string, start?: number, end?: number): string;
-    indexOf(value: string | number | Uint8Array | BufferList | Buffer, byteOffset?: number, encoding?: string): number;
+    indexOf(
+        value: string | number | Uint8Array | BufferList | Buffer,
+        byteOffset?: number,
+        encoding?: string
+    ): number;
     readDoubleBE(offset: number, noAssert?: boolean): number;
     readDoubleLE(offset: number, noAssert?: boolean): number;
     readFloatBE(offset: number, noAssert?: boolean): number;

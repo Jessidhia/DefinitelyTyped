@@ -36,7 +36,11 @@ declare class Jexl {
      *      on either side of the operator. It should return either the resulting
      *      value, or a Promise that resolves with the resulting value.
      */
-    addBinaryOp(operator: string, precedence: number, fn: BinaryOpFunction): void;
+    addBinaryOp(
+        operator: string,
+        precedence: number,
+        fn: BinaryOpFunction
+    ): void;
 
     /**
      * Adds a unary operator to Jexl. Unary operators are currently only supported
@@ -87,7 +91,11 @@ declare class Jexl {
      *      if a callback is supplied, the returned promise will already have
      *      a '.catch' attached to it in order to pass the error to the callback.
      */
-    eval(expression: string, context?: object, cb?: EvalCallbackFunction): Promise<any>;
+    eval(
+        expression: string,
+        context?: object,
+        cb?: EvalCallbackFunction
+    ): Promise<any>;
 
     /**
      * Removes a binary or unary operator from the Jexl grammar.
@@ -102,7 +110,7 @@ declare class Jexl {
  * xpath-like drilldown into native Javascript objects.
  */
 declare class BuildableJexl extends Jexl {
-    Jexl: { new(): Jexl };
+    Jexl: { new (): Jexl };
 }
 
 declare const exportJexl: BuildableJexl;

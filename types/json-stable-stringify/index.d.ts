@@ -3,7 +3,10 @@
 // Definitions by: Matt Frantz <https://github.com/mhfrantz>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function stringify(obj: any, opts?: stringify.Comparator | stringify.Options): string;
+declare function stringify(
+    obj: any,
+    opts?: stringify.Comparator | stringify.Options
+): string;
 
 declare namespace stringify {
     interface Element {

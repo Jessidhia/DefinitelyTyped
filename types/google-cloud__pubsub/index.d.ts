@@ -25,7 +25,7 @@ declare namespace PubSub {
         email?: string;
         credentials?: {
             client_email?: string;
-            private_key?: string
+            private_key?: string;
         };
         autoRetry?: boolean;
         maxRetries?: number;
@@ -33,35 +33,68 @@ declare namespace PubSub {
     }
 
     interface PubSub {
-        createSubscription(topic: Topic | string, name: string, options?: PubSub.CreateSubscriptionOptions): Promise<any[]>;
-        createSubscription(topic: Topic | string, name: string, callback: PubSub.CreateSubscriptionCallback): void;
-        createSubscription(topic: Topic | string, name: string, options: PubSub.CreateSubscriptionOptions, callback: PubSub.CreateSubscriptionCallback): void;
+        createSubscription(
+            topic: Topic | string,
+            name: string,
+            options?: PubSub.CreateSubscriptionOptions
+        ): Promise<any[]>;
+        createSubscription(
+            topic: Topic | string,
+            name: string,
+            callback: PubSub.CreateSubscriptionCallback
+        ): void;
+        createSubscription(
+            topic: Topic | string,
+            name: string,
+            options: PubSub.CreateSubscriptionOptions,
+            callback: PubSub.CreateSubscriptionCallback
+        ): void;
 
         createTopic(name: string, gaxOpts?: GAX.CallOptions): Promise<any[]>;
         createTopic(name: string, callback: PubSub.CreateTopicCallback): void;
-        createTopic(name: string, gaxOpts: GAX.CallOptions, callback: PubSub.CreateTopicCallback): void;
+        createTopic(
+            name: string,
+            gaxOpts: GAX.CallOptions,
+            callback: PubSub.CreateTopicCallback
+        ): void;
 
         getSnapshots(options?: PubSub.GetSnapshotsOptions): Promise<any[]>;
         getSnapshots(callback: PubSub.GetSnapshotsCallback): void;
-        getSnapshots(options: PubSub.GetSnapshotsOptions, callback: PubSub.GetSnapshotsCallback): void;
+        getSnapshots(
+            options: PubSub.GetSnapshotsOptions,
+            callback: PubSub.GetSnapshotsCallback
+        ): void;
 
         getSnapshotsStream(options?: PubSub.GetSnapshotsOptions): Duplex;
 
-        getSubscriptions(options?: PubSub.GetSubscriptionsOptions): Promise<any[]>;
+        getSubscriptions(
+            options?: PubSub.GetSubscriptionsOptions
+        ): Promise<any[]>;
         getSubscriptions(callback: PubSub.GetSubscriptionsCallback): void;
-        getSubscriptions(options: PubSub.GetSubscriptionsOptions, callback: PubSub.GetSubscriptionsCallback): void;
+        getSubscriptions(
+            options: PubSub.GetSubscriptionsOptions,
+            callback: PubSub.GetSubscriptionsCallback
+        ): void;
 
-        getSubscriptionsStream(options?: PubSub.GetSubscriptionsOptions): Duplex;
+        getSubscriptionsStream(
+            options?: PubSub.GetSubscriptionsOptions
+        ): Duplex;
 
         getTopics(query?: PubSub.GetTopicsQuery): Promise<any[]>;
         getTopics(callback: PubSub.GetTopicsCallback): void;
-        getTopics(query: PubSub.GetTopicsQuery, callback: PubSub.GetTopicsCallback): void;
+        getTopics(
+            query: PubSub.GetTopicsQuery,
+            callback: PubSub.GetTopicsCallback
+        ): void;
 
         getTopicsStream(query?: PubSub.GetTopicsQuery): Duplex;
 
         snapshot(name: string): Snapshot;
 
-        subscription(name: string, options?: PubSub.SubscriptionOptions): Subscription;
+        subscription(
+            name: string,
+            options?: PubSub.SubscriptionOptions
+        ): Subscription;
 
         topic(name: string): Topic;
     }
@@ -76,9 +109,17 @@ declare namespace PubSub {
             pushEndpoint?: string;
             retainAckedMessages?: boolean;
         }
-        type CreateSubscriptionCallback = (err: Error | null, subscription: Subscription, apiResponse: object) => void;
+        type CreateSubscriptionCallback = (
+            err: Error | null,
+            subscription: Subscription,
+            apiResponse: object
+        ) => void;
 
-        type CreateTopicCallback = (err: Error | null, topic: Topic, apiResponse: object) => void;
+        type CreateTopicCallback = (
+            err: Error | null,
+            topic: Topic,
+            apiResponse: object
+        ) => void;
 
         interface GetSnapshotsOptions {
             autoPaginate?: boolean;
@@ -86,7 +127,10 @@ declare namespace PubSub {
             pageSize?: number;
             pageToken?: string;
         }
-        type GetSnapshotsCallback = (err: Error | null, snapshots: Snapshot[]) => void;
+        type GetSnapshotsCallback = (
+            err: Error | null,
+            snapshots: Snapshot[]
+        ) => void;
 
         interface GetSubscriptionsOptions {
             autoPaginate?: boolean;
@@ -95,7 +139,11 @@ declare namespace PubSub {
             pageToken?: string;
             topic?: Topic | string;
         }
-        type GetSubscriptionsCallback = (err: Error | null, subscriptions: Subscription[], apiResponse: object) => void;
+        type GetSubscriptionsCallback = (
+            err: Error | null,
+            subscriptions: Subscription[],
+            apiResponse: object
+        ) => void;
 
         interface GetTopicsQuery {
             autoPaginate?: boolean;
@@ -103,7 +151,11 @@ declare namespace PubSub {
             pageSize?: number;
             pageToken?: string;
         }
-        type GetTopicsCallback = (err: Error | null, topics: Topic[], apiResponse: object) => void;
+        type GetTopicsCallback = (
+            err: Error | null,
+            topics: Topic[],
+            apiResponse: object
+        ) => void;
 
         interface SubscriptionOptions {
             flowControl?: {
@@ -116,8 +168,15 @@ declare namespace PubSub {
 
     interface Publisher {
         publish(data: Buffer, callback: Publisher.PublishCallback): void;
-        publish(data: Buffer, attributes: Publisher.Attributes, callback: Publisher.PublishCallback): void;
-        publish(data: Buffer, attributes?: Publisher.Attributes): Promise<string>;
+        publish(
+            data: Buffer,
+            attributes: Publisher.Attributes,
+            callback: Publisher.PublishCallback
+        ): void;
+        publish(
+            data: Buffer,
+            attributes?: Publisher.Attributes
+        ): Promise<string>;
     }
     namespace Publisher {
         type PublishCallback = (error: Error | null, messageId: string) => void;
@@ -141,7 +200,11 @@ declare namespace PubSub {
     namespace Snapshot {
         type DeleteCallback = (err: Error | null, apiResponse: object) => void;
 
-        type CreateCallback = (err: Error | null, snapshot: Snapshot, apiResponse: object) => void;
+        type CreateCallback = (
+            err: Error | null,
+            snapshot: Snapshot,
+            apiResponse: object
+        ) => void;
 
         type SeekCallback = (err: Error | null, apiResponse: object) => void;
     }
@@ -151,12 +214,22 @@ declare namespace PubSub {
         close(callback: Subscription.CloseCallback): void;
 
         createSnapshot(name: string, gaxOpts?: GAX.CallOptions): Promise<any[]>;
-        createSnapshot(name: string, callback: Subscription.CreateSnapshotCallback): void;
-        createSnapshot(name: string, gaxOpts: GAX.CallOptions, callback: Subscription.CreateSnapshotCallback): void;
+        createSnapshot(
+            name: string,
+            callback: Subscription.CreateSnapshotCallback
+        ): void;
+        createSnapshot(
+            name: string,
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.CreateSnapshotCallback
+        ): void;
 
         delete(gaxOpts?: GAX.CallOptions): Promise<any[]>;
         delete(callback: Subscription.DeleteCallback): void;
-        delete(gaxOpts: GAX.CallOptions, callback: Subscription.DeleteCallback): void;
+        delete(
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.DeleteCallback
+        ): void;
 
         exists(): Promise<any[]>;
         exists(callback: Subscription.ExistsCallback): void;
@@ -168,35 +241,76 @@ declare namespace PubSub {
 
         getMetadata(gaxOpts?: GAX.CallOptions): Promise<any[]>;
         getMetadata(callback: Subscription.GetMetadataCallback): void;
-        getMetadata(gaxOpts: GAX.CallOptions, callback: Subscription.GetMetadataCallback): void;
+        getMetadata(
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.GetMetadataCallback
+        ): void;
 
         iam: IAM;
 
-        modifyPushConfig(config: Subscription.PushConfig, gaxOpts?: GAX.CallOptions): Promise<any[]>;
-        modifyPushConfig(config: Subscription.PushConfig, callback: Subscription.ModifyPushConfigCallback): void;
-        modifyPushConfig(config: Subscription.PushConfig, gaxOpts: GAX.CallOptions, callback: Subscription.ModifyPushConfigCallback): void;
+        modifyPushConfig(
+            config: Subscription.PushConfig,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<any[]>;
+        modifyPushConfig(
+            config: Subscription.PushConfig,
+            callback: Subscription.ModifyPushConfigCallback
+        ): void;
+        modifyPushConfig(
+            config: Subscription.PushConfig,
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.ModifyPushConfigCallback
+        ): void;
 
-        seek(snapshot: string | Date, callback: Subscription.SeekCallback): void;
-        seek(snapshot: string | Date, gaxOpts: GAX.CallOptions, callback: Subscription.SeekCallback): void;
+        seek(
+            snapshot: string | Date,
+            callback: Subscription.SeekCallback
+        ): void;
+        seek(
+            snapshot: string | Date,
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.SeekCallback
+        ): void;
 
-        setMetadata(metadata: object, gaxOpts?: GAX.CallOptions): Promise<any[]>;
-        setMetadata(metadata: object, callback: Subscription.SetMetadataCallback): void;
-        setMetadata(metadata: object, gaxOpts: GAX.CallOptions, callback: Subscription.SetMetadataCallback): void;
+        setMetadata(
+            metadata: object,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<any[]>;
+        setMetadata(
+            metadata: object,
+            callback: Subscription.SetMetadataCallback
+        ): void;
+        setMetadata(
+            metadata: object,
+            gaxOpts: GAX.CallOptions,
+            callback: Subscription.SetMetadataCallback
+        ): void;
 
         snapshot(name: string): SnapshotFromSubscription;
     }
     namespace Subscription {
         type CloseCallback = (err: Error | null) => void;
 
-        type CreateSnapshotCallback = (err: Error | null, snapshot: SnapshotFromSubscription, apiResponse: object) => void;
+        type CreateSnapshotCallback = (
+            err: Error | null,
+            snapshot: SnapshotFromSubscription,
+            apiResponse: object
+        ) => void;
 
         type DeleteCallback = (err: Error | null, apiResponse: object) => void;
 
         type ExistsCallback = (err: Error | null, exists: boolean) => void;
 
-        type GetCallback = (err: Error | null, subscription: Subscription, apiResponse: object) => void;
+        type GetCallback = (
+            err: Error | null,
+            subscription: Subscription,
+            apiResponse: object
+        ) => void;
 
-        type GetMetadataCallback = (err: Error | null, apiResponse: object) => void;
+        type GetMetadataCallback = (
+            err: Error | null,
+            apiResponse: object
+        ) => void;
 
         interface PushConfig {
             pushEndpoint?: string;
@@ -204,13 +318,19 @@ declare namespace PubSub {
             attributes?: PushConfigAttributes;
         }
         interface PushConfigAttributes {
-            'x-goog-version': 'v1beta' | 'v1' | 'v1beta2';
+            "x-goog-version": "v1beta" | "v1" | "v1beta2";
         }
-        type ModifyPushConfigCallback = (err: Error | null, apiResponse: object) => void;
+        type ModifyPushConfigCallback = (
+            err: Error | null,
+            apiResponse: object
+        ) => void;
 
         type SeekCallback = (err: Error | null, apiResponse: object) => void;
 
-        type SetMetadataCallback = (err: Error | null, apiResponse: object) => void;
+        type SetMetadataCallback = (
+            err: Error | null,
+            apiResponse: object
+        ) => void;
     }
 
     interface Topic {
@@ -218,11 +338,23 @@ declare namespace PubSub {
         create(callback: Topic.CreateCallback): void;
         create(gaxOpts: GAX.CallOptions, callback: Topic.CreateCallback): void;
 
-        createSubscription(nameOrOptions?: string | Topic.CreateSubscriptionOptions): Promise<any[]>;
-        createSubscription(name: string, options: Topic.CreateSubscriptionOptions): Promise<any[]>;
+        createSubscription(
+            nameOrOptions?: string | Topic.CreateSubscriptionOptions
+        ): Promise<any[]>;
+        createSubscription(
+            name: string,
+            options: Topic.CreateSubscriptionOptions
+        ): Promise<any[]>;
         createSubscription(callback: Topic.CreateSubscriptionCallback): void;
-        createSubscription(nameOrOptions: string | Topic.CreateSubscriptionOptions, callback: Topic.CreateSubscriptionCallback): void;
-        createSubscription(name: string, options: Topic.CreateSubscriptionOptions, callback: Topic.CreateSubscriptionCallback): void;
+        createSubscription(
+            nameOrOptions: string | Topic.CreateSubscriptionOptions,
+            callback: Topic.CreateSubscriptionCallback
+        ): void;
+        createSubscription(
+            name: string,
+            options: Topic.CreateSubscriptionOptions,
+            callback: Topic.CreateSubscriptionCallback
+        ): void;
 
         delete(gaxOpts?: GAX.CallOptions): Promise<any[]>;
         delete(callback: Topic.DeleteCallback): void;
@@ -240,11 +372,19 @@ declare namespace PubSub {
 
         getMetadata(gaxOpts?: GAX.CallOptions): Promise<any[]>;
         getMetadata(callback: Topic.GetMetadataCallback): void;
-        getMetadata(gaxOpts: GAX.CallOptions, callback: Topic.GetMetadataCallback): void;
+        getMetadata(
+            gaxOpts: GAX.CallOptions,
+            callback: Topic.GetMetadataCallback
+        ): void;
 
-        getSubscriptions(options?: Topic.GetSubscriptionsOptions): Promise<any[]>;
+        getSubscriptions(
+            options?: Topic.GetSubscriptionsOptions
+        ): Promise<any[]>;
         getSubscriptions(callback: Topic.GetSubscriptionsCallback): void;
-        getSubscriptions(options: Topic.GetSubscriptionsOptions, callback: Topic.GetSubscriptionsCallback): void;
+        getSubscriptions(
+            options: Topic.GetSubscriptionsOptions,
+            callback: Topic.GetSubscriptionsCallback
+        ): void;
 
         // Note: The documention lists the parameter as 'query', when it probably should be 'options'.
         getSubscriptionsStream(options?: Topic.GetSubscriptionsOptions): Duplex;
@@ -253,7 +393,10 @@ declare namespace PubSub {
 
         publisher(options?: Topic.PublisherOptions): Publisher;
 
-        subscription(name: string, options?: Topic.SubscriptionOptions): Subscription;
+        subscription(
+            name: string,
+            options?: Topic.SubscriptionOptions
+        ): Subscription;
     }
     namespace Topic {
         type CreateCallback = PubSub.CreateTopicCallback;
@@ -269,9 +412,16 @@ declare namespace PubSub {
 
         // Note: This is not fully documented in the link; browse the source code to find the callback parameters
         // https://googlecloudplatform.github.io/google-cloud-node/#/docs/pubsub/0.14.1/pubsub/topic?method=get
-        type GetCallback = (err: Error | null, topic: Topic, apiResponse: object) => void;
+        type GetCallback = (
+            err: Error | null,
+            topic: Topic,
+            apiResponse: object
+        ) => void;
 
-        type GetMetadataCallback = (err: Error | null, apiResponse: object) => void;
+        type GetMetadataCallback = (
+            err: Error | null,
+            apiResponse: object
+        ) => void;
 
         // Options are SLIGHTLY different to PubSub.getSubscriptions(...), so we can't just reuse it
         interface GetSubscriptionsOptions {
@@ -281,7 +431,10 @@ declare namespace PubSub {
             pageToken?: string;
         }
         // Callback signature also slightly different to PubSub.getSubscriptions(callback), so we can't just reuse it
-        type GetSubscriptionsCallback = (err: Error | null, subscriptions: Subscription[]) => void;
+        type GetSubscriptionsCallback = (
+            err: Error | null,
+            subscriptions: Subscription[]
+        ) => void;
 
         interface PublisherOptions {
             batching?: {
@@ -304,14 +457,29 @@ declare namespace PubSub {
         setPolicy(policy: IAM.Policy, callback: IAM.SetPolicyCallback): void;
 
         testPermissions(permissions: string | string[]): Promise<any[]>;
-        testPermissions(permissions: string | string[], callback: IAM.TestPermissionsCallback): void;
+        testPermissions(
+            permissions: string | string[],
+            callback: IAM.TestPermissionsCallback
+        ): void;
     }
     namespace IAM {
-        type GetPolicyCallback = (err: Error | null, policy: Policy, apiResponse: object) => void;
+        type GetPolicyCallback = (
+            err: Error | null,
+            policy: Policy,
+            apiResponse: object
+        ) => void;
 
-        type SetPolicyCallback = (err: Error | null, policy: Policy, apiResponse: object) => void;
+        type SetPolicyCallback = (
+            err: Error | null,
+            policy: Policy,
+            apiResponse: object
+        ) => void;
 
-        type TestPermissionsCallback = (err: Error | null, permissions: string | string[], apiResponse: object) => void;
+        type TestPermissionsCallback = (
+            err: Error | null,
+            permissions: string | string[],
+            apiResponse: object
+        ) => void;
 
         interface Policy {
             bindings?: any[];

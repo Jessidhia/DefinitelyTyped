@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    TILES_SELECTOR: '.mdc-grid-list__tiles';
-    TILE_SELECTOR: '.mdc-grid-tile';
+    TILES_SELECTOR: ".mdc-grid-list__tiles";
+    TILE_SELECTOR: ".mdc-grid-tile";
 }

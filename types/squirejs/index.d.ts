@@ -3,13 +3,16 @@
 // Definitions by: Bradley Ayers <https://github.com/bradleyayers>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare class Squire {
     constructor();
     constructor(context: string);
     mock(name: string, mock: any): Squire;
     mock(mocks: { [name: string]: any }): Squire;
-    require(dependencies: string[], callback: Function, errback?: Function): Squire;
+    require(
+        dependencies: string[],
+        callback: Function,
+        errback?: Function
+    ): Squire;
     store(name: string | string[]): Squire;
     clean(): Squire;
     clean(name: string | string[]): Squire;
@@ -20,7 +23,7 @@ declare class Squire {
 declare namespace Squire {
     namespace Helpers {
         export function returns<T>(what: T): () => T;
-        export function constructs<T>(what: T): () => (() => T);
+        export function constructs<T>(what: T): () => () => T;
     }
 }
 

@@ -1,4 +1,4 @@
-import tempDir = require('temp-dir');
+import tempDir = require("temp-dir");
 
 // $ExpectType string
 tempDir;

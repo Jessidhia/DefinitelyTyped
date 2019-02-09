@@ -5,16 +5,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 interface CurrencyFormatterProps {
-	quantity: number;
-	currency?: string;
-	locale?: string;
-	pattern?: string;
-	decimal?: string;
-	group?: string;
+    quantity: number;
+    currency?: string;
+    locale?: string;
+    pattern?: string;
+    decimal?: string;
+    group?: string;
 }
 
-declare const reactCurrencyFormatter: React.ComponentClass<CurrencyFormatterProps>;
+declare const reactCurrencyFormatter: React.ComponentClass<
+    CurrencyFormatterProps
+>;
 export = reactCurrencyFormatter;

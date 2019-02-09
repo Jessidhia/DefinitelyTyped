@@ -1,5 +1,5 @@
-import * as express from 'express';
-import * as routesVersioning from 'express-routes-versioning';
+import * as express from "express";
+import * as routesVersioning from "express-routes-versioning";
 
 const app = express();
 
@@ -10,12 +10,20 @@ const versioningOptions: routesVersioning.VersionOptions = {
     "~2.2.1": respondV2
 };
 
-app.get('/test', routesVersioningMiddleware(versioningOptions));
+app.get("/test", routesVersioningMiddleware(versioningOptions));
 
-function respondV1(req: express.Request, res: express.Response, next: express.NextFunction) {
-    res.status(200).send('ok v1');
+function respondV1(
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
+    res.status(200).send("ok v1");
 }
 
-function respondV2(req: express.Request, res: express.Response, next: express.NextFunction) {
-    res.status(200).send('ok v2');
+function respondV2(
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
+    res.status(200).send("ok v2");
 }

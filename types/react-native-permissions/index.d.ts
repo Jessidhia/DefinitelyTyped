@@ -3,7 +3,7 @@
 // Definitions by: Vincent Langlet <https://github.com/vincentlanglet>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export type Status = 'authorized' | 'denied' | 'restricted' | 'undetermined';
+export type Status = "authorized" | "denied" | "restricted" | "undetermined";
 
 export interface Rationale {
     title: string;
@@ -12,7 +12,7 @@ export interface Rationale {
 
 export type CheckOptions = string | { type: string };
 
-export type RequestOptions = string | { type: string, rationale?: Rationale };
+export type RequestOptions = string | { type: string; rationale?: Rationale };
 
 export interface ReactNativePermissions {
     canOpenSettings: () => Promise<boolean>;
@@ -20,7 +20,9 @@ export interface ReactNativePermissions {
     getTypes: () => string[];
     check: (permission: string, options?: CheckOptions) => Promise<Status>;
     request: (permission: string, options?: RequestOptions) => Promise<Status>;
-    checkMultiple: (permissions: string[]) => Promise<{ [key: string]: string }>;
+    checkMultiple: (
+        permissions: string[]
+    ) => Promise<{ [key: string]: string }>;
 }
 
 declare const Permissions: ReactNativePermissions;

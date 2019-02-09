@@ -15,19 +15,22 @@ export as namespace topojson;
 // TopoJSON Server
 // ---------------------------------------------------------------
 
-export function topology(objects: {[k: string]: GeoJSON.GeoJsonObject}, quantization?: number): TopoJSON.Topology;
+export function topology(
+    objects: { [k: string]: GeoJSON.GeoJsonObject },
+    quantization?: number
+): TopoJSON.Topology;
 
 // ---------------------------------------------------------------
 // TopoJSON Simplify
 // ---------------------------------------------------------------
 
-export * from 'topojson-simplify';
+export * from "topojson-simplify";
 
 // ---------------------------------------------------------------
 // TopoJSON Client
 // ---------------------------------------------------------------
 
-export * from 'topojson-client';
+export * from "topojson-client";
 
 // ---------------------------------------------------------------
 // U.S. Atlas TopoJSON
@@ -35,8 +38,14 @@ export * from 'topojson-client';
 
 export interface UsAtlas extends TopoJSON.Topology {
     objects: {
-        counties: {type: "GeometryCollection", geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>};
-        states: {type: "GeometryCollection", geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>};
+        counties: {
+            type: "GeometryCollection";
+            geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>;
+        };
+        states: {
+            type: "GeometryCollection";
+            geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>;
+        };
         nation: TopoJSON.GeometryCollection;
     };
     bbox: [number, number, number, number];
@@ -49,7 +58,10 @@ export interface UsAtlas extends TopoJSON.Topology {
 
 export interface WorldAtlas extends TopoJSON.Topology {
     objects: {
-        countries: {type: "GeometryCollection", geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>};
+        countries: {
+            type: "GeometryCollection";
+            geometries: Array<TopoJSON.Polygon | TopoJSON.MultiPolygon>;
+        };
         land: TopoJSON.GeometryCollection;
     };
     bbox: [number, number, number, number];

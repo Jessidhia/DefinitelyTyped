@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 export class WebRtcPeer extends EventEmitter {
     /**
@@ -14,7 +14,7 @@ export class WebRtcPeer extends EventEmitter {
     peerConnection: RTCPeerConnection;
 
     constructor(
-        mode: 'recv' | 'send' | 'sendRecv',
+        mode: "recv" | "send" | "sendRecv",
         options?: object,
         callback?: (error: string | undefined) => void
     );

@@ -6,4 +6,6 @@
 
 export = randomObjKey;
 
-declare function randomObjKey<TObj extends { [key: string]: any }>(input: TObj): keyof TObj;
+declare function randomObjKey<TObj extends { [key: string]: any }>(
+    input: TObj
+): keyof TObj;

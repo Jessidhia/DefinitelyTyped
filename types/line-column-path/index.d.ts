@@ -5,7 +5,10 @@
 // TypeScript Version: 2.8
 
 export function parse(input: PathSpec): ParsedPath;
-export function stringify(input: PathDescriptor, options?: StringifyOptions): string;
+export function stringify(
+    input: PathDescriptor,
+    options?: StringifyOptions
+): string;
 
 export type PathSpec = string | PathDescriptor;
 

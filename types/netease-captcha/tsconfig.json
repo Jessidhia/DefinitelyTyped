@@ -7,15 +7,10 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "netease-captcha-tests.ts"
-    ]
+    "files": ["index.d.ts", "netease-captcha-tests.ts"]
 }

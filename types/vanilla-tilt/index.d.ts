@@ -96,7 +96,10 @@ export default class VanillaTilt {
      * @param elements The element, which should tilt
      * @param settings Settings, which configures the elements
      */
-    static init(elements: HTMLElement | HTMLElement[], settings?: TiltOptions): void;
+    static init(
+        elements: HTMLElement | HTMLElement[],
+        settings?: TiltOptions
+    ): void;
     /**
      * Resets the styling
      */

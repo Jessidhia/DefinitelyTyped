@@ -1,10 +1,10 @@
-import progress = require('cli-progress');
+import progress = require("cli-progress");
 
 function test0() {
     // Usage
     // Multiple examples are available e.g.example.js - just try it $ node example.js
 
-    const _cliProgress = require('cli-progress');
+    const _cliProgress = require("cli-progress");
 
     // create a new progress bar instance and use shades_classic theme
     const bar1 = new _cliProgress.Bar({}, _cliProgress.Presets.shades_classic);
@@ -27,8 +27,8 @@ function test1() {
     // set fps limit to 5
     // change the output stream and barsize
     const bar = new progress.Bar({
-        barCompleteChar: '#',
-        barIncompleteChar: '.',
+        barCompleteChar: "#",
+        barIncompleteChar: ".",
         fps: 5,
         stream: process.stdout,
         barsize: 65
@@ -39,16 +39,20 @@ function test2() {
     // Example 2 - Change Styles defined by Preset
     // uee shades preset
     // change the barsize
-    const bar = new progress.Bar({
-        barsize: 65
-    }, progress.Presets.shades_grey);
+    const bar = new progress.Bar(
+        {
+            barsize: 65
+        },
+        progress.Presets.shades_grey
+    );
 }
 
 function test3() {
     // Example 3 - Custom Payload
     // create new progress bar with custom token "speed"
     const bar = new progress.Bar({
-        format: 'progress [{bar}] {percentage}% | ETA: {eta}s | {value}/{total} | Speed: {speed} kbit'
+        format:
+            "progress [{bar}] {percentage}% | ETA: {eta}s | {value}/{total} | Speed: {speed} kbit"
     });
 
     // initialize the bar - set payload token "speed" with the default value "N/A"
@@ -61,7 +65,7 @@ function test3() {
 
     // update bar value. set custom token "speed" to 125
     bar.update(5, {
-        speed: '125'
+        speed: "125"
     });
 
     // process finished
@@ -72,21 +76,26 @@ function test4() {
     // Example 4 - Custom Presets
     // File mypreset.js
 
-    const _colors = require('colors');
+    const _colors = require("colors");
 
     module.exports = {
-        format: _colors.red(' {bar}') + ' {percentage}% | ETA: {eta}s | {value}/{total} | Speed: {speed} kbit',
-        barCompleteChar: '\u2588',
-        barIncompleteChar: '\u2591'
+        format:
+            _colors.red(" {bar}") +
+            " {percentage}% | ETA: {eta}s | {value}/{total} | Speed: {speed} kbit",
+        barCompleteChar: "\u2588",
+        barIncompleteChar: "\u2591"
     };
 }
 
 function test5() {
     // Application
 
-    const _mypreset = require('./mypreset.js');
+    const _mypreset = require("./mypreset.js");
 
-    const bar = new progress.Bar({
-        barsize: 65
-    }, _mypreset);
+    const bar = new progress.Bar(
+        {
+            barsize: 65
+        },
+        _mypreset
+    );
 }

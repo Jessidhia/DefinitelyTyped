@@ -93,7 +93,7 @@ export class Line {
      * The line type, This is set by the ChordProParser when it read tags like {start_of_chorus} or {start_of_verse}
      * Values can be 'verse', 'chorus' or 'none'
      */
-    type: 'verse' | 'chorus' | 'none';
+    type: "verse" | "chorus" | "none";
 
     /**
      * Indicates whether the line contains any items

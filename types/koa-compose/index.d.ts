@@ -10,11 +10,16 @@ declare function compose<T, U, V, W>(
     middleware: [Koa.Middleware<T, U>, Koa.Middleware<V, W>]
 ): Koa.Middleware<T & V, U & W>;
 
-declare function compose<T>(middleware: Array<compose.Middleware<T>>): compose.ComposedMiddleware<T>;
+declare function compose<T>(
+    middleware: Array<compose.Middleware<T>>
+): compose.ComposedMiddleware<T>;
 
 declare namespace compose {
     type Middleware<T> = (context: T, next: () => Promise<any>) => any;
-    type ComposedMiddleware<T> = (context: T, next?: () => Promise<any>) => Promise<void>;
+    type ComposedMiddleware<T> = (
+        context: T,
+        next?: () => Promise<any>
+    ) => Promise<void>;
 }
 
 export = compose;

@@ -1,5 +1,5 @@
-import { Callback } from './connection';
-import { Record } from './record';
+import { Callback } from "./connection";
+import { Record } from "./record";
 
 export class QuickAction {
     /**
@@ -7,21 +7,30 @@ export class QuickAction {
      * @param contextId Id of record
      * @param callback Callback function
      */
-    defaultValues(contextId: string, callback?: Callback<Record>): Promise<Record>;
+    defaultValues(
+        contextId: string,
+        callback?: Callback<Record>
+    ): Promise<Record>;
     /** Retrieve default field values in the action */
     defaultValues(callback?: Callback<Record>): Promise<Record>;
     /**
      * Describe the action's information (including layout, etc.)
      * @param callback Callback function
      */
-    describe(callback?: Callback<QuickActionDescribeInfo>): Promise<QuickActionDescribeInfo>;
+    describe(
+        callback?: Callback<QuickActionDescribeInfo>
+    ): Promise<QuickActionDescribeInfo>;
     /**
      * Execute the action for given context id and record information
      * @param contextId Context record ID of the action
      * @param record Input record information for the action
      * @param callback Callback function
      */
-    execute<T>(contextId: string, record: Record<T>, callback?: Callback<QuickActionResult>): Promise<QuickActionResult>;
+    execute<T>(
+        contextId: string,
+        record: Record<T>,
+        callback?: Callback<QuickActionResult>
+    ): Promise<QuickActionResult>;
 }
 
 // TODO: figure out the actual shape of this. the docs don't have it

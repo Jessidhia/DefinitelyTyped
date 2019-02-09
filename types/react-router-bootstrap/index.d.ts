@@ -4,5 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-export { default as LinkContainer } from "react-router-bootstrap/lib/LinkContainer"
-export { default as IndexLinkContainer } from "react-router-bootstrap/lib/IndexLinkContainer"
+export {
+    default as LinkContainer
+} from "react-router-bootstrap/lib/LinkContainer";
+export {
+    default as IndexLinkContainer
+} from "react-router-bootstrap/lib/IndexLinkContainer";

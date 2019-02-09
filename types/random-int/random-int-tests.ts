@@ -1,4 +1,4 @@
-import randomInt = require('random-int');
+import randomInt = require("random-int");
 
 // $ExpectType number
 randomInt(5);

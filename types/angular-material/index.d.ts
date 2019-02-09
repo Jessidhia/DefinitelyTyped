@@ -4,12 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
 declare var _: string;
 export = _;
 
-declare module 'angular' {
+declare module "angular" {
     namespace material {
         interface IAriaProvider {
             disableWarnings(): void;
@@ -32,7 +32,11 @@ declare module 'angular' {
             escapeToClose?: boolean;
             resolve?: ResolveObject;
             controllerAs?: string;
-            parent?: ((scope: IScope, element: JQuery) => Element | JQuery) | string | Element | JQuery; // default: root node
+            parent?:
+                | ((scope: IScope, element: JQuery) => Element | JQuery)
+                | string
+                | Element
+                | JQuery; // default: root node
             disableParentScroll?: boolean; // default: true
         }
 
@@ -58,21 +62,24 @@ declare module 'angular' {
             clickOutsideToClose(clickOutsideToClose?: boolean): T; // default: false
             escapeToClose(escapeToClose?: boolean): T; // default: true
             focusOnOpen(focusOnOpen?: boolean): T; // default: true
-            controller(controller?: string | Injectable<IControllerConstructor>): T;
+            controller(
+                controller?: string | Injectable<IControllerConstructor>
+            ): T;
             locals(locals?: { [index: string]: any }): T;
             bindToController(bindToController?: boolean): T; // default: false
             resolve(resolve?: ResolveObject): T;
             controllerAs(controllerAs?: string): T;
             parent(parent?: string | Element | JQuery): T; // default: root node
             ariaLabel(ariaLabel: string): T;
-            openFrom(from: string | Element | Event | { top: number, left: number }): T;
-            closeTo(to: string | Element | { top: number, left: number }): T;
+            openFrom(
+                from: string | Element | Event | { top: number; left: number }
+            ): T;
+            closeTo(to: string | Element | { top: number; left: number }): T;
             multiple(multiple: boolean): T;
         }
 
         // tslint:disable-next-line no-empty-interface
-        interface IAlertDialog extends IPresetDialog<IAlertDialog> {
-        }
+        interface IAlertDialog extends IPresetDialog<IAlertDialog> {}
 
         interface IConfirmDialog extends IPresetDialog<IConfirmDialog> {
             cancel(cancel: string): IConfirmDialog;
@@ -91,7 +98,10 @@ declare module 'angular' {
         }
 
         interface IColorService {
-            applyThemeColors(element: Element | JQuery, colorExpression: IColorExpression): void;
+            applyThemeColors(
+                element: Element | JQuery,
+                colorExpression: IColorExpression
+            ): void;
             getThemeColor(expression: string): string;
             hasTheme(): boolean;
         }
@@ -131,7 +141,13 @@ declare module 'angular' {
             // tslint:disable-next-line:ban-types
             [presetName: string]: Function;
 
-            show(dialog: IDialogOptions | IAlertDialog | IConfirmDialog | IPromptDialog): IPromise<any>;
+            show(
+                dialog:
+                    | IDialogOptions
+                    | IAlertDialog
+                    | IConfirmDialog
+                    | IPromptDialog
+            ): IPromise<any>;
             confirm(): IConfirmDialog;
             alert(): IAlertDialog;
             prompt(): IPromptDialog;
@@ -140,14 +156,24 @@ declare module 'angular' {
         }
 
         interface IDialogProvider {
-            addPreset(presetName: string, presetOptions: { methods?: ReadonlyArray<string>, options: () => IDialogOptions }): IDialogProvider;
+            addPreset(
+                presetName: string,
+                presetOptions: {
+                    methods?: ReadonlyArray<string>;
+                    options: () => IDialogOptions;
+                }
+            ): IDialogProvider;
         }
 
         type IIcon = (id: string) => IPromise<Element>; // id is a unique ID or URL
 
         interface IIconProvider {
             icon(id: string, url: string, viewBoxSize?: number): IIconProvider; // viewBoxSize default: 24
-            iconSet(id: string, url: string, viewBoxSize?: number): IIconProvider; // viewBoxSize default: 24
+            iconSet(
+                id: string,
+                url: string,
+                viewBoxSize?: number
+            ): IIconProvider; // viewBoxSize default: 24
             defaultIconSet(url: string, viewBoxSize?: number): IIconProvider; // viewBoxSize default: 24
             defaultViewBoxSize(viewBoxSize: number): IIconProvider; // default: 24
             defaultFontSet(name: string): IIconProvider;
@@ -187,8 +213,7 @@ declare module 'angular' {
         }
 
         // tslint:disable-next-line no-empty-interface
-        interface ISimpleToastPreset extends IToastPreset<ISimpleToastPreset> {
-        }
+        interface ISimpleToastPreset extends IToastPreset<ISimpleToastPreset> {}
 
         interface IToastOptions {
             templateUrl?: string;
@@ -208,7 +233,9 @@ declare module 'angular' {
         }
 
         interface IToastService {
-            show(optionsOrPreset: IToastOptions | IToastPreset<any>): IPromise<any>;
+            show(
+                optionsOrPreset: IToastOptions | IToastPreset<any>
+            ): IPromise<any>;
             showSimple(content: string): IPromise<any>;
             simple(): ISimpleToastPreset;
             build(): IToastPreset<any>;
@@ -242,9 +269,9 @@ declare module 'angular' {
 
         interface IThemeHues {
             default?: string;
-            'hue-1'?: string;
-            'hue-2'?: string;
-            'hue-3'?: string;
+            "hue-1"?: string;
+            "hue-2"?: string;
+            "hue-3"?: string;
         }
 
         interface IThemePalette {
@@ -325,7 +352,10 @@ declare module 'angular' {
             defaultTheme(): string;
             generateTheme(name: string): void;
             setBrowserColor(options: IBrowserColors): () => void;
-            defineTheme(name: string, options: IDefineThemeOptions): IPromise<string>;
+            defineTheme(
+                name: string,
+                options: IDefineThemeOptions
+            ): IPromise<string>;
         }
 
         interface IDateLocaleProvider {
@@ -352,22 +382,22 @@ declare module 'angular' {
         interface IColorPalette {
             red: IPalette;
             pink: IPalette;
-            'deep-purple': IPalette;
+            "deep-purple": IPalette;
             indigo: IPalette;
             blue: IPalette;
-            'light-blue': IPalette;
+            "light-blue": IPalette;
             cyan: IPalette;
             teal: IPalette;
             green: IPalette;
-            'light-green': IPalette;
+            "light-green": IPalette;
             lime: IPalette;
             yellow: IPalette;
             amber: IPalette;
             orange: IPalette;
-            'deep-orange': IPalette;
+            "deep-orange": IPalette;
             brown: IPalette;
             grey: IPalette;
-            'blue-grey': IPalette;
+            "blue-grey": IPalette;
         }
 
         interface IConfiguredColorPalette extends IColorPalette {
@@ -409,7 +439,7 @@ declare module 'angular' {
             onRemoving?(...args: any[]): PromiseLike<void> | void;
             onDomRemoved?(...args: any[]): PromiseLike<void> | void;
             origin?: string | JQuery | Element;
-            onCloseSuccess?: ((panel: IPanelRef, closeReason: string) => any);
+            onCloseSuccess?: (panel: IPanelRef, closeReason: string) => any;
         }
 
         interface IPanelRef {
@@ -429,8 +459,14 @@ declare module 'angular' {
             removeClass(oldClass: string): void;
             toggleClass(toggleClass: string): void;
             updatePosition(position: IPanelPosition): void;
-            registerInterceptor(type: string, callback: () => IPromise<any>): IPanelRef;
-            removeInterceptor(type: string, callback: () => IPromise<any>): IPanelRef;
+            registerInterceptor(
+                type: string,
+                callback: () => IPromise<any>
+            ): IPanelRef;
+            removeInterceptor(
+                type: string,
+                callback: () => IPromise<any>
+            ): IPanelRef;
             removeAllInterceptors(type?: string): IPanelRef;
         }
 
@@ -446,15 +482,28 @@ declare module 'angular' {
             centerHorizontally(): IPanelPosition;
             centerVertically(): IPanelPosition;
             center(): IPanelPosition;
-            addPanelPosition(xPosition: string, yPosition: string): IPanelPosition;
-            withOffsetX(offsetX: string | ((panel: IPanelPosition) => string)): IPanelPosition;
-            withOffsetY(offsetY: string | ((panel: IPanelPosition) => string)): IPanelPosition;
+            addPanelPosition(
+                xPosition: string,
+                yPosition: string
+            ): IPanelPosition;
+            withOffsetX(
+                offsetX: string | ((panel: IPanelPosition) => string)
+            ): IPanelPosition;
+            withOffsetY(
+                offsetY: string | ((panel: IPanelPosition) => string)
+            ): IPanelPosition;
         }
 
         interface IPanelAnimation {
-            openFrom(from: string | Element | Event | { top: number, left: number }): IPanelAnimation;
-            closeTo(to: string | Element | { top: number, left: number }): IPanelAnimation;
-            withAnimation(cssClass: string | { open: string, close: string }): IPanelAnimation;
+            openFrom(
+                from: string | Element | Event | { top: number; left: number }
+            ): IPanelAnimation;
+            closeTo(
+                to: string | Element | { top: number; left: number }
+            ): IPanelAnimation;
+            withAnimation(
+                cssClass: string | { open: string; close: string }
+            ): IPanelAnimation;
         }
 
         interface IPanelService {
@@ -463,36 +512,36 @@ declare module 'angular' {
             newPanelPosition(): IPanelPosition;
             newPanelAnimation(): IPanelAnimation;
             xPosition: {
-                CENTER: string,
-                ALIGN_START: string,
-                ALIGN_END: string,
-                OFFSET_START: string,
-                OFFSET_END: string,
+                CENTER: string;
+                ALIGN_START: string;
+                ALIGN_END: string;
+                OFFSET_START: string;
+                OFFSET_END: string;
             };
             yPosition: {
-                CENTER: string,
-                ALIGN_TOPS: string,
-                ALIGN_BOTTOMS: string,
-                ABOVE: string,
-                BELOW: string,
+                CENTER: string;
+                ALIGN_TOPS: string;
+                ALIGN_BOTTOMS: string;
+                ABOVE: string;
+                BELOW: string;
             };
             animation: {
-                SLIDE: string,
-                SCALE: string,
-                FADE: string,
+                SLIDE: string;
+                SCALE: string;
+                FADE: string;
             };
             interceptorTypes: {
-                CLOSE: string,
+                CLOSE: string;
             };
             closeReasons: {
-                CLICK_OUTSIDE: string,
-                ESCAPE: string,
+                CLICK_OUTSIDE: string;
+                ESCAPE: string;
             };
             absPosition: {
-                TOP: string,
-                RIGHT: string,
-                BOTTOM: string,
-                LEFT: string,
+                TOP: string;
+                RIGHT: string;
+                BOTTOM: string;
+                LEFT: string;
             };
         }
 
@@ -504,13 +553,22 @@ declare module 'angular' {
             durationIndeterminate?: number;
             startIndeterminate?: number;
             endIndeterminate?: number;
-            easeFnIndeterminate?(t: number, b: number, c: number, d: number): number;
+            easeFnIndeterminate?(
+                t: number,
+                b: number,
+                c: number,
+                d: number
+            ): number;
         }
 
         interface IProgressCircularProvider {
             configure(options: IProgressCircularConfig): void;
         }
 
-        type IStickyService = (scope: IScope, element: JQuery, elementClone?: JQuery) => void;
+        type IStickyService = (
+            scope: IScope,
+            element: JQuery,
+            elementClone?: JQuery
+        ) => void;
     }
 }

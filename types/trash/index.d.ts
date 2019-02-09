@@ -11,7 +11,10 @@
  * @param paths Accepts paths and [glob patterns](https://github.com/sindresorhus/globby#globbing-patterns).
  * @param options.glob Enable globbing when matching file paths
  */
-declare function trash(paths: string | string[], options?: trash.Options): Promise<void>;
+declare function trash(
+    paths: string | string[],
+    options?: trash.Options
+): Promise<void>;
 
 declare namespace trash {
     interface Options {

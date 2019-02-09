@@ -13,6 +13,6 @@ const s3Upload = multer({
     storage: s3Storage({
         s3,
         bucket,
-        contentType: s3Storage.AUTO_CONTENT_TYPE,
-    }),
+        contentType: s3Storage.AUTO_CONTENT_TYPE
+    })
 });

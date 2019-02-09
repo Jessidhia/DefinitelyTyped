@@ -25,7 +25,7 @@ interface MustacheStatic {
     /**
      * A simple string scanner that is used by the template parser to find tokens in template strings.
      */
-    Scanner: typeof MustacheScanner
+    Scanner: typeof MustacheScanner;
 
     /**
      * Represents a rendering context by wrapping a view object and maintaining a reference to the parent context.
@@ -84,7 +84,12 @@ interface MustacheStatic {
      * @param tags
      * The tags to use.
      */
-    render(template: string, view: any | MustacheContext, partials?: any, tags?: string[]): string;
+    render(
+        template: string,
+        view: any | MustacheContext,
+        partials?: any,
+        tags?: string[]
+    ): string;
 
     /**
      * Renders the `template` with the given `view` and `partials` using the default writer.
@@ -102,7 +107,12 @@ interface MustacheStatic {
      *
      * A function that is used to load partial template on the fly that takes a single argument: the name of the partial.
      */
-    to_html(template: string, view: any | MustacheContext, partials?: any, send?: any): any;
+    to_html(
+        template: string,
+        view: any | MustacheContext,
+        partials?: any,
+        send?: any
+    ): any;
 }
 
 /**
@@ -226,7 +236,12 @@ declare class MustacheWriter {
      * @param tags
      * The tags to use.
      */
-    render(template: string, view: any | MustacheContext, partials: any, tags?: string[]): string;
+    render(
+        template: string,
+        view: any | MustacheContext,
+        partials: any,
+        tags?: string[]
+    ): string;
 
     /**
      * Low-level method that renders the given array of `tokens` using the given `context` and `partials`.
@@ -245,7 +260,12 @@ declare class MustacheWriter {
      *
      * If the template doesn't use higher-order sections, this argument may be omitted.
      */
-    renderTokens(tokens: string[], context: MustacheContext, partials: any, originalTemplate: any): string;
+    renderTokens(
+        tokens: string[],
+        context: MustacheContext,
+        partials: any,
+        originalTemplate: any
+    ): string;
 }
 
 /**

@@ -9,7 +9,7 @@
 /// <reference types="jquery"/>
 
 declare namespace Mark {
-    type MarkAccuracy = 'partially' | 'complementary' | 'exactly';
+    type MarkAccuracy = "partially" | "complementary" | "exactly";
 
     interface MarkOptions {
         element?: string;
@@ -25,7 +25,7 @@ declare namespace Mark {
         caseSensitive?: boolean;
         ignoreJoiners?: boolean;
         ignorePunctuation?: string[];
-        wildcards?: 'disabled' | 'enabled' | 'withSpaces';
+        wildcards?: "disabled" | "enabled" | "withSpaces";
 
         each?(element: Element): void;
 

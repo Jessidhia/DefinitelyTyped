@@ -6,7 +6,11 @@
 
 export as namespace amplitude;
 
-type Callback = (responseCode: number, responseBody: string, details?: { reason: string; }) => void;
+type Callback = (
+    responseCode: number,
+    responseBody: string,
+    details?: { reason: string }
+) => void;
 type LogReturn = number | void;
 
 interface Config {
@@ -25,7 +29,7 @@ interface Config {
     includeReferrer?: boolean;
     includeUtm?: boolean;
     language?: string;
-    logLevel?: 'DISABLE' | 'ERROR' | 'WARN' | 'INFO';
+    logLevel?: "DISABLE" | "ERROR" | "WARN" | "INFO";
     optOut?: boolean;
     platform?: string;
     saveEvents?: boolean;
@@ -44,7 +48,7 @@ interface Config {
         platform?: boolean;
         region?: boolean;
         version_name?: boolean;
-    },
+    };
     unsentKey?: string;
     unsentIdentifyKey?: string;
     uploadBatchSize?: number;
@@ -61,7 +65,6 @@ export class Identify {
 }
 
 export class Revenue {
-
     setProductId(productId: string): Revenue;
     setQuantity(quantity: number): Revenue;
     setPrice(price: number): Revenue;
@@ -70,12 +73,16 @@ export class Revenue {
 }
 
 export class AmplitudeClient {
-
     constructor(instanceName?: string);
 
     options: Config;
 
-    init(apiKey: string, userId?: string, config?: Config, callback?: (client: AmplitudeClient) => void): void;
+    init(
+        apiKey: string,
+        userId?: string,
+        config?: Config,
+        callback?: (client: AmplitudeClient) => void
+    ): void;
 
     setVersionName(versionName: string): void;
 
@@ -100,15 +107,30 @@ export class AmplitudeClient {
     setGroup(groupType: string, groupName: string | string[]): void;
 
     logEvent(event: string, data?: any, callback?: Callback): LogReturn;
-    logEventWithGroups(event: string, data?: any, groups?: any, callback?: Callback): LogReturn;
+    logEventWithGroups(
+        event: string,
+        data?: any,
+        groups?: any,
+        callback?: Callback
+    ): LogReturn;
     logRevenueV2(revenue_obj: Revenue): LogReturn;
     logRevenue(pric: number, quantity: number, product: string): LogReturn;
-    logEventWithTimestamp(event: string, data?: any, timestamp?: number, callback?: Callback): LogReturn;
+    logEventWithTimestamp(
+        event: string,
+        data?: any,
+        timestamp?: number,
+        callback?: Callback
+    ): LogReturn;
 }
 
 // Proxy methods that get executed on the default AmplitudeClient instance (not all client methods are proxied)
 
-export function init(apiKey: string, userId?: string, options?: Config, callback?: (client: AmplitudeClient) => void): void;
+export function init(
+    apiKey: string,
+    userId?: string,
+    options?: Config,
+    callback?: (client: AmplitudeClient) => void
+): void;
 
 export function setVersionName(version: string): void;
 
@@ -132,13 +154,29 @@ export function setOptOut(optOut: boolean): void;
 
 export function setGroup(groupType: string, groupName: string | string[]): void;
 
-export function logEvent(event: string, data?: any, callback?: Callback): LogReturn;
-export function logEventWithGroups(event: string, data?: any, groups?: any, callback?: Callback): LogReturn;
+export function logEvent(
+    event: string,
+    data?: any,
+    callback?: Callback
+): LogReturn;
+export function logEventWithGroups(
+    event: string,
+    data?: any,
+    groups?: any,
+    callback?: Callback
+): LogReturn;
 export function logRevenueV2(revenue_obj: Revenue): LogReturn;
-export function logRevenue(pric: number, quantity: number, product: string): LogReturn;
-export function logEventWithTimestamp(event: string, data?: any, timestamp?: number, callback?: Callback): LogReturn;
-
-
+export function logRevenue(
+    pric: number,
+    quantity: number,
+    product: string
+): LogReturn;
+export function logEventWithTimestamp(
+    event: string,
+    data?: any,
+    timestamp?: number,
+    callback?: Callback
+): LogReturn;
 
 export function getInstance(instanceName?: string): AmplitudeClient;
 export const __VERSION__: string;

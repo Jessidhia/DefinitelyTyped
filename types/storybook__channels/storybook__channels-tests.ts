@@ -1,11 +1,11 @@
 import Channel = require("@storybook/channels");
 
 const transport: Channel.Transport = {
-    setHandler(handler) { },
-    send(event) { },
+    setHandler(handler) {},
+    send(event) {}
 };
 const channel = new Channel({ transport, async: true });
-const listener = (...args: any) => { };
+const listener = (...args: any) => {};
 channel.addListener("event", listener);
 channel.addPeerListener("event", listener);
 channel.emit("event", 42);

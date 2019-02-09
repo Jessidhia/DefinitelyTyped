@@ -12,7 +12,13 @@ declare namespace notifier {
      * {icon} icon
      * {timeout} timeout
      */
-    function show(title: string, msg: string, type: string, icon: string, timeout?: number): string | number;
+    function show(
+        title: string,
+        msg: string,
+        type: string,
+        icon: string,
+        timeout?: number
+    ): string | number;
 
     function hide(notificationId: string | number): boolean;
 }

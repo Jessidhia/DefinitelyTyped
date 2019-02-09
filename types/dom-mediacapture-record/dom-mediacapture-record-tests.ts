@@ -1,20 +1,20 @@
 const isWebmSupported: boolean = window.MediaRecorder.isTypeSupported(
-    'video/webm'
+    "video/webm"
 );
 
 const mediaStream = new MediaStream();
 
 const mediaRecorderOptions: MediaRecorderOptions = {
-    mimeType: 'video/webm',
+    mimeType: "video/webm",
     audioBitsPerSecond: 1000000,
     videoBitsPerSecond: 4000000
 };
 
-const blobEvent = new BlobEvent('dataavailable', {
+const blobEvent = new BlobEvent("dataavailable", {
     data: new Blob(),
     bubbles: false
 });
-const errorEvent = new MediaRecorderErrorEvent('error', {
+const errorEvent = new MediaRecorderErrorEvent("error", {
     error: new DOMException(),
     bubbles: false
 });
@@ -38,10 +38,10 @@ recorder.start(1000);
 recorder.pause();
 recorder.requestData();
 const state: RecordingState = recorder.state;
-const isRecording = state === 'recording';
+const isRecording = state === "recording";
 
-recorder.addEventListener('start', onEvent);
-recorder.removeEventListener('start', onEvent);
+recorder.addEventListener("start", onEvent);
+recorder.removeEventListener("start", onEvent);
 recorder.dispatchEvent(blobEvent);
 
 recorder.ondataavailable = onDataAvailable;

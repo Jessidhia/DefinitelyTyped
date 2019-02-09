@@ -23,7 +23,7 @@ interface CommonOptions {
     debug?: boolean;
 
     /**
-     * Object of string key/value pairs which will be appended on 
+     * Object of string key/value pairs which will be appended on
      * to all StatsD payloads (excluding raw payloads)
      * (default {})
      */
@@ -35,10 +35,10 @@ interface CommonOptions {
     tcp?: boolean;
 
     /**
-     * Dual-use timer. Will flush metrics every interval. For UDP, 
-     * it auto-closes the socket after this long without activity 
-     * (default 1000 ms; 0 disables this). For TCP, it auto-closes 
-     * the socket after socketTimeoutsToClose number of timeouts 
+     * Dual-use timer. Will flush metrics every interval. For UDP,
+     * it auto-closes the socket after this long without activity
+     * (default 1000 ms; 0 disables this). For TCP, it auto-closes
+     * the socket after socketTimeoutsToClose number of timeouts
      * have elapsed without activity.
      */
     socketTimeout?: number;
@@ -56,8 +56,8 @@ interface TcpOptions extends CommonOptions {
     port?: number;
 
     /**
-     * Number of timeouts in which the socket auto-closes if it 
-     * has been inactive. (default 10; 1 to auto-close after a 
+     * Number of timeouts in which the socket auto-closes if it
+     * has been inactive. (default 10; 1 to auto-close after a
      * single timeout).
      */
     socketTimeoutsToClose: number;
@@ -103,7 +103,12 @@ interface ExpressMiddlewareOptions {
      * Optional callback called after reporting metrics for an
      * express route.
      */
-    onResponseEnd?: (client: StatsdClient, startTime: Date, req: express.Request, res: express.Response) => void;
+    onResponseEnd?: (
+        client: StatsdClient,
+        startTime: Date,
+        req: express.Request,
+        res: express.Response
+    ) => void;
 
     /**
      * Enables inclusion of per-URL response code and timing
@@ -124,7 +129,7 @@ declare class StatsdClient {
 
     set(name: string, value: number, tags?: Tags): this;
 
-    timing(name: string, startOrDuration: Date | number, tags?: Tags): this;    
+    timing(name: string, startOrDuration: Date | number, tags?: Tags): this;
 
     histogram(name: string, value: number, tags?: Tags): this;
 
@@ -137,7 +142,10 @@ declare class StatsdClient {
     formatTags(tags?: Tags): string;
 
     helpers: {
-        getExpressMiddleware(prefix?: string, options?: ExpressMiddlewareOptions): express.RequestHandler;
+        getExpressMiddleware(
+            prefix?: string,
+            options?: ExpressMiddlewareOptions
+        ): express.RequestHandler;
     };
 }
 

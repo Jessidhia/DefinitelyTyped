@@ -13,7 +13,7 @@ interface Cheerio {
 
     // Attributes
 
-    attr(): {[attr: string]: string};
+    attr(): { [attr: string]: string };
     attr(name: string): string;
     attr(name: string, value: any): Cheerio;
 
@@ -39,7 +39,14 @@ interface Cheerio {
     toggleClass(className: string): Cheerio;
     toggleClass(className: string, toggleSwitch: boolean): Cheerio;
     toggleClass(toggleSwitch?: boolean): Cheerio;
-    toggleClass(func: (index: number, className: string, toggleSwitch: boolean) => string, toggleSwitch?: boolean): Cheerio;
+    toggleClass(
+        func: (
+            index: number,
+            className: string,
+            toggleSwitch: boolean
+        ) => string,
+        toggleSwitch?: boolean
+    ): Cheerio;
 
     is(selector: string): boolean;
     is(element: CheerioElement): boolean;
@@ -49,10 +56,10 @@ interface Cheerio {
 
     // Form
     serialize(): string;
-    serializeArray(): {name: string, value: string}[];
+    serializeArray(): { name: string; value: string }[];
 
     // Traversing
-    
+
     find(selector: string): Cheerio;
     find(element: Cheerio): Cheerio;
 
@@ -126,12 +133,12 @@ interface Cheerio {
     add(elements: CheerioElement[]): Cheerio;
     add(selection: Cheerio): Cheerio;
 
-    addBack():Cheerio;
-    addBack(filter: string):Cheerio;
+    addBack(): Cheerio;
+    addBack(filter: string): Cheerio;
 
     // Manipulation
-    appendTo(target: Cheerio) : Cheerio
-    prependTo(target: Cheerio) : Cheerio
+    appendTo(target: Cheerio): Cheerio;
+    prependTo(target: Cheerio): Cheerio;
 
     append(content: string, ...contents: any[]): Cheerio;
     append(content: Document, ...contents: any[]): Cheerio;
@@ -185,8 +192,14 @@ interface Cheerio {
     css(propertyNames: string[]): string[];
     css(propertyName: string, value: string): Cheerio;
     css(propertyName: string, value: number): Cheerio;
-    css(propertyName: string, func: (index: number, value: string) => string): Cheerio;
-    css(propertyName: string, func: (index: number, value: string) => number): Cheerio;
+    css(
+        propertyName: string,
+        func: (index: number, value: string) => string
+    ): Cheerio;
+    css(
+        propertyName: string,
+        func: (index: number, value: string) => number
+    ): Cheerio;
     css(properties: Object): Cheerio;
 
     // Rendering
@@ -236,7 +249,11 @@ interface CheerioStatic extends CheerioSelector {
     xml(): string;
     root(): Cheerio;
     contains(container: CheerioElement, contained: CheerioElement): boolean;
-    parseHTML(data: string, context?: Document, keepScripts?: boolean): Document[];
+    parseHTML(
+        data: string,
+        context?: Document,
+        keepScripts?: boolean
+    ): Document[];
 
     html(options?: CheerioOptionsInterface): string;
     html(selector: string, options?: CheerioOptionsInterface): string;
@@ -250,7 +267,7 @@ interface CheerioElement {
     tagName: string;
     type: string;
     name: string;
-    attribs: {[attr: string]: string};
+    attribs: { [attr: string]: string };
     children: CheerioElement[];
     childNodes: CheerioElement[];
     lastChild: CheerioElement;
@@ -266,13 +283,16 @@ interface CheerioElement {
 }
 
 interface CheerioAPI extends CheerioSelector, CheerioStatic {
-  load(html: string, options?: CheerioOptionsInterface): CheerioStatic;
-  load(element: CheerioElement, options?: CheerioOptionsInterface): CheerioStatic;
+    load(html: string, options?: CheerioOptionsInterface): CheerioStatic;
+    load(
+        element: CheerioElement,
+        options?: CheerioOptionsInterface
+    ): CheerioStatic;
 }
 
-interface Document { }
+interface Document {}
 
-declare var cheerio:CheerioAPI;
+declare var cheerio: CheerioAPI;
 
 declare module "cheerio" {
     export = cheerio;

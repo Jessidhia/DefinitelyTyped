@@ -1,22 +1,14 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "paths": {
-            "react-navigation": [
-                "react-navigation/v1"
-            ],
-            "react-navigation/*": [
-                "react-navigation/v1/*"
-            ]
+            "react-navigation": ["react-navigation/v1"],
+            "react-navigation/*": ["react-navigation/v1/*"]
         },
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "jsx": "react",
         "strictNullChecks": true,
         "strictFunctionTypes": true,
@@ -25,8 +17,5 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "react-router-navigation-core-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-router-navigation-core-tests.tsx"]
 }

@@ -6,14 +6,16 @@
  * are not intended as functional tests.
  */
 
-import * as d3Quadtree from 'd3-quadtree';
+import * as d3Quadtree from "d3-quadtree";
 
 // ---------------------------------------------------------------------------
 // Preparatory Steps
 // ---------------------------------------------------------------------------
 
 // custom type guard
-function isLeaf<T>(a: d3Quadtree.QuadtreeInternalNode<T> | d3Quadtree.QuadtreeLeaf<T>): a is d3Quadtree.QuadtreeLeaf<T> {
+function isLeaf<T>(
+    a: d3Quadtree.QuadtreeInternalNode<T> | d3Quadtree.QuadtreeLeaf<T>
+): a is d3Quadtree.QuadtreeLeaf<T> {
     return a.length === undefined;
 }
 
@@ -38,7 +40,9 @@ let testData: TestDatum[] = [
     { x: 70, y: 20 }
 ];
 
-let node: d3Quadtree.QuadtreeInternalNode<TestDatum> | d3Quadtree.QuadtreeLeaf<TestDatum>;
+let node:
+    | d3Quadtree.QuadtreeInternalNode<TestDatum>
+    | d3Quadtree.QuadtreeLeaf<TestDatum>;
 let numberAccessor: (d: TestDatum) => number;
 
 const simpleTestData: Array<[number, number]> = [
@@ -113,13 +117,13 @@ quadtree = quadtree.cover(50, 90);
 
 quadtree = quadtree.add({ x: 35, y: 35 });
 // $ExpectError
-quadtree = quadtree.add({x: 35}); // fails, incompatible data type
+quadtree = quadtree.add({ x: 35 }); // fails, incompatible data type
 
 // addAll(...) ---------------------------------------------------------------
 
 quadtree = quadtree.addAll(testData);
 // $ExpectError
-quadtree = quadtree.addAll([{x: 35}, {x: 55, y: 13}]); // fails, incompatible data type
+quadtree = quadtree.addAll([{ x: 35 }, { x: 55, y: 13 }]); // fails, incompatible data type
 
 // remove(...) ---------------------------------------------------------------
 
@@ -166,13 +170,15 @@ quadtree = quadtree.visit((node, x0, y0, x1, y1) => {
     bound = x1; // number
     bound = y1; // number
 
-    let nodeRef: d3Quadtree.QuadtreeInternalNode<TestDatum> | d3Quadtree.QuadtreeLeaf<TestDatum>;
+    let nodeRef:
+        | d3Quadtree.QuadtreeInternalNode<TestDatum>
+        | d3Quadtree.QuadtreeLeaf<TestDatum>;
     nodeRef = node;
 
     if (isLeaf(node)) {
         console.log(node.data);
     } else {
-        console.log('Top-Right Quadrant: ', node[0]);
+        console.log("Top-Right Quadrant: ", node[0]);
     }
     // void -> undefined return treated as falsey
 });
@@ -184,7 +190,9 @@ quadtree = quadtree.visit((node, x0, y0, x1, y1) => {
     bound = x1; // number
     bound = y1; // number
 
-    let nodeRef: d3Quadtree.QuadtreeInternalNode<TestDatum> | d3Quadtree.QuadtreeLeaf<TestDatum>;
+    let nodeRef:
+        | d3Quadtree.QuadtreeInternalNode<TestDatum>
+        | d3Quadtree.QuadtreeLeaf<TestDatum>;
     nodeRef = node;
 
     if (isLeaf(node)) {
@@ -208,13 +216,15 @@ quadtree = quadtree.visitAfter((node, x0, y0, x1, y1) => {
     bound = x1; // number
     bound = y1; // number
 
-    let nodeRef: d3Quadtree.QuadtreeInternalNode<TestDatum> | d3Quadtree.QuadtreeLeaf<TestDatum>;
+    let nodeRef:
+        | d3Quadtree.QuadtreeInternalNode<TestDatum>
+        | d3Quadtree.QuadtreeLeaf<TestDatum>;
     nodeRef = node;
 
     if (isLeaf(node)) {
         console.log(node.data);
     } else {
-        console.log('Top-Right Quadrant: ', node[0]);
+        console.log("Top-Right Quadrant: ", node[0]);
     }
 });
 
@@ -230,7 +240,10 @@ nextLeaf = leaf.next ? leaf.next : undefined;
 // Test QuadtreeInternalNode =================================================
 
 declare const internalNode: d3Quadtree.QuadtreeInternalNode<TestDatum>;
-let quadNode: d3Quadtree.QuadtreeInternalNode<TestDatum> | d3Quadtree.QuadtreeLeaf<TestDatum> | undefined;
+let quadNode:
+    | d3Quadtree.QuadtreeInternalNode<TestDatum>
+    | d3Quadtree.QuadtreeLeaf<TestDatum>
+    | undefined;
 
 quadNode = internalNode[0];
 quadNode = internalNode[1];

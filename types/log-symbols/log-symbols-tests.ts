@@ -1,8 +1,8 @@
 /// <reference types="node"/>
 
-import * as logSymbols from 'log-symbols';
+import * as logSymbols from "log-symbols";
 
-console.log(logSymbols.success, 'Finished successfully!');
+console.log(logSymbols.success, "Finished successfully!");
 
 let str: string;
 

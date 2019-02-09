@@ -24,7 +24,11 @@ export type MDCLogger = (message?: any, ...optionalParams: any[]) => void;
 
 export interface MDCAutoInit {
     (root?: Document, warn?: MDCLogger): MDCAutoInit;
-    register(componentName: string, Ctor: (...args: any[]) => any, warn?: MDCLogger): void;
+    register(
+        componentName: string,
+        Ctor: (...args: any[]) => any,
+        warn?: MDCLogger
+    ): void;
     deregister(componentName: string): void;
     deregisterAll(): void;
 }

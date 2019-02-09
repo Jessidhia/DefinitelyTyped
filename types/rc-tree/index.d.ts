@@ -18,7 +18,7 @@ export interface InternalTreeNodeProps extends TreeNodeProps {
     dragOverGapBottom: boolean;
 }
 
-export interface InternalTreeNode extends Component<InternalTreeNodeProps> { }
+export interface InternalTreeNode extends Component<InternalTreeNodeProps> {}
 
 export interface TreeNodeProps {
     /**
@@ -47,7 +47,7 @@ export interface TreeNodeProps {
     icon?: JSX.Element | ((props: InternalTreeNodeProps) => JSX.Element);
 }
 
-export class TreeNode extends Component<TreeNodeProps> { }
+export class TreeNode extends Component<TreeNodeProps> {}
 
 export interface ExpandData {
     expanded: boolean;
@@ -260,4 +260,4 @@ export interface TreeProps {
     onDragEnd?: (props: OnDragEndData) => void;
 }
 
-export default class Tree extends Component<TreeProps> { }
+export default class Tree extends Component<TreeProps> {}

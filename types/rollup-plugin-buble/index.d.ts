@@ -6,8 +6,8 @@
 
 /// <reference types="node" />
 
-import { Plugin } from 'rollup';
-import { TransformOptions } from 'buble';
+import { Plugin } from "rollup";
+import { TransformOptions } from "buble";
 
 export interface Options extends TransformOptions {
     // Every files will be parsed by default, but you can specify which files to include or exclude

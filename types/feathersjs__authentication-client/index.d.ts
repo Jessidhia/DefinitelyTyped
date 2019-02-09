@@ -3,9 +3,12 @@
 // Definitions by: Abraao Alves <https://github.com/AbraaoAlves>, Jan Lohage <https://github.com/j2L4e>
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.3
-import * as self from '@feathersjs/authentication-client';
+import * as self from "@feathersjs/authentication-client";
 
-declare const feathersAuthClient: ((config?: FeathersAuthClientConfig) => () => void) & typeof self;
+declare const feathersAuthClient: ((
+    config?: FeathersAuthClientConfig
+) => () => void) &
+    typeof self;
 export default feathersAuthClient;
 
 export interface FeathersAuthClientConfig {
@@ -43,7 +46,11 @@ export interface Passport {
 
     authenticate(credentials?: FeathersAuthCredentials): any;
 
-    authenticateSocket(credentials: FeathersAuthCredentials, socket: any, emit: any): any;
+    authenticateSocket(
+        credentials: FeathersAuthCredentials,
+        socket: any,
+        emit: any
+    ): any;
 
     logoutSocket(socket: any, emit: any): Promise<any>;
 
@@ -64,7 +71,7 @@ export interface Passport {
     getStorage(storage: any): any;
 }
 
-declare module '@feathersjs/feathers' {
+declare module "@feathersjs/feathers" {
     interface Application<ServiceTypes> {
         authenticate(options?: FeathersAuthCredentials): Promise<any>;
 

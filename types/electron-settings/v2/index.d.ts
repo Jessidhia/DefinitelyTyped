@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 declare const SettingsInstance: Settings;
 export = SettingsInstance;
@@ -77,14 +77,22 @@ declare class Settings extends EventEmitter {
      * @throws if options is not an object.
      * @see setSync
      */
-    set(keyPath: string, value: any, options?: ElectronSettings.Options): Promise<void>;
+    set(
+        keyPath: string,
+        value: any,
+        options?: ElectronSettings.Options
+    ): Promise<void>;
 
     /**
      * The synchronous version of set().
      *
      * @see set
      */
-    setSync(keyPath: string, value: any, options?: ElectronSettings.Options): void;
+    setSync(
+        keyPath: string,
+        value: any,
+        options?: ElectronSettings.Options
+    ): void;
 
     /**
      * Deletes the key and value at the chosen key path.
@@ -130,7 +138,9 @@ declare class Settings extends EventEmitter {
      * @see defaults
      * @see applyDefaultsSync
      */
-    applyDefaults(options?: ElectronSettings.ApplyDefaultsOptions): Promise<void>;
+    applyDefaults(
+        options?: ElectronSettings.ApplyDefaultsOptions
+    ): Promise<void>;
 
     /**
      * The synchronous version of applyDefaults().
@@ -167,7 +177,10 @@ declare class Settings extends EventEmitter {
      * @throws if key path is not a string.
      * @throws if handler is not a function.
      */
-    observe(keyPath: string, handler: (evt: ElectronSettings.ChangeEvent) => void): ElectronSettings.Observer;
+    observe(
+        keyPath: string,
+        handler: (evt: ElectronSettings.ChangeEvent) => void
+    ): ElectronSettings.Observer;
 
     /**
      * Returns the path to the config file. Typically found in your application's user data directory:
@@ -180,11 +193,11 @@ declare class Settings extends EventEmitter {
     /**
      * Emitted when the settings file has been created.
      */
-    on(event: 'create', listener: (pathToSettings: string) => void): this;
+    on(event: "create", listener: (pathToSettings: string) => void): this;
     /**
      * Emitted when the settings have been written to disk.
      */
-    on(event: 'write', listener: () => void): this;
+    on(event: "write", listener: () => void): this;
 }
 
 declare namespace SettingsInstance {

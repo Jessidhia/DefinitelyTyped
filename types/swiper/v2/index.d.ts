@@ -104,10 +104,10 @@ interface SwiperOptions {
 }
 
 interface SwiperScrollbarOptions {
-    container: string;          // Default: '.swiper-scrollbar'
-    draggable?: boolean;        // Default: true
-    hide?: boolean;             // Default: true
-    snapOnRelease?: boolean;    // Default: false
+    container: string; // Default: '.swiper-scrollbar'
+    draggable?: boolean; // Default: true
+    hide?: boolean; // Default: true
+    snapOnRelease?: boolean; // Default: false
 }
 
 declare class SwiperSlide {
@@ -115,7 +115,7 @@ declare class SwiperSlide {
     clone(): SwiperSlide;
     getWidth(): number;
     getHeight(): number;
-    getOffset(): { top: number; left: number; };
+    getOffset(): { top: number; left: number };
     insertAfter(index: number): SwiperSlide;
     prepend(): SwiperSlide;
     remove(): void;
@@ -174,18 +174,35 @@ declare class Swiper {
     stopAutoplay(): void;
 
     // Other methods
-    getWrapperTranslate(axis: string): number;  // 'x' or 'y'
+    getWrapperTranslate(axis: string): number; // 'x' or 'y'
     setWrapperTranslate(x: number, y: number, z: number): void;
     setWrapperTransition(duration: any): void;
 
     // Slides API
     slides: SwiperSlide[];
-    createSlide(html: string, slideClassList?: string, element?: string): SwiperSlide;
-    appendSlide(html: string, slideClassList?: string, element?: string): SwiperSlide;
+    createSlide(
+        html: string,
+        slideClassList?: string,
+        element?: string
+    ): SwiperSlide;
+    appendSlide(
+        html: string,
+        slideClassList?: string,
+        element?: string
+    ): SwiperSlide;
     appendSlide(slideInstance: HTMLElement): SwiperSlide;
-    prependSlide(html: string, slideClassList?: string, element?: string): SwiperSlide;
+    prependSlide(
+        html: string,
+        slideClassList?: string,
+        element?: string
+    ): SwiperSlide;
     prependSlide(slideInstance: HTMLElement): SwiperSlide;
-    insertSlideAfter(index: number, html: string, slideClassList?: string, element?: string): SwiperSlide;
+    insertSlideAfter(
+        index: number,
+        html: string,
+        slideClassList?: string,
+        element?: string
+    ): SwiperSlide;
     insertSlideAfter(index: number, slideInstance: HTMLElement): SwiperSlide;
     removeSlide(index: number): boolean;
     removeLastSlide(): boolean;

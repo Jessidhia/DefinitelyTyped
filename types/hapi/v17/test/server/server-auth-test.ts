@@ -1,16 +1,22 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-await-serverauthteststrategy-request
 //      https://github.com/hapijs/hapi/blob/master/API.md#-serverauthschemename-scheme
-import { Request, ResponseToolkit, Server, ServerAuthScheme, ServerAuthSchemeOptions } from "hapi";
+import {
+    Request,
+    ResponseToolkit,
+    Server,
+    ServerAuthScheme,
+    ServerAuthSchemeOptions
+} from "hapi";
 import * as Boom from "boom";
 
-declare module 'hapi' {
+declare module "hapi" {
     interface AuthCredentials {
         name?: string;
     }
 }
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 
 const scheme: ServerAuthScheme = (server, options) => {
@@ -19,22 +25,25 @@ const scheme: ServerAuthScheme = (server, options) => {
             const req = request.raw.req;
             const authorization = req.headers.authorization;
             if (!authorization) {
-                throw Boom.unauthorized(null, 'Custom');
+                throw Boom.unauthorized(null, "Custom");
             }
-            return h.authenticated({ credentials: { name: 'john', } });
+            return h.authenticated({ credentials: { name: "john" } });
         }
     };
 };
 
-server.auth.scheme('custom', scheme);
-server.auth.strategy('default', 'custom');
+server.auth.scheme("custom", scheme);
+server.auth.strategy("default", "custom");
 
 server.route({
-    method: 'GET',
-    path: '/',
+    method: "GET",
+    path: "/",
     handler: async (request: Request, h: ResponseToolkit) => {
         try {
-            const credentials = await request.server.auth.test('default', request);
+            const credentials = await request.server.auth.test(
+                "default",
+                request
+            );
             return { status: true, user: credentials.name };
         } catch (err) {
             return { status: false };

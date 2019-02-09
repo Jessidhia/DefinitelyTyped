@@ -6,7 +6,7 @@ declare namespace pc {
      * @type String
      * @description Linear distance model
      */
-    const DISTANCE_LINEAR = 'linear';
+    const DISTANCE_LINEAR = "linear";
 
     /**
      * @static
@@ -15,7 +15,7 @@ declare namespace pc {
      * @name pc.DISTANCE_INVERSE
      * @description Inverse distance model
      */
-    const DISTANCE_INVERSE = 'inverse';
+    const DISTANCE_INVERSE = "inverse";
 
     /**
      * @static
@@ -24,5 +24,5 @@ declare namespace pc {
      * @name pc.DISTANCE_EXPONENTIAL
      * @description Exponential distance model
      */
-    const DISTANCE_EXPONENTIAL = 'exponential';
+    const DISTANCE_EXPONENTIAL = "exponential";
 }

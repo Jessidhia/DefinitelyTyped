@@ -5,5 +5,11 @@
 
 export function escape(input: string): string;
 export function unescape(input: string): string;
-export function escapeTag(template: TemplateStringsArray, ...substitutions: any[]): string;
-export function unescapeTag(template: TemplateStringsArray, ...substitutions: any[]): string;
+export function escapeTag(
+    template: TemplateStringsArray,
+    ...substitutions: any[]
+): string;
+export function unescapeTag(
+    template: TemplateStringsArray,
+    ...substitutions: any[]
+): string;

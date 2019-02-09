@@ -11,7 +11,7 @@ export interface IOIDCStrategyOption extends IBaseStrategyOption {
     thumbprint?: string;
     privatePEMKey?: string;
     useCookieInsteadOfSession?: boolean;
-    cookieEncryptionKeys?: {key: string, iv: string}[];
+    cookieEncryptionKeys?: { key: string; iv: string }[];
     nonceLifetime?: number;
     nonceMaxAmount?: number;
     scope?: string | string[];
@@ -37,20 +37,82 @@ export interface IProfile {
 }
 
 export type VerifyOIDCFunction =
-    ((profile: IProfile, done: VerifyCallback) => void) | 
-    ((iss: string, sub: string, done: VerifyCallback) => void) |
-    ((iss: string, sub: string, profile: IProfile, done: VerifyCallback) => void) |
-    ((iss: string, sub: string, profile: IProfile, access_token: string, refresh_token: string, done: VerifyCallback) => void) |
-    ((iss: string, sub: string, profile: IProfile, access_token: string, refresh_token: string, params: any, done: VerifyCallback) => void) |
-    ((iss: string, sub: string, profile: IProfile, jwtClaims: any, access_token: string, refresh_token: string, params: any, done: VerifyCallback) => void);
+    | ((profile: IProfile, done: VerifyCallback) => void)
+    | ((iss: string, sub: string, done: VerifyCallback) => void)
+    | ((
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          access_token: string,
+          refresh_token: string,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          access_token: string,
+          refresh_token: string,
+          params: any,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          jwtClaims: any,
+          access_token: string,
+          refresh_token: string,
+          params: any,
+          done: VerifyCallback
+      ) => void);
 
 export type VerifyOIDCFunctionWithReq =
-    ((req: Request, profile: IProfile, done: VerifyCallback) => void) | 
-    ((req: Request, iss: string, sub: string, done: VerifyCallback) => void) |
-    ((req: Request, iss: string, sub: string, profile: IProfile, done: VerifyCallback) => void) |
-    ((req: Request, iss: string, sub: string, profile: IProfile, access_token: string, refresh_token: string, done: VerifyCallback) => void) |
-    ((req: Request, iss: string, sub: string, profile: IProfile, access_token: string, refresh_token: string, params: any, done: VerifyCallback) => void) |
-    ((req: Request, iss: string, sub: string, profile: IProfile, jwtClaims: any, access_token: string, refresh_token: string, params: any, done: VerifyCallback) => void);
+    | ((req: Request, profile: IProfile, done: VerifyCallback) => void)
+    | ((req: Request, iss: string, sub: string, done: VerifyCallback) => void)
+    | ((
+          req: Request,
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          req: Request,
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          access_token: string,
+          refresh_token: string,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          req: Request,
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          access_token: string,
+          refresh_token: string,
+          params: any,
+          done: VerifyCallback
+      ) => void)
+    | ((
+          req: Request,
+          iss: string,
+          sub: string,
+          profile: IProfile,
+          jwtClaims: any,
+          access_token: string,
+          refresh_token: string,
+          params: any,
+          done: VerifyCallback
+      ) => void);
 
 export class OIDCStrategy implements passport.Strategy {
     constructor(

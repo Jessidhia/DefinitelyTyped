@@ -1,17 +1,13 @@
 namespace adoneTests.text.table {
     const {
-        text: {
-            table
-        }
+        text: { table }
     } = adone;
 
     let num: number;
     let str: string;
 
     namespace Table {
-        const {
-            Table
-        } = table;
+        const { Table } = table;
 
         new Table();
         new Table({ chars: {} });
@@ -51,9 +47,7 @@ namespace adoneTests.text.table {
     }
 
     namespace BorderlessTable {
-        const {
-            BorderlessTable
-        } = table;
+        const { BorderlessTable } = table;
 
         new BorderlessTable();
         new BorderlessTable({});

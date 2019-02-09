@@ -1,6 +1,6 @@
-import { assertType } from './lib/assert';
-import Ember from 'ember';
-import { PersonWithNumberName, Person } from './create';
+import { assertType } from "./lib/assert";
+import Ember from "ember";
+import { PersonWithNumberName, Person } from "./create";
 
 Person.create({ firstName: 99 }); // $ExpectError
 Person.create({}, { firstName: 99 }); // $ExpectError

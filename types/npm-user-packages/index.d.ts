@@ -9,7 +9,9 @@ export = npmUserPackages;
  * Get packages by a npm user.
  * @param username User to fetch packages from.
  */
-declare function npmUserPackages(username: string): Promise<npmUserPackages.PackageData[]>;
+declare function npmUserPackages(
+    username: string
+): Promise<npmUserPackages.PackageData[]>;
 
 declare namespace npmUserPackages {
     interface PackageData {

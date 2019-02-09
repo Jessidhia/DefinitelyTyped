@@ -1,7 +1,11 @@
 // Test map
 var sourceItems = ko.observableArray([1, 2, 3, 4, 5]);
-var squares = sourceItems.map(function (x) { return x * x; });
-var squaresAsStrings = sourceItems.map(function (x) { return (x * x).toString(); });
+var squares = sourceItems.map(function(x) {
+    return x * x;
+});
+var squaresAsStrings = sourceItems.map(function(x) {
+    return (x * x).toString();
+});
 
 sourceItems.push(6);
 // 'squares' has automatically updated and now contains [1, 4, 9, 16, 25, 36]
@@ -13,7 +17,9 @@ sourceItems.reverse();
 
 // Test Filtering
 
-var evenSquares = squares.filter(function (x) { return x % 2 === 0; });
+var evenSquares = squares.filter(function(x) {
+    return x % 2 === 0;
+});
 // evenSquares is now an observable containing [36, 16, 4]
 
 sourceItems.push(9);
@@ -33,7 +39,7 @@ var complexItems = sourceItems.map({
     mapping: x => {
         var item: IComplexItem = {
             value: (x * x).toString(),
-            dispose: () => { }
+            dispose: () => {}
         };
 
         return item;
@@ -45,7 +51,7 @@ var complexItems2 = sourceItems.map({
     mappingWithDisposeCallback: x => {
         return {
             mappedValue: (x * x).toString(),
-            dispose: () => { }
+            dispose: () => {}
         };
     }
 });

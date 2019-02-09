@@ -6,15 +6,26 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Request, ResponseObject, Plugin, ResponseToolkit, AuthCredentials, ServerStateCookieOptions } from 'hapi';
+import {
+    Request,
+    ResponseObject,
+    Plugin,
+    ResponseToolkit,
+    AuthCredentials,
+    ServerStateCookieOptions
+} from "hapi";
 
-declare module 'hapi' {
+declare module "hapi" {
     interface ServerAuth {
-        strategy(name: string, scheme: 'cookie', options?: hapiAuthCookie.Options): void;
+        strategy(
+            name: string,
+            scheme: "cookie",
+            options?: hapiAuthCookie.Options
+        ): void;
     }
 
     interface PluginSpecificConfiguration {
-        'hapi-auth-cookie'?: {
+        "hapi-auth-cookie"?: {
             redirectTo?: boolean;
         };
     }
@@ -30,8 +41,14 @@ declare module 'hapi' {
 }
 
 declare namespace hapiAuthCookie {
-    interface ValidateResponse { valid: boolean; credentials?: AuthCredentials; }
-    type ValidateFunction = (request?: Request, session?: object) => Promise<ValidateResponse>;
+    interface ValidateResponse {
+        valid: boolean;
+        credentials?: AuthCredentials;
+    }
+    type ValidateFunction = (
+        request?: Request,
+        session?: object
+    ) => Promise<ValidateResponse>;
     type RedirectToFunction = (request?: Request) => void;
 
     /**
@@ -91,7 +108,7 @@ declare namespace hapiAuthCookie {
          *
          * @default 'Strict'
          */
-        isSameSite?: ServerStateCookieOptions['isSameSite'];
+        isSameSite?: ServerStateCookieOptions["isSameSite"];
 
         /**
          * If false, the cookie is allowed to be transmitted over insecure connections which exposes it to attacks.

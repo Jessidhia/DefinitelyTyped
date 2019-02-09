@@ -1,9 +1,9 @@
 /// <reference types="node" />
 /// <reference types="chokidar" />
-import { EventEmitter } from 'events';
-import fs = require('graceful-fs');
-import Watcher = require('./Watcher');
-import Watchpack = require('.');
+import { EventEmitter } from "events";
+import fs = require("graceful-fs");
+import Watcher = require("./Watcher");
+import Watchpack = require(".");
 
 declare class DirectoryWatcher extends EventEmitter {
     options: Watchpack.WatcherOptions;
@@ -25,7 +25,12 @@ declare class DirectoryWatcher extends EventEmitter {
 
     constructor(directoryPath: string, options: Watchpack.WatcherOptions);
 
-    setFileTime(filePath: string, mtime: number, initial: boolean, type?: string | boolean): void;
+    setFileTime(
+        filePath: string,
+        mtime: number,
+        initial: boolean,
+        type?: string | boolean
+    ): void;
 
     setDirectory(directoryPath: string, exist: boolean, initial: boolean): void;
 

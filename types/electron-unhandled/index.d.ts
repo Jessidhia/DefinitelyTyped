@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace unhandled {
-  interface Options {
-    logger?: (err: Error) => void;
-    showDialog?: boolean;
-  }
+    interface Options {
+        logger?: (err: Error) => void;
+        showDialog?: boolean;
+    }
 }
 
 declare function unhandled(options?: unhandled.Options): void;

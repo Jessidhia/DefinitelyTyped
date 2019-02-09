@@ -5,9 +5,16 @@ declare namespace echarts {
          */
         interface TextStyle {
             color?: string;
-            fontStyle?: 'normal' | 'italic' | 'oblique';
-            fontWeight?: 'normal' | 'bold' | 'bolder' | 'lighter'
-                            | '100' | '200' | '300' | '400';
+            fontStyle?: "normal" | "italic" | "oblique";
+            fontWeight?:
+                | "normal"
+                | "bold"
+                | "bolder"
+                | "lighter"
+                | "100"
+                | "200"
+                | "300"
+                | "400";
             fontFamily?: string;
             fontSize?: number;
             lineHeight?: number;

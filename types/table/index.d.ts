@@ -4,10 +4,10 @@
 //                 mrmlnc <https://github.com/mrmlnc>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export type BorderType = 'honeywell' | 'norc' | 'ramac' | 'void';
+export type BorderType = "honeywell" | "norc" | "ramac" | "void";
 
 export interface ColumnConfig {
-    alignment?: 'left' | 'center' | 'right';
+    alignment?: "left" | "center" | "right";
     width?: number;
     truncate?: number;
     paddingLeft?: number;
@@ -37,7 +37,7 @@ export interface JoinStruct {
 
 export interface TableUserConfig {
     columns?: {
-        [index: number]: ColumnConfig
+        [index: number]: ColumnConfig;
     };
     drawHorizontalLine?: (index: number, size: number) => boolean;
     border?: JoinStruct;

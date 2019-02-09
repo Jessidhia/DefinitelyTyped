@@ -1,10 +1,10 @@
-import { CheckoutOptions } from './checkout-options';
-import { AnnotatedCommit } from './annotated-commit';
-import { Repository } from './repository';
-import { Signature } from './signature';
-import { Oid } from './oid';
-import { RebaseOperation } from './rebase-operation';
-import { Index } from './index';
+import { CheckoutOptions } from "./checkout-options";
+import { AnnotatedCommit } from "./annotated-commit";
+import { Repository } from "./repository";
+import { Signature } from "./signature";
+import { Oid } from "./oid";
+import { RebaseOperation } from "./rebase-operation";
+import { Index } from "./index";
 
 export interface RebaseOptions {
     version: number;
@@ -14,12 +14,23 @@ export interface RebaseOptions {
 }
 
 export class Rebase {
-    static init(repo: Repository, branch: AnnotatedCommit, upstream: AnnotatedCommit, onto: AnnotatedCommit, opts?: RebaseOptions): Promise<Rebase>;
+    static init(
+        repo: Repository,
+        branch: AnnotatedCommit,
+        upstream: AnnotatedCommit,
+        onto: AnnotatedCommit,
+        opts?: RebaseOptions
+    ): Promise<Rebase>;
     static initOptions(opts: RebaseOptions, version: number): number;
     static open(repo: Repository, opts?: RebaseOptions): Promise<Rebase>;
 
     abort(): number;
-    commit(author: Signature, committer: Signature, messageEncoding: string, message: string): Oid;
+    commit(
+        author: Signature,
+        committer: Signature,
+        messageEncoding: string,
+        message: string
+    ): Oid;
     finish(signature: Signature): number;
     inmemoryIndex(index: Index): number;
     next(): Promise<RebaseOperation>;

@@ -1,4 +1,4 @@
-import pCatchIf = require('p-catch-if');
+import pCatchIf = require("p-catch-if");
 
 /**** Setup "fake" environemt ****/
 
@@ -27,7 +27,7 @@ getData().catch(pCatchIf([NetworkError, TimeoutError], () => retry(getData)));
 getData().catch(pCatchIf(isProduction, recordError));
 
 // function
-const hasUnicornMessage = (err: Error) => err.message.includes('unicorn');
+const hasUnicornMessage = (err: Error) => err.message.includes("unicorn");
 getData().catch(pCatchIf(hasUnicornMessage, console.error));
 
 // promise-returning function
@@ -35,5 +35,7 @@ const handler = (err: Error) => sendError(err).then(checkResults);
 getData().catch(pCatchIf(handler, console.error));
 
 // can also be nested
-const validateMessage = (err: Error) => err.message === 'Too many rainbows';
-getData().catch(pCatchIf(UnicornError, pCatchIf(validateMessage, console.error)));
+const validateMessage = (err: Error) => err.message === "Too many rainbows";
+getData().catch(
+    pCatchIf(UnicornError, pCatchIf(validateMessage, console.error))
+);

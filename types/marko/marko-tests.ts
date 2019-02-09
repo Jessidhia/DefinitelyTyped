@@ -1,37 +1,38 @@
-import { createServer } from 'http';
-import { createWriteStream } from 'fs';
-import express = require('express');
-import asyncWriter = require('async-writer');
+import { createServer } from "http";
+import { createWriteStream } from "fs";
+import express = require("express");
+import asyncWriter = require("async-writer");
 
-import markoExpress = require('marko/express');
-import { load } from 'marko';
-import { createWriter, AsyncStream, Template, RenderResult } from 'marko/src/runtime/html';
-import { Component } from 'marko/src/components';
-import { buildTaglibLookup, taglibFinder } from 'marko/src/compiler';
+import markoExpress = require("marko/express");
+import { load } from "marko";
+import {
+    createWriter,
+    AsyncStream,
+    Template,
+    RenderResult
+} from "marko/src/runtime/html";
+import { Component } from "marko/src/components";
+import { buildTaglibLookup, taglibFinder } from "marko/src/compiler";
 
 // tslint:disable-next-line no-var-requires
-const template: Template = require('template.marko');
+const template: Template = require("template.marko");
 
 // Working with document
 
 (document: Document) => {
     // $ExpectType RenderResult
-    template
-        .renderSync({ name: 'Marko' })
-        .appendTo(document.body);
+    template.renderSync({ name: "Marko" }).appendTo(document.body);
 
     createServer((req, res) => {
-        res.setHeader('content-type', 'text/html');
+        res.setHeader("content-type", "text/html");
         // $ExpectType void
-        template.render({ name: 'Marko' }, res);
+        template.render({ name: "Marko" }, res);
     }).listen(8080);
 
-    template
-        .render({ $global: { flags: ['mobile'] } })
-        .then((result) => {
-            // $ExpectType RenderResult
-            result.appendTo(document.body);
-        });
+    template.render({ $global: { flags: ["mobile"] } }).then(result => {
+        // $ExpectType RenderResult
+        result.appendTo(document.body);
+    });
 
     template.render({}, (err: Error | null, result: RenderResult) => {
         // $ExpectType RenderResult
@@ -41,17 +42,17 @@ const template: Template = require('template.marko');
 
 // WriteStream tests
 
-const writeStream = createWriteStream('template.html', { encoding: 'utf8' });
+const writeStream = createWriteStream("template.html", { encoding: "utf8" });
 
 // $ExpectType void
-template.render({ name: 'Frank' }, writeStream);
+template.render({ name: "Frank" }, writeStream);
 
 // $ExpectType WriteStream
 template.stream({}).pipe(writeStream);
 
 (req: Request) => {
     // $ExpectType Readable
-    template.stream({ name: 'Frank' });
+    template.stream({ name: "Frank" });
 };
 
 // rendering tests
@@ -60,17 +61,17 @@ const out = template.createOut();
 
 // $ExpectType void
 template.render({}, out);
-out.on('finish', () => {
+out.on("finish", () => {
     // $ExpectType string
     out.getOutput();
 });
 out.end();
 
 // $ExpectType void
-template.render({ name: 'Frank' }, process.stdout);
+template.render({ name: "Frank" }, process.stdout);
 
 // $ExpectType string
-template.renderToString({ label: 'Click me!' });
+template.renderToString({ label: "Click me!" });
 
 template.renderToString({}, (err, html) => {
     // $ExpectType string
@@ -82,18 +83,18 @@ template.renderToString({}, (err, html) => {
 const writer: AsyncStream = createWriter(process.stdout);
 
 // $ExpectType void
-template.render({ name: 'Frank' }, writer);
+template.render({ name: "Frank" }, writer);
 writer.end();
 
 const asyncWriterInstance = asyncWriter.create(process.stdout);
 
 // $ExpectType AsyncWriter
-asyncWriterInstance.write('Hello');
+asyncWriterInstance.write("Hello");
 
 const asyncOut = asyncWriterInstance.beginAsync();
 
 setTimeout(() => {
-    asyncOut.write('World');
+    asyncOut.write("World");
     asyncOut.end();
 }, 100);
 
@@ -103,13 +104,13 @@ template.render({}, asyncWriterInstance);
 
 (component: Component) => {
     // $ExpectType HTMLElement
-    component.getEl('header');
+    component.getEl("header");
 
     // $ExpectType HTMLElement[]
-    component.getEls('colors');
+    component.getEls("colors");
 
     // $ExpectType Component
-    component.getComponent('myFancyButton');
+    component.getComponent("myFancyButton");
 };
 
 // markoExpress() tests
@@ -120,52 +121,55 @@ const app = express() as markoExpress.Application;
 app.use(markoExpress());
 
 // $ExpectType Application
-app.get('/', (req: express.Request, res: markoExpress.Response) => {
+app.get("/", (req: express.Request, res: markoExpress.Response) => {
     // $ExpectType void
     res.marko(template, {
-        name: 'Frank',
+        name: "Frank",
         count: 30,
-        colors: ['red', 'green', 'blue']
+        colors: ["red", "green", "blue"]
     });
 });
 
 // Taglib tests
 
-const lookup = buildTaglibLookup('some/dir');
+const lookup = buildTaglibLookup("some/dir");
 
 lookup.forEachTag(tag => {
     // $ExpectType string
     tag.name;
 });
 
-lookup.forEachAttribute('div', attr => {
+lookup.forEachAttribute("div", attr => {
     // $ExpectType string | undefined
     attr.name;
 });
 
 // $ExpectType Attribute | undefined
-lookup.getAttribute('foo', 'cat');
+lookup.getAttribute("foo", "cat");
 
 // $ExpectType void
-taglibFinder.excludeDir('dir/Path');
+taglibFinder.excludeDir("dir/Path");
 
 // $ExpectType void
-taglibFinder.excludePackage('packageName');
+taglibFinder.excludePackage("packageName");
 
 // load() tests
 
-const isomorphicTemplate = load(require.resolve('./template.marko'));
-isomorphicTemplate.render({ name: 'Frank' }, process.stdout);
+const isomorphicTemplate = load(require.resolve("./template.marko"));
+isomorphicTemplate.render({ name: "Frank" }, process.stdout);
 
-const serverTemplateFromFile = load('./sample.marko', { writeToDisk: false });
-serverTemplateFromFile.render({ name: 'Frank' }, process.stdout);
+const serverTemplateFromFile = load("./sample.marko", { writeToDisk: false });
+serverTemplateFromFile.render({ name: "Frank" }, process.stdout);
 
-const serverTemplateFromString = load('sample.marko', '<div>Hello $!{data.name}</div>');
-serverTemplateFromString.render({ name: 'Frank' }, process.stdout);
+const serverTemplateFromString = load(
+    "sample.marko",
+    "<div>Hello $!{data.name}</div>"
+);
+serverTemplateFromString.render({ name: "Frank" }, process.stdout);
 
 // node-require tests
 
-import { install, getExtensions } from 'marko/node-require';
+import { install, getExtensions } from "marko/node-require";
 
 // $ExpectType void
 install();

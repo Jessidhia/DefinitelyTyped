@@ -24,6 +24,8 @@ declare namespace dependencyTree {
     function toList(options: Options): string[];
 }
 
-declare function dependencyTree(options: dependencyTree.Options): dependencyTree.DependencyObj;
+declare function dependencyTree(
+    options: dependencyTree.Options
+): dependencyTree.DependencyObj;
 
 export = dependencyTree;

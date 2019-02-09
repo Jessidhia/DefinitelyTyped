@@ -5,15 +5,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import {
-    Context,
-} from "koa";
+import { Context } from "koa";
 
-import {
-    Stats,
-} from "fs";
+import { Stats } from "fs";
 
-declare function send(ctx: Context, path: string, opts?: send.SendOptions): Promise<string>;
+declare function send(
+    ctx: Context,
+    path: string,
+    opts?: send.SendOptions
+): Promise<string>;
 
 declare namespace send {
     type SetHeaders = (res: Context["res"], path: string, stats: Stats) => any;

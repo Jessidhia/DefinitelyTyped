@@ -14,12 +14,14 @@
 // limitations under the License.
 //
 
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 import Dictionary = Azure.ServiceBus.Dictionary;
 
 export namespace Azure.ServiceBus.Results {
     export interface NotificationHubResult {
-        serialize(resource: Azure.ServiceBus.CreateNotificationHubOptions): string;
+        serialize(
+            resource: Azure.ServiceBus.CreateNotificationHubOptions
+        ): string;
 
         parse(xml: object): object | object[];
     }

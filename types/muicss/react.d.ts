@@ -1,21 +1,21 @@
-import Appbar from './lib/react/appbar';
-import Button from './lib/react/button';
-import Checkbox from './lib/react/checkbox';
-import Col from './lib/react/col';
-import Container from './lib/react/container';
-import Divider from './lib/react/divider';
-import Dropdown from './lib/react/dropdown';
-import DropdownItem from './lib/react/dropdown-item';
-import Form from './lib/react/form';
-import Input from './lib/react/input';
-import Option from './lib/react/option';
-import Panel from './lib/react/panel';
-import Radio from './lib/react/radio';
-import Row from './lib/react/row';
-import Select from './lib/react/select';
-import Tab from './lib/react/tab';
-import Tabs from './lib/react/tabs';
-import Textarea from './lib/react/textarea';
+import Appbar from "./lib/react/appbar";
+import Button from "./lib/react/button";
+import Checkbox from "./lib/react/checkbox";
+import Col from "./lib/react/col";
+import Container from "./lib/react/container";
+import Divider from "./lib/react/divider";
+import Dropdown from "./lib/react/dropdown";
+import DropdownItem from "./lib/react/dropdown-item";
+import Form from "./lib/react/form";
+import Input from "./lib/react/input";
+import Option from "./lib/react/option";
+import Panel from "./lib/react/panel";
+import Radio from "./lib/react/radio";
+import Row from "./lib/react/row";
+import Select from "./lib/react/select";
+import Tab from "./lib/react/tab";
+import Tabs from "./lib/react/tabs";
+import Textarea from "./lib/react/textarea";
 
 export {
     Appbar,
@@ -38,7 +38,8 @@ export {
     Textarea
 };
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     size?: string;
     variant?: string;
 }
@@ -60,11 +61,11 @@ export interface ColProps extends DivProps {
     md?: number;
     lg?: number;
     xl?: number;
-    'xs-offset'?: number;
-    'sm-offset'?: number;
-    'md-offset'?: number;
-    'lg-offset'?: number;
-    'xl-offset'?: number;
+    "xs-offset"?: number;
+    "sm-offset"?: number;
+    "md-offset"?: number;
+    "lg-offset"?: number;
+    "xl-offset"?: number;
 }
 
 export interface ContainerProps extends DivProps {
@@ -74,7 +75,8 @@ export interface ContainerProps extends DivProps {
 export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {}
 export type DividerProps = DivProps;
 
-export interface DropdownItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+export interface DropdownItemProps
+    extends React.LiHTMLAttributes<HTMLLIElement> {
     link?: string;
     target?: string;
 }
@@ -85,7 +87,7 @@ export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
     variant?: string;
     size?: string;
     label?: React.ReactNode;
-    alignMenu?: 'left' | 'right';
+    alignMenu?: "left" | "right";
     disabled?: boolean;
 }
 
@@ -93,7 +95,8 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
     inline?: boolean;
 }
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+    extends React.InputHTMLAttributes<HTMLInputElement> {
     inputRef?: React.Ref<HTMLInputElement>;
     onLabelClick?: React.MouseEventHandler<HTMLInputElement>;
     hint?: string;
@@ -102,8 +105,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     floatingLabel?: boolean;
 }
 
-export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
-}
+export interface OptionProps
+    extends React.OptionHTMLAttributes<HTMLOptionElement> {}
 
 export type PanelProps = DivProps;
 export type RadioProps = CheckboxProps;
@@ -133,7 +136,8 @@ export interface TabsProps extends DivProps {
     justified?: boolean;
 }
 
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps
+    extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     inputRef?: React.Ref<HTMLTextAreaElement>;
     onLabelClick?: React.MouseEventHandler<HTMLInputElement>;
     hint?: string;

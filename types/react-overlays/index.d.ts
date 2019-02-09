@@ -19,7 +19,7 @@ export {
     DropdownToggle,
     RootCloseWrapper,
     WaitForContainer
-} from './lib';
+} from "./lib";
 
 // these callbacks are used in a few components
 export interface TransitionCallbacks {

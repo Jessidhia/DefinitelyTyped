@@ -18,55 +18,127 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
-export default class ReactSelectClass<TValue = OptionValues> extends React.Component<ReactSelectProps<TValue>> {
+export default class ReactSelectClass<
+    TValue = OptionValues
+> extends React.Component<ReactSelectProps<TValue>> {
     focus(): void;
     setValue(value: Option<TValue>): void;
 }
 // Other components
-export class Creatable<TValue = OptionValues> extends React.Component<ReactCreatableSelectProps<TValue>> { }
-export class Async<TValue = OptionValues> extends React.Component<ReactAsyncSelectProps<TValue>> { }
-export class AsyncCreatable<TValue = OptionValues> extends React.Component<ReactAsyncCreatableSelectProps<TValue>> { }
+export class Creatable<TValue = OptionValues> extends React.Component<
+    ReactCreatableSelectProps<TValue>
+> {}
+export class Async<TValue = OptionValues> extends React.Component<
+    ReactAsyncSelectProps<TValue>
+> {}
+export class AsyncCreatable<TValue = OptionValues> extends React.Component<
+    ReactAsyncCreatableSelectProps<TValue>
+> {}
 
-export type OptionComponentType<TValue = OptionValues> = React.ComponentType<OptionComponentProps<TValue>>;
-export type ValueComponentType<TValue = OptionValues> =  React.ComponentType<ValueComponentProps<TValue>>;
+export type OptionComponentType<TValue = OptionValues> = React.ComponentType<
+    OptionComponentProps<TValue>
+>;
+export type ValueComponentType<TValue = OptionValues> = React.ComponentType<
+    ValueComponentProps<TValue>
+>;
 
 export type HandlerRendererResult = JSX.Element | null | false;
 
 // Handlers
-export type FocusOptionHandler<TValue = OptionValues> = (option: Option<TValue>) => void;
-export type SelectValueHandler<TValue = OptionValues> = (option: Option<TValue>) => void;
-export type ArrowRendererHandler = (props: ArrowRendererProps) => HandlerRendererResult;
+export type FocusOptionHandler<TValue = OptionValues> = (
+    option: Option<TValue>
+) => void;
+export type SelectValueHandler<TValue = OptionValues> = (
+    option: Option<TValue>
+) => void;
+export type ArrowRendererHandler = (
+    props: ArrowRendererProps
+) => HandlerRendererResult;
 export type ClearRendererHandler = () => HandlerRendererResult;
-export type FilterOptionHandler<TValue = OptionValues> = (option: Option<TValue>, filter: string) => boolean;
-export type FilterOptionsHandler<TValue = OptionValues> = (options: Options<TValue>, filter: string, currentValues: Options<TValue>) => Options<TValue>;
-export type InputRendererHandler = (props: { [key: string]: any }) => HandlerRendererResult;
-export type MenuRendererHandler<TValue = OptionValues> = (props: MenuRendererProps<TValue>) => HandlerRendererResult;
+export type FilterOptionHandler<TValue = OptionValues> = (
+    option: Option<TValue>,
+    filter: string
+) => boolean;
+export type FilterOptionsHandler<TValue = OptionValues> = (
+    options: Options<TValue>,
+    filter: string,
+    currentValues: Options<TValue>
+) => Options<TValue>;
+export type InputRendererHandler = (props: {
+    [key: string]: any;
+}) => HandlerRendererResult;
+export type MenuRendererHandler<TValue = OptionValues> = (
+    props: MenuRendererProps<TValue>
+) => HandlerRendererResult;
 export type OnCloseHandler = () => void;
 export type OnInputChangeHandler = (inputValue: string) => string;
-export type OnInputKeyDownHandler = React.KeyboardEventHandler<HTMLDivElement | HTMLInputElement>;
+export type OnInputKeyDownHandler = React.KeyboardEventHandler<
+    HTMLDivElement | HTMLInputElement
+>;
 export type OnMenuScrollToBottomHandler = () => void;
 export type OnOpenHandler = () => void;
-export type OnFocusHandler = React.FocusEventHandler<HTMLDivElement | HTMLInputElement>;
-export type OnBlurHandler = React.FocusEventHandler<HTMLDivElement | HTMLInputElement>;
-export type OptionRendererHandler<TValue = OptionValues> = (option: Option<TValue>) => HandlerRendererResult;
-export type ValueRendererHandler<TValue = OptionValues> = (option: Option<TValue>, index?: number) => HandlerRendererResult;
-export type OnValueClickHandler<TValue = OptionValues> = (option: Option<TValue>, event: React.MouseEvent<HTMLAnchorElement>) => void;
-export type IsOptionUniqueHandler<TValue = OptionValues> = (arg: { option: Option<TValue>, options: Options<TValue>, labelKey: string, valueKey: string }) => boolean;
+export type OnFocusHandler = React.FocusEventHandler<
+    HTMLDivElement | HTMLInputElement
+>;
+export type OnBlurHandler = React.FocusEventHandler<
+    HTMLDivElement | HTMLInputElement
+>;
+export type OptionRendererHandler<TValue = OptionValues> = (
+    option: Option<TValue>
+) => HandlerRendererResult;
+export type ValueRendererHandler<TValue = OptionValues> = (
+    option: Option<TValue>,
+    index?: number
+) => HandlerRendererResult;
+export type OnValueClickHandler<TValue = OptionValues> = (
+    option: Option<TValue>,
+    event: React.MouseEvent<HTMLAnchorElement>
+) => void;
+export type IsOptionUniqueHandler<TValue = OptionValues> = (arg: {
+    option: Option<TValue>;
+    options: Options<TValue>;
+    labelKey: string;
+    valueKey: string;
+}) => boolean;
 export type IsValidNewOptionHandler = (arg: { label: string }) => boolean;
-export type NewOptionCreatorHandler<TValue = OptionValues> = (arg: { label: string, labelKey: string, valueKey: string }) => Option<TValue>;
+export type NewOptionCreatorHandler<TValue = OptionValues> = (arg: {
+    label: string;
+    labelKey: string;
+    valueKey: string;
+}) => Option<TValue>;
 export type PromptTextCreatorHandler = (filterText: string) => string;
-export type ShouldKeyDownEventCreateNewOptionHandler = (arg: { keyCode: number }) => boolean;
+export type ShouldKeyDownEventCreateNewOptionHandler = (arg: {
+    keyCode: number;
+}) => boolean;
 
-export type OnChangeSingleHandler<TValue = OptionValues> = OnChangeHandler<TValue, Option<TValue>>;
-export type OnChangeMultipleHandler<TValue = OptionValues> = OnChangeHandler<TValue, Options<TValue>>;
-export type OnChangeHandler<TValue = OptionValues, TOption = Option<TValue> | Options<TValue>> = (newValue: TOption | null) => void;
-export type OnNewOptionClickHandler<TValue = OptionValues> = (option: Option<TValue>) => void;
+export type OnChangeSingleHandler<TValue = OptionValues> = OnChangeHandler<
+    TValue,
+    Option<TValue>
+>;
+export type OnChangeMultipleHandler<TValue = OptionValues> = OnChangeHandler<
+    TValue,
+    Options<TValue>
+>;
+export type OnChangeHandler<
+    TValue = OptionValues,
+    TOption = Option<TValue> | Options<TValue>
+> = (newValue: TOption | null) => void;
+export type OnNewOptionClickHandler<TValue = OptionValues> = (
+    option: Option<TValue>
+) => void;
 
-export type LoadOptionsHandler<TValue = OptionValues> = LoadOptionsAsyncHandler<TValue> | LoadOptionsLegacyHandler<TValue>;
-export type LoadOptionsAsyncHandler<TValue = OptionValues> = (input: string) => Promise<AutocompleteResult<TValue>>;
-export type LoadOptionsLegacyHandler<TValue = OptionValues> = (input: string, callback: (err: any, result: AutocompleteResult<TValue>) => void) => void;
+export type LoadOptionsHandler<TValue = OptionValues> =
+    | LoadOptionsAsyncHandler<TValue>
+    | LoadOptionsLegacyHandler<TValue>;
+export type LoadOptionsAsyncHandler<TValue = OptionValues> = (
+    input: string
+) => Promise<AutocompleteResult<TValue>>;
+export type LoadOptionsLegacyHandler<TValue = OptionValues> = (
+    input: string,
+    callback: (err: any, result: AutocompleteResult<TValue>) => void
+) => void;
 
 export interface AutocompleteResult<TValue = OptionValues> {
     /** The search-results to be displayed  */
@@ -222,17 +294,18 @@ export interface ArrowRendererProps {
 }
 
 export interface ValueComponentProps<TValue = OptionValues> {
-    disabled: ReactSelectProps<TValue>['disabled'];
+    disabled: ReactSelectProps<TValue>["disabled"];
     id: string;
     instancePrefix: string;
     onClick: OnValueClickHandler<TValue> | null;
     onRemove?: SelectValueHandler<TValue>;
-    placeholder: ReactSelectProps<TValue>['placeholder'];
+    placeholder: ReactSelectProps<TValue>["placeholder"];
     value: Option<TValue>;
     values?: Array<Option<TValue>>;
 }
 
-export interface ReactSelectProps<TValue = OptionValues> extends React.Props<ReactSelectClass<TValue>> {
+export interface ReactSelectProps<TValue = OptionValues>
+    extends React.Props<ReactSelectClass<TValue>> {
     /**
      * text to display when `allowCreate` is true.
      * @default 'Add "{label}"?'
@@ -543,7 +616,14 @@ export interface ReactSelectProps<TValue = OptionValues> extends React.Props<Rea
     /**
      * initial field value
      */
-    value?: Option<TValue> | Options<TValue> | string | string[] | number | number[] | boolean;
+    value?:
+        | Option<TValue>
+        | Options<TValue>
+        | string
+        | string[]
+        | number
+        | number[]
+        | boolean;
     /**
      * the option property to use for the value
      * @default "value"
@@ -585,7 +665,8 @@ export interface ReactSelectProps<TValue = OptionValues> extends React.Props<Rea
     simpleValue?: boolean;
 }
 
-export interface ReactCreatableSelectProps<TValue = OptionValues> extends ReactSelectProps<TValue> {
+export interface ReactCreatableSelectProps<TValue = OptionValues>
+    extends ReactSelectProps<TValue> {
     /**
      * Searches for any matching option within the set of options. This function prevents
      * duplicate options from being created.
@@ -625,7 +706,8 @@ export interface ReactCreatableSelectProps<TValue = OptionValues> extends ReactS
     showNewOptionAtTop?: boolean;
 }
 
-export interface ReactAsyncSelectProps<TValue = OptionValues> extends ReactSelectProps<TValue> {
+export interface ReactAsyncSelectProps<TValue = OptionValues>
+    extends ReactSelectProps<TValue> {
     /**
      * Whether to auto-load the default async options set.
      */
@@ -651,4 +733,6 @@ export interface ReactAsyncSelectProps<TValue = OptionValues> extends ReactSelec
     searchPromptText?: string;
 }
 
-export type ReactAsyncCreatableSelectProps<TValue = OptionValues> = ReactAsyncSelectProps<TValue> & ReactCreatableSelectProps<TValue>;
+export type ReactAsyncCreatableSelectProps<
+    TValue = OptionValues
+> = ReactAsyncSelectProps<TValue> & ReactCreatableSelectProps<TValue>;

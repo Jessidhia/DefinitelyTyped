@@ -1,23 +1,22 @@
 declare namespace pc {
-
     /**
      * @enum pc.ELEMENTTYPE
      * @name pc.ELEMENTTYPE_GROUP
      * @description A {@link pc.ElementComponent} that contains child {@link pc.ElementComponent}s.
      */
-    const ELEMENTTYPE_GROUP = 'group';
+    const ELEMENTTYPE_GROUP = "group";
     /**
      * @enum pc.ELEMENTTYPE
      * @name pc.ELEMENTTYPE_IMAGE
      * @description A {@link pc.ElementComponent} that displays an image.
      */
-    const ELEMENTTYPE_IMAGE = 'image';
+    const ELEMENTTYPE_IMAGE = "image";
     /**
      * @enum pc.ELEMENTTYPE
      * @name pc.ELEMENTTYPE_TEXT
      * @description A {@link pc.ElementComponent} that displays text.
      */
-    const ELEMENTTYPE_TEXT = 'text';
+    const ELEMENTTYPE_TEXT = "text";
 
     /**
      * @component
@@ -72,7 +71,7 @@ declare namespace pc {
      * @property {Number} batchGroupId Assign element to a specific batch group (see {@link pc.BatchGroup}). Default value is -1 (no group).
      */
     class ElementComponent extends pc.Component {
-        constructor(system: pc.ElementComponentSystem, entity: pc.Entity)
+        constructor(system: pc.ElementComponentSystem, entity: pc.Entity);
 
         type: string;
         screen: pc.Entity;

@@ -14,15 +14,24 @@ async function main() {
         "POST"
     );
 
-    generate(["input.ts"], "schema.json", "types.ts", "", "typescript", "gql", "", {
-        passthroughCustomScalars: false,
-        customScalarsPrefix: "S",
-        addTypename: false,
-        namespace: "",
-        operationIdsPath: null,
-        generateOperationIds: false,
-        mergeInFieldsFromFragmentSpreads: false
-    });
+    generate(
+        ["input.ts"],
+        "schema.json",
+        "types.ts",
+        "",
+        "typescript",
+        "gql",
+        "",
+        {
+            passthroughCustomScalars: false,
+            customScalarsPrefix: "S",
+            addTypename: false,
+            namespace: "",
+            operationIdsPath: null,
+            generateOperationIds: false,
+            mergeInFieldsFromFragmentSpreads: false
+        }
+    );
 
     await introspectSchema("schema.json", "schema.gql");
 

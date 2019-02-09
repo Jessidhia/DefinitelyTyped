@@ -7,25 +7,49 @@
 
 import * as React from "react";
 
-export type Action = 'init' | 'start' | 'stop' | 'reset' | 'restart' | 'prev' |
-    'next' | 'go' | 'index' | 'close' | 'skip' | 'update';
+export type Action =
+    | "init"
+    | "start"
+    | "stop"
+    | "reset"
+    | "restart"
+    | "prev"
+    | "next"
+    | "go"
+    | "index"
+    | "close"
+    | "skip"
+    | "update";
 
-export type Lifecycle = 'init' | 'ready' | 'beacon' | 'tooltip' | 'complete' | 'error';
+export type Lifecycle =
+    | "init"
+    | "ready"
+    | "beacon"
+    | "tooltip"
+    | "complete"
+    | "error";
 
-export type Status = 'idle' | 'ready' | 'waiting' | 'running' |
-    'paused' | 'skipped' | 'finished' | 'error';
+export type Status =
+    | "idle"
+    | "ready"
+    | "waiting"
+    | "running"
+    | "paused"
+    | "skipped"
+    | "finished"
+    | "error";
 
 export type EventType =
-    'tour:start' |
-    'step:before' |
-    'beacon' |
-    'tooltip' |
-    'step:after' |
-    'tour:end' |
+    | "tour:start"
+    | "step:before"
+    | "beacon"
+    | "tooltip"
+    | "step:after"
+    | "tour:end"
     // these usually don't happen in a normal tour
-    'tour:status' |
-    'error:target_not_found' |
-    'error';
+    | "tour:status"
+    | "error:target_not_found"
+    | "error";
 
 export default class Joyride extends React.Component<Props, State> {
     constructor(props: Props);
@@ -207,7 +231,7 @@ export interface Step extends OverridableProps {
     /**
      * The event to trigger the beacon. It can be click or hover. Defaults to click.
      */
-    event?: 'click' | 'hover';
+    event?: "click" | "hover";
 
     /**
      * Force the step to be fixed. Defaults to false.
@@ -222,16 +246,26 @@ export interface Step extends OverridableProps {
      * The placement of the beacon and tooltip. It will re-position itself if there's no space available.
      * Defaults to bottom.
      */
-    placement?: 'top' | 'top-start' | 'top-end' |
-    'bottom' | 'bottom-start' | 'bottom-end' |
-    'left' | 'left-start' | 'left-end' |
-    'right' | 'right-start' | 'right-end' |
-    'auto' | 'center';
+    placement?:
+        | "top"
+        | "top-start"
+        | "top-end"
+        | "bottom"
+        | "bottom-start"
+        | "bottom-end"
+        | "left"
+        | "left-start"
+        | "left-end"
+        | "right"
+        | "right-start"
+        | "right-end"
+        | "auto"
+        | "center";
 
     /**
      * The placement of the beacon. It will use the placement if nothing is passed and it can be: top, bottom, left, right.
      */
-    placementBeacon?: 'top' | 'bottom' | 'left' | 'right';
+    placementBeacon?: "top" | "bottom" | "left" | "right";
 }
 export interface StepStyles {
     /**

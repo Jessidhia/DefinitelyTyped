@@ -3,7 +3,6 @@
 // Definitions by: Borek Bernard <https://github.com/borekb>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 export = promisify;
 
 /**
@@ -14,4 +13,8 @@ export = promisify;
  * @param {Boolean} noMutate - Optional set to true to avoid mutating the target.
  * @returns {*} exports - The resolved value from require or passed in value.
  */
-declare function promisify(name: string | Object | Function, test?: Function, noMutate?: boolean): any;
+declare function promisify(
+    name: string | Object | Function,
+    test?: Function,
+    noMutate?: boolean
+): any;

@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCChipFoundation from './foundation';
-import MDCChipAdapter from './adapter';
-import { MDCRipple } from 'material__ripple';
+import MDCComponent from "material__base/component";
+import MDCChipFoundation from "./foundation";
+import MDCChipAdapter from "./adapter";
+import { MDCRipple } from "material__ripple";
 
-export {  MDCChipFoundation, MDCChipAdapter };
+export { MDCChipFoundation, MDCChipAdapter };
 
 export class MDCChip extends MDCComponent<MDCChipAdapter, MDCChipFoundation> {
     static attachTo(root: Element): MDCChip;

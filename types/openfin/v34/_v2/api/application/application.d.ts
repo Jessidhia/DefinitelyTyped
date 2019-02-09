@@ -1,11 +1,13 @@
-import { EmitterBase, Base, Reply, RuntimeEvent } from '../base';
-import { Identity } from '../../identity';
-import { _Window } from '../window/window';
-import { Point } from '../system/point';
-import { MonitorInfo } from '../system/monitor';
-import Transport from '../../transport/transport';
-import Bounds from '../window/bounds';
-export interface TrayIconClickReply extends Point, Reply<'application', 'tray-icon-clicked'> {
+import { EmitterBase, Base, Reply, RuntimeEvent } from "../base";
+import { Identity } from "../../identity";
+import { _Window } from "../window/window";
+import { Point } from "../system/point";
+import { MonitorInfo } from "../system/monitor";
+import Transport from "../../transport/transport";
+import Bounds from "../window/bounds";
+export interface TrayIconClickReply
+    extends Point,
+        Reply<"application", "tray-icon-clicked"> {
     button: number;
     monitorInfo: MonitorInfo;
 }
@@ -17,7 +19,10 @@ export interface ApplicationInfo {
     parentUuid?: string;
     runtime: object;
 }
-export declare class NavigationRejectedReply extends Reply<'window-navigation-rejected', void> {
+export declare class NavigationRejectedReply extends Reply<
+    "window-navigation-rejected",
+    void
+> {
     sourceName: string;
     url: string;
 }
@@ -127,12 +132,12 @@ export declare class Application extends EmitterBase {
      */
     getWindow(): Promise<_Window>;
     /**
-    * Manually registers a user with the licensing service. The only data sent by this call is userName and appName.
-    * @param { string } userName - username to be passed to the RVM.
-    * @param { string } appName - app name to be passed to the RVM.
-    * @return {Promise.<void>}
-    * @tutorial Application.registerUser
-    */
+     * Manually registers a user with the licensing service. The only data sent by this call is userName and appName.
+     * @param { string } userName - username to be passed to the RVM.
+     * @param { string } appName - app name to be passed to the RVM.
+     * @return {Promise.<void>}
+     * @tutorial Application.registerUser
+     */
     registerUser(userName: string, appName: string): Promise<void>;
     /**
      * Removes the application’s icon from the tray.
@@ -204,20 +209,68 @@ export declare class Application extends EmitterBase {
     getInfo(): Promise<ApplicationInfo>;
 }
 export interface Application {
-    on(type: 'closed', listener: (data: Reply<'application', 'closed'>) => void): Promise<void>;
-    on(type: 'initialized', listener: (data: Reply<'application', 'initialized'>) => void): Promise<void>;
-    on(type: 'connected', listener: (data: Reply<'application', 'connected'>) => void): Promise<void>;
-    on(type: 'crashed', listener: (data: Reply<'application', 'crashed'>) => void): Promise<void>;
-    on(type: 'error', listener: (data: Reply<'application', 'error'>) => void): Promise<void>;
-    on(type: 'not-responding', listener: (data: Reply<'application', 'not-responding'>) => void): Promise<void>;
-    on(type: 'out-of-memory', listener: (data: Reply<'application', 'out-of-memory'>) => void): Promise<void>;
-    on(type: 'responding', listener: (data: Reply<'application', 'responding'>) => void): Promise<void>;
-    on(type: 'started', listener: (data: Reply<'application', 'started'>) => void): Promise<void>;
-    on(type: 'run-requested', listener: (data: Reply<'application', 'run-requested'>) => void): Promise<void>;
-    on(type: 'window-navigation-rejected', listener: (data: NavigationRejectedReply) => void): Promise<void>;
-    on(type: 'window-created', listener: (data: Reply<'application', 'window-created'>) => void): Promise<void>;
-    on(type: 'window-closed', listener: (data: Reply<'application', 'window-closed'>) => void): Promise<void>;
-    on(type: 'tray-icon-clicked', listener: (data: TrayIconClickReply) => void): Promise<void>;
-    on(type: 'removeListener', listener: (eventType: string) => void): Promise<void>;
-    on(type: 'newListener', listener: (eventType: string) => void): Promise<void>;
+    on(
+        type: "closed",
+        listener: (data: Reply<"application", "closed">) => void
+    ): Promise<void>;
+    on(
+        type: "initialized",
+        listener: (data: Reply<"application", "initialized">) => void
+    ): Promise<void>;
+    on(
+        type: "connected",
+        listener: (data: Reply<"application", "connected">) => void
+    ): Promise<void>;
+    on(
+        type: "crashed",
+        listener: (data: Reply<"application", "crashed">) => void
+    ): Promise<void>;
+    on(
+        type: "error",
+        listener: (data: Reply<"application", "error">) => void
+    ): Promise<void>;
+    on(
+        type: "not-responding",
+        listener: (data: Reply<"application", "not-responding">) => void
+    ): Promise<void>;
+    on(
+        type: "out-of-memory",
+        listener: (data: Reply<"application", "out-of-memory">) => void
+    ): Promise<void>;
+    on(
+        type: "responding",
+        listener: (data: Reply<"application", "responding">) => void
+    ): Promise<void>;
+    on(
+        type: "started",
+        listener: (data: Reply<"application", "started">) => void
+    ): Promise<void>;
+    on(
+        type: "run-requested",
+        listener: (data: Reply<"application", "run-requested">) => void
+    ): Promise<void>;
+    on(
+        type: "window-navigation-rejected",
+        listener: (data: NavigationRejectedReply) => void
+    ): Promise<void>;
+    on(
+        type: "window-created",
+        listener: (data: Reply<"application", "window-created">) => void
+    ): Promise<void>;
+    on(
+        type: "window-closed",
+        listener: (data: Reply<"application", "window-closed">) => void
+    ): Promise<void>;
+    on(
+        type: "tray-icon-clicked",
+        listener: (data: TrayIconClickReply) => void
+    ): Promise<void>;
+    on(
+        type: "removeListener",
+        listener: (eventType: string) => void
+    ): Promise<void>;
+    on(
+        type: "newListener",
+        listener: (eventType: string) => void
+    ): Promise<void>;
 }

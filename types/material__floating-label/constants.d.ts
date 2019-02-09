@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    LABEL_FLOAT_ABOVE: 'mdc-floating-label--float-above';
-    LABEL_SHAKE: 'mdc-floating-label--shake';
+    LABEL_FLOAT_ABOVE: "mdc-floating-label--float-above";
+    LABEL_SHAKE: "mdc-floating-label--shake";
 }

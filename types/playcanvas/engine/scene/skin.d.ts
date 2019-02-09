@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @name pc.Skin
      * @class A skin contains data about the bones in a hierarchy that drive a skinned mesh animation.
@@ -11,7 +10,11 @@ declare namespace pc {
      * @author Will Eastcott
      */
     class Skin {
-        constructor(graphicsDevice: pc.GraphicsDevice, ibp: pc.Mat4[], boneNames: string[])
+        constructor(
+            graphicsDevice: pc.GraphicsDevice,
+            ibp: pc.Mat4[],
+            boneNames: string[]
+        );
     }
 
     /**
@@ -23,6 +26,6 @@ declare namespace pc {
      * @author Will Eastcott
      */
     class SkinInstance {
-        constructor(skin: pc.Skin, node: pc.GraphNode)
+        constructor(skin: pc.Skin, node: pc.GraphNode);
     }
 }

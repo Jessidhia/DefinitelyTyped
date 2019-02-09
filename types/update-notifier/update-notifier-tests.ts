@@ -1,4 +1,4 @@
-import UpdateNotifier = require('update-notifier');
+import UpdateNotifier = require("update-notifier");
 
 let notifier = UpdateNotifier();
 
@@ -19,15 +19,15 @@ if (notifier.update) {
 
     // test all options
     notifier.notify({
-        message: 'Update available: ' + notifier.update.latest,
+        message: "Update available: " + notifier.update.latest,
         defer: false,
         isGlobal: true,
         boxenOpts: {
             padding: 1,
             margin: 1,
-            align: 'center',
-            borderColor: 'yellow',
-            borderStyle: 'round'
+            align: "center",
+            borderColor: "yellow",
+            borderStyle: "round"
         }
     });
 }

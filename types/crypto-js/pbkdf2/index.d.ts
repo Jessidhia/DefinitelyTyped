@@ -1,3 +1,3 @@
-import { PBKDF2 } from '../index';
+import { PBKDF2 } from "../index";
 
 export = PBKDF2;

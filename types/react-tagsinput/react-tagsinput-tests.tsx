@@ -1,15 +1,15 @@
-import * as React from 'react';
-import TagsInput = require('react-tagsinput');
+import * as React from "react";
+import TagsInput = require("react-tagsinput");
 
 interface StateI {
     tags: string[];
 }
 
 class Example extends React.Component<{}, StateI> {
-    state = {tags: []};
+    state = { tags: [] };
 
     handleChange(tags: string[]) {
-        this.setState({tags});
+        this.setState({ tags });
     }
 
     render() {

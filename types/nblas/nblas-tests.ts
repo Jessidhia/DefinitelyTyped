@@ -43,6 +43,26 @@ function test() {
     nblas.symm(a, a, a, n, n, nblas.Right, nblas.Lower, n, n);
     nblas.syrk(a, a, n, n, nblas.Lower, nblas.Trans, n, n);
     nblas.syr2k(a, a, a, n, n, nblas.Lower, nblas.Trans, n, n);
-    nblas.trmm(a, a, n, n, nblas.Right, nblas.Lower, nblas.Trans, nblas.Unit, n);
-    nblas.trsm(a, a, n, n, nblas.Right, nblas.Lower, nblas.Trans, nblas.Unit, n);
+    nblas.trmm(
+        a,
+        a,
+        n,
+        n,
+        nblas.Right,
+        nblas.Lower,
+        nblas.Trans,
+        nblas.Unit,
+        n
+    );
+    nblas.trsm(
+        a,
+        a,
+        n,
+        n,
+        nblas.Right,
+        nblas.Lower,
+        nblas.Trans,
+        nblas.Unit,
+        n
+    );
 }

@@ -7,12 +7,20 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import * as React from 'react';
-import { RenderFunction } from '@storybook/react';
+import * as React from "react";
+import { RenderFunction } from "@storybook/react";
 
 export interface KnobOption<T> {
     value: T;
-    type: 'text' | 'boolean' | 'number' | 'color' | 'object' | 'select' | 'date' | 'radios';
+    type:
+        | "text"
+        | "boolean"
+        | "number"
+        | "color"
+        | "object"
+        | "select"
+        | "date"
+        | "radios";
 }
 
 export interface StoryContext {
@@ -36,31 +44,82 @@ export interface EmptyNumberOptions {
 
 export function knob<T>(name: string, options: KnobOption<T>): T;
 
-export function text(name: string, value: string | null, groupId?: string): string;
+export function text(
+    name: string,
+    value: string | null,
+    groupId?: string
+): string;
 
-export function boolean(name: string, value: boolean, groupId?: string): boolean;
+export function boolean(
+    name: string,
+    value: boolean,
+    groupId?: string
+): boolean;
 
-export function files(label: string, accept: string, defaultValue: string[]): string[];
+export function files(
+    label: string,
+    accept: string,
+    defaultValue: string[]
+): string[];
 
-export function number(name: string, value: number, options?: NumberOptions | EmptyNumberOptions, groupId?: string): number;
+export function number(
+    name: string,
+    value: number,
+    options?: NumberOptions | EmptyNumberOptions,
+    groupId?: string
+): number;
 
 export function color(name: string, value: string, groupId?: string): string;
 
 export function object<T>(name: string, value: T, groupId?: string): T;
 
-export function radios<T>(name: string, options: { [s: string]: T }, value?: T, groupId?: string): string;
+export function radios<T>(
+    name: string,
+    options: { [s: string]: T },
+    value?: T,
+    groupId?: string
+): string;
 
 export type SelectValue = string | number;
-export function select<T extends SelectValue>(name: string, options: { [s: string]: T }, value: T | ReadonlyArray<T>, groupId?: string): T;
-export function select<T extends SelectValue>(name: string, options: { [s: string]: ReadonlyArray<T> }, value: ReadonlyArray<T>, groupId?: string): T[];
-export function select<T extends SelectValue>(name: string, options: { [s: string]: T | ReadonlyArray<T> }, value: T | ReadonlyArray<T>, groupId?: string): T | T[];
-export function select<T extends SelectValue>(name: string, options: ReadonlyArray<T>, value: T, groupId?: string): T;
+export function select<T extends SelectValue>(
+    name: string,
+    options: { [s: string]: T },
+    value: T | ReadonlyArray<T>,
+    groupId?: string
+): T;
+export function select<T extends SelectValue>(
+    name: string,
+    options: { [s: string]: ReadonlyArray<T> },
+    value: ReadonlyArray<T>,
+    groupId?: string
+): T[];
+export function select<T extends SelectValue>(
+    name: string,
+    options: { [s: string]: T | ReadonlyArray<T> },
+    value: T | ReadonlyArray<T>,
+    groupId?: string
+): T | T[];
+export function select<T extends SelectValue>(
+    name: string,
+    options: ReadonlyArray<T>,
+    value: T,
+    groupId?: string
+): T;
 
 export function date(name: string, value?: Date, groupId?: string): Date;
 
-export function array<T>(name: string, value: ReadonlyArray<T>, separator?: string, groupId?: string): T[];
+export function array<T>(
+    name: string,
+    value: ReadonlyArray<T>,
+    separator?: string,
+    groupId?: string
+): T[];
 
-export function button(name: string, handler: () => any, groupId?: string): void;
+export function button(
+    name: string,
+    handler: () => any,
+    groupId?: string
+): void;
 
 export interface WrapStoryProps {
     context?: object;
@@ -70,5 +129,14 @@ export interface WrapStoryProps {
     initialContent?: object;
 }
 
-export function withKnobs(storyFn: RenderFunction, context: StoryContext): React.ReactElement<WrapStoryProps>;
-export function withKnobsOptions(options: { debounce: boolean, timestamps: boolean }): (storyFn: RenderFunction, context: StoryContext) => React.ReactElement<WrapStoryProps>;
+export function withKnobs(
+    storyFn: RenderFunction,
+    context: StoryContext
+): React.ReactElement<WrapStoryProps>;
+export function withKnobsOptions(options: {
+    debounce: boolean;
+    timestamps: boolean;
+}): (
+    storyFn: RenderFunction,
+    context: StoryContext
+) => React.ReactElement<WrapStoryProps>;

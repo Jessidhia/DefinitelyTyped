@@ -1,4 +1,4 @@
-import TrezorConnect from 'trezor-connect';
+import TrezorConnect from "trezor-connect";
 
 async function test() {
     await TrezorConnect.getPublicKey({
@@ -10,7 +10,7 @@ async function test() {
         bundle: [
             { path: "m/49'/0'/0'" }, // account 1
             { path: "m/49'/0'/1'" }, // account 2
-            { path: "m/49'/0'/2'" }  // account 3
+            { path: "m/49'/0'/2'" } // account 3
         ]
     });
     if (res.success) {

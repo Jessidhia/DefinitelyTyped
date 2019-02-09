@@ -28,7 +28,9 @@ declare module "os" {
         scopeid: number;
     }
 
-    type NetworkInterfaceInfo = NetworkInterfaceInfoIPv4 | NetworkInterfaceInfoIPv6;
+    type NetworkInterfaceInfo =
+        | NetworkInterfaceInfoIPv4
+        | NetworkInterfaceInfoIPv6;
 
     function hostname(): string;
     function loadavg(): number[];
@@ -40,7 +42,15 @@ declare module "os" {
     function release(): string;
     function networkInterfaces(): { [index: string]: NetworkInterfaceInfo[] };
     function homedir(): string;
-    function userInfo(options?: { encoding: string }): { username: string, uid: number, gid: number, shell: any, homedir: string };
+    function userInfo(options?: {
+        encoding: string;
+    }): {
+        username: string;
+        uid: number;
+        gid: number;
+        shell: any;
+        homedir: string;
+    };
     const constants: {
         UV_UDP_REUSEADDR: number;
         signals: {
@@ -167,7 +177,7 @@ declare module "os" {
             PRIORITY_ABOVE_NORMAL: number;
             PRIORITY_HIGH: number;
             PRIORITY_HIGHEST: number;
-        }
+        };
     };
     function arch(): string;
     function platform(): NodeJS.Platform;

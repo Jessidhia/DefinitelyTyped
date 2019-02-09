@@ -14,11 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings } from './constants';
-import MDCNotchedOutlineAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings } from "./constants";
+import MDCNotchedOutlineAdapter from "./adapter";
 
-export default class MDCNotchedOutlineFoundation extends MDCFoundation<MDCNotchedOutlineAdapter> {
+export default class MDCNotchedOutlineFoundation extends MDCFoundation<
+    MDCNotchedOutlineAdapter
+> {
     static readonly strings: strings;
 
     static readonly cssClasses: cssClasses;

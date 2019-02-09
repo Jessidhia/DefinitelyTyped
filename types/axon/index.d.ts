@@ -32,7 +32,9 @@ export class Socket extends EventEmitter {
 
     closeServer(fn: () => any): void;
 
-    address(): { port: number; family: string; address: string; string: string } | undefined;
+    address():
+        | { port: number; family: string; address: string; string: string }
+        | undefined;
 
     removeSocket(sock: Socket): void;
 
@@ -42,11 +44,19 @@ export class Socket extends EventEmitter {
 
     onmessage(sock: NetSocket): (args: Buffer | Buffer[]) => void;
 
-    connect(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    connect(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 
     onconnect(sock: Socket): void;
 
-    bind(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    bind(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 }
 
 export class SubSocket extends Socket {
@@ -75,9 +85,17 @@ export class SubEmitterSocket {
 
     off(event: string): SubEmitterSocket;
 
-    bind(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    bind(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 
-    connect(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    connect(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 
     close(): void;
 }
@@ -91,9 +109,17 @@ export class PubEmitterSocket {
 
     send(...args: any[]): PubSocket;
 
-    bind(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    bind(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 
-    connect(port: ConnectionPort, host?: string | (() => void), fn?: () => void): Socket;
+    connect(
+        port: ConnectionPort,
+        host?: string | (() => void),
+        fn?: () => void
+    ): Socket;
 
     close(): void;
 }
@@ -123,12 +149,28 @@ export class PullSocket extends Socket {
 }
 
 export type ConnectionPort =
-    number
+    | number
     | string
-    | { protocol?: string, hostname?: string, pathname: string, port: string | number };
+    | {
+          protocol?: string;
+          hostname?: string;
+          pathname: string;
+          port: string | number;
+      };
 
 export function socket(type: string, options?: any): Socket;
 
 export const types: {
-    [propName: string]: { new(): PubEmitterSocket | SubEmitterSocket | PushSocket | PullSocket | PubSocket | SubSocket | ReqSocket | RepSocket | Socket };
+    [propName: string]: {
+        new ():
+            | PubEmitterSocket
+            | SubEmitterSocket
+            | PushSocket
+            | PullSocket
+            | PubSocket
+            | SubSocket
+            | ReqSocket
+            | RepSocket
+            | Socket;
+    };
 };

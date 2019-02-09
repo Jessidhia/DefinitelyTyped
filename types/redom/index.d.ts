@@ -8,8 +8,15 @@
 export type RedomElement = Node | RedomComponent;
 export type RedomQuery = string | RedomElement;
 export type RedomMiddleware = (el: HTMLElement) => void;
-export type RedomQueryArgumentValue = RedomElement | string | number | { [key: string]: any } | RedomMiddleware;
-export type RedomQueryArgument = RedomQueryArgumentValue | RedomQueryArgumentValue[];
+export type RedomQueryArgumentValue =
+    | RedomElement
+    | string
+    | number
+    | { [key: string]: any }
+    | RedomMiddleware;
+export type RedomQueryArgument =
+    | RedomQueryArgumentValue
+    | RedomQueryArgumentValue[];
 
 export interface RedomComponent {
     el: HTMLElement;
@@ -36,7 +43,12 @@ export class ListPool {
 export class List implements RedomComponent {
     el: HTMLElement;
 
-    constructor(parent: RedomQuery, View: RedomComponentConstructor, key?: string, initData?: any);
+    constructor(
+        parent: RedomQuery,
+        View: RedomComponentConstructor,
+        key?: string,
+        initData?: any
+    );
 
     update(data: any[], context?: any): void;
 
@@ -46,7 +58,12 @@ export class List implements RedomComponent {
 
     onunmount?(): void;
 
-    static extend(parent: RedomQuery, View: RedomComponentConstructor, key?: string, initData?: any): RedomComponentConstructor;
+    static extend(
+        parent: RedomQuery,
+        View: RedomComponentConstructor,
+        key?: string,
+        initData?: any
+    ): RedomComponentConstructor;
 }
 
 export class Place implements RedomComponent {
@@ -69,33 +86,81 @@ export interface RouterDictionary {
     [key: string]: RedomComponentConstructor;
 }
 
-export function html(query: RedomQuery, ...args: RedomQueryArgument[]): HTMLElement;
-export function h(query: RedomQuery, ...args: RedomQueryArgument[]): HTMLElement;
-export function el(query: RedomQuery, ...args: RedomQueryArgument[]): HTMLElement;
+export function html(
+    query: RedomQuery,
+    ...args: RedomQueryArgument[]
+): HTMLElement;
+export function h(
+    query: RedomQuery,
+    ...args: RedomQueryArgument[]
+): HTMLElement;
+export function el(
+    query: RedomQuery,
+    ...args: RedomQueryArgument[]
+): HTMLElement;
 
-export function listPool(View: RedomComponentConstructor, key?: string, initData?: any): ListPool;
-export function list(parent: RedomQuery, View: RedomComponentConstructor, key?: string, initData?: any): List;
+export function listPool(
+    View: RedomComponentConstructor,
+    key?: string,
+    initData?: any
+): ListPool;
+export function list(
+    parent: RedomQuery,
+    View: RedomComponentConstructor,
+    key?: string,
+    initData?: any
+): List;
 
-export function mount(parent: RedomElement, child: RedomElement, before?: RedomElement): RedomElement;
-export function unmount(parent: RedomElement, child: RedomElement): RedomElement;
+export function mount(
+    parent: RedomElement,
+    child: RedomElement,
+    before?: RedomElement
+): RedomElement;
+export function unmount(
+    parent: RedomElement,
+    child: RedomElement
+): RedomElement;
 
 export function place(View: RedomComponentConstructor, initData?: any): Place;
 
-export function router(parent: RedomQuery, Views: RouterDictionary, initData?: any): Router;
+export function router(
+    parent: RedomQuery,
+    Views: RouterDictionary,
+    initData?: any
+): Router;
 
-export function setAttr(view: RedomElement, arg1: string | object, arg2?: string): void;
+export function setAttr(
+    view: RedomElement,
+    arg1: string | object,
+    arg2?: string
+): void;
 
-export function setStyle(view: RedomElement, arg1: string | object, arg2?: string): void;
+export function setStyle(
+    view: RedomElement,
+    arg1: string | object,
+    arg2?: string
+): void;
 
-export function setChildren(parent: RedomElement, children: RedomElement[]): void;
+export function setChildren(
+    parent: RedomElement,
+    children: RedomElement[]
+): void;
 
-export function svg(query: RedomQuery, ...args: RedomQueryArgument[]): SVGElement;
+export function svg(
+    query: RedomQuery,
+    ...args: RedomQueryArgument[]
+): SVGElement;
 export function s(query: RedomQuery, ...args: RedomQueryArgument[]): SVGElement;
 
 export function text(str: string): Text;
 
 export namespace list {
-    function extend(parent: RedomQuery, View: RedomComponentConstructor, key?: string, initData?: any): RedomComponentConstructor;
+    function extend(
+        parent: RedomQuery,
+        View: RedomComponentConstructor,
+        key?: string,
+        initData?: any
+    ): RedomComponentConstructor;
 }
 
 export namespace svg {

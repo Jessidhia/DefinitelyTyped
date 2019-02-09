@@ -1,4 +1,4 @@
-import * as shelljs from './';
+import * as shelljs from "./";
 declare global {
     interface Target {
         (...args: any[]): void;

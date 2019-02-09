@@ -6,19 +6,18 @@
 export = FalcorJsonGraph;
 
 declare namespace FalcorJsonGraph {
-
     // NOTE: The following types are described at https://github.com/Netflix/falcor/tree/master/lib/typedefs .
 
     /**
      * An atom allows you to treat a JSON value as atomic regardless of its type, ensuring that a JSON object or array is always returned in its entirety. The JSON value must be treated as immutable. Atoms can also be used to associate metadata with a JSON value. This metadata can be used to influence the way values are handled.
      **/
     interface Atom extends Sentinel {
-        $type: 'atom';
+        $type: "atom";
         value: any;
     }
 
     interface Error extends Sentinel {
-        $type: 'error';
+        $type: "error";
         value: any;
     }
 
@@ -85,7 +84,7 @@ declare namespace FalcorJsonGraph {
     }
 
     interface Reference extends Sentinel {
-        $type: 'reference';
+        $type: "reference";
         value: Path;
     }
 
@@ -93,10 +92,23 @@ declare namespace FalcorJsonGraph {
         $expires?: number;
     }
 
-    function ref(path: string | FalcorJsonGraph.PathSet, props?: FalcorJsonGraph.Sentinel): FalcorJsonGraph.Reference;
-    function atom (value: any, props?: FalcorJsonGraph.Sentinel): FalcorJsonGraph.Atom;
-    function error(errorValue: any, props?: FalcorJsonGraph.Sentinel): FalcorJsonGraph.Error;
-    function pathValue(path: string | FalcorJsonGraph.PathSet, value: any): FalcorJsonGraph.PathValue;
-    function pathInvalidation(path: string | FalcorJsonGraph.PathSet): FalcorJsonGraph.InvalidPath;
+    function ref(
+        path: string | FalcorJsonGraph.PathSet,
+        props?: FalcorJsonGraph.Sentinel
+    ): FalcorJsonGraph.Reference;
+    function atom(
+        value: any,
+        props?: FalcorJsonGraph.Sentinel
+    ): FalcorJsonGraph.Atom;
+    function error(
+        errorValue: any,
+        props?: FalcorJsonGraph.Sentinel
+    ): FalcorJsonGraph.Error;
+    function pathValue(
+        path: string | FalcorJsonGraph.PathSet,
+        value: any
+    ): FalcorJsonGraph.PathValue;
+    function pathInvalidation(
+        path: string | FalcorJsonGraph.PathSet
+    ): FalcorJsonGraph.InvalidPath;
 }
-

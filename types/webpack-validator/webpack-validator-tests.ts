@@ -3,7 +3,7 @@ import validate = require("webpack-validator");
 
 const a: Configuration = {
     entry: "test"
-}
+};
 
 const b = validate(a);
 const c = validate(b, {

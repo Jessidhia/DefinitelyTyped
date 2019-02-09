@@ -1,4 +1,4 @@
-import { parsed, contentLoaded, loaded } from 'document-promises';
+import { parsed, contentLoaded, loaded } from "document-promises";
 
 let promise: Promise<void>;
 promise = parsed;

@@ -17,7 +17,10 @@ declare namespace ReactCodeMirror {
         /** Adds a custom CSS class to the editor */
         className?: string;
         /** Provides a specific CodeMirror instance (defaults to `require('codemirror')`) */
-        codeMirrorInstance?: (host: any, options?: CodeMirror.EditorConfiguration) => CodeMirror.Editor;
+        codeMirrorInstance?: (
+            host: any,
+            options?: CodeMirror.EditorConfiguration
+        ) => CodeMirror.Editor;
         /** Provides the default (not changed tracked) value to the editor */
         defaultValue?: string;
         /** Set the name of the editor input field */
@@ -35,7 +38,7 @@ declare namespace ReactCodeMirror {
         /** (DEPRECATED), use `name` */
         path?: string;
         /** Preserve previous scroll position after updating value */
-        preserveScrollPosition?: boolean
+        preserveScrollPosition?: boolean;
         /** The editor value */
         value?: string;
     }
@@ -48,7 +51,8 @@ declare namespace ReactCodeMirror {
         getCodeMirror(): CodeMirror.Editor;
     }
 
-    interface ReactCodeMirrorClass extends React.ComponentClass<ReactCodeMirrorProps> { }
+    interface ReactCodeMirrorClass
+        extends React.ComponentClass<ReactCodeMirrorProps> {}
 }
 
 declare module "react-codemirror" {

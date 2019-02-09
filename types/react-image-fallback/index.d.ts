@@ -8,16 +8,20 @@ import * as React from "react";
 
 export default class ReactImageFallback extends React.Component<
     ReactImageFallbackProps &
-    React.DetailedHTMLProps<
-    React.ImgHTMLAttributes<HTMLImageElement>,
-    HTMLImageElement
-    >,
+        React.DetailedHTMLProps<
+            React.ImgHTMLAttributes<HTMLImageElement>,
+            HTMLImageElement
+        >,
     any
-    > { }
+> {}
 
 export interface ReactImageFallbackProps {
     src: string;
-    fallbackImage: string | React.ReactElement<any> | string[] | Array<React.ReactElement<any>>;
+    fallbackImage:
+        | string
+        | React.ReactElement<any>
+        | string[]
+        | Array<React.ReactElement<any>>;
     initialImage?: string | React.ReactElement<any>;
     onLoad?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
     onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;

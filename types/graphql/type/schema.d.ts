@@ -1,6 +1,10 @@
 import Maybe from "../tsutils/Maybe";
 import { GraphQLObjectType } from "./definition";
-import { GraphQLType, GraphQLNamedType, GraphQLAbstractType } from "./definition";
+import {
+    GraphQLType,
+    GraphQLNamedType,
+    GraphQLAbstractType
+} from "./definition";
 import { SchemaDefinitionNode, SchemaExtensionNode } from "../language/ast";
 import { GraphQLDirective } from "./directives";
 
@@ -46,9 +50,14 @@ export class GraphQLSchema {
     getSubscriptionType(): Maybe<GraphQLObjectType>;
     getTypeMap(): TypeMap;
     getType(name: string): Maybe<GraphQLNamedType>;
-    getPossibleTypes(abstractType: GraphQLAbstractType): ReadonlyArray<GraphQLObjectType>;
+    getPossibleTypes(
+        abstractType: GraphQLAbstractType
+    ): ReadonlyArray<GraphQLObjectType>;
 
-    isPossibleType(abstractType: GraphQLAbstractType, possibleType: GraphQLObjectType): boolean;
+    isPossibleType(
+        abstractType: GraphQLAbstractType,
+        possibleType: GraphQLObjectType
+    ): boolean;
 
     getDirectives(): ReadonlyArray<GraphQLDirective>;
     getDirective(name: string): Maybe<GraphQLDirective>;

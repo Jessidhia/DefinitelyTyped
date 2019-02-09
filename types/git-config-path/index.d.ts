@@ -5,4 +5,4 @@
 
 export = gitConfigPath;
 
-declare function gitConfigPath(global?: 'global'): string;
+declare function gitConfigPath(global?: "global"): string;

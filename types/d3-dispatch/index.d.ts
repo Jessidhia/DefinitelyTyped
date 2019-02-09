@@ -30,7 +30,7 @@ export interface Dispatch<T extends EventTarget> {
      * @param args Additional arguments to be passed to the callback.
      * @throws "unknown type" on unknown event type.
      */
-     call(type: string, that?: T, ...args: any[]): void;
+    call(type: string, that?: T, ...args: any[]): void;
 
     /**
      * Returns a copy of this dispatch object.
@@ -71,4 +71,6 @@ export interface Dispatch<T extends EventTarget> {
  * @param types The event types.
  * @throws "illegal type" on empty string or duplicated event types.
  */
-export function dispatch<T extends EventTarget>(...types: string[]): Dispatch<T>;
+export function dispatch<T extends EventTarget>(
+    ...types: string[]
+): Dispatch<T>;

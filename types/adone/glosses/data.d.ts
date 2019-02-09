@@ -9,34 +9,40 @@ declare namespace adone {
         namespace json {
             namespace I {
                 type Replacer = ((key: string, value: any) => any) | string[];
-                interface CompareValue  {
+                interface CompareValue {
                     key: string;
                     value: any;
                 }
-                type CompareFunction  = (a: CompareValue, b: CompareValue) => number;
+                type CompareFunction = (
+                    a: CompareValue,
+                    b: CompareValue
+                ) => number;
             }
 
             /**
              * Actually, the same as JSON.stringify, but returns a buffer
              */
-            function encode(obj: any, options?: {
-                /**
-                 * A String or Number object that's used to insert white space into the output JSON string for readability purposes
-                 */
-                space?: string,
+            function encode(
+                obj: any,
+                options?: {
+                    /**
+                     * A String or Number object that's used to insert white space into the output JSON string for readability purposes
+                     */
+                    space?: string;
 
-                /**
-                 * A function that alters the behavior of the stringification process,
-                 * or an array of String and Number objects that serve as a whitelist
-                 * for selecting/filtering the properties of the value object to be included in the JSON string
-                 */
-                replacer?: I.Replacer,
+                    /**
+                     * A function that alters the behavior of the stringification process,
+                     * or an array of String and Number objects that serve as a whitelist
+                     * for selecting/filtering the properties of the value object to be included in the JSON string
+                     */
+                    replacer?: I.Replacer;
 
-                /**
-                 * Wheter to append a newline
-                 */
-                newline?: boolean
-            }): Buffer;
+                    /**
+                     * Wheter to append a newline
+                     */
+                    newline?: boolean;
+                }
+            ): Buffer;
 
             /**
              * Decodes JSON string or buffer
@@ -46,29 +52,32 @@ declare namespace adone {
             /**
              * Deterministic version of JSON.stringify() so you can get a consistent hash from stringified results
              */
-            function encodeStable(obj: any, options?: {
-                /**
-                 * Indent spaces for pretty-printing
-                 */
-                space?: string,
+            function encodeStable(
+                obj: any,
+                options?: {
+                    /**
+                     * Indent spaces for pretty-printing
+                     */
+                    space?: string;
 
-                /**
-                 * Whether to allow circular JSON structure
-                 */
-                cycles?: boolean,
+                    /**
+                     * Whether to allow circular JSON structure
+                     */
+                    cycles?: boolean;
 
-                /**
-                 * A function that alters the behavior of the stringification process,
-                 * or an array of String and Number objects that serve as a whitelist
-                 * for selecting/filtering the properties of the value object to be included in the JSON string
-                 */
-                replacer?: I.Replacer,
+                    /**
+                     * A function that alters the behavior of the stringification process,
+                     * or an array of String and Number objects that serve as a whitelist
+                     * for selecting/filtering the properties of the value object to be included in the JSON string
+                     */
+                    replacer?: I.Replacer;
 
-                /**
-                 * Custom comparison function for object keys
-                 */
-                cmp?: I.CompareFunction
-            }): string;
+                    /**
+                     * Custom comparison function for object keys
+                     */
+                    cmp?: I.CompareFunction;
+                }
+            ): string;
 
             function encodeSafe(obj: any): string;
 
@@ -136,7 +145,10 @@ declare namespace adone {
                 /**
                  * Encodes the given value
                  */
-                encode<T extends collection.ByteArray = collection.ByteArray>(x: any, buf?: T): T;
+                encode<T extends collection.ByteArray = collection.ByteArray>(
+                    x: any,
+                    buf?: T
+                ): T;
             }
 
             /**
@@ -179,7 +191,11 @@ declare namespace adone {
                  * @param check type predicate
                  * @param encode type encoder
                  */
-                registerEncoder(type: I.Type, check: I.EncodeCheckFunction, encode: I.EncodeFunction): this;
+                registerEncoder(
+                    type: I.Type,
+                    check: I.EncodeCheckFunction,
+                    encode: I.EncodeFunction
+                ): this;
 
                 /**
                  * Registers a decoder for the given type
@@ -207,12 +223,18 @@ declare namespace adone {
                 /**
                  * Encodes the given value
                  */
-                encode<T extends collection.ByteArray = collection.ByteArray>(x: any, buf?: T): T;
+                encode<T extends collection.ByteArray = collection.ByteArray>(
+                    x: any,
+                    buf?: T
+                ): T;
 
                 /**
                  * Decodes the given buffer
                  */
-                decode(buf: collection.I.ByteArray.Wrappable, needFlip?: boolean): any;
+                decode(
+                    buf: collection.I.ByteArray.Wrappable,
+                    needFlip?: boolean
+                ): any;
             }
 
             /**
@@ -231,24 +253,30 @@ declare namespace adone {
             /**
              * Encodes the given value
              */
-            function encode(obj: any, options?: {
-                /**
-                 * Indent spaces for pretty-printing
-                 */
-                space?: string,
+            function encode(
+                obj: any,
+                options?: {
+                    /**
+                     * Indent spaces for pretty-printing
+                     */
+                    space?: string;
 
-                /**
-                 * A function that alters the behavior of the stringification process,
-                 * or an array of String and Number objects that serve as a whitelist
-                 * for selecting/filtering the properties of the value object to be included in the JSON string
-                 */
-                replacer?: ((key: string, value: any) => any) | string[]
-            }): Buffer;
+                    /**
+                     * A function that alters the behavior of the stringification process,
+                     * or an array of String and Number objects that serve as a whitelist
+                     * for selecting/filtering the properties of the value object to be included in the JSON string
+                     */
+                    replacer?: ((key: string, value: any) => any) | string[];
+                }
+            ): Buffer;
 
             /**
              * Decodes the given string/buffer
              */
-            function decode(buf: string | Buffer, reviver?: (holder: object, key: string, value: any) => any): any;
+            function decode(
+                buf: string | Buffer,
+                reviver?: (holder: object, key: string, value: any) => any
+            ): any;
         }
 
         /**
@@ -269,23 +297,43 @@ declare namespace adone {
             /**
              * Encodes a string/Buffer to base64
              */
-            function encode(str: string | Buffer, options: I.EncodeOptions & { buffer: false }): string;
-            function encode(str: string | Buffer, options?: I.EncodeOptions): Buffer;
+            function encode(
+                str: string | Buffer,
+                options: I.EncodeOptions & { buffer: false }
+            ): string;
+            function encode(
+                str: string | Buffer,
+                options?: I.EncodeOptions
+            ): Buffer;
 
             /**
              * Decodes base64 string/buffer into a buffer
              */
-            function decode(str: string | Buffer, options: I.DecodeOptions & { buffer: true }): Buffer;
+            function decode(
+                str: string | Buffer,
+                options: I.DecodeOptions & { buffer: true }
+            ): Buffer;
 
             /**
              * Decodes base64 string/buffer into a string
              */
-            function decode(str: string | Buffer, options?: I.DecodeOptions): string;
+            function decode(
+                str: string | Buffer,
+                options?: I.DecodeOptions
+            ): string;
 
             function encodeVLQ(value: number): string;
 
-            function decodeVLQ(value: string, index: number | undefined, rest: true): { value: number, index: number };
-            function decodeVLQ(value: string, index?: number, rest?: boolean): number;
+            function decodeVLQ(
+                value: string,
+                index: number | undefined,
+                rest: true
+            ): { value: number; index: number };
+            function decodeVLQ(
+                value: string,
+                index?: number,
+                rest?: boolean
+            ): number;
 
             /**
              * Maps a character to a base64 number
@@ -335,8 +383,16 @@ declare namespace adone {
                 /**
                  * Same as safeLoadAll() but uses DEFAULT_FULL by default
                  */
-                function loadAll(input: string | Buffer, iterator: (doc: any) => void, options?: I.Options): void;
-                function loadAll(input: string | Buffer, iterator?: undefined, options?: I.Options): any[];
+                function loadAll(
+                    input: string | Buffer,
+                    iterator: (doc: any) => void,
+                    options?: I.Options
+                ): void;
+                function loadAll(
+                    input: string | Buffer,
+                    iterator?: undefined,
+                    options?: I.Options
+                ): any[];
 
                 /**
                  * The same as safeLoad() but uses DEFAULT_FULL_SCHEMA by default - adds some JavaScript-specific types: !!js/function, !!js/regexp and !!js/undefined.
@@ -349,14 +405,25 @@ declare namespace adone {
                  * By default, does not support regexps, functions and undefined.
                  * This method is safe for untrusted data
                  */
-                function safeLoadAll(input: string | Buffer, iterator: (doc: any) => void, options?: I.Options): void;
-                function safeLoadAll(input: string | Buffer, iterator?: undefined, options?: I.Options): any[];
+                function safeLoadAll(
+                    input: string | Buffer,
+                    iterator: (doc: any) => void,
+                    options?: I.Options
+                ): void;
+                function safeLoadAll(
+                    input: string | Buffer,
+                    iterator?: undefined,
+                    options?: I.Options
+                ): any[];
 
                 /**
                  * Same as safeLoad(), but understands multi-document sources.
                  * Applies iterator to each document if specified, or returns array of documents
                  */
-                function safeLoad(input: string | Buffer, options?: I.Options): any;
+                function safeLoad(
+                    input: string | Buffer,
+                    options?: I.Options
+                ): any;
             }
 
             /**
@@ -446,7 +513,14 @@ declare namespace adone {
                         construct?(data: string): T;
                         instanceOf?: object;
                         predicate?(obj: any): boolean;
-                        represent?: ((obj: any, style: string) => string) | { [key: string]: (obj: any, style: string) => string };
+                        represent?:
+                            | ((obj: any, style: string) => string)
+                            | {
+                                  [key: string]: (
+                                      obj: any,
+                                      style: string
+                                  ) => string;
+                              };
                         defaultStyle?: string;
                         styleAliases?: object;
                     }
@@ -458,7 +532,17 @@ declare namespace adone {
                     construct(data: string): T;
                     instanceOf?: object;
                     predicate?(obj: any): boolean;
-                    represent?: (obj: any, style: string) => string | { [key: string]: (obj: any, style: string) => string };
+                    represent?: (
+                        obj: any,
+                        style: string
+                    ) =>
+                        | string
+                        | {
+                              [key: string]: (
+                                  obj: any,
+                                  style: string
+                              ) => string;
+                          };
                     defaultStyle?: string;
                     styleAliases?: object;
 
@@ -525,16 +609,23 @@ declare namespace adone {
                     compiledImplicit: type.Type[];
                     compiledExplicit: type.Type[];
                     compiledTypeMap: {
-                        scalar: { [key: string]: type.Type },
-                        sequence: { [key: string]: type.Type },
-                        mapping: { [key: string]: type.Type },
-                        fallback: { [key: string]: type.Type }
+                        scalar: { [key: string]: type.Type };
+                        sequence: { [key: string]: type.Type };
+                        mapping: { [key: string]: type.Type };
+                        fallback: { [key: string]: type.Type };
                     };
 
-                    constructor(_?: { include?: Schema[], implicit?: type.Type[], explicit?: type.Type[] });
+                    constructor(_?: {
+                        include?: Schema[];
+                        implicit?: type.Type[];
+                        explicit?: type.Type[];
+                    });
                 }
 
-                function create(schemas: Schema | Schema[], types: type.Type | type.Type[]): Schema;
+                function create(
+                    schemas: Schema | Schema[],
+                    types: type.Type | type.Type[]
+                ): Schema;
 
                 /**
                  * same as JSON
@@ -572,7 +663,13 @@ declare namespace adone {
                 line: number;
                 column: number;
 
-                constructor(name: string, buffer: string, position: number, line: number, column: number);
+                constructor(
+                    name: string,
+                    buffer: string,
+                    position: number,
+                    line: number,
+                    column: number
+                );
 
                 getSnippet(indent?: number, maxLength?: number): string;
 
@@ -597,7 +694,10 @@ declare namespace adone {
             /**
              * Decodes the given string/buffer using DEFAULT_SAFE scheme by default
              */
-            function decode(buf: string | Buffer, options?: loader.I.Options): any;
+            function decode(
+                buf: string | Buffer,
+                options?: loader.I.Options
+            ): any;
 
             /**
              * The same as safeLoad() but uses DEFAULT_FULL_SCHEMA by default - adds some JavaScript-specific types: !!js/function, !!js/regexp and !!js/undefined.
@@ -703,9 +803,12 @@ declare namespace adone {
                  * @param code a string or function
                  * @param scope an optional scope for the function
                  */
-                constructor(code: string | ((...args: any[]) => void), scope?: object);
+                constructor(
+                    code: string | ((...args: any[]) => void),
+                    scope?: object
+                );
 
-                toJSON(): { scope: object, code: string };
+                toJSON(): { scope: object; code: string };
             }
 
             /**
@@ -721,7 +824,7 @@ declare namespace adone {
                  */
                 constructor(namespace: string, oid: ObjectId, db?: string);
 
-                toJSON(): { $ref: string, $id: ObjectId, $db: string };
+                toJSON(): { $ref: string; $id: ObjectId; $db: string };
             }
 
             /**
@@ -813,7 +916,16 @@ declare namespace adone {
 
                 generationTime: number;
 
-                constructor(id?: string | Buffer | ObjectId | { toHexString(): string, id: string | Buffer | ObjectId });
+                constructor(
+                    id?:
+                        | string
+                        | Buffer
+                        | ObjectId
+                        | {
+                              toHexString(): string;
+                              id: string | Buffer | ObjectId;
+                          }
+                );
 
                 /**
                  * Return the ObjectId id as a 24 byte hex string representation
@@ -837,7 +949,13 @@ declare namespace adone {
                 /**
                  * Compares the equality of this ObjectID with otherID
                  */
-                equals(other: string | Buffer | ObjectId | { toHexString(): string }): boolean;
+                equals(
+                    other:
+                        | string
+                        | Buffer
+                        | ObjectId
+                        | { toHexString(): string }
+                ): boolean;
 
                 /**
                  * Returns the generation date (accurate up to the second) that this ID was generated
@@ -993,27 +1111,34 @@ declare namespace adone {
                  * Takes an object, a target buffer instance and an optional options object and returns the end serialization index
                  * in the final buffer
                  */
-                serializeWithBufferAndIndex(object: object, buffer: Buffer, options?: I.SerializeOptions & {
-                    /**
-                     * The index in the buffer where we wish to start serializing into
-                     */
-                    index?: number
-                }): number;
+                serializeWithBufferAndIndex(
+                    object: object,
+                    buffer: Buffer,
+                    options?: I.SerializeOptions & {
+                        /**
+                         * The index in the buffer where we wish to start serializing into
+                         */
+                        index?: number;
+                    }
+                ): number;
 
                 /**
                  * Calculates the size BSON object for the given object
                  */
-                calculateObjectSize(object: object, options?: {
-                    /**
-                     * Whether to serialize javascript functions. Default: false
-                     */
-                    serializeFunctions?: boolean,
+                calculateObjectSize(
+                    object: object,
+                    options?: {
+                        /**
+                         * Whether to serialize javascript functions. Default: false
+                         */
+                        serializeFunctions?: boolean;
 
-                    /**
-                     * Whether to ignore undefined values. Default: true
-                     */
-                    ignoreUndefined?: boolean
-                }): number;
+                        /**
+                         * Whether to ignore undefined values. Default: true
+                         */
+                        ignoreUndefined?: boolean;
+                    }
+                ): number;
 
                 /**
                  * Deserializes the given buffer into an object
@@ -1023,7 +1148,14 @@ declare namespace adone {
                 /**
                  * Takes a node.js Buffer, startIndex and allow more control over deserialization of a Buffer containing concatenated BSON documents
                  */
-                deserializeStream(buf: Buffer, startIndex: number, numberOfDocuments: number, documents: any[], docStartIndex: number, options?: I.DeserializeOptions): number;
+                deserializeStream(
+                    buf: Buffer,
+                    startIndex: number,
+                    numberOfDocuments: number,
+                    documents: any[],
+                    docStartIndex: number,
+                    options?: I.DeserializeOptions
+                ): number;
             }
 
             namespace c {
@@ -1086,8 +1218,8 @@ declare namespace adone {
                         messages: Message[];
                         fields: Field[];
                         extensions: {
-                            from: number,
-                            to: number
+                            from: number;
+                            to: number;
                         } | null;
                     }
 
@@ -1123,7 +1255,10 @@ declare namespace adone {
                 function stringify(schema: object): string;
             }
 
-            function create(proto: Buffer | string | object, opts?: object): object;
+            function create(
+                proto: Buffer | string | object,
+                opts?: object
+            ): object;
         }
 
         namespace base32 {
@@ -1207,14 +1342,24 @@ declare namespace adone {
                 }
             }
 
-            function encode(str: Buffer | string, options?: I.EncodeOptions): string;
+            function encode(
+                str: Buffer | string,
+                options?: I.EncodeOptions
+            ): string;
 
-            function decode(str: string, options: I.DecodeOptions & { buffer: true }): Buffer;
+            function decode(
+                str: string,
+                options: I.DecodeOptions & { buffer: true }
+            ): Buffer;
             function decode(str: string, options?: I.DecodeOptions): string;
         }
 
         namespace varint {
-            function encode<T = any>(num: number, out?: T[], offset?: number): T[];
+            function encode<T = any>(
+                num: number,
+                out?: T[],
+                offset?: number
+            ): T[];
 
             function decode(buf: Buffer, offset?: number): number;
 
@@ -1222,7 +1367,11 @@ declare namespace adone {
         }
 
         namespace varintSigned {
-            function encode<T = any>(num: number, out?: T[], offset?: number): T[];
+            function encode<T = any>(
+                num: number,
+                out?: T[],
+                offset?: number
+            ): T[];
 
             function decode(buf: Buffer, offset?: number): number;
 

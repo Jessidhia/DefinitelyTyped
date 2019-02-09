@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     LayoutChangeEvent,
     NativeSyntheticEvent,
@@ -6,14 +6,18 @@ import {
     StyleSheet,
     Text,
     View,
-    ViewStyle,
-} from 'react-native';
-import Carousel, { Pagination, ParallaxImage, AdditionalParallaxProps, } from 'react-native-snap-carousel';
+    ViewStyle
+} from "react-native";
+import Carousel, {
+    Pagination,
+    ParallaxImage,
+    AdditionalParallaxProps
+} from "react-native-snap-carousel";
 
 class StringCarousel extends Carousel<string> {}
 
 class SnapCarouselTest extends React.Component {
-    data = ['Item #1', 'Item #2', 'Item #3'];
+    data = ["Item #1", "Item #2", "Item #3"];
 
     renderItem({ item }: { item: string }): React.ReactNode {
         return (
@@ -33,7 +37,7 @@ class SnapCarouselTest extends React.Component {
                     sliderWidth={300}
                     containerCustomStyle={styles.container}
                     enableMomentum={true}
-                    keyboardDismissMode='interactive'
+                    keyboardDismissMode="interactive"
                     onSnapToItem={this.onSnapToItem}
                     onBeforeSnapToItem={this.onBeforeSnapToItem}
                     lockScrollTimeoutDuration={900}
@@ -55,22 +59,27 @@ class SnapCarouselTest extends React.Component {
 
     private readonly onBeforeSnapToItem = (index: number) => {
         console.log("Before snap to: ", index);
-    }
+    };
 
     private readonly onSnapToItem = (index: number) => {
         console.log("Snapped to: ", index);
-    }
+    };
 
-    private readonly onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    private readonly onScroll = (
+        event: NativeSyntheticEvent<NativeScrollEvent>
+    ) => {
         console.log("Scrolled: ", event);
-    }
+    };
 
     private readonly onLayout = (event: LayoutChangeEvent) => {
         console.log("Layout: ", event);
-    }
+    };
 }
 
-class SnapCarouselWithPaginationTest extends React.Component<{}, {activeSlide: number}> {
+class SnapCarouselWithPaginationTest extends React.Component<
+    {},
+    { activeSlide: number }
+> {
     state = { activeSlide: 0 };
 
     renderItem({ item }: { item: string }): React.ReactNode {
@@ -85,39 +94,44 @@ class SnapCarouselWithPaginationTest extends React.Component<{}, {activeSlide: n
         return (
             <View>
                 <StringCarousel
-                    data={['Item #1', 'Item #2']}
+                    data={["Item #1", "Item #2"]}
                     renderItem={item => this.renderItem(item)}
                     itemWidth={75}
                     sliderWidth={300}
-                    keyboardDismissMode='interactive'
-                    onSnapToItem={(index) => this.setState({ activeSlide: index })}
+                    keyboardDismissMode="interactive"
+                    onSnapToItem={index =>
+                        this.setState({ activeSlide: index })
+                    }
                 />
                 <Pagination
-                        dotsLength={2}
-                        activeDotIndex={this.state.activeSlide}
-                        containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
-                        dotStyle={{
-                            width: 10,
-                            height: 10,
-                            borderRadius: 5,
-                            marginHorizontal: 8,
-                            backgroundColor: 'rgba(255, 255, 255, 0.92)'
-                        }}
-                        inactiveDotOpacity={0.4}
-                        inactiveDotScale={0.6}
-                        />
+                    dotsLength={2}
+                    activeDotIndex={this.state.activeSlide}
+                    containerStyle={{ backgroundColor: "rgba(0, 0, 0, 0.75)" }}
+                    dotStyle={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        marginHorizontal: 8,
+                        backgroundColor: "rgba(255, 255, 255, 0.92)"
+                    }}
+                    inactiveDotOpacity={0.4}
+                    inactiveDotScale={0.6}
+                />
             </View>
         );
     }
 }
 
 class SnapCarouselWithParallaxTest extends React.Component {
-    data = ['Item #1', 'Item #2', 'Item #3'];
+    data = ["Item #1", "Item #2", "Item #3"];
 
-    renderParallaxItem({ item }: { item: string }, parallaxProps?: AdditionalParallaxProps): React.ReactNode {
+    renderParallaxItem(
+        { item }: { item: string },
+        parallaxProps?: AdditionalParallaxProps
+    ): React.ReactNode {
         return (
             <ParallaxImage
-                source={{ uri: 'http://via.placeholder.com/350x150' }}
+                source={{ uri: "http://via.placeholder.com/350x150" }}
                 containerStyle={styles.parallaxItem}
                 parallaxFactor={0.5}
                 showSpinner={true}
@@ -131,7 +145,9 @@ class SnapCarouselWithParallaxTest extends React.Component {
             <View>
                 <StringCarousel
                     data={this.data}
-                    renderItem={(item, parallaxProps) => this.renderParallaxItem(item, parallaxProps)}
+                    renderItem={(item, parallaxProps) =>
+                        this.renderParallaxItem(item, parallaxProps)
+                    }
                     itemWidth={75}
                     sliderWidth={300}
                     containerCustomStyle={styles.container}

@@ -5,7 +5,7 @@
 // TypeScript Version: 2.1
 /// <reference types="node" />
 
-type ACL = number | { perms: number, scheme: string, auth: string };
+type ACL = number | { perms: number; scheme: string; auth: string };
 
 interface Stat {
     czxid: number;
@@ -29,7 +29,12 @@ interface ConnectionOptions {
     debug_level?: number;
 }
 
-type child2_callback = (rc: number, error: string, children: string[], stat: Stat) => void;
+type child2_callback = (
+    rc: number,
+    error: string,
+    children: string[],
+    stat: Stat
+) => void;
 type watch_callback = (type: number, state: number, path: string) => void;
 type acl_callback = (rc: number, error: string, acl: ACL[], stat: Stat) => void;
 
@@ -51,35 +56,78 @@ declare class Client {
     timeout?: number;
     is_unrecoverable?: boolean;
 
-    a_create(path: string, data: string | Buffer, flags: number, callback: Callback<string>): void;
+    a_create(
+        path: string,
+        data: string | Buffer,
+        flags: number,
+        callback: Callback<string>
+    ): void;
 
     mkdirp(path: string, callback: (e?: Error) => void): void;
 
     a_exists(path: string, watch: boolean, callback: Callback<Stat>): void;
 
-    a_get(path: string, watch: boolean, callback: Callback<Buffer | string>): void;
+    a_get(
+        path: string,
+        watch: boolean,
+        callback: Callback<Buffer | string>
+    ): void;
 
-    a_get_children(path: string, watch: boolean, callback: Callback<string[]>): void;
+    a_get_children(
+        path: string,
+        watch: boolean,
+        callback: Callback<string[]>
+    ): void;
 
-    a_get_children2(path: string, watch: boolean, callback: child2_callback): void;
+    a_get_children2(
+        path: string,
+        watch: boolean,
+        callback: child2_callback
+    ): void;
 
-    a_set(path: string, data: Buffer | string, version: number, callback: Callback<Stat>): void;
+    a_set(
+        path: string,
+        data: Buffer | string,
+        version: number,
+        callback: Callback<Stat>
+    ): void;
 
     a_delete_(path: string, version: number, callback: Callback<void>): void;
 
-    a_set_acl(path: string, version: number, acl: ACL[], callback: Callback<void>): void;
+    a_set_acl(
+        path: string,
+        version: number,
+        acl: ACL[],
+        callback: Callback<void>
+    ): void;
 
     a_get_acl(path: string, callback: acl_callback): void;
 
     add_auth(schema: string, auth: string, callback: Callback<void>): void;
 
-    aw_exists(path: string, watch_callback: watch_callback, callback: Callback<Stat>): void;
+    aw_exists(
+        path: string,
+        watch_callback: watch_callback,
+        callback: Callback<Stat>
+    ): void;
 
-    aw_get(path: string, watch_callback: watch_callback, callback: Callback<Buffer | string>): void;
+    aw_get(
+        path: string,
+        watch_callback: watch_callback,
+        callback: Callback<Buffer | string>
+    ): void;
 
-    aw_get_children(path: string, watch_callback: watch_callback, callback: Callback<string[]>): void;
+    aw_get_children(
+        path: string,
+        watch_callback: watch_callback,
+        callback: Callback<string[]>
+    ): void;
 
-    aw_get_children2(path: string, watch_callback: watch_callback, callback: child2_callback): void;
+    aw_get_children2(
+        path: string,
+        watch_callback: watch_callback,
+        callback: child2_callback
+    ): void;
 }
 
 declare namespace Zookeeper {

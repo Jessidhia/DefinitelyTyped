@@ -1,4 +1,9 @@
-import { UnwrapComputedPropertyGetter, UnwrapComputedPropertyGetters, UnwrapComputedPropertySetters, ObserverMethod } from "@ember/object/-private/types";
+import {
+    UnwrapComputedPropertyGetter,
+    UnwrapComputedPropertyGetters,
+    UnwrapComputedPropertySetters,
+    ObserverMethod
+} from "@ember/object/-private/types";
 import Mixin from "@ember/object/mixin";
 import CoreObject from "@ember/object/core";
 

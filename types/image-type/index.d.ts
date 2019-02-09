@@ -5,8 +5,10 @@
 
 /// <reference types="node" />
 
-import FileType = require('file-type');
+import FileType = require("file-type");
 
-declare function ImageType(buf: Buffer | Uint8Array): FileType.FileTypeResult | null;
+declare function ImageType(
+    buf: Buffer | Uint8Array
+): FileType.FileTypeResult | null;
 
 export = ImageType;

@@ -1,7 +1,9 @@
-import { ComponentClass, KeyboardEvent, ReactElement, ReactType } from 'react';
-import { ReactWidgetsCommonDropdownProps, AutoFocus } from './CommonProps';
+import { ComponentClass, KeyboardEvent, ReactElement, ReactType } from "react";
+import { ReactWidgetsCommonDropdownProps, AutoFocus } from "./CommonProps";
 
-interface DateTimePickerProps extends ReactWidgetsCommonDropdownProps<DateTimePickerClass>, AutoFocus {
+interface DateTimePickerProps
+    extends ReactWidgetsCommonDropdownProps<DateTimePickerClass>,
+        AutoFocus {
     /**
      * Set the culture of the DateTimePicker, passed to the configured localizer.
      */

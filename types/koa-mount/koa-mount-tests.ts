@@ -3,13 +3,13 @@ import mount = require("koa-mount");
 
 const a = new Koa();
 
-a.use((next) => {
+a.use(next => {
     this.body = "Hello";
 });
 
 const b = new Koa();
 
-b.use((next) => {
+b.use(next => {
     this.body = "World";
 });
 

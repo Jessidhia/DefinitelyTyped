@@ -78,15 +78,16 @@ export interface DecodeOptions {
     complete?: boolean;
     json?: boolean;
 }
-export type VerifyErrors= JsonWebTokenError | NotBeforeError | TokenExpiredError;
+export type VerifyErrors =
+    | JsonWebTokenError
+    | NotBeforeError
+    | TokenExpiredError;
 export type VerifyCallback = (
     err: VerifyErrors,
-    decoded: object | string,
+    decoded: object | string
 ) => void;
 
-export type SignCallback = (
-    err: Error, encoded: string
-) => void;
+export type SignCallback = (err: Error, encoded: string) => void;
 
 export interface JwtHeader {
     alg: string;
@@ -97,10 +98,7 @@ export interface JwtHeader {
     x5t?: string;
 }
 
-export type SigningKeyCallback = (
-    err: any,
-    signingKey?: Secret,
-) => void;
+export type SigningKeyCallback = (err: any, signingKey?: Secret) => void;
 
 export type GetPublicKeyOrSecret = (
     header: JwtHeader,
@@ -119,7 +117,7 @@ export type Secret = string | Buffer | { key: string; passphrase: string };
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
-    options?: SignOptions,
+    options?: SignOptions
 ): string;
 
 /**
@@ -132,13 +130,13 @@ export function sign(
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
-    callback: SignCallback,
+    callback: SignCallback
 ): void;
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
     options: SignOptions,
-    callback: SignCallback,
+    callback: SignCallback
 ): void;
 
 /**
@@ -151,7 +149,7 @@ export function sign(
 export function verify(
     token: string,
     secretOrPublicKey: string | Buffer,
-    options?: VerifyOptions,
+    options?: VerifyOptions
 ): object | string;
 
 /**
@@ -166,13 +164,13 @@ export function verify(
 export function verify(
     token: string,
     secretOrPublicKey: string | Buffer | GetPublicKeyOrSecret,
-    callback?: VerifyCallback,
+    callback?: VerifyCallback
 ): void;
 export function verify(
     token: string,
     secretOrPublicKey: string | Buffer | GetPublicKeyOrSecret,
     options?: VerifyOptions,
-    callback?: VerifyCallback,
+    callback?: VerifyCallback
 ): void;
 
 /**
@@ -183,5 +181,5 @@ export function verify(
  */
 export function decode(
     token: string,
-    options?: DecodeOptions,
+    options?: DecodeOptions
 ): null | { [key: string]: any } | string;

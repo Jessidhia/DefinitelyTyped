@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import { Worker, WorkerOptions } from 'worker_threads';
+import { Worker, WorkerOptions } from "worker_threads";
 
 export = Pool;
 
@@ -22,7 +22,10 @@ declare class Pool {
      * @param options argument passed directly to `new Worker(filename, options)`
      * @param callback will be called once the worker is created
      */
-    acquire(filename: string, callback: (error: Error | null, worker: Worker) => void): void;
+    acquire(
+        filename: string,
+        callback: (error: Error | null, worker: Worker) => void
+    ): void;
     acquire(
         filename: string,
         options: WorkerOptions,
@@ -37,7 +40,7 @@ declare class Pool {
 }
 
 declare namespace Pool {
-     interface Options {
+    interface Options {
         /**
          * Maximum number of workers allowed in the pool. Other workers will be queued
          * and started once there's room in the pool.

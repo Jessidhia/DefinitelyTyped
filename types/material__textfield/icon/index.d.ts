@@ -14,13 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCTextFieldIconFoundation from './foundation';
-import MDCTextFieldIconAdapter from './adapter';
+import MDCComponent from "material__base/component";
+import MDCTextFieldIconFoundation from "./foundation";
+import MDCTextFieldIconAdapter from "./adapter";
 
 export { MDCTextFieldIconFoundation, MDCTextFieldIconAdapter };
 
-export class MDCTextFieldIcon extends MDCComponent<MDCTextFieldIconAdapter, MDCTextFieldIconFoundation> {
+export class MDCTextFieldIcon extends MDCComponent<
+    MDCTextFieldIconAdapter,
+    MDCTextFieldIconFoundation
+> {
     static attachTo(root: Element): MDCTextFieldIcon;
 
     readonly foundation: MDCTextFieldIconFoundation;

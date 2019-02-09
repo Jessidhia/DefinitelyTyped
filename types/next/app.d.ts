@@ -46,13 +46,16 @@ export interface AppProps<Q extends DefaultQuery = DefaultQuery> {
  * @template IP Initial props returned from getInitialProps.
  * @template C Context passed to getInitialProps.
  */
-export type AppComponentType<P = {}, IP = P, C = NextAppContext> = NextComponentType<
-    P & AppProps,
-    IP,
-    C
->;
+export type AppComponentType<
+    P = {},
+    IP = P,
+    C = NextAppContext
+> = NextComponentType<P & AppProps, IP, C>;
 
 export class Container extends React.Component {}
-export default class App<P = {}, S = {}> extends React.Component<P & DefaultAppIProps & AppProps, S> {
+export default class App<P = {}, S = {}> extends React.Component<
+    P & DefaultAppIProps & AppProps,
+    S
+> {
     static getInitialProps(context: NextAppContext): Promise<DefaultAppIProps>;
 }

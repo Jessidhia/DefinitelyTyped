@@ -1,6 +1,6 @@
-import elementReady = require('element-ready');
+import elementReady = require("element-ready");
 
-const p = elementReady('#unicorn');
+const p = elementReady("#unicorn");
 
 p.then(element => {
     const el: HTMLElement = element;

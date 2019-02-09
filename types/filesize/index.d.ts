@@ -89,6 +89,6 @@ declare namespace Filesize {
 
     interface Filesize {
         (bytes: number, options?: Options): string;
-        partial: (options: Options) => ((bytes: number) => string);
+        partial: (options: Options) => (bytes: number) => string;
     }
 }

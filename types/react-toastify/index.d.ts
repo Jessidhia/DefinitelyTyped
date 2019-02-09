@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Transition } from 'react-transition-group';
+import * as React from "react";
+import { Transition } from "react-transition-group";
 
 export type ToastCloseButton = React.ReactElement<any & { closeToast(): void }>;
 
@@ -13,7 +13,13 @@ export interface ToastAndToastContainerOptions {
     /**
      * @default 'top-right'
      */
-    position?: 'top-right' | 'top-center' | 'top-left' | 'bottom-right' | 'bottom-center' | 'bottom-left';
+    position?:
+        | "top-right"
+        | "top-center"
+        | "top-left"
+        | "bottom-right"
+        | "bottom-center"
+        | "bottom-left";
 
     /**
      * Delay in ms to close the toast. If set to false, the notification needs
@@ -116,7 +122,7 @@ export interface ToastOptions extends ToastAndToastContainerOptions {
      * Kind of notification.
      * @default 'default'
      */
-    type?: 'default' | 'success' | 'info' | 'warning' | 'error';
+    type?: "default" | "success" | "info" | "warning" | "error";
 
     /**
      * Called inside componentDidMount.
@@ -143,7 +149,12 @@ export interface Toast {
     /**
      * @return The ID of the toast, for future reference.
      */
-    (content: React.ReactNode | ((props: { closeToast(): void }) => React.ReactNode), options?: ToastOptions): string;
+    (
+        content:
+            | React.ReactNode
+            | ((props: { closeToast(): void }) => React.ReactNode),
+        options?: ToastOptions
+    ): string;
 
     /**
      * Dismiss the toast with the given ID, or all toasts if no ID is given.
@@ -178,23 +189,26 @@ export interface Toast {
     /**
      * Update an existing toast by ID.
      */
-    update(id: string, options: ToastOptions & { render: React.ReactNode }): void;
+    update(
+        id: string,
+        options: ToastOptions & { render: React.ReactNode }
+    ): void;
 
     POSITION: {
-        TOP_LEFT: 'top-left'
-        TOP_RIGHT: 'top-right'
-        TOP_CENTER: 'top-center'
-        BOTTOM_LEFT: 'bottom-left'
-        BOTTOM_RIGHT: 'bottom-right'
-        BOTTOM_CENTER: 'bottom-center'
+        TOP_LEFT: "top-left";
+        TOP_RIGHT: "top-right";
+        TOP_CENTER: "top-center";
+        BOTTOM_LEFT: "bottom-left";
+        BOTTOM_RIGHT: "bottom-right";
+        BOTTOM_CENTER: "bottom-center";
     };
 
     TYPE: {
-        INFO: 'info'
-        SUCCESS: 'success'
-        WARNING: 'warning'
-        ERROR: 'error'
-        DEFAULT: 'default'
+        INFO: "info";
+        SUCCESS: "success";
+        WARNING: "warning";
+        ERROR: "error";
+        DEFAULT: "default";
     };
 }
 

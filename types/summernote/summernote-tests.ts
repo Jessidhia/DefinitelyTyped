@@ -1,8 +1,8 @@
-import 'summernote';
+import "summernote";
 
-$('#testElement').summernote({
-  airMode: true
+$("#testElement").summernote({
+    airMode: true
 });
 
-$('#testElement').summernote('code', '<p> hello </p>');
-$('#testElement').summernote('code');
+$("#testElement").summernote("code", "<p> hello </p>");
+$("#testElement").summernote("code");

@@ -18,9 +18,9 @@ export function checkSystemRequirements(): boolean;
 export function getDevices(callback: (devices: any[]) => void): void;
 
 /*~ You can declare types that are available via importing the module */
-export interface ClientConfig  {
-    mode: 'live' | 'rtc';
-    codec: 'vp8' | 'h264';
+export interface ClientConfig {
+    mode: "live" | "rtc";
+    codec: "vp8" | "h264";
     proxyServer?: string;
     turnServer?: {
         turnServerURL: string;
@@ -32,7 +32,7 @@ export interface ClientConfig  {
     };
 }
 
-export interface StreamSpec  {
+export interface StreamSpec {
     streamID: number;
     audio: boolean;
     video: boolean;
@@ -41,7 +41,7 @@ export interface StreamSpec  {
     microphoneId?: string;
     mirror?: boolean;
     extensionid?: string;
-    mediaSource?: 'screen' | 'application' | 'window';
+    mediaSource?: "screen" | "application" | "window";
     audioProcessing?: {
         AGC: boolean;
     };
@@ -87,120 +87,120 @@ export interface RemoteStreamStats {
 }
 
 export type VideoProfile =
-    | '120p'
-    | '120p_1'
-    | '120p_3'
-    | '180p'
-    | '180p_1'
-    | '180p_3'
-    | '180p_4'
-    | '240p'
-    | '240p_1'
-    | '240p_3'
-    | '240p_4'
-    | '360p'
-    | '360p_1'
-    | '360p_3'
-    | '360p_4'
-    | '360p_6'
-    | '360p_7'
-    | '360p_8'
-    | '360p_9'
-    | '360p_10'
-    | '360p_11'
-    | '480p'
-    | '480p_1'
-    | '480p_2'
-    | '480p_3'
-    | '480p_4'
-    | '480p_6'
-    | '480p_8'
-    | '480p_9'
-    | '480p_10'
-    | '720p'
-    | '720p_1'
-    | '720p_2'
-    | '720p_3'
-    | '720p_5'
-    | '720p_6'
-    | '1080p'
-    | '1080p_1'
-    | '1080p_2'
-    | '1080p_3'
-    | '1080p_5'
-    | '1440p'
-    | '1440p_1'
-    | '1440p_2'
-    | '4K'
-    | '4K_1'
-    | '4K_3';
+    | "120p"
+    | "120p_1"
+    | "120p_3"
+    | "180p"
+    | "180p_1"
+    | "180p_3"
+    | "180p_4"
+    | "240p"
+    | "240p_1"
+    | "240p_3"
+    | "240p_4"
+    | "360p"
+    | "360p_1"
+    | "360p_3"
+    | "360p_4"
+    | "360p_6"
+    | "360p_7"
+    | "360p_8"
+    | "360p_9"
+    | "360p_10"
+    | "360p_11"
+    | "480p"
+    | "480p_1"
+    | "480p_2"
+    | "480p_3"
+    | "480p_4"
+    | "480p_6"
+    | "480p_8"
+    | "480p_9"
+    | "480p_10"
+    | "720p"
+    | "720p_1"
+    | "720p_2"
+    | "720p_3"
+    | "720p_5"
+    | "720p_6"
+    | "1080p"
+    | "1080p_1"
+    | "1080p_2"
+    | "1080p_3"
+    | "1080p_5"
+    | "1440p"
+    | "1440p_1"
+    | "1440p_2"
+    | "4K"
+    | "4K_1"
+    | "4K_3";
 
 export type FirefoxVideoProfile =
-    | '480p'
-    | '480p_1'
-    | '480p_2'
-    | '480p_3'
-    | '480p_4'
-    | '480p_6'
-    | '480p_8'
-    | '480p_9'
-    | '480p_10'
-    | '720p'
-    | '720p_1'
-    | '720p_2'
-    | '720p_3'
-    | '720p_5'
-    | '720p_6';
+    | "480p"
+    | "480p_1"
+    | "480p_2"
+    | "480p_3"
+    | "480p_4"
+    | "480p_6"
+    | "480p_8"
+    | "480p_9"
+    | "480p_10"
+    | "720p"
+    | "720p_1"
+    | "720p_2"
+    | "720p_3"
+    | "720p_5"
+    | "720p_6";
 
 export type SafariVideoProfile =
-    | '480p'
-    | '480p_1'
-    | '480p_2'
-    | '480p_3'
-    | '480p_4'
-    | '480p_6'
-    | '480p_8'
-    | '480p_9'
-    | '480p_10'
-    | '720p'
-    | '720p_1'
-    | '720p_2'
-    | '720p_3'
-    | '720p_5'
-    | '720p_6'
-    | '1080p'
-    | '1080p_1'
-    | '1080p_2'
-    | '1080p_3'
-    | '1080p_5'
-    | '1440p'
-    | '1440p_1'
-    | '1440p_2'
-    | '4K'
-    | '4K_1'
-    | '4K_3';
+    | "480p"
+    | "480p_1"
+    | "480p_2"
+    | "480p_3"
+    | "480p_4"
+    | "480p_6"
+    | "480p_8"
+    | "480p_9"
+    | "480p_10"
+    | "720p"
+    | "720p_1"
+    | "720p_2"
+    | "720p_3"
+    | "720p_5"
+    | "720p_6"
+    | "1080p"
+    | "1080p_1"
+    | "1080p_2"
+    | "1080p_3"
+    | "1080p_5"
+    | "1440p"
+    | "1440p_1"
+    | "1440p_2"
+    | "4K"
+    | "4K_1"
+    | "4K_3";
 
 export type ScreenSharingProfile =
-    | '480p_1'
-    | '480p_2'
-    | '720p_1'
-    | '720p_2'
-    | '1080p_1'
-    | '1080p_2';
+    | "480p_1"
+    | "480p_2"
+    | "720p_1"
+    | "720p_2"
+    | "1080p_1"
+    | "1080p_2";
 
 export type ClientEvent =
-    | 'stream-published'
-    | 'stream-added'
-    | 'stream-removed'
-    | 'stream-subscribed'
-    | 'peer-leave'
-    | 'mute-audio'
-    | 'unmute-audio'
-    | 'mute-video'
-    | 'unmute-video'
-    | 'client-banned'
-    | 'active-speaker'
-    | 'error';
+    | "stream-published"
+    | "stream-added"
+    | "stream-removed"
+    | "stream-subscribed"
+    | "peer-leave"
+    | "mute-audio"
+    | "unmute-audio"
+    | "mute-video"
+    | "unmute-video"
+    | "client-banned"
+    | "active-speaker"
+    | "error";
 
 export interface Stream {
     getStats(
@@ -218,10 +218,10 @@ export interface Stream {
     disableAudio(): void;
     setVideoProfile(
         profile:
-        | VideoProfile
-        | FirefoxVideoProfile
-        | SafariVideoProfile
-        | ScreenSharingProfile
+            | VideoProfile
+            | FirefoxVideoProfile
+            | SafariVideoProfile
+            | ScreenSharingProfile
     ): void;
     play(HTMLElementID: string): void;
     stop(): void;
@@ -267,11 +267,11 @@ export interface Client {
     unpublish(stream: Stream, onFailure: (err: any) => void): void;
     subscribe(stream: Stream, onFailure: (err: any) => void): void;
     unsubscribe(stream: Stream, onFailure: (err: any) => void): void;
-    setProxyServer(proxyServer: ClientConfig['proxyServer']): void;
-    setTurnServer(turnServer: ClientConfig['turnServer']): void;
+    setProxyServer(proxyServer: ClientConfig["proxyServer"]): void;
+    setTurnServer(turnServer: ClientConfig["turnServer"]): void;
     setEncryptionSecret(password: string): void;
     setEncryptionMode(
-        encryptionMode: 'aes-128-xts' | 'aes-256-xts' | 'aes-128-ecb'
+        encryptionMode: "aes-128-xts" | "aes-256-xts" | "aes-128-ecb"
     ): void;
 }
 
@@ -305,7 +305,7 @@ export namespace Logger {
     type WARNING = 2;
     type ERROR = 3;
     type NONE = 4;
-    function setLogLevel(level: DEBUG|INFO|WARNING|NONE): void;
+    function setLogLevel(level: DEBUG | INFO | WARNING | NONE): void;
     function log(args: any): void;
     function debug(args: any): void;
     function info(args: any): void;

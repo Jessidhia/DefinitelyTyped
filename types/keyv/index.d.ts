@@ -53,7 +53,14 @@ declare namespace Keyv {
         /** Default TTL. Can be overridden by specififying a TTL on `.set()`. */
         ttl?: number;
         /** Specify an adapter to use. e.g `'redis'` or `'mongodb'`. */
-        adapter?: 'redis' | 'mongodb' | 'mongo' | 'sqlite' | 'postgresql' | 'postgres' | 'mysql';
+        adapter?:
+            | "redis"
+            | "mongodb"
+            | "mongo"
+            | "sqlite"
+            | "postgresql"
+            | "postgres"
+            | "mysql";
 
         [key: string]: any;
     }

@@ -13,6 +13,9 @@ declare namespace Joigoose {
     }
 }
 
-declare function Joigoose(mongoose: Mongoose.Mongoose, joiOptions?: Joi.ValidationOptions): Joigoose.Joigoose;
+declare function Joigoose(
+    mongoose: Mongoose.Mongoose,
+    joiOptions?: Joi.ValidationOptions
+): Joigoose.Joigoose;
 
 export = Joigoose;

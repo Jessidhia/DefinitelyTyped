@@ -112,7 +112,12 @@ declare class AdmZip {
      * @param comment Comment to add to the entry.
      * @param attr Attribute to add to the entry.
      */
-    addFile(entryName: string, data: Buffer, comment?: string, attr?: number): void;
+    addFile(
+        entryName: string,
+        data: Buffer,
+        comment?: string,
+        attr?: number
+    ): void;
     /**
      * Returns an array of `IZipEntry` objects representing the files and folders
      * inside the archive.
@@ -166,7 +171,10 @@ declare class AdmZip {
      * if a zip was opened and no `targetFileName` is provided, it will
      * overwrite the opened zip.
      */
-    writeZip(targetFileName?: string, callback?: (error: Error | null) => void): void;
+    writeZip(
+        targetFileName?: string,
+        callback?: (error: Error | null) => void
+    ): void;
     /**
      * Returns the content of the entire zip file.
      */

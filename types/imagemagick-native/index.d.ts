@@ -5,21 +5,32 @@
 
 /// <reference types="node" />
 
-
-
-import stream = require('stream');
+import stream = require("stream");
 export declare module streams {
     export function convert(options: IStreamConvertOptions): stream.Transform;
 }
 
 declare function convert(options: IConvertOptions): Buffer;
-declare function convert(options: IConvertOptions, callback: (err: any, result: Buffer) => void): void;
+declare function convert(
+    options: IConvertOptions,
+    callback: (err: any, result: Buffer) => void
+): void;
 declare function identify(options: IIdentifyOptions): IIdentifyResult;
-declare function identify(options: IIdentifyOptions, callback: (err: any, result: IIdentifyResult) => void): void;
-declare function quantizeColors(options: IQuantizeColorsOptions): IQuantizeColorsItem[];
+declare function identify(
+    options: IIdentifyOptions,
+    callback: (err: any, result: IIdentifyResult) => void
+): void;
+declare function quantizeColors(
+    options: IQuantizeColorsOptions
+): IQuantizeColorsItem[];
 declare function composite(options: ICompositeOptions): Buffer;
-declare function composite(options: ICompositeOptions, callback: (err: any, result: Buffer) => void): void;
-declare function getConstPixels(options: IConstPixelsOptions): IConstPixelsItem[];
+declare function composite(
+    options: ICompositeOptions,
+    callback: (err: any, result: Buffer) => void
+): void;
+declare function getConstPixels(
+    options: IConstPixelsOptions
+): IConstPixelsItem[];
 declare function quantumDepth(): number;
 declare function version(): string;
 

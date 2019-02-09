@@ -20,10 +20,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCMenuFoundation, { AnchorMargin } from './foundation';
-import MDCMenuAdapter from './adapter';
-import { Corner, CornerBit } from './constants';
+import MDCComponent from "material__base/component";
+import MDCMenuFoundation, { AnchorMargin } from "./foundation";
+import MDCMenuAdapter from "./adapter";
+import { Corner, CornerBit } from "./constants";
 
 export { MDCMenuFoundation, MDCMenuAdapter, AnchorMargin, Corner, CornerBit };
 
@@ -32,7 +32,7 @@ export class MDCMenu extends MDCComponent<MDCMenuAdapter, MDCMenuFoundation> {
 
     open: boolean;
 
-    show(options?: { focusIndex?: number | null; }): void;
+    show(options?: { focusIndex?: number | null }): void;
 
     hide(): void;
 

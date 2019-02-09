@@ -1,31 +1,21 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "react-toggle": [
-                "react-toggle/v2"
-            ]
+            "react-toggle": ["react-toggle/v2"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
         "esModuleInterop": true
     },
-    "files": [
-        "index.d.ts",
-        "react-toggle-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-toggle-tests.tsx"]
 }

@@ -7,7 +7,9 @@ export interface ChangeEvent<T> extends React.ChangeEvent<T> {
     target: { rawValue: string } & EventTarget & T;
 }
 
-export type ChangeEventHandler<T = Element> = React.EventHandler<ChangeEvent<T>>;
+export type ChangeEventHandler<T = Element> = React.EventHandler<
+    ChangeEvent<T>
+>;
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     onInit?: InitHandler;

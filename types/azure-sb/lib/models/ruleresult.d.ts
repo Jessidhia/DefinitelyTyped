@@ -15,7 +15,7 @@
 //
 
 // Module dependencies.
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 
 export namespace Azure.ServiceBus.Results {
     export interface RuleResult {

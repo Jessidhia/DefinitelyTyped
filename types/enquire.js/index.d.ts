@@ -34,7 +34,7 @@ interface EnquireJs {
     register(
         mediaQuery: string,
         options: Options | Options[] | Callback,
-        shouldDegrade?: boolean,
+        shouldDegrade?: boolean
     ): EnquireJs;
     unregister(mediaQuery: string, handler?: Callback | Options): void;
 }

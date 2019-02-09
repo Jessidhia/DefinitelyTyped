@@ -52,21 +52,25 @@ declare namespace JQueryNiceScroll {
         iframeautoresize?: boolean;
         cursorminheight?: number;
         preservenativescrolling?: boolean;
-        railoffset?: boolean | {
-            top?: number;
-            left?: number;
-        };
-        railhoffset?: boolean  | {
-            top?: number;
-            left?: number;
-        };
+        railoffset?:
+            | boolean
+            | {
+                  top?: number;
+                  left?: number;
+              };
+        railhoffset?:
+            | boolean
+            | {
+                  top?: number;
+                  left?: number;
+              };
         bouncescroll?: boolean;
         spacebarenabled?: boolean;
         railpadding?: {
-          top: number;
-          right: number;
-          left: number;
-          bottom: number;
+            top: number;
+            right: number;
+            left: number;
+            bottom: number;
         };
         disableoutline?: boolean;
         horizrailenabled?: boolean;
@@ -83,8 +87,24 @@ declare namespace JQueryNiceScroll {
         hidecursordelay?: number;
         nativeparentscrolling?: boolean;
         enablescrollonselection?: boolean;
-        overflowx?: "auto" | "hidden" | "inherit" | "initial" | "overlay" | "scroll" | "unset" | "visible";
-        overflowy?: "auto" | "hidden" | "inherit" | "initial" | "overlay" | "scroll" | "unset" | "visible";
+        overflowx?:
+            | "auto"
+            | "hidden"
+            | "inherit"
+            | "initial"
+            | "overlay"
+            | "scroll"
+            | "unset"
+            | "visible";
+        overflowy?:
+            | "auto"
+            | "hidden"
+            | "inherit"
+            | "initial"
+            | "overlay"
+            | "scroll"
+            | "unset"
+            | "visible";
         cursordragspeed?: number;
         rtlmode?: "auto" | boolean;
         cursordragontouch?: boolean;
@@ -99,7 +119,12 @@ declare namespace JQueryNiceScroll {
 }
 
 interface JQuery {
-    niceScroll(options?: JQueryNiceScroll.NiceScrollOptions): JQueryNiceScroll.NiceScroll;
-    niceScroll(wrapper: string, options: JQueryNiceScroll.NiceScrollOptions): JQueryNiceScroll.NiceScroll;
+    niceScroll(
+        options?: JQueryNiceScroll.NiceScrollOptions
+    ): JQueryNiceScroll.NiceScroll;
+    niceScroll(
+        wrapper: string,
+        options: JQueryNiceScroll.NiceScrollOptions
+    ): JQueryNiceScroll.NiceScroll;
     getNiceScroll(index?: number): JQueryNiceScroll.NiceScroll;
 }

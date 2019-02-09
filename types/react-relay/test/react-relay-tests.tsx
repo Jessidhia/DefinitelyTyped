@@ -1,7 +1,14 @@
 // tslint:disable:interface-over-type-literal
 
 import * as React from "react";
-import { Environment, Network, RecordSource, Store, ConnectionHandler, FragmentReference } from "relay-runtime";
+import {
+    Environment,
+    Network,
+    RecordSource,
+    Store,
+    ConnectionHandler,
+    FragmentReference
+} from "relay-runtime";
 
 import {
     graphql,
@@ -13,7 +20,7 @@ import {
     QueryRenderer,
     RelayRefetchProp,
     RelayPaginationProp,
-    RelayProp,
+    RelayProp
 } from "react-relay";
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -58,7 +65,7 @@ const MyQueryRenderer = (props: { name: string; show: boolean }) => (
                 : null
         }
         variables={{
-            pageID: "110798995619330",
+            pageID: "110798995619330"
         }}
         render={({ error, props }) => {
             if (error) {
@@ -118,7 +125,7 @@ const Story = (() => {
 
     class Story extends React.Component<Props> {
         state = {
-            isLoading: false,
+            isLoading: false
         };
 
         componentDidMount() {
@@ -143,7 +150,11 @@ const Story = (() => {
                     {this.props.story.isPublished ? "" : "Draft: "}
                     {this.props.story.text}
                     {this.state.isLoading && <span>♺</span>}
-                    <button onClick={() => this.props.onLike(this.props.story.id)}>LIKE</button>
+                    <button
+                        onClick={() => this.props.onLike(this.props.story.id)}
+                    >
+                        LIKE
+                    </button>
                 </div>
             );
         }
@@ -158,7 +169,7 @@ const Story = (() => {
                     text
                     isPublished
                 }
-            `,
+            `
         },
         graphql.experimental`
             query StoryRefetchQuery($id: ID!) {
@@ -210,29 +221,40 @@ const Feed = (() => {
         ignoreMe?: {};
     }
 
-    const FeedStoryEdges: React.SFC<{ edges: FeedStory_edges }> = ({ edges }) => (
-        <div>{edges.map(({ publishedAt }) => publishedAt).join(", ")}</div>
-    );
+    const FeedStoryEdges: React.SFC<{ edges: FeedStory_edges }> = ({
+        edges
+    }) => <div>{edges.map(({ publishedAt }) => publishedAt).join(", ")}</div>;
 
-    const FeedStoryEdgesFragmentContainer = createFragmentContainer(FeedStoryEdges, {
-        edges: graphql`
-            fragment FeedStory_edges on FeedStoryEdge @relay(plural: true) {
-                publishedAt
-            }
-        `,
-    });
+    const FeedStoryEdgesFragmentContainer = createFragmentContainer(
+        FeedStoryEdges,
+        {
+            edges: graphql`
+                fragment FeedStory_edges on FeedStoryEdge @relay(plural: true) {
+                    publishedAt
+                }
+            `
+        }
+    );
 
     const FeedStories: React.SFC<Props> = ({ feed, onStoryLike, relay }) => {
         // TODO: Getting env here for no good reason other than needing to test it works.
         //       If you have a good relavant example, please update!
         relay.environment;
         const stories = feed.edges.map(edge => {
-            return <Story story={edge.node} key={edge.node.id} onLike={onStoryLike} />;
+            return (
+                <Story
+                    story={edge.node}
+                    key={edge.node.id}
+                    onLike={onStoryLike}
+                />
+            );
         });
         return (
             <div>
                 {stories}
-                <span>{<FeedStoryEdgesFragmentContainer edges={feed.edges} />}</span>
+                <span>
+                    {<FeedStoryEdgesFragmentContainer edges={feed.edges} />}
+                </span>
             </div>
         );
     };
@@ -248,7 +270,7 @@ const Feed = (() => {
                     ...FeedStoryEdges_feed
                 }
             }
-        `,
+        `
     });
 
     function doesNotRequireRelayPropToBeProvided() {
@@ -288,11 +310,18 @@ type UserFeed_user = {
 
     class UserFeed extends React.Component<Props> {
         render() {
-            const onStoryLike = (id: string) => console.log(`Liked story #${id}`);
+            const onStoryLike = (id: string) =>
+                console.log(`Liked story #${id}`);
             return (
                 <div>
-                    <Feed feed={this.props.user.feed} onStoryLike={onStoryLike} />
-                    <button onClick={() => this._loadMore()} title={this.props.loadMoreTitle} />
+                    <Feed
+                        feed={this.props.user.feed}
+                        onStoryLike={onStoryLike}
+                    />
+                    <button
+                        onClick={() => this._loadMore()}
+                        title={this.props.loadMoreTitle}
+                    />
                 </div>
             );
         }
@@ -328,7 +357,7 @@ type UserFeed_user = {
                         }
                     }
                 }
-            `,
+            `
         },
         {
             direction: "forward",
@@ -338,7 +367,7 @@ type UserFeed_user = {
             getFragmentVariables(prevVars, totalCount) {
                 return {
                     ...prevVars,
-                    count: totalCount,
+                    count: totalCount
                 };
             },
             getVariables(props, { count, cursor }, fragmentVariables) {
@@ -347,17 +376,21 @@ type UserFeed_user = {
                     cursor,
                     // in most cases, for variables other than connection filters like
                     // `first`, `after`, etc. you may want to use the previous values.
-                    orderBy: fragmentVariables.orderBy,
+                    orderBy: fragmentVariables.orderBy
                 };
             },
             query: graphql`
-                query FeedPaginationQuery($count: Int!, $cursor: String, $orderby: String!) {
+                query FeedPaginationQuery(
+                    $count: Int!
+                    $cursor: String
+                    $orderby: String!
+                ) {
                     user {
                         # You could reference the fragment defined previously.
                         ...Feed_user
                     }
                 }
-            `,
+            `
         }
     );
 
@@ -383,15 +416,15 @@ export const mutation = graphql`
 export const optimisticResponse = {
     markReadNotification: {
         notification: {
-            seenState: "SEEN" as "SEEN",
-        },
-    },
+            seenState: "SEEN" as "SEEN"
+        }
+    }
 };
 
 export const configs = [
     {
         type: "NODE_DELETE" as "NODE_DELETE",
-        deletedIDFieldName: "destroyedShipId",
+        deletedIDFieldName: "destroyedShipId"
     },
     {
         type: "RANGE_ADD" as "RANGE_ADD",
@@ -399,10 +432,10 @@ export const configs = [
         connectionInfo: [
             {
                 key: "AddShip_ships",
-                rangeBehavior: "append",
-            },
+                rangeBehavior: "append"
+            }
         ],
-        edgeName: "newShipEdge",
+        edgeName: "newShipEdge"
     },
     {
         type: "RANGE_DELETE" as "RANGE_DELETE",
@@ -410,12 +443,12 @@ export const configs = [
         connectionKeys: [
             {
                 key: "RemoveTags_tags",
-                rangeBehavior: "append",
-            },
+                rangeBehavior: "append"
+            }
         ],
         pathToConnection: ["todo", "tags"],
-        deletedIDFieldName: "removedTagId",
-    },
+        deletedIDFieldName: "removedTagId"
+    }
 ];
 
 function markNotificationAsRead(source: string, storyID: string) {
@@ -445,23 +478,34 @@ function markNotificationAsRead(source: string, storyID: string) {
         variables: {
             input: {
                 source,
-                storyID,
-            },
+                storyID
+            }
         },
         onCompleted: (response, errors) => {
             if (errors) {
-                console.log(`Errors received from server: ${errors.map(error => error.message).join(", ")}`);
+                console.log(
+                    `Errors received from server: ${errors
+                        .map(error => error.message)
+                        .join(", ")}`
+                );
             } else {
-                console.log(`Response received from server: ${response.markReadNotification.notification.seenState}`);
+                console.log(
+                    `Response received from server: ${
+                        response.markReadNotification.notification.seenState
+                    }`
+                );
             }
         },
         onError: err => console.error(err),
         updater: (store, data) => {
             const story = store.get(storyID);
             if (story) {
-                story.setValue(data.markReadNotification.notification.seenState, "seenState");
+                story.setValue(
+                    data.markReadNotification.notification.seenState,
+                    "seenState"
+                );
             }
-        },
+        }
     });
 }
 
@@ -478,7 +522,7 @@ const subscription = graphql`
     }
 `;
 const variables = {
-    storyID: "123",
+    storyID: "123"
 };
 requestSubscription(
     modernEnvironment, // see Environment docs
@@ -492,12 +536,21 @@ requestSubscription(
         updater: store => {
             // Get the notification
             const rootField = store.getRootField("markReadNotification");
-            const notification = !!rootField && rootField.getLinkedRecord("notification");
+            const notification =
+                !!rootField && rootField.getLinkedRecord("notification");
             // Add it to a connection
             const viewer = store.getRoot().getLinkedRecord("viewer");
-            const notifications = ConnectionHandler.getConnection(viewer, "notifications");
-            const edge = ConnectionHandler.createEdge(store, notifications, notification, "<TypeOfNotificationsEdge>");
+            const notifications = ConnectionHandler.getConnection(
+                viewer,
+                "notifications"
+            );
+            const edge = ConnectionHandler.createEdge(
+                store,
+                notifications,
+                notification,
+                "<TypeOfNotificationsEdge>"
+            );
             ConnectionHandler.insertEdgeAfter(notifications, edge);
-        },
+        }
     }
 );

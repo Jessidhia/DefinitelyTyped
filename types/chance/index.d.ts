@@ -112,7 +112,16 @@ declare namespace Chance {
         second(): number;
         timestamp(): number;
         timezone(): Timezone;
-        weekday(opts: Options): 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+        weekday(
+            opts: Options
+        ):
+            | "Monday"
+            | "Tuesday"
+            | "Wednesday"
+            | "Thursday"
+            | "Friday"
+            | "Saturday"
+            | "Sunday";
         year(opts?: Options): string;
 
         // Finance

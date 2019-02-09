@@ -34,10 +34,10 @@ export interface ImageTabs {
     iTXt?: ImageTabText;
     PLTE?: number[];
     hIST?: number[];
-    tRNS?: (number | number[]); // Depends on ctype
+    tRNS?: number | number[]; // Depends on ctype
     gAMA?: number;
     sRGB?: number;
-    bKGD?: (number | number[]); // Depends on ctype
+    bKGD?: number | number[]; // Depends on ctype
 }
 
 export interface Image {

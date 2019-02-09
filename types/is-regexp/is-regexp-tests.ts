@@ -1,10 +1,10 @@
-import isRegexp = require('is-regexp');
+import isRegexp = require("is-regexp");
 
-isRegexp('unicorn');
+isRegexp("unicorn");
 // => false
 
 isRegexp(/unicorn/);
 // => true
 
-isRegexp(new RegExp('unicorn'));
+isRegexp(new RegExp("unicorn"));
 // => true

@@ -1,7 +1,7 @@
 // Type definitions for jQuery Mockjax 2.3.0
 // Project: https://github.com/jakerella/jquery-mockjax
-// Definitions by: 
-//                 Laszlo Jakab <https://github.com/laszlojakab>, 
+// Definitions by:
+//                 Laszlo Jakab <https://github.com/laszlojakab>,
 //                 Vladimir Đokić <https://github.com/vladeck>,
 //                 James Johnson <https://github.com/hasaki>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -9,7 +9,10 @@
 
 /// <reference types="jquery" />
 
-type MockJaxLoggingFunction = (message?: any, ...additionalParameters: any[]) => void;
+type MockJaxLoggingFunction = (
+    message?: any,
+    ...additionalParameters: any[]
+) => void;
 
 interface MockJaxStandardLogger {
     error?: MockJaxLoggingFunction;

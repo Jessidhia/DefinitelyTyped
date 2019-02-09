@@ -25,7 +25,7 @@ declare global {
         xAxis?: {
             currentMin?: number;
             currentMax?: number;
-            title?: { text?: string }
+            title?: { text?: string };
         };
         //Whether to use HighStocks instead of HighCharts (optional). Defaults to false.
         useHighStocks?: boolean;

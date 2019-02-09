@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     // Example 1 from http://www.virtuosoft.eu/code/bootstrap-touchspin/
     $("input[name='demo1']").TouchSpin({
         min: 0,
@@ -7,7 +7,7 @@ $(function () {
         decimals: 2,
         boostat: 5,
         maxboostedstep: 10,
-        postfix: '%'
+        postfix: "%"
     });
 
     // Example 2 from http://www.virtuosoft.eu/code/bootstrap-touchspin/
@@ -16,7 +16,7 @@ $(function () {
         max: 1000000000,
         stepinterval: 50,
         maxboostedstep: 10000000,
-        prefix: '$'
+        prefix: "$"
     });
 
     // Example 3 from http://www.virtuosoft.eu/code/bootstrap-touchspin/
@@ -27,8 +27,8 @@ $(function () {
     // Example 4 from http://www.virtuosoft.eu/code/bootstrap-touchspin/
     $("input[name='demo_vertical2']").TouchSpin({
         verticalbuttons: true,
-        verticalupclass: 'glyphicon glyphicon-plus',
-        verticaldownclass: 'glyphicon glyphicon-minus'
+        verticalupclass: "glyphicon glyphicon-plus",
+        verticaldownclass: "glyphicon glyphicon-minus"
     });
 
     // Example 5 from http://www.virtuosoft.eu/code/bootstrap-touchspin/

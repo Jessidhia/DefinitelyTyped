@@ -7,8 +7,8 @@
 
 /// <reference types="node" />
 
-import * as stream from 'stream';
-import * as zlib from 'zlib';
+import * as stream from "stream";
+import * as zlib from "zlib";
 
 interface GzipSizeStream extends stream.PassThrough {
     on(event: string, listener: (...args: any[]) => void): this;
@@ -27,7 +27,10 @@ interface GzipSizeStream extends stream.PassThrough {
  * @param input A string or Buffer to determine the gzip size of
  * @param options Any zlib option
  */
-declare function gzipSize(input: string | Buffer, options?: zlib.ZlibOptions): Promise<number>;
+declare function gzipSize(
+    input: string | Buffer,
+    options?: zlib.ZlibOptions
+): Promise<number>;
 
 declare namespace gzipSize {
     /**

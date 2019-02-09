@@ -35,15 +35,31 @@ export function emptyDir(dir: string): Promise<void>;
 export function ensureFile(file: string): Promise<void>;
 export function ensureDir(dir: string): Promise<void>;
 export function ensureLink(srcpath: string, dstpath: string): Promise<void>;
-export function ensureSymlink(srcpath: string, dstpath: string, type?: "dir" | "file" | "junction"): Promise<void>;
+export function ensureSymlink(
+    srcpath: string,
+    dstpath: string,
+    type?: "dir" | "file" | "junction"
+): Promise<void>;
 export function mkdirs(dir: string): Promise<void>;
 export function move(src: string, dst: string): Promise<void>;
-export function outputFile(file: string, data: string | Buffer, options?: WriteOptions): Promise<void>;
-export function outputJson(file: string, data: any, options?: WriteJsonOptions): Promise<void>;
+export function outputFile(
+    file: string,
+    data: string | Buffer,
+    options?: WriteOptions
+): Promise<void>;
+export function outputJson(
+    file: string,
+    data: any,
+    options?: WriteJsonOptions
+): Promise<void>;
 export function readJson(file: string, options?: ReadJsonOptions): Promise<any>;
 export function remove(path: string): Promise<void>;
 export function walk(dir: string): Promise<string[]>;
-export function writeJson(file: string, data: any, options?: WriteJsonOptions): Promise<void>;
+export function writeJson(
+    file: string,
+    data: any,
+    options?: WriteJsonOptions
+): Promise<void>;
 
 // aliases
 export {

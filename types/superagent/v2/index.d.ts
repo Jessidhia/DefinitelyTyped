@@ -8,8 +8,8 @@
 
 /// <reference types="node" />
 
-import * as stream from 'stream';
-import * as https from 'https';
+import * as stream from "stream";
+import * as https from "https";
 
 type CallbackHandler = (err: any, res: request.Response) => void;
 
@@ -60,7 +60,12 @@ declare namespace request {
         search(url: string, callback?: CallbackHandler): Req;
         connect(url: string, callback?: CallbackHandler): Req;
 
-        parse(fn: (res: Response, callback: (err: Error | null, body: any) => void) => void): this;
+        parse(
+            fn: (
+                res: Response,
+                callback: (err: Error | null, body: any) => void
+            ) => void
+        ): this;
         saveCookies(res: Response): void;
         attachCookies(req: Req): void;
     }
@@ -91,7 +96,8 @@ declare namespace request {
         get(header: string): string;
     }
 
-    interface Request extends Promise<Response> /* extends NodeJS.WritableStream */ {
+    interface Request
+        extends Promise<Response> /* extends NodeJS.WritableStream */ {
         abort(): void;
         accept(type: string): this;
         attach(field: string, file: string, filename?: string): this;
@@ -102,7 +108,7 @@ declare namespace request {
         field(name: string, val: string): this;
         get(field: string): string;
         on(name: string, handler: (event: any) => void): this;
-        on(name: 'error', handler: (err: any) => void): this;
+        on(name: "error", handler: (err: any) => void): this;
         part(): this;
         pipe(stream: NodeJS.WritableStream, options?: object): stream.Writable;
         query(val: object | string): this;
@@ -117,7 +123,12 @@ declare namespace request {
         use(fn: Plugin): this;
         withCredentials(): this;
         write(data: string | Buffer, encoding?: string): this;
-        parse(fn: (res: Response, callback: (err: Error | null, body: any) => void) => void): this;
+        parse(
+            fn: (
+                res: Response,
+                callback: (err: Error | null, body: any) => void
+            ) => void
+        ): this;
     }
 
     type Plugin = (req: Request) => void;

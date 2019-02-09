@@ -1,20 +1,20 @@
-import * as extract from 'extract-zip';
+import * as extract from "extract-zip";
 
-const str = 'str';
+const str = "str";
 const num = 0;
 
 let options: extract.Options = {
-    dir: str,
+    dir: str
 };
 options = {
     dir: str,
-    defaultFileMode: num,
+    defaultFileMode: num
 };
 
-extract(str, options, (err) => {
+extract(str, options, err => {
     if (err) {
         console.error(err);
         return;
     }
-    console.log('done');
+    console.log("done");
 });

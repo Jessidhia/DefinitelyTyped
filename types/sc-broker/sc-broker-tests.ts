@@ -72,9 +72,12 @@ class Broker extends SCBroker {
                 mappingEngine: this.options.clusterMappingEngine,
                 clientPoolSize: this.options.clusterClientPoolSize,
                 authKey: this.options.clusterAuthKey,
-                stateServerConnectTimeout: this.options.clusterStateServerConnectTimeout,
-                stateServerAckTimeout: this.options.clusterStateServerAckTimeout,
-                stateServerReconnectRandomness: this.options.clusterStateServerReconnectRandomness
+                stateServerConnectTimeout: this.options
+                    .clusterStateServerConnectTimeout,
+                stateServerAckTimeout: this.options
+                    .clusterStateServerAckTimeout,
+                stateServerReconnectRandomness: this.options
+                    .clusterStateServerReconnectRandomness
             });
         }
     }

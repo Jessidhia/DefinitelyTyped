@@ -5,22 +5,22 @@ import newrelic = require("new-relic-browser");
 // --- NewRelic.Browser methods ----------------------------------------------
 
 // addRelease()
-newrelic.addRelease('checkout page', 'a818994');
+newrelic.addRelease("checkout page", "a818994");
 
 // addPageAction()
-newrelic.addPageAction('copy-text-button', { result: 'success' });
-newrelic.addPageAction('async-action', { duration: 3000 });
+newrelic.addPageAction("copy-text-button", { result: "success" });
+newrelic.addPageAction("async-action", { duration: 3000 });
 
 // addToTrace()
 newrelic.addToTrace({
-    name: 'Event Name',
+    name: "Event Name",
     start: 1417044274239,
     end: 1417044274252,
-    origin: 'Origin of event',
-    type: 'What type of event was this'
+    origin: "Origin of event",
+    type: "What type of event was this"
 });
 newrelic.addToTrace({
-    name: 'Event Name',
+    name: "Event Name",
     start: 1417044274239
 });
 
@@ -33,14 +33,14 @@ try {
 } catch (err) {
     newrelic.noticeError(err);
 }
-newrelic.noticeError(new Error('bar'));
+newrelic.noticeError(new Error("bar"));
 
 // setCustomAttribute()
-newrelic.setCustomAttribute('nodeId', '123');
+newrelic.setCustomAttribute("nodeId", "123");
 
 // setErrorHandler()
-newrelic.setErrorHandler((err) => {
-    if (err.message !== 'foo') {
+newrelic.setErrorHandler(err => {
+    if (err.message !== "foo") {
         return true;
     } else {
         return false;
@@ -48,17 +48,15 @@ newrelic.setErrorHandler((err) => {
 });
 
 // setPageViewName()
-newrelic.setPageViewName('/login', 'https://www.myapp.com');
+newrelic.setPageViewName("/login", "https://www.myapp.com");
 
 // setCurrentRouteName()
-newrelic.setCurrentRouteName('/users/:id');
+newrelic.setCurrentRouteName("/users/:id");
 
 // --- NewRelic.BrowserInteraction methods -----------------------------------
 
 // createTracer()
-newrelic
-    .interaction()
-    .createTracer('customSegment', () => { })();
+newrelic.interaction().createTracer("customSegment", () => {})();
 
 // end()
 newrelic.interaction().end();
@@ -67,7 +65,7 @@ newrelic.interaction().end();
 const interaction = newrelic.interaction();
 interaction.getContext(ctx => {
     if (ctx.productId) {
-        interaction.setAttribute('productId', ctx.productId);
+        interaction.setAttribute("productId", ctx.productId);
     }
 });
 
@@ -77,14 +75,15 @@ newrelic.interaction().ignore();
 // onEnd(), setAttribute()
 newrelic.interaction().onEnd(ctx => {
     interaction.setAttribute(
-        'averageChartLoadTime',
+        "averageChartLoadTime",
         ctx.totalChartLoadTime / ctx.chartLoadCount
     );
 });
 
 // setName(), setAttribute(), save()
-newrelic.interaction()
-    .setName('loadNextPage')
-    .setAttribute('username', 'userName')
-    .setAttribute('userId', 123)
+newrelic
+    .interaction()
+    .setName("loadNextPage")
+    .setAttribute("username", "userName")
+    .setAttribute("userId", 123)
     .save();

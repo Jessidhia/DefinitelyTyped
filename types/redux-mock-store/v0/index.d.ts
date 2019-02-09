@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as Redux from 'redux';
+import * as Redux from "redux";
 
 export interface MockStore<T> extends Redux.Store<T> {
     getActions(): any[];
@@ -13,6 +13,8 @@ export interface MockStore<T> extends Redux.Store<T> {
 
 export type MockStoreCreator<T = {}> = (state?: T) => MockStore<T>;
 
-declare function createMockStore<T>(middlewares?: Redux.Middleware[]): MockStoreCreator<T>;
+declare function createMockStore<T>(
+    middlewares?: Redux.Middleware[]
+): MockStoreCreator<T>;
 
 export default createMockStore;

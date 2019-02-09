@@ -37,7 +37,11 @@ declare namespace objectPath {
          * Get a path from an object
          */
         get(object: object, path: Path): any;
-        get<TResult>(object: object, path: Path, defaultValue: TResult): TResult;
+        get<TResult>(
+            object: object,
+            path: Path,
+            defaultValue: TResult
+        ): TResult;
 
         /**
          * Set a path to a value
@@ -58,7 +62,11 @@ declare namespace objectPath {
         /**
          * Get the first non undefined property
          */
-        coalesce<TResult>(object: object, paths: Path | Path[], defaultValue: TResult): TResult;
+        coalesce<TResult>(
+            object: object,
+            paths: Path | Path[],
+            defaultValue: TResult
+        ): TResult;
         coalesce<TResult = any>(
             object: object,
             paths: Path | Path[],
@@ -74,7 +82,11 @@ declare namespace objectPath {
         /**
          * Set a value if it doesn't exist, do nothing if it does
          */
-        ensureExists<TResult>(object: object, path: Path, defaultValue: TResult): TResult;
+        ensureExists<TResult>(
+            object: object,
+            path: Path,
+            defaultValue: TResult
+        ): TResult;
         ensureExists<TResult = any>(
             object: object,
             path: Path,
@@ -107,7 +119,11 @@ declare namespace objectPath {
         /**
          * @see objectPath.set
          */
-        set<TResult = any>(path: Path, value: TResult, doNotReplace?: boolean): TResult | undefined;
+        set<TResult = any>(
+            path: Path,
+            value: TResult,
+            doNotReplace?: boolean
+        ): TResult | undefined;
 
         /**
          * @see objectPath.push
@@ -118,7 +134,10 @@ declare namespace objectPath {
          * @see objectPath.coalesce
          */
         coalesce<TResult>(paths: Path | Path[], defaultValue: TResult): TResult;
-        coalesce<TResult = any>(paths: Path | Path[], defaultValue?: TResult): TResult | undefined;
+        coalesce<TResult = any>(
+            paths: Path | Path[],
+            defaultValue?: TResult
+        ): TResult | undefined;
 
         /**
          * @see objectPath.empty
@@ -129,7 +148,10 @@ declare namespace objectPath {
          * @see objectPath.ensureExists
          */
         ensureExists<TResult>(path: Path, defaultValue: TResult): TResult;
-        ensureExists<TResult = any>(path: Path, defaultValue?: TResult): TResult | undefined;
+        ensureExists<TResult = any>(
+            path: Path,
+            defaultValue?: TResult
+        ): TResult | undefined;
 
         /**
          * @see objectPath.insert

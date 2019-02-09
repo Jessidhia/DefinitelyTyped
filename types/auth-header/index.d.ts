@@ -6,8 +6,8 @@
 
 type Params =
     | Array<[string, string | ReadonlyArray<string>]>
-    | {[key: string]: string | ReadonlyArray<string>};
-export {Params};
+    | { [key: string]: string | ReadonlyArray<string> };
+export { Params };
 
 export interface TokenOptions {
     scheme: string;
@@ -17,7 +17,7 @@ export interface TokenOptions {
 
 export interface Token {
     scheme: string;
-    params: {[key: string]: string | string[]};
+    params: { [key: string]: string | string[] };
     token: null | string | string[];
 }
 

@@ -9,12 +9,10 @@
  * Public Domain. Use, modify and distribute it any way you like. No attribution required.
  *
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-*/
+ */
 
 declare namespace PinkySwear {
-
     interface Promise {
-
         /**
          * Get the promise's current state; true if fulfilled, false if rejected, and undefined, otherwise.
          */
@@ -37,11 +35,13 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.Promise
          */
-        then(onFulfilled?: (...values: any[]) => Promise | void | any, onRejected?: (...values: any[]) => void): Promise;
+        then(
+            onFulfilled?: (...values: any[]) => Promise | void | any,
+            onRejected?: (...values: any[]) => void
+        ): Promise;
     }
 
     interface GenericPromise<T> extends Promise {
-
         /**
          * Fulfill or reject the promise.
          *
@@ -58,7 +58,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.GenericPromise
          */
-        then<G>(onFulfilled?: (value: T) => G, onRejected?: (value: T) => void): GenericPromise<G>;
+        then<G>(
+            onFulfilled?: (value: T) => G,
+            onRejected?: (value: T) => void
+        ): GenericPromise<G>;
 
         /**
          * onFulfilled is called when or if the promise is resolved.
@@ -68,7 +71,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.GenericPromise
          */
-        then<G>(onFulfilled?: (value: T) => GenericPromise<G>, onRejected?: (value: T) => void): GenericPromise<G>;
+        then<G>(
+            onFulfilled?: (value: T) => GenericPromise<G>,
+            onRejected?: (value: T) => void
+        ): GenericPromise<G>;
 
         /**
          * onFulfilled is called when or if the promise is resolved.
@@ -78,7 +84,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.Promise
          */
-        then(onFulfilled?: (value: T) => void, onRejected?: (value: T) => void): Promise;
+        then(
+            onFulfilled?: (value: T) => void,
+            onRejected?: (value: T) => void
+        ): Promise;
 
         /**
          * onFulfilled is called when or if the promise is resolved.
@@ -88,7 +97,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.GenericPromise
          */
-        then<G>(onFulfilled?: (value: T) => G, onRejected?: (error: TypeError) => void): GenericPromise<G>;
+        then<G>(
+            onFulfilled?: (value: T) => G,
+            onRejected?: (error: TypeError) => void
+        ): GenericPromise<G>;
 
         /**
          * onFulfilled is called when or if the promise is resolved.
@@ -98,7 +110,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.GenericPromise
          */
-        then<G>(onFulfilled?: (value: T) => GenericPromise<G>, onRejected?: (error: TypeError) => void): GenericPromise<G>;
+        then<G>(
+            onFulfilled?: (value: T) => GenericPromise<G>,
+            onRejected?: (error: TypeError) => void
+        ): GenericPromise<G>;
 
         /**
          * onFulfilled is called when or if the promise is resolved.
@@ -108,7 +123,10 @@ declare namespace PinkySwear {
          * @param onRejected Called when or if the promise is rejected.
          * @returns PinkySwear.Promise
          */
-        then(onFulfilled?: (value: T) => void, onRejected?: (error: TypeError) => void): Promise;
+        then(
+            onFulfilled?: (value: T) => void,
+            onRejected?: (error: TypeError) => void
+        ): Promise;
     }
 }
 
@@ -120,7 +138,11 @@ interface PinkySwearStatic {
      * @param extend Called when the promise is created and is ready to be extended.
      * @returns PinkySwear.GenericPromise
      */
-    <T>(extend: (promise: PinkySwear.GenericPromise<T>) => PinkySwear.GenericPromise<T>): PinkySwear.GenericPromise<T>;
+    <T>(
+        extend: (
+            promise: PinkySwear.GenericPromise<T>
+        ) => PinkySwear.GenericPromise<T>
+    ): PinkySwear.GenericPromise<T>;
 
     /**
      * Create a new generic promise in pending state that promises a value of a specific type.
@@ -137,7 +159,9 @@ interface PinkySwearStatic {
      * @param extend Called when the promise is created and is ready to be extended.
      * @returns PinkySwear.Promise
      */
-    <T>(extend: (promise: PinkySwear.Promise) => PinkySwear.Promise): PinkySwear.Promise;
+    <T>(
+        extend: (promise: PinkySwear.Promise) => PinkySwear.Promise
+    ): PinkySwear.Promise;
 
     /**
      * Create a new promise in pending state that promises a value or set of values.

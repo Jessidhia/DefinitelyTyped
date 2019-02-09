@@ -11,20 +11,16 @@ import { GridCellRenderer } from "./Grid";
  */
 export const DEFAULT_SCROLLING_RESET_TIME_INTERVAL = 150;
 
-export type OnCellsRenderedCallback = (
-    params: {
-        startIndex: number;
-        stopIndex: number;
-    }
-) => void;
+export type OnCellsRenderedCallback = (params: {
+    startIndex: number;
+    stopIndex: number;
+}) => void;
 
-export type OnScrollCallback = (
-    params: {
-        clientHeight: number;
-        scrollHeight: number;
-        scrollTop: number;
-    }
-) => void;
+export type OnScrollCallback = (params: {
+    clientHeight: number;
+    scrollHeight: number;
+    scrollTop: number;
+}) => void;
 
 export type MasonryCellProps = {
     index: number;

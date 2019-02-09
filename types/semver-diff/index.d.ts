@@ -4,9 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/semver-diff
 
 declare namespace SemverDiff {
-    type SemverDiffReturn = 'major' | 'minor' | 'patch' | 'prerelease' | 'build' | null;
+    type SemverDiffReturn =
+        | "major"
+        | "minor"
+        | "patch"
+        | "prerelease"
+        | "build"
+        | null;
 }
 
-declare function SemverDiff(versionA: string, versionB: string): SemverDiff.SemverDiffReturn;
+declare function SemverDiff(
+    versionA: string,
+    versionB: string
+): SemverDiff.SemverDiffReturn;
 
 export = SemverDiff;

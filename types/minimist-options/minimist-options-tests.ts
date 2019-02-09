@@ -19,4 +19,4 @@ const options = buildOptions({
     arguments: "string"
 });
 
-const args = minimist(['--option', 'value', 'input'], options);
+const args = minimist(["--option", "value", "input"], options);

@@ -2,15 +2,15 @@
 import { Request, ResponseToolkit, Server, ServerOptions } from "hapi";
 
 const options: ServerOptions = {
-    port: 8000,
+    port: 8000
 };
 
 const server = new Server(options);
-server.app.key = 'value2';
+server.app.key = "value2";
 
 server.route({
-    path: '/',
-    method: 'GET',
+    path: "/",
+    method: "GET",
     handler(request, h) {
         return h.response("Hello World");
     }
@@ -26,4 +26,4 @@ console.log(table[0].realm);
 console.log(table[0].settings);
 console.log(table[0].fingerprint);
 console.log(table[0].auth);
-console.log('Server started at: ' + server.info.uri);
+console.log("Server started at: " + server.info.uri);

@@ -1,12 +1,12 @@
 /// <reference types="node" />
 
-import { Transport, TransportOptions } from '../..';
+import { Transport, TransportOptions } from "../..";
 
-import * as shared from '../shared';
+import * as shared from "../shared";
 
-import Mail = require('../mailer');
-import MailMessage = require('../mailer/mail-message');
-import MimeNode = require('../mime-node');
+import Mail = require("../mailer");
+import MailMessage = require("../mailer/mail-message");
+import MimeNode = require("../mime-node");
 
 declare namespace SendmailTransport {
     type MailOptions = Mail.Options;
@@ -41,7 +41,13 @@ declare class SendmailTransport implements Transport {
     constructor(options: SendmailTransport.Options);
 
     /** Compiles a mailcomposer message and forwards it to handler that sends it */
-    send(mail: MailMessage, callback: (err: Error | null, info: SendmailTransport.SentMessageInfo) => void): void;
+    send(
+        mail: MailMessage,
+        callback: (
+            err: Error | null,
+            info: SendmailTransport.SentMessageInfo
+        ) => void
+    ): void;
 }
 
 export = SendmailTransport;

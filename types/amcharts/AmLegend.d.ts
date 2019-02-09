@@ -231,13 +231,7 @@ export default class AmLegend {
      */
     addListener(
         type: string,
-        handler: (
-            e: {
-                type: string;
-                dataItem: object;
-                chart: AmChart;
-            },
-        ) => void,
+        handler: (e: { type: string; dataItem: object; chart: AmChart }) => void
     ): void;
 
     /**

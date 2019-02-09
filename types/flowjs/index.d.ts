@@ -10,7 +10,12 @@ declare namespace flowjs {
         opts: IFlowOptions;
         files: IFlowFile[];
 
-        assignBrowse(domNodes: HTMLElement[], isDirectory: boolean, singleFile: boolean, attributes: Object): void;
+        assignBrowse(
+            domNodes: HTMLElement[],
+            isDirectory: boolean,
+            singleFile: boolean,
+            attributes: Object
+        ): void;
         assignDrop(domNodes: HTMLElement[]): void;
         unAssignDrop(domNodes: HTMLElement[]): void;
         on(event: string, callback: Function): void;

@@ -7,8 +7,8 @@
 // TypeScript Version: 2.8
 
 import { TestContext, ModuleCallbacks } from "ember-test-helpers";
-import Ember from 'ember';
-import { it as mochaIt, ISuiteCallbackContext } from 'mocha';
+import Ember from "ember";
+import { it as mochaIt, ISuiteCallbackContext } from "mocha";
 
 // these globals are re-exported as named exports by ember-mocha
 type mochaBefore = typeof before;
@@ -20,11 +20,24 @@ type mochaTeardown = typeof teardown;
 type mochaSuiteSetup = typeof suiteSetup;
 type mochaSuiteTeardown = typeof suiteTeardown;
 
-declare module 'ember-mocha' {
+declare module "ember-mocha" {
     interface ContextDefinitionFunction {
-        (name: string, description: string, callbacks: ModuleCallbacks, tests: (this: ISuiteCallbackContext) => void): void;
-        (name: string, description: string, tests: (this: ISuiteCallbackContext) => void): void;
-        (name: string, callbacks: ModuleCallbacks, tests: (this: ISuiteCallbackContext) => void): void;
+        (
+            name: string,
+            description: string,
+            callbacks: ModuleCallbacks,
+            tests: (this: ISuiteCallbackContext) => void
+        ): void;
+        (
+            name: string,
+            description: string,
+            tests: (this: ISuiteCallbackContext) => void
+        ): void;
+        (
+            name: string,
+            callbacks: ModuleCallbacks,
+            tests: (this: ISuiteCallbackContext) => void
+        ): void;
         (name: string, tests: (this: ISuiteCallbackContext) => void): void;
     }
 
@@ -74,7 +87,7 @@ declare module 'ember-mocha' {
     export function setResolver(resolver: Ember.Resolver): void;
 }
 
-declare module 'mocha' {
+declare module "mocha" {
     // augment test callback context
     interface Context extends TestContext {}
 }

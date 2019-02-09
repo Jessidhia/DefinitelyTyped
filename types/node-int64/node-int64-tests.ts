@@ -9,7 +9,7 @@
 // So let's create a couple Int64s using the above values ...
 
 // Require, of course
-import Int64 = require('node-int64');
+import Int64 = require("node-int64");
 
 // x's value is what we expect (the decimal value of 0x123456789)
 let x = new Int64(0x123456789);
@@ -24,7 +24,7 @@ let b: Int64 = new Int64(73876293, 827235);
 // y's value is Infinity because it's outside the range of integer
 // precision.  But that's okay - it's still useful because it's internal
 // representation (octets) is what we passed in
-let y = new Int64('123456789abcdef0');
+let y = new Int64("123456789abcdef0");
 //!! 	[Int64 value:Infinity octets:12 34 56 78 9a bc de f0]
 
 // Get the underlying Buffer object
@@ -39,9 +39,9 @@ y.toNumber() + 1;
 //!! Infinity
 
 // Int64 string operations ...
-'value: ' + x.toString();
+"value: " + x.toString();
 //!! 'value: 4886718345'
-'value: ' + y.toString();
+"value: " + y.toString();
 //!! 'value: Infinity'
 x.toString(2);
 //!! '100100011010001010110011110001001'
@@ -72,13 +72,21 @@ new Int64(new Buffer([0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0]));
 //!! [Int64 value:Infinity octets:12 34 56 78 9a bc de f0]
 
 // Pass a Buffer and offset
-new Int64(new Buffer([0,0,0,0,0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0]), 4);
+new Int64(
+    new Buffer([0, 0, 0, 0, 0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0]),
+    4
+);
 //!! [Int64 value:Infinity octets:12 34 56 78 9a bc de f0]
 
 // Pull out into a buffer
-new Int64(new Buffer([0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0])).toBuffer();
+new Int64(
+    new Buffer([0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0])
+).toBuffer();
 //!! <Buffer 12 34 56 78 9a bc de f0>
 
 // Or copy into an existing one (at an offset)
 var buf = new Buffer(1024);
-new Int64(new Buffer([0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0])).copy(buf, 512);
+new Int64(new Buffer([0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf0])).copy(
+    buf,
+    512
+);

@@ -1,4 +1,4 @@
-import getType = require('jest-get-type');
+import getType = require("jest-get-type");
 
 getType([]); // $ExpectType ValueType
 getType(false);
@@ -8,10 +8,10 @@ getType(/d+/);
 getType(new Map());
 getType(new Set());
 getType(new Date());
-getType('ts');
+getType("ts");
 getType(Symbol());
 getType(undefined);
 
 getType(); // $ExpectError
 getType([], undefined); // $ExpectError
-getType([], ''); // $ExpectError
+getType([], ""); // $ExpectError

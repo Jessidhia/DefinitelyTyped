@@ -1,4 +1,4 @@
-import Tokens = require('csrf');
+import Tokens = require("csrf");
 
 const csrf = new Tokens();
 

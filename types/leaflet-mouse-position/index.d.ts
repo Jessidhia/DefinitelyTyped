@@ -4,15 +4,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ControlOptions, Control as LControl } from 'leaflet';
+import { ControlOptions, Control as LControl } from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     interface MapOptions {
         positionControl?: boolean;
     }
 
     namespace control {
-        function mousePosition(options?: Control.MousePositionControlOptions): Control.MousePosition;
+        function mousePosition(
+            options?: Control.MousePositionControlOptions
+        ): Control.MousePosition;
     }
 
     namespace Control {

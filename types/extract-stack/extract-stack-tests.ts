@@ -1,6 +1,6 @@
-import extractStack = require('extract-stack');
+import extractStack = require("extract-stack");
 
-const error = new Error('Missing unicorn');
+const error = new Error("Missing unicorn");
 
 extractStack(error); // $ExpectType string
 extractStack(error.stack); // $ExpectType string

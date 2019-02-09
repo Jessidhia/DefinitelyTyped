@@ -30,9 +30,15 @@ export interface ColumnReorderEndEvent {
     reorderColumn: string;
 }
 
-export type ElementOrFunc<P> = string | React.ReactElement<any> | ((props: P) => (string | React.ReactElement<any>));
+export type ElementOrFunc<P> =
+    | string
+    | React.ReactElement<any>
+    | ((props: P) => string | React.ReactElement<any>);
 
-export type TableRowEventHandler = (event: React.SyntheticEvent<Table>, rowIndex: number) => void;
+export type TableRowEventHandler = (
+    event: React.SyntheticEvent<Table>,
+    rowIndex: number
+) => void;
 
 /**
  * Data grid component with fixed or scrollable header and columns.
@@ -123,8 +129,8 @@ export interface TableProps extends React.ClassAttributes<Table> {
      */
     ownerHeight?: number;
 
-    overflowX?: 'hidden' | 'auto';
-    overflowY?: 'hidden' | 'auto';
+    overflowX?: "hidden" | "auto";
+    overflowY?: "hidden" | "auto";
 
     /**
      * Boolean flag indicating of touch scrolling should be enabled
@@ -356,7 +362,10 @@ export interface TableProps extends React.ClassAttributes<Table> {
      * )
      * ```
      */
-    onColumnResizeEndCallback?: (newColumnWidth: number, columnKey: string) => void;
+    onColumnResizeEndCallback?: (
+        newColumnWidth: number,
+        columnKey: string
+    ) => void;
 
     /**
      * Callback that is called when reordering has been completed
@@ -391,8 +400,7 @@ export interface TableProps extends React.ClassAttributes<Table> {
     bufferRowCount?: number;
 }
 
-export class Table extends React.Component<TableProps> {
-}
+export class Table extends React.Component<TableProps> {}
 
 export interface ColumnHeaderProps {
     columnKey?: string;
@@ -416,7 +424,7 @@ export interface ColumnProps extends React.ClassAttributes<Column> {
     /**
      * The horizontal alignment of the table cell content.
      */
-    align?: 'left' | 'center' | 'right';
+    align?: "left" | "center" | "right";
 
     /**
      * Controls if the column is fixed when scrolling in the X axis.
@@ -570,8 +578,7 @@ export interface ColumnProps extends React.ClassAttributes<Column> {
     pureRendering?: boolean;
 }
 
-export class Column extends React.Component<ColumnProps> {
-}
+export class Column extends React.Component<ColumnProps> {}
 
 export interface ColumnGroupHeaderProps {
     /* supplied from the groupHeaderHeight */
@@ -588,7 +595,7 @@ export interface ColumnGroupProps extends React.ClassAttributes<ColumnGroup> {
     /**
      * The horizontal alignment of the table cell content.
      */
-    align?: 'left' | 'center' | 'right';
+    align?: "left" | "center" | "right";
 
     /**
      * Controls if the column group is fixed when scrolling in the X axis.
@@ -616,11 +623,13 @@ export interface ColumnGroupProps extends React.ClassAttributes<ColumnGroup> {
      * You can also pass in a function that returns a react elemnt, with the
      * props object above passed in as the first parameter.
      */
-    header?: string | React.ReactElement<any> | ((props: ColumnGroupHeaderProps) => (string | React.ReactElement<any>));
+    header?:
+        | string
+        | React.ReactElement<any>
+        | ((props: ColumnGroupHeaderProps) => string | React.ReactElement<any>);
 }
 
-export class ColumnGroup extends React.Component<ColumnGroupProps> {
-}
+export class ColumnGroup extends React.Component<ColumnGroupProps> {}
 
 /**
  * Component that handles default cell layout and styling.
@@ -673,5 +682,4 @@ export interface CellProps extends React.HTMLAttributes<Cell> {
     rowIndex?: number;
 }
 
-export class Cell extends React.Component<CellProps> {
-}
+export class Cell extends React.Component<CellProps> {}

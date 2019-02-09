@@ -4,19 +4,22 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace PropertiesReader {
-    type Value = string|number|boolean;
+    type Value = string | number | boolean;
 
     interface Reader {
-        get(propertyName: string): Value|null;
-        getRaw(propertyName: string): string|null;
+        get(propertyName: string): Value | null;
+        getRaw(propertyName: string): string | null;
         path(): {};
         append(path: string): Reader;
         read(properties: string): Reader;
         set(propertyName: string, value: Value): Reader;
         length: number;
         each(iterator: (key: string, value: Value) => void): Reader;
-        each<T>(iterator: (this: T, key: string, value: Value) => void, scope: T): Reader;
-        getAllProperties(): { [key: string]: Value; };
+        each<T>(
+            iterator: (this: T, key: string, value: Value) => void,
+            scope: T
+        ): Reader;
+        getAllProperties(): { [key: string]: Value };
         clone(): Reader;
     }
 }

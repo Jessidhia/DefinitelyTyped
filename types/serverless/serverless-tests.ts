@@ -1,9 +1,9 @@
-import Serverless from 'serverless';
+import Serverless from "serverless";
 
 const options: Serverless.Options = {
     noDeploy: false,
     stage: null,
-    region: ''
+    region: ""
 };
 
 const serverless = new Serverless();

@@ -1,3 +1,3 @@
-import * as tables from 'prosemirror-tables';
+import * as tables from "prosemirror-tables";
 
 const table = tables.tableEditing();

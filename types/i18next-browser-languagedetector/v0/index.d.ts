@@ -7,8 +7,10 @@
 import * as i18next from "i18next";
 
 declare namespace I18next {
-    interface I18nextStatic extends i18nextBrowserLanguageDetector.I18nextStatic { }
-    interface I18nextOptions extends i18nextBrowserLanguageDetector.I18nextOptions { }
+    interface I18nextStatic
+        extends i18nextBrowserLanguageDetector.I18nextStatic {}
+    interface I18nextOptions
+        extends i18nextBrowserLanguageDetector.I18nextOptions {}
 }
 
 declare namespace i18nextBrowserLanguageDetector {

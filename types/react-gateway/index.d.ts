@@ -4,12 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Gateway = require('./Gateway');
-import { GatewayProps } from './Gateway';
-import GatewayDest = require('./GatewayDest');
-import { GatewayDestProps } from './GatewayDest';
-import GatewayProvider = require('./GatewayProvider');
-import GatewayRegistry = require('./GatewayRegistry');
+import Gateway = require("./Gateway");
+import { GatewayProps } from "./Gateway";
+import GatewayDest = require("./GatewayDest");
+import { GatewayDestProps } from "./GatewayDest";
+import GatewayProvider = require("./GatewayProvider");
+import GatewayRegistry = require("./GatewayRegistry");
 
 export {
     Gateway,

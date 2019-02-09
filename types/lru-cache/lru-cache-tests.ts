@@ -1,9 +1,9 @@
-import LRU = require('lru-cache');
+import LRU = require("lru-cache");
 
 const num = 1;
 
 interface Foo {
-	foo(): void;
+    foo(): void;
 }
 
 const foo = {
@@ -12,31 +12,33 @@ const foo = {
 
 const cache = LRU<string, Foo>();
 cache; // $ExpectType Cache<string, Foo>
-LRU<string, Foo>({ // $ExpectType Cache<string, Foo>
-	max: num,
-	maxAge: num,
-	length(value) {
+LRU<string, Foo>({
+    // $ExpectType Cache<string, Foo>
+    max: num,
+    maxAge: num,
+    length(value) {
         value; // $ExpectType Foo
         return num;
-	},
-	dispose(key, value) {
+    },
+    dispose(key, value) {
         key; // $ExpectType string
         value; // $ExpectType Foo
-	},
-	stale: false,
-    noDisposeOnSet: false,
+    },
+    stale: false,
+    noDisposeOnSet: false
 });
 LRU<string, Foo>(num); // $ExpectType Cache<string, Foo>
 new LRU<string, Foo>(); // $ExpectType Cache<string, Foo>
-new LRU<string, Foo>({ // $ExpectType Cache<string, Foo>
+new LRU<string, Foo>({
+    // $ExpectType Cache<string, Foo>
     max: num,
     maxAge: num,
-    length: (value) => {
+    length: value => {
         return num;
     },
     dispose: (key, value) => {},
     stale: false,
-    noDisposeOnSet: false,
+    noDisposeOnSet: false
 });
 new LRU<string, Foo>(num); // $ExpectType Cache<string, Foo>
 
@@ -58,20 +60,20 @@ cache.max = 1;
 cache.maxAge; // $ExpectType number
 cache.maxAge = 1;
 
-cache.set('foo', foo); // $ExpectType boolean
+cache.set("foo", foo); // $ExpectType boolean
 cache.set(1, foo); // $ExpectError
-cache.set('foo', 1); // $ExpectError
+cache.set("foo", 1); // $ExpectError
 
-cache.get('foo'); // $ExpectType Foo | undefined
+cache.get("foo"); // $ExpectType Foo | undefined
 cache.get(1); // $ExpectError
 
-cache.peek('foo'); // $ExpectType Foo | undefined
+cache.peek("foo"); // $ExpectType Foo | undefined
 cache.peek(1); // $ExpectError
 
-cache.has('foo'); // $ExpectType boolean
+cache.has("foo"); // $ExpectType boolean
 cache.has(1); // $ExpectError
 
-cache.del('foo');
+cache.del("foo");
 cache.del(1); // $ExpectError
 
 cache.reset();

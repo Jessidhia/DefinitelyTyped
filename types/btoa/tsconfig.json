@@ -6,16 +6,11 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "lib": ["es6"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "btoa-tests.ts"
-    ]
+    "files": ["index.d.ts", "btoa-tests.ts"]
 }

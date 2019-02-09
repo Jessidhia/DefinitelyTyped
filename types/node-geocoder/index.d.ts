@@ -7,17 +7,28 @@
 
 declare namespace node_geocoder {
     type Providers =
-        'google' | 'here' | 'freegeoip' |
-        'datasciencetoolkit' | 'openstreetmap' |
-        'locationiq' | 'mapquest' | 'openmapquest' |
-        'agol' | 'tomtom' | 'nominatimmapquest' |
-        'opencage' | 'smartyStreet' | 'geocodio' |
-        'yandex' | 'teleport' | 'opendatafrance' |
-        'pickpoint';
+        | "google"
+        | "here"
+        | "freegeoip"
+        | "datasciencetoolkit"
+        | "openstreetmap"
+        | "locationiq"
+        | "mapquest"
+        | "openmapquest"
+        | "agol"
+        | "tomtom"
+        | "nominatimmapquest"
+        | "opencage"
+        | "smartyStreet"
+        | "geocodio"
+        | "yandex"
+        | "teleport"
+        | "opendatafrance"
+        | "pickpoint";
 
     interface Options {
         provider: Providers;
-        httpAdapter?: 'https' | 'http' | 'request';
+        httpAdapter?: "https" | "http" | "request";
         clientId?: string;
         apiKey?: string;
         language?: string;
@@ -81,12 +92,23 @@ declare namespace node_geocoder {
     }
 
     class Geocoder {
-        geocode(query: string | Query, cb?: (err: any, data: Entry[]) => void): Promise<Entry[]>;
-        batchGeocode(queries: string[] | Query[], cb?: (err: any, data: BatchResult[]) => void): Promise<BatchResult[]>;
-        reverse(loc: Location, cb?: (err: any, data: Entry[]) => void): Promise<Entry[]>;
+        geocode(
+            query: string | Query,
+            cb?: (err: any, data: Entry[]) => void
+        ): Promise<Entry[]>;
+        batchGeocode(
+            queries: string[] | Query[],
+            cb?: (err: any, data: BatchResult[]) => void
+        ): Promise<BatchResult[]>;
+        reverse(
+            loc: Location,
+            cb?: (err: any, data: Entry[]) => void
+        ): Promise<Entry[]>;
     }
 }
 
-declare function node_geocoder(options: node_geocoder.Options): node_geocoder.Geocoder;
+declare function node_geocoder(
+    options: node_geocoder.Options
+): node_geocoder.Geocoder;
 
 export = node_geocoder;

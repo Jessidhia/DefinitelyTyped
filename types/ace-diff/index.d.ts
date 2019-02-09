@@ -36,7 +36,7 @@ declare namespace AceDiff {
     interface AceDiffOpts {
         mode?: string;
         theme?: string;
-        diffGranularity?: 'specific' | 'broad';
+        diffGranularity?: "specific" | "broad";
         showDiffs?: boolean;
         showConnectors?: boolean;
         maxDiffs?: number;

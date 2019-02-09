@@ -1,1 +1,4 @@
-export function tagString(literals: string[], ...substitutions: string[]): string;
+export function tagString(
+    literals: string[],
+    ...substitutions: string[]
+): string;

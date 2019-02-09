@@ -3,7 +3,7 @@
 // Definitions by: Matt Traynham <https://github.com/mtraynham>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import HttpContext = require('http-context');
+import HttpContext = require("http-context");
 
 export = XRayCrawler;
 
@@ -11,7 +11,10 @@ declare function XRayCrawler(driver?: XRayCrawler.Driver): XRayCrawler.Instance;
 
 declare namespace XRayCrawler {
     type Callback<T> = (err: Error, obj: T) => void;
-    type Driver = (context: HttpContext.Context, callback: Callback<HttpContext.Context>) => void;
+    type Driver = (
+        context: HttpContext.Context,
+        callback: Callback<HttpContext.Context>
+    ) => void;
     type RequestHook = (request: HttpContext.Request) => void;
     type ResponseHook = (response: HttpContext.Response) => void;
     type RandomDelay = () => number;

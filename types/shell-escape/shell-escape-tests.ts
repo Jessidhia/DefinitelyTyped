@@ -1,5 +1,5 @@
-import shellEscape = require('shell-escape');
+import shellEscape = require("shell-escape");
 
 () => {
-    const stringRes = shellEscape(['cp', '-r', 'src/', 'dest/']);
+    const stringRes = shellEscape(["cp", "-r", "src/", "dest/"]);
 };

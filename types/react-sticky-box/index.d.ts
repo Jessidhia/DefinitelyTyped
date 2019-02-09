@@ -7,16 +7,18 @@
 import * as React from "react";
 
 declare namespace ReactStickyBox {
-  type StickyBoxMode = 'relative' | 'stickyBottom' | 'stickyTop';
+    type StickyBoxMode = "relative" | "stickyBottom" | "stickyTop";
 
-  interface StickyBoxProps {
-    bottom?: boolean;
-    offsetTop?: number;
-    offsetBottom?: number;
-    onChangeMode?: (oldMode: StickyBoxMode, newMode: StickyBoxMode) => void;
-  }
+    interface StickyBoxProps {
+        bottom?: boolean;
+        offsetTop?: number;
+        offsetBottom?: number;
+        onChangeMode?: (oldMode: StickyBoxMode, newMode: StickyBoxMode) => void;
+    }
 }
 
-declare const ReactStickyBox: React.ComponentClass<ReactStickyBox.StickyBoxProps>;
+declare const ReactStickyBox: React.ComponentClass<
+    ReactStickyBox.StickyBoxProps
+>;
 
 export = ReactStickyBox;

@@ -70,7 +70,10 @@ type CacheEntry = ReadonlyArray<[/** key */ string, /** value */ string]>;
  * The cache should be passed to hydrate() on the client-side before mounting the app.
  * Also useful for doing snapshot unit testing (make sure to call clearStyles() after each test though).
  */
-export function extractStyles(): { cache: ReadonlyArray<CacheEntry>; styles: string };
+export function extractStyles(): {
+    cache: ReadonlyArray<CacheEntry>;
+    styles: string;
+};
 
 /**
  * Hydrates the cache using the cache value returned from extractStyles().
@@ -89,4 +92,7 @@ export function clearStyles(): void;
  * Utility function for filtering out props based on an array of keys.
  * Returns an { matchedProps, remainingProps } object.
  */
-export function splitProps(props: object, keys: ReadonlyArray<string>): { matchedProps: object; remainingProps: object };
+export function splitProps(
+    props: object,
+    keys: ReadonlyArray<string>
+): { matchedProps: object; remainingProps: object };

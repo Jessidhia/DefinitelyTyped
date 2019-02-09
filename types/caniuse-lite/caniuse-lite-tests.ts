@@ -1,5 +1,13 @@
 import {
-    agents, features, feature, Agent, Feature, PackedFeature, StatsByAgentID, SupportStatusByVersion, SupportStatus
+    agents,
+    features,
+    feature,
+    Agent,
+    Feature,
+    PackedFeature,
+    StatsByAgentID,
+    SupportStatusByVersion,
+    SupportStatus
 } from "caniuse-lite";
 
 const chrome: Agent | undefined = agents.chrome;
@@ -7,10 +15,19 @@ if (chrome !== undefined) {
     const browser: string = chrome.browser;
     const prefix: string = chrome.prefix;
     const prefixExceptions: any = chrome.prefix_exceptions;
-    const usageGlobal: { [version: string]: number | undefined } = chrome.usage_global;
-    const releaseDate: { [version: string]: number | undefined } = chrome.release_date;
+    const usageGlobal: { [version: string]: number | undefined } =
+        chrome.usage_global;
+    const releaseDate: { [version: string]: number | undefined } =
+        chrome.release_date;
     const versions: Array<string | null> = chrome.versions;
-    consume(browser, prefix, prefixExceptions, usageGlobal, releaseDate, versions);
+    consume(
+        browser,
+        prefix,
+        prefixExceptions,
+        usageGlobal,
+        releaseDate,
+        versions
+    );
 }
 
 const unpackedFeatures = Object.keys(features).map((id: string) => {

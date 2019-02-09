@@ -15,14 +15,17 @@
  * limitations under the License.
  */
 
-import MDCComponent from 'material__base/component';
+import MDCComponent from "material__base/component";
 
-import MDCTextFieldHelperTextAdapter from './adapter';
-import MDCTextFieldHelperTextFoundation from './foundation';
+import MDCTextFieldHelperTextAdapter from "./adapter";
+import MDCTextFieldHelperTextFoundation from "./foundation";
 
-export {MDCTextFieldHelperTextAdapter, MDCTextFieldHelperTextFoundation};
+export { MDCTextFieldHelperTextAdapter, MDCTextFieldHelperTextFoundation };
 
-export class MDCTextFieldHelperText extends MDCComponent<MDCTextFieldHelperTextAdapter, MDCTextFieldHelperTextFoundation> {
+export class MDCTextFieldHelperText extends MDCComponent<
+    MDCTextFieldHelperTextAdapter,
+    MDCTextFieldHelperTextFoundation
+> {
     static attachTo(root: Element): MDCTextFieldHelperText;
 
     readonly foundation: MDCTextFieldHelperTextFoundation;

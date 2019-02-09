@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace IUAParser {
-
     export interface IBrowser {
         /**
          * Possible values :
@@ -193,5 +192,5 @@ declare module "ua-parser-js" {
         getResult(): IUAParser.IResult;
     }
     const exported: typeof UAParser & { UAParser: typeof UAParser };
-    export = exported
+    export = exported;
 }

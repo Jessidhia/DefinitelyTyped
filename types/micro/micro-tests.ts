@@ -1,5 +1,12 @@
-import micro, { json, RequestHandler, buffer, text, send, createError } from 'micro';
-import socketIO = require('socket.io');
+import micro, {
+    json,
+    RequestHandler,
+    buffer,
+    text,
+    send,
+    createError
+} from "micro";
+import socketIO = require("socket.io");
 
 // Json sample
 
@@ -7,15 +14,15 @@ export const jsonHandler: RequestHandler = async (req, res) => {
     const data = await json(req);
     console.log(data);
 
-    return 'Data logged to your console';
+    return "Data logged to your console";
 };
 
 // socket.io chat app sample
 
-const html = '<div>some html stuff</div>';
+const html = "<div>some html stuff</div>";
 
 const server = micro(async (req, res) => {
-    console.log('Serving index.html');
+    console.log("Serving index.html");
     res.end(html);
 });
 
@@ -24,7 +31,7 @@ const io = socketIO(server);
 server.listen(4000);
 
 // Micro expects a function to be exported
-module.exports = () => console.log('YOLO');
+module.exports = () => console.log("YOLO");
 
 // body parsing sample
 
@@ -37,14 +44,14 @@ const bodyParsingHandler: RequestHandler = async (req, res) => {
     const js: any = await json(req);
     // { price: 9.99 }
     console.log(js.price);
-    return '';
+    return "";
 };
 
 // send different status code sample
 
 const statusHandler: RequestHandler = async (req, res) => {
     const statusCode = 400;
-    const data = { error: 'Custom error message' };
+    const data = { error: "Custom error message" };
 
     send(res, statusCode, data);
 };
@@ -52,9 +59,9 @@ const statusHandler: RequestHandler = async (req, res) => {
 // createError sample
 
 const errorHandler: RequestHandler = async (req, res) => {
-    const data = { error: 'Custom error message' };
+    const data = { error: "Custom error message" };
 
     if (data.error) {
-        throw createError(429, 'Rate limit exceeded');
+        throw createError(429, "Rate limit exceeded");
     }
 };

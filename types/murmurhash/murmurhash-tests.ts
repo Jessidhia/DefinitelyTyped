@@ -1,4 +1,4 @@
-import murmurhash = require('murmurhash');
+import murmurhash = require("murmurhash");
 
 const stringValue = "test";
 let numberValue = 123;

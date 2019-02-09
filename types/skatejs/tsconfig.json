@@ -2,18 +2,13 @@
     "compilerOptions": {
         "target": "esnext",
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "strictNullChecks": true,
         "strictFunctionTypes": false,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,

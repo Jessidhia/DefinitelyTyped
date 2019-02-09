@@ -3,7 +3,6 @@
 // Definitions by: Peter Snider <https://github.com/psnider>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/emitter-component
 
-
 interface Emitter {
     on(event: string, listener: Function): Emitter;
     once(event: string, listener: Function): Emitter;

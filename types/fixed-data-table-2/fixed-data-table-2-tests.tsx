@@ -14,8 +14,9 @@ class MyTable1 extends React.Component {
                 rowHeight={50}
                 headerHeight={50}
                 width={1000}
-                height={500}>
-            // add columns
+                height={500}
+            >
+                // add columns
             </Table>
         );
     }
@@ -30,11 +31,9 @@ class MyTable2 extends React.Component {
                 rowHeight={50}
                 headerHeight={50}
                 width={1000}
-                height={500}>
-                <Column
-                    cell={<Cell>Basic content</Cell>}
-                    width={200}
-                />
+                height={500}
+            >
+                <Column cell={<Cell>Basic content</Cell>} width={200} />
             </Table>
         );
     }
@@ -52,7 +51,7 @@ class MyTable3 extends React.Component<{}, MyTable3State> {
             { name: "Amelia" },
             { name: "Estevan" },
             { name: "Florence" },
-            { name: "Tressa" },
+            { name: "Tressa" }
         ]
     };
 
@@ -63,10 +62,11 @@ class MyTable3 extends React.Component<{}, MyTable3State> {
                 rowHeight={50}
                 headerHeight={50}
                 width={1000}
-                height={500}>
+                height={500}
+            >
                 <Column
                     header={<Cell>Name</Cell>}
-                    cell={(props) => (
+                    cell={props => (
                         <Cell {...props}>
                             {this.state.myTableData[props.rowIndex].name}
                         </Cell>
@@ -93,11 +93,13 @@ class MyTextCell extends React.Component<MyCellProps> {
         const { rowIndex, field, myData } = this.props;
 
         return (
-            <Cell height={this.props.height}
+            <Cell
+                height={this.props.height}
                 width={this.props.height}
                 columnKey={this.props.columnKey}
                 rowIndex={this.props.rowIndex}
-                className="text-cell">
+                className="text-cell"
+            >
                 {myData[rowIndex!][field]}
             </Cell>
         );
@@ -110,11 +112,13 @@ class MyLinkCell extends React.Component<MyCellProps> {
         const link: string = myData[rowIndex!][field];
 
         return (
-            <Cell width={this.props.width}
+            <Cell
+                width={this.props.width}
                 height={this.props.height}
                 rowIndex={this.props.rowIndex}
                 columnKey={this.props.columnKey}
-                className="link-cell">
+                className="link-cell"
+            >
                 <a href={link}>{link}</a>
             </Cell>
         );
@@ -143,21 +147,21 @@ class MyTable4 extends React.Component<{}, MyTable4State> {
                 rowHeight={50}
                 headerHeight={50}
                 width={1000}
-                height={500}>
-                {
-                    ["name", "email"].map(field =>
-                        <Column
-                            key={field}
-                            header={<Cell>{field}</Cell>}
-                            cell={
-                                <MyTextCell
-                                    myData={this.state.tableData}
-                                    field={field}
-                                />
-                            }
-                            width={200} />
-                    )
-                }
+                height={500}
+            >
+                {["name", "email"].map(field => (
+                    <Column
+                        key={field}
+                        header={<Cell>{field}</Cell>}
+                        cell={
+                            <MyTextCell
+                                myData={this.state.tableData}
+                                field={field}
+                            />
+                        }
+                        width={200}
+                    />
+                ))}
             </Table>
         );
     }
@@ -173,16 +177,35 @@ class MyTable5 extends React.Component {
                 headerHeight={50}
                 width={1000}
                 height={500}
-                onScrollStart={(x: number, y: number) => { }}
-                onScrollEnd={(x: number, y: number) => { }}
-                onContentHeightChange={(newHeight: number) => { }}
-                onRowClick={(event: React.SyntheticEvent<Table>, rowIndex: number) => { }}
-                onRowDoubleClick={(event: React.SyntheticEvent<Table>, rowIndex: number) => { }}
-                onRowMouseDown={(event: React.SyntheticEvent<Table>, rowIndex: number) => { }}
-                onRowMouseEnter={(event: React.SyntheticEvent<Table>, rowIndex: number) => { }}
-                onRowMouseLeave={(event: React.SyntheticEvent<Table>, rowIndex: number) => { }}
-                onColumnResizeEndCallback={(newColumnWidth: number, columnKey: string) => { }}>
-            // add columns
+                onScrollStart={(x: number, y: number) => {}}
+                onScrollEnd={(x: number, y: number) => {}}
+                onContentHeightChange={(newHeight: number) => {}}
+                onRowClick={(
+                    event: React.SyntheticEvent<Table>,
+                    rowIndex: number
+                ) => {}}
+                onRowDoubleClick={(
+                    event: React.SyntheticEvent<Table>,
+                    rowIndex: number
+                ) => {}}
+                onRowMouseDown={(
+                    event: React.SyntheticEvent<Table>,
+                    rowIndex: number
+                ) => {}}
+                onRowMouseEnter={(
+                    event: React.SyntheticEvent<Table>,
+                    rowIndex: number
+                ) => {}}
+                onRowMouseLeave={(
+                    event: React.SyntheticEvent<Table>,
+                    rowIndex: number
+                ) => {}}
+                onColumnResizeEndCallback={(
+                    newColumnWidth: number,
+                    columnKey: string
+                ) => {}}
+            >
+                // add columns
             </Table>
         );
     }

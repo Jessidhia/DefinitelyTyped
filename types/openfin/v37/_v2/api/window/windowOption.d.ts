@@ -1,4 +1,4 @@
-import { DownloadPreloadOption } from '../system/download-preload';
+import { DownloadPreloadOption } from "../system/download-preload";
 export interface WindowOption {
     accelerator?: object;
     alwaysOnTop?: boolean;

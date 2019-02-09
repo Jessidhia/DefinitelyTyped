@@ -7,27 +7,42 @@
 
 declare namespace PDFKit {
     interface PDFGradient {
-        new(document: any): PDFGradient ;
-        stop(pos: number, color?: string|PDFKit.PDFGradient, opacity?: number): PDFGradient;
+        new (document: any): PDFGradient;
+        stop(
+            pos: number,
+            color?: string | PDFKit.PDFGradient,
+            opacity?: number
+        ): PDFGradient;
         embed(): void;
         apply(): void;
     }
 
     interface PDFLinearGradient extends PDFGradient {
-        new(document: any, x1: number, y1: number, x2: number, y2: number): PDFLinearGradient;
+        new (
+            document: any,
+            x1: number,
+            y1: number,
+            x2: number,
+            y2: number
+        ): PDFLinearGradient;
         shader(fn: () => any): any;
         opacityGradient(): PDFLinearGradient;
     }
 
     interface PDFRadialGradient extends PDFGradient {
-        new(document: any, x1: number, y1: number, x2: number, y2: number): PDFRadialGradient;
+        new (
+            document: any,
+            x1: number,
+            y1: number,
+            x2: number,
+            y2: number
+        ): PDFRadialGradient;
         shader(fn: () => any): any;
         opacityGradient(): PDFRadialGradient;
     }
 }
 
 declare namespace PDFKit.Mixins {
-
     interface AnnotationOption {
         Type?: string;
         Rect?: any;
@@ -46,21 +61,88 @@ declare namespace PDFKit.Mixins {
     }
 
     interface PDFAnnotation<TDocument> {
-        annotate(x: number, y: number, w: number, h: number, option: AnnotationOption): TDocument;
-        note(x: number, y: number, w: number, h: number, content: string, option?: AnnotationOption): TDocument;
-        link(x: number, y: number, w: number, h: number, url: string, option?: AnnotationOption): TDocument;
-        highlight(x: number, y: number, w: number, h: number, option?: AnnotationOption): TDocument;
-        underline(x: number, y: number, w: number, h: number, option?: AnnotationOption): TDocument;
-        strike(x: number, y: number, w: number, h: number, option?: AnnotationOption): TDocument;
-        lineAnnotation(x1: number, y1: number, x2: number, y2: number, option?: AnnotationOption): TDocument;
-        rectAnnotation(x: number, y: number, w: number, h: number, option?: AnnotationOption): TDocument;
-        ellipseAnnotation(x: number, y: number, w: number, h: number, option?: AnnotationOption): TDocument;
-        textAnnotation(x: number, y: number, w: number, h: number, text: string, option?: AnnotationOption): TDocument;
+        annotate(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option: AnnotationOption
+        ): TDocument;
+        note(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            content: string,
+            option?: AnnotationOption
+        ): TDocument;
+        link(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            url: string,
+            option?: AnnotationOption
+        ): TDocument;
+        highlight(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option?: AnnotationOption
+        ): TDocument;
+        underline(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option?: AnnotationOption
+        ): TDocument;
+        strike(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option?: AnnotationOption
+        ): TDocument;
+        lineAnnotation(
+            x1: number,
+            y1: number,
+            x2: number,
+            y2: number,
+            option?: AnnotationOption
+        ): TDocument;
+        rectAnnotation(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option?: AnnotationOption
+        ): TDocument;
+        ellipseAnnotation(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            option?: AnnotationOption
+        ): TDocument;
+        textAnnotation(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            text: string,
+            option?: AnnotationOption
+        ): TDocument;
     }
 
     // The color forms accepted by PDFKit:
     //     example:   "red"                  [R, G, B]                  [C, M, Y, K]
-    type ColorValue = string | PDFGradient | [number, number, number] | [number, number, number, number];
+    type ColorValue =
+        | string
+        | PDFGradient
+        | [number, number, number]
+        | [number, number, number, number];
 
     // The winding / filling rule accepted by PDFKit:
     type RuleValue = "even-odd" | "evenodd" | "non-zero" | "nonzero";
@@ -71,8 +153,20 @@ declare namespace PDFKit.Mixins {
         opacity(opacity: number): TDocument;
         fillOpacity(opacity: number): TDocument;
         strokeOpacity(opacity: number): TDocument;
-        linearGradient(x1: number, y1: number, x2: number, y2: number): PDFLinearGradient;
-        radialGradient(x1: number, y1: number, r1: number, x2: number, y2: number, r2: number): PDFRadialGradient;
+        linearGradient(
+            x1: number,
+            y1: number,
+            x2: number,
+            y2: number
+        ): PDFLinearGradient;
+        radialGradient(
+            x1: number,
+            y1: number,
+            r1: number,
+            x2: number,
+            y2: number,
+            r2: number
+        ): PDFRadialGradient;
     }
 
     interface PDFFont<TDocument> {
@@ -96,7 +190,12 @@ declare namespace PDFKit.Mixins {
         /**
          * Draw an image in PDFKit document.
          */
-        image(src: any, x?: number, y?: number, options?: ImageOption): TDocument;
+        image(
+            src: any,
+            x?: number,
+            y?: number,
+            options?: ImageOption
+        ): TDocument;
         image(src: any, options?: ImageOption): TDocument;
     }
 
@@ -108,7 +207,7 @@ declare namespace PDFKit.Mixins {
         /**  The maximum height that text should be clipped to */
         height?: number;
         /** The character to display at the end of the text when it is too long. Set to true to use the default character. */
-        ellipsis?: boolean|string;
+        ellipsis?: boolean | string;
         /**  the number of columns to flow the text into */
         columns?: number;
         /** the amount of space between each column (1/4 inch by default) */
@@ -144,16 +243,25 @@ declare namespace PDFKit.Mixins {
         lineGap(lineGap: number): TDocument;
         moveDown(line?: number): TDocument;
         moveUp(line?: number): TDocument;
-        text(text: string, x?: number, y?: number, options?: TextOptions): TDocument;
+        text(
+            text: string,
+            x?: number,
+            y?: number,
+            options?: TextOptions
+        ): TDocument;
         text(text: string, options?: TextOptions): TDocument;
         widthOfString(text: string, options?: TextOptions): number;
         heightOfString(text: string, options?: TextOptions): number;
-        list(list: Array<string|any>, x?: number, y?: number, options?: TextOptions): TDocument;
-        list(list: Array<string|any>, options?: TextOptions): TDocument;
+        list(
+            list: Array<string | any>,
+            x?: number,
+            y?: number,
+            options?: TextOptions
+        ): TDocument;
+        list(list: Array<string | any>, options?: TextOptions): TDocument;
     }
 
     interface PDFVector<TDocument> {
-
         save(): TDocument;
         restore(): TDocument;
         closePath(): TDocument;
@@ -165,10 +273,28 @@ declare namespace PDFKit.Mixins {
         undash(): TDocument;
         moveTo(x: number, y: number): TDocument;
         lineTo(x: number, y: number): TDocument;
-        bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): TDocument;
-        quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): TDocument;
+        bezierCurveTo(
+            cp1x: number,
+            cp1y: number,
+            cp2x: number,
+            cp2y: number,
+            x: number,
+            y: number
+        ): TDocument;
+        quadraticCurveTo(
+            cpx: number,
+            cpy: number,
+            x: number,
+            y: number
+        ): TDocument;
         rect(x: number, y: number, w: number, h: number): TDocument;
-        roundedRect(x: number, y: number, w: number, h: number, r?: number): TDocument;
+        roundedRect(
+            x: number,
+            y: number,
+            w: number,
+            h: number,
+            r?: number
+        ): TDocument;
         ellipse(x: number, y: number, r1: number, r2?: number): TDocument;
         circle(x: number, y: number, raduis: number): TDocument;
         polygon(...points: number[][]): TDocument;
@@ -176,21 +302,36 @@ declare namespace PDFKit.Mixins {
         fill(color?: ColorValue, rule?: RuleValue): TDocument;
         fill(rule: RuleValue): TDocument;
         stroke(color?: ColorValue): TDocument;
-        fillAndStroke(fillColor?: ColorValue, strokeColor?: ColorValue, rule?: RuleValue): TDocument;
+        fillAndStroke(
+            fillColor?: ColorValue,
+            strokeColor?: ColorValue,
+            rule?: RuleValue
+        ): TDocument;
         fillAndStroke(fillColor: ColorValue, rule?: RuleValue): TDocument;
         fillAndStroke(rule: RuleValue): TDocument;
         clip(rule?: RuleValue): TDocument;
-        transform(m11: number, m12: number, m21: number, m22: number, dx: number, dy: number): TDocument;
+        transform(
+            m11: number,
+            m12: number,
+            m21: number,
+            m22: number,
+            dx: number,
+            dy: number
+        ): TDocument;
         translate(x: number, y: number): TDocument;
         rotate(angle: number, options?: { origin?: number[] }): TDocument;
-        scale(xFactor: number, yFactor?: number, options?: { origin?: number[] }): TDocument;
+        scale(
+            xFactor: number,
+            yFactor?: number,
+            options?: { origin?: number[] }
+        ): TDocument;
     }
 }
 
 declare namespace PDFKit {
     /**
-    * PDFKit data
-    */
+     * PDFKit data
+     */
     interface PDFData {
         new (data: any[]): PDFData;
         readByte(): any;
@@ -241,7 +382,7 @@ declare namespace PDFKit {
         compress?: boolean;
         info?: DocumentInfo;
         autoFirstPage?: boolean;
-        size?: number[]|string;
+        size?: number[] | string;
         margin?: number;
         margins?: { top: number; left: number; bottom: number; right: number };
         layout?: "portrait" | "landscape";
@@ -249,28 +390,33 @@ declare namespace PDFKit {
         bufferPages?: boolean;
     }
 
-    interface PDFDocument extends NodeJS.ReadableStream,
-        Mixins.PDFAnnotation<PDFDocument>, Mixins.PDFColor<PDFDocument>, Mixins.PDFImage<PDFDocument>,
-        Mixins.PDFText<PDFDocument>, Mixins.PDFVector<PDFDocument>, Mixins.PDFFont<PDFDocument> {
+    interface PDFDocument
+        extends NodeJS.ReadableStream,
+            Mixins.PDFAnnotation<PDFDocument>,
+            Mixins.PDFColor<PDFDocument>,
+            Mixins.PDFImage<PDFDocument>,
+            Mixins.PDFText<PDFDocument>,
+            Mixins.PDFVector<PDFDocument>,
+            Mixins.PDFFont<PDFDocument> {
         /**
-        * PDF Version
-        */
+         * PDF Version
+         */
         version: number;
         /**
-        * Wheter streams should be compressed
-        */
+         * Wheter streams should be compressed
+         */
         compress: boolean;
         /**
-        * PDF document Metadata
-        */
+         * PDF document Metadata
+         */
         info: DocumentInfo;
         /**
-        * Options for the document
-        */
+         * Options for the document
+         */
         options: PDFDocumentOptions;
         /**
-        * Represent the current page.
-        */
+         * Represent the current page.
+         */
         page: PDFPage;
 
         x: number;
@@ -283,14 +429,14 @@ declare namespace PDFKit {
         switchToPage(n?: number): PDFPage;
         flushPages(): void;
         ref(data: {}): PDFKitReference;
-        addContent(data: any): PDFDocument
+        addContent(data: any): PDFDocument;
         /**
-        * Deprecated
-        */
+         * Deprecated
+         */
         write(fileName: string, fn: any): void;
         /**
-        * Deprecated. Throws exception
-        */
+         * Deprecated. Throws exception
+         */
         output(fn: any): void;
         end(): void;
         toString(): string;
@@ -303,19 +449,19 @@ declare module "pdfkit" {
 }
 
 declare module "pdfkit/js/gradient" {
-    var gradient : {
+    var gradient: {
         PDFGradient: PDFKit.PDFGradient;
         PDFLinearGradient: PDFKit.PDFLinearGradient;
         PDFRadialGradiant: PDFKit.PDFRadialGradient;
-    }
+    };
 
     export = gradient;
 }
 
 declare namespace PDFKit {
     /**
-   * Represent a single page in the PDF document
-   */
+     * Represent a single page in the PDF document
+     */
     interface PDFPage {
         size: string;
         layout: string;
@@ -325,9 +471,9 @@ declare namespace PDFKit {
         document: PDFDocument;
         content: PDFKitReference;
 
-    /**
-     * The page dictionnary
-     */
+        /**
+         * The page dictionnary
+         */
         dictionary: PDFKitReference;
 
         fonts: any;
@@ -343,9 +489,9 @@ declare namespace PDFKit {
 }
 
 declare module "pdfkit/js/page" {
-  var PDFKitPage: PDFKit.PDFPage
+    var PDFKitPage: PDFKit.PDFPage;
 
-    export = PDFKitPage
+    export = PDFKitPage;
 }
 
 declare namespace PDFKit {
@@ -353,11 +499,17 @@ declare namespace PDFKit {
     class PDFKitReference {
         id: number;
         gen: number;
-        deflate:any;
+        deflate: any;
         compress: boolean;
         uncompressedLength: number;
         chunks: any[];
-        data: { Font?: any; XObject?: any; ExtGState?: any; Pattern: any; Annots: any };
+        data: {
+            Font?: any;
+            XObject?: any;
+            ExtGState?: any;
+            Pattern: any;
+            Annots: any;
+        };
         document: PDFDocument;
 
         constructor(document: PDFDocument, id: number, data: {});

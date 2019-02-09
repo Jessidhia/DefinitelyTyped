@@ -1,20 +1,20 @@
-import  * as AV from 'avoscloud-sdk'
+import * as AV from "avoscloud-sdk";
 // 创建一个新的 TestObject 对象
-AV.initialize('uay57kigwe0b6f5n0e1d4z4xhydsml3dor24bzwvzr57wdap','kfgz7jjfsk55r5a8a3y4ttd3je1ko11bkibcikonk32oozww');
-var TestObject = AV.Object.extend('TestObject');
+AV.initialize(
+    "uay57kigwe0b6f5n0e1d4z4xhydsml3dor24bzwvzr57wdap",
+    "kfgz7jjfsk55r5a8a3y4ttd3je1ko11bkibcikonk32oozww"
+);
+var TestObject = AV.Object.extend("TestObject");
 
 function avobject_Test() {
-
-
     var testObject = new TestObject();
 
     testObject.set("testBoolean", false);
     testObject.set("testInteger", 178);
     testObject.set("testString", "leancloud");
-    testObject.set("testDate",  new Date());
-    testObject.set("testArray", ["leancloud","is","great"]);
-    testObject.set("testDictionary", {key:"value"});
-
+    testObject.set("testDate", new Date());
+    testObject.set("testArray", ["leancloud", "is", "great"]);
+    testObject.set("testDictionary", { key: "value" });
 
     testObject.increment("testInteger");
     testObject.addUnique("testArray", "service");
@@ -23,8 +23,7 @@ function avobject_Test() {
 }
 
 function test_query() {
-
-    var TestObject = AV.Object.extend('TestObject')
+    var TestObject = AV.Object.extend("TestObject");
     var todoObject = new TestObject();
 
     var query = new AV.Query(TestObject);
@@ -54,12 +53,10 @@ function test_query() {
     query.greaterThanOrEqualTo("testInteger", 50);
 
     // Finds scores from any of Jonathan, Dario, or Shawn
-    query.containedIn("testString",
-                      ["leancloud", "aws", "azure"]);
+    query.containedIn("testString", ["leancloud", "aws", "azure"]);
 
     // Finds scores from anyone who is neither Jonathan, Dario, nor Shawn
-    query.notContainedIn("testString",
-                         ["leancloud", "aws", "azure"]);
+    query.notContainedIn("testString", ["leancloud", "aws", "azure"]);
 
     // Finds objects that have the score set
     query.exists("testInteger");
@@ -79,11 +76,10 @@ function test_query() {
 }
 
 function test_file() {
-
     var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
     var file = new AV.File("myfile.txt", { base64: base64 });
 
-    var bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
+    var bytes = [0xbe, 0xef, 0xca, 0xfe];
     var file = new AV.File("myfile.txt", bytes);
 
     var file = new AV.File("myfile.zzz", {}, "image/png");
@@ -91,41 +87,40 @@ function test_file() {
     var src = file.url();
 
     file.save().then(
-    () => {
-        // The file has been saved to Parse.
-    },
-    (error) => {
-        // The file either could n ot be read, or could not be saved to Parse.
-    });
+        () => {
+            // The file has been saved to Parse.
+        },
+        error => {
+            // The file either could n ot be read, or could not be saved to Parse.
+        }
+    );
 
     // TODO: Check
 }
 
 function test_analytics() {
-
     var dimensions = {
         // Define  ranges to bucket data points into meaningful segments
-        priceRange: '1000-1500',
+        priceRange: "1000-1500",
         // Did the user filter the query?
-        source: 'craigslist',
+        source: "craigslist",
         // Do searches happen more often on weekdays or weekends?
-        dayType: 'weekday'
+        dayType: "weekday"
     };
-   // Send the dimensions to Parse along with the 'search' event
-    AV.Analytics.track('search', dimensions);
+    // Send the dimensions to Parse along with the 'search' event
+    AV.Analytics.track("search", dimensions);
 
-    var codeString = '404';
-    AV.Analytics.track('error', { code: codeString })
+    var codeString = "404";
+    AV.Analytics.track("error", { code: codeString });
 }
 
 function test_user_acl_roles() {
-
     var user = new AV.User();
     user.set("username", "my name");
     user.set("password", "my pass");
     user.set("email", "email@example.com");
 
-// other fields can be set just like with Parse.Object
+    // other fields can be set just like with Parse.Object
     user.set("phone", "415-392-0202");
 
     var currentUser = AV.User.current();
@@ -135,11 +130,14 @@ function test_user_acl_roles() {
         // show the signup or login page
     }
 
-    AV.User.become("session-token-here").then(function (user) {
-        // The current user is now set to user.
-    }, function (error) {
-        // The token could not be validated.
-    });
+    AV.User.become("session-token-here").then(
+        function(user) {
+            // The current user is now set to user.
+        },
+        function(error) {
+            // The token could not be validated.
+        }
+    );
 
     var groupACL = new AV.ACL();
 
@@ -152,11 +150,14 @@ function test_user_acl_roles() {
 
     groupACL.setPublicReadAccess(true);
 
-    AV.User.requestPasswordReset("email@example.com").then(function (data) {
-        // The current user is now set to user.
-    }, function (error) {
-        // The token could not be validated.
-    });
+    AV.User.requestPasswordReset("email@example.com").then(
+        function(data) {
+            // The current user is now set to user.
+        },
+        function(error) {
+            // The token could not be validated.
+        }
+    );
 
     // By specifying no write privileges for the ACL, we can ensure the role cannot be altered.
     var role = new AV.Role("Administrator", groupACL);
@@ -164,58 +165,62 @@ function test_user_acl_roles() {
     role.getRoles().add(role);
     role.save();
 
-    AV.User.logOut().then(function (data) {
-      // logged out
+    AV.User.logOut().then(function(data) {
+        // logged out
     });
 }
-
 
 function test_push() {
-
-    AV.Push.send({
-        channels: [ "Gia nts", "Mets" ],
-        data: {
-            alert: "The Giants won against the Mets 2-3."
-        }
-    }, {
-        success: () => {
-            // Push was successful
+    AV.Push.send(
+        {
+            channels: ["Gia nts", "Mets"],
+            data: {
+                alert: "The Giants won against the Mets 2-3."
+            }
         },
-        error: (error: any) => {
-            // Handle error
+        {
+            success: () => {
+                // Push was successful
+            },
+            error: (error: any) => {
+                // Handle error
+            }
         }
-    });
+    );
 
     var query = new AV.Query(AV.Installation);
-    query.equalTo('injuryReports', true);
+    query.equalTo("injuryReports", true);
 
-    AV.Push.send({
-        where: query, // Set our Installation query
-        data: {
-            alert: "Willie Hayes injured by own pop fly."
-        }
-    }, {
-        success: function() {
-            // Push was successful
+    AV.Push.send(
+        {
+            where: query, // Set our Installation query
+            data: {
+                alert: "Willie Hayes injured by own pop fly."
+            }
         },
-        error: function(error: any) {
-            // Handle error
+        {
+            success: function() {
+                // Push was successful
+            },
+            error: function(error: any) {
+                // Handle error
+            }
         }
-    });
+    );
 }
-
 
 function test_promise() {
     let resolved = AV.Promise.as(true);
     let rejected = AV.Promise.error("an error object");
-    AV.Promise.when([resolved, rejected]).then(function() {
-        // success
-    }, function() {
-        // failed
-    });
+    AV.Promise.when([resolved, rejected]).then(
+        function() {
+            // success
+        },
+        function() {
+            // failed
+        }
+    );
 
     // can check whether an object is a Parse.Promise object or not
     AV.Promise.is(resolved);
 }
-
-

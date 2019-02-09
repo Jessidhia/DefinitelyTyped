@@ -13,8 +13,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import * as Immutable from 'immutable';
+import * as React from "react";
+import * as Immutable from "immutable";
 
 type SyntheticKeyboardEvent = React.KeyboardEvent<{}>;
 type SyntheticEvent = React.SyntheticEvent<{}>;
@@ -34,7 +34,10 @@ declare namespace Draft {
 
             import DraftBlockRenderConfig = Draft.Model.ImmutableData.DraftBlockRenderConfig;
 
-            type DraftBlockRenderMap = Immutable.Map<DraftBlockType, DraftBlockRenderConfig>;
+            type DraftBlockRenderMap = Immutable.Map<
+                DraftBlockType,
+                DraftBlockRenderConfig
+            >;
 
             type EditorCommand = DraftEditorCommand | string;
 
@@ -129,71 +132,90 @@ declare namespace Draft {
 
                 // Useful for managing special behavior for pressing the `Return` key. E.g.
                 // removing the style from an empty list item.
-                handleReturn?(e: SyntheticKeyboardEvent, editorState: EditorState): DraftHandleValue,
+                handleReturn?(
+                    e: SyntheticKeyboardEvent,
+                    editorState: EditorState
+                ): DraftHandleValue;
 
                 // Map a key command string provided by your key binding function to a
                 // specified behavior.
-                handleKeyCommand?(command: EditorCommand, editorState: EditorState): DraftHandleValue,
+                handleKeyCommand?(
+                    command: EditorCommand,
+                    editorState: EditorState
+                ): DraftHandleValue;
 
                 // Handle intended text insertion before the insertion occurs. This may be
                 // useful in cases where the user has entered characters that you would like
                 // to trigger some special behavior. E.g. immediately converting `:)` to an
                 // emoji Unicode character, or replacing ASCII quote characters with smart
                 // quotes.
-                handleBeforeInput?(chars: string, editorState: EditorState): DraftHandleValue,
+                handleBeforeInput?(
+                    chars: string,
+                    editorState: EditorState
+                ): DraftHandleValue;
 
-                handlePastedText?(text: string, html: string|undefined, editorState: EditorState): DraftHandleValue,
+                handlePastedText?(
+                    text: string,
+                    html: string | undefined,
+                    editorState: EditorState
+                ): DraftHandleValue;
 
-                handlePastedFiles?(files: Array<Blob>): DraftHandleValue,
+                handlePastedFiles?(files: Array<Blob>): DraftHandleValue;
 
                 // Handle dropped files
-                handleDroppedFiles?(selection: SelectionState, files: Array<Blob>): DraftHandleValue,
+                handleDroppedFiles?(
+                    selection: SelectionState,
+                    files: Array<Blob>
+                ): DraftHandleValue;
 
                 // Handle other drops to prevent default text movement/insertion behaviour
-                handleDrop?(selection: SelectionState, dataTransfer: Object, isInternal: DraftDragType): DraftHandleValue,
+                handleDrop?(
+                    selection: SelectionState,
+                    dataTransfer: Object,
+                    isInternal: DraftDragType
+                ): DraftHandleValue;
 
                 /**
                  * Non-cancelable event triggers.
                  */
-                onEscape?(e: SyntheticKeyboardEvent): void,
-                onTab?(e: SyntheticKeyboardEvent): void,
-                onUpArrow?(e: SyntheticKeyboardEvent): void,
-                onDownArrow?(e: SyntheticKeyboardEvent): void,
-                onRightArrow?(e: SyntheticKeyboardEvent): void,
-                onLeftArrow?(e: SyntheticKeyboardEvent): void,
+                onEscape?(e: SyntheticKeyboardEvent): void;
+                onTab?(e: SyntheticKeyboardEvent): void;
+                onUpArrow?(e: SyntheticKeyboardEvent): void;
+                onDownArrow?(e: SyntheticKeyboardEvent): void;
+                onRightArrow?(e: SyntheticKeyboardEvent): void;
+                onLeftArrow?(e: SyntheticKeyboardEvent): void;
 
-                onBlur?(e: SyntheticEvent): void,
-                onFocus?(e: SyntheticEvent): void,
+                onBlur?(e: SyntheticEvent): void;
+                onFocus?(e: SyntheticEvent): void;
 
                 // Provide a map of block rendering configurations. Each block type maps to
                 // an element tag and an optional react element wrapper. This configuration
                 // is used for both rendering and paste processing.
-                blockRenderMap?: DraftBlockRenderMap
+                blockRenderMap?: DraftBlockRenderMap;
             }
 
             type DraftTextAlignment = "left" | "center" | "right";
         }
 
         namespace Components {
-            class DraftEditorBlock extends React.Component<any, {}> {
-            }
+            class DraftEditorBlock extends React.Component<any, {}> {}
         }
 
         namespace Selection {
             interface FakeClientRect {
-                left: number,
-                width: number,
-                right: number,
-                top: number,
-                bottom: number,
-                height: number,
+                left: number;
+                width: number;
+                right: number;
+                top: number;
+                bottom: number;
+                height: number;
             }
 
             /**
              * Return the bounding ClientRect for the visible DOM selection, if any.
              * In cases where there are no selected ranges or the bounding rect is
              * temporarily invalid, return null.
-            */
+             */
             function getVisibleSelectionRect(global: any): FakeClientRect;
         }
 
@@ -216,7 +238,9 @@ declare namespace Draft {
             /**
              * Retrieve a bound key command for the given event.
              */
-            function getDefaultKeyBinding(e: SyntheticKeyboardEvent): DraftEditorCommand | null;
+            function getDefaultKeyBinding(
+                e: SyntheticKeyboardEvent
+            ): DraftEditorCommand | null;
         }
     }
 
@@ -227,68 +251,66 @@ declare namespace Draft {
              * controls. These commands should map to operations that modify content or
              * selection state and update the editor state accordingly.
              */
-            type DraftEditorCommand = (
-                /**
-                 * Self-explanatory.
-                 */
-                "undo" |
-                "redo" |
+            type DraftEditorCommand = /**
+             * Self-explanatory.
+             */
+            | "undo"
+                | "redo"
 
                 /**
                  * Perform a forward deletion.
                  */
-                "delete" |
+                | "delete"
 
                 /**
                  * Perform a forward deletion to the next word boundary after the selection.
                  */
-                "delete-word" |
+                | "delete-word"
 
                 /**
                  * Perform a backward deletion.
                  */
-                "backspace" |
+                | "backspace"
 
                 /**
                  * Perform a backward deletion to the previous word boundary before the
                  * selection.
                  */
-                "backspace-word" |
+                | "backspace-word"
 
                 /**
                  * Perform a backward deletion to the beginning of the current line.
                  */
-                "backspace-to-start-of-line" |
+                | "backspace-to-start-of-line"
 
                 /**
                  * Toggle styles. Commands may be intepreted to modify inline text ranges
                  * or block types.
                  */
-                "bold" |
-                "code" |
-                "italic" |
-                "strikethrough" |
-                "underline" |
+                | "bold"
+                | "code"
+                | "italic"
+                | "strikethrough"
+                | "underline"
 
                 /**
                  * Split a block in two.
                  */
-                "split-block" |
+                | "split-block"
 
                 /**
                  * Self-explanatory.
                  */
-                "transpose-characters" |
-                "move-selection-to-start-of-block" |
-                "move-selection-to-end-of-block" |
+                | "transpose-characters"
+                | "move-selection-to-start-of-block"
+                | "move-selection-to-end-of-block"
 
                 /**
                  * Commands to support the "secondary" clipboard provided by certain
                  * browsers and operating systems.
                  */
-                "secondary-cut" |
-                "secondary-paste"
-            );
+                | "secondary-cut"
+                | "secondary-paste";
 
             /**
              * A type that allows us to avoid passing boolean arguments
@@ -299,21 +321,20 @@ declare namespace Draft {
             /**
              * The list of default valid block types.
              */
-            type DraftBlockType = (
-                "unstyled" |
-                "paragraph" |
-                "header-one" |
-                "header-two" |
-                "header-three" |
-                "header-four" |
-                "header-five" |
-                "header-six" |
-                "unordered-list-item" |
-                "ordered-list-item" |
-                "blockquote" |
-                "code-block" |
-                "atomic"
-            );
+            type DraftBlockType =
+                | "unstyled"
+                | "paragraph"
+                | "header-one"
+                | "header-two"
+                | "header-three"
+                | "header-four"
+                | "header-five"
+                | "header-six"
+                | "unordered-list-item"
+                | "ordered-list-item"
+                | "blockquote"
+                | "code-block"
+                | "atomic";
 
             /**
              * A type that allows us to avoid passing boolean arguments
@@ -336,23 +357,17 @@ declare namespace Draft {
             /**
              * Valid inline styles.
              */
-            type DraftInlineStyleType = (
-                "BOLD" |
-                "CODE" |
-                "ITALIC" |
-                "STRIKETHROUGH" |
-                "UNDERLINE"
-            )
+            type DraftInlineStyleType =
+                | "BOLD"
+                | "CODE"
+                | "ITALIC"
+                | "STRIKETHROUGH"
+                | "UNDERLINE";
 
             /**
              * Default entity types.
              */
-            type ComposedEntityType = (
-              "LINK" |
-              "TOKEN" |
-              "PHOTO" |
-              "IMAGE"
-            )
+            type ComposedEntityType = "LINK" | "TOKEN" | "PHOTO" | "IMAGE";
 
             /**
              * Possible entity types.
@@ -392,16 +407,19 @@ declare namespace Draft {
             import ContentBlock = Draft.Model.ImmutableData.ContentBlock;
 
             /**
-            * An interface for document decorator classes, allowing the creation of
-            * custom decorator classes.
-            *
-            * See `CompositeDraftDecorator` for the most common use case.
-            */
+             * An interface for document decorator classes, allowing the creation of
+             * custom decorator classes.
+             *
+             * See `CompositeDraftDecorator` for the most common use case.
+             */
             interface DraftDecoratorType {
                 /**
                  * Given a `ContentBlock`, return an immutable List of decorator keys.
                  */
-                getDecorations(block: ContentBlock, contentState: ContentState): Immutable.List<string>;
+                getDecorations(
+                    block: ContentBlock,
+                    contentState: ContentState
+                ): Immutable.List<string>;
 
                 /**
                  * Given a decorator key, return the component to use when rendering
@@ -432,7 +450,11 @@ declare namespace Draft {
              *   - "props": Props to be passed into the React component that will be used.
              */
             interface DraftDecorator {
-                strategy: (block: ContentBlock, callback: (start: number, end: number) => void, contentState: ContentState) => void;
+                strategy: (
+                    block: ContentBlock,
+                    callback: (start: number, end: number) => void,
+                    contentState: ContentState
+                ) => void;
                 component: Function;
                 props?: Object;
             }
@@ -459,7 +481,10 @@ declare namespace Draft {
             class CompositeDraftDecorator {
                 constructor(decorators: Array<DraftDecorator>);
 
-                getDecorations(block: ContentBlock, contentState: ContentState): Immutable.List<string>;
+                getDecorations(
+                    block: ContentBlock,
+                    contentState: ContentState
+                ): Immutable.List<string>;
                 getComponentForKey(key: string): Function;
                 getPropsForKey(key: string): Object;
             }
@@ -492,9 +517,9 @@ declare namespace Draft {
              * a `ComposedText` object, not for use with `DraftEntity.get()`.
              */
             interface RawDraftEntityRange {
-                key: number,
-                offset: number,
-                length: number,
+                key: number;
+                offset: number;
+                length: number;
             }
 
             /**
@@ -534,9 +559,17 @@ declare namespace Draft {
                 entityMap: { [key: string]: RawDraftEntity };
             }
 
-            function convertFromHTMLtoContentBlocks(html: string, DOMBuilder?: Function, blockRenderMap?: DraftBlockRenderMap): { contentBlocks: Array<ContentBlock>, entityMap: any };
-            function convertFromRawToDraftState(rawState: RawDraftContentState): ContentState;
-            function convertFromDraftStateToRaw(contentState: ContentState): RawDraftContentState;
+            function convertFromHTMLtoContentBlocks(
+                html: string,
+                DOMBuilder?: Function,
+                blockRenderMap?: DraftBlockRenderMap
+            ): { contentBlocks: Array<ContentBlock>; entityMap: any };
+            function convertFromRawToDraftState(
+                rawState: RawDraftContentState
+            ): ContentState;
+            function convertFromDraftStateToRaw(
+                contentState: ContentState
+            ): RawDraftContentState;
         }
 
         namespace Entity {
@@ -564,7 +597,11 @@ declare namespace Draft {
                  * be used to track the entity's usage in a ContentBlock, and for
                  * retrieving data about the entity at render time.
                  */
-                static create(type: DraftEntityType, mutability: DraftEntityMutability, data?: Object): string;
+                static create(
+                    type: DraftEntityType,
+                    mutability: DraftEntityMutability,
+                    data?: Object
+                ): string;
 
                 /**
                  * Add an existing DraftEntityInstance to the DraftEntity map. This is
@@ -582,12 +619,18 @@ declare namespace Draft {
                  * instance, this method will merge your data updates and return a new
                  * instance.
                  */
-                static mergeData(key: string, toMerge: { [key: string]: any }): DraftEntityInstance;
+                static mergeData(
+                    key: string,
+                    toMerge: { [key: string]: any }
+                ): DraftEntityInstance;
 
                 /**
                  * Completely replace the data for a given instance.
                  */
-                static replaceData(key: string, newData: { [key: string]: any }): DraftEntityInstance;
+                static replaceData(
+                    key: string,
+                    newData: { [key: string]: any }
+                ): DraftEntityInstance;
             }
 
             /**
@@ -617,7 +660,10 @@ declare namespace Draft {
             import DraftDecoratorType = Draft.Model.Decorators.DraftDecoratorType;
 
             type DraftInlineStyle = Immutable.OrderedSet<string>;
-            type BlockMap = Immutable.OrderedMap<string, Draft.Model.ImmutableData.ContentBlock>;
+            type BlockMap = Immutable.OrderedMap<
+                string,
+                Draft.Model.ImmutableData.ContentBlock
+            >;
 
             var Record: Immutable.Record.Class;
 
@@ -628,7 +674,10 @@ declare namespace Draft {
 
             class EditorState extends Record {
                 static createEmpty(decorator?: DraftDecoratorType): EditorState;
-                static createWithContent(contentState: ContentState, decorator?: DraftDecoratorType): EditorState;
+                static createWithContent(
+                    contentState: ContentState,
+                    decorator?: DraftDecoratorType
+                ): EditorState;
                 static create(config: Object): EditorState;
                 static set(editorState: EditorState, put: Object): EditorState;
 
@@ -640,7 +689,10 @@ declare namespace Draft {
                  *
                  * To forcibly move the DOM selection, see `EditorState.forceSelection`.
                  */
-                static acceptSelection(editorState: EditorState, selection: SelectionState): EditorState;
+                static acceptSelection(
+                    editorState: EditorState,
+                    selection: SelectionState
+                ): EditorState;
 
                 /**
                  * At times, we need to force the DOM selection to be where we
@@ -654,12 +706,17 @@ declare namespace Draft {
                  * move the DOM selection from one place to another without a change
                  * in ContentState.
                  */
-                static forceSelection(editorState: EditorState, selection: SelectionState): EditorState;
+                static forceSelection(
+                    editorState: EditorState,
+                    selection: SelectionState
+                ): EditorState;
 
                 /**
                  * Move selection to the end of the editor without forcing focus.
                  */
-                static moveSelectionToEnd(editorState: EditorState): EditorState;
+                static moveSelectionToEnd(
+                    editorState: EditorState
+                ): EditorState;
 
                 /**
                  * Force focus to the end of the editor. This is useful in scenarios
@@ -673,7 +730,11 @@ declare namespace Draft {
                  * considered a boundary state, and set the provided ContentState as the
                  * new current content.
                  */
-                static push(editorState: EditorState, contentState: ContentState, changeType: EditorChangeType): EditorState;
+                static push(
+                    editorState: EditorState,
+                    contentState: ContentState,
+                    changeType: EditorChangeType
+                ): EditorState;
 
                 /**
                  * Make the top ContentState in the undo stack the new current content and
@@ -709,7 +770,10 @@ declare namespace Draft {
                  */
                 getInlineStyleOverride(): DraftInlineStyle;
 
-                static setInlineStyleOverride(editorState: EditorState, inlineStyleOverride: DraftInlineStyle): EditorState;
+                static setInlineStyleOverride(
+                    editorState: EditorState,
+                    inlineStyleOverride: DraftInlineStyle
+                ): EditorState;
 
                 /**
                  * Get the appropriate inline style for the editor state. If an
@@ -741,26 +805,47 @@ declare namespace Draft {
                 /**
                  * Execute a callback for every contiguous range of styles within the block.
                  */
-                findStyleRanges(filterFn: (value: CharacterMetadata) => boolean, callback: (start: number, end: number) => void): void;
+                findStyleRanges(
+                    filterFn: (value: CharacterMetadata) => boolean,
+                    callback: (start: number, end: number) => void
+                ): void;
 
                 /**
                  * Execute a callback for every contiguous range of entities within the block.
                  */
-                findEntityRanges(filterFn: (value: CharacterMetadata) => boolean, callback: (start: number, end: number) => void): void;
+                findEntityRanges(
+                    filterFn: (value: CharacterMetadata) => boolean,
+                    callback: (start: number, end: number) => void
+                ): void;
             }
 
             class ContentState extends Record {
-                static createFromBlockArray(blocks: Array<ContentBlock>, entityMap?: any): ContentState;
-                static createFromText(text: string, delimiter?: string): ContentState;
+                static createFromBlockArray(
+                    blocks: Array<ContentBlock>,
+                    entityMap?: any
+                ): ContentState;
+                static createFromText(
+                    text: string,
+                    delimiter?: string
+                ): ContentState;
 
-                createEntity(type: DraftEntityType, mutability: DraftEntityMutability, data?: Object): ContentState;
+                createEntity(
+                    type: DraftEntityType,
+                    mutability: DraftEntityMutability,
+                    data?: Object
+                ): ContentState;
                 getEntity(key: string): EntityInstance;
                 getEntityMap(): any;
                 getLastCreatedEntityKey(): string;
-                mergeEntityData(key: string, toMerge: { [key: string]: any }): ContentState;
-                replaceEntityData(key: string, toMerge: { [key: string]: any }): ContentState;
+                mergeEntityData(
+                    key: string,
+                    toMerge: { [key: string]: any }
+                ): ContentState;
+                replaceEntityData(
+                    key: string,
+                    toMerge: { [key: string]: any }
+                ): ContentState;
                 addEntity(instance: DraftEntityInstance): ContentState;
-
 
                 getBlockMap(): BlockMap;
                 getSelectionBefore(): SelectionState;
@@ -793,7 +878,11 @@ declare namespace Draft {
                  * Return whether the specified range overlaps with an edge of the
                  * SelectionState.
                  */
-                hasEdgeWithin(blockKey: string, start: number, end: number): boolean;
+                hasEdgeWithin(
+                    blockKey: string,
+                    start: number,
+                    end: number
+                ): boolean;
                 isCollapsed(): boolean;
                 getStartKey(): string;
                 getStartOffset(): number;
@@ -802,17 +891,30 @@ declare namespace Draft {
             }
 
             class CharacterMetadata {
-                static applyStyle(record: CharacterMetadata, style: string): CharacterMetadata;
-                static removeStyle(record: CharacterMetadata, style: string): CharacterMetadata;
-                static applyEntity(record: CharacterMetadata, entityKey: string | null): CharacterMetadata;
-                static applyEntity(record: CharacterMetadata): CharacterMetadata;
+                static applyStyle(
+                    record: CharacterMetadata,
+                    style: string
+                ): CharacterMetadata;
+                static removeStyle(
+                    record: CharacterMetadata,
+                    style: string
+                ): CharacterMetadata;
+                static applyEntity(
+                    record: CharacterMetadata,
+                    entityKey: string | null
+                ): CharacterMetadata;
+                static applyEntity(
+                    record: CharacterMetadata
+                ): CharacterMetadata;
                 /**
                  * Use this function instead of the `CharacterMetadata` constructor.
                  * Since most content generally uses only a very small number of
                  * style/entity permutations, we can reuse these objects as often as
                  * possible.
                  */
-                static create(config?: CharacterMetadataConfig): CharacterMetadata;
+                static create(
+                    config?: CharacterMetadataConfig
+                ): CharacterMetadata;
                 static create(): CharacterMetadata;
 
                 getStyle(): DraftInlineStyle;
@@ -825,22 +927,21 @@ declare namespace Draft {
                 entity?: string;
             }
 
-            type EditorChangeType = (
-                "adjust-depth" |
-                "apply-entity" |
-                "backspace-character" |
-                "change-block-data" |
-                "change-block-type" |
-                "change-inline-style" |
-                "delete-character" |
-                "insert-characters" |
-                "insert-fragment" |
-                "redo" |
-                "remove-range" |
-                "spellcheck-change" |
-                "split-block" |
-                "undo"
-            )
+            type EditorChangeType =
+                | "adjust-depth"
+                | "apply-entity"
+                | "backspace-character"
+                | "change-block-data"
+                | "change-block-type"
+                | "change-inline-style"
+                | "delete-character"
+                | "insert-characters"
+                | "insert-fragment"
+                | "redo"
+                | "remove-range"
+                | "spellcheck-change"
+                | "split-block"
+                | "undo";
 
             class BlockMapBuilder {
                 static createFromArray(blocks: Array<ContentBlock>): BlockMap;
@@ -870,8 +971,17 @@ declare namespace Draft {
             type URI = any;
 
             class AtomicBlockUtils {
-                static insertAtomicBlock(editorState: EditorState, entityKey: string, character: string): EditorState;
-                static moveAtomicBlock(editorState: EditorState, atomicBlock: ContentBlock, targetRange: SelectionState, insertionMode?: DraftInsertionType): EditorState;
+                static insertAtomicBlock(
+                    editorState: EditorState,
+                    entityKey: string,
+                    character: string
+                ): EditorState;
+                static moveAtomicBlock(
+                    editorState: EditorState,
+                    atomicBlock: ContentBlock,
+                    targetRange: SelectionState,
+                    insertionMode?: DraftInsertionType
+                ): EditorState;
             }
 
             /**
@@ -885,33 +995,98 @@ declare namespace Draft {
              * These functions encapsulate some of the most common transaction sequences.
              */
             class DraftModifier {
-                static replaceText(contentState: ContentState, rangeToReplace: SelectionState, text: string, inlineStyle?: DraftInlineStyle, entityKey?: string): ContentState;
-                static insertText(contentState: ContentState, targetRange: SelectionState, text: string, inlineStyle?: DraftInlineStyle, entityKey?: string): ContentState;
-                static moveText(contentState: ContentState, removalRange: SelectionState, targetRange: SelectionState): ContentState;
-                static replaceWithFragment(contentState: ContentState, targetRange: SelectionState, fragment: BlockMap): ContentState;
+                static replaceText(
+                    contentState: ContentState,
+                    rangeToReplace: SelectionState,
+                    text: string,
+                    inlineStyle?: DraftInlineStyle,
+                    entityKey?: string
+                ): ContentState;
+                static insertText(
+                    contentState: ContentState,
+                    targetRange: SelectionState,
+                    text: string,
+                    inlineStyle?: DraftInlineStyle,
+                    entityKey?: string
+                ): ContentState;
+                static moveText(
+                    contentState: ContentState,
+                    removalRange: SelectionState,
+                    targetRange: SelectionState
+                ): ContentState;
+                static replaceWithFragment(
+                    contentState: ContentState,
+                    targetRange: SelectionState,
+                    fragment: BlockMap
+                ): ContentState;
 
-                static removeRange(contentState: ContentState, rangeToRemove: SelectionState, removalDirection: DraftRemovalDirection): ContentState;
+                static removeRange(
+                    contentState: ContentState,
+                    rangeToRemove: SelectionState,
+                    removalDirection: DraftRemovalDirection
+                ): ContentState;
 
-                static splitBlock(contentState: ContentState, selectionState: SelectionState): ContentState;
-                static applyInlineStyle(contentState: ContentState, selectionState: SelectionState, inlineStyle: string): ContentState;
-                static removeInlineStyle(contentState: ContentState, selectionState: SelectionState, inlineStyle: string): ContentState;
+                static splitBlock(
+                    contentState: ContentState,
+                    selectionState: SelectionState
+                ): ContentState;
+                static applyInlineStyle(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    inlineStyle: string
+                ): ContentState;
+                static removeInlineStyle(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    inlineStyle: string
+                ): ContentState;
 
-                static setBlockType(contentState: ContentState, selectionState: SelectionState, blockType: DraftBlockType): ContentState;
-                static setBlockType(contentState: ContentState, selectionState: SelectionState, blockType: string): ContentState;
+                static setBlockType(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    blockType: DraftBlockType
+                ): ContentState;
+                static setBlockType(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    blockType: string
+                ): ContentState;
 
-                static setBlockData(contentState: ContentState, selectionState: SelectionState, blockData: Immutable.Map<any, any>): ContentState;
-                static mergeBlockData(contentState: ContentState, selectionState: SelectionState, blockData: Immutable.Map<any, any>): ContentState;
-                static applyEntity(contentState: ContentState, selectionState: SelectionState, entityKey: string | null): ContentState;
+                static setBlockData(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    blockData: Immutable.Map<any, any>
+                ): ContentState;
+                static mergeBlockData(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    blockData: Immutable.Map<any, any>
+                ): ContentState;
+                static applyEntity(
+                    contentState: ContentState,
+                    selectionState: SelectionState,
+                    entityKey: string | null
+                ): ContentState;
             }
 
             class RichTextEditorUtil {
-                static currentBlockContainsLink(editorState: EditorState): boolean;
-                static getCurrentBlockType(editorState: EditorState): DraftBlockType;
+                static currentBlockContainsLink(
+                    editorState: EditorState
+                ): boolean;
+                static getCurrentBlockType(
+                    editorState: EditorState
+                ): DraftBlockType;
                 static getCurrentBlockType(editorState: EditorState): string;
                 static getDataObjectForLinkURL(uri: URI): Object;
 
-                static handleKeyCommand(editorState: EditorState, command: DraftEditorCommand): EditorState;
-                static handleKeyCommand(editorState: EditorState, command: string): null;
+                static handleKeyCommand(
+                    editorState: EditorState,
+                    command: DraftEditorCommand
+                ): EditorState;
+                static handleKeyCommand(
+                    editorState: EditorState,
+                    command: string
+                ): null;
 
                 static insertSoftNewline(editorState: EditorState): EditorState;
 
@@ -921,10 +1096,20 @@ declare namespace Draft {
                  */
                 static onBackspace(editorState: EditorState): EditorState;
                 static onDelete(editorState: EditorState): EditorState;
-                static onTab(event: SyntheticKeyboardEvent, editorState: EditorState, maxDepth: number): EditorState;
+                static onTab(
+                    event: SyntheticKeyboardEvent,
+                    editorState: EditorState,
+                    maxDepth: number
+                ): EditorState;
 
-                static toggleBlockType(editorState: EditorState, blockType: DraftBlockType): EditorState;
-                static toggleBlockType(editorState: EditorState, blockType: string): EditorState;
+                static toggleBlockType(
+                    editorState: EditorState,
+                    blockType: DraftBlockType
+                ): EditorState;
+                static toggleBlockType(
+                    editorState: EditorState,
+                    blockType: string
+                ): EditorState;
 
                 static toggleCode(editorState: EditorState): EditorState;
 
@@ -934,16 +1119,25 @@ declare namespace Draft {
                  * internal state. If it is not collapsed, apply the change directly
                  * to the document state.
                  */
-                static toggleInlineStyle(editorState: EditorState, inlineStyle: string): EditorState;
+                static toggleInlineStyle(
+                    editorState: EditorState,
+                    inlineStyle: string
+                ): EditorState;
 
-                static toggleLink(editorState: EditorState, targetSelection: SelectionState, entityKey: string | null): EditorState;
+                static toggleLink(
+                    editorState: EditorState,
+                    targetSelection: SelectionState,
+                    entityKey: string | null
+                ): EditorState;
 
                 /**
                  * When a collapsed cursor is at the start of an empty styled block, allow
                  * certain key commands (newline, backspace) to simply change the
                  * style of the block instead of the default behavior.
                  */
-                static tryToRemoveBlockStyle(editorState: EditorState): ContentState;
+                static tryToRemoveBlockStyle(
+                    editorState: EditorState
+                ): ContentState;
             }
         }
     }
@@ -1006,11 +1200,9 @@ export {
     EditorBlock,
     EditorState,
     EditorChangeType,
-
     CompositeDecorator,
     Entity,
     EntityInstance,
-
     BlockMapBuilder,
     CharacterMetadata,
     ContentBlock,
@@ -1018,15 +1210,12 @@ export {
     SelectionState,
     DraftInlineStyle,
     BlockMap,
-
     AtomicBlockUtils,
     KeyBindingUtil,
     Modifier,
     RichUtils,
-
     DefaultDraftBlockRenderMap,
     DefaultDraftInlineStyle,
-
     RawDraftInlineStyleRange,
     RawDraftEntityRange,
     RawDraftEntity,
@@ -1035,11 +1224,9 @@ export {
     convertFromRaw,
     convertToRaw,
     convertFromHTML,
-
     genKey,
     getDefaultKeyBinding,
     getVisibleSelectionRect,
-
     DraftEditorCommand,
     DraftDragType,
     DraftBlockType,
@@ -1050,5 +1237,5 @@ export {
     DraftEntityMutability,
     DraftRemovalDirection,
     DraftHandleValue,
-    DraftInsertionType,
+    DraftInsertionType
 };

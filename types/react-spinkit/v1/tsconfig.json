@@ -1,33 +1,21 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
         "jsx": "react",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "react-spinkit": [
-                "react-spinkit/v1"
-            ],
-            "react-spinkit/*": [
-                "react-spinkit/v1/*"
-            ]
+            "react-spinkit": ["react-spinkit/v1"],
+            "react-spinkit/*": ["react-spinkit/v1/*"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "react-spinkit-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-spinkit-tests.tsx"]
 }

@@ -1,6 +1,6 @@
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-const someToastId = toast('Testing!'); // $ExpectType string
+const someToastId = toast("Testing!"); // $ExpectType string
 
 // $ExpectType void
 toast.update(someToastId, {

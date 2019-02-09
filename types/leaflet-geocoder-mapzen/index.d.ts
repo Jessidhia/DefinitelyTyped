@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     namespace Control {
         interface GeocoderStatic extends ClassStatic {
             /**
@@ -51,7 +51,7 @@ declare module 'leaflet' {
              *
              * Default value: null.
              */
-            layers?: string | any[] ;
+            layers?: string | any[];
 
             /**
              * An object of key-value pairs which will be serialized
@@ -171,6 +171,9 @@ declare module 'leaflet' {
         /**
          * Creates a geocoder control.
          */
-        function geocoder(api_key: string, options?: Control.GeocoderOptions): Control.Geocoder;
+        function geocoder(
+            api_key: string,
+            options?: Control.GeocoderOptions
+        ): Control.Geocoder;
     }
 }

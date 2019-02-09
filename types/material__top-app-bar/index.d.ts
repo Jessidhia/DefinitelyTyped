@@ -21,17 +21,26 @@
  * limitations under the License.
  */
 
-import MDCComponent from 'material__base/component';
-import MDCTopAppBarBaseFoundation from './foundation';
-import MDCTopAppBarAdapter from './adapter';
-import MDCFixedTopAppBarFoundation from './fixed/foundation';
-import MDCShortTopAppBarFoundation from './short/foundation';
-import MDCTopAppBarFoundation from './standard/foundation';
-import { MDCRipple } from 'material__ripple';
+import MDCComponent from "material__base/component";
+import MDCTopAppBarBaseFoundation from "./foundation";
+import MDCTopAppBarAdapter from "./adapter";
+import MDCFixedTopAppBarFoundation from "./fixed/foundation";
+import MDCShortTopAppBarFoundation from "./short/foundation";
+import MDCTopAppBarFoundation from "./standard/foundation";
+import { MDCRipple } from "material__ripple";
 
-export { MDCTopAppBarBaseFoundation, MDCTopAppBarAdapter, MDCTopAppBarFoundation, MDCFixedTopAppBarFoundation, MDCShortTopAppBarFoundation };
+export {
+    MDCTopAppBarBaseFoundation,
+    MDCTopAppBarAdapter,
+    MDCTopAppBarFoundation,
+    MDCFixedTopAppBarFoundation,
+    MDCShortTopAppBarFoundation
+};
 
-export class MDCTopAppBar extends MDCComponent<MDCTopAppBarAdapter, MDCTopAppBarFoundation> {
+export class MDCTopAppBar extends MDCComponent<
+    MDCTopAppBarAdapter,
+    MDCTopAppBarFoundation
+> {
     initialize(rippleFactory?: (el: Element) => MDCRipple): void;
 
     static attachTo(root: Element): MDCTopAppBar;

@@ -45,7 +45,11 @@ interface JQueryStaticNotify {
      * @param notificationdata global notification data
      * @param options notification options
      */
-    (element?: any, notificationdata?: any, options?: NotificationOptions): JQueryStatic;
+    (
+        element?: any,
+        notificationdata?: any,
+        options?: NotificationOptions
+    ): JQueryStatic;
 
     /**
      * Add style
@@ -90,7 +94,11 @@ interface JQueryNotify {
      * @param notificationdata global notification data
      * @param options notification options
      */
-    (element?: any, notificationdata?: any, options?: NotificationOptions): JQuery;
+    (
+        element?: any,
+        notificationdata?: any,
+        options?: NotificationOptions
+    ): JQuery;
 
     /**
      * Add style
@@ -122,7 +130,6 @@ interface JQueryNotify {
      * @param options notification iptions
      */
     defaults(options: NotificationOptions): any;
-
 }
 
 interface JQuery {

@@ -1,14 +1,14 @@
 import info = require("hosted-git-info");
 
-info.fromUrl('');
-const result = info.fromUrl('', {});
+info.fromUrl("");
+const result = info.fromUrl("", {});
 
-result.hashformat('');
+result.hashformat("");
 result.hash();
 result.ssh({});
 result.sshurl({});
-result.browse('', '', {});
-result.browse('', {});
+result.browse("", "", {});
+result.browse("", {});
 result.browse({});
 result.docs({});
 result.bugs({});
@@ -17,6 +17,6 @@ result.git({});
 result.shortcut({});
 result.path({});
 result.tarball({});
-result.file('', {});
+result.file("", {});
 result.getDefaultRepresentation();
 result.toString({});

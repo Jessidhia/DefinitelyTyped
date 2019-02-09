@@ -1,9 +1,9 @@
 /**
  * Created by jcabresos on 4/19/2014.
  */
-import express = require('express');
-import passport = require('passport');
-import google = require('passport-google-oauth');
+import express = require("express");
+import passport = require("passport");
+import google = require("passport-google-oauth");
 
 // just some test model
 var User = {
@@ -12,7 +12,7 @@ var User = {
         provider: string,
         callback: (err: any, user: any) => void
     ): void {
-        callback(null, { username: 'james' });
+        callback(null, { username: "james" });
     }
 };
 
@@ -36,7 +36,7 @@ passport.use(
                 if (err) {
                     return done(err);
                 } else if (!user)
-                    return done(null, false, { message: 'not found user' });
+                    return done(null, false, { message: "not found user" });
                 return done(null, user);
             });
         }

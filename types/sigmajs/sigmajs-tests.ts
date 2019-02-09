@@ -13,43 +13,61 @@ s.settings({
 s.settings("maxNodeSize");
 
 s.addRenderer({
-    type: 'canvas',
+    type: "canvas",
     container: container
 });
 
-s.bind('clickNode', (e) => {
+s.bind("clickNode", e => {
     s.refresh();
 });
 
-sigma.canvas.edges['def'] = function() {};
-sigma.svg.nodes['def'] = {create: (obj: SigmaJs.Node) => { return new Element(); },
-                    update: (obj: SigmaJs.Node) => { return; }};
-sigma.svg.edges['def'] = {create: (obj: SigmaJs.Edge) => { return new Element(); },
-                            update: (obj: SigmaJs.Edge) => { return; }};
-sigma.svg.edges.labels['def'] = {create: (obj: SigmaJs.Edge) => { return new Element(); },
-                                    update: (obj: SigmaJs.Edge) => { return; }};
+sigma.canvas.edges["def"] = function() {};
+sigma.svg.nodes["def"] = {
+    create: (obj: SigmaJs.Node) => {
+        return new Element();
+    },
+    update: (obj: SigmaJs.Node) => {
+        return;
+    }
+};
+sigma.svg.edges["def"] = {
+    create: (obj: SigmaJs.Edge) => {
+        return new Element();
+    },
+    update: (obj: SigmaJs.Edge) => {
+        return;
+    }
+};
+sigma.svg.edges.labels["def"] = {
+    create: (obj: SigmaJs.Edge) => {
+        return new Element();
+    },
+    update: (obj: SigmaJs.Edge) => {
+        return;
+    }
+};
 
 var N = 100;
 var E = 500;
 // Generate a random graph:
 for (var i = 0; i < N; i++) {
     s.graph.addNode({
-    id: 'n' + i,
-    label: 'Node ' + i,
-    x: Math.random(),
-    y: Math.random(),
-    size: Math.random(),
-    color: '#666'
+        id: "n" + i,
+        label: "Node " + i,
+        x: Math.random(),
+        y: Math.random(),
+        size: Math.random(),
+        color: "#666"
     });
 }
 
 for (var j = 0; j < E; j++) {
     s.graph.addEdge({
-    id: 'e' + j,
-    source: 'n' + Math.floor(Math.random() * N),
-    target: 'n' + Math.floor(Math.random() * N),
-    size: Math.random(),
-    color: '#ccc'
+        id: "e" + j,
+        source: "n" + Math.floor(Math.random() * N),
+        target: "n" + Math.floor(Math.random() * N),
+        size: Math.random(),
+        color: "#ccc"
     });
 }
 
@@ -57,11 +75,11 @@ sigma.plugins.dragNodes(s, s.renderers[0]);
 s.renderers[0].resize();
 s.refresh();
 
-sigma.parsers.json('myGraph.json', s, () => {
+sigma.parsers.json("myGraph.json", s, () => {
     s.refresh();
 });
 
-sigma.parsers.gexf('myGraph.gexf', s, () => {
+sigma.parsers.gexf("myGraph.gexf", s, () => {
     s.refresh();
 });
 

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface DocumentMetaProps {
     readonly title?: string;
@@ -12,6 +12,6 @@ export interface DocumentMetaProps {
     readonly canonical?: string;
 }
 
-declare class DocumentMeta extends React.Component<DocumentMetaProps> { }
+declare class DocumentMeta extends React.Component<DocumentMetaProps> {}
 
 export default DocumentMeta;

@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Cloud Tasks API v2beta2 */
     function load(name: "cloudtasks", version: "v2beta2"): PromiseLike<void>;
-    function load(name: "cloudtasks", version: "v2beta2", callback: () => any): void;
+    function load(
+        name: "cloudtasks",
+        version: "v2beta2",
+        callback: () => any
+    ): void;
 
     const projects: cloudtasks.ProjectsResource;
 

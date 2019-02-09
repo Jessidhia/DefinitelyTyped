@@ -1,7 +1,7 @@
-import isTextPath = require('is-text-path');
+import isTextPath = require("is-text-path");
 
-isTextPath('src/unicorn.txt');
+isTextPath("src/unicorn.txt");
 // => true
 
-isTextPath('src/unicorn.png');
+isTextPath("src/unicorn.png");
 // => false

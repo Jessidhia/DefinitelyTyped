@@ -21,12 +21,14 @@ declare class TagsInput extends React.Component<TagsInput.ReactTagsInputProps> {
 
 declare namespace TagsInput {
     interface InputProps {
-      readonly [prop: string]: any;
+        readonly [prop: string]: any;
     }
 
     interface RenderInputProps extends InputProps {
         readonly addTag: (tag: Tag) => void;
-        readonly onChange: (e: React.ChangeEvent<{ readonly value: string }>) => void;
+        readonly onChange: (
+            e: React.ChangeEvent<{ readonly value: string }>
+        ) => void;
         readonly ref: (r: any) => void; // parameter is either a DOM element or a mounted React component
         readonly value: Tag;
     }
@@ -44,7 +46,11 @@ declare namespace TagsInput {
 
     interface ReactTagsInputProps extends React.Props<TagsInput> {
         value: Tag[];
-        onChange: (tags: Tag[], changed: Tag[], changedIndexes: number[]) => void;
+        onChange: (
+            tags: Tag[],
+            changed: Tag[],
+            changedIndexes: number[]
+        ) => void;
         onChangeInput?: (value: string) => void;
         addKeys?: number[];
         currentValue?: string;
@@ -65,7 +71,10 @@ declare namespace TagsInput {
         tagDisplayProp?: string | null;
         renderTag?: (props: RenderTagProps) => React.ReactNode;
         renderInput?: (props: RenderInputProps) => React.ReactNode;
-        renderLayout?: (tagComponents: React.Component[], inputComponent: React.Component) => React.ReactChild;
+        renderLayout?: (
+            tagComponents: React.Component[],
+            inputComponent: React.Component
+        ) => React.ReactChild;
         preventSubmit?: boolean;
     }
 }

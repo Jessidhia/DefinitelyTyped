@@ -7,16 +7,15 @@
 /// <reference types="jquery" />
 
 declare namespace uri {
-
     interface URI {
         absoluteTo(path: string): URI;
         absoluteTo(path: URI): URI;
         addFragment(fragment: string): URI;
         addQuery(qry: string): URI;
-        addQuery(qry: string, value:any): URI;
+        addQuery(qry: string, value: any): URI;
         addQuery(qry: Object): URI;
         addSearch(qry: string): URI;
-        addSearch(key: string, value:any): URI;
+        addSearch(key: string, value: any): URI;
         addSearch(qry: Object): URI;
         authority(): string;
         authority(authority: string): URI;
@@ -117,8 +116,32 @@ declare namespace uri {
         setQuery(qry: Object): URI;
         setSearch(key: string, value: string): URI;
         setSearch(qry: Object): URI;
-        hasQuery(name: string | any, value?: string | number | boolean | Function | Array<string> | Array<number> | Array<boolean> | RegExp, withinArray?: boolean): boolean;
-        hasSearch(name: string | any, value?: string | number | boolean | Function | Array<string> | Array<number> | Array<boolean> | RegExp, withinArray?: boolean): boolean;
+        hasQuery(
+            name: string | any,
+            value?:
+                | string
+                | number
+                | boolean
+                | Function
+                | Array<string>
+                | Array<number>
+                | Array<boolean>
+                | RegExp,
+            withinArray?: boolean
+        ): boolean;
+        hasSearch(
+            name: string | any,
+            value?:
+                | string
+                | number
+                | boolean
+                | Function
+                | Array<string>
+                | Array<number>
+                | Array<boolean>
+                | RegExp,
+            withinArray?: boolean
+        ): boolean;
         subdomain(): string;
         subdomain(subdomain: string): URI;
         suffix(): string;
@@ -175,16 +198,10 @@ declare namespace uri {
             hostname?: string;
             port?: string;
         }): string;
-        buildHost(parts: {
-            hostname?: string;
-            port?: string;
-        }): string;
+        buildHost(parts: { hostname?: string; port?: string }): string;
         buildQuery(qry: Object): string;
         buildQuery(qry: Object, duplicates: boolean): string;
-        buildUserinfo(parts: {
-            username?: string;
-            password?: string;
-        }): string;
+        buildUserinfo(parts: { username?: string; password?: string }): string;
 
         commonPath(path1: string, path2: string): string;
 
@@ -200,7 +217,9 @@ declare namespace uri {
 
         joinPaths(...paths: (string | URI)[]): URI;
 
-        parse(url: string): {
+        parse(
+            url: string
+        ): {
             protocol: string;
             username: string;
             password: string;
@@ -210,21 +229,30 @@ declare namespace uri {
             query: string;
             fragment: string;
         };
-        parseAuthority(url: string, parts: {
-            username?: string;
-            password?: string;
-            hostname?: string;
-            port?: string;
-        }): string;
-        parseHost(url: string, parts: {
-            hostname?: string;
-            port?: string;
-        }): string;
+        parseAuthority(
+            url: string,
+            parts: {
+                username?: string;
+                password?: string;
+                hostname?: string;
+                port?: string;
+            }
+        ): string;
+        parseHost(
+            url: string,
+            parts: {
+                hostname?: string;
+                port?: string;
+            }
+        ): string;
         parseQuery(url: string): Object;
-        parseUserinfo(url: string, parts: {
-            username?: string;
-            password?: string;
-        }): string;
+        parseUserinfo(
+            url: string,
+            parts: {
+                username?: string;
+                password?: string;
+            }
+        ): string;
 
         removeQuery(data: Object, prop: string, value: string): Object;
         removeQuery(data: Object, props: string[]): Object;
@@ -235,40 +263,47 @@ declare namespace uri {
         withinString(source: string, func: (url: string) => string): string;
     }
 
-    type URITemplateValue = string | ReadonlyArray<string> | { [key: string] : string } | undefined | null;
+    type URITemplateValue =
+        | string
+        | ReadonlyArray<string>
+        | { [key: string]: string }
+        | undefined
+        | null;
     type URITemplateCallback = (keyName: string) => URITemplateValue;
-    type URITemplateInput = { [key: string]: URITemplateValue | URITemplateCallback } | URITemplateCallback;
+    type URITemplateInput =
+        | { [key: string]: URITemplateValue | URITemplateCallback }
+        | URITemplateCallback;
 
     type URITemplateLiteral = string;
     interface URITemplateVariable {
-      name: string;
-      explode: boolean;
-      maxLength?: number;
+        name: string;
+        explode: boolean;
+        maxLength?: number;
     }
 
     interface URITemplateExpression {
-      expression: string;
-      operator: string;
-      variables: ReadonlyArray<URITemplateVariable>;
+        expression: string;
+        operator: string;
+        variables: ReadonlyArray<URITemplateVariable>;
     }
 
     type URITemplatePart = URITemplateLiteral | URITemplateExpression;
 
     interface URITemplate {
-      expand(data: URITemplateInput, opts?: Object) : URI;
-      parse(): this;
+        expand(data: URITemplateInput, opts?: Object): URI;
+        parse(): this;
 
-      /**
-       * @description The parsed parts of the URI Template. Only present after calling
-       *              `parse()` first.
-       */
-      parts?: ReadonlyArray<URITemplatePart>;
+        /**
+         * @description The parsed parts of the URI Template. Only present after calling
+         *              `parse()` first.
+         */
+        parts?: ReadonlyArray<URITemplatePart>;
     }
 
     interface URITemplateStatic {
-      (template: string) : URITemplate;
+        (template: string): URITemplate;
 
-      new (template: string) : URITemplate;
+        new (template: string): URITemplate;
     }
 }
 
@@ -277,16 +312,16 @@ interface JQuery {
 }
 
 declare var URI: uri.URIStatic;
-declare var URITemplate : uri.URITemplateStatic;
+declare var URITemplate: uri.URITemplateStatic;
 
-declare module 'URI' {
+declare module "URI" {
     export = URI;
 }
 
-declare module 'urijs' {
+declare module "urijs" {
     export = URI;
 }
 
-declare module 'urijs/src/URITemplate' {
+declare module "urijs/src/URITemplate" {
     export = URITemplate;
 }

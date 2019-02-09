@@ -6,7 +6,10 @@
 
 export = resolvePkg;
 
-declare function resolvePkg(moduleId: string, options?: resolvePkg.Options): string;
+declare function resolvePkg(
+    moduleId: string,
+    options?: resolvePkg.Options
+): string;
 
 declare namespace resolvePkg {
     interface Options {

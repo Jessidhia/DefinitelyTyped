@@ -99,39 +99,44 @@ declare namespace OwlCarousel {
 
     type HandlerCallback = (...args: any[]) => void;
 
-    type OnEvent = 'initialize.owl.carousel'
-        | 'initialized.owl.carousel'
-        | 'resize.owl.carousel'
-        | 'resized.owl.carousel'
-        | 'refresh.owl.carousel'
-        | 'refreshed.owl.carousel'
-        | 'drag.owl.carousel'
-        | 'dragged.owl.carousel'
-        | 'translate.owl.carousel'
-        | 'translated.owl.carousel'
-        | 'change.owl.carousel'
-        | 'changed.owl.carousel'
-        | 'load.owl.lazy'
-        | 'loaded.owl.lazy'
-        | 'stop.owl.video'
-        | 'play.owl.video';
+    type OnEvent =
+        | "initialize.owl.carousel"
+        | "initialized.owl.carousel"
+        | "resize.owl.carousel"
+        | "resized.owl.carousel"
+        | "refresh.owl.carousel"
+        | "refreshed.owl.carousel"
+        | "drag.owl.carousel"
+        | "dragged.owl.carousel"
+        | "translate.owl.carousel"
+        | "translated.owl.carousel"
+        | "change.owl.carousel"
+        | "changed.owl.carousel"
+        | "load.owl.lazy"
+        | "loaded.owl.lazy"
+        | "stop.owl.video"
+        | "play.owl.video";
 
-    type TriggerEvent = 'refresh.owl.carousel'
-        | 'next.owl.carousel'
-        | 'prev.owl.carousel'
-        | 'to.owl.carousel'
-        | 'destroy.owl.carousel'
-        | 'replace.owl.carousel'
-        | 'add.owl.carousel'
-        | 'remove.owl.carousel'
-        | 'play.owl.autoplay'
-        | 'stop.owl.autoplay';
+    type TriggerEvent =
+        | "refresh.owl.carousel"
+        | "next.owl.carousel"
+        | "prev.owl.carousel"
+        | "to.owl.carousel"
+        | "destroy.owl.carousel"
+        | "replace.owl.carousel"
+        | "add.owl.carousel"
+        | "remove.owl.carousel"
+        | "play.owl.autoplay"
+        | "stop.owl.autoplay";
 }
 
 interface JQuery {
-    owlCarousel(options?: OwlCarousel.Options | 'destroy'): JQuery;
+    owlCarousel(options?: OwlCarousel.Options | "destroy"): JQuery;
 
-    on(event: OwlCarousel.OnEvent, handler: OwlCarousel.HandlerCallback): JQuery;
+    on(
+        event: OwlCarousel.OnEvent,
+        handler: OwlCarousel.HandlerCallback
+    ): JQuery;
 
     trigger(event: OwlCarousel.TriggerEvent): JQuery;
 }

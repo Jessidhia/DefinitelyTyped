@@ -6,7 +6,7 @@ import {
     GraphQLEnumType,
     GraphQLInputObjectType,
     GraphQLList,
-    GraphQLNonNull,
+    GraphQLNonNull
 } from "./definition";
 import { GraphQLField } from "./definition";
 

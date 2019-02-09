@@ -8,11 +8,7 @@
         "noImplicitAny": true,
         "pretty": true,
         "strict": true,
-        "typeRoots": [
-            "../../"
-        ],
-        "types": [
-            "lodash"
-        ]
+        "typeRoots": ["../../"],
+        "types": ["lodash"]
     }
 }

@@ -5,14 +5,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 import {
     StyleProp,
     TextInputProps,
     TextStyle,
     ViewStyle,
     View
-} from 'react-native';
+} from "react-native";
 
 export interface TextFieldProps extends TextInputProps {
     animationDuration?: number;

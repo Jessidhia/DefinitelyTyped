@@ -50,16 +50,27 @@ declare class SCClientSocket extends Emitter {
     signedAuthToken: string | null;
 
     // Perform client-initiated authentication by providing an encrypted token string.
-    authenticate(signedAuthToken: string, callback?: (err: Error, authStatus: SCClientSocket.AuthStatus) => void): void;
+    authenticate(
+        signedAuthToken: string,
+        callback?: (err: Error, authStatus: SCClientSocket.AuthStatus) => void
+    ): void;
 
     decode(message: any): any;
     encode(object: any): any;
 
     send(data: any): void;
 
-    emit(event: string, data: any, callback?: (err: Error, responseData: any) => void): void;
+    emit(
+        event: string,
+        data: any,
+        callback?: (err: Error, responseData: any) => void
+    ): void;
 
-    publish(channelName: string, data: any, callback?: (err: Error, ackData: any) => void): void;
+    publish(
+        channelName: string,
+        data: any,
+        callback?: (err: Error, ackData: any) => void
+    ): void;
 
     subscribe(channelName: string, options?: SCChannelOptions): SCChannel;
     unsubscribe(channelName: string): void;
@@ -74,23 +85,68 @@ declare class SCClientSocket extends Emitter {
     processPendingSubscriptions(): void;
 
     watch(channelName: string, handler: SCClientSocket.WatcherFunction): void;
-    unwatch(channelName: string, handler?: SCClientSocket.WatcherFunction): void;
+    unwatch(
+        channelName: string,
+        handler?: SCClientSocket.WatcherFunction
+    ): void;
     watchers(channelName: string): SCClientSocket.WatcherFunction[];
 
     on(event: "connecting", listener: () => void): this;
-    on(event: "connect", listener: (status: SCClientSocket.ConnectStatus, processSubscriptions: () => void) => void): this;
-    on(event: "connectAbort" | "disconnect" | "close", listener: (code: number, data: string | object) => void): this;
+    on(
+        event: "connect",
+        listener: (
+            status: SCClientSocket.ConnectStatus,
+            processSubscriptions: () => void
+        ) => void
+    ): this;
+    on(
+        event: "connectAbort" | "disconnect" | "close",
+        listener: (code: number, data: string | object) => void
+    ): this;
 
-    on(event: "kickOut", listener: (message: string, channelName: string) => void): this;
+    on(
+        event: "kickOut",
+        listener: (message: string, channelName: string) => void
+    ): this;
 
-    on(event: "authenticate", listener: (signedAuthToken: string | null) => void): this;
-    on(event: "deauthenticate", listener: (oldSignedToken: string | null) => void): this;
-    on(event: "authStateChange", listener: (stateChangeData: SCClientSocket.AuthStateChangeData) => void): this;
-    on(event: "removeAuthToken", listener: (oldToken: object | null) => void): this;
+    on(
+        event: "authenticate",
+        listener: (signedAuthToken: string | null) => void
+    ): this;
+    on(
+        event: "deauthenticate",
+        listener: (oldSignedToken: string | null) => void
+    ): this;
+    on(
+        event: "authStateChange",
+        listener: (stateChangeData: SCClientSocket.AuthStateChangeData) => void
+    ): this;
+    on(
+        event: "removeAuthToken",
+        listener: (oldToken: object | null) => void
+    ): this;
 
-    on(event: "subscribe" | "subscribeRequest", listener: (channelName: string, subscriptionOptions: SCChannelOptions) => void): this;
-    on(event: "subscribeStateChange", listener: (stateChangeData: SCClientSocket.SubscribeStateChangeData) => void): this;
-    on(event: "subscribeFail", listener: (err: Error, channelName: string, subscriptionOptions: SCChannelOptions) => void): this;
+    on(
+        event: "subscribe" | "subscribeRequest",
+        listener: (
+            channelName: string,
+            subscriptionOptions: SCChannelOptions
+        ) => void
+    ): this;
+    on(
+        event: "subscribeStateChange",
+        listener: (
+            stateChangeData: SCClientSocket.SubscribeStateChangeData
+        ) => void
+    ): this;
+    on(
+        event: "subscribeFail",
+        listener: (
+            err: Error,
+            channelName: string,
+            subscriptionOptions: SCChannelOptions
+        ) => void
+    ): this;
     on(event: "unsubscribe", listener: (channelName: string) => void): this;
 
     on(event: "error", listener: (err: Error) => void): this;

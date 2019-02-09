@@ -6,7 +6,6 @@
 type EnvironmentVersionRange = number | string;
 
 interface IsStatic {
-
     //#region Type checks
 
     /**
@@ -612,11 +611,9 @@ interface IsStatic {
     dayLightSavingTime(value: Date): boolean;
 
     //#endregion
-
 }
 
 interface IsStaticApi {
-
     //#region Type checks
 
     /**
@@ -1281,7 +1278,6 @@ interface IsStaticApi {
 }
 
 interface Is extends IsStatic {
-
     not: IsStatic;
     any: IsStaticApi;
     all: IsStaticApi;
@@ -1289,77 +1285,77 @@ interface Is extends IsStatic {
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'url'): boolean;
+    setRegexp(value: RegExp, regexp: "url"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'email'): boolean;
+    setRegexp(value: RegExp, regexp: "email"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'creditCard'): boolean;
+    setRegexp(value: RegExp, regexp: "creditCard"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'alphaNumeric'): boolean;
+    setRegexp(value: RegExp, regexp: "alphaNumeric"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'timeString'): boolean;
+    setRegexp(value: RegExp, regexp: "timeString"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'dateString'): boolean;
+    setRegexp(value: RegExp, regexp: "dateString"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'usZipCode'): boolean;
+    setRegexp(value: RegExp, regexp: "usZipCode"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'caPostalCode'): boolean;
+    setRegexp(value: RegExp, regexp: "caPostalCode"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'nanpPhone'): boolean;
+    setRegexp(value: RegExp, regexp: "nanpPhone"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'eppPhone'): boolean;
+    setRegexp(value: RegExp, regexp: "eppPhone"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'affirmative'): boolean;
+    setRegexp(value: RegExp, regexp: "affirmative"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'hexadecimal'): boolean;
+    setRegexp(value: RegExp, regexp: "hexadecimal"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'hexColor'): boolean;
+    setRegexp(value: RegExp, regexp: "hexColor"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'ip'): boolean;
+    setRegexp(value: RegExp, regexp: "ip"): boolean;
 
     /**
      * Override RegExps if you think they suck.
      */
-    setRegexp(value: RegExp, regexp: 'ipv6'): boolean;
+    setRegexp(value: RegExp, regexp: "ipv6"): boolean;
 
     /**
      * Override RegExps if you think they suck.
@@ -1374,10 +1370,10 @@ interface Is extends IsStatic {
 
 declare var is: Is;
 
-declare module 'is' {
+declare module "is" {
     export = is;
 }
 
-declare module 'is_js' {
+declare module "is_js" {
     export = is;
 }

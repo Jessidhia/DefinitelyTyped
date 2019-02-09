@@ -127,7 +127,9 @@ declare class SumoLogger {
      * If you call the function with a JSON object, each field in the object is included as a separate field.
      * Fields called `sessionId`, `url`, and `timestamp` are sent in both cases.
      */
-    log<T extends object>(event: Partial<SumoLogger.PerMessageOptions> & T): void;
+    log<T extends object>(
+        event: Partial<SumoLogger.PerMessageOptions> & T
+    ): void;
 
     /**
      * Force any pending logs to be sent immediately. This is mainly for use in a

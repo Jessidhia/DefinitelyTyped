@@ -1,4 +1,4 @@
-import { clone } from './clone';
+import { clone } from "./clone";
 
 export type Node = Element | TextNode;
 export type TextNode = string | number;
@@ -60,9 +60,17 @@ export class Element {
         recursive?: boolean
     ): Element | undefined;
 
-    getChildrenByAttr(attr: string, val: any, xmlns?: string, recursive?: boolean): Element[];
+    getChildrenByAttr(
+        attr: string,
+        val: any,
+        xmlns?: string,
+        recursive?: boolean
+    ): Element[];
 
-    getChildrenByFilter(filter: (child: Node) => boolean, recursive?: boolean): Element[];
+    getChildrenByFilter(
+        filter: (child: Node) => boolean,
+        recursive?: boolean
+    ): Element[];
 
     getText(): string;
 

@@ -9,7 +9,7 @@ Transport.open("test");
 
 const test = Transport.open("test").then(transport => {
     // $ExpectType void
-    transport.setScrambleKey('test');
+    transport.setScrambleKey("test");
 
     // $ExpectType Promise<Buffer>
     transport.exchange(Buffer.from("test", "hex"));

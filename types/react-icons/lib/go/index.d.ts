@@ -56,7 +56,9 @@ export { default as GoFileDirectory } from "../../go/file-directory";
 export { default as GoFileMedia } from "../../go/file-media";
 export { default as GoFilePdf } from "../../go/file-pdf";
 export { default as GoFileSubmodule } from "../../go/file-submodule";
-export { default as GoFileSymlinkDirectory } from "../../go/file-symlink-directory";
+export {
+    default as GoFileSymlinkDirectory
+} from "../../go/file-symlink-directory";
 export { default as GoFileSymlinkFile } from "../../go/file-symlink-file";
 export { default as GoFileText } from "../../go/file-text";
 export { default as GoFileZip } from "../../go/file-zip";
@@ -124,7 +126,9 @@ export { default as GoPaintcan } from "../../go/paintcan";
 export { default as GoPencil } from "../../go/pencil";
 export { default as GoPerson } from "../../go/person";
 export { default as GoPin } from "../../go/pin";
-export { default as GoPlaybackFastForward } from "../../go/playback-fast-forward";
+export {
+    default as GoPlaybackFastForward
+} from "../../go/playback-fast-forward";
 export { default as GoPlaybackPause } from "../../go/playback-pause";
 export { default as GoPlaybackPlay } from "../../go/playback-play";
 export { default as GoPlaybackRewind } from "../../go/playback-rewind";

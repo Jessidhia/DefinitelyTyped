@@ -10,39 +10,49 @@ export interface Event {
     comment?: string[];
     name: string;
     args: Array<{
-        name: string,
-        type: string,
+        name: string;
+        type: string;
     }>;
 }
 
 const createEmitStatement = (event: Event): string[] => {
-    const argsStr = event.args.map(arg => `${arg.name}: ${arg.type}`).join(", ");
+    const argsStr = event.args
+        .map(arg => `${arg.name}: ${arg.type}`)
+        .join(", ");
     return [
-        `emit(event: "${event.name}"${event.args.length > 0 ? ", " : ""}${argsStr}): boolean;`,
+        `emit(event: "${event.name}"${
+            event.args.length > 0 ? ", " : ""
+        }${argsStr}): boolean;`
     ];
 };
 
 const createEmitBlock = (events: Event[]): string[] => {
     return [
         `emit(event: string | symbol, ...args: any[]): boolean;`,
-        ...events.map(createEmitStatement).reduce(flattenArgs(), []),
+        ...events.map(createEmitStatement).reduce(flattenArgs(), [])
     ];
 };
 
 const createListenerFn = (fnName: string) => (event: Event): string[] => {
-    const argsStr = event.args.map(arg => `${arg.name}: ${arg.type}`).join(", ");
+    const argsStr = event.args
+        .map(arg => `${arg.name}: ${arg.type}`)
+        .join(", ");
     return [
-        ...event.comment && event.comment.length > 0 ? [""] : [],
-        ...event.comment || [],
-        `${fnName}(event: "${event.name}", listener: (${argsStr}) => void): this;`,
-        ...event.comment && event.comment.length > 0 ? [""] : [],
+        ...(event.comment && event.comment.length > 0 ? [""] : []),
+        ...(event.comment || []),
+        `${fnName}(event: "${
+            event.name
+        }", listener: (${argsStr}) => void): this;`,
+        ...(event.comment && event.comment.length > 0 ? [""] : [])
     ];
 };
 
-const createListenerBlockFn = (fnName: string) => (events: Event[]): string[] => {
+const createListenerBlockFn = (fnName: string) => (
+    events: Event[]
+): string[] => {
     return [
         `${fnName}(event: string, listener: (...args: any[]) => void): this;`,
-        ...events.map(createListenerFn(fnName)).reduce(flattenArgs(), []),
+        ...events.map(createListenerFn(fnName)).reduce(flattenArgs(), [])
     ];
 };
 
@@ -64,7 +74,7 @@ export const createListeners = (events: Event[]): string[] => {
         "",
         ...createListenerBlockFn("prependListener")(events),
         "",
-        ...createListenerBlockFn("prependOnceListener")(events),
+        ...createListenerBlockFn("prependOnceListener")(events)
     ].reduce((acc, next, index, arr) => {
         // removes leading, trailing and consecutive empty lines
         const isFirst = index === 0;

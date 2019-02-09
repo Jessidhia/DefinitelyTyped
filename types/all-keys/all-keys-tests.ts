@@ -1,4 +1,4 @@
-import allKeys = require('all-keys');
+import allKeys = require("all-keys");
 
 allKeys(Symbol.prototype); // $ExpectType Set<string>
 allKeys(Symbol.prototype, { includeObjectPrototype: false }); // $ExpectType Set<string>

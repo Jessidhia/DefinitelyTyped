@@ -6,11 +6,16 @@
 export = xmlbuilder;
 
 declare namespace xmlbuilder {
-
     class XMLDocType {
         clone(): XMLDocType;
         element(name: string, value?: Object): XMLDocType;
-        attList(elementName: string, attributeName: string, attributeType: string, defaultValueType?: string, defaultValue?: any): XMLDocType;
+        attList(
+            elementName: string,
+            attributeName: string,
+            attributeType: string,
+            defaultValueType?: string,
+            defaultValue?: any
+        ): XMLDocType;
         entity(name: string, value: any): XMLDocType;
         pEntity(name: string, value: any): XMLDocType;
         notation(name: string, value: any): XMLDocType;
@@ -22,7 +27,13 @@ declare namespace xmlbuilder {
         toString(options?: XMLToStringOptions, level?: Number): string;
 
         ele(name: string, value?: Object): XMLDocType;
-        att(elementName: string, attributeName: string, attributeType: string, defaultValueType?: string, defaultValue?: any): XMLDocType;
+        att(
+            elementName: string,
+            attributeName: string,
+            attributeType: string,
+            defaultValueType?: string,
+            defaultValue?: any
+        ): XMLDocType;
         ent(name: string, value: any): XMLDocType;
         pent(name: string, value: any): XMLDocType;
         not(name: string, value: any): XMLDocType;
@@ -51,17 +62,33 @@ declare namespace xmlbuilder {
         i(obj: Object): XMLElementOrXMLNode;
         toString(options?: XMLToStringOptions, level?: Number): string;
         // XMLNode:
-        element(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
+        element(
+            name: any,
+            attributes?: Object,
+            text?: any
+        ): XMLElementOrXMLNode;
         ele(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
-        insertBefore(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
-        insertAfter(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
+        insertBefore(
+            name: any,
+            attributes?: Object,
+            text?: any
+        ): XMLElementOrXMLNode;
+        insertAfter(
+            name: any,
+            attributes?: Object,
+            text?: any
+        ): XMLElementOrXMLNode;
         remove(): XMLElementOrXMLNode;
         node(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
         text(value: string): XMLElementOrXMLNode;
         cdata(value: string): XMLElementOrXMLNode;
         comment(value: string): XMLElementOrXMLNode;
         raw(value: string): XMLElementOrXMLNode;
-        declaration(version: string, encoding: string, standalone: boolean): XMLElementOrXMLNode;
+        declaration(
+            version: string,
+            encoding: string,
+            standalone: boolean
+        ): XMLElementOrXMLNode;
         doctype(pubID: string, sysID: string): XMLDocType;
         up(): XMLElementOrXMLNode;
         importDocument(input: XMLElementOrXMLNode): XMLElementOrXMLNode;
@@ -75,7 +102,11 @@ declare namespace xmlbuilder {
         dat(value: string): XMLElementOrXMLNode;
         com(value: string): XMLElementOrXMLNode;
         doc(): XMLElementOrXMLNode;
-        dec(version: string, encoding: string, standalone: boolean): XMLElementOrXMLNode;
+        dec(
+            version: string,
+            encoding: string,
+            standalone: boolean
+        ): XMLElementOrXMLNode;
         dtd(pubID: string, sysID: string): XMLDocType;
         e(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
         n(name: any, attributes?: Object, text?: any): XMLElementOrXMLNode;
@@ -102,7 +133,7 @@ declare namespace xmlbuilder {
     }
 
     interface XMLWriter {
-        [x: string]: ((e: XMLElementOrXMLNode, level?: number) => void);
+        [x: string]: (e: XMLElementOrXMLNode, level?: number) => void;
     }
 
     interface XMLCreateOptions {
@@ -128,6 +159,11 @@ declare namespace xmlbuilder {
         writer?: XMLWriter;
     }
 
-    function create(nameOrObjSpec: string | { [name: string]: Object }, xmldecOrOptions?: XMLDec | XMLCreateOptions, doctypeOrOptions?: XMLDtd | XMLCreateOptions, options?: XMLCreateOptions): XMLElementOrXMLNode;
+    function create(
+        nameOrObjSpec: string | { [name: string]: Object },
+        xmldecOrOptions?: XMLDec | XMLCreateOptions,
+        doctypeOrOptions?: XMLDtd | XMLCreateOptions,
+        options?: XMLCreateOptions
+    ): XMLElementOrXMLNode;
     function begin(): XMLElementOrXMLNode;
 }

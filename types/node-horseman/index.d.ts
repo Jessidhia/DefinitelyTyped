@@ -47,7 +47,7 @@ declare class horseman {
     crop(area: string | object, path: string): this;
 
     /** Take a base64 encoded cropped screenshot. */
-    cropBase64(area: string, type: string | 'PNG'): any;
+    cropBase64(area: string, type: string | "PNG"): any;
 
     /** Get the value of an css property of a selector. */
     cssProperty(selector: string, prop: string): string;
@@ -56,7 +56,13 @@ declare class horseman {
     do(fn: () => void): this;
 
     /** Download a URL. */
-    download(url: string, path: string, binary: boolean, method: string, data: string): this;
+    download(
+        url: string,
+        path: string,
+        binary: boolean,
+        method: string,
+        data: string
+    ): this;
 
     /** Run a javascript function on the current page and optionally return the results. */
     evaluate(fn: () => void, args?: any[]): this;
@@ -124,10 +130,22 @@ declare class horseman {
      *  error - callback(msg, trace);
      *  timeout - callback(type)
      */
-    on(event: string | "timeout" | "tabCreated" | "tabClosed"| "resourceTimeout"| "urlChanged"| "resourceReceived"| "pageCreated"| "loadFinished", func: (...args: any[]) => void): this;
+    on(
+        event:
+            | string
+            | "timeout"
+            | "tabCreated"
+            | "tabClosed"
+            | "resourceTimeout"
+            | "urlChanged"
+            | "resourceReceived"
+            | "pageCreated"
+            | "loadFinished",
+        func: (...args: any[]) => void
+    ): this;
 
     /** Open a url in Phantom. */
-    open(url: string, method?: string | 'GET'): this;
+    open(url: string, method?: string | "GET"): this;
 
     /** Open URL in a new tab */
     openTab(url: string): this;
@@ -135,11 +153,14 @@ declare class horseman {
     pageMaker(url: any, _page: any, ...args: any[]): any;
 
     /** Save the current page as a pdf. */
-    pdf(path: string, paperSize: {
-        format?: "A3" | "A4" | "A5" | "Legal" | "Letter" | "Tabloid",
-        orientation?: "portrait" | "landscape",
-        margin?: string
-    }): this;
+    pdf(
+        path: string,
+        paperSize: {
+            format?: "A3" | "A4" | "A5" | "Legal" | "Letter" | "Tabloid";
+            orientation?: "portrait" | "landscape";
+            margin?: string;
+        }
+    ): this;
 
     /** Get the plain text for the body of the page. */
     plainText(): string;
@@ -157,7 +178,7 @@ declare class horseman {
     screenshot(path: string): this;
 
     /** Take a base64 encoded screenshot, e.g., PNG. */
-    screenshotBase64(type: string | 'PNG'): any;
+    screenshotBase64(type: string | "PNG"): any;
 
     /** Scroll to a position on the page. */
     scrollTo(top: number, left: number): this;
@@ -166,7 +187,13 @@ declare class horseman {
     select(selector: string, value: string): any;
 
     /** Change the proxy settings. */
-    setProxy(ip: string, port: string, type: string, username: string, password: string): this;
+    setProxy(
+        ip: string,
+        port: string,
+        type: string,
+        username: string,
+        password: string
+    ): this;
 
     /** Get the HTTP status of the last opened page. */
     status(): string;

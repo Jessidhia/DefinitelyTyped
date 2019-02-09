@@ -8,24 +8,32 @@
 
     var container: HTMLDivElement, stats: Stats;
 
-    var camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer, objects: THREE.Mesh[];
+    var camera: THREE.PerspectiveCamera,
+        scene: THREE.Scene,
+        renderer: THREE.WebGLRenderer,
+        objects: THREE.Mesh[];
     var particleLight: THREE.Mesh;
-    var materials: (THREE.MeshBasicMaterial |
-        THREE.MeshPhongMaterial |
-        THREE.MeshNormalMaterial |
-        THREE.MeshLambertMaterial |
-        THREE.MeshFaceMaterial |
-        THREE.MeshDepthMaterial)[] = [];
+    var materials: (
+        | THREE.MeshBasicMaterial
+        | THREE.MeshPhongMaterial
+        | THREE.MeshNormalMaterial
+        | THREE.MeshLambertMaterial
+        | THREE.MeshFaceMaterial
+        | THREE.MeshDepthMaterial)[] = [];
 
     init();
     animate();
 
     function init() {
-
-        container = document.createElement('div');
+        container = document.createElement("div");
         document.body.appendChild(container);
 
-        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        camera = new THREE.PerspectiveCamera(
+            45,
+            window.innerWidth / window.innerHeight,
+            1,
+            2000
+        );
         camera.position.set(0, 200, 800);
 
         scene = new THREE.Scene();
@@ -34,16 +42,23 @@
 
         var line_material = new THREE.LineBasicMaterial({ color: 0x303030 }),
             geometry = new THREE.Geometry(),
-            floor = -75, step = 25;
+            floor = -75,
+            step = 25;
 
         for (var i = 0; i <= 40; i++) {
+            geometry.vertices.push(
+                new THREE.Vector3(-500, floor, i * step - 500)
+            );
+            geometry.vertices.push(
+                new THREE.Vector3(500, floor, i * step - 500)
+            );
 
-            geometry.vertices.push(new THREE.Vector3(- 500, floor, i * step - 500));
-            geometry.vertices.push(new THREE.Vector3(500, floor, i * step - 500));
-
-            geometry.vertices.push(new THREE.Vector3(i * step - 500, floor, -500));
-            geometry.vertices.push(new THREE.Vector3(i * step - 500, floor, 500));
-
+            geometry.vertices.push(
+                new THREE.Vector3(i * step - 500, floor, -500)
+            );
+            geometry.vertices.push(
+                new THREE.Vector3(i * step - 500, floor, 500)
+            );
         }
 
         var line = new THREE.Line(geometry, line_material, THREE.LinePieces);
@@ -54,24 +69,67 @@
         var texture = new THREE.Texture(generateTexture());
         texture.needsUpdate = true;
 
-        materials.push(new THREE.MeshLambertMaterial({ map: texture, transparent: true }));
+        materials.push(
+            new THREE.MeshLambertMaterial({ map: texture, transparent: true })
+        );
         materials.push(new THREE.MeshLambertMaterial({ color: 0xdddddd }));
-        materials.push(new THREE.MeshPhongMaterial({ color: 0xdddddd, specular: 0x009900, shininess: 30, flatShading: true }));
+        materials.push(
+            new THREE.MeshPhongMaterial({
+                color: 0xdddddd,
+                specular: 0x009900,
+                shininess: 30,
+                flatShading: true
+            })
+        );
         materials.push(new THREE.MeshNormalMaterial());
-        materials.push(new THREE.MeshBasicMaterial({ color: 0xffaa00, transparent: true, blending: THREE.AdditiveBlending }));
+        materials.push(
+            new THREE.MeshBasicMaterial({
+                color: 0xffaa00,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            })
+        );
         //materials.push( new THREE.MeshBasicMaterial( { color: 0xff0000, blending: THREE.SubtractiveBlending } ) );
 
         materials.push(new THREE.MeshLambertMaterial({ color: 0xdddddd }));
-        materials.push(new THREE.MeshPhongMaterial({ color: 0xdddddd, specular: 0x009900, shininess: 30, flatShading: false, map: texture, transparent: true }));
+        materials.push(
+            new THREE.MeshPhongMaterial({
+                color: 0xdddddd,
+                specular: 0x009900,
+                shininess: 30,
+                flatShading: false,
+                map: texture,
+                transparent: true
+            })
+        );
         materials.push(new THREE.MeshNormalMaterial({}));
-        materials.push(new THREE.MeshBasicMaterial({ color: 0xffaa00, wireframe: true }));
+        materials.push(
+            new THREE.MeshBasicMaterial({ color: 0xffaa00, wireframe: true })
+        );
 
         materials.push(new THREE.MeshDepthMaterial());
 
-        materials.push(new THREE.MeshLambertMaterial({ color: 0x666666, emissive: 0xff0000 }));
-        materials.push(new THREE.MeshPhongMaterial({ color: 0x000000, specular: 0x666666, emissive: 0xff0000, shininess: 10, flatShading: false, opacity: 0.9, transparent: true }));
+        materials.push(
+            new THREE.MeshLambertMaterial({
+                color: 0x666666,
+                emissive: 0xff0000
+            })
+        );
+        materials.push(
+            new THREE.MeshPhongMaterial({
+                color: 0x000000,
+                specular: 0x666666,
+                emissive: 0xff0000,
+                shininess: 10,
+                flatShading: false,
+                opacity: 0.9,
+                transparent: true
+            })
+        );
 
-        materials.push(new THREE.MeshBasicMaterial({ map: texture, transparent: true }));
+        materials.push(
+            new THREE.MeshBasicMaterial({ map: texture, transparent: true })
+        );
 
         // Spheres geometry
 
@@ -80,10 +138,8 @@
         var geometry_pieces = new THREE.SphereGeometry(70, 32, 16); // Extra geometry to be broken down for MeshFaceMaterial
 
         for (var i = 0, l = geometry_pieces.faces.length; i < l; i++) {
-
             var face = geometry_pieces.faces[i];
             face.materialIndex = Math.floor(Math.random() * materials.length);
-
         }
 
         // isn't used.
@@ -96,11 +152,14 @@
         var sphere: THREE.Mesh, geometry: THREE.Geometry;
 
         for (var i = 0, l = materials.length; i < l; i++) {
-
             let material = materials[i];
 
-            geometry = material instanceof THREE.MeshFaceMaterial ? geometry_pieces :
-                (material.flatShading ? geometry_flat : geometry_smooth);
+            geometry =
+                material instanceof THREE.MeshFaceMaterial
+                    ? geometry_pieces
+                    : material.flatShading
+                    ? geometry_flat
+                    : geometry_smooth;
 
             sphere = new THREE.Mesh(geometry, material);
 
@@ -114,17 +173,22 @@
             objects.push(sphere);
 
             scene.add(sphere);
-
         }
 
-        particleLight = new THREE.Mesh(new THREE.SphereGeometry(4, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        particleLight = new THREE.Mesh(
+            new THREE.SphereGeometry(4, 8, 8),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+        );
         scene.add(particleLight);
 
         // Lights
 
         scene.add(new THREE.AmbientLight(0x111111));
 
-        var directionalLight = new THREE.DirectionalLight( /*Math.random() * */ 0xffffff, 0.125);
+        var directionalLight = new THREE.DirectionalLight(
+            /*Math.random() * */ 0xffffff,
+            0.125
+        );
 
         directionalLight.position.x = Math.random() - 0.5;
         directionalLight.position.y = Math.random() - 0.5;
@@ -147,39 +211,35 @@
         //
 
         stats = new Stats();
-        stats.dom.style.position = 'absolute';
-        stats.dom.style.top = '0px';
+        stats.dom.style.position = "absolute";
+        stats.dom.style.top = "0px";
 
         container.appendChild(stats.dom);
 
         //
 
-        window.addEventListener('resize', onWindowResize, false);
-
+        window.addEventListener("resize", onWindowResize, false);
     }
 
     function onWindowResize() {
-
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-
     }
 
     function generateTexture() {
-
-        var canvas = document.createElement('canvas');
+        var canvas = document.createElement("canvas");
         canvas.width = 256;
         canvas.height = 256;
 
-        var context = canvas.getContext('2d');
+        var context = canvas.getContext("2d");
         var image = context.getImageData(0, 0, 256, 256);
 
-        var x = 0, y = 0;
+        var x = 0,
+            y = 0;
 
-        for (var i = 0, j = 0, l = image.data.length; i < l;) {
-
+        for (var i = 0, j = 0, l = image.data.length; i < l; ) {
             x = j % 256;
             y = x == 0 ? y + 1 : y;
 
@@ -189,28 +249,23 @@
             image.data[i + 3] = Math.floor(x ^ y);
             i += 4;
             j++;
-
         }
 
         context.putImageData(image, 0, 0);
 
         return canvas;
-
     }
 
     //
 
     function animate() {
-
         requestAnimationFrame(animate);
 
         render();
         stats.update();
-
     }
 
     function render() {
-
         var timer = 0.0001 * Date.now();
 
         camera.position.x = Math.cos(timer) * 1000;
@@ -219,22 +274,31 @@
         camera.lookAt(scene.position);
 
         for (var i = 0, l = objects.length; i < l; i++) {
-
             var object = objects[i];
 
             object.rotation.x += 0.01;
             object.rotation.y += 0.005;
-
         }
 
-        (materials[materials.length - 3] as THREE.MeshPhongMaterial).emissive.setHSL(0.54, 1, 0.35 * (0.5 + 0.5 * Math.sin(35 * timer)));
-        (materials[materials.length - 4] as THREE.MeshLambertMaterial).emissive.setHSL(0.04, 1, 0.35 * (0.5 + 0.5 * Math.cos(35 * timer)));
+        (materials[
+            materials.length - 3
+        ] as THREE.MeshPhongMaterial).emissive.setHSL(
+            0.54,
+            1,
+            0.35 * (0.5 + 0.5 * Math.sin(35 * timer))
+        );
+        (materials[
+            materials.length - 4
+        ] as THREE.MeshLambertMaterial).emissive.setHSL(
+            0.04,
+            1,
+            0.35 * (0.5 + 0.5 * Math.cos(35 * timer))
+        );
 
         particleLight.position.x = Math.sin(timer * 7) * 300;
         particleLight.position.y = Math.cos(timer * 5) * 400;
         particleLight.position.z = Math.cos(timer * 3) * 300;
 
         renderer.render(scene, camera);
-
     }
-}
+};

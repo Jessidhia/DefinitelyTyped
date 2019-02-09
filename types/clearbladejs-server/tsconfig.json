@@ -2,9 +2,7 @@
     "compilerOptions": {
         "target": "ES5",
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
@@ -15,13 +13,6 @@
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "clearbladejs-server-tests.ts",
-        "global.d.ts"
-    ],
-    "exclude": [
-        "**/clearbladejs-client/*",
-        "**/clearbladejs-node/*"
-    ]
+    "files": ["index.d.ts", "clearbladejs-server-tests.ts", "global.d.ts"],
+    "exclude": ["**/clearbladejs-client/*", "**/clearbladejs-node/*"]
 }

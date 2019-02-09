@@ -1,6 +1,6 @@
 import * as Payment from "payment";
 
-const input = document.getElementById('input') as HTMLInputElement;
+const input = document.getElementById("input") as HTMLInputElement;
 
 Payment.restrictNumeric(input);
 Payment.formatCardNumber(input);

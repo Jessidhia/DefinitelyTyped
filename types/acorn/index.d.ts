@@ -5,7 +5,7 @@
 
 export as namespace acorn;
 export = acorn;
-import * as ESTree from 'estree';
+import * as ESTree from "estree";
 
 declare namespace acorn {
     interface PlainObject {
@@ -18,19 +18,31 @@ declare namespace acorn {
 
     interface Options {
         ecmaVersion?: 3 | 5 | 6 | 7 | 8 | 2015 | 2016 | 2017;
-        sourceType?: 'script' | 'module';
-        onInsertedSemicolon?: (lastTokEnd: number, lastTokEndLoc?: ESTree.Position) => void;
-        onTrailingComma?: (lastTokEnd: number, lastTokEndLoc?: ESTree.Position) => void;
+        sourceType?: "script" | "module";
+        onInsertedSemicolon?: (
+            lastTokEnd: number,
+            lastTokEndLoc?: ESTree.Position
+        ) => void;
+        onTrailingComma?: (
+            lastTokEnd: number,
+            lastTokEndLoc?: ESTree.Position
+        ) => void;
         allowReserved?: boolean;
         allowReturnOutsideFunction?: boolean;
         allowImportExportEverywhere?: boolean;
         allowHashBang?: boolean;
         locations?: boolean;
         onToken?: ((token: Token) => any) | Token[];
-        onComment?: ((
-            isBlock: boolean, text: string, start: number, end: number, startLoc?: ESTree.Position,
-            endLoc?: ESTree.Position
-        ) => void) | Comment[];
+        onComment?:
+            | ((
+                  isBlock: boolean,
+                  text: string,
+                  start: number,
+                  end: number,
+                  startLoc?: ESTree.Position,
+                  endLoc?: ESTree.Position
+              ) => void)
+            | Comment[];
         ranges?: boolean;
         program?: ESTree.Program;
         sourceFile?: string;
@@ -182,7 +194,12 @@ declare namespace acorn {
     };
 
     class TokContext {
-        constructor(token: string, isExpr: boolean, preserveSpace: boolean, override: (p: Parser) => void);
+        constructor(
+            token: string,
+            isExpr: boolean,
+            preserveSpace: boolean,
+            override: (p: Parser) => void
+        );
     }
 
     const tokContexts: {
@@ -233,11 +250,15 @@ declare namespace acorn {
 
     const parse: IParse;
 
-    function parseExpressionAt(input: string, pos?: number, options?: Options): ESTree.Expression;
+    function parseExpressionAt(
+        input: string,
+        pos?: number,
+        options?: Options
+    ): ESTree.Expression;
 
     interface ITokenizer {
-      getToken(): Token;
-      [Symbol.iterator](): Iterator<Token>;
+        getToken(): Token;
+        [Symbol.iterator](): Iterator<Token>;
     }
 
     function tokenizer(input: string, options: Options): ITokenizer;
@@ -246,9 +267,16 @@ declare namespace acorn {
     let LooseParser: ILooseParserClass | undefined;
     let pluginsLoose: PluginsObject | undefined;
 
-    type ILooseParserClass = new (input: string, options?: Options) => ILooseParser;
+    type ILooseParserClass = new (
+        input: string,
+        options?: Options
+    ) => ILooseParser;
 
     interface ILooseParser {}
 
-    function addLooseExports(parse: IParse, parser: ILooseParserClass, plugins: PluginsObject): void;
+    function addLooseExports(
+        parse: IParse,
+        parser: ILooseParserClass,
+        plugins: PluginsObject
+    ): void;
 }

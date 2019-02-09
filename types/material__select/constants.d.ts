@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    BOX: 'mdc-select--box';
-    DISABLED: 'mdc-select--disabled';
-    ROOT: 'mdc-select';
+    BOX: "mdc-select--box";
+    DISABLED: "mdc-select--disabled";
+    ROOT: "mdc-select";
 }
 
 export interface strings extends MDCStrings {
-    CHANGE_EVENT: 'MDCSelect:change';
-    LINE_RIPPLE_SELECTOR: '.mdc-line-ripple';
-    LABEL_SELECTOR: '.mdc-floating-label';
-    NATIVE_CONTROL_SELECTOR: '.mdc-select__native-control';
+    CHANGE_EVENT: "MDCSelect:change";
+    LINE_RIPPLE_SELECTOR: ".mdc-line-ripple";
+    LABEL_SELECTOR: ".mdc-floating-label";
+    NATIVE_CONTROL_SELECTOR: ".mdc-select__native-control";
 }

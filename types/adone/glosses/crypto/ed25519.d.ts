@@ -15,6 +15,10 @@ declare namespace adone.crypto {
 
         function sign(message: Buffer, seed: Buffer | I.KeyPair): Buffer;
 
-        function verify(message: Buffer, signature: Buffer, publicKey: Buffer): boolean;
+        function verify(
+            message: Buffer,
+            signature: Buffer,
+            publicKey: Buffer
+        ): boolean;
     }
 }

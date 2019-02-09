@@ -11,7 +11,7 @@ export default ReactGooglePlacesSuggest;
 
 declare class ReactGooglePlacesSuggest extends Component<
     ReactGooglePlacesSuggest.Props
-    > { }
+> {}
 
 declare namespace ReactGooglePlacesSuggest {
     type Prediction = google.maps.places.AutocompletePrediction;

@@ -7,4 +7,8 @@ export interface LevenshteinOptions {
     useCollator?: boolean;
 }
 
-export function get(str1: string, str2: string, opts?: LevenshteinOptions): number;
+export function get(
+    str1: string,
+    str2: string,
+    opts?: LevenshteinOptions
+): number;

@@ -4,12 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export default Radium;
 
 // @Radium decorator
-declare function Radium<TElement extends Function>(component: TElement): TElement;
+declare function Radium<TElement extends Function>(
+    component: TElement
+): TElement;
 declare function Radium(config: Radium.RadiumConfig): (component?: any) => any;
 declare namespace Radium {
     interface StyleRules {
@@ -36,20 +38,18 @@ declare namespace Radium {
     /**
      * <Style />
      */
-    export class Style extends React.Component<StyleProps> {
-    }
+    export class Style extends React.Component<StyleProps> {}
 
     /**
      * StyleRoot component properties
      */
     export interface StyleRootProps extends React.HTMLProps<StyleRoot> {
-         radiumConfig?: RadiumConfig
+        radiumConfig?: RadiumConfig;
     }
     /**
      * <StyleRoot />
      */
-    export class StyleRoot extends React.Component<StyleRootProps> {
-    }
+    export class StyleRoot extends React.Component<StyleRootProps> {}
 
     /**
      * Radium configuration
@@ -82,7 +82,11 @@ declare namespace Radium {
      * @param elementKey if you used multiple elements, pass the same key="" or ref="". If you only have one element, you can leave it blank ('main' will be inferred)
      * @param value one of the following: :active, :focus, and :hover
      */
-    export function getState(state: any, elementKey: string | void, value: ":active" | ":focus" | ":hover"): boolean;
+    export function getState(
+        state: any,
+        elementKey: string | void,
+        value: ":active" | ":focus" | ":hover"
+    ): boolean;
 
     /**
      * Create a keyframes animation for use in an inline style.
@@ -111,5 +115,4 @@ declare namespace Radium {
     }
 
     var TestMode: RadiumTestMode;
-
 }

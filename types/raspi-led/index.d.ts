@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import { Peripheral } from 'raspi-peripheral';
+import { Peripheral } from "raspi-peripheral";
 export const OFF = 0;
 export const ON = 1;
 export class LED extends Peripheral {

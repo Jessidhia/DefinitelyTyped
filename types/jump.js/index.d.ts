@@ -5,10 +5,18 @@
 
 export = jump;
 
-declare function jump(target: string | Element | number, opts?: jump.Options): void;
+declare function jump(
+    target: string | Element | number,
+    opts?: jump.Options
+): void;
 
 declare namespace jump {
-    type TransitionFunc = (t: number, b: number, c: number, d: number) => number;
+    type TransitionFunc = (
+        t: number,
+        b: number,
+        c: number,
+        d: number
+    ) => number;
     interface Options {
         duration?: number;
         offset?: number;

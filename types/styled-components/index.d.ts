@@ -37,13 +37,14 @@ export type StyledProps<P> = ThemedStyledProps<P, AnyIfEmpty<DefaultTheme>>;
 // If declared props have indexed properties, ignore default props entirely as keyof gets widened
 // Wrap in an outer-level conditional type to allow distribution over props that are unions
 type Defaultize<P, D> = P extends any
-    ? string extends keyof P ? P :
-        & Pick<P, Exclude<keyof P, keyof D>>
-        & Partial<Pick<P, Extract<keyof P, keyof D>>>
-        & Partial<Pick<D, Exclude<keyof D, keyof P>>>
+    ? string extends keyof P
+        ? P
+        : Pick<P, Exclude<keyof P, keyof D>> &
+              Partial<Pick<P, Extract<keyof P, keyof D>>> &
+              Partial<Pick<D, Exclude<keyof D, keyof P>>>
     : never;
 
-type ReactDefaultizedProps<C, P> = C extends { defaultProps: infer D; }
+type ReactDefaultizedProps<C, P> = C extends { defaultProps: infer D }
     ? Defaultize<P, D>
     : P;
 
@@ -57,13 +58,8 @@ export type StyledComponentProps<
     // The props that are made optional by .attrs
     A extends keyof any
 > = WithOptionalTheme<
-    Omit<
-        ReactDefaultizedProps<
-            C,
-            React.ComponentPropsWithRef<C>
-        > & O,
-        A
-    > & Partial<Pick<React.ComponentPropsWithRef<C> & O, A>>,
+    Omit<ReactDefaultizedProps<C, React.ComponentPropsWithRef<C>> & O, A> &
+        Partial<Pick<React.ComponentPropsWithRef<C> & O, A>>,
     T
 >;
 
@@ -130,7 +126,7 @@ type ForwardRefExoticBase<P> = Pick<
 >;
 
 // extracts React defaultProps
-type ReactDefaultProps<C> = C extends { defaultProps: infer D; } ? D : never;
+type ReactDefaultProps<C> = C extends { defaultProps: infer D } ? D : never;
 
 // any doesn't count as assignable to never in the extends clause, and we default A to never
 export type AnyStyledComponent =

@@ -1,10 +1,6 @@
-import pEachSeries = require('p-each-series');
+import pEachSeries = require("p-each-series");
 
-const keywords = [
-    Promise.resolve('foo'),
-    'rainbow',
-    'pony'
-];
+const keywords = [Promise.resolve("foo"), "rainbow", "pony"];
 
 const keywordSet = new Set(keywords);
 

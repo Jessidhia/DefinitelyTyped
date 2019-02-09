@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-declare const AngularTooltips: '720kb.tooltips';
+declare const AngularTooltips: "720kb.tooltips";
 export = AngularTooltips;
 
 declare namespace AngularTooltips {
@@ -13,14 +13,22 @@ declare namespace AngularTooltips {
     }
 
     interface TooltipsConfProviderOptions {
-        side?: 'left' | 'right' | 'top' | 'bottom' | 'top left' | 'top right' | 'bottom left' | 'bottom right';
+        side?:
+            | "left"
+            | "right"
+            | "top"
+            | "bottom"
+            | "top left"
+            | "top right"
+            | "bottom left"
+            | "bottom right";
         showTrigger?: string;
         hideTrigger?: string;
         class?: string;
         smart?: boolean;
         closeButton?: boolean;
-        size?: 'small' | 'medium' | 'large';
-        speed?: 'slow' | 'medium' | 'fast';
+        size?: "small" | "medium" | "large";
+        speed?: "slow" | "medium" | "fast";
         tooltipTemplateUrlCache?: boolean;
         show?: boolean;
     }

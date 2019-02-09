@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as t from 'babel-types';
+import * as t from "babel-types";
 
 /**
  * Turns an AST into code, maintaining sourcemaps, user preferences, and valid output.
@@ -14,7 +14,11 @@ import * as t from 'babel-types';
  * @param code - the original source code, used for source maps.
  * @returns - an object containing the output code and source map.
  */
-export default function generate(ast: t.Node, opts?: GeneratorOptions, code?: string | {[filename: string]: string}): GeneratorResult;
+export default function generate(
+    ast: t.Node,
+    opts?: GeneratorOptions,
+    code?: string | { [filename: string]: string }
+): GeneratorResult;
 
 export interface GeneratorOptions {
     /**
@@ -48,7 +52,7 @@ export interface GeneratorOptions {
     /**
      * Set to true to avoid adding whitespace for formatting. Defaults to the value of `opts.minified`.
      */
-    compact?: boolean | 'auto';
+    compact?: boolean | "auto";
 
     /**
      * Should the output be minified. Defaults to `false`.
@@ -63,7 +67,7 @@ export interface GeneratorOptions {
     /**
      * The type of quote to use in the output. If omitted, autodetects based on `ast.tokens`.
      */
-    quotes?: 'single' | 'double';
+    quotes?: "single" | "double";
 
     /**
      * Used in warning messages

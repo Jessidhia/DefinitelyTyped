@@ -1,4 +1,4 @@
-import elegantSpinner = require('elegant-spinner');
+import elegantSpinner = require("elegant-spinner");
 
 const frameFunction = elegantSpinner();
 

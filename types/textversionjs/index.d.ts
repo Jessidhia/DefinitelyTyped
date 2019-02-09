@@ -7,7 +7,10 @@
     import * as textVersion from "textversionjs";
  =============================================== */
 
-declare function textversionjs(html: string, styleConfig?: textversionjs.styleConfig): string;
+declare function textversionjs(
+    html: string,
+    styleConfig?: textversionjs.styleConfig
+): string;
 
 declare namespace textversionjs {
     type linkProcess = (href: string, linkText: string) => string;
@@ -17,8 +20,8 @@ declare namespace textversionjs {
     interface styleConfig {
         linkProcess?: linkProcess;
         imgProcess?: imgProcess;
-        headingStyle?: 'underline' | 'linebreak' |  'hashify';
-        listStyle?: 'indentation' | 'linebreak';
+        headingStyle?: "underline" | "linebreak" | "hashify";
+        listStyle?: "indentation" | "linebreak";
         uIndentionChar?: string;
         oIndentionChar?: string;
         listIndentionTabs?: number;

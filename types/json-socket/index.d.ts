@@ -5,12 +5,9 @@
 
 /// <reference types="node"/>
 
-
-
 import { Socket } from "net";
 
 declare class JsonSocket extends Socket {
-
     constructor(socket: Socket);
 
     /**
@@ -21,7 +18,12 @@ declare class JsonSocket extends Socket {
      * @param message the message to send
      * @param callback will be called after the message has been sent
      */
-    static sendSingleMessage(port: number, host: string, message: any, callback: (err: Error) => void): void;
+    static sendSingleMessage(
+        port: number,
+        host: string,
+        message: any,
+        callback: (err: Error) => void
+    ): void;
 
     /**
      * sends a single message, waits for a single response message from the server and closes the connection right after.
@@ -32,13 +34,18 @@ declare class JsonSocket extends Socket {
      * @param message the message to send
      * @param callback will be called when the response message has been received
      */
-    static sendSingleMessageAndReceive(port: number, host: string, message: any, callback: (err: Error, message: any) => void): void;
+    static sendSingleMessageAndReceive(
+        port: number,
+        host: string,
+        message: any,
+        callback: (err: Error, message: any) => void
+    ): void;
 
     /**
-    * Convenience method for sending an error as a message.
-    * @param err an Error object that should be formatted as a message
-    * @param callback will be called after the message has been sent
-    */
+     * Convenience method for sending an error as a message.
+     * @param err an Error object that should be formatted as a message
+     * @param callback will be called after the message has been sent
+     */
     sendError(err: Error, callback: (err: Error) => void): void;
 
     /**

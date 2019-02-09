@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Identity Toolkit API v3 */
     function load(name: "identitytoolkit", version: "v3"): PromiseLike<void>;
-    function load(name: "identitytoolkit", version: "v3", callback: () => any): void;
+    function load(
+        name: "identitytoolkit",
+        version: "v3",
+        callback: () => any
+    ): void;
 
     const relyingparty: identitytoolkit.RelyingpartyResource;
 
@@ -977,7 +981,9 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** IP address of the site where the request originates. Use this if you want to enforce per-user limits. */
                 userIp?: string;
-            }): Request<IdentitytoolkitRelyingpartySendVerificationCodeResponse>;
+            }): Request<
+                IdentitytoolkitRelyingpartySendVerificationCodeResponse
+            >;
             /** Set account info for a user. */
             setAccountInfo(request: {
                 /** Data format for the response. */

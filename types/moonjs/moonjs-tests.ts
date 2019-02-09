@@ -14,17 +14,16 @@ const app = new Moon({
 });
 
 const count = app.get("count");
-count;                          // $ExpectType number
-app.get("increment")();         // $ExpectType void
-app.callMethod("increment");    // $ExpectType any
-app.get("blahblahblah");        // $ExpectError
+count; // $ExpectType number
+app.get("increment")(); // $ExpectType void
+app.callMethod("increment"); // $ExpectType any
+app.get("blahblahblah"); // $ExpectError
 
 app.destroy();
 
 new Moon({
     hooks: {
-        init: () => {
-        },
+        init: () => {},
         mounted: () => {
             // called when element is mounted and the first build has been run
         },
@@ -39,7 +38,7 @@ new Moon({
 });
 
 new Moon({
-    render: (h) => {
+    render: h => {
         return h("h1", {}, null, "Hello Moon!"); // same as <h1>Hello Moon!</h1>
     }
 });
@@ -47,42 +46,59 @@ new Moon({
 const renderApp = new Moon({
     el: "#render",
     render(h) {
-        return h("div", { attrs: { id: "render" } }, { shouldRender: true, eventListeners: {} }, [h("#text", { shouldRender: true, eventListeners: {} }, this.get("msg"))]);
+        return h(
+            "div",
+            { attrs: { id: "render" } },
+            { shouldRender: true, eventListeners: {} },
+            [
+                h(
+                    "#text",
+                    { shouldRender: true, eventListeners: {} },
+                    this.get("msg")
+                )
+            ]
+        );
     },
     data: () => ({
         msg: "Hello Moon!"
-    }),
+    })
 });
 
 Moon.component("functional-component", {
     functional: true,
     props: ["someprop"],
     render: (h, ctx) => {
-        return h("h1", {}, { shouldRender: true, eventListeners: {} }, [h("#text", { shouldRender: true, eventListeners: {} }, ctx.data.someprop)]);
+        return h("h1", {}, { shouldRender: true, eventListeners: {} }, [
+            h(
+                "#text",
+                { shouldRender: true, eventListeners: {} },
+                ctx.data.someprop
+            )
+        ]);
     }
 });
 
 const testHTMLElement = document.createElement("div");
-const componentConstructor = Moon.component('my-component', {
-    props: ['componentprop', 'otherprop'],
+const componentConstructor = Moon.component("my-component", {
+    props: ["componentprop", "otherprop"],
     template: "<div>{{componentprop}}</div>",
     el: testHTMLElement,
     data: () => ({
         foo: 100,
-        bar: 200,
+        bar: 200
     }),
     methods: {
         halfFoo() {
-            const currentFoo = this.get('foo');
+            const currentFoo = this.get("foo");
             currentFoo; // $ExpectType: number
             return currentFoo / 2;
         },
         bothProps(): [any, any] {
-            const compProp = this.get('componentprop');
-            const otherProp = this.get('otherprop');
+            const compProp = this.get("componentprop");
+            const otherProp = this.get("otherprop");
             return [compProp, otherProp];
         }
-    },
+    }
 });
 
 // Component instances should be subtypes of Moon.
@@ -91,20 +107,23 @@ componentInstance instanceof Moon;
 
 Moon.config.silent = true;
 Moon.config.keycodes({
-    m: 77,
+    m: 77
 });
 
 // 'data' needs to be a function when creating components.
 // $ExpectError
-Moon.component('broken1', { el: testHTMLElement, data: { foo: 100, bar: 200 } });
+Moon.component("broken1", {
+    el: testHTMLElement,
+    data: { foo: 100, bar: 200 }
+});
 
 // Misspelled prop
-Moon.component('broken2', {
-    props: ['hello'],
+Moon.component("broken2", {
+    props: ["hello"],
     methods: {
         noHallo() {
             // $ExpectError
-            this.get('hallo');
+            this.get("hallo");
         }
-    },
+    }
 });

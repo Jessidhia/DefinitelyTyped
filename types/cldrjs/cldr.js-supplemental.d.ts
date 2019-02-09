@@ -21,8 +21,8 @@ declare module "cldrjs" {
     interface SupplementalStatic {
         timeData: TimeDataStatic;
         weekData: WeekDataStatic;
-        (path:string): any;
-        (paths:string[]): any;
+        (path: string): any;
+        (paths: string[]): any;
     }
 
     interface CldrStatic {

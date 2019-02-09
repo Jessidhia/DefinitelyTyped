@@ -5,8 +5,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { GeoProjection } from 'd3-geo';
+import * as React from "react";
+import { GeoProjection } from "d3-geo";
 
 export type Point = [number, number];
 
@@ -29,7 +29,11 @@ export interface ProjectionConfig {
     precision: number;
 }
 
-export type ProjectionFunction = (width: number, height: number, config: ProjectionConfig) => GeoProjection;
+export type ProjectionFunction = (
+    width: number,
+    height: number,
+    config: ProjectionConfig
+) => GeoProjection;
 
 export interface ComposableMapProps {
     width?: number;
@@ -89,13 +93,34 @@ export interface GeographyProps {
         hover?: React.CSSProperties;
         pressed?: React.CSSProperties;
     };
-    onClick?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onMouseEnter?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onMouseMove?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onMouseLeave?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onMouseDown?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onMouseUp?: (geography: object, evt: React.MouseEvent<SVGPathElement>) => void;
-    onFocus?: (geography: object, evt: React.FocusEvent<SVGPathElement>) => void;
+    onClick?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onMouseEnter?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onMouseMove?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onMouseLeave?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onMouseDown?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onMouseUp?: (
+        geography: object,
+        evt: React.MouseEvent<SVGPathElement>
+    ) => void;
+    onFocus?: (
+        geography: object,
+        evt: React.FocusEvent<SVGPathElement>
+    ) => void;
     onBlur?: (geography: object, evt: React.FocusEvent<SVGPathElement>) => void;
 }
 
@@ -109,11 +134,26 @@ export interface MarkerProps {
     };
     preserveMarkerAspect?: boolean;
     onClick?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
-    onMouseEnter?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
-    onMouseMove?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
-    onMouseLeave?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
-    onMouseDown?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
-    onMouseUp?: (marker: MarkerType, evt: React.MouseEvent<SVGGElement>) => void;
+    onMouseEnter?: (
+        marker: MarkerType,
+        evt: React.MouseEvent<SVGGElement>
+    ) => void;
+    onMouseMove?: (
+        marker: MarkerType,
+        evt: React.MouseEvent<SVGGElement>
+    ) => void;
+    onMouseLeave?: (
+        marker: MarkerType,
+        evt: React.MouseEvent<SVGGElement>
+    ) => void;
+    onMouseDown?: (
+        marker: MarkerType,
+        evt: React.MouseEvent<SVGGElement>
+    ) => void;
+    onMouseUp?: (
+        marker: MarkerType,
+        evt: React.MouseEvent<SVGGElement>
+    ) => void;
     onFocus?: (marker: MarkerType, evt: React.FocusEvent<SVGGElement>) => void;
     onBlur?: (marker: MarkerType, evt: React.FocusEvent<SVGGElement>) => void;
 }

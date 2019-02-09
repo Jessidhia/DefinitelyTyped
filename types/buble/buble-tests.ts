@@ -1,6 +1,6 @@
-import * as buble from 'buble';
+import * as buble from "buble";
 
-const input = 'const answer = () => 42;';
+const input = "const answer = () => 42;";
 
 // Simple transform
 (() => {
@@ -16,34 +16,34 @@ const input = 'const answer = () => 42;';
     const output = buble.transform(input, {
         target: {
             chrome: 71,
-            firefox: 64,
-        },
+            firefox: 64
+        }
     });
 })();
 
 // Transform with sourcemaps support
 (() => {
     const output = buble.transform(input, {
-        source: 'input.js',
-        file: 'output.js',
-        includeContent: true,
+        source: "input.js",
+        file: "output.js",
+        includeContent: true
     });
 })();
 
 // Transform for Preact
 (() => {
     const output = buble.transform(input, {
-        jsx: 'h'
+        jsx: "h"
     });
 })();
 
 // Transform with Object assign/spread support
 (() => {
     let output = buble.transform(input, {
-        objectAssign: true,
+        objectAssign: true
     });
     output = buble.transform(input, {
-        objectAssign: 'MyCustomObjectAssign',
+        objectAssign: "MyCustomObjectAssign"
     });
 })();
 
@@ -71,7 +71,7 @@ const input = 'const answer = () => 42;';
             spreadRest: false,
             stickyRegExp: true,
             templateString: false,
-            unicodeRegExp: true,
+            unicodeRegExp: true
         }
     });
 })();

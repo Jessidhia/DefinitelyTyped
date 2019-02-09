@@ -7,9 +7,9 @@
 
 /// <reference types="jquery" />
 
-declare module 'ember-test-helpers' {
-    import Ember from 'ember';
-    import { TemplateFactory } from 'htmlbars-inline-precompile';
+declare module "ember-test-helpers" {
+    import Ember from "ember";
+    import { TemplateFactory } from "htmlbars-inline-precompile";
     import RSVP from "rsvp";
 
     interface ModuleCallbacks {
@@ -30,7 +30,10 @@ declare module 'ember-test-helpers' {
         getProperties<K extends string>(...keys: K[]): Pick<any, K>;
         set<V>(key: string, value: V): V;
         setProperties<P extends { [key: string]: any }>(hash: P): P;
-        on(actionName: string, handler: (this: TestContext, ...args: any[]) => any): void;
+        on(
+            actionName: string,
+            handler: (this: TestContext, ...args: any[]) => any
+        ): void;
         send(actionName: string): void;
         $: JQueryStatic;
         subject(options?: {}): any;
@@ -56,7 +59,11 @@ declare module 'ember-test-helpers' {
 
     class TestModule {
         constructor(name: string, callbacks?: ModuleCallbacks);
-        constructor(name: string, description?: string, callbacks?: ModuleCallbacks);
+        constructor(
+            name: string,
+            description?: string,
+            callbacks?: ModuleCallbacks
+        );
 
         name: string;
         subjectName: string;
@@ -83,7 +90,7 @@ declare module 'ember-test-helpers' {
     function setResolver(resolver: Ember.Resolver): void;
 }
 
-declare module 'ember-test-helpers/wait' {
+declare module "ember-test-helpers/wait" {
     import RSVP from "rsvp";
 
     interface WaitOptions {
@@ -95,6 +102,9 @@ declare module 'ember-test-helpers/wait' {
     export default function wait(options?: WaitOptions): RSVP.Promise<void>;
 }
 
-declare module 'ember-test-helpers/has-ember-version' {
-    export default function hasEmberVersion(major: number, minor: number): boolean;
+declare module "ember-test-helpers/has-ember-version" {
+    export default function hasEmberVersion(
+        major: number,
+        minor: number
+    ): boolean;
 }

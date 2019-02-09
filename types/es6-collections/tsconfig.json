@@ -1,24 +1,16 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es5",
-            "dom"
-        ],
+        "lib": ["es5", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "es6-collections-tests.ts"
-    ]
+    "files": ["index.d.ts", "es6-collections-tests.ts"]
 }

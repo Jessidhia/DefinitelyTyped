@@ -4,7 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace Slick {
-    export interface SlickGridCheckBoxSelectColumnOptions extends PluginOptions {
+    export interface SlickGridCheckBoxSelectColumnOptions
+        extends PluginOptions {
         /**
          * Column to add the checkbox to
          * @default "_checkbox_selector"
@@ -30,7 +31,9 @@ declare namespace Slick {
         width?: number;
     }
 
-    export class CheckboxSelectColumn<T extends Slick.SlickData> extends Plugin<T> {
+    export class CheckboxSelectColumn<T extends Slick.SlickData> extends Plugin<
+        T
+    > {
         constructor(options?: SlickGridCheckBoxSelectColumnOptions);
         init(grid: Slick.Grid<T>): void;
         destroy(): void;

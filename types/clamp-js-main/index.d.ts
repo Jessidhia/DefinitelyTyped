@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface ClampOptions {
-    clamp?: number|string;
+    clamp?: number | string;
     useNativeClamp?: boolean;
     splitOnChars?: string[];
     animate?: boolean;
@@ -17,4 +17,7 @@ export interface ClampResponse {
     clamped: string;
 }
 
-export default function clamp(element: HTMLElement, options?: ClampOptions): ClampResponse;
+export default function clamp(
+    element: HTMLElement,
+    options?: ClampOptions
+): ClampResponse;

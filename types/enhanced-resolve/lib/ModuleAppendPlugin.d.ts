@@ -1,4 +1,4 @@
-import Resolver = require('./Resolver');
+import Resolver = require("./Resolver");
 declare class ModuleAppendPlugin {
     source: string;
     appending: string;

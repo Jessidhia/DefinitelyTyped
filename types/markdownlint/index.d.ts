@@ -5,7 +5,10 @@
 
 declare function markdownlint(
     options: markdownlint.MarkdownlintOptions,
-    callback: (err: Error | null, result: markdownlint.MarkdownlintResults) => any,
+    callback: (
+        err: Error | null,
+        result: markdownlint.MarkdownlintResults
+    ) => any
 ): void;
 
 declare namespace markdownlint {
@@ -13,7 +16,7 @@ declare namespace markdownlint {
 
     function readConfig(
         file: string,
-        callback: (err: Error | null, result: MarkdownlintConfig) => any,
+        callback: (err: Error | null, result: MarkdownlintConfig) => any
     ): void;
     function readConfigSync(file: string): MarkdownlintConfig;
 
@@ -41,7 +44,9 @@ declare namespace markdownlint {
     }
 
     interface MarkdownlintResults {
-        [source: string]: MarkdownlintResult[] | ((useAlias?: boolean) => string);
+        [source: string]:
+            | MarkdownlintResult[]
+            | ((useAlias?: boolean) => string);
         toString(useAlias?: boolean): string;
     }
 }

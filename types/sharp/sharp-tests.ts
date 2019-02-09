@@ -8,25 +8,25 @@ const readableStream: NodeJS.ReadableStream = createReadStream(input);
 const writableStream: NodeJS.WritableStream = createWriteStream(input);
 
 sharp(input)
-    .extractChannel('green')
-    .toFile('input_green.jpg', (err, info) => {
+    .extractChannel("green")
+    .toFile("input_green.jpg", (err, info) => {
         // info.channels === 1
         // input_green.jpg contains the green channel of the input image
     });
 
-sharp('3-channel-rgb-input.png')
+sharp("3-channel-rgb-input.png")
     .bandbool(sharp.bool.and)
-    .toFile('1-channel-output.png', (err, info) => {
+    .toFile("1-channel-output.png", (err, info) => {
         // The output will be a single channel image where each pixel `P = R & G & B`.
         // If `I(1,1) = [247, 170, 14] = [0b11110111, 0b10101010, 0b00001111]`
         // then `O(1,1) = 0b11110111 & 0b10101010 & 0b00001111 = 0b00000010 = 2`.
     });
 
-sharp('input.png')
+sharp("input.png")
     .rotate(180)
     .resize(300)
     .flatten({ background: "#ff6600" })
-    .overlayWith('overlay.png', { gravity: sharp.gravity.southeast })
+    .overlayWith("overlay.png", { gravity: sharp.gravity.southeast })
     .sharpen()
     .withMetadata()
     .webp({
@@ -39,9 +39,9 @@ sharp('input.png')
         // sharpened, with metadata, 90% quality WebP image data. Phew!
     });
 
-sharp('input.jpg')
+sharp("input.jpg")
     .resize(300, 200)
-    .toFile('output.jpg', (err: Error) => {
+    .toFile("output.jpg", (err: Error) => {
         // output.jpg is a 300 pixels wide and 200 pixels high image
         // containing a scaled and cropped version of input.jpg
     });
@@ -54,26 +54,32 @@ sharp({
         background: { r: 255, g: 0, b: 0, alpha: 128 }
     }
 })
-.png()
-.toBuffer();
+    .png()
+    .toBuffer();
 
 let transformer = sharp()
     .resize(300)
-    .on('info', (info: sharp.OutputInfo) => {
-        console.log('Image height is ' + info.height);
+    .on("info", (info: sharp.OutputInfo) => {
+        console.log("Image height is " + info.height);
     });
 readableStream.pipe(transformer).pipe(writableStream);
 
 console.log(sharp.format);
 console.log(sharp.versions);
 
-sharp.queue.on('change', (queueLength: number) => {
+sharp.queue.on("change", (queueLength: number) => {
     console.log(`Queue contains ${queueLength} task(s)`);
 });
 
 let pipeline: sharp.Sharp = sharp().rotate();
-pipeline.clone().resize(800, 600).pipe(writableStream);
-pipeline.clone().extract({ left: 20, top: 20, width: 100, height: 100 }).pipe(writableStream);
+pipeline
+    .clone()
+    .resize(800, 600)
+    .pipe(writableStream);
+pipeline
+    .clone()
+    .extract({ left: 20, top: 20, width: 100, height: 100 })
+    .pipe(writableStream);
 readableStream.pipe(pipeline);
 // firstWritableStream receives auto-rotated, resized readableStream
 // secondWritableStream receives auto-rotated, extracted region of readableStream
@@ -81,7 +87,7 @@ readableStream.pipe(pipeline);
 const image: sharp.Sharp = sharp(input);
 image
     .metadata()
-    .then<Buffer|undefined>((metadata: sharp.Metadata) => {
+    .then<Buffer | undefined>((metadata: sharp.Metadata) => {
         if (metadata.width) {
             return image
                 .resize(Math.round(metadata.width / 2))
@@ -135,12 +141,12 @@ sharp(input)
         // of the input image with the horizontal Sobel operator
     });
 
-sharp('input.tiff')
+sharp("input.tiff")
     .png()
     .tile({
         size: 512
     })
-    .toFile('output.dz', (err: Error, info: sharp.OutputInfo) => {
+    .toFile("output.dz", (err: Error, info: sharp.OutputInfo) => {
         // output.dzi is the Deep Zoom XML definition
         // output_files contains 512x512 tiles grouped by zoom level
     });
@@ -152,7 +158,7 @@ sharp(input)
         kernel: sharp.kernel.lanczos2,
         background: "white"
     })
-    .toFile('output.tiff')
+    .toFile("output.tiff")
     .then(() => {
         // output.tiff is a 200 pixels wide and 300 pixels high image
         // containing a lanczos2/nohalo scaled version, embedded on a white canvas,
@@ -164,14 +170,14 @@ transformer = sharp()
         fit: "cover",
         position: sharp.strategy.entropy
     })
-    .on('error', (err: Error) => {
+    .on("error", (err: Error) => {
         console.log(err);
     });
 // Read image data from readableStream
 // Write 200px square auto-cropped image data to writableStream
 readableStream.pipe(transformer).pipe(writableStream);
 
-sharp('input.gif')
+sharp("input.gif")
     .resize(200, 300, {
         fit: "contain",
         position: "north",
@@ -188,7 +194,7 @@ sharp('input.gif')
 
 sharp(input)
     .resize(200, 200, { fit: "inside" })
-    .toFormat('jpeg')
+    .toFormat("jpeg")
     .toBuffer()
     .then((outputBuffer: Buffer) => {
         // outputBuffer contains JPEG image data no wider than 200 pixels and no higher
@@ -205,7 +211,7 @@ sharp(input)
 sharp(input)
     .resize(100, 100)
     .toBuffer({ resolveWithObject: true })
-    .then((object: { data: Buffer, info: sharp.OutputInfo }) => {
+    .then((object: { data: Buffer; info: sharp.OutputInfo }) => {
         // Resolve with an object containing data Buffer and an OutputInfo object
         // when resolveWithObject is true
     });

@@ -6,7 +6,7 @@
 
 ///<reference types="node"/>
 
-import { Writable } from 'stream'
+import { Writable } from "stream";
 
 export interface Handler {
     onopentag?: (name: string, attribs: { [type: string]: string }) => void;
@@ -25,7 +25,6 @@ export interface Handler {
 }
 
 export interface Options {
-
     /***
      * Indicates whether special tags (<script> and <style>) should get special treatment
      * and if "empty" tags (eg. <br>) can have children.  If false, the content of special tags
@@ -87,7 +86,6 @@ export declare class Parser {
      * alias for backwards compat
      */
     done(): void;
-
 
     /***
      * Resets the parser, parses the data & calls end.

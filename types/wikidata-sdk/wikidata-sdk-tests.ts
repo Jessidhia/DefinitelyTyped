@@ -71,7 +71,11 @@ getReverseClaims(["P50", "P110"], "Q281411");
 
 getReverseClaims("P212", ["978-0-465-06710-7", "978-2-267-02700-6"]);
 
-getReverseClaims("P50", "Q535", { limit: 10, keepProperties: true, caseInsensitive: true });
+getReverseClaims("P50", "Q535", {
+    limit: 10,
+    keepProperties: true,
+    caseInsensitive: true
+});
 
 // ############################## //
 // SPARQL query                   //

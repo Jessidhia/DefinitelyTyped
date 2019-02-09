@@ -8,9 +8,9 @@
 /// <reference types="gulp" />
 /// <reference types="orchestrator" />
 
-import Orchestrator = require('orchestrator');
-import gulp = require('gulp');
-type HelpOption = string|boolean;
+import Orchestrator = require("orchestrator");
+import gulp = require("gulp");
+type HelpOption = string | boolean;
 
 declare namespace gulpHelp {
     interface TaskMethod {
@@ -23,7 +23,13 @@ declare namespace gulpHelp {
          * @param fn the function that performs the task's operations. Generally this takes the form of gulp.src().pipe(someplugin()).
          * @param option task options
          */
-        (name: string, help: HelpOption, deps: string[], fn?: gulp.TaskCallback, option?: TaskOptions): any;
+        (
+            name: string,
+            help: HelpOption,
+            deps: string[],
+            fn?: gulp.TaskCallback,
+            option?: TaskOptions
+        ): any;
         /**
          * Define a task.
          *
@@ -40,7 +46,12 @@ declare namespace gulpHelp {
          * @param fn the function that performs the task's operations. Generally this takes the form of gulp.src().pipe(someplugin()).
          * @param option task options
          */
-        (name: string, help: HelpOption, fn?: gulp.TaskCallback, option?: TaskOptions): any;
+        (
+            name: string,
+            help: HelpOption,
+            fn?: gulp.TaskCallback,
+            option?: TaskOptions
+        ): any;
         /**
          * Define a task.
          *
@@ -56,7 +67,12 @@ declare namespace gulpHelp {
          * @param fn the function that performs the task's operations. Generally this takes the form of gulp.src().pipe(someplugin()).
          * @param option task options
          */
-        (name: string, deps: string[], fn?: gulp.TaskCallback, option?: TaskOptions): any;
+        (
+            name: string,
+            deps: string[],
+            fn?: gulp.TaskCallback,
+            option?: TaskOptions
+        ): any;
         /**
          * Define a task.
          *
@@ -107,9 +123,11 @@ declare namespace gulpHelp {
          */
         afterPrintCallback?: Function;
     }
-
 }
 
-declare function gulpHelp(gulp: gulp.Gulp, options?: gulpHelp.GulpHelpOptions): gulpHelp.GulpHelp;
+declare function gulpHelp(
+    gulp: gulp.Gulp,
+    options?: gulpHelp.GulpHelpOptions
+): gulpHelp.GulpHelp;
 
 export = gulpHelp;

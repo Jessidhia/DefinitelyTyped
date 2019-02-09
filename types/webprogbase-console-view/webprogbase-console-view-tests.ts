@@ -1,29 +1,29 @@
-import { ConsoleBrowser, ServerApp, InputForm } from 'webprogbase-console-view';
+import { ConsoleBrowser, ServerApp, InputForm } from "webprogbase-console-view";
 
-const students = ['First', 'Second', 'Third'];
+const students = ["First", "Second", "Third"];
 
 const app = new ServerApp();
 
 app.use("/", (req, res) => {
     const links = {
-        f:  "Form sample",
+        f: "Form sample",
         f2: "Form sample many fields",
         f3: "Form sample many fields with default and value",
         fe: "Form with field error",
-        n:  "Just a state",
-        e:  "No handler error",
-        t:  "Response timeout",
-        r:  "Redirect to n",
+        n: "Just a state",
+        e: "No handler error",
+        t: "Response timeout",
+        r: "Redirect to n",
         d: {
             description: "state link with data",
             data: {
                 userId: 13,
-                x: "Y",
+                x: "Y"
             }
         },
-        rd:   "Redirect to d with data",
-        rde:  "Redirect to d with invalid data",
-        rde2: "Redirect to d with invalid data (circular structure)",
+        rd: "Redirect to d with data",
+        rde: "Redirect to d with invalid data",
+        rde2: "Redirect to d with invalid data (circular structure)"
     };
     res.send("Hello!", links);
 });
@@ -41,47 +41,47 @@ app.use("f", (req, res) => {
 });
 
 app.use("f2", (req, res) => {
-    const text = 'Hello!';
+    const text = "Hello!";
     const form = new InputForm("formaccept", {
         index: "Just",
-        name:  "Student name",
+        name: "Student name",
         score: "Hmmmm"
     });
     res.send(text, form);
 });
 
 app.use("f3", (req, res) => {
-    const text = 'Hello!';
+    const text = "Hello!";
     const form = new InputForm("formaccept", {
         id: {
             description: "Enter id",
-            auto: "1",
+            auto: "1"
         },
         id2: {
             description: "Enter id2",
-            auto: "2",
+            auto: "2"
         },
         index: "Just",
         name: {
             description: "Enter student name",
-            default: "New Student",
+            default: "New Student"
         },
         score: {
             description: "Enter score (int)",
-            auto: "100",
+            auto: "100"
         },
-        x: "Test",
+        x: "Test"
     });
     res.send(text, form);
 });
 
 app.use("fe", (req, res) => {
-    const text = 'Hello!';
+    const text = "Hello!";
     const form = new InputForm("formaccept", {
         id: {
             description: "Enter id",
-            auto: 22 as any, // generating exception (typeof auto must be 'string')
-        },
+            auto: 22 as any // generating exception (typeof auto must be 'string')
+        }
     });
     res.send(text, form);
 });
@@ -95,12 +95,12 @@ app.use("r", (req, res) => {
 });
 
 app.use("t", (req, res) => {
-    void res;  // unused
+    void res; // unused
     // error: no response
 });
 
 app.use("rd", (req, res) => {
-    res.redirect("d", {some: "Data in redirect"});
+    res.redirect("d", { some: "Data in redirect" });
 });
 
 app.use("rde", (req, res) => {
@@ -125,7 +125,13 @@ app.use("formaccept", (req, res) => {
     if ((!index && index !== 0) || (index < 0 || index >= students.length)) {
         res.send(`Invalid student index input: ${req.data!.index}`);
     } else {
-        res.send(`Data:\n${JSON.stringify(req.data, null, 4)}\nYou've selected student: ${students[index]}`);
+        res.send(
+            `Data:\n${JSON.stringify(
+                req.data,
+                null,
+                4
+            )}\nYou've selected student: ${students[index]}`
+        );
     }
 });
 

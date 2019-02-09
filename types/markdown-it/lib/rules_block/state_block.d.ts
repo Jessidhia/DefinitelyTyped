@@ -6,7 +6,7 @@ export = StateBlock;
 
 declare class StateBlock extends State {
     /** Used in lists to determine if they interrupt a paragraph */
-    parentType: 'blockquote' | 'list' | 'root' | 'paragraph' | 'reference';
+    parentType: "blockquote" | "list" | "root" | "paragraph" | "reference";
 
     eMarks: number[];
     bMarks: number[];

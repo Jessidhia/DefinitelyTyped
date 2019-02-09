@@ -10,11 +10,15 @@ oauthshim.init([
         client_id: "12345",
         client_secret: "secret678910",
         grant_url: "https://linkedIn.com",
-        domain: "test.com, example.com/redirect",
-    },
+        domain: "test.com, example.com/redirect"
+    }
 ]);
 
-function customHandler(req: oauthshim.Request, res: express.Response, next: express.NextFunction) {
+function customHandler(
+    req: oauthshim.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
     if (
         req.oauthshim &&
         req.oauthshim.redirect &&
@@ -22,7 +26,8 @@ function customHandler(req: oauthshim.Request, res: express.Response, next: expr
         req.oauthshim.data.access_token &&
         req.oauthshim.options &&
         !req.oauthshim.options.path
-    ) {}
+    ) {
+    }
 
     next();
 }
@@ -39,11 +44,11 @@ app.all(
 oauthshim.credentials.get = (query, callback) => {
     if (query.client_id === "12345") {
         callback({
-            client_secret: "secret678910",
+            client_secret: "secret678910"
         });
     } else if (query.client_id === "abcde") {
         callback({
-            client_secret: "secret123456",
+            client_secret: "secret123456"
         });
     } else {
         callback(false);

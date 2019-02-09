@@ -29,16 +29,22 @@ class BottomNavigation extends React.Component<Props, State> {
                             key={`transitioner_${this.state.key}`}
                             animationEnabled={false}
                             renderPager={renderSubView(
-                                sceneProps => <View />,
+                                sceneProps => (
+                                    <View />
+                                ),
                                 ownProps
                             )}
                             renderTabBar={renderSubView(
-                                sceneProps => <View />,
+                                sceneProps => (
+                                    <View />
+                                ),
                                 ownProps
                             )}
                             tabBarPosition="bottom"
                             renderScene={renderSubView(
-                                sceneProps => <View />,
+                                sceneProps => (
+                                    <View />
+                                ),
                                 ownProps
                             )}
                         />

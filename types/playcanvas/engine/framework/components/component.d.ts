@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @name pc.Component
      * @description Base constructor for a Component
@@ -10,7 +9,7 @@ declare namespace pc {
      * @property {Boolean} enabled Enables or disables the component.
      */
     class Component {
-        constructor(system: pc.ComponentSystem, entity: pc.Entity)
+        constructor(system: pc.ComponentSystem, entity: pc.Entity);
 
         /**
          * @private
@@ -24,7 +23,6 @@ declare namespace pc {
         private readonly data: pc.ComponentData;
 
         enabled: boolean;
-
 
         // Events
 
@@ -61,7 +59,11 @@ declare namespace pc {
          * obj.off('test', handler); // Removes all handler functions, called 'test'
          * obj.off('test', handler, this); // Removes all hander functions, called 'test' with scope this
          */
-        off(name: string, callback?: (...args: any[]) => void, scope?: any): void;
+        off(
+            name: string,
+            callback?: (...args: any[]) => void,
+            scope?: any
+        ): void;
 
         /**
          * @function
@@ -72,7 +74,17 @@ declare namespace pc {
          * @example
          * obj.fire('test', 'This is the message');
          */
-        fire(name: string, arg1?: any, arg2?: any, arg3?: any, arg4?: any, arg5?: any, arg6?: any, arg7?: any, arg8?: any): void;
+        fire(
+            name: string,
+            arg1?: any,
+            arg2?: any,
+            arg3?: any,
+            arg4?: any,
+            arg5?: any,
+            arg6?: any,
+            arg7?: any,
+            arg8?: any
+        ): void;
 
         /**
          * @function
@@ -88,17 +100,21 @@ declare namespace pc {
          * obj.fire('test', 1, 2); // prints 3 to the console
          * obj.fire('test', 1, 2); // not going to get handled
          */
-        once(name: string, callback: (...args: any[]) => void, scope?: any): void;
+        once(
+            name: string,
+            callback: (...args: any[]) => void,
+            scope?: any
+        ): void;
 
         /**
-        * @function
-        * @name pc.Component#hasEvent
-        * @description Test if there are any handlers bound to an event name
-        * @param {String} name The name of the event to test
-        * @example
-        * obj.on('test', function () { }); // bind an event to 'test'
-        * obj.hasEvent('test'); // returns true
-        */
+         * @function
+         * @name pc.Component#hasEvent
+         * @description Test if there are any handlers bound to an event name
+         * @param {String} name The name of the event to test
+         * @example
+         * obj.on('test', function () { }); // bind an event to 'test'
+         * obj.hasEvent('test'); // returns true
+         */
         hasEvent(name: string): boolean;
     }
 }

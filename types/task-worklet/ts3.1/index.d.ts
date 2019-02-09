@@ -1,6 +1,9 @@
 declare class TaskQueue<T extends TaskDescriptor = any> {
     constructor(options?: Options);
-    postTask<U extends T = any>(taskName: U['name'], ...args: Parameters<U>): Task<ReturnType<U>>;
+    postTask<U extends T = any>(
+        taskName: U["name"],
+        ...args: Parameters<U>
+    ): Task<ReturnType<U>>;
     addModule(moduleURL: string): Promise<void>;
 }
 
@@ -20,11 +23,11 @@ export interface Task<T = unknown> {
 }
 
 export type State =
-    | 'cancelled'
-    | 'completed'
-    | 'fulfilled'
-    | 'pending'
-    | 'scheduled';
+    | "cancelled"
+    | "completed"
+    | "fulfilled"
+    | "pending"
+    | "scheduled";
 
 export default TaskQueue;
 export as namespace TaskQueue;

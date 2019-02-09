@@ -1,6 +1,6 @@
-import hasEmoji = require('has-emoji');
+import hasEmoji = require("has-emoji");
 
 // $ExpectType boolean
-hasEmoji('Unicorn 🦄');
+hasEmoji("Unicorn 🦄");
 // $ExpectType boolean
-hasEmoji('Cat');
+hasEmoji("Cat");

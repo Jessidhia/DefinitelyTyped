@@ -3,11 +3,10 @@
 // Definitions by: delphinus <https://github.com/delphinus35>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import jQuery = require('jquery');
+import jQuery = require("jquery");
 
 declare global {
     namespace ImageMapster {
-
         type Select = "select";
         type Deselect = "deselect";
         type Set = "set";
@@ -21,11 +20,14 @@ declare global {
         type SetOptions = "set_options";
         type GetOptions = "get_options";
         type Tooltip = "tooltip";
-        type ToolTipCloseEvent = "area-mouseout" | "area-click" | "tooltip-click" | "image-mouseout";
+        type ToolTipCloseEvent =
+            | "area-mouseout"
+            | "area-click"
+            | "tooltip-click"
+            | "image-mouseout";
         type State = "highlight" | "select";
 
         interface RenderingOptions {
-
             /**
              * fade effect - can only be applied to "render_highlight".
              *
@@ -185,7 +187,6 @@ declare global {
         }
 
         interface AreaRenderingOptions extends RenderingOptions {
-
             key: string;
 
             /**
@@ -278,7 +279,6 @@ declare global {
         }
 
         interface OnClickData {
-
             /**
              * $(item) from boundList
              */
@@ -294,7 +294,6 @@ declare global {
         }
 
         interface OnStateChangeData {
-
             /**
              * map key
              */
@@ -309,7 +308,6 @@ declare global {
         }
 
         interface OnMouseData {
-
             /**
              * area key
              */
@@ -325,7 +323,6 @@ declare global {
         }
 
         interface OnGetListData {
-
             /**
              * primary mapKey for this area or area group
              */
@@ -345,7 +342,6 @@ declare global {
         }
 
         interface OnShowToolTipData {
-
             /**
              * jQuery object of the tooltip container
              */
@@ -365,7 +361,6 @@ declare global {
         }
 
         interface Options extends RenderingOptions {
-
             /**
              * an attribute identifying each imagemap area.
              *
@@ -476,7 +471,7 @@ declare global {
              * a "key" property identifying a valid mapKey, and additional
              * rendering options specific to that area or group
              */
-            areas?: AreaRenderingOptions[],
+            areas?: AreaRenderingOptions[];
 
             /**
              * add "classname" class to the wrapper created around the image, or
@@ -733,7 +728,6 @@ declare global {
     }
 
     interface JQuery {
-
         /**
          *
          * All images in the jQuery object will be bound. The specific example
@@ -794,8 +788,15 @@ declare global {
          * parameter. When present, these will supercede the default and
          * area-specific rendering options.
          */
-        mapster(method: ImageMapster.Set, selected: boolean, options: ImageMapster.RenderingOptions): JQuery;
-        mapster(method: ImageMapster.Set, options: ImageMapster.RenderingOptions): JQuery;
+        mapster(
+            method: ImageMapster.Set,
+            selected: boolean,
+            options: ImageMapster.RenderingOptions
+        ): JQuery;
+        mapster(
+            method: ImageMapster.Set,
+            options: ImageMapster.RenderingOptions
+        ): JQuery;
 
         /**
          * get: get keys for all selected areas
@@ -893,7 +894,10 @@ declare global {
          * them to any existing data. When using set_options the new options only
          * apply to future actions.
          */
-        mapster(method: ImageMapster.Rebind, options: ImageMapster.Options): JQuery;
+        mapster(
+            method: ImageMapster.Rebind,
+            options: ImageMapster.Options
+        ): JQuery;
 
         /**
          * resize: change the size of the image and map
@@ -916,7 +920,12 @@ declare global {
          * however, so in IE<9 the selections will be erased, then redrawn when the
          * animation is complete.
          */
-        mapster(method: ImageMapster.Resize, width: number, height: number, duration?: number): JQuery;
+        mapster(
+            method: ImageMapster.Resize,
+            width: number,
+            height: number,
+            duration?: number
+        ): JQuery;
 
         /**
          * keys: get the primary mapKey (or comma-separated list of keys) for an
@@ -948,7 +957,11 @@ declare global {
          * access to a complete list of primary keys in any group, or all keys
          * which contain a given primary key.
          */
-        mapster(method: ImageMapster.Keys, key: string, all?: boolean): string | string[];
+        mapster(
+            method: ImageMapster.Keys,
+            key: string,
+            all?: boolean
+        ): string | string[];
         mapster(method: ImageMapster.Keys, all: boolean): string | string[];
 
         /**
@@ -961,7 +974,10 @@ declare global {
          * options, but only update the state. This may affect future actions, but
          * it will not change any existing state information.
          */
-        mapster(method: ImageMapster.SetOptions, options?: ImageMapster.Options): JQuery;
+        mapster(
+            method: ImageMapster.SetOptions,
+            options?: ImageMapster.Options
+        ): JQuery;
 
         /**
          * get_options: get active options
@@ -977,7 +993,11 @@ declare global {
          * including those that are inherited, as well as any specifically assigned
          * to the area.
          */
-        mapster(method: ImageMapster.GetOptions, key?: string, effective?: boolean): ImageMapster.Options | ImageMapster.AreaRenderingOptions;
+        mapster(
+            method: ImageMapster.GetOptions,
+            key?: string,
+            effective?: boolean
+        ): ImageMapster.Options | ImageMapster.AreaRenderingOptions;
 
         /**
          * tooltip: show/hide tooltips from code

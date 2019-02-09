@@ -8,15 +8,31 @@ export { default as IoAndroidApps } from "../../io/android-apps";
 export { default as IoAndroidArchive } from "../../io/android-archive";
 export { default as IoAndroidArrowBack } from "../../io/android-arrow-back";
 export { default as IoAndroidArrowDown } from "../../io/android-arrow-down";
-export { default as IoAndroidArrowDropdownCircle } from "../../io/android-arrow-dropdown-circle";
-export { default as IoAndroidArrowDropdown } from "../../io/android-arrow-dropdown";
-export { default as IoAndroidArrowDropleftCircle } from "../../io/android-arrow-dropleft-circle";
-export { default as IoAndroidArrowDropleft } from "../../io/android-arrow-dropleft";
-export { default as IoAndroidArrowDroprightCircle } from "../../io/android-arrow-dropright-circle";
-export { default as IoAndroidArrowDropright } from "../../io/android-arrow-dropright";
-export { default as IoAndroidArrowDropupCircle } from "../../io/android-arrow-dropup-circle";
+export {
+    default as IoAndroidArrowDropdownCircle
+} from "../../io/android-arrow-dropdown-circle";
+export {
+    default as IoAndroidArrowDropdown
+} from "../../io/android-arrow-dropdown";
+export {
+    default as IoAndroidArrowDropleftCircle
+} from "../../io/android-arrow-dropleft-circle";
+export {
+    default as IoAndroidArrowDropleft
+} from "../../io/android-arrow-dropleft";
+export {
+    default as IoAndroidArrowDroprightCircle
+} from "../../io/android-arrow-dropright-circle";
+export {
+    default as IoAndroidArrowDropright
+} from "../../io/android-arrow-dropright";
+export {
+    default as IoAndroidArrowDropupCircle
+} from "../../io/android-arrow-dropup-circle";
 export { default as IoAndroidArrowDropup } from "../../io/android-arrow-dropup";
-export { default as IoAndroidArrowForward } from "../../io/android-arrow-forward";
+export {
+    default as IoAndroidArrowForward
+} from "../../io/android-arrow-forward";
 export { default as IoAndroidArrowUp } from "../../io/android-arrow-up";
 export { default as IoAndroidAttach } from "../../io/android-attach";
 export { default as IoAndroidBar } from "../../io/android-bar";
@@ -32,18 +48,30 @@ export { default as IoAndroidCancel } from "../../io/android-cancel";
 export { default as IoAndroidCar } from "../../io/android-car";
 export { default as IoAndroidCart } from "../../io/android-cart";
 export { default as IoAndroidChat } from "../../io/android-chat";
-export { default as IoAndroidCheckboxBlank } from "../../io/android-checkbox-blank";
-export { default as IoAndroidCheckboxOutlineBlank } from "../../io/android-checkbox-outline-blank";
-export { default as IoAndroidCheckboxOutline } from "../../io/android-checkbox-outline";
+export {
+    default as IoAndroidCheckboxBlank
+} from "../../io/android-checkbox-blank";
+export {
+    default as IoAndroidCheckboxOutlineBlank
+} from "../../io/android-checkbox-outline-blank";
+export {
+    default as IoAndroidCheckboxOutline
+} from "../../io/android-checkbox-outline";
 export { default as IoAndroidCheckbox } from "../../io/android-checkbox";
-export { default as IoAndroidCheckmarkCircle } from "../../io/android-checkmark-circle";
+export {
+    default as IoAndroidCheckmarkCircle
+} from "../../io/android-checkmark-circle";
 export { default as IoAndroidClipboard } from "../../io/android-clipboard";
 export { default as IoAndroidClose } from "../../io/android-close";
 export { default as IoAndroidCloudCircle } from "../../io/android-cloud-circle";
 export { default as IoAndroidCloudDone } from "../../io/android-cloud-done";
-export { default as IoAndroidCloudOutline } from "../../io/android-cloud-outline";
+export {
+    default as IoAndroidCloudOutline
+} from "../../io/android-cloud-outline";
 export { default as IoAndroidCloud } from "../../io/android-cloud";
-export { default as IoAndroidColorPalette } from "../../io/android-color-palette";
+export {
+    default as IoAndroidColorPalette
+} from "../../io/android-color-palette";
 export { default as IoAndroidCompass } from "../../io/android-compass";
 export { default as IoAndroidContact } from "../../io/android-contact";
 export { default as IoAndroidContacts } from "../../io/android-contacts";
@@ -58,7 +86,9 @@ export { default as IoAndroidDownload } from "../../io/android-download";
 export { default as IoAndroidDrafts } from "../../io/android-drafts";
 export { default as IoAndroidExit } from "../../io/android-exit";
 export { default as IoAndroidExpand } from "../../io/android-expand";
-export { default as IoAndroidFavoriteOutline } from "../../io/android-favorite-outline";
+export {
+    default as IoAndroidFavoriteOutline
+} from "../../io/android-favorite-outline";
 export { default as IoAndroidFavorite } from "../../io/android-favorite";
 export { default as IoAndroidFilm } from "../../io/android-film";
 export { default as IoAndroidFolderOpen } from "../../io/android-folder-open";
@@ -77,29 +107,51 @@ export { default as IoAndroidLock } from "../../io/android-lock";
 export { default as IoAndroidMail } from "../../io/android-mail";
 export { default as IoAndroidMap } from "../../io/android-map";
 export { default as IoAndroidMenu } from "../../io/android-menu";
-export { default as IoAndroidMicrophoneOff } from "../../io/android-microphone-off";
+export {
+    default as IoAndroidMicrophoneOff
+} from "../../io/android-microphone-off";
 export { default as IoAndroidMicrophone } from "../../io/android-microphone";
-export { default as IoAndroidMoreHorizontal } from "../../io/android-more-horizontal";
-export { default as IoAndroidMoreVertical } from "../../io/android-more-vertical";
+export {
+    default as IoAndroidMoreHorizontal
+} from "../../io/android-more-horizontal";
+export {
+    default as IoAndroidMoreVertical
+} from "../../io/android-more-vertical";
 export { default as IoAndroidNavigate } from "../../io/android-navigate";
-export { default as IoAndroidNotificationsNone } from "../../io/android-notifications-none";
-export { default as IoAndroidNotificationsOff } from "../../io/android-notifications-off";
-export { default as IoAndroidNotifications } from "../../io/android-notifications";
+export {
+    default as IoAndroidNotificationsNone
+} from "../../io/android-notifications-none";
+export {
+    default as IoAndroidNotificationsOff
+} from "../../io/android-notifications-off";
+export {
+    default as IoAndroidNotifications
+} from "../../io/android-notifications";
 export { default as IoAndroidOpen } from "../../io/android-open";
 export { default as IoAndroidOptions } from "../../io/android-options";
 export { default as IoAndroidPeople } from "../../io/android-people";
 export { default as IoAndroidPersonAdd } from "../../io/android-person-add";
 export { default as IoAndroidPerson } from "../../io/android-person";
-export { default as IoAndroidPhoneLandscape } from "../../io/android-phone-landscape";
-export { default as IoAndroidPhonePortrait } from "../../io/android-phone-portrait";
+export {
+    default as IoAndroidPhoneLandscape
+} from "../../io/android-phone-landscape";
+export {
+    default as IoAndroidPhonePortrait
+} from "../../io/android-phone-portrait";
 export { default as IoAndroidPin } from "../../io/android-pin";
 export { default as IoAndroidPlane } from "../../io/android-plane";
 export { default as IoAndroidPlaystore } from "../../io/android-playstore";
 export { default as IoAndroidPrint } from "../../io/android-print";
-export { default as IoAndroidRadioButtonOff } from "../../io/android-radio-button-off";
-export { default as IoAndroidRadioButtonOn } from "../../io/android-radio-button-on";
+export {
+    default as IoAndroidRadioButtonOff
+} from "../../io/android-radio-button-off";
+export {
+    default as IoAndroidRadioButtonOn
+} from "../../io/android-radio-button-on";
 export { default as IoAndroidRefresh } from "../../io/android-refresh";
-export { default as IoAndroidRemoveCircle } from "../../io/android-remove-circle";
+export {
+    default as IoAndroidRemoveCircle
+} from "../../io/android-remove-circle";
 export { default as IoAndroidRemove } from "../../io/android-remove";
 export { default as IoAndroidRestaurant } from "../../io/android-restaurant";
 export { default as IoAndroidSad } from "../../io/android-sad";
@@ -134,8 +186,12 @@ export { default as IoArrowDownA } from "../../io/arrow-down-a";
 export { default as IoArrowDownB } from "../../io/arrow-down-b";
 export { default as IoArrowDownC } from "../../io/arrow-down-c";
 export { default as IoArrowExpand } from "../../io/arrow-expand";
-export { default as IoArrowGraphDownLeft } from "../../io/arrow-graph-down-left";
-export { default as IoArrowGraphDownRight } from "../../io/arrow-graph-down-right";
+export {
+    default as IoArrowGraphDownLeft
+} from "../../io/arrow-graph-down-left";
+export {
+    default as IoArrowGraphDownRight
+} from "../../io/arrow-graph-down-right";
 export { default as IoArrowGraphUpLeft } from "../../io/arrow-graph-up-left";
 export { default as IoArrowGraphUpRight } from "../../io/arrow-graph-up-right";
 export { default as IoArrowLeftA } from "../../io/arrow-left-a";
@@ -217,7 +273,9 @@ export { default as IoEgg } from "../../io/egg";
 export { default as IoEject } from "../../io/eject";
 export { default as IoEmailUnread } from "../../io/email-unread";
 export { default as IoEmail } from "../../io/email";
-export { default as IoErlenmeyerFlaskBubbles } from "../../io/erlenmeyer-flask-bubbles";
+export {
+    default as IoErlenmeyerFlaskBubbles
+} from "../../io/erlenmeyer-flask-bubbles";
 export { default as IoErlenmeyerFlask } from "../../io/erlenmeyer-flask";
 export { default as IoEyeDisabled } from "../../io/eye-disabled";
 export { default as IoEye } from "../../io/eye";
@@ -257,9 +315,15 @@ export { default as IoIosAlarmOutline } from "../../io/ios-alarm-outline";
 export { default as IoIosAlarm } from "../../io/ios-alarm";
 export { default as IoIosAlbumsOutline } from "../../io/ios-albums-outline";
 export { default as IoIosAlbums } from "../../io/ios-albums";
-export { default as IoIosAmericanfootballOutline } from "../../io/ios-americanfootball-outline";
-export { default as IoIosAmericanfootball } from "../../io/ios-americanfootball";
-export { default as IoIosAnalyticsOutline } from "../../io/ios-analytics-outline";
+export {
+    default as IoIosAmericanfootballOutline
+} from "../../io/ios-americanfootball-outline";
+export {
+    default as IoIosAmericanfootball
+} from "../../io/ios-americanfootball";
+export {
+    default as IoIosAnalyticsOutline
+} from "../../io/ios-analytics-outline";
 export { default as IoIosAnalytics } from "../../io/ios-analytics";
 export { default as IoIosArrowBack } from "../../io/ios-arrow-back";
 export { default as IoIosArrowDown } from "../../io/ios-arrow-down";
@@ -277,7 +341,9 @@ export { default as IoIosBarcodeOutline } from "../../io/ios-barcode-outline";
 export { default as IoIosBarcode } from "../../io/ios-barcode";
 export { default as IoIosBaseballOutline } from "../../io/ios-baseball-outline";
 export { default as IoIosBaseball } from "../../io/ios-baseball";
-export { default as IoIosBasketballOutline } from "../../io/ios-basketball-outline";
+export {
+    default as IoIosBasketballOutline
+} from "../../io/ios-basketball-outline";
 export { default as IoIosBasketball } from "../../io/ios-basketball";
 export { default as IoIosBellOutline } from "../../io/ios-bell-outline";
 export { default as IoIosBell } from "../../io/ios-bell";
@@ -287,15 +353,21 @@ export { default as IoIosBoltOutline } from "../../io/ios-bolt-outline";
 export { default as IoIosBolt } from "../../io/ios-bolt";
 export { default as IoIosBookOutline } from "../../io/ios-book-outline";
 export { default as IoIosBook } from "../../io/ios-book";
-export { default as IoIosBookmarksOutline } from "../../io/ios-bookmarks-outline";
+export {
+    default as IoIosBookmarksOutline
+} from "../../io/ios-bookmarks-outline";
 export { default as IoIosBookmarks } from "../../io/ios-bookmarks";
 export { default as IoIosBoxOutline } from "../../io/ios-box-outline";
 export { default as IoIosBox } from "../../io/ios-box";
-export { default as IoIosBriefcaseOutline } from "../../io/ios-briefcase-outline";
+export {
+    default as IoIosBriefcaseOutline
+} from "../../io/ios-briefcase-outline";
 export { default as IoIosBriefcase } from "../../io/ios-briefcase";
 export { default as IoIosBrowsersOutline } from "../../io/ios-browsers-outline";
 export { default as IoIosBrowsers } from "../../io/ios-browsers";
-export { default as IoIosCalculatorOutline } from "../../io/ios-calculator-outline";
+export {
+    default as IoIosCalculatorOutline
+} from "../../io/ios-calculator-outline";
 export { default as IoIosCalculator } from "../../io/ios-calculator";
 export { default as IoIosCalendarOutline } from "../../io/ios-calendar-outline";
 export { default as IoIosCalendar } from "../../io/ios-calendar";
@@ -303,12 +375,18 @@ export { default as IoIosCameraOutline } from "../../io/ios-camera-outline";
 export { default as IoIosCamera } from "../../io/ios-camera";
 export { default as IoIosCartOutline } from "../../io/ios-cart-outline";
 export { default as IoIosCart } from "../../io/ios-cart";
-export { default as IoIosChatboxesOutline } from "../../io/ios-chatboxes-outline";
+export {
+    default as IoIosChatboxesOutline
+} from "../../io/ios-chatboxes-outline";
 export { default as IoIosChatboxes } from "../../io/ios-chatboxes";
-export { default as IoIosChatbubbleOutline } from "../../io/ios-chatbubble-outline";
+export {
+    default as IoIosChatbubbleOutline
+} from "../../io/ios-chatbubble-outline";
 export { default as IoIosChatbubble } from "../../io/ios-chatbubble";
 export { default as IoIosCheckmarkEmpty } from "../../io/ios-checkmark-empty";
-export { default as IoIosCheckmarkOutline } from "../../io/ios-checkmark-outline";
+export {
+    default as IoIosCheckmarkOutline
+} from "../../io/ios-checkmark-outline";
 export { default as IoIosCheckmark } from "../../io/ios-checkmark";
 export { default as IoIosCircleFilled } from "../../io/ios-circle-filled";
 export { default as IoIosCircleOutline } from "../../io/ios-circle-outline";
@@ -317,21 +395,31 @@ export { default as IoIosClock } from "../../io/ios-clock";
 export { default as IoIosCloseEmpty } from "../../io/ios-close-empty";
 export { default as IoIosCloseOutline } from "../../io/ios-close-outline";
 export { default as IoIosClose } from "../../io/ios-close";
-export { default as IoIosCloudDownloadOutline } from "../../io/ios-cloud-download-outline";
+export {
+    default as IoIosCloudDownloadOutline
+} from "../../io/ios-cloud-download-outline";
 export { default as IoIosCloudDownload } from "../../io/ios-cloud-download";
 export { default as IoIosCloudOutline } from "../../io/ios-cloud-outline";
-export { default as IoIosCloudUploadOutline } from "../../io/ios-cloud-upload-outline";
+export {
+    default as IoIosCloudUploadOutline
+} from "../../io/ios-cloud-upload-outline";
 export { default as IoIosCloudUpload } from "../../io/ios-cloud-upload";
 export { default as IoIosCloud } from "../../io/ios-cloud";
-export { default as IoIosCloudyNightOutline } from "../../io/ios-cloudy-night-outline";
+export {
+    default as IoIosCloudyNightOutline
+} from "../../io/ios-cloudy-night-outline";
 export { default as IoIosCloudyNight } from "../../io/ios-cloudy-night";
 export { default as IoIosCloudyOutline } from "../../io/ios-cloudy-outline";
 export { default as IoIosCloudy } from "../../io/ios-cloudy";
 export { default as IoIosCogOutline } from "../../io/ios-cog-outline";
 export { default as IoIosCog } from "../../io/ios-cog";
-export { default as IoIosColorFilterOutline } from "../../io/ios-color-filter-outline";
+export {
+    default as IoIosColorFilterOutline
+} from "../../io/ios-color-filter-outline";
 export { default as IoIosColorFilter } from "../../io/ios-color-filter";
-export { default as IoIosColorWandOutline } from "../../io/ios-color-wand-outline";
+export {
+    default as IoIosColorWandOutline
+} from "../../io/ios-color-wand-outline";
 export { default as IoIosColorWand } from "../../io/ios-color-wand";
 export { default as IoIosComposeOutline } from "../../io/ios-compose-outline";
 export { default as IoIosCompose } from "../../io/ios-compose";
@@ -348,7 +436,9 @@ export { default as IoIosEmailOutline } from "../../io/ios-email-outline";
 export { default as IoIosEmail } from "../../io/ios-email";
 export { default as IoIosEyeOutline } from "../../io/ios-eye-outline";
 export { default as IoIosEye } from "../../io/ios-eye";
-export { default as IoIosFastforwardOutline } from "../../io/ios-fastforward-outline";
+export {
+    default as IoIosFastforwardOutline
+} from "../../io/ios-fastforward-outline";
 export { default as IoIosFastforward } from "../../io/ios-fastforward";
 export { default as IoIosFilingOutline } from "../../io/ios-filing-outline";
 export { default as IoIosFiling } from "../../io/ios-filing";
@@ -366,15 +456,25 @@ export { default as IoIosFolderOutline } from "../../io/ios-folder-outline";
 export { default as IoIosFolder } from "../../io/ios-folder";
 export { default as IoIosFootballOutline } from "../../io/ios-football-outline";
 export { default as IoIosFootball } from "../../io/ios-football";
-export { default as IoIosGameControllerAOutline } from "../../io/ios-game-controller-a-outline";
-export { default as IoIosGameControllerA } from "../../io/ios-game-controller-a";
-export { default as IoIosGameControllerBOutline } from "../../io/ios-game-controller-b-outline";
-export { default as IoIosGameControllerB } from "../../io/ios-game-controller-b";
+export {
+    default as IoIosGameControllerAOutline
+} from "../../io/ios-game-controller-a-outline";
+export {
+    default as IoIosGameControllerA
+} from "../../io/ios-game-controller-a";
+export {
+    default as IoIosGameControllerBOutline
+} from "../../io/ios-game-controller-b-outline";
+export {
+    default as IoIosGameControllerB
+} from "../../io/ios-game-controller-b";
 export { default as IoIosGearOutline } from "../../io/ios-gear-outline";
 export { default as IoIosGear } from "../../io/ios-gear";
 export { default as IoIosGlassesOutline } from "../../io/ios-glasses-outline";
 export { default as IoIosGlasses } from "../../io/ios-glasses";
-export { default as IoIosGridViewOutline } from "../../io/ios-grid-view-outline";
+export {
+    default as IoIosGridViewOutline
+} from "../../io/ios-grid-view-outline";
 export { default as IoIosGridView } from "../../io/ios-grid-view";
 export { default as IoIosHeartOutline } from "../../io/ios-heart-outline";
 export { default as IoIosHeart } from "../../io/ios-heart";
@@ -391,7 +491,9 @@ export { default as IoIosInformatoutline } from "../../io/ios-informatoutline";
 export { default as IoIosIonicOutline } from "../../io/ios-ionic-outline";
 export { default as IoIosKeypadOutline } from "../../io/ios-keypad-outline";
 export { default as IoIosKeypad } from "../../io/ios-keypad";
-export { default as IoIosLightbulbOutline } from "../../io/ios-lightbulb-outline";
+export {
+    default as IoIosLightbulbOutline
+} from "../../io/ios-lightbulb-outline";
 export { default as IoIosLightbulb } from "../../io/ios-lightbulb";
 export { default as IoIosListOutline } from "../../io/ios-list-outline";
 export { default as IoIosList } from "../../io/ios-list";
@@ -425,9 +527,13 @@ export { default as IoIosNutrition } from "../../io/ios-nutrition";
 export { default as IoIosNutritoutline } from "../../io/ios-nutritoutline";
 export { default as IoIosPaperOutline } from "../../io/ios-paper-outline";
 export { default as IoIosPaper } from "../../io/ios-paper";
-export { default as IoIosPaperplaneOutline } from "../../io/ios-paperplane-outline";
+export {
+    default as IoIosPaperplaneOutline
+} from "../../io/ios-paperplane-outline";
 export { default as IoIosPaperplane } from "../../io/ios-paperplane";
-export { default as IoIosPartlysunnyOutline } from "../../io/ios-partlysunny-outline";
+export {
+    default as IoIosPartlysunnyOutline
+} from "../../io/ios-partlysunny-outline";
 export { default as IoIosPartlysunny } from "../../io/ios-partlysunny";
 export { default as IoIosPauseOutline } from "../../io/ios-pause-outline";
 export { default as IoIosPause } from "../../io/ios-pause";
@@ -437,7 +543,9 @@ export { default as IoIosPeopleOutline } from "../../io/ios-people-outline";
 export { default as IoIosPeople } from "../../io/ios-people";
 export { default as IoIosPersonOutline } from "../../io/ios-person-outline";
 export { default as IoIosPerson } from "../../io/ios-person";
-export { default as IoIosPersonaddOutline } from "../../io/ios-personadd-outline";
+export {
+    default as IoIosPersonaddOutline
+} from "../../io/ios-personadd-outline";
 export { default as IoIosPersonadd } from "../../io/ios-personadd";
 export { default as IoIosPhotosOutline } from "../../io/ios-photos-outline";
 export { default as IoIosPhotos } from "../../io/ios-photos";
@@ -452,7 +560,9 @@ export { default as IoIosPlusOutline } from "../../io/ios-plus-outline";
 export { default as IoIosPlus } from "../../io/ios-plus";
 export { default as IoIosPricetagOutline } from "../../io/ios-pricetag-outline";
 export { default as IoIosPricetag } from "../../io/ios-pricetag";
-export { default as IoIosPricetagsOutline } from "../../io/ios-pricetags-outline";
+export {
+    default as IoIosPricetagsOutline
+} from "../../io/ios-pricetags-outline";
 export { default as IoIosPricetags } from "../../io/ios-pricetags";
 export { default as IoIosPrinterOutline } from "../../io/ios-printer-outline";
 export { default as IoIosPrinter } from "../../io/ios-printer";
@@ -460,7 +570,9 @@ export { default as IoIosPulseStrong } from "../../io/ios-pulse-strong";
 export { default as IoIosPulse } from "../../io/ios-pulse";
 export { default as IoIosRainyOutline } from "../../io/ios-rainy-outline";
 export { default as IoIosRainy } from "../../io/ios-rainy";
-export { default as IoIosRecordingOutline } from "../../io/ios-recording-outline";
+export {
+    default as IoIosRecordingOutline
+} from "../../io/ios-recording-outline";
 export { default as IoIosRecording } from "../../io/ios-recording";
 export { default as IoIosRedoOutline } from "../../io/ios-redo-outline";
 export { default as IoIosRedo } from "../../io/ios-redo";
@@ -468,7 +580,9 @@ export { default as IoIosRefreshEmpty } from "../../io/ios-refresh-empty";
 export { default as IoIosRefreshOutline } from "../../io/ios-refresh-outline";
 export { default as IoIosRefresh } from "../../io/ios-refresh";
 export { default as IoIosReload } from "../../io/ios-reload";
-export { default as IoIosReverseCameraOutline } from "../../io/ios-reverse-camera-outline";
+export {
+    default as IoIosReverseCameraOutline
+} from "../../io/ios-reverse-camera-outline";
 export { default as IoIosReverseCamera } from "../../io/ios-reverse-camera";
 export { default as IoIosRewindOutline } from "../../io/ios-rewind-outline";
 export { default as IoIosRewind } from "../../io/ios-rewind";
@@ -480,25 +594,39 @@ export { default as IoIosSettingsStrong } from "../../io/ios-settings-strong";
 export { default as IoIosSettings } from "../../io/ios-settings";
 export { default as IoIosShuffleStrong } from "../../io/ios-shuffle-strong";
 export { default as IoIosShuffle } from "../../io/ios-shuffle";
-export { default as IoIosSkipbackwardOutline } from "../../io/ios-skipbackward-outline";
+export {
+    default as IoIosSkipbackwardOutline
+} from "../../io/ios-skipbackward-outline";
 export { default as IoIosSkipbackward } from "../../io/ios-skipbackward";
-export { default as IoIosSkipforwardOutline } from "../../io/ios-skipforward-outline";
+export {
+    default as IoIosSkipforwardOutline
+} from "../../io/ios-skipforward-outline";
 export { default as IoIosSkipforward } from "../../io/ios-skipforward";
 export { default as IoIosSnowy } from "../../io/ios-snowy";
-export { default as IoIosSpeedometerOutline } from "../../io/ios-speedometer-outline";
+export {
+    default as IoIosSpeedometerOutline
+} from "../../io/ios-speedometer-outline";
 export { default as IoIosSpeedometer } from "../../io/ios-speedometer";
 export { default as IoIosStarHalf } from "../../io/ios-star-half";
 export { default as IoIosStarOutline } from "../../io/ios-star-outline";
 export { default as IoIosStar } from "../../io/ios-star";
-export { default as IoIosStopwatchOutline } from "../../io/ios-stopwatch-outline";
+export {
+    default as IoIosStopwatchOutline
+} from "../../io/ios-stopwatch-outline";
 export { default as IoIosStopwatch } from "../../io/ios-stopwatch";
 export { default as IoIosSunnyOutline } from "../../io/ios-sunny-outline";
 export { default as IoIosSunny } from "../../io/ios-sunny";
-export { default as IoIosTelephoneOutline } from "../../io/ios-telephone-outline";
+export {
+    default as IoIosTelephoneOutline
+} from "../../io/ios-telephone-outline";
 export { default as IoIosTelephone } from "../../io/ios-telephone";
-export { default as IoIosTennisballOutline } from "../../io/ios-tennisball-outline";
+export {
+    default as IoIosTennisballOutline
+} from "../../io/ios-tennisball-outline";
 export { default as IoIosTennisball } from "../../io/ios-tennisball";
-export { default as IoIosThunderstormOutline } from "../../io/ios-thunderstorm-outline";
+export {
+    default as IoIosThunderstormOutline
+} from "../../io/ios-thunderstorm-outline";
 export { default as IoIosThunderstorm } from "../../io/ios-thunderstorm";
 export { default as IoIosTimeOutline } from "../../io/ios-time-outline";
 export { default as IoIosTime } from "../../io/ios-time";
@@ -518,7 +646,9 @@ export { default as IoIosVideocamOutline } from "../../io/ios-videocam-outline";
 export { default as IoIosVideocam } from "../../io/ios-videocam";
 export { default as IoIosVolumeHigh } from "../../io/ios-volume-high";
 export { default as IoIosVolumeLow } from "../../io/ios-volume-low";
-export { default as IoIosWineglassOutline } from "../../io/ios-wineglass-outline";
+export {
+    default as IoIosWineglassOutline
+} from "../../io/ios-wineglass-outline";
 export { default as IoIosWineglass } from "../../io/ios-wineglass";
 export { default as IoIosWorldOutline } from "../../io/ios-world-outline";
 export { default as IoIosWorld } from "../../io/ios-world";
@@ -611,88 +741,144 @@ export { default as IoShare } from "../../io/share";
 export { default as IoShuffle } from "../../io/shuffle";
 export { default as IoSkipBackward } from "../../io/skip-backward";
 export { default as IoSkipForward } from "../../io/skip-forward";
-export { default as IoSocialAndroidOutline } from "../../io/social-android-outline";
+export {
+    default as IoSocialAndroidOutline
+} from "../../io/social-android-outline";
 export { default as IoSocialAndroid } from "../../io/social-android";
-export { default as IoSocialAngularOutline } from "../../io/social-angular-outline";
+export {
+    default as IoSocialAngularOutline
+} from "../../io/social-angular-outline";
 export { default as IoSocialAngular } from "../../io/social-angular";
 export { default as IoSocialAppleOutline } from "../../io/social-apple-outline";
 export { default as IoSocialApple } from "../../io/social-apple";
-export { default as IoSocialBitcoinOutline } from "../../io/social-bitcoin-outline";
+export {
+    default as IoSocialBitcoinOutline
+} from "../../io/social-bitcoin-outline";
 export { default as IoSocialBitcoin } from "../../io/social-bitcoin";
-export { default as IoSocialBufferOutline } from "../../io/social-buffer-outline";
+export {
+    default as IoSocialBufferOutline
+} from "../../io/social-buffer-outline";
 export { default as IoSocialBuffer } from "../../io/social-buffer";
-export { default as IoSocialChromeOutline } from "../../io/social-chrome-outline";
+export {
+    default as IoSocialChromeOutline
+} from "../../io/social-chrome-outline";
 export { default as IoSocialChrome } from "../../io/social-chrome";
-export { default as IoSocialCodepenOutline } from "../../io/social-codepen-outline";
+export {
+    default as IoSocialCodepenOutline
+} from "../../io/social-codepen-outline";
 export { default as IoSocialCodepen } from "../../io/social-codepen";
 export { default as IoSocialCss3Outline } from "../../io/social-css3-outline";
 export { default as IoSocialCss3 } from "../../io/social-css3";
-export { default as IoSocialDesignernewsOutline } from "../../io/social-designernews-outline";
+export {
+    default as IoSocialDesignernewsOutline
+} from "../../io/social-designernews-outline";
 export { default as IoSocialDesignernews } from "../../io/social-designernews";
-export { default as IoSocialDribbbleOutline } from "../../io/social-dribbble-outline";
+export {
+    default as IoSocialDribbbleOutline
+} from "../../io/social-dribbble-outline";
 export { default as IoSocialDribbble } from "../../io/social-dribbble";
-export { default as IoSocialDropboxOutline } from "../../io/social-dropbox-outline";
+export {
+    default as IoSocialDropboxOutline
+} from "../../io/social-dropbox-outline";
 export { default as IoSocialDropbox } from "../../io/social-dropbox";
 export { default as IoSocialEuroOutline } from "../../io/social-euro-outline";
 export { default as IoSocialEuro } from "../../io/social-euro";
-export { default as IoSocialFacebookOutline } from "../../io/social-facebook-outline";
+export {
+    default as IoSocialFacebookOutline
+} from "../../io/social-facebook-outline";
 export { default as IoSocialFacebook } from "../../io/social-facebook";
-export { default as IoSocialFoursquareOutline } from "../../io/social-foursquare-outline";
+export {
+    default as IoSocialFoursquareOutline
+} from "../../io/social-foursquare-outline";
 export { default as IoSocialFoursquare } from "../../io/social-foursquare";
 export { default as IoSocialFreebsdDevil } from "../../io/social-freebsd-devil";
-export { default as IoSocialGithubOutline } from "../../io/social-github-outline";
+export {
+    default as IoSocialGithubOutline
+} from "../../io/social-github-outline";
 export { default as IoSocialGithub } from "../../io/social-github";
-export { default as IoSocialGoogleOutline } from "../../io/social-google-outline";
+export {
+    default as IoSocialGoogleOutline
+} from "../../io/social-google-outline";
 export { default as IoSocialGoogle } from "../../io/social-google";
-export { default as IoSocialGoogleplusOutline } from "../../io/social-googleplus-outline";
+export {
+    default as IoSocialGoogleplusOutline
+} from "../../io/social-googleplus-outline";
 export { default as IoSocialGoogleplus } from "../../io/social-googleplus";
-export { default as IoSocialHackernewsOutline } from "../../io/social-hackernews-outline";
+export {
+    default as IoSocialHackernewsOutline
+} from "../../io/social-hackernews-outline";
 export { default as IoSocialHackernews } from "../../io/social-hackernews";
 export { default as IoSocialHtml5Outline } from "../../io/social-html5-outline";
 export { default as IoSocialHtml5 } from "../../io/social-html5";
-export { default as IoSocialInstagramOutline } from "../../io/social-instagram-outline";
+export {
+    default as IoSocialInstagramOutline
+} from "../../io/social-instagram-outline";
 export { default as IoSocialInstagram } from "../../io/social-instagram";
-export { default as IoSocialJavascriptOutline } from "../../io/social-javascript-outline";
+export {
+    default as IoSocialJavascriptOutline
+} from "../../io/social-javascript-outline";
 export { default as IoSocialJavascript } from "../../io/social-javascript";
-export { default as IoSocialLinkedinOutline } from "../../io/social-linkedin-outline";
+export {
+    default as IoSocialLinkedinOutline
+} from "../../io/social-linkedin-outline";
 export { default as IoSocialLinkedin } from "../../io/social-linkedin";
 export { default as IoSocialMarkdown } from "../../io/social-markdown";
 export { default as IoSocialNodejs } from "../../io/social-nodejs";
 export { default as IoSocialOctocat } from "../../io/social-octocat";
-export { default as IoSocialPinterestOutline } from "../../io/social-pinterest-outline";
+export {
+    default as IoSocialPinterestOutline
+} from "../../io/social-pinterest-outline";
 export { default as IoSocialPinterest } from "../../io/social-pinterest";
 export { default as IoSocialPython } from "../../io/social-python";
-export { default as IoSocialRedditOutline } from "../../io/social-reddit-outline";
+export {
+    default as IoSocialRedditOutline
+} from "../../io/social-reddit-outline";
 export { default as IoSocialReddit } from "../../io/social-reddit";
 export { default as IoSocialRssOutline } from "../../io/social-rss-outline";
 export { default as IoSocialRss } from "../../io/social-rss";
 export { default as IoSocialSass } from "../../io/social-sass";
 export { default as IoSocialSkypeOutline } from "../../io/social-skype-outline";
 export { default as IoSocialSkype } from "../../io/social-skype";
-export { default as IoSocialSnapchatOutline } from "../../io/social-snapchat-outline";
+export {
+    default as IoSocialSnapchatOutline
+} from "../../io/social-snapchat-outline";
 export { default as IoSocialSnapchat } from "../../io/social-snapchat";
-export { default as IoSocialTumblrOutline } from "../../io/social-tumblr-outline";
+export {
+    default as IoSocialTumblrOutline
+} from "../../io/social-tumblr-outline";
 export { default as IoSocialTumblr } from "../../io/social-tumblr";
 export { default as IoSocialTux } from "../../io/social-tux";
-export { default as IoSocialTwitchOutline } from "../../io/social-twitch-outline";
+export {
+    default as IoSocialTwitchOutline
+} from "../../io/social-twitch-outline";
 export { default as IoSocialTwitch } from "../../io/social-twitch";
-export { default as IoSocialTwitterOutline } from "../../io/social-twitter-outline";
+export {
+    default as IoSocialTwitterOutline
+} from "../../io/social-twitter-outline";
 export { default as IoSocialTwitter } from "../../io/social-twitter";
 export { default as IoSocialUsdOutline } from "../../io/social-usd-outline";
 export { default as IoSocialUsd } from "../../io/social-usd";
 export { default as IoSocialVimeoOutline } from "../../io/social-vimeo-outline";
 export { default as IoSocialVimeo } from "../../io/social-vimeo";
-export { default as IoSocialWhatsappOutline } from "../../io/social-whatsapp-outline";
+export {
+    default as IoSocialWhatsappOutline
+} from "../../io/social-whatsapp-outline";
 export { default as IoSocialWhatsapp } from "../../io/social-whatsapp";
-export { default as IoSocialWindowsOutline } from "../../io/social-windows-outline";
+export {
+    default as IoSocialWindowsOutline
+} from "../../io/social-windows-outline";
 export { default as IoSocialWindows } from "../../io/social-windows";
-export { default as IoSocialWordpressOutline } from "../../io/social-wordpress-outline";
+export {
+    default as IoSocialWordpressOutline
+} from "../../io/social-wordpress-outline";
 export { default as IoSocialWordpress } from "../../io/social-wordpress";
 export { default as IoSocialYahooOutline } from "../../io/social-yahoo-outline";
 export { default as IoSocialYahoo } from "../../io/social-yahoo";
 export { default as IoSocialYenOutline } from "../../io/social-yen-outline";
 export { default as IoSocialYen } from "../../io/social-yen";
-export { default as IoSocialYoutubeOutline } from "../../io/social-youtube-outline";
+export {
+    default as IoSocialYoutubeOutline
+} from "../../io/social-youtube-outline";
 export { default as IoSocialYoutube } from "../../io/social-youtube";
 export { default as IoSoupCanOutline } from "../../io/soup-can-outline";
 export { default as IoSoupCan } from "../../io/soup-can";

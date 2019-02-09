@@ -1,4 +1,4 @@
-import human = require('humanparser');
+import human = require("humanparser");
 
 let parsedName = human.parseName("Mr. William R. Hearst, III");
 parsedName.firstName;

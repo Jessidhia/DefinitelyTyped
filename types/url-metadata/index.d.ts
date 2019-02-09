@@ -5,7 +5,10 @@
 
 export = urlMetadata;
 
-declare function urlMetadata(url: string, options?: urlMetadata.Options): Promise<urlMetadata.Result>;
+declare function urlMetadata(
+    url: string,
+    options?: urlMetadata.Options
+): Promise<urlMetadata.Result>;
 
 declare namespace urlMetadata {
     interface Options {
@@ -20,14 +23,14 @@ declare namespace urlMetadata {
     }
 
     interface Result {
-        "url": string;
-        "canonical": string;
-        "title": string;
-        "image": string;
-        "author": string;
-        "description": string;
-        "keywords": string;
-        "source": string;
+        url: string;
+        canonical: string;
+        title: string;
+        image: string;
+        author: string;
+        description: string;
+        keywords: string;
+        source: string;
         "og:url": string;
         "og:locale": string;
         "og:locale:alternate": string;

@@ -3,5 +3,9 @@
 // Definitions by: Zhiyuan Wang <https://github.com/danny8002>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function merge(destination: Object, source: Object, redefine?: boolean): Object;
+declare function merge(
+    destination: Object,
+    source: Object,
+    redefine?: boolean
+): Object;
 export = merge;

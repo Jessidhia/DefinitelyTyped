@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { MDCSelectionControlState } from 'material__selection-control';
+import { MDCSelectionControlState } from "material__selection-control";
 
 /**
  * Adapter for MDC Radio. Provides an interface for managing

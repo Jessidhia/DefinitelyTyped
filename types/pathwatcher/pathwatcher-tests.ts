@@ -99,7 +99,7 @@ bool = dir.isRoot();
 str = dir.getPath();
 str = dir.getRealPathSync();
 str = dir.getBaseName();
-dir.relativize("Test.file") ;
+dir.relativize("Test.file");
 
 // Traversing
 dir = dir.getParent();

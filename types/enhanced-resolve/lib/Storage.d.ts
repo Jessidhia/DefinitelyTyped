@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import { CommonFileSystemMethod } from './common-types'
-import { Dictionary } from './concord'
+import { CommonFileSystemMethod } from "./common-types";
+import { Dictionary } from "./concord";
 declare class Storage {
     count: number;
     data: Dictionary<any>;
@@ -16,11 +16,23 @@ declare class Storage {
 
     ensureTick(): void;
 
-    finished(name: string, err: NodeJS.ErrnoException | null, result: any): void;
+    finished(
+        name: string,
+        err: NodeJS.ErrnoException | null,
+        result: any
+    ): void;
 
-    finishedSync(name: string, err: NodeJS.ErrnoException | null, result?: any): void;
+    finishedSync(
+        name: string,
+        err: NodeJS.ErrnoException | null,
+        result?: any
+    ): void;
 
-    provide(name: string, provider: CommonFileSystemMethod, callback: (...args: any[]) => any): any;
+    provide(
+        name: string,
+        provider: CommonFileSystemMethod,
+        callback: (...args: any[]) => any
+    ): any;
 
     provideSync(name: string, provider: (name: string) => any): any;
 

@@ -6,8 +6,8 @@
 
 /// <reference types="node" />
 
-import { Store } from 'keyv';
-import { EventEmitter } from 'events';
+import { Store } from "keyv";
+import { EventEmitter } from "events";
 
 export = KeyvMongo;
 

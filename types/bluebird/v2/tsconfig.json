@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es5"
-        ],
+        "lib": ["es5"],
         "noImplicitAny": true,
         "noImplicitThis": false,
         "strictNullChecks": false,
         "strictFunctionTypes": false,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "types": [],
         "paths": {
-            "bluebird": [
-                "bluebird/v2"
-            ]
+            "bluebird": ["bluebird/v2"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "bluebird-tests.ts"
-    ]
+    "files": ["index.d.ts", "bluebird-tests.ts"]
 }

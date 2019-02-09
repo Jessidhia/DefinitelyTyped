@@ -15,13 +15,13 @@
 //
 
 // Module dependencies.
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 import Dictionary = Azure.ServiceBus.Dictionary;
 
 export namespace Azure.ServiceBus.Results {
     export interface QueueResponse {
         body: any;
-        headers: Dictionary<string>
+        headers: Dictionary<string>;
     }
 
     export interface QueueMessageResponse {

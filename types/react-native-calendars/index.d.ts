@@ -6,9 +6,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
-export import LocaleConfig = require('xdate');
+import * as React from "react";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
+export import LocaleConfig = require("xdate");
 
 export interface DateObject {
     day: number;
@@ -115,26 +115,28 @@ export interface PeriodMarking {
 }
 
 export type Marking =
-    CustomMarking | DotMarking |
-    MultiDotMarking | MultiPeriodMarking |
-    PeriodMarking;
+    | CustomMarking
+    | DotMarking
+    | MultiDotMarking
+    | MultiPeriodMarking
+    | PeriodMarking;
 
 export interface CustomMarkingProps {
-    markingType: 'custom';
+    markingType: "custom";
     markedDates: {
         [date: string]: CustomMarking;
     };
 }
 
 export interface DotMarkingProps {
-    markingType?: 'simple';
+    markingType?: "simple";
     markedDates: {
         [date: string]: DotMarking;
     };
 }
 
 export interface MultiDotMarkingProps {
-    markingType: 'multi-dot';
+    markingType: "multi-dot";
     markedDates: {
         [date: string]: MultiDotMarking;
     };
@@ -145,33 +147,33 @@ export interface MultiDotMarkingProps {
  * of the component
  */
 export interface MultiPeriodMarkingProps {
-    markingType: 'multi-period';
+    markingType: "multi-period";
     markedDates: {
-        [date: string]: MultiPeriodMarking
+        [date: string]: MultiPeriodMarking;
     };
 }
 
 export interface PeriodMarkingProps {
-    markingType: 'period';
+    markingType: "period";
     markedDates: {
         [date: string]: PeriodMarking;
     };
 }
 
 export type CalendarMarkingProps =
-    MultiDotMarkingProps |
-    DotMarkingProps |
-    PeriodMarkingProps |
-    MultiPeriodMarkingProps |
-    CustomMarkingProps |
-    {};
+    | MultiDotMarkingProps
+    | DotMarkingProps
+    | PeriodMarkingProps
+    | MultiPeriodMarkingProps
+    | CustomMarkingProps
+    | {};
 
 export interface DayComponentProps {
     date: DateObject;
     marking: false | Marking[];
     onPress: () => any;
     onLongPress: () => any;
-    state: '' | 'selected' | 'disabled' | 'today';
+    state: "" | "selected" | "disabled" | "today";
     theme: CalendarTheme;
 }
 
@@ -184,7 +186,9 @@ export interface CalendarBaseProps {
     /**
      *  Provide custom day rendering component.
      */
-    dayComponent?: React.Component<DayComponentProps> | React.SFC<DayComponentProps>;
+    dayComponent?:
+        | React.Component<DayComponentProps>
+        | React.SFC<DayComponentProps>;
 
     /**
      *  Disable days by default. Default = false
@@ -270,7 +274,7 @@ export interface CalendarBaseProps {
     /**
      *  Replace default arrows with custom ones (direction can be 'left' or 'right')
      */
-    renderArrow?: (direction: 'left' | 'right') => React.ReactNode;
+    renderArrow?: (direction: "left" | "right") => React.ReactNode;
 
     /**
      *  Show week numbers to the left. Default = false
@@ -288,7 +292,9 @@ export interface CalendarBaseProps {
     theme?: CalendarTheme;
 }
 
-export class Calendar extends React.Component<CalendarMarkingProps & CalendarBaseProps> { }
+export class Calendar extends React.Component<
+    CalendarMarkingProps & CalendarBaseProps
+> {}
 
 export interface CalendarListBaseProps extends CalendarBaseProps {
     /**
@@ -342,7 +348,9 @@ export interface CalendarListBaseProps extends CalendarBaseProps {
     selected?: string;
 }
 
-export class CalendarList extends React.Component<CalendarMarkingProps & CalendarListBaseProps> { }
+export class CalendarList extends React.Component<
+    CalendarMarkingProps & CalendarListBaseProps
+> {}
 
 export interface AgendaThemeStyle extends CalendarTheme {
     agendaDayNumColor?: string;
@@ -485,4 +493,6 @@ export interface AgendaProps<TItem> {
      */
     theme?: AgendaThemeStyle;
 }
-export class Agenda<TItem> extends React.Component<AgendaProps<TItem> & CalendarMarkingProps> { }
+export class Agenda<TItem> extends React.Component<
+    AgendaProps<TItem> & CalendarMarkingProps
+> {}

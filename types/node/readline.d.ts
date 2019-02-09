@@ -21,7 +21,12 @@ declare module "readline" {
          *
          * @see https://nodejs.org/dist/latest-v10.x/docs/api/readline.html#readline_class_interface
          */
-        protected constructor(input: NodeJS.ReadableStream, output?: NodeJS.WritableStream, completer?: Completer | AsyncCompleter, terminal?: boolean);
+        protected constructor(
+            input: NodeJS.ReadableStream,
+            output?: NodeJS.WritableStream,
+            completer?: Completer | AsyncCompleter,
+            terminal?: boolean
+        );
         /**
          * NOTE: According to the documentation:
          *
@@ -87,7 +92,10 @@ declare module "readline" {
         once(event: "SIGINT", listener: () => void): this;
         once(event: "SIGTSTP", listener: () => void): this;
 
-        prependListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependListener(event: "close", listener: () => void): this;
         prependListener(event: "line", listener: (input: string) => void): this;
         prependListener(event: "pause", listener: () => void): this;
@@ -96,9 +104,15 @@ declare module "readline" {
         prependListener(event: "SIGINT", listener: () => void): this;
         prependListener(event: "SIGTSTP", listener: () => void): this;
 
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependOnceListener(event: "close", listener: () => void): this;
-        prependOnceListener(event: "line", listener: (input: string) => void): this;
+        prependOnceListener(
+            event: "line",
+            listener: (input: string) => void
+        ): this;
         prependOnceListener(event: "pause", listener: () => void): this;
         prependOnceListener(event: "resume", listener: () => void): this;
         prependOnceListener(event: "SIGCONT", listener: () => void): this;
@@ -109,7 +123,10 @@ declare module "readline" {
     type ReadLine = Interface; // type forwarded for backwards compatiblity
 
     type Completer = (line: string) => CompleterResult;
-    type AsyncCompleter = (line: string, callback: (err: any, result: CompleterResult) => void) => any;
+    type AsyncCompleter = (
+        line: string,
+        callback: (err: any, result: CompleterResult) => void
+    ) => any;
 
     type CompleterResult = [string[], string];
 
@@ -124,12 +141,28 @@ declare module "readline" {
         removeHistoryDuplicates?: boolean;
     }
 
-    function createInterface(input: NodeJS.ReadableStream, output?: NodeJS.WritableStream, completer?: Completer | AsyncCompleter, terminal?: boolean): Interface;
+    function createInterface(
+        input: NodeJS.ReadableStream,
+        output?: NodeJS.WritableStream,
+        completer?: Completer | AsyncCompleter,
+        terminal?: boolean
+    ): Interface;
     function createInterface(options: ReadLineOptions): Interface;
 
-    function cursorTo(stream: NodeJS.WritableStream, x: number, y?: number): void;
-    function emitKeypressEvents(stream: NodeJS.ReadableStream, interface?: Interface): void;
-    function moveCursor(stream: NodeJS.WritableStream, dx: number | string, dy: number | string): void;
+    function cursorTo(
+        stream: NodeJS.WritableStream,
+        x: number,
+        y?: number
+    ): void;
+    function emitKeypressEvents(
+        stream: NodeJS.ReadableStream,
+        interface?: Interface
+    ): void;
+    function moveCursor(
+        stream: NodeJS.WritableStream,
+        dx: number | string,
+        dy: number | string
+    ): void;
     function clearLine(stream: NodeJS.WritableStream, dir: number): void;
     function clearScreenDown(stream: NodeJS.WritableStream): void;
 }

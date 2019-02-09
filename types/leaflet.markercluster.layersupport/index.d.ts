@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
-import 'leaflet.markercluster';
+import * as L from "leaflet";
+import "leaflet.markercluster";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     namespace MarkerClusterGroup {
         interface LayerSupport extends MarkerClusterGroup {
             /**
@@ -24,7 +24,8 @@ declare module 'leaflet' {
         }
     }
 
-    interface MarkerClusterGroupLayerSupportOptions extends MarkerClusterGroupOptions {
+    interface MarkerClusterGroupLayerSupportOptions
+        extends MarkerClusterGroupOptions {
         /**
          * Buffer single addLayer and removeLayer requests for efficiency.
          */
@@ -35,6 +36,8 @@ declare module 'leaflet' {
         /**
          * Create a layer support marker cluster group, optionally given marker cluster group options.
          */
-        function layerSupport(options?: MarkerClusterGroupLayerSupportOptions): MarkerClusterGroup.LayerSupport;
+        function layerSupport(
+            options?: MarkerClusterGroupLayerSupportOptions
+        ): MarkerClusterGroup.LayerSupport;
     }
 }

@@ -1,25 +1,35 @@
-import { EmitterBase } from '../base';
-import { ApplicationInfo } from './application';
-import { WindowInfo } from './window';
-import { Identity } from '../../identity';
-import { MonitorInfo } from './monitor';
-import { PointTopLeft } from './point';
-import { GetLogRequestType, LogInfo, LogLevel } from './log';
-import { ProxyInfo, ProxyConfig } from './proxy';
-import { ProcessInfo } from './process';
-import { AppAssetInfo, AppAssetRequest, RuntimeDownloadOptions, RuntimeDownloadProgress } from './download-asset';
-import { RVMInfo } from './rvm';
-import { RuntimeInfo } from './runtime-info';
-import { Entity, EntityInfo } from './entity';
-import { HostSpecs } from './host-specs';
-import { ExternalProcessRequestType, TerminateExternalRequestType, ExternalConnection, ExternalProcessInfo } from './external-process';
-import Transport from '../../transport/transport';
-import { CookieInfo, CookieOption } from './cookie';
-import { RegistryInfo } from './registry-info';
-import { DownloadPreloadOption, DownloadPreloadInfo } from './download-preload';
-import { ClearCacheOption } from './clearCacheOption';
-import { CrashReporterOption } from './crashReporterOption';
-import { SystemEvents } from '../events/system';
+import { EmitterBase } from "../base";
+import { ApplicationInfo } from "./application";
+import { WindowInfo } from "./window";
+import { Identity } from "../../identity";
+import { MonitorInfo } from "./monitor";
+import { PointTopLeft } from "./point";
+import { GetLogRequestType, LogInfo, LogLevel } from "./log";
+import { ProxyInfo, ProxyConfig } from "./proxy";
+import { ProcessInfo } from "./process";
+import {
+    AppAssetInfo,
+    AppAssetRequest,
+    RuntimeDownloadOptions,
+    RuntimeDownloadProgress
+} from "./download-asset";
+import { RVMInfo } from "./rvm";
+import { RuntimeInfo } from "./runtime-info";
+import { Entity, EntityInfo } from "./entity";
+import { HostSpecs } from "./host-specs";
+import {
+    ExternalProcessRequestType,
+    TerminateExternalRequestType,
+    ExternalConnection,
+    ExternalProcessInfo
+} from "./external-process";
+import Transport from "../../transport/transport";
+import { CookieInfo, CookieOption } from "./cookie";
+import { RegistryInfo } from "./registry-info";
+import { DownloadPreloadOption, DownloadPreloadInfo } from "./download-preload";
+import { ClearCacheOption } from "./clearCacheOption";
+import { CrashReporterOption } from "./crashReporterOption";
+import { SystemEvents } from "../events/system";
 /**
  * AppAssetInfo interface
  * @typedef { object } AppAssetInfo
@@ -73,12 +83,12 @@ import { SystemEvents } from '../events/system';
  * @property { Time } times The numbers of milliseconds the CPU has spent in different modes.
  */
 /**
-* CrashReporterOption interface
-* @typedef { object } CrashReporterOption
-* @property { boolean } diagnosticMode In diagnostic mode the crash reporter will send diagnostic logs to
-*  the OpenFin reporting service on runtime shutdown
-* @property { boolean } isRunning check if it's running
-*/
+ * CrashReporterOption interface
+ * @typedef { object } CrashReporterOption
+ * @property { boolean } diagnosticMode In diagnostic mode the crash reporter will send diagnostic logs to
+ *  the OpenFin reporting service on runtime shutdown
+ * @property { boolean } isRunning check if it's running
+ */
 /**
  * DipRect interface
  * @typedef { object } DipRect
@@ -524,7 +534,9 @@ export default class System extends EmitterBase<SystemEvents> {
      * @return {Promise.<CrashReporterOption>}
      * @tutorial System.startCrashReporter
      */
-    startCrashReporter(options: CrashReporterOption): Promise<CrashReporterOption>;
+    startCrashReporter(
+        options: CrashReporterOption
+    ): Promise<CrashReporterOption>;
     /**
      * Returns a hex encoded hash of the mac address and the currently logged in user name
      * @return {Promise.<string>}
@@ -627,7 +639,9 @@ export default class System extends EmitterBase<SystemEvents> {
      * @return {Promise.<Identity>}
      * @tutorial System.launchExternalProcess
      */
-    launchExternalProcess(options: ExternalProcessRequestType): Promise<Identity>;
+    launchExternalProcess(
+        options: ExternalProcessRequestType
+    ): Promise<Identity>;
     /**
      * Monitors a running process.
      * @param { ExternalProcessInfo } options See tutorial for more details
@@ -672,7 +686,9 @@ export default class System extends EmitterBase<SystemEvents> {
      * @return {Promise.<void>}
      * @tutorial System.terminateExternalProcess
      */
-    terminateExternalProcess(options: TerminateExternalRequestType): Promise<void>;
+    terminateExternalProcess(
+        options: TerminateExternalRequestType
+    ): Promise<void>;
     /**
      * Update the OpenFin Runtime Proxy settings.
      * @param { ProxyConfig } options A config object defined in the ProxyConfig interface
@@ -686,22 +702,30 @@ export default class System extends EmitterBase<SystemEvents> {
      * @return {Promise.<void>}
      * @tutorial System.downloadAsset
      */
-    downloadAsset(appAsset: AppAssetInfo, progressListener: (progress: RuntimeDownloadProgress) => void): Promise<void>;
+    downloadAsset(
+        appAsset: AppAssetInfo,
+        progressListener: (progress: RuntimeDownloadProgress) => void
+    ): Promise<void>;
     /**
-    * Downloads a version of the runtime.
-    * @param { RuntimeDownloadOptions } options - Download options.
-    * @param {Function} [progressListener] - called as the runtime is downloaded with progress information.
-    * @return {Promise.<void>}
-    * @tutorial System.downloadRuntime
-    */
-    downloadRuntime(options: RuntimeDownloadOptions, progressListener: (progress: RuntimeDownloadProgress) => void): Promise<void>;
+     * Downloads a version of the runtime.
+     * @param { RuntimeDownloadOptions } options - Download options.
+     * @param {Function} [progressListener] - called as the runtime is downloaded with progress information.
+     * @return {Promise.<void>}
+     * @tutorial System.downloadRuntime
+     */
+    downloadRuntime(
+        options: RuntimeDownloadOptions,
+        progressListener: (progress: RuntimeDownloadProgress) => void
+    ): Promise<void>;
     /**
-    * Download preload scripts from given URLs
-    * @param {DownloadPreloadOption[]} scripts - URLs of preload scripts. See tutorial for more details.
-    * @return {Promise.Array<DownloadPreloadInfo>}
-    * @tutorial System.downloadPreloadScripts
-    */
-    downloadPreloadScripts(scripts: Array<DownloadPreloadOption>): Promise<Array<DownloadPreloadInfo>>;
+     * Download preload scripts from given URLs
+     * @param {DownloadPreloadOption[]} scripts - URLs of preload scripts. See tutorial for more details.
+     * @return {Promise.Array<DownloadPreloadInfo>}
+     * @tutorial System.downloadPreloadScripts
+     */
+    downloadPreloadScripts(
+        scripts: Array<DownloadPreloadOption>
+    ): Promise<Array<DownloadPreloadInfo>>;
     /**
      * Retrieves an array of data (name, ids, bounds) for all application windows.
      * @return {Promise.Array.<Identity>}
@@ -752,7 +776,11 @@ export default class System extends EmitterBase<SystemEvents> {
      * @return {Promise.<RegistryInfo>}
      * @tutorial System.readRegistryValue
      */
-    readRegistryValue(rootKey: string, subkey: string, value: string): Promise<RegistryInfo>;
+    readRegistryValue(
+        rootKey: string,
+        subkey: string,
+        value: string
+    ): Promise<RegistryInfo>;
     /**
      * This function call will register a unique id and produce a token.
      * The token can be used to broker an external connection.

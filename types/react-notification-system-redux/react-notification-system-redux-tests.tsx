@@ -2,12 +2,22 @@ import * as React from "react";
 import { createStore, Store } from "redux";
 import { Notification } from "react-notification-system";
 import Notifications = require("react-notification-system-redux");
-import { reducer, removeAll, show, hide, info, error, warning, success, NotificationLevel } from "react-notification-system-redux";
+import {
+    reducer,
+    removeAll,
+    show,
+    hide,
+    info,
+    error,
+    warning,
+    success,
+    NotificationLevel
+} from "react-notification-system-redux";
 
 class Test extends React.Component {
     private test() {
         const notification: Notification = {
-            message : "Test"
+            message: "Test"
         };
         info(notification);
         error(notification);
@@ -25,7 +35,7 @@ class Test extends React.Component {
 
     render() {
         const notifications: Notification[] = [];
-        return (<Notifications notifications={ notifications } />);
+        return <Notifications notifications={notifications} />;
     }
 }
 

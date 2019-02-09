@@ -3,7 +3,6 @@
 // Definitions by: Wim Looman <https://github.com/Nemo157>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare function jjv(): jjv.Env;
 
 declare namespace jjv {
@@ -12,7 +11,7 @@ declare namespace jjv {
             [property: string]: {
                 required?: boolean;
                 type?: string;
-            }
+            };
         };
     }
 
@@ -30,7 +29,10 @@ declare namespace jjv {
 
         addType(name: string, parse: (input: any) => any): void;
         addFormat(name: string, parse: (input: any) => any): void;
-        addCheck(name: string, check: (input: any, comparator: any) => any): void;
+        addCheck(
+            name: string,
+            check: (input: any, comparator: any) => any
+        ): void;
         addTypeCoercion(name: string, coerce: (input: any) => any): void;
 
         validate(name: string, object: any, options?: Options): Errors;

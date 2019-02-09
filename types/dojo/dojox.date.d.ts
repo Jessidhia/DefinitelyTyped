@@ -3,12 +3,9 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace date {
-        namespace timezone {
-        }
+        namespace timezone {}
 
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/date/buddhist.html
@@ -27,7 +24,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.buddhist.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.buddhist.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two buddhist date objects by date, time, or both.
              *
@@ -35,7 +36,11 @@ declare namespace dojox {
              * @param date2
              * @param portion               Optional
              */
-            compare(date1: dojox.date.buddhist.Date, date2: dojox.date.buddhist.Date, portion: String): void;
+            compare(
+                date1: dojox.date.buddhist.Date,
+                date2: dojox.date.buddhist.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -43,7 +48,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current hebrew.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.hebrew.Date, date2: dojox.date.hebrew.Date, interval: String): void;
+            difference(
+                date1: dojox.date.hebrew.Date,
+                date2: dojox.date.hebrew.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param dateObject
@@ -187,7 +196,10 @@ declare namespace dojox {
                  * @param dateObject
                  * @param options               Optional
                  */
-                format(dateObject: dojox.date.buddhist.Date, options: Object): void;
+                format(
+                    dateObject: dojox.date.buddhist.Date,
+                    options: Object
+                ): void;
                 /**
                  * Used to get localized strings from dojo.cldr for day or month names.
                  *
@@ -197,7 +209,13 @@ declare namespace dojox {
                  * @param locale               Optional
                  * @param date               Optional
                  */
-                getNames(item: String, type: String, context: String, locale: String, date: dojox.date.buddhist.Date): void;
+                getNames(
+                    item: String,
+                    type: String,
+                    context: String,
+                    locale: String,
+                    date: dojox.date.buddhist.Date
+                ): void;
                 /**
                  * This function parses string date value according to options
                  *
@@ -235,7 +253,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.hebrew.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.hebrew.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two hebrew date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -244,7 +266,11 @@ declare namespace dojox {
              * @param dateheb2
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(dateheb1: dojox.date.hebrew.Date, dateheb2: dojox.date.hebrew.Date, portion: String): void;
+            compare(
+                dateheb1: dojox.date.hebrew.Date,
+                dateheb2: dojox.date.hebrew.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -252,7 +278,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.hebrew.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.hebrew.Date, date2: dojox.date.hebrew.Date, interval: String): void;
+            difference(
+                date1: dojox.date.hebrew.Date,
+                date2: dojox.date.hebrew.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -370,7 +400,11 @@ declare namespace dojox {
                  * @param month               Optional
                  * @param date               Optional
                  */
-                setFullYear(year: number, month: number, date: number): Function;
+                setFullYear(
+                    year: number,
+                    month: number,
+                    date: number
+                ): Function;
                 /**
                  * sets the hour
                  * Sets the hour and optionally minutes, seconds, milliseconds also.
@@ -474,7 +508,13 @@ declare namespace dojox {
                  * @param locale               Optionaloverride locale used to find the names
                  * @param date               Optionalrequired for item=months to determine leap month name
                  */
-                getNames(item: String, type: String, context: String, locale: String, date: dojox.date.hebrew.Date): void;
+                getNames(
+                    item: String,
+                    type: String,
+                    context: String,
+                    locale: String,
+                    date: dojox.date.hebrew.Date
+                ): void;
                 /**
                  * This function parse string date value according to options
                  *
@@ -556,7 +596,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.islamic.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.islamic.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two islamic date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -565,7 +609,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current islamic.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.islamic.Date, date2: dojox.date.islamic.Date, portion: String): void;
+            compare(
+                date1: dojox.date.islamic.Date,
+                date2: dojox.date.islamic.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -573,7 +621,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.islamic.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.islamic.Date, date2: dojox.date.islamic.Date, interval: String): void;
+            difference(
+                date1: dojox.date.islamic.Date,
+                date2: dojox.date.islamic.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -733,7 +785,10 @@ declare namespace dojox {
                  * @param dateObject
                  * @param options               Optional
                  */
-                format(dateObject: dojox.date.islamic.Date, options: Object): void;
+                format(
+                    dateObject: dojox.date.islamic.Date,
+                    options: Object
+                ): void;
                 /**
                  * Used to get localized strings from dojo.cldr for day or month names.
                  *
@@ -743,7 +798,13 @@ declare namespace dojox {
                  * @param locale               Optional
                  * @param date               Optional
                  */
-                getNames(item: String, type: String, context: String, locale: String, date: dojox.date.islamic.Date): any;
+                getNames(
+                    item: String,
+                    type: String,
+                    context: String,
+                    locale: String,
+                    date: dojox.date.islamic.Date
+                ): any;
                 /**
                  * This function parse string date value according to options
                  *
@@ -777,7 +838,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.persian.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.persian.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two persian date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -786,7 +851,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current persian.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.persian.Date, date2: dojox.date.persian.Date, portion: String): void;
+            compare(
+                date1: dojox.date.persian.Date,
+                date2: dojox.date.persian.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -794,7 +863,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.persian.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.persian.Date, date2: dojox.date.persian.Date, interval: String): void;
+            difference(
+                date1: dojox.date.persian.Date,
+                date2: dojox.date.persian.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -1008,7 +1081,10 @@ declare namespace dojox {
                  * @param dateObject
                  * @param options               Optional
                  */
-                format(dateObject: dojox.date.persian.Date, options: Object): void;
+                format(
+                    dateObject: dojox.date.persian.Date,
+                    options: Object
+                ): void;
                 /**
                  * Used to get localized strings from dojo.cldr for day or month names.
                  *
@@ -1018,7 +1094,13 @@ declare namespace dojox {
                  * @param locale               Optional
                  * @param date               Optional
                  */
-                getNames(item: String, type: String, context: String, locale: String, date: dojox.date.persian.Date): any;
+                getNames(
+                    item: String,
+                    type: String,
+                    context: String,
+                    locale: String,
+                    date: dojox.date.persian.Date
+                ): any;
                 /**
                  * This function parse string date value according to options
                  *
@@ -1052,7 +1134,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.umalqura.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.umalqura.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two umalqura date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -1061,7 +1147,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current umalqura.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.umalqura.Date, date2: dojox.date.umalqura.Date, portion: String): void;
+            compare(
+                date1: dojox.date.umalqura.Date,
+                date2: dojox.date.umalqura.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -1069,7 +1159,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.umalqura.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.umalqura.Date, date2: dojox.date.umalqura.Date, interval: String): void;
+            difference(
+                date1: dojox.date.umalqura.Date,
+                date2: dojox.date.umalqura.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -1231,7 +1325,10 @@ declare namespace dojox {
                  * @param dateObject
                  * @param options               Optional
                  */
-                format(dateObject: dojox.date.umalqura.Date, options: Object): void;
+                format(
+                    dateObject: dojox.date.umalqura.Date,
+                    options: Object
+                ): void;
                 /**
                  * Used to get localized strings from dojo.cldr for day or month names.
                  *
@@ -1241,7 +1338,13 @@ declare namespace dojox {
                  * @param locale               Optional
                  * @param date               Optional
                  */
-                getNames(item: String, type: String, context: String, locale: String, date: dojox.date.umalqura.Date): any;
+                getNames(
+                    item: String,
+                    type: String,
+                    context: String,
+                    locale: String,
+                    date: dojox.date.umalqura.Date
+                ): any;
                 /**
                  * This function parse string date value according to options
                  *
@@ -1360,82 +1463,81 @@ declare namespace dojox {
             strftime(dateObject: Date, format: String, locale: String): void;
         }
     }
-
 }
 
 declare module "dojox/date/buddhist" {
-    var exp: dojox.date.buddhist
-    export=exp;
+    var exp: dojox.date.buddhist;
+    export = exp;
 }
 declare module "dojox/date/buddhist/Date" {
-    var exp: dojox.date.buddhist.Date
-    export=exp;
+    var exp: dojox.date.buddhist.Date;
+    export = exp;
 }
 declare module "dojox/date/buddhist/locale" {
-    var exp: dojox.date.buddhist.locale
-    export=exp;
+    var exp: dojox.date.buddhist.locale;
+    export = exp;
 }
 declare module "dojox/date/hebrew" {
-    var exp: dojox.date.hebrew
-    export=exp;
+    var exp: dojox.date.hebrew;
+    export = exp;
 }
 declare module "dojox/date/hebrew/Date" {
-    var exp: dojox.date.hebrew.Date
-    export=exp;
+    var exp: dojox.date.hebrew.Date;
+    export = exp;
 }
 declare module "dojox/date/hebrew/locale" {
-    var exp: dojox.date.hebrew.locale
-    export=exp;
+    var exp: dojox.date.hebrew.locale;
+    export = exp;
 }
 declare module "dojox/date/hebrew/numerals" {
-    var exp: dojox.date.hebrew.numerals
-    export=exp;
+    var exp: dojox.date.hebrew.numerals;
+    export = exp;
 }
 declare module "dojox/date/islamic" {
-    var exp: dojox.date.islamic
-    export=exp;
+    var exp: dojox.date.islamic;
+    export = exp;
 }
 declare module "dojox/date/islamic/Date" {
-    var exp: dojox.date.islamic.Date
-    export=exp;
+    var exp: dojox.date.islamic.Date;
+    export = exp;
 }
 declare module "dojox/date/islamic/locale" {
-    var exp: dojox.date.islamic.locale
-    export=exp;
+    var exp: dojox.date.islamic.locale;
+    export = exp;
 }
 declare module "dojox/date/persian" {
-    var exp: dojox.date.persian
-    export=exp;
+    var exp: dojox.date.persian;
+    export = exp;
 }
 declare module "dojox/date/persian/Date" {
-    var exp: dojox.date.persian.Date
-    export=exp;
+    var exp: dojox.date.persian.Date;
+    export = exp;
 }
 declare module "dojox/date/persian/locale" {
-    var exp: dojox.date.persian.locale
-    export=exp;
+    var exp: dojox.date.persian.locale;
+    export = exp;
 }
 declare module "dojox/date/umalqura" {
-    var exp: dojox.date.umalqura
-    export=exp;
+    var exp: dojox.date.umalqura;
+    export = exp;
 }
 declare module "dojox/date/umalqura/Date" {
-    var exp: dojox.date.umalqura.Date
-    export=exp;
+    var exp: dojox.date.umalqura.Date;
+    export = exp;
 }
 declare module "dojox/date/umalqura/locale" {
-    var exp: dojox.date.umalqura.locale
-    export=exp;
+    var exp: dojox.date.umalqura.locale;
+    export = exp;
 }
 declare module "dojox/date/php" {
-    var exp: dojox.date.php
-    export=exp;
+    var exp: dojox.date.php;
+    export = exp;
 }
 declare module "dojox/date/posix" {
-    var exp: dojox.date.posix
-    export=exp;
+    var exp: dojox.date.posix;
+    export = exp;
 }
 declare module "dojox/date/relative" {
-    var exp: dojox.date.relative
-    export=exp;
+    var exp: dojox.date.relative;
+    export = exp;
 }

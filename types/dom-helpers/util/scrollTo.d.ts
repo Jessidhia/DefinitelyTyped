@@ -1,3 +1,6 @@
-declare const scrollTo: (element: Element, scrollParent?: Element) => () => void;
+declare const scrollTo: (
+    element: Element,
+    scrollParent?: Element
+) => () => void;
 
 export = scrollTo;

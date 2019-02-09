@@ -5,8 +5,7 @@
 
 ///<reference types="node"/>
 
-
-import stream = require('stream');
+import stream = require("stream");
 
 interface Callback {
     (err: Error, value: string): void;
@@ -23,13 +22,34 @@ export interface Options {
 }
 
 export declare function prompt(message: string, fn?: Callback): any;
-export declare function prompt(message: string, opts: Options, fn?: Callback): any;
+export declare function prompt(
+    message: string,
+    opts: Options,
+    fn?: Callback
+): any;
 
 export declare function password(message: string, fn?: Callback): any;
-export declare function password(message: string, opts: Options, fn?: Callback): any;
+export declare function password(
+    message: string,
+    opts: Options,
+    fn?: Callback
+): any;
 
 export declare function confirm(message: string, fn?: Callback): any;
-export declare function confirm(message: string, opts: Options, fn?: Callback): any;
+export declare function confirm(
+    message: string,
+    opts: Options,
+    fn?: Callback
+): any;
 
-export declare function choose(message: string, choices: string[], fn?: Callback): any;
-export declare function choose(message: string, choices: string[], opts: Options, fn?: Callback): any;
+export declare function choose(
+    message: string,
+    choices: string[],
+    fn?: Callback
+): any;
+export declare function choose(
+    message: string,
+    choices: string[],
+    opts: Options,
+    fn?: Callback
+): any;

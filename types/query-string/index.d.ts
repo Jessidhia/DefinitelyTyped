@@ -10,16 +10,16 @@
 // TypeScript Version: 2.2
 
 export interface ParseOptions {
-    arrayFormat?: 'bracket' | 'index' | 'none';
+    arrayFormat?: "bracket" | "index" | "none";
     decode?: boolean;
 }
 
 export interface InputParams {
-  [key: string]: any;
+    [key: string]: any;
 }
 
 export interface OutputParams {
-  [key: string]: string | string[] | undefined;
+    [key: string]: string | string[] | undefined;
 }
 
 /**
@@ -28,12 +28,15 @@ export interface OutputParams {
  */
 export function parse(str: string, options?: ParseOptions): OutputParams;
 
-export function parseUrl(str: string, options?: ParseOptions): {url: string, query: OutputParams};
+export function parseUrl(
+    str: string,
+    options?: ParseOptions
+): { url: string; query: OutputParams };
 
 export interface StringifyOptions {
     strict?: boolean;
     encode?: boolean;
-    arrayFormat?: 'bracket' | 'index' | 'none';
+    arrayFormat?: "bracket" | "index" | "none";
     sort?: ((m: string, n: string) => boolean) | boolean;
 }
 

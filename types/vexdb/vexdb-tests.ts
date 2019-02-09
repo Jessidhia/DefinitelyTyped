@@ -2,23 +2,23 @@
  * Requests
  */
 import {
-  get,
-  live,
-  TeamsRequestObject,
-  AwardsRequestObject,
-  EventsRequestObject,
-  RankingsRequestObject,
-  SeasonRankingsRequestObject,
-  SkillsRequestObject,
-  MatchesRequestObject,
-  TeamsResponseObject,
-  AwardsResponseObject,
-  EventsResponseObject,
-  RankingsResponseObject,
-  SeasonRankingsResponseObject,
-  SkillsResponseObject,
-  MatchesResponseObject,
-  size
+    get,
+    live,
+    TeamsRequestObject,
+    AwardsRequestObject,
+    EventsRequestObject,
+    RankingsRequestObject,
+    SeasonRankingsRequestObject,
+    SkillsRequestObject,
+    MatchesRequestObject,
+    TeamsResponseObject,
+    AwardsResponseObject,
+    EventsResponseObject,
+    RankingsResponseObject,
+    SeasonRankingsResponseObject,
+    SkillsResponseObject,
+    MatchesResponseObject,
+    size
 } from "vexdb";
 
 get("teams", { number: "3796B" });

@@ -1,3 +1,3 @@
-import * as ffmpegStatic from 'ffmpeg-static';
+import * as ffmpegStatic from "ffmpeg-static";
 
 ffmpegStatic.path;

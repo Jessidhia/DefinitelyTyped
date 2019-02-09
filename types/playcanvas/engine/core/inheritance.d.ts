@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @private
      * @function
@@ -26,5 +25,8 @@ declare namespace pc {
      * var c = new Class();
      * c.fn(); // prints 'base' then 'class'
      */
-    function inherits<T extends Function, U extends Function>(Self: T, Super: U): T & U;
+    function inherits<T extends Function, U extends Function>(
+        Self: T,
+        Super: U
+    ): T & U;
 }

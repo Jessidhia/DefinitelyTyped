@@ -1,7 +1,7 @@
-import * as on from './on';
-import * as off from './off';
-import * as listen from './listen';
-import * as filter from './filter';
+import * as on from "./on";
+import * as off from "./off";
+import * as listen from "./listen";
+import * as filter from "./filter";
 
 declare const _default: {
     on: typeof on;

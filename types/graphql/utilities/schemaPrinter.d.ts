@@ -22,6 +22,9 @@ export interface Options {
  */
 export function printSchema(schema: GraphQLSchema, options?: Options): string;
 
-export function printIntrospectionSchema(schema: GraphQLSchema, options?: Options): string;
+export function printIntrospectionSchema(
+    schema: GraphQLSchema,
+    options?: Options
+): string;
 
 export function printType(type: GraphQLNamedType, options?: Options): string;

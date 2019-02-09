@@ -1,13 +1,13 @@
-import { Repository } from './repository';
-import { Oid } from './oid';
-import { Tree } from './tree';
-import { Commit } from './commit';
-import { Index } from './index';
-import { AnnotatedCommit } from './annotated-commit';
-import { CheckoutOptions } from './checkout-options';
-import { Oidarray } from './oid-array';
-import { MergeOptions } from './merge-options';
-import { MergeFileInput } from './merge-file-input';
+import { Repository } from "./repository";
+import { Oid } from "./oid";
+import { Tree } from "./tree";
+import { Commit } from "./commit";
+import { Index } from "./index";
+import { AnnotatedCommit } from "./annotated-commit";
+import { CheckoutOptions } from "./checkout-options";
+import { Oidarray } from "./oid-array";
+import { MergeOptions } from "./merge-options";
+import { MergeFileInput } from "./merge-file-input";
 
 export namespace Merge {
     const enum ANALYSIS {
@@ -49,11 +49,27 @@ export namespace Merge {
 }
 
 export class Merge {
-    static merge(repo: Repository, theirHead: AnnotatedCommit, mergeOpts?: MergeOptions, checkoutOpts?: CheckoutOptions): any;
+    static merge(
+        repo: Repository,
+        theirHead: AnnotatedCommit,
+        mergeOpts?: MergeOptions,
+        checkoutOpts?: CheckoutOptions
+    ): any;
     static base(repo: Repository, one: Oid, two: Oid): Promise<Oid>;
     static bases(repo: Repository, one: Oid, two: Oid): Promise<Oidarray>;
-    static commits(repo: Repository, ourCommit: Commit, theirCommit: Commit, options?: MergeOptions): any;
+    static commits(
+        repo: Repository,
+        ourCommit: Commit,
+        theirCommit: Commit,
+        options?: MergeOptions
+    ): any;
     static fileInitInput(opts: MergeFileInput, version: number): number;
     static initOptions(opts: MergeOptions, version: number): number;
-    static trees(repo: Repository, ancestorTree: Tree, ourTree: Tree, theirTree: Tree, opts?: MergeOptions): Promise<Index>;
+    static trees(
+        repo: Repository,
+        ancestorTree: Tree,
+        ourTree: Tree,
+        theirTree: Tree,
+        opts?: MergeOptions
+    ): Promise<Index>;
 }

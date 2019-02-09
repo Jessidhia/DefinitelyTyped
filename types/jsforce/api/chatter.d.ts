@@ -1,6 +1,6 @@
-import { Connection, Callback } from '../connection';
-import { Query } from '../query';
-import { Stream } from 'stream';
+import { Connection, Callback } from "../connection";
+import { Query } from "../query";
+import { Stream } from "stream";
 
 interface BatchRequestParams extends RequestParams {
     method: string;
@@ -24,8 +24,7 @@ interface RequestParams {
     body?: string;
 }
 
-export class RequestResult {
-}
+export class RequestResult {}
 
 export class Request<T> implements PromiseLike<T> {
     constructor(chatter: Chatter, params: RequestParams);
@@ -36,8 +35,16 @@ export class Request<T> implements PromiseLike<T> {
 
     stream(): Stream;
 
-    then<TResult1, TResult2>(onfulfilled?: ((value: T) => (PromiseLike<TResult1> | TResult1)) | null | undefined,
-                             onrejected?: ((reason: any) => (PromiseLike<TResult2> | TResult2)) | null | undefined): Promise<TResult1 | TResult2>;
+    then<TResult1, TResult2>(
+        onfulfilled?:
+            | ((value: T) => PromiseLike<TResult1> | TResult1)
+            | null
+            | undefined,
+        onrejected?:
+            | ((reason: any) => PromiseLike<TResult2> | TResult2)
+            | null
+            | undefined
+    ): Promise<TResult1 | TResult2>;
 
     finally(onfinally?: () => void): Promise<T>;
 
@@ -61,9 +68,14 @@ export class Resource<T> extends Request<T> {
 export class Chatter {
     constructor(conn: Connection);
 
-    batch(callback?: Callback<BatchRequestResults>): Promise<BatchRequestResults>;
+    batch(
+        callback?: Callback<BatchRequestResults>
+    ): Promise<BatchRequestResults>;
 
-    request(params: RequestParams, callback?: Callback<Request<RequestResult>>): Request<RequestResult>;
+    request(
+        params: RequestParams,
+        callback?: Callback<Request<RequestResult>>
+    ): Request<RequestResult>;
 
-    resource(url: string, queryParams?: object): Resource<RequestResult>
+    resource(url: string, queryParams?: object): Resource<RequestResult>;
 }

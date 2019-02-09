@@ -382,7 +382,7 @@ declare namespace PIXI {
             | PIXI.HitArea;
         buttonMode: boolean;
         cursor: string;
-        trackedPointers: { [key: number]: interaction.InteractionTrackingData; };
+        trackedPointers: { [key: number]: interaction.InteractionTrackingData };
         // Deprecated
         defaultCursor: string;
         // end interactive target

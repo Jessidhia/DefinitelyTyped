@@ -1,5 +1,9 @@
 import { createStore, Store, Reducer } from "redux";
-import { batchedSubscribe, BatchFunction, NotifyFunction } from 'redux-batched-subscribe';
+import {
+    batchedSubscribe,
+    BatchFunction,
+    NotifyFunction
+} from "redux-batched-subscribe";
 
 interface State {
     [key: string]: any;

@@ -3,10 +3,8 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare namespace dojox {
-        namespace app {
+    namespace app {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/main.html
          *
@@ -14,7 +12,9 @@ declare namespace dojox {
          * @param config
          * @param node
          */
-        interface main{(config: any, node: any): void}
+        interface main {
+            (config: any, node: any): void;
+        }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/Controller.html
          *
@@ -49,7 +49,11 @@ declare namespace dojox {
          *
          * @param params view parameters, include:app: the appid: view idname: view nametemplate: view template identifier. If templateString is not empty, this parameter is ignored.templateString: view template stringcontroller: view controller module identifierparent: parent viewchildren: children viewsnls: nls definition module identifier
          */
-        class View extends dijit._TemplatedMixin implements dijit._WidgetsInTemplateMixin, dijit.Destroyable, dojox.app.ViewBase {
+        class View extends dijit._TemplatedMixin
+            implements
+                dijit._WidgetsInTemplateMixin,
+                dijit.Destroyable,
+                dojox.app.ViewBase {
             constructor(params: any);
             /**
              * Object to which attach points and events will be scoped.  Defaults
@@ -230,7 +234,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  * remove a binded event signal.
                  *
@@ -273,7 +281,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  * remove a binded event signal.
                  *
@@ -311,7 +323,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  *
                  * @param view
@@ -365,7 +381,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  *
                  * @param view
@@ -418,7 +438,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  * Create a view instance if not already loaded by calling createView. This is typically a
                  * dojox/app/View.
@@ -428,7 +452,12 @@ declare namespace dojox {
                  * @param subIds sub views' id of this view.
                  * @param params
                  */
-                createChild(parent: Object, childId: String, subIds: String, params: any): any;
+                createChild(
+                    parent: Object,
+                    childId: String,
+                    subIds: String,
+                    params: any
+                ): any;
                 /**
                  * Create a dojox/app/View instance. Can be overridden to create different type of views.
                  *
@@ -439,7 +468,14 @@ declare namespace dojox {
                  * @param params params of this view.
                  * @param type the MID of the View. If not provided "dojox/app/View".
                  */
-                createView(parent: Object, id: String, name: String, mixin: String, params: Object, type: String): any;
+                createView(
+                    parent: Object,
+                    id: String,
+                    name: String,
+                    mixin: String,
+                    params: Object,
+                    type: String
+                ): any;
                 /**
                  *
                  * @param event
@@ -460,7 +496,13 @@ declare namespace dojox {
                  * @param params params of this view.
                  * @param loadEvent the event passed for the load of this view.
                  */
-                loadChild(parent: Object, childId: String, subIds: String, params: Object, loadEvent: Object): any;
+                loadChild(
+                    parent: Object,
+                    childId: String,
+                    subIds: String,
+                    params: Object,
+                    loadEvent: Object
+                ): any;
                 /**
                  * Response to dojox/app "app-load" event.
                  *
@@ -500,7 +542,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  *
                  * @param view
@@ -566,7 +612,11 @@ declare namespace dojox {
                  * @param event event
                  * @param handler event handler
                  */
-                bind(evented: Object, event: String, handler: Function): Function;
+                bind(
+                    evented: Object,
+                    event: String,
+                    handler: Function
+                ): Function;
                 /**
                  * Proceed transition queue by FIFO by default.
                  * If transition is in proceeding, add the next transition to waiting queue.
@@ -654,7 +704,9 @@ declare namespace dojox {
              * @param params The params set into the config for this model.
              * @param item The String with the name of this model
              */
-            interface mvcModel{(config: Object, params: Object, item: String): void}
+            interface mvcModel {
+                (config: Object, params: Object, item: String): void;
+            }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/utils/nls.html
              *
@@ -663,7 +715,9 @@ declare namespace dojox {
              * @param config The section of the config for this view or for the app.
              * @param parent The parent of this view or the app itself, so that models from the parent will beavailable to the view.
              */
-            interface nls{(config: Object, parent: Object): void}
+            interface nls {
+                (config: Object, parent: Object): void;
+            }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/utils/model.html
              *
@@ -675,7 +729,9 @@ declare namespace dojox {
              * @param parent The parent of this view or the app itself, so that models from the parent will be available to the view.
              * @param app
              */
-            interface model{(config: Object, parent: Object, app: Object): void}
+            interface model {
+                (config: Object, parent: Object, app: Object): void;
+            }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/utils/simpleModel.html
              *
@@ -689,7 +745,9 @@ declare namespace dojox {
              * @param params The params set into the config for this model.
              * @param item The String with the name of this model
              */
-            interface simpleModel{(config: Object, params: Object, item: String): void}
+            interface simpleModel {
+                (config: Object, params: Object, item: String): void;
+            }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/utils/constraints.html
              *
@@ -702,7 +760,10 @@ declare namespace dojox {
                  * @param view the View to get the child from
                  * @param selChildren the Array of the subChildren found
                  */
-                getAllSelectedChildren(view: dojox.app.View, selChildren: any[]): any;
+                getAllSelectedChildren(
+                    view: dojox.app.View,
+                    selChildren: any[]
+                ): any;
                 /**
                  * get current selected child according to the constraint
                  *
@@ -722,7 +783,11 @@ declare namespace dojox {
                  * @param constraint tbe constraint object
                  * @param child the child to select
                  */
-                setSelectedChild(view: dojox.app.View, constraint: Object, child: dojox.app.View): void;
+                setSelectedChild(
+                    view: dojox.app.View,
+                    constraint: Object,
+                    child: dojox.app.View
+                ): void;
             }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/app/utils/config.html
@@ -767,7 +832,13 @@ declare namespace dojox {
                  * @param changedRegionId               OptionalIf specified, the slider for the region with the specified id has been dragged, and thusthe region's height or width should be adjusted according to changedRegionSize
                  * @param changedRegionSize               OptionalSee changedRegionId.
                  */
-                layoutChildren(container: HTMLElement, dim: Object, children: any[], changedRegionId: String, changedRegionSize: number): void;
+                layoutChildren(
+                    container: HTMLElement,
+                    dim: Object,
+                    children: any[],
+                    changedRegionId: String,
+                    changedRegionSize: number
+                ): void;
                 /**
                  * Given the margin-box size of a node, return its content box size.
                  * Functions like domGeometry.contentBox() but is more reliable since it doesn't have
@@ -962,7 +1033,11 @@ declare namespace dojox {
                  * @param pos The current position. An object with x and y.
                  * @param dim Dimension information returned by getDim().
                  */
-                adjustDestination(to: Object, pos: Object, dim: Object): boolean;
+                adjustDestination(
+                    to: Object,
+                    pos: Object,
+                    dim: Object
+                ): boolean;
                 /**
                  *
                  */
@@ -1113,7 +1188,11 @@ declare namespace dojox {
                  * @param alignWithTop               OptionalIf true, aligns the node at the top of the pane.If false, aligns the node at the bottom of the pane.
                  * @param duration               OptionalDuration of scrolling in seconds. (ex. 0.3)If not specified, scrolls without animation.
                  */
-                scrollIntoView(node: HTMLElement, alignWithTop: boolean, duration: number): void;
+                scrollIntoView(
+                    node: HTMLElement,
+                    alignWithTop: boolean,
+                    duration: number
+                ): void;
                 /**
                  * Moves the scroll bar(s) to the given position without animation.
                  *
@@ -1127,7 +1206,11 @@ declare namespace dojox {
                  * @param doNotMoveScrollBar               OptionalIf true, the scroll bar will not be updated. If not specified,it will be updated.
                  * @param node               OptionalA DOM node to scroll. If not specified, defaults tothis.containerNode.
                  */
-                scrollTo(to: Object, doNotMoveScrollBar: boolean, node: HTMLElement): void;
+                scrollTo(
+                    to: Object,
+                    doNotMoveScrollBar: boolean,
+                    node: HTMLElement
+                ): void;
                 /**
                  * Programmatically sets key frames for the scroll animation.
                  *
@@ -1158,7 +1241,11 @@ declare namespace dojox {
                  * @param duration Duration of the animation in seconds. (ex. 0.3)
                  * @param easing The name of easing effect which webkit supports."ease", "linear", "ease-in", "ease-out", etc.
                  */
-                slideScrollBarTo(to: Object, duration: number, easing: String): void;
+                slideScrollBarTo(
+                    to: Object,
+                    duration: number,
+                    easing: String
+                ): void;
                 /**
                  * Scrolls to the given position with the slide animation.
                  *
@@ -1225,24 +1312,46 @@ declare namespace dojox {
              * @param params Hash of initialization parameters for widget, including scalar values (like title, duration etc.)and functions, typically callbacks like onClick.The hash can contain any of the widget's properties, excluding read-only properties.
              * @param srcNodeRef       OptionalIf a srcNodeRef (DOM node) is specified:use srcNodeRef.innerHTML as my contentsif this is a behavioral widget then apply behavior to that srcNodeRefotherwise, replace srcNodeRef with my generated DOM tree
              */
-            class Container extends dijit._WidgetBase implements dijit._Container, dijit._Contained, dojox.app.widgets._ScrollableMixin {
+            class Container extends dijit._WidgetBase
+                implements
+                    dijit._Container,
+                    dijit._Contained,
+                    dojox.app.widgets._ScrollableMixin {
                 constructor(params?: Object, srcNodeRef?: HTMLElement);
                 /**
                  * e.g. Allow ScrollableView in a SwapView.
                  *
                  */
                 "allowNestedScrolls": boolean;
-                set(property:"allowNestedScrolls", value: boolean): void;
-                get(property:"allowNestedScrolls"): boolean;
-                watch(property:"allowNestedScrolls", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "allowNestedScrolls", value: boolean): void;
+                get(property: "allowNestedScrolls"): boolean;
+                watch(
+                    property: "allowNestedScrolls",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Enables the search for application-specific bars (header or footer).
                  *
                  */
                 "appBars": boolean;
-                set(property:"appBars", value: boolean): void;
-                get(property:"appBars"): boolean;
-                watch(property:"appBars", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "appBars", value: boolean): void;
+                get(property: "appBars"): boolean;
+                watch(
+                    property: "appBars",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
                  * for each XXX attribute to be mapped to the DOM.
@@ -1286,33 +1395,69 @@ declare namespace dojox {
                  *
                  */
                 "attributeMap": Object;
-                set(property:"attributeMap", value: Object): void;
-                get(property:"attributeMap"): Object;
-                watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "attributeMap", value: Object): void;
+                get(property: "attributeMap"): Object;
+                watch(
+                    property: "attributeMap",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
                  * widget state.
                  *
                  */
                 "baseClass": string;
-                set(property:"baseClass", value: string): void;
-                get(property:"baseClass"): string;
-                watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "baseClass", value: string): void;
+                get(property: "baseClass"): string;
+                watch(
+                    property: "baseClass",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "class": string;
-                set(property:"class", value: string): void;
-                get(property:"class"): string;
-                watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "class", value: string): void;
+                get(property: "class"): string;
+                watch(
+                    property: "class",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * bounce back to the content area
                  *
                  */
                 "constraint": boolean;
-                set(property:"constraint", value: boolean): void;
-                get(property:"constraint"): boolean;
-                watch(property:"constraint", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "constraint", value: boolean): void;
+                get(property: "constraint"): boolean;
+                watch(
+                    property: "constraint",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Designates where children of the source DOM node will be placed.
                  * "Children" in this case refers to both DOM nodes and widgets.
@@ -1337,9 +1482,18 @@ declare namespace dojox {
                  *
                  */
                 "containerNode": HTMLElement;
-                set(property:"containerNode", value: HTMLElement): void;
-                get(property:"containerNode"): HTMLElement;
-                watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "containerNode", value: HTMLElement): void;
+                get(property: "containerNode"): HTMLElement;
+                watch(
+                    property: "containerNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Bi-directional support, as defined by the HTML DIR
                  * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -1347,24 +1501,51 @@ declare namespace dojox {
                  *
                  */
                 "dir": string;
-                set(property:"dir", value: string): void;
-                get(property:"dir"): string;
-                watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "dir", value: string): void;
+                get(property: "dir"): string;
+                watch(
+                    property: "dir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * disable the move handler if scroll starts in the unexpected direction
                  *
                  */
                 "dirLock": boolean;
-                set(property:"dirLock", value: boolean): void;
-                get(property:"dirLock"): boolean;
-                watch(property:"dirLock", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "dirLock", value: boolean): void;
+                get(property: "dirLock"): boolean;
+                watch(
+                    property: "dirLock",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "disableFlashScrollBar": boolean;
-                set(property:"disableFlashScrollBar", value: boolean): void;
-                get(property:"disableFlashScrollBar"): boolean;
-                watch(property:"disableFlashScrollBar", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "disableFlashScrollBar", value: boolean): void;
+                get(property: "disableFlashScrollBar"): boolean;
+                watch(
+                    property: "disableFlashScrollBar",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This is our visible representation of the widget! Other DOM
                  * Nodes may by assigned to other properties, usually through the
@@ -1373,63 +1554,135 @@ declare namespace dojox {
                  *
                  */
                 "domNode": HTMLElement;
-                set(property:"domNode", value: HTMLElement): void;
-                get(property:"domNode"): HTMLElement;
-                watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "domNode", value: HTMLElement): void;
+                get(property: "domNode"): HTMLElement;
+                watch(
+                    property: "domNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "fadeScrollBar": boolean;
-                set(property:"fadeScrollBar", value: boolean): void;
-                get(property:"fadeScrollBar"): boolean;
-                watch(property:"fadeScrollBar", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "fadeScrollBar", value: boolean): void;
+                get(property: "fadeScrollBar"): boolean;
+                watch(
+                    property: "fadeScrollBar",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "fixedFooter": string;
-                set(property:"fixedFooter", value: string): void;
-                get(property:"fixedFooter"): string;
-                watch(property:"fixedFooter", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "fixedFooter", value: string): void;
+                get(property: "fixedFooter"): string;
+                watch(
+                    property: "fixedFooter",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * height of a fixed footer
                  *
                  */
                 "fixedFooterHeight": number;
-                set(property:"fixedFooterHeight", value: number): void;
-                get(property:"fixedFooterHeight"): number;
-                watch(property:"fixedFooterHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "fixedFooterHeight", value: number): void;
+                get(property: "fixedFooterHeight"): number;
+                watch(
+                    property: "fixedFooterHeight",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "fixedHeader": string;
-                set(property:"fixedHeader", value: string): void;
-                get(property:"fixedHeader"): string;
-                watch(property:"fixedHeader", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "fixedHeader", value: string): void;
+                get(property: "fixedHeader"): string;
+                watch(
+                    property: "fixedHeader",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * height of a fixed header
                  *
                  */
                 "fixedHeaderHeight": number;
-                set(property:"fixedHeaderHeight", value: number): void;
-                get(property:"fixedHeaderHeight"): number;
-                watch(property:"fixedHeaderHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "fixedHeaderHeight", value: number): void;
+                get(property: "fixedHeaderHeight"): number;
+                watch(
+                    property: "fixedHeaderHeight",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This widget or a widget it contains has focus, or is "active" because
                  * it was recently clicked.
                  *
                  */
                 "focused": boolean;
-                set(property:"focused", value: boolean): void;
-                get(property:"focused"): boolean;
-                watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "focused", value: boolean): void;
+                get(property: "focused"): boolean;
+                watch(
+                    property: "focused",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * explicitly specified height of this widget (ex. "300px")
                  *
                  */
                 "height": string;
-                set(property:"height", value: string): void;
-                get(property:"height"): string;
-                watch(property:"height", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "height", value: string): void;
+                get(property: "height"): string;
+                watch(
+                    property: "height",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * A unique, opaque ID string that can be assigned by users or by the
                  * system. If the developer passes an ID which is known not to be
@@ -1438,17 +1691,35 @@ declare namespace dojox {
                  *
                  */
                 "id": string;
-                set(property:"id", value: string): void;
-                get(property:"id"): string;
-                watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "id", value: string): void;
+                get(property: "id"): string;
+                watch(
+                    property: "id",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * footer is view-local (as opposed to application-wide)
                  *
                  */
                 "isLocalFooter": boolean;
-                set(property:"isLocalFooter", value: boolean): void;
-                get(property:"isLocalFooter"): boolean;
-                watch(property:"isLocalFooter", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "isLocalFooter", value: boolean): void;
+                get(property: "isLocalFooter"): boolean;
+                watch(
+                    property: "isLocalFooter",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Rarely used.  Overrides the default Dojo locale used to render this widget,
                  * as defined by the HTML LANG attribute.
@@ -1457,57 +1728,120 @@ declare namespace dojox {
                  *
                  */
                 "lang": string;
-                set(property:"lang", value: string): void;
-                get(property:"lang"): string;
-                watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "lang", value: string): void;
+                get(property: "lang"): string;
+                watch(
+                    property: "lang",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The document this widget belongs to.  If not specified to constructor, will default to
                  * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                  *
                  */
                 "ownerDocument": Object;
-                set(property:"ownerDocument", value: Object): void;
-                get(property:"ownerDocument"): Object;
-                watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "ownerDocument", value: Object): void;
+                get(property: "ownerDocument"): Object;
+                watch(
+                    property: "ownerDocument",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * let touchstart event propagate up
                  *
                  */
                 "propagatable": boolean;
-                set(property:"propagatable", value: boolean): void;
-                get(property:"propagatable"): boolean;
-                watch(property:"propagatable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "propagatable", value: boolean): void;
+                get(property: "propagatable"): boolean;
+                watch(
+                    property: "propagatable",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "scrollable": boolean;
-                set(property:"scrollable", value: boolean): void;
-                get(property:"scrollable"): boolean;
-                watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "scrollable", value: boolean): void;
+                get(property: "scrollable"): boolean;
+                watch(
+                    property: "scrollable",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Parameters for dojox/mobile/scrollable.init().
                  *
                  */
                 "scrollableParams": Object;
-                set(property:"scrollableParams", value: Object): void;
-                get(property:"scrollableParams"): Object;
-                watch(property:"scrollableParams", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "scrollableParams", value: Object): void;
+                get(property: "scrollableParams"): Object;
+                watch(
+                    property: "scrollableParams",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * show scroll bar or not
                  *
                  */
                 "scrollBar": boolean;
-                set(property:"scrollBar", value: boolean): void;
-                get(property:"scrollBar"): boolean;
-                watch(property:"scrollBar", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "scrollBar", value: boolean): void;
+                get(property: "scrollBar"): boolean;
+                watch(
+                    property: "scrollBar",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * v: vertical, h: horizontal, vh: both, f: flip
                  *
                  */
                 "scrollDir": string;
-                set(property:"scrollDir", value: string): void;
-                get(property:"scrollDir"): string;
-                watch(property:"scrollDir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "scrollDir", value: string): void;
+                get(property: "scrollDir"): string;
+                watch(
+                    property: "scrollDir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  * 1: use (-webkit-)transform:translate3d(x,y,z) style, use (-webkit-)animation for slide animation
@@ -1517,33 +1851,69 @@ declare namespace dojox {
                  *
                  */
                 "scrollType": number;
-                set(property:"scrollType", value: number): void;
-                get(property:"scrollType"): number;
-                watch(property:"scrollType", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "scrollType", value: number): void;
+                get(property: "scrollType"): number;
+                watch(
+                    property: "scrollType",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * pointer to original DOM node
                  *
                  */
                 "srcNodeRef": HTMLElement;
-                set(property:"srcNodeRef", value: HTMLElement): void;
-                get(property:"srcNodeRef"): HTMLElement;
-                watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "srcNodeRef", value: HTMLElement): void;
+                get(property: "srcNodeRef"): HTMLElement;
+                watch(
+                    property: "srcNodeRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML style attributes as cssText string or name/value hash
                  *
                  */
                 "style": string;
-                set(property:"style", value: string): void;
-                get(property:"style"): string;
-                watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "style", value: string): void;
+                get(property: "style"): string;
+                watch(
+                    property: "style",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * drag threshold value in pixels
                  *
                  */
                 "threshold": number;
-                set(property:"threshold", value: number): void;
-                get(property:"threshold"): number;
-                watch(property:"threshold", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "threshold", value: number): void;
+                get(property: "threshold"): number;
+                watch(
+                    property: "threshold",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML title attribute.
                  *
@@ -1556,34 +1926,70 @@ declare namespace dojox {
                  *
                  */
                 "title": string;
-                set(property:"title", value: string): void;
-                get(property:"title"): string;
-                watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "title", value: string): void;
+                get(property: "title"): string;
+                watch(
+                    property: "title",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                  * this specifies the tooltip to appear when the mouse is hovered over that text.
                  *
                  */
                 "tooltip": string;
-                set(property:"tooltip", value: string): void;
-                get(property:"tooltip"): string;
-                watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "tooltip", value: string): void;
+                get(property: "tooltip"): string;
+                watch(
+                    property: "tooltip",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * a node that will have touch event handlers
                  *
                  */
                 "touchNode": HTMLElement;
-                set(property:"touchNode", value: HTMLElement): void;
-                get(property:"touchNode"): HTMLElement;
-                watch(property:"touchNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "touchNode", value: HTMLElement): void;
+                get(property: "touchNode"): HTMLElement;
+                watch(
+                    property: "touchNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * frictional drag
                  *
                  */
                 "weight": number;
-                set(property:"weight", value: number): void;
-                get(property:"weight"): number;
-                watch(property:"weight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "weight", value: number): void;
+                get(property: "weight"): number;
+                watch(
+                    property: "weight",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Aborts scrolling.
                  * This function stops the scrolling animation that is currently
@@ -1622,7 +2028,11 @@ declare namespace dojox {
                  * @param pos The current position. An object with x and y.
                  * @param dim Dimension information returned by getDim().
                  */
-                adjustDestination(to: Object, pos: Object, dim: Object): boolean;
+                adjustDestination(
+                    to: Object,
+                    pos: Object,
+                    dim: Object
+                ): boolean;
                 /**
                  *
                  */
@@ -2192,7 +2602,11 @@ declare namespace dojox {
                  * @param alignWithTop               OptionalIf true, aligns the node at the top of the pane.If false, aligns the node at the bottom of the pane.
                  * @param duration               OptionalDuration of scrolling in seconds. (ex. 0.3)If not specified, scrolls without animation.
                  */
-                scrollIntoView(node: HTMLElement, alignWithTop: boolean, duration: number): void;
+                scrollIntoView(
+                    node: HTMLElement,
+                    alignWithTop: boolean,
+                    duration: number
+                ): void;
                 /**
                  * Moves the scroll bar(s) to the given position without animation.
                  *
@@ -2206,7 +2620,11 @@ declare namespace dojox {
                  * @param doNotMoveScrollBar               OptionalIf true, the scroll bar will not be updated. If not specified,it will be updated.
                  * @param node               OptionalA DOM node to scroll. If not specified, defaults tothis.containerNode.
                  */
-                scrollTo(to: Object, doNotMoveScrollBar: boolean, node: HTMLElement): void;
+                scrollTo(
+                    to: Object,
+                    doNotMoveScrollBar: boolean,
+                    node: HTMLElement
+                ): void;
                 /**
                  * Set a property on a widget
                  * Sets named properties on a widget which may potentially be handled by a
@@ -2260,7 +2678,11 @@ declare namespace dojox {
                  * @param duration Duration of the animation in seconds. (ex. 0.3)
                  * @param easing The name of easing effect which webkit supports."ease", "linear", "ease-in", "ease-out", etc.
                  */
-                slideScrollBarTo(to: Object, duration: number, easing: String): void;
+                slideScrollBarTo(
+                    to: Object,
+                    duration: number,
+                    easing: String
+                ): void;
                 /**
                  * Scrolls to the given position with the slide animation.
                  *
@@ -2320,7 +2742,16 @@ declare namespace dojox {
                  * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                  * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                  */
-                watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                watch(
+                    property: string,
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: any,
+                            newValue?: any
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * called after a scroll has been performed.
                  *
@@ -2379,99 +2810,98 @@ declare namespace dojox {
                 onTouchStart(e: any): void;
             }
         }
-
     }
 }
 
 declare module "dojox/app/main" {
-    var exp: dojox.app.main
-    export=exp;
+    var exp: dojox.app.main;
+    export = exp;
 }
 declare module "dojox/app/Controller" {
-    var exp: dojox.app.Controller
-    export=exp;
+    var exp: dojox.app.Controller;
+    export = exp;
 }
 declare module "dojox/app/ViewBase" {
-    var exp: dojox.app.ViewBase
-    export=exp;
+    var exp: dojox.app.ViewBase;
+    export = exp;
 }
 declare module "dojox/app/View" {
-    var exp: dojox.app.View
-    export=exp;
+    var exp: dojox.app.View;
+    export = exp;
 }
 declare module "dojox/app/controllers/BorderLayout" {
-    var exp: dojox.app.controllers.BorderLayout
-    export=exp;
+    var exp: dojox.app.controllers.BorderLayout;
+    export = exp;
 }
 declare module "dojox/app/controllers/History" {
-    var exp: dojox.app.controllers.History
-    export=exp;
+    var exp: dojox.app.controllers.History;
+    export = exp;
 }
 declare module "dojox/app/controllers/HistoryHash" {
-    var exp: dojox.app.controllers.HistoryHash
-    export=exp;
+    var exp: dojox.app.controllers.HistoryHash;
+    export = exp;
 }
 declare module "dojox/app/controllers/Layout" {
-    var exp: dojox.app.controllers.Layout
-    export=exp;
+    var exp: dojox.app.controllers.Layout;
+    export = exp;
 }
 declare module "dojox/app/controllers/LayoutBase" {
-    var exp: dojox.app.controllers.LayoutBase
-    export=exp;
+    var exp: dojox.app.controllers.LayoutBase;
+    export = exp;
 }
 declare module "dojox/app/controllers/Load" {
-    var exp: dojox.app.controllers.Load
-    export=exp;
+    var exp: dojox.app.controllers.Load;
+    export = exp;
 }
 declare module "dojox/app/controllers/Transition" {
-    var exp: dojox.app.controllers.Transition
-    export=exp;
+    var exp: dojox.app.controllers.Transition;
+    export = exp;
 }
 declare module "dojox/app/module/env" {
-    var exp: dojox.app.module.env
-    export=exp;
+    var exp: dojox.app.module.env;
+    export = exp;
 }
 declare module "dojox/app/module/lifecycle" {
-    var exp: dojox.app.module.lifecycle
-    export=exp;
+    var exp: dojox.app.module.lifecycle;
+    export = exp;
 }
 declare module "dojox/app/utils/mvcModel" {
-    var exp: dojox.app.utils.mvcModel
-    export=exp;
+    var exp: dojox.app.utils.mvcModel;
+    export = exp;
 }
 declare module "dojox/app/utils/nls" {
-    var exp: dojox.app.utils.nls
-    export=exp;
+    var exp: dojox.app.utils.nls;
+    export = exp;
 }
 declare module "dojox/app/utils/model" {
-    var exp: dojox.app.utils.model
-    export=exp;
+    var exp: dojox.app.utils.model;
+    export = exp;
 }
 declare module "dojox/app/utils/simpleModel" {
-    var exp: dojox.app.utils.simpleModel
-    export=exp;
+    var exp: dojox.app.utils.simpleModel;
+    export = exp;
 }
 declare module "dojox/app/utils/config" {
-    var exp: dojox.app.utils.config
-    export=exp;
+    var exp: dojox.app.utils.config;
+    export = exp;
 }
 declare module "dojox/app/utils/constraints" {
-    var exp: dojox.app.utils.constraints
-    export=exp;
+    var exp: dojox.app.utils.constraints;
+    export = exp;
 }
 declare module "dojox/app/utils/layout" {
-    var exp: dojox.app.utils.layout
-    export=exp;
+    var exp: dojox.app.utils.layout;
+    export = exp;
 }
 declare module "dojox/app/utils/hash" {
-    var exp: dojox.app.utils.hash
-    export=exp;
+    var exp: dojox.app.utils.hash;
+    export = exp;
 }
 declare module "dojox/app/widgets/_ScrollableMixin" {
-    var exp: dojox.app.widgets._ScrollableMixin
-    export=exp;
+    var exp: dojox.app.widgets._ScrollableMixin;
+    export = exp;
 }
 declare module "dojox/app/widgets/Container" {
-    var exp: dojox.app.widgets.Container
-    export=exp;
+    var exp: dojox.app.widgets.Container;
+    export = exp;
 }

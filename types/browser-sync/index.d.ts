@@ -84,7 +84,10 @@ declare namespace browserSync {
         /**
          * Functions or actual plugins used as middleware.
          */
-        middleware?: MiddlewareHandler | PerRouteMiddleware | (MiddlewareHandler | PerRouteMiddleware)[];
+        middleware?:
+            | MiddlewareHandler
+            | PerRouteMiddleware
+            | (MiddlewareHandler | PerRouteMiddleware)[];
         /**
          * Add additional directories from which static files should be served.
          * Should only be used in proxy or snippet mode.
@@ -368,12 +371,22 @@ declare namespace browserSync {
         ws?: boolean;
         reqHeaders?: (config: object) => Hash<object>;
         proxyRes?: ProxyResponseMiddleware | ProxyResponseMiddleware[];
-        proxyReq?: ((res: http.IncomingMessage) => void)[] | ((res: http.IncomingMessage) => void);
-        error?: (err: NodeJS.ErrnoException, req: http.IncomingMessage, res: http.ServerResponse) => void;
+        proxyReq?:
+            | ((res: http.IncomingMessage) => void)[]
+            | ((res: http.IncomingMessage) => void);
+        error?: (
+            err: NodeJS.ErrnoException,
+            req: http.IncomingMessage,
+            res: http.ServerResponse
+        ) => void;
     }
 
     interface ProxyResponseMiddleware {
-        (proxyRes: http.ServerResponse | http.IncomingMessage, res: http.ServerResponse, req: http.IncomingMessage): void;
+        (
+            proxyRes: http.ServerResponse | http.IncomingMessage,
+            res: http.ServerResponse,
+            req: http.IncomingMessage
+        ): void;
     }
 
     interface HttpsOptions {
@@ -382,12 +395,16 @@ declare namespace browserSync {
     }
 
     interface StaticOptions {
-        route: string | string[],
-        dir: string | string[]
+        route: string | string[];
+        dir: string | string[];
     }
 
     interface MiddlewareHandler {
-        (req: http.IncomingMessage, res: http.ServerResponse, next: () => void): any;
+        (
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            next: () => void
+        ): any;
     }
 
     interface PerRouteMiddleware {
@@ -403,18 +420,18 @@ declare namespace browserSync {
     }
 
     interface FormsOptions {
-        inputs: boolean,
-        submit: boolean,
-        toggles: boolean
+        inputs: boolean;
+        submit: boolean;
+        toggles: boolean;
     }
 
     interface SnippetOptions {
         async?: boolean;
-        whitelist?: string[],
-        blacklist?: string[],
+        whitelist?: string[];
+        blacklist?: string[];
         rule?: {
             match?: RegExp;
-            fn?: (snippet: string, match: string) => any
+            fn?: (snippet: string, match: string) => any;
         };
     }
 
@@ -424,7 +441,7 @@ declare namespace browserSync {
         namespace?: string;
         domain?: string;
         port?: number;
-        clients?: { heartbeatTimeout?: number; };
+        clients?: { heartbeatTimeout?: number };
     }
 
     interface TagNamesOptions {
@@ -442,7 +459,11 @@ declare namespace browserSync {
     interface RewriteRules {
         match: RegExp;
         replace?: string;
-        fn?: (req: http.IncomingMessage, res: http.ServerResponse, match: string) => string;
+        fn?: (
+            req: http.IncomingMessage,
+            res: http.ServerResponse,
+            match: string
+        ) => string;
     }
 
     interface StreamOptions {
@@ -455,7 +476,10 @@ declare namespace browserSync {
          * Start the Browsersync service. This will launch a server, proxy or start the snippet mode
          * depending on your use-case.
          */
-        (config?: Options, callback?: (err: Error, bs: object) => any): BrowserSyncInstance;
+        (
+            config?: Options,
+            callback?: (err: Error, bs: object) => any
+        ): BrowserSyncInstance;
         /**
          *
          */
@@ -464,7 +488,10 @@ declare namespace browserSync {
          * Create a Browsersync instance
          * @param name an identifier that can used for retrieval later
          */
-        create(name?: string, emitter?: NodeJS.EventEmitter): BrowserSyncInstance;
+        create(
+            name?: string,
+            emitter?: NodeJS.EventEmitter
+        ): BrowserSyncInstance;
         /**
          * Get a single instance by name. This is useful if you have your build scripts in separate files
          * @param name the identifier used for retrieval
@@ -489,7 +516,10 @@ declare namespace browserSync {
          * Start the Browsersync service. This will launch a server, proxy or start the snippet mode
          * depending on your use-case.
          */
-        init(config?: Options, callback?: (err: Error, bs: object) => any): BrowserSyncInstance;
+        init(
+            config?: Options,
+            callback?: (err: Error, bs: object) => any
+        ): BrowserSyncInstance;
         /**
          * This method will close any running server, stop file watching & exit the current process.
          */
@@ -539,7 +569,9 @@ declare namespace browserSync {
         /**
          * Instance Cleanup.
          */
-        cleanup(fn?: (error: NodeJS.ErrnoException, bs: BrowserSyncInstance) => void): void;
+        cleanup(
+            fn?: (error: NodeJS.ErrnoException, bs: BrowserSyncInstance) => void
+        ): void;
         /**
          * Register a plugin.
          * Must implement at least a 'plugin' property that returns
@@ -550,7 +582,14 @@ declare namespace browserSync {
          * @param {object} options The
          * @param {any} cb A callback function that will return any errors.
          */
-        use(module: { "plugin:name"?: string, plugin: (opts: object, bs: BrowserSyncInstance) => any }, options?: object, cb?: any): void;
+        use(
+            module: {
+                "plugin:name"?: string;
+                plugin: (opts: object, bs: BrowserSyncInstance) => any;
+            },
+            options?: object,
+            cb?: any
+        ): void;
         /**
          * Callback helper to examine what options have been set.
          * @param {string} name The key to search options map for.
@@ -559,8 +598,11 @@ declare namespace browserSync {
         /**
          * Stand alone file-watcher. Use this along with Browsersync to create your own, minimal build system
          */
-        watch(patterns: string, opts?: chokidar.WatchOptions, fn?: (event: string, file: fs.Stats) => any)
-            : NodeJS.EventEmitter;
+        watch(
+            patterns: string,
+            opts?: chokidar.WatchOptions,
+            fn?: (event: string, file: fs.Stats) => any
+        ): NodeJS.EventEmitter;
         /**
          * The internal Event Emitter used by the running Browsersync instance (if there is one). You can use
          * this to emit your own events, such as changed files, logging etc.

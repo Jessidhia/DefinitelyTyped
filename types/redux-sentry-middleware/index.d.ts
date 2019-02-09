@@ -14,8 +14,11 @@ export interface SentryMiddlewareOptions<T> {
     breadcrumbCategory?: string;
     filterBreadcrumbActions?: (action: Action) => boolean;
     getUserContext?: (state: T) => Sentry.User;
-    getTags?: (state: T) => Sentry.SentryEvent['tags'];
+    getTags?: (state: T) => Sentry.SentryEvent["tags"];
 }
 
 // tslint:disable-next-line: no-unnecessary-generics
-export default function createSentryMiddleware<T>(sentry: typeof Sentry, options?: SentryMiddlewareOptions<T>): Middleware;
+export default function createSentryMiddleware<T>(
+    sentry: typeof Sentry,
+    options?: SentryMiddlewareOptions<T>
+): Middleware;

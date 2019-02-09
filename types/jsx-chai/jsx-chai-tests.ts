@@ -1,6 +1,6 @@
-import chai = require('chai');
-import jsxChai = require('jsx-chai');
+import chai = require("chai");
+import jsxChai = require("jsx-chai");
 
 function testUseJsxChai() {
-	chai.use(jsxChai.jsxChai);
+    chai.use(jsxChai.jsxChai);
 }

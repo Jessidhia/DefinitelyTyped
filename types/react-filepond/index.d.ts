@@ -7,7 +7,7 @@
 // See the docs for more info on any given prop
 // https://pqina.nl/filepond/docs/patterns/api/filepond-instance/#setting-options
 
-import * as React from 'react';
+import * as React from "react";
 
 // This line shuts off automatic exporting for this module
 // I want to do this so that I can have internal types to this module that make
@@ -16,10 +16,9 @@ import * as React from 'react';
 export {};
 
 type FilePondOrigin =
-    | 'input' // Added by user
-    | 'limbo' // Temporary server file
-    | 'local' // Existing server file
-    ;
+    | "input" // Added by user
+    | "limbo" // Temporary server file
+    | "local"; // Existing server file
 
 export interface FileProps {
     src: string;
@@ -27,7 +26,7 @@ export interface FileProps {
     size?: number;
     type?: string;
     origin?: FilePondOrigin;
-    metadata?: {[key: string]: any};
+    metadata?: { [key: string]: any };
 }
 
 export class File extends React.Component<FileProps> {
@@ -36,7 +35,7 @@ export class File extends React.Component<FileProps> {
     // see: https://developer.mozilla.org/en-US/docs/Web/API/File
     // see: https://github.com/Microsoft/dtslint/issues/173
     // see: https://stackoverflow.com/q/53876793/2517147
-    file: Blob & {readonly lastModified: number; readonly name: string};
+    file: Blob & { readonly lastModified: number; readonly name: string };
     fileSize: number;
     fileType: string;
     filename: string;
@@ -63,9 +62,9 @@ export class File extends React.Component<FileProps> {
 
 interface ServerUrl {
     url: string;
-    method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+    method?: "GET" | "POST" | "PUT" | "DELETE";
     withCredentials?: boolean;
-    headers?: {[key: string]: string|boolean|number};
+    headers?: { [key: string]: string | boolean | number };
     timeout?: number;
 
     /**
@@ -87,13 +86,15 @@ interface ServerUrl {
 
 interface FilePondServerConfigProps {
     instantUpload?: boolean;
-    server?: string | {
-        process: string | ServerUrl;
-        revert: string | ServerUrl;
-        restore: string | ServerUrl;
-        load: string | ServerUrl;
-        fetch: string | ServerUrl;
-    };
+    server?:
+        | string
+        | {
+              process: string | ServerUrl;
+              revert: string | ServerUrl;
+              restore: string | ServerUrl;
+              load: string | ServerUrl;
+              fetch: string | ServerUrl;
+          };
 }
 
 interface FilePondDragDropProps {
@@ -199,7 +200,11 @@ interface FilePondCallbackProps {
      * FilePond instance throws an error. Optionally receives
      * file if error is related to a file object.
      */
-    onerror?: (file?: File, error?: FilePondErrorDescription, status?: any) => void;
+    onerror?: (
+        file?: File,
+        error?: FilePondErrorDescription,
+        status?: any
+    ) => void;
     /** Started file load */
     onaddfilestart?: (file: File) => void;
     /** Made progress loading a file */
@@ -261,17 +266,17 @@ interface FilePondBaseProps {
     /** The maximum number of files that can be uploaded in parallel */
     maxParallelUploads?: number;
     acceptedFileTypes?: string[];
-    metadata?: {[key: string]: any};
+    metadata?: { [key: string]: any };
 }
 
-export interface FilePondProps extends
-    FilePondDragDropProps,
-    FilePondServerConfigProps,
-    FilePondLabelProps,
-    FilePondSvgIconProps,
-    FilePondCallbackProps,
-    FilePondHookProps,
-    FilePondBaseProps {}
+export interface FilePondProps
+    extends FilePondDragDropProps,
+        FilePondServerConfigProps,
+        FilePondLabelProps,
+        FilePondSvgIconProps,
+        FilePondCallbackProps,
+        FilePondHookProps,
+        FilePondBaseProps {}
 
 export class FilePond extends React.Component<FilePondProps> {
     setOptions: (options: FilePondProps) => void;

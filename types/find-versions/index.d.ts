@@ -4,5 +4,8 @@
 //                 Chris Arnesen <https://github.com/carnesen>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function findVersions(version: string, options?: { loose: boolean }): string[];
+declare function findVersions(
+    version: string,
+    options?: { loose: boolean }
+): string[];
 export = findVersions;

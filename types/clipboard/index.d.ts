@@ -14,7 +14,10 @@ declare class ClipboardJS {
      * @param type Event type ('success' or 'error').
      * @param handler Callback function.
      */
-    on(type: "success" | "error", handler: (e: ClipboardJS.Event) => void): this;
+    on(
+        type: "success" | "error",
+        handler: (e: ClipboardJS.Event) => void
+    ): this;
     on(type: string, handler: (...args: any[]) => void): this;
 
     /**

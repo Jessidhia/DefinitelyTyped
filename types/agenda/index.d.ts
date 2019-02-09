@@ -20,19 +20,26 @@ interface ResultCallback<T> {
     (err?: Error, result?: T): void;
 }
 
-
 declare class Agenda extends EventEmitter {
     /**
      * Constructs a new Agenda object.
      * @param config Optional configuration to initialize the Agenda.
      * @param cb Optional callback called with the MongoDB colleciton.
      */
-    constructor(config?: Agenda.AgendaConfiguration, cb?: ResultCallback<Collection>);
+    constructor(
+        config?: Agenda.AgendaConfiguration,
+        cb?: ResultCallback<Collection>
+    );
 
     /**
      * Connect to the specified MongoDB server and database.
      */
-    database(url: string, collection?: string, options?: any, cb?: ResultCallback<Collection>): this;
+    database(
+        url: string,
+        collection?: string,
+        options?: any,
+        cb?: ResultCallback<Collection>
+    ): this;
 
     /**
      * Initialize agenda with an existing MongoDB connection.
@@ -90,13 +97,18 @@ declare class Agenda extends EventEmitter {
      * @param name The name of the job.
      * @param data Data to associated with the job.
      */
-    create<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(name: string, data?: T): Agenda.Job<T>;
+    create<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        name: string,
+        data?: T
+    ): Agenda.Job<T>;
 
     /**
      * Find all Jobs matching `query` and pass same back in cb().
      * @param query
      */
-    jobs<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(query: any): Promise<Agenda.Job<T>[]>;
+    jobs<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        query: any
+    ): Promise<Agenda.Job<T>[]>;
 
     /**
      * Removes all jobs in the database without defined behaviors. Useful if you change a definition name and want
@@ -112,8 +124,15 @@ declare class Agenda extends EventEmitter {
      * @param options The options for the job.
      * @param handler The handler to execute.
      */
-    define<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(name: string, handler: (job: Agenda.Job<T>, done: (err?: Error) => void) => void): void;
-    define<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(name: string, options: Agenda.JobOptions, handler: (job: Agenda.Job<T>, done: (err?: Error) => void) => void): void;
+    define<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        name: string,
+        handler: (job: Agenda.Job<T>, done: (err?: Error) => void) => void
+    ): void;
+    define<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        name: string,
+        options: Agenda.JobOptions,
+        handler: (job: Agenda.Job<T>, done: (err?: Error) => void) => void
+    ): void;
 
     /**
      * Runs job name at the given interval. Optionally, data and options can be passed in.
@@ -122,8 +141,18 @@ declare class Agenda extends EventEmitter {
      * @param data An optional argument that will be passed to the processing function under job.attrs.data.
      * @param options An optional argument that will be passed to job.repeatEvery.
      */
-    every<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(interval: number | string, names: string, data?: T, options?: any): Promise<Agenda.Job<T>>;
-    every<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(interval: number | string, names: string[], data?: T, options?: any): Promise<Agenda.Job<T>[]>;
+    every<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        interval: number | string,
+        names: string,
+        data?: T,
+        options?: any
+    ): Promise<Agenda.Job<T>>;
+    every<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        interval: number | string,
+        names: string[],
+        data?: T,
+        options?: any
+    ): Promise<Agenda.Job<T>[]>;
 
     /**
      * Schedules a job to run name once at a given time.
@@ -131,15 +160,26 @@ declare class Agenda extends EventEmitter {
      * @param names The name or names of the job(s) to run.
      * @param data An optional argument that will be passed to the processing function under job.attrs.data.
      */
-    schedule<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(when: Date | string, names: string, data?: T): Promise<Agenda.Job<T>>;
-    schedule<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(when: Date | string, names: string[], data?: T): Promise<Agenda.Job<T>[]>;
+    schedule<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        when: Date | string,
+        names: string,
+        data?: T
+    ): Promise<Agenda.Job<T>>;
+    schedule<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        when: Date | string,
+        names: string[],
+        data?: T
+    ): Promise<Agenda.Job<T>[]>;
 
     /**
      * Schedules a job to run name once immediately.
      * @param name The name of the job to run.
      * @param data An optional argument that will be passed to the processing function under job.attrs.data.
      */
-    now<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(name: string, data?: T): Promise<Agenda.Job<T>>;
+    now<T extends Agenda.JobAttributesData = Agenda.JobAttributesData>(
+        name: string,
+        data?: T
+    ): Promise<Agenda.Job<T>>;
 
     /**
      * Cancels any jobs matching the passed mongodb-native query, and removes them from the database.
@@ -159,12 +199,10 @@ declare class Agenda extends EventEmitter {
 }
 
 declare namespace Agenda {
-
     /**
      * Agenda Configuration.
      */
     interface AgendaConfiguration {
-
         /**
          * Sets the interval with which the queue is checked. A number in milliseconds or a frequency string.
          */
@@ -226,7 +264,7 @@ declare namespace Agenda {
              * Not required when an existing connection is passed as `mongo` property.
              */
             options?: any;
-        }
+        };
     }
 
     interface JobAttributesData {
@@ -315,14 +353,13 @@ declare namespace Agenda {
         /**
          * Job's state
          */
-        disabled: boolean
+        disabled: boolean;
     }
 
     /**
      * A scheduled job.
      */
     interface Job<T extends JobAttributesData = JobAttributesData> {
-
         /**
          * The database record associated with the job.
          */
@@ -340,13 +377,16 @@ declare namespace Agenda {
          * The timezone should be a string as accepted by moment-timezone and is considered when using an interval in the cron string format.
          * Setting skipImmediate as true will skip the immediate run. The first run will occur only in configured interval.
          */
-        repeatEvery(interval: string | number, options?: { timezone?: string, skipImmediate?: boolean }): this
+        repeatEvery(
+            interval: string | number,
+            options?: { timezone?: string; skipImmediate?: boolean }
+        ): this;
 
         /**
          * Specifies a time when the job should repeat. [Possible values](https://github.com/matthewmueller/date#examples).
          * @param time
          */
-        repeatAt(time: string): this
+        repeatAt(time: string): this;
 
         /**
          * Disables the job.
@@ -416,7 +456,6 @@ declare namespace Agenda {
     }
 
     interface JobOptions {
-
         /**
          * Maximum number of that job that can be running at once (per instance of agenda)
          */

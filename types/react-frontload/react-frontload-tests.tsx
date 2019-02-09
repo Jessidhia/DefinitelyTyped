@@ -1,6 +1,10 @@
-import * as React from 'react';
-import * as ReactDOMServer from 'react-dom/server';
-import { frontloadConnect, frontloadServerRender, Frontload } from 'react-frontload';
+import * as React from "react";
+import * as ReactDOMServer from "react-dom/server";
+import {
+    frontloadConnect,
+    frontloadServerRender,
+    Frontload
+} from "react-frontload";
 
 interface MainProps {
     testStringProp: string;
@@ -18,10 +22,11 @@ const frontload = async (props: MainProps) => {
     });
 };
 
-const FrontloadedMain = frontloadConnect(
-    frontload,
-    { noServerRender: false, onMount: false, onUpdate: false },
-)(Main);
+const FrontloadedMain = frontloadConnect(frontload, {
+    noServerRender: false,
+    onMount: false,
+    onUpdate: false
+})(Main);
 
 interface AppProps {
     renderCase: string;
@@ -30,13 +35,17 @@ interface AppProps {
 const App = ({ renderCase }: AppProps) => {
     return (
         <Frontload noServerRender={false}>
-            <Main testStringProp={'Hello, World!'} />
+            <Main testStringProp={"Hello, World!"} />
         </Frontload>
     );
 };
 
 (async () => {
     const htmlString: string = await frontloadServerRender(dryRun =>
-        ReactDOMServer.renderToString(<App renderCase={dryRun ? 'Dry run true case' : 'Dry run false case'} />),
+        ReactDOMServer.renderToString(
+            <App
+                renderCase={dryRun ? "Dry run true case" : "Dry run false case"}
+            />
+        )
     );
 })();

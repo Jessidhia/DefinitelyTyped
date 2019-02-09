@@ -20,13 +20,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCNotchedOutlineFoundation from './foundation';
-import MDCNotchedOutlineAdapter from './adapter';
+import MDCComponent from "material__base/component";
+import MDCNotchedOutlineFoundation from "./foundation";
+import MDCNotchedOutlineAdapter from "./adapter";
 
 export { MDCNotchedOutlineFoundation, MDCNotchedOutlineAdapter };
 
-export class MDCNotchedOutline extends MDCComponent<MDCNotchedOutlineAdapter, MDCNotchedOutlineFoundation> {
+export class MDCNotchedOutline extends MDCComponent<
+    MDCNotchedOutlineAdapter,
+    MDCNotchedOutlineFoundation
+> {
     static attachTo(root: Element): MDCNotchedOutline;
 
     /**

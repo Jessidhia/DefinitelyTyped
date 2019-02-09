@@ -4,9 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace Chartist {
-
     interface ChartistStatic {
-
         /**
          * Precision level used internally in Chartist for rounding. If you require more decimal places you can increase this number.
          */
@@ -61,7 +59,12 @@ declare namespace Chartist {
 
         deserialize(data: string): Object | string | number;
 
-        createSvg(container: Node, width: string, height: string, className: string): Object; // TODO: Figure out if this is returning a ChartistSVGWrapper or an actual SVGElement
+        createSvg(
+            container: Node,
+            width: string,
+            height: string,
+            className: string
+        ): Object; // TODO: Figure out if this is returning a ChartistSVGWrapper or an actual SVGElement
 
         plugins: any;
     }
@@ -70,7 +73,8 @@ declare namespace Chartist {
         [Key: string]: string;
     }
 
-    interface IResponsiveOptionTuple<T extends IChartOptions> extends Array<string | T> {
+    interface IResponsiveOptionTuple<T extends IChartOptions>
+        extends Array<string | T> {
         0: string;
         1: T;
     }
@@ -79,21 +83,23 @@ declare namespace Chartist {
     // a line chart axisX
     // in the actual chartist library these are classes that project their options onto
     // the parent class
-    interface IFixedScaleAxisStatic {
-    }
+    interface IFixedScaleAxisStatic {}
 
-    interface IAutoScaleAxisStatic {
-    }
+    interface IAutoScaleAxisStatic {}
 
-    interface IStepAxisStatic {
-    }
+    interface IStepAxisStatic {}
 
     // data formats are not well documented on all the ways they can be passed to the constructors
     // this definition gives some intellisense, but does not protect the user from misuse
     // TODO: come in and tidy this up and make it fit better
     interface IChartistData {
         labels?: Array<string> | Array<number> | Array<Date>;
-        series: Array<IChartistSeriesData> | Array<Array<IChartistSeriesData>> | Array<Array<IChartistData>> | Array<number> | Array<Array<number>>;
+        series:
+            | Array<IChartistSeriesData>
+            | Array<Array<IChartistSeriesData>>
+            | Array<Array<IChartistData>>
+            | Array<number>
+            | Array<Array<number>>;
     }
 
     interface IChartistSeriesData {
@@ -144,19 +150,41 @@ declare namespace Chartist {
     }
 
     interface IChartistPieChart extends IChartistBase<IPieChartOptions> {
-        new (target: any, data: IChartistData, options?: IPieChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<IPieChartOptions>>): IChartistPieChart;
+        new (
+            target: any,
+            data: IChartistData,
+            options?: IPieChartOptions,
+            responsiveOptions?: Array<IResponsiveOptionTuple<IPieChartOptions>>
+        ): IChartistPieChart;
     }
 
     interface IChartistLineChart extends IChartistBase<ILineChartOptions> {
-        new (target: any, data: IChartistData, options?: ILineChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<ILineChartOptions>>): IChartistLineChart;
+        new (
+            target: any,
+            data: IChartistData,
+            options?: ILineChartOptions,
+            responsiveOptions?: Array<IResponsiveOptionTuple<ILineChartOptions>>
+        ): IChartistLineChart;
     }
 
     interface IChartistBarChart extends IChartistBase<IBarChartOptions> {
-        new (target: any, data: IChartistData, options?: IBarChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<IBarChartOptions>>): IChartistBarChart;
+        new (
+            target: any,
+            data: IChartistData,
+            options?: IBarChartOptions,
+            responsiveOptions?: Array<IResponsiveOptionTuple<IBarChartOptions>>
+        ): IChartistBarChart;
     }
 
     interface IChartistCandleChart extends IChartistBase<ICandleChartOptions> {
-        new (target: any, data: IChartistData, options?: ICandleChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<ICandleChartOptions>>): IChartistCandleChart;
+        new (
+            target: any,
+            data: IChartistData,
+            options?: ICandleChartOptions,
+            responsiveOptions?: Array<
+                IResponsiveOptionTuple<ICandleChartOptions>
+            >
+        ): IChartistCandleChart;
     }
 
     interface IChartOptions {
@@ -283,7 +311,7 @@ declare namespace Chartist {
          * If set to true this property will cause the series bars to be stacked and form a total for each series point. This will also influence the y-axis and the overall bounds of the chart. In stacked mode the seriesBarDistance property will have no effect.
          */
         stackBars?: boolean;
-        stackMode?: 'overlap' | 'accumulate';
+        stackMode?: "overlap" | "accumulate";
 
         horizontalBars?: boolean;
         distributeSeries?: boolean;
@@ -319,8 +347,14 @@ declare namespace Chartist {
     }
 
     interface ILineChartOptions extends IChartOptions {
-        axisX?: IChartistStepAxis | IChartistFixedScaleAxis | IChartistAutoScaleAxis;
-        axisY?: IChartistStepAxis | IChartistFixedScaleAxis | IChartistAutoScaleAxis;
+        axisX?:
+            | IChartistStepAxis
+            | IChartistFixedScaleAxis
+            | IChartistAutoScaleAxis;
+        axisY?:
+            | IChartistStepAxis
+            | IChartistFixedScaleAxis
+            | IChartistAutoScaleAxis;
         width?: number | string;
         height?: number | string;
         showLine?: boolean;
@@ -341,8 +375,8 @@ declare namespace Chartist {
                 showPoint?: boolean;
                 showArea?: boolean;
                 areaBase?: number;
-            }
-        }
+            };
+        };
     }
 
     interface ILineChartAxis {
@@ -401,7 +435,6 @@ declare namespace Chartist {
     }
 
     interface ICandleChartOptions extends IChartOptions {
-
         /**
          * Options for X-Axis
          */
@@ -508,19 +541,24 @@ declare namespace Chartist {
         labelGroup?: string;
         series?: string;
         candlePositive?: string;
-        candleNegative?: string,
-        grid?: string,
-        gridGroup?: string,
-        gridBackground?: string,
-        vertical?: string,
-        horizontal?: string,
-        start?: string,
-        end?: string,
+        candleNegative?: string;
+        grid?: string;
+        gridGroup?: string;
+        gridBackground?: string;
+        vertical?: string;
+        horizontal?: string;
+        start?: string;
+        end?: string;
     }
 
-
     interface ChartistSvgStatic {
-        new (name?: HTMLElement | string, attributes?: Object, className?: string, parent?: Object, insertFirst?: boolean): IChartistSvg;
+        new (
+            name?: HTMLElement | string,
+            attributes?: Object,
+            className?: string,
+            parent?: Object,
+            insertFirst?: boolean
+        ): IChartistSvg;
 
         Easing: ChartistEasingStatic;
 
@@ -531,7 +569,6 @@ declare namespace Chartist {
     }
 
     interface IChartistSvg {
-
         /**
          * Set attributes on the current SVG element of the wrapper you're currently working on.
          */
@@ -540,7 +577,12 @@ declare namespace Chartist {
         /**
          * Create a new SVG element whose wrapper object will be selected for further operations. This way you can also create nested groups easily.
          */
-        elem(name: string, attributes?: Object, className?: string, insertFirst?: boolean): IChartistSvg;
+        elem(
+            name: string,
+            attributes?: Object,
+            className?: string,
+            insertFirst?: boolean
+        ): IChartistSvg;
 
         /**
          * Returns the parent Chartist.SVG wrapper object
@@ -565,7 +607,12 @@ declare namespace Chartist {
         /**
          * This method creates a foreignObject (see https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) that allows to embed HTML content into a SVG graphic. With the help of foreignObjects you can enable the usage of regular HTML elements inside of SVG where they are subject for SVG positioning and transformation but the Browser will use the HTML rendering capabilities for the containing DOM.
          */
-        foreignObject(content: any, attributes?: Object, className?: string, insertFirst?: boolean): IChartistSvg;
+        foreignObject(
+            content: any,
+            attributes?: Object,
+            className?: string,
+            insertFirst?: boolean
+        ): IChartistSvg;
 
         /**
          * This method adds a new text element to the current Chartist.Svg wrapper.
@@ -626,7 +673,11 @@ declare namespace Chartist {
         /**
          * The animate function lets you animate the current element with SMIL animations. You can add animations for multiple attributes at the same time by using an animation definition object. This object should contain SMIL animation attributes.
          */
-        animate(animations: IChartistAnimations, guided: boolean, eventEmitter: Object): IChartistSvg;
+        animate(
+            animations: IChartistAnimations,
+            guided: boolean,
+            eventEmitter: Object
+        ): IChartistSvg;
 
         /**
          * "Safe" way to get property value from svg BoundingBox. This is a workaround. Firefox throws an NS_ERROR_FAILURE error if getBBox() is called on an invisible node.
@@ -684,7 +735,6 @@ declare namespace Chartist {
     }
 
     interface ChartistInterpolationStatic {
-
         /**
          * This interpolation function does not smooth the path and the result is only containing lines and no curves.
          */
@@ -710,15 +760,18 @@ declare namespace Chartist {
         fillHoles?: boolean;
     }
 
-    interface IChartistSimpleInterpolationOptions extends IChartistInterpolationOptions {
+    interface IChartistSimpleInterpolationOptions
+        extends IChartistInterpolationOptions {
         divisor?: number;
     }
 
-    interface IChartistCardinalInterpolationOptions extends IChartistInterpolationOptions {
+    interface IChartistCardinalInterpolationOptions
+        extends IChartistInterpolationOptions {
         tension?: number;
     }
 
-    interface IChartistStepInterpolationOptions extends IChartistInterpolationOptions {
+    interface IChartistStepInterpolationOptions
+        extends IChartistInterpolationOptions {
         postpone?: boolean;
     }
 }

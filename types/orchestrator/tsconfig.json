@@ -1,14 +1,9 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noImplicitAny": true,
         "noImplicitThis": true,
@@ -17,8 +12,5 @@
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "orchestrator-tests.ts"
-    ]
+    "files": ["index.d.ts", "orchestrator-tests.ts"]
 }

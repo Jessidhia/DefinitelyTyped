@@ -1,13 +1,13 @@
 import * as materialize from "materialize-css";
 
-const elem = document.querySelector('.whatever')!;
+const elem = document.querySelector(".whatever")!;
 
 // $ExpectType FormSelect
 const _formselect = new M.FormSelect(elem);
 // $ExpectType FormSelect
 const el = M.FormSelect.init(elem);
 // $ExpectType FormSelect[]
-const els = M.FormSelect.init(document.querySelectorAll('.whatever'));
+const els = M.FormSelect.init(document.querySelectorAll(".whatever"));
 
 // $ExpectType FormSelect
 new materialize.FormSelect(elem);

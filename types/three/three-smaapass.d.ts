@@ -1,4 +1,12 @@
-import { WebGLRenderTarget, Texture, IUniform, ShaderMaterial, OrthographicCamera, Scene, Mesh } from "./three-core";
+import {
+    WebGLRenderTarget,
+    Texture,
+    IUniform,
+    ShaderMaterial,
+    OrthographicCamera,
+    Scene,
+    Mesh
+} from "./three-core";
 import { Pass } from "./three-effectcomposer";
 
 export class SMAAPass extends Pass {
@@ -21,4 +29,3 @@ export class SMAAPass extends Pass {
     getAreaTexture(): string;
     getSearchTexture(): string;
 }
-

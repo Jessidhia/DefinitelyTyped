@@ -69,12 +69,14 @@ declare module "react-jsonschema-form" {
         [key: string]: FieldId;
     };
 
-    export interface WidgetProps extends Pick<
-        React.HTMLAttributes<HTMLElement>,
-        Exclude<
-            keyof React.HTMLAttributes<HTMLElement>,
-            "onBlur"|"onFocus">
-    > {
+    export interface WidgetProps
+        extends Pick<
+            React.HTMLAttributes<HTMLElement>,
+            Exclude<
+                keyof React.HTMLAttributes<HTMLElement>,
+                "onBlur" | "onFocus"
+            >
+        > {
         id: string;
         schema: JSONSchema6;
         value: any;
@@ -142,8 +144,15 @@ declare module "react-jsonschema-form" {
     };
 
     export type ArrayFieldTemplateProps = {
-        DescriptionField: React.StatelessComponent<{ id: string, description: string | React.ReactElement<any> }>;
-        TitleField: React.StatelessComponent<{ id: string, title: string, required: boolean }>;
+        DescriptionField: React.StatelessComponent<{
+            id: string;
+            description: string | React.ReactElement<any>;
+        }>;
+        TitleField: React.StatelessComponent<{
+            id: string;
+            title: string;
+            required: boolean;
+        }>;
         canAdd: boolean;
         className: string;
         disabled: boolean;
@@ -175,8 +184,15 @@ declare module "react-jsonschema-form" {
     };
 
     export type ObjectFieldTemplateProps = {
-        DescriptionField: React.StatelessComponent<{ id: string, description: string | React.ReactElement<any> }>;
-        TitleField: React.StatelessComponent<{ id: string, title: string, required: boolean }>;
+        DescriptionField: React.StatelessComponent<{
+            id: string;
+            description: string | React.ReactElement<any>;
+        }>;
+        TitleField: React.StatelessComponent<{
+            id: string;
+            title: string;
+            required: boolean;
+        }>;
         title: string;
         description: string;
         properties: {

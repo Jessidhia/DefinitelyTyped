@@ -12,7 +12,8 @@ type AsyncComponentLoader<P = any> = () => AsyncComponent<P>;
 type ModuleMapping = Record<string, AsyncComponent>;
 type LoadedModuleMapping = Record<string, React.ComponentType>;
 
-interface NextDynamicOptions<P = {}> extends Omit<LoadableOptions, "loading" | "modules"> {
+interface NextDynamicOptions<P = {}>
+    extends Omit<LoadableOptions, "loading" | "modules"> {
     modules?: () => ModuleMapping; // overridden
     loading?: LoadableOptions["loading"]; // optional
     loader?: AsyncComponentLoader<P>; // optional, overriden

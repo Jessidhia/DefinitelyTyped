@@ -5,7 +5,7 @@ declare namespace pc {
      * @param {pc.Application} app The running Application
      */
     class ComponentSystem {
-        constructor(app: pc.Application)
+        constructor(app: pc.Application);
 
         /**
          * @private
@@ -51,7 +51,10 @@ declare namespace pc {
          * @param {pc.Entity} entity The entity to clone the component from
          * @param {pc.Entity} clone The entity to clone the component into
          */
-        private cloneComponent(entity: pc.Entity, clone: pc.Entity): pc.Component;
+        private cloneComponent(
+            entity: pc.Entity,
+            clone: pc.Entity
+        ): pc.Component;
 
         /**
          * @private
@@ -60,8 +63,11 @@ declare namespace pc {
          * @description Called during {@link pc.ComponentSystem#addComponent} to initialize the {@link pc.ComponentData} in the store
          * This can be overridden by derived Component Systems and either called by the derived System or replaced entirely
          */
-        private initializeComponentData(component: pc.Component, data: {}, properties: {}): void;
-
+        private initializeComponentData(
+            component: pc.Component,
+            data: {},
+            properties: {}
+        ): void;
 
         // Events
 
@@ -109,7 +115,17 @@ declare namespace pc {
          * @example
          * obj.fire('test', 'This is the message');
          */
-        fire(name: string, arg1: any, arg2?: any, arg3?: any, arg4?: any, arg5?: any, arg6?: any, arg7?: any, arg8?: any): any;
+        fire(
+            name: string,
+            arg1: any,
+            arg2?: any,
+            arg3?: any,
+            arg4?: any,
+            arg5?: any,
+            arg6?: any,
+            arg7?: any,
+            arg8?: any
+        ): any;
 
         /**
          * @function
@@ -128,14 +144,14 @@ declare namespace pc {
         once(name: string, callback: (...args: any[]) => void, scope: any): any;
 
         /**
-        * @function
-        * @name pc.ComponentSystem#hasEvent
-        * @description Test if there are any handlers bound to an event name
-        * @param {String} name The name of the event to test
-        * @example
-        * obj.on('test', function () { }); // bind an event to 'test'
-        * obj.hasEvent('test'); // returns true
-        */
+         * @function
+         * @name pc.ComponentSystem#hasEvent
+         * @description Test if there are any handlers bound to an event name
+         * @param {String} name The name of the event to test
+         * @example
+         * obj.on('test', function () { }); // bind an event to 'test'
+         * obj.hasEvent('test'); // returns true
+         */
         hasEvent(name: string): boolean;
     }
 }

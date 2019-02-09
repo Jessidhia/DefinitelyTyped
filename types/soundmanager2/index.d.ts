@@ -7,7 +7,7 @@
 declare var soundManager: soundmanager.SoundManager;
 
 declare namespace soundmanager {
-    type ScriptAccess = 'always' | 'sameDomain';
+    type ScriptAccess = "always" | "sameDomain";
 
     interface DefaultOptions {
         autoLoad?: boolean;
@@ -106,7 +106,11 @@ declare namespace soundmanager {
         canPlayLink(domElement: HTMLElement): boolean;
         canPlayMIME(MIMEtype: string): boolean;
         canPlayURL(mediaURL: string): boolean;
-        clearOnPosition(id: string, msecOffset: number, callback?: (() => void)): SMSound;
+        clearOnPosition(
+            id: string,
+            msecOffset: number,
+            callback?: () => void
+        ): SMSound;
         /**
          * Creates a sound object, supporting an arbitrary number of optional arguments. Returns a SMSound object instance. At minimum, a url parameter is required.
          */
@@ -117,7 +121,11 @@ declare namespace soundmanager {
         load(id: string, options?: object): SMSound;
         mute(id?: string): SMSound;
         ok(): boolean;
-        onPosition(id: string, msecOffset: number, callback: (eventPosition: any) => void): SMSound;
+        onPosition(
+            id: string,
+            msecOffset: number,
+            callback: (eventPosition: any) => void
+        ): SMSound;
         pause(id: string): SMSound;
         pauseAll(): void;
         play(id?: string, options?: DefaultOptions | Flash9Options): SMSound;
@@ -168,20 +176,20 @@ declare namespace soundmanager {
         readyState: number;
 
         // Events
-        onbufferchange?: (() => void);
-        onconnect?: (() => void);
-        ondataerror?: (() => void);
-        onerror?: (() => void);
-        onfinish?: (() => void);
-        onload?: (() => void);
-        onpause?: (() => void);
-        onplay?: (() => void);
-        onresume?: (() => void);
-        onsuspend?: (() => void);
-        onstop?: (() => void);
-        onid3?: (() => void);
-        whileloading?: (() => void);
-        whileplaying?: (() => void);
+        onbufferchange?: () => void;
+        onconnect?: () => void;
+        ondataerror?: () => void;
+        onerror?: () => void;
+        onfinish?: () => void;
+        onload?: () => void;
+        onpause?: () => void;
+        onplay?: () => void;
+        onresume?: () => void;
+        onsuspend?: () => void;
+        onstop?: () => void;
+        onid3?: () => void;
+        whileloading?: () => void;
+        whileplaying?: () => void;
 
         // Methods
         destruct(): void;

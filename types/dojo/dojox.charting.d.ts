@@ -4,12 +4,8 @@
 //                 Don Waldo <https://github.com/dgwaldo>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
-
 declare namespace dojox {
-
-        namespace charting {
+    namespace charting {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/charting/Chart.html
          *
@@ -93,14 +89,22 @@ declare namespace dojox {
              * @param eventName Event name to simulate: onmouseover, onmouseout, onclick.
              * @param index Valid data value index for the event.
              */
-            fireEvent(seriesName: String, eventName: String, index: number): any;
+            fireEvent(
+                seriesName: String,
+                eventName: String,
+                index: number
+            ): any;
             /**
              *
              * @param element
              * @param label
              * @param labelType
              */
-            formatTruncatedLabel(element: any, label: any, labelType: any): void;
+            formatTruncatedLabel(
+                element: any,
+                label: any,
+                labelType: any
+            ): void;
             /**
              * Calculate the full geometry of the chart.  This includes passing
              * over all major elements of a chart (plots, axes, series, container)
@@ -234,7 +238,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: boolean): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms an axis and all dependent plots. Can be used to zoom in 1D.
              *
@@ -243,7 +252,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: Object): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: Object
+            ): any;
             /**
              *
              * @param dir
@@ -278,7 +292,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: boolean): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms in or out any plots in two dimensions.
              *
@@ -288,7 +308,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: Object): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: Object
+            ): any;
             /**
              * Update the given series with a new set of data points.
              *
@@ -398,14 +424,22 @@ declare namespace dojox {
              * @param eventName Event name to simulate: onmouseover, onmouseout, onclick.
              * @param index Valid data value index for the event.
              */
-            fireEvent(seriesName: String, eventName: String, index: number): any;
+            fireEvent(
+                seriesName: String,
+                eventName: String,
+                index: number
+            ): any;
             /**
              *
              * @param element
              * @param label
              * @param labelType
              */
-            formatTruncatedLabel(element: any, label: any, labelType: any): void;
+            formatTruncatedLabel(
+                element: any,
+                label: any,
+                labelType: any
+            ): void;
             /**
              * Calculate the full geometry of the chart.  This includes passing
              * over all major elements of a chart (plots, axes, series, container)
@@ -539,7 +573,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: boolean): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms an axis and all dependent plots. Can be used to zoom in 1D.
              *
@@ -548,7 +587,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: Object): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: Object
+            ): any;
             /**
              *
              * @param dir
@@ -583,7 +627,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: boolean): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms in or out any plots in two dimensions.
              *
@@ -593,7 +643,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: Object): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: Object
+            ): any;
             /**
              * Update the given series with a new set of data points.
              *
@@ -843,14 +899,22 @@ declare namespace dojox {
              * @param eventName Event name to simulate: onmouseover, onmouseout, onclick.
              * @param index Valid data value index for the event.
              */
-            fireEvent(seriesName: String, eventName: String, index: number): any;
+            fireEvent(
+                seriesName: String,
+                eventName: String,
+                index: number
+            ): any;
             /**
              *
              * @param element
              * @param label
              * @param labelType
              */
-            formatTruncatedLabel(element: any, label: any, labelType: any): void;
+            formatTruncatedLabel(
+                element: any,
+                label: any,
+                labelType: any
+            ): void;
             /**
              * Calculate the full geometry of the chart.  This includes passing
              * over all major elements of a chart (plots, axes, series, container)
@@ -1013,7 +1077,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: boolean): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms an axis and all dependent plots. Can be used to zoom in 1D.
              *
@@ -1022,7 +1091,12 @@ declare namespace dojox {
              * @param offset Any offest, as measured by axis tick
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setAxisWindow(name: String, scale: number, offset: number, zoom: Object): any;
+            setAxisWindow(
+                name: String,
+                scale: number,
+                offset: number,
+                zoom: Object
+            ): any;
             /**
              *
              * @param dir
@@ -1052,7 +1126,12 @@ declare namespace dojox {
              * @param fieldName
              * @param queryOptions
              */
-            setStore(store: Object, query: String, fieldName: String, queryOptions: Object): void;
+            setStore(
+                store: Object,
+                query: String,
+                fieldName: String,
+                queryOptions: Object
+            ): void;
             /**
              * Set a theme of the chart.
              *
@@ -1068,7 +1147,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: boolean): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: boolean
+            ): any;
             /**
              * Zooms in or out any plots in two dimensions.
              *
@@ -1078,7 +1163,13 @@ declare namespace dojox {
              * @param dy The pixel offset on the y axis.
              * @param zoom               OptionalThe chart zooming animation trigger.  This is null by default,e.g. {duration: 1200}, or just set true.
              */
-            setWindow(sx: number, sy: number, dx: number, dy: number, zoom: Object): any;
+            setWindow(
+                sx: number,
+                sy: number,
+                dx: number,
+                dy: number,
+                zoom: Object
+            ): any;
             /**
              * If chart is hidden, show it
              *
@@ -1244,7 +1335,12 @@ declare namespace dojox {
              * @param wcLimit               Optionaltext limited character count.
              * @param truncated               Optionalwhether the input text(s) has already been truncated.
              */
-            getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+            getTextWithLimitCharCount(
+                s: String,
+                font: String,
+                wcLimit: number,
+                truncated: boolean
+            ): any;
             /**
              * Get the truncated string based on the limited width in px(dichotomy algorithm)
              *
@@ -1253,7 +1349,12 @@ declare namespace dojox {
              * @param limitWidth               Optionaltext limited width in px.
              * @param truncated               Optionalwhether the input text(s) has already been truncated.
              */
-            getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+            getTextWithLimitLength(
+                s: String,
+                font: String,
+                limitWidth: number,
+                truncated: boolean
+            ): any;
             /**
              * Clear any elements out of our group, and destroy the group.
              *
@@ -1270,7 +1371,11 @@ declare namespace dojox {
          * @param kwArgs       OptionalAn optional keyword arguments object to set details for this series.
          */
         class Series extends dojox.charting.Element {
-            constructor(chart: dojox.charting.Chart, data: any[], kwArgs?: Object);
+            constructor(
+                chart: dojox.charting.Chart,
+                data: any[],
+                kwArgs?: Object
+            );
             /**
              * The parent chart for this element.
              *
@@ -1334,7 +1439,12 @@ declare namespace dojox {
              * @param wcLimit               Optionaltext limited character count.
              * @param truncated               Optionalwhether the input text(s) has already been truncated.
              */
-            getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+            getTextWithLimitCharCount(
+                s: String,
+                font: String,
+                wcLimit: number,
+                truncated: boolean
+            ): any;
             /**
              * Get the truncated string based on the limited width in px(dichotomy algorithm)
              *
@@ -1343,7 +1453,12 @@ declare namespace dojox {
              * @param limitWidth               Optionaltext limited width in px.
              * @param truncated               Optionalwhether the input text(s) has already been truncated.
              */
-            getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+            getTextWithLimitLength(
+                s: String,
+                font: String,
+                limitWidth: number,
+                truncated: boolean
+            ): any;
             /**
              * Clear any elements out of our group, and destroy the group.
              *
@@ -1435,7 +1550,12 @@ declare namespace dojox {
              * @param mixin The object or objects to mix into the theme.
              * @param doPost If true, run the new theme through the post-processor.
              */
-            addMixin(theme: dojox.charting.SimpleTheme, elementType: String, mixin: Object, doPost: boolean): any;
+            addMixin(
+                theme: dojox.charting.SimpleTheme,
+                elementType: String,
+                mixin: Object,
+                doPost: boolean
+            ): any;
             /**
              * Add a mixin object to the passed theme and process.
              *
@@ -1444,7 +1564,12 @@ declare namespace dojox {
              * @param mixin The object or objects to mix into the theme.
              * @param doPost If true, run the new theme through the post-processor.
              */
-            addMixin(theme: dojox.charting.SimpleTheme, elementType: String, mixin: any[], doPost: boolean): any;
+            addMixin(
+                theme: dojox.charting.SimpleTheme,
+                elementType: String,
+                mixin: any[],
+                doPost: boolean
+            ): any;
             /**
              * Clear and reset the internal pointer to start fresh.
              *
@@ -1637,7 +1762,12 @@ declare namespace dojox {
              * @param mixin The object or objects to mix into the theme.
              * @param doPost If true, run the new theme through the post-processor.
              */
-            addMixin(theme: dojox.charting.SimpleTheme, elementType: String, mixin: Object, doPost: boolean): any;
+            addMixin(
+                theme: dojox.charting.SimpleTheme,
+                elementType: String,
+                mixin: Object,
+                doPost: boolean
+            ): any;
             /**
              * Add a mixin object to the passed theme and process.
              *
@@ -1646,7 +1776,12 @@ declare namespace dojox {
              * @param mixin The object or objects to mix into the theme.
              * @param doPost If true, run the new theme through the post-processor.
              */
-            addMixin(theme: dojox.charting.SimpleTheme, elementType: String, mixin: any[], doPost: boolean): any;
+            addMixin(
+                theme: dojox.charting.SimpleTheme,
+                elementType: String,
+                mixin: any[],
+                doPost: boolean
+            ): any;
             /**
              * Clear and reset the internal pointer to start fresh.
              *
@@ -1670,7 +1805,11 @@ declare namespace dojox {
              * @param colorFrom
              * @param colorTo
              */
-            generateGradient(fillPattern: any, colorFrom: any, colorTo: any): any;
+            generateGradient(
+                fillPattern: any,
+                colorFrom: any,
+                colorTo: any
+            ): any;
             /**
              *
              * @param color
@@ -1684,7 +1823,12 @@ declare namespace dojox {
              * @param lumFrom
              * @param lumTo
              */
-            generateHslGradient(color: any, fillPattern: any, lumFrom: any, lumTo: any): any;
+            generateHslGradient(
+                color: any,
+                fillPattern: any,
+                lumFrom: any,
+                lumTo: any
+            ): any;
             /**
              * Calculates and merges tick parameters.
              *
@@ -1894,7 +2038,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -1919,7 +2068,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -1948,7 +2102,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -1957,7 +2116,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -2012,7 +2176,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -2128,7 +2300,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional keyword arguments object for setting parameters.
              */
             class Highlight extends dojox.charting.action2d.PlotAction {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2190,7 +2366,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional keyword arguments for this action.
              */
             class Magnify extends dojox.charting.action2d.PlotAction {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2252,7 +2432,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional arguments for the chart action.
              */
             class MouseIndicator extends dojox.charting.action2d.ChartAction {
-                constructor(chart: dojox.charting.Chart, plot: any, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot: any,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2326,7 +2510,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional arguments for the chart action.
              */
             class MouseZoomAndPan extends dojox.charting.action2d.ChartAction {
-                constructor(chart: dojox.charting.Chart, plot: any, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot: any,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2409,7 +2597,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional keyword arguments object for setting parameters.
              */
             class MoveSlice extends dojox.charting.action2d.PlotAction {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2470,7 +2662,11 @@ declare namespace dojox {
              * @param kwargs       OptionalOptional arguments for the action.
              */
             class PlotAction extends dojox.charting.action2d.Base {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwargs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwargs?: Object
+                );
                 /**
                  *
                  */
@@ -2518,7 +2714,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional keyword arguments object for setting parameters.
              */
             class Shake extends dojox.charting.action2d.PlotAction {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2580,7 +2780,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional keyword arguments object for setting parameters.
              */
             class Tooltip extends dojox.charting.action2d.PlotAction {
-                constructor(chart: dojox.charting.Chart, plot?: String, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot?: String,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2646,7 +2850,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional arguments for the chart action.
              */
             class TouchIndicator extends dojox.charting.action2d.ChartAction {
-                constructor(chart: dojox.charting.Chart, plot: any, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot: any,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2721,7 +2929,11 @@ declare namespace dojox {
              * @param kwArgs       OptionalOptional arguments for the action.
              */
             class TouchZoomAndPan extends dojox.charting.action2d.ChartAction {
-                constructor(chart: dojox.charting.Chart, plot: any, kwArgs?: Object);
+                constructor(
+                    chart: dojox.charting.Chart,
+                    plot: any,
+                    kwArgs?: Object
+                );
                 /**
                  *
                  */
@@ -2879,7 +3091,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -2888,7 +3105,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * A stub function to return the object that helps define how ticks are rendered.
                  *
@@ -3009,7 +3231,17 @@ declare namespace dojox {
                  * @param fontColor
                  * @param labelWidth
                  */
-                createText(labelType: any, creator: any, x: any, y: any, align: any, textContent: any, font: any, fontColor: any, labelWidth: any): any;
+                createText(
+                    labelType: any,
+                    creator: any,
+                    x: any,
+                    y: any,
+                    align: any,
+                    textContent: any,
+                    font: any,
+                    fontColor: any,
+                    labelWidth: any
+                ): any;
                 /**
                  * Find out whether or not the axis options depend on the data in the axis.
                  *
@@ -3054,7 +3286,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -3063,7 +3300,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the pre-calculated ticks object.
                  *
@@ -3093,7 +3335,14 @@ declare namespace dojox {
                  * @param font
                  * @param elemType
                  */
-                labelTooltip(elem: any, chart: any, label: any, truncatedLabel: any, font: any, elemType: any): void;
+                labelTooltip(
+                    elem: any,
+                    chart: any,
+                    label: any,
+                    truncatedLabel: any,
+                    font: any,
+                    elemType: any
+                ): void;
                 /**
                  * Clear any elements out of our group, and destroy the group.
                  *
@@ -3221,7 +3470,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -3230,7 +3484,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the pre-calculated ticks object.
                  *
@@ -3301,7 +3560,16 @@ declare namespace dojox {
                      * @param font The font definition, a la CSS "font".
                      * @param fontColor The color of the resultant text.
                      */
-                    gfx(chart: dojox.charting.Chart, creator: Object, x: number, y: number, align: String, text: String, font: String, fontColor: String): dojox.gfx.Text;
+                    gfx(
+                        chart: dojox.charting.Chart,
+                        creator: Object,
+                        x: number,
+                        y: number,
+                        align: String,
+                        text: String,
+                        font: String,
+                        fontColor: String
+                    ): dojox.gfx.Text;
                     /**
                      * Use dojox.gfx to create any text.
                      *
@@ -3314,7 +3582,16 @@ declare namespace dojox {
                      * @param font The font definition, a la CSS "font".
                      * @param fontColor The color of the resultant text.
                      */
-                    gfx(chart: dojox.charting.Chart, creator: Object, x: number, y: number, align: String, text: String, font: String, fontColor:  dojo._base.Color): dojox.gfx.Text;
+                    gfx(
+                        chart: dojox.charting.Chart,
+                        creator: Object,
+                        x: number,
+                        y: number,
+                        align: String,
+                        text: String,
+                        font: String,
+                        fontColor: dojo._base.Color
+                    ): dojox.gfx.Text;
                     /**
                      * Use the HTML DOM to create any text.
                      *
@@ -3328,7 +3605,17 @@ declare namespace dojox {
                      * @param fontColor The color of the resultant text.
                      * @param labelWidth               OptionalThe maximum width of the resultant DOM node.
                      */
-                    html(chart: dojox.charting.Chart, creator: Object, x: number, y: number, align: String, text: String, font: String, fontColor: String, labelWidth: number): HTMLElement;
+                    html(
+                        chart: dojox.charting.Chart,
+                        creator: Object,
+                        x: number,
+                        y: number,
+                        align: String,
+                        text: String,
+                        font: String,
+                        fontColor: String,
+                        labelWidth: number
+                    ): HTMLElement;
                     /**
                      * Use the HTML DOM to create any text.
                      *
@@ -3342,10 +3629,19 @@ declare namespace dojox {
                      * @param fontColor The color of the resultant text.
                      * @param labelWidth               OptionalThe maximum width of the resultant DOM node.
                      */
-                    html(chart: dojox.charting.Chart, creator: Object, x: number, y: number, align: String, text: String, font: String, fontColor:  dojo._base.Color, labelWidth: number): HTMLElement;
+                    html(
+                        chart: dojox.charting.Chart,
+                        creator: Object,
+                        x: number,
+                        y: number,
+                        align: String,
+                        text: String,
+                        font: String,
+                        fontColor: dojo._base.Color,
+                        labelWidth: number
+                    ): HTMLElement;
                 }
             }
-
         }
 
         namespace bidi {
@@ -3397,7 +3693,11 @@ declare namespace dojox {
                  * @param label
                  * @param labelType
                  */
-                formatTruncatedLabel(element: any, label: any, labelType: any): void;
+                formatTruncatedLabel(
+                    element: any,
+                    label: any,
+                    labelType: any
+                ): void;
                 /**
                  * Return direction of the text.
                  * If textDir is ltr or rtl returns the value.
@@ -3486,7 +3786,13 @@ declare namespace dojox {
                  * @param theme Charting theme to use for coloring chart elements.
                  * @param direction the direction used to render the chart values[rtl/ltr]
                  */
-                postscript(node: HTMLElement, lights: any, camera: Object, theme: Object, direction: String): void;
+                postscript(
+                    node: HTMLElement,
+                    lights: any,
+                    camera: Object,
+                    theme: Object,
+                    direction: String
+                ): void;
                 /**
                  * Setter for the chartBaseDirection attribute.
                  * Allows dynamically set the chartBaseDirection attribute, which will used toupdates the chart rendering direction.
@@ -3532,7 +3838,14 @@ declare namespace dojox {
                      * @param font
                      * @param elemType
                      */
-                    labelTooltip(elem: any, chart: any, label: any, truncatedLabel: any, font: any, elemType: any): void;
+                    labelTooltip(
+                        elem: any,
+                        chart: any,
+                        label: any,
+                        truncatedLabel: any,
+                        font: any,
+                        elemType: any
+                    ): void;
                 }
             }
 
@@ -3572,15 +3885,18 @@ declare namespace dojox {
                  * @param offsets
                  * @param rtl
                  */
-                reverseMatrix(plot: any, dim: any, offsets: any, rtl: any): void;
+                reverseMatrix(
+                    plot: any,
+                    dim: any,
+                    offsets: any,
+                    rtl: any
+                ): void;
             }
         }
 
-        namespace BidiSupport {
-        }
+        namespace BidiSupport {}
 
-        namespace BidiSupport3D {
-        }
+        namespace BidiSupport3D {}
 
         namespace plot2d {
             /**
@@ -3623,7 +3939,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  * Stub function for use by specific plots.
                  *
@@ -3745,7 +4066,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -3777,7 +4103,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -3806,7 +4137,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -3815,7 +4151,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -3873,7 +4214,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -3906,7 +4255,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define the plot.
              */
-            class Bars extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Bars extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -3995,7 +4345,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -4027,7 +4382,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -4060,7 +4420,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -4069,7 +4434,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -4077,7 +4447,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, j: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    j: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -4135,7 +4510,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -4262,7 +4645,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -4271,7 +4659,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Does nothing.
                  *
@@ -4304,7 +4697,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Set an axis for this plot.
                  *
@@ -4321,7 +4722,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalOptional keyword arguments object to help define plot parameters.
              */
-            class Bubble extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Bubble extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -4410,7 +4812,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -4435,7 +4842,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -4464,7 +4876,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -4473,7 +4890,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -4531,7 +4953,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -4568,7 +4998,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define the plot.
              */
-            class Candlesticks extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Candlesticks extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -4665,7 +5096,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -4690,7 +5126,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -4719,7 +5160,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -4728,7 +5174,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -4786,7 +5237,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -4890,7 +5349,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -4929,7 +5393,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -4938,7 +5407,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -4984,7 +5458,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Set an axis for this plot.
                  *
@@ -5101,7 +5583,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -5133,7 +5620,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -5166,7 +5658,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -5175,7 +5672,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -5183,7 +5685,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, j: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    j: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -5241,7 +5748,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -5363,7 +5878,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -5395,7 +5915,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -5428,7 +5953,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -5437,7 +5967,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -5445,7 +5980,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, j: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    j: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -5503,7 +6043,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -5536,7 +6084,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define the plot.
              */
-            class Columns extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Columns extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -5625,7 +6174,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -5657,7 +6211,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -5690,7 +6249,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -5699,7 +6263,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -5707,7 +6276,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, j: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    j: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -5765,7 +6339,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -5797,7 +6379,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional arguments object to help define this plot.
              */
-            class Default extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Default extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -5894,7 +6477,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -5926,7 +6514,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -5955,7 +6548,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -5964,7 +6562,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -6022,7 +6625,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -6129,7 +6740,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param creator
@@ -6180,7 +6796,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -6189,7 +6810,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -6235,7 +6861,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Set an axis for this plot.
                  *
@@ -6264,7 +6898,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define the parameters of the underlying grid.
              */
-            class Indicator extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Indicator extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -6351,7 +6986,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -6376,7 +7016,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -6405,7 +7050,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -6414,7 +7064,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -6471,7 +7126,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -6599,7 +7262,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -6631,7 +7299,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -6660,7 +7333,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -6669,7 +7347,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -6727,7 +7410,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -6855,7 +7546,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -6887,7 +7583,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -6916,7 +7617,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -6925,7 +7631,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -6983,7 +7694,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -7111,7 +7830,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -7143,7 +7867,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -7172,7 +7901,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -7181,7 +7915,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -7239,7 +7978,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -7276,7 +8023,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define the plot.
              */
-            class OHLC extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class OHLC extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -7373,7 +8121,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -7398,7 +8151,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -7427,7 +8185,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -7436,7 +8199,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -7494,7 +8262,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -7527,7 +8303,8 @@ declare namespace dojox {
              * @param chart
              * @param kwArgs
              */
-            class Pie extends dojox.charting.plot2d.Base implements dojox.charting.plot2d._PlotEvents {
+            class Pie extends dojox.charting.plot2d.Base
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: any, kwArgs: any);
                 /**
                  * The parent chart for this element.
@@ -7629,7 +8406,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -7658,7 +8440,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -7667,7 +8454,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Does nothing.
                  *
@@ -7712,7 +8504,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -7733,7 +8533,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define this plot's parameters.
              */
-            class Scatter extends dojox.charting.plot2d.CartesianBase implements dojox.charting.plot2d._PlotEvents {
+            class Scatter extends dojox.charting.plot2d.CartesianBase
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  *
@@ -7822,7 +8623,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  * API addition to conform to the rest of the Dojo Toolkit's standard.
                  *
@@ -7847,7 +8653,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -7876,7 +8687,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -7885,7 +8701,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -7943,7 +8764,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -7976,7 +8805,8 @@ declare namespace dojox {
              * @param chart The chart this plot belongs to.
              * @param kwArgs       OptionalAn optional keyword arguments object to help define this plot's parameters.
              */
-            class Spider extends dojox.charting.plot2d.Base implements dojox.charting.plot2d._PlotEvents {
+            class Spider extends dojox.charting.plot2d.Base
+                implements dojox.charting.plot2d._PlotEvents {
                 constructor(chart: dojox.charting.Chart, kwArgs?: Object);
                 /**
                  * The parent chart for this element.
@@ -8078,7 +8908,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -8107,7 +8942,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -8116,7 +8956,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Does nothing.
                  *
@@ -8161,7 +9006,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -8286,7 +9139,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -8318,7 +9176,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -8347,7 +9210,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -8356,7 +9224,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -8414,7 +9287,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -8542,7 +9423,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -8574,7 +9460,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -8603,7 +9494,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -8612,7 +9508,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -8670,7 +9571,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -8792,7 +9701,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -8824,7 +9738,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -8857,7 +9776,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -8866,7 +9790,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -8874,7 +9803,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, index: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    index: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -8932,7 +9866,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -9054,7 +9996,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -9086,7 +10033,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -9119,7 +10071,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -9128,7 +10085,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  *
                  * @param value
@@ -9136,7 +10098,12 @@ declare namespace dojox {
                  * @param seriesIndex
                  * @param indexed
                  */
-                getValue(value: any, index: any, seriesIndex: any, indexed: any): Object;
+                getValue(
+                    value: any,
+                    index: any,
+                    seriesIndex: any,
+                    indexed: any
+                ): Object;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -9194,7 +10161,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -9322,7 +10297,12 @@ declare namespace dojox {
                  * @param bbox
                  * @param theme
                  */
-                createLabel(group: any, value: any, bbox: any, theme: any): void;
+                createLabel(
+                    group: any,
+                    value: any,
+                    bbox: any,
+                    theme: any
+                ): void;
                 /**
                  *
                  * @param run
@@ -9354,7 +10334,12 @@ declare namespace dojox {
                  * @param index Valid data value index used to raise an event.
                  * @param eventObject               OptionalOptional event object. Especially useful for synthetic events.Default: null.
                  */
-                fireEvent(seriesName: String, eventName: String, index: number, eventObject: Object): void;
+                fireEvent(
+                    seriesName: String,
+                    eventName: String,
+                    index: number,
+                    eventObject: Object
+                ): void;
                 /**
                  *
                  */
@@ -9383,7 +10368,12 @@ declare namespace dojox {
                  * @param wcLimit               Optionaltext limited character count.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitCharCount(s: String, font: String, wcLimit: number, truncated: boolean): any;
+                getTextWithLimitCharCount(
+                    s: String,
+                    font: String,
+                    wcLimit: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Get the truncated string based on the limited width in px(dichotomy algorithm)
                  *
@@ -9392,7 +10382,12 @@ declare namespace dojox {
                  * @param limitWidth               Optionaltext limited width in px.
                  * @param truncated               Optionalwhether the input text(s) has already been truncated.
                  */
-                getTextWithLimitLength(s: String, font: String, limitWidth: number, truncated: boolean): any;
+                getTextWithLimitLength(
+                    s: String,
+                    font: String,
+                    limitWidth: number,
+                    truncated: boolean
+                ): any;
                 /**
                  * Initializes scalers using attached axes.
                  *
@@ -9450,7 +10445,15 @@ declare namespace dojox {
                  * @param block
                  * @param align
                  */
-                renderLabel(group: any, x: any, y: any, label: any, theme: any, block: any, align: any): any;
+                renderLabel(
+                    group: any,
+                    x: any,
+                    y: any,
+                    label: any,
+                    theme: any,
+                    block: any,
+                    align: any
+                ): any;
                 /**
                  * Reset all events attached to our plotEvent (i.e. disconnect).
                  *
@@ -9509,7 +10512,11 @@ declare namespace dojox {
                  * @param opt
                  * @param clusterSize               Optional
                  */
-                calculateBarSize(availableSize: number, opt: Object, clusterSize: number): Object;
+                calculateBarSize(
+                    availableSize: number,
+                    opt: Object,
+                    clusterSize: number
+                ): Object;
                 /**
                  *
                  * @param series
@@ -9538,14 +10545,22 @@ declare namespace dojox {
                  * @param ifloaded
                  * @param ifnotloaded
                  */
-                doIfLoaded(moduleName: any, ifloaded: any, ifnotloaded: any): any;
+                doIfLoaded(
+                    moduleName: any,
+                    ifloaded: any,
+                    ifnotloaded: any
+                ): any;
                 /**
                  *
                  * @param number
                  * @param fixed
                  * @param precision
                  */
-                getLabel(number: number, fixed: boolean, precision: number): any;
+                getLabel(
+                    number: number,
+                    fixed: boolean,
+                    precision: number
+                ): any;
                 /**
                  *
                  * @param stroke
@@ -9700,14 +10715,22 @@ declare namespace dojox {
                  * @param ifloaded
                  * @param ifnotloaded
                  */
-                doIfLoaded(moduleName: any, ifloaded: any, ifnotloaded: any): any;
+                doIfLoaded(
+                    moduleName: any,
+                    ifloaded: any,
+                    ifnotloaded: any
+                ): any;
                 /**
                  *
                  * @param number
                  * @param precision
                  * @param kwArgs
                  */
-                getNumericLabel(number: number, precision: number, kwArgs: Object): any;
+                getNumericLabel(
+                    number: number,
+                    precision: number,
+                    kwArgs: Object
+                ): any;
             }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/charting/scaler/linear.html
@@ -9724,7 +10747,14 @@ declare namespace dojox {
                  * @param delta               Optional
                  * @param minorDelta               Optional
                  */
-                buildScaler(min: number, max: number, span: number, kwArgs: Object, delta: number, minorDelta: number): any;
+                buildScaler(
+                    min: number,
+                    max: number,
+                    span: number,
+                    kwArgs: Object,
+                    delta: number,
+                    minorDelta: number
+                ): any;
                 /**
                  *
                  * @param scaler
@@ -9755,7 +10785,12 @@ declare namespace dojox {
                  * @param span
                  * @param kwArgs
                  */
-                buildScaler(min: number, max: number, span: number, kwArgs: Object): Object;
+                buildScaler(
+                    min: number,
+                    max: number,
+                    span: number,
+                    kwArgs: Object
+                ): Object;
                 /**
                  *
                  * @param scaler
@@ -9777,23 +10812,17 @@ declare namespace dojox {
 
         namespace themes {
             namespace PlotKit {
-                namespace blue {
-                }
+                namespace blue {}
 
-                namespace cyan {
-                }
+                namespace cyan {}
 
-                namespace green {
-                }
+                namespace green {}
 
-                namespace orange {
-                }
+                namespace orange {}
 
-                namespace purple {
-                }
+                namespace purple {}
 
-                namespace red {
-                }
+                namespace red {}
 
                 /**
                  * Permalink: http://dojotoolkit.org/api/1.9/dojox/charting/themes/PlotKit/base.html
@@ -9965,14 +10994,22 @@ declare namespace dojox {
                      * @param lumFrom Initial luminance value (0-100).
                      * @param lumTo Final luminance value (0-100).
                      */
-                    generateFills(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                    generateFills(
+                        colors: any[],
+                        fillPattern: Object,
+                        lumFrom: number,
+                        lumTo: number
+                    ): void;
                     /**
                      * generates gradient colors using an intensity map
                      *
                      * @param color Color to use to generate gradients.
                      * @param intensityMap Array of tuples {o, i}, where o is a gradient offset (0-1),and i is an intensity (0-255).
                      */
-                    generateGradientByIntensity(color: dojo._base.Color, intensityMap: any[]): void;
+                    generateGradientByIntensity(
+                        color: dojo._base.Color,
+                        intensityMap: any[]
+                    ): void;
                     /**
                      * generates mini-themes with 2-color gradients using colors, a fill pattern, and three luminance values
                      *
@@ -9982,7 +11019,13 @@ declare namespace dojox {
                      * @param lumTo Final luminance value (0-100).
                      * @param lumStroke Stroke luminance value (0-100).
                      */
-                    generateMiniTheme(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number, lumStroke: number): void;
+                    generateMiniTheme(
+                        colors: any[],
+                        fillPattern: Object,
+                        lumFrom: number,
+                        lumTo: number,
+                        lumStroke: number
+                    ): void;
                     /**
                      * transforms solid color fills into 2-color gradients using a fill pattern, and two luminance values
                      *
@@ -9991,12 +11034,16 @@ declare namespace dojox {
                      * @param lumFrom Initial luminance value (0-100).
                      * @param lumTo Final luminance value (0-100).
                      */
-                    updateFills(themes: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                    updateFills(
+                        themes: any[],
+                        fillPattern: Object,
+                        lumFrom: number,
+                        lumTo: number
+                    ): void;
                 }
             }
 
-            namespace ThreeD {
-            }
+            namespace ThreeD {}
 
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/charting/themes/common.html
@@ -10168,14 +11215,22 @@ declare namespace dojox {
                  * @param lumFrom Initial luminance value (0-100).
                  * @param lumTo Final luminance value (0-100).
                  */
-                generateFills(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                generateFills(
+                    colors: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number
+                ): void;
                 /**
                  * generates gradient colors using an intensity map
                  *
                  * @param color Color to use to generate gradients.
                  * @param intensityMap Array of tuples {o, i}, where o is a gradient offset (0-1),and i is an intensity (0-255).
                  */
-                generateGradientByIntensity(color: dojo._base.Color, intensityMap: any[]): void;
+                generateGradientByIntensity(
+                    color: dojo._base.Color,
+                    intensityMap: any[]
+                ): void;
                 /**
                  * generates mini-themes with 2-color gradients using colors, a fill pattern, and three luminance values
                  *
@@ -10185,7 +11240,13 @@ declare namespace dojox {
                  * @param lumTo Final luminance value (0-100).
                  * @param lumStroke Stroke luminance value (0-100).
                  */
-                generateMiniTheme(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number, lumStroke: number): void;
+                generateMiniTheme(
+                    colors: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number,
+                    lumStroke: number
+                ): void;
                 /**
                  * transforms solid color fills into 2-color gradients using a fill pattern, and two luminance values
                  *
@@ -10194,7 +11255,12 @@ declare namespace dojox {
                  * @param lumFrom Initial luminance value (0-100).
                  * @param lumTo Final luminance value (0-100).
                  */
-                updateFills(themes: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                updateFills(
+                    themes: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number
+                ): void;
             }
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/charting/themes/gradientGenerator.html
@@ -10366,14 +11432,22 @@ declare namespace dojox {
                  * @param lumFrom Initial luminance value (0-100).
                  * @param lumTo Final luminance value (0-100).
                  */
-                generateFills(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                generateFills(
+                    colors: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number
+                ): void;
                 /**
                  * generates gradient colors using an intensity map
                  *
                  * @param color Color to use to generate gradients.
                  * @param intensityMap Array of tuples {o, i}, where o is a gradient offset (0-1),and i is an intensity (0-255).
                  */
-                generateGradientByIntensity(color: dojo._base.Color, intensityMap: any[]): void;
+                generateGradientByIntensity(
+                    color: dojo._base.Color,
+                    intensityMap: any[]
+                ): void;
                 /**
                  * generates mini-themes with 2-color gradients using colors, a fill pattern, and three luminance values
                  *
@@ -10383,7 +11457,13 @@ declare namespace dojox {
                  * @param lumTo Final luminance value (0-100).
                  * @param lumStroke Stroke luminance value (0-100).
                  */
-                generateMiniTheme(colors: any[], fillPattern: Object, lumFrom: number, lumTo: number, lumStroke: number): void;
+                generateMiniTheme(
+                    colors: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number,
+                    lumStroke: number
+                ): void;
                 /**
                  * transforms solid color fills into 2-color gradients using a fill pattern, and two luminance values
                  *
@@ -10392,7 +11472,12 @@ declare namespace dojox {
                  * @param lumFrom Initial luminance value (0-100).
                  * @param lumTo Final luminance value (0-100).
                  */
-                updateFills(themes: any[], fillPattern: Object, lumFrom: number, lumTo: number): void;
+                updateFills(
+                    themes: any[],
+                    fillPattern: Object,
+                    lumFrom: number,
+                    lumTo: number
+                ): void;
             }
         }
 
@@ -10450,25 +11535,52 @@ declare namespace dojox {
                  *
                  */
                 "attributeMap": Object;
-                set(property:"attributeMap", value: Object): void;
-                get(property:"attributeMap"): Object;
-                watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "attributeMap", value: Object): void;
+                get(property: "attributeMap"): Object;
+                watch(
+                    property: "attributeMap",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
                  * widget state.
                  *
                  */
                 "baseClass": string;
-                set(property:"baseClass", value: string): void;
-                get(property:"baseClass"): string;
-                watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "baseClass", value: string): void;
+                get(property: "baseClass"): string;
+                watch(
+                    property: "baseClass",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "class": string;
-                set(property:"class", value: string): void;
-                get(property:"class"): string;
-                watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "class", value: string): void;
+                get(property: "class"): string;
+                watch(
+                    property: "class",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Designates where children of the source DOM node will be placed.
                  * "Children" in this case refers to both DOM nodes and widgets.
@@ -10493,9 +11605,18 @@ declare namespace dojox {
                  *
                  */
                 "containerNode": HTMLElement;
-                set(property:"containerNode", value: HTMLElement): void;
-                get(property:"containerNode"): HTMLElement;
-                watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "containerNode", value: HTMLElement): void;
+                get(property: "containerNode"): HTMLElement;
+                watch(
+                    property: "containerNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Bi-directional support, as defined by the HTML DIR
                  * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -10503,9 +11624,18 @@ declare namespace dojox {
                  *
                  */
                 "dir": string;
-                set(property:"dir", value: string): void;
-                get(property:"dir"): string;
-                watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "dir", value: string): void;
+                get(property: "dir"): string;
+                watch(
+                    property: "dir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This is our visible representation of the widget! Other DOM
                  * Nodes may by assigned to other properties, usually through the
@@ -10514,18 +11644,36 @@ declare namespace dojox {
                  *
                  */
                 "domNode": HTMLElement;
-                set(property:"domNode", value: HTMLElement): void;
-                get(property:"domNode"): HTMLElement;
-                watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "domNode", value: HTMLElement): void;
+                get(property: "domNode"): HTMLElement;
+                watch(
+                    property: "domNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This widget or a widget it contains has focus, or is "active" because
                  * it was recently clicked.
                  *
                  */
                 "focused": boolean;
-                set(property:"focused", value: boolean): void;
-                get(property:"focused"): boolean;
-                watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "focused", value: boolean): void;
+                get(property: "focused"): boolean;
+                watch(
+                    property: "focused",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * A unique, opaque ID string that can be assigned by users or by the
                  * system. If the developer passes an ID which is known not to be
@@ -10534,9 +11682,18 @@ declare namespace dojox {
                  *
                  */
                 "id": string;
-                set(property:"id", value: string): void;
-                get(property:"id"): string;
-                watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "id", value: string): void;
+                get(property: "id"): string;
+                watch(
+                    property: "id",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Rarely used.  Overrides the default Dojo locale used to render this widget,
                  * as defined by the HTML LANG attribute.
@@ -10545,50 +11702,104 @@ declare namespace dojox {
                  *
                  */
                 "lang": string;
-                set(property:"lang", value: string): void;
-                get(property:"lang"): string;
-                watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "lang", value: string): void;
+                get(property: "lang"): string;
+                watch(
+                    property: "lang",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The margins around the chart. Default is { l:10, t:10, r:10, b:10 }.
                  *
                  */
                 "margins": Object;
-                set(property:"margins", value: Object): void;
-                get(property:"margins"): Object;
-                watch(property:"margins", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "margins", value: Object): void;
+                get(property: "margins"): Object;
+                watch(
+                    property: "margins",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The document this widget belongs to.  If not specified to constructor, will default to
                  * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                  *
                  */
                 "ownerDocument": Object;
-                set(property:"ownerDocument", value: Object): void;
-                get(property:"ownerDocument"): Object;
-                watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "ownerDocument", value: Object): void;
+                get(property: "ownerDocument"): Object;
+                watch(
+                    property: "ownerDocument",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * pointer to original DOM node
                  *
                  */
                 "srcNodeRef": HTMLElement;
-                set(property:"srcNodeRef", value: HTMLElement): void;
-                get(property:"srcNodeRef"): HTMLElement;
-                watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "srcNodeRef", value: HTMLElement): void;
+                get(property: "srcNodeRef"): HTMLElement;
+                watch(
+                    property: "srcNodeRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML style attributes as cssText string or name/value hash
                  *
                  */
                 "style": string;
-                set(property:"style", value: string): void;
-                get(property:"style"): string;
-                watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "style", value: string): void;
+                get(property: "style"): string;
+                watch(
+                    property: "style",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * An optional theme to use for styling the chart.
                  *
                  */
                 "theme": Object;
-                set(property:"theme", value: Object): void;
-                get(property:"theme"): Object;
-                watch(property:"theme", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "theme", value: Object): void;
+                get(property: "theme"): Object;
+                watch(
+                    property: "theme",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML title attribute.
                  *
@@ -10601,18 +11812,36 @@ declare namespace dojox {
                  *
                  */
                 "title": string;
-                set(property:"title", value: string): void;
-                get(property:"title"): string;
-                watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "title", value: string): void;
+                get(property: "title"): string;
+                watch(
+                    property: "title",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                  * this specifies the tooltip to appear when the mouse is hovered over that text.
                  *
                  */
                 "tooltip": string;
-                set(property:"tooltip", value: string): void;
-                get(property:"tooltip"): string;
-                watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "tooltip", value: string): void;
+                get(property: "tooltip"): string;
+                watch(
+                    property: "tooltip",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
@@ -11060,7 +12289,16 @@ declare namespace dojox {
                  * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                  * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                  */
-                watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                watch(
+                    property: string,
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: any,
+                            newValue?: any
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Called when the widget stops being "active" because
                  * focus moved to something outside of it, or the user
@@ -11130,25 +12368,52 @@ declare namespace dojox {
                  *
                  */
                 "attributeMap": Object;
-                set(property:"attributeMap", value: Object): void;
-                get(property:"attributeMap"): Object;
-                watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "attributeMap", value: Object): void;
+                get(property: "attributeMap"): Object;
+                watch(
+                    property: "attributeMap",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
                  * widget state.
                  *
                  */
                 "baseClass": string;
-                set(property:"baseClass", value: string): void;
-                get(property:"baseClass"): string;
-                watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "baseClass", value: string): void;
+                get(property: "baseClass"): string;
+                watch(
+                    property: "baseClass",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "class": string;
-                set(property:"class", value: string): void;
-                get(property:"class"): string;
-                watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "class", value: string): void;
+                get(property: "class"): string;
+                watch(
+                    property: "class",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Designates where children of the source DOM node will be placed.
                  * "Children" in this case refers to both DOM nodes and widgets.
@@ -11173,9 +12438,18 @@ declare namespace dojox {
                  *
                  */
                 "containerNode": HTMLElement;
-                set(property:"containerNode", value: HTMLElement): void;
-                get(property:"containerNode"): HTMLElement;
-                watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "containerNode", value: HTMLElement): void;
+                get(property: "containerNode"): HTMLElement;
+                watch(
+                    property: "containerNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Bi-directional support, as defined by the HTML DIR
                  * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -11183,9 +12457,18 @@ declare namespace dojox {
                  *
                  */
                 "dir": string;
-                set(property:"dir", value: string): void;
-                get(property:"dir"): string;
-                watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "dir", value: string): void;
+                get(property: "dir"): string;
+                watch(
+                    property: "dir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This is our visible representation of the widget! Other DOM
                  * Nodes may by assigned to other properties, usually through the
@@ -11194,18 +12477,36 @@ declare namespace dojox {
                  *
                  */
                 "domNode": HTMLElement;
-                set(property:"domNode", value: HTMLElement): void;
-                get(property:"domNode"): HTMLElement;
-                watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "domNode", value: HTMLElement): void;
+                get(property: "domNode"): HTMLElement;
+                watch(
+                    property: "domNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This widget or a widget it contains has focus, or is "active" because
                  * it was recently clicked.
                  *
                  */
                 "focused": boolean;
-                set(property:"focused", value: boolean): void;
-                get(property:"focused"): boolean;
-                watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "focused", value: boolean): void;
+                get(property: "focused"): boolean;
+                watch(
+                    property: "focused",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * A unique, opaque ID string that can be assigned by users or by the
                  * system. If the developer passes an ID which is known not to be
@@ -11214,9 +12515,18 @@ declare namespace dojox {
                  *
                  */
                 "id": string;
-                set(property:"id", value: string): void;
-                get(property:"id"): string;
-                watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "id", value: string): void;
+                get(property: "id"): string;
+                watch(
+                    property: "id",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Rarely used.  Overrides the default Dojo locale used to render this widget,
                  * as defined by the HTML LANG attribute.
@@ -11225,50 +12535,104 @@ declare namespace dojox {
                  *
                  */
                 "lang": string;
-                set(property:"lang", value: string): void;
-                get(property:"lang"): string;
-                watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "lang", value: string): void;
+                get(property: "lang"): string;
+                watch(
+                    property: "lang",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The margins around the chart. Default is { l:10, t:10, r:10, b:10 }.
                  *
                  */
                 "margins": Object;
-                set(property:"margins", value: Object): void;
-                get(property:"margins"): Object;
-                watch(property:"margins", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "margins", value: Object): void;
+                get(property: "margins"): Object;
+                watch(
+                    property: "margins",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The document this widget belongs to.  If not specified to constructor, will default to
                  * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                  *
                  */
                 "ownerDocument": Object;
-                set(property:"ownerDocument", value: Object): void;
-                get(property:"ownerDocument"): Object;
-                watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "ownerDocument", value: Object): void;
+                get(property: "ownerDocument"): Object;
+                watch(
+                    property: "ownerDocument",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * pointer to original DOM node
                  *
                  */
                 "srcNodeRef": HTMLElement;
-                set(property:"srcNodeRef", value: HTMLElement): void;
-                get(property:"srcNodeRef"): HTMLElement;
-                watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "srcNodeRef", value: HTMLElement): void;
+                get(property: "srcNodeRef"): HTMLElement;
+                watch(
+                    property: "srcNodeRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML style attributes as cssText string or name/value hash
                  *
                  */
                 "style": string;
-                set(property:"style", value: string): void;
-                get(property:"style"): string;
-                watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "style", value: string): void;
+                get(property: "style"): string;
+                watch(
+                    property: "style",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * An optional theme to use for styling the chart.
                  *
                  */
                 "theme": Object;
-                set(property:"theme", value: Object): void;
-                get(property:"theme"): Object;
-                watch(property:"theme", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "theme", value: Object): void;
+                get(property: "theme"): Object;
+                watch(
+                    property: "theme",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML title attribute.
                  *
@@ -11281,18 +12645,36 @@ declare namespace dojox {
                  *
                  */
                 "title": string;
-                set(property:"title", value: string): void;
-                get(property:"title"): string;
-                watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "title", value: string): void;
+                get(property: "title"): string;
+                watch(
+                    property: "title",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                  * this specifies the tooltip to appear when the mouse is hovered over that text.
                  *
                  */
                 "tooltip": string;
-                set(property:"tooltip", value: string): void;
-                get(property:"tooltip"): string;
-                watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "tooltip", value: string): void;
+                get(property: "tooltip"): string;
+                watch(
+                    property: "tooltip",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
@@ -11740,7 +13122,16 @@ declare namespace dojox {
                  * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                  * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                  */
-                watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                watch(
+                    property: string,
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: any,
+                            newValue?: any
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Called when the widget stops being "active" because
                  * focus moved to something outside of it, or the user
@@ -11821,32 +13212,68 @@ declare namespace dojox {
                  *
                  */
                 "attributeMap": Object;
-                set(property:"attributeMap", value: Object): void;
-                get(property:"attributeMap"): Object;
-                watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "attributeMap", value: Object): void;
+                get(property: "attributeMap"): Object;
+                watch(
+                    property: "attributeMap",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
                  * widget state.
                  *
                  */
                 "baseClass": string;
-                set(property:"baseClass", value: string): void;
-                get(property:"baseClass"): string;
-                watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "baseClass", value: string): void;
+                get(property: "baseClass"): string;
+                watch(
+                    property: "baseClass",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "chartRef": string;
-                set(property:"chartRef", value: string): void;
-                get(property:"chartRef"): string;
-                watch(property:"chartRef", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "chartRef", value: string): void;
+                get(property: "chartRef"): string;
+                watch(
+                    property: "chartRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "class": string;
-                set(property:"class", value: string): void;
-                get(property:"class"): string;
-                watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "class", value: string): void;
+                get(property: "class"): string;
+                watch(
+                    property: "class",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Designates where children of the source DOM node will be placed.
                  * "Children" in this case refers to both DOM nodes and widgets.
@@ -11871,9 +13298,18 @@ declare namespace dojox {
                  *
                  */
                 "containerNode": HTMLElement;
-                set(property:"containerNode", value: HTMLElement): void;
-                get(property:"containerNode"): HTMLElement;
-                watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "containerNode", value: HTMLElement): void;
+                get(property: "containerNode"): HTMLElement;
+                watch(
+                    property: "containerNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Bi-directional support, as defined by the HTML DIR
                  * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -11881,9 +13317,18 @@ declare namespace dojox {
                  *
                  */
                 "dir": string;
-                set(property:"dir", value: string): void;
-                get(property:"dir"): string;
-                watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "dir", value: string): void;
+                get(property: "dir"): string;
+                watch(
+                    property: "dir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This is our visible representation of the widget! Other DOM
                  * Nodes may by assigned to other properties, usually through the
@@ -11892,25 +13337,52 @@ declare namespace dojox {
                  *
                  */
                 "domNode": HTMLElement;
-                set(property:"domNode", value: HTMLElement): void;
-                get(property:"domNode"): HTMLElement;
-                watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "domNode", value: HTMLElement): void;
+                get(property: "domNode"): HTMLElement;
+                watch(
+                    property: "domNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This widget or a widget it contains has focus, or is "active" because
                  * it was recently clicked.
                  *
                  */
                 "focused": boolean;
-                set(property:"focused", value: boolean): void;
-                get(property:"focused"): boolean;
-                watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "focused", value: boolean): void;
+                get(property: "focused"): boolean;
+                watch(
+                    property: "focused",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "horizontal": boolean;
-                set(property:"horizontal", value: boolean): void;
-                get(property:"horizontal"): boolean;
-                watch(property:"horizontal", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "horizontal", value: boolean): void;
+                get(property: "horizontal"): boolean;
+                watch(
+                    property: "horizontal",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * A unique, opaque ID string that can be assigned by users or by the
                  * system. If the developer passes an ID which is known not to be
@@ -11919,9 +13391,18 @@ declare namespace dojox {
                  *
                  */
                 "id": string;
-                set(property:"id", value: string): void;
-                get(property:"id"): string;
-                watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "id", value: string): void;
+                get(property: "id"): string;
+                watch(
+                    property: "id",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Rarely used.  Overrides the default Dojo locale used to render this widget,
                  * as defined by the HTML LANG attribute.
@@ -11930,48 +13411,102 @@ declare namespace dojox {
                  *
                  */
                 "lang": string;
-                set(property:"lang", value: string): void;
-                get(property:"lang"): string;
-                watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "lang", value: string): void;
+                get(property: "lang"): string;
+                watch(
+                    property: "lang",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "legendBody": Object;
-                set(property:"legendBody", value: Object): void;
-                get(property:"legendBody"): Object;
-                watch(property:"legendBody", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "legendBody", value: Object): void;
+                get(property: "legendBody"): Object;
+                watch(
+                    property: "legendBody",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The document this widget belongs to.  If not specified to constructor, will default to
                  * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                  *
                  */
                 "ownerDocument": Object;
-                set(property:"ownerDocument", value: Object): void;
-                get(property:"ownerDocument"): Object;
-                watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "ownerDocument", value: Object): void;
+                get(property: "ownerDocument"): Object;
+                watch(
+                    property: "ownerDocument",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * pointer to original DOM node
                  *
                  */
                 "srcNodeRef": HTMLElement;
-                set(property:"srcNodeRef", value: HTMLElement): void;
-                get(property:"srcNodeRef"): HTMLElement;
-                watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "srcNodeRef", value: HTMLElement): void;
+                get(property: "srcNodeRef"): HTMLElement;
+                watch(
+                    property: "srcNodeRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML style attributes as cssText string or name/value hash
                  *
                  */
                 "style": string;
-                set(property:"style", value: string): void;
-                get(property:"style"): string;
-                watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "style", value: string): void;
+                get(property: "style"): string;
+                watch(
+                    property: "style",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "swatchSize": number;
-                set(property:"swatchSize", value: number): void;
-                get(property:"swatchSize"): number;
-                watch(property:"swatchSize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "swatchSize", value: number): void;
+                get(property: "swatchSize"): number;
+                watch(
+                    property: "swatchSize",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML title attribute.
                  *
@@ -11984,18 +13519,36 @@ declare namespace dojox {
                  *
                  */
                 "title": string;
-                set(property:"title", value: string): void;
-                get(property:"title"): string;
-                watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "title", value: string): void;
+                get(property: "title"): string;
+                watch(
+                    property: "title",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                  * this specifies the tooltip to appear when the mouse is hovered over that text.
                  *
                  */
                 "tooltip": string;
-                set(property:"tooltip", value: string): void;
-                get(property:"tooltip"): string;
-                watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "tooltip", value: string): void;
+                get(property: "tooltip"): string;
+                watch(
+                    property: "tooltip",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
@@ -12417,7 +13970,16 @@ declare namespace dojox {
                  * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                  * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                  */
-                watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                watch(
+                    property: string,
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: any,
+                            newValue?: any
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Called when the widget stops being "active" because
                  * focus moved to something outside of it, or the user
@@ -12487,32 +14049,68 @@ declare namespace dojox {
                  *
                  */
                 "attributeMap": Object;
-                set(property:"attributeMap", value: Object): void;
-                get(property:"attributeMap"): Object;
-                watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "attributeMap", value: Object): void;
+                get(property: "attributeMap"): Object;
+                watch(
+                    property: "attributeMap",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
                  * widget state.
                  *
                  */
                 "baseClass": string;
-                set(property:"baseClass", value: string): void;
-                get(property:"baseClass"): string;
-                watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "baseClass", value: string): void;
+                get(property: "baseClass"): string;
+                watch(
+                    property: "baseClass",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "chartRef": string;
-                set(property:"chartRef", value: string): void;
-                get(property:"chartRef"): string;
-                watch(property:"chartRef", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "chartRef", value: string): void;
+                get(property: "chartRef"): string;
+                watch(
+                    property: "chartRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "class": string;
-                set(property:"class", value: string): void;
-                get(property:"class"): string;
-                watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "class", value: string): void;
+                get(property: "class"): string;
+                watch(
+                    property: "class",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Designates where children of the source DOM node will be placed.
                  * "Children" in this case refers to both DOM nodes and widgets.
@@ -12537,9 +14135,18 @@ declare namespace dojox {
                  *
                  */
                 "containerNode": HTMLElement;
-                set(property:"containerNode", value: HTMLElement): void;
-                get(property:"containerNode"): HTMLElement;
-                watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "containerNode", value: HTMLElement): void;
+                get(property: "containerNode"): HTMLElement;
+                watch(
+                    property: "containerNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Bi-directional support, as defined by the HTML DIR
                  * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -12547,9 +14154,18 @@ declare namespace dojox {
                  *
                  */
                 "dir": string;
-                set(property:"dir", value: string): void;
-                get(property:"dir"): string;
-                watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "dir", value: string): void;
+                get(property: "dir"): string;
+                watch(
+                    property: "dir",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This is our visible representation of the widget! Other DOM
                  * Nodes may by assigned to other properties, usually through the
@@ -12558,25 +14174,52 @@ declare namespace dojox {
                  *
                  */
                 "domNode": HTMLElement;
-                set(property:"domNode", value: HTMLElement): void;
-                get(property:"domNode"): HTMLElement;
-                watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "domNode", value: HTMLElement): void;
+                get(property: "domNode"): HTMLElement;
+                watch(
+                    property: "domNode",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * This widget or a widget it contains has focus, or is "active" because
                  * it was recently clicked.
                  *
                  */
                 "focused": boolean;
-                set(property:"focused", value: boolean): void;
-                get(property:"focused"): boolean;
-                watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "focused", value: boolean): void;
+                get(property: "focused"): boolean;
+                watch(
+                    property: "focused",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "horizontal": boolean;
-                set(property:"horizontal", value: boolean): void;
-                get(property:"horizontal"): boolean;
-                watch(property:"horizontal", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "horizontal", value: boolean): void;
+                get(property: "horizontal"): boolean;
+                watch(
+                    property: "horizontal",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * A unique, opaque ID string that can be assigned by users or by the
                  * system. If the developer passes an ID which is known not to be
@@ -12585,9 +14228,18 @@ declare namespace dojox {
                  *
                  */
                 "id": string;
-                set(property:"id", value: string): void;
-                get(property:"id"): string;
-                watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "id", value: string): void;
+                get(property: "id"): string;
+                watch(
+                    property: "id",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Rarely used.  Overrides the default Dojo locale used to render this widget,
                  * as defined by the HTML LANG attribute.
@@ -12596,55 +14248,118 @@ declare namespace dojox {
                  *
                  */
                 "lang": string;
-                set(property:"lang", value: string): void;
-                get(property:"lang"): string;
-                watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "lang", value: string): void;
+                get(property: "lang"): string;
+                watch(
+                    property: "lang",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "legendBody": Object;
-                set(property:"legendBody", value: Object): void;
-                get(property:"legendBody"): Object;
-                watch(property:"legendBody", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "legendBody", value: Object): void;
+                get(property: "legendBody"): Object;
+                watch(
+                    property: "legendBody",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "outline": boolean;
-                set(property:"outline", value: boolean): void;
-                get(property:"outline"): boolean;
-                watch(property:"outline", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+                set(property: "outline", value: boolean): void;
+                get(property: "outline"): boolean;
+                watch(
+                    property: "outline",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: boolean,
+                            newValue?: boolean
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * The document this widget belongs to.  If not specified to constructor, will default to
                  * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
                  *
                  */
                 "ownerDocument": Object;
-                set(property:"ownerDocument", value: Object): void;
-                get(property:"ownerDocument"): Object;
-                watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "ownerDocument", value: Object): void;
+                get(property: "ownerDocument"): Object;
+                watch(
+                    property: "ownerDocument",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * pointer to original DOM node
                  *
                  */
                 "srcNodeRef": HTMLElement;
-                set(property:"srcNodeRef", value: HTMLElement): void;
-                get(property:"srcNodeRef"): HTMLElement;
-                watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+                set(property: "srcNodeRef", value: HTMLElement): void;
+                get(property: "srcNodeRef"): HTMLElement;
+                watch(
+                    property: "srcNodeRef",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: HTMLElement,
+                            newValue?: HTMLElement
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML style attributes as cssText string or name/value hash
                  *
                  */
                 "style": string;
-                set(property:"style", value: string): void;
-                get(property:"style"): string;
-                watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "style", value: string): void;
+                get(property: "style"): string;
+                watch(
+                    property: "style",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "swatchSize": number;
-                set(property:"swatchSize", value: number): void;
-                get(property:"swatchSize"): number;
-                watch(property:"swatchSize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+                set(property: "swatchSize", value: number): void;
+                get(property: "swatchSize"): number;
+                watch(
+                    property: "swatchSize",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: number,
+                            newValue?: number
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * HTML title attribute.
                  *
@@ -12657,32 +14372,68 @@ declare namespace dojox {
                  *
                  */
                 "title": string;
-                set(property:"title", value: string): void;
-                get(property:"title"): string;
-                watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "title", value: string): void;
+                get(property: "title"): string;
+                watch(
+                    property: "title",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
                  * this specifies the tooltip to appear when the mouse is hovered over that text.
                  *
                  */
                 "tooltip": string;
-                set(property:"tooltip", value: string): void;
-                get(property:"tooltip"): string;
-                watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+                set(property: "tooltip", value: string): void;
+                get(property: "tooltip"): string;
+                watch(
+                    property: "tooltip",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: string,
+                            newValue?: string
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "transitionFill": Object;
-                set(property:"transitionFill", value: Object): void;
-                get(property:"transitionFill"): Object;
-                watch(property:"transitionFill", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "transitionFill", value: Object): void;
+                get(property: "transitionFill"): Object;
+                watch(
+                    property: "transitionFill",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
                 "transitionStroke": Object;
-                set(property:"transitionStroke", value: Object): void;
-                get(property:"transitionStroke"): Object;
-                watch(property:"transitionStroke", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+                set(property: "transitionStroke", value: Object): void;
+                get(property: "transitionStroke"): Object;
+                watch(
+                    property: "transitionStroke",
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: Object,
+                            newValue?: Object
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  *
                  */
@@ -13103,7 +14854,16 @@ declare namespace dojox {
                  * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
                  * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
                  */
-                watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+                watch(
+                    property: string,
+                    callback: {
+                        (
+                            property?: string,
+                            oldValue?: any,
+                            newValue?: any
+                        ): void;
+                    }
+                ): { unwatch(): void };
                 /**
                  * Called when the widget stops being "active" because
                  * focus moved to something outside of it, or the user
@@ -13120,339 +14880,334 @@ declare namespace dojox {
                  */
                 onFocus(): void;
             }
-            namespace BidiSupport {
-            }
+            namespace BidiSupport {}
 
-            namespace Sparkline {
-            }
-
+            namespace Sparkline {}
         }
-
     }
-
 }
 
 declare module "dojox/charting/Chart3D" {
-    import exp = dojox.charting.Chart3D
-    export=exp;
+    import exp = dojox.charting.Chart3D;
+    export = exp;
 }
 declare module "dojox/charting/Chart2D" {
-    import exp = dojox.charting.Chart2D
-    export=exp;
+    import exp = dojox.charting.Chart2D;
+    export = exp;
 }
 declare module "dojox/charting/DataSeries" {
-    import exp = dojox.charting.DataSeries
-    export=exp;
+    import exp = dojox.charting.DataSeries;
+    export = exp;
 }
 declare module "dojox/charting/Chart" {
-    import exp = dojox.charting.Chart
-    export=exp;
+    import exp = dojox.charting.Chart;
+    export = exp;
 }
 declare module "dojox/charting/DataChart" {
-    import exp = dojox.charting.DataChart
-    export=exp;
+    import exp = dojox.charting.DataChart;
+    export = exp;
 }
 declare module "dojox/charting/Element" {
-    import exp = dojox.charting.Element
-    export=exp;
+    import exp = dojox.charting.Element;
+    export = exp;
 }
 declare module "dojox/charting/Series" {
-    import exp = dojox.charting.Series
-    export=exp;
+    import exp = dojox.charting.Series;
+    export = exp;
 }
 declare module "dojox/charting/StoreSeries" {
-    import exp = dojox.charting.StoreSeries
-    export=exp;
+    import exp = dojox.charting.StoreSeries;
+    export = exp;
 }
 declare module "dojox/charting/SimpleTheme" {
-    import exp = dojox.charting.SimpleTheme
-    export=exp;
+    import exp = dojox.charting.SimpleTheme;
+    export = exp;
 }
 declare module "dojox/charting/SimpleTheme.defaultMarkers" {
-    import exp = dojox.charting.SimpleTheme.defaultMarkers
-    export=exp;
+    import exp = dojox.charting.SimpleTheme.defaultMarkers;
+    export = exp;
 }
 declare module "dojox/charting/SimpleTheme.defaultTheme" {
-    import exp = dojox.charting.SimpleTheme.defaultTheme
-    export=exp;
+    import exp = dojox.charting.SimpleTheme.defaultTheme;
+    export = exp;
 }
 declare module "dojox/charting/Theme" {
-    import exp = dojox.charting.Theme
-    export=exp;
+    import exp = dojox.charting.Theme;
+    export = exp;
 }
 declare module "dojox/charting/Theme.defaultMarkers" {
-    import exp = dojox.charting.Theme.defaultMarkers
-    export=exp;
+    import exp = dojox.charting.Theme.defaultMarkers;
+    export = exp;
 }
 declare module "dojox/charting/Theme.defaultTheme" {
-    import exp = dojox.charting.Theme.defaultTheme
-    export=exp;
+    import exp = dojox.charting.Theme.defaultTheme;
+    export = exp;
 }
 declare module "dojox/charting/action2d/Base" {
-    import exp = dojox.charting.action2d.Base
-    export=exp;
+    import exp = dojox.charting.action2d.Base;
+    export = exp;
 }
 declare module "dojox/charting/action2d/ChartAction" {
-    import exp = dojox.charting.action2d.ChartAction
-    export=exp;
+    import exp = dojox.charting.action2d.ChartAction;
+    export = exp;
 }
 declare module "dojox/charting/action2d/_IndicatorElement" {
-    import exp = dojox.charting.action2d._IndicatorElement
-    export=exp;
+    import exp = dojox.charting.action2d._IndicatorElement;
+    export = exp;
 }
 declare module "dojox/charting/action2d/Highlight" {
-    import exp = dojox.charting.action2d.Highlight
-    export=exp;
+    import exp = dojox.charting.action2d.Highlight;
+    export = exp;
 }
 declare module "dojox/charting/action2d/Magnify" {
-    import exp = dojox.charting.action2d.Magnify
-    export=exp;
+    import exp = dojox.charting.action2d.Magnify;
+    export = exp;
 }
 declare module "dojox/charting/action2d/MouseZoomAndPan" {
-    import exp = dojox.charting.action2d.MouseZoomAndPan
-    export=exp;
+    import exp = dojox.charting.action2d.MouseZoomAndPan;
+    export = exp;
 }
 declare module "dojox/charting/action2d/MouseIndicator" {
-    import exp = dojox.charting.action2d.MouseIndicator
-    export=exp;
+    import exp = dojox.charting.action2d.MouseIndicator;
+    export = exp;
 }
 declare module "dojox/charting/action2d/MoveSlice" {
-    import exp = dojox.charting.action2d.MoveSlice
-    export=exp;
+    import exp = dojox.charting.action2d.MoveSlice;
+    export = exp;
 }
 declare module "dojox/charting/action2d/PlotAction" {
-    import exp = dojox.charting.action2d.PlotAction
-    export=exp;
+    import exp = dojox.charting.action2d.PlotAction;
+    export = exp;
 }
 declare module "dojox/charting/action2d/Tooltip" {
-    import exp = dojox.charting.action2d.Tooltip
-    export=exp;
+    import exp = dojox.charting.action2d.Tooltip;
+    export = exp;
 }
 declare module "dojox/charting/action2d/Shake" {
-    import exp = dojox.charting.action2d.Shake
-    export=exp;
+    import exp = dojox.charting.action2d.Shake;
+    export = exp;
 }
 declare module "dojox/charting/action2d/TouchZoomAndPan" {
-    import exp = dojox.charting.action2d.TouchZoomAndPan
-    export=exp;
+    import exp = dojox.charting.action2d.TouchZoomAndPan;
+    export = exp;
 }
 declare module "dojox/charting/action2d/TouchIndicator" {
-    import exp = dojox.charting.action2d.TouchIndicator
-    export=exp;
+    import exp = dojox.charting.action2d.TouchIndicator;
+    export = exp;
 }
 declare module "dojox/charting/axis2d/common" {
-    import exp = dojox.charting.axis2d.common
-    export=exp;
+    import exp = dojox.charting.axis2d.common;
+    export = exp;
 }
 declare module "dojox/charting/axis2d/common.createText" {
-    import exp = dojox.charting.axis2d.common.createText
-    export=exp;
+    import exp = dojox.charting.axis2d.common.createText;
+    export = exp;
 }
 declare module "dojox/charting/axis2d/Base" {
-    import exp = dojox.charting.axis2d.Base
-    export=exp;
+    import exp = dojox.charting.axis2d.Base;
+    export = exp;
 }
 declare module "dojox/charting/axis2d/Invisible" {
-    import exp = dojox.charting.axis2d.Invisible
-    export=exp;
+    import exp = dojox.charting.axis2d.Invisible;
+    export = exp;
 }
 declare module "dojox/charting/axis2d/Default" {
-    import exp = dojox.charting.axis2d.Default
-    export=exp;
+    import exp = dojox.charting.axis2d.Default;
+    export = exp;
 }
 declare module "dojox/charting/bidi/_bidiutils" {
-    import exp = dojox.charting.bidi._bidiutils
-    export=exp;
+    import exp = dojox.charting.bidi._bidiutils;
+    export = exp;
 }
 declare module "dojox/charting/bidi/Chart" {
-    import exp = dojox.charting.bidi.Chart
-    export=exp;
+    import exp = dojox.charting.bidi.Chart;
+    export = exp;
 }
 declare module "dojox/charting/bidi/Chart3D" {
-    import exp = dojox.charting.bidi.Chart3D
-    export=exp;
+    import exp = dojox.charting.bidi.Chart3D;
+    export = exp;
 }
 declare module "dojox/charting/bidi/action2d/Tooltip" {
-    import exp = dojox.charting.bidi.action2d.Tooltip
-    export=exp;
+    import exp = dojox.charting.bidi.action2d.Tooltip;
+    export = exp;
 }
 declare module "dojox/charting/bidi/action2d/ZoomAndPan" {
-    import exp = dojox.charting.bidi.action2d.ZoomAndPan
-    export=exp;
+    import exp = dojox.charting.bidi.action2d.ZoomAndPan;
+    export = exp;
 }
 declare module "dojox/charting/bidi/axis2d/Default" {
-    import exp = dojox.charting.bidi.axis2d.Default
-    export=exp;
+    import exp = dojox.charting.bidi.axis2d.Default;
+    export = exp;
 }
 declare module "dojox/charting/bidi/widget/Chart" {
-    import exp = dojox.charting.bidi.widget.Chart
-    export=exp;
+    import exp = dojox.charting.bidi.widget.Chart;
+    export = exp;
 }
 declare module "dojox/charting/bidi/widget/Legend" {
-    import exp = dojox.charting.bidi.widget.Legend
-    export=exp;
+    import exp = dojox.charting.bidi.widget.Legend;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/common" {
-    import exp = dojox.charting.plot2d.common
-    export=exp;
+    import exp = dojox.charting.plot2d.common;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/common.defaultStats" {
-    import exp = dojox.charting.plot2d.common.defaultStats
-    export=exp;
+    import exp = dojox.charting.plot2d.common.defaultStats;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/commonStacked" {
-    import exp = dojox.charting.plot2d.commonStacked
-    export=exp;
+    import exp = dojox.charting.plot2d.commonStacked;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/_PlotEvents" {
-    import exp = dojox.charting.plot2d._PlotEvents
-    export=exp;
+    import exp = dojox.charting.plot2d._PlotEvents;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Areas" {
-    import exp = dojox.charting.plot2d.Areas
-    export=exp;
+    import exp = dojox.charting.plot2d.Areas;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Bars" {
-    import exp = dojox.charting.plot2d.Bars
-    export=exp;
+    import exp = dojox.charting.plot2d.Bars;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Base" {
-    import exp = dojox.charting.plot2d.Base
-    export=exp;
+    import exp = dojox.charting.plot2d.Base;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Bubble" {
-    import exp = dojox.charting.plot2d.Bubble
-    export=exp;
+    import exp = dojox.charting.plot2d.Bubble;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/CartesianBase" {
-    import exp = dojox.charting.plot2d.CartesianBase
-    export=exp;
+    import exp = dojox.charting.plot2d.CartesianBase;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Candlesticks" {
-    import exp = dojox.charting.plot2d.Candlesticks
-    export=exp;
+    import exp = dojox.charting.plot2d.Candlesticks;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/ClusteredBars" {
-    import exp = dojox.charting.plot2d.ClusteredBars
-    export=exp;
+    import exp = dojox.charting.plot2d.ClusteredBars;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/ClusteredColumns" {
-    import exp = dojox.charting.plot2d.ClusteredColumns
-    export=exp;
+    import exp = dojox.charting.plot2d.ClusteredColumns;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Columns" {
-    import exp = dojox.charting.plot2d.Columns
-    export=exp;
+    import exp = dojox.charting.plot2d.Columns;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Grid" {
-    import exp = dojox.charting.plot2d.Grid
-    export=exp;
+    import exp = dojox.charting.plot2d.Grid;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Default" {
-    import exp = dojox.charting.plot2d.Default
-    export=exp;
+    import exp = dojox.charting.plot2d.Default;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Indicator" {
-    import exp = dojox.charting.plot2d.Indicator
-    export=exp;
+    import exp = dojox.charting.plot2d.Indicator;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Lines" {
-    import exp = dojox.charting.plot2d.Lines
-    export=exp;
+    import exp = dojox.charting.plot2d.Lines;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Markers" {
-    import exp = dojox.charting.plot2d.Markers
-    export=exp;
+    import exp = dojox.charting.plot2d.Markers;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Pie" {
-    import exp = dojox.charting.plot2d.Pie
-    export=exp;
+    import exp = dojox.charting.plot2d.Pie;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/MarkersOnly" {
-    import exp = dojox.charting.plot2d.MarkersOnly
-    export=exp;
+    import exp = dojox.charting.plot2d.MarkersOnly;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/OHLC" {
-    import exp = dojox.charting.plot2d.OHLC
-    export=exp;
+    import exp = dojox.charting.plot2d.OHLC;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Scatter" {
-    import exp = dojox.charting.plot2d.Scatter
-    export=exp;
+    import exp = dojox.charting.plot2d.Scatter;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Stacked" {
-    import exp = dojox.charting.plot2d.Stacked
-    export=exp;
+    import exp = dojox.charting.plot2d.Stacked;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/Spider" {
-    import exp = dojox.charting.plot2d.Spider
-    export=exp;
+    import exp = dojox.charting.plot2d.Spider;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/StackedAreas" {
-    import exp = dojox.charting.plot2d.StackedAreas
-    export=exp;
+    import exp = dojox.charting.plot2d.StackedAreas;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/StackedBars" {
-    import exp = dojox.charting.plot2d.StackedBars
-    export=exp;
+    import exp = dojox.charting.plot2d.StackedBars;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/StackedColumns" {
-    import exp = dojox.charting.plot2d.StackedColumns
-    export=exp;
+    import exp = dojox.charting.plot2d.StackedColumns;
+    export = exp;
 }
 declare module "dojox/charting/plot2d/StackedLines" {
-    import exp = dojox.charting.plot2d.StackedLines
-    export=exp;
+    import exp = dojox.charting.plot2d.StackedLines;
+    export = exp;
 }
 declare module "dojox/charting/plot3d/Bars" {
-    import exp = dojox.charting.plot3d.Bars
-    export=exp;
+    import exp = dojox.charting.plot3d.Bars;
+    export = exp;
 }
 declare module "dojox/charting/plot3d/Base" {
-    import exp = dojox.charting.plot3d.Base
-    export=exp;
+    import exp = dojox.charting.plot3d.Base;
+    export = exp;
 }
 declare module "dojox/charting/plot3d/Cylinders" {
-    import exp = dojox.charting.plot3d.Cylinders
-    export=exp;
+    import exp = dojox.charting.plot3d.Cylinders;
+    export = exp;
 }
 declare module "dojox/charting/scaler/common" {
-    import exp = dojox.charting.scaler.common
-    export=exp;
+    import exp = dojox.charting.scaler.common;
+    export = exp;
 }
 declare module "dojox/charting/scaler/primitive" {
-    import exp = dojox.charting.scaler.primitive
-    export=exp;
+    import exp = dojox.charting.scaler.primitive;
+    export = exp;
 }
 declare module "dojox/charting/scaler/linear" {
-    import exp = dojox.charting.scaler.linear
-    export=exp;
+    import exp = dojox.charting.scaler.linear;
+    export = exp;
 }
 declare module "dojox/charting/themes/common" {
-    import exp = dojox.charting.themes.common
-    export=exp;
+    import exp = dojox.charting.themes.common;
+    export = exp;
 }
 declare module "dojox/charting/themes/gradientGenerator" {
-    import exp = dojox.charting.themes.gradientGenerator
-    export=exp;
+    import exp = dojox.charting.themes.gradientGenerator;
+    export = exp;
 }
 declare module "dojox/charting/themes/PlotKit/base" {
-    import exp = dojox.charting.themes.PlotKit.base
-    export=exp;
+    import exp = dojox.charting.themes.PlotKit.base;
+    export = exp;
 }
 declare module "dojox/charting/widget/Chart2D" {
-    import exp = dojox.charting.widget.Chart2D
-    export=exp;
+    import exp = dojox.charting.widget.Chart2D;
+    export = exp;
 }
 declare module "dojox/charting/widget/Chart" {
-    import exp = dojox.charting.widget.Chart
-    export=exp;
+    import exp = dojox.charting.widget.Chart;
+    export = exp;
 }
 declare module "dojox/charting/widget/Legend" {
-    import exp = dojox.charting.widget.Legend
-    export=exp;
+    import exp = dojox.charting.widget.Legend;
+    export = exp;
 }
 declare module "dojox/charting/widget/SelectableLegend" {
-    import exp = dojox.charting.widget.SelectableLegend
-    export=exp;
+    import exp = dojox.charting.widget.SelectableLegend;
+    export = exp;
 }

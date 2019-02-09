@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import * as AirbnbPropTypes from 'airbnb-prop-types';
+import * as React from "react";
+import * as PropTypes from "prop-types";
+import * as AirbnbPropTypes from "airbnb-prop-types";
 
 class ClassComp extends React.Component {
     render() {
@@ -17,7 +17,8 @@ AirbnbPropTypes.and([PropTypes.number]);
 // $ExpectType Requireable<number | null>
 AirbnbPropTypes.and([PropTypes.number, AirbnbPropTypes.nonNegativeInteger]);
 // $ExpectType Validator<number>
-AirbnbPropTypes.and([PropTypes.number, AirbnbPropTypes.integer()], 'foo').isRequired;
+AirbnbPropTypes.and([PropTypes.number, AirbnbPropTypes.integer()], "foo")
+    .isRequired;
 
 // $ExpectType Requireable<number>
 AirbnbPropTypes.between({ lt: 1 });
@@ -31,10 +32,10 @@ AirbnbPropTypes.between({ gte: 4 });
 AirbnbPropTypes.between({ lt: 1, gt: 0 });
 
 // $ExpectType Requireable<boolean>
-AirbnbPropTypes.booleanSome('foo', 'bar', 'baz');
+AirbnbPropTypes.booleanSome("foo", "bar", "baz");
 
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.childrenHavePropXorChildren('foo');
+AirbnbPropTypes.childrenHavePropXorChildren("foo");
 
 // $ExpectType Requireable<ReactNodeLike>
 AirbnbPropTypes.childrenOf(PropTypes.string);
@@ -44,9 +45,9 @@ AirbnbPropTypes.childrenOfType(ClassComp);
 // $ExpectType Requireable<ReactNodeLike>
 AirbnbPropTypes.childrenOfType(FuncComp);
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.childrenOfType('div');
+AirbnbPropTypes.childrenOfType("div");
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.childrenOfType(ClassComp, FuncComp, 'div');
+AirbnbPropTypes.childrenOfType(ClassComp, FuncComp, "div");
 
 // $ExpectType Requireable<ReactNodeLike>
 AirbnbPropTypes.childrenSequenceOf({ validator: PropTypes.number });
@@ -56,25 +57,25 @@ AirbnbPropTypes.childrenSequenceOf({ validator: PropTypes.string, max: 100 });
 AirbnbPropTypes.childrenSequenceOf({ validator: PropTypes.bool, min: 0 });
 
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.componentWithName('Foo');
+AirbnbPropTypes.componentWithName("Foo");
 // $ExpectType Requireable<ReactNodeLike>
 AirbnbPropTypes.componentWithName(/Foo/);
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.componentWithName('Foo', { stripHOCs: ['connect'] });
+AirbnbPropTypes.componentWithName("Foo", { stripHOCs: ["connect"] });
 
 // $ExpectType Requireable<number>
-AirbnbPropTypes.disallowedIf(PropTypes.number, 'foo', PropTypes.string);
+AirbnbPropTypes.disallowedIf(PropTypes.number, "foo", PropTypes.string);
 
 // $ExpectType Requireable<ReactElementLike>
 AirbnbPropTypes.elementType(ClassComp);
 // $ExpectType Requireable<ReactElementLike>
 AirbnbPropTypes.elementType(FuncComp);
 // $ExpectType Requireable<ReactElementLike>
-AirbnbPropTypes.elementType('div');
+AirbnbPropTypes.elementType("div");
 // $ExpectType Requireable<ReactElementLike>
-AirbnbPropTypes.elementType('*');
+AirbnbPropTypes.elementType("*");
 // $ExpectError
-AirbnbPropTypes.elementType(ClassComp, FuncComp, 'div');
+AirbnbPropTypes.elementType(ClassComp, FuncComp, "div");
 
 // $ExpectType Requireable<null | undefined>
 AirbnbPropTypes.explicitNull();
@@ -91,14 +92,14 @@ interface ForbidShape {
 AirbnbPropTypes.forbidExtraProps({
     foo: PropTypes.string,
     bar: PropTypes.number.isRequired,
-    baz: PropTypes.bool,
+    baz: PropTypes.bool
 });
 
 // $ExpectType ValidationMap<ForbidShape>
 AirbnbPropTypes.forbidExtraProps<ForbidShape>({
     foo: PropTypes.string.isRequired,
     bar: PropTypes.number.isRequired,
-    baz: PropTypes.bool,
+    baz: PropTypes.bool
 });
 
 // $ExpectType Requireable<number>
@@ -107,26 +108,26 @@ AirbnbPropTypes.integer();
 // $ExpectType Requireable<{}>
 AirbnbPropTypes.keysOf(PropTypes.number);
 // $ExpectType Requireable<{}>
-AirbnbPropTypes.keysOf(PropTypes.number, 'foo');
+AirbnbPropTypes.keysOf(PropTypes.number, "foo");
 // $ExpectType Requireable<{}>
-AirbnbPropTypes.keysOf(PropTypes.oneOf(['foo', 'bar']));
+AirbnbPropTypes.keysOf(PropTypes.oneOf(["foo", "bar"]));
 
 // $ExpectType Requireable<number>
 AirbnbPropTypes.mutuallyExclusiveProps(PropTypes.number);
 // $ExpectType Requireable<number>
-AirbnbPropTypes.mutuallyExclusiveProps(PropTypes.number, 'foo');
+AirbnbPropTypes.mutuallyExclusiveProps(PropTypes.number, "foo");
 // $ExpectType Requireable<string>
-AirbnbPropTypes.mutuallyExclusiveProps(PropTypes.string, 'foo', 'bar');
+AirbnbPropTypes.mutuallyExclusiveProps(PropTypes.string, "foo", "bar");
 
 // $ExpectType Requireable<boolean>
-AirbnbPropTypes.mutuallyExclusiveTrueProps('foo');
+AirbnbPropTypes.mutuallyExclusiveTrueProps("foo");
 // $ExpectType Requireable<boolean>
-AirbnbPropTypes.mutuallyExclusiveTrueProps('foo', 'bar');
+AirbnbPropTypes.mutuallyExclusiveTrueProps("foo", "bar");
 
 // $ExpectType Requireable<ReactNodeLike>
 AirbnbPropTypes.nChildren(1, PropTypes.number);
 // $ExpectType Requireable<ReactNodeLike>
-AirbnbPropTypes.nChildren(1, AirbnbPropTypes.childrenOfType('span'));
+AirbnbPropTypes.nChildren(1, AirbnbPropTypes.childrenOfType("span"));
 
 // $ExpectType Requireable<number>
 AirbnbPropTypes.nonNegativeInteger;
@@ -142,9 +143,16 @@ AirbnbPropTypes.object();
 // $ExpectType Requireable<{ foo: string; }>
 AirbnbPropTypes.object<{ foo: string }>();
 
-AirbnbPropTypes.or([PropTypes.bool.isRequired, AirbnbPropTypes.explicitNull().isRequired]);
-AirbnbPropTypes.or([PropTypes.bool, PropTypes.number, PropTypes.arrayOf(PropTypes.string)]);
-AirbnbPropTypes.or([PropTypes.number, PropTypes.string, PropTypes.bool], 'foo');
+AirbnbPropTypes.or([
+    PropTypes.bool.isRequired,
+    AirbnbPropTypes.explicitNull().isRequired
+]);
+AirbnbPropTypes.or([
+    PropTypes.bool,
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.string)
+]);
+AirbnbPropTypes.or([PropTypes.number, PropTypes.string, PropTypes.bool], "foo");
 
 // $ExpectType Requireable<number>
 AirbnbPropTypes.range(0, 10);
@@ -152,26 +160,29 @@ AirbnbPropTypes.range(0, 10);
 AirbnbPropTypes.range<5>(0, 10);
 
 // $ExpectType Requireable<string | null>
-AirbnbPropTypes.requiredBy('foo', PropTypes.string);
+AirbnbPropTypes.requiredBy("foo", PropTypes.string);
 // $ExpectType Validator<number>
-AirbnbPropTypes.requiredBy('bar', PropTypes.number, 42).isRequired;
+AirbnbPropTypes.requiredBy("bar", PropTypes.number, 42).isRequired;
 
 // $ExpectType Requireable<{}>
 AirbnbPropTypes.restrictedProp();
 // $ExpectType Requireable<{}>
-AirbnbPropTypes.restrictedProp(() => 'Error');
+AirbnbPropTypes.restrictedProp(() => "Error");
 // $ExpectType Requireable<{}>
-AirbnbPropTypes.restrictedProp(() => new Error('Error'));
+AirbnbPropTypes.restrictedProp(() => new Error("Error"));
 
 // $ExpectType Requireable<{}>
 AirbnbPropTypes.sequenceOf({ validator: PropTypes.number });
 // $ExpectType Requireable<{}>
-AirbnbPropTypes.sequenceOf({ validator: PropTypes.number }, { validator: PropTypes.string });
+AirbnbPropTypes.sequenceOf(
+    { validator: PropTypes.number },
+    { validator: PropTypes.string }
+);
 // $ExpectType Requireable<{}>
 AirbnbPropTypes.sequenceOf(
     { validator: PropTypes.number, min: 0, max: 10 },
     { validator: PropTypes.string },
-    { validator: PropTypes.bool },
+    { validator: PropTypes.bool }
 );
 
 interface ShapeShape {
@@ -181,21 +192,21 @@ interface ShapeShape {
 
 // $ExpectType Requireable<{ foo: string | null; }>
 AirbnbPropTypes.shape({
-    foo: PropTypes.string,
+    foo: PropTypes.string
 });
 // $ExpectType Requireable<{ foo: string | null; bar: number | null; }>
 AirbnbPropTypes.shape({
     foo: PropTypes.string,
-    bar: PropTypes.number,
+    bar: PropTypes.number
 });
 // $ExpectType Requireable<ShapeShape>
 AirbnbPropTypes.shape<ShapeShape>({
     foo: PropTypes.string.isRequired,
-    bar: PropTypes.number,
+    bar: PropTypes.number
 });
 
 // $ExpectType Requireable<string>
-AirbnbPropTypes.stringStartsWith('foo');
+AirbnbPropTypes.stringStartsWith("foo");
 
 // $ExpectType Requireable<any[]>
 AirbnbPropTypes.uniqueArray();

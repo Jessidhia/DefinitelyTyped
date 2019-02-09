@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import * as buildOptions from 'minimist-options';
+import * as buildOptions from "minimist-options";
 
 declare function meow(
     helpMessage: string | ReadonlyArray<string>,

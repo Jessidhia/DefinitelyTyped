@@ -35,13 +35,22 @@ export default interface MDCSliderAdapter {
 
     deregisterInteractionHandler(type: string, handler: EventListener): void;
 
-    registerThumbContainerInteractionHandler(type: string, handler: EventListener): void;
+    registerThumbContainerInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
-    deregisterThumbContainerInteractionHandler(type: string, handler: EventListener): void;
+    deregisterThumbContainerInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     registerBodyInteractionHandler(type: string, handler: EventListener): void;
 
-    deregisterBodyInteractionHandler(type: string, handler: EventListener): void;
+    deregisterBodyInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     registerResizeHandler(handler: EventListener): void;
 

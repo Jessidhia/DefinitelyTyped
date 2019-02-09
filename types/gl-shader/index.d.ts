@@ -11,7 +11,12 @@ interface Parameter {
 
 interface Attribute {
     location: number[] | number;
-    pointer(type?: number, normalized?: boolean, stride?: number, offset?: number): number;
+    pointer(
+        type?: number,
+        normalized?: boolean,
+        stride?: number,
+        offset?: number
+    ): number;
 }
 
 declare class Shader {
@@ -19,17 +24,27 @@ declare class Shader {
     readonly program: WebGLProgram;
     readonly vertShader: WebGLShader;
     readonly fragShader: WebGLShader;
-    readonly attributes: {[key: string]: Attribute & any[]};
+    readonly attributes: { [key: string]: Attribute & any[] };
 
-    uniforms: {[key: string]: any};
+    uniforms: { [key: string]: any };
 
     constructor(gl: WebGLRenderingContext);
 
     bind(): void;
     dispose(): void;
 
-    update(vertex: string, fragment: string, uniforms?: Parameter[], attributes?: Parameter[]): void;
-    update(obj: {vertex: string, fragment: string, uniforms: Parameter[], attributes: Parameter[]}): void;
+    update(
+        vertex: string,
+        fragment: string,
+        uniforms?: Parameter[],
+        attributes?: Parameter[]
+    ): void;
+    update(obj: {
+        vertex: string;
+        fragment: string;
+        uniforms: Parameter[];
+        attributes: Parameter[];
+    }): void;
 }
 
 declare function createShader(
@@ -37,15 +52,17 @@ declare function createShader(
     vertex: string,
     fragment: string,
     uniforms?: Parameter[],
-    attributes?: Parameter[]): Shader;
+    attributes?: Parameter[]
+): Shader;
 
 declare function createShader(
     gl: WebGLRenderingContext,
     options: {
-        vertex: string,
-        fragment: string,
-        uniforms?: Parameter[],
-        attributes?: Parameter[],
-    }): Shader;
+        vertex: string;
+        fragment: string;
+        uniforms?: Parameter[];
+        attributes?: Parameter[];
+    }
+): Shader;
 
 export = createShader;

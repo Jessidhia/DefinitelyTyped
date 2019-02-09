@@ -39,28 +39,44 @@ interface RandomConstructor {
     new (engine?: Random.Engine): Random;
 
     engines: {
-        nativeMath: Random.Engine,
-        browserCrypto: Random.Engine,
-        mt19937(): Random.MT19937
+        nativeMath: Random.Engine;
+        browserCrypto: Random.Engine;
+        mt19937(): Random.MT19937;
     };
 
     Engine(): number;
     MT19937(): number;
 
     integer(min: number, max: number): (engine: Random.Engine) => number;
-    real(min: number, max: number, inclusive?: boolean): (engine: Random.Engine) => number;
+    real(
+        min: number,
+        max: number,
+        inclusive?: boolean
+    ): (engine: Random.Engine) => number;
     bool(percentage?: number): (engine: Random.Engine) => boolean; // tslint:disable-line unified-signatures
-    bool(numerator: number, denominator: number): (engine: Random.Engine) => boolean; // tslint:disable-line unified-signatures
+    bool(
+        numerator: number,
+        denominator: number
+    ): (engine: Random.Engine) => boolean; // tslint:disable-line unified-signatures
     pick<T>(engine: Random.Engine, array: T[], begin?: number, end?: number): T;
-    picker<T>(array: T[], begin?: number, end?: number): (engine: Random.Engine) => T;
+    picker<T>(
+        array: T[],
+        begin?: number,
+        end?: number
+    ): (engine: Random.Engine) => T;
     shuffle<T>(engine: Random.Engine, array: T[]): T[];
     sample<T>(engine: Random.Engine, population: T[], sampleSize: number): T[];
     die(sideCount: number): (engine: Random.Engine) => number;
-    dice(sideCount: number, dieCount: number): (engine: Random.Engine) => number[];
+    dice(
+        sideCount: number,
+        dieCount: number
+    ): (engine: Random.Engine) => number[];
     uuid4(engine: Random.Engine): string;
     string(engine: Random.Engine, length: number): string;
     string(pool?: string): (engine: Random.Engine, length?: number) => string;
-    hex(upperCase?: boolean): (engine: Random.Engine, length?: number) => string;
+    hex(
+        upperCase?: boolean
+    ): (engine: Random.Engine, length?: number) => string;
     date(start: Date, end: Date): (engine: Random.Engine) => Date;
 }
 

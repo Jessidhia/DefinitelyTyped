@@ -6,7 +6,6 @@
 /// <reference types="vue" />
 
 declare namespace vuejs {
-
     interface HttpHeaders {
         put?: { [key: string]: string };
         post?: { [key: string]: string };
@@ -15,7 +14,7 @@ declare namespace vuejs {
         common?: { [key: string]: string };
         custom?: { [key: string]: string };
         [key: string]: any;
-    } 
+    }
 
     interface HttpResponse {
         data: Object;
@@ -23,9 +22,9 @@ declare namespace vuejs {
         status: number;
         statusText: string;
         headers: Function;
-        text():string;
-        json():any;
-        blob():Blob;
+        text(): string;
+        json(): any;
+        blob(): Blob;
     }
 
     interface HttpOptions {
@@ -36,13 +35,15 @@ declare namespace vuejs {
         headers?: any;
         before?(request: any): any;
         progress?(event: any): any;
-        credentials?:boolean;
+        credentials?: boolean;
         emulateHTTP?: boolean;
         emulateJSON?: boolean;
     }
 
     interface $http {
-        (url: string, data?: any, options?: HttpOptions): PromiseLike<HttpResponse>;
+        (url: string, data?: any, options?: HttpOptions): PromiseLike<
+            HttpResponse
+        >;
         (url: string, options?: HttpOptions): PromiseLike<HttpResponse>;
     }
 
@@ -73,8 +74,15 @@ declare namespace vuejs {
     }
 
     interface ResourceMethod {
-        (params: any, data?: any, success?: Function, error?: Function): PromiseLike<HttpResponse>;
-        (params: any, success?: Function, error?: Function): PromiseLike<HttpResponse>;
+        (
+            params: any,
+            data?: any,
+            success?: Function,
+            error?: Function
+        ): PromiseLike<HttpResponse>;
+        (params: any, success?: Function, error?: Function): PromiseLike<
+            HttpResponse
+        >;
         (success?: Function, error?: Function): PromiseLike<HttpResponse>;
     }
 
@@ -88,7 +96,12 @@ declare namespace vuejs {
     }
 
     interface $resource {
-        (url: string, params?: Object, actions?: any, options?: HttpOptions): ResourceMethods;
+        (
+            url: string,
+            params?: Object,
+            actions?: any,
+            options?: HttpOptions
+        ): ResourceMethods;
     }
 
     interface Resource extends $resource {
@@ -114,7 +127,7 @@ declare namespace vuejs {
     }
 
     interface ComponentOption {
-        http?: (HttpOptions & { headers?: HttpHeaders } & { [key: string]: any })
+        http?: HttpOptions & { headers?: HttpHeaders } & { [key: string]: any };
     }
 }
 

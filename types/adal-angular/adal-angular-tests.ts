@@ -1,6 +1,10 @@
 import AuthenticationContext = require("adal-angular");
 
-const onLogin: AuthenticationContext.TokenCallback = (errorDescription, idToken, error) => {
+const onLogin: AuthenticationContext.TokenCallback = (
+    errorDescription,
+    idToken,
+    error
+) => {
     if (error) {
         console.error(errorDescription, error);
         return;
@@ -10,12 +14,16 @@ const onLogin: AuthenticationContext.TokenCallback = (errorDescription, idToken,
     }
 };
 
-const onToken: AuthenticationContext.TokenCallback = (errorDesc, token, error) => {
+const onToken: AuthenticationContext.TokenCallback = (
+    errorDesc,
+    token,
+    error
+) => {
     if (error) {
         console.error(error);
         return;
     }
-    console.log('Making request with token:', token);
+    console.log("Making request with token:", token);
 };
 
 const onUser: AuthenticationContext.UserCallback = (error, user) => {
@@ -77,7 +85,7 @@ if (authenticationContext.isCallback(window.location.hash)) {
 }
 
 const injectedContext = AuthenticationContext.inject({
-    clientId: "7cee0f68-5051-41f6-9e45-80463d21d65d",
+    clientId: "7cee0f68-5051-41f6-9e45-80463d21d65d"
 });
 injectedContext.handleWindowCallback();
 

@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { ServerResponse } from 'http';
+import { ServerResponse } from "http";
 
 /**
  * This will add the listener to fire when headers are emitted for res.
@@ -21,6 +21,9 @@ import { ServerResponse } from 'http';
  * @param listener Function to call prior to headers being emitted,
  *        the response object is passed as this context.
  */
-declare function onHeaders(res: ServerResponse, listener: (this: ServerResponse) => void): void;
+declare function onHeaders(
+    res: ServerResponse,
+    listener: (this: ServerResponse) => void
+): void;
 
 export = onHeaders;

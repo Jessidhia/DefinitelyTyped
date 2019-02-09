@@ -1,9 +1,9 @@
-import SnazzyInfoWindow = require('snazzy-info-window');
-import jQuery = require('jquery');
-import Handlebars = require('handlebars');
+import SnazzyInfoWindow = require("snazzy-info-window");
+import jQuery = require("jquery");
+import Handlebars = require("handlebars");
 
 const simple = () => {
-    const myMap = new google.maps.Map($('.map-canvas')[0], {
+    const myMap = new google.maps.Map($(".map-canvas")[0], {
         zoom: 14,
         center: new google.maps.LatLng(40.72, -74)
     });
@@ -15,7 +15,7 @@ const simple = () => {
 
     const info = new SnazzyInfoWindow({
         marker: myMarker,
-        content: 'Your snazzy content.'
+        content: "Your snazzy content."
     });
 
     info.open();
@@ -27,13 +27,13 @@ const multipleMarkers = () => {
     interface Placement {
         type: SnazzyInfoWindow.PlacementOptions;
         LatLng: {
-            lat: number,
-            lng: number
+            lat: number;
+            lng: number;
         };
     }
 
     const mapCenter = { lat: 40.72, lng: -74 };
-    const myMap = new google.maps.Map($('.map-canvas')[0], {
+    const myMap = new google.maps.Map($(".map-canvas")[0], {
         zoom: 14,
         center: mapCenter
     });
@@ -44,10 +44,10 @@ const multipleMarkers = () => {
 
     const dx = 0.003;
     const placements: Placement[] = [
-        { type: 'top', LatLng: offsetCenter(dx, 0) },
-        { type: 'right', LatLng: offsetCenter(0, dx) },
-        { type: 'bottom', LatLng: offsetCenter(-dx, 0) },
-        { type: 'left', LatLng: offsetCenter(0, -dx) }
+        { type: "top", LatLng: offsetCenter(dx, 0) },
+        { type: "right", LatLng: offsetCenter(0, dx) },
+        { type: "bottom", LatLng: offsetCenter(-dx, 0) },
+        { type: "left", LatLng: offsetCenter(0, -dx) }
     ];
 
     $.each(placements, (i: number, e: Placement) => {
@@ -62,7 +62,7 @@ const multipleMarkers = () => {
             marker: myMarker,
             placement: e.type,
             content: e.type,
-            panOnOpen: false,
+            panOnOpen: false
         });
         info.open();
     });
@@ -71,7 +71,7 @@ const multipleMarkers = () => {
 // Dynamic Content
 
 const dynamicContent = () => {
-    const myMap = new google.maps.Map($('.map-canvas')[0], {
+    const myMap = new google.maps.Map($(".map-canvas")[0], {
         zoom: 14,
         center: new google.maps.LatLng(40.72, -74)
     });
@@ -81,24 +81,26 @@ const dynamicContent = () => {
         draggable: true
     });
 
-    Handlebars.registerHelper('formatDate', (date: Date) => {
+    Handlebars.registerHelper("formatDate", (date: Date) => {
         return date && date.toLocaleTimeString();
     });
 
-    const template = Handlebars.compile($('#marker-content-template').html());
+    const template = Handlebars.compile($("#marker-content-template").html());
 
     let interval = 0;
     const info = new SnazzyInfoWindow({
         marker: myMarker,
         callbacks: {
             beforeOpen() {
-                info.setContent('loading...');
+                info.setContent("loading...");
             },
             afterOpen() {
                 interval = setInterval(() => {
-                    info.setContent(template({
-                        date: new Date()
-                    }));
+                    info.setContent(
+                        template({
+                            date: new Date()
+                        })
+                    );
                 }, 1000);
             },
             afterClose() {
@@ -114,7 +116,7 @@ const dynamicContent = () => {
 // Set position
 
 const setPosition = () => {
-    const myMap = new google.maps.Map($('.map-canvas')[0], {
+    const myMap = new google.maps.Map($(".map-canvas")[0], {
         zoom: 14,
         center: new google.maps.LatLng(40.72, -74),
         clickableIcons: false
@@ -124,10 +126,10 @@ const setPosition = () => {
         map: myMap,
         position: new google.maps.LatLng(40.72, -74),
         closeOnMapClick: false,
-        content: 'Click anywhere on the map to change my position!'
+        content: "Click anywhere on the map to change my position!"
     });
 
-    myMap.addListener('click', e => {
+    myMap.addListener("click", e => {
         info.setPosition(e.latLng);
         if (!info.isOpen()) {
             info.open();
@@ -137,7 +139,7 @@ const setPosition = () => {
 };
 
 const jsStyling = () => {
-    const myMap = new google.maps.Map($('.map-canvas')[0], {
+    const myMap = new google.maps.Map($(".map-canvas")[0], {
         zoom: 14,
         center: new google.maps.LatLng(40.721, -73.991)
     });
@@ -149,22 +151,23 @@ const jsStyling = () => {
 
     const info = new SnazzyInfoWindow({
         marker: myMarker,
-        placement: 'right',
+        placement: "right",
         offset: {
-            left: '20px'
+            left: "20px"
         },
-        content: '<div>STYLING</div>' +
-        '<div>WITH</div>' +
-        '<div><strong>JAVASCRIPT</strong></div>',
+        content:
+            "<div>STYLING</div>" +
+            "<div>WITH</div>" +
+            "<div><strong>JAVASCRIPT</strong></div>",
         showCloseButton: false,
         closeOnMapClick: false,
-        padding: '48px',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        padding: "48px",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
         border: false,
-        borderRadius: '0px',
+        borderRadius: "0px",
         shadow: false,
-        fontColor: '#fff',
-        fontSize: '15px'
+        fontColor: "#fff",
+        fontSize: "15px"
     });
     info.open();
 };

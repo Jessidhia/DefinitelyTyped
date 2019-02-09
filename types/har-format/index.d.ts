@@ -10,7 +10,7 @@
  */
 export interface Har {
     /** This object represents the root of exported data. */
-    "log": Log;
+    log: Log;
 }
 /**
  * This object (`log`) represents the root of exported data.

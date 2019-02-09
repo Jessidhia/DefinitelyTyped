@@ -5,7 +5,16 @@
 
 /// <reference types="node" />
 
-type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white' | 'gray';
+type Color =
+    | "black"
+    | "red"
+    | "green"
+    | "yellow"
+    | "blue"
+    | "magenta"
+    | "cyan"
+    | "white"
+    | "gray";
 interface Options {
     text?: string;
     spinner?: string | Spinner;

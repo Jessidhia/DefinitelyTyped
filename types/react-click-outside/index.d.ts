@@ -5,7 +5,9 @@
 // TypeScript Version: 2.8
 import * as React from "react";
 
-declare function enhanceWithClickOutside<P = {}>(wrappedComponent: React.ComponentClass<P>): React.ComponentClass<P>;
+declare function enhanceWithClickOutside<P = {}>(
+    wrappedComponent: React.ComponentClass<P>
+): React.ComponentClass<P>;
 
-declare namespace enhanceWithClickOutside { }
+declare namespace enhanceWithClickOutside {}
 export = enhanceWithClickOutside;

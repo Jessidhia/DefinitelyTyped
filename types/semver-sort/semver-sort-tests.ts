@@ -1,3 +1,3 @@
-import semverSort = require('semver-sort');
+import semverSort = require("semver-sort");
 
-semverSort(['1.0.0', '2.0.0']);
+semverSort(["1.0.0", "2.0.0"]);

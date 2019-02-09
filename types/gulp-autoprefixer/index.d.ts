@@ -5,7 +5,6 @@
 
 /// <reference types="node"/>
 
-
 declare namespace autoPrefixer {
     interface Options {
         browsers?: string[];
@@ -14,6 +13,8 @@ declare namespace autoPrefixer {
     }
 }
 
-declare function autoPrefixer(opts?: autoPrefixer.Options): NodeJS.ReadWriteStream;
+declare function autoPrefixer(
+    opts?: autoPrefixer.Options
+): NodeJS.ReadWriteStream;
 
 export = autoPrefixer;

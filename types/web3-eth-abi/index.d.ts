@@ -3,5 +3,8 @@
 // Definitions by: Leonid Logvinov <https://github.com/LogvinovLeon>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function encodeParameters(typesArray: string[], parameters: any[]): string;
+declare function encodeParameters(
+    typesArray: string[],
+    parameters: any[]
+): string;
 export = encodeParameters;

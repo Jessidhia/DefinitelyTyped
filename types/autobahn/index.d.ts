@@ -8,7 +8,6 @@
 export = autobahn;
 
 declare namespace autobahn {
-
     export class Session {
         id: number;
         realm: string;
@@ -19,19 +18,41 @@ declare namespace autobahn {
         subscriptions: ISubscription[][];
         registrations: IRegistration[];
 
-        constructor(transport: ITransport, defer: DeferFactory, challenge: OnChallengeHandler);
+        constructor(
+            transport: ITransport,
+            defer: DeferFactory,
+            challenge: OnChallengeHandler
+        );
 
         join(realm: string, authmethods: string[], authid: string): void;
 
         leave(reason: string, message: string): void;
 
-        call<TResult>(procedure: string, args?: any[] | any, kwargs?: any, options?: ICallOptions): When.Promise<TResult>;
+        call<TResult>(
+            procedure: string,
+            args?: any[] | any,
+            kwargs?: any,
+            options?: ICallOptions
+        ): When.Promise<TResult>;
 
-        publish(topic: string, args?: any[], kwargs?: any, options?: IPublishOptions): When.Promise<IPublication>;
+        publish(
+            topic: string,
+            args?: any[],
+            kwargs?: any,
+            options?: IPublishOptions
+        ): When.Promise<IPublication>;
 
-        subscribe(topic: string, handler: SubscribeHandler, options?: ISubscribeOptions): When.Promise<ISubscription>;
+        subscribe(
+            topic: string,
+            handler: SubscribeHandler,
+            options?: ISubscribeOptions
+        ): When.Promise<ISubscription>;
 
-        register(procedure: string, endpoint: RegisterEndpoint, options?: IRegisterOptions): When.Promise<IRegistration>;
+        register(
+            procedure: string,
+            endpoint: RegisterEndpoint,
+            options?: IRegisterOptions
+        ): When.Promise<IRegistration>;
 
         unsubscribe(subscription: ISubscription): When.Promise<any>;
 
@@ -47,7 +68,7 @@ declare namespace autobahn {
 
     interface IInvocation {
         caller?: number;
-        progress?: (args : any[], kwargs : any) => void;
+        progress?: (args: any[], kwargs: any) => void;
         procedure: string;
     }
 
@@ -96,7 +117,11 @@ declare namespace autobahn {
         kwargs: any;
     }
 
-    type SubscribeHandler = (args?: any[] | any, kwargs?: any, details?: IEvent) => void;
+    type SubscribeHandler = (
+        args?: any[] | any,
+        kwargs?: any,
+        details?: IEvent
+    ) => void;
 
     interface ISubscription {
         topic: string;
@@ -109,7 +134,13 @@ declare namespace autobahn {
     }
 
     class Subscription implements ISubscription {
-        constructor(topic? : string, handler?: SubscribeHandler, options?: ISubscribeOptions, session?: Session, id?: number);
+        constructor(
+            topic?: string,
+            handler?: SubscribeHandler,
+            options?: ISubscribeOptions,
+            session?: Session,
+            id?: number
+        );
 
         handler: SubscribeHandler;
 
@@ -122,7 +153,11 @@ declare namespace autobahn {
         active: boolean;
     }
 
-    type RegisterEndpoint = (args?: any[], kwargs?: any, details?: IInvocation) => void;
+    type RegisterEndpoint = (
+        args?: any[],
+        kwargs?: any,
+        details?: IInvocation
+    ) => void;
 
     interface IRegistration {
         procedure: string;
@@ -135,7 +170,13 @@ declare namespace autobahn {
     }
 
     class Registration implements IRegistration {
-        constructor(procedure?: string, endpoint?: RegisterEndpoint, options?: IRegisterOptions, session?: Session, id?: number);
+        constructor(
+            procedure?: string,
+            endpoint?: RegisterEndpoint,
+            options?: IRegisterOptions,
+            session?: Session,
+            id?: number
+        );
 
         endpoint: RegisterEndpoint;
 
@@ -184,7 +225,7 @@ declare namespace autobahn {
 
     interface IRegisterOptions {
         disclose_caller?: boolean;
-        invoke?: 'single' | 'roundrobin' | 'random' | 'first' | 'last';
+        invoke?: "single" | "roundrobin" | "random" | "first" | "last";
     }
 
     export class Connection {
@@ -210,7 +251,11 @@ declare namespace autobahn {
 
     type DeferFactory = () => When.Promise<any>;
 
-    type OnChallengeHandler = (session: Session, method: string, extra: any) => string | When.Promise<string>;
+    type OnChallengeHandler = (
+        session: Session,
+        method: string,
+        extra: any
+    ) => string | When.Promise<string>;
 
     interface IConnectionOptions {
         use_es6_promises?: boolean;
@@ -268,7 +313,12 @@ declare namespace autobahn {
     }
 
     interface IAuthCra {
-        derive_key(secret: string, salt: string, iterations: number, keylen: number): string;
+        derive_key(
+            secret: string,
+            salt: string,
+            iterations: number,
+            keylen: number
+        ): string;
         sign(key: string, challenge: string): string;
     }
 

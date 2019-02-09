@@ -7,14 +7,14 @@ const agentWithBaseOptions = new ForeverAgent({
     keepAlive: true,
     keepAliveMsecs: 100,
     maxFreeSockets: 500,
-    maxSockets: 100,
+    maxSockets: 100
 });
 
 const agentSslWithBaseOptions = new ForeverAgent({
     keepAlive: true,
     keepAliveMsecs: 100,
     maxFreeSockets: 500,
-    maxSockets: 100,
+    maxSockets: 100
 });
 
 const agentWithAllOptions = new ForeverAgent({
@@ -22,7 +22,7 @@ const agentWithAllOptions = new ForeverAgent({
     keepAliveMsecs: 100,
     maxFreeSockets: 500,
     maxSockets: 100,
-    minSockets: 500,
+    minSockets: 500
 });
 
 const agentSslWithAllOptions = new ForeverAgent({
@@ -30,7 +30,7 @@ const agentSslWithAllOptions = new ForeverAgent({
     keepAliveMsecs: 100,
     maxFreeSockets: 500,
     maxSockets: 100,
-    minSockets: 500,
+    minSockets: 500
 });
 
 const agentDefaultMinSockets = ForeverAgent.defaultMinSockets;

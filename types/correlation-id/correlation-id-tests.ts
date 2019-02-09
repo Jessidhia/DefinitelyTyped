@@ -8,14 +8,19 @@ withId(() => {
     const id: string = getId() || "";
 });
 
-const x: string = bindId("my-id", (foo: string, bar: number): string => {
-    const id: string = getId() || "";
+const x: string = bindId(
+    "my-id",
+    (foo: string, bar: number): string => {
+        const id: string = getId() || "";
 
-    return foo + bar + id;
-})("foo", 12);
+        return foo + bar + id;
+    }
+)("foo", 12);
 
-const y: string = bindId((foo: string, bar: number): string => {
-    const id: string = getId() || "";
+const y: string = bindId(
+    (foo: string, bar: number): string => {
+        const id: string = getId() || "";
 
-    return foo + bar + id;
-})("foo", 12);
+        return foo + bar + id;
+    }
+)("foo", 12);

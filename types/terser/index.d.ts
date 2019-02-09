@@ -11,7 +11,17 @@ export interface Tokenizer {
      * The type of this token.
      * "comment1" and "comment2" are for single-line, respectively multi-line comments.
      */
-    type: "num" | "string" | "regexp" | "operator" | "punc" | "atom" | "name" | "keyword" | "comment1" | "comment2";
+    type:
+        | "num"
+        | "string"
+        | "regexp"
+        | "operator"
+        | "punc"
+        | "atom"
+        | "name"
+        | "keyword"
+        | "comment1"
+        | "comment2";
 
     /**
      * The name of the file where this token originated from. Useful when compressing multiple files at once to generate the proper source map.
@@ -192,7 +202,7 @@ export interface CompressOptions {
      * implementation adds some overhead (compression will be slower).
      */
     pure_funcs?: string[];
-    pure_getters?: boolean | 'strict';
+    pure_getters?: boolean | "strict";
     /**
      * Allows single-use functions to be inlined as function expressions when permissible allowing further optimization.
      * Enabled by default. Option depends on reduce_vars being enabled. Some code runs faster in the Chrome V8 engine if
@@ -264,7 +274,7 @@ export interface OutputOptions {
     ascii_only?: boolean;
     beautify?: boolean;
     braces?: boolean;
-    comments?: boolean | 'all' | 'some' | RegExp;
+    comments?: boolean | "all" | "some" | RegExp;
     indent_level?: number;
     indent_start?: boolean;
     inline_script?: boolean;
@@ -497,7 +507,14 @@ export interface SourceMapOptions {
 }
 
 export interface SourceMap {
-    add(source: string, gen_line: number, gen_col: number, orig_line: number, orig_col: number, name?: string): void;
+    add(
+        source: string,
+        gen_line: number,
+        gen_col: number,
+        orig_line: number,
+        orig_col: number,
+        name?: string
+    ): void;
     get(): MOZ_SourceMap.SourceMapGenerator;
     toString(): string;
 }
@@ -599,11 +616,9 @@ export class TreeTransformer extends TreeWalker {
 
 // TODO: http://lisperator.net/uglifyjs/ast
 
-export class AST_PropAccess extends AST_Node {
-}
+export class AST_PropAccess extends AST_Node {}
 
-export class AST_ObjectKeyVal extends AST_Node {
-}
+export class AST_ObjectKeyVal extends AST_Node {}
 
 export class AST_Scope extends AST_Node {
     find_variable(name: string): AST_SymbolDeclaration;
@@ -625,11 +640,10 @@ export class AST_SymbolDeclaration extends AST_Symbol {
     mangled_name?: string;
 }
 
-export class AST_SymbolRef extends AST_Symbol {
-}
+export class AST_SymbolRef extends AST_Symbol {}
 
 export class AST_Call extends AST_Node {
-    expression: { name?: string, property?: string };
+    expression: { name?: string; property?: string };
     args: AST_Node[];
 }
 export class AST_String extends AST_Node {
@@ -641,8 +655,7 @@ export class AST_Lambda extends AST_Node {
 export class AST_SymbolMethod extends AST_Node {
     name?: string;
 }
-export class AST_ConciseMethod extends AST_Node {
-}
+export class AST_ConciseMethod extends AST_Node {}
 export class AST_SymbolVar extends AST_Node {
     name?: string;
 }

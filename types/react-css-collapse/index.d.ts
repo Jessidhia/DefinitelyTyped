@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-declare module 'react-css-collapse' {
-  interface Props {
-    isOpen: boolean;
-    className?: string | null;
-    onRest?: () => void;
-    transition?: string | null;
-  }
-  class Collapse extends React.Component<Props> {
-    render(): React.ReactElement<Props>;
-  }
-  export default Collapse;
+declare module "react-css-collapse" {
+    interface Props {
+        isOpen: boolean;
+        className?: string | null;
+        onRest?: () => void;
+        transition?: string | null;
+    }
+    class Collapse extends React.Component<Props> {
+        render(): React.ReactElement<Props>;
+    }
+    export default Collapse;
 }

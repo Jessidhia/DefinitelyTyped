@@ -7,7 +7,7 @@
 
 /// <reference types="node" />
 
-import EventEmitter = require('events');
+import EventEmitter = require("events");
 
 /**
  * Node-RED node creation api.
@@ -216,5 +216,9 @@ export interface Nodes {
      * @param opts - optional additional options for the node
      */
     // tslint:disable-next-line no-unnecessary-generics
-    registerType<T extends NodeProperties>(type: string, constructor: (props: T) => any, opts?: any): void;
+    registerType<T extends NodeProperties>(
+        type: string,
+        constructor: (props: T) => any,
+        opts?: any
+    ): void;
 }

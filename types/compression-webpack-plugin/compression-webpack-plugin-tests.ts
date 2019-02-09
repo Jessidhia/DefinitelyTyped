@@ -1,12 +1,12 @@
-import { Configuration } from 'webpack';
-import CompressionPlugin = require('compression-webpack-plugin');
+import { Configuration } from "webpack";
+import CompressionPlugin = require("compression-webpack-plugin");
 
 new CompressionPlugin();
 
 new CompressionPlugin({
     include: ["a"] as ReadonlyArray<string>,
     exclude: [/a/g] as ReadonlyArray<RegExp>,
-    test: "a",
+    test: "a"
 });
 
 const config: Configuration = {
@@ -53,8 +53,11 @@ const badZlib: Configuration = {
     ]
 };
 
-function customAlgorithm(input: string, options: number, callback: (err: Error, result: Buffer) => void) {
-}
+function customAlgorithm(
+    input: string,
+    options: number,
+    callback: (err: Error, result: Buffer) => void
+) {}
 
 const custom: Configuration = {
     plugins: [

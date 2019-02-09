@@ -29,8 +29,13 @@ export = parse;
  * @param callback callback function if the first argument is options or cwd.
  */
 declare function parse(cb: parse.ParseCallback): void;
-declare function parse(options?: parse.Options | string): Promise<parse.Config | null>;
-declare function parse(options: parse.Options | string, cb: parse.ParseCallback): void;
+declare function parse(
+    options?: parse.Options | string
+): Promise<parse.Config | null>;
+declare function parse(
+    options: parse.Options | string,
+    cb: parse.ParseCallback
+): void;
 
 declare namespace parse {
     /**
@@ -68,10 +73,12 @@ declare namespace parse {
     /**
      * Resolve the git config path
      */
-    function resolveConfigPath(options: string | ResolveConfigOptions): string | null;
+    function resolveConfigPath(
+        options: string | ResolveConfigOptions
+    ): string | null;
 
     interface ResolveConfigOptions {
-        type?: 'global';
+        type?: "global";
         cwd?: string;
         path?: string;
     }
@@ -81,7 +88,7 @@ declare namespace parse {
         expandKeys?: boolean;
     }
 
-    type ParseCallback = ((err: Error | null, config: Config) => void);
+    type ParseCallback = (err: Error | null, config: Config) => void;
 
     // TODO: Can this be defined more precisely?
     interface Config {

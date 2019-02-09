@@ -1,7 +1,9 @@
-let data = [{
-    label: "2010-5-1",
-    value: 15
-}];
+let data = [
+    {
+        label: "2010-5-1",
+        value: 15
+    }
+];
 
 let donutChart = Morris.Donut({
     element: "donutChartId",
@@ -46,11 +48,11 @@ let lineChart = Morris.Line({
     parseTime: false,
     postUnits: "%",
     preUnits: "£",
-    dateFormat: (timestamp) => timestamp.toString(),
+    dateFormat: timestamp => timestamp.toString(),
     xLabels: "30min",
-    xLabelFormat: (date) => date.toString(),
+    xLabelFormat: date => date.toString(),
     xLabelAngle: 42,
-    yLabelFormat: (val) => val.toString(),
+    yLabelFormat: val => val.toString(),
     goals: [42],
     goalStrokeWidth: 42,
     goalLineColors: ["bisque"],

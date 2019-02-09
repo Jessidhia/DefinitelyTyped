@@ -1,18 +1,18 @@
-import stringifyAttributes = require('stringify-attributes');
+import stringifyAttributes = require("stringify-attributes");
 
 // $ExpectType string
 stringifyAttributes({
-    unicorn: '🦄',
+    unicorn: "🦄"
 });
 // $ExpectType string
 stringifyAttributes({
-    rainbow: true,
+    rainbow: true
 });
 // $ExpectType string
 stringifyAttributes({
-    number: 1,
+    number: 1
 });
 // $ExpectType string
 stringifyAttributes({
-    multiple: ['a', 1],
+    multiple: ["a", 1]
 });

@@ -6,10 +6,14 @@ class NavigationBarTest extends React.Component {
     render() {
         return (
             <View>
-                <NavigationBar tintColor={'red'} leftButton={{
-                    title: "Back",
-                    handler: () => { console.log("Back"); },
-                }}
+                <NavigationBar
+                    tintColor={"red"}
+                    leftButton={{
+                        title: "Back",
+                        handler: () => {
+                            console.log("Back");
+                        }
+                    }}
                     rightButton={<Text>Next</Text>}
                     title={null}
                 />

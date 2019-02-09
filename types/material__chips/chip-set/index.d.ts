@@ -14,14 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCComponent from 'material__base/component';
-import MDCChipSetFoundation from './foundation';
-import MDCChipSetAdapter from './adapter';
-import { MDCChip } from '../chip';
+import MDCComponent from "material__base/component";
+import MDCChipSetFoundation from "./foundation";
+import MDCChipSetAdapter from "./adapter";
+import { MDCChip } from "../chip";
 
 export { MDCChipSetFoundation, MDCChipSetAdapter };
 
-export class MDCChipSet extends MDCComponent<MDCChipSetAdapter, MDCChipSetFoundation> {
+export class MDCChipSet extends MDCComponent<
+    MDCChipSetAdapter,
+    MDCChipSetFoundation
+> {
     static attachTo(root: any): MDCChipSet;
 
     initialize(chipFactory?: (el: Element) => MDCChip): void;
@@ -31,5 +34,9 @@ export class MDCChipSet extends MDCComponent<MDCChipSetAdapter, MDCChipSetFounda
     /**
      * Creates a new chip in the chip set with the given text, leading icon, and trailing icon.
      */
-    addChip(text: string, leadingIcon?: Element | null, trailingIcon?: Element | null): void;
+    addChip(
+        text: string,
+        leadingIcon?: Element | null,
+        trailingIcon?: Element | null
+    ): void;
 }

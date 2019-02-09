@@ -6,22 +6,27 @@
 
 /// <reference types="ace" />
 
-declare module 'jsoneditor' {
+declare module "jsoneditor" {
     export interface JSONEditorNode {
         field: string;
         value: string;
         path: Array<string>;
     }
 
-    export type JSONEditorMode = 'tree' | 'view' | 'form' | 'code' | 'text';
+    export type JSONEditorMode = "tree" | "view" | "form" | "code" | "text";
 
     export interface JSONEditorOptions {
         ace?: AceAjax.Ace;
         ajv?: any; // Any for now, since ajv typings aren't A-Ok
         onChange?: () => void;
-        onEditable?: (node: JSONEditorNode) => boolean | {field: boolean, value: boolean};
+        onEditable?: (
+            node: JSONEditorNode
+        ) => boolean | { field: boolean; value: boolean };
         onError?: (error: Error) => void;
-        onModeChange?: (newMode: JSONEditorMode, oldMode: JSONEditorMode) => void;
+        onModeChange?: (
+            newMode: JSONEditorMode,
+            oldMode: JSONEditorMode
+        ) => void;
         escapeUnicode?: boolean;
         sortObjectKeys?: boolean;
         history?: boolean;
@@ -36,7 +41,11 @@ declare module 'jsoneditor' {
     }
 
     export default class JSONEditor {
-        constructor(container: HTMLElement, options?: JSONEditorOptions, json?: Object);
+        constructor(
+            container: HTMLElement,
+            options?: JSONEditorOptions,
+            json?: Object
+        );
         collapseAll(): void;
         destroy(): void;
         expandAll(): void;

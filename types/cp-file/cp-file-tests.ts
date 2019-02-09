@@ -1,9 +1,11 @@
-import cpFile = require('cp-file');
+import cpFile = require("cp-file");
 
-cpFile('src/unicorn.png', 'dist/unicorn.png').then(() => {});
-cpFile('src/unicorn.png', 'dist/unicorn.png', {overwrite: false}).then(() => {});
-cpFile('src/unicorn.png', 'dist/unicorn.png')
-    .on('progress', data => {
+cpFile("src/unicorn.png", "dist/unicorn.png").then(() => {});
+cpFile("src/unicorn.png", "dist/unicorn.png", { overwrite: false }).then(
+    () => {}
+);
+cpFile("src/unicorn.png", "dist/unicorn.png")
+    .on("progress", data => {
         let str: string;
         let num: number;
 
@@ -15,5 +17,5 @@ cpFile('src/unicorn.png', 'dist/unicorn.png')
     })
     .then(() => {});
 
-cpFile.sync('src/unicorn.png', 'dist/unicorn.png');
-cpFile.sync('src/unicorn.png', 'dist/unicorn.png', {overwrite: false});
+cpFile.sync("src/unicorn.png", "dist/unicorn.png");
+cpFile.sync("src/unicorn.png", "dist/unicorn.png", { overwrite: false });

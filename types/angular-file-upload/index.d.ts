@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
 export interface FileUploaderFactory {
-    new(options?: Partial<FileUploaderOptions>): FileUploader;
+    new (options?: Partial<FileUploaderOptions>): FileUploader;
 }
 
 export interface FileUploaderOptions {
@@ -92,7 +92,11 @@ export interface FileUploader extends FileUploaderOptions {
     /**
      * Add items to the queue
      */
-    addToQueue(files: File | HTMLInputElement | object | FileList | object[], options: object, filters: Filter[] | string): void;
+    addToQueue(
+        files: File | HTMLInputElement | object | FileList | object[],
+        options: object,
+        filters: Filter[] | string
+    ): void;
     /**
      * Remove an item from the queue, where value is {FileItem} or index of item.
      */
@@ -151,7 +155,11 @@ export interface FileUploader extends FileUploaderOptions {
     /**
      * When adding a file failed
      */
-    onWhenAddingFileFailed(item: FileItem, filter: Filter, options: object): void;
+    onWhenAddingFileFailed(
+        item: FileItem,
+        filter: Filter,
+        options: object
+    ): void;
     /**
      * Fires after adding a single file to the queue.
      */
@@ -167,19 +175,39 @@ export interface FileUploader extends FileUploaderOptions {
     /**
      * On file successfully uploaded
      */
-    onSuccessItem(item: FileItem, response: Response, status: number, headers: Headers): void;
+    onSuccessItem(
+        item: FileItem,
+        response: Response,
+        status: number,
+        headers: Headers
+    ): void;
     /**
      * On upload error
      */
-    onErrorItem(item: FileItem, response: Response, status: number, headers: Headers): void;
+    onErrorItem(
+        item: FileItem,
+        response: Response,
+        status: number,
+        headers: Headers
+    ): void;
     /**
      * On cancel uploading
      */
-    onCancelItem(item: FileItem, response: Response, status: number, headers: Headers): void;
+    onCancelItem(
+        item: FileItem,
+        response: Response,
+        status: number,
+        headers: Headers
+    ): void;
     /**
      * On file upload complete (independently of the sucess of the operation)
      */
-    onCompleteItem(item: FileItem, response: Response, status: number, headers: Headers): void;
+    onCompleteItem(
+        item: FileItem,
+        response: Response,
+        status: number,
+        headers: Headers
+    ): void;
     /**
      * On upload queue progress
      */
@@ -319,8 +347,15 @@ export interface FileItem {
      */
     onComplete(response: Response, status: number, headers: Headers): void;
 }
-export type SyncFilter = (item: File | FileLikeObject, options?: object) => boolean;
-export type AsyncFilter = (item: File | FileLikeObject, options: object | undefined, deferred: angular.IDeferred<any>) => void;
+export type SyncFilter = (
+    item: File | FileLikeObject,
+    options?: object
+) => boolean;
+export type AsyncFilter = (
+    item: File | FileLikeObject,
+    options: object | undefined,
+    deferred: angular.IDeferred<any>
+) => void;
 export interface Filter {
     name: string;
     fn: SyncFilter | AsyncFilter;

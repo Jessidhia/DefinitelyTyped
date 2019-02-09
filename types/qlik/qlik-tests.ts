@@ -1,29 +1,29 @@
-import * as Qlik from 'qlik';
+import * as Qlik from "qlik";
 
 // Extension API Test
 () => {
     const definition: Qlik.Definition = {
-        type: 'items',
-        component: 'accordion',
+        type: "items",
+        component: "accordion",
         items: {
             dimensions: {
-                uses: 'dimensions',
+                uses: "dimensions",
                 min: 1,
                 ref: "qHyperCubeDef.qDimensions",
                 items: {
                     isGrouping: {
-                        type: 'boolean',
-                        ref: 'qDef.isGrouping',
-                        label: 'Is Grouping',
-                        defaultValue: false,
-                    },
-                },
+                        type: "boolean",
+                        ref: "qDef.isGrouping",
+                        label: "Is Grouping",
+                        defaultValue: false
+                    }
+                }
             },
             measures: {
-                uses: 'measures',
+                uses: "measures",
                 ref: "qHyperCubeDef.qMeasures",
-                min: 0,
-            },
+                min: 0
+            }
         }
     };
 
@@ -31,14 +31,20 @@ import * as Qlik from 'qlik';
         qHyperCubeDef: {
             qDimensions: [],
             qMeasures: [],
-            qInitialDataFetch: [{
-                qWidth: 10,
-                qHeight: 100,
-            }],
-        },
+            qInitialDataFetch: [
+                {
+                    qWidth: 10,
+                    qHeight: 100
+                }
+            ]
+        }
     };
 
-    function paint(this: Qlik.ExtensionContext, $element: JQuery, layout: Qlik.Layout) {
+    function paint(
+        this: Qlik.ExtensionContext,
+        $element: JQuery,
+        layout: Qlik.Layout
+    ) {
         const dataRow = this.backendApi.getDataRow(0);
         if (dataRow) {
             $element.html(dataRow[0].qText);
@@ -48,6 +54,6 @@ import * as Qlik from 'qlik';
     const e: Qlik.Extension = {
         definition,
         initialProperties,
-        paint,
+        paint
     };
 };

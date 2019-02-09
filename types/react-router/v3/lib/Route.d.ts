@@ -25,7 +25,13 @@ type RoutesCallback = (err: any, routesArray: PlainRoute[]) => void;
 
 export interface PlainRoute<Props = any> extends RouteProps<Props> {
     childRoutes?: PlainRoute[];
-    getChildRoutes?(partialNextState: LocationState, callback: RoutesCallback): void;
+    getChildRoutes?(
+        partialNextState: LocationState,
+        callback: RoutesCallback
+    ): void;
     indexRoute?: PlainRoute;
-    getIndexRoute?(partialNextState: LocationState, callback: RouteCallback): void;
+    getIndexRoute?(
+        partialNextState: LocationState,
+        callback: RouteCallback
+    ): void;
 }

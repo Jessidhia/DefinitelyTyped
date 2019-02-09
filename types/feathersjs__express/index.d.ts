@@ -5,19 +5,22 @@
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.3
 
-import { Application as FeathersApplication } from '@feathersjs/feathers';
-import * as express from 'express';
-import * as self from '@feathersjs/express';
+import { Application as FeathersApplication } from "@feathersjs/feathers";
+import * as express from "express";
+import * as self from "@feathersjs/express";
 
-declare const feathersExpress: (<T>(app: FeathersApplication<T>) => Application<T>) & typeof self;
+declare const feathersExpress: (<T>(
+    app: FeathersApplication<T>
+) => Application<T>) &
+    typeof self;
 export default feathersExpress;
 export type Application<T> = express.Application & FeathersApplication<T>;
 
 export function errorHandler(options?: {
-    public?: string,
-    logger?: { error?: (msg: string) => void },
-    html?: any,
-    json?: any,
+    public?: string;
+    logger?: { error?: (msg: string) => void };
+    html?: any;
+    json?: any;
 }): express.ErrorRequestHandler;
 export function notFound(): express.RequestHandler;
 
@@ -52,6 +55,6 @@ export {
     Send,
     static,
     urlencoded
-} from 'express';
+} from "express";
 
 export const original: typeof express;

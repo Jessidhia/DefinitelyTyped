@@ -26,7 +26,7 @@ interface TimePickerMinutes {
 interface TimePickerOptions {
     /** 'focus' for popup on focus, */
     showOn?: string;
-    
+
     /**
      * 'button' element that will trigger the timepicker.
      *
@@ -131,13 +131,12 @@ interface TimePickerOptions {
     deselectButtonText?: string;
 }
 
-
 interface JQuery {
     timepicker(): JQuery;
-    timepicker(methodName: 'getTime'): string;
-    timepicker(methodName: 'getTimeAsDate'): Date;
-    timepicker(methodName: 'getHour'): number;
-    timepicker(methodName: 'getMinute'): number;
+    timepicker(methodName: "getTime"): string;
+    timepicker(methodName: "getTimeAsDate"): Date;
+    timepicker(methodName: "getHour"): number;
+    timepicker(methodName: "getMinute"): number;
     timepicker(methodName: string): any;
     timepicker(methodName: string, methodParameter: any): any;
     timepicker(optionLiteral: string, optionName: string): any;

@@ -189,9 +189,14 @@ export interface DocumentNode {
     readonly definitions: ReadonlyArray<DefinitionNode>;
 }
 
-export type DefinitionNode = ExecutableDefinitionNode | TypeSystemDefinitionNode | TypeSystemExtensionNode;
+export type DefinitionNode =
+    | ExecutableDefinitionNode
+    | TypeSystemDefinitionNode
+    | TypeSystemExtensionNode;
 
-export type ExecutableDefinitionNode = OperationDefinitionNode | FragmentDefinitionNode;
+export type ExecutableDefinitionNode =
+    | OperationDefinitionNode
+    | FragmentDefinitionNode;
 
 export interface OperationDefinitionNode {
     readonly kind: "OperationDefinition";
@@ -375,7 +380,10 @@ export interface NonNullTypeNode {
 
 // Type System Definition
 
-export type TypeSystemDefinitionNode = SchemaDefinitionNode | TypeDefinitionNode | DirectiveDefinitionNode;
+export type TypeSystemDefinitionNode =
+    | SchemaDefinitionNode
+    | TypeDefinitionNode
+    | DirectiveDefinitionNode;
 
 export interface SchemaDefinitionNode {
     readonly kind: "SchemaDefinition";

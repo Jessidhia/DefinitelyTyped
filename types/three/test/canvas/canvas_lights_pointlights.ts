@@ -3,19 +3,28 @@
 () => {
     // ------- variable definitions that does not exist in the original code. These are for typescript.
     // -------
-    var camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.CanvasRenderer,
-        light1: THREE.PointLight, light2: THREE.PointLight, light3: THREE.PointLight,
-        loader: THREE.JSONLoader, mesh: THREE.Mesh;
+    var camera: THREE.PerspectiveCamera,
+        scene: THREE.Scene,
+        renderer: THREE.CanvasRenderer,
+        light1: THREE.PointLight,
+        light2: THREE.PointLight,
+        light3: THREE.PointLight,
+        loader: THREE.JSONLoader,
+        mesh: THREE.Mesh;
 
     init();
     animate();
 
     function init() {
+        var container = document.getElementById("container");
 
-        var container = document.getElementById('container');
-
-        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-        camera.position.set(0, - 6, 100);
+        camera = new THREE.PerspectiveCamera(
+            60,
+            window.innerWidth / window.innerHeight,
+            1,
+            1000
+        );
+        camera.position.set(0, -6, 100);
 
         scene = new THREE.Scene();
 
@@ -31,29 +40,46 @@
         scene.add(light3);
 
         var PI2 = Math.PI * 2;
-        var program = function (context: CanvasRenderingContext2D) {
-
+        var program = function(context: CanvasRenderingContext2D) {
             context.beginPath();
             context.arc(0, 0, 0.5, 0, PI2, true);
             context.fill();
+        };
 
-        }
-
-        var sprite = new THREE.Sprite(new THREE.SpriteCanvasMaterial({ color: 0xff0040, program: program }));
+        var sprite = new THREE.Sprite(
+            new THREE.SpriteCanvasMaterial({
+                color: 0xff0040,
+                program: program
+            })
+        );
         light1.add(sprite);
 
-        var sprite = new THREE.Sprite(new THREE.SpriteCanvasMaterial({ color: 0x0040ff, program: program }));
+        var sprite = new THREE.Sprite(
+            new THREE.SpriteCanvasMaterial({
+                color: 0x0040ff,
+                program: program
+            })
+        );
         light2.add(sprite);
 
-        var sprite = new THREE.Sprite(new THREE.SpriteCanvasMaterial({ color: 0x80ff80, program: program }));
+        var sprite = new THREE.Sprite(
+            new THREE.SpriteCanvasMaterial({
+                color: 0x80ff80,
+                program: program
+            })
+        );
         light3.add(sprite);
 
         loader = new THREE.JSONLoader();
-        loader.load('obj/WaltHeadLo.js', function (geometry) {
-
-            mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0xffffff, overdraw: 0.5 }));
+        loader.load("obj/WaltHeadLo.js", function(geometry) {
+            mesh = new THREE.Mesh(
+                geometry,
+                new THREE.MeshLambertMaterial({
+                    color: 0xffffff,
+                    overdraw: 0.5
+                })
+            );
             scene.add(mesh);
-
         });
 
         renderer = new THREE.CanvasRenderer();
@@ -63,30 +89,24 @@
 
         //
 
-        window.addEventListener('resize', onWindowResize, false);
-
+        window.addEventListener("resize", onWindowResize, false);
     }
 
     function onWindowResize() {
-
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-
     }
 
     //
 
     function animate() {
-
         requestAnimationFrame(animate);
         render();
-
     }
 
     function render() {
-
         var time = Date.now() * 0.0005;
 
         if (mesh) mesh.rotation.y -= 0.01;
@@ -104,6 +124,5 @@
         light3.position.z = Math.sin(time * 0.5) * 30;
 
         renderer.render(scene, camera);
-
     }
-}
+};

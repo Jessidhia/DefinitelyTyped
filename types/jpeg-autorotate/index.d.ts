@@ -12,7 +12,7 @@ export enum errors {
     no_orientation = "no_orientation",
     unknown_orientation = "unknown_orientation",
     correct_orientation = "correct_orientation",
-    rotate_file = "rotate_file",
+    rotate_file = "rotate_file"
 }
 
 export interface CustomError extends Error {
@@ -26,6 +26,6 @@ export function rotate(
         error: CustomError | null,
         buffer: Buffer | null,
         orientation: number | null,
-        dimensions: { height: number; width: number } | null,
-    ) => void,
+        dimensions: { height: number; width: number } | null
+    ) => void
 ): void;

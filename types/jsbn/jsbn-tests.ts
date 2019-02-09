@@ -1,4 +1,4 @@
-import {BigInteger} from 'jsbn';
+import { BigInteger } from "jsbn";
 
 // constructor tests
 var x = new BigInteger("AABB", 16);
@@ -34,11 +34,11 @@ isBigInteger = x.mod(x);
 isNumber = x.invDigit();
 isBoolean = x.isEven();
 isBigInteger = x.exp(0, {
-    convert: (x) => x,
-    revert: (x) => x,
-    reduce: (x) => x,
-    mulTo: (x) => x,
-    sqrTo: (x) => x
+    convert: x => x,
+    revert: x => x,
+    reduce: x => x,
+    mulTo: x => x,
+    sqrTo: x => x
 });
 isBigInteger = x.modPowInt(0, x);
 isBigInteger = x.clone();

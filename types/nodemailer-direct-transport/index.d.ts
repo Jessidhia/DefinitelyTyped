@@ -3,10 +3,9 @@
 // Definitions by: Rogier Schouten <https://github.com/rogierschouten>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as nodemailer from 'nodemailer';
+import * as nodemailer from "nodemailer";
 
 declare namespace directTransport {
-
     export interface AuthOptions {
         user?: string;
         pass?: string;
@@ -25,6 +24,8 @@ declare namespace directTransport {
     }
 }
 
-declare function directTransport(options: directTransport.DirectOptions): nodemailer.Transport;
+declare function directTransport(
+    options: directTransport.DirectOptions
+): nodemailer.Transport;
 
 export = directTransport;

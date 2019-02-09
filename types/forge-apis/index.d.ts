@@ -30,7 +30,12 @@ export class AuthClientTwoLegged {
 }
 
 export class AuthClientThreeLegged {
-    constructor(clientId: string, clientSecret: string, redirectUri: string, scope: string[]);
+    constructor(
+        clientId: string,
+        clientSecret: string,
+        redirectUri: string,
+        scope: string[]
+    );
 
     generateAuthUrl(): string;
     getToken(code: string): Promise<AuthToken>;
@@ -51,24 +56,47 @@ export interface ApiError {
 export class BucketsApi {
     constructor();
 
-    createBucket(postBuckets: object, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    deleteBucket(bucketKey: string, credentials: AuthToken): Promise<ApiResponse>;
-    getBucketDetails(bucketKey: string, credentials: AuthToken): Promise<ApiResponse>;
+    createBucket(
+        postBuckets: object,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    deleteBucket(
+        bucketKey: string,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    getBucketDetails(
+        bucketKey: string,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
     getBuckets(options: object, credentials: AuthToken): Promise<ApiResponse>;
 }
 
 export class HubsApi {
     constructor();
 
-    getHub(hubId: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
+    getHub(
+        hubId: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
     getHubs(opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getHubProjects(hubId: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
+    getHubProjects(
+        hubId: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
 }
 
 export class FoldersApi {
     constructor();
 
-    getFolderContents(projectId: string, folderId: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
+    getFolderContents(
+        projectId: string,
+        folderId: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
 }
 
 export interface JobPayload {
@@ -102,14 +130,45 @@ export class DerivativesApi {
     constructor();
 
     deleteManifest(urn: string, credentials: AuthToken): Promise<ApiResponse>;
-    getDerivativeManifest(urn: string, derivativeUrn: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
+    getDerivativeManifest(
+        urn: string,
+        derivativeUrn: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
     getFormats(opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getManifest(urn: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getMetadata(urn: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getModelviewMetadata(urn: string, guid: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getModelviewProperties(urn: string, guid: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    getThumbnail(urn: string, opts: object, credentials: AuthToken): Promise<ApiResponse>;
-    translate(job: JobPayload, opts: { xAdsForce?: boolean }, credentials: AuthToken): Promise<ApiResponse>;
+    getManifest(
+        urn: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    getMetadata(
+        urn: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    getModelviewMetadata(
+        urn: string,
+        guid: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    getModelviewProperties(
+        urn: string,
+        guid: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    getThumbnail(
+        urn: string,
+        opts: object,
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
+    translate(
+        job: JobPayload,
+        opts: { xAdsForce?: boolean },
+        credentials: AuthToken
+    ): Promise<ApiResponse>;
 }
 
 export interface Credentials {
@@ -171,20 +230,20 @@ export namespace Dm {
             derivatives: {
                 data: {
                     id: string;
-                },
+                };
                 meta: {
                     link: {
                         href: string;
-                    }
-                }
-            },
+                    };
+                };
+            };
             item: any;
             refs: any;
             storage: {
                 data: {
                     id: string;
                     type: string;
-                }
+                };
             };
             thumbnail: any;
         };

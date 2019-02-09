@@ -6,12 +6,14 @@ AsyncPolling(end => {
     end();
 }, 3000).run();
 
-function someAsynchroneProcess(callback: (error?: Error, response?: any) => any): any {
+function someAsynchroneProcess(
+    callback: (error?: Error, response?: any) => any
+): any {
     callback();
 }
 
 let polling = AsyncPolling(end => {
-    someAsynchroneProcess(function (error, response) {
+    someAsynchroneProcess(function(error, response) {
         if (error) {
             end(error);
             return;
@@ -44,7 +46,13 @@ polling = AsyncPolling(function(end) {
     end(null, `#${i} wait a second...`);
 }, 1000);
 
-const eventNames: AsyncPolling.EventName[] = ["run", "start", "end", "schedule", "stop"];
+const eventNames: AsyncPolling.EventName[] = [
+    "run",
+    "start",
+    "end",
+    "schedule",
+    "stop"
+];
 eventNames.forEach(eventName => {
     polling.on(eventName, () => {
         console.log("lifecycle:", eventName);

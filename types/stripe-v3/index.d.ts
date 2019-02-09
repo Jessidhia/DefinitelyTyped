@@ -19,17 +19,31 @@ declare namespace stripe {
 
     interface Stripe {
         elements(options?: elements.ElementsCreateOptions): elements.Elements;
-        createToken(element: elements.Element, options?: TokenOptions): Promise<TokenResponse>;
-        createToken(name: 'bank_account', options: BankAccountTokenOptions): Promise<TokenResponse>;
-        createToken(name: 'pii', options: PiiTokenOptions): Promise<TokenResponse>;
-        createSource(element: elements.Element, options?: {owner?: OwnerInfo}): Promise<SourceResponse>;
+        createToken(
+            element: elements.Element,
+            options?: TokenOptions
+        ): Promise<TokenResponse>;
+        createToken(
+            name: "bank_account",
+            options: BankAccountTokenOptions
+        ): Promise<TokenResponse>;
+        createToken(
+            name: "pii",
+            options: PiiTokenOptions
+        ): Promise<TokenResponse>;
+        createSource(
+            element: elements.Element,
+            options?: { owner?: OwnerInfo }
+        ): Promise<SourceResponse>;
         createSource(options: SourceOptions): Promise<SourceResponse>;
         retrieveSource(options: RetrieveSourceOptions): Promise<SourceResponse>;
-        paymentRequest(options: paymentRequest.StripePaymentRequestOptions): paymentRequest.StripePaymentRequest;
+        paymentRequest(
+            options: paymentRequest.StripePaymentRequestOptions
+        ): paymentRequest.StripePaymentRequest;
     }
 
     interface StripeOptions {
-      stripeAccount?: string;
+        stripeAccount?: string;
     }
 
     interface TokenOptions {
@@ -72,7 +86,7 @@ declare namespace stripe {
 
     interface SourceOptions {
         type: string;
-        flow?: 'redirect' | 'receiver' | 'code_verification' | 'none';
+        flow?: "redirect" | "receiver" | "code_verification" | "none";
         sepa_debit?: {
             iban: string;
         };
@@ -85,7 +99,7 @@ declare namespace stripe {
             return_url: string;
         };
         token?: string;
-        usage?: 'reusable' | 'single_use';
+        usage?: "reusable" | "single_use";
         three_d_secure?: {
             card: string;
         };
@@ -155,7 +169,12 @@ declare namespace stripe {
         param?: string;
     }
 
-    type statusType = 'new' | 'validated' | 'verified' | 'verification_failed' | 'errored';
+    type statusType =
+        | "new"
+        | "validated"
+        | "verified"
+        | "verification_failed"
+        | "errored";
     interface BankAccount {
         id: string;
         object: string;
@@ -170,10 +189,17 @@ declare namespace stripe {
         status: statusType;
     }
 
-    type brandType = 'Visa' | 'American Express' | 'MasterCard' | 'Discover' | 'JCB' | 'Diners Club' | 'Unknown';
-    type checkType = 'pass' | 'fail' | 'unavailable' | 'unchecked';
-    type fundingType = 'credit' | 'debit' | 'prepaid' | 'unknown';
-    type tokenizationType = 'apple_pay' | 'android_pay';
+    type brandType =
+        | "Visa"
+        | "American Express"
+        | "MasterCard"
+        | "Discover"
+        | "JCB"
+        | "Diners Club"
+        | "Unknown";
+    type checkType = "pass" | "fail" | "unavailable" | "unchecked";
+    type fundingType = "credit" | "debit" | "prepaid" | "unknown";
+    type tokenizationType = "apple_pay" | "android_pay";
     interface Card {
         id: string;
         object: string;
@@ -198,7 +224,11 @@ declare namespace stripe {
         metadata: any;
         name?: string;
         tokenization_method?: tokenizationType;
-        three_d_secure?: 'required' | 'recommended' | 'optional' | 'not_supported';
+        three_d_secure?:
+            | "required"
+            | "recommended"
+            | "optional"
+            | "not_supported";
     }
 
     interface RetrieveSourceOptions {
@@ -221,7 +251,8 @@ declare namespace stripe {
             shippingOptions?: ShippingOption[];
         }
 
-        interface StripePaymentRequestOptions extends StripePaymentRequestUpdateOptions {
+        interface StripePaymentRequestOptions
+            extends StripePaymentRequestUpdateOptions {
             country: string;
             requestPayerName?: boolean;
             requestPayerEmail?: boolean;
@@ -230,7 +261,7 @@ declare namespace stripe {
         }
 
         interface UpdateDetails {
-            status: 'success' | 'fail' | 'invalid_shipping_address';
+            status: "success" | "fail" | "invalid_shipping_address";
             total?: DisplayItem;
             displayItems?: DisplayItem[];
             shippingOptions?: ShippingOption[];
@@ -274,14 +305,32 @@ declare namespace stripe {
         }
 
         interface StripePaymentRequest {
-            canMakePayment(): Promise<{applePay?: boolean} | null>;
+            canMakePayment(): Promise<{ applePay?: boolean } | null>;
             show(): void;
             update(options: StripePaymentRequestUpdateOptions): void;
-            on(event: 'token', handler: (response: StripeTokenPaymentResponse) => void): void;
-            on(event: 'source', handler: (response: StripeSourcePaymentResponse) => void): void;
-            on(event: 'cancel', handler: () => void): void;
-            on(event: 'shippingaddresschange', handler: (response: {updateWith: (options: UpdateDetails) => void, shippingAddress: ShippingAddress}) => void): void;
-            on(event: 'shippingoptionchange', handler: (response: {updateWith: (options: UpdateDetails) => void, shippingOption: ShippingOption}) => void): void;
+            on(
+                event: "token",
+                handler: (response: StripeTokenPaymentResponse) => void
+            ): void;
+            on(
+                event: "source",
+                handler: (response: StripeSourcePaymentResponse) => void
+            ): void;
+            on(event: "cancel", handler: () => void): void;
+            on(
+                event: "shippingaddresschange",
+                handler: (response: {
+                    updateWith: (options: UpdateDetails) => void;
+                    shippingAddress: ShippingAddress;
+                }) => void
+            ): void;
+            on(
+                event: "shippingoptionchange",
+                handler: (response: {
+                    updateWith: (options: UpdateDetails) => void;
+                    shippingOption: ShippingOption;
+                }) => void
+            ): void;
         }
     }
 
@@ -293,13 +342,16 @@ declare namespace stripe {
         }
 
         type handler = (response?: ElementChangeResponse) => void;
-        type eventTypes = 'blur' | 'change' | 'focus' | 'ready';
+        type eventTypes = "blur" | "change" | "focus" | "ready";
         interface Element {
             // HTMLElement keeps giving this error for some reason:
             // Cannot find name 'HTMLElement'
             mount(domElement: any): void;
             on(event: eventTypes, handler: handler): void;
-            on(event: 'click', handler: (response: {preventDefault: () => void}) => void): void;
+            on(
+                event: "click",
+                handler: (response: { preventDefault: () => void }) => void
+            ): void;
             focus(): void;
             blur(): void;
             clear(): void;
@@ -324,7 +376,14 @@ declare namespace stripe {
             locale?: string;
         }
 
-        type elementsType = 'card' | 'cardNumber' | 'cardExpiry' | 'cardCvc' | 'postalCode' | 'paymentRequestButton' | 'iban';
+        type elementsType =
+            | "card"
+            | "cardNumber"
+            | "cardExpiry"
+            | "cardCvc"
+            | "postalCode"
+            | "paymentRequestButton"
+            | "iban";
         interface Elements {
             create(type: elementsType, options?: ElementsOptions): Element;
         }
@@ -340,7 +399,7 @@ declare namespace stripe {
             };
             hidePostalCode?: boolean;
             hideIcon?: boolean;
-            iconStyle?: 'solid' | 'default';
+            iconStyle?: "solid" | "default";
             placeholder?: string;
             placeholderCountry?: string;
             style?: {
@@ -350,19 +409,19 @@ declare namespace stripe {
                 invalid?: Style;
                 paymentRequestButton?: PaymentRequestButtonStyleOptions;
             };
-            value?: string | { [objectKey: string]: string; };
+            value?: string | { [objectKey: string]: string };
             paymentRequest?: paymentRequest.StripePaymentRequest;
             supportedCountries?: string[];
             disabled?: boolean;
         }
 
         interface Style extends StyleOptions {
-            ':hover'?: StyleOptions;
-            ':focus'?: StyleOptions;
-            '::placeholder'?: StyleOptions;
-            '::selection'?: StyleOptions;
-            ':-webkit-autofill'?: StyleOptions;
-            '::-ms-clear'?: StyleOptions;
+            ":hover"?: StyleOptions;
+            ":focus"?: StyleOptions;
+            "::placeholder"?: StyleOptions;
+            "::selection"?: StyleOptions;
+            ":-webkit-autofill"?: StyleOptions;
+            "::-ms-clear"?: StyleOptions;
         }
 
         interface Font {
@@ -392,8 +451,8 @@ declare namespace stripe {
         }
 
         interface PaymentRequestButtonStyleOptions {
-            type?: 'default' | 'donate' | 'buy';
-            theme: 'dark' | 'light' | 'light-outline';
+            type?: "default" | "donate" | "buy";
+            theme: "dark" | "light" | "light-outline";
             height: string;
         }
     }

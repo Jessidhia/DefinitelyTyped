@@ -5,7 +5,8 @@ declare namespace adone {
 
             interface ArgumentInfo {
                 name: string | string[];
-                action?: "store"
+                action?:
+                    | "store"
                     | "store_const"
                     | "store_true"
                     | "store_false"
@@ -63,11 +64,15 @@ declare namespace adone {
 
         function DSubsystem(info?: I.ApplicationInfo): (...args: any[]) => void;
 
-        function DApplication(info?: I.ApplicationInfo): (...args: any[]) => void;
+        function DApplication(
+            info?: I.ApplicationInfo
+        ): (...args: any[]) => void;
 
         function DCliCommand(info?: I.CommandInfo): (...args: any[]) => void;
 
-        function DMainCliCommand(info?: I.MainCommandInfo): (...args: any[]) => void;
+        function DMainCliCommand(
+            info?: I.MainCommandInfo
+        ): (...args: any[]) => void;
 
         namespace I {
             interface LoadSubsystemOptions {
@@ -109,7 +114,9 @@ declare namespace adone {
             }
 
             interface AddSubsystemsFromOptions extends CommonAddSubsystemInfo {
-                filter?: string[] | ((file: string) => boolean | Promise<boolean>);
+                filter?:
+                    | string[]
+                    | ((file: string) => boolean | Promise<boolean>);
             }
         }
 
@@ -130,7 +137,10 @@ declare namespace adone {
 
             setState(state: number): void;
 
-            waitForState(expectedState: number, timeout?: number): Promise<void>;
+            waitForState(
+                expectedState: number,
+                timeout?: number
+            ): Promise<void>;
 
             configure(): void;
 
@@ -146,7 +156,10 @@ declare namespace adone {
 
             configureSubsystem(name: string): Promise<void>;
 
-            loadSubsystem(subsystem: string | Subsystem, options?: I.LoadSubsystemOptions): Promise<void>;
+            loadSubsystem(
+                subsystem: string | Subsystem,
+                options?: I.LoadSubsystemOptions
+            ): Promise<void>;
 
             unloadSubsystem(name: string): Promise<void>;
 
@@ -162,14 +175,24 @@ declare namespace adone {
 
             hasSubsystems(): boolean;
 
-            addSubsystem(info: I.AddSubsystemInfo & { subsystem: Subsystem }): I.SysInfoNoPath;
-            addSubsystem(info: I.AddSubsystemInfo & { subsystem: string }): I.SysInfoWithPath;
+            addSubsystem(
+                info: I.AddSubsystemInfo & { subsystem: Subsystem }
+            ): I.SysInfoNoPath;
+            addSubsystem(
+                info: I.AddSubsystemInfo & { subsystem: string }
+            ): I.SysInfoWithPath;
 
-            addSubsystemsFrom(path: string, options?: I.AddSubsystemsFromOptions): I.SysInfoWithPath;
+            addSubsystemsFrom(
+                path: string,
+                options?: I.AddSubsystemsFromOptions
+            ): I.SysInfoWithPath;
 
-            instantiateSubsystem(subsystem: string | Subsystem, options?: {
-                transpile?: boolean
-            }): Subsystem;
+            instantiateSubsystem(
+                subsystem: string | Subsystem,
+                options?: {
+                    transpile?: boolean;
+                }
+            ): Subsystem;
 
             deleteSubsystem(name: string, force?: boolean): void;
 
@@ -254,7 +277,9 @@ declare namespace adone {
 
             defineCommand(schema: I.CommandInfo): I.Command;
 
-            defineCommandFromSubsystem(options?: I.DefineCommandFromSubsystemOptions): void;
+            defineCommandFromSubsystem(
+                options?: I.DefineCommandFromSubsystemOptions
+            ): void;
 
             defineOption(schema: I.ArgumentInfo): void;
 
@@ -267,6 +292,9 @@ declare namespace adone {
 
         function run(app: Application, ignoreArgs?: boolean): Promise<void>;
 
-        function runCli(app: CliApplication, ignoreArgs?: boolean): Promise<void>;
+        function runCli(
+            app: CliApplication,
+            ignoreArgs?: boolean
+        ): Promise<void>;
     }
 }

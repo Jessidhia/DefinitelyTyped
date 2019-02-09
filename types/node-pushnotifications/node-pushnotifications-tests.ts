@@ -1,4 +1,4 @@
-import PushNotifications = require('node-pushnotifications');
+import PushNotifications = require("node-pushnotifications");
 
 const settings = {
     gcm: {
@@ -6,9 +6,9 @@ const settings = {
     },
     apn: {
         token: {
-            key: './certs/key.p8',
-            keyId: 'ABCD',
-            teamId: 'EFGH',
+            key: "./certs/key.p8",
+            keyId: "ABCD",
+            teamId: "EFGH"
         }
     },
     adm: {
@@ -18,18 +18,18 @@ const settings = {
     wns: {
         client_id: "null",
         client_secret: "null",
-        notificationMethod: 'sendTileSquareBlock',
+        notificationMethod: "sendTileSquareBlock"
     }
 };
 const push = new PushNotifications(settings);
 
 const registrationIds = [];
-registrationIds.push('INSERT_YOUR_DEVICE_ID');
-registrationIds.push('INSERT_OTHER_DEVICE_ID');
+registrationIds.push("INSERT_YOUR_DEVICE_ID");
+registrationIds.push("INSERT_OTHER_DEVICE_ID");
 
 const data = {
-    title: 'New push notification',
-    body: 'Powered by AppFeel'
+    title: "New push notification",
+    body: "Powered by AppFeel"
 };
 
 // You can use it in node callback style
@@ -43,9 +43,9 @@ push.send(registrationIds, data, (err, result) => {
 
 // Or you could use it as a promise:
 push.send(registrationIds, data)
-    .then((results) => {
+    .then(results => {
         console.log(results);
     })
-    .catch((err) => {
+    .catch(err => {
         console.log(err);
     });

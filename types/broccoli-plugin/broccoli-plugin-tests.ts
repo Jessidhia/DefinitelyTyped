@@ -1,4 +1,4 @@
-import Plugin = require('broccoli-plugin');
+import Plugin = require("broccoli-plugin");
 
 declare function copySync(src: string, dest: string): void;
 declare function setTimeout(callback: () => void, duration: number): void;
@@ -19,7 +19,7 @@ class SlowItDown extends Plugin {
 class FileCopier extends Plugin {
     constructor(inputNodes: Plugin.BroccoliNode[]) {
         super(inputNodes, {
-            name: 'CopyFiles',
+            name: "CopyFiles",
             persistentOutput: true
         });
     }
@@ -35,12 +35,8 @@ class FileCopier extends Plugin {
     }
 }
 
-new FileCopier([
-    new SlowItDown(5000),
-    'src',
-    'assets'
-]);
+new FileCopier([new SlowItDown(5000), "src", "assets"]);
 
 new Plugin(); // $ExpectError
 new Plugin([{}]); // $ExpectError
-new Plugin([], { foo: 'bar' }); // $ExpectError
+new Plugin([], { foo: "bar" }); // $ExpectError

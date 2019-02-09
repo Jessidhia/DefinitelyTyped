@@ -1,3 +1,3 @@
-import stringHash = require('@sindresorhus/string-hash');
+import stringHash = require("@sindresorhus/string-hash");
 
-stringHash('🦄🌈'); // $ExpectType number
+stringHash("🦄🌈"); // $ExpectType number

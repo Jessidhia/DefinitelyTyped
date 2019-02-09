@@ -1,10 +1,10 @@
-import { CLIEngine } from 'eslint';
-import eslintFormatter = require('react-dev-utils/eslintFormatter');
+import { CLIEngine } from "eslint";
+import eslintFormatter = require("react-dev-utils/eslintFormatter");
 
-const { results } = new CLIEngine({}).executeOnText('');
+const { results } = new CLIEngine({}).executeOnText("");
 
 // $ExpectError
-eslintFormatter(['error']);
+eslintFormatter(["error"]);
 
 // $ExpectError
 eslintFormatter([results]);

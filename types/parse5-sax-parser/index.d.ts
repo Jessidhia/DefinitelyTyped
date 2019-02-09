@@ -132,14 +132,20 @@ declare class SAXParser extends stream.Transform {
      *
      * @param listener.startTag - Start tag token.
      */
-    on(event: "startTag", listener: (startTag: SAXParser.StartTagToken) => void): this;
+    on(
+        event: "startTag",
+        listener: (startTag: SAXParser.StartTagToken) => void
+    ): this;
 
     /**
      * Raised when parser encounters an end tag.
      *
      * @param listener.endTag - End tag token.
      */
-    on(event: "endTag", listener: (endTag: SAXParser.EndTagToken) => void): this;
+    on(
+        event: "endTag",
+        listener: (endTag: SAXParser.EndTagToken) => void
+    ): this;
     /**
      * Raised when parser encounters text content.
      *
@@ -151,13 +157,19 @@ declare class SAXParser extends stream.Transform {
      *
      * @param listener.comment - Comment content.
      */
-    on(event: "comment", listener: (comment: SAXParser.CommentToken) => void): this;
+    on(
+        event: "comment",
+        listener: (comment: SAXParser.CommentToken) => void
+    ): this;
     /**
      * Raised when parser encounters a [document type declaration](https://en.wikipedia.org/wiki/Document_type_declaration).
      *
      * @param listener.doctype - Document type token.
      */
-    on(event: "doctype", listener: (doctype: SAXParser.DoctypeToken) => void): this;
+    on(
+        event: "doctype",
+        listener: (doctype: SAXParser.DoctypeToken) => void
+    ): this;
     /**
      * TransformStream events
      */

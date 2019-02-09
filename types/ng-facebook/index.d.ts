@@ -7,9 +7,9 @@
 /// <reference types="angular" />
 /// <reference types="fb" />
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     export namespace ngFacebook {
         interface IFacebookProvider {
             setAppId(appId: string): IFacebookProvider;
@@ -18,7 +18,9 @@ declare module 'angular' {
             setVersion(version: string): IFacebookProvider;
             getVersion(): string;
 
-            setPermissions(permissions: string | Array<string>): IFacebookProvider;
+            setPermissions(
+                permissions: string | Array<string>
+            ): IFacebookProvider;
             getPermissions(): string;
 
             setCustomInit(customInit: FBInitParams): IFacebookProvider;
@@ -34,7 +36,9 @@ declare module 'angular' {
             | FeedDialogParams;
 
         interface IFacebookService {
-            config<T extends string | number | FBInitParams>(property: string): T;
+            config<T extends string | number | FBInitParams>(
+                property: string
+            ): T;
             init(): void;
 
             setCache<T>(attr: string, val: T): void;
@@ -44,14 +48,21 @@ declare module 'angular' {
             isConnected(): boolean;
             getAuthResponse(): {};
             getLoginStatus(force?: boolean): angular.IPromise<{}>;
-            login(permissions?: string, rerequest?: boolean): angular.IPromise<{}>;
+            login(
+                permissions?: string,
+                rerequest?: boolean
+            ): angular.IPromise<{}>;
             logout(): angular.IPromise<void>;
 
             ui(params: FBUIParams): angular.IPromise<any>;
             api(path: string): angular.IPromise<{}>;
             api(path: string, method: string): angular.IPromise<{}>;
             api(path: string, params: Object): angular.IPromise<{}>;
-            api(path: string, method: string, params: Object): angular.IPromise<{}>;
+            api(
+                path: string,
+                method: string,
+                params: Object
+            ): angular.IPromise<{}>;
 
             cachedApi(path: string): angular.IPromise<any>;
         }

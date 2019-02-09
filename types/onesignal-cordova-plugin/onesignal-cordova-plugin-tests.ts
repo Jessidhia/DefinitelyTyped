@@ -1,35 +1,38 @@
-window.plugins.OneSignal
-    .startInit("YOUR_APPID")
-    .handleNotificationReceived((jsonData) => {
+window.plugins.OneSignal.startInit("YOUR_APPID")
+    .handleNotificationReceived(jsonData => {
         console.log("Notification received:\n" + JSON.stringify(jsonData));
     })
-    .handleNotificationOpened((jsonData) => {
+    .handleNotificationOpened(jsonData => {
         console.log("Notification opened:\n" + JSON.stringify(jsonData));
     })
     .inFocusDisplaying(OneSignalCordovaPlugin.OSDisplayType.Notification)
     .iOSSettings({
         kOSSettingsKeyAutoPrompt: true,
-        kOSSettingsKeyInAppLaunchURL: false,
+        kOSSettingsKeyInAppLaunchURL: false
     })
     .endInit();
 
-window.plugins.OneSignal.promptForPushNotificationsWithUserResponse((accepted) => {
-    console.log("User accepted notifications: " + accepted);
+window.plugins.OneSignal.promptForPushNotificationsWithUserResponse(
+    accepted => {
+        console.log("User accepted notifications: " + accepted);
+    }
+);
+
+window.plugins.OneSignal.addPermissionObserver(state => {
+    console.log(
+        "Notification permission state changed: " + JSON.stringify(state)
+    );
 });
 
-window.plugins.OneSignal.addPermissionObserver((state) => {
-    console.log("Notification permission state changed: " + JSON.stringify(state));
-});
-
-window.plugins.OneSignal.addSubscriptionObserver((state) => {
+window.plugins.OneSignal.addSubscriptionObserver(state => {
     if (!state.subscribed) {
         console.log("Subscribed for OneSignal push notifications!");
     }
     console.log("Push Subscription state changed: " + JSON.stringify(state));
 });
 
-window.plugins.OneSignal.getTags((tags) => {
-    console.log('Tags Received: ' + JSON.stringify(tags));
+window.plugins.OneSignal.getTags(tags => {
+    console.log("Tags Received: " + JSON.stringify(tags));
 });
 
 window.plugins.OneSignal.sendTag("key", "value");
@@ -44,16 +47,17 @@ window.plugins.OneSignal.promptLocation();
 
 window.plugins.OneSignal.syncHashedEmail("John.Smith@example.com");
 
-window.plugins.OneSignal.getIds((ids) => {
+window.plugins.OneSignal.getIds(ids => {
     const notificationObj = {
         contents: { en: "message body" },
         include_player_ids: [ids.userId]
     };
-    window.plugins.OneSignal.postNotification(notificationObj,
-        (successResponse) => {
+    window.plugins.OneSignal.postNotification(
+        notificationObj,
+        successResponse => {
             console.log("Notification Post Success:", successResponse);
         },
-        (failedResponse) => {
+        failedResponse => {
             console.log("Notification Post Failed: ", failedResponse);
         }
     );

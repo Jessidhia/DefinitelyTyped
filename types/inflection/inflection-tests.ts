@@ -1,5 +1,3 @@
-
-
 import inflection = require("inflection");
 
 inflection.indexOf(["hi", "there"], "guys");
@@ -39,4 +37,4 @@ inflection.foreign_key("MessageBusProperty", true);
 
 inflection.ordinalize("the 1 pitch");
 
-inflection.transform("all job", [ "pluralize", "capitalize", "dasherize" ]);
+inflection.transform("all job", ["pluralize", "capitalize", "dasherize"]);

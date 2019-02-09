@@ -4,13 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 interface DocumentTitleProps {
     title: string;
 }
 
-declare class DocumentTitle extends React.Component<DocumentTitleProps, any> {
-}
+declare class DocumentTitle extends React.Component<DocumentTitleProps, any> {}
 
 export default DocumentTitle;

@@ -5,14 +5,19 @@
 
 /// <reference types="node"/>
 
-
-declare function GulpIstanbul(opts?: GulpIstanbul.Options): NodeJS.ReadWriteStream;
+declare function GulpIstanbul(
+    opts?: GulpIstanbul.Options
+): NodeJS.ReadWriteStream;
 
 declare namespace GulpIstanbul {
     export function hookRequire(): NodeJS.ReadWriteStream;
-    export function summarizeCoverage(opts?: { coverageVariable?: string }): Coverage;
+    export function summarizeCoverage(opts?: {
+        coverageVariable?: string;
+    }): Coverage;
     export function writeReports(opts?: ReportOptions): NodeJS.ReadWriteStream;
-    export function enforceThresholds(opts?: ThresholdOptions): NodeJS.ReadWriteStream;
+    export function enforceThresholds(
+        opts?: ThresholdOptions
+    ): NodeJS.ReadWriteStream;
 
     interface Options {
         coverageVariable?: string;
@@ -49,7 +54,10 @@ declare namespace GulpIstanbul {
 
     interface ThresholdOptions {
         coverageVariable?: string;
-        thresholds?: { global?: CoverageOptions | number; each?: CoverageOptions | number };
+        thresholds?: {
+            global?: CoverageOptions | number;
+            each?: CoverageOptions | number;
+        };
     }
 
     interface CoverageOptions {

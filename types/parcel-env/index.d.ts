@@ -28,7 +28,7 @@ declare namespace __ParcelModuleApi {
         children: any[];
         hot?: Hot;
     }
-    type ModuleId = string|number;
+    type ModuleId = string | number;
 
     interface Hot {
         /**
@@ -36,7 +36,10 @@ declare namespace __ParcelModuleApi {
          * @param dependencies
          * @param callback
          */
-        accept(dependencies: string[], callback: (updatedDependencies: ModuleId[]) => void): void;
+        accept(
+            dependencies: string[],
+            callback: (updatedDependencies: ModuleId[]) => void
+        ): void;
         /**
          * Accept code updates for the specified dependencies. The callback is called when dependencies were replaced.
          * @param dependency
@@ -97,7 +100,10 @@ declare namespace __ParcelModuleApi {
          * @param autoApply
          * @param callback
          */
-        check(autoApply: boolean, callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        check(
+            autoApply: boolean,
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * Throws an exceptions if status() is not idle.
          * Check all currently loaded modules for updates and apply updates if found.
@@ -105,20 +111,27 @@ declare namespace __ParcelModuleApi {
          * The callback will be called with all modules that will be disposed on apply().
          * @param callback
          */
-        check(callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        check(
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * If status() != "ready" it throws an error.
          * Continue the update process.
          * @param options
          * @param callback
          */
-        apply(options: AcceptOptions, callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        apply(
+            options: AcceptOptions,
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * If status() != "ready" it throws an error.
          * Continue the update process.
          * @param callback
          */
-        apply(callback: (err: Error, outdatedModules: ModuleId[]) => void): void;
+        apply(
+            callback: (err: Error, outdatedModules: ModuleId[]) => void
+        ): void;
         /**
          * Return one of idle, check, watch, watch-delay, prepare, ready, dispose, apply, abort or fail.
          */
@@ -148,8 +161,8 @@ declare namespace __ParcelModuleApi {
         autoApply?: boolean;
     }
     /**
-    * Inside env you can pass any variable
-    */
+     * Inside env you can pass any variable
+     */
     interface NodeProcess {
         env?: any;
     }
@@ -159,8 +172,7 @@ declare namespace __ParcelModuleApi {
     type RequireLambda = __Require1 & __Require2;
 }
 
-interface NodeRequire extends __ParcelModuleApi.RequireFunction {
-}
+interface NodeRequire extends __ParcelModuleApi.RequireFunction {}
 
 declare var require: NodeRequire;
 
@@ -169,8 +181,8 @@ interface NodeModule extends __ParcelModuleApi.Module {}
 declare var module: NodeModule;
 
 /**
-* Declare process variable
-*/
+ * Declare process variable
+ */
 declare namespace NodeJS {
     interface Process extends __ParcelModuleApi.NodeProcess {}
 }

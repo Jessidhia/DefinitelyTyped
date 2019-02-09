@@ -17,14 +17,18 @@ assert.equal(cookies[0].name, "foo");
 assert.equal(cookies[0].value, "bar");
 
 // Optional properties included test
-var optionalIncluded = "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure";
+var optionalIncluded =
+    "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure";
 cookies = setCookie(optionalIncluded);
 assert.equal(cookies.length, 1);
 assert.equal(cookies[0].name, "foo");
 assert.equal(cookies[0].value, "bar");
 assert.equal(cookies[0].domain, ".example.com");
 assert.equal(cookies[0].path, "/");
-assert.deepEqual(cookies[0].expires, new Date('Tue Jul 01 2025 06:01:11 GMT-0400 (EDT)'));
+assert.deepEqual(
+    cookies[0].expires,
+    new Date("Tue Jul 01 2025 06:01:11 GMT-0400 (EDT)")
+);
 assert.equal(cookies[0].maxAge, 1000);
 assert.equal(cookies[0].httpOnly, true);
 assert.equal(cookies[0].secure, true);
@@ -52,7 +56,7 @@ assert.equal(cookies[1].value, "bar");
 var requiredOnlyCookie: setCookie.Cookie = {
     name: "Foo",
     value: "Bar"
-}
+};
 
 // Create new cookie with all properties included optional ones
 var optionalIncludedCookie: setCookie.Cookie = {
@@ -60,50 +64,62 @@ var optionalIncludedCookie: setCookie.Cookie = {
     value: "Baz",
     domain: ".example.com",
     path: "/",
-    expires:  new Date("Tue Jul 01 2025 06:01:11 GMT-0400 (EDT)"),
+    expires: new Date("Tue Jul 01 2025 06:01:11 GMT-0400 (EDT)"),
     maxAge: 1000,
     httpOnly: true,
     secure: true
 };
 
-var cookiesString = setCookie.splitCookiesString(null)
-assert.deepStrictEqual(cookiesString, [])
+var cookiesString = setCookie.splitCookiesString(null);
+assert.deepStrictEqual(cookiesString, []);
 
-cookiesString = setCookie.splitCookiesString([])
-assert.deepStrictEqual(cookiesString, [])
+cookiesString = setCookie.splitCookiesString([]);
+assert.deepStrictEqual(cookiesString, []);
 
 cookiesString = setCookie.splitCookiesString([
-    'foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-    'baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-])
+    "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure",
+    "baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure"
+]);
 assert.deepStrictEqual(cookiesString, [
-    'foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-    'baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-])
+    "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure",
+    "baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure"
+]);
 
 cookiesString = setCookie.splitCookiesString(
-    'foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure, baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-)
+    "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure, baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure"
+);
 assert.deepStrictEqual(cookiesString, [
-    'foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-    'baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure',
-])
+    "foo=bar; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure",
+    "baz=buz; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 2025 10:01:11 GMT; HttpOnly; Secure"
+]);
 
 // Use decodeValues=false option
-var notDecodedValueCookies = setCookie.parse('user=%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 3000 10:01:11 GMT; HttpOnly; Secure', { decodeValues: false });
-assert.equal(notDecodedValueCookies[0].value, '%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2');
+var notDecodedValueCookies = setCookie.parse(
+    "user=%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 3000 10:01:11 GMT; HttpOnly; Secure",
+    { decodeValues: false }
+);
+assert.equal(
+    notDecodedValueCookies[0].value,
+    "%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2"
+);
 
-var decodedValueCookies = setCookie.parse('user=%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 3000 10:01:11 GMT; HttpOnly; Secure', { decodeValues: true });
-assert.equal(decodedValueCookies[0].value, 'Илья Зайцев');
+var decodedValueCookies = setCookie.parse(
+    "user=%D0%98%D0%BB%D1%8C%D1%8F%20%D0%97%D0%B0%D0%B9%D1%86%D0%B5%D0%B2; Max-Age=1000; Domain=.example.com; Path=/; Expires=Tue, 01 Jul 3000 10:01:11 GMT; HttpOnly; Secure",
+    { decodeValues: true }
+);
+assert.equal(decodedValueCookies[0].value, "Илья Зайцев");
 
 // Use map=true option
 var expectedCookiesMap = {
     foo: {
-        name: 'foo',
-        value: 'bar',
+        name: "foo",
+        value: "bar",
         maxAge: 1000,
-        domain: '.example.com',
+        domain: ".example.com"
     }
 };
-var cookiesMap = setCookie.parse('foo=bar; Max-Age=1000; Domain=.example.com;', { map: true });
+var cookiesMap = setCookie.parse(
+    "foo=bar; Max-Age=1000; Domain=.example.com;",
+    { map: true }
+);
 assert.deepStrictEqual(cookiesMap, expectedCookiesMap);

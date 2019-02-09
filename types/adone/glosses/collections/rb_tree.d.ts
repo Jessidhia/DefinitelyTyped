@@ -99,7 +99,10 @@ declare namespace adone.collection {
          */
         root: I.RedBlackTree.Node<K, V>;
 
-        constructor(compare?: (a: K, b: K) => number, root?: RedBlackTree<K, V>);
+        constructor(
+            compare?: (a: K, b: K) => number,
+            root?: RedBlackTree<K, V>
+        );
 
         /**
          * A sorted array of all the keys in the tree

@@ -4,11 +4,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace FusionCharts {
-    type ChartDataFormats = 'json' | 'jsonurl' | 'csv' | 'xml' | 'xmlurl';
+    type ChartDataFormats = "json" | "jsonurl" | "csv" | "xml" | "xmlurl";
 
-    type ImageHAlign = 'left' | 'right' | 'middle';
+    type ImageHAlign = "left" | "right" | "middle";
 
-    type ImageVAlign = 'top' | 'bottom' | 'middle';
+    type ImageVAlign = "top" | "bottom" | "middle";
 
     interface EventObject {
         type: string;
@@ -133,7 +133,11 @@ declare namespace FusionCharts {
 
         outputTo(callback: (message: any) => any): void;
 
-        enable(state: any, outputTo?: (message: any) => any, outputFormat?: any): void;
+        enable(
+            state: any,
+            outputTo?: (message: any) => any,
+            outputFormat?: any
+        ): void;
 
         enableFirebugLite(): any;
     }
@@ -145,13 +149,22 @@ declare namespace FusionCharts {
 
         chartType(value?: string, options?: any): string;
 
-        addEventListener(type: string | string[], listener: (eventObject?: EventObject, eventArgs?: {}) => void): void;
+        addEventListener(
+            type: string | string[],
+            listener: (eventObject?: EventObject, eventArgs?: {}) => void
+        ): void;
 
-        removeEventListener(type: string | string[], listener: (eventObject?: EventObject, eventArgs?: {}) => void): void;
+        removeEventListener(
+            type: string | string[],
+            listener: (eventObject?: EventObject, eventArgs?: {}) => void
+        ): void;
 
         configureLink(param: {} | any[], level?: number): void;
 
-        setChartAttribute(attributes: ChartObject | string, value?: string): void;
+        setChartAttribute(
+            attributes: ChartObject | string,
+            value?: string
+        ): void;
 
         getChartAttribute(attribute?: string | string[]): ChartObject;
 
@@ -227,7 +240,11 @@ declare namespace FusionCharts {
 
         lockResize(state: boolean): boolean;
 
-        showChartMessage(text: string, modal?: boolean, cancelable?: boolean): void;
+        showChartMessage(
+            text: string,
+            modal?: boolean,
+            cancelable?: boolean
+        ): void;
 
         getJSONData(): JSON;
 
@@ -239,7 +256,11 @@ declare namespace FusionCharts {
 
         getDataAsCSV(): any;
 
-        render(containerElement?: string | Element, insertMode?: string, callback?: () => any): FusionCharts;
+        render(
+            containerElement?: string | Element,
+            insertMode?: string,
+            callback?: () => any
+        ): FusionCharts;
 
         resizeTo(width: number | string, height: number | string): any;
 
@@ -251,19 +272,33 @@ declare namespace FusionCharts {
     }
 
     interface FusionChartStatic {
-        new (chartObject: ChartObject|{}): FusionCharts;
+        new (chartObject: ChartObject | {}): FusionCharts;
 
         (chartId: string): FusionCharts;
 
         getObjectReference(elementId: string): Element;
 
-        addEventListener(type: string | string[], listener: (eventObject?: EventObject, eventArgs?: {}) => void): void;
+        addEventListener(
+            type: string | string[],
+            listener: (eventObject?: EventObject, eventArgs?: {}) => void
+        ): void;
 
-        removeEventListener(type: string | string[], listener: (eventObject?: EventObject, eventArgs?: {}) => void): void;
+        removeEventListener(
+            type: string | string[],
+            listener: (eventObject?: EventObject, eventArgs?: {}) => void
+        ): void;
 
-        ready(callback: (fusionChartStatic?: FusionChartStatic) => any, context?: any): FusionChartStatic;
+        ready(
+            callback: (fusionChartStatic?: FusionChartStatic) => any,
+            context?: any
+        ): FusionChartStatic;
 
-        transcodeData(data: string | {}, source: ChartDataFormats, target: ChartDataFormats, advanced: boolean): any;
+        transcodeData(
+            data: string | {},
+            source: ChartDataFormats,
+            target: ChartDataFormats,
+            advanced: boolean
+        ): any;
 
         batchExport(options: {}): void;
 

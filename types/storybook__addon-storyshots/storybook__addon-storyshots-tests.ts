@@ -1,24 +1,32 @@
-import initStoryshots, { multiSnapshotWithOptions, snapshotWithOptions, getSnapshotFileName, renderOnly, imageSnapshot } from "@storybook/addon-storyshots";
-import { shallow, ShallowWrapper } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import 'jest';
-import 'jest-specific-snapshot';
+import initStoryshots, {
+    multiSnapshotWithOptions,
+    snapshotWithOptions,
+    getSnapshotFileName,
+    renderOnly,
+    imageSnapshot
+} from "@storybook/addon-storyshots";
+import { shallow, ShallowWrapper } from "enzyme";
+import toJson from "enzyme-to-json";
+import "jest";
+import "jest-specific-snapshot";
 
 initStoryshots({
-    integrityOptions: { cwd: '' },
-    test: multiSnapshotWithOptions({}),
+    integrityOptions: { cwd: "" },
+    test: multiSnapshotWithOptions({})
 });
 
 initStoryshots({
-  test: ({ story, context }) => {
-    const snapshotFileName = getSnapshotFileName(context);
-    const storyElement = story.render() as JSX.Element;
-    const shallowTree = shallow(storyElement);
+    test: ({ story, context }) => {
+        const snapshotFileName = getSnapshotFileName(context);
+        const storyElement = story.render() as JSX.Element;
+        const shallowTree = shallow(storyElement);
 
-    if (snapshotFileName) {
-      expect(toJson(shallowTree)).toMatchSpecificSnapshot(snapshotFileName);
+        if (snapshotFileName) {
+            expect(toJson(shallowTree)).toMatchSpecificSnapshot(
+                snapshotFileName
+            );
+        }
     }
-  }
 });
 
 initStoryshots({
@@ -44,12 +52,12 @@ initStoryshots({
 });
 
 initStoryshots({
-    framework: 'react',
-    configPath: '',
+    framework: "react",
+    configPath: "",
     test: snapshotWithOptions({
-        createNodeMock: (element) => {
-            if (element.type === 'div') {
-              return { scrollWidth: 123 };
+        createNodeMock: element => {
+            if (element.type === "div") {
+                return { scrollWidth: 123 };
             }
             return null;
         }
@@ -57,27 +65,30 @@ initStoryshots({
 });
 
 initStoryshots({
-    configPath: 'config/storybook',
-    suite: 'storybook snapshots',
+    configPath: "config/storybook",
+    suite: "storybook snapshots",
     storyNameRegex: /^(?!NOTEST )/,
     test: function renderWithoutSnapshotting({ story, context, renderTree }) {
         const result = renderTree(story, context, { createNodeMock });
-        const unmount = (tree: any) => typeof tree.unmount === 'function' && tree.unmount();
-        return result instanceof Promise ? result.then(unmount) : unmount(result);
+        const unmount = (tree: any) =>
+            typeof tree.unmount === "function" && tree.unmount();
+        return result instanceof Promise
+            ? result.then(unmount)
+            : unmount(result);
 
         function createNodeMock() {
             return {
                 addEventListener: () => undefined,
                 getClientRects: () => [],
                 getBoundingClientRect: () => ({}),
-                getElementsByClassName: () => [],
+                getElementsByClassName: () => []
             };
         }
-    },
+    }
 });
 
 // Ensure renderer is compatible with serializer
 initStoryshots<ShallowWrapper>({
     renderer: shallow,
-    serializer: toJson,
+    serializer: toJson
 });

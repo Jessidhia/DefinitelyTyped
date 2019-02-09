@@ -11,7 +11,10 @@ declare global {
             (tolerance?: number): Assertion;
         }
 
-        interface Assertion extends LanguageChains, NumericComparison, TypeComparison {
+        interface Assertion
+            extends LanguageChains,
+                NumericComparison,
+                TypeComparison {
             roughly: Roughly;
         }
 
@@ -23,5 +26,5 @@ declare global {
 }
 
 declare function chaiRoughly(chai: any, utils: any): void;
-declare namespace chaiRoughly { }
+declare namespace chaiRoughly {}
 export = chaiRoughly;

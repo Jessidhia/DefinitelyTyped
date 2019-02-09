@@ -19,7 +19,10 @@ declare namespace expand {
 }
 
 declare function expand(opts: Option, patterns: (string | RegExp)[]): string[];
-declare function expand(opts: Option, ...patterns: (string | RegExp)[]): string[];
+declare function expand(
+    opts: Option,
+    ...patterns: (string | RegExp)[]
+): string[];
 declare function expand(patterns: (string | RegExp)[]): string[];
 declare function expand(...patterns: (string | RegExp)[]): string[];
 

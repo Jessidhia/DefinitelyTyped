@@ -5,35 +5,44 @@
 
 declare namespace ValidatorOptions {
     interface IsStringOptions {
-        regex?: RegExp,
-        message?: String
+        regex?: RegExp;
+        message?: String;
     }
 
     interface IsNumberOptions {
-        min?: Number,
-        max?: Number
+        min?: Number;
+        max?: Number;
     }
 
     interface IsDateOptions {
-        format?: String,
-        message?: String
+        format?: String;
+        message?: String;
     }
 
     type Options = IsStringOptions | IsNumberOptions | IsDateOptions;
 }
 
 declare namespace Validator {
-    type ValidateFn = (value: any, onError: (message: String, childName: String, childValie: any) => void) => void;
+    type ValidateFn = (
+        value: any,
+        onError: (message: String, childName: String, childValie: any) => void
+    ) => void;
 
     interface Validatable {
-        validate: ValidateFn
+        validate: ValidateFn;
     }
 
     interface IsObjectValidator extends Validatable {
-        withRequired: (name: String, validator: Validatable) => IsObjectValidator,
-        withOptional: (name: String, validator: Validatable) => IsObjectValidator,
-        withCustom: (customValidator: ValidateFn) => IsObjectValidator,
-        validate: ValidateFn
+        withRequired: (
+            name: String,
+            validator: Validatable
+        ) => IsObjectValidator;
+        withOptional: (
+            name: String,
+            validator: Validatable
+        ) => IsObjectValidator;
+        withCustom: (customValidator: ValidateFn) => IsObjectValidator;
+        validate: ValidateFn;
     }
 
     function express(validator: Validatable): any;
@@ -43,22 +52,33 @@ declare namespace Validator {
     function expressQuery(validator: Validatable): any;
     function queryValidator(validator: Validatable): any;
 
-    function run(validator: Validatable, value: any, callback: (errorCount: Number, errors: Array<any>) => void): void;
+    function run(
+        validator: Validatable,
+        value: any,
+        callback: (errorCount: Number, errors: Array<any>) => void
+    ): void;
 
     function isObject(): IsObjectValidator;
     function isString(options?: ValidatorOptions.IsStringOptions): Validatable;
-    function isStringOrNull(options?: ValidatorOptions.IsStringOptions): Validatable;
+    function isStringOrNull(
+        options?: ValidatorOptions.IsStringOptions
+    ): Validatable;
     function isBoolean(): Validatable;
     function isNumber(options?: ValidatorOptions.IsNumberOptions): Validatable;
     function isInteger(options?: ValidatorOptions.IsNumberOptions): Validatable;
     function isDate(options?: ValidatorOptions.IsDateOptions): Validatable;
     function isIsoDate(options?: ValidatorOptions.IsDateOptions): Validatable;
-    function isIsoDateTime(options?: ValidatorOptions.IsDateOptions): Validatable;
+    function isIsoDateTime(
+        options?: ValidatorOptions.IsDateOptions
+    ): Validatable;
 
-    function isArray(validator?: Validatable, options?: ValidatorOptions.Options): Validatable;
+    function isArray(
+        validator?: Validatable,
+        options?: ValidatorOptions.Options
+    ): Validatable;
     function isAnyObject(): IsObjectValidator;
 }
 
-declare module 'node-validator' {
+declare module "node-validator" {
     export = Validator;
 }

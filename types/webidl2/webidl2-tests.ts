@@ -97,7 +97,12 @@ function logNamespaceMembers(members: webidl2.IDLNamespaceMemberType[]) {
             console.log(member.static, member.stringifier);
         } else if (member.type === "attribute") {
             console.log(member.name);
-            console.log(member.static, member.stringifier, member.readonly, member.inherit);
+            console.log(
+                member.static,
+                member.stringifier,
+                member.readonly,
+                member.inherit
+            );
         }
     }
 }
@@ -129,11 +134,22 @@ function logArguments(args: webidl2.Argument[]) {
 
 function logIdlType(idlType: webidl2.IDLTypeDescription) {
     console.log(idlType.type);
-    console.log(idlType.generic, idlType.nullable, idlType.sequence, idlType.union);
+    console.log(
+        idlType.generic,
+        idlType.nullable,
+        idlType.sequence,
+        idlType.union
+    );
     logSubIdlType(idlType.idlType);
 }
 
-function logSubIdlType(idlType: string | webidl2.IDLTypeDescription | webidl2.IDLTypeDescription[] | null) {
+function logSubIdlType(
+    idlType:
+        | string
+        | webidl2.IDLTypeDescription
+        | webidl2.IDLTypeDescription[]
+        | null
+) {
     if (!idlType) {
         return;
     }

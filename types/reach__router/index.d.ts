@@ -11,8 +11,8 @@ export type WindowLocation = Window["location"] & HLocation;
 export type HistoryActionType = "PUSH" | "POP";
 export type HistoryLocation = WindowLocation & { state?: any };
 export interface HistoryListenerParameter {
-	location: HistoryLocation;
-	action: HistoryActionType;
+    location: HistoryLocation;
+    action: HistoryActionType;
 }
 export type HistoryListener = (parameter: HistoryListenerParameter) => void;
 export type HistoryUnsubscribe = () => void;
@@ -25,7 +25,7 @@ export interface History {
 }
 
 export class Router extends React.Component<
-  RouterProps & React.HTMLProps<HTMLDivElement>
+    RouterProps & React.HTMLProps<HTMLDivElement>
 > {}
 
 export interface RouterProps {
@@ -47,11 +47,11 @@ export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 export type AnchorProps = Omit<
     React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
+        React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        HTMLAnchorElement
     >,
     "href" // remove href, as it's ignored by the router
-    >;
+>;
 
 export interface LinkProps<TState> extends AnchorProps {
     to?: string;
@@ -67,7 +67,7 @@ export interface LinkGetProps {
     location: WindowLocation;
 }
 
-export class Link<TState> extends React.Component<LinkProps<TState>> { }
+export class Link<TState> extends React.Component<LinkProps<TState>> {}
 
 export interface RedirectProps<TState> {
     from?: string;
@@ -77,7 +77,7 @@ export interface RedirectProps<TState> {
     replace?: boolean;
 }
 
-export class Redirect<TState> extends React.Component<RedirectProps<TState>> { }
+export class Redirect<TState> extends React.Component<RedirectProps<TState>> {}
 
 export interface MatchProps<TParams> {
     path: string;
@@ -94,7 +94,7 @@ export interface MatchRenderProps<TParams> {
     navigate: NavigateFn;
 }
 
-export class Match<TParams> extends React.Component<MatchProps<TParams>> { }
+export class Match<TParams> extends React.Component<MatchProps<TParams>> {}
 
 export type NavigateFn = (to: string, options?: NavigateOptions<{}>) => void;
 
@@ -107,7 +107,7 @@ export interface LocationProps {
     children: LocationProviderRenderFn;
 }
 
-export class Location extends React.Component<LocationProps> { }
+export class Location extends React.Component<LocationProps> {}
 
 export interface LocationProviderProps {
     history?: History;
@@ -123,13 +123,13 @@ export interface LocationContext {
     navigate: NavigateFn;
 }
 
-export class LocationProvider extends React.Component<LocationProviderProps> { }
+export class LocationProvider extends React.Component<LocationProviderProps> {}
 
 export interface ServerLocationProps {
     url: string;
 }
 
-export class ServerLocation extends React.Component<ServerLocationProps> { }
+export class ServerLocation extends React.Component<ServerLocationProps> {}
 
 export const navigate: NavigateFn;
 

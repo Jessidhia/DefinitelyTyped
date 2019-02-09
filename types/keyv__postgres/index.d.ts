@@ -6,12 +6,13 @@
 
 /// <reference types="node" />
 
-import { Store } from 'keyv';
-import { EventEmitter } from 'events';
+import { Store } from "keyv";
+import { EventEmitter } from "events";
 
 export = KeyvPostgres;
 
-declare class KeyvPostgres extends EventEmitter implements Store<string | undefined> {
+declare class KeyvPostgres extends EventEmitter
+    implements Store<string | undefined> {
     readonly ttlSupport: false;
     namespace?: string;
 

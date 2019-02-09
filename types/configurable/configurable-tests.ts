@@ -1,4 +1,4 @@
-import configurable = require('configurable');
+import configurable = require("configurable");
 
 // Arrange
 class A {
@@ -11,28 +11,28 @@ const obj = new A();
 const c = configurable(obj);
 
 // $ExpectType A & Configurable<A>
-c.set('first', 'first as a string');
+c.set("first", "first as a string");
 
 // $ExpectType any
-c.get('first');
+c.get("first");
 
 // $ExpectType A & Configurable<A>
-c.enable('first');
+c.enable("first");
 
 // $ExpectType boolean
-c.enabled('first');
+c.enabled("first");
 
 // $ExpectType A & Configurable<A>
-c.disable('first');
+c.disable("first");
 
 // $ExpectType boolean
-c.disabled('first');
+c.disabled("first");
 
 // $ExpectError
-c.set(5, 'first as a string');
+c.set(5, "first as a string");
 
 // $ExpectError
-c.set('first');
+c.set("first");
 
 // $ExpectError
 c.get(5);

@@ -11,7 +11,7 @@ declare class CSSStyleValue {
 }
 
 declare class CSSVariableReferenceValue {
-    constructor(variable: string, fallback?: CSSUnparsedValue)
+    constructor(variable: string, fallback?: CSSUnparsedValue);
     variable: string;
     readonly fallback?: CSSUnparsedValue;
 }
@@ -33,13 +33,13 @@ declare class CSSKeywordValue extends CSSStyleValue {
 type CSSNumberish = number | CSSNumericValue;
 
 declare enum CSSNumericBaseType {
-    'length',
-    'angle',
-    'time',
-    'frequency',
-    'resolution',
-    'flex',
-    'percent',
+    "length",
+    "angle",
+    "time",
+    "frequency",
+    "resolution",
+    "flex",
+    "percent"
 }
 
 interface CSSNumericType {
@@ -86,27 +86,27 @@ declare class CSSMathSum extends CSSMathValue {
 }
 
 declare class CSSMathProduct extends CSSMathValue {
-    constructor(...args: CSSNumberish[])
+    constructor(...args: CSSNumberish[]);
     readonly values: CSSNumericArray;
 }
 
 declare class CSSMathNegate extends CSSMathValue {
-    constructor(arg: CSSNumberish)
+    constructor(arg: CSSNumberish);
     readonly value: CSSNumericValue;
 }
 
 declare class CSSMathInvert extends CSSMathValue {
-    constructor(arg: CSSNumberish)
+    constructor(arg: CSSNumberish);
     readonly value: CSSNumericValue;
 }
 
 declare class CSSMathMin extends CSSMathValue {
-    constructor(...args: CSSNumberish[])
+    constructor(...args: CSSNumberish[]);
     readonly values: CSSNumericArray;
 }
 
 declare class CSSMathMax extends CSSMathValue {
-    constructor(...args: CSSNumberish[])
+    constructor(...args: CSSNumberish[]);
     readonly values: CSSNumericArray;
 }
 
@@ -127,13 +127,13 @@ declare class CSSNumericArray {
 }
 
 declare enum CSSMathOperator {
-    'sum',
-    'product',
-    'negate',
-    'invert',
-    'min',
-    'max',
-    'clamp',
+    "sum",
+    "product",
+    "negate",
+    "invert",
+    "min",
+    "max",
+    "clamp"
 }
 
 declare class CSSTransformValue extends CSSStyleValue {
@@ -160,7 +160,12 @@ declare class CSSTranslate extends CSSTransformComponent {
 
 declare class CSSRotate extends CSSTransformComponent {
     constructor(angle: CSSNumericValue);
-    constructor(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish, angle: CSSNumericValue)
+    constructor(
+        x: CSSNumberish,
+        y: CSSNumberish,
+        z: CSSNumberish,
+        angle: CSSNumericValue
+    );
     x: CSSNumberish;
     y: CSSNumberish;
     z: CSSNumberish;
@@ -168,25 +173,25 @@ declare class CSSRotate extends CSSTransformComponent {
 }
 
 declare class CSSScale extends CSSTransformComponent {
-    constructor(x: CSSNumberish, y: CSSNumberish, z?: CSSNumberish)
+    constructor(x: CSSNumberish, y: CSSNumberish, z?: CSSNumberish);
     x: CSSNumberish;
     y: CSSNumberish;
     z: CSSNumberish;
 }
 
 declare class CSSSkew extends CSSTransformComponent {
-    constructor(ax: CSSNumericValue, ay: CSSNumericValue)
+    constructor(ax: CSSNumericValue, ay: CSSNumericValue);
     ax: CSSNumericValue;
     ay: CSSNumericValue;
 }
 
 declare class CSSSkewX extends CSSTransformComponent {
-    constructor(ax: CSSNumericValue)
+    constructor(ax: CSSNumericValue);
     ax: CSSNumericValue;
 }
 
 declare class CSSSkewY extends CSSTransformComponent {
-    constructor(ay: CSSNumericValue)
+    constructor(ay: CSSNumericValue);
     ay: CSSNumericValue;
 }
 
@@ -194,12 +199,12 @@ declare class CSSSkewY extends CSSTransformComponent {
      thus the separate interfaces for all three. */
 
 declare class CSSPerspective extends CSSTransformComponent {
-    constructor(length: CSSNumericValue)
+    constructor(length: CSSNumericValue);
     length: CSSNumericValue;
 }
 
 declare class CSSMatrixComponent extends CSSTransformComponent {
-    constructor(matrix: DOMMatrixReadOnly, options?: CSSMatrixComponentOptions)
+    constructor(matrix: DOMMatrixReadOnly, options?: CSSMatrixComponentOptions);
     matrix: DOMMatrix;
 }
 
@@ -207,8 +212,7 @@ interface CSSMatrixComponentOptions {
     is2D: boolean;
 }
 
-declare class CSSImageValue extends CSSStyleValue {
-}
+declare class CSSImageValue extends CSSStyleValue {}
 
 declare class StylePropertyMapReadOnly {
     [Symbol.iterator](): IterableIterator<[string, CSSStyleValue[]]>;

@@ -1,14 +1,14 @@
 // Added in addition to code from https://hapijs.com/api/16.1.1#route-options > plugins
 
-import * as Hapi from '../../';
+import * as Hapi from "../../";
 
 // In the plugin code
-declare module '../../' {
+declare module "../../" {
     interface PluginSpecificConfiguration {
         coolPlugin: {
             optionA: string;
             optionB?: boolean;
-        }
+        };
     }
 }
 
@@ -16,7 +16,7 @@ declare module '../../' {
 const pluginsServerConfig: Hapi.ServerOptions = {
     plugins: {
         coolPlugin: {
-            optionA: "test",
+            optionA: "test"
         }
     }
 };
@@ -24,7 +24,7 @@ const pluginsServerConfig: Hapi.ServerOptions = {
 const pluginsConnectionConfig: Hapi.ConnectionConfigurationServerDefaults = {
     plugins: {
         coolPlugin: {
-            optionA: "test",
+            optionA: "test"
         }
     }
 };
@@ -32,7 +32,7 @@ const pluginsConnectionConfig: Hapi.ConnectionConfigurationServerDefaults = {
 const pluginsRouteConfig: Hapi.RouteAdditionalConfigurationOptions = {
     plugins: {
         coolPlugin: {
-            optionA: "test",
+            optionA: "test"
         }
     }
 };

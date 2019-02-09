@@ -54,6 +54,8 @@ interface Options {
     v?: string;
 }
 
-declare function loadGoogleMapsApi(options?: Options): Promise<typeof google.maps>;
+declare function loadGoogleMapsApi(
+    options?: Options
+): Promise<typeof google.maps>;
 
 export = loadGoogleMapsApi;

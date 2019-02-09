@@ -6,7 +6,10 @@
 
 type DialogEvents = "show" | "hide" | "destroy" | "create";
 declare class A11yDialog {
-    constructor(el: Element | null, containers?: NodeList | Element | string | null);
+    constructor(
+        el: Element | null,
+        containers?: NodeList | Element | string | null
+    );
     /**
      * Shows the dialog.
      */
@@ -22,10 +25,19 @@ declare class A11yDialog {
     /**
      * Bind click listeners to dialog openers and closers.
      */
-    create(el?: Element | null, containers?: NodeList | Element | string | null): void;
+    create(
+        el?: Element | null,
+        containers?: NodeList | Element | string | null
+    ): void;
 
-    on(evt: DialogEvents, callback: (dialogElement: any, event: Event) => void): void;
-    off(evt: DialogEvents, callback: (dialogElement: any, event: Event) => void): void;
+    on(
+        evt: DialogEvents,
+        callback: (dialogElement: any, event: Event) => void
+    ): void;
+    off(
+        evt: DialogEvents,
+        callback: (dialogElement: any, event: Event) => void
+    ): void;
 }
 
 export = A11yDialog;

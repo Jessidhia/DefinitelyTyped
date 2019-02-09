@@ -10,9 +10,9 @@ import {
     ServerOptionsCache,
     Request,
     Plugin,
-    CachePolicyOptions,
-} from 'hapi';
-import { PolicyOptions, Id } from 'catbox';
+    CachePolicyOptions
+} from "hapi";
+import { PolicyOptions, Id } from "catbox";
 declare namespace yar {
     interface YarOptions {
         /**
@@ -83,7 +83,7 @@ declare namespace yar {
              * enables the same-site cookie parameter.
              * Default to 'Lax'.
              */
-            isSameSite?: 'Lax' | 'Strict' | false;
+            isSameSite?: "Lax" | "Strict" | false;
             /**
              * determines whether or not to transfer using TLS/SSL.
              * Defaults to true.
@@ -167,7 +167,7 @@ declare namespace yar {
 declare const yar: Plugin<yar.YarOptions>;
 export = yar;
 
-declare module 'hapi' {
+declare module "hapi" {
     interface Request {
         yar: yar.Yar;
     }

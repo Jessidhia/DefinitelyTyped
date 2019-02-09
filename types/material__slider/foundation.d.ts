@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-import { cssClasses, strings, numbers } from './constants';
+import { cssClasses, strings, numbers } from "./constants";
 
-import MDCFoundation from 'material__base/foundation';
-import MDCSliderAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import MDCSliderAdapter from "./adapter";
 
-export default class MDCSliderFoundation extends MDCFoundation<MDCSliderAdapter> {
+export default class MDCSliderFoundation extends MDCFoundation<
+    MDCSliderAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

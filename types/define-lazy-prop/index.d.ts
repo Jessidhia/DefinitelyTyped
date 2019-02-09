@@ -6,4 +6,8 @@
 
 export = defineLazyProp;
 
-declare function defineLazyProp<O extends object, P extends string, T>(obj: O, prop: P, fn: () => T): O & {[K in P]: T};
+declare function defineLazyProp<O extends object, P extends string, T>(
+    obj: O,
+    prop: P,
+    fn: () => T
+): O & { [K in P]: T };

@@ -1,11 +1,17 @@
-import * as React from 'react';
-import ContentLoader, { BulletList, Code, Facebook, Instagram, List } from 'react-content-loader';
+import * as React from "react";
+import ContentLoader, {
+    BulletList,
+    Code,
+    Facebook,
+    Instagram,
+    List
+} from "react-content-loader";
 
 const CustomComponent = () => {
     return (
         <>
             <ContentLoader
-                style={{ borderBottom: '1px solid' }}
+                style={{ borderBottom: "1px solid" }}
                 animate={false}
                 speed={1}
                 height={100}

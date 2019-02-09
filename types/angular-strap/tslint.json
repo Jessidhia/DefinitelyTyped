@@ -1,8 +1,9 @@
-{ 
-    "extends": "dtslint/dt.json" ,
-    "rules": { //TODO
+{
+    "extends": "dtslint/dt.json",
+    "rules": {
+        //TODO
         "interface-name": [true, "always-prefix"],
-        "no-empty-interface" : false,
-        "no-namespace" : false
+        "no-empty-interface": false,
+        "no-namespace": false
     }
 }

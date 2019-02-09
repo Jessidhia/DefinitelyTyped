@@ -27,11 +27,15 @@ declare namespace Chai {
     }
 
     export interface ExpectStatic extends AssertionStatic {
-        fail(actual?: any, expected?: any, message?: string, operator?: Operator): void;
+        fail(
+            actual?: any,
+            expected?: any,
+            message?: string,
+            operator?: Operator
+        ): void;
     }
 
-    export interface AssertStatic extends Assert {
-    }
+    export interface AssertStatic extends Assert {}
 
     export interface AssertionStatic {
         (target: any, message?: string): Assertion;
@@ -39,7 +43,13 @@ declare namespace Chai {
 
     export type Operator = string; // "==" | "===" | ">" | ">=" | "<" | "<=" | "!=" | "!==";
 
-    export type OperatorComparable = boolean | null | number | string | undefined | Date;
+    export type OperatorComparable =
+        | boolean
+        | null
+        | number
+        | string
+        | undefined
+        | Date;
 
     interface ShouldAssertion {
         equal(value1: any, value2: any, message?: string): void;
@@ -50,15 +60,28 @@ declare namespace Chai {
 
     interface Should extends ShouldAssertion {
         not: ShouldAssertion;
-        fail(actual: any, expected: any, message?: string, operator?: Operator): void;
+        fail(
+            actual: any,
+            expected: any,
+            message?: string,
+            operator?: Operator
+        ): void;
     }
 
     interface ShouldThrow {
-        (actual: Function, expected?: string|RegExp, message?: string): void;
-        (actual: Function, constructor: Error|Function, expected?: string|RegExp, message?: string): void;
+        (actual: Function, expected?: string | RegExp, message?: string): void;
+        (
+            actual: Function,
+            constructor: Error | Function,
+            expected?: string | RegExp,
+            message?: string
+        ): void;
     }
 
-    interface Assertion extends LanguageChains, NumericComparison, TypeComparison {
+    interface Assertion
+        extends LanguageChains,
+            NumericComparison,
+            TypeComparison {
         not: Assertion;
         deep: Deep;
         ordered: Ordered;
@@ -173,9 +196,9 @@ declare namespace Chai {
     }
 
     interface Nested {
-      include: Include;
-      property: Property;
-      members: Members;
+        include: Include;
+        property: Property;
+        members: Members;
     }
 
     interface Deep {
@@ -211,7 +234,11 @@ declare namespace Chai {
     }
 
     interface OwnPropertyDescriptor {
-        (name: string, descriptor: PropertyDescriptor, message?: string): Assertion;
+        (
+            name: string,
+            descriptor: PropertyDescriptor,
+            message?: string
+        ): Assertion;
         (name: string, message?: string): Assertion;
     }
 
@@ -235,12 +262,16 @@ declare namespace Chai {
 
     interface Keys {
         (...keys: string[]): Assertion;
-        (keys: ReadonlyArray<any>|Object): Assertion;
+        (keys: ReadonlyArray<any> | Object): Assertion;
     }
 
     interface Throw {
-        (expected?: string|RegExp, message?: string): Assertion;
-        (constructor: Error|Function, expected?: string|RegExp, message?: string): Assertion;
+        (expected?: string | RegExp, message?: string): Assertion;
+        (
+            constructor: Error | Function,
+            expected?: string | RegExp,
+            message?: string
+        ): Assertion;
     }
 
     interface RespondTo {
@@ -276,7 +307,12 @@ declare namespace Chai {
          * @param operator   Comparison operator, if not strict equality.
          * @remarks Node.js assert module-compatible.
          */
-        fail<T>(actual?: T, expected?: T, message?: string, operator?: Operator): void;
+        fail<T>(
+            actual?: T,
+            expected?: T,
+            message?: string,
+            operator?: Operator
+        ): void;
 
         /**
          * Asserts that object is truthy.
@@ -391,7 +427,11 @@ declare namespace Chai {
          * @param valueToBeAbove   Minimum Potential expected value.
          * @param message   Message to display on error.
          */
-        isAbove(valueToCheck: number, valueToBeAbove: number, message?: string): void;
+        isAbove(
+            valueToCheck: number,
+            valueToBeAbove: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts valueToCheck is greater than or equal to (>=) valueToBeAtLeast.
@@ -400,7 +440,11 @@ declare namespace Chai {
          * @param valueToBeAtLeast   Minimum Potential expected value.
          * @param message   Message to display on error.
          */
-        isAtLeast(valueToCheck: number, valueToBeAtLeast: number, message?: string): void;
+        isAtLeast(
+            valueToCheck: number,
+            valueToBeAtLeast: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts valueToCheck is strictly less than (<) valueToBeBelow.
@@ -409,7 +453,11 @@ declare namespace Chai {
          * @param valueToBeBelow   Minimum Potential expected value.
          * @param message   Message to display on error.
          */
-        isBelow(valueToCheck: number, valueToBeBelow: number, message?: string): void;
+        isBelow(
+            valueToCheck: number,
+            valueToBeBelow: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts valueToCheck is greater than or equal to (>=) valueToBeAtMost.
@@ -418,7 +466,11 @@ declare namespace Chai {
          * @param valueToBeAtMost   Minimum Potential expected value.
          * @param message   Message to display on error.
          */
-        isAtMost(valueToCheck: number, valueToBeAtMost: number, message?: string): void;
+        isAtMost(
+            valueToCheck: number,
+            valueToBeAtMost: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts that value is true.
@@ -696,7 +748,11 @@ declare namespace Chai {
          * @param needle   Potential value contained in haystack.
          * @param message   Message to display on error.
          */
-        include<T>(haystack: ReadonlyArray<T>, needle: T, message?: string): void;
+        include<T>(
+            haystack: ReadonlyArray<T>,
+            needle: T,
+            message?: string
+        ): void;
 
         /**
          * Asserts that haystack does not include needle.
@@ -705,7 +761,11 @@ declare namespace Chai {
          * @param needle   Potential expected substring of haystack.
          * @param message   Message to display on error.
          */
-        notInclude(haystack: string | ReadonlyArray<any>, needle: any, message?: string): void;
+        notInclude(
+            haystack: string | ReadonlyArray<any>,
+            needle: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that haystack includes needle. Can be used to assert the inclusion of a value in an array or a subset of properties in an object. Deep equality is used.
@@ -732,7 +792,11 @@ declare namespace Chai {
          * @param needle   Potential expected substring of haystack.
          * @param message   Message to display on error.
          */
-        notDeepInclude(haystack: string | ReadonlyArray<any>, needle: any, message?: string): void;
+        notDeepInclude(
+            haystack: string | ReadonlyArray<any>,
+            needle: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object.
@@ -792,7 +856,11 @@ declare namespace Chai {
          * @param needle
          * @param message   Message to display on error.
          */
-        notDeepNestedInclude(haystack: any, needle: any, message?: string): void;
+        notDeepNestedInclude(
+            haystack: any,
+            needle: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object while ignoring inherited properties.
@@ -856,7 +924,11 @@ declare namespace Chai {
          * @param property   Potential contained property of object.
          * @param message   Message to display on error.
          */
-        property<T>(object: T, property: string /* keyof T */, message?: string): void;
+        property<T>(
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property.
@@ -866,7 +938,11 @@ declare namespace Chai {
          * @param property   Potential contained property of object.
          * @param message   Message to display on error.
          */
-        notProperty<T>(object: T, property: string /* keyof T */, message?: string): void;
+        notProperty<T>(
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property, which can be a string
@@ -900,7 +976,12 @@ declare namespace Chai {
          * @param value   Potential expected property value.
          * @param message   Message to display on error.
          */
-        propertyVal<T, V>(object: T, property: string /* keyof T */, value: V, message?: string): void;
+        propertyVal<T, V>(
+            object: T,
+            property: string /* keyof T */,
+            value: V,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property with value given by value.
@@ -912,7 +993,12 @@ declare namespace Chai {
          * @param value   Potential expected property value.
          * @param message   Message to display on error.
          */
-        propertyNotVal<T, V>(object: T, property: string /* keyof T */, value: V, message?: string): void;
+        propertyNotVal<T, V>(
+            object: T,
+            property: string /* keyof T */,
+            value: V,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property, which can be a string
@@ -925,7 +1011,12 @@ declare namespace Chai {
          * @param value   Potential expected property value.
          * @param message   Message to display on error.
          */
-        deepPropertyVal<T, V>(object: T, property: string, value: V, message?: string): void;
+        deepPropertyVal<T, V>(
+            object: T,
+            property: string,
+            value: V,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object does not have a property named by property, which can be a
@@ -938,7 +1029,12 @@ declare namespace Chai {
          * @param value   Potential expected property value.
          * @param message   Message to display on error.
          */
-        deepPropertyNotVal<T, V>(object: T, property: string, value: V, message?: string): void;
+        deepPropertyNotVal<T, V>(
+            object: T,
+            property: string,
+            value: V,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a length property with the expected value.
@@ -948,7 +1044,11 @@ declare namespace Chai {
          * @param length   Potential expected length of object.
          * @param message   Message to display on error.
          */
-        lengthOf<T extends { readonly length?: number }>(object: T, length: number, message?: string): void;
+        lengthOf<T extends { readonly length?: number }>(
+            object: T,
+            length: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts that fn will throw an error.
@@ -1001,7 +1101,11 @@ declare namespace Chai {
          * @param errType  Potential expected message match or error constructor.
          * @param message   Message to display on error.
          */
-        throws(fn: Function, errType: RegExp|Function, message?: string): void;
+        throws(
+            fn: Function,
+            errType: RegExp | Function,
+            message?: string
+        ): void;
 
         /**
          * Asserts that function will throw an error that is an instance of constructor
@@ -1093,7 +1197,12 @@ declare namespace Chai {
          * @param val2   Right value during comparison.
          * @param message   Message to display on error.
          */
-        operator(val1: OperatorComparable, operator: Operator, val2: OperatorComparable, message?: string): void;
+        operator(
+            val1: OperatorComparable,
+            operator: Operator,
+            val2: OperatorComparable,
+            message?: string
+        ): void;
 
         /**
          * Asserts that the target is equal to expected, to within a +/- delta range.
@@ -1103,7 +1212,12 @@ declare namespace Chai {
          * @param delta   Maximum differenced between values.
          * @param message   Message to display on error.
          */
-        closeTo(actual: number, expected: number, delta: number, message?: string): void;
+        closeTo(
+            actual: number,
+            expected: number,
+            delta: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts that the target is equal to expected, to within a +/- delta range.
@@ -1113,7 +1227,12 @@ declare namespace Chai {
          * @param delta   Maximum differenced between values.
          * @param message   Message to display on error.
          */
-        approximately(act: number, exp: number, delta: number, message?: string): void;
+        approximately(
+            act: number,
+            exp: number,
+            delta: number,
+            message?: string
+        ): void;
 
         /**
          * Asserts that set1 and set2 have the same members. Order is not take into account.
@@ -1178,7 +1297,11 @@ declare namespace Chai {
          * @param set2   Potential expected set of values.
          * @param message   Message to display on error.
          */
-        notSameDeepOrderedMembers<T>(set1: T[], set2: T[], message?: string): void;
+        notSameDeepOrderedMembers<T>(
+            set1: T[],
+            set2: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that subset is included in superset in the same order beginning with the first element in superset.
@@ -1189,7 +1312,11 @@ declare namespace Chai {
          * @param subset   Potential contained set of values.
          * @param message   Message to display on error.
          */
-        includeOrderedMembers<T>(superset: T[], subset: T[], message?: string): void;
+        includeOrderedMembers<T>(
+            superset: T[],
+            subset: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that subset isn’t included in superset in the same order beginning with the first element in superset.
@@ -1200,7 +1327,11 @@ declare namespace Chai {
          * @param subset   Potential contained set of values.
          * @param message   Message to display on error.
          */
-        notIncludeOrderedMembers<T>(superset: T[], subset: T[], message?: string): void;
+        notIncludeOrderedMembers<T>(
+            superset: T[],
+            subset: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that subset is included in superset in the same order beginning with the first element in superset.
@@ -1211,7 +1342,11 @@ declare namespace Chai {
          * @param subset   Potential contained set of values.
          * @param message   Message to display on error.
          */
-        includeDeepOrderedMembers<T>(superset: T[], subset: T[], message?: string): void;
+        includeDeepOrderedMembers<T>(
+            superset: T[],
+            subset: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that subset isn’t included in superset in the same order beginning with the first element in superset.
@@ -1222,7 +1357,11 @@ declare namespace Chai {
          * @param subset   Potential contained set of values.
          * @param message   Message to display on error.
          */
-        notIncludeDeepOrderedMembers<T>(superset: T[], subset: T[], message?: string): void;
+        notIncludeDeepOrderedMembers<T>(
+            superset: T[],
+            subset: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that subset is included in superset. Order is not take into account.
@@ -1243,7 +1382,11 @@ declare namespace Chai {
          * @param subset   Potential contained set of values.
          * @param message   Message to display on error.
          */
-        includeDeepMembers<T>(superset: T[], subset: T[], message?: string): void;
+        includeDeepMembers<T>(
+            superset: T[],
+            subset: T[],
+            message?: string
+        ): void;
 
         /**
          * Asserts that non-object, non-array value inList appears in the flat array list.
@@ -1264,7 +1407,12 @@ declare namespace Chai {
          * @param property   Property of object expected to be modified.
          * @param message   Message to display on error.
          */
-        changes<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        changes<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that a function does not change the value of a property.
@@ -1275,7 +1423,12 @@ declare namespace Chai {
          * @param property   Property of object expected not to be modified.
          * @param message   Message to display on error.
          */
-        doesNotChange<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        doesNotChange<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that a function increases an object property.
@@ -1286,7 +1439,12 @@ declare namespace Chai {
          * @param property   Property of object expected to be increased.
          * @param message   Message to display on error.
          */
-        increases<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        increases<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that a function does not increase an object property.
@@ -1297,7 +1455,12 @@ declare namespace Chai {
          * @param property   Property of object expected not to be increased.
          * @param message   Message to display on error.
          */
-        doesNotIncrease<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        doesNotIncrease<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that a function decreases an object property.
@@ -1308,7 +1471,12 @@ declare namespace Chai {
          * @param property   Property of object expected to be decreased.
          * @param message   Message to display on error.
          */
-        decreases<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        decreases<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts that a function does not decrease an object property.
@@ -1319,7 +1487,12 @@ declare namespace Chai {
          * @param property   Property of object expected not to be decreased.
          * @param message   Message to display on error.
          */
-        doesNotDecrease<T>(modifier: Function, object: T, property: string /* keyof T */, message?: string): void;
+        doesNotDecrease<T>(
+            modifier: Function,
+            object: T,
+            property: string /* keyof T */,
+            message?: string
+        ): void;
 
         /**
          * Asserts if value is not a false value, and throws if it is a true value.
@@ -1479,7 +1652,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        hasAnyKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        hasAnyKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` has all and only all of the `keys` provided.
@@ -1491,7 +1668,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        hasAllKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        hasAllKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` has all of the `keys` provided but may have more keys not listed.
@@ -1503,7 +1684,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        containsAllKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        containsAllKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` has none of the `keys` provided.
@@ -1515,7 +1700,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        doesNotHaveAnyKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        doesNotHaveAnyKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` does not have at least one of the `keys` provided.
@@ -1527,7 +1716,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        doesNotHaveAllKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        doesNotHaveAllKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` has at least one of the `keys` provided.
@@ -1541,7 +1734,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        hasAnyDeepKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        hasAnyDeepKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` has all and only all of the `keys` provided.
@@ -1555,7 +1752,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        hasAllDeepKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        hasAllDeepKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` contains all of the `keys` provided.
@@ -1569,7 +1770,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        containsAllDeepKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        containsAllDeepKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` contains all of the `keys` provided.
@@ -1583,7 +1788,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        doesNotHaveAnyDeepKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        doesNotHaveAnyDeepKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that `object` contains all of the `keys` provided.
@@ -1597,7 +1806,11 @@ declare namespace Chai {
          * @param keys   Keys to check
          * @param message    Message to display on error.
          */
-        doesNotHaveAllDeepKeys<T>(object: T, keys: Array<Object | string> | { [key: string]: any }, message?: string): void;
+        doesNotHaveAllDeepKeys<T>(
+            object: T,
+            keys: Array<Object | string> | { [key: string]: any },
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a direct or inherited property named by property,
@@ -1620,7 +1833,11 @@ declare namespace Chai {
          * @param property    Property to test.
          * @param message    Message to display on error.
          */
-        notNestedProperty<T>(object: T, property: string, message?: string): void;
+        notNestedProperty<T>(
+            object: T,
+            property: string,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property with value given by value.
@@ -1632,7 +1849,12 @@ declare namespace Chai {
          * @param value    Value to test.
          * @param message    Message to display on error.
          */
-        nestedPropertyVal<T>(object: T, property: string, value: any, message?: string): void;
+        nestedPropertyVal<T>(
+            object: T,
+            property: string,
+            value: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object does not have a property named by property with value given by value.
@@ -1644,7 +1866,12 @@ declare namespace Chai {
          * @param value    Value to test.
          * @param message    Message to display on error.
          */
-        notNestedPropertyVal<T>(object: T, property: string, value: any, message?: string): void;
+        notNestedPropertyVal<T>(
+            object: T,
+            property: string,
+            value: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object has a property named by property with a value given by value.
@@ -1656,7 +1883,12 @@ declare namespace Chai {
          * @param value    Value to test.
          * @param message    Message to display on error.
          */
-        deepNestedPropertyVal<T>(object: T, property: string, value: any, message?: string): void;
+        deepNestedPropertyVal<T>(
+            object: T,
+            property: string,
+            value: any,
+            message?: string
+        ): void;
 
         /**
          * Asserts that object does not have a property named by property with value given by value.
@@ -1668,7 +1900,12 @@ declare namespace Chai {
          * @param value    Value to test.
          * @param message    Message to display on error.
          */
-        notDeepNestedPropertyVal<T>(object: T, property: string, value: any, message?: string): void;
+        notDeepNestedPropertyVal<T>(
+            object: T,
+            property: string,
+            value: any,
+            message?: string
+        ): void;
     }
 
     export interface Config {

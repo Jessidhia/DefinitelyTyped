@@ -28,16 +28,9 @@ const devServer = createServer({
     }
 });
 
-const {
-    dir,
-    quiet,
-    router,
-    nextConfig,
-    distDir,
-    buildId
- } = server;
- const { assetPrefix } = nextConfig;
- const voidFunc = () => {};
+const { dir, quiet, router, nextConfig, distDir, buildId } = server;
+const { assetPrefix } = nextConfig;
+const voidFunc = () => {};
 
 server.prepare().then(voidFunc);
 server.close().then(voidFunc);
@@ -60,7 +53,7 @@ function handle(req: http.IncomingMessage, res: http.ServerResponse) {
         .then(voidFunc);
     server
         .renderError(new Error(), req, res, "/path/to/resource", {
-            key: "value",
+            key: "value"
         })
         .then(voidFunc);
     server
@@ -69,7 +62,7 @@ function handle(req: http.IncomingMessage, res: http.ServerResponse) {
             req,
             res,
             "/path/to/resource",
-            { key: "value" },
+            { key: "value" }
         )
         .then(voidFunc);
     server.render404(req, res, parsedUrl).then(voidFunc);
@@ -79,7 +72,7 @@ function handle(req: http.IncomingMessage, res: http.ServerResponse) {
         .then(x => x.split("\n"));
     server
         .renderErrorToHTML(new Error(), req, res, "/path/to/resource", {
-            foo: "bar",
+            foo: "bar"
         })
         .then(x => x.split("\n"));
 

@@ -1,3 +1,3 @@
-import * as ol from 'openlayers';
+import * as ol from "openlayers";
 
 export default ol.Collection;

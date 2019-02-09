@@ -10,7 +10,6 @@ export = Showdown;
 export as namespace showdown;
 
 declare namespace Showdown {
-
     interface Extension {
         /**
          * Property defines the nature of said sub-extensions and can assume 2 values:
@@ -47,7 +46,11 @@ declare namespace Showdown {
      * The filter property should be a function that acts as a callback.
      */
     interface FilterExtension extends Extension {
-        filter?: (text: string, converter: Converter, options?: ConverterOptions) => string;
+        filter?: (
+            text: string,
+            converter: Converter,
+            options?: ConverterOptions
+        ) => string;
     }
 
     /**
@@ -59,8 +62,9 @@ declare namespace Showdown {
      *
      * Each extension can provide two combinations of interfaces for showdown.
      */
-    interface ShowdownExtension extends RegexReplaceExtension, FilterExtension {
-    }
+    interface ShowdownExtension
+        extends RegexReplaceExtension,
+            FilterExtension {}
 
     interface ConverterExtensions {
         language: ShowdownExtension[];
@@ -322,12 +326,9 @@ declare namespace Showdown {
          * @default false
          */
         splitAdjacentBlockquotes?: boolean;
-
     }
 
-
     interface ConverterOptions extends ShowdownOptions {
-
         extensions?: string | string[];
     }
 
@@ -398,28 +399,31 @@ declare namespace Showdown {
          *
          * @param extensions
          */
-        removeExtension(extensions: ShowdownExtension[] | ShowdownExtension): void;
+        removeExtension(
+            extensions: ShowdownExtension[] | ShowdownExtension
+        ): void;
 
         /**
          * Set a "local" flavor for THIS Converter instance
          *
          * @param flavor name
          */
-        setFlavor(name: 'github' | 'original' | 'ghost' | 'vanilla' | 'allOn'): void;
+        setFlavor(
+            name: "github" | "original" | "ghost" | "vanilla" | "allOn"
+        ): void;
 
         /**
          * Get the metadata of the previously parsed document
          * @param raw
          * @returns {string|{}}
          */
-        getMetadata(raw?: boolean): string | Metadata
+        getMetadata(raw?: boolean): string | Metadata;
 
         /**
          * Get the metadata format of the previously parsed document
          * @returns {string}
          */
         getMetadataFormat(): string;
-
     }
 
     interface ConverterStatic {
@@ -429,8 +433,8 @@ declare namespace Showdown {
          */
         new (converterOptions?: ConverterOptions): Converter;
     }
-    /** 
-     * Helper Interface 
+    /**
+     * Helper Interface
      */
     interface Helper {
         replaceRecursiveRegExp(...args: any[]): string;
@@ -446,7 +450,7 @@ declare namespace Showdown {
 
     /**
      * Setting a "global" option affects all instances of showdown
-     * 
+     *
      * @param optionKey
      * @param value
      */
@@ -473,13 +477,19 @@ declare namespace Showdown {
      */
     function getDefaultOptions(): ShowdownOptions;
 
-    /** 
+    /**
      * Registered extensions
      *
      * @prarm name
      * @param extenstion
      */
-    function extension(name: string, extension: (() => ShowdownExtension) | (() => ShowdownExtension[]) | ShowdownExtension): void;
+    function extension(
+        name: string,
+        extension:
+            | (() => ShowdownExtension)
+            | (() => ShowdownExtension[])
+            | ShowdownExtension
+    ): void;
 
     /**
      * @return The extensions array.
@@ -502,7 +512,13 @@ declare namespace Showdown {
      * @param obj An array of items
      * @param extenstion
      */
-    function extension(name: string, extension: (() => ShowdownExtension) | (() => ShowdownExtension[]) | ShowdownExtension): void;
+    function extension(
+        name: string,
+        extension:
+            | (() => ShowdownExtension)
+            | (() => ShowdownExtension[])
+            | ShowdownExtension
+    ): void;
 
     /**
      * Get an extension.
@@ -535,5 +551,7 @@ declare namespace Showdown {
      *
      * @param name
      */
-    function setFlavor(name: 'github' | 'original' | 'ghost' | 'vanilla' | 'allOn'): void;
+    function setFlavor(
+        name: "github" | "original" | "ghost" | "vanilla" | "allOn"
+    ): void;
 }

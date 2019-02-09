@@ -4,11 +4,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
-	/**
-	 * Drawing Bezier curves and other complex shapes.
-	 */
-	function curve(path: any[], options?: PathOptions): Path;
+declare module "leaflet" {
+    /**
+     * Drawing Bezier curves and other complex shapes.
+     */
+    function curve(path: any[], options?: PathOptions): Path;
 }

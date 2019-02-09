@@ -40,9 +40,9 @@ export function sha512(
 ): Promise<ArrayBuffer>;
 
 export interface OptionsHexOutput {
-    outputFormat?: 'hex';
+    outputFormat?: "hex";
 }
 
 export interface OptionBufferOutput {
-    outputFormat: 'buffer';
+    outputFormat: "buffer";
 }

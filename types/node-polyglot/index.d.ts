@@ -16,7 +16,11 @@ declare namespace Polyglot {
         phrases?: any;
         locale?: string;
         allowMissing?: boolean;
-        onMissingKey?: (key: string, options?: Polyglot.InterpolationOptions, locale?: string) => string;
+        onMissingKey?: (
+            key: string,
+            options?: Polyglot.InterpolationOptions,
+            locale?: string
+        ) => string;
     }
 }
 

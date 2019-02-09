@@ -1,14 +1,14 @@
-import RFB from 'novnc-core';
+import RFB from "novnc-core";
 
 let rfb: RFB;
-const host = '';
+const host = "";
 const port = 0;
-const password = '';
-const path = '';
-const canvas = <HTMLCanvasElement> document.getElementById('noVNC_canvas');
+const password = "";
+const path = "";
+const canvas = <HTMLCanvasElement>document.getElementById("noVNC_canvas");
 
 function setPassword() {
-    rfb.sendPassword('password');
+    rfb.sendPassword("password");
 }
 
 function sendCtrlAltDel() {
@@ -23,8 +23,7 @@ function init() {
         local_cursor: true,
         shared: true,
         view_only: true,
-        onPasswordRequired: (rfb) => {
-        }
+        onPasswordRequired: rfb => {}
     });
     rfb.connect(host, port, password, path);
 }
@@ -37,9 +36,9 @@ try {
         onDisconnected(self, reason) {},
         onPasswordRequired(self, msg) {},
         onFBResize(self, width, height) {},
-        onDesktopName(self, name) {},
+        onDesktopName(self, name) {}
     });
     rfb.connect(host, port);
 } catch (exc) {
-    console.log('Unable to create RFB client -- ' + exc, 'error');
+    console.log("Unable to create RFB client -- " + exc, "error");
 }

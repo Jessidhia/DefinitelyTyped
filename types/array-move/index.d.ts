@@ -12,7 +12,11 @@ export = arrayMove;
  * @param to Index of where to move the item. If negative, it will begin that many elements from the end.
  * @returns A new array with the item moved to the new position.
  */
-declare function arrayMove<T extends any[]>(input: T, from: number, to: number): T;
+declare function arrayMove<T extends any[]>(
+    input: T,
+    from: number,
+    to: number
+): T;
 
 declare namespace arrayMove {
     /**

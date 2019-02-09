@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import { BoxDefinition, BoxNames } from 'cli-boxes';
+import { BoxDefinition, BoxNames } from "cli-boxes";
 
 export = boxen;
 
@@ -90,7 +90,7 @@ declare namespace boxen {
          * Float the box on the available terminal screen space.
          * @default 'left'
          */
-        float?: 'right' | 'center' | 'left';
+        float?: "right" | "center" | "left";
 
         /**
          * Color of the background.
@@ -102,7 +102,7 @@ declare namespace boxen {
          * Align the text in the box based on the widest line.
          * @default 'left'
          */
-        align?: 'left' | 'center' | 'right';
+        align?: "left" | "center" | "right";
     }
 
     interface PositionOptions {

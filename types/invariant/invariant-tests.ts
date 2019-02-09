@@ -7,16 +7,16 @@ invariant(true);
 invariant(true);
 
 // will pass in dev mode and production mode
-invariant(true, 'Error, error, read all about it');
+invariant(true, "Error, error, read all about it");
 
 // will throw in dev mode, and production mode
-invariant(false, 'Some other error');
+invariant(false, "Some other error");
 
 // will throw in dev mode, and production mode
-invariant(0, 'Some other error');
+invariant(0, "Some other error");
 
 // will throw in dev mode, and production mode
-invariant('', 'Some other error');
+invariant("", "Some other error");
 
 // handles extra variables
-invariant(true, 'Error, error, read all about it', 37, {}, 'hello');
+invariant(true, "Error, error, read all about it", 37, {}, "hello");

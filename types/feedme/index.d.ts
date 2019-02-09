@@ -6,8 +6,8 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import { Writable, Readable } from 'stream';
+import { EventEmitter } from "events";
+import { Writable, Readable } from "stream";
 
 declare class FeedMe extends Writable {
     /**
@@ -33,7 +33,16 @@ declare class FeedMe extends Writable {
 }
 
 declare namespace FeedMe {
-    type Type = "atom" | "rss 0.90" | "rss 0.91" | "rss 0.92" | "rss 0.93" | "rss 0.94" | "rss 1.0" | "rss 2.0" | "json";
+    type Type =
+        | "atom"
+        | "rss 0.90"
+        | "rss 0.91"
+        | "rss 0.92"
+        | "rss 0.93"
+        | "rss 0.94"
+        | "rss 1.0"
+        | "rss 2.0"
+        | "json";
 
     interface Document extends Meta {
         items: Item[];
@@ -63,7 +72,7 @@ declare namespace FeedMe {
         [key: string]: any;
 
         // "#ns": NS[];
-        "type": Type;
+        type: Type;
         // "#version": string;
         title: string;
         description: string;

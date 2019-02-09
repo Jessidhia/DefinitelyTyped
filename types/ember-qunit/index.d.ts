@@ -9,8 +9,8 @@
 
 /// <reference types="qunit" />
 
-declare module 'ember-qunit' {
-    import Ember from 'ember';
+declare module "ember-qunit" {
+    import Ember from "ember";
     import { ModuleCallbacks } from "ember-test-helpers";
 
     interface QUnitModuleCallbacks extends ModuleCallbacks, Hooks {
@@ -25,22 +25,43 @@ declare module 'ember-qunit' {
      * @param fullName The full name of the unit, ie controller:application, route:index.
      * @param description The description of the module
      */
-    export function moduleFor(fullName: string, description: string, callbacks?: QUnitModuleCallbacks): void;
-    export function moduleFor(fullName: string, callbacks?: QUnitModuleCallbacks): void;
+    export function moduleFor(
+        fullName: string,
+        description: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
+    export function moduleFor(
+        fullName: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
 
     /**
      * @param fullName the short name of the component that you'd use in a template, ie x-foo, ic-tabs, etc.
      * @param description The description of the module
      */
-    export function moduleForComponent(fullName: string, description: string, callbacks?: QUnitModuleCallbacks): void;
-    export function moduleForComponent(fullName: string, callbacks?: QUnitModuleCallbacks): void;
+    export function moduleForComponent(
+        fullName: string,
+        description: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
+    export function moduleForComponent(
+        fullName: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
 
     /**
      * @param fullName the short name of the model you'd use in store operations ie user, assignmentGroup, etc.
      * @param description The description of the module
      */
-    export function moduleForModel(fullName: string, description: string, callbacks?: QUnitModuleCallbacks): void;
-    export function moduleForModel(fullName: string, callbacks?: QUnitModuleCallbacks): void;
+    export function moduleForModel(
+        fullName: string,
+        description: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
+    export function moduleForModel(
+        fullName: string,
+        callbacks?: QUnitModuleCallbacks
+    ): void;
 
     /**
      * Sets a Resolver globally which will be used to look up objects from each test's container.
@@ -66,7 +87,10 @@ declare module 'ember-qunit' {
      * * `this.pauseTest` and `this.resumeTest` - allow easy pausing/resuming of tests.
      * * `this.element` which returns the DOM element representing the application's root element.
      */
-    export function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions): void;
+    export function setupApplicationTest(
+        hooks: NestedHooks,
+        options?: SetupTestOptions
+    ): void;
 
     /**
      * Sets up tests that need to render snippets of templates.
@@ -87,7 +111,10 @@ declare module 'ember-qunit' {
      * * this.$(...) - When jQuery is present, executes a jQuery selector with
      * the current this.element as its root
      */
-    export function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions): void;
+    export function setupRenderingTest(
+        hooks: NestedHooks,
+        options?: SetupTestOptions
+    ): void;
 
     /**
      * Sets up tests that do not need to render snippets of templates.
@@ -102,11 +129,14 @@ declare module 'ember-qunit' {
      * * this.set / this.setProperties - Allows setting values on the test context.
      * * this.get / this.getProperties - Retrieves values from the test context.
      */
-    export function setupTest(hooks: NestedHooks, options?: SetupTestOptions): void;
+    export function setupTest(
+        hooks: NestedHooks,
+        options?: SetupTestOptions
+    ): void;
 
-    export class QUnitAdapter extends Ember.Test.Adapter { }
+    export class QUnitAdapter extends Ember.Test.Adapter {}
 
-    export { module, test, skip, only, todo } from 'qunit';
+    export { module, test, skip, only, todo } from "qunit";
 
     interface QUnitStartOptions {
         /**
@@ -151,7 +181,7 @@ declare module 'ember-qunit' {
     export function start(options?: QUnitStartOptions): void;
 }
 
-declare module 'qunit' {
+declare module "qunit" {
     import { TestContext } from "ember-test-helpers";
 
     export const module: typeof QUnit.module;
@@ -171,7 +201,10 @@ declare module 'qunit' {
      * @param name Title of unit being tested
      * @param callback Function to close over assertions
      */
-    export function test(name: string, callback: (this: TestContext, assert: Assert) => void): void;
+    export function test(
+        name: string,
+        callback: (this: TestContext, assert: Assert) => void
+    ): void;
 
     /**
      * Adds a test to exclusively run, preventing all other tests from running.
@@ -189,7 +222,10 @@ declare module 'qunit' {
      * @param name Title of unit being tested
      * @param callback Function to close over assertions
      */
-    export function only(name: string, callback: (this: TestContext, assert: Assert) => void): void;
+    export function only(
+        name: string,
+        callback: (this: TestContext, assert: Assert) => void
+    ): void;
 
     /**
      * Use this method to test a unit of code which is still under development (in a “todo” state).
@@ -201,7 +237,10 @@ declare module 'qunit' {
      * @param name Title of unit being tested
      * @param callback Function to close over assertions
      */
-    export function todo(name: string, callback: (this: TestContext, assert: Assert) => void): void;
+    export function todo(
+        name: string,
+        callback: (this: TestContext, assert: Assert) => void
+    ): void;
 
     /**
      * Adds a test like object to be skipped.
@@ -216,7 +255,10 @@ declare module 'qunit' {
      * @param name Title of unit being tested
      * @param callback Function to close over assertions
      */
-    export function skip(name: string, callback?: (this: TestContext, assert: Assert) => void): void;
+    export function skip(
+        name: string,
+        callback?: (this: TestContext, assert: Assert) => void
+    ): void;
 
     export default QUnit;
 }

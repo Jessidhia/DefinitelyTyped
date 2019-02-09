@@ -9,12 +9,29 @@ export = c;
 interface args {
     sub: string[];
 
-    option(name: string | [string, string], description: string, defaultValue?: any, init?: OptionInitFunction): args;
+    option(
+        name: string | [string, string],
+        description: string,
+        defaultValue?: any,
+        init?: OptionInitFunction
+    ): args;
     options(list: Option[]): args;
-    command(name: string, description: string, init?: (name: string, sub: string[], options: ConfigurationOptions) => void, aliases?: string[]): args;
+    command(
+        name: string,
+        description: string,
+        init?: (
+            name: string,
+            sub: string[],
+            options: ConfigurationOptions
+        ) => void,
+        aliases?: string[]
+    ): args;
     example(usage: string, description: string): args;
     examples(list: Example[]): args;
-    parse(argv: string[], options?: ConfigurationOptions): { [key: string]: any };
+    parse(
+        argv: string[],
+        options?: ConfigurationOptions
+    ): { [key: string]: any };
     showHelp(): void;
 }
 
@@ -23,11 +40,11 @@ type OptionInitFunction = (value: any) => any;
 interface MriOptions {
     args?: string[];
     alias?: {
-        [key: string]: string | string[]
+        [key: string]: string | string[];
     };
     boolean?: string | string[];
     default?: {
-        [key: string]: any
+        [key: string]: any;
     };
     string?: string | string[];
     unknown?: (param: string) => boolean;
@@ -37,10 +54,10 @@ interface MinimistOptions {
     string?: string | string[];
     boolean?: boolean | string | string[];
     alias?: {
-        [key: string]: string | string[]
+        [key: string]: string | string[];
     };
     default?: {
-        [key: string]: any
+        [key: string]: any;
     };
     stopEarly?: boolean;
     "--"?: boolean;

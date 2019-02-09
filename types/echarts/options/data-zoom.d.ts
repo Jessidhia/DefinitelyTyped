@@ -14,8 +14,7 @@ declare namespace echarts {
          * @see https://ecomfe.github.io/echarts-doc/public/en/option.html#dataZoom-inside
          * @see https://ecomfe.github.io/echarts-doc/public/en/option.html#dataZoom-slider
          */
-        type DataZoom = DataZoom.Inside
-            | DataZoom.Slider;
+        type DataZoom = DataZoom.Inside | DataZoom.Slider;
 
         namespace DataZoom {
             /**
@@ -38,7 +37,7 @@ declare namespace echarts {
                 yAxisIndex?: number | number[];
                 radiusAxisIndex?: number | number[];
                 angleAxisIndex?: number | number[];
-                filterMode?: 'filter' | 'weakFilter' | 'empty' | 'none';
+                filterMode?: "filter" | "weakFilter" | "empty" | "none";
                 start?: number;
                 end?: number;
                 startValue?: number | string | Date;
@@ -81,7 +80,7 @@ declare namespace echarts {
                 yAxisIndex?: number | number[];
                 radiusAxisIndex?: number | number[];
                 angleAxisIndex?: number | number[];
-                filterMode?: 'filter' | 'weakFilter' | 'empty' | 'none';
+                filterMode?: "filter" | "weakFilter" | "empty" | "none";
                 start?: number;
                 end?: number;
                 startValue?: number | string | Date;
@@ -90,7 +89,7 @@ declare namespace echarts {
                 maxSpan?: number;
                 minValueSpan?: number | string | Date;
                 maxValueSpan?: number | string | Date;
-                orient?: 'vertical' | 'horizontal';
+                orient?: "vertical" | "horizontal";
                 zoomLock?: boolean;
                 throttle?: number;
                 rangeMode?: string[];

@@ -3,9 +3,7 @@
 // Definitions by: Niklas Mollenhauer <https://github.com/nikeee>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare class EasyTable {
-
     /**
      * String to separate columns
      */
@@ -99,7 +97,9 @@ declare class EasyTable {
      *
      * @param {Function} cb - Callback function with signature `(column, value, printer)`
      */
-    public forEachTotal<T>(cb: (column: string, value: T, printer: CellPrinter<T>) => void): void;
+    public forEachTotal<T>(
+        cb: (column: string, value: T, printer: CellPrinter<T>) => void
+    ): void;
 
     /**
      * Format the table so that each row represents column and each column represents row
@@ -145,12 +145,20 @@ declare class EasyTable {
      * @param {Function} [cb] - Table post processing and formating
      * @returns {String}
      */
-    public static print<T>(obj: T | T[], format?: FormatFunction<T> | FormatObject, cb?: TablePostProcessing): string;
+    public static print<T>(
+        obj: T | T[],
+        format?: FormatFunction<T> | FormatObject,
+        cb?: TablePostProcessing
+    ): string;
 
     /**
      * Same as `Table.print()` but yields the result to `console.log()`
      */
-    public static log<T>(obj: T | T[], format?: FormatFunction<T> | FormatObject, cb?: TablePostProcessing): void;
+    public static log<T>(
+        obj: T | T[],
+        format?: FormatFunction<T> | FormatObject,
+        cb?: TablePostProcessing
+    ): void;
     /**
      * Same as `.toString()` but yields the result to `console.log()`
      */
@@ -160,7 +168,10 @@ declare class EasyTable {
 type CellPrinter<T> = (val: T, width: number) => string;
 type CompareFunction<T> = (a: T, b: T) => number;
 type ReduceFunction<T> = (acc: T, val: T, idx: number, length: number) => T;
-type FormatFunction<T> = (obj: T, cell: (name: string, val: any) => void) => void;
+type FormatFunction<T> = (
+    obj: T,
+    cell: (name: string, val: any) => void
+) => void;
 type TablePostProcessing = (result: EasyTable) => string;
 
 interface PrintColumnOptions<T> {
@@ -215,7 +226,7 @@ interface FormatObject {
 
 interface ColumnFormat<T> {
     name?: string;
-    printer?: CellPrinter<T>
+    printer?: CellPrinter<T>;
 }
 
 export = EasyTable;

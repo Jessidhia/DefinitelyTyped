@@ -4,5 +4,8 @@
 //                 kogai <https://github.com/kogai>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function inside(point: ReadonlyArray<number>, polygon: ReadonlyArray<ReadonlyArray<number>>): boolean;
+declare function inside(
+    point: ReadonlyArray<number>,
+    polygon: ReadonlyArray<ReadonlyArray<number>>
+): boolean;
 export = inside;

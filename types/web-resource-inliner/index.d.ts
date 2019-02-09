@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { CoreOptions, RequiredUriUrl } from 'request';
+import { CoreOptions, RequiredUriUrl } from "request";
 
 export function html(options: Options, callback: Callback): string;
 export function css(options: Options, callback: Callback): string;

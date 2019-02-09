@@ -3,23 +3,21 @@ import { Options } from "swagger-express-validator";
 import validator = require("swagger-express-validator");
 
 const options: Options = {
-    schema: 'string'
+    schema: "string"
 };
 validator(options);
 
 // minimal required parameter
 validator({
-    schema: 'string'
+    schema: "string"
 });
 
 // all parameters
 validator({
-    schema: 'string',
+    schema: "string",
     validateRequest: true,
     validateResponse: true,
     allowNullable: true,
-    requestValidationFn: (req: Request, data: any, errors: any) => {
-    },
-    responseValidationFn: (req: Request, data: any, errors: any) => {
-    }
+    requestValidationFn: (req: Request, data: any, errors: any) => {},
+    responseValidationFn: (req: Request, data: any, errors: any) => {}
 });

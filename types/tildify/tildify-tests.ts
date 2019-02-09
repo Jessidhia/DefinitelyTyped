@@ -1,4 +1,4 @@
-import tildify = require('tildify');
+import tildify = require("tildify");
 
 // $ExpectType string
-tildify('/Users/sindresorhus/dev');
+tildify("/Users/sindresorhus/dev");

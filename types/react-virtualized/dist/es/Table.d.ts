@@ -1,4 +1,10 @@
-import { Validator, ReactNode, Requireable, PureComponent, Component } from "react";
+import {
+    Validator,
+    ReactNode,
+    Requireable,
+    PureComponent,
+    Component
+} from "react";
 import { CellMeasurerCache } from "./CellMeasurer";
 import {
     Index,
@@ -42,9 +48,10 @@ export type MultiSortReturn = {
 };
 
 export function createMultiSort(
-    sortCallback: (
-        params: { sortBy: string; sortDirection: SortDirectionType }
-    ) => void,
+    sortCallback: (params: {
+        sortBy: string;
+        sortDirection: SortDirectionType;
+    }) => void,
     options?: MultiSortOptions
 ): MultiSortReturn;
 
@@ -424,9 +431,10 @@ export class Table extends PureComponent<TableProps> {
         scrollToIndex: Validator<number>;
         scrollTop: Requireable<number>;
         sort: Requireable<
-            (
-                params: { sortBy: string; sortDirection: SortDirectionType }
-            ) => void
+            (params: {
+                sortBy: string;
+                sortDirection: SortDirectionType;
+            }) => void
         >;
         sortBy: Requireable<string>;
         sortDirection: Validator<SortDirectionType>;

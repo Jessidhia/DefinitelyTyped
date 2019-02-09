@@ -13,7 +13,6 @@
 /// <reference types="node" />
 
 declare namespace Parse {
-
     let applicationId: string;
     let javaScriptKey: string | undefined;
     let masterKey: string | undefined;
@@ -29,8 +28,7 @@ declare namespace Parse {
         error?: Function;
     }
 
-    interface SuccessFailureOptions extends SuccessOption, ErrorOption {
-    }
+    interface SuccessFailureOptions extends SuccessOption, ErrorOption {}
 
     interface SignUpOptions {
         useMasterKey?: boolean;
@@ -56,8 +54,7 @@ declare namespace Parse {
         useMasterKey?: boolean;
     }
 
-    interface ScopeOptions extends SessionTokenOption, UseMasterKeyOption {
-    }
+    interface ScopeOptions extends SessionTokenOption, UseMasterKeyOption {}
 
     interface SilentOption {
         /**
@@ -95,7 +92,6 @@ declare namespace Parse {
      * of your application.</p>
      */
     class ACL extends BaseObject {
-
         permissionsById: any;
 
         constructor(arg1?: any);
@@ -128,7 +124,6 @@ declare namespace Parse {
         getWriteAccess(userId: string): boolean;
     }
 
-
     /**
      * A Parse.File is a local representation of a file that is saved to the Parse
      * cloud.
@@ -159,12 +154,10 @@ declare namespace Parse {
      *     extension.
      */
     class File {
-
         constructor(name: string, data: any, type?: string);
         name(): string;
         url(): string;
         save(options?: SuccessFailureOptions): Promise<File>;
-
     }
 
     /**
@@ -191,7 +184,6 @@ declare namespace Parse {
      *   object.save();</pre></p>
      */
     class GeoPoint extends BaseObject {
-
         latitude: number;
         longitude: number;
 
@@ -207,8 +199,10 @@ declare namespace Parse {
      * A class that is used to access all of the children of a many-to-many relationship.
      * Each instance of Parse.Relation is associated with a particular parent object and key.
      */
-    class Relation<S extends Object = Object, T extends Object = Object> extends BaseObject {
-
+    class Relation<
+        S extends Object = Object,
+        T extends Object = Object
+    > extends BaseObject {
         parent: S;
         key: string;
         targetClassName: string;
@@ -251,7 +245,6 @@ declare namespace Parse {
      * Creates a new model with defined attributes.
      */
     class Object extends BaseObject {
-
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -263,14 +256,33 @@ declare namespace Parse {
         constructor(className?: string, options?: any);
         constructor(attributes?: string[], options?: any);
 
-        static extend(className: string, protoProps?: any, classProps?: any): any;
+        static extend(
+            className: string,
+            protoProps?: any,
+            classProps?: any
+        ): any;
         static fromJSON(json: any, override: boolean): any;
 
-        static fetchAll<T extends Object>(list: T[], options: Object.FetchAllOptions): Promise<T[]>;
-        static fetchAllIfNeeded<T extends Object>(list: T[], options: Object.FetchAllOptions): Promise<T[]>;
-        static destroyAll<T>(list: T[], options?: Object.DestroyAllOptions): Promise<T[]>;
-        static saveAll<T extends Object>(list: T[], options?: Object.SaveAllOptions): Promise<T[]>;
-        static registerSubclass<T extends Object>(className: string, clazz: new (options?: any) => T): void;
+        static fetchAll<T extends Object>(
+            list: T[],
+            options: Object.FetchAllOptions
+        ): Promise<T[]>;
+        static fetchAllIfNeeded<T extends Object>(
+            list: T[],
+            options: Object.FetchAllOptions
+        ): Promise<T[]>;
+        static destroyAll<T>(
+            list: T[],
+            options?: Object.DestroyAllOptions
+        ): Promise<T[]>;
+        static saveAll<T extends Object>(
+            list: T[],
+            options?: Object.SaveAllOptions
+        ): Promise<T[]>;
+        static registerSubclass<T extends Object>(
+            className: string,
+            clazz: new (options?: any) => T
+        ): void;
         static createWithoutData<T extends Object>(id: string): T;
 
         initialize(): void;
@@ -299,8 +311,15 @@ declare namespace Parse {
         relation(attr: string): Relation<this, Object>;
         remove(attr: string, item: any): any;
         revert(): void;
-        save(attrs?: { [key: string]: any } | null, options?: Object.SaveOptions): Promise<this>;
-        save(key: string, value: any, options?: Object.SaveOptions): Promise<this>;
+        save(
+            attrs?: { [key: string]: any } | null,
+            options?: Object.SaveOptions
+        ): Promise<this>;
+        save(
+            key: string,
+            value: any,
+            options?: Object.SaveOptions
+        ): Promise<this>;
         save(attrs: object, options?: Object.SaveOptions): Promise<this>;
         set(key: string, value: any, options?: Object.SetOptions): boolean;
         set(attrs: object, options?: Object.SetOptions): boolean;
@@ -311,17 +330,26 @@ declare namespace Parse {
     }
 
     namespace Object {
-        interface DestroyOptions extends SuccessFailureOptions, WaitOption, ScopeOptions { }
+        interface DestroyOptions
+            extends SuccessFailureOptions,
+                WaitOption,
+                ScopeOptions {}
 
-        interface DestroyAllOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface DestroyAllOptions
+            extends SuccessFailureOptions,
+                ScopeOptions {}
 
-        interface FetchAllOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface FetchAllOptions extends SuccessFailureOptions, ScopeOptions {}
 
-        interface FetchOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface FetchOptions extends SuccessFailureOptions, ScopeOptions {}
 
-        interface SaveOptions extends SuccessFailureOptions, SilentOption, ScopeOptions, WaitOption { }
+        interface SaveOptions
+            extends SuccessFailureOptions,
+                SilentOption,
+                ScopeOptions,
+                WaitOption {}
 
-        interface SaveAllOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface SaveAllOptions extends SuccessFailureOptions, ScopeOptions {}
 
         interface SetOptions extends ErrorOption, SilentOption {
             promise?: any;
@@ -333,7 +361,6 @@ declare namespace Parse {
      * push notifications has an associated Installation object.
      */
     class Installation extends Object {
-
         badge: any;
         channels: string[];
         timeZone: any;
@@ -346,7 +373,6 @@ declare namespace Parse {
         appVersion: string;
         parseVersion: string;
         appIdentifier: string;
-
     }
     /**
      * Creates a new parse Parse.Query for the given Parse.Object subclass.
@@ -405,7 +431,6 @@ declare namespace Parse {
      * });</pre></p>
      */
     class Query<T extends Object = Object> extends BaseObject {
-
         objectClass: any;
         className: string;
 
@@ -414,7 +439,9 @@ declare namespace Parse {
 
         static or<U extends Object>(...var_args: Query<U>[]): Query<U>;
 
-        aggregate(pipeline: Query.AggregationOptions|Query.AggregationOptions[]): Query<T>;
+        aggregate(
+            pipeline: Query.AggregationOptions | Query.AggregationOptions[]
+        ): Query<T>;
         addAscending(key: string): Query<T>;
         addAscending(key: string[]): Query<T>;
         addDescending(key: string): Query<T>;
@@ -428,8 +455,15 @@ declare namespace Parse {
         descending(key: string): Query<T>;
         descending(key: string[]): Query<T>;
         doesNotExist(key: string): Query<T>;
-        doesNotMatchKeyInQuery<U extends Object>(key: string, queryKey: string, query: Query<U>): Query<T>;
-        doesNotMatchQuery<U extends Object>(key: string, query: Query<U>): Query<T>;
+        doesNotMatchKeyInQuery<U extends Object>(
+            key: string,
+            queryKey: string,
+            query: Query<U>
+        ): Query<T>;
+        doesNotMatchQuery<U extends Object>(
+            key: string,
+            query: Query<U>
+        ): Query<T>;
         distinct(key: string): Query<T>;
         each(callback: Function, options?: Query.EachOptions): Promise<void>;
         endsWith(key: string, suffix: string): Query<T>;
@@ -437,7 +471,11 @@ declare namespace Parse {
         exists(key: string): Query<T>;
         find(options?: Query.FindOptions): Promise<T[]>;
         first(options?: Query.FirstOptions): Promise<T | undefined>;
-        fullText(key: string, value: string, options?: Query.FullTextOptions): Query<T>;
+        fullText(
+            key: string,
+            value: string,
+            options?: Query.FullTextOptions
+        ): Query<T>;
         get(objectId: string, options?: Query.GetOptions): Promise<T>;
         greaterThan(key: string, value: any): Query<T>;
         greaterThanOrEqualTo(key: string, value: any): Query<T>;
@@ -447,7 +485,11 @@ declare namespace Parse {
         lessThanOrEqualTo(key: string, value: any): Query<T>;
         limit(n: number): Query<T>;
         matches(key: string, regex: RegExp, modifiers: any): Query<T>;
-        matchesKeyInQuery<U extends Object>(key: string, queryKey: string, query: Query<U>): Query<T>;
+        matchesKeyInQuery<U extends Object>(
+            key: string,
+            queryKey: string,
+            query: Query<U>
+        ): Query<T>;
         matchesQuery<U extends Object>(key: string, query: Query<U>): Query<T>;
         near(key: string, point: GeoPoint): Query<T>;
         notContainedIn(key: string, values: any[]): Query<T>;
@@ -456,35 +498,51 @@ declare namespace Parse {
         skip(n: number): Query<T>;
         startsWith(key: string, prefix: string): Query<T>;
         subscribe(): LiveQuerySubscription;
-        withinGeoBox(key: string, southwest: GeoPoint, northeast: GeoPoint): Query<T>;
-        withinKilometers(key: string, point: GeoPoint, maxDistance: number): Query<T>;
-        withinMiles(key: string, point: GeoPoint, maxDistance: number): Query<T>;
-        withinRadians(key: string, point: GeoPoint, maxDistance: number): Query<T>;
+        withinGeoBox(
+            key: string,
+            southwest: GeoPoint,
+            northeast: GeoPoint
+        ): Query<T>;
+        withinKilometers(
+            key: string,
+            point: GeoPoint,
+            maxDistance: number
+        ): Query<T>;
+        withinMiles(
+            key: string,
+            point: GeoPoint,
+            maxDistance: number
+        ): Query<T>;
+        withinRadians(
+            key: string,
+            point: GeoPoint,
+            maxDistance: number
+        ): Query<T>;
     }
 
     namespace Query {
-        interface EachOptions extends SuccessFailureOptions, ScopeOptions { }
-        interface CountOptions extends SuccessFailureOptions, ScopeOptions { }
-        interface FindOptions extends SuccessFailureOptions, ScopeOptions { }
-        interface FirstOptions extends SuccessFailureOptions, ScopeOptions { }
-        interface GetOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface EachOptions extends SuccessFailureOptions, ScopeOptions {}
+        interface CountOptions extends SuccessFailureOptions, ScopeOptions {}
+        interface FindOptions extends SuccessFailureOptions, ScopeOptions {}
+        interface FirstOptions extends SuccessFailureOptions, ScopeOptions {}
+        interface GetOptions extends SuccessFailureOptions, ScopeOptions {}
 
         // According to http://docs.parseplatform.org/rest/guide/#aggregate-queries
         interface AggregationOptions {
-            group?: { objectId?: string, [key:string]: any };
-            match?: {[key: string]: any};
-            project?: {[key: string]: any};
+            group?: { objectId?: string; [key: string]: any };
+            match?: { [key: string]: any };
+            project?: { [key: string]: any };
             limit?: number;
             skip?: number;
             // Sort documentation https://docs.mongodb.com/v3.2/reference/operator/aggregation/sort/#pipe._S_sort
-            sort?: {[key: string]: 1|-1};
+            sort?: { [key: string]: 1 | -1 };
         }
 
         // According to https://parseplatform.org/Parse-SDK-JS/api/2.1.0/Parse.Query.html#fullText
         interface FullTextOptions {
-          language?: string;
-          caseSensitive?: boolean;
-          diacriticSensitive?: boolean;
+            language?: string;
+            caseSensitive?: boolean;
+            diacriticSensitive?: boolean;
         }
     }
 
@@ -556,7 +614,7 @@ subscription.on('close', () => {});
     class LiveQuerySubscription extends NodeJS.EventEmitter {
         /**
          * Creates an instance of LiveQuerySubscription.
-         * 
+         *
          * @param {string} id
          * @param {string} query
          * @param {string} [sessionToken]
@@ -584,7 +642,6 @@ subscription.on('close', () => {});
      * cloud.
      */
     class Role extends Object {
-
         constructor(name: string, acl: ACL);
 
         getRoles(): Relation<Role, Role>;
@@ -618,14 +675,28 @@ subscription.on('close', () => {});
      * uniqueness.</p>
      */
     class User extends Object {
-
         static current(): User | undefined;
-        static signUp(username: string, password: string, attrs: any, options?: SignUpOptions): Promise<User>;
-        static logIn(username: string, password: string, options?: SuccessFailureOptions): Promise<User>;
+        static signUp(
+            username: string,
+            password: string,
+            attrs: any,
+            options?: SignUpOptions
+        ): Promise<User>;
+        static logIn(
+            username: string,
+            password: string,
+            options?: SuccessFailureOptions
+        ): Promise<User>;
         static logOut(): Promise<User>;
         static allowCustomUserClass(isAllowed: boolean): void;
-        static become(sessionToken: string, options?: SuccessFailureOptions): Promise<User>;
-        static requestPasswordReset(email: string, options?: SuccessFailureOptions): Promise<User>;
+        static become(
+            sessionToken: string,
+            options?: SuccessFailureOptions
+        ): Promise<User>;
+        static requestPasswordReset(
+            email: string,
+            options?: SuccessFailureOptions
+        ): Promise<User>;
         static extend(protoProps?: any, classProps?: any): any;
 
         signUp(attrs: any, options?: SignUpOptions): Promise<this>;
@@ -643,9 +714,7 @@ subscription.on('close', () => {});
         getSessionToken(): string;
     }
 
-
     namespace Analytics {
-
         function track(name: string, dimensions: any): Promise<any>;
     }
 
@@ -655,10 +724,13 @@ subscription.on('close', () => {});
      * Provides a set of utilities for using Parse with Facebook.
      */
     namespace FacebookUtils {
-
         function init(options?: any): void;
         function isLinked(user: User): boolean;
-        function link(user: User, permissions: any, options?: SuccessFailureOptions): void;
+        function link(
+            user: User,
+            permissions: any,
+            options?: SuccessFailureOptions
+        ): void;
         function logIn(permissions: any, options?: SuccessFailureOptions): void;
         function unlink(user: User, options?: SuccessFailureOptions): void;
     }
@@ -671,7 +743,6 @@ subscription.on('close', () => {});
      * </em></strong></p>
      */
     namespace Cloud {
-
         interface CookieOptions {
             domain?: string;
             expires?: Date;
@@ -709,8 +780,8 @@ subscription.on('close', () => {});
 
         interface FunctionResponse {
             success: (response: any) => void;
-            error (code: number, response: any): void;
-            error (response: any): void;
+            error(code: number, response: any): void;
+            error(response: any): void;
         }
 
         interface Cookie {
@@ -731,52 +802,92 @@ subscription.on('close', () => {});
             original?: Parse.Object;
         }
 
-        interface AfterSaveRequest extends TriggerRequest { }
-        interface AfterDeleteRequest extends TriggerRequest { }
-        interface BeforeDeleteRequest extends TriggerRequest { }
-        interface BeforeDeleteResponse extends FunctionResponse { }
-        interface BeforeSaveRequest extends TriggerRequest { }
+        interface AfterSaveRequest extends TriggerRequest {}
+        interface AfterDeleteRequest extends TriggerRequest {}
+        interface BeforeDeleteRequest extends TriggerRequest {}
+        interface BeforeDeleteResponse extends FunctionResponse {}
+        interface BeforeSaveRequest extends TriggerRequest {}
         interface BeforeSaveResponse extends FunctionResponse {
             success: () => void;
         }
 
         // Read preference describes how MongoDB driver route read operations to the members of a replica set.
         enum ReadPreferenceOption {
-            Primary = 'PRIMARY',
-            PrimaryPreferred = 'PRIMARY_PREFERRED',
-            Secondary = 'SECONDARY',
-            SecondaryPreferred = 'SECONDARY_PREFERRED',
-            Nearest = 'NEAREST'
+            Primary = "PRIMARY",
+            PrimaryPreferred = "PRIMARY_PREFERRED",
+            Secondary = "SECONDARY",
+            SecondaryPreferred = "SECONDARY_PREFERRED",
+            Nearest = "NEAREST"
         }
 
         interface BeforeFindRequest extends TriggerRequest {
-            query: Query
-            count: boolean
-            isGet: boolean
-            readPreference?: ReadPreferenceOption
+            query: Query;
+            count: boolean;
+            isGet: boolean;
+            readPreference?: ReadPreferenceOption;
         }
 
         interface AfterFindRequest extends TriggerRequest {
-            objects: Object[]
+            objects: Object[];
         }
 
         interface AfterFindResponse extends FunctionResponse {
             success: (objects: Object[]) => void;
         }
 
-        function afterDelete(arg1: any, func?: (request: AfterDeleteRequest) => void): void;
-        function afterSave(arg1: any, func?: (request: AfterSaveRequest) => void): void;
-        function beforeDelete(arg1: any, func?: (request: BeforeDeleteRequest, response: BeforeDeleteResponse) => void): void;
-        function beforeSave(arg1: any, func?: (request: BeforeSaveRequest, response: BeforeSaveResponse) => void): void;
-        function beforeFind(arg1: any, func?: (request: BeforeFindRequest) => void): void;
-        function afterFind(arg1: any, func?: (request: AfterFindRequest, response: AfterFindResponse) => void): void;
-        function define(name: string, func?: (request: FunctionRequest, response: FunctionResponse) => void): void;
+        function afterDelete(
+            arg1: any,
+            func?: (request: AfterDeleteRequest) => void
+        ): void;
+        function afterSave(
+            arg1: any,
+            func?: (request: AfterSaveRequest) => void
+        ): void;
+        function beforeDelete(
+            arg1: any,
+            func?: (
+                request: BeforeDeleteRequest,
+                response: BeforeDeleteResponse
+            ) => void
+        ): void;
+        function beforeSave(
+            arg1: any,
+            func?: (
+                request: BeforeSaveRequest,
+                response: BeforeSaveResponse
+            ) => void
+        ): void;
+        function beforeFind(
+            arg1: any,
+            func?: (request: BeforeFindRequest) => void
+        ): void;
+        function afterFind(
+            arg1: any,
+            func?: (
+                request: AfterFindRequest,
+                response: AfterFindResponse
+            ) => void
+        ): void;
+        function define(
+            name: string,
+            func?: (
+                request: FunctionRequest,
+                response: FunctionResponse
+            ) => void
+        ): void;
         function httpRequest(options: HTTPOptions): Promise<HttpResponse>;
-        function job(name: string, func?: (request: JobRequest, status: JobStatus) => void): HttpResponse;
-        function run(name: string, data?: any, options?: RunOptions): Promise<any>;
+        function job(
+            name: string,
+            func?: (request: JobRequest, status: JobStatus) => void
+        ): HttpResponse;
+        function run(
+            name: string,
+            data?: any,
+            options?: RunOptions
+        ): Promise<any>;
         function useMasterKey(): void;
 
-        interface RunOptions extends SuccessFailureOptions, ScopeOptions { }
+        interface RunOptions extends SuccessFailureOptions, ScopeOptions {}
 
         /**
          * To use this Cloud Module in Cloud Code, you must require 'buffer' in your JavaScript file.
@@ -820,21 +931,17 @@ subscription.on('close', () => {});
         }
     }
 
-
     class Error {
-
         code: ErrorCode;
         message: string;
 
         constructor(code: ErrorCode, message: string);
-
     }
 
     /*
      * We need to inline the codes in order to make compilation work without this type definition as dependency.
      */
     const enum ErrorCode {
-
         OTHER_CAUSE = -1,
         INTERNAL_SERVER_ERROR = 1,
         CONNECTION_FAILED = 100,
@@ -905,16 +1012,13 @@ subscription.on('close', () => {});
      * directly.
      */
     namespace Op {
-
         interface BaseOperation extends IBaseObject {
             objects(): any[];
         }
 
-        interface Add extends BaseOperation {
-        }
+        interface Add extends BaseOperation {}
 
-        interface AddUnique extends BaseOperation {
-        }
+        interface AddUnique extends BaseOperation {}
 
         interface Increment extends IBaseObject {
             amount: number;
@@ -929,9 +1033,7 @@ subscription.on('close', () => {});
             value(): any;
         }
 
-        interface Unset extends IBaseObject {
-        }
-
+        interface Unset extends IBaseObject {}
     }
 
     /**
@@ -968,14 +1070,17 @@ subscription.on('close', () => {});
      * @param {String} javaScriptKey (optional) Your Parse JavaScript Key (Not needed for parse-server)
      * @param {String} masterKey (optional) Your Parse Master Key. (Node.js only!)
      */
-    function initialize(applicationId: string, javaScriptKey?: string, masterKey?: string): void;
+    function initialize(
+        applicationId: string,
+        javaScriptKey?: string,
+        masterKey?: string
+    ): void;
 
     /**
      * Additionally on React-Native / Expo environments, add AsyncStorage from 'react-native' package
      * @param AsyncStorage AsyncStorage from 'react-native' package
      */
     function setAsyncStorage(AsyncStorage: any): void;
-
 }
 
 declare module "parse/node" {
@@ -984,10 +1089,10 @@ declare module "parse/node" {
 
 declare module "parse" {
     import * as parse from "parse/node";
-    export = parse
+    export = parse;
 }
 
 declare module "parse/react-native" {
     import * as parse from "parse/node";
-    export = parse
+    export = parse;
 }

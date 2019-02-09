@@ -15,4 +15,8 @@ export = parseArgsStringToArgv;
  * If omitted then there is no need to call argv.split(2) to remove the environment/file values.
  * However if your cli.parse method expects a valid argv value then you should include this value.
  */
-declare function parseArgsStringToArgv(value: string, env?: string, file?: string): string[];
+declare function parseArgsStringToArgv(
+    value: string,
+    env?: string,
+    file?: string
+): string[];

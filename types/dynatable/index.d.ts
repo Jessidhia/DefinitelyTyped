@@ -8,8 +8,8 @@
 
 interface JQuery {
     /**
-    * @constructor
-    */
+     * @constructor
+     */
     dynatable: JQueryDynatable.Dynatable;
 }
 
@@ -211,7 +211,7 @@ declare namespace JQueryDynatable {
          *
          * @default null
          */
-        paginationLinkTarget?: string|Element|JQuery;
+        paginationLinkTarget?: string | Element | JQuery;
         /**
          * Determines where the pagination links are inserted
          *
@@ -280,7 +280,7 @@ declare namespace JQueryDynatable {
          *
          * @default null
          */
-        searchTarget?: string|Element|JQuery;
+        searchTarget?: string | Element | JQuery;
         /**
          * Determines where the search field is inserted
          *
@@ -301,7 +301,7 @@ declare namespace JQueryDynatable {
          *
          * @default null
          */
-        perPageTarget?: string|Element|JQuery;
+        perPageTarget?: string | Element | JQuery;
         /**
          * Determines where the perPage menu is inserted
          *
@@ -500,7 +500,12 @@ declare namespace JQueryDynatable {
          *     return '<tr>' + tr + '</tr>';
          * };
          */
-        _rowWriter?: (rowIndex: number, record: any, columns: Array<Column>, cellWriter: Function) => string;
+        _rowWriter?: (
+            rowIndex: number,
+            record: any,
+            columns: Array<Column>,
+            cellWriter: Function
+        ) => string;
         /**
          * Function that returns the HTML code that will be injected for the cell
          *
@@ -652,7 +657,12 @@ declare namespace JQueryDynatable {
          * @param skipAppend A boolean allowing to skip the appending of the column header to table
          * @param skipUpdate A boolean allowing to skip the call to `dom.update()`
          */
-        add($column: JQuery, position: number, skipAppend?: boolean, skipUpdate?: boolean): void;
+        add(
+            $column: JQuery,
+            position: number,
+            skipAppend?: boolean,
+            skipUpdate?: boolean
+        ): void;
         /**
          * Add several `data-` attributes on the provided `$cell`
          *
@@ -671,7 +681,7 @@ declare namespace JQueryDynatable {
          *
          * @return Could return an `$.error()` if nothing is found.
          */
-        getFromTable(): void|JQuery;
+        getFromTable(): void | JQuery;
         /** Initializes `settings.table.columns` array and calls `getFromTable()` */
         init(): void;
         /**
@@ -685,7 +695,7 @@ declare namespace JQueryDynatable {
          *
          * @param columnIndexOrId A number (the column index) or a string (the column id)
          */
-        remove(columnIndexOrId: number|string): void;
+        remove(columnIndexOrId: number | string): void;
         /**
          * Remove the column from `settings.table.columns`
          *
@@ -730,7 +740,13 @@ declare namespace JQueryDynatable {
          * @param conditionalClass The classname for both the `<li>` and its `<a>`
          * @return A string containing html markup
          */
-        buildLink(page: number, label: string|number, linkClass: string, conditional: boolean, conditionalClass: string): string;
+        buildLink(
+            page: number,
+            label: string | number,
+            linkClass: string,
+            conditional: boolean,
+            conditionalClass: string
+        ): string;
         /**
          * Build the `<ul>` and creates the event listeners
          *
@@ -1098,10 +1114,10 @@ declare namespace JQueryDynatable {
     }
     interface Dynatable {
         /**
-        * Initialize Dynatable plugin
-        *
-        * @param options An optional object that allow you to change the default configuration options
-        */
+         * Initialize Dynatable plugin
+         *
+         * @param options An optional object that allow you to change the default configuration options
+         */
         (options?: Options): JQuery;
         /**
          * Each dynatable instance inherits from this,
@@ -1125,7 +1141,7 @@ declare namespace JQueryDynatable {
         /** The `domColumns` API */
         domColumns: DOMColumns;
         /** The native element on which the dynatable plugin was called */
-        element: Element
+        element: Element;
         /** The `inputsSearch` API */
         inputsSearch: InputsSearch;
         /** The `paginationLinks` API */

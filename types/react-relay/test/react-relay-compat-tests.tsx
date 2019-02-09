@@ -4,18 +4,22 @@ import {
     createFragmentContainer as createFragmentContainerCompat,
     commitMutation as commitMutationCompat,
     CompatEnvironment,
-    RelayPaginationProp as RelayPaginationPropCompat,
+    RelayPaginationProp as RelayPaginationPropCompat
 } from "react-relay/compat";
 
 import { configs, mutation, optimisticResponse } from "./react-relay-tests";
 
 // testting compat mutation with classic environment
-function markNotificationAsReadCompat(environment: CompatEnvironment, source: string, storyID: string) {
+function markNotificationAsReadCompat(
+    environment: CompatEnvironment,
+    source: string,
+    storyID: string
+) {
     const variables = {
         input: {
             source,
-            storyID,
-        },
+            storyID
+        }
     };
 
     commitMutationCompat(environment, {
@@ -32,7 +36,7 @@ function markNotificationAsReadCompat(environment: CompatEnvironment, source: st
             if (field) {
                 field.setValue(data.story, "story");
             }
-        },
+        }
     });
 }
 
@@ -42,7 +46,11 @@ interface CompatProps {
 
 class CompatComponent extends React.Component<CompatProps> {
     markNotificationAsRead(source: string, storyID: string) {
-        markNotificationAsReadCompat(this.props.relay.environment, source, storyID);
+        markNotificationAsReadCompat(
+            this.props.relay.environment,
+            source,
+            storyID
+        );
     }
 
     render() {
@@ -50,4 +58,7 @@ class CompatComponent extends React.Component<CompatProps> {
     }
 }
 
-export const CompatContainer = createFragmentContainerCompat(CompatComponent, {});
+export const CompatContainer = createFragmentContainerCompat(
+    CompatComponent,
+    {}
+);

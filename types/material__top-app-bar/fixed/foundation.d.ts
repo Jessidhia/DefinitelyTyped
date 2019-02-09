@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-import MDCTopAppBarFoundation from '../foundation';
-import MDCTopAppBarAdapter from '../adapter';
+import MDCTopAppBarFoundation from "../foundation";
+import MDCTopAppBarAdapter from "../adapter";
 
-export default class MDCFixedTopAppBarFoundation extends MDCTopAppBarFoundation {
-}
+export default class MDCFixedTopAppBarFoundation extends MDCTopAppBarFoundation {}

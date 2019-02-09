@@ -336,7 +336,14 @@ declare namespace later {
          * @param [m]: Minute between 0 and 59, defaults to 0
          * @param [s]: Second between 0 and 59, defaults to 0
          */
-        next(Y?: number, M?: number, D?: number, h?: number, m?: number, s?: number): Date;
+        next(
+            Y?: number,
+            M?: number,
+            D?: number,
+            h?: number,
+            m?: number,
+            s?: number
+        ): Date;
 
         /**
          * Builds and returns a new Date using the specified values.  Date
@@ -349,7 +356,14 @@ declare namespace later {
          * @param [m]: Minute between 0 and 59, defaults to 59
          * @param [s]: Second between 0 and 59, defaults to 59
          */
-        prev(Y?: number, M?: number, D?: number, h?: number, m?: number, s?: number): Date;
+        prev(
+            Y?: number,
+            M?: number,
+            D?: number,
+            h?: number,
+            m?: number,
+            s?: number
+        ): Date;
 
         /**
          * Determines if a value will cause a particular constraint to rollover to the
@@ -361,7 +375,12 @@ declare namespace later {
          * @param constraint: A modifier
          * @param period: A time period
          */
-        nextRollover(d: Date, val: number, constraint: Modifier, period: TimePeriod): Date;
+        nextRollover(
+            d: Date,
+            val: number,
+            constraint: Modifier,
+            period: TimePeriod
+        ): Date;
 
         /**
          * Determines if a value will cause a particular constraint to rollover to the
@@ -373,7 +392,12 @@ declare namespace later {
          * @param constraint: A modifier
          * @param period: A time period
          */
-        prevRollover(d: Date, val: number, constraint: Modifier, period: TimePeriod): Date;
+        prevRollover(
+            d: Date,
+            val: number,
+            constraint: Modifier,
+            period: TimePeriod
+        ): Date;
     }
 
     interface TimePeriod {

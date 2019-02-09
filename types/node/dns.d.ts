@@ -23,23 +23,81 @@ declare module "dns" {
         family: number;
     }
 
-    function lookup(hostname: string, family: number, callback: (err: NodeJS.ErrnoException, address: string, family: number) => void): void;
-    function lookup(hostname: string, options: LookupOneOptions, callback: (err: NodeJS.ErrnoException, address: string, family: number) => void): void;
-    function lookup(hostname: string, options: LookupAllOptions, callback: (err: NodeJS.ErrnoException, addresses: LookupAddress[]) => void): void;
-    function lookup(hostname: string, options: LookupOptions, callback: (err: NodeJS.ErrnoException, address: string | LookupAddress[], family: number) => void): void;
-    function lookup(hostname: string, callback: (err: NodeJS.ErrnoException, address: string, family: number) => void): void;
+    function lookup(
+        hostname: string,
+        family: number,
+        callback: (
+            err: NodeJS.ErrnoException,
+            address: string,
+            family: number
+        ) => void
+    ): void;
+    function lookup(
+        hostname: string,
+        options: LookupOneOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            address: string,
+            family: number
+        ) => void
+    ): void;
+    function lookup(
+        hostname: string,
+        options: LookupAllOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses: LookupAddress[]
+        ) => void
+    ): void;
+    function lookup(
+        hostname: string,
+        options: LookupOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            address: string | LookupAddress[],
+            family: number
+        ) => void
+    ): void;
+    function lookup(
+        hostname: string,
+        callback: (
+            err: NodeJS.ErrnoException,
+            address: string,
+            family: number
+        ) => void
+    ): void;
 
     // NOTE: This namespace provides design-time support for util.promisify. Exported members do not exist at runtime.
     namespace lookup {
-        function __promisify__(hostname: string, options: LookupAllOptions): Promise<{ address: LookupAddress[] }>;
-        function __promisify__(hostname: string, options?: LookupOneOptions | number): Promise<{ address: string, family: number }>;
-        function __promisify__(hostname: string, options?: LookupOptions | number): Promise<{ address: string | LookupAddress[], family?: number }>;
+        function __promisify__(
+            hostname: string,
+            options: LookupAllOptions
+        ): Promise<{ address: LookupAddress[] }>;
+        function __promisify__(
+            hostname: string,
+            options?: LookupOneOptions | number
+        ): Promise<{ address: string; family: number }>;
+        function __promisify__(
+            hostname: string,
+            options?: LookupOptions | number
+        ): Promise<{ address: string | LookupAddress[]; family?: number }>;
     }
 
-    function lookupService(address: string, port: number, callback: (err: NodeJS.ErrnoException, hostname: string, service: string) => void): void;
+    function lookupService(
+        address: string,
+        port: number,
+        callback: (
+            err: NodeJS.ErrnoException,
+            hostname: string,
+            service: string
+        ) => void
+    ): void;
 
     namespace lookupService {
-        function __promisify__(address: string, port: number): Promise<{ hostname: string, service: string }>;
+        function __promisify__(
+            address: string,
+            port: number
+        ): Promise<{ hostname: string; service: string }>;
     }
 
     interface ResolveOptions {
@@ -133,115 +191,281 @@ declare module "dns" {
         value: string;
     }
 
-    type AnyRecord = AnyARecord |
-        AnyAaaaRecord |
-        AnyCnameRecord |
-        AnyMxRecord |
-        AnyNaptrRecord |
-        AnyNsRecord |
-        AnyPtrRecord |
-        AnySoaRecord |
-        AnySrvRecord |
-        AnyTxtRecord;
+    type AnyRecord =
+        | AnyARecord
+        | AnyAaaaRecord
+        | AnyCnameRecord
+        | AnyMxRecord
+        | AnyNaptrRecord
+        | AnyNsRecord
+        | AnyPtrRecord
+        | AnySoaRecord
+        | AnySrvRecord
+        | AnyTxtRecord;
 
-    function resolve(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "A", callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "AAAA", callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "ANY", callback: (err: NodeJS.ErrnoException, addresses: AnyRecord[]) => void): void;
-    function resolve(hostname: string, rrtype: "CNAME", callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "MX", callback: (err: NodeJS.ErrnoException, addresses: MxRecord[]) => void): void;
-    function resolve(hostname: string, rrtype: "NAPTR", callback: (err: NodeJS.ErrnoException, addresses: NaptrRecord[]) => void): void;
-    function resolve(hostname: string, rrtype: "NS", callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "PTR", callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve(hostname: string, rrtype: "SOA", callback: (err: NodeJS.ErrnoException, addresses: SoaRecord) => void): void;
-    function resolve(hostname: string, rrtype: "SRV", callback: (err: NodeJS.ErrnoException, addresses: SrvRecord[]) => void): void;
-    function resolve(hostname: string, rrtype: "TXT", callback: (err: NodeJS.ErrnoException, addresses: string[][]) => void): void;
+    function resolve(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "A",
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "AAAA",
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "ANY",
+        callback: (err: NodeJS.ErrnoException, addresses: AnyRecord[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "CNAME",
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "MX",
+        callback: (err: NodeJS.ErrnoException, addresses: MxRecord[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "NAPTR",
+        callback: (err: NodeJS.ErrnoException, addresses: NaptrRecord[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "NS",
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "PTR",
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "SOA",
+        callback: (err: NodeJS.ErrnoException, addresses: SoaRecord) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "SRV",
+        callback: (err: NodeJS.ErrnoException, addresses: SrvRecord[]) => void
+    ): void;
+    function resolve(
+        hostname: string,
+        rrtype: "TXT",
+        callback: (err: NodeJS.ErrnoException, addresses: string[][]) => void
+    ): void;
     function resolve(
         hostname: string,
         rrtype: string,
-        callback: (err: NodeJS.ErrnoException, addresses: string[] | MxRecord[] | NaptrRecord[] | SoaRecord | SrvRecord[] | string[][] | AnyRecord[]) => void,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses:
+                | string[]
+                | MxRecord[]
+                | NaptrRecord[]
+                | SoaRecord
+                | SrvRecord[]
+                | string[][]
+                | AnyRecord[]
+        ) => void
     ): void;
 
     // NOTE: This namespace provides design-time support for util.promisify. Exported members do not exist at runtime.
     namespace resolve {
-        function __promisify__(hostname: string, rrtype?: "A" | "AAAA" | "CNAME" | "NS" | "PTR"): Promise<string[]>;
-        function __promisify__(hostname: string, rrtype: "ANY"): Promise<AnyRecord[]>;
-        function __promisify__(hostname: string, rrtype: "MX"): Promise<MxRecord[]>;
-        function __promisify__(hostname: string, rrtype: "NAPTR"): Promise<NaptrRecord[]>;
-        function __promisify__(hostname: string, rrtype: "SOA"): Promise<SoaRecord>;
-        function __promisify__(hostname: string, rrtype: "SRV"): Promise<SrvRecord[]>;
-        function __promisify__(hostname: string, rrtype: "TXT"): Promise<string[][]>;
-        function __promisify__(hostname: string, rrtype: string): Promise<string[] | MxRecord[] | NaptrRecord[] | SoaRecord | SrvRecord[] | string[][] | AnyRecord[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype?: "A" | "AAAA" | "CNAME" | "NS" | "PTR"
+        ): Promise<string[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "ANY"
+        ): Promise<AnyRecord[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "MX"
+        ): Promise<MxRecord[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "NAPTR"
+        ): Promise<NaptrRecord[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "SOA"
+        ): Promise<SoaRecord>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "SRV"
+        ): Promise<SrvRecord[]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: "TXT"
+        ): Promise<string[][]>;
+        function __promisify__(
+            hostname: string,
+            rrtype: string
+        ): Promise<
+            | string[]
+            | MxRecord[]
+            | NaptrRecord[]
+            | SoaRecord
+            | SrvRecord[]
+            | string[][]
+            | AnyRecord[]
+        >;
     }
 
-    function resolve4(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve4(hostname: string, options: ResolveWithTtlOptions, callback: (err: NodeJS.ErrnoException, addresses: RecordWithTtl[]) => void): void;
-    function resolve4(hostname: string, options: ResolveOptions, callback: (err: NodeJS.ErrnoException, addresses: string[] | RecordWithTtl[]) => void): void;
+    function resolve4(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve4(
+        hostname: string,
+        options: ResolveWithTtlOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses: RecordWithTtl[]
+        ) => void
+    ): void;
+    function resolve4(
+        hostname: string,
+        options: ResolveOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses: string[] | RecordWithTtl[]
+        ) => void
+    ): void;
 
     // NOTE: This namespace provides design-time support for util.promisify. Exported members do not exist at runtime.
     namespace resolve4 {
         function __promisify__(hostname: string): Promise<string[]>;
-        function __promisify__(hostname: string, options: ResolveWithTtlOptions): Promise<RecordWithTtl[]>;
-        function __promisify__(hostname: string, options?: ResolveOptions): Promise<string[] | RecordWithTtl[]>;
+        function __promisify__(
+            hostname: string,
+            options: ResolveWithTtlOptions
+        ): Promise<RecordWithTtl[]>;
+        function __promisify__(
+            hostname: string,
+            options?: ResolveOptions
+        ): Promise<string[] | RecordWithTtl[]>;
     }
 
-    function resolve6(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
-    function resolve6(hostname: string, options: ResolveWithTtlOptions, callback: (err: NodeJS.ErrnoException, addresses: RecordWithTtl[]) => void): void;
-    function resolve6(hostname: string, options: ResolveOptions, callback: (err: NodeJS.ErrnoException, addresses: string[] | RecordWithTtl[]) => void): void;
+    function resolve6(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
+    function resolve6(
+        hostname: string,
+        options: ResolveWithTtlOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses: RecordWithTtl[]
+        ) => void
+    ): void;
+    function resolve6(
+        hostname: string,
+        options: ResolveOptions,
+        callback: (
+            err: NodeJS.ErrnoException,
+            addresses: string[] | RecordWithTtl[]
+        ) => void
+    ): void;
 
     // NOTE: This namespace provides design-time support for util.promisify. Exported members do not exist at runtime.
     namespace resolve6 {
         function __promisify__(hostname: string): Promise<string[]>;
-        function __promisify__(hostname: string, options: ResolveWithTtlOptions): Promise<RecordWithTtl[]>;
-        function __promisify__(hostname: string, options?: ResolveOptions): Promise<string[] | RecordWithTtl[]>;
+        function __promisify__(
+            hostname: string,
+            options: ResolveWithTtlOptions
+        ): Promise<RecordWithTtl[]>;
+        function __promisify__(
+            hostname: string,
+            options?: ResolveOptions
+        ): Promise<string[] | RecordWithTtl[]>;
     }
 
-    function resolveCname(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
+    function resolveCname(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
     namespace resolveCname {
         function __promisify__(hostname: string): Promise<string[]>;
     }
 
-    function resolveMx(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: MxRecord[]) => void): void;
+    function resolveMx(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: MxRecord[]) => void
+    ): void;
     namespace resolveMx {
         function __promisify__(hostname: string): Promise<MxRecord[]>;
     }
 
-    function resolveNaptr(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: NaptrRecord[]) => void): void;
+    function resolveNaptr(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: NaptrRecord[]) => void
+    ): void;
     namespace resolveNaptr {
         function __promisify__(hostname: string): Promise<NaptrRecord[]>;
     }
 
-    function resolveNs(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
+    function resolveNs(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
     namespace resolveNs {
         function __promisify__(hostname: string): Promise<string[]>;
     }
 
-    function resolvePtr(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[]) => void): void;
+    function resolvePtr(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[]) => void
+    ): void;
     namespace resolvePtr {
         function __promisify__(hostname: string): Promise<string[]>;
     }
 
-    function resolveSoa(hostname: string, callback: (err: NodeJS.ErrnoException, address: SoaRecord) => void): void;
+    function resolveSoa(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, address: SoaRecord) => void
+    ): void;
     namespace resolveSoa {
         function __promisify__(hostname: string): Promise<SoaRecord>;
     }
 
-    function resolveSrv(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: SrvRecord[]) => void): void;
+    function resolveSrv(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: SrvRecord[]) => void
+    ): void;
     namespace resolveSrv {
         function __promisify__(hostname: string): Promise<SrvRecord[]>;
     }
 
-    function resolveTxt(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: string[][]) => void): void;
+    function resolveTxt(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: string[][]) => void
+    ): void;
     namespace resolveTxt {
         function __promisify__(hostname: string): Promise<string[][]>;
     }
 
-    function resolveAny(hostname: string, callback: (err: NodeJS.ErrnoException, addresses: AnyRecord[]) => void): void;
+    function resolveAny(
+        hostname: string,
+        callback: (err: NodeJS.ErrnoException, addresses: AnyRecord[]) => void
+    ): void;
     namespace resolveAny {
         function __promisify__(hostname: string): Promise<AnyRecord[]>;
     }
 
-    function reverse(ip: string, callback: (err: NodeJS.ErrnoException, hostnames: string[]) => void): void;
+    function reverse(
+        ip: string,
+        callback: (err: NodeJS.ErrnoException, hostnames: string[]) => void
+    ): void;
     function setServers(servers: string[]): void;
     function getServers(): string[];
 

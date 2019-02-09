@@ -1,6 +1,6 @@
-import { ErrorListener, ProxyErrorListener } from './error/ErrorListener';
-import { Token } from './Token';
-import { ParserRuleContext } from './ParserRuleContext';
+import { ErrorListener, ProxyErrorListener } from "./error/ErrorListener";
+import { Token } from "./Token";
+import { ParserRuleContext } from "./ParserRuleContext";
 
 export class Recognizer {
     state: number;
@@ -23,7 +23,11 @@ export class Recognizer {
 
     getErrorListenerDispatch(): ProxyErrorListener;
 
-    sempred(localCtx: ParserRuleContext, ruleIndex: number, actionIndex: number): boolean;
+    sempred(
+        localCtx: ParserRuleContext,
+        ruleIndex: number,
+        actionIndex: number
+    ): boolean;
 
     precpred(localCtx: ParserRuleContext, precedence: any): boolean;
 }

@@ -3,24 +3,35 @@
 // Definitions by: Asana <https://asana.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare class Benchmark {
     static deepClone<T>(value: T): T;
     static each(obj: Object | any[], callback: Function, thisArg?: any): void;
     static extend(destination: Object, ...sources: Object[]): Object;
     static filter<T>(arr: T[], callback: (value: T) => any, thisArg?: any): T[];
     static filter<T>(arr: T[], filter: string, thisArg?: any): T[];
-    static forEach<T>(arr: T[], callback: (value: T) => any, thisArg?: any): void;
+    static forEach<T>(
+        arr: T[],
+        callback: (value: T) => any,
+        thisArg?: any
+    ): void;
     static formatNumber(num: number): string;
     static forOwn(obj: Object, callback: Function, thisArg?: any): void;
     static hasKey(obj: Object, key: string): boolean;
     static indexOf<T>(arr: T[], value: T, fromIndex?: number): number;
     static interpolate(template: string, values: Object): string;
-    static invoke(benches: Benchmark[], name: string | Object, ...args: any[]): any[];
+    static invoke(
+        benches: Benchmark[],
+        name: string | Object,
+        ...args: any[]
+    ): any[];
     static join(obj: Object, separator1?: string, separator2?: string): string;
     static map<T, K>(arr: T[], callback: (value: T) => K, thisArg?: any): K[];
     static pluck<T, K>(arr: T[], key: string): K[];
-    static reduce<T, K>(arr: T[], callback: (accumulator: K, value: T) => K, thisArg?: any): K;
+    static reduce<T, K>(
+        arr: T[],
+        callback: (accumulator: K, value: T) => K,
+        thisArg?: any
+    ): K;
 
     static options: Benchmark.Options;
     static platform: Benchmark.Platform;
@@ -28,7 +39,11 @@ declare class Benchmark {
     static version: string;
 
     constructor(fn: Function | string, options?: Benchmark.Options);
-    constructor(name: string, fn: Function | string, options?: Benchmark.Options);
+    constructor(
+        name: string,
+        fn: Function | string,
+        options?: Benchmark.Options
+    );
     constructor(name: string, options?: Benchmark.Options);
     constructor(options: Benchmark.Options);
 

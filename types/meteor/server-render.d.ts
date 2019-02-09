@@ -13,7 +13,7 @@ declare module "meteor/server-render" {
         renderIntoElementById?(id: string, html: string): void;
         renderIntoElementById?(id: string, html: NodeJS.ReadableStream): void;
     }
-    
-    type Callback = (sink: Sink) => Promise <any> | any;
+
+    type Callback = (sink: Sink) => Promise<any> | any;
     export function onPageLoad<T extends Callback>(callback: T): T;
 }

@@ -1,6 +1,6 @@
-import Ember from 'ember';
-import hbs from 'htmlbars-inline-precompile';
-import { module } from 'qunit';
+import Ember from "ember";
+import hbs from "htmlbars-inline-precompile";
+import { module } from "qunit";
 import {
     start,
     test,
@@ -10,36 +10,35 @@ import {
     moduleForComponent,
     setResolver,
     setupRenderingTest,
-    setupTest,
-} from 'ember-qunit';
+    setupTest
+} from "ember-qunit";
 
-moduleForComponent('x-foo', {
+moduleForComponent("x-foo", {
     integration: true
 });
 
-moduleForComponent('x-foo', {
+moduleForComponent("x-foo", {
     unit: true,
-    needs: ['helper:pluralize-string']
+    needs: ["helper:pluralize-string"]
 });
 
-moduleForModel('user', {
-    needs: ['model:child']
+moduleForModel("user", {
+    needs: ["model:child"]
 });
 
-moduleFor('controller:home');
+moduleFor("controller:home");
 
-moduleFor('component:x-foo', 'Some description');
+moduleFor("component:x-foo", "Some description");
 
-moduleFor('component:x-foo', 'TestModule callbacks', {
-    beforeSetup() {
-    },
+moduleFor("component:x-foo", "TestModule callbacks", {
+    beforeSetup() {},
 
     beforeEach(assert) {
-        this.registry.register('helper:i18n', {});
-        this.register('service:i18n', {});
-        this.inject.service('i18n');
-        this.inject.service('i18n', { as: 'i18n' });
-        this.factory('object:user').create();
+        this.registry.register("helper:i18n", {});
+        this.register("service:i18n", {});
+        this.inject.service("i18n");
+        this.inject.service("i18n", { as: "i18n" });
+        this.factory("object:user").create();
         assert.ok(true);
     },
 
@@ -55,14 +54,14 @@ moduleFor('component:x-foo', 'TestModule callbacks', {
 // if you don't have a custom resolver, do it like this:
 setResolver(Ember.DefaultResolver.create());
 
-test('it renders', function(assert) {
+test("it renders", function(assert) {
     assert.expect(2);
 
     // setup the outer context
-    this.set('value', 'cat');
-    this.on('action', function(result) {
-        assert.equal(result, 'bar', 'The correct result was returned');
-        assert.equal(this.get('value'), 'cat');
+    this.set("value", "cat");
+    this.on("action", function(result) {
+        assert.equal(result, "bar", "The correct result was returned");
+        assert.equal(this.get("value"), "cat");
     });
 
     // render the component
@@ -70,16 +69,18 @@ test('it renders', function(assert) {
         {{ x-foo value=value action="result" }}
     `);
     this.render('{{ x-foo value=value action="result" }}');
-    this.render([
-        '{{ x-foo value=value action="result" }}'
-    ]);
+    this.render(['{{ x-foo value=value action="result" }}']);
 
-    assert.equal(this.$('div>.value').text(), 'cat', 'The component shows the correct value');
+    assert.equal(
+        this.$("div>.value").text(),
+        "cat",
+        "The component shows the correct value"
+    );
 
-    this.$('button').click();
+    this.$("button").click();
 });
 
-test('it renders', function(assert) {
+test("it renders", function(assert) {
     assert.expect(1);
 
     // creates the component instance
@@ -90,57 +91,60 @@ test('it renders', function(assert) {
     });
 
     const { inputFormat } = this.setProperties({
-        inputFormat: 'M/D/YY',
-        outputFormat: 'MMMM D, YYYY',
-        date: '5/3/10'
+        inputFormat: "M/D/YY",
+        outputFormat: "MMMM D, YYYY",
+        date: "5/3/10"
     });
 
-    const { inputFormat: if2, outputFormat } = this.getProperties('inputFormat', 'outputFormat');
+    const { inputFormat: if2, outputFormat } = this.getProperties(
+        "inputFormat",
+        "outputFormat"
+    );
 
-    const inputFormat2 = this.get('inputFormat');
+    const inputFormat2 = this.get("inputFormat");
 
     // render the component on the page
     this.render();
-    assert.equal(this.$('.foo').text(), 'bar');
+    assert.equal(this.$(".foo").text(), "bar");
 });
 
-test('It can calculate the result', function(assert) {
+test("It can calculate the result", function(assert) {
     assert.expect(1);
 
     const subject = this.subject();
 
-    subject.set('value', 'foo');
-    assert.equal(subject.get('result'), 'bar');
+    subject.set("value", "foo");
+    assert.equal(subject.get("result"), "bar");
 });
 
-skip('disabled test');
+skip("disabled test");
 
-skip('disabled test', function(assert) { });
+skip("disabled test", function(assert) {});
 
 // https://github.com/emberjs/rfcs/blob/master/text/0232-simplify-qunit-testing-api.md#qunit-nested-modules-api
-QUnit.module('some description', function(hooks) {
-  hooks.before(() => {});
-  hooks.beforeEach(() => {});
-  hooks.afterEach(() => {});
-  hooks.after(() => {});
+QUnit.module("some description", function(hooks) {
+    hooks.before(() => {});
+    hooks.beforeEach(() => {});
+    hooks.afterEach(() => {});
+    hooks.after(() => {});
 
-  QUnit.test('it blends', function(assert) {
-    assert.ok(true, 'of course!');
-  });
+    QUnit.test("it blends", function(assert) {
+        assert.ok(true, "of course!");
+    });
 });
 
 // http://rwjblue.com/2017/10/23/ember-qunit-simplication/#setuprenderingtest
-module('x-foo', function(hooks) {
+module("x-foo", function(hooks) {
     setupRenderingTest(hooks);
 });
 
 // http://rwjblue.com/2017/10/23/ember-qunit-simplication/#setuptest
-module('foo service', function(hooks) {
+module("foo service", function(hooks) {
     setupTest(hooks);
 });
 
 // RFC-232 equivalent of https://github.com/ember-engines/ember-engines#unitintegration-testing-for-in-repo-engines
-module('engine foo component', function(hooks) {
+module("engine foo component", function(hooks) {
     setupTest(hooks, {
         resolver: Ember.Resolver.create()
     });

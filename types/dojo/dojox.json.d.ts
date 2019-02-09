@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace dojox {
-
     namespace json {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/json/query.html
@@ -76,9 +75,10 @@ declare namespace dojox {
          * @param query Query string
          * @param obj       OptionalTarget of the JSONQuery
          */
-        interface query{(query: String, obj?: Object): void}
-        namespace schema {
+        interface query {
+            (query: String, obj?: Object): void;
         }
+        namespace schema {}
 
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/json/ref.html
@@ -125,17 +125,21 @@ declare namespace dojox {
              * @param idPrefix               OptionalThe prefix that has been used for the absolute ids
              * @param indexSubObjects               Optional
              */
-            toJson(it: Object, prettyPrint: boolean, idPrefix: Object, indexSubObjects: Object): any;
+            toJson(
+                it: Object,
+                prettyPrint: boolean,
+                idPrefix: Object,
+                indexSubObjects: Object
+            ): any;
         }
     }
-
 }
 
 declare module "dojox/json/query" {
-    var exp: dojox.json.query
-    export=exp;
+    var exp: dojox.json.query;
+    export = exp;
 }
 declare module "dojox/json/ref" {
-    var exp: dojox.json.ref
-    export=exp;
+    var exp: dojox.json.ref;
+    export = exp;
 }

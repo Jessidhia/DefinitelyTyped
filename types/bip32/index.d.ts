@@ -13,7 +13,12 @@ export interface NetworkType {
 }
 
 export class BIP32 {
-    private constructor(d: Buffer, Q: Buffer, chainCode: Buffer, network: NetworkType);
+    private constructor(
+        d: Buffer,
+        Q: Buffer,
+        chainCode: Buffer,
+        network: NetworkType
+    );
 
     identifier: Buffer;
     fingerprint: Buffer;
@@ -50,7 +55,11 @@ export function fromBase58(string: string, network?: NetworkType): BIP32;
  * @param chainCode 256-bits entropy extension
  * @param network network type of the node
  */
-export function fromPrivateKey(privateKey: Buffer, chainCode: Buffer, network?: NetworkType): BIP32;
+export function fromPrivateKey(
+    privateKey: Buffer,
+    chainCode: Buffer,
+    network?: NetworkType
+): BIP32;
 
 /**
  * Returns a non-hardened node
@@ -58,7 +67,11 @@ export function fromPrivateKey(privateKey: Buffer, chainCode: Buffer, network?: 
  * @param chainCode 256-bits entropy extension
  * @param network network type of the node
  */
-export function fromPublicKey(publicKey: Buffer, chainCode: Buffer, network?: NetworkType): BIP32;
+export function fromPublicKey(
+    publicKey: Buffer,
+    chainCode: Buffer,
+    network?: NetworkType
+): BIP32;
 
 /**
  * Returns a hardened node

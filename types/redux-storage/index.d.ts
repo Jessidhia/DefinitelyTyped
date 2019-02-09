@@ -38,7 +38,10 @@ declare module "redux-storage" {
      * @param reducer
      * @param merger
      */
-    export function reducer<TState>(reducer: Reducer<TState>, merger?: StateMerger): Reducer<TState>;
+    export function reducer<TState>(
+        reducer: Reducer<TState>,
+        merger?: StateMerger
+    ): Reducer<TState>;
 
     /**
      * Create storage middleware
@@ -46,7 +49,11 @@ declare module "redux-storage" {
      * @param actionBlacklist
      * @param actionWhitelist
      */
-    export function createMiddleware(engine: StorageEngine, actionBlacklist?: string[], actionWhitelist?: string[]): Middleware;
+    export function createMiddleware(
+        engine: StorageEngine,
+        actionBlacklist?: string[],
+        actionWhitelist?: string[]
+    ): Middleware;
 
     /**
      * Loader interface
@@ -60,7 +67,6 @@ declare module "redux-storage" {
      * @param engine
      */
     export function createLoader<TState>(engine: StorageEngine): Loader<TState>;
-
 }
 
 declare module "redux-storage-decorator-filter" {
@@ -86,19 +92,25 @@ declare module "redux-storage-decorator-filter" {
      *     ['nested', 'blacklisted-key']
      * ]);
      */
-    export default function (engine: StorageEngine, whitelist?: FilterList, blacklist?: FilterList): StorageEngine;
+    export default function(
+        engine: StorageEngine,
+        whitelist?: FilterList,
+        blacklist?: FilterList
+    ): StorageEngine;
 }
 
 declare module "redux-storage-engine-reactnativeasyncstorage" {
     import { StorageEngine } from "redux-storage";
 
-    export interface ReactNativeAsyncStorageEngine extends StorageEngine { }
+    export interface ReactNativeAsyncStorageEngine extends StorageEngine {}
 
     /**
      * Create React Native Async Storage
      * @param key React Native Async Storage key
      */
-    export default function createEngine(key: string): ReactNativeAsyncStorageEngine;
+    export default function createEngine(
+        key: string
+    ): ReactNativeAsyncStorageEngine;
 }
 
 declare module "redux-storage-merger-immutablejs" {

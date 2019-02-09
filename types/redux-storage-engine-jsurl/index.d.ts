@@ -3,6 +3,6 @@
 // Definitions by: Christian Rackerseder <https://github.com/screendriver>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import { StorageEngine } from 'redux-storage';
+import { StorageEngine } from "redux-storage";
 
 export default function createEngine(): StorageEngine;

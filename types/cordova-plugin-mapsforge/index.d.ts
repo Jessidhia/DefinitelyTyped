@@ -15,23 +15,22 @@ interface MapsforgePlugin {
 }
 
 interface MapsforgeEmbeddedPlugin {
+    COLOR_DKGRAY: number | string;
+    COLOR_CYAN: number | string;
+    COLOR_BLACK: number | string;
+    COLOR_BLUE: number | string;
+    COLOR_GREEN: number | string;
+    COLOR_RED: number | string;
+    COLOR_WHITE: number | string;
+    COLOR_TRANSPARENT: number | string;
+    COLOR_YELLOW: number | string;
 
-    COLOR_DKGRAY: number|string;
-    COLOR_CYAN: number|string;
-    COLOR_BLACK: number|string;
-    COLOR_BLUE: number|string;
-    COLOR_GREEN: number|string;
-    COLOR_RED: number|string;
-    COLOR_WHITE: number|string;
-    COLOR_TRANSPARENT: number|string;
-    COLOR_YELLOW: number|string;
-
-    MARKER_RED: number|string;
-    MARKER_GREEN: number|string;
-    MARKER_BLUE: number|string;
-    MARKER_YELLOW: number|string;
-    MARKER_BLACK: number|string;
-    MARKER_WHITE: number|string;
+    MARKER_RED: number | string;
+    MARKER_GREEN: number | string;
+    MARKER_BLUE: number | string;
+    MARKER_YELLOW: number | string;
+    MARKER_BLACK: number | string;
+    MARKER_WHITE: number | string;
 
     /**
      * The map file path provided must be the absolute file path. You can specify the width and height values for the view that will be added,
@@ -40,7 +39,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    initialize(args: any[], success?: () => void, error?: (message: string) => void): void;
+    initialize(
+        args: any[],
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * To show the map view.
@@ -63,7 +66,12 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setCenter(lat: number, lng: number, success?: () => void, error?: (message: string) => void): void;
+    setCenter(
+        lat: number,
+        lng: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the zoom to the specified value (if it is between the zoom limits).
@@ -71,7 +79,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setZoom(zoomLevel: number, success?: () => void, error?: (message: string) => void): void;
+    setZoom(
+        zoomLevel: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the maximum zoom level.
@@ -79,7 +91,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMaxZoom(maxZoom: number, success?: () => void, error?: (message: string) => void): void;
+    setMaxZoom(
+        maxZoom: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the minimum zoom level.
@@ -87,7 +103,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMinZoom(minZoom: number, success?: () => void, error?: (message: string) => void): void;
+    setMinZoom(
+        minZoom: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * The path to the map ile is required, and the path to the render theme may be null in order to apply the default render theme.
@@ -95,7 +115,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setOfflineTileLayer(args: any[], success?: () => void, error?: (message: string) => void): void;
+    setOfflineTileLayer(
+        args: any[],
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      *
@@ -103,7 +127,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setOnlineTileLayer(args: any[], success?: () => void, error?: (message: string) => void): void;
+    setOnlineTileLayer(
+        args: any[],
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Adds a marker to the map in the specified coordinates and returns the key for that marker to the success function.
@@ -112,7 +140,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback. Gets the key of created marker. That key is the one you have to use if you want to delete it.
      * @param error Error callback
      */
-    addMarker(arg: any[], success?: (key: number) => void, error?: (message: string) => void): void;
+    addMarker(
+        arg: any[],
+        success?: (key: number) => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      *
@@ -124,7 +156,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback. Gets the key of created polyline.
      * @param error Error callback
      */
-    addPolyline(arg: any[], success?: (key: number) => void, error?: (message: string) => void): void;
+    addPolyline(
+        arg: any[],
+        success?: (key: number) => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Deletes the layer(markers or polylines) with the specified key from the map.
@@ -132,7 +168,11 @@ interface MapsforgeEmbeddedPlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    deleteLayer(key: number, success?: () => void, error?: (message: string) => void): void;
+    deleteLayer(
+        key: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Initializes again the map if the onStop method was called.
@@ -140,7 +180,6 @@ interface MapsforgeEmbeddedPlugin {
      * @param error Error callback
      */
     onStart(success?: () => void, error?: (message: string) => void): void;
-
 
     /**
      * Stops the rendering. Useful for when the app goes to the background. You have to call the onStart method to restart it.
@@ -158,14 +197,17 @@ interface MapsforgeEmbeddedPlugin {
 }
 
 interface MapsforgeCachePlugin {
-
     /**
      * You should call this method before any other one, and provide it with the absolute map file path.
      * @param mapFilePath Absolute map file path.
      * @param success Success callback.
      * @param error Error callback
      */
-    initialize(mapFilePath: string, success?: () => void, error?: (message: string) => void): void;
+    initialize(
+        mapFilePath: string,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * This method is the one that provides the tiles, generating them if their are not in the cache.
@@ -173,7 +215,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback. Gets the tile path.
      * @param error Error callback
      */
-    getTile(args: any[], success?: (tilePath: string) => void, error?: (message: string) => void): void;
+    getTile(
+        args: any[],
+        success?: (tilePath: string) => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Enables or disables the cache. If disabled, the plugin will generate the tiles always from scratch. Cache is enabled by default.
@@ -181,7 +227,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setCacheEnabled(enabled: boolean, success?: () => void, error?: (message: string) => void): void;
+    setCacheEnabled(
+        enabled: boolean,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets whether or not the cache should be placed in the internal memory or in the SD card.
@@ -190,7 +240,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setExternalCache(external: boolean, success?: () => void, error?: (message: string) => void): void;
+    setExternalCache(
+        external: boolean,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the map file to be used for rendering to the map specified by its absolute path.
@@ -198,7 +252,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMapFile(absolutePath: string, success?: () => void, error?: (message: string) => void): void;
+    setMapFile(
+        absolutePath: string,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the age for the generated images. This means that when the cache is being cleaned, all images younger than the specified value will be kept in the cache in order to avoid deleting images that are being used at the moment.
@@ -206,7 +264,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMaxCacheAge(milliseconds: number, success?: () => void, error?: (message: string) => void): void;
+    setMaxCacheAge(
+        milliseconds: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the maximum size for the cache. This size must be specified in megabytes. If there is not that space available, the cache will fit the maximum size.
@@ -214,7 +276,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMaxCacheSize(sizeInMB: number, success?: () => void, error?: (message: string) => void): void;
+    setMaxCacheSize(
+        sizeInMB: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets the tile size. By default the tile size is set to 256.
@@ -222,7 +288,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setMaxCacheSize(size: number, success?: () => void, error?: (message: string) => void): void;
+    setMaxCacheSize(
+        size: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * This method sets the size in megabytes that will remain always available in memory in order to avoid that the application uses all space available.
@@ -230,7 +300,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    setCacheCleaningTrigger(sizeInMB: number, success?: () => void, error?: (message: string) => void): void;
+    setCacheCleaningTrigger(
+        sizeInMB: number,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Sets a flag to destroy the cache when the onDestroy method is called.
@@ -238,7 +312,11 @@ interface MapsforgeCachePlugin {
      * @param success Success callback.
      * @param error Error callback
      */
-    destroyCacheOnExit(destroy: boolean, success?: () => void, error?: (message: string) => void): void;
+    destroyCacheOnExit(
+        destroy: boolean,
+        success?: () => void,
+        error?: (message: string) => void
+    ): void;
 
     /**
      * Deletes the cache depending on the flag state.

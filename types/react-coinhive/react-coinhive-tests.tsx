@@ -11,7 +11,7 @@ export class CoinHiveTest extends React.Component {
             src: CoinHive.src.authedmine,
             onInit: () => {},
             onStart: () => {},
-            onStop: () => {},
+            onStop: () => {}
         };
 
         return (

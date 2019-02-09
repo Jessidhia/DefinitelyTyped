@@ -11,7 +11,9 @@ import * as WebSocket from "ws";
 
 export = SlackMock;
 
-declare function SlackMock(config?: SlackMock.ConfigOptions): SlackMock.Instance;
+declare function SlackMock(
+    config?: SlackMock.ConfigOptions
+): SlackMock.Instance;
 
 declare namespace SlackMock {
     let instance: Instance;
@@ -64,9 +66,9 @@ declare namespace SlackMock {
 
     interface IncomingWebhookOptions<T> {
         url?: IncomingWebhookUrl;
-        statusCode ?: number;
-        body ?: T;
-        headers ?: IncomingWebhookHttpHeaders;
+        statusCode?: number;
+        body?: T;
+        headers?: IncomingWebhookHttpHeaders;
     }
 
     interface IncomingWebhookCall<T> {
@@ -89,9 +91,9 @@ declare namespace SlackMock {
 
     interface InteractiveButtonOptions<T> {
         url?: InteractiveButtonUrl;
-        statusCode ?: number;
-        body ?: T;
-        headers ?: InteractiveButtonHttpHeaders;
+        statusCode?: number;
+        body?: T;
+        headers?: InteractiveButtonHttpHeaders;
     }
 
     interface InteractiveButtonCall<T> {
@@ -103,8 +105,8 @@ declare namespace SlackMock {
     }
 
     enum InteractiveButtonCallType {
-        response = 'response',
-        response_url = 'response_url'
+        response = "response",
+        response_url = "response_url"
     }
 
     // Outgoing Webhooks
@@ -156,9 +158,9 @@ declare namespace SlackMock {
 
     interface SlashCommandOptions<T> {
         url?: SlashCommandUrl;
-        statusCode ?: number;
-        body ?: T;
-        headers ?: SlashCommandHttpHeaders;
+        statusCode?: number;
+        body?: T;
+        headers?: SlashCommandHttpHeaders;
     }
 
     interface SlashCommandCall<T> {
@@ -170,8 +172,8 @@ declare namespace SlackMock {
     }
 
     enum SlashCommandCallType {
-        response = 'response',
-        response_url = 'response_url'
+        response = "response",
+        response_url = "response_url"
     }
 
     // Web
@@ -187,9 +189,9 @@ declare namespace SlackMock {
 
     interface WebOptions<T> {
         url?: WebUrl;
-        statusCode ?: number;
-        body ?: T;
-        headers ?: WebHttpHeaders;
+        statusCode?: number;
+        body?: T;
+        headers?: WebHttpHeaders;
     }
 
     interface WebCall<T> {

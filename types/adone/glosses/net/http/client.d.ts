@@ -2,43 +2,43 @@ declare namespace adone.net.http {
     namespace client {
         namespace I {
             interface RequestHeaders {
-                "Accept"?: string;
+                Accept?: string;
                 "Accept-Charset"?: string;
                 "Accept-Encoding"?: string;
                 "Accept-Language"?: string;
                 "Accept-Datetime"?: string;
                 "Access-Control-Request-Method"?: string;
                 "Access-Control-Request-Headers"?: string;
-                "Authorization"?: string;
+                Authorization?: string;
                 "Cache-Control"?: string;
-                "Connection"?: string;
-                "Cookie"?: string;
+                Connection?: string;
+                Cookie?: string;
                 "Content-Length"?: string;
                 "Content-MD5"?: string;
                 "Content-Type"?: string;
-                "Date"?: string;
-                "Expect"?: string;
-                "Forwarded"?: string;
-                "From"?: string;
-                "Host"?: string;
+                Date?: string;
+                Expect?: string;
+                Forwarded?: string;
+                From?: string;
+                Host?: string;
                 "If-Match"?: string;
                 "If-Modified-Since"?: string;
                 "If-None-Match"?: string;
                 "If-Range"?: string;
                 "If-Unmodified-Since"?: string;
                 "Max-Forwards"?: string;
-                "Origin"?: string;
-                "Pragma"?: string;
+                Origin?: string;
+                Pragma?: string;
                 "Proxy-Authorization"?: string;
-                "Range"?: string;
-                "Referer"?: string;
-                "TE"?: string;
+                Range?: string;
+                Referer?: string;
+                TE?: string;
                 "User-Agent"?: string;
-                "Upgrade"?: string;
-                "Via"?: string;
-                "Warning"?: string;
+                Upgrade?: string;
+                Via?: string;
+                Warning?: string;
                 "X-Requested-With"?: string;
-                "DNT"?: string;
+                DNT?: string;
                 "X-Forwarded-For"?: string;
                 "X-Forwarded-Host"?: string;
                 "X-Forwarded-Proto"?: string;
@@ -64,52 +64,52 @@ declare namespace adone.net.http {
                 "access-control-allow-origin": string | undefined;
                 "access-control-expose-headers": string | undefined;
                 "access-control-max-age": string | undefined;
-                "age": string | undefined;
-                "allow": string | undefined;
+                age: string | undefined;
+                allow: string | undefined;
                 "alt-svc": string | undefined;
                 "cache-control": string | undefined;
-                "connection": string| undefined;
+                connection: string | undefined;
                 "content-disposition": string | undefined;
-                "content-encoding": string| undefined;
+                "content-encoding": string | undefined;
                 "content-language": string | undefined;
-                "content-length": string| undefined;
-                "content-location": string| undefined;
-                "content-md5": string| undefined;
-                "content-range": string| undefined;
+                "content-length": string | undefined;
+                "content-location": string | undefined;
+                "content-md5": string | undefined;
+                "content-range": string | undefined;
                 "content-security-policy": string | undefined;
-                "content-type": string| undefined;
-                "date": string| undefined;
-                "etag": string| undefined;
-                "expires": string| undefined;
+                "content-type": string | undefined;
+                date: string | undefined;
+                etag: string | undefined;
+                expires: string | undefined;
                 "keep-alive": string | undefined;
                 "last-modified": string | undefined;
-                "link": string| undefined;
-                "location": string| undefined;
-                "p3p": string| undefined;
-                "pragma": string| undefined;
+                link: string | undefined;
+                location: string | undefined;
+                p3p: string | undefined;
+                pragma: string | undefined;
                 "proxy-authenticate": string | undefined;
-                "public-key-pins": string| undefined;
+                "public-key-pins": string | undefined;
                 "referer-policy": string | undefined;
-                "refresh": string | undefined;
+                refresh: string | undefined;
                 "retry-after": string | undefined;
-                "server": string | undefined;
+                server: string | undefined;
                 "set-cookie": string | undefined;
-                "status": string | undefined;
-                "strict-transport-security": string| undefined;
+                status: string | undefined;
+                "strict-transport-security": string | undefined;
                 "timing-allow-origin": string | undefined;
-                "tk": string| undefined;
+                tk: string | undefined;
                 "transfer-encoding": string | undefined;
                 "upgrade-insecure-requests": string | undefined;
-                "upgrade": string| undefined;
-                "vary": string | undefined;
-                "via": string| undefined;
-                "warning": string| undefined;
+                upgrade: string | undefined;
+                vary: string | undefined;
+                via: string | undefined;
+                warning: string | undefined;
                 "www-authenticate": string | undefined;
                 "x-content-duration": string | undefined;
                 "x-content-security-policy": string | undefined;
                 "x-content-type-options": string | undefined;
                 "x-correlation-id": string | undefined;
-                "x-frame-options": string| undefined;
+                "x-frame-options": string | undefined;
                 "x-powered-by": string | undefined;
                 "x-request-id": string | undefined;
                 "x-ua-compatible": string | undefined;
@@ -126,7 +126,11 @@ declare namespace adone.net.http {
                 data: T;
             }
 
-            type Transformer = (data: Data, headers: object, config: I.Options) => Data;
+            type Transformer = (
+                data: Data,
+                headers: object,
+                config: I.Options
+            ) => Data;
 
             interface FormValueOptions {
                 header?: string | { [key: string]: string };
@@ -136,10 +140,14 @@ declare namespace adone.net.http {
                 contentType?: string;
             }
 
-            type FormValue = string | Buffer | nodestd.stream.Readable | {
-                value: string | Buffer | nodestd.stream.Readable;
-                options: FormValueOptions
-            };
+            type FormValue =
+                | string
+                | Buffer
+                | nodestd.stream.Readable
+                | {
+                      value: string | Buffer | nodestd.stream.Readable;
+                      options: FormValueOptions;
+                  };
 
             interface UploadProgressEvent {
                 lengthComputable: boolean;
@@ -193,7 +201,14 @@ declare namespace adone.net.http {
 
             type Options = Partial<Config>;
 
-            type Data = string | Buffer | ArrayBuffer | nodestd.stream.Readable | ArrayBufferView | object | undefined;
+            type Data =
+                | string
+                | Buffer
+                | ArrayBuffer
+                | nodestd.stream.Readable
+                | ArrayBufferView
+                | object
+                | undefined;
 
             interface Request extends Client {
                 (config: I.Options, ...args: any[]): Promise<object>;
@@ -203,41 +218,140 @@ declare namespace adone.net.http {
         class Client {
             constructor(options?: I.Options);
 
-            request(config: I.Options & { responseType: "json" }, ...args: any[]): Promise<I.Response<object | string>>;
-            request(config: I.Options & { responseType: "string" }, ...args: any[]): Promise<I.Response<string>>;
-            request(config: I.Options & { responseType: "buffer" }, ...args: any[]): Promise<I.Response<Buffer>>;
-            request(config: I.Options & { responseType: "stream" }, ...args: any[]): Promise<I.Response<nodestd.stream.Readable>>;
-            request(config: I.Options, ...args: any[]): Promise<I.Response<object | string>>;
+            request(
+                config: I.Options & { responseType: "json" },
+                ...args: any[]
+            ): Promise<I.Response<object | string>>;
+            request(
+                config: I.Options & { responseType: "string" },
+                ...args: any[]
+            ): Promise<I.Response<string>>;
+            request(
+                config: I.Options & { responseType: "buffer" },
+                ...args: any[]
+            ): Promise<I.Response<Buffer>>;
+            request(
+                config: I.Options & { responseType: "stream" },
+                ...args: any[]
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            request(
+                config: I.Options,
+                ...args: any[]
+            ): Promise<I.Response<object | string>>;
 
-            get(url: string, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            get(url: string, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            get(url: string, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            get(url: string, options?: I.Options): Promise<I.Response<object | string>>;
+            get(
+                url: string,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            get(
+                url: string,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            get(
+                url: string,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            get(
+                url: string,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
 
-            post(url: string, data: I.Data, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            post(url: string, data: I.Data, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            post(url: string, data: I.Data, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            post(url: string, data?: I.Data, options?: I.Options): Promise<I.Response<object | string>>;
+            post(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            post(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            post(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            post(
+                url: string,
+                data?: I.Data,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
 
-            put(url: string, data: I.Data, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            put(url: string, data: I.Data, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            put(url: string, data: I.Data, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            put(url: string, data?: I.Data, options?: I.Options): Promise<I.Response<object | string>>;
+            put(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            put(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            put(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            put(
+                url: string,
+                data?: I.Data,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
 
-            patch(url: string, data: I.Data, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            patch(url: string, data: I.Data, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            patch(url: string, data: I.Data, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            patch(url: string, data?: I.Data, options?: I.Options): Promise<I.Response<object | string>>;
+            patch(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            patch(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            patch(
+                url: string,
+                data: I.Data,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            patch(
+                url: string,
+                data?: I.Data,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
 
-            delete(url: string, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            delete(url: string, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            delete(url: string, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            delete(url: string, options?: I.Options): Promise<I.Response<object | string>>;
+            delete(
+                url: string,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            delete(
+                url: string,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            delete(
+                url: string,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            delete(
+                url: string,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
 
-            options(url: string, options: I.Options & { responseType: "string" }): Promise<I.Response<string>>;
-            options(url: string, options: I.Options & { responseType: "buffer" }): Promise<I.Response<Buffer>>;
-            options(url: string, options: I.Options & { responseType: "stream" }): Promise<I.Response<nodestd.stream.Readable>>;
-            options(url: string, options?: I.Options): Promise<I.Response<object | string>>;
+            options(
+                url: string,
+                options: I.Options & { responseType: "string" }
+            ): Promise<I.Response<string>>;
+            options(
+                url: string,
+                options: I.Options & { responseType: "buffer" }
+            ): Promise<I.Response<Buffer>>;
+            options(
+                url: string,
+                options: I.Options & { responseType: "stream" }
+            ): Promise<I.Response<nodestd.stream.Readable>>;
+            options(
+                url: string,
+                options?: I.Options
+            ): Promise<I.Response<object | string>>;
         }
 
         class Cancel {

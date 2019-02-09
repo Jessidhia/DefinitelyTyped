@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "../",
         "forceConsistentCasingInFileNames": true,
-        "lib": ["es6","dom"],
+        "lib": ["es6", "dom"],
         "module": "commonjs",
         "noEmit": true,
         "noImplicitAny": true,
@@ -12,8 +12,5 @@
         "types": [],
         "typeRoots": ["../"]
     },
-    "files": [
-        "index.d.ts",
-        "frisby-tests.ts"
-    ]
+    "files": ["index.d.ts", "frisby-tests.ts"]
 }

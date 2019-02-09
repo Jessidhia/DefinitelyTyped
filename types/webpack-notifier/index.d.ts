@@ -4,23 +4,23 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Plugin } from 'webpack';
+import { Plugin } from "webpack";
 
 export = WebpackNotifierPlugin;
 
 declare class WebpackNotifierPlugin extends Plugin {
-	constructor(options?: WebpackNotifierPlugin.Options);
+    constructor(options?: WebpackNotifierPlugin.Options);
 }
 
 declare namespace WebpackNotifierPlugin {
-	interface Options {
-		alwaysNotify?: boolean;
-		contentImage?: string;
-		excludeWarnings?: boolean;
-		skipFirstNotification?: boolean;
-		title?: string;
-	}
+    interface Options {
+        alwaysNotify?: boolean;
+        contentImage?: string;
+        excludeWarnings?: boolean;
+        skipFirstNotification?: boolean;
+        title?: string;
+    }
 
-	/** @deprecated use Options */
-	type Config = Options;
+    /** @deprecated use Options */
+    type Config = Options;
 }

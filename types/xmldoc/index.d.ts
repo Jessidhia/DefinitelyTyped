@@ -16,7 +16,7 @@ export type XmlNode = XmlElement | XmlTextNode | XmlCDataNode | XmlCommentNode;
 export class XmlElement {
     constructor(tag: XmlTag);
 
-    type: 'element';
+    type: "element";
     name: string;
     attr: XmlAttributes;
     val: string;
@@ -28,11 +28,24 @@ export class XmlElement {
     position: number;
     startTagPosition: number;
 
-    eachChild(iterator: (child: XmlElement, index: number, array: XmlNode[]) => void): void;
-    eachChild<T>(iterator: (this: T, child: XmlElement, index: number, array: XmlNode[]) => void, context: T): void;
+    eachChild(
+        iterator: (child: XmlElement, index: number, array: XmlNode[]) => void
+    ): void;
+    eachChild<T>(
+        iterator: (
+            this: T,
+            child: XmlElement,
+            index: number,
+            array: XmlNode[]
+        ) => void,
+        context: T
+    ): void;
     childNamed(name: string): XmlElement | undefined;
     childrenNamed(name: string): XmlElement[];
-    childWithAttribute(name: string, value?: string | null): XmlElement | undefined;
+    childWithAttribute(
+        name: string,
+        value?: string | null
+    ): XmlElement | undefined;
     descendantWithPath(path: string): XmlElement | undefined;
     valueWithPath(path: string): string | undefined;
     toString(opts?: XmlOptions): string;
@@ -42,7 +55,7 @@ export class XmlElement {
 export class XmlTextNode {
     constructor(text: string);
 
-    type: 'text';
+    type: "text";
     text: string;
 
     toString(opts?: XmlOptions): string;
@@ -52,7 +65,7 @@ export class XmlTextNode {
 export class XmlCDataNode {
     constructor(cdata: string);
 
-    type: 'cdata';
+    type: "cdata";
     cdata: string;
 
     toString(opts?: XmlOptions): string;
@@ -62,7 +75,7 @@ export class XmlCDataNode {
 export class XmlCommentNode {
     constructor(comment: string);
 
-    type: 'comment';
+    type: "comment";
     comment: string;
 
     toString(opts?: XmlOptions): string;

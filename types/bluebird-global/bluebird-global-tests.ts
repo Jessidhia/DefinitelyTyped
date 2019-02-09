@@ -14,14 +14,13 @@ function testFunctionReturningPromise() {
             }
 
             resolve("lorem ipsum");
-        })
-            .then((value) => {
-                return value + " dolor";
-            });
+        }).then(value => {
+            return value + " dolor";
+        });
     }
 
     functionReturningPromise()
-        .then((value) => {
+        .then(value => {
             console.log("then callback: " + value);
         })
         .finally(() => {
@@ -33,10 +32,10 @@ function testPromiseRejection() {
     new Promise<string>((resolve, reject) => {
         reject(new Error("problem occurred"));
     })
-        .catch((error) => {
+        .catch(error => {
             return "recovered from error";
         })
-        .then((value) => {
+        .then(value => {
             return value.toUpperCase();
         });
 }
@@ -49,6 +48,6 @@ import Bluebird = require("bluebird");
 
 function testTheWalkaroundForCastingGlobalPromiseToBluebirdPromise() {
     const bluebirdString: Bluebird<string> = Bluebird.resolve(
-        new Promise<string>(() => 'Lorem ipsum')
+        new Promise<string>(() => "Lorem ipsum")
     );
 }

@@ -1,48 +1,47 @@
+import when = require("when");
+import rest = require("rest");
 
+import defaultRequest = require("rest/interceptor/defaultRequest");
+import hateoas = require("rest/interceptor/hateoas");
+import location = require("rest/interceptor/location");
+import mime = require("rest/interceptor/mime");
+import pathPrefix = require("rest/interceptor/pathPrefix");
+import basicAuth = require("rest/interceptor/basicAuth");
+import oAuth = require("rest/interceptor/oAuth");
+import csrf = require("rest/interceptor/csrf");
+import errorCode = require("rest/interceptor/errorCode");
+import retry = require("rest/interceptor/retry");
+import template = require("rest/interceptor/template");
+import timeout = require("rest/interceptor/timeout");
+import jsonp = require("rest/interceptor/jsonp");
+import xdomain = require("rest/interceptor/ie/xdomain");
+import xhr = require("rest/interceptor/ie/xhr");
 
-import when = require('when');
-import rest = require('rest');
+import interceptor = require("rest/interceptor");
+import registry = require("rest/mime/registry");
 
-import defaultRequest = require('rest/interceptor/defaultRequest');
-import hateoas = require('rest/interceptor/hateoas');
-import location = require('rest/interceptor/location');
-import mime = require('rest/interceptor/mime');
-import pathPrefix = require('rest/interceptor/pathPrefix');
-import basicAuth = require('rest/interceptor/basicAuth');
-import oAuth = require('rest/interceptor/oAuth');
-import csrf = require('rest/interceptor/csrf');
-import errorCode = require('rest/interceptor/errorCode');
-import retry = require('rest/interceptor/retry');
-import template = require('rest/interceptor/template');
-import timeout = require('rest/interceptor/timeout');
-import jsonp = require('rest/interceptor/jsonp');
-import xdomain = require('rest/interceptor/ie/xdomain');
-import xhr = require('rest/interceptor/ie/xhr');
-
-import interceptor = require('rest/interceptor');
-import registry = require('rest/mime/registry');
-
-rest('/').then(function(response) {
-    console.log('response: ', response);
+rest("/").then(function(response) {
+    console.log("response: ", response);
 });
-
 
 var client = rest.wrap(mime);
-client({ path: '/data.json' }).then(function(response) {
-    console.log('response: ', response);
+client({ path: "/data.json" }).then(function(response) {
+    console.log("response: ", response);
 });
 
-client = rest.wrap<mime.Config>(mime, { mime: 'application/json' }).wrap(errorCode, { code: 500 });
-client({ path: '/data.json' }).then(
+client = rest
+    .wrap<mime.Config>(mime, { mime: "application/json" })
+    .wrap(errorCode, { code: 500 });
+client({ path: "/data.json" }).then(
     function(response) {
-        console.log('response: ', response);
+        console.log("response: ", response);
     },
     function(response) {
-        console.error('response error: ', response);
+        console.error("response error: ", response);
     }
 );
 
-registry.register('application/vnd.com.example', {
+registry.register("application/vnd.com.example", {
     read: function(str: string) {
         var obj: any;
         // do string to object conversions
@@ -74,18 +73,18 @@ var noop = interceptor({
 });
 
 var fail = interceptor({
-    success: (response: rest.Response) => when.reject<rest.Response>(response),
+    success: (response: rest.Response) => when.reject<rest.Response>(response)
 });
 
 var succeed = interceptor({
-    error: (response: rest.Response) => when(response),
+    error: (response: rest.Response) => when(response)
 });
 
 var defaulted = interceptor({
     init: (config: any) => {
-        config.prop = config.prop || 'default-value';
+        config.prop = config.prop || "default-value";
         return config;
-    },
+    }
 });
 
 interface KnownConfig {
@@ -95,7 +94,7 @@ var knownConfig = interceptor({
     success: (response: rest.Response, config: KnownConfig) => {
         console.log(config);
         return response;
-    },
+    }
 });
 
 var transformedConfig = interceptor({
@@ -105,7 +104,7 @@ var transformedConfig = interceptor({
     success: (response: rest.Response, config: string) => {
         console.log(config);
         return response;
-    },
+    }
 });
 
 var promiseOrResponse = interceptor({
@@ -114,7 +113,7 @@ var promiseOrResponse = interceptor({
     },
     error: (response: rest.Response) => {
         return when(response);
-    },
+    }
 });
 
 client = rest
@@ -128,20 +127,20 @@ client = rest
     .wrap(csrf)
     .wrap(errorCode)
     .wrap(retry)
-    .wrap(template, { template: 'auth={token}', params: { token: 'hunter2' } })
+    .wrap(template, { template: "auth={token}", params: { token: "hunter2" } })
     .wrap(timeout)
     .wrap(jsonp)
     .wrap(xdomain)
     .wrap(xhr)
     .wrap(noop)
     .wrap(fail)
-    .wrap<KnownConfig>(knownConfig, { prop: 'value' })
-    .wrap(transformedConfig, { prop: 'value' });
+    .wrap<KnownConfig>(knownConfig, { prop: "value" })
+    .wrap(transformedConfig, { prop: "value" });
 
-import xhrClient = require('rest/client/xhr');
-import nodeClient = require('rest/client/node');
-import jsonpClient = require('rest/client/jsonp');
-import xdrClient = require('rest/client/xdr');
+import xhrClient = require("rest/client/xhr");
+import nodeClient = require("rest/client/node");
+import jsonpClient = require("rest/client/jsonp");
+import xdrClient = require("rest/client/xdr");
 
 rest.setDefaultClient(xhrClient);
 rest.setDefaultClient(nodeClient);

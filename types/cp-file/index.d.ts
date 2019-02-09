@@ -5,13 +5,20 @@
 
 export = cpFile;
 
-declare function cpFile(source: string, destination: string, options?: cpFile.Options): Promise<void> & cpFile.ProgressEmitter;
+declare function cpFile(
+    source: string,
+    destination: string,
+    options?: cpFile.Options
+): Promise<void> & cpFile.ProgressEmitter;
 
 declare namespace cpFile {
     function sync(source: string, destination: string, options?: Options): void;
 
     interface ProgressEmitter {
-        on(event: 'progress', handler: (data: ProgressData) => void): Promise<void>;
+        on(
+            event: "progress",
+            handler: (data: ProgressData) => void
+        ): Promise<void>;
     }
 
     interface Options {

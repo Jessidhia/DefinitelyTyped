@@ -7,9 +7,17 @@
 
 /// <reference types="node" />
 
-export type ImporterReturnType = { file: string } | { contents: string } | Error | null;
+export type ImporterReturnType =
+    | { file: string }
+    | { contents: string }
+    | Error
+    | null;
 
-export type Importer = (url: string, prev: string, done: (data: ImporterReturnType) => void) => ImporterReturnType | void;
+export type Importer = (
+    url: string,
+    prev: string,
+    done: (data: ImporterReturnType) => void
+) => ImporterReturnType | void;
 
 export interface Options {
     /**
@@ -42,7 +50,9 @@ export interface Options {
      *
      * @default undefined
      */
-    functions?: { [key: string]: (...args: types.SassType[]) => types.SassType | void };
+    functions?: {
+        [key: string]: (...args: types.SassType[]) => types.SassType | void;
+    };
 
     /**
      * An array of paths that should be looked in to attempt to resolve your @import declarations.
@@ -64,7 +74,7 @@ export interface Options {
      *
      * @default 'space'
      */
-    indentType?: 'space' | 'tab';
+    indentType?: "space" | "tab";
 
     /**
      * Used to determine the number of spaces or tabs to be used for indentation.
@@ -78,7 +88,7 @@ export interface Options {
      *
      * @default 'lf'
      */
-    linefeed?: 'cr' | 'crlf' | 'lf' | 'lfcr';
+    linefeed?: "cr" | "crlf" | "lf" | "lfcr";
 
     /**
      * Disable the inclusion of source map information in the output file.
@@ -100,7 +110,7 @@ export interface Options {
      *
      * @default 'expanded'
      */
-    outputStyle?: 'compressed' | 'expanded';
+    outputStyle?: "compressed" | "expanded";
 
     /**
      * Enables the outputting of a source map.
@@ -205,7 +215,10 @@ export interface Result {
     };
 }
 
-export function render(options: Options, callback: (exception: SassException, result: Result) => void): void;
+export function render(
+    options: Options,
+    callback: (exception: SassException, result: Result) => void
+): void;
 export function renderSync(options: Options): Result;
 
 export namespace types {
@@ -259,7 +272,8 @@ export namespace types {
         getLength(): number;
     }
 
-    class Map<K extends SassType = SassType, V extends SassType = SassType> implements SassType {
+    class Map<K extends SassType = SassType, V extends SassType = SassType>
+        implements SassType {
         constructor(length: number);
         getValue(index: number): V;
         setValue(index: number, value: V): void;

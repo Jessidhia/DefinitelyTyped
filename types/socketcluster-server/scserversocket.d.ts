@@ -30,11 +30,26 @@ declare class SCServerSocket extends Emitter {
     constructor(id: string, server: SCServer, socket: WebSocket);
 
     on(event: "error", listener: (error: Error) => void): this;
-    on(event: "message" | "raw", listener: (message: WebSocket.Data) => void): this;
-    on(event: "connectAbort" | "disconnect" | "close", listener: (code: number, data?: any) => void): this;
-    on(event: "authStateChange", listener: (stateChangeData: SCServerSocket.StateChangeData) => void): this;
-    on(event: "authenticate", listener: (authToken?: SCServer.AuthToken) => void): this;
-    on(event: "deauthenticate", listener: (oldToken?: SCServer.AuthToken) => void): this;
+    on(
+        event: "message" | "raw",
+        listener: (message: WebSocket.Data) => void
+    ): this;
+    on(
+        event: "connectAbort" | "disconnect" | "close",
+        listener: (code: number, data?: any) => void
+    ): this;
+    on(
+        event: "authStateChange",
+        listener: (stateChangeData: SCServerSocket.StateChangeData) => void
+    ): this;
+    on(
+        event: "authenticate",
+        listener: (authToken?: SCServer.AuthToken) => void
+    ): this;
+    on(
+        event: "deauthenticate",
+        listener: (oldToken?: SCServer.AuthToken) => void
+    ): this;
 
     getState(): "connecting" | "open" | "closed";
     getBytesReceived(): number;
@@ -43,7 +58,15 @@ declare class SCServerSocket extends Emitter {
     destroy(code?: number, data?: any): void;
     terminate(): void;
 
-    send(data: any, options: { mask?: boolean; binary?: boolean; compress?: boolean; fin?: boolean }): void;
+    send(
+        data: any,
+        options: {
+            mask?: boolean;
+            binary?: boolean;
+            compress?: boolean;
+            fin?: boolean;
+        }
+    ): void;
 
     decode(message: any): any;
     encode(object: any): any;
@@ -53,12 +76,23 @@ declare class SCServerSocket extends Emitter {
     sendObject(object: any, options?: { batch?: boolean }): void;
 
     emit(event: string, ...args: any[]): boolean;
-    emit(event: string, data: any, callback?: SCServerSocket.EmitCallback, options?: SCServerSocket.EmitOptions): void;
+    emit(
+        event: string,
+        data: any,
+        callback?: SCServerSocket.EmitCallback,
+        options?: SCServerSocket.EmitOptions
+    ): void;
 
-    triggerAuthenticationEvents(oldState: "authenticated" | "unauthenticated"): void;
+    triggerAuthenticationEvents(
+        oldState: "authenticated" | "unauthenticated"
+    ): void;
 
     getAuthToken(): SCServer.AuthToken;
-    setAuthToken(data: SCServer.AuthToken, options?: SignOptions, callback?: SCServerSocket.EmitCallback): void;
+    setAuthToken(
+        data: SCServer.AuthToken,
+        options?: SignOptions,
+        callback?: SCServerSocket.EmitCallback
+    ): void;
 
     deauthenticateSelf(): void;
     deauthenticate(callback?: SCServerSocket.EmitCallback): void;

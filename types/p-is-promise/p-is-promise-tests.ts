@@ -1,6 +1,6 @@
-import pIsPromise = require('p-is-promise');
+import pIsPromise = require("p-is-promise");
 
 // $ExpectType boolean
-pIsPromise(Promise.resolve('🦄'));
+pIsPromise(Promise.resolve("🦄"));
 // $ExpectType boolean
-pIsPromise('🦄');
+pIsPromise("🦄");

@@ -1,5 +1,5 @@
-import { Callback } from '../connection';
-import { ExplainInfo } from '../query';
+import { Callback } from "../connection";
+import { ExplainInfo } from "../query";
 
 export class Dashboard {
     describe(callback?: Callback<object>): Promise<any>;
@@ -10,19 +10,26 @@ export class Dashboard {
 
     delete(callback?: Callback<object>): Promise<any>;
 
-    components(componentIds: () => any | string[] | string, callback?: Callback<object>): Promise<any>;
+    components(
+        componentIds: () => any | string[] | string,
+        callback?: Callback<object>
+    ): Promise<any>;
 
     status(callback?: Callback<object>): Promise<any>;
 
     refresh(callback?: Callback<object>): Promise<any>;
 
-    clone(name: string | object, folderid: string, callback?: Callback<object>): Promise<any>;
+    clone(
+        name: string | object,
+        folderid: string,
+        callback?: Callback<object>
+    ): Promise<any>;
 }
 
 export class ReportInstance {
     constructor(report: Report, id: string);
 
-    retrieve(callback: Callback<ReportResult>): Promise<ReportResult>
+    retrieve(callback: Callback<ReportResult>): Promise<ReportResult>;
 }
 
 export class Report {
@@ -34,37 +41,47 @@ export class Report {
 
     delete(callback?: Callback<ReportResult>): Promise<ReportResult>;
 
-    clone(name: string, callback?: Callback<ReportResult>): Promise<ReportResult>;
+    clone(
+        name: string,
+        callback?: Callback<ReportResult>
+    ): Promise<ReportResult>;
 
     explain(callback?: Callback<ExplainInfo>): Promise<ExplainInfo>;
 
-    run(options: () => any | object, callback?: Callback<ReportResult>): Promise<ReportResult>;
+    run(
+        options: () => any | object,
+        callback?: Callback<ReportResult>
+    ): Promise<ReportResult>;
 
-    exec(options: () => any | object, callback?: Callback<ReportResult>): Promise<ReportResult>;
+    exec(
+        options: () => any | object,
+        callback?: Callback<ReportResult>
+    ): Promise<ReportResult>;
 
-    execute(options: () => any | object, callback?: Callback<ReportResult>): Promise<ReportResult>;
+    execute(
+        options: () => any | object,
+        callback?: Callback<ReportResult>
+    ): Promise<ReportResult>;
 
-    executeAsync(options: () => any | object, callback?: Callback<ReportInstanceAttrs>): Promise<ReportInstanceAttrs>;
+    executeAsync(
+        options: () => any | object,
+        callback?: Callback<ReportInstanceAttrs>
+    ): Promise<ReportInstanceAttrs>;
 
     instance(id: string): ReportInstance;
 
     instances(callback?: Callback<ReportInstance[]>): Promise<ReportInstance[]>;
 }
 
-export interface ReportInstanceAttrs {
-}
+export interface ReportInstanceAttrs {}
 
-export interface ReportMetadata {
-}
+export interface ReportMetadata {}
 
-export interface ReportResult {
-}
+export interface ReportResult {}
 
-export interface ReportInfo {
-}
+export interface ReportInfo {}
 
-export interface DashboardInfo {
-}
+export interface DashboardInfo {}
 
 export class Analytics {
     report(id: string): Promise<Report>;

@@ -1,7 +1,8 @@
 /// <reference path="./common.d.ts" />
 
 declare namespace M {
-    class FloatingActionButton extends Component<FloatingActionButtonOptions> implements Openable {
+    class FloatingActionButton extends Component<FloatingActionButtonOptions>
+        implements Openable {
         /**
          * Get Instance
          */
@@ -10,12 +11,18 @@ declare namespace M {
         /**
          * Init FloatingActionButton
          */
-        static init(els: Element, options?: Partial<FloatingActionButtonOptions>): FloatingActionButton;
+        static init(
+            els: Element,
+            options?: Partial<FloatingActionButtonOptions>
+        ): FloatingActionButton;
 
         /**
          * Init FloatingActionButtons
          */
-        static init(els: MElements, options?: Partial<FloatingActionButtonOptions>): FloatingActionButton[];
+        static init(
+            els: MElements,
+            options?: Partial<FloatingActionButtonOptions>
+        ): FloatingActionButton[];
 
         /**
          * Open FAB
@@ -55,6 +62,10 @@ declare namespace M {
 }
 
 interface JQuery {
-    floatingActionButton(method: keyof Pick<M.FloatingActionButton, "open" | "close" | "destroy">): JQuery;
-    floatingActionButton(options?: Partial<M.FloatingActionButtonOptions>): JQuery;
+    floatingActionButton(
+        method: keyof Pick<M.FloatingActionButton, "open" | "close" | "destroy">
+    ): JQuery;
+    floatingActionButton(
+        options?: Partial<M.FloatingActionButtonOptions>
+    ): JQuery;
 }

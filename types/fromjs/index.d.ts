@@ -17,7 +17,9 @@ declare namespace FromJS {
         select<TResult>(item: (item: T) => TResult): IQueryable<TResult>;
         orderByDesc<TResult>(item: (item: T) => TResult): IOrderedQueryable<T>;
         orderBy<TResult>(item: (item: T) => TResult): IOrderedQueryable<T>;
-        selectMany<TResult>(item: (item: T) => Array<TResult>): IQueryable<TResult>;
+        selectMany<TResult>(
+            item: (item: T) => Array<TResult>
+        ): IQueryable<TResult>;
         skip<TResult>(count: Number): IQueryable<TResult>;
         take<TResult>(count: Number): IQueryable<TResult>;
         single(): T;

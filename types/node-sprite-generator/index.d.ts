@@ -9,10 +9,20 @@ import * as e from "express";
 export as namespace NodeSpriteGenerator;
 export = NodeSpriteGenerator;
 
-declare function NodeSpriteGenerator(option: NodeSpriteGenerator.Option, callback?: (err: Error) => void): void;
+declare function NodeSpriteGenerator(
+    option: NodeSpriteGenerator.Option,
+    callback?: (err: Error) => void
+): void;
 
 declare namespace NodeSpriteGenerator {
-    type BuiltinStylesheetFormats = "stylus" | "less" | "sass" | "scss" | "css" | "prefixed-css" | "javascript";
+    type BuiltinStylesheetFormats =
+        | "stylus"
+        | "less"
+        | "sass"
+        | "scss"
+        | "css"
+        | "prefixed-css"
+        | "javascript";
     type BuiltinLayouts = "packed" | "vertical" | "horizontal" | "diagonal";
     type BuiltinCompositors = "canvas" | "gm" | "jimp";
 
@@ -28,7 +38,13 @@ declare namespace NodeSpriteGenerator {
         scaling?: number;
     }
 
-    type CompositorFilters = "all" | "none" | "sub" | "up" | "average" | "paeth";
+    type CompositorFilters =
+        | "all"
+        | "none"
+        | "sub"
+        | "up"
+        | "average"
+        | "paeth";
     interface CompositorOption {
         compressionLevel?: number;
         filter?: CompositorFilters;
@@ -40,20 +56,40 @@ declare namespace NodeSpriteGenerator {
         data: any;
     }
     interface Compositor {
-        readImages(files: string[], callback: (error: Error, images: Image[]) => void): void;
-        render(layout: Layout, spritePath: string, options: CompositorOption, callback: (error: Error) => void): void;
+        readImages(
+            files: string[],
+            callback: (error: Error, images: Image[]) => void
+        ): void;
+        render(
+            layout: Layout,
+            spritePath: string,
+            options: CompositorOption,
+            callback: (error: Error) => void
+        ): void;
     }
     interface Layout {
         width: number;
         height: number;
-        images: Array<{
-            x: number;
-            y: number;
-        } & Image>;
+        images: Array<
+            {
+                x: number;
+                y: number;
+            } & Image
+        >;
     }
-    type LayoutFunc = (images: Image[], options: LayoutOption, callback: (error: Error, layout: Layout) => void) => void;
+    type LayoutFunc = (
+        images: Image[],
+        options: LayoutOption,
+        callback: (error: Error, layout: Layout) => void
+    ) => void;
 
-    type StylesheetFunc = (layout: Layout, stylesheetPath: string, spritePath: string, options: StylesheetOption, callback: (error: Error) => void) => void;
+    type StylesheetFunc = (
+        layout: Layout,
+        stylesheetPath: string,
+        spritePath: string,
+        options: StylesheetOption,
+        callback: (error: Error) => void
+    ) => void;
 
     interface Option {
         src?: string[];

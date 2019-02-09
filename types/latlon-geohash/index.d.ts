@@ -82,7 +82,10 @@ export function bounds(geohash: string): Bounds;
  * @returns Geocode of adjacent cell.
  * @throws  Invalid geohash.
  */
-export function adjacent(geohash: string, direction: Direction | string): string;
+export function adjacent(
+    geohash: string,
+    direction: Direction | string
+): string;
 
 /**
  * Returns all 8 adjacent cells to specified geohash.

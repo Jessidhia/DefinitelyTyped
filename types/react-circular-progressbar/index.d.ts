@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, CSSProperties } from 'react';
+import { Component, CSSProperties } from "react";
 
 export default class CircularProgressbar extends Component<Props> {}
 

@@ -7,7 +7,7 @@ export interface ElementTreeWriteOptions {
     default_namespace?: string;
     encoding?: string; // default is 'utf-8'
     indent?: number;
-    method?: 'xml' | 'text'; // default is 'xml'
+    method?: "xml" | "text"; // default is 'xml'
     xml_declaration?: boolean; // on by default
 }
 
@@ -28,9 +28,13 @@ export interface Attributes {
     [key: string]: string | undefined;
 }
 
-export type ElementTag = typeof Comment | typeof CData | typeof ProcessingInstruction | string;
+export type ElementTag =
+    | typeof Comment
+    | typeof CData
+    | typeof ProcessingInstruction
+    | string;
 
-export type ElementText = { toString(): string; } | string;
+export type ElementText = { toString(): string } | string;
 
 export interface Element {
     tag: ElementTag;
@@ -46,7 +50,11 @@ export interface Element {
     setItem(index: number, element: Element): void;
     delItem(index: number): void;
     getSlice(start: number, stop: number): Element[];
-    setSlice(start: number, stop: number, elements: ReadonlyArray<Element>): void;
+    setSlice(
+        start: number,
+        stop: number,
+        elements: ReadonlyArray<Element>
+    ): void;
     delSlice(start: number, stop: number): void;
 
     append(element: Element): void;
@@ -77,12 +85,22 @@ export class QName {
 // special tags
 export function CData(text?: ElementText): Element;
 export function Comment(text?: ElementText): Element;
-export function ProcessingInstruction(target: ElementText, text?: ElementText): Element;
+export function ProcessingInstruction(
+    target: ElementText,
+    text?: ElementText
+): Element;
 
 export function XML(data: string): Element;
 export function Element(ElementTag: string, attrib?: Attributes): Element;
-export function SubElement(parent: Element, ElementTag: string, attrib?: Attributes): Element;
+export function SubElement(
+    parent: Element,
+    ElementTag: string,
+    attrib?: Attributes
+): Element;
 
 export function parse(source: string): ElementTree;
 export function register_namespace(prefix: string, uri: string): void;
-export function tostring(element: Element, options: ElementTreeWriteOptions): string;
+export function tostring(
+    element: Element,
+    options: ElementTreeWriteOptions
+): string;

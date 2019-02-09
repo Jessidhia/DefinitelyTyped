@@ -1,8 +1,6 @@
 namespace adoneTests.collection.RefcountedCache {
     const {
-        collection: {
-            RefcountedCache
-        }
+        collection: { RefcountedCache }
     } = adone;
 
     new RefcountedCache();

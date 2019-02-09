@@ -8,7 +8,6 @@ declare namespace Selectize {
     // see https://github.com/brianreavis/selectize.js/blob/master/docs/usage.md
     // option identifiers are parameterized by T; data is parameterized by U
     interface IOptions<T, U> {
-
         // General
         // ------------------------------------------------------------------------------------------------------------
 
@@ -16,7 +15,7 @@ declare namespace Selectize {
          * An array of the initial selected values. By default this is populated from the original input element.
          */
         items?: T[];
-        
+
         /**
          * The placeholder of the control (displayed when nothing is selected / typed).
          * Defaults to input element's placeholder, unless this one is specified.
@@ -143,7 +142,7 @@ declare namespace Selectize {
          *
          * Default: false
          */
-        preload?: boolean | 'focus';
+        preload?: boolean | "focus";
 
         /**
          * The element the dropdown menu is appended to. This should be "body" or null.
@@ -254,7 +253,7 @@ declare namespace Selectize {
          *
          * Default: "$order"
          */
-        sortField?: string | { field: string, direction?: 'asc' | 'desc' }[];
+        sortField?: string | { field: string; direction?: "asc" | "desc" }[];
 
         /**
          * An array of property names to analyze when filtering options.
@@ -491,7 +490,11 @@ declare namespace Selectize {
          * Invokes the "create" method provided in the selectize options that should provide the data for the
          * new item, given the user input. Once this completes, it will be added to the item list.
          */
-        createItem(value: T, triggerDropdown?: boolean, callback?: (data?: any) => void): void;
+        createItem(
+            value: T,
+            triggerDropdown?: boolean,
+            callback?: (data?: any) => void
+        ): void;
 
         /**
          * Re-renders the selected item lists.

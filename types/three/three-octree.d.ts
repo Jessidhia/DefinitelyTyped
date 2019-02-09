@@ -19,7 +19,12 @@ export class Octree {
 
     updateObject(object: any): any;
 
-    search(position: Vector3, radius: number, organizeByObject: boolean, direction: Vector3): any;
+    search(
+        position: Vector3,
+        radius: number,
+        organizeByObject: boolean,
+        direction: Vector3
+    ): any;
 
     setRoot(root: any): any;
 

@@ -3,14 +3,17 @@
 // Definitions by: silkentrance <https://github.com/silkentrance>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function BumpRegex(opts: string|BumpRegex.Options, cb: BumpRegex.Callback): any;
+declare function BumpRegex(
+    opts: string | BumpRegex.Options,
+    cb: BumpRegex.Callback
+): any;
 
 declare namespace BumpRegex {
-    type Callback = (err: string|Error|null, opts?: Result) => void;
+    type Callback = (err: string | Error | null, opts?: Result) => void;
 
     interface Options {
         key?: string;
-        type?: 'major' | 'minor' | 'patch' | 'prerelease';
+        type?: "major" | "minor" | "patch" | "prerelease";
         case?: boolean;
         keys?: string[];
         global?: boolean;

@@ -7,10 +7,10 @@
 export function openDoc(
     files: Array<{
         url: string;
-        fileName?: string,
-        fileNameOptional?: string,
-        cache?: boolean,
-        fileType?: string
+        fileName?: string;
+        fileNameOptional?: string;
+        cache?: boolean;
+        fileType?: string;
     }>,
     callback: (error: string, url: string) => void
 ): void;

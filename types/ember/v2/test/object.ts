@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 const LifetimeHooks = Ember.Object.extend({
     resource: null as {} | null,

@@ -1,5 +1,5 @@
-import hardRejection = require('hard-rejection');
-import 'hard-rejection/register';
+import hardRejection = require("hard-rejection");
+import "hard-rejection/register";
 
 hardRejection();
 hardRejection(stack => {

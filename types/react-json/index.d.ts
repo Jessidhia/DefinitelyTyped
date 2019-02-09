@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 type OnChangeHandler = (value: any) => void;
 
@@ -13,7 +13,6 @@ interface JsonProperties {
     onChange?: OnChangeHandler;
 }
 
-declare class Json extends React.Component<JsonProperties> {
-}
+declare class Json extends React.Component<JsonProperties> {}
 
 export = Json;

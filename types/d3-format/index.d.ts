@@ -62,7 +62,10 @@ export interface FormatLocaleObject {
      * @param value The reference value to determine the appropriate SI prefix.
      * @throws Error on invalid format specifier.
      */
-    formatPrefix(specifier: string, value: number): (n: number | { valueOf(): number }) => string;
+    formatPrefix(
+        specifier: string,
+        value: number
+    ): (n: number | { valueOf(): number }) => string;
 }
 
 /**
@@ -83,7 +86,7 @@ export interface FormatSpecifier {
      * '^' - Forces the field to be centered within the available space.
      * '=' - Like '>', but with any sign and symbol to the left of any padding.
      */
-    align: '>' | '<' | '^' | '=';
+    align: ">" | "<" | "^" | "=";
     /**
      * The sign can be:
      *
@@ -93,7 +96,7 @@ export interface FormatSpecifier {
      * ' ' (space) - a space for positive and a minus sign for negative.
      *
      */
-    sign: '-' | '+' | '(' | ' ';
+    sign: "-" | "+" | "(" | " ";
     /**
      * The symbol can be:
      *
@@ -101,7 +104,7 @@ export interface FormatSpecifier {
      * '#' - for binary, octal, or hexadecimal notation, prefix by 0b, 0o, or 0x, respectively.
      * '' (none) - no symbol. (Default behavior.)
      */
-    symbol: '$' | '#' | '';
+    symbol: "$" | "#" | "";
     /**
      * The zero (0) option enables zero-padding; this implicitly sets fill to 0 and align to =.
      */
@@ -150,7 +153,22 @@ export interface FormatSpecifier {
      * the type 'n' is shorthand for ',g'. For the 'g', 'n' and '' (none) types,
      * decimal notation is used if the resulting string would have precision or fewer digits; otherwise, exponent notation is used.
      */
-    type: 'e' | 'f' | 'g' | 'r' | 's' | '%' | 'p' | 'b' | 'o' | 'd' | 'x' | 'X' | 'c' | '' | 'n';
+    type:
+        | "e"
+        | "f"
+        | "g"
+        | "r"
+        | "s"
+        | "%"
+        | "p"
+        | "b"
+        | "o"
+        | "d"
+        | "x"
+        | "X"
+        | "c"
+        | ""
+        | "n";
     /**
      * Return the object as a specifier string.
      */
@@ -163,7 +181,9 @@ export interface FormatSpecifier {
  *
  * @param locale A Format locale definition.
  */
-export function formatLocale(locale: FormatLocaleDefinition): FormatLocaleObject;
+export function formatLocale(
+    locale: FormatLocaleDefinition
+): FormatLocaleObject;
 
 /**
  * Create a new locale-based object which exposes format(...) and formatPrefix(...)
@@ -172,7 +192,9 @@ export function formatLocale(locale: FormatLocaleDefinition): FormatLocaleObject
  *
  * @param defaultLocale A Format locale definition to be used as default.
  */
-export function formatDefaultLocale(defaultLocale: FormatLocaleDefinition): FormatLocaleObject;
+export function formatDefaultLocale(
+    defaultLocale: FormatLocaleDefinition
+): FormatLocaleObject;
 
 /**
  * Returns a new format function for the given string specifier. The returned function
@@ -186,7 +208,9 @@ export function formatDefaultLocale(defaultLocale: FormatLocaleDefinition): Form
  * @param specifier A Specifier string.
  * @throws Error on invalid format specifier.
  */
-export function format(specifier: string): (n: number | { valueOf(): number }) => string;
+export function format(
+    specifier: string
+): (n: number | { valueOf(): number }) => string;
 
 /**
  * Returns a new format function for the given string specifier. The returned function
@@ -203,7 +227,10 @@ export function format(specifier: string): (n: number | { valueOf(): number }) =
  * @param value The reference value to determine the appropriate SI prefix.
  * @throws Error on invalid format specifier.
  */
-export function formatPrefix(specifier: string, value: number): (n: number | { valueOf(): number }) => string;
+export function formatPrefix(
+    specifier: string,
+    value: number
+): (n: number | { valueOf(): number }) => string;
 
 /**
  * Parses the specified specifier, returning an object with exposed fields that correspond to the

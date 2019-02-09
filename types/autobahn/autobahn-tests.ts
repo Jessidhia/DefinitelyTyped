@@ -19,8 +19,10 @@ class MyClass {
 }
 
 function test_client() {
-    var options: autobahn.IConnectionOptions =
-        { url: 'ws://127.0.0.1:8080/ws', realm: 'realm1' };
+    var options: autobahn.IConnectionOptions = {
+        url: "ws://127.0.0.1:8080/ws",
+        realm: "realm1"
+    };
 
     var connection = new autobahn.Connection(options);
 
@@ -28,22 +30,27 @@ function test_client() {
         var myInstance = new MyClass(session);
 
         // 1) subscribe to a topic
-        session.subscribe('com.myapp.hello', myInstance.onEvent);
+        session.subscribe("com.myapp.hello", myInstance.onEvent);
 
         // 2) publish an event
-        session.publish('com.myapp.hello', ['Hello, world!']);
+        session.publish("com.myapp.hello", ["Hello, world!"]);
 
         // 3) register a procedure for remoting
-        session.register('com.myapp.add2', myInstance.add2, { invoke: 'roundrobin' });
+        session.register("com.myapp.add2", myInstance.add2, {
+            invoke: "roundrobin"
+        });
 
         // 4) call a remote procedure
-        session.call<number>('com.myapp.add2', [2, 3]).then(
-            res => {
-                console.log("Result:", res);
-            });
+        session.call<number>("com.myapp.add2", [2, 3]).then(res => {
+            console.log("Result:", res);
+        });
     };
 
-    if (!connection.isOpen && !connection.isRetrying && connection.session == null) {
+    if (
+        !connection.isOpen &&
+        !connection.isRetrying &&
+        connection.session == null
+    ) {
         connection.open();
     }
 }

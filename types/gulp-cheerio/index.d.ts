@@ -7,7 +7,7 @@
 /// <reference types="node" />
 /// <reference types="vinyl" />
 
-import Vinyl = require('vinyl');
+import Vinyl = require("vinyl");
 
 declare namespace cheerio {
     interface Cheerio {

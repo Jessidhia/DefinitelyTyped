@@ -1,4 +1,4 @@
-import rn = require('random-number');
+import rn = require("random-number");
 
 rn();
 

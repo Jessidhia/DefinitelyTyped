@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as hapi from 'hapi';
-import * as Joi from 'joi';
+import * as hapi from "hapi";
+import * as Joi from "joi";
 interface ControllerStatic {
     new (...args: any[]): Controller;
 }
@@ -30,15 +30,21 @@ export const put: IRouteConfig;
 // export const delete: IRouteConfig;
 export const patch: IRouteConfig;
 export const all: IRouteConfig;
-export function config(config: hapi.RouteAdditionalConfigurationOptions): (target: any, key: any, descriptor: any) => any;
+export function config(
+    config: hapi.RouteAdditionalConfigurationOptions
+): (target: any, key: any, descriptor: any) => any;
 
-export function validate(config: hapi.RouteValidationConfigurationObject): (target: any, key: any, descriptor: any) => any;
+export function validate(
+    config: hapi.RouteValidationConfigurationObject
+): (target: any, key: any, descriptor: any) => any;
 interface ICacheConfig {
     privacy?: string;
     expiresIn?: number;
     expiresAt?: number;
 }
-export function cache(cacheConfig: ICacheConfig): (target: any, key: any, descriptor: any) => any;
+export function cache(
+    cacheConfig: ICacheConfig
+): (target: any, key: any, descriptor: any) => any;
 export function pre(pre: {
     [key: string]: any;
 }): (target: any, key: any, descriptor: any) => any;

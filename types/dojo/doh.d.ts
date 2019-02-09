@@ -3,14 +3,11 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace doh {
     namespace plugins {
-        namespace alwaysAudio {
-        }
+        namespace alwaysAudio {}
 
-        namespace hello {
-        }
+        namespace hello {}
 
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/doh/plugins/remoteRobot.html
@@ -18,8 +15,7 @@ declare namespace doh {
          * Plugin that bridges the doh.robot and WebDriver APIs.
          *
          */
-        interface remoteRobot {
-        }
+        interface remoteRobot {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/doh/plugins/android-webdriver-robot.html
          *
@@ -42,7 +38,13 @@ declare namespace doh {
              * @param delay
              * @param duration
              */
-            moveMouse(sec: any, x: any, y: any, delay: any, duration: any): void;
+            moveMouse(
+                sec: any,
+                x: any,
+                y: any,
+                delay: any,
+                duration: any
+            ): void;
             /**
              *
              * @param sec
@@ -51,7 +53,13 @@ declare namespace doh {
              * @param right
              * @param delay
              */
-            pressMouse(sec: any, left: any, middle: any, right: any, delay: any): void;
+            pressMouse(
+                sec: any,
+                left: any,
+                middle: any,
+                right: any,
+                delay: any
+            ): void;
             /**
              *
              * @param sec
@@ -60,7 +68,13 @@ declare namespace doh {
              * @param right
              * @param delay
              */
-            releaseMouse(sec: any, left: any, middle: any, right: any, delay: any): void;
+            releaseMouse(
+                sec: any,
+                left: any,
+                middle: any,
+                right: any,
+                delay: any
+            ): void;
             /**
              *
              * @param sec
@@ -69,7 +83,13 @@ declare namespace doh {
              * @param width
              * @param height
              */
-            setDocumentBounds(sec: any, docScreenX: any, docScreenY: any, width: any, height: any): void;
+            setDocumentBounds(
+                sec: any,
+                docScreenX: any,
+                docScreenY: any,
+                width: any,
+                height: any
+            ): void;
             /**
              *
              * @param sec
@@ -82,7 +102,17 @@ declare namespace doh {
              * @param delay
              * @param async
              */
-            typeKey(sec: any, charCode: any, keyCode: any, alt: any, ctrl: any, shift: any, meta: any, delay: any, async: any): void;
+            typeKey(
+                sec: any,
+                charCode: any,
+                keyCode: any,
+                alt: any,
+                ctrl: any,
+                shift: any,
+                meta: any,
+                delay: any,
+                async: any
+            ): void;
             /**
              *
              * @param chars
@@ -115,8 +145,7 @@ declare namespace doh {
      * Augments return value from doh/runner.
      *
      */
-    interface _nodeRunner {
-    }
+    interface _nodeRunner {}
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/doh/_rhinoRunner.html
      *
@@ -124,8 +153,7 @@ declare namespace doh {
      * Augments return value from doh/runner.
      *
      */
-    interface _rhinoRunner {
-    }
+    interface _rhinoRunner {}
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/doh/_parseURLargs.html
      *
@@ -181,7 +209,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        assertEqual(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        assertEqual(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * Test for a certain error to be thrown by the given function.
          *
@@ -191,7 +224,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        assertError(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        assertError(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -229,7 +268,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        e(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        e(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -246,7 +291,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        is(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        is(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * are the passed notexpected and actual objects/values deeply
          * not equivalent?
@@ -286,7 +336,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: any[], setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: any[],
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -296,7 +352,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Function, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Function,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -306,7 +368,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Object, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Object,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, test) instead
          *
@@ -402,8 +470,7 @@ declare namespace doh {
          *
          *
          */
-        interface _groups {
-        }
+        interface _groups {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/doh/_browserRunner._testTypes.html
          *
@@ -460,7 +527,12 @@ declare namespace doh {
              * @param modifiers JSON object that represents all of the modifier keys being pressed.It takes the following Boolean attributes:shiftaltctrlmeta
              * @param asynchronous If true, the delay happens asynchronously and immediately, outside of the browser's JavaScript thread and any previous calls.This is useful for interacting with the browser's modal dialogs.
              */
-            keyPress(charOrCode: number, delay: number, modifiers: Object, asynchronous: boolean): void;
+            keyPress(
+                charOrCode: number,
+                delay: number,
+                modifiers: Object,
+                asynchronous: boolean
+            ): void;
             /**
              * Releases a single key, like SHIFT or 'a'.
              * Releases a single key, like SHIFT or 'a'.
@@ -492,7 +564,13 @@ declare namespace doh {
              * @param duration               OptionalApproximate time Robot will spend moving the mouseThe default is 100ms. This also affects how many mousemove events willbe generated, which is the log of the duration.
              * @param absolute Boolean indicating whether the x and y values are absolute coordinates.If false, then mouseMove expects that the x,y will be relative to the window. (clientX/Y)If true, then mouseMove expects that the x,y will be absolute. (pageX/Y)
              */
-            mouseMove(x: number, y: number, delay: number, duration: number, absolute: boolean): void;
+            mouseMove(
+                x: number,
+                y: number,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -505,7 +583,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: String, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: String,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -518,7 +602,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: HTMLElement, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: HTMLElement,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -531,7 +621,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: Function, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: Function,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Move the mouse from the current position to the specified point.
              * Delays reading contents point until queued command starts running.
@@ -542,7 +638,12 @@ declare namespace doh {
              * @param duration               Optional
              * @param absolute
              */
-            mouseMoveTo(point: Object, delay: number, duration: number, absolute: boolean): void;
+            mouseMoveTo(
+                point: Object,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Presses mouse buttons.
              * Presses the mouse buttons you pass as true.
@@ -684,7 +785,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        assertEqual(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        assertEqual(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * Test for a certain error to be thrown by the given function.
          *
@@ -694,7 +800,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        assertError(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        assertError(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -732,7 +844,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        e(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        e(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -749,7 +867,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        is(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        is(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * are the passed notexpected and actual objects/values deeply
          * not equivalent?
@@ -789,7 +912,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: any[], setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: any[],
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -799,7 +928,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Function, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Function,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -809,7 +944,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Object, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Object,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, test) instead
          *
@@ -905,8 +1046,7 @@ declare namespace doh {
          *
          *
          */
-        interface _groups {
-        }
+        interface _groups {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/doh/main._testTypes.html
          *
@@ -963,7 +1103,12 @@ declare namespace doh {
              * @param modifiers JSON object that represents all of the modifier keys being pressed.It takes the following Boolean attributes:shiftaltctrlmeta
              * @param asynchronous If true, the delay happens asynchronously and immediately, outside of the browser's JavaScript thread and any previous calls.This is useful for interacting with the browser's modal dialogs.
              */
-            keyPress(charOrCode: number, delay: number, modifiers: Object, asynchronous: boolean): void;
+            keyPress(
+                charOrCode: number,
+                delay: number,
+                modifiers: Object,
+                asynchronous: boolean
+            ): void;
             /**
              * Releases a single key, like SHIFT or 'a'.
              * Releases a single key, like SHIFT or 'a'.
@@ -995,7 +1140,13 @@ declare namespace doh {
              * @param duration               OptionalApproximate time Robot will spend moving the mouseThe default is 100ms. This also affects how many mousemove events willbe generated, which is the log of the duration.
              * @param absolute Boolean indicating whether the x and y values are absolute coordinates.If false, then mouseMove expects that the x,y will be relative to the window. (clientX/Y)If true, then mouseMove expects that the x,y will be absolute. (pageX/Y)
              */
-            mouseMove(x: number, y: number, delay: number, duration: number, absolute: boolean): void;
+            mouseMove(
+                x: number,
+                y: number,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1008,7 +1159,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: String, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: String,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1021,7 +1178,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: HTMLElement, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: HTMLElement,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1034,7 +1197,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: Function, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: Function,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Move the mouse from the current position to the specified point.
              * Delays reading contents point until queued command starts running.
@@ -1045,7 +1214,12 @@ declare namespace doh {
              * @param duration               Optional
              * @param absolute
              */
-            mouseMoveTo(point: Object, delay: number, duration: number, absolute: boolean): void;
+            mouseMoveTo(
+                point: Object,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Presses mouse buttons.
              * Presses the mouse buttons you pass as true.
@@ -1193,7 +1367,12 @@ declare namespace doh {
          * @param modifiers JSON object that represents all of the modifier keys being pressed.It takes the following Boolean attributes:shiftaltctrlmeta
          * @param asynchronous If true, the delay happens asynchronously and immediately, outside of the browser's JavaScript thread and any previous calls.This is useful for interacting with the browser's modal dialogs.
          */
-        keyPress(charOrCode: number, delay: number, modifiers: Object, asynchronous: boolean): void;
+        keyPress(
+            charOrCode: number,
+            delay: number,
+            modifiers: Object,
+            asynchronous: boolean
+        ): void;
         /**
          * Releases a single key, like SHIFT or 'a'.
          * Releases a single key, like SHIFT or 'a'.
@@ -1225,7 +1404,13 @@ declare namespace doh {
          * @param duration               OptionalApproximate time Robot will spend moving the mouseThe default is 100ms. This also affects how many mousemove events willbe generated, which is the log of the duration.
          * @param absolute Boolean indicating whether the x and y values are absolute coordinates.If false, then mouseMove expects that the x,y will be relative to the window. (clientX/Y)If true, then mouseMove expects that the x,y will be absolute. (pageX/Y)
          */
-        mouseMove(x: number, y: number, delay: number, duration: number, absolute: boolean): void;
+        mouseMove(
+            x: number,
+            y: number,
+            delay: number,
+            duration: number,
+            absolute: boolean
+        ): void;
         /**
          * Moves the mouse over the specified node at the specified relative x,y offset.
          * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1238,7 +1423,13 @@ declare namespace doh {
          * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
          * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
          */
-        mouseMoveAt(node: String, delay: number, duration: number, offsetX: number, offsetY: number): void;
+        mouseMoveAt(
+            node: String,
+            delay: number,
+            duration: number,
+            offsetX: number,
+            offsetY: number
+        ): void;
         /**
          * Moves the mouse over the specified node at the specified relative x,y offset.
          * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1251,7 +1442,13 @@ declare namespace doh {
          * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
          * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
          */
-        mouseMoveAt(node: HTMLElement, delay: number, duration: number, offsetX: number, offsetY: number): void;
+        mouseMoveAt(
+            node: HTMLElement,
+            delay: number,
+            duration: number,
+            offsetX: number,
+            offsetY: number
+        ): void;
         /**
          * Moves the mouse over the specified node at the specified relative x,y offset.
          * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1264,7 +1461,13 @@ declare namespace doh {
          * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
          * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
          */
-        mouseMoveAt(node: Function, delay: number, duration: number, offsetX: number, offsetY: number): void;
+        mouseMoveAt(
+            node: Function,
+            delay: number,
+            duration: number,
+            offsetX: number,
+            offsetY: number
+        ): void;
         /**
          * Move the mouse from the current position to the specified point.
          * Delays reading contents point until queued command starts running.
@@ -1275,7 +1478,12 @@ declare namespace doh {
          * @param duration               Optional
          * @param absolute
          */
-        mouseMoveTo(point: Object, delay: number, duration: number, absolute: boolean): void;
+        mouseMoveTo(
+            point: Object,
+            delay: number,
+            duration: number,
+            absolute: boolean
+        ): void;
         /**
          * Presses mouse buttons.
          * Presses the mouse buttons you pass as true.
@@ -1433,7 +1641,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        assertEqual(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        assertEqual(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * Test for a certain error to be thrown by the given function.
          *
@@ -1443,7 +1656,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        assertError(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        assertError(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -1481,7 +1700,13 @@ declare namespace doh {
          * @param args
          * @param hint               Optional
          */
-        e(expectedError: Object, scope: Object, functionName: String, args: any[], hint: String): void;
+        e(
+            expectedError: Object,
+            scope: Object,
+            functionName: String,
+            args: any[],
+            hint: String
+        ): void;
         /**
          * is the passed item "falsey"?
          *
@@ -1498,7 +1723,12 @@ declare namespace doh {
          * @param hint               Optional
          * @param doNotThrow
          */
-        is(expected: Object, actual: Object, hint: String, doNotThrow: any): void;
+        is(
+            expected: Object,
+            actual: Object,
+            hint: String,
+            doNotThrow: any
+        ): void;
         /**
          * are the passed notexpected and actual objects/values deeply
          * not equivalent?
@@ -1538,7 +1768,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: any[], setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: any[],
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -1548,7 +1784,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Function, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Function,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, tests, setUp, tearDown) instead
          *
@@ -1558,7 +1800,13 @@ declare namespace doh {
          * @param tearDown
          * @param type
          */
-        registerGroup(group: String, tests: Object, setUp: Function, tearDown: Function, type: String): void;
+        registerGroup(
+            group: String,
+            tests: Object,
+            setUp: Function,
+            tearDown: Function,
+            type: String
+        ): void;
         /**
          * Deprecated.  Use doh.register(group/type, test) instead
          *
@@ -1654,8 +1902,7 @@ declare namespace doh {
          *
          *
          */
-        interface _groups {
-        }
+        interface _groups {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/doh/runner._testTypes.html
          *
@@ -1712,7 +1959,12 @@ declare namespace doh {
              * @param modifiers JSON object that represents all of the modifier keys being pressed.It takes the following Boolean attributes:shiftaltctrlmeta
              * @param asynchronous If true, the delay happens asynchronously and immediately, outside of the browser's JavaScript thread and any previous calls.This is useful for interacting with the browser's modal dialogs.
              */
-            keyPress(charOrCode: number, delay: number, modifiers: Object, asynchronous: boolean): void;
+            keyPress(
+                charOrCode: number,
+                delay: number,
+                modifiers: Object,
+                asynchronous: boolean
+            ): void;
             /**
              * Releases a single key, like SHIFT or 'a'.
              * Releases a single key, like SHIFT or 'a'.
@@ -1744,7 +1996,13 @@ declare namespace doh {
              * @param duration               OptionalApproximate time Robot will spend moving the mouseThe default is 100ms. This also affects how many mousemove events willbe generated, which is the log of the duration.
              * @param absolute Boolean indicating whether the x and y values are absolute coordinates.If false, then mouseMove expects that the x,y will be relative to the window. (clientX/Y)If true, then mouseMove expects that the x,y will be absolute. (pageX/Y)
              */
-            mouseMove(x: number, y: number, delay: number, duration: number, absolute: boolean): void;
+            mouseMove(
+                x: number,
+                y: number,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1757,7 +2015,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: String, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: String,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1770,7 +2034,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: HTMLElement, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: HTMLElement,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Moves the mouse over the specified node at the specified relative x,y offset.
              * Moves the mouse over the specified node at the specified relative x,y offset.
@@ -1783,7 +2053,13 @@ declare namespace doh {
              * @param offsetX x offset relative to the node, in pixels, to move the mouse. The default is half the node's width.
              * @param offsetY y offset relative to the node, in pixels, to move the mouse. The default is half the node's height.
              */
-            mouseMoveAt(node: Function, delay: number, duration: number, offsetX: number, offsetY: number): void;
+            mouseMoveAt(
+                node: Function,
+                delay: number,
+                duration: number,
+                offsetX: number,
+                offsetY: number
+            ): void;
             /**
              * Move the mouse from the current position to the specified point.
              * Delays reading contents point until queued command starts running.
@@ -1794,7 +2070,12 @@ declare namespace doh {
              * @param duration               Optional
              * @param absolute
              */
-            mouseMoveTo(point: Object, delay: number, duration: number, absolute: boolean): void;
+            mouseMoveTo(
+                point: Object,
+                delay: number,
+                duration: number,
+                absolute: boolean
+            ): void;
             /**
              * Presses mouse buttons.
              * Presses the mouse buttons you pass as true.
@@ -1899,82 +2180,81 @@ declare namespace doh {
             waitForPageToLoad(submitActions: Function): any;
         }
     }
-
 }
 
 declare module "doh/_nodeRunner" {
-    var exp: doh._nodeRunner
-    export=exp;
+    var exp: doh._nodeRunner;
+    export = exp;
 }
 declare module "doh/_parseURLargs" {
-    var exp: doh._parseURLargs
-    export=exp;
+    var exp: doh._parseURLargs;
+    export = exp;
 }
 declare module "doh/_rhinoRunner" {
-    var exp: doh._rhinoRunner
-    export=exp;
+    var exp: doh._rhinoRunner;
+    export = exp;
 }
 declare module "doh/_browserRunner" {
-    var exp: doh._browserRunner
-    export=exp;
+    var exp: doh._browserRunner;
+    export = exp;
 }
 declare module "doh/_browserRunner._testTypes" {
-    var exp: doh._browserRunner._testTypes
-    export=exp;
+    var exp: doh._browserRunner._testTypes;
+    export = exp;
 }
 declare module "doh/_browserRunner._groups" {
-    var exp: doh._browserRunner._groups
-    export=exp;
+    var exp: doh._browserRunner._groups;
+    export = exp;
 }
 declare module "doh/_browserRunner.robot" {
-    var exp: doh._browserRunner.robot
-    export=exp;
+    var exp: doh._browserRunner.robot;
+    export = exp;
 }
 declare module "doh/robot" {
-    var exp: doh.robot
-    export=exp;
+    var exp: doh.robot;
+    export = exp;
 }
 declare module "doh/robot._runsemaphore" {
-    var exp: doh.robot._runsemaphore
-    export=exp;
+    var exp: doh.robot._runsemaphore;
+    export = exp;
 }
 declare module "doh/main" {
-    var exp: doh.main
-    export=exp;
+    var exp: doh.main;
+    export = exp;
 }
 declare module "doh/main._groups" {
-    var exp: doh.main._groups
-    export=exp;
+    var exp: doh.main._groups;
+    export = exp;
 }
 declare module "doh/main._testTypes" {
-    var exp: doh.main._testTypes
-    export=exp;
+    var exp: doh.main._testTypes;
+    export = exp;
 }
 declare module "doh/main.robot" {
-    var exp: doh.main.robot
-    export=exp;
+    var exp: doh.main.robot;
+    export = exp;
 }
 declare module "doh/runner" {
-    var exp: doh.runner
-    export=exp;
+    var exp: doh.runner;
+    export = exp;
 }
 declare module "doh/runner._groups" {
-    var exp: doh.runner._groups
-    export=exp;
+    var exp: doh.runner._groups;
+    export = exp;
 }
 declare module "doh/runner._testTypes" {
-    var exp: doh.runner._testTypes
-    export=exp;
+    var exp: doh.runner._testTypes;
+    export = exp;
 }
 declare module "doh/runner.robot" {
-    var exp: doh.runner.robot
-    export=exp;
+    var exp: doh.runner.robot;
+    export = exp;
 }
 declare module "doh/plugins/android-webdriver-robot" {
-    var exp: doh.plugins.android_webdriver_robot
-    export=exp;
+    var exp: doh.plugins.android_webdriver_robot;
+    export = exp;
 }
 declare module "doh/plugins/remoteRobot" {
-    var exp: doh.plugins.remoteRobot
-    export=exp;
+    var exp: doh.plugins.remoteRobot;
+    export = exp;
 }

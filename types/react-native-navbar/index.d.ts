@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { ViewStyle, TextProps } from 'react-native';
+import * as React from "react";
+import { ViewStyle, TextProps } from "react-native";
 
 export interface NavigationBarButton {
     title: string;
@@ -22,11 +22,11 @@ export interface NavigationBarTitle {
 }
 
 export interface StatusBar {
-    style?: 'light-content' | 'default';
+    style?: "light-content" | "default";
     hidden?: boolean;
     tintColor?: string;
-    hideAnimation?: 'fade' | 'slide' | 'none';
-    showAnimation?: 'fade' | 'slide' | 'none';
+    hideAnimation?: "fade" | "slide" | "none";
+    showAnimation?: "fade" | "slide" | "none";
 }
 
 export interface NavigationBarProps {
@@ -38,4 +38,6 @@ export interface NavigationBarProps {
     title?: NavigationBarTitle | React.ReactElement<any> | null;
 }
 
-export default class NavigationBar extends React.Component<NavigationBarProps> {}
+export default class NavigationBar extends React.Component<
+    NavigationBarProps
+> {}

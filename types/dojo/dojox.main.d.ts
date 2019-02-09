@@ -3,10 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/main.html
      *
@@ -120,7 +117,11 @@ declare namespace dojox {
              * @param gfxObject The gfx shape around which the tooltip will be placed.
              * @param positions               Optional
              */
-            showTooltip(innerHTML: String, gfxObject: dojox.gfx.shape.Shape, positions: String[]): void;
+            showTooltip(
+                innerHTML: String,
+                gfxObject: dojox.gfx.shape.Shape,
+                positions: String[]
+            ): void;
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/main.islamic.html
@@ -139,7 +140,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.islamic.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.islamic.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two islamic date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -148,7 +153,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current islamic.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.islamic.Date, date2: dojox.date.islamic.Date, portion: String): void;
+            compare(
+                date1: dojox.date.islamic.Date,
+                date2: dojox.date.islamic.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -156,7 +165,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.islamic.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.islamic.Date, date2: dojox.date.islamic.Date, interval: String): void;
+            difference(
+                date1: dojox.date.islamic.Date,
+                date2: dojox.date.islamic.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -1708,7 +1721,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: Function, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: Function,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1718,7 +1737,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: Function, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: Function,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1728,7 +1753,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: Function, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: Function,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1738,7 +1769,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: String, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: String,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1748,7 +1785,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: String, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: String,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1758,7 +1801,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: String, g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: String,
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1768,7 +1817,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: any[], g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: any[],
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1778,7 +1833,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: any[], g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: any[],
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1788,7 +1849,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: any[], g: Function, z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: any[],
+                g: Function,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1798,7 +1865,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: Function, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: Function,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1808,7 +1881,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: Function, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: Function,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1818,7 +1897,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: Function, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: Function,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1828,7 +1913,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: String, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: String,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1838,7 +1929,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: String, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: String,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1848,7 +1945,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: String, g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: String,
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1858,7 +1961,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: any[], g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: any[],
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1868,7 +1977,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: any[], g: String, z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: any[],
+                g: String,
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1888,7 +2003,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: Function, g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: Function,
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1898,7 +2019,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: Function, g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: Function,
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1908,7 +2035,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: any[], f: Function, g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: any[],
+                f: Function,
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1918,7 +2051,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: String, g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: String,
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1928,7 +2067,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: String, f: String, g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: String,
+                f: String,
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -1948,7 +2093,13 @@ declare namespace dojox {
              * @param z
              * @param o               Optional
              */
-            unfold(pr: Function, f: any[], g: any[], z: Object, o: Object): any[];
+            unfold(
+                pr: Function,
+                f: any[],
+                g: any[],
+                z: Object,
+                o: Object
+            ): any[];
             /**
              * builds an array by unfolding a value
              *
@@ -2071,8 +2222,7 @@ declare namespace dojox {
          *
          *
          */
-        interface regexp {
-        }
+        interface regexp {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/main.umalqura.html
          *
@@ -2090,7 +2240,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.umalqura.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.umalqura.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two umalqura date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -2099,7 +2253,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current umalqura.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.umalqura.Date, date2: dojox.date.umalqura.Date, portion: String): void;
+            compare(
+                date1: dojox.date.umalqura.Date,
+                date2: dojox.date.umalqura.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -2107,7 +2265,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.umalqura.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.umalqura.Date, date2: dojox.date.umalqura.Date, interval: String): void;
+            difference(
+                date1: dojox.date.umalqura.Date,
+                date2: dojox.date.umalqura.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -2131,7 +2293,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.buddhist.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.buddhist.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two buddhist date objects by date, time, or both.
              *
@@ -2139,7 +2305,11 @@ declare namespace dojox {
              * @param date2
              * @param portion               Optional
              */
-            compare(date1: dojox.date.buddhist.Date, date2: dojox.date.buddhist.Date, portion: String): void;
+            compare(
+                date1: dojox.date.buddhist.Date,
+                date2: dojox.date.buddhist.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -2147,7 +2317,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current hebrew.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.hebrew.Date, date2: dojox.date.hebrew.Date, interval: String): void;
+            difference(
+                date1: dojox.date.hebrew.Date,
+                date2: dojox.date.hebrew.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param dateObject
@@ -2180,7 +2354,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.hebrew.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.hebrew.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two hebrew date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -2189,7 +2367,11 @@ declare namespace dojox {
              * @param dateheb2
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(dateheb1: dojox.date.hebrew.Date, dateheb2: dojox.date.hebrew.Date, portion: String): void;
+            compare(
+                dateheb1: dojox.date.hebrew.Date,
+                dateheb2: dojox.date.hebrew.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -2197,7 +2379,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.hebrew.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.hebrew.Date, date2: dojox.date.hebrew.Date, interval: String): void;
+            difference(
+                date1: dojox.date.hebrew.Date,
+                date2: dojox.date.hebrew.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -2221,7 +2407,11 @@ declare namespace dojox {
              * @param interval A string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond", "week", "weekday"
              * @param amount How much to add to the date.
              */
-            add(date: dojox.date.persian.Date, interval: String, amount: number): void;
+            add(
+                date: dojox.date.persian.Date,
+                interval: String,
+                amount: number
+            ): void;
             /**
              * Compare two persian date objects by date, time, or both.
              * Returns 0 if equal, positive if a > b, else negative.
@@ -2230,7 +2420,11 @@ declare namespace dojox {
              * @param date2 If not specified, the current persian.Date is used.
              * @param portion               OptionalA string indicating the "date" or "time" portion of a Date object.Compares both "date" and "time" by default.  One of the following:"date", "time", "datetime"
              */
-            compare(date1: dojox.date.persian.Date, date2: dojox.date.persian.Date, portion: String): void;
+            compare(
+                date1: dojox.date.persian.Date,
+                date2: dojox.date.persian.Date,
+                portion: String
+            ): void;
             /**
              * date2 - date1
              *
@@ -2238,7 +2432,11 @@ declare namespace dojox {
              * @param date2               OptionalIf not specified, the current dojox.date.persian.Date is used.
              * @param interval               OptionalA string representing the interval.  One of the following:"year", "month", "day", "hour", "minute", "second","millisecond",  "week", "weekday"Defaults to "day".
              */
-            difference(date1: dojox.date.persian.Date, date2: dojox.date.persian.Date, interval: String): void;
+            difference(
+                date1: dojox.date.persian.Date,
+                date2: dojox.date.persian.Date,
+                interval: String
+            ): void;
             /**
              *
              * @param month
@@ -2285,8 +2483,7 @@ declare namespace dojox {
          *
          *
          */
-        interface util {
-        }
+        interface util {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/main.utils.html
          *
@@ -2314,7 +2511,11 @@ declare namespace dojox {
              * @param source the "source" object, whose properties will be used to source the existed object.
              * @param conv               Optionalforce conversion to the original type
              */
-            updateWithObject(target: Object, source: Object, conv: boolean): Object;
+            updateWithObject(
+                target: Object,
+                source: Object,
+                conv: boolean
+            ): Object;
             /**
              * Updates an existing object in place with properties from an "source" object.
              *
@@ -2323,61 +2524,65 @@ declare namespace dojox {
              * @param pattern object, whose properties will be used to pull values from the "source"
              * @param conv               Optionalforce conversion to the original type
              */
-            updateWithPattern(target: Object, source: Object, pattern: Object, conv: boolean): Object;
+            updateWithPattern(
+                target: Object,
+                source: Object,
+                pattern: Object,
+                conv: boolean
+            ): Object;
         }
     }
-
 }
 
 declare module "dojox/main" {
-    var exp: dojox.main
-    export=exp;
+    var exp: dojox.main;
+    export = exp;
 }
 declare module "dojox/main.languages" {
-    var exp: dojox.main.languages
-    export=exp;
+    var exp: dojox.main.languages;
+    export = exp;
 }
 declare module "dojox/main.islamic" {
-    var exp: dojox.main.islamic
-    export=exp;
+    var exp: dojox.main.islamic;
+    export = exp;
 }
 declare module "dojox/main.buddhist" {
-    var exp: dojox.main.buddhist
-    export=exp;
+    var exp: dojox.main.buddhist;
+    export = exp;
 }
 declare module "dojox/main.charting" {
-    var exp: dojox.main.charting
-    export=exp;
+    var exp: dojox.main.charting;
+    export = exp;
 }
 declare module "dojox/main.hebrew" {
-    var exp: dojox.main.hebrew
-    export=exp;
+    var exp: dojox.main.hebrew;
+    export = exp;
 }
 declare module "dojox/main.functional" {
-    var exp: dojox.main.functional
-    export=exp;
+    var exp: dojox.main.functional;
+    export = exp;
 }
 declare module "dojox/main.relative" {
-    var exp: dojox.main.relative
-    export=exp;
+    var exp: dojox.main.relative;
+    export = exp;
 }
 declare module "dojox/main.util" {
-    var exp: dojox.main.util
-    export=exp;
+    var exp: dojox.main.util;
+    export = exp;
 }
 declare module "dojox/main.regexp" {
-    var exp: dojox.main.regexp
-    export=exp;
+    var exp: dojox.main.regexp;
+    export = exp;
 }
 declare module "dojox/main.umalqura" {
-    var exp: dojox.main.umalqura
-    export=exp;
+    var exp: dojox.main.umalqura;
+    export = exp;
 }
 declare module "dojox/main.persian" {
-    var exp: dojox.main.persian
-    export=exp;
+    var exp: dojox.main.persian;
+    export = exp;
 }
 declare module "dojox/main.utils" {
-    var exp: dojox.main.utils
-    export=exp;
+    var exp: dojox.main.utils;
+    export = exp;
 }

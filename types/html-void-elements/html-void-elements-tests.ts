@@ -1,3 +1,3 @@
-import voidElements = require('html-void-elements');
+import voidElements = require("html-void-elements");
 
-voidElements.indexOf('br');
+voidElements.indexOf("br");

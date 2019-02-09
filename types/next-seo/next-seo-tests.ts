@@ -1,4 +1,4 @@
-import NextSeo from 'next-seo';
+import NextSeo from "next-seo";
 
 new NextSeo({
     config: {
@@ -6,7 +6,7 @@ new NextSeo({
         dangerouslySetAllPagesToNoIndex: false,
         description: "",
         facebook: {
-            appId: 0,
+            appId: 0
         },
         noindex: false,
         openGraph: {
@@ -14,35 +14,37 @@ new NextSeo({
                 authors: [""],
                 isbn: "",
                 releaseDate: "",
-                tags: [""],
+                tags: [""]
             },
             defaultImageHeight: 0,
             defaultImageWidth: 0,
             description: "",
-            images: [{
-                alt: "",
-                height: 0,
-                url: "",
-                width: 0,
-            }],
+            images: [
+                {
+                    alt: "",
+                    height: 0,
+                    url: "",
+                    width: 0
+                }
+            ],
             locale: "",
             profile: {
                 firstName: "",
                 gender: "",
                 lastName: "",
-                username: "",
+                username: ""
             },
             site_name: "",
             title: "",
             type: "",
-            url: "",
+            url: ""
         },
         title: "",
         titleTemplate: "",
         twitter: {
             cardType: "",
             handle: "",
-            site: "",
-        },
-    },
+            site: ""
+        }
+    }
 });

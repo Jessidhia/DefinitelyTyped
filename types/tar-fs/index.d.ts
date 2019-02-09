@@ -8,8 +8,8 @@
 
 /// <reference types="node" />
 
-import fs = require('fs');
-import stream = require('stream');
+import fs = require("fs");
+import stream = require("stream");
 
 // Replace these return values with the value of tar-stream when it becomes available
 export function pack(cwd: string, opts?: PackOptions): stream.Readable;
@@ -44,7 +44,7 @@ export interface Headers {
     mode: number;
     mtime: Date;
     size: number;
-    type: 'file' | 'directory' | 'link' | 'symlink';
+    type: "file" | "directory" | "link" | "symlink";
     uid: number;
     gid: number;
 }

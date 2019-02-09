@@ -12,17 +12,43 @@ export declare class Database {
     constructor(data: number[]);
 
     run(sql: string): Database;
-    run(sql: string, params: { [key: string]: number | string | Uint8Array }): Database;
+    run(
+        sql: string,
+        params: { [key: string]: number | string | Uint8Array }
+    ): Database;
     run(sql: string, params: (number | string | Uint8Array)[]): Database;
 
     exec(sql: string): QueryResults[];
 
-    each(sql: string, callback: (obj: { [columnName: string]: number | string | Uint8Array }) => void, done: () => void): void;
-    each(sql: string, params: { [key: string]: number | string | Uint8Array }, callback: (obj: { [columnName: string]: number | string | Uint8Array }) => void, done: () => void): void;
-    each(sql: string, params: (number | string | Uint8Array)[], callback: (obj: { [columnName: string]: number | string | Uint8Array }) => void, done: () => void): void;
+    each(
+        sql: string,
+        callback: (obj: {
+            [columnName: string]: number | string | Uint8Array;
+        }) => void,
+        done: () => void
+    ): void;
+    each(
+        sql: string,
+        params: { [key: string]: number | string | Uint8Array },
+        callback: (obj: {
+            [columnName: string]: number | string | Uint8Array;
+        }) => void,
+        done: () => void
+    ): void;
+    each(
+        sql: string,
+        params: (number | string | Uint8Array)[],
+        callback: (obj: {
+            [columnName: string]: number | string | Uint8Array;
+        }) => void,
+        done: () => void
+    ): void;
 
     prepare(sql: string): Statement;
-    prepare(sql: string, params: { [key: string]: number | string | Uint8Array }): Statement;
+    prepare(
+        sql: string,
+        params: { [key: string]: number | string | Uint8Array }
+    ): Statement;
     prepare(sql: string, params: (number | string | Uint8Array)[]): Statement;
 
     export(): Uint8Array;
@@ -42,14 +68,22 @@ export declare class Statement {
     step(): boolean;
 
     get(): (number | string | Uint8Array)[];
-    get(params: { [key: string]: number | string | Uint8Array }): (number | string | Uint8Array)[];
-    get(params: (number | string | Uint8Array)[]): (number | string | Uint8Array)[];
+    get(params: {
+        [key: string]: number | string | Uint8Array;
+    }): (number | string | Uint8Array)[];
+    get(
+        params: (number | string | Uint8Array)[]
+    ): (number | string | Uint8Array)[];
 
     getColumnNames(): string[];
 
     getAsObject(): { [columnName: string]: number | string | Uint8Array };
-    getAsObject(params: { [key: string]: number | string | Uint8Array }): { [columnName: string]: number | string | Uint8Array };
-    getAsObject(params: (number | string | Uint8Array)[]): { [columnName: string]: number | string | Uint8Array };
+    getAsObject(params: {
+        [key: string]: number | string | Uint8Array;
+    }): { [columnName: string]: number | string | Uint8Array };
+    getAsObject(
+        params: (number | string | Uint8Array)[]
+    ): { [columnName: string]: number | string | Uint8Array };
 
     run(): void;
     run(values: { [key: string]: number | string | Uint8Array }): void;

@@ -1,4 +1,4 @@
-import { wordsToNumbers } from 'words-to-numbers';
+import { wordsToNumbers } from "words-to-numbers";
 
 const number = wordsToNumbers("one");
 

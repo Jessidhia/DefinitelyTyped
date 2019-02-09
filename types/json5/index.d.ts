@@ -4,7 +4,6 @@
 //                 Kacper Wiszczuk <https://github.com/Esemesek>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 //commonjs loader
 
 /** 
@@ -42,16 +41,34 @@ Comments
 Both inline (single-line) and block (multi-line) comments are allowed.
   */
 
-type JSONReplacer = (key: string, value: any) => any | (number | string)[] | null;
+type JSONReplacer = (
+    key: string,
+    value: any
+) => any | (number | string)[] | null;
 
 interface JSON5 {
     // Old JSON methods
     parse(text: string, reviver?: (key: any, value: any) => any): any;
-    stringify(value: any, replacer?: (key: string, value: any) => any, space?: string | number): string;
-    stringify(value: any, replacer?: (number | string)[] | null, space?: string | number): string;
+    stringify(
+        value: any,
+        replacer?: (key: string, value: any) => any,
+        space?: string | number
+    ): string;
+    stringify(
+        value: any,
+        replacer?: (number | string)[] | null,
+        space?: string | number
+    ): string;
 
     // New JSON5 stringify function
-    stringify(value: any, options?: { space?: number | string, quote?: string, replacer?: JSONReplacer }): string;
+    stringify(
+        value: any,
+        options?: {
+            space?: number | string;
+            quote?: string;
+            replacer?: JSONReplacer;
+        }
+    ): string;
 }
 
 declare var json5: JSON5;

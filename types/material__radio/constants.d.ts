@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    NATIVE_CONTROL_SELECTOR: '.mdc-radio__native-control';
+    NATIVE_CONTROL_SELECTOR: ".mdc-radio__native-control";
 }
 
 export interface cssClasses extends MDCStrings {
-    ROOT: 'mdc-radio';
-    DISABLED: 'mdc-radio--disabled';
+    ROOT: "mdc-radio";
+    DISABLED: "mdc-radio--disabled";
 }

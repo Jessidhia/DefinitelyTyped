@@ -1,5 +1,10 @@
 import * as React from "react";
-import App, { Container, NextAppContext, AppProps, AppComponentType } from "next/app";
+import App, {
+    Container,
+    NextAppContext,
+    AppProps,
+    AppComponentType
+} from "next/app";
 import { DefaultQuery } from "next/router";
 
 interface TestAppProps {
@@ -27,7 +32,8 @@ class TestApp extends App {
 
 class TestAppWithProps extends App<TestAppProps & WithExampleProps> {
     static async getInitialProps({ Component, router, ctx }: NextAppContext) {
-        const pageProps = Component.getInitialProps && (await Component.getInitialProps(ctx));
+        const pageProps =
+            Component.getInitialProps && (await Component.getInitialProps(ctx));
         return { pageProps };
     }
 
@@ -37,9 +43,13 @@ class TestAppWithProps extends App<TestAppProps & WithExampleProps> {
     }
 }
 
-class ErrorTestAppWithState extends App<TestAppProps & WithExampleProps, TestAppState> {
+class ErrorTestAppWithState extends App<
+    TestAppProps & WithExampleProps,
+    TestAppState
+> {
     static async getInitialProps({ Component, router, ctx }: NextAppContext) {
-        const pageProps = Component.getInitialProps && (await Component.getInitialProps(ctx));
+        const pageProps =
+            Component.getInitialProps && (await Component.getInitialProps(ctx));
         return { pageProps };
     }
 
@@ -74,12 +84,15 @@ interface TestProps {
 
 // Stateful HOC that adds props to wrapped component. Similar to what withRedux does.
 // tslint:disable-next-line no-unnecessary-generics, use-default-type-parameter
-const withExample = <P extends {}>(App: AppComponentType<P & WithExampleProps, P>) =>
+const withExample = <P extends {}>(
+    App: AppComponentType<P & WithExampleProps, P>
+) =>
     class extends React.Component<P & AppProps & WithExampleHocProps> {
         test: string;
 
         static async getInitialProps(context: NextAppContext) {
-            const pageProps = App.getInitialProps && (await App.getInitialProps(context));
+            const pageProps =
+                App.getInitialProps && (await App.getInitialProps(context));
 
             // tslint:disable-next-line prefer-object-spread
             return Object.assign({}, pageProps, { test: "test" });
@@ -97,10 +110,13 @@ const withExample = <P extends {}>(App: AppComponentType<P & WithExampleProps, P
 
 // Basic stateless HOC. Similar to what withAuth would do.
 // tslint:disable-next-line no-unnecessary-generics
-const withBasic = <P extends {}, C extends {}>(App: AppComponentType<P, P, C>) =>
+const withBasic = <P extends {}, C extends {}>(
+    App: AppComponentType<P, P, C>
+) =>
     class extends React.Component<P & AppProps> {
         static async getInitialProps(context: C) {
-            const pageProps = App.getInitialProps && (await App.getInitialProps(context));
+            const pageProps =
+                App.getInitialProps && (await App.getInitialProps(context));
 
             // tslint:disable-next-line prefer-object-spread
             return Object.assign({}, pageProps);

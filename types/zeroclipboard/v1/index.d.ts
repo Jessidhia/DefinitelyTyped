@@ -5,7 +5,10 @@
 // TypeScript Version: 2.3
 
 declare class ZeroClipboard {
-    constructor(elements?: Element | { [index: number]: Element }, options?: ZeroClipboardOptions);
+    constructor(
+        elements?: Element | { [index: number]: Element },
+        options?: ZeroClipboardOptions
+    );
 
     activate(element: Element): void;
     setText(newText: string): void;
@@ -20,11 +23,16 @@ declare class ZeroClipboard {
     deactivate(): void;
     ready: boolean;
     reposition(): void; // returns false in some scenarios, but never returns true
-    on(eventName: string, func: (client: ZeroClipboard, args: any) => void): void;
-    off(eventName: string, func: (client: ZeroClipboard, args: any) => void): void;
+    on(
+        eventName: string,
+        func: (client: ZeroClipboard, args: any) => void
+    ): void;
+    off(
+        eventName: string,
+        func: (client: ZeroClipboard, args: any) => void
+    ): void;
     clip(elements: Element | { [index: number]: Element }): void;
     unclip(elements: Element | { [index: number]: Element }): void;
-
 
     static config(options: ZeroClipboardOptions): void;
     static destroy(): void;
@@ -32,7 +40,6 @@ declare class ZeroClipboard {
 }
 
 interface ZeroClipboardOptions {
-
     /** Setting this to false would allow users to handle calling ZeroClipboard.activate(...); themselves instead of relying on our per-element mouseover handler */
     autoActivate?: boolean;
 
@@ -77,4 +84,6 @@ interface ZeroClipboardOptions {
 }
 
 // Support AMD.
-declare module "zeroclipboard" { export = ZeroClipboard; }
+declare module "zeroclipboard" {
+    export = ZeroClipboard;
+}

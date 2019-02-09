@@ -16,10 +16,18 @@ declare namespace polymer {
         arrayDelete(path: string, item: string | any): any;
         async(callback: Function, waitTime?: number): any;
         attachedCallback(): void;
-        attributeFollows(name: string, toElement: HTMLElement, fromElement: HTMLElement): void;
+        attributeFollows(
+            name: string,
+            toElement: HTMLElement,
+            fromElement: HTMLElement
+        ): void;
         cancelAsync(handle: number): void;
         cancelDebouncer(jobName: string): void;
-        classFollows(name: string, toElement: HTMLElement, fromElement: HTMLElement): void;
+        classFollows(
+            name: string,
+            toElement: HTMLElement,
+            fromElement: HTMLElement
+        ): void;
         create(tag: string, props?: Object): HTMLElement;
         debounce(jobName: string, callback: Function, wait?: number): void;
         deserialize(value: string, type: any): any;
@@ -33,32 +41,57 @@ declare namespace polymer {
         getContentChildren(slctr: string): any;
         getNativePrototype(tag: string): any;
         getPropertyInfo(property: string): any;
-        importHref(href: string, onload?: Function, onerror?: Function, optAsync?: boolean): any;
+        importHref(
+            href: string,
+            onload?: Function,
+            onerror?: Function,
+            optAsync?: boolean
+        ): any;
         instanceTemplate(template: any): any;
         isDebouncerActive(jobName: string): any;
         linkPaths(to: string, from: string): void;
         listen(node: Element, eventName: string, methodName: string): void;
         mixin(target: Object, source: Object): void;
         notifyPath(path: string, value: any, fromAbove?: any): void;
-        notifySplices(path: string, splices: {
-            index: number;
-            removed: Array<any>;
-            addedCount: number;
-            object: Array<any>;
-            type: "splice";
-        }): void;
+        notifySplices(
+            path: string,
+            splices: {
+                index: number;
+                removed: Array<any>;
+                addedCount: number;
+                object: Array<any>;
+                type: "splice";
+            }
+        ): void;
         pop(path: string): any;
         push(path: string, value: any): any;
         reflectPropertyToAttribute(name: string): void;
         resolveUrl(url: string): any;
         scopeSubtree(container: Element, shouldObserve: boolean): void;
         serialize(value: string): any;
-        serializeValueToAttribute(value: any, attribute: string, node: Element): void;
-        set(path: string | Array<string | number>, value: any, root?: Object): any;
+        serializeValueToAttribute(
+            value: any,
+            attribute: string,
+            node: Element
+        ): void;
+        set(
+            path: string | Array<string | number>,
+            value: any,
+            root?: Object
+        ): any;
         setScrollDirection(direction: string, node: HTMLElement): void;
         shift(path: string, value: any): any;
-        splice(path: string, start: number, deleteCount: number, ...items: any[]): any;
-        toggleAttribute(name: string, force?: boolean, node?: HTMLElement): boolean;
+        splice(
+            path: string,
+            start: number,
+            deleteCount: number,
+            ...items: any[]
+        ): any;
+        toggleAttribute(
+            name: string,
+            force?: boolean,
+            node?: HTMLElement
+        ): boolean;
         toggleClass(name: string, bool: boolean, node?: HTMLElement): void;
         transform(transform: string, node?: HTMLElement): void;
         translate3d(x: any, y: any, z: any, node?: HTMLElement): void;
@@ -105,7 +138,7 @@ declare namespace polymer {
         computed?: string;
         observer?: string;
     }
-    interface Base extends polymer.Element { }
+    interface Base extends polymer.Element {}
     class Base extends polymer.PolymerBase {
         static create<T extends polymer.Base>(...args: any[]): T;
         static register(): void;
@@ -114,8 +147,12 @@ declare namespace polymer {
     function createEs6PolymerBase(): void;
     function prepareForRegistration(elementClass: Function): polymer.Element;
     function createDomModule(definition: polymer.Element): void;
-    function createElement<T extends polymer.Base>(element: new (...args: any[]) => T): new (...args: any[]) => T;
-    function createClass<T extends polymer.Base>(element: new (...args: any[]) => T): new (...args: any[]) => T;
+    function createElement<T extends polymer.Base>(
+        element: new (...args: any[]) => T
+    ): new (...args: any[]) => T;
+    function createClass<T extends polymer.Base>(
+        element: new (...args: any[]) => T
+    ): new (...args: any[]) => T;
     function isRegistered(element: polymer.Element): boolean;
 }
 declare var Polymer: {
@@ -128,13 +165,24 @@ declare var Polymer: {
     updateStyles(): void;
     Base: any;
 };
-declare function component(tagname: string, extendsTag?: string): (target: Function) => void;
+declare function component(
+    tagname: string,
+    extendsTag?: string
+): (target: Function) => void;
 declare function extend(tagname: string): (target: Function) => void;
 declare function template(templateString: string): (target: Function) => void;
 declare function style(styleString: string): (target: Function) => void;
 declare function hostAttributes(attributes: Object): (target: Function) => void;
-declare function property(ob?: polymer.Property): (target: polymer.Element, propertyKey: string) => void;
-declare function computed(ob?: polymer.Property): (target: polymer.Element, computedFuncName: string) => void;
-declare function listen(eventName: string): (target: polymer.Element, propertyKey: string) => void;
+declare function property(
+    ob?: polymer.Property
+): (target: polymer.Element, propertyKey: string) => void;
+declare function computed(
+    ob?: polymer.Property
+): (target: polymer.Element, computedFuncName: string) => void;
+declare function listen(
+    eventName: string
+): (target: polymer.Element, propertyKey: string) => void;
 declare function behavior(behaviorObject: any): any;
-declare function observe(observedProps: string): (target: polymer.Element, observerFuncName: string) => void;
+declare function observe(
+    observedProps: string
+): (target: polymer.Element, observerFuncName: string) => void;

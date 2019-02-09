@@ -10,8 +10,8 @@ export type RenderFunction = () => Renderable | Renderable[];
 export type Readme = string | string[];
 
 export type DecoratorPattern = (
-  story: RenderFunction,
-  context: { kind: string; story: string }
+    story: RenderFunction,
+    context: { kind: string; story: string }
 ) => Renderable | null;
 
 export type HOCPattern = (story: RenderFunction) => Renderable | null;
@@ -19,23 +19,23 @@ export type HOCPattern = (story: RenderFunction) => Renderable | null;
 // WithReadme Types
 export function withReadme(readme: Readme): DecoratorPattern;
 export function withReadme(
-  readme: Readme,
-  story: RenderFunction
+    readme: Readme,
+    story: RenderFunction
 ): RenderFunction;
 
 // WithDocs Types
 export interface CustomComponents {
-  PreviewComponent: (props: { children: JSX.Element }) => JSX.Element;
-  FooterComponent: (props: { children: JSX.Element }) => JSX.Element;
+    PreviewComponent: (props: { children: JSX.Element }) => JSX.Element;
+    FooterComponent: (props: { children: JSX.Element }) => JSX.Element;
 }
 
 export function withDocs(
-  custom: CustomComponents
+    custom: CustomComponents
 ): (readme: Readme) => HOCPattern;
 export function withDocs(readme: Readme, story: RenderFunction): RenderFunction;
 export function withDocs(readme: Readme): DecoratorPattern;
 export namespace withDocs {
-  function addFooterDocs(footerDoc: string): void;
+    function addFooterDocs(footerDoc: string): void;
 }
 
 // Doc Types

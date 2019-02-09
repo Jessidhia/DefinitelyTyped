@@ -4,14 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 export interface PasswordProps {
     className?: string;
-    mask?: '•' | string;
+    mask?: "•" | string;
     onChange?: (value: string) => void;
     placeholder?: string;
     show?: boolean;
     timeout?: number;
     value?: string;
 }
-export default class Password extends React.Component<PasswordProps> { }
+export default class Password extends React.Component<PasswordProps> {}

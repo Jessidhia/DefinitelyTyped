@@ -7,7 +7,7 @@
 
 /// <reference types="node" />
 
-import * as React from 'react';
+import * as React from "react";
 
 export interface ThemeProps<T> {
     theme: T;
@@ -57,14 +57,14 @@ export interface StyledComponentClass<P, T, O = P>
     extend: ThemedStyledFunction<P, T, O>;
 
     withComponent<K extends keyof JSX.IntrinsicElements>(
-        tag: K,
+        tag: K
     ): StyledComponentClass<
         JSX.IntrinsicElements[K],
         T,
         JSX.IntrinsicElements[K] & O
     >;
     withComponent<U = {}>(
-        element: React.ComponentType<U>,
+        element: React.ComponentType<U>
     ): StyledComponentClass<U, T, U & O>;
 }
 
@@ -78,7 +78,7 @@ export interface ThemedStyledFunction<P, T, O = P> {
         ...interpolations: Array<Interpolation<ThemedStyledProps<P & U, T>>>
     ): StyledComponentClass<P & U, T, O & U>;
     attrs<U, A extends Partial<P & U> = {}>(
-        attrs: Attrs<P & U, A, T>,
+        attrs: Attrs<P & U, A, T>
     ): ThemedStyledFunction<DiffBetween<A, P & U>, T, DiffBetween<A, O & U>>;
 }
 
@@ -94,7 +94,7 @@ type ThemedStyledComponentFactories<T> = {
 export interface ThemedBaseStyledInterface<T>
     extends ThemedStyledComponentFactories<T> {
     <P, TTag extends keyof JSX.IntrinsicElements>(
-        tag: TTag,
+        tag: TTag
     ): ThemedStyledFunction<P, T, P & JSX.IntrinsicElements[TTag]>;
     <P, O>(component: StyledComponentClass<P, T, O>): ThemedStyledFunction<
         P,
@@ -102,11 +102,13 @@ export interface ThemedBaseStyledInterface<T>
         O
     >;
     <P extends { [prop: string]: any; theme?: T }>(
-        component: React.ComponentType<P>,
+        component: React.ComponentType<P>
     ): ThemedStyledFunction<P, T, WithOptionalTheme<P, T>>;
 }
 
-export type ThemedStyledInterface<T> = ThemedBaseStyledInterface<Extract<keyof T, string> extends never ? any : T>;
+export type ThemedStyledInterface<T> = ThemedBaseStyledInterface<
+    Extract<keyof T, string> extends never ? any : T
+>;
 export type StyledInterface = ThemedStyledInterface<DefaultTheme>;
 // tslint:disable-next-line:no-empty-interface
 export interface DefaultTheme {}
@@ -116,8 +118,10 @@ export interface ThemeProviderProps<T> {
 }
 export type BaseThemeProviderComponent<T> = React.ComponentClass<
     ThemeProviderProps<T>
-    >;
-export type ThemeProviderComponent<T> = BaseThemeProviderComponent<Extract<keyof T, string> extends never ? any : T>;
+>;
+export type ThemeProviderComponent<T> = BaseThemeProviderComponent<
+    Extract<keyof T, string> extends never ? any : T
+>;
 export interface BaseThemedCssFunction<T> {
     (
         strings: TemplateStringsArray,
@@ -128,7 +132,9 @@ export interface BaseThemedCssFunction<T> {
         ...interpolations: Array<Interpolation<ThemedStyledProps<P, T>>>
     ): Array<FlattenInterpolation<ThemedStyledProps<P, T>>>;
 }
-export type ThemedCssFunction<T> = BaseThemedCssFunction<Extract<keyof T, string> extends never ? any : T>;
+export type ThemedCssFunction<T> = BaseThemedCssFunction<
+    Extract<keyof T, string> extends never ? any : T
+>;
 
 // Helper type operators
 type KeyofBase = keyof any;
@@ -137,7 +143,7 @@ type Diff<T extends KeyofBase, U extends KeyofBase> = ({ [P in T]: P } &
 type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 type DiffBetween<T, U> = Pick<T, Diff<keyof T, keyof U>> &
     Pick<U, Diff<keyof U, keyof T>>;
-type WithOptionalTheme<P extends { theme?: T }, T> = Omit<P, 'theme'> & {
+type WithOptionalTheme<P extends { theme?: T }, T> = Omit<P, "theme"> & {
     theme?: T;
 };
 
@@ -163,9 +169,11 @@ declare const styled: StyledInterface;
 export const css: ThemedCssFunction<DefaultTheme>;
 
 export type BaseWithThemeFnInterface<T> = <P extends { theme?: T }>(
-        component: React.ComponentType<P>,
-    ) => React.ComponentClass<WithOptionalTheme<P, T>>;
-export type WithThemeFnInterface<T> = BaseWithThemeFnInterface<Extract<keyof T, string> extends never ? any : T>;
+    component: React.ComponentType<P>
+) => React.ComponentClass<WithOptionalTheme<P, T>>;
+export type WithThemeFnInterface<T> = BaseWithThemeFnInterface<
+    Extract<keyof T, string> extends never ? any : T
+>;
 export const withTheme: WithThemeFnInterface<DefaultTheme>;
 
 export function keyframes(
@@ -181,7 +189,7 @@ export function injectGlobal(
 export function consolidateStreamedStyles(): void;
 
 export function isStyledComponent(
-    target: any,
+    target: any
 ): target is StyledComponentClass<{}, {}>;
 
 export const ThemeProvider: ThemeProviderComponent<object>;
@@ -201,13 +209,13 @@ export class StyleSheetManager extends React.Component<
 
 export class ServerStyleSheet {
     collectStyles(
-        tree: React.ReactNode,
+        tree: React.ReactNode
     ): React.ReactElement<StylesheetComponentProps>;
 
     getStyleTags(): string;
     getStyleElement(): Array<React.ReactElement<{}>>;
     interleaveWithNodeStream(
-        readableStream: NodeJS.ReadableStream,
+        readableStream: NodeJS.ReadableStream
     ): NodeJS.ReadableStream;
     instance: StyleSheet;
 }

@@ -1,4 +1,4 @@
-import pTimes = require('p-times');
+import pTimes = require("p-times");
 
 // $ExpectType Promise<string[]>
 pTimes(5, i => `🦄-${i + 1}`);

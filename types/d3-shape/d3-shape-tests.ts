@@ -6,16 +6,18 @@
  * are not intended as functional tests.
  */
 
-import * as d3Shape from 'd3-shape';
-import { select, Selection } from 'd3-selection';
-import { path } from 'd3-path';
-import { HierarchyPointLink, HierarchyPointNode } from 'd3-hierarchy';
+import * as d3Shape from "d3-shape";
+import { select, Selection } from "d3-selection";
+import { path } from "d3-path";
+import { HierarchyPointLink, HierarchyPointNode } from "d3-hierarchy";
 
 // -----------------------------------------------------------------------------------
 // Preparatory Steps (General)
 // -----------------------------------------------------------------------------------
 
-let context: CanvasRenderingContext2D | null = document.querySelector('canvas')!.getContext('2d');
+let context: CanvasRenderingContext2D | null = document
+    .querySelector("canvas")!
+    .getContext("2d");
 let num: number;
 let padAngleMaybe: number | undefined;
 let pathStringMaybe: string | null;
@@ -56,8 +58,14 @@ const arcDatum: ArcDatum = {
 };
 
 let accessorArcDatumNumber: (this: any, d: ArcDatum, ...args: any[]) => number;
-let accessorArcDatumNumberOrUndefined: (this: any, d: ArcDatum, ...args: any[]) => number | undefined;
-let accessorArcDatumNumberOrNull: ((this: any, d: ArcDatum, ...args: any[]) => number) | null;
+let accessorArcDatumNumberOrUndefined: (
+    this: any,
+    d: ArcDatum,
+    ...args: any[]
+) => number | undefined;
+let accessorArcDatumNumberOrNull:
+    | ((this: any, d: ArcDatum, ...args: any[]) => number)
+    | null;
 
 // DefaultArcObject interface ========================================================
 
@@ -78,7 +86,10 @@ padAngleMaybe = defaultArcObject.padAngle;
 // arc(...) create Arc generator =====================================================
 
 let canvasArc: d3Shape.Arc<any, d3Shape.DefaultArcObject> = d3Shape.arc();
-let svgArc: d3Shape.Arc<SVGPathElement, ArcDatum> = d3Shape.arc<SVGPathElement, ArcDatum>();
+let svgArc: d3Shape.Arc<SVGPathElement, ArcDatum> = d3Shape.arc<
+    SVGPathElement,
+    ArcDatum
+>();
 
 // configure Arc(...) generator ======================================================
 
@@ -172,15 +183,24 @@ canvasArc(arcDefaultDatum);
 
 // use with svg
 
-const pArc: Selection<SVGPathElement, ArcDatum, any, any> = select<SVGPathElement, ArcDatum>('.arc-paths'); // mock
-const wrongArc1: Selection<SVGCircleElement, ArcDatum, any, any> = select<SVGCircleElement, ArcDatum>('.arc-paths'); // mock
-const wrongArc2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.arc-paths'); // mock
+const pArc: Selection<SVGPathElement, ArcDatum, any, any> = select<
+    SVGPathElement,
+    ArcDatum
+>(".arc-paths"); // mock
+const wrongArc1: Selection<SVGCircleElement, ArcDatum, any, any> = select<
+    SVGCircleElement,
+    ArcDatum
+>(".arc-paths"); // mock
+const wrongArc2: Selection<SVGPathElement, { test: string }, any, any> = select<
+    SVGPathElement,
+    { test: string }
+>(".arc-paths"); // mock
 
-pArc.attr('d', svgArc);
+pArc.attr("d", svgArc);
 // $ExpectError
-wrongArc1.attr('d', svgArc); // fails, incompatible this contexts
+wrongArc1.attr("d", svgArc); // fails, incompatible this contexts
 // $ExpectError
-wrongArc2.attr('d', svgArc); // fails, incompatible datum types
+wrongArc2.attr("d", svgArc); // fails, incompatible datum types
 
 // $ExpectError
 pathStringMaybe = svgArc(arcDatum); // fails, wrong this type for invocation
@@ -201,7 +221,8 @@ class Arcer {
         this.outerRadius = outerRadius;
         this.cornerRadius = 3;
 
-        this.arc = d3Shape.arc<Arcer, ArcerDatum>()
+        this.arc = d3Shape
+            .arc<Arcer, ArcerDatum>()
             .innerRadius(d => {
                 return Math.min(d.innerRadius, this.innerRadius);
             })
@@ -223,7 +244,12 @@ class Arcer {
     private readonly arc: d3Shape.Arc<Arcer, ArcerDatum>;
 
     getPathString(d?: ArcerDatum) {
-        return d ? this.arc(d) : this.arc({ innerRadius: this.innerRadius, outerRadius: this.outerRadius });
+        return d
+            ? this.arc(d)
+            : this.arc({
+                  innerRadius: this.innerRadius,
+                  outerRadius: this.outerRadius
+              });
     }
 }
 
@@ -241,7 +267,11 @@ interface PieDatum {
     name: string;
 }
 
-let accessorPieDatumNumber: (this: any, data: PieDatum[], ...args: any[]) => number;
+let accessorPieDatumNumber: (
+    this: any,
+    data: PieDatum[],
+    ...args: any[]
+) => number;
 
 // PieArcDatum interface =============================================================
 
@@ -266,7 +296,10 @@ num = pieArcObject.padAngle;
 
 // pie(...) create Pie generator =====================================================
 
-let defaultPie: d3Shape.Pie<any, number | { valueOf(): number }> = d3Shape.pie();
+let defaultPie: d3Shape.Pie<
+    any,
+    number | { valueOf(): number }
+> = d3Shape.pie();
 
 let pie: d3Shape.Pie<any, PieDatum> = d3Shape.pie<PieDatum>();
 
@@ -274,7 +307,11 @@ let pie: d3Shape.Pie<any, PieDatum> = d3Shape.pie<PieDatum>();
 
 // value(...) -------------------------------------------------------------------------
 
-let defaultPieValueAccessor: (d: number | { valueOf(): number }, i: number, data: Array<number | { valueOf(): number }>) => number;
+let defaultPieValueAccessor: (
+    d: number | { valueOf(): number },
+    i: number,
+    data: Array<number | { valueOf(): number }>
+) => number;
 
 defaultPie = defaultPie.value(10);
 
@@ -283,7 +320,7 @@ defaultPieValueAccessor = defaultPie.value();
 let pieValueAccessor: (d: PieDatum, i: number, data: PieDatum[]) => number;
 
 pie = pie.value((d, i, data) => {
-    console.log(data.length > 0 ? data[0].val : 'no data'); // data type is Array<PieDatum>
+    console.log(data.length > 0 ? data[0].val : "no data"); // data type is Array<PieDatum>
     return d.val; // d type is PieDatum
 });
 
@@ -318,7 +355,7 @@ pie = pie.sortValues(null);
 defaultPie = defaultPie.startAngle(0);
 
 pie = pie.startAngle(d => {
-    console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
+    console.log(d.length > 0 ? d[0].val : "no data"); // data type is Array<PieDatum>
     return 0;
 });
 accessorPieDatumNumber = pie.startAngle();
@@ -328,7 +365,7 @@ accessorPieDatumNumber = pie.startAngle();
 defaultPie = defaultPie.endAngle(2 * Math.PI);
 
 pie = pie.endAngle(d => {
-    console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
+    console.log(d.length > 0 ? d[0].val : "no data"); // data type is Array<PieDatum>
     return 2 * Math.PI;
 });
 accessorPieDatumNumber = pie.endAngle();
@@ -338,7 +375,7 @@ accessorPieDatumNumber = pie.endAngle();
 defaultPie = defaultPie.padAngle(0.03);
 
 pie = pie.padAngle(d => {
-    console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
+    console.log(d.length > 0 ? d[0].val : "no data"); // data type is Array<PieDatum>
     return 0.03;
 });
 accessorPieDatumNumber = pie.padAngle();
@@ -350,9 +387,9 @@ let defaultPieChart: Array<d3Shape.PieArcDatum<number | { valueOf(): number }>>;
 defaultPieChart = defaultPie([20, 10, 30, 40]);
 
 const pieData: PieDatum[] = [
-    { name: 'John', val: 20 },
-    { name: 'Jill', val: 10 },
-    { name: 'Rodrigo', val: 30 }
+    { name: "John", val: 20 },
+    { name: "Jill", val: 10 },
+    { name: "Rodrigo", val: 30 }
 ];
 let pieChart: Array<d3Shape.PieArcDatum<PieDatum>>;
 
@@ -368,8 +405,16 @@ interface LineDatum {
     missing: boolean;
 }
 
-let lineXYAccessorFn: (d: LineDatum, index: number, data: LineDatum[]) => number;
-let lineDefAccessorFn: (d: LineDatum, index: number, data: LineDatum[]) => boolean;
+let lineXYAccessorFn: (
+    d: LineDatum,
+    index: number,
+    data: LineDatum[]
+) => number;
+let lineDefAccessorFn: (
+    d: LineDatum,
+    index: number,
+    data: LineDatum[]
+) => boolean;
 
 interface LineRadialDatum {
     angle: number;
@@ -377,8 +422,16 @@ interface LineRadialDatum {
     missing: boolean;
 }
 
-let lineRadialAngRAccessorFn: (d: LineRadialDatum, index: number, data: LineRadialDatum[]) => number;
-let lineRadialDefAccessorFn: (d: LineRadialDatum, index: number, data: LineRadialDatum[]) => boolean;
+let lineRadialAngRAccessorFn: (
+    d: LineRadialDatum,
+    index: number,
+    data: LineRadialDatum[]
+) => number;
+let lineRadialDefAccessorFn: (
+    d: LineRadialDatum,
+    index: number,
+    data: LineRadialDatum[]
+) => boolean;
 
 // line(...) create Line generator =====================================================
 
@@ -402,8 +455,8 @@ line = line.context(null); // use as path string generator for SVG
 defaultLine = defaultLine.x(30);
 
 line = line.x((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('X-Coordinate of first point: ', data[0].x); // data type is Array<LineDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("X-Coordinate of first point: ", data[0].x); // data type is Array<LineDatum>
     return d.x; // d type is LineDatum
 });
 
@@ -414,8 +467,8 @@ lineXYAccessorFn = line.x();
 defaultLine = defaultLine.y(10);
 
 line = line.y((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y-Coordinate of first point: ', data[0].y); // data type is Array<LineDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y-Coordinate of first point: ", data[0].y); // data type is Array<LineDatum>
     return d.y; // d type is LineDatum
 });
 
@@ -426,8 +479,8 @@ lineXYAccessorFn = line.y();
 defaultLine = defaultLine.defined(true);
 
 line = line.defined((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y-Coordinate of first point: ', data[0].y); // data type is Array<LineDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y-Coordinate of first point: ", data[0].y); // data type is Array<LineDatum>
     return !d.missing; // d type is LineDatum
 });
 
@@ -439,7 +492,9 @@ defaultLine = defaultLine.curve(d3Shape.curveLinear);
 
 line = line.curve(d3Shape.curveBundle.beta(0.5));
 
-let currentCurveFactory: d3Shape.CurveFactory | d3Shape.CurveFactoryLineOnly = line.curve();
+let currentCurveFactory:
+    | d3Shape.CurveFactory
+    | d3Shape.CurveFactoryLineOnly = line.curve();
 
 // use Line generator ===============================================================
 
@@ -455,12 +510,18 @@ const linePathStringMaybe: string | null = line(lineData);
 
 // lineRadial(...) create Line generator =====================================================
 
-let defaultLineRadial: d3Shape.LineRadial<[number, number]> = d3Shape.lineRadial();
-let lineRadial: d3Shape.LineRadial<LineRadialDatum> = d3Shape.lineRadial<LineRadialDatum>();
+let defaultLineRadial: d3Shape.LineRadial<
+    [number, number]
+> = d3Shape.lineRadial();
+let lineRadial: d3Shape.LineRadial<LineRadialDatum> = d3Shape.lineRadial<
+    LineRadialDatum
+>();
 
 // DEPRECATED Naming conventions test (cross-testing with new naming conventions)
 
-const defaultRadialLine: d3Shape.RadialLine<[number, number]> = defaultLineRadial;
+const defaultRadialLine: d3Shape.RadialLine<
+    [number, number]
+> = defaultLineRadial;
 const radialLine: d3Shape.RadialLine<LineRadialDatum> = lineRadial;
 
 defaultLineRadial = d3Shape.radialLine();
@@ -482,8 +543,8 @@ lineRadial = lineRadial.context(null); // use as path string generator for SVG
 defaultLineRadial = defaultLineRadial.angle(Math.PI);
 
 lineRadial = lineRadial.angle((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Angle of first point: ', data[0].angle); // data type is Array<LineRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Angle of first point: ", data[0].angle); // data type is Array<LineRadialDatum>
     return d.angle; // d type is LineRadialDatum
 });
 
@@ -494,8 +555,8 @@ lineRadialAngRAccessorFn = lineRadial.angle();
 defaultLineRadial = defaultLineRadial.radius(30);
 
 lineRadial = lineRadial.radius((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Angle of first point: ', data[0].angle); // data type is Array<LineRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Angle of first point: ", data[0].angle); // data type is Array<LineRadialDatum>
     return d.radius; // d type is LineRadialDatum
 });
 
@@ -506,8 +567,8 @@ lineRadialAngRAccessorFn = lineRadial.radius();
 defaultLineRadial = defaultLineRadial.defined(true);
 
 lineRadial = lineRadial.defined((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Angle of first point: ', data[0].angle); // data type is Array<LineRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Angle of first point: ", data[0].angle); // data type is Array<LineRadialDatum>
     return !d.missing; // d type is LineRadialDatum
 });
 
@@ -545,9 +606,19 @@ interface AreaDatum {
     missing: boolean;
 }
 
-let areaXYAccessorFn: (d: AreaDatum, index: number, data: AreaDatum[]) => number;
-let areaXYAccessorFnMaybe: null | ((d: AreaDatum, index: number, data: AreaDatum[]) => number);
-let areaDefAccessorFn: (d: AreaDatum, index: number, data: AreaDatum[]) => boolean;
+let areaXYAccessorFn: (
+    d: AreaDatum,
+    index: number,
+    data: AreaDatum[]
+) => number;
+let areaXYAccessorFnMaybe:
+    | null
+    | ((d: AreaDatum, index: number, data: AreaDatum[]) => number);
+let areaDefAccessorFn: (
+    d: AreaDatum,
+    index: number,
+    data: AreaDatum[]
+) => boolean;
 
 interface AreaRadialDatum {
     startAngle: number;
@@ -557,9 +628,19 @@ interface AreaRadialDatum {
     missing: boolean;
 }
 
-let areaRadialAngRAccessorFn: (d: AreaRadialDatum, index: number, data: AreaRadialDatum[]) => number;
-let areaRadialAngRAccessorFnMaybe: null | ((d: AreaRadialDatum, index: number, data: AreaRadialDatum[]) => number);
-let areaRadialDefAccessorFn: (d: AreaRadialDatum, index: number, data: AreaRadialDatum[]) => boolean;
+let areaRadialAngRAccessorFn: (
+    d: AreaRadialDatum,
+    index: number,
+    data: AreaRadialDatum[]
+) => number;
+let areaRadialAngRAccessorFnMaybe:
+    | null
+    | ((d: AreaRadialDatum, index: number, data: AreaRadialDatum[]) => number);
+let areaRadialDefAccessorFn: (
+    d: AreaRadialDatum,
+    index: number,
+    data: AreaRadialDatum[]
+) => boolean;
 
 // area(...) create Area generator =====================================================
 
@@ -582,8 +663,8 @@ area = area.context(null); // use as path string generator for SVG
 defaultArea = defaultArea.x(30);
 
 area = area.x((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('X0-Coordinate of first point: ', data[0].x0); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("X0-Coordinate of first point: ", data[0].x0); // data type is Array<AreaDatum>
     return d.x0; // d type is AreaDatum
 });
 
@@ -594,8 +675,8 @@ areaXYAccessorFn = area.x();
 defaultArea = defaultArea.x0(30);
 
 area = area.x0((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('X0-Coordinate of first point: ', data[0].x0); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("X0-Coordinate of first point: ", data[0].x0); // data type is Array<AreaDatum>
     return d.x0; // d type is AreaDatum
 });
 
@@ -606,8 +687,8 @@ areaXYAccessorFn = area.x0();
 defaultArea = defaultArea.x1(30);
 
 area = area.x1((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('X1-Coordinate of first point: ', data[0].x1); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("X1-Coordinate of first point: ", data[0].x1); // data type is Array<AreaDatum>
     return d.x1; // d type is AreaDatum
 });
 
@@ -618,8 +699,8 @@ areaXYAccessorFnMaybe = area.x1();
 defaultArea = defaultArea.y(10);
 
 area = area.y((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y0-Coordinate of first point: ", data[0].y0); // data type is Array<AreaDatum>
     return d.y0; // d type is AreaDatum
 });
 
@@ -630,8 +711,8 @@ areaXYAccessorFn = area.y();
 defaultArea = defaultArea.y0(10);
 
 area = area.y0((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y0-Coordinate of first point: ", data[0].y0); // data type is Array<AreaDatum>
     return d.y0; // d type is AreaDatum
 });
 
@@ -642,8 +723,8 @@ areaXYAccessorFn = area.y0();
 defaultArea = defaultArea.y1(10);
 
 area = area.y1((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y1-Coordinate of first point: ', data[0].y1); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y1-Coordinate of first point: ", data[0].y1); // data type is Array<AreaDatum>
     return d.y1; // d type is AreaDatum
 });
 
@@ -654,8 +735,8 @@ areaXYAccessorFnMaybe = area.y1();
 defaultArea = defaultArea.defined(true);
 
 area = area.defined((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Y0-Coordinate of first point: ", data[0].y0); // data type is Array<AreaDatum>
     return !d.missing; // d type is AreaDatum
 });
 
@@ -694,12 +775,18 @@ areaLineGenerator = area.lineY1();
 
 // areaRadial(...) create AreaRadial generator =====================================================
 
-let defaultAreaRadial: d3Shape.AreaRadial<[number, number]> = d3Shape.areaRadial();
-let areaRadial: d3Shape.AreaRadial<AreaRadialDatum> = d3Shape.areaRadial<AreaRadialDatum>();
+let defaultAreaRadial: d3Shape.AreaRadial<
+    [number, number]
+> = d3Shape.areaRadial();
+let areaRadial: d3Shape.AreaRadial<AreaRadialDatum> = d3Shape.areaRadial<
+    AreaRadialDatum
+>();
 
 // DEPRECATED Naming conventions test (cross-testing with new naming conventions)
 
-const defaultRadialArea: d3Shape.RadialArea<[number, number]> = defaultAreaRadial;
+const defaultRadialArea: d3Shape.RadialArea<
+    [number, number]
+> = defaultAreaRadial;
 const radialArea: d3Shape.RadialArea<AreaRadialDatum> = areaRadial;
 
 defaultAreaRadial = d3Shape.radialArea();
@@ -721,8 +808,8 @@ areaRadial = areaRadial.context(null); // use as path string generator for SVG
 defaultAreaRadial = defaultAreaRadial.angle(Math.PI);
 
 areaRadial = areaRadial.angle((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Start angle of first point: ', data[0].startAngle); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Start angle of first point: ", data[0].startAngle); // data type is Array<AreaRadialDatum>
     return d.startAngle; // d type is AreaRadialDatum
 });
 
@@ -733,8 +820,8 @@ areaRadialAngRAccessorFn = areaRadial.angle();
 defaultAreaRadial = defaultAreaRadial.startAngle(Math.PI);
 
 areaRadial = areaRadial.startAngle((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Start angle of first point: ', data[0].startAngle); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Start angle of first point: ", data[0].startAngle); // data type is Array<AreaRadialDatum>
     return d.startAngle; // d type is AreaRadialDatum
 });
 
@@ -745,8 +832,8 @@ areaRadialAngRAccessorFn = areaRadial.startAngle();
 defaultAreaRadial = defaultAreaRadial.endAngle(Math.PI);
 
 areaRadial = areaRadial.endAngle((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('End angle of first point: ', data[0].endAngle); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("End angle of first point: ", data[0].endAngle); // data type is Array<AreaRadialDatum>
     return d.endAngle; // d type is AreaRadialDatum
 });
 
@@ -757,8 +844,8 @@ areaRadialAngRAccessorFnMaybe = areaRadial.endAngle();
 defaultAreaRadial = defaultAreaRadial.radius(10);
 
 areaRadial = areaRadial.radius((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Inner radius of first point: ", data[0].innerRadius); // data type is Array<AreaRadialDatum>
     return d.innerRadius; // d type is AreaRadialDatum
 });
 
@@ -769,8 +856,8 @@ areaRadialAngRAccessorFn = areaRadial.radius();
 defaultAreaRadial = defaultAreaRadial.innerRadius(10);
 
 areaRadial = areaRadial.innerRadius((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Inner radius of first point: ", data[0].innerRadius); // data type is Array<AreaRadialDatum>
     return d.innerRadius; // d type is AreaRadialDatum
 });
 
@@ -781,8 +868,8 @@ areaRadialAngRAccessorFn = areaRadial.innerRadius();
 defaultAreaRadial = defaultAreaRadial.outerRadius(20);
 
 areaRadial = areaRadial.outerRadius((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Outer radius of first point: ', data[0].outerRadius); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Outer radius of first point: ", data[0].outerRadius); // data type is Array<AreaRadialDatum>
     return d.outerRadius; // d type is AreaRadialDatum
 });
 
@@ -793,8 +880,8 @@ areaRadialAngRAccessorFnMaybe = areaRadial.outerRadius();
 defaultAreaRadial = defaultAreaRadial.defined(true);
 
 areaRadial = areaRadial.defined((d, t, data) => {
-    console.log('Number of Points: ', data.length);
-    console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<AreaRadialDatum>
+    console.log("Number of Points: ", data.length);
+    console.log("Inner radius of first point: ", data[0].innerRadius); // data type is Array<AreaRadialDatum>
     return !d.missing; // d type is AreaRadialDatum
 });
 
@@ -815,9 +902,27 @@ currentCurveFactory = areaRadial.curve();
 defaultAreaRadial([[10, 10], [20, 10], [20, 20]]);
 
 const areaRadialData: AreaRadialDatum[] = [
-    { startAngle: 0, innerRadius: 10, endAngle: 0, outerRadius: 30, missing: false },
-    { startAngle: Math.PI / 2, innerRadius: 20, endAngle: Math.PI / 2, outerRadius: 40, missing: false },
-    { startAngle: Math.PI, innerRadius: 30, endAngle: Math.PI, outerRadius: 30, missing: false }
+    {
+        startAngle: 0,
+        innerRadius: 10,
+        endAngle: 0,
+        outerRadius: 30,
+        missing: false
+    },
+    {
+        startAngle: Math.PI / 2,
+        innerRadius: 20,
+        endAngle: Math.PI / 2,
+        outerRadius: 40,
+        missing: false
+    },
+    {
+        startAngle: Math.PI,
+        innerRadius: 30,
+        endAngle: Math.PI,
+        outerRadius: 30,
+        missing: false
+    }
 ];
 
 const areaRadialPathStringMaybe: string | null = areaRadial(areaRadialData);
@@ -853,7 +958,7 @@ let curveGenerator: d3Shape.CurveGenerator;
 let curveFactory: d3Shape.CurveFactory = d3Shape.curveBasis;
 
 curveGenerator = curveFactory(path());
-curveGenerator = curveFactory(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = curveFactory(context!); // force context to be non-null with post-fix for mock
 
 curveGenerator.lineStart();
 curveGenerator.lineEnd();
@@ -872,7 +977,7 @@ let curveBundleFactory: d3Shape.CurveBundleFactory;
 curveBundleFactory = d3Shape.curveBundle;
 curveBundleFactory = d3Shape.curveBundle.beta(0.5);
 
-lineOnlyGenerator = d3Shape.curveBundle.beta(0.5)(context!);  // force context to be non-null with post-fix for mock
+lineOnlyGenerator = d3Shape.curveBundle.beta(0.5)(context!); // force context to be non-null with post-fix for mock
 lineOnlyGenerator = d3Shape.curveBundle.beta(0.5)(path());
 // $ExpectError
 curveGenerator = d3Shape.curveBundle.beta(0.5)(context); // fails, no area related methods
@@ -882,19 +987,19 @@ let curveCardinalFactory: d3Shape.CurveCardinalFactory;
 curveCardinalFactory = d3Shape.curveCardinal;
 curveCardinalFactory = d3Shape.curveCardinal.tension(0.5);
 
-curveGenerator = d3Shape.curveCardinal.tension(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCardinal.tension(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCardinal.tension(0.5)(path());
 
 curveCardinalFactory = d3Shape.curveCardinalOpen;
 curveCardinalFactory = d3Shape.curveCardinalOpen.tension(0.5);
 
-curveGenerator = d3Shape.curveCardinalOpen.tension(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCardinalOpen.tension(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCardinalOpen.tension(0.5)(path());
 
 curveCardinalFactory = d3Shape.curveCardinalClosed;
 curveCardinalFactory = d3Shape.curveCardinalClosed.tension(0.5);
 
-curveGenerator = d3Shape.curveCardinalClosed.tension(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCardinalClosed.tension(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCardinalClosed.tension(0.5)(path());
 
 let curveCatmullRomFactory: d3Shape.CurveCatmullRomFactory;
@@ -902,19 +1007,19 @@ let curveCatmullRomFactory: d3Shape.CurveCatmullRomFactory;
 curveCatmullRomFactory = d3Shape.curveCatmullRom;
 curveCatmullRomFactory = d3Shape.curveCatmullRom.alpha(0.5);
 
-curveGenerator = d3Shape.curveCatmullRom.alpha(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCatmullRom.alpha(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCatmullRom.alpha(0.5)(path());
 
 curveCatmullRomFactory = d3Shape.curveCatmullRomOpen;
 curveCatmullRomFactory = d3Shape.curveCatmullRomOpen.alpha(0.5);
 
-curveGenerator = d3Shape.curveCatmullRomOpen.alpha(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCatmullRomOpen.alpha(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCatmullRomOpen.alpha(0.5)(path());
 
 curveCatmullRomFactory = d3Shape.curveCatmullRomClosed;
 curveCatmullRomFactory = d3Shape.curveCatmullRomClosed.alpha(0.5);
 
-curveGenerator = d3Shape.curveCatmullRomClosed.alpha(0.5)(context!);  // force context to be non-null with post-fix for mock
+curveGenerator = d3Shape.curveCatmullRomClosed.alpha(0.5)(context!); // force context to be non-null with post-fix for mock
 curveGenerator = d3Shape.curveCatmullRomClosed.alpha(0.5)(path());
 
 curveFactory = d3Shape.curveLinear;
@@ -947,12 +1052,24 @@ declare const linkDatum: HierarchyPointLink<TreeNodeDatum>;
 
 declare const defaultLinkDatum: d3Shape.DefaultLinkObject;
 
-const pLink: Selection<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, any, any> =
-    select<SVGPathElement, HierarchyPointLink<TreeNodeDatum>>('.link-paths'); // mock
-const wrongLink1: Selection<SVGCircleElement, HierarchyPointLink<TreeNodeDatum>, any, any> =
-    select<SVGCircleElement, HierarchyPointLink<TreeNodeDatum>>('.link-paths'); // mock
-const wrongLink2: Selection<SVGPathElement, d3Shape.DefaultLinkObject, any, any> =
-    select<SVGPathElement, d3Shape.DefaultLinkObject>('.link-paths'); // mock
+const pLink: Selection<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    any,
+    any
+> = select<SVGPathElement, HierarchyPointLink<TreeNodeDatum>>(".link-paths"); // mock
+const wrongLink1: Selection<
+    SVGCircleElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    any,
+    any
+> = select<SVGCircleElement, HierarchyPointLink<TreeNodeDatum>>(".link-paths"); // mock
+const wrongLink2: Selection<
+    SVGPathElement,
+    d3Shape.DefaultLinkObject,
+    any,
+    any
+> = select<SVGPathElement, d3Shape.DefaultLinkObject>(".link-paths"); // mock
 
 // Test DefaultLinkObject Interface ==================================================
 
@@ -968,35 +1085,87 @@ let defaultLink: d3Shape.Link<any, d3Shape.DefaultLinkObject, [number, number]>;
 defaultLink = d3Shape.linkHorizontal();
 defaultLink = d3Shape.linkVertical();
 
-let link: d3Shape.Link<any, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>;
+let link: d3Shape.Link<
+    any,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>;
 
-link = d3Shape.linkHorizontal<HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
-link = d3Shape.linkVertical<HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
+link = d3Shape.linkHorizontal<
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
+link = d3Shape.linkVertical<
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
 
-let svgLink: d3Shape.Link<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>;
+let svgLink: d3Shape.Link<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>;
 
-svgLink = d3Shape.linkHorizontal<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
-svgLink = d3Shape.linkVertical<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
+svgLink = d3Shape.linkHorizontal<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
+svgLink = d3Shape.linkVertical<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
 
-let defaultLinkRadial: d3Shape.LinkRadial<any, d3Shape.DefaultLinkObject, [number, number]>;
+let defaultLinkRadial: d3Shape.LinkRadial<
+    any,
+    d3Shape.DefaultLinkObject,
+    [number, number]
+>;
 
 defaultLinkRadial = d3Shape.linkRadial();
 
-let radialLink: d3Shape.LinkRadial<any, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>;
+let radialLink: d3Shape.LinkRadial<
+    any,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>;
 
-radialLink = d3Shape.linkRadial<HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
+radialLink = d3Shape.linkRadial<
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
 
-let svgLinkRadial: d3Shape.LinkRadial<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>;
+let svgLinkRadial: d3Shape.LinkRadial<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>;
 
-svgLinkRadial = d3Shape.linkRadial<SVGPathElement, HierarchyPointLink<TreeNodeDatum>, HierarchyPointNode<TreeNodeDatum>>();
+svgLinkRadial = d3Shape.linkRadial<
+    SVGPathElement,
+    HierarchyPointLink<TreeNodeDatum>,
+    HierarchyPointNode<TreeNodeDatum>
+>();
 
 // Configure link generators ========================================================
 
-let defaultNodeAccessor: (d: d3Shape.DefaultLinkObject, ...args: any[]) => [number, number];
-let svgTreeNodeAccessor: (this: SVGPathElement, d: HierarchyPointLink<TreeNodeDatum>, ...args: any[]) => HierarchyPointNode<TreeNodeDatum>;
+let defaultNodeAccessor: (
+    d: d3Shape.DefaultLinkObject,
+    ...args: any[]
+) => [number, number];
+let svgTreeNodeAccessor: (
+    this: SVGPathElement,
+    d: HierarchyPointLink<TreeNodeDatum>,
+    ...args: any[]
+) => HierarchyPointNode<TreeNodeDatum>;
 
 let defaultCoordinateAccessor: (d: [number, number], ...args: any[]) => number;
-let svgCoordinateAccessor: (this: SVGPathElement, d: HierarchyPointNode<TreeNodeDatum>, ...args: any[]) => number;
+let svgCoordinateAccessor: (
+    this: SVGPathElement,
+    d: HierarchyPointNode<TreeNodeDatum>,
+    ...args: any[]
+) => number;
 
 // source(...) -----------------------------------------------------------------------
 
@@ -1159,11 +1328,11 @@ defaultLinkRadial(defaultLinkDatum);
 
 // vertical/horizontal
 
-pLink.attr('d', svgLink);
+pLink.attr("d", svgLink);
 // $ExpectError
-wrongLink1.attr('d', svgLink); // fails, incompatible this contexts
+wrongLink1.attr("d", svgLink); // fails, incompatible this contexts
 // $ExpectError
-wrongLink2.attr('d', svgLink); // fails, incompatible datum types
+wrongLink2.attr("d", svgLink); // fails, incompatible datum types
 
 pathStringMaybe = link(linkDatum);
 
@@ -1172,11 +1341,11 @@ pathStringMaybe = svgLink(linkDatum); // fails, wrong this type for invocation
 
 // radial
 
-pLink.attr('d', svgLinkRadial);
+pLink.attr("d", svgLinkRadial);
 // $ExpectError
-wrongLink1.attr('d', svgLinkRadial); // fails, incompatible this contexts
+wrongLink1.attr("d", svgLinkRadial); // fails, incompatible this contexts
 // $ExpectError
-wrongLink2.attr('d', svgLinkRadial); // fails, incompatible datum types
+wrongLink2.attr("d", svgLinkRadial); // fails, incompatible datum types
 
 pathStringMaybe = radialLink(linkDatum);
 
@@ -1189,7 +1358,7 @@ pathStringMaybe = svgLinkRadial(linkDatum); // fails, wrong this type for invoca
 
 interface SymbolDatum {
     size: number;
-    type: 'circle' | 'square';
+    type: "circle" | "square";
 }
 
 // Test Symbol Type ==================================================================
@@ -1240,11 +1409,13 @@ canvasSymbol = canvasSymbol.type(d3Shape.symbolDiamond);
 
 svgSymbol = svgSymbol.type(d => {
     let t: d3Shape.SymbolType;
-    switch (d.type) { // datum type is SymbolDatum
-        case 'circle':
+    switch (
+        d.type // datum type is SymbolDatum
+    ) {
+        case "circle":
             t = d3Shape.symbolCircle;
             break;
-        case 'square':
+        case "square":
             t = d3Shape.symbolSquare;
             break;
         default:
@@ -1264,18 +1435,29 @@ canvasSymbol();
 
 const symbolDatum: SymbolDatum = {
     size: 30,
-    type: 'circle'
+    type: "circle"
 };
 
-const pSymbol: Selection<SVGPathElement, SymbolDatum, any, any> = select<SVGPathElement, SymbolDatum>('.symbol-path'); // mock
-const wrongSymbol1: Selection<SVGCircleElement, SymbolDatum, any, any> = select<SVGCircleElement, SymbolDatum>('.symbol-path'); // mock
-const wrongSymbol2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.symbol-path'); // mock
+const pSymbol: Selection<SVGPathElement, SymbolDatum, any, any> = select<
+    SVGPathElement,
+    SymbolDatum
+>(".symbol-path"); // mock
+const wrongSymbol1: Selection<SVGCircleElement, SymbolDatum, any, any> = select<
+    SVGCircleElement,
+    SymbolDatum
+>(".symbol-path"); // mock
+const wrongSymbol2: Selection<
+    SVGPathElement,
+    { test: string },
+    any,
+    any
+> = select<SVGPathElement, { test: string }>(".symbol-path"); // mock
 
-pSymbol.attr('d', svgSymbol);
+pSymbol.attr("d", svgSymbol);
 // $ExpectError
-wrongSymbol1.attr('d', svgSymbol); // fails, incompatible this contexts
+wrongSymbol1.attr("d", svgSymbol); // fails, incompatible this contexts
 // $ExpectError
-wrongSymbol2.attr('d', svgSymbol); // fails, incompatible datum types
+wrongSymbol2.attr("d", svgSymbol); // fails, incompatible datum types
 
 // $ExpectError
 pathStringMaybe = svgSymbol(symbolDatum); // fails, wrong this type for invocation
@@ -1283,20 +1465,21 @@ pathStringMaybe = svgSymbol(symbolDatum); // fails, wrong this type for invocati
 // Use with custom object
 
 class Symbolizer {
-    constructor(size: number, type: 'circle' | 'square') {
+    constructor(size: number, type: "circle" | "square") {
         this.size = size;
         switch (type) {
-            case 'circle':
+            case "circle":
                 this.type = d3Shape.symbolCircle;
                 break;
-            case 'square':
+            case "square":
                 this.type = d3Shape.symbolSquare;
                 break;
             default:
                 this.type = d3Shape.symbolCircle;
                 break;
         }
-        this.symbol = d3Shape.symbol<Symbolizer, SymbolDatum>()
+        this.symbol = d3Shape
+            .symbol<Symbolizer, SymbolDatum>()
             .size(function(this: Symbolizer, d?: SymbolDatum) {
                 return d ? d.size : this.size;
             })
@@ -1304,10 +1487,10 @@ class Symbolizer {
                 let type = this.type;
                 if (d && d.type) {
                     switch (d.type) {
-                        case 'circle':
+                        case "circle":
                             type = d3Shape.symbolCircle;
                             break;
-                        case 'square':
+                        case "square":
                             type = d3Shape.symbolSquare;
                             break;
                         default:
@@ -1326,10 +1509,10 @@ class Symbolizer {
     }
 }
 
-const sym = new Symbolizer(100, 'square');
+const sym = new Symbolizer(100, "square");
 
 pathStringMaybe = sym.getPathString();
-pathStringMaybe = sym.getPathString({ size: 10, type: 'circle' });
+pathStringMaybe = sym.getPathString({ size: 10, type: "circle" });
 
 // Test pre-fab symbols ===============================================================
 
@@ -1354,7 +1537,7 @@ const coordinatates: [number, number] = d3Shape.pointRadial(0, 12);
 // -----------------------------------------------------------------------------------
 
 interface StackDatum {
-    values: { [name: string]: number; };
+    values: { [name: string]: number };
 }
 
 let seriesDatum: StackDatum;
@@ -1367,9 +1550,9 @@ interface StackKey {
 let key: StackKey;
 
 const keys: StackKey[] = [
-    { name: 'bananas', label: 'Bananas' },
-    { name: 'apples', label: 'Apples' },
-    { name: 'oranges', label: 'Oranges' }
+    { name: "bananas", label: "Bananas" },
+    { name: "apples", label: "Apples" },
+    { name: "oranges", label: "Oranges" }
 ];
 
 const stackData: StackDatum[] = [
@@ -1393,13 +1576,19 @@ overlyComplicatedStack = d3Shape.stack<StackDatum, StackKey>();
 
 // keys(...) ----------------------------------------------------------------------
 
-defaultStack = defaultStack.keys(['bananas', 'apples', 'oranges']);
+defaultStack = defaultStack.keys(["bananas", "apples", "oranges"]);
 
-overlyComplicatedStack = overlyComplicatedStack.keys((data: StackDatum[], keys: StackKey[]) => {
-    return keys;
-});
+overlyComplicatedStack = overlyComplicatedStack.keys(
+    (data: StackDatum[], keys: StackKey[]) => {
+        return keys;
+    }
+);
 
-let keysAccessor: (this: any, data: StackDatum[], keys: StackKey[]) => StackKey[];
+let keysAccessor: (
+    this: any,
+    data: StackDatum[],
+    keys: StackKey[]
+) => StackKey[];
 keysAccessor = overlyComplicatedStack.keys();
 
 // values(...) ----------------------------------------------------------------------
@@ -1410,7 +1599,12 @@ overlyComplicatedStack = overlyComplicatedStack.value((d, key, i, data) => {
     return d.values[key.name];
 });
 
-let valueAccessorFn: (d: StackDatum, key: StackKey, i: number, data: StackDatum[]) => number;
+let valueAccessorFn: (
+    d: StackDatum,
+    key: StackKey,
+    i: number,
+    data: StackDatum[]
+) => number;
 valueAccessorFn = overlyComplicatedStack.value();
 
 // order(...) ----------------------------------------------------------------------
@@ -1418,9 +1612,13 @@ valueAccessorFn = overlyComplicatedStack.value();
 defaultStack = defaultStack.order([2, 3, 1]);
 defaultStack = defaultStack.order(null);
 
-overlyComplicatedStack = overlyComplicatedStack.order(d3Shape.stackOrderAscending);
+overlyComplicatedStack = overlyComplicatedStack.order(
+    d3Shape.stackOrderAscending
+);
 
-let orderStackDatumSeries: (series: d3Shape.Series<StackDatum, StackKey>) => number[];
+let orderStackDatumSeries: (
+    series: d3Shape.Series<StackDatum, StackKey>
+) => number[];
 orderStackDatumSeries = overlyComplicatedStack.order();
 
 // TODO: other signatures
@@ -1429,14 +1627,21 @@ orderStackDatumSeries = overlyComplicatedStack.order();
 
 defaultStack = defaultStack.offset(null);
 
-overlyComplicatedStack = overlyComplicatedStack.offset(d3Shape.stackOffsetWiggle);
+overlyComplicatedStack = overlyComplicatedStack.offset(
+    d3Shape.stackOffsetWiggle
+);
 
-let offsetStackDatumSeries: (series: d3Shape.Series<StackDatum, StackKey>, order: number[]) => void;
+let offsetStackDatumSeries: (
+    series: d3Shape.Series<StackDatum, StackKey>,
+    order: number[]
+) => void;
 offsetStackDatumSeries = overlyComplicatedStack.offset();
 
 // Use stack generator ============================================================
 
-let defaultSeriesArray: Array<d3Shape.Series<{ [key: string]: number }, string>>;
+let defaultSeriesArray: Array<
+    d3Shape.Series<{ [key: string]: number }, string>
+>;
 defaultSeriesArray = defaultStack([
     { bananas: 10, apples: 20, oranges: 10 },
     { bananas: 30, apples: 10, oranges: 30 },

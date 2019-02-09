@@ -251,7 +251,10 @@ declare class Cluster {
     isMarkerAlreadyAdded_(marker: google.maps.Marker): boolean;
 }
 
-type Calculator = (markers: google.maps.Marker[], clusterIconStylesCount: number) => ClusterIconInfo;
+type Calculator = (
+    markers: google.maps.Marker[],
+    clusterIconStylesCount: number
+) => ClusterIconInfo;
 
 /**
  * Optional parameter passed to the {@link MarkerClusterer} constructor.
@@ -381,7 +384,11 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @param [markers] The markers to be added to the cluster.
      * @param [options] The optional parameters.
      */
-    constructor(map: google.maps.Map, markers?: google.maps.Marker[], options?: MarkerClustererOptions);
+    constructor(
+        map: google.maps.Map,
+        markers?: google.maps.Marker[],
+        options?: MarkerClustererOptions
+    );
 
     /**
      * Implementation of the onAdd interface method.
@@ -701,7 +708,11 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @param [noMapRemove] Set to <code>true</code> to prevent removal from map but still removing from cluster management
      * @return True if the marker was removed from the clusterer.
      */
-    removeMarker(marker: google.maps.Marker, noDraw?: boolean, noMapRemove?: boolean): boolean;
+    removeMarker(
+        marker: google.maps.Marker,
+        noDraw?: boolean,
+        noMapRemove?: boolean
+    ): boolean;
 
     /**
      * Removes an array of markers from the cluster and map. The clusters are redrawn unless
@@ -713,7 +724,11 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @param [noMapRemove] Set to <code>true</code> to prevent removal from map but still removing from cluster management
      * @return True if markers were removed from the clusterer.
      */
-    removeMarkers(markers: google.maps.Marker[], noDraw?: boolean, noMapRemove?: boolean): boolean;
+    removeMarkers(
+        markers: google.maps.Marker[],
+        noDraw?: boolean,
+        noMapRemove?: boolean
+    ): boolean;
 
     /**
      * Removes a marker and returns true if removed, false if not.
@@ -743,7 +758,9 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @return The extended bounds.
      * @ignore
      */
-    getExtendedBounds(bounds: google.maps.LatLngBounds): google.maps.LatLngBounds;
+    getExtendedBounds(
+        bounds: google.maps.LatLngBounds
+    ): google.maps.LatLngBounds;
 
     /**
      * Redraws all the clusters.
@@ -767,7 +784,10 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @return The distance between the two points in km.
      * @see http://www.movable-type.co.uk/scripts/latlong.html
      */
-    distanceBetweenPoints_(p1: google.maps.LatLng, p2: google.maps.LatLng): number;
+    distanceBetweenPoints_(
+        p1: google.maps.LatLng,
+        p2: google.maps.LatLng
+    ): number;
 
     /**
      * Determines if a marker is contained in a bounds.
@@ -776,7 +796,10 @@ declare class MarkerClusterer extends google.maps.OverlayView {
      * @param bounds The bounds to check against.
      * @return True if the marker is in the bounds.
      */
-    isMarkerInBounds_(marker: google.maps.Marker, bounds: google.maps.LatLngBounds): boolean;
+    isMarkerInBounds_(
+        marker: google.maps.Marker,
+        bounds: google.maps.LatLngBounds
+    ): boolean;
 
     /**
      * Adds a marker to a cluster, or creates a new cluster.

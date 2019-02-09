@@ -11,7 +11,10 @@ export = Evaporate;
 declare class Evaporate {
     constructor(config: Evaporate.CreateConfig);
     supported: boolean;
-    add(config: Evaporate.AddConfig, options?: Evaporate.AddOverrideOptions): Promise<string>;
+    add(
+        config: Evaporate.AddConfig,
+        options?: Evaporate.AddOverrideOptions
+    ): Promise<string>;
     pause(file_key?: string, options?: object): Promise<undefined[]>;
     resume(file_key?: string): Promise<undefined[]>;
     cancel(file_key?: string): Promise<undefined[]>;
@@ -22,7 +25,9 @@ declare namespace Evaporate {
 
     interface CreateConfig {
         readableStreams?: boolean;
-        readableStreamPartMethod?: null | ((file: File, start: number, end: number) => ReadableStream);
+        readableStreamPartMethod?:
+            | null
+            | ((file: File, start: number, end: number) => ReadableStream);
         bucket: string;
         logging?: boolean;
         maxConcurrentParts?: number;
@@ -39,28 +44,41 @@ declare namespace Evaporate {
         onlyRetryForSameFileName?: boolean;
         timeUrl?: string;
         cryptoMd5Method?: null | ((data: ArrayBuffer) => string);
-        cryptoHexEncodedHash256?: null | ((data: string | ArrayBuffer | null) => string);
+        cryptoHexEncodedHash256?:
+            | null
+            | ((data: string | ArrayBuffer | null) => string);
         aws_url?: string;
         aws_key?: string;
         awsRegion?: string;
-        awsSignatureVersion?: '2' | '4';
+        awsSignatureVersion?: "2" | "4";
         signerUrl?: string;
         sendCanonicalRequestToSignerUrl?: boolean;
         s3FileCacheHoursAgo?: null | number;
         signParams?: object;
         signHeaders?: object;
-        customAuthMethod?: null | ((
-            signParams: string,
-            signHeaders: string,
-            stringToSign: string,
-            signatureDateTime: string,
-            canonicalRequest: string
-        ) => Promise<string>);
+        customAuthMethod?:
+            | null
+            | ((
+                  signParams: string,
+                  signHeaders: string,
+                  stringToSign: string,
+                  signatureDateTime: string,
+                  canonicalRequest: string
+              ) => Promise<string>);
         maxFileSize?: number;
-        signResponseHandler?: null | ((response: any, stringToSign: string, signatureDateTime: string) => Promise<string>);
+        signResponseHandler?:
+            | null
+            | ((
+                  response: any,
+                  stringToSign: string,
+                  signatureDateTime: string
+              ) => Promise<string>);
         xhrWithCredentials?: boolean;
         localTimeOffset?: number;
-        evaporateChanged?: (evaporate: Evaporate, evaporatingCount: number) => void;
+        evaporateChanged?: (
+            evaporate: Evaporate,
+            evaporatingCount: number
+        ) => void;
         abortCompletionThrottlingMs?: number;
     }
 
@@ -88,7 +106,11 @@ declare namespace Evaporate {
         resumed?: (file_key: string) => void;
         pausing?: (file_key: string) => void;
         cancelled?: () => void;
-        complete?: (xhr: XMLHttpRequest, awsObjectKey: string, stats: TransferStats) => void;
+        complete?: (
+            xhr: XMLHttpRequest,
+            awsObjectKey: string,
+            stats: TransferStats
+        ) => void;
         nameChanged?: (awsObjectKey: string) => void;
         info?: (msg: string) => void;
         warn?: (msg: string) => void;
@@ -99,12 +121,25 @@ declare namespace Evaporate {
     }
 
     type ImmutableOptionKeys =
-        | 'maxConcurrentParts' | 'logging' | 'cloudfront' | 'encodeFilename'
-        | 'computeContentMd5' | 'allowS3ExistenceOptimization' | 'onlyRetryForSameFileName'
-        | 'timeUrl' | 'cryptoMd5Method' | 'cryptoHexEncodedHash256' | 'awsRegion' | 'awsSignatureVersion'
-        | 'evaporateChanged';
-    type AddOverrideOptionKeys = Exclude<keyof CreateConfig, ImmutableOptionKeys>;
-    interface AddOverrideOptions extends Pick<CreateConfig, AddOverrideOptionKeys> {}
+        | "maxConcurrentParts"
+        | "logging"
+        | "cloudfront"
+        | "encodeFilename"
+        | "computeContentMd5"
+        | "allowS3ExistenceOptimization"
+        | "onlyRetryForSameFileName"
+        | "timeUrl"
+        | "cryptoMd5Method"
+        | "cryptoHexEncodedHash256"
+        | "awsRegion"
+        | "awsSignatureVersion"
+        | "evaporateChanged";
+    type AddOverrideOptionKeys = Exclude<
+        keyof CreateConfig,
+        ImmutableOptionKeys
+    >;
+    interface AddOverrideOptions
+        extends Pick<CreateConfig, AddOverrideOptionKeys> {}
 
     interface PauseConfig {
         force?: boolean;

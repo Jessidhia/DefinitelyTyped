@@ -7,9 +7,22 @@ export as namespace WebIDL2;
 
 export function parse(str: string, options?: ParseOptions): IDLRootType[];
 
-export type IDLRootType = InterfaceType | InterfaceMixinType | NamespaceType | CallbackType | DictionaryType | EnumType | TypedefType | ImplementsType | IncludesType;
+export type IDLRootType =
+    | InterfaceType
+    | InterfaceMixinType
+    | NamespaceType
+    | CallbackType
+    | DictionaryType
+    | EnumType
+    | TypedefType
+    | ImplementsType
+    | IncludesType;
 
-export type IDLInterfaceMemberType = OperationMemberType | AttributeMemberType | ConstantMemberType | DeclarationMemberType;
+export type IDLInterfaceMemberType =
+    | OperationMemberType
+    | AttributeMemberType
+    | ConstantMemberType
+    | DeclarationMemberType;
 
 export type IDLNamespaceMemberType = OperationMemberType | AttributeMemberType;
 
@@ -140,7 +153,7 @@ export interface EnumType {
     /** The enum's name. */
     name: string;
     /** An array of values (strings). */
-    values: Array<{ type: "string", value: string }>;
+    values: Array<{ type: "string"; value: string }>;
     /** A list of extended attributes. */
     extAttrs: ExtendedAttributes[];
 }
@@ -249,11 +262,20 @@ export interface ExtendedAttributes {
     /** If the extended attribute takes arguments or if its right-hand side does they are listed here. */
     arguments: Argument[];
     /** If there is a right-hand side, this will capture its type ("identifier" or "identifier-list") and its value. */
-    rhs: ExtendedAttributeRightHandSideIdentifier | ExtendedAttributeRightHandSideIdentifierList | null;
+    rhs:
+        | ExtendedAttributeRightHandSideIdentifier
+        | ExtendedAttributeRightHandSideIdentifierList
+        | null;
 }
 
 export interface Token {
-    type: "float" | "integer" | "identifier" | "string" | "whitespace" | "other";
+    type:
+        | "float"
+        | "integer"
+        | "identifier"
+        | "string"
+        | "whitespace"
+        | "other";
     value: string;
 }
 
@@ -268,7 +290,14 @@ export interface ExtendedAttributeRightHandSideIdentifierList {
 }
 
 export interface ValueDescription {
-    type: "string" | "number" | "boolean" | "null" | "Infinity" | "NaN" | "sequence";
+    type:
+        | "string"
+        | "number"
+        | "boolean"
+        | "null"
+        | "Infinity"
+        | "NaN"
+        | "sequence";
     value: string | any[] | null;
     negative: boolean | null;
 }

@@ -3,11 +3,24 @@
 // Definitions by: Piotr Roszatycki <https://github.com/dex4er>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare function strftime(fmt: string, d?: Date, locale?: strftime.Locale, options?: strftime.Options): string;
-declare function strftime(fmt: string, locale?: strftime.Locale, options?: strftime.Options): string;
+declare function strftime(
+    fmt: string,
+    d?: Date,
+    locale?: strftime.Locale,
+    options?: strftime.Options
+): string;
+declare function strftime(
+    fmt: string,
+    locale?: strftime.Locale,
+    options?: strftime.Options
+): string;
 
 declare namespace strftime {
-    type StrftimeFunction = (fmt: string, d?: Date, options?: Options) => string;
+    type StrftimeFunction = (
+        fmt: string,
+        d?: Date,
+        options?: Options
+    ) => string;
 
     interface LocaleFormats {
         /** equivalent to %m/%d/%y in en_US */
@@ -48,11 +61,21 @@ declare namespace strftime {
     }
 
     function strftimeUTC(fmt: string, d?: Date, locale?: Locale): string;
-    function strftimeTZ(fmt: string, d: Date, locale: Locale, timezone: number): string;
+    function strftimeTZ(
+        fmt: string,
+        d: Date,
+        locale: Locale,
+        timezone: number
+    ): string;
     function strftimeTZ(fmt: string, d: Date, timezone: number): string;
     function localizedStrftime(locale: Locale): StrftimeFunction;
 
-    function strftime(fmt: string, d?: Date, locale?: Locale, options?: Options): string;
+    function strftime(
+        fmt: string,
+        d?: Date,
+        locale?: Locale,
+        options?: Options
+    ): string;
     function strftime(fmt: string, locale?: Locale, options?: Options): string;
 }
 

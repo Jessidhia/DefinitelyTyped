@@ -76,7 +76,10 @@ declare namespace math {
          * @param signatures Object with one or multiple function signatures
          * @returns The created typed-function.
          */
-        typed: (name: string, signatures: Record<string, (...args: any[]) => any>) => ((...args: any[]) => any);
+        typed: (
+            name: string,
+            signatures: Record<string, (...args: any[]) => any>
+        ) => (...args: any[]) => any;
 
         /*************************************************************************
          * Construction functions
@@ -277,9 +280,7 @@ declare namespace math {
          * @param value A value to convert to a string
          * @returns The created string
          */
-        string(
-            value: MathType | null
-        ): string | MathArray | Matrix;
+        string(value: MathType | null): string | MathArray | Matrix;
 
         /**
          * Create a unit. Depending on the passed arguments, the function will
@@ -367,7 +368,7 @@ declare namespace math {
         derivative(
             expr: MathNode | string,
             variable: MathNode | string,
-            options?: {simplify: boolean}
+            options?: { simplify: boolean }
         ): MathNode;
 
         /**
@@ -438,8 +439,20 @@ declare namespace math {
          * expression node (default)
          * @returns The rational polynomial of expr
          */
-        rationalize(expr: MathNode | string, optional?: object | boolean, detailed?: true): { expression: MathNode | string, variables: string[], coefficients: MathType[] };
-        rationalize(expr: MathNode | string, optional?: object | boolean, detailed?: false): MathNode;
+        rationalize(
+            expr: MathNode | string,
+            optional?: object | boolean,
+            detailed?: true
+        ): {
+            expression: MathNode | string;
+            variables: string[];
+            coefficients: MathType[];
+        };
+        rationalize(
+            expr: MathNode | string,
+            optional?: object | boolean,
+            detailed?: false
+        ): MathNode;
 
         /**
          * Simplify an expression tree.
@@ -453,7 +466,12 @@ declare namespace math {
          */
         simplify(
             expr: MathNode | string,
-            rules?: Array<({ l: string; r: string } | string | ((node: MathNode) => MathNode))>,
+            rules?: Array<
+
+                    | { l: string; r: string }
+                    | string
+                    | ((node: MathNode) => MathNode)
+            >,
             scope?: object
         ): MathNode;
 
@@ -1287,7 +1305,11 @@ declare namespace math {
          * @param format The Matrix storage format
          * @returns A matrix with ones on the diagonal
          */
-        identity(m: number, n: number, format?: string): Matrix | MathArray | number;
+        identity(
+            m: number,
+            n: number,
+            format?: string
+        ): Matrix | MathArray | number;
 
         /**
          * Filter the items in an array or one dimensional matrix.
@@ -1300,7 +1322,13 @@ declare namespace math {
          */
         filter(
             x: Matrix | MathArray | string[],
-            test: ((value: any, index: any, matrix: Matrix | MathArray | string[]) => boolean) | RegExp
+            test:
+                | ((
+                      value: any,
+                      index: any,
+                      matrix: Matrix | MathArray | string[]
+                  ) => boolean)
+                | RegExp
         ): Matrix | MathArray;
 
         /**
@@ -1318,7 +1346,14 @@ declare namespace math {
          * parameters: the value of the element, the index of the element, and
          * the Matrix/array being traversed.
          */
-        forEach(x: Matrix | MathArray, callback: ((value: any, index: any, matrix: Matrix | MathArray) => void)): void;
+        forEach(
+            x: Matrix | MathArray,
+            callback: (
+                value: any,
+                index: any,
+                matrix: Matrix | MathArray
+            ) => void
+        ): void;
 
         /**
          * Calculate the inverse of a square matrix.
@@ -1346,7 +1381,14 @@ declare namespace math {
          * the Matrix/array being traversed.
          * @returns Transformed map of x
          */
-        map(x: Matrix | MathArray, callback: ((value: any, index: any, matrix: Matrix | MathArray) => MathType | string)): Matrix | MathArray;
+        map(
+            x: Matrix | MathArray,
+            callback: (
+                value: any,
+                index: any,
+                matrix: Matrix | MathArray
+            ) => MathType | string
+        ): Matrix | MathArray;
 
         /**
          * Create a matrix filled with ones. The created matrix can have one or
@@ -1413,10 +1455,7 @@ declare namespace math {
          * dimension
          * @returns A reshaped clone of matrix x
          */
-        reshape(
-            x: MathArray | Matrix,
-            sizes: number[]
-        ): MathArray | Matrix;
+        reshape(x: MathArray | Matrix, sizes: number[]): MathArray | Matrix;
 
         /**
          * Resize a matrix
@@ -2132,7 +2171,7 @@ declare namespace math {
         format(
             value: any,
             options?: FormatOptions | number | ((item: any) => string),
-            callback?: ((value: any) => string)
+            callback?: (value: any) => string
         ): string;
 
         /**
@@ -2588,7 +2627,10 @@ declare namespace math {
          * @param object An object with functions to be imported.
          * @param options An object with import options.
          */
-        import(object: ImportObject | ImportObject[], options: ImportOptions): void;
+        import(
+            object: ImportObject | ImportObject[],
+            options: ImportOptions
+        ): void;
     }
 
     interface Matrix {
@@ -2620,7 +2662,9 @@ declare namespace math {
         ): void;
         toArray(): MathArray | Matrix;
         valueOff(): MathArray | Matrix;
-        format(options?: FormatOptions | number | ((value: any) => string)): string;
+        format(
+            options?: FormatOptions | number | ((value: any) => string)
+        ): string;
         toString(): string;
         toJSON(): any;
         diagonal(k?: number | BigNumber): any[];
@@ -2894,7 +2938,7 @@ declare namespace math {
     interface Parser {
         eval(expr: string): any;
         get(variable: string): any;
-        getAll(): { [key: string]: any; };
+        getAll(): { [key: string]: any };
         set: (variable: string, value: any) => void;
         clear: () => void;
     }
@@ -3133,7 +3177,10 @@ declare namespace math {
          * @param options There is one option available, simplify, which is true
          * by default. When false, output will not be simplified.
          */
-        derivative(variable: MathNode | string, options?: {simplify: boolean}): MathJsChain;
+        derivative(
+            variable: MathNode | string,
+            options?: { simplify: boolean }
+        ): MathJsChain;
 
         /**
          * Solves the linear equation system by forwards substitution. Matrix
@@ -3181,7 +3228,10 @@ declare namespace math {
          * @param detailed  optional True if return an object, false if return
          * expression node (default)
          */
-        rationalize(optional?: object | boolean, detailed?: boolean): MathJsChain;
+        rationalize(
+            optional?: object | boolean,
+            detailed?: boolean
+        ): MathJsChain;
 
         /**
          * Simplify an expression tree.
@@ -3192,7 +3242,12 @@ declare namespace math {
          * @param scope Scope to variables
          */
         simplify(
-            rules?: Array<({ l: string; r: string } | string | ((node: MathNode) => MathNode))>,
+            rules?: Array<
+
+                    | { l: string; r: string }
+                    | string
+                    | ((node: MathNode) => MathNode)
+            >,
             scope?: object
         ): MathJsChain;
 
@@ -3724,7 +3779,15 @@ declare namespace math {
         /**
          * Filter the items in an array or one dimensional matrix.
          */
-        filter(test: ((value: any, index: any, matrix: Matrix | MathArray) => Matrix | MathArray)| RegExp): MathJsChain;
+        filter(
+            test:
+                | ((
+                      value: any,
+                      index: any,
+                      matrix: Matrix | MathArray
+                  ) => Matrix | MathArray)
+                | RegExp
+        ): MathJsChain;
 
         /**
          * Flatten a multi dimensional matrix into a single dimensional matrix.
@@ -3735,7 +3798,13 @@ declare namespace math {
          * Iterate over all elements of a matrix/array, and executes the given
          * callback function.
          */
-        forEach(callback: ((value: any, index: any, matrix: Matrix | MathArray) => void)): MathJsChain;
+        forEach(
+            callback: (
+                value: any,
+                index: any,
+                matrix: Matrix | MathArray
+            ) => void
+        ): MathJsChain;
 
         /**
          * Calculate the inverse of a square matrix.
@@ -3755,7 +3824,13 @@ declare namespace math {
          * parameters: the value of the element, the index of the element, and
          * the Matrix/array being traversed.
          */
-        map(callback: ((value: any, index: any, matrix: Matrix | MathArray) => Matrix | MathArray)): MathJsChain;
+        map(
+            callback: (
+                value: any,
+                index: any,
+                matrix: Matrix | MathArray
+            ) => Matrix | MathArray
+        ): MathJsChain;
 
         /**
          * Create a matrix filled with ones. The created matrix can have one or
@@ -3826,7 +3901,9 @@ declare namespace math {
          * is called as compare(a, b), and must return 1 when a > b, -1 when a <
          * b, and 0 when a == b. Default value: ‘asc’
          */
-        sort(compare: ((a: any, b: any) => number) | "asc" | "desc" | "natural"): MathJsChain;
+        sort(
+            compare: ((a: any, b: any) => number) | "asc" | "desc" | "natural"
+        ): MathJsChain;
 
         /**
          * Calculate the principal square root of a square matrix. The principal
@@ -4304,7 +4381,7 @@ declare namespace math {
         format(
             value: any,
             options?: FormatOptions | number | ((item: any) => string),
-            callback?: ((value: any) => string)
+            callback?: (value: any) => string
         ): MathJsChain;
 
         /**

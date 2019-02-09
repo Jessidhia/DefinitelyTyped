@@ -14,7 +14,7 @@ export {
     ASTVisitor,
     Visitor,
     VisitFn,
-    VisitorKeyMap,
+    VisitorKeyMap
 } from "./visitor";
 
 export {
@@ -75,7 +75,7 @@ export {
     InterfaceTypeExtensionNode,
     UnionTypeExtensionNode,
     EnumTypeExtensionNode,
-    InputObjectTypeExtensionNode,
+    InputObjectTypeExtensionNode
 } from "./ast";
 
 export {
@@ -87,7 +87,7 @@ export {
     isTypeSystemDefinitionNode,
     isTypeDefinitionNode,
     isTypeSystemExtensionNode,
-    isTypeExtensionNode,
+    isTypeExtensionNode
 } from "./predicates";
 
 export { DirectiveLocation, DirectiveLocationEnum } from "./directiveLocation";

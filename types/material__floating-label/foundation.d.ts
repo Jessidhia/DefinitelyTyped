@@ -14,11 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import MDCFloatingLabelAdapter from './adapter';
-import { cssClasses } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCFloatingLabelAdapter from "./adapter";
+import { cssClasses } from "./constants";
 
-export default class MDCFloatingLabelFoundation extends MDCFoundation<MDCFloatingLabelAdapter> {
+export default class MDCFloatingLabelFoundation extends MDCFoundation<
+    MDCFloatingLabelAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly defaultAdapter: MDCFloatingLabelAdapter;

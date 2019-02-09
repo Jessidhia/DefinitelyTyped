@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     namespace Control {
         interface PolylineMeasure extends Control {
             new (options?: PolylineMeasureOptions): any;
@@ -37,6 +37,8 @@ declare module 'leaflet' {
     }
 
     namespace control {
-        function polylineMeasure(options?: Control.PolylineMeasureOptions): Control.PolylineMeasure;
+        function polylineMeasure(
+            options?: Control.PolylineMeasureOptions
+        ): Control.PolylineMeasure;
     }
 }

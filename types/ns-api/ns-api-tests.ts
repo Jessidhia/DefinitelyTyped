@@ -17,7 +17,7 @@ ns.vertrektijden("", (err, data) => {
 });
 
 // Get travel advise
-ns.reisadvies ({}, (err, data) => {
+ns.reisadvies({}, (err, data) => {
     if (err) {
         console.log(err);
     } else {

@@ -75,7 +75,7 @@ declare namespace prompts {
         inactive?: string;
         choices?: Choice[];
         hint?: string;
-        suggest?: ((prev: any, values: any, prompt: PromptObject) => void);
+        suggest?: (prev: any, values: any, prompt: PromptObject) => void;
         limit?: number;
     }
 
@@ -89,7 +89,17 @@ declare namespace prompts {
 
     type Falsy = false | null | undefined;
 
-    type PromptType = "text" | "password" | "invisible" | "number" | "confirm" | "list" | "toggle" | "select" | "multiselect" | "autocomplete";
+    type PromptType =
+        | "text"
+        | "password"
+        | "invisible"
+        | "number"
+        | "confirm"
+        | "list"
+        | "toggle"
+        | "select"
+        | "multiselect"
+        | "autocomplete";
 
     type ValueOrFunc<T extends string> = T | PrevCaller<T>;
 }

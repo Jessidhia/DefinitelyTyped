@@ -12,6 +12,11 @@
  *  API](https://www.w3.org/TR/wasm-web-api-1/) for more information.
  */
 declare namespace WebAssembly {
-    function compileStreaming(source: Response | Promise<Response>): Promise<Module>;
-    function instantiateStreaming(source: Response | Promise<Response>, importObject?: object): Promise<ResultObject>;
+    function compileStreaming(
+        source: Response | Promise<Response>
+    ): Promise<Module>;
+    function instantiateStreaming(
+        source: Response | Promise<Response>,
+        importObject?: object
+    ): Promise<ResultObject>;
 }

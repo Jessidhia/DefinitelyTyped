@@ -1,5 +1,3 @@
-
-
 import wrapAnsi = require("wrap-ansi");
 
 wrapAnsi("input", 80) === "output";

@@ -17,11 +17,18 @@ export interface Context {
 export type GetStoryFunc = (context: Context) => ReturnType<StoryDecorator>;
 
 export interface Wrapper<Options, Parameters> {
-    (getStory: GetStoryFunc, context: Context, optsAndParams: { options: Options, parameters: Parameters }):
-        ReturnType<StoryDecorator>;
+    (
+        getStory: GetStoryFunc,
+        context: Context,
+        optsAndParams: { options: Options; parameters: Parameters }
+    ): ReturnType<StoryDecorator>;
 }
 
-export interface MakeDecoratorOptions<ParameterName extends string, Options, Parameters> {
+export interface MakeDecoratorOptions<
+    ParameterName extends string,
+    Options,
+    Parameters
+> {
     name: string;
     parameterName: ParameterName;
     wrapper: Wrapper<Options, Parameters>;
@@ -29,25 +36,34 @@ export interface MakeDecoratorOptions<ParameterName extends string, Options, Par
     allowDeprecatedUsage?: boolean;
 }
 
-export interface DecoratorContext<ParameterName extends string, T> extends Context {
+export interface DecoratorContext<ParameterName extends string, T>
+    extends Context {
     parameters?: Record<ParameterName, T>;
 }
 
 export interface DecoratorWithOptions<ParameterName extends string, T> {
     // Support for older, but not deprecated style:
     //   .addDecorator(decorator(options))
-    (story: RenderFunction, context: DecoratorContext<ParameterName, T>): ReturnType<StoryDecorator>;
+    (
+        story: RenderFunction,
+        context: DecoratorContext<ParameterName, T>
+    ): ReturnType<StoryDecorator>;
 
     // Support for the deprecated style:
     //   .add(decorator(options)(() => <Story />)
-    (story: RenderFunction): (context: DecoratorContext<ParameterName, T>) => ReturnType<StoryDecorator>;
+    (story: RenderFunction): (
+        context: DecoratorContext<ParameterName, T>
+    ) => ReturnType<StoryDecorator>;
 }
 
 export interface Decorator<ParameterName extends string, Options, Parameters> {
     // Supports newer style:
     //   .addDecorator(decorator)
     //   .add('story', () => <Story />)
-    (story: RenderFunction, context: DecoratorContext<ParameterName, Parameters>): ReturnType<StoryDecorator>;
+    (
+        story: RenderFunction,
+        context: DecoratorContext<ParameterName, Parameters>
+    ): ReturnType<StoryDecorator>;
 
     // Support for older styles which pass options.
     // See DecoratorWithOptions above.
@@ -63,9 +79,13 @@ export interface Decorator<ParameterName extends string, Options, Parameters> {
 // TypeScript is pretty good about inferring all of the type generics if you
 // include the type declarations on the options/parameters in your wrapper
 // function.
-export function makeDecorator<ParameterName extends string, Options = any, Parameters = any>(
-    options: MakeDecoratorOptions<ParameterName, Options, Parameters>):
-        Decorator<ParameterName, Options, Parameters>;
+export function makeDecorator<
+    ParameterName extends string,
+    Options = any,
+    Parameters = any
+>(
+    options: MakeDecoratorOptions<ParameterName, Options, Parameters>
+): Decorator<ParameterName, Options, Parameters>;
 
 export class AddonStore {
     constructor();

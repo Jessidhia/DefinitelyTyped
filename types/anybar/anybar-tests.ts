@@ -1,5 +1,5 @@
-import anybar = require('anybar');
+import anybar = require("anybar");
 
-anybar('red', { port: 123 });
+anybar("red", { port: 123 });
 
-anybar('green');
+anybar("green");

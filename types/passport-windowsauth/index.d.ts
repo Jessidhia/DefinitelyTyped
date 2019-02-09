@@ -4,30 +4,32 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as express from 'express';
-import * as passport from 'passport';
-import * as ldapjs from 'ldapjs';
-import { TlsOptions } from 'tls';
+import * as express from "express";
+import * as passport from "passport";
+import * as ldapjs from "ldapjs";
+import { TlsOptions } from "tls";
 
 declare namespace windowsauth {
     interface Options {
         ldap?: {
-            url?: string
-            maxConnections?: number
-            base?: string
-            bindDN?: string
-            bindCredentials?: string
+            url?: string;
+            maxConnections?: number;
+            base?: string;
+            bindDN?: string;
+            bindCredentials?: string;
             tlsOptions?: TlsOptions;
-            reconnect?: boolean | {
-                initialDelay?: number,
-                maxDelay?: number,
-                failAfter?: number
-            };
+            reconnect?:
+                | boolean
+                | {
+                      initialDelay?: number;
+                      maxDelay?: number;
+                      failAfter?: number;
+                  };
             timeout?: number;
             connectTimeout?: number;
             idleTimeout?: number;
-            binder?: ldapjs.Client
-            client?: ldapjs.Client
+            binder?: ldapjs.Client;
+            client?: ldapjs.Client;
         };
         integrated?: boolean;
         getUserNameFromHeader?(req: express.Request): string;
@@ -35,13 +37,24 @@ declare namespace windowsauth {
         usernameField?: string;
         passwordField?: string;
     }
-    type Verified = (err: Error | undefined | null, user?: object, info?: object) => void;
+    type Verified = (
+        err: Error | undefined | null,
+        user?: object,
+        info?: object
+    ) => void;
     type Verify = (profile: passport.Profile, done: Verified) => void;
-    type VerifyWithReq = (req: express.Request, profile: passport.Profile, done: Verified) => void;
+    type VerifyWithReq = (
+        req: express.Request,
+        profile: passport.Profile,
+        done: Verified
+    ) => void;
 }
 
 declare class windowsauth extends passport.Strategy {
-    constructor(options: windowsauth.Options & {passReqToCallback: true}, verify: windowsauth.VerifyWithReq);
+    constructor(
+        options: windowsauth.Options & { passReqToCallback: true },
+        verify: windowsauth.VerifyWithReq
+    );
     constructor(options: windowsauth.Options, verify: windowsauth.Verify);
     constructor(verify: windowsauth.Verify);
 }

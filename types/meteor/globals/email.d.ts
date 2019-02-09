@@ -28,7 +28,12 @@ declare interface MailComposerStatic {
 }
 declare interface MailComposer {
     addHeader(name: string, value: string): void;
-    setMessageOption(from: string, to: string, body: string, html: string): void;
+    setMessageOption(
+        from: string,
+        to: string,
+        body: string,
+        html: string
+    ): void;
     streamMessage(): void;
     pipe(stream: any /** fs.WriteStream **/): void;
 }

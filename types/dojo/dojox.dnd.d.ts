@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace dnd {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/dnd/BoundingBoxController.html
@@ -174,7 +172,11 @@ declare namespace dojox {
              * @param before insert before the anchor, if true, and after the anchor otherwise
              * @param anchor the anchor node to be used as a point of insertion
              */
-            insertNodes(data: Object, before: boolean, anchor: HTMLElement): Function;
+            insertNodes(
+                data: Object,
+                before: boolean,
+                anchor: HTMLElement
+            ): Function;
             /**
              * inserts new data items (see dojo/dnd/Container.insertNodes() method for details)
              *
@@ -183,7 +185,12 @@ declare namespace dojox {
              * @param before insert before the anchor, if true, and after the anchor otherwise
              * @param anchor the anchor node to be used as a point of insertion
              */
-            insertNodes(addSelected: boolean, data: any[], before: boolean, anchor: HTMLElement): Function;
+            insertNodes(
+                addSelected: boolean,
+                data: any[],
+                before: boolean,
+                anchor: HTMLElement
+            ): Function;
             /**
              * checks if node is selected
              *
@@ -223,7 +230,13 @@ declare namespace dojox {
              * @param bottom Bottom coordinate of the bounding box
              * @param add               OptionalIf true, node is added to selection, otherwise currentselection is removed, and node will be the only selection.
              */
-            selectByBBox(left: number, top: number, right: number, bottom: number, add: boolean): Function;
+            selectByBBox(
+                left: number,
+                top: number,
+                right: number,
+                bottom: number,
+                add: boolean
+            ): Function;
             /**
              * selects a node
              *
@@ -317,13 +330,12 @@ declare namespace dojox {
             onSelectStart(e: Event): void;
         }
     }
-
 }
 declare module "dojox/dnd/BoundingBoxController" {
-    var exp: dojox.dnd.BoundingBoxController
-    export=exp;
+    var exp: dojox.dnd.BoundingBoxController;
+    export = exp;
 }
 declare module "dojox/dnd/Selector" {
-    var exp: dojox.dnd.Selector
-    export=exp;
+    var exp: dojox.dnd.Selector;
+    export = exp;
 }

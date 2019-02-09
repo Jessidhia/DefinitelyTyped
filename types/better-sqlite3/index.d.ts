@@ -11,9 +11,11 @@
 import Integer = require("integer");
 
 type VariableArgFunction = (...params: any[]) => any;
-type ArgumentTypes<F extends VariableArgFunction> = F extends (...args: infer A) => any
-  ? A
-  : never;
+type ArgumentTypes<F extends VariableArgFunction> = F extends (
+    ...args: infer A
+) => any
+    ? A
+    : never;
 
 declare namespace BetterSqlite3 {
     interface Statement {
@@ -62,7 +64,11 @@ declare namespace BetterSqlite3 {
         pragma(source: string, options?: Database.PragmaOptions): any;
         checkpoint(databaseName?: string): this;
         function(name: string, cb: (...params: any[]) => any): this;
-        function(name: string, options: Database.RegistrationOptions, cb: (...params: any[]) => any): this;
+        function(
+            name: string,
+            options: Database.RegistrationOptions,
+            cb: (...params: any[]) => any
+        ): this;
         aggregate(name: string, options: Database.AggregateOptions): this;
         loadExtension(path: string): this;
         close(): this;
@@ -70,7 +76,7 @@ declare namespace BetterSqlite3 {
     }
 
     interface DatabaseConstructor {
-        new(filename: string, options?: Database.Options): Database;
+        new (filename: string, options?: Database.Options): Database;
         (filename: string, options?: Database.Options): Database;
         prototype: Database;
 

@@ -1,6 +1,6 @@
 import { Event, DetailedErrorCode } from "./cast.framework.events";
 
-export as namespace messages
+export as namespace messages;
 export type UserAction =
     | "LIKE"
     | "DISLIKE"
@@ -1420,12 +1420,12 @@ export interface MediaInformation {
      * The media metadata.
      */
     metadata?:
-    | MediaMetadata
-    | GenericMediaMetadata
-    | MovieMediaMetadata
-    | MusicTrackMediaMetadata
-    | PhotoMediaMetadata
-    | TvShowMediaMetadata;
+        | MediaMetadata
+        | GenericMediaMetadata
+        | MovieMediaMetadata
+        | MusicTrackMediaMetadata
+        | PhotoMediaMetadata
+        | TvShowMediaMetadata;
 
     /**
      * The stream type.
@@ -1665,10 +1665,7 @@ export class FetchItemsRequestData extends RequestData {
  * Extended media status information
  */
 export class ExtendedMediaStatus {
-    constructor(
-        playerState: MediaInformation,
-        opt_media?: MediaInformation
-    );
+    constructor(playerState: MediaInformation, opt_media?: MediaInformation);
 
     media: MediaInformation;
 

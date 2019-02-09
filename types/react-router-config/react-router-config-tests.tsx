@@ -1,5 +1,11 @@
 import * as React from "react";
-import { RouteConfig, matchRoutes, MatchedRoute, renderRoutes, RouteConfigComponentProps } from "react-router-config";
+import {
+    RouteConfig,
+    matchRoutes,
+    MatchedRoute,
+    renderRoutes,
+    RouteConfigComponentProps
+} from "react-router-config";
 import { BrowserRouter } from "react-router-dom";
 
 const Root = ({ route }: RouteConfigComponentProps) => (
@@ -43,10 +49,12 @@ const routes: RouteConfig[] = [
             {
                 path: "/child/:id",
                 component: Child,
-                routes: [{
-                    path: "/child/:id/grand-child",
-                    component: GrandChild
-                }]
+                routes: [
+                    {
+                        path: "/child/:id/grand-child",
+                        component: GrandChild
+                    }
+                ]
             }
         ]
     }

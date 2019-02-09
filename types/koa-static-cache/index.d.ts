@@ -8,7 +8,7 @@
  * Static server for koa.
  */
 
-import { Middleware } from 'koa';
+import { Middleware } from "koa";
 
 declare namespace staticCache {
     interface Files {

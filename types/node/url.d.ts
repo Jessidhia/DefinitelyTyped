@@ -1,5 +1,5 @@
 declare module "url" {
-    import { ParsedUrlQuery } from 'querystring';
+    import { ParsedUrlQuery } from "querystring";
 
     interface UrlObjectCommon {
         auth?: string;
@@ -35,9 +35,21 @@ declare module "url" {
     }
 
     function parse(urlStr: string): UrlWithStringQuery;
-    function parse(urlStr: string, parseQueryString: false | undefined, slashesDenoteHost?: boolean): UrlWithStringQuery;
-    function parse(urlStr: string, parseQueryString: true, slashesDenoteHost?: boolean): UrlWithParsedQuery;
-    function parse(urlStr: string, parseQueryString: boolean, slashesDenoteHost?: boolean): Url;
+    function parse(
+        urlStr: string,
+        parseQueryString: false | undefined,
+        slashesDenoteHost?: boolean
+    ): UrlWithStringQuery;
+    function parse(
+        urlStr: string,
+        parseQueryString: true,
+        slashesDenoteHost?: boolean
+    ): UrlWithParsedQuery;
+    function parse(
+        urlStr: string,
+        parseQueryString: boolean,
+        slashesDenoteHost?: boolean
+    ): Url;
 
     function format(URL: URL, options?: URLFormatOptions): string;
     function format(urlObject: UrlObject | string): string;
@@ -86,11 +98,20 @@ declare module "url" {
     }
 
     class URLSearchParams implements Iterable<[string, string]> {
-        constructor(init?: URLSearchParams | string | { [key: string]: string | string[] | undefined } | Iterable<[string, string]> | Array<[string, string]>);
+        constructor(
+            init?:
+                | URLSearchParams
+                | string
+                | { [key: string]: string | string[] | undefined }
+                | Iterable<[string, string]>
+                | Array<[string, string]>
+        );
         append(name: string, value: string): void;
         delete(name: string): void;
         entries(): IterableIterator<[string, string]>;
-        forEach(callback: (value: string, name: string, searchParams: this) => void): void;
+        forEach(
+            callback: (value: string, name: string, searchParams: this) => void
+        ): void;
         get(name: string): string | null;
         getAll(name: string): string[];
         has(name: string): boolean;

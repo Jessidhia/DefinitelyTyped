@@ -1,16 +1,38 @@
-import { Repository } from './repository';
-import { Oid } from './oid';
-import { Object } from './object';
-import { Signature } from './signature';
-import { Strarray } from './str-array';
+import { Repository } from "./repository";
+import { Oid } from "./oid";
+import { Object } from "./object";
+import { Signature } from "./signature";
+import { Strarray } from "./str-array";
 
 export class Tag {
-    static annotationCreate(repo: Repository, tagName: string, target: Object, tagger: Signature, message: string): Promise<Oid>;
-    static create(repo: Repository, tagName: string, target: Object, tagger: Signature, message: string, force: number): Promise<Oid>;
-    static createLightweight(repo: Repository, tagName: string, target: Object, force: number): Promise<Oid>;
+    static annotationCreate(
+        repo: Repository,
+        tagName: string,
+        target: Object,
+        tagger: Signature,
+        message: string
+    ): Promise<Oid>;
+    static create(
+        repo: Repository,
+        tagName: string,
+        target: Object,
+        tagger: Signature,
+        message: string,
+        force: number
+    ): Promise<Oid>;
+    static createLightweight(
+        repo: Repository,
+        tagName: string,
+        target: Object,
+        force: number
+    ): Promise<Oid>;
     static delete(repo: Repository, tagName: string): Promise<number>;
     static list(repo: Repository): Promise<any[]>;
-    static listMatch(tagNames: Strarray | string | string[], pattern: string, repo: Repository): number;
+    static listMatch(
+        tagNames: Strarray | string | string[],
+        pattern: string,
+        repo: Repository
+    ): number;
     /**
      * Retrieves the tag pointed to by the oid
      *

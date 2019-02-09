@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { Express } from 'express';
+import { Express } from "express";
 
 declare function k(options?: k.Options | string): Express;
 
@@ -20,8 +20,11 @@ declare namespace k {
         configdir?: string;
         mountpath?: string;
         inheritViews?: boolean;
-        startupHeaders?: { [key: string]: string; };
-        onconfig?(config: Map<string, any>, next: (err: Error | null, config?: object) => any): any;
+        startupHeaders?: { [key: string]: string };
+        onconfig?(
+            config: Map<string, any>,
+            next: (err: Error | null, config?: object) => any
+        ): any;
         uncaughtException?(err: Error): any;
     }
 }

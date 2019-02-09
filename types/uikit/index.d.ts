@@ -18,18 +18,18 @@ declare namespace UIkit {
         hide(force?: boolean): void;
     }
     type DropdownPosition =
-        'bottom-left' |
-        'bottom-center' |
-        'bottom-right' |
-        'top-left' |
-        'top-center' |
-        'top-right' |
-        'left-top' |
-        'left-center' |
-        'left-bottom' |
-        'right-top' |
-        'right-center' |
-        'right-bottom';
+        | "bottom-left"
+        | "bottom-center"
+        | "bottom-right"
+        | "top-left"
+        | "top-center"
+        | "top-right"
+        | "left-top"
+        | "left-center"
+        | "left-bottom"
+        | "right-top"
+        | "right-center"
+        | "right-bottom";
     interface DropdownOptions {
         /**
          * Dropdown position
@@ -40,7 +40,7 @@ declare namespace UIkit {
          * Dropdown trigger behaviour
          * @default 'hover'
          */
-        mode?: 'hover'|'click';
+        mode?: "hover" | "click";
         /**
          * Remain time before auto closing dropdown in hover mode
          * @default 800
@@ -50,12 +50,12 @@ declare namespace UIkit {
          * Stretch dropdown width to a specified element
          * @default false
          */
-        justify?: string|JQuery|false;
+        justify?: string | JQuery | false;
         /**
          * Referenced element to keep dropdowns visibilty
          * @default window
          */
-        boundary?: string|JQuery|Window;
+        boundary?: string | JQuery | Window;
         /**
          * Delay time in hover mode before a dropdown is shown in ms
          * @default 0
@@ -65,7 +65,7 @@ declare namespace UIkit {
          * Dropdown selector
          * @default '.uk-dropdown,.uk-dropdown-blank'
          */
-        dropdownSelector?: string|JQuery;
+        dropdownSelector?: string | JQuery;
         /**
          * Is added to the delay time when hovering from one active dropdown to another dropdown (in ms)
          * @default 250
@@ -76,7 +76,7 @@ declare namespace UIkit {
          * Possible values: 'x', 'y', true, false
          * @default false
          */
-        preventflip?: 'x'|'y'|boolean;
+        preventflip?: "x" | "y" | boolean;
     }
     /**
      * Create a toggleable dropdown with different styles
@@ -88,7 +88,10 @@ declare namespace UIkit {
      * hide.uk.dropdown   Triggered on dropdown hide
      * stack.uk.dropdown  Triggered when a dropdown stacks to fit into screen
      */
-    type Dropdown = (selector: string|JQuery, options?: DropdownOptions) => DropdownElement;
+    type Dropdown = (
+        selector: string | JQuery,
+        options?: DropdownOptions
+    ) => DropdownElement;
     interface ModalElement {
         /**
          * Show the modal
@@ -196,7 +199,11 @@ declare namespace UIkit {
          * @param  onconfirm A function to execute on confirmation
          * @param  [options={bgclose: true, keyboard: false, modal: false}] The modal options
          */
-        confirm(message: string, onconfirm: () => any, options?: ModalOptions): void;
+        confirm(
+            message: string,
+            onconfirm: () => any,
+            options?: ModalOptions
+        ): void;
         /**
          * Create a confirm dialog and execute onconfirm on confirmation and oncancel on cancelation.
          * @param  message The message to display. Can be Html
@@ -204,7 +211,12 @@ declare namespace UIkit {
          * @param  oncancel A function to execute on cancelation
          * @param  [options={bgclose: true, keyboard: false, modal: false}] The modal options
          */
-        confirm(message: string, onconfirm: () => any, oncancel?: () => any, options?: ModalOptions): void;
+        confirm(
+            message: string,
+            onconfirm: () => any,
+            oncancel?: () => any,
+            options?: ModalOptions
+        ): void;
         /**
          * Create a prompt dialog, where the user enter information
          * @param  message The message to display. Can be Html
@@ -212,7 +224,12 @@ declare namespace UIkit {
          * @param  fn  A function to execute on submission. The function receive the new value as a parameter
          * @param  [options={bgclose: true, keyboard: false, modal: false}] The modal options
          */
-        prompt(message: string, value: string, onsubmit?: (newValue: string) => any, options?: ModalOptions): void;
+        prompt(
+            message: string,
+            value: string,
+            onsubmit?: (newValue: string) => any,
+            options?: ModalOptions
+        ): void;
         /**
          * Create a modal that blocks the entire page
          * @param content A content to display. Can be Html
@@ -232,7 +249,7 @@ declare namespace UIkit {
          * }
          * </code></pre>
          */
-        (selector: string|JQuery, options?: ModalOptions): ModalElement;
+        (selector: string | JQuery, options?: ModalOptions): ModalElement;
     }
     /**
      * Create a smooth off-canvas sidebar that slides in and out of the page
@@ -324,7 +341,7 @@ declare namespace UIkit {
         /**
          * Init element manually
          */
-        (element: string|JQuery, options?: LightBoxOptions): LightBoxElement;
+        (element: string | JQuery, options?: LightBoxOptions): LightBoxElement;
     }
     type CallbackAutoComplete = () => string;
     interface AutoCompleteOptions {
@@ -332,7 +349,7 @@ declare namespace UIkit {
          * Data source
          * @default []
          */
-        source?: string|string[]|CallbackAutoComplete;
+        source?: string | string[] | CallbackAutoComplete;
         /**
          * Min. input length before triggering autocomplete
          * @default 3
@@ -371,7 +388,10 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type AutoComplete = (element: string|JQuery, options?: AutoCompleteOptions) => any;
+    type AutoComplete = (
+        element: string | JQuery,
+        options?: AutoCompleteOptions
+    ) => any;
     interface DatePickerOptions {
         /**
          * Start of the week
@@ -401,7 +421,7 @@ declare namespace UIkit {
          * integer (offset in days from current date)
          * @default false
          */
-        minDate?: string|boolean|number;
+        minDate?: string | boolean | number;
         /**
          * Max. date
          * bool (false to ignore the option)
@@ -409,7 +429,7 @@ declare namespace UIkit {
          * integer (offset in days from current date)
          * @default false
          */
-        maxDate?: string|boolean|number;
+        maxDate?: string | boolean | number;
         /**
          * Position of the datepicker
          * 'auto', 'top', 'bottom'
@@ -444,7 +464,10 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type DatePicker = (element: string|JQuery, options?: DatePickerOptions) => any;
+    type DatePicker = (
+        element: string | JQuery,
+        options?: DatePickerOptions
+    ) => any;
     interface HtmlEditorOptions {
         /**
          * View mode
@@ -477,7 +500,10 @@ declare namespace UIkit {
      * Create a rich HTML or markdown editor with an immediate preview and syntax highlighting
      * Documentation {@link http://getuikit.org/docs/htmleditor.html}
      */
-    type HtmlEditor = (element: string|JQuery, options?: HtmlEditorOptions) => any;
+    type HtmlEditor = (
+        element: string | JQuery,
+        options?: HtmlEditorOptions
+    ) => any;
     interface SliderOptions {
         /**
          * Center items mode
@@ -532,7 +558,7 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Slider = (element: string|JQuery, options?: SliderOptions) => any;
+    type Slider = (element: string | JQuery, options?: SliderOptions) => any;
     interface SlideSetOptions {
         /**
          * Default visible items in a set
@@ -612,7 +638,10 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type SlideSet = (element: string|JQuery, options?: SlideSetOptions) => any;
+    type SlideSet = (
+        element: string | JQuery,
+        options?: SlideSetOptions
+    ) => any;
     interface SlideShowOptions {
         /**
          * Defines the preferred transition between items.
@@ -704,7 +733,10 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type SlideShow = (element: string|JQuery, options: SlideShowOptions) => any;
+    type SlideShow = (
+        element: string | JQuery,
+        options: SlideShowOptions
+    ) => any;
     interface ParallaxOptions {
         /**
          * Animation velocity during scrolling
@@ -729,13 +761,13 @@ declare namespace UIkit {
          * <h2>Possible Value</h2>
          * integer / string
          */
-        media?: number|string;
+        media?: number | string;
     }
     /**
      * Animate CSS properties depending on the scroll position of the document.
      * Documentation {@link http://getuikit.org/docs/parallax.html}
      */
-    type Parallax = (element: string|JQuery, options: ParallaxOptions) => any;
+    type Parallax = (element: string | JQuery, options: ParallaxOptions) => any;
     interface AccordionOptions {
         /**
          * Show first item on init
@@ -811,7 +843,10 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Accordion = (element: string|JQuery, options: AccordionOptions) => any;
+    type Accordion = (
+        element: string | JQuery,
+        options: AccordionOptions
+    ) => any;
     interface NotifyOptions {
         /**
          * The message to display
@@ -853,7 +888,7 @@ declare namespace UIkit {
          * @param message The html message
          * @param [status] The status or options
          */
-        (message: string, status?: string|NotifyOptions): any;
+        (message: string, status?: string | NotifyOptions): any;
         /**
          * Show a notification
          * @param options Options
@@ -897,7 +932,7 @@ declare namespace UIkit {
      * Easily create a nicely looking search.
      * Documentation {@link http://getuikit.org/docs/search.html}
      */
-    type Search = (element: string|JQuery, options: SearchOptions) => any;
+    type Search = (element: string | JQuery, options: SearchOptions) => any;
     interface NestableOptions {
         /**
          * List group
@@ -1045,7 +1080,7 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Nestable = (element: string|JQuery, options: NestableOptions) => any;
+    type Nestable = (element: string | JQuery, options: NestableOptions) => any;
     interface SortableOptions {
         /**
          * List group
@@ -1115,7 +1150,7 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Sortable = (element: string|JQuery, options: SortableOptions) => any;
+    type Sortable = (element: string | JQuery, options: SortableOptions) => any;
     interface StickyOptions {
         /**
          * Top offset whent sticky should be triggered
@@ -1165,7 +1200,7 @@ declare namespace UIkit {
          * <h2>Possible value</h2>
          * integer / string
          */
-        media?: number|string;
+        media?: number | string;
         /**
          * Make sure that a sticky element is not over a targeted element via location hash on dom-ready.
          * @default false
@@ -1186,7 +1221,7 @@ declare namespace UIkit {
          * <h2>Possible value</h2>
          * mixed
          */
-        boundary?: boolean|string;
+        boundary?: boolean | string;
     }
     /**
      * Make elements remain at the top of the viewport, like a sticky navbar.
@@ -1210,7 +1245,7 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Sticky = (element: string|JQuery, options: StickyOptions) => any;
+    type Sticky = (element: string | JQuery, options: StickyOptions) => any;
     interface TimepickerOptions {
         /**
          * Defines the preferred time notation
@@ -1238,7 +1273,10 @@ declare namespace UIkit {
      * Create a timepicker which can easily be used by selecting a time value from a pre filled dropdown.
      * Documentation {@link http://getuikit.org/docs/timepicker.html}
      */
-    type Timepicker = (element: string|JQuery, options: TimepickerOptions) => any;
+    type Timepicker = (
+        element: string | JQuery,
+        options: TimepickerOptions
+    ) => any;
     interface TooltipOptions {
         /**
          * Offset to the source element
@@ -1287,7 +1325,7 @@ declare namespace UIkit {
      * Easily create a nicely looking tooltip.
      * Documentation {@link http://getuikit.org/docs/tooltip.html}
      */
-    type Tooltip = (element: string|JQuery, options: TooltipOptions) => any;
+    type Tooltip = (element: string | JQuery, options: TooltipOptions) => any;
     interface UploadOptions {
         /**
          * Target url for the upload
@@ -1337,14 +1375,14 @@ declare namespace UIkit {
          * <h2>Possible Value</h2>
          * (text|json)
          */
-        "type"?: string;
-        before?(settings: UploadOptions, files: string|string[]): any;
-        beforeAll?(files: string|string[]): any;
+        type?: string;
+        before?(settings: UploadOptions, files: string | string[]): any;
+        beforeAll?(files: string | string[]): any;
         beforeSend?(xhr: XMLHttpRequest): any;
         progress?(percent: number): any;
         complete?(response: any, xhr: XMLHttpRequest): any;
         allcomplete?(response: any, xhr: XMLHttpRequest): any;
-        notallowed?(file: string|string[], settings: UploadOptions): any;
+        notallowed?(file: string | string[], settings: UploadOptions): any;
         loadstart?(event: any): any;
         load?(event: any): any;
         loadend?(event: any): any;
@@ -1416,7 +1454,7 @@ declare namespace UIkit {
      * </tr>
      * </table>
      */
-    type Upload = (element: string|JQuery, options: UploadOptions) => any;
+    type Upload = (element: string | JQuery, options: UploadOptions) => any;
     const dropdown: Dropdown;
     const modal: Modal;
     const lightbox: LightBox;

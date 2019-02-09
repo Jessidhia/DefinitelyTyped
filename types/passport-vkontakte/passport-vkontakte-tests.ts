@@ -1,5 +1,5 @@
-import * as passport from 'passport';
-import vk = require('passport-vkontakte');
+import * as passport from "passport";
+import vk = require("passport-vkontakte");
 
 const User = {
     findOrCreate(
@@ -7,14 +7,14 @@ const User = {
         provider: string,
         callback: (err: any, user: any) => void
     ): void {
-        callback(null, { username: 'ivan' });
+        callback(null, { username: "ivan" });
     }
 };
 
 const options: vk.StrategyOptions = {
-    clientID: 'PASSPORT_VKONTAKTE_CLIENT_ID',
-    clientSecret: 'PASSPORT_VKONTAKTE_CLIENT_SECRET',
-    callbackURL: 'PASSPORT_VKONTAKTE_CALLBACK_URL'
+    clientID: "PASSPORT_VKONTAKTE_CLIENT_ID",
+    clientSecret: "PASSPORT_VKONTAKTE_CLIENT_SECRET",
+    callbackURL: "PASSPORT_VKONTAKTE_CALLBACK_URL"
 };
 
 const verify: vk.VerifyFunction = (

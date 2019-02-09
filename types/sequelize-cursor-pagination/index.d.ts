@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/
 // TypeScript Version: 2.9
 
-import Sequelize = require('sequelize');
+import Sequelize = require("sequelize");
 
 declare namespace SequelizeCursorPagination {
     interface Cursors {
@@ -15,9 +15,9 @@ declare namespace SequelizeCursorPagination {
     }
 
     interface BasicPaginateOptions<T> {
-        where?: Sequelize.FindOptions<T>['where'];
-        attributes?: Sequelize.FindOptions<T>['attributes'];
-        include?: Sequelize.FindOptions<T>['include'];
+        where?: Sequelize.FindOptions<T>["where"];
+        attributes?: Sequelize.FindOptions<T>["attributes"];
+        include?: Sequelize.FindOptions<T>["include"];
         limit?: number; // limit the number of records returned
         desc?: boolean; // [default: false]
         before?: string; // the before cursor
@@ -39,16 +39,34 @@ declare namespace SequelizeCursorPagination {
         primaryKeyField?: string; // [default: 'id']
     }
 
-    type WithPaginationModel<MethodName extends string, Model, ModelInst, ModelAttrs> = Model & {
-        [key in MethodName]: {
-            (options?: PaginateRawOptions<ModelAttrs>): { results: ModelAttrs[], cursors: Cursors }
-            (options?: PaginateInstOptions<ModelAttrs>): { results: ModelInst[], cursors: Cursors }
-        }
-    };
+    type WithPaginationModel<
+        MethodName extends string,
+        Model,
+        ModelInst,
+        ModelAttrs
+    > = Model &
+        {
+            [key in MethodName]: {
+                (options?: PaginateRawOptions<ModelAttrs>): {
+                    results: ModelAttrs[];
+                    cursors: Cursors;
+                };
+                (options?: PaginateInstOptions<ModelAttrs>): {
+                    results: ModelInst[];
+                    cursors: Cursors;
+                };
+            }
+        };
 
-    function withPagination<MethodName extends string = 'paginate'>(options?: WithPaginationOptions<MethodName>): (
-        <Model extends Sequelize.Model<ModelInst, ModelAttrs>, ModelInst, ModelAttrs>(model: Model) => WithPaginationModel<MethodName, Model, ModelInst, ModelAttrs>
-    );
+    function withPagination<MethodName extends string = "paginate">(
+        options?: WithPaginationOptions<MethodName>
+    ): <
+        Model extends Sequelize.Model<ModelInst, ModelAttrs>,
+        ModelInst,
+        ModelAttrs
+    >(
+        model: Model
+    ) => WithPaginationModel<MethodName, Model, ModelInst, ModelAttrs>;
 }
 
 export = SequelizeCursorPagination.withPagination;

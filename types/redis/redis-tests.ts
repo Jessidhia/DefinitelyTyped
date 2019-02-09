@@ -1,15 +1,15 @@
-import redis = require('redis');
+import redis = require("redis");
 
-const value: any = 'any value';
+const value: any = "any value";
 const commandArr: any[][] = [];
 const num = 0;
-const str = 'any string';
+const str = "any string";
 const err: Error = new Error();
 const args: any[] = [];
 const resCallback: (err: Error | null, res: any) => void = () => {};
 const numCallback: (err: Error | null, res: number) => void = () => {};
 const strCallback: (err: Error | null, res: string) => void = () => {};
-const okCallback: (err: Error | null, res: 'OK') => void = () => {};
+const okCallback: (err: Error | null, res: "OK") => void = () => {};
 const messageHandler: (channel: string, message: any) => void = () => {};
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
@@ -21,29 +21,29 @@ redis.print(err, value);
 
 const options: redis.ClientOpts = {
     host: "localhost",
-    port: 6379,
+    port: 6379
 };
 let client: redis.RedisClient = redis.createClient(num, str, options);
 
 // Test the `retry_strategy` property
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 function retryStrategyNumber(options: redis.RetryStrategyOptions): number {
-  // Ensure that the properties of RetryStrategyOptions are resilient to breaking change.
-  // If the properties of the interface changes, the variables below will also need to be adapted.
-  const error: Error = options.error;
-  const total_retry_time: number = options.total_retry_time;
-  const times_connected: number = options.times_connected;
-  const attempt: number = options.attempt;
-  return 5000;
+    // Ensure that the properties of RetryStrategyOptions are resilient to breaking change.
+    // If the properties of the interface changes, the variables below will also need to be adapted.
+    const error: Error = options.error;
+    const total_retry_time: number = options.total_retry_time;
+    const times_connected: number = options.times_connected;
+    const attempt: number = options.attempt;
+    return 5000;
 }
 function retryStrategyError(options: redis.RetryStrategyOptions): Error {
-  return new Error('Foo');
+    return new Error("Foo");
 }
 client = redis.createClient({
-  retry_strategy: retryStrategyNumber
+    retry_strategy: retryStrategyNumber
 });
 client = redis.createClient({
-  retry_strategy: retryStrategyError
+    retry_strategy: retryStrategyError
 });
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
@@ -78,10 +78,10 @@ client.once(str, messageHandler);
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
 // some of the bulk methods
-client.get('test');
-client.get('test', resCallback);
-client.set('test', 'test');
-client.set('test', 'test', okCallback);
+client.get("test");
+client.get("test", resCallback);
+client.set("test", "test");
+client.set("test", "test", okCallback);
 client.mset(args, resCallback);
 
 client.incr(str, resCallback);
@@ -96,14 +96,15 @@ client.publish(str, value);
 client.subscribe(str);
 
 // Multi
-client.multi()
-  .scard(str)
-  .smembers(str)
-  .keys('*', resCallback)
-  .dbsize()
-  .exec(resCallback);
+client
+    .multi()
+    .scard(str)
+    .smembers(str)
+    .keys("*", resCallback)
+    .dbsize()
+    .exec(resCallback);
 
-client.multi([['get', 'test']]).exec();
+client.multi([["get", "test"]]).exec();
 
 // Monitor mode
 client.monitor(resCallback);
@@ -120,19 +121,19 @@ client.get("abc", resCallback);
 client.uncork();
 
 // Add command
-client.add_command('my command');
-client.addCommand('my other command');
+client.add_command("my command");
+client.addCommand("my other command");
 
 // redis.print as callback
 client.set(str, str, redis.print);
 client.get(str, redis.print);
 
 // increase-by-float reply a string
-client.incrbyfloat('a', 1.5, (error, value) => value.startsWith('1'));
-client.INCRBYFLOAT('a', 1.5, (error, value) => value.startsWith('1'));
-client.hincrbyfloat('a', 'b', 1.5, (error, value) => value.startsWith('1'));
-client.HINCRBYFLOAT('a', 'b', 1.5, (error, value) => value.startsWith('1'));
-client.zincrby('a', 1, 'b', strCallback);
-client.ZINCRBY('a', 1, 'b', strCallback);
+client.incrbyfloat("a", 1.5, (error, value) => value.startsWith("1"));
+client.INCRBYFLOAT("a", 1.5, (error, value) => value.startsWith("1"));
+client.hincrbyfloat("a", "b", 1.5, (error, value) => value.startsWith("1"));
+client.HINCRBYFLOAT("a", "b", 1.5, (error, value) => value.startsWith("1"));
+client.zincrby("a", 1, "b", strCallback);
+client.ZINCRBY("a", 1, "b", strCallback);
 
 client.flushdb(okCallback);

@@ -14,7 +14,7 @@ declare namespace autoprefixer {
         add?: boolean;
         remove?: boolean;
         supports?: boolean;
-        flexbox?: boolean | 'no-2009';
+        flexbox?: boolean | "no-2009";
         grid?: boolean;
         stats?: any;
         ignoreUnknownVersions?: boolean;

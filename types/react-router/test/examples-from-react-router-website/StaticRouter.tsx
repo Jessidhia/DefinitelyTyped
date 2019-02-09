@@ -1,25 +1,21 @@
-import * as React from 'react';
-import * as express from 'express';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter, Route } from 'react-router-dom';
-import { StaticContext, StaticRouterContext } from 'react-router';
+import * as React from "react";
+import * as express from "express";
+import { renderToString } from "react-dom/server";
+import { StaticRouter, Route } from "react-router-dom";
+import { StaticContext, StaticRouterContext } from "react-router";
 
 interface RouteStatusProps {
     statusCode: number;
 }
 
-const RouteStatus: React.SFC<RouteStatusProps> = (props) => (
+const RouteStatus: React.SFC<RouteStatusProps> = props => (
     <Route
-        render={({ staticContext }: {staticContext?: StaticContext}) => {
+        render={({ staticContext }: { staticContext?: StaticContext }) => {
             if (staticContext) {
                 staticContext.statusCode = props.statusCode;
             }
 
-            return (
-                <div>
-                    {props.children}
-                </div>
-            );
+            return <div>{props.children}</div>;
         }}
     />
 );
@@ -28,10 +24,8 @@ interface PrintContextProps {
     staticContext: StaticContext;
 }
 
-const PrintContext: React.SFC<PrintContextProps> = (props) => (
-    <p>
-        Static context: {JSON.stringify(props.staticContext)}
-    </p>
+const PrintContext: React.SFC<PrintContextProps> = props => (
+    <p>Static context: {JSON.stringify(props.staticContext)}</p>
 );
 
 class StaticRouterExample extends React.Component {
@@ -53,7 +47,7 @@ class StaticRouterExample extends React.Component {
 
 const app = express();
 
-app.get('*', (req, res) => {
+app.get("*", (req, res) => {
     const staticContext: StaticRouterContext = {};
 
     const html = renderToString(

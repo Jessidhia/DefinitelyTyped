@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
-import { FocusTrap } from './focus-trap';
+import { FocusTrap } from "./focus-trap";
 
-export function createFocusTrapInstance(surfaceEl: Element, focusTrapFactory: () => FocusTrap): FocusTrap;
+export function createFocusTrapInstance(
+    surfaceEl: Element,
+    focusTrapFactory: () => FocusTrap
+): FocusTrap;

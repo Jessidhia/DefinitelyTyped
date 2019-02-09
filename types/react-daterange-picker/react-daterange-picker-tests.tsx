@@ -1,6 +1,6 @@
 // test app from https://github.com/onefinestay/react-daterange-picker/blob/master/example/index.jsx
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import DateRangePicker from "react-daterange-picker";
 import * as ReactDateRangePicker from "react-daterange-picker";
 
@@ -11,44 +11,65 @@ const moment = MomentRange.extendMoment(Moment);
 
 type AppProps = ReactDateRangePicker.Props;
 
-const CustomSFCPaginationArrow: React.SFC<ReactDateRangePicker.PaginationArrowProps> = (props) => {
+const CustomSFCPaginationArrow: React.SFC<
+    ReactDateRangePicker.PaginationArrowProps
+> = props => {
     return (
-        <div onClick={ props.onTrigger }>
-        { (props.direction === 'next') ? '<' : '>' }
+        <div onClick={props.onTrigger}>
+            {props.direction === "next" ? "<" : ">"}
         </div>
     );
 };
 
-class CustomComponentClassPaginationArrow extends React.Component<ReactDateRangePicker.PaginationArrowProps> {
+class CustomComponentClassPaginationArrow extends React.Component<
+    ReactDateRangePicker.PaginationArrowProps
+> {
     render() {
         return (
-            <div onClick={ this.props.onTrigger }>
-            { (this.props.direction === 'next') ? '<' : '>' }
+            <div onClick={this.props.onTrigger}>
+                {this.props.direction === "next" ? "<" : ">"}
             </div>
         );
     }
 }
 
 class App extends React.Component<AppProps, any> {
-    handleSelect(value: ReactDateRangePicker.OnSelectCallbackParam, states: any): void {
+    handleSelect(
+        value: ReactDateRangePicker.OnSelectCallbackParam,
+        states: any
+    ): void {
         this.setState({ value, states });
     }
 
     render(): any {
         return (
             <div>
-                <DateRangePicker {...this.props}
+                <DateRangePicker
+                    {...this.props}
                     onSelect={this.handleSelect.bind(this)}
-                    value={this.state.value} />
+                    value={this.state.value}
+                />
                 <div>
-                    <input type="text"
-                        value={this.state.value ? this.state.value.start.format('LL') : ""}
+                    <input
+                        type="text"
+                        value={
+                            this.state.value
+                                ? this.state.value.start.format("LL")
+                                : ""
+                        }
                         readOnly={true}
-                        placeholder="Start date" />
-                    <input type="text"
-                        value={this.state.value ? this.state.value.end.format('LL') : ""}
+                        placeholder="Start date"
+                    />
+                    <input
+                        type="text"
+                        value={
+                            this.state.value
+                                ? this.state.value.end.format("LL")
+                                : ""
+                        }
                         readOnly={true}
-                        placeholder="End date" />
+                        placeholder="End date"
+                    />
                 </div>
             </div>
         );
@@ -63,12 +84,21 @@ class DateSinglePicker extends React.Component<AppProps, any> {
     render() {
         return (
             <div>
-                <DateRangePicker {...this.props} onSelect={this.handleSelect.bind(this)}
-                    value={this.state.value} />
+                <DateRangePicker
+                    {...this.props}
+                    onSelect={this.handleSelect.bind(this)}
+                    value={this.state.value}
+                />
                 <div>
-                    <input type="text"
-                        value={this.state.value ? this.state.value.format('LL') : ""}
-                        readOnly={true} />
+                    <input
+                        type="text"
+                        value={
+                            this.state.value
+                                ? this.state.value.format("LL")
+                                : ""
+                        }
+                        readOnly={true}
+                    />
                 </div>
             </div>
         );
@@ -79,39 +109,50 @@ export class Main extends React.Component {
     render() {
         const stateDefinitions: ReactDateRangePicker.StateDefinitions = {
             available: {
-                color: '#ffffff',
-                label: 'Available',
+                color: "#ffffff",
+                label: "Available"
             },
             enquire: {
-                color: '#ffd200',
-                label: 'Enquire',
+                color: "#ffd200",
+                label: "Enquire"
             },
             unavailable: {
                 selectable: false,
-                color: '#78818b',
-                label: 'Unavailable',
+                color: "#78818b",
+                label: "Unavailable"
             }
         };
 
         const dateRanges = [
             {
-                state: 'enquire',
+                state: "enquire",
                 range: moment.range(
-                    moment().add(2, 'weeks').subtract(5, 'days'),
-                    moment().add(2, 'weeks').add(6, 'days')
-                ),
+                    moment()
+                        .add(2, "weeks")
+                        .subtract(5, "days"),
+                    moment()
+                        .add(2, "weeks")
+                        .add(6, "days")
+                )
             },
             {
-                state: 'unavailable',
+                state: "unavailable",
                 range: moment.range(
-                    moment().add(3, 'weeks'),
-                    moment().add(3, 'weeks').add(5, 'days')
-                ),
-            },
+                    moment().add(3, "weeks"),
+                    moment()
+                        .add(3, "weeks")
+                        .add(5, "days")
+                )
+            }
         ];
 
-        const initialStart = moment().add(1, 'weeks').startOf('day');
-        const initialEnd = moment().add(1, 'weeks').add(3, 'days').startOf('day');
+        const initialStart = moment()
+            .add(1, "weeks")
+            .startOf("day");
+        const initialEnd = moment()
+            .add(1, "weeks")
+            .add(3, "days")
+            .startOf("day");
         const range = moment.range(initialStart, initialEnd);
 
         return (
@@ -120,9 +161,11 @@ export class Main extends React.Component {
                     <App
                         firstOfWeek={1}
                         numberOfCalendars={2}
-                        selectionType='range'
+                        selectionType="range"
                         minimumDate={new Date()}
-                        maximumDate={moment().add(2, 'years').toDate()}
+                        maximumDate={moment()
+                            .add(2, "years")
+                            .toDate()}
                         stateDefinitions={stateDefinitions}
                         dateStates={dateRanges}
                         defaultState="available"
@@ -172,13 +215,17 @@ export class Main extends React.Component {
                     <div className="example">
                         <h4>With custom SFC paginationArrowComponent</h4>
                         <DateSinglePicker
-                            paginationArrowComponent={ CustomSFCPaginationArrow }
+                            paginationArrowComponent={CustomSFCPaginationArrow}
                         />
                     </div>
                     <div className="example">
-                        <h4>With custom ComponentClass paginationArrowComponent</h4>
+                        <h4>
+                            With custom ComponentClass paginationArrowComponent
+                        </h4>
                         <DateSinglePicker
-                            paginationArrowComponent={ CustomComponentClassPaginationArrow }
+                            paginationArrowComponent={
+                                CustomComponentClassPaginationArrow
+                            }
                         />
                     </div>
                 </div>
@@ -189,7 +236,4 @@ export class Main extends React.Component {
 
 const MainFactory = React.createFactory(Main);
 
-ReactDOM.render(
-    MainFactory(),
-    document.getElementById('app')
-);
+ReactDOM.render(MainFactory(), document.getElementById("app"));

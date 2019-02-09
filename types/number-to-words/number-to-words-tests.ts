@@ -1,4 +1,4 @@
-import * as converter from 'number-to-words';
+import * as converter from "number-to-words";
 
 converter.toOrdinal(21);
 

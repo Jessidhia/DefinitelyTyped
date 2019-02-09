@@ -1,4 +1,4 @@
-import * as Backbone from 'backbone';
+import * as Backbone from "backbone";
 
 // Example code.
 class DisplayView extends Backbone.View<Backbone.Model> {
@@ -19,10 +19,10 @@ class View extends Backbone.Layout<Backbone.Model> {
 
         // When you click the View contents, it will wrap them in a bold tag.
         this.events = <any>{
-            "click": "wrapElement",
-            "mouseenter": "insertElement",
-            "mouseleave": "removeElement"
-        }
+            click: "wrapElement",
+            mouseenter: "insertElement",
+            mouseleave: "removeElement"
+        };
     }
 
     wrapElement(): void {
@@ -49,7 +49,7 @@ var layout = new Backbone.Layout<Backbone.Model>({
 
     // Declaratively bind a nested View to the Layout.
     views: {
-        "p": new View()
+        p: new View()
     }
 });
 

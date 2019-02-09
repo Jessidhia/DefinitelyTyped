@@ -37,8 +37,8 @@ import * as properties from "dom-helpers/transition/properties";
 
 const element = helpers.activeElement() || activeElement();
 const win =
-  helpers.ownerWindow(element || null || undefined) ||
-  ownerWindow(element || null || undefined);
+    helpers.ownerWindow(element || null || undefined) ||
+    ownerWindow(element || null || undefined);
 const doc = helpers.ownerDocument(element) || ownerDocument(element);
 const id = helpers.requestAnimationFrame(() => {});
 helpers.requestAnimationFrame.cancel(id);
@@ -85,21 +85,29 @@ const _querySelectorAll: HTMLElement[] =
     (query.querySelectorAll(element, "*") as HTMLElement[]) ||
     (querySelectorAll(element, "*") as HTMLElement[]);
 const _closest: Element =
-  query.closest(element, "*", element) || closest(element, "*", element);
+    query.closest(element, "*", element) || closest(element, "*", element);
 
 const _getComputedStyle: string = getComputedStyle(element).getPropertyValue(
     "padding"
 );
 removeStyle(element, "padding");
 
-transition.end(element, (event) => {
-    const currentTarget: Element = event.currentTarget;
-    const target: Element = event.target;
-}, 100);
+transition.end(
+    element,
+    event => {
+        const currentTarget: Element = event.currentTarget;
+        const target: Element = event.target;
+    },
+    100
+);
 
-end(element, (event) => {
-    const currentTarget: Element = event.currentTarget;
-    const target: Element = event.target;
-}, 100);
+end(
+    element,
+    event => {
+        const currentTarget: Element = event.currentTarget;
+        const target: Element = event.target;
+    },
+    100
+);
 
 const transform: string = properties.transform;

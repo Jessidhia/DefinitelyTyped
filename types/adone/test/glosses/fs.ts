@@ -1,5 +1,10 @@
 namespace fsTests {
-    const { fs, std: { url: { URL } } } = adone;
+    const {
+        fs,
+        std: {
+            url: { URL }
+        }
+    } = adone;
 
     namespace readlinkTests {
         fs.readlink("file");
@@ -14,12 +19,24 @@ namespace fsTests {
         fs.readlinkSync("file");
         fs.readlinkSync(Buffer.from("file"));
         fs.readlinkSync(new URL("file://file"));
-        { const a: string = fs.readlinkSync("file", {}); }
-        { const a: string = fs.readlinkSync("file", { encoding: "utf8" }); }
-        { const a: Buffer = fs.readlinkSync("file", { encoding: null }); }
-        { const a: Buffer = fs.readlinkSync("file", null); }
-        { const a: string = fs.readlinkSync("file", "hex"); }
-        { const a: string = fs.readlinkSync("file"); }
+        {
+            const a: string = fs.readlinkSync("file", {});
+        }
+        {
+            const a: string = fs.readlinkSync("file", { encoding: "utf8" });
+        }
+        {
+            const a: Buffer = fs.readlinkSync("file", { encoding: null });
+        }
+        {
+            const a: Buffer = fs.readlinkSync("file", null);
+        }
+        {
+            const a: string = fs.readlinkSync("file", "hex");
+        }
+        {
+            const a: string = fs.readlinkSync("file");
+        }
     }
 
     namespace unlinkTests {
@@ -88,13 +105,25 @@ namespace fsTests {
     }
 
     namespace readdirpTests {
-        fs.readdirp("hello").forEach((entry) => {
-            { const a: string = entry.fullParentDir; }
-            { const a: string = entry.fullPath; }
-            { const a: string = entry.name; }
-            { const a: string = entry.parentDir; }
-            { const a: string = entry.path; }
-            { const a: adone.fs.I.Stats = entry.stat; }
+        fs.readdirp("hello").forEach(entry => {
+            {
+                const a: string = entry.fullParentDir;
+            }
+            {
+                const a: string = entry.fullPath;
+            }
+            {
+                const a: string = entry.name;
+            }
+            {
+                const a: string = entry.parentDir;
+            }
+            {
+                const a: string = entry.path;
+            }
+            {
+                const a: adone.fs.I.Stats = entry.stat;
+            }
         });
 
         fs.readdirp(Buffer.from("hello"));
@@ -104,26 +133,52 @@ namespace fsTests {
         fs.readdirp("hello", { directories: true });
         fs.readdirp("hello", { directoryFilter: () => true });
         fs.readdirp("hello", {
-            directoryFilter: (entry) => {
-                { const a: string = entry.fullParentDir; }
-                { const a: string = entry.fullPath; }
-                { const a: string = entry.name; }
-                { const a: string = entry.parentDir; }
-                { const a: string = entry.path; }
-                { const a: adone.fs.I.Stats = entry.stat; }
+            directoryFilter: entry => {
+                {
+                    const a: string = entry.fullParentDir;
+                }
+                {
+                    const a: string = entry.fullPath;
+                }
+                {
+                    const a: string = entry.name;
+                }
+                {
+                    const a: string = entry.parentDir;
+                }
+                {
+                    const a: string = entry.path;
+                }
+                {
+                    const a: adone.fs.I.Stats = entry.stat;
+                }
                 return true;
             }
         });
         fs.readdirp("hello", {
-            directoryFilter: [(entry) => {
-                { const a: string = entry.fullParentDir; }
-                { const a: string = entry.fullPath; }
-                { const a: string = entry.name; }
-                { const a: string = entry.parentDir; }
-                { const a: string = entry.path; }
-                { const a: adone.fs.I.Stats = entry.stat; }
-                return true;
-            }]
+            directoryFilter: [
+                entry => {
+                    {
+                        const a: string = entry.fullParentDir;
+                    }
+                    {
+                        const a: string = entry.fullPath;
+                    }
+                    {
+                        const a: string = entry.name;
+                    }
+                    {
+                        const a: string = entry.parentDir;
+                    }
+                    {
+                        const a: string = entry.path;
+                    }
+                    {
+                        const a: adone.fs.I.Stats = entry.stat;
+                    }
+                    return true;
+                }
+            ]
         });
         fs.readdirp("hello", {
             directoryFilter: ["*"]
@@ -133,26 +188,52 @@ namespace fsTests {
         });
         fs.readdirp("hello", { fileFilter: () => true });
         fs.readdirp("hello", {
-            fileFilter: (entry) => {
-                { const a: string = entry.fullParentDir; }
-                { const a: string = entry.fullPath; }
-                { const a: string = entry.name; }
-                { const a: string = entry.parentDir; }
-                { const a: string = entry.path; }
-                { const a: adone.fs.I.Stats = entry.stat; }
+            fileFilter: entry => {
+                {
+                    const a: string = entry.fullParentDir;
+                }
+                {
+                    const a: string = entry.fullPath;
+                }
+                {
+                    const a: string = entry.name;
+                }
+                {
+                    const a: string = entry.parentDir;
+                }
+                {
+                    const a: string = entry.path;
+                }
+                {
+                    const a: adone.fs.I.Stats = entry.stat;
+                }
                 return true;
             }
         });
         fs.readdirp("hello", {
-            fileFilter: [(entry) => {
-                { const a: string = entry.fullParentDir; }
-                { const a: string = entry.fullPath; }
-                { const a: string = entry.name; }
-                { const a: string = entry.parentDir; }
-                { const a: string = entry.path; }
-                { const a: adone.fs.I.Stats = entry.stat; }
-                return true;
-            }]
+            fileFilter: [
+                entry => {
+                    {
+                        const a: string = entry.fullParentDir;
+                    }
+                    {
+                        const a: string = entry.fullPath;
+                    }
+                    {
+                        const a: string = entry.name;
+                    }
+                    {
+                        const a: string = entry.parentDir;
+                    }
+                    {
+                        const a: string = entry.path;
+                    }
+                    {
+                        const a: adone.fs.I.Stats = entry.stat;
+                    }
+                    return true;
+                }
+            ]
         });
         fs.readdirp("hello", {
             fileFilter: ["*"]
@@ -262,33 +343,55 @@ namespace fsTests {
     }
 
     namespace rmTests {
-        fs.rm("file").then((x) => {});
-        fs.rm("file", {}).then((x) => {});
-        fs.rm("file", { glob: true }).then((x) => {});
-        fs.rm("file", { maxBusyTries: 3 }).then((x) => {});
-        fs.rm("file", { emfileWait: 100 }).then((x) => {});
-        fs.rm("file", { cwd: __dirname }).then((x) => {});
+        fs.rm("file").then(x => {});
+        fs.rm("file", {}).then(x => {});
+        fs.rm("file", { glob: true }).then(x => {});
+        fs.rm("file", { maxBusyTries: 3 }).then(x => {});
+        fs.rm("file", { emfileWait: 100 }).then(x => {});
+        fs.rm("file", { cwd: __dirname }).then(x => {});
     }
 
     namespace rmEmptyTests {
         fs.rmEmpty("file").then(() => {});
         fs.rmEmpty("file", { cwd: "a" }).then(() => {});
-        fs.rmEmpty("file", { filter: (filename) => filename.charCodeAt(0) === 100 }).then(() => {});
+        fs.rmEmpty("file", {
+            filter: filename => filename.charCodeAt(0) === 100
+        }).then(() => {});
     }
 
     namespace ModeTests {
         const stat = fs.statSync("file");
         const mode = new fs.Mode(stat);
-        { const a: number = mode.valueOf(); }
-        { const a: boolean = mode.owner.read; }
-        { const a: boolean = mode.owner.write; }
-        { const a: boolean = mode.owner.execute; }
-        { const a: boolean = mode.group.read; }
-        { const a: boolean = mode.group.write; }
-        { const a: boolean = mode.group.execute; }
-        { const a: boolean = mode.others.read; }
-        { const a: boolean = mode.others.write; }
-        { const a: boolean = mode.others.execute; }
+        {
+            const a: number = mode.valueOf();
+        }
+        {
+            const a: boolean = mode.owner.read;
+        }
+        {
+            const a: boolean = mode.owner.write;
+        }
+        {
+            const a: boolean = mode.owner.execute;
+        }
+        {
+            const a: boolean = mode.group.read;
+        }
+        {
+            const a: boolean = mode.group.write;
+        }
+        {
+            const a: boolean = mode.group.execute;
+        }
+        {
+            const a: boolean = mode.others.read;
+        }
+        {
+            const a: boolean = mode.others.write;
+        }
+        {
+            const a: boolean = mode.others.execute;
+        }
     }
 
     namespace FileTests {
@@ -296,18 +399,40 @@ namespace fsTests {
         const f = new File("some", "file");
         f.encoding("utf8").encoding("buffer");
         f.stat().then((x: adone.fs.I.Stats) => {});
-        { const a: adone.fs.I.Stats = f.statSync(); }
+        {
+            const a: adone.fs.I.Stats = f.statSync();
+        }
         f.lstat().then((x: adone.fs.I.Stats) => {});
-        { const a: adone.fs.I.Stats = f.lstatSync(); }
-        { const a: adone.fs.Mode = f.mode(); }
-        { const a: string = f.path(); }
-        { const a: string = f.normalizedPath(); }
-        { const a: string = f.dirname(); }
-        { const a: string = f.filename(); }
-        { const a: string = f.extname(); }
-        { const a: string = f.stem(); }
-        { const a: string = f.relativePath("/tmp"); }
-        { const a: string = f.relativePath(new fs.Directory("/tmp")); }
+        {
+            const a: adone.fs.I.Stats = f.lstatSync();
+        }
+        {
+            const a: adone.fs.Mode = f.mode();
+        }
+        {
+            const a: string = f.path();
+        }
+        {
+            const a: string = f.normalizedPath();
+        }
+        {
+            const a: string = f.dirname();
+        }
+        {
+            const a: string = f.filename();
+        }
+        {
+            const a: string = f.extname();
+        }
+        {
+            const a: string = f.stem();
+        }
+        {
+            const a: string = f.relativePath("/tmp");
+        }
+        {
+            const a: string = f.relativePath(new fs.Directory("/tmp"));
+        }
         f.exists().then((x: boolean) => {});
         f.create().then(() => {});
         f.create({}).then(() => {});
@@ -327,13 +452,23 @@ namespace fsTests {
         f.unlink().then(() => {});
         f.contents("utf16le").then((a: string) => {});
         f.contents("buffer").then((a: Buffer) => {});
-        { const a: string = f.contentsSync("utf16le"); }
-        { const a: Buffer = f.contentsSync("buffer"); }
-        f.contentsStream("utf8").on("data", (chunk) => {});
+        {
+            const a: string = f.contentsSync("utf16le");
+        }
+        {
+            const a: Buffer = f.contentsSync("buffer");
+        }
+        f.contentsStream("utf8").on("data", chunk => {});
         f.chmod(0o755).then(() => {});
         f.chmod(new fs.Mode(f.statSync())).then(() => {});
-        { const a: adone.fs.SymbolicLinkFile = f.symbolicLink("another_file"); }
-        { const a: adone.fs.SymbolicLinkFile = f.symbolicLink(new File("another_file")); }
+        {
+            const a: adone.fs.SymbolicLinkFile = f.symbolicLink("another_file");
+        }
+        {
+            const a: adone.fs.SymbolicLinkFile = f.symbolicLink(
+                new File("another_file")
+            );
+        }
         f.size().then((x: number) => {});
     }
 
@@ -341,47 +476,165 @@ namespace fsTests {
         const { Directory } = fs;
 
         const d = new Directory("some", "directory");
-        { const a: string = d.dirname(); }
-        { const a: string = d.filename(); }
-        { const a: string = d.path(); }
-        { const a: string = d.normalizedPath(); }
-        { const a: string = d.relativePath("another_dir"); }
-        { const a: string = d.relativePath(new Directory("another_dir")); }
+        {
+            const a: string = d.dirname();
+        }
+        {
+            const a: string = d.filename();
+        }
+        {
+            const a: string = d.path();
+        }
+        {
+            const a: string = d.normalizedPath();
+        }
+        {
+            const a: string = d.relativePath("another_dir");
+        }
+        {
+            const a: string = d.relativePath(new Directory("another_dir"));
+        }
         d.stat().then((x: adone.fs.I.Stats) => {});
         d.lstat().then((x: adone.fs.I.Stats) => {});
         d.exists().then((x: boolean) => {});
         d.create().then(() => {});
         d.create({}).then(() => {});
         d.create({ mode: 0o666 }).then(() => {});
-        { const a: string = d.resolve("file", "path"); }
-        { const a: adone.fs.Directory = d.getDirectory("nested", "directory"); }
-        { const a: adone.fs.File = d.getFile("nested", "file"); }
-        { const a: adone.fs.SymbolicLinkFile = d.getSymbolicLinkFile("nested", "filelink"); }
-        { const a: adone.fs.SymbolicLinkDirectory = d.getSymbolicLinkDirectory("nester", "dirlink"); }
+        {
+            const a: string = d.resolve("file", "path");
+        }
+        {
+            const a: adone.fs.Directory = d.getDirectory("nested", "directory");
+        }
+        {
+            const a: adone.fs.File = d.getFile("nested", "file");
+        }
+        {
+            const a: adone.fs.SymbolicLinkFile = d.getSymbolicLinkFile(
+                "nested",
+                "filelink"
+            );
+        }
+        {
+            const a: adone.fs.SymbolicLinkDirectory = d.getSymbolicLinkDirectory(
+                "nester",
+                "dirlink"
+            );
+        }
         d.addFile("a", "b", "c").then((x: adone.fs.File) => {});
         d.addFile("a", "b", "c", {}).then((x: adone.fs.File) => {});
-        d.addFile("a", "b", "c", { contents: "hello" }).then((x: adone.fs.File) => {});
-        d.addFile("a", "b", "c", { contents: Buffer.from("hello") }).then((x: adone.fs.File) => {});
-        d.addFile("a", "b", "c", { encoding: "utf8" }).then((x: adone.fs.File) => {});
-        d.addFile("a", "b", "c", { mode: 0o666 }).then((x: adone.fs.File) => {});
+        d.addFile("a", "b", "c", { contents: "hello" }).then(
+            (x: adone.fs.File) => {}
+        );
+        d.addFile("a", "b", "c", { contents: Buffer.from("hello") }).then(
+            (x: adone.fs.File) => {}
+        );
+        d.addFile("a", "b", "c", { encoding: "utf8" }).then(
+            (x: adone.fs.File) => {}
+        );
+        d.addFile("a", "b", "c", { mode: 0o666 }).then(
+            (x: adone.fs.File) => {}
+        );
         d.addDirectory("a", "b", "c").then((x: adone.fs.Directory) => {});
-        d.files().then((x: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory>) => {});
-        { const a: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory> = d.filesSync(); }
+        d.files().then(
+            (
+                x: Array<
+                    | adone.fs.File
+                    | adone.fs.Directory
+                    | adone.fs.SymbolicLinkFile
+                    | adone.fs.SymbolicLinkDirectory
+                >
+            ) => {}
+        );
+        {
+            const a: Array<
+                | adone.fs.File
+                | adone.fs.Directory
+                | adone.fs.SymbolicLinkFile
+                | adone.fs.SymbolicLinkDirectory
+            > = d.filesSync();
+        }
         d.clean().then(() => {});
         d.unlink().then(() => {});
         d.unlink({ delay: 100 }).then(() => {});
         d.unlink({ retries: 100 }).then(() => {});
-        d.find().then((x: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory>) => {});
-        d.find({}).then((x: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory>) => {});
-        d.find({ dirs: true }).then((x: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory>) => {});
-        d.find({ files: false }).then((x: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory>) => {});
-        { const a: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory> = d.findSync(); }
-        { const a: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory> = d.findSync({}); }
-        { const a: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory> = d.findSync({ dirs: true }); }
-        { const a: Array<adone.fs.File | adone.fs.Directory | adone.fs.SymbolicLinkFile | adone.fs.SymbolicLinkDirectory> = d.findSync({ files: false }); }
+        d.find().then(
+            (
+                x: Array<
+                    | adone.fs.File
+                    | adone.fs.Directory
+                    | adone.fs.SymbolicLinkFile
+                    | adone.fs.SymbolicLinkDirectory
+                >
+            ) => {}
+        );
+        d.find({}).then(
+            (
+                x: Array<
+                    | adone.fs.File
+                    | adone.fs.Directory
+                    | adone.fs.SymbolicLinkFile
+                    | adone.fs.SymbolicLinkDirectory
+                >
+            ) => {}
+        );
+        d.find({ dirs: true }).then(
+            (
+                x: Array<
+                    | adone.fs.File
+                    | adone.fs.Directory
+                    | adone.fs.SymbolicLinkFile
+                    | adone.fs.SymbolicLinkDirectory
+                >
+            ) => {}
+        );
+        d.find({ files: false }).then(
+            (
+                x: Array<
+                    | adone.fs.File
+                    | adone.fs.Directory
+                    | adone.fs.SymbolicLinkFile
+                    | adone.fs.SymbolicLinkDirectory
+                >
+            ) => {}
+        );
+        {
+            const a: Array<
+                | adone.fs.File
+                | adone.fs.Directory
+                | adone.fs.SymbolicLinkFile
+                | adone.fs.SymbolicLinkDirectory
+            > = d.findSync();
+        }
+        {
+            const a: Array<
+                | adone.fs.File
+                | adone.fs.Directory
+                | adone.fs.SymbolicLinkFile
+                | adone.fs.SymbolicLinkDirectory
+            > = d.findSync({});
+        }
+        {
+            const a: Array<
+                | adone.fs.File
+                | adone.fs.Directory
+                | adone.fs.SymbolicLinkFile
+                | adone.fs.SymbolicLinkDirectory
+            > = d.findSync({ dirs: true });
+        }
+        {
+            const a: Array<
+                | adone.fs.File
+                | adone.fs.Directory
+                | adone.fs.SymbolicLinkFile
+                | adone.fs.SymbolicLinkDirectory
+            > = d.findSync({ files: false });
+        }
         d.rename("name").then(() => {});
         d.rename(new Directory("name")).then(() => {});
-        d.symbolicLink("another").then((x: adone.fs.SymbolicLinkDirectory) => {});
+        d.symbolicLink("another").then(
+            (x: adone.fs.SymbolicLinkDirectory) => {}
+        );
         d.copyTo("another").then(() => {});
         d.copyTo("another", {}).then(() => {});
         d.copyTo("another", { cwd: "/tmp" }).then(() => {});
@@ -392,11 +645,21 @@ namespace fsTests {
         Directory.create("hello", "world").then((x: adone.fs.Directory) => {});
         Directory.createTmp().then((x: adone.fs.Directory) => {});
         Directory.createTmp({ dir: "/" }).then((x: adone.fs.Directory) => {});
-        Directory.createTmp({ ext: ".exe" }).then((x: adone.fs.Directory) => {});
-        Directory.createTmp({ name: "hello" }).then((x: adone.fs.Directory) => {});
-        Directory.createTmp({ prefix: "/tmp/t-" }).then((x: adone.fs.Directory) => {});
-        Directory.createTmp({ template: /XASDX/ }).then((x: adone.fs.Directory) => {});
-        Directory.createTmp({ tries: 100500 }).then((x: adone.fs.Directory) => {});
+        Directory.createTmp({ ext: ".exe" }).then(
+            (x: adone.fs.Directory) => {}
+        );
+        Directory.createTmp({ name: "hello" }).then(
+            (x: adone.fs.Directory) => {}
+        );
+        Directory.createTmp({ prefix: "/tmp/t-" }).then(
+            (x: adone.fs.Directory) => {}
+        );
+        Directory.createTmp({ template: /XASDX/ }).then(
+            (x: adone.fs.Directory) => {}
+        );
+        Directory.createTmp({ tries: 100500 }).then(
+            (x: adone.fs.Directory) => {}
+        );
     }
 
     namespace SymbolicLinkFileTests {
@@ -404,9 +667,13 @@ namespace fsTests {
         s.realpath().then((x: string) => {});
         s.contents("utf8").then((x: string) => {});
         s.contents("buffer").then((x: Buffer) => {});
-        { const a: string = s.contentsSync("utf8"); }
-        { const a: Buffer = s.contentsSync("buffer"); }
-        s.contentsStream("utf8").on("data", (chunk) => {});
+        {
+            const a: string = s.contentsSync("utf8");
+        }
+        {
+            const a: Buffer = s.contentsSync("buffer");
+        }
+        s.contentsStream("utf8").on("data", chunk => {});
     }
 
     namespace SymbolicLinkDirectoryTests {
@@ -436,14 +703,30 @@ namespace fsTests {
         raf.end({ mtime: 100500 }).then(() => {});
         raf.truncate(0).then(() => {});
         raf.unlink().then(() => {});
-        fs.RandomAccessFile.open("hello").then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", {}).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { appendable: true }).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { readable: true }).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { writable: true }).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { cwd: "/tmp" }).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { mtime: 100500 }).then((x: adone.fs.RandomAccessFile) => {});
-        fs.RandomAccessFile.open("hello", { atime: 100500 }).then((x: adone.fs.RandomAccessFile) => {});
+        fs.RandomAccessFile.open("hello").then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", {}).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { appendable: true }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { readable: true }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { writable: true }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { cwd: "/tmp" }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { mtime: 100500 }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
+        fs.RandomAccessFile.open("hello", { atime: 100500 }).then(
+            (x: adone.fs.RandomAccessFile) => {}
+        );
     }
 
     namespace globTests {
@@ -468,77 +751,197 @@ namespace fsTests {
         fs.glob(["hello"], { nonull: true }).forEach((x: string) => {});
         fs.glob(["hello"], { nosort: true }).forEach((x: string) => {});
         fs.glob(["hello"], { nounique: true }).forEach((x: string) => {});
-        fs.glob(["hello"], { patternIndex: true }).forEach((x: { patternIndex: number, path: string }) => {});
+        fs.glob(["hello"], { patternIndex: true }).forEach(
+            (x: { patternIndex: number; path: string }) => {}
+        );
         fs.glob(["hello"], { realpath: true }).forEach((x: string) => {});
-        fs.glob(["hello"], { realpathCache: new Map() }).forEach((x: string) => {});
+        fs.glob(["hello"], { realpathCache: new Map() }).forEach(
+            (x: string) => {}
+        );
         fs.glob(["hello"], { root: "/" }).forEach((x: string) => {});
         fs.glob(["hello"], { silent: true }).forEach((x: string) => {});
-        fs.glob(["hello"], { stat: true }).forEach((x: { stat: adone.fs.I.Stats, path: string }) => {});
+        fs.glob(["hello"], { stat: true }).forEach(
+            (x: { stat: adone.fs.I.Stats; path: string }) => {}
+        );
         fs.glob(["hello"], { statCache: new Map() }).forEach((x: string) => {});
         fs.glob(["hello"], { strict: true }).forEach((x: string) => {});
         fs.glob(["hello"], { symlinks: new Map() }).forEach((x: string) => {});
-        fs.glob(["hello"], { stat: true, patternIndex: true }).forEach((x: { path: string, patternIndex: number, stat: adone.fs.I.Stats }) => {});
+        fs.glob(["hello"], { stat: true, patternIndex: true }).forEach(
+            (x: {
+                path: string;
+                patternIndex: number;
+                stat: adone.fs.I.Stats;
+            }) => {}
+        );
         new fs.glob.Core("hello").forEach((x: string) => {});
         new fs.glob.Core(["hello"]).forEach((x: string) => {});
         new fs.glob.Core(["hello"]).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { absolute: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { cache: new Map() }).forEach((x: string) => {});
+        new fs.glob.Core(["hello"], { absolute: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { cache: new Map() }).forEach(
+            (x: string) => {}
+        );
         new fs.glob.Core(["hello"], { cwd: "/" }).forEach((x: string) => {});
         new fs.glob.Core(["hello"], { dot: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { follow: true }).forEach((x: string) => {});
+        new fs.glob.Core(["hello"], { follow: true }).forEach(
+            (x: string) => {}
+        );
         new fs.glob.Core(["hello"], { ignore: "a" }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { ignore: ["a"] }).forEach((x: string) => {});
+        new fs.glob.Core(["hello"], { ignore: ["a"] }).forEach(
+            (x: string) => {}
+        );
         new fs.glob.Core(["hello"], { mark: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { matchBase: false }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nobrace: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nocase: true }).forEach((x: string) => {});
+        new fs.glob.Core(["hello"], { matchBase: false }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nobrace: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nocase: true }).forEach(
+            (x: string) => {}
+        );
         new fs.glob.Core(["hello"], { nodir: true }).forEach((x: string) => {});
         new fs.glob.Core(["hello"], { noext: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { noglobstar: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nomount: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nonull: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nosort: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { nounique: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { patternIndex: true }).forEach((x: { patternIndex: number, path: string }) => {});
-        new fs.glob.Core(["hello"], { realpath: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { realpathCache: new Map() }).forEach((x: string) => {});
+        new fs.glob.Core(["hello"], { noglobstar: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nomount: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nonull: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nosort: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { nounique: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { patternIndex: true }).forEach(
+            (x: { patternIndex: number; path: string }) => {}
+        );
+        new fs.glob.Core(["hello"], { realpath: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { realpathCache: new Map() }).forEach(
+            (x: string) => {}
+        );
         new fs.glob.Core(["hello"], { root: "/" }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { silent: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { stat: true }).forEach((x: { stat: adone.fs.I.Stats, path: string }) => {});
-        new fs.glob.Core(["hello"], { statCache: new Map() }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { strict: true }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { symlinks: new Map() }).forEach((x: string) => {});
-        new fs.glob.Core(["hello"], { stat: true, patternIndex: true }).forEach((x: { path: string, patternIndex: number, stat: adone.fs.I.Stats }) => {});
-        new fs.glob.Glob("hello").on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello").on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { absolute: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { cache: new Map() }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { cwd: "/" }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { dot: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { follow: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { ignore: "a" }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { ignore: ["a"] }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { mark: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { matchBase: false }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nobrace: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nocase: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nodir: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { noext: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { noglobstar: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nomount: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nonull: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nosort: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { nounique: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { realpath: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { realpathCache: new Map() }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { root: "/" }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { silent: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { stat: true }).on("match", (path: string, stat: adone.fs.I.Stats) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { statCache: new Map() }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { strict: true }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", { symlinks: new Map() }).on("match", (path: string) => {}).on("end", (cb: string[]) => {});
-        new fs.glob.Glob("hello", {}, (err: any, matches: string[]) => {}).on("end", () => {});
-        new fs.glob.Glob("hello", (err: any, matches: string[]) => {}).on("end", () => {});
+        new fs.glob.Core(["hello"], { silent: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { stat: true }).forEach(
+            (x: { stat: adone.fs.I.Stats; path: string }) => {}
+        );
+        new fs.glob.Core(["hello"], { statCache: new Map() }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { strict: true }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { symlinks: new Map() }).forEach(
+            (x: string) => {}
+        );
+        new fs.glob.Core(["hello"], { stat: true, patternIndex: true }).forEach(
+            (x: {
+                path: string;
+                patternIndex: number;
+                stat: adone.fs.I.Stats;
+            }) => {}
+        );
+        new fs.glob.Glob("hello")
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello")
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { absolute: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { cache: new Map() })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { cwd: "/" })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { dot: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { follow: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { ignore: "a" })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { ignore: ["a"] })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { mark: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { matchBase: false })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nobrace: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nocase: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nodir: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { noext: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { noglobstar: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nomount: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nonull: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nosort: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { nounique: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { realpath: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { realpathCache: new Map() })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { root: "/" })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { silent: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { stat: true })
+            .on("match", (path: string, stat: adone.fs.I.Stats) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { statCache: new Map() })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { strict: true })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", { symlinks: new Map() })
+            .on("match", (path: string) => {})
+            .on("end", (cb: string[]) => {});
+        new fs.glob.Glob("hello", {}, (err: any, matches: string[]) => {}).on(
+            "end",
+            () => {}
+        );
+        new fs.glob.Glob("hello", (err: any, matches: string[]) => {}).on(
+            "end",
+            () => {}
+        );
         new fs.glob.Glob("hello").pause();
         new fs.glob.Glob("hello").resume();
         new fs.glob.Glob("hello").abort();
@@ -565,49 +968,130 @@ namespace fsTests {
         new fs.Watcher({ useFsEvents: false });
         new fs.Watcher({ usePolling: false });
         const w = new fs.Watcher();
-        { const a: adone.fs.Watcher = w.add("hello"); }
-        { const a: adone.fs.Watcher = w.add(["hello"]); }
+        {
+            const a: adone.fs.Watcher = w.add("hello");
+        }
+        {
+            const a: adone.fs.Watcher = w.add(["hello"]);
+        }
         {
             const watched = w.getWatched();
             const a: string[] = watched["/tmp"];
         }
         w.on("add", (path: string, stat: adone.fs.I.Stats) => {});
         w.on("addDir", (path: string, stat: adone.fs.I.Stats) => {});
-        w.on("all", (event: adone.fs.I.Watcher.Event, path: string, stat: adone.fs.I.Stats) => {});
+        w.on(
+            "all",
+            (
+                event: adone.fs.I.Watcher.Event,
+                path: string,
+                stat: adone.fs.I.Stats
+            ) => {}
+        );
         w.on("raw", (event: string, path: string, details: object) => {});
     }
 
     namespace watchTests {
-        { const a: adone.fs.Watcher = fs.watch("path"); }
-        { const a: adone.fs.Watcher = fs.watch(["path"]); }
-        { const a: adone.fs.Watcher = fs.watch("path", {}); }
-        { const a: adone.fs.Watcher = fs.watch("path", { alwaysStat: true }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { atomic: true }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { awaitWriteFinish: true }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { awaitWriteFinish: {} }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { awaitWriteFinish: { pollInterval: 100 } }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { awaitWriteFinish: { stabilityThreshold: 100 } }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { binaryInterval: 100 }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { cwd: "/tmp" }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { depth: 10 }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { disableGlobbing: true }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { followSymlinks: false }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { ignored: ["hello"] }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { ignoreInitial: false }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { ignorePermissionErrors: false }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { interval: 100 }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { persistent: false }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { useFsEvents: false }); }
-        { const a: adone.fs.Watcher = fs.watch("path", { usePolling: false }); }
+        {
+            const a: adone.fs.Watcher = fs.watch("path");
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch(["path"]);
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {});
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { alwaysStat: true });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { atomic: true });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                awaitWriteFinish: true
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                awaitWriteFinish: {}
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                awaitWriteFinish: { pollInterval: 100 }
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                awaitWriteFinish: { stabilityThreshold: 100 }
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                binaryInterval: 100
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { cwd: "/tmp" });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { depth: 10 });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                disableGlobbing: true
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                followSymlinks: false
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                ignored: ["hello"]
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                ignoreInitial: false
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                ignorePermissionErrors: false
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { interval: 100 });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { persistent: false });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", {
+                useFsEvents: false
+            });
+        }
+        {
+            const a: adone.fs.Watcher = fs.watch("path", { usePolling: false });
+        }
     }
 
     namespace isTests {
         fs.isFile("hello").then((x: boolean) => {});
-        { const a: boolean = fs.isFileSync("hello"); }
+        {
+            const a: boolean = fs.isFileSync("hello");
+        }
         fs.isDirectory("hello").then((x: boolean) => {});
-        { const a: boolean = fs.isDirectorySync("hello"); }
+        {
+            const a: boolean = fs.isDirectorySync("hello");
+        }
         fs.isExecutable("hello").then((x: boolean) => {});
-        { const a: boolean = fs.isExecutableSync("hello"); }
+        {
+            const a: boolean = fs.isExecutableSync("hello");
+        }
     }
 
     namespace whichTests {
@@ -616,7 +1100,9 @@ namespace fsTests {
         which("hello").then((x: string) => {});
         which("hello", { nothrow: true }).then((x: string | null) => {});
         which("hello", { all: true }).then((x: string[]) => {});
-        which("hello", { all: true, nothrow: true }).then((x: string[] | null) => {});
+        which("hello", { all: true, nothrow: true }).then(
+            (x: string[] | null) => {}
+        );
         which("hello", { colon: ":" }).then((x: string) => {});
         which("hello", { path: "/" }).then((x: string) => {});
         which("hello", { pathExt: "asd" }).then((x: string) => {});
@@ -625,39 +1111,70 @@ namespace fsTests {
     namespace whichSyncTests {
         const { whichSync } = fs;
 
-        { const a: string = whichSync("hello"); }
-        { const a: string | null = whichSync("hello", { nothrow: true }); }
-        { const a: string[] = whichSync("hello", { all: true }); }
-        { const a: string[] | null = whichSync("hello", { all: true, nothrow: true }); }
-        { const a: string = whichSync("hello", { colon: ":" }); }
-        { const a: string = whichSync("hello", { path: "/" }); }
-        { const a: string = whichSync("hello", { pathExt: "asd" }); }
+        {
+            const a: string = whichSync("hello");
+        }
+        {
+            const a: string | null = whichSync("hello", { nothrow: true });
+        }
+        {
+            const a: string[] = whichSync("hello", { all: true });
+        }
+        {
+            const a: string[] | null = whichSync("hello", {
+                all: true,
+                nothrow: true
+            });
+        }
+        {
+            const a: string = whichSync("hello", { colon: ":" });
+        }
+        {
+            const a: string = whichSync("hello", { path: "/" });
+        }
+        {
+            const a: string = whichSync("hello", { pathExt: "asd" });
+        }
     }
 
     namespace fdTests {
         fs.open("hello", "r+").then((x: number) => {});
         fs.open(Buffer.from("hello"), "r+").then((x: number) => {});
         fs.open(new URL("file://hello"), "r+").then((x: number) => {});
-        { const a: number = fs.openSync("hello", "r+"); }
-        { const a: number = fs.openSync(Buffer.from("hello"), "r+"); }
-        { const a: number = fs.openSync(new URL("file://hello"), "r+"); }
+        {
+            const a: number = fs.openSync("hello", "r+");
+        }
+        {
+            const a: number = fs.openSync(Buffer.from("hello"), "r+");
+        }
+        {
+            const a: number = fs.openSync(new URL("file://hello"), "r+");
+        }
         fs.close(10).then(() => {});
         fs.closeSync(10);
         fs.futimes(10, 100500, 100500).then(() => {});
         fs.futimesSync(10, 100500, 100500);
         fs.fstat(10).then((x: adone.fs.I.Stats) => {});
-        { const a: adone.fs.I.Stats = fs.fstatSync(10); }
+        {
+            const a: adone.fs.I.Stats = fs.fstatSync(10);
+        }
         fs.ftruncate(10).then(() => {});
         fs.ftruncate(10, 10).then(() => {});
         fs.ftruncateSync(10);
         fs.ftruncateSync(10, 10);
         fs.read(10, Buffer.alloc(10), 0, 10, 10).then((x: number) => {});
-        { const a: number = fs.readSync(10, Buffer.alloc(10), 0, 10, 10); }
+        {
+            const a: number = fs.readSync(10, Buffer.alloc(10), 0, 10, 10);
+        }
         fs.write(10, Buffer.alloc(10), 0, 10, 10).then((x: number) => {});
-        { const a: number = fs.writeSync(10, Buffer.alloc(10), 0, 10, 10); }
+        {
+            const a: number = fs.writeSync(10, Buffer.alloc(10), 0, 10, 10);
+        }
         fs.write(10, "hello", 10, "utf8").then((x: number) => {});
-        { const a: number = fs.writeSync(10, "hello", 10, "utf8"); }
-        fs.fsync(10).then(()  => {});
+        {
+            const a: number = fs.writeSync(10, "hello", 10, "utf8");
+        }
+        fs.fsync(10).then(() => {});
         fs.fsyncSync(10);
         fs.fchown(10, 0, 0).then(() => {});
         fs.fchownSync(10, 0, 0);
@@ -684,14 +1201,30 @@ namespace fsTests {
     }
 
     namespace realpathSyncTests {
-        { const a: string = fs.realpathSync("hello"); }
-        { const a: string = fs.realpathSync("hello", "utf8"); }
-        { const a: Buffer = fs.realpathSync("hello", "buffer"); }
-        { const a: Buffer = fs.realpathSync("hello", { encoding: "buffer" }); }
-        { const a: string = fs.realpathSync("hello", { encoding: "utf8" }); }
-        { const a: string = fs.realpathSync("hello", {}); }
-        { const a: string = fs.realpathSync(Buffer.from("hello")); }
-        { const a: string = fs.realpathSync(new URL("file://hello")); }
+        {
+            const a: string = fs.realpathSync("hello");
+        }
+        {
+            const a: string = fs.realpathSync("hello", "utf8");
+        }
+        {
+            const a: Buffer = fs.realpathSync("hello", "buffer");
+        }
+        {
+            const a: Buffer = fs.realpathSync("hello", { encoding: "buffer" });
+        }
+        {
+            const a: string = fs.realpathSync("hello", { encoding: "utf8" });
+        }
+        {
+            const a: string = fs.realpathSync("hello", {});
+        }
+        {
+            const a: string = fs.realpathSync(Buffer.from("hello"));
+        }
+        {
+            const a: string = fs.realpathSync(new URL("file://hello"));
+        }
     }
 
     namespace readFileTests {
@@ -702,24 +1235,51 @@ namespace fsTests {
         fs.readFile("hello", null).then((x: Buffer) => {});
         fs.readFile("hello", {}).then((x: Buffer) => {});
         fs.readFile("hello", { check: true }).then((x: null | Buffer) => {});
-        fs.readFile("hello", { check: true, encoding: "utf8" }).then((x: null | string) => {});
+        fs.readFile("hello", { check: true, encoding: "utf8" }).then(
+            (x: null | string) => {}
+        );
         fs.readFile("hello", { encoding: "utf8" }).then((x: string) => {});
         fs.readFile("hello", { encoding: null }).then((x: Buffer) => {});
         fs.readFile("hello", { flags: "r+" }).then((x: Buffer) => {});
     }
 
     namespace readFileSyncTests {
-        { const a: Buffer = fs.readFileSync("hello"); }
-        { const a: Buffer = fs.readFileSync(Buffer.from("hello")); }
-        { const a: Buffer = fs.readFileSync(new URL("file://hello")); }
-        { const a: string = fs.readFileSync("hello", "utf8"); }
-        { const a: Buffer = fs.readFileSync("hello", null); }
-        { const a: Buffer = fs.readFileSync("hello", {}); }
-        { const a: null | Buffer = fs.readFileSync("hello", { check: true }); }
-        { const a: null | string = fs.readFileSync("hello", { check: true, encoding: "utf8" }); }
-        { const a: string = fs.readFileSync("hello", { encoding: "utf8" }); }
-        { const a: Buffer = fs.readFileSync("hello", { encoding: null }); }
-        { const a: Buffer = fs.readFileSync("hello", { flags: "r+" }); }
+        {
+            const a: Buffer = fs.readFileSync("hello");
+        }
+        {
+            const a: Buffer = fs.readFileSync(Buffer.from("hello"));
+        }
+        {
+            const a: Buffer = fs.readFileSync(new URL("file://hello"));
+        }
+        {
+            const a: string = fs.readFileSync("hello", "utf8");
+        }
+        {
+            const a: Buffer = fs.readFileSync("hello", null);
+        }
+        {
+            const a: Buffer = fs.readFileSync("hello", {});
+        }
+        {
+            const a: null | Buffer = fs.readFileSync("hello", { check: true });
+        }
+        {
+            const a: null | string = fs.readFileSync("hello", {
+                check: true,
+                encoding: "utf8"
+            });
+        }
+        {
+            const a: string = fs.readFileSync("hello", { encoding: "utf8" });
+        }
+        {
+            const a: Buffer = fs.readFileSync("hello", { encoding: null });
+        }
+        {
+            const a: Buffer = fs.readFileSync("hello", { flags: "r+" });
+        }
     }
 
     namespace readLinesTests {
@@ -730,22 +1290,48 @@ namespace fsTests {
         fs.readLines("hello", null).then((x: string[]) => {});
         fs.readLines("hello", {}).then((x: string[]) => {});
         fs.readLines("hello", { check: true }).then((x: null | string[]) => {});
-        fs.readLines("hello", { encoding: "utf8" }).then((x: null | string[]) => {});
-        fs.readLines("hello", { encoding: null }).then((x: null | string[]) => {});
+        fs.readLines("hello", { encoding: "utf8" }).then(
+            (x: null | string[]) => {}
+        );
+        fs.readLines("hello", { encoding: null }).then(
+            (x: null | string[]) => {}
+        );
         fs.readLines("hello", { flags: "r+" }).then((x: null | string[]) => {});
     }
 
     namespace readLinesSyncTests {
-        { const a: string[] = fs.readLinesSync("hello"); }
-        { const a: string[] = fs.readLinesSync(Buffer.from("hello")); }
-        { const a: string[] = fs.readLinesSync(new URL("file://hello")); }
-        { const a: string[] = fs.readLinesSync("hello", "utf8"); }
-        { const a: string[] = fs.readLinesSync("hello", null); }
-        { const a: string[] = fs.readLinesSync("hello", {}); }
-        { const a: null | string[] = fs.readLinesSync("hello", { check: true }); }
-        { const a: string[] = fs.readLinesSync("hello", { encoding: "utf8" }); }
-        { const a: string[] = fs.readLinesSync("hello", { encoding: null }); }
-        { const a: string[] = fs.readLinesSync("hello", { flags: "r+" }); }
+        {
+            const a: string[] = fs.readLinesSync("hello");
+        }
+        {
+            const a: string[] = fs.readLinesSync(Buffer.from("hello"));
+        }
+        {
+            const a: string[] = fs.readLinesSync(new URL("file://hello"));
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", "utf8");
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", null);
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", {});
+        }
+        {
+            const a: null | string[] = fs.readLinesSync("hello", {
+                check: true
+            });
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", { encoding: "utf8" });
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", { encoding: null });
+        }
+        {
+            const a: string[] = fs.readLinesSync("hello", { flags: "r+" });
+        }
     }
 
     namespace readWordsTests {
@@ -756,22 +1342,48 @@ namespace fsTests {
         fs.readWords("hello", null).then((x: string[]) => {});
         fs.readWords("hello", {}).then((x: string[]) => {});
         fs.readWords("hello", { check: true }).then((x: null | string[]) => {});
-        fs.readWords("hello", { encoding: "utf8" }).then((x: null | string[]) => {});
-        fs.readWords("hello", { encoding: null }).then((x: null | string[]) => {});
+        fs.readWords("hello", { encoding: "utf8" }).then(
+            (x: null | string[]) => {}
+        );
+        fs.readWords("hello", { encoding: null }).then(
+            (x: null | string[]) => {}
+        );
         fs.readWords("hello", { flags: "r+" }).then((x: null | string[]) => {});
     }
 
     namespace readWordsSyncTests {
-        { const a: string[] = fs.readWordsSync("hello"); }
-        { const a: string[] = fs.readWordsSync(Buffer.from("hello")); }
-        { const a: string[] = fs.readWordsSync(new URL("file://hello")); }
-        { const a: string[] = fs.readWordsSync("hello", "utf8"); }
-        { const a: string[] = fs.readWordsSync("hello", null); }
-        { const a: string[] = fs.readWordsSync("hello", {}); }
-        { const a: null | string[] = fs.readWordsSync("hello", { check: true }); }
-        { const a: string[] = fs.readWordsSync("hello", { encoding: "utf8" }); }
-        { const a: string[] = fs.readWordsSync("hello", { encoding: null }); }
-        { const a: string[] = fs.readWordsSync("hello", { flags: "r+" }); }
+        {
+            const a: string[] = fs.readWordsSync("hello");
+        }
+        {
+            const a: string[] = fs.readWordsSync(Buffer.from("hello"));
+        }
+        {
+            const a: string[] = fs.readWordsSync(new URL("file://hello"));
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", "utf8");
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", null);
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", {});
+        }
+        {
+            const a: null | string[] = fs.readWordsSync("hello", {
+                check: true
+            });
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", { encoding: "utf8" });
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", { encoding: null });
+        }
+        {
+            const a: string[] = fs.readWordsSync("hello", { flags: "r+" });
+        }
     }
 
     namespace existsTests {
@@ -781,9 +1393,15 @@ namespace fsTests {
     }
 
     namespace existsSyncTests {
-        { const a: boolean = fs.existsSync("hello"); }
-        { const a: boolean = fs.existsSync(Buffer.from("hello")); }
-        { const a: boolean = fs.existsSync(new URL("file://hello")); }
+        {
+            const a: boolean = fs.existsSync("hello");
+        }
+        {
+            const a: boolean = fs.existsSync(Buffer.from("hello"));
+        }
+        {
+            const a: boolean = fs.existsSync(new URL("file://hello"));
+        }
     }
 
     namespace mkdirTests {
@@ -809,7 +1427,9 @@ namespace fsTests {
         fs.copy("a", "b", { overwrite: true }).then(() => {});
         fs.copy("a", "b", { filter: /asd/ }).then(() => {});
         fs.copy("a", "b", { filter: () => true }).then(() => {});
-        fs.copy("a", "b", { filter: (a) => a.charCodeAt(0) === 100 }).then(() => {});
+        fs.copy("a", "b", { filter: a => a.charCodeAt(0) === 100 }).then(
+            () => {}
+        );
         fs.copy("a", "b", {
             transform(r, w, file) {
                 file.atime.getDay();
@@ -845,50 +1465,83 @@ namespace fsTests {
     }
 
     namespace statVFSTests {
-        fs.statVFS("/tmp").then((x) => {
-            { const a: number = x.f_namemax; }
-            { const a: number = x.f_bsize; }
-            { const a: number = x.f_frsize; }
-            { const a: number = x.f_blocks; }
-            { const a: number = x.f_bavail; }
-            { const a: number = x.f_bfree; }
-            { const a: number = x.f_files; }
-            { const a: number = x.f_favail; }
-            { const a: number = x.f_ffree; }
+        fs.statVFS("/tmp").then(x => {
+            {
+                const a: number = x.f_namemax;
+            }
+            {
+                const a: number = x.f_bsize;
+            }
+            {
+                const a: number = x.f_frsize;
+            }
+            {
+                const a: number = x.f_blocks;
+            }
+            {
+                const a: number = x.f_bavail;
+            }
+            {
+                const a: number = x.f_bfree;
+            }
+            {
+                const a: number = x.f_files;
+            }
+            {
+                const a: number = x.f_favail;
+            }
+            {
+                const a: number = x.f_ffree;
+            }
         });
     }
 
     namespace createReadStreamTests {
-        fs.createReadStream("file").on("data", (chunk) => {});
-        fs.createReadStream(Buffer.from("file")).on("data", (chunk) => {});
-        fs.createReadStream(new URL("file://file")).on("data", (chunk) => {});
-        fs.createReadStream("file", null).on("data", (chunk) => {});
-        fs.createReadStream("file", "utf8").on("data", (chunk) => {});
-        fs.createReadStream("file", { encoding: "usc2" }).on("data", (chunk) => {});
-        fs.createReadStream("file", { encoding: null }).on("data", (chunk) => {});
-        fs.createReadStream("file", { flags: "r+" }).on("data", (chunk) => {});
-        fs.createReadStream(null, { fd: 10, autoClose: false }).on("data", (chunk) => {});
-        fs.createReadStream(undefined, { fd: 10 }).on("data", (chunk) => {});
-        fs.createReadStream(null, { fd: 10 }).on("data", (chunk) => {});
-        fs.createReadStream("file", { mode: 0o666 }).on("data", (chunk) => {});
-        fs.createReadStream("file", { start: 100 }).on("data", (chunk) => {});
-        fs.createReadStream("file", { end: 110 }).on("data", (chunk) => {});
+        fs.createReadStream("file").on("data", chunk => {});
+        fs.createReadStream(Buffer.from("file")).on("data", chunk => {});
+        fs.createReadStream(new URL("file://file")).on("data", chunk => {});
+        fs.createReadStream("file", null).on("data", chunk => {});
+        fs.createReadStream("file", "utf8").on("data", chunk => {});
+        fs.createReadStream("file", { encoding: "usc2" }).on(
+            "data",
+            chunk => {}
+        );
+        fs.createReadStream("file", { encoding: null }).on("data", chunk => {});
+        fs.createReadStream("file", { flags: "r+" }).on("data", chunk => {});
+        fs.createReadStream(null, { fd: 10, autoClose: false }).on(
+            "data",
+            chunk => {}
+        );
+        fs.createReadStream(undefined, { fd: 10 }).on("data", chunk => {});
+        fs.createReadStream(null, { fd: 10 }).on("data", chunk => {});
+        fs.createReadStream("file", { mode: 0o666 }).on("data", chunk => {});
+        fs.createReadStream("file", { start: 100 }).on("data", chunk => {});
+        fs.createReadStream("file", { end: 110 }).on("data", chunk => {});
     }
 
     namespace createWriteStreamTests {
-        fs.createWriteStream("file").on("data", (chunk) => {});
-        fs.createWriteStream(Buffer.from("file")).on("data", (chunk) => {});
-        fs.createWriteStream(new URL("file://file")).on("data", (chunk) => {});
-        fs.createWriteStream("file", null).on("data", (chunk) => {});
-        fs.createWriteStream("file", "utf8").on("data", (chunk) => {});
-        fs.createWriteStream("file", { defaultEncoding: "usc2" }).on("data", (chunk) => {});
-        fs.createWriteStream("file", { defaultEncoding: null }).on("data", (chunk) => {});
-        fs.createWriteStream("file", { flags: "r+" }).on("data", (chunk) => {});
-        fs.createWriteStream(null, { fd: 10, autoClose: false }).on("data", (chunk) => {});
-        fs.createWriteStream(undefined, { fd: 10 }).on("data", (chunk) => {});
-        fs.createWriteStream(null, { fd: 10 }).on("data", (chunk) => {});
-        fs.createWriteStream("file", { mode: 0o666 }).on("data", (chunk) => {});
-        fs.createWriteStream("file", { start: 100 }).on("data", (chunk) => {});
+        fs.createWriteStream("file").on("data", chunk => {});
+        fs.createWriteStream(Buffer.from("file")).on("data", chunk => {});
+        fs.createWriteStream(new URL("file://file")).on("data", chunk => {});
+        fs.createWriteStream("file", null).on("data", chunk => {});
+        fs.createWriteStream("file", "utf8").on("data", chunk => {});
+        fs.createWriteStream("file", { defaultEncoding: "usc2" }).on(
+            "data",
+            chunk => {}
+        );
+        fs.createWriteStream("file", { defaultEncoding: null }).on(
+            "data",
+            chunk => {}
+        );
+        fs.createWriteStream("file", { flags: "r+" }).on("data", chunk => {});
+        fs.createWriteStream(null, { fd: 10, autoClose: false }).on(
+            "data",
+            chunk => {}
+        );
+        fs.createWriteStream(undefined, { fd: 10 }).on("data", chunk => {});
+        fs.createWriteStream(null, { fd: 10 }).on("data", chunk => {});
+        fs.createWriteStream("file", { mode: 0o666 }).on("data", chunk => {});
+        fs.createWriteStream("file", { start: 100 }).on("data", chunk => {});
     }
 
     namespace tmpNameTests {
@@ -927,8 +1580,7 @@ namespace fsTests {
         new fs.TailWatcher("file", { useWatchFile: true });
         const tw = new fs.TailWatcher("file");
         tw.unwatch();
-        tw.on("line", (line: string) => {
-        });
+        tw.on("line", (line: string) => {});
     }
 
     namespace watchTailTests {

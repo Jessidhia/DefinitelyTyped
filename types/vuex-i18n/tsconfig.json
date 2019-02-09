@@ -2,15 +2,10 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "types": [],
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "noEmit": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
@@ -18,8 +13,5 @@
         "strictFunctionTypes": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "vuex-i18n-tests.ts"
-    ]
+    "files": ["index.d.ts", "vuex-i18n-tests.ts"]
 }

@@ -7,13 +7,15 @@
 
 /// <reference types="node" />
 
-import { IncomingMessage, ServerResponse } from 'http';
-import { ComponentType } from 'react';
+import { IncomingMessage, ServerResponse } from "http";
+import { ComponentType } from "react";
 import {
-    MapDispatchToPropsParam, MapStateToPropsParam,
-    MergeProps, Options as ConnectOptions
-} from 'react-redux';
-import { Store } from 'redux';
+    MapDispatchToPropsParam,
+    MapStateToPropsParam,
+    MergeProps,
+    Options as ConnectOptions
+} from "react-redux";
+import { Store } from "redux";
 
 declare namespace nextReduxWrapper {
     interface Options {
@@ -23,7 +25,13 @@ declare namespace nextReduxWrapper {
         deserializeState?: any;
     }
 
-    interface StoreCreatorOptions<TInitialState, TStateProps, TDispatchProps, TOwnProps, TMergedProps> extends Options {
+    interface StoreCreatorOptions<
+        TInitialState,
+        TStateProps,
+        TDispatchProps,
+        TOwnProps,
+        TMergedProps
+    > extends Options {
         isServer: boolean;
         req?: IncomingMessage;
         res?: ServerResponse;
@@ -34,17 +42,44 @@ declare namespace nextReduxWrapper {
         getInitialProps(props: any): Promise<any>;
     }
 
-    type NextReduxWrappedComponent<P> = ComponentType<P> & NextPageComponentMethods;
+    type NextReduxWrappedComponent<P> = ComponentType<P> &
+        NextPageComponentMethods;
 
-    type NextStoreCreator<TInitialState, TStateProps, TDispatchProps, TOwnProps, TMergedProps> = (
+    type NextStoreCreator<
+        TInitialState,
+        TStateProps,
+        TDispatchProps,
+        TOwnProps,
+        TMergedProps
+    > = (
         initialState: TInitialState,
-        options: StoreCreatorOptions<TInitialState, TStateProps, TDispatchProps, TOwnProps, TMergedProps>
+        options: StoreCreatorOptions<
+            TInitialState,
+            TStateProps,
+            TDispatchProps,
+            TOwnProps,
+            TMergedProps
+        >
     ) => Store<TInitialState>;
 }
 
-declare function nextReduxWrapper<TInitialState = any, TStateProps = any, TDispatchProps = any, TOwnProps = any, TMergedProps = any>(
-    makeStore: nextReduxWrapper.NextStoreCreator<TInitialState, TStateProps, TDispatchProps, TOwnProps, TMergedProps>,
+declare function nextReduxWrapper<
+    TInitialState = any,
+    TStateProps = any,
+    TDispatchProps = any,
+    TOwnProps = any,
+    TMergedProps = any
+>(
+    makeStore: nextReduxWrapper.NextStoreCreator<
+        TInitialState,
+        TStateProps,
+        TDispatchProps,
+        TOwnProps,
+        TMergedProps
+    >,
     config?: nextReduxWrapper.Options
-): (ComponentType: ComponentType<TOwnProps & TMergedProps>) => nextReduxWrapper.NextReduxWrappedComponent<TOwnProps>;
+): (
+    ComponentType: ComponentType<TOwnProps & TMergedProps>
+) => nextReduxWrapper.NextReduxWrappedComponent<TOwnProps>;
 
 export default nextReduxWrapper;

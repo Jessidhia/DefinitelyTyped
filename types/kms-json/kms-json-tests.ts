@@ -1,7 +1,7 @@
-import KmsJson = require('kms-json');
+import KmsJson = require("kms-json");
 
 const kmsJson = new KmsJson({
-    awsKmsSettings: { },
+    awsKmsSettings: {},
     keyId: "foo",
     encoding: "base64"
 });

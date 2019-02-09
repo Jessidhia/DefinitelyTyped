@@ -5,7 +5,6 @@
 
 // Imported from: https://github.com/soywiz/typescript-node-definitions/nodeunit.d.ts
 
-
 export interface ITestCase {
     (testCase: { [property: string]: ITestBody | ITestGroup | void }): void;
 }
@@ -57,7 +56,11 @@ export interface ITestGroup {
     setUp?: (callback: ICallbackFunction) => void;
     /** The tearDown function is run after each test calls test.done() */
     tearDown?: (callback: ICallbackFunction) => void;
-    [property: string]: ITestGroup | ITestBody | ((callback: ICallbackFunction) => void) | undefined;
+    [property: string]:
+        | ITestGroup
+        | ITestBody
+        | ((callback: ICallbackFunction) => void)
+        | undefined;
 }
 
 export interface ICallbackFunction {

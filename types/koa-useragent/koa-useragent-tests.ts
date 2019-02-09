@@ -1,5 +1,5 @@
-import Koa = require('koa');
-import userAgent = require('koa-useragent');
+import Koa = require("koa");
+import userAgent = require("koa-useragent");
 
 const app = new Koa();
 

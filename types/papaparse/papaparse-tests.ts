@@ -1,5 +1,3 @@
-
-
 import Papa = require("papaparse");
 import {
     ParseConfig,
@@ -19,10 +17,10 @@ var res = Papa.parse("3,3,3");
 res.errors[0].code;
 
 Papa.parse("3,3,3", {
-    delimiter: ';',
+    delimiter: ";",
     comments: false,
     trimHeaders: false,
-    step: function (results, p) {
+    step: function(results, p) {
         p.abort();
         results.data.length;
     },
@@ -30,34 +28,30 @@ Papa.parse("3,3,3", {
 });
 
 Papa.parse("3,3,3", {
-    dynamicTyping: (field: string | number): boolean => /headerName/i.test(field.toString())
+    dynamicTyping: (field: string | number): boolean =>
+        /headerName/i.test(field.toString())
 });
 
 Papa.parse("3,3,3", {
-    dynamicTyping: {'headerName': true}
+    dynamicTyping: { headerName: true }
 });
 
 Papa.parse("3,3,3", {
-    dynamicTyping: {5: true}
+    dynamicTyping: { 5: true }
 });
 
 var file = new File(null, null, null);
 
 Papa.parse(file, {
-    transform: function(value, field) {
-
-    },
-    complete: function (a, b) {
+    transform: function(value, field) {},
+    complete: function(a, b) {
         a.meta.fields;
         b.name;
     }
 });
 
-const readable = new Readable()
-const rows = [
-    "1,2,3",
-    "4,5,6"
-]
+const readable = new Readable();
+const rows = ["1,2,3", "4,5,6"];
 
 rows.forEach(r => {
     readable.push(r);
@@ -80,11 +74,13 @@ Papa.unparse({
 Papa.unparse([{ a: 1, b: 1, c: 1 }], { quotes: false });
 Papa.unparse([{ a: 1, b: 1, c: 1 }], { quotes: [false, true, true] });
 Papa.unparse([[1, 2, 3], [4, 5, 6]], { delimiter: "," });
-Papa.unparse({
-    fields: ["3"],
-    data: []
-}, { newline: "\n" });
-
+Papa.unparse(
+    {
+        fields: ["3"],
+        data: []
+    },
+    { newline: "\n" }
+);
 
 /**
  * Properties
@@ -95,7 +91,7 @@ Papa.LocalChunkSize;
 /**
  * Parser
  */
-var parser = new Papa.Parser({})
+var parser = new Papa.Parser({});
 parser.getCharIndex();
 parser.abort();
 parser.parse("", 0, false);

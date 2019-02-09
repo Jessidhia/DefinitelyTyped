@@ -1,4 +1,4 @@
-import sdbm = require('sdbm');
+import sdbm = require("sdbm");
 
 // $ExpectType number
-sdbm('🦄🌈');
+sdbm("🦄🌈");

@@ -29,7 +29,7 @@ interface NotyOptions {
 
     animation?: NotyAnimationOptions;
     /** backdrop click will close all notifications */
-    closeWith?: ('click' | 'button' | 'hover' | 'backdrop')[];
+    closeWith?: ("click" | "button" | "hover" | "backdrop")[];
 
     /** if true adds an overlay */
     modal?: boolean;

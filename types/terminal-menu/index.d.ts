@@ -17,10 +17,11 @@ declare module "terminal-menu" {
      * Creates a TerminalMenu using options to override default settings.
      * @param options Override values for available settings.
      */
-    function MenuContainerFactory(options: MenuContainerFactory.TerminalMenuOptions): MenuContainerFactory.TerminalMenu;
+    function MenuContainerFactory(
+        options: MenuContainerFactory.TerminalMenuOptions
+    ): MenuContainerFactory.TerminalMenu;
 
     namespace MenuContainerFactory {
-
         /**
          * A Thickness structure specifying the amount of padding to apply.
          */
@@ -28,22 +29,22 @@ declare module "terminal-menu" {
             /**
              * Represents width of the left side of the bounding rectangle.
              */
-            left: number,
+            left: number;
 
             /**
              * Represents width of the right side of the bounding rectangle.
              */
-            right: number,
+            right: number;
 
             /**
              * Represents width of the upper side of the bounding rectangle.
              */
-            top: number,
+            top: number;
 
             /**
              * Represents width of the lower side of the bounding rectangle.
              */
-            bottom: number
+            bottom: number;
         }
 
         /**
@@ -97,7 +98,7 @@ declare module "terminal-menu" {
              * Index of the menu item to be selected.
              * Default = 0
              */
-            selected?: number
+            selected?: number;
         }
 
         /**
@@ -111,11 +112,14 @@ declare module "terminal-menu" {
             add(label: string): void;
 
             /**
-              * Create a new selectable menu item with label as the anchor.
-              * @param label Label to use as the menu item anchor.
-              * @param callback Callback to invoke when the menu item is selected.
-              */
-            add(label: string, callback: (label: string, index: number) => void): void;
+             * Create a new selectable menu item with label as the anchor.
+             * @param label Label to use as the menu item anchor.
+             * @param callback Callback to invoke when the menu item is selected.
+             */
+            add(
+                label: string,
+                callback: (label: string, index: number) => void
+            ): void;
 
             /**
              * Writes a message to the terminal.
@@ -143,7 +147,10 @@ declare module "terminal-menu" {
              * @param eventName Name of the event. Only value available for eventName is "select"
              * @param callback Handler for the event specified by eventName
              */
-            on(eventName: string | symbol, callback: (label: string, index: number) => void): this;
+            on(
+                eventName: string | symbol,
+                callback: (label: string, index: number) => void
+            ): this;
 
             /**
              * When a menu item is selected, this event is fired.
@@ -151,7 +158,10 @@ declare module "terminal-menu" {
              * @param eventName Name of the event. Only value available for eventName is "select"
              * @param callback Handler for the event specified by eventName
              */
-            on(eventName: string, callback: (label: string, index: number) => void): this;
+            on(
+                eventName: string,
+                callback: (label: string, index: number) => void
+            ): this;
         }
     }
 

@@ -1,8 +1,6 @@
 namespace adoneTests.text.unicode {
     const {
-        text: {
-            unicode
-        }
+        text: { unicode }
     } = adone;
 
     let str: string;

@@ -5,7 +5,7 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node"/>
-import * as http from 'http';
+import * as http from "http";
 
 declare namespace stickyCluster {
     type InitializeFn = (callback: Callback) => void;
@@ -21,5 +21,8 @@ declare namespace stickyCluster {
     }
 }
 
-declare function stickyCluster(callback: stickyCluster.InitializeFn, options?: stickyCluster.Options): void;
+declare function stickyCluster(
+    callback: stickyCluster.InitializeFn,
+    options?: stickyCluster.Options
+): void;
 export = stickyCluster;

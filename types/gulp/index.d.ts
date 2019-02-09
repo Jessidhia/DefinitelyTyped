@@ -68,7 +68,11 @@ declare namespace GulpClient {
 
     interface WatchMethod {
         (globs: Globs, fn?: Undertaker.TaskFunction): fs.FSWatcher;
-        (globs: Globs, opts?: WatchOptions, fn?: Undertaker.TaskFunction): fs.FSWatcher;
+        (
+            globs: Globs,
+            opts?: WatchOptions,
+            fn?: Undertaker.TaskFunction
+        ): fs.FSWatcher;
     }
 
     type SrcMethod = typeof vfs.src;

@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import stream = require('stream');
+import stream = require("stream");
 
 export type Callback = (err?: Error | null) => any;
 
@@ -19,8 +19,20 @@ export interface Headers {
     size?: number;
     mtime?: Date;
     linkname?: string | null;
-    type?: 'file' | 'link' | 'symlink' | 'character-device' | 'block-device' | 'directory' | 'fifo' |
-        'contiguous-file' | 'pax-header' | 'pax-global-header' | 'gnu-long-link-path' | 'gnu-long-path' | null;
+    type?:
+        | "file"
+        | "link"
+        | "symlink"
+        | "character-device"
+        | "block-device"
+        | "directory"
+        | "fifo"
+        | "contiguous-file"
+        | "pax-header"
+        | "pax-global-header"
+        | "gnu-long-link-path"
+        | "gnu-long-path"
+        | null;
     uname?: string;
     gname?: string;
     devmajor?: number;
@@ -28,13 +40,24 @@ export interface Headers {
 }
 
 export interface Pack extends stream.Readable {
-    entry(headers: Headers, buffer?: string | Buffer | Callback, callback?: Callback): stream.Writable;
+    entry(
+        headers: Headers,
+        buffer?: string | Buffer | Callback,
+        callback?: Callback
+    ): stream.Writable;
     finalize(): void;
 }
 
 export interface Extract extends stream.Writable {
     on(event: string, listener: (...args: any[]) => void): this;
-    on(event: "entry", listener: (headers: Headers, stream: stream.PassThrough, next: () => void) => void): this;
+    on(
+        event: "entry",
+        listener: (
+            headers: Headers,
+            stream: stream.PassThrough,
+            next: () => void
+        ) => void
+    ): this;
 }
 
 export function extract(opts?: stream.WritableOptions): stream.Writable;

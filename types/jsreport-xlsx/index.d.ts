@@ -4,26 +4,28 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ExtensionDefinition } from 'jsreport-core';
+import { ExtensionDefinition } from "jsreport-core";
 
-declare module 'jsreport-core' {
-	interface Template {
-		recipe: 'xlsx' | string;
-	}
+declare module "jsreport-core" {
+    interface Template {
+        recipe: "xlsx" | string;
+    }
 }
 
 declare namespace JsReportXlsx {
-	interface Xlsx {
-		shortid: string;
-	}
+    interface Xlsx {
+        shortid: string;
+    }
 
-	interface Options {
-		addBufferSize: number;
-		escapeAmp: boolean;
-		numberOfParsedAddIterations: number;
-	}
+    interface Options {
+        addBufferSize: number;
+        escapeAmp: boolean;
+        numberOfParsedAddIterations: number;
+    }
 }
 
-declare function JsReportXlsx(options?: Partial<JsReportXlsx.Options>): ExtensionDefinition;
+declare function JsReportXlsx(
+    options?: Partial<JsReportXlsx.Options>
+): ExtensionDefinition;
 
 export = JsReportXlsx;

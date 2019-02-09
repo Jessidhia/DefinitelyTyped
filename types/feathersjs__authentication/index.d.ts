@@ -6,12 +6,15 @@
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.3
 
-import { Hook, Params } from '@feathersjs/feathers';
-import * as self from '@feathersjs/authentication';
-import { RequestHandler, Application } from 'express';
-import { create } from 'domain';
+import { Hook, Params } from "@feathersjs/feathers";
+import * as self from "@feathersjs/authentication";
+import { RequestHandler, Application } from "express";
+import { create } from "domain";
 
-declare const feathersAuthentication: ((config?: FeathersAuthenticationOptions) => () => void) & typeof self;
+declare const feathersAuthentication: ((
+    config?: FeathersAuthenticationOptions
+) => () => void) &
+    typeof self;
 export default feathersAuthentication;
 
 export const hooks: AuthHooks.Hooks;
@@ -34,7 +37,7 @@ export interface FeathersAuthenticationOptions {
          * By default is an access token
          */
         header?: {
-            [key: string]: any
+            [key: string]: any;
         };
 
         /**
@@ -59,20 +62,33 @@ export interface FeathersAuthenticationOptions {
 export namespace express {
     function exposeHeaders(): RequestHandler;
     function exposeCookies(): RequestHandler;
-    function authenticate(strategy: string | string[], options?: FeathersAuthenticationOptions): RequestHandler;
+    function authenticate(
+        strategy: string | string[],
+        options?: FeathersAuthenticationOptions
+    ): RequestHandler;
     function setCookie(options?: FeathersAuthenticationOptions): RequestHandler;
     function successRedirect(): RequestHandler;
-    function failureRedirect(options?: FeathersAuthenticationOptions): RequestHandler;
+    function failureRedirect(
+        options?: FeathersAuthenticationOptions
+    ): RequestHandler;
     function emitEvents(): RequestHandler;
 }
 
-export function service(options: FeathersAuthenticationOptions): (app?: Application) => void;
+export function service(
+    options: FeathersAuthenticationOptions
+): (app?: Application) => void;
 
 export namespace service {
     class Service<T = any> {
-        constructor(app: Application)
-        create(data: Partial<T>, params: Params): Promise<{ accessToken: string }>;
-        remove(id: null | string, params: Params): Promise<{ accessToken: string }>;
+        constructor(app: Application);
+        create(
+            data: Partial<T>,
+            params: Params
+        ): Promise<{ accessToken: string }>;
+        remove(
+            id: null | string,
+            params: Params
+        ): Promise<{ accessToken: string }>;
     }
 }
 

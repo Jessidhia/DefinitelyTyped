@@ -6,9 +6,9 @@
 
 import * as React from "react";
 
-type LinkProps = JSX.IntrinsicElements['link'];
+type LinkProps = JSX.IntrinsicElements["link"];
 
-type MetaProps = JSX.IntrinsicElements['meta'];
+type MetaProps = JSX.IntrinsicElements["meta"];
 
 export interface HelmetProps {
     async?: boolean;

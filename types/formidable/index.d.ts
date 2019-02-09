@@ -5,7 +5,6 @@
 
 /// <reference types="node" />
 
-
 import http = require("http");
 import stream = require("stream");
 import events = require("events");
@@ -26,11 +25,14 @@ export declare class IncomingForm extends events.EventEmitter {
     onPart: (part: Part) => void;
 
     handlePart(part: Part): void;
-    parse(req: http.IncomingMessage, callback?: (err: any, fields: Fields, files: Files) => any): void;
+    parse(
+        req: http.IncomingMessage,
+        callback?: (err: any, fields: Fields, files: Files) => any
+    ): void;
 }
 
 export interface Fields {
-    [key: string]: string|Array<string>;
+    [key: string]: string | Array<string>;
 }
 
 export interface Files {

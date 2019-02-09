@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface docCookies {
-
     /**
     Create/overwrite a cookie.
     @param {string} name (required) The name of the cookie to create/overwrite 
@@ -13,8 +12,16 @@ interface docCookies {
     @param {string} path (optional) E.g., "/", "/mydir"; if not specified, defaults to the current path of the current document location
     @param {string} domain (optional) E.g., "example.com", ".example.com" (includes all subdomains) or "subdomain.example.com"; if not specified, defaults to the host portion of the current document location
     @param {boolean} secure (optional) The cookie will be transmitted only over secure protocol as https
-    */   
-    setItem(sKey: string, sValue: string, vEnd?: number, sPath?: string, sDomain?: string, bSecure?: boolean): boolean;
+    */
+
+    setItem(
+        sKey: string,
+        sValue: string,
+        vEnd?: number,
+        sPath?: string,
+        sDomain?: string,
+        bSecure?: boolean
+    ): boolean;
 
     /**
     Create/overwrite a cookie.
@@ -25,7 +32,14 @@ interface docCookies {
     @param {string} domain (optional) E.g., "example.com", ".example.com" (includes all subdomains) or "subdomain.example.com"; if not specified, defaults to the host portion of the current document location
     @param {boolean} secure (optional) The cookie will be transmitted only over secure protocol as https
     */
-    setItem(sKey: string, sValue: string, vEnd?: string, sPath?: string, sDomain?: string, bSecure?: boolean): boolean;
+    setItem(
+        sKey: string,
+        sValue: string,
+        vEnd?: string,
+        sPath?: string,
+        sDomain?: string,
+        bSecure?: boolean
+    ): boolean;
 
     /**
     Create/overwrite a cookie.
@@ -36,7 +50,14 @@ interface docCookies {
     @param {string} domain (optional) E.g., "example.com", ".example.com" (includes all subdomains) or "subdomain.example.com"; if not specified, defaults to the host portion of the current document location
     @param {boolean} secure (optional) The cookie will be transmitted only over secure protocol as https
     */
-    setItem(sKey: string, sValue: string, vEnd?: Date, sPath?: string, sDomain?: string, bSecure?: boolean): boolean;
+    setItem(
+        sKey: string,
+        sValue: string,
+        vEnd?: Date,
+        sPath?: string,
+        sDomain?: string,
+        bSecure?: boolean
+    ): boolean;
 
     /**
     Read a cookie. If the cookie doesn't exist a null value will be returned.
@@ -63,4 +84,3 @@ interface docCookies {
 }
 
 declare var docCookies: docCookies;
-

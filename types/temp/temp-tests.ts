@@ -26,11 +26,14 @@ function testCleanupSync() {
 }
 
 function testOpen() {
-    temp.open({ dir: "tempDir", prefix: "pref", suffix: "suff" }, (err, result) => {
-        const { path, fd } = result;
-        path.length;
-        fd.toPrecision(5);
-    });
+    temp.open(
+        { dir: "tempDir", prefix: "pref", suffix: "suff" },
+        (err, result) => {
+            const { path, fd } = result;
+            path.length;
+            fd.toPrecision(5);
+        }
+    );
 
     temp.open("strPrefix", (err, result) => {
         const { path, fd } = result;
@@ -40,7 +43,11 @@ function testOpen() {
 }
 
 function testOpenSync() {
-    const f1: temp.OpenFile = temp.openSync({ dir: "tempDir", prefix: "pref", suffix: "suff" });
+    const f1: temp.OpenFile = temp.openSync({
+        dir: "tempDir",
+        prefix: "pref",
+        suffix: "suff"
+    });
     const f2: temp.OpenFile = temp.openSync("str");
 }
 
@@ -69,7 +76,10 @@ function testPath() {
 }
 
 function testTrack() {
-    const tempChained = temp.track().track(true).track(false);
+    const tempChained = temp
+        .track()
+        .track(true)
+        .track(false);
     tempChained.dir;
     tempChained.cleanupSync();
 }

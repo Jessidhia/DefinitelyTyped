@@ -5,18 +5,14 @@
 
 // graphviz.d.ts
 
-
-
 export interface HasAttributes {
     set(name: string, value: any): void;
     get(name: string): any;
 }
 
-export interface Node extends HasAttributes {
-}
+export interface Node extends HasAttributes {}
 
-export interface Edge extends HasAttributes {
-}
+export interface Edge extends HasAttributes {}
 
 export interface OutputCallback {
     (data: string): void;
@@ -27,16 +23,15 @@ export interface ErrorCallback {
 }
 
 export interface RenderOptions {
-    type: string;  // output file type (png, jpeg, ps, ...)
-    use: string;  // Graphviz command to use (dot, neato, ...)
-    path: string;  // GraphViz path
-    G: any;  // graph options
-    N: any;  // node options
-    E: any;  // edge options
+    type: string; // output file type (png, jpeg, ps, ...)
+    use: string; // Graphviz command to use (dot, neato, ...)
+    path: string; // GraphViz path
+    G: any; // graph options
+    N: any; // node options
+    E: any; // edge options
 }
 
 export interface Graph extends HasAttributes {
-
     addNode(id: string, attrs?: any): Node;
     nodeCount(): number;
 
@@ -69,15 +64,39 @@ export interface Graph extends HasAttributes {
 
     // TODO: Use union types when we can have TS 1.4
     render(type: string, filename: string, errback?: ErrorCallback): void;
-    render(options: RenderOptions, filename: string, errback?: ErrorCallback): void;
-    render(type: string, callback: OutputCallback, errback?: ErrorCallback): void;
-    render(options: RenderOptions, callback: OutputCallback, errback?: ErrorCallback): void;
+    render(
+        options: RenderOptions,
+        filename: string,
+        errback?: ErrorCallback
+    ): void;
+    render(
+        type: string,
+        callback: OutputCallback,
+        errback?: ErrorCallback
+    ): void;
+    render(
+        options: RenderOptions,
+        callback: OutputCallback,
+        errback?: ErrorCallback
+    ): void;
 
     // alias for render
     output(type: string, filename: string, errback?: ErrorCallback): void;
-    output(options: RenderOptions, filename: string, errback?: ErrorCallback): void;
-    output(type: string, callback: OutputCallback, errback?: ErrorCallback): void;
-    output(options: RenderOptions, callback: OutputCallback, errback?: ErrorCallback): void;
+    output(
+        options: RenderOptions,
+        filename: string,
+        errback?: ErrorCallback
+    ): void;
+    output(
+        type: string,
+        callback: OutputCallback,
+        errback?: ErrorCallback
+    ): void;
+    output(
+        options: RenderOptions,
+        callback: OutputCallback,
+        errback?: ErrorCallback
+    ): void;
 }
 
 export declare function graph(id: string): Graph;
@@ -88,4 +107,8 @@ interface ParseCallback {
     (graph: Graph): void;
 }
 
-export declare function parse(path: string, callback: ParseCallback, errback?: ErrorCallback): void;
+export declare function parse(
+    path: string,
+    callback: ParseCallback,
+    errback?: ErrorCallback
+): void;

@@ -10,28 +10,30 @@ declare namespace PouchDB {
     namespace Core {
         interface DatabaseInfo {
             sqlite_plugin?: boolean;
-            websql_encoding?: 'UTF-8' | 'UTF-16';
+            websql_encoding?: "UTF-8" | "UTF-16";
         }
     }
 
     namespace AdapterWebSql {
         interface Configuration
-                extends Configuration.LocalDatabaseConfiguration {
+            extends Configuration.LocalDatabaseConfiguration {
             /**
              * Amount in MB to request for storage.
              */
             size?: number;
-            adapter: 'websql';
+            adapter: "websql";
         }
     }
 
     interface Static {
-        new<Content extends {}>(name: string | null,
-                                options: AdapterWebSql.Configuration): Database<Content>;
+        new <Content extends {}>(
+            name: string | null,
+            options: AdapterWebSql.Configuration
+        ): Database<Content>;
     }
 }
 
-declare module 'pouchdb-adapter-websql' {
+declare module "pouchdb-adapter-websql" {
     const plugin: PouchDB.Plugin;
     export = plugin;
 }

@@ -1,8 +1,20 @@
 import * as React from "react";
 import {
     CustomGesture,
-    defineHold, defineSwipe, Draggable, DraggableCallbackArgument, DraggableStyle, Holdable, HoldableConfig,
-    HoldableProps, HoldConfig, moves, SwipeConfig, Swipeable, SwipeableConfig, SwipeableProps
+    defineHold,
+    defineSwipe,
+    Draggable,
+    DraggableCallbackArgument,
+    DraggableStyle,
+    Holdable,
+    HoldableConfig,
+    HoldableProps,
+    HoldConfig,
+    moves,
+    SwipeConfig,
+    Swipeable,
+    SwipeableConfig,
+    SwipeableProps
 } from "react-touch";
 
 export class HoldableTest extends React.PureComponent {
@@ -25,9 +37,11 @@ export class DraggableTest extends React.PureComponent {
         return <Draggable style={style} children={this.callback} />;
     }
 
-    private readonly callback = (argument: DraggableCallbackArgument): JSX.Element => {
+    private readonly callback = (
+        argument: DraggableCallbackArgument
+    ): JSX.Element => {
         return <div />;
-    }
+    };
 }
 
 export class SwipeableTest extends React.PureComponent {
@@ -39,18 +53,24 @@ export class SwipeableTest extends React.PureComponent {
             onSwipeLeft: this.swipeHandler,
             onSwipeUp: this.swipeHandler
         };
-        return <Swipeable {...props}>
-            <div />
-        </Swipeable>;
+        return (
+            <Swipeable {...props}>
+                <div />
+            </Swipeable>
+        );
     }
 
     private readonly swipeHandler = () => {
         return;
-    }
+    };
 }
 
 export class CustomGestureTest extends React.PureComponent {
-    private readonly move: moves[] = [moves.UPLEFT, moves.RIGHT, moves.DOWNRIGHT];
+    private readonly move: moves[] = [
+        moves.UPLEFT,
+        moves.RIGHT,
+        moves.DOWNRIGHT
+    ];
 
     render() {
         return <CustomGesture config={this.move} onGesture={this.handler} />;
@@ -58,5 +78,5 @@ export class CustomGestureTest extends React.PureComponent {
 
     private readonly handler = () => {
         return;
-    }
+    };
 }

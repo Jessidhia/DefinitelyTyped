@@ -6,7 +6,11 @@
 
 ///<reference types="jasmine"/>
 
-declare function it(expectation: string, assertion: (done: (err?: any) => void) => void, timeout?: number): void;
+declare function it(
+    expectation: string,
+    assertion: (done: (err?: any) => void) => void,
+    timeout?: number
+): void;
 
 declare namespace jasmine {
     interface Env {
@@ -14,21 +18,21 @@ declare namespace jasmine {
     }
 
     interface ExecuteSpecsOptions {
-        specFolders: string[],
-        onComplete?: (runner: jasmine.Runner) => void,
-        isVerbose?: boolean,
-        showColors?: boolean,
-        teamcity?: string | boolean,
-        useRequireJs?: boolean,
-        regExpSpec: RegExp,
+        specFolders: string[];
+        onComplete?: (runner: jasmine.Runner) => void;
+        isVerbose?: boolean;
+        showColors?: boolean;
+        teamcity?: string | boolean;
+        useRequireJs?: boolean;
+        regExpSpec: RegExp;
         junitreport?: {
-            report: boolean,
-            savePath: string,
-            useDotNotation: boolean,
-            consolidate: boolean
-        },
-        includeStackTrace?: boolean,
-        growl?: boolean
+            report: boolean;
+            savePath: string;
+            useDotNotation: boolean;
+            consolidate: boolean;
+        };
+        includeStackTrace?: boolean;
+        growl?: boolean;
     }
 
     interface JasmineNode {

@@ -8,7 +8,13 @@ export = boxes;
 declare const boxes: boxes.Boxes;
 
 declare namespace boxes {
-    type BoxNames = 'single' | 'double' | 'round' | 'single-double' | 'double-single' | 'classic';
+    type BoxNames =
+        | "single"
+        | "double"
+        | "round"
+        | "single-double"
+        | "double-single"
+        | "classic";
 
     type Boxes = Record<BoxNames, BoxDefinition>;
 

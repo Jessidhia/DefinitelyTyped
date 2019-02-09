@@ -17,9 +17,9 @@
 
 /// <reference types="node" />
 
-import Tapable = require('tapable');
-import * as UglifyJS from 'uglify-js';
-import { RawSourceMap } from 'source-map';
+import Tapable = require("tapable");
+import * as UglifyJS from "uglify-js";
+import { RawSourceMap } from "source-map";
 
 export = webpack;
 
@@ -33,7 +33,9 @@ declare function webpack(
     options: webpack.Configuration[],
     handler: webpack.MultiCompiler.Handler
 ): webpack.MultiWatching | webpack.MultiCompiler;
-declare function webpack(options: webpack.Configuration[]): webpack.MultiCompiler;
+declare function webpack(
+    options: webpack.Configuration[]
+): webpack.MultiCompiler;
 
 declare namespace webpack {
     interface Configuration {
@@ -75,7 +77,17 @@ declare namespace webpack {
          *   <li>"electron" Alias for electron-main</li>
          * <ul>
          */
-        target?: 'web' | 'webworker' | 'node' | 'async-node' | 'node-webkit' | 'atom' | 'electron' | 'electron-renderer' | 'electron-main' | ((compiler?: any) => void);
+        target?:
+            | "web"
+            | "webworker"
+            | "node"
+            | "async-node"
+            | "node-webkit"
+            | "atom"
+            | "electron"
+            | "electron-renderer"
+            | "electron-main"
+            | ((compiler?: any) => void);
         /** Report the first error as a hard error instead of tolerating it. */
         bail?: boolean;
         /** Capture timing information for each module. */
@@ -111,7 +123,7 @@ declare namespace webpack {
         [name: string]: string | string[];
     }
 
-    type EntryFunc = () => (string | string[] | Promise<string | string[]>);
+    type EntryFunc = () => string | string[] | Promise<string | string[]>;
 
     interface DevtoolModuleFilenameTemplateInfo {
         identifier: string;
@@ -135,9 +147,13 @@ declare namespace webpack {
         /** The filename of the SourceMaps for the JavaScript files. They are inside the output.path directory. */
         sourceMapFilename?: string;
         /** Filename template string of function for the sources array in a generated SourceMap. */
-        devtoolModuleFilenameTemplate?: string | ((info: DevtoolModuleFilenameTemplateInfo) => string);
+        devtoolModuleFilenameTemplate?:
+            | string
+            | ((info: DevtoolModuleFilenameTemplateInfo) => string);
         /** Similar to output.devtoolModuleFilenameTemplate, but used in the case of duplicate module identifiers. */
-        devtoolFallbackModuleFilenameTemplate?: string | ((info: DevtoolModuleFilenameTemplateInfo) => string);
+        devtoolFallbackModuleFilenameTemplate?:
+            | string
+            | ((info: DevtoolModuleFilenameTemplateInfo) => string);
         /**
          * Enable line to line mapped mode for all/specified modules.
          * Line to line mapped mode uses a simple SourceMap where each line of the generated source is mapped to the same line of the original source.
@@ -173,7 +189,16 @@ declare namespace webpack {
          *   <li>"jsonp" - Generate Webpack JSONP module<li>
          * </ul>
          */
-        libraryTarget?: 'var' | 'this' | 'commonjs' | 'commonjs2' | 'amd' | 'umd' | 'window' | 'assign' | 'jsonp';
+        libraryTarget?:
+            | "var"
+            | "this"
+            | "commonjs"
+            | "commonjs2"
+            | "amd"
+            | "umd"
+            | "window"
+            | "assign"
+            | "jsonp";
         /** Configure which module or modules will be exposed via the `libraryTarget` */
         libraryExport?: string | string[];
         /** If output.libraryTarget is set to umd and output.library is set, setting this to true will name the AMD module. */
@@ -183,7 +208,7 @@ declare namespace webpack {
         /** This option enables cross-origin loading of chunks. */
         crossOriginLoading?: string | boolean;
         /** The encoding to use when generating the hash, defaults to 'hex' */
-        hashDigest?: 'hex' | 'latin1' | 'base64';
+        hashDigest?: "hex" | "latin1" | "base64";
         /** The prefix length of the hash digest to use, defaults to 20. */
         hashDigestLength?: number;
         /** Algorithm used for generation the hash (see node.js crypto package) */
@@ -289,7 +314,7 @@ declare namespace webpack {
          *
          * @see aliasFields
          */
-        alias?: { [key: string]: string; };
+        alias?: { [key: string]: string };
 
         /**
          * Whether to use a cache for resolving, or the specific object
@@ -305,7 +330,7 @@ declare namespace webpack {
          *
          * Defaults to `() => true`.
          */
-        cachePredicate?(data: { path: string, request: string }): boolean;
+        cachePredicate?(data: { path: string; request: string }): boolean;
 
         /**
          * A list of additional resolve plugins which should be applied.
@@ -337,13 +362,25 @@ declare namespace webpack {
         enforceModuleExtension?: boolean;
     }
 
-    type ExternalsElement = string | RegExp | ExternalsObjectElement | ExternalsFunctionElement;
+    type ExternalsElement =
+        | string
+        | RegExp
+        | ExternalsObjectElement
+        | ExternalsFunctionElement;
 
     interface ExternalsObjectElement {
-        [key: string]: boolean | string | string[] | Record<string, string | string[]>;
+        [key: string]:
+            | boolean
+            | string
+            | string[]
+            | Record<string, string | string[]>;
     }
 
-    type ExternalsFunctionElement = (context: any, request: any, callback: (error: any, result: any) => void) => any;
+    type ExternalsFunctionElement = (
+        context: any,
+        request: any,
+        callback: (error: any, result: any) => void
+    ) => any;
 
     interface Node {
         console?: boolean;
@@ -377,11 +414,20 @@ declare namespace webpack {
         /** The Condition must NOT match. */
         not: Condition;
     }
-    type ConditionSpec = TestConditionSpec | OrConditionSpec | AndConditionSpec | NotConditionSpec;
+    type ConditionSpec =
+        | TestConditionSpec
+        | OrConditionSpec
+        | AndConditionSpec
+        | NotConditionSpec;
 
     // tslint:disable-next-line:no-empty-interface
-    interface ConditionArray extends Array<Condition> { }
-    type Condition = string | RegExp | ((absPath: string) => boolean) | ConditionSpec | ConditionArray;
+    interface ConditionArray extends Array<Condition> {}
+    type Condition =
+        | string
+        | RegExp
+        | ((absPath: string) => boolean)
+        | ConditionSpec
+        | ConditionArray;
 
     interface OldLoader {
         loader: string;
@@ -415,7 +461,7 @@ declare namespace webpack {
          *
          * Inline loaders and ! prefixes should not be used as they are non-standard. They may be use by loader generated code.
          */
-        enforce?: 'pre' | 'post';
+        enforce?: "pre" | "post";
         /** A condition that must be met */
         test?: Condition | Condition[];
         /** A condition that must not be met */
@@ -483,12 +529,52 @@ declare namespace webpack {
 
     namespace Options {
         // tslint:disable-next-line:max-line-length
-        type Devtool = 'eval' | 'inline-source-map' | 'cheap-eval-source-map' | 'cheap-source-map' | 'cheap-module-eval-source-map' | 'cheap-module-source-map' | 'eval-source-map' | 'source-map' |
-            'nosources-source-map' | 'hidden-source-map' | 'nosources-source-map' | '@eval' | '@inline-source-map' | '@cheap-eval-source-map' | '@cheap-source-map' | '@cheap-module-eval-source-map' |
-            '@cheap-module-source-map' | '@eval-source-map' | '@source-map' | '@nosources-source-map' | '@hidden-source-map' | '@nosources-source-map' | '#eval' | '#inline-source-map' |
-            '#cheap-eval-source-map' | '#cheap-source-map' | '#cheap-module-eval-source-map' | '#cheap-module-source-map' | '#eval-source-map' | '#source-map' | '#nosources-source-map' |
-            '#hidden-source-map' | '#nosources-source-map' | '#@eval' | '#@inline-source-map' | '#@cheap-eval-source-map' | '#@cheap-source-map' | '#@cheap-module-eval-source-map' |
-            '#@cheap-module-source-map' | '#@eval-source-map' | '#@source-map' | '#@nosources-source-map' | '#@hidden-source-map' | '#@nosources-source-map' | boolean;
+        type Devtool =
+            | "eval"
+            | "inline-source-map"
+            | "cheap-eval-source-map"
+            | "cheap-source-map"
+            | "cheap-module-eval-source-map"
+            | "cheap-module-source-map"
+            | "eval-source-map"
+            | "source-map"
+            | "nosources-source-map"
+            | "hidden-source-map"
+            | "nosources-source-map"
+            | "@eval"
+            | "@inline-source-map"
+            | "@cheap-eval-source-map"
+            | "@cheap-source-map"
+            | "@cheap-module-eval-source-map"
+            | "@cheap-module-source-map"
+            | "@eval-source-map"
+            | "@source-map"
+            | "@nosources-source-map"
+            | "@hidden-source-map"
+            | "@nosources-source-map"
+            | "#eval"
+            | "#inline-source-map"
+            | "#cheap-eval-source-map"
+            | "#cheap-source-map"
+            | "#cheap-module-eval-source-map"
+            | "#cheap-module-source-map"
+            | "#eval-source-map"
+            | "#source-map"
+            | "#nosources-source-map"
+            | "#hidden-source-map"
+            | "#nosources-source-map"
+            | "#@eval"
+            | "#@inline-source-map"
+            | "#@cheap-eval-source-map"
+            | "#@cheap-source-map"
+            | "#@cheap-module-eval-source-map"
+            | "#@cheap-module-source-map"
+            | "#@eval-source-map"
+            | "#@source-map"
+            | "#@nosources-source-map"
+            | "#@hidden-source-map"
+            | "#@nosources-source-map"
+            | boolean;
 
         interface Performance {
             /** This property allows webpack to control what files are used to calculate performance hints. */
@@ -497,7 +583,7 @@ declare namespace webpack {
              * Turns hints on/off. In addition, tells webpack to throw either an error or a warning when hints are
              * found. This property is set to "warning" by default.
              */
-            hints?: 'warning' | 'error' | false;
+            hints?: "warning" | "error" | false;
             /**
              * An asset is any emitted file from webpack. This option controls when webpack emits a performance hint
              * based on individual asset size. The default value is 250000 (bytes).
@@ -517,7 +603,10 @@ declare namespace webpack {
     // tslint:disable-next-line:interface-name
     interface ICompiler {
         run(handler: ICompiler.Handler): void;
-        watch(watchOptions: ICompiler.WatchOptions, handler: ICompiler.Handler): Watching;
+        watch(
+            watchOptions: ICompiler.WatchOptions,
+            handler: ICompiler.Handler
+        ): Watching;
     }
 
     namespace ICompiler {
@@ -553,7 +642,10 @@ declare namespace webpack {
         options: Configuration;
         outputFileSystem: any;
         run(handler: Compiler.Handler): void;
-        watch(watchOptions: Compiler.WatchOptions, handler: Compiler.Handler): Compiler.Watching;
+        watch(
+            watchOptions: Compiler.WatchOptions,
+            handler: Compiler.Handler
+        ): Compiler.Watching;
     }
 
     namespace Compiler {
@@ -561,7 +653,11 @@ declare namespace webpack {
         type WatchOptions = ICompiler.WatchOptions;
 
         class Watching implements Watching {
-            constructor(compiler: Compiler, watchOptions: Watching.WatchOptions, handler: Watching.Handler);
+            constructor(
+                compiler: Compiler,
+                watchOptions: Watching.WatchOptions,
+                handler: Watching.Handler
+            );
 
             close(callback: () => void): void;
             invalidate(): void;
@@ -576,7 +672,10 @@ declare namespace webpack {
     abstract class MultiCompiler extends Tapable implements ICompiler {
         compilers: ICompiler[];
         run(handler: MultiCompiler.Handler): void;
-        watch(watchOptions: MultiCompiler.WatchOptions, handler: MultiCompiler.Handler): MultiWatching;
+        watch(
+            watchOptions: MultiCompiler.WatchOptions,
+            handler: MultiCompiler.Handler
+        ): MultiWatching;
     }
 
     namespace MultiCompiler {
@@ -609,13 +708,13 @@ declare namespace webpack {
     }
 
     namespace Stats {
-        type Preset
-            = boolean
-            | 'errors-only'
-            | 'minimal'
-            | 'none'
-            | 'normal'
-            | 'verbose';
+        type Preset =
+            | boolean
+            | "errors-only"
+            | "minimal"
+            | "none"
+            | "normal"
+            | "verbose";
 
         interface ToJsonOptionsObject {
             /** Add asset Information */
@@ -679,7 +778,11 @@ declare namespace webpack {
             /** Show which exports of a module are used */
             usedExports?: boolean;
             /** Filter warnings to be shown */
-            warningsFilter?: string | RegExp | Array<string | RegExp> | ((warning: string) => boolean);
+            warningsFilter?:
+                | string
+                | RegExp
+                | Array<string | RegExp>
+                | ((warning: string) => boolean);
             /** Show performance hint when file size exceeds `performance.maxAssetSize` */
             performance?: boolean;
             /** Show the exports of the modules */
@@ -688,7 +791,13 @@ declare namespace webpack {
 
         type ToJsonOptions = Preset | ToJsonOptionsObject;
 
-        type StatsExcludeFilter = string | string[] | RegExp | RegExp[] | ((assetName: string) => boolean) | Array<(assetName: string) => boolean>;
+        type StatsExcludeFilter =
+            | string
+            | string[]
+            | RegExp
+            | RegExp[]
+            | ((assetName: string) => boolean)
+            | Array<(assetName: string) => boolean>;
 
         interface ToStringOptionsObject extends ToJsonOptionsObject {
             /** `webpack --colors` equivalent */
@@ -720,7 +829,12 @@ declare namespace webpack {
     }
 
     class ContextReplacementPlugin extends Plugin {
-        constructor(resourceRegExp: any, newContentResource?: any, newContentRecursive?: any, newContentRegExp?: any);
+        constructor(
+            resourceRegExp: any,
+            newContentResource?: any,
+            newContentRecursive?: any,
+            newContentRegExp?: any
+        );
     }
 
     class DefinePlugin extends Plugin {
@@ -775,7 +889,7 @@ declare namespace webpack {
             /**
              * An object containing `content` and `name`.
              */
-            manifest: { content: string, name: string } | string;
+            manifest: { content: string; name: string } | string;
 
             /**
              * The name where the DLL is exposed.
@@ -803,18 +917,22 @@ declare namespace webpack {
     }
 
     class EvalSourceMapDevToolPlugin extends Plugin {
-        constructor(options?: false | string | EvalSourceMapDevToolPlugin.Options);
+        constructor(
+            options?: false | string | EvalSourceMapDevToolPlugin.Options
+        );
     }
 
     namespace EvalSourceMapDevToolPlugin {
         interface Options {
             append?: false | string;
             columns?: boolean;
-            lineToLine?: boolean | {
-                exclude?: Condition | Condition[];
-                include?: Condition | Condition[];
-                test?: Condition | Condition[];
-            };
+            lineToLine?:
+                | boolean
+                | {
+                      exclude?: Condition | Condition[];
+                      include?: Condition | Condition[];
+                      test?: Condition | Condition[];
+                  };
             module?: boolean;
             moduleFilenameTemplate?: string;
             sourceRoot?: string;
@@ -827,9 +945,9 @@ declare namespace webpack {
 
     class HashedModuleIdsPlugin extends Plugin {
         constructor(options?: {
-            hashFunction?: string,
-            hashDigest?: string,
-            hashDigestLength?: number
+            hashFunction?: string;
+            hashDigest?: string;
+            hashDigestLength?: number;
         });
     }
 
@@ -873,7 +991,15 @@ declare namespace webpack {
     }
 
     class ProgressPlugin extends Plugin {
-        constructor(options?: (percentage: number, msg: string, moduleProgress?: string, activeModules?: string, moduleName?: string) => void);
+        constructor(
+            options?: (
+                percentage: number,
+                msg: string,
+                moduleProgress?: string,
+                activeModules?: string,
+                moduleName?: string
+            ) => void
+        );
     }
 
     class EnvironmentPlugin extends Plugin {
@@ -885,7 +1011,9 @@ declare namespace webpack {
     }
 
     class SourceMapDevToolPlugin extends Plugin {
-        constructor(options?: null | false | string | SourceMapDevToolPlugin.Options);
+        constructor(
+            options?: null | false | string | SourceMapDevToolPlugin.Options
+        );
     }
 
     namespace SourceMapDevToolPlugin {
@@ -897,11 +1025,13 @@ declare namespace webpack {
             fallbackModuleFilenameTemplate?: string;
             filename?: null | false | string;
             include?: Condition | Condition[];
-            lineToLine?: boolean | {
-                exclude?: Condition | Condition[];
-                include?: Condition | Condition[];
-                test?: Condition | Condition[];
-            };
+            lineToLine?:
+                | boolean
+                | {
+                      exclude?: Condition | Condition[];
+                      include?: Condition | Condition[];
+                      test?: Condition | Condition[];
+                  };
             module?: boolean;
             moduleFilenameTemplate?: string;
             noSources?: boolean;
@@ -915,7 +1045,7 @@ declare namespace webpack {
     }
 
     namespace optimize {
-        class ModuleConcatenationPlugin extends Plugin { }
+        class ModuleConcatenationPlugin extends Plugin {}
         class AggressiveMergingPlugin extends Plugin {
             constructor(options?: AggressiveMergingPlugin.Options);
         }
@@ -1027,19 +1157,24 @@ declare namespace webpack {
                 exclude?: Condition | Condition[];
                 include?: Condition | Condition[];
                 /** Parallelization can speedup your build significantly and is therefore highly recommended. */
-                parallel?: boolean | { cache: boolean, workers: boolean | number };
+                parallel?:
+                    | boolean
+                    | { cache: boolean; workers: boolean | number };
                 sourceMap?: boolean;
                 test?: Condition | Condition[];
             }
         }
     }
 
-    namespace dependencies {
-    }
+    namespace dependencies {}
 
     namespace loader {
         interface Loader extends Function {
-            (this: LoaderContext, source: string | Buffer, sourceMap?: RawSourceMap): string | Buffer | void | undefined;
+            (
+                this: LoaderContext,
+                source: string | Buffer,
+                sourceMap?: RawSourceMap
+            ): string | Buffer | void | undefined;
 
             /**
              * The order of chained loaders are always called from right to left.
@@ -1048,7 +1183,11 @@ declare namespace webpack {
              * If a loader delivers a result in the pitch method the process turns around and skips the remaining loaders,
              * continuing with the calls to the more left loaders. data can be passed between pitch and normal call.
              */
-            pitch?(remainingRequest: string, precedingRequest: string, data: any): any;
+            pitch?(
+                remainingRequest: string,
+                precedingRequest: string,
+                data: any
+            ): any;
 
             /**
              * By default, the resource file is treated as utf-8 string and passed as String to the loader.
@@ -1059,7 +1198,11 @@ declare namespace webpack {
             raw?: boolean;
         }
 
-        type loaderCallback = (err: Error | undefined | null, content?: string | Buffer, sourceMap?: RawSourceMap) => void;
+        type loaderCallback = (
+            err: Error | undefined | null,
+            content?: string | Buffer,
+            sourceMap?: RawSourceMap
+        ) => void;
 
         interface LoaderContext {
             /**
@@ -1170,7 +1313,11 @@ declare namespace webpack {
             /**
              * Resolve a request like a require expression.
              */
-            resolve(context: string, request: string, callback: (err: Error, result: string) => void): any;
+            resolve(
+                context: string,
+                request: string,
+                callback: (err: Error, result: string) => void
+            ): any;
 
             /**
              * Resolve a request like a require expression.
@@ -1237,7 +1384,15 @@ declare namespace webpack {
              * Target of compilation. Passed from configuration options.
              * Example values: "web", "node"
              */
-            target: 'web' | 'webworker' | 'async-node' | 'node' | 'electron-main' | 'electron-renderer' | 'node-webkit' | string;
+            target:
+                | "web"
+                | "webworker"
+                | "async-node"
+                | "node"
+                | "electron-main"
+                | "electron-renderer"
+                | "node-webkit"
+                | string;
 
             /**
              * This boolean is set to true when this is compiled by webpack.
@@ -1251,7 +1406,11 @@ declare namespace webpack {
             /**
              * Emit a file. This is webpack-specific.
              */
-            emitFile(name: string, content: Buffer | string, sourceMap: any): void;
+            emitFile(
+                name: string,
+                content: Buffer | string,
+                sourceMap: any
+            ): void;
 
             /**
              * Access to the compilation's inputFileSystem property.

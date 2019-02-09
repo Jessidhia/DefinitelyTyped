@@ -4,14 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 declare namespace assertEqualJSX {
-	interface AsssertOptions {
-		sanitize?(str: string): string;
-	}
+    interface AsssertOptions {
+        sanitize?(str: string): string;
+    }
 }
 
-declare function assertEqualJSX(actual: JSX.Element, expected: JSX.Element, opts?: assertEqualJSX.AsssertOptions): void;
+declare function assertEqualJSX(
+    actual: JSX.Element,
+    expected: JSX.Element,
+    opts?: assertEqualJSX.AsssertOptions
+): void;
 
 export = assertEqualJSX;

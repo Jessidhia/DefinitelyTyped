@@ -1,4 +1,4 @@
-import objstr = require('obj-str');
+import objstr = require("obj-str");
 
 const isTrue = () => true;
 

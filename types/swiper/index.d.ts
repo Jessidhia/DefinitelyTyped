@@ -13,53 +13,57 @@
  * Common Swiper events.
  */
 export type CommonEvent =
-    | 'init'
-    | 'beforeDestroy'
-    | 'slideChange'
-    | 'slideChangeTransitionStart'
-    | 'slideChangeTransitionEnd'
-    | 'slideNextTransitionStart'
-    | 'slideNextTransitionEnd'
-    | 'slidePrevTransitionStart'
-    | 'slidePrevTransitionEnd'
-    | 'transitionStart'
-    | 'transitionEnd'
-    | 'touchStart'
-    | 'touchMove'
-    | 'touchMoveOpposite'
-    | 'sliderMove'
-    | 'touchEnd'
-    | 'click'
-    | 'tap'
-    | 'doubleTap'
-    | 'imagesReady'
-    | 'progress'
-    | 'reachBeginning'
-    | 'reachEnd'
-    | 'fromEdge'
-    | 'setTranslate'
-    | 'setTransition'
-    | 'resize';
+    | "init"
+    | "beforeDestroy"
+    | "slideChange"
+    | "slideChangeTransitionStart"
+    | "slideChangeTransitionEnd"
+    | "slideNextTransitionStart"
+    | "slideNextTransitionEnd"
+    | "slidePrevTransitionStart"
+    | "slidePrevTransitionEnd"
+    | "transitionStart"
+    | "transitionEnd"
+    | "touchStart"
+    | "touchMove"
+    | "touchMoveOpposite"
+    | "sliderMove"
+    | "touchEnd"
+    | "click"
+    | "tap"
+    | "doubleTap"
+    | "imagesReady"
+    | "progress"
+    | "reachBeginning"
+    | "reachEnd"
+    | "fromEdge"
+    | "setTranslate"
+    | "setTransition"
+    | "resize";
 
 /**
  * Swiper pagination event names.
  */
-export type PaginationEvent = 'paginationRender' | 'paginationUpdate';
+export type PaginationEvent = "paginationRender" | "paginationUpdate";
 
 /**
  * Swiper autoplay event names.
  */
-export type AutoplayEvent = 'autoplayStart' | 'autoplayStop' | 'autoplay';
+export type AutoplayEvent = "autoplayStart" | "autoplayStop" | "autoplay";
 
 /**
  * Swiper lazy-loading event names.
  */
-export type LazyLoadingEvent = 'lazyImageLoad' | 'lazyImageReady';
+export type LazyLoadingEvent = "lazyImageLoad" | "lazyImageReady";
 
 /**
  * Swiper event names.
  */
-export type SwiperEvent = CommonEvent | PaginationEvent | AutoplayEvent | LazyLoadingEvent;
+export type SwiperEvent =
+    | CommonEvent
+    | PaginationEvent
+    | AutoplayEvent
+    | LazyLoadingEvent;
 
 /**
  * Swiper module types.
@@ -115,7 +119,7 @@ export interface SwiperOptions {
      *
      * @default 'horizontal'
      */
-    direction?: 'horizontal' | 'vertical';
+    direction?: "horizontal" | "vertical";
 
     /**
      * Duration of transition between slides (in ms)
@@ -189,7 +193,7 @@ export interface SwiperOptions {
      *
      * @default 'slide'
      */
-    effect?: 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip';
+    effect?: "slide" | "fade" | "cube" | "coverflow" | "flip";
 
     /**
      * Fire [Transition/SlideChange][Start/End] events on swiper initialization.
@@ -224,7 +228,7 @@ export interface SwiperOptions {
      * If you use it with "auto" value and along with loop: true then you need to specify loopedSlides parameter with amount of slides to loop (duplicate)
      * slidesPerView: 'auto' is currently not compatible with multirow mode, when slidesPerColumn > 1
      */
-    slidesPerView?: number | 'auto';
+    slidesPerView?: number | "auto";
 
     /**
      * Number of slides per column, for multirow layout
@@ -235,7 +239,7 @@ export interface SwiperOptions {
     /**
      * Could be 'column' or 'row'. Defines how slides should fill rows, by column or by row
      */
-    slidesPerColumnFill?: 'row' | 'column';
+    slidesPerColumnFill?: "row" | "column";
 
     /**
      * Set numbers of slides to define and enable group sliding. Useful to use with slidesPerView > 1
@@ -276,7 +280,7 @@ export interface SwiperOptions {
      * Target element to listen touch events on. Can be 'container' (to listen for touch events on swiper-container) or 'wrapper'
      * (to listen for touch events on swiper-wrapper)
      */
-    touchEventsTarget?: 'container' | 'wrapper';
+    touchEventsTarget?: "container" | "wrapper";
 
     /**
      * Touch ratio
@@ -675,7 +679,7 @@ export interface PaginationOptions {
     /**
      * String with type of pagination. Can be "bullets", "fraction", "progressbar" or "custom"
      */
-    type?: 'bullets' | 'fraction' | 'progressbar' | 'custom';
+    type?: "bullets" | "fraction" | "progressbar" | "custom";
 
     /**
      * Defines which HTML tag will be use to represent single pagination bullet. Only for bullets pagination type.
@@ -834,7 +838,7 @@ export interface ScrollbarOptions {
      *
      * @default 'auto'
      */
-    dragSize?: 'auto' | number;
+    dragSize?: "auto" | number;
 
     /**
      * Scrollbar element additional CSS class when it is disabled
@@ -1041,7 +1045,7 @@ export interface ControllerOptions {
      *
      * @default 'slide'
      */
-    by?: 'slide' | 'container';
+    by?: "slide" | "container";
 }
 
 export interface A11yOptions {
@@ -1116,7 +1120,7 @@ import {
     EffectCube,
     EffectFlip,
     EffectCoverflow
-} from './dist/js/swiper.esm';
+} from "./dist/js/swiper.esm";
 
 /**
  * Core module

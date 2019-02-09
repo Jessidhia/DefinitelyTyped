@@ -14,5 +14,5 @@ export interface InsertCssStyleElement extends HTMLStyleElement {
 
 export function insertCss(
     css: string,
-    options?: InsertCssOptions,
+    options?: InsertCssOptions
 ): InsertCssStyleElement;

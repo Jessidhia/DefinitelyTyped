@@ -12,10 +12,9 @@
 export = Backbone;
 export as namespace Backbone;
 
-import * as _ from 'underscore';
+import * as _ from "underscore";
 
 declare namespace Backbone {
-
     interface AddOptions extends Silenceable {
         at?: number;
         merge?: boolean;
@@ -62,24 +61,40 @@ declare namespace Backbone {
         url?: string;
         data?: any;
         beforeSend?: (jqxhr: JQueryXHR) => void;
-        success?: (modelOrCollection?: any, response?: any, options?: any) => void;
-        error?: (modelOrCollection?: any, jqxhr?: JQueryXHR, options?: any) => void;
+        success?: (
+            modelOrCollection?: any,
+            response?: any,
+            options?: any
+        ) => void;
+        error?: (
+            modelOrCollection?: any,
+            jqxhr?: JQueryXHR,
+            options?: any
+        ) => void;
     }
 
-    interface ModelSetOptions extends Silenceable, Validable {
-    }
+    interface ModelSetOptions extends Silenceable, Validable {}
 
-    export interface ModelFetchOptions extends PersistenceOptions, ModelSetOptions, Parseable {
-    }
+    export interface ModelFetchOptions
+        extends PersistenceOptions,
+            ModelSetOptions,
+            Parseable {}
 
-    interface ModelSaveOptions extends Silenceable, Waitable, Validable, Parseable, PersistenceOptions {
+    interface ModelSaveOptions
+        extends Silenceable,
+            Waitable,
+            Validable,
+            Parseable,
+            PersistenceOptions {
         patch?: boolean;
     }
 
-    interface ModelDestroyOptions extends Waitable, PersistenceOptions {
-    }
+    interface ModelDestroyOptions extends Waitable, PersistenceOptions {}
 
-    interface CollectionFetchOptions extends PersistenceOptions, Parseable, CollectionSetOptions {
+    interface CollectionFetchOptions
+        extends PersistenceOptions,
+            Parseable,
+            CollectionSetOptions {
         reset?: boolean;
     }
 
@@ -88,40 +103,74 @@ declare namespace Backbone {
     }
 
     interface RoutesHash {
-        [routePattern: string]: string | {(...urlParts: string[]): void};
+        [routePattern: string]: string | { (...urlParts: string[]): void };
     }
 
     interface EventsHash {
-        [selector: string]: string | {(eventObject: JQuery.TriggeredEvent): void};
+        [selector: string]:
+            | string
+            | { (eventObject: JQuery.TriggeredEvent): void };
     }
 
     export const Events: Events;
     interface Events {
-        on(eventName: string, callback?: (...args: any[]) => void, context?: any): any;
+        on(
+            eventName: string,
+            callback?: (...args: any[]) => void,
+            context?: any
+        ): any;
         on(eventMap: EventsHash): any;
-        off(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
+        off(
+            eventName?: string,
+            callback?: (...args: any[]) => void,
+            context?: any
+        ): any;
         trigger(eventName: string, ...args: any[]): any;
-        bind(eventName: string, callback: (...args: any[]) => void, context?: any): any;
-        unbind(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
+        bind(
+            eventName: string,
+            callback: (...args: any[]) => void,
+            context?: any
+        ): any;
+        unbind(
+            eventName?: string,
+            callback?: (...args: any[]) => void,
+            context?: any
+        ): any;
 
-        once(events: string, callback: (...args: any[]) => void, context?: any): any;
-        listenTo(object: any, events: string, callback: (...args: any[]) => void): any;
-        listenToOnce(object: any, events: string, callback: (...args: any[]) => void): any;
-        stopListening(object?: any, events?: string, callback?: (...args: any[]) => void): any;
+        once(
+            events: string,
+            callback: (...args: any[]) => void,
+            context?: any
+        ): any;
+        listenTo(
+            object: any,
+            events: string,
+            callback: (...args: any[]) => void
+        ): any;
+        listenToOnce(
+            object: any,
+            events: string,
+            callback: (...args: any[]) => void
+        ): any;
+        stopListening(
+            object?: any,
+            events?: string,
+            callback?: (...args: any[]) => void
+        ): any;
     }
 
     class ModelBase implements Events {
         on(eventName: string, callback?: Function, context?: any): any;
         on(eventMap: EventsHash): any;
-        on(eventName: any, callback?: any, context?: any): any
-        off(eventName?: string, callback?: Function, context?: any): any
-        trigger(eventName: string, ...args: any[]): any
-        bind(eventName: string, callback: Function, context?: any): any
-        unbind(eventName?: string, callback?: Function, context?: any): any
-        once(events: string, callback: Function, context?: any): any
-        listenTo(object: any, events: string, callback: Function):any
-        listenToOnce(object: any, events: string, callback: Function): any
-        stopListening(object?: any, events?: string, callback?: Function): any
+        on(eventName: any, callback?: any, context?: any): any;
+        off(eventName?: string, callback?: Function, context?: any): any;
+        trigger(eventName: string, ...args: any[]): any;
+        bind(eventName: string, callback: Function, context?: any): any;
+        unbind(eventName?: string, callback?: Function, context?: any): any;
+        once(events: string, callback: Function, context?: any): any;
+        listenTo(object: any, events: string, callback: Function): any;
+        listenToOnce(object: any, events: string, callback: Function): any;
+        stopListening(object?: any, events?: string, callback?: Function): any;
 
         parse(response: any, options?: any): any;
         toJSON(options?: any): any;
@@ -129,10 +178,9 @@ declare namespace Backbone {
     }
 
     class Model extends ModelBase {
-
         /**
-        * Do not use, prefer TypeScript's extend functionality.
-        **/
+         * Do not use, prefer TypeScript's extend functionality.
+         **/
         public static extend(properties: any, classProperties?: any): any;
 
         attributes: any;
@@ -142,15 +190,14 @@ declare namespace Backbone {
         collection: Collection<any>;
 
         private _changing: boolean;
-        private _previousAttributes : any;
+        private _previousAttributes: any;
         private _pending: boolean;
 
-
         /**
-        * Default attributes for the model. It can be an object hash or a method returning an object hash.
-        * For assigning an object hash, do it like this: this.defaults = <any>{ attribute: value, ... };
-        * That works only if you set it in the constructor or the initialize method.
-        **/
+         * Default attributes for the model. It can be an object hash or a method returning an object hash.
+         * For assigning an object hash, do it like this: this.defaults = <any>{ attribute: value, ... };
+         * That works only if you set it in the constructor or the initialize method.
+         **/
         defaults(): ObjectHash;
         id: any;
         idAttribute: string;
@@ -170,22 +217,26 @@ declare namespace Backbone {
         fetch(options?: ModelFetchOptions): JQueryXHR;
 
         /**
-        * For strongly-typed access to attributes, use the `get` method only privately in public getter properties.
-        * @example
-        * get name(): string {
-        *    return super.get("name");
-        * }
-        **/
+         * For strongly-typed access to attributes, use the `get` method only privately in public getter properties.
+         * @example
+         * get name(): string {
+         *    return super.get("name");
+         * }
+         **/
         /*private*/ get(attributeName: string): any;
 
         /**
-        * For strongly-typed assignment of attributes, use the `set` method only privately in public setter properties.
-        * @example
-        * set name(value: string) {
-        *    super.set("name", value);
-        * }
-        **/
-        /*private*/ set(attributeName: string, value: any, options?: ModelSetOptions): Model;
+         * For strongly-typed assignment of attributes, use the `set` method only privately in public setter properties.
+         * @example
+         * set name(value: string) {
+         *    super.set("name", value);
+         * }
+         **/
+        /*private*/ set(
+            attributeName: string,
+            value: any,
+            options?: ModelSetOptions
+        ): Model;
         set(obj: any, options?: ModelSetOptions): Model;
 
         /**
@@ -203,7 +254,7 @@ declare namespace Backbone {
         has(attribute: string): boolean;
         hasChanged(attribute?: string): boolean;
         isNew(): boolean;
-        isValid(options?:any): boolean;
+        isValid(options?: any): boolean;
         previous(attribute: string): any;
         previousAttributes(): any[];
         save(attributes?: any, options?: ModelSaveOptions): any;
@@ -230,13 +281,12 @@ declare namespace Backbone {
     }
 
     class Collection<TModel extends Model> extends ModelBase {
-
         /**
-        * Do not use, prefer TypeScript's extend functionality.
-        **/
+         * Do not use, prefer TypeScript's extend functionality.
+         **/
         public static extend(properties: any, classProperties?: any): any;
 
-        model: new (...args:any[]) => TModel;
+        model: new (...args: any[]) => TModel;
         models: TModel[];
         length: number;
 
@@ -248,23 +298,30 @@ declare namespace Backbone {
         /**
          * Specify a model attribute name (string) or function that will be used to sort the collection.
          */
-        comparator: string | { bivarianceHack(element: TModel): number | string }["bivarianceHack"] | { bivarianceHack(compare: TModel, to?: TModel): number }["bivarianceHack"];
+        comparator:
+            | string
+            | {
+                  bivarianceHack(element: TModel): number | string;
+              }["bivarianceHack"]
+            | {
+                  bivarianceHack(compare: TModel, to?: TModel): number;
+              }["bivarianceHack"];
 
-        add(model: {}|TModel, options?: AddOptions): TModel;
-        add(models: ({}|TModel)[], options?: AddOptions): TModel[];
+        add(model: {} | TModel, options?: AddOptions): TModel;
+        add(models: ({} | TModel)[], options?: AddOptions): TModel[];
         at(index: number): TModel;
         /**
          * Get a model from a collection, specified by an id, a cid, or by passing in a model.
          **/
-        get(id: number|string|Model): TModel;
-        has(key: number|string|Model): boolean;
+        get(id: number | string | Model): TModel;
+        has(key: number | string | Model): boolean;
         clone(): this;
         create(attributes: any, options?: ModelSaveOptions): TModel;
         pluck(attribute: string): any[];
         push(model: TModel, options?: AddOptions): TModel;
         pop(options?: Silenceable): TModel;
-        remove(model: {}|TModel, options?: Silenceable): TModel;
-        remove(models: ({}|TModel)[], options?: Silenceable): TModel[];
+        remove(model: {} | TModel, options?: Silenceable): TModel;
+        remove(models: ({} | TModel)[], options?: Silenceable): TModel[];
         reset(models?: TModel[], options?: Silenceable): TModel[];
 
         /**
@@ -284,12 +341,17 @@ declare namespace Backbone {
         unshift(model: TModel, options?: AddOptions): TModel;
         where(properties: any): TModel[];
         findWhere(properties: any): TModel;
-        modelId(attrs: any) : any
+        modelId(attrs: any): any;
 
         private _prepareModel(attributes?: any, options?: any): any;
         private _removeReference(model: TModel): void;
-        private _onModelEvent(event: string, model: TModel, collection: Collection<TModel>, options: any): void;
-        private _isModel(obj: any) : obj is Model;
+        private _onModelEvent(
+            event: string,
+            model: TModel,
+            collection: Collection<TModel>,
+            options: any
+        ): void;
+        private _isModel(obj: any): obj is Model;
 
         /**
          * Return a shallow copy of this collection's models, using the same options as native Array#slice.
@@ -301,56 +363,118 @@ declare namespace Backbone {
         all(iterator?: _.ListIterator<TModel, boolean>, context?: any): boolean;
         any(iterator?: _.ListIterator<TModel, boolean>, context?: any): boolean;
         chain(): any;
-        collect<TResult>(iterator: _.ListIterator<TModel, TResult>, context?: any): TResult[];
+        collect<TResult>(
+            iterator: _.ListIterator<TModel, TResult>,
+            context?: any
+        ): TResult[];
         contains(value: TModel): boolean;
         countBy(iterator?: _.ListIterator<TModel, any>): _.Dictionary<number>;
         countBy(iterator: string): _.Dictionary<number>;
-        detect(iterator: _.ListIterator<TModel, boolean>, context?: any): TModel;
+        detect(
+            iterator: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): TModel;
         difference(others: TModel[]): TModel[];
         drop(n?: number): TModel[];
         each(iterator: _.ListIterator<TModel, void>, context?: any): TModel[];
-        every(iterator: _.ListIterator<TModel, boolean>, context?: any): boolean;
-        filter(iterator: _.ListIterator<TModel, boolean>, context?: any): TModel[];
+        every(
+            iterator: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): boolean;
+        filter(
+            iterator: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): TModel[];
         find(iterator: _.ListIterator<TModel, boolean>, context?: any): TModel;
-        findIndex(predicate: _.ListIterator<TModel, boolean>, context?: any): number;
-        findLastIndex(predicate: _.ListIterator<TModel, boolean>, context?: any): number;
+        findIndex(
+            predicate: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): number;
+        findLastIndex(
+            predicate: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): number;
         first(): TModel;
         first(n: number): TModel[];
-        foldl<TResult>(iterator: _.MemoIterator<TModel, TResult>, memo?: TResult, context?: any): TResult;
-        foldr<TResult>(iterator: _.MemoIterator<TModel, TResult>, memo?: TResult, context?: any): TResult;
-        forEach(iterator: _.ListIterator<TModel, void>, context?: any): TModel[];
-        groupBy(iterator: _.ListIterator<TModel, any>, context?: any): _.Dictionary<TModel[]>;
+        foldl<TResult>(
+            iterator: _.MemoIterator<TModel, TResult>,
+            memo?: TResult,
+            context?: any
+        ): TResult;
+        foldr<TResult>(
+            iterator: _.MemoIterator<TModel, TResult>,
+            memo?: TResult,
+            context?: any
+        ): TResult;
+        forEach(
+            iterator: _.ListIterator<TModel, void>,
+            context?: any
+        ): TModel[];
+        groupBy(
+            iterator: _.ListIterator<TModel, any>,
+            context?: any
+        ): _.Dictionary<TModel[]>;
         groupBy(iterator: string, context?: any): _.Dictionary<TModel[]>;
         head(): TModel;
         head(n: number): TModel[];
         include(value: TModel): boolean;
         includes(value: TModel): boolean;
-        indexBy(iterator: _.ListIterator<TModel, any>, context?: any): _.Dictionary<TModel>;
+        indexBy(
+            iterator: _.ListIterator<TModel, any>,
+            context?: any
+        ): _.Dictionary<TModel>;
         indexBy(iterator: string, context?: any): _.Dictionary<TModel>;
         indexOf(value: TModel, isSorted?: boolean): number;
         initial(): TModel;
         initial(n: number): TModel[];
-        inject<TResult>(iterator: _.MemoIterator<TModel, TResult>, memo?: TResult, context?: any): TResult;
+        inject<TResult>(
+            iterator: _.MemoIterator<TModel, TResult>,
+            memo?: TResult,
+            context?: any
+        ): TResult;
         invoke(methodName: string, ...args: any[]): any;
         isEmpty(): boolean;
         last(): TModel;
         last(n: number): TModel[];
         lastIndexOf(value: TModel, from?: number): number;
-        map<TResult>(iterator: _.ListIterator<TModel, TResult>, context?: any): TResult[];
+        map<TResult>(
+            iterator: _.ListIterator<TModel, TResult>,
+            context?: any
+        ): TResult[];
         max(iterator?: _.ListIterator<TModel, any>, context?: any): TModel;
         min(iterator?: _.ListIterator<TModel, any>, context?: any): TModel;
         partition(iterator: _.ListIterator<TModel, boolean>): TModel[][];
-        reduce<TResult>(iterator: _.MemoIterator<TModel, TResult>, memo?: TResult, context?: any): TResult;
-        reduceRight<TResult>(iterator: _.MemoIterator<TModel, TResult>, memo?: TResult, context?: any): TResult;
-        reject(iterator: _.ListIterator<TModel, boolean>, context?: any): TModel[];
+        reduce<TResult>(
+            iterator: _.MemoIterator<TModel, TResult>,
+            memo?: TResult,
+            context?: any
+        ): TResult;
+        reduceRight<TResult>(
+            iterator: _.MemoIterator<TModel, TResult>,
+            memo?: TResult,
+            context?: any
+        ): TResult;
+        reject(
+            iterator: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): TModel[];
         rest(n?: number): TModel[];
         sample(): TModel;
         sample(n: number): TModel[];
-        select(iterator: _.ListIterator<TModel, boolean>, context?: any): TModel[];
+        select(
+            iterator: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): TModel[];
         shuffle(): TModel[];
         size(): number;
-        some(iterator?: _.ListIterator<TModel, boolean>, context?: any): boolean;
-        sortBy<TSort>(iterator?: _.ListIterator<TModel, TSort>, context?: any): TModel[];
+        some(
+            iterator?: _.ListIterator<TModel, boolean>,
+            context?: any
+        ): boolean;
+        sortBy<TSort>(
+            iterator?: _.ListIterator<TModel, TSort>,
+            context?: any
+        ): TModel[];
         sortBy(iterator: string, context?: any): TModel[];
         tail(n?: number): TModel[];
         take(): TModel;
@@ -368,26 +492,29 @@ declare namespace Backbone {
     }
 
     class Router extends EventSignatures {
-
         /**
-        * Do not use, prefer TypeScript's extend functionality.
-        **/
+         * Do not use, prefer TypeScript's extend functionality.
+         **/
         public static extend(properties: any, classProperties?: any): any;
 
         /**
-        * Routes hash or a method returning the routes hash that maps URLs with parameters to methods on your Router.
-        * For assigning routes as object hash, do it like this: this.routes = <any>{ "route": callback, ... };
-        * That works only if you set it in the constructor or the initialize method.
-        **/
+         * Routes hash or a method returning the routes hash that maps URLs with parameters to methods on your Router.
+         * For assigning routes as object hash, do it like this: this.routes = <any>{ "route": callback, ... };
+         * That works only if you set it in the constructor or the initialize method.
+         **/
         routes: RoutesHash | any;
 
         constructor(options?: RouterOptions);
         initialize(options?: RouterOptions): void;
-        route(route: string|RegExp, name: string, callback?: Function): Router;
+        route(
+            route: string | RegExp,
+            name: string,
+            callback?: Function
+        ): Router;
         navigate(fragment: string, options?: NavigateOptions): Router;
         navigate(fragment: string, trigger?: boolean): Router;
 
-        execute(callback: Function, args: any[], name: string) : void;
+        execute(callback: Function, args: any[], name: string): void;
 
         private _bindRoutes(): void;
         private _routeToRegExp(route: string): RegExp;
@@ -397,7 +524,6 @@ declare namespace Backbone {
     var history: History;
 
     class History extends EventSignatures {
-
         handlers: any[];
         interval: number;
 
@@ -408,7 +534,7 @@ declare namespace Backbone {
         decodeFragment(fragment: string): string;
         getSearch(): string;
         stop(): void;
-        route(route: string|RegExp, callback: Function): number;
+        route(route: string | RegExp, callback: Function): number;
         checkUrl(e?: any): void;
         getPath(): string;
         matchRoot(): boolean;
@@ -418,43 +544,49 @@ declare namespace Backbone {
         static started: boolean;
         options: any;
 
-        private _updateHash(location: Location, fragment: string, replace: boolean): void;
+        private _updateHash(
+            location: Location,
+            fragment: string,
+            replace: boolean
+        ): void;
     }
 
-   interface ViewOptions<TModel extends Model> {
-      model?: TModel;
-       // TODO: quickfix, this can't be fixed easy. The collection does not need to have the same model as the parent view.
-      collection?: Backbone.Collection<any>; //was: Collection<TModel>;
-      el?: any;
-      events?: EventsHash;
-      id?: string;
-      className?: string;
-      tagName?: string;
-      attributes?: {[id: string]: any};
+    interface ViewOptions<TModel extends Model> {
+        model?: TModel;
+        // TODO: quickfix, this can't be fixed easy. The collection does not need to have the same model as the parent view.
+        collection?: Backbone.Collection<any>; //was: Collection<TModel>;
+        el?: any;
+        events?: EventsHash;
+        id?: string;
+        className?: string;
+        tagName?: string;
+        attributes?: { [id: string]: any };
     }
 
     class View<TModel extends Model> extends EventSignatures {
-
         /**
-        * Do not use, prefer TypeScript's extend functionality.
-        **/
+         * Do not use, prefer TypeScript's extend functionality.
+         **/
         public static extend(properties: any, classProperties?: any): any;
 
         constructor(options?: ViewOptions<TModel>);
         initialize(options?: ViewOptions<TModel>): void;
 
         /**
-        * Events hash or a method returning the events hash that maps events/selectors to methods on your View.
-        * For assigning events as object hash, do it like this: this.events = <any>{ "event:selector": callback, ... };
-        * That works only if you set it in the constructor or the initialize method.
-        **/
+         * Events hash or a method returning the events hash that maps events/selectors to methods on your View.
+         * For assigning events as object hash, do it like this: this.events = <any>{ "event:selector": callback, ... };
+         * That works only if you set it in the constructor or the initialize method.
+         **/
         events(): EventsHash;
 
         $(selector: string): JQuery;
         model: TModel;
         collection: Collection<TModel>;
         //template: (json, options?) => string;
-        setElement(element: HTMLElement|JQuery, delegate?: boolean): View<TModel>;
+        setElement(
+            element: HTMLElement | JQuery,
+            delegate?: boolean
+        ): View<TModel>;
         id: string;
         cid: string;
         className: string;
@@ -468,15 +600,27 @@ declare namespace Backbone {
         render(): View<TModel>;
         remove(): View<TModel>;
         delegateEvents(events?: EventsHash): any;
-        delegate(eventName: string, selector: string, listener: Function): View<TModel>;
+        delegate(
+            eventName: string,
+            selector: string,
+            listener: Function
+        ): View<TModel>;
         undelegateEvents(): any;
-        undelegate(eventName: string, selector?: string, listener?: Function): View<TModel>;
+        undelegate(
+            eventName: string,
+            selector?: string,
+            listener?: Function
+        ): View<TModel>;
 
         _ensureElement(): void;
     }
 
     // SYNC
-    function sync(method: string, model: Model | Collection<Model>, options?: JQueryAjaxSettings): any;
+    function sync(
+        method: string,
+        model: Model | Collection<Model>,
+        options?: JQueryAjaxSettings
+    ): any;
     function ajax(options?: JQueryAjaxSettings): JQueryXHR;
     var emulateHTTP: boolean;
     var emulateJSON: boolean;
@@ -491,15 +635,47 @@ declare namespace Backbone {
  * specify signatures for internal implementers of Backbone.Events
  */
 declare abstract class EventSignatures implements Backbone.Events {
-        on(eventName: string, callback?: (...args: any[]) => void, context?: any): any;
-        on(eventMap: Backbone.EventsHash): any;
-        off(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
-        trigger(eventName: string, ...args: any[]): any;
-        bind(eventName: string, callback: (...args: any[]) => void, context?: any): any;
-        unbind(eventName?: string, callback?: (...args: any[]) => void, context?: any): any;
+    on(
+        eventName: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
+    on(eventMap: Backbone.EventsHash): any;
+    off(
+        eventName?: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
+    trigger(eventName: string, ...args: any[]): any;
+    bind(
+        eventName: string,
+        callback: (...args: any[]) => void,
+        context?: any
+    ): any;
+    unbind(
+        eventName?: string,
+        callback?: (...args: any[]) => void,
+        context?: any
+    ): any;
 
-        once(events: string, callback: (...args: any[]) => void, context?: any): any;
-        listenTo(object: any, events: string, callback: (...args: any[]) => void): any;
-        listenToOnce(object: any, events: string, callback: (...args: any[]) => void): any;
-        stopListening(object?: any, events?: string, callback?: (...args: any[]) => void): any;
+    once(
+        events: string,
+        callback: (...args: any[]) => void,
+        context?: any
+    ): any;
+    listenTo(
+        object: any,
+        events: string,
+        callback: (...args: any[]) => void
+    ): any;
+    listenToOnce(
+        object: any,
+        events: string,
+        callback: (...args: any[]) => void
+    ): any;
+    stopListening(
+        object?: any,
+        events?: string,
+        callback?: (...args: any[]) => void
+    ): any;
 }

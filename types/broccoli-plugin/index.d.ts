@@ -37,7 +37,10 @@ declare namespace BroccoliPlugin {
 }
 
 declare class BroccoliPlugin {
-    constructor(inputNodes: BroccoliPlugin.BroccoliNode[], options?: BroccoliPlugin.BroccoliPluginOptions);
+    constructor(
+        inputNodes: BroccoliPlugin.BroccoliNode[],
+        options?: BroccoliPlugin.BroccoliPluginOptions
+    );
 
     /**
      * An array of paths on disk corresponding to each node in `inputNodes`.

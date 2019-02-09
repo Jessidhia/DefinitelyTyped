@@ -1,8 +1,8 @@
-import { WriteStream } from 'fs';
+import { WriteStream } from "fs";
 
-import { Repository } from './repository';
-import { Blob } from './blob';
-import { Buf } from './buf';
+import { Repository } from "./repository";
+import { Blob } from "./blob";
+import { Buf } from "./buf";
 
 export namespace Filter {
     const enum FLAG {
@@ -21,10 +21,23 @@ export namespace Filter {
 export class Filter {
     static listContains(filters: any, name: string): number;
     static listLength(fl: any): number;
-    static listNew(repo: Repository, mode: number, options: number): Promise<any>;
-    static listStreamBlob(filters: any, blob: Blob, target: WriteStream): number;
+    static listNew(
+        repo: Repository,
+        mode: number,
+        options: number
+    ): Promise<any>;
+    static listStreamBlob(
+        filters: any,
+        blob: Blob,
+        target: WriteStream
+    ): number;
     static listStreamData(filters: any, data: Buf, target: WriteStream): number;
-    static listStreamFile(filters: any, repo: Repository, path: string, target: WriteStream): number;
+    static listStreamFile(
+        filters: any,
+        repo: Repository,
+        path: string,
+        target: WriteStream
+    ): number;
     static unregister(name: string): number;
 
     lookup(name: string): Filter;

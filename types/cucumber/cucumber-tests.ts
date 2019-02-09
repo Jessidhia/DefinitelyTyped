@@ -1,5 +1,15 @@
 import * as assert from "power-assert";
-import { setWorldConstructor, defineParameterType, After, AfterAll, Before, BeforeAll, Given, When, Then } from "cucumber";
+import {
+    setWorldConstructor,
+    defineParameterType,
+    After,
+    AfterAll,
+    Before,
+    BeforeAll,
+    Given,
+    When,
+    Then
+} from "cucumber";
 import cucumber = require("cucumber");
 
 type Callback = cucumber.CallbackStepDefinition;
@@ -16,11 +26,11 @@ declare module "cucumber" {
 }
 
 function StepSampleWithoutDefineSupportCode() {
-    setWorldConstructor(function({attach, parameters}) {
+    setWorldConstructor(function({ attach, parameters }) {
         this.attach = attach;
         this.parameters = parameters;
         this.visit = (url: string, callback: Callback) => {
-            callback(null, 'pending');
+            callback(null, "pending");
         };
         this.toInt = parseInt;
     });
@@ -30,12 +40,15 @@ function StepSampleWithoutDefineSupportCode() {
         callback();
     });
 
-    Before({ timeout: 1000 }, (scenarioResult: HookScenarioResult, callback: Callback) => {
-        console.log(scenarioResult.result.status === Status.FAILED);
-        callback();
-    });
+    Before(
+        { timeout: 1000 },
+        (scenarioResult: HookScenarioResult, callback: Callback) => {
+            console.log(scenarioResult.result.status === Status.FAILED);
+            callback();
+        }
+    );
 
-    Before('@tag', (scenarioResult: HookScenarioResult, callback: Callback) => {
+    Before("@tag", (scenarioResult: HookScenarioResult, callback: Callback) => {
         console.log(scenarioResult.result.status === Status.FAILED);
         callback();
     });
@@ -50,7 +63,7 @@ function StepSampleWithoutDefineSupportCode() {
         callback();
     });
 
-    BeforeAll('@tag', (callback: Callback) => {
+    BeforeAll("@tag", (callback: Callback) => {
         console.log("Before all");
         callback();
     });
@@ -60,12 +73,15 @@ function StepSampleWithoutDefineSupportCode() {
         callback();
     });
 
-    After({ timeout: 1000 }, (scenarioResult: HookScenarioResult, callback: Callback) => {
-        console.log("After");
-        callback();
-    });
+    After(
+        { timeout: 1000 },
+        (scenarioResult: HookScenarioResult, callback: Callback) => {
+            console.log("After");
+            callback();
+        }
+    );
 
-    After('@tag', (scenarioResult: HookScenarioResult, callback: Callback) => {
+    After("@tag", (scenarioResult: HookScenarioResult, callback: Callback) => {
         console.log("After");
         callback();
     });
@@ -80,7 +96,7 @@ function StepSampleWithoutDefineSupportCode() {
         callback();
     });
 
-    AfterAll('@tag', (callback: Callback) => {
+    AfterAll("@tag", (callback: Callback) => {
         console.log("After all");
         callback();
     });
@@ -93,31 +109,39 @@ function StepSampleWithoutDefineSupportCode() {
         console.log(typeof x);
     });
 
-    Given(/^I am on the Cucumber.js GitHub repository$/, function(callback: Callback) {
-        this.visit('https://github.com/cucumber/cucumber-js', callback);
+    Given(/^I am on the Cucumber.js GitHub repository$/, function(
+        callback: Callback
+    ) {
+        this.visit("https://github.com/cucumber/cucumber-js", callback);
     });
 
     When(/^I go to the README file$/, (title: string, callback: Callback) => {
-        callback(null, 'pending');
+        callback(null, "pending");
     });
 
-    Then(/^I should see "(.*)" as the page title$/, {timeout: 60 * 1000}, function(title: string, callback: Callback) {
-        const pageTitle = this.browser.text('title');
+    Then(
+        /^I should see "(.*)" as the page title$/,
+        { timeout: 60 * 1000 },
+        function(title: string, callback: Callback) {
+            const pageTitle = this.browser.text("title");
 
-        if (title === pageTitle) {
-            callback();
-        } else {
-            callback(new Error("Expected to be on page with title " + title));
+            if (title === pageTitle) {
+                callback();
+            } else {
+                callback(
+                    new Error("Expected to be on page with title " + title)
+                );
+            }
         }
-    });
+    );
 
     // Type for data_table.js on
     // https://github.com/cucumber/cucumber-js/blob/a5fd8251918c278ab2e389226d165cedb44df14a/lib/cucumber/ast/data_table.js
 
     Given(/^a table step with Table raw$/, (table: Table) => {
         const expected = [
-            ['Cucumber', 'Cucumis sativus'],
-            ['Burr Gherkin', 'Cucumis anguria']
+            ["Cucumber", "Cucumis sativus"],
+            ["Burr Gherkin", "Cucumis anguria"]
         ];
         const actual: string[][] = table.raw();
         assert.deepEqual(actual, expected);
@@ -125,9 +149,9 @@ function StepSampleWithoutDefineSupportCode() {
 
     Given(/^a table step with Table rows$/, (table: Table) => {
         const expected = [
-            ['Apricot', '5'],
-            ['Brocolli', '2'],
-            ['Cucumber', '10']
+            ["Apricot", "5"],
+            ["Brocolli", "2"],
+            ["Cucumber", "10"]
         ];
         const actual: string[][] = table.rows();
         assert.deepEqual(actual, expected);
@@ -135,8 +159,8 @@ function StepSampleWithoutDefineSupportCode() {
 
     Given(/^a table step with Table rowHash$/, (table: Table) => {
         const expected = {
-            Cucumber: 'Cucumis sativus',
-            'Burr Gherkin': 'Cucumis anguria'
+            Cucumber: "Cucumis sativus",
+            "Burr Gherkin": "Cucumis anguria"
         };
         const actual: { [firstCol: string]: string } = table.rowsHash();
         assert.deepEqual(actual, expected);
@@ -144,9 +168,9 @@ function StepSampleWithoutDefineSupportCode() {
 
     Given(/^a table step$/, (table: Table) => {
         const expected = [
-            {Vegetable: 'Apricot', Rating: '5'},
-            {Vegetable: 'Brocolli', Rating: '2'},
-            {Vegetable: 'Cucumber', Rating: '10'}
+            { Vegetable: "Apricot", Rating: "5" },
+            { Vegetable: "Brocolli", Rating: "2" },
+            { Vegetable: "Cucumber", Rating: "10" }
         ];
         const actual: Array<{ [colName: string]: string }> = table.hashes();
         assert.deepEqual(actual, expected);
@@ -155,13 +179,13 @@ function StepSampleWithoutDefineSupportCode() {
     defineParameterType({
         regexp: /particular/,
         transformer: s => s.toUpperCase(),
-        typeName: 'param'  // deprecated but still supported
+        typeName: "param" // deprecated but still supported
     });
 
     defineParameterType({
         regexp: /particularly/,
         transformer: s => s.toUpperCase(),
-        name: 'param',
+        name: "param",
         preferForRegexpMatch: false,
         useForSnippets: false
     });
@@ -169,7 +193,7 @@ function StepSampleWithoutDefineSupportCode() {
     defineParameterType({
         regexp: /(one) (two)/,
         transformer: (x, y) => x + y,
-        name: 'param',
+        name: "param",
         preferForRegexpMatch: false,
         useForSnippets: false
     });
@@ -179,20 +203,19 @@ function StepSampleWithoutDefineSupportCode() {
         transformer(val) {
             return this.toInt(val);
         },
-        name: 'param',
+        name: "param",
         preferForRegexpMatch: false,
         useForSnippets: false
     });
 
-    Given('a {param} step', param => {
-        assert.equal(param, 'PARTICULAR');
+    Given("a {param} step", param => {
+        assert.equal(param, "PARTICULAR");
     });
 }
 
 // syntax defineSupportCode deprecated
 function StepSample() {
-    cucumber.defineSupportCode((l) => {
-    });
+    cucumber.defineSupportCode(l => {});
 }
 
 const fns: cucumber.SupportCodeConsumer[] = cucumber.getSupportCodeFns();

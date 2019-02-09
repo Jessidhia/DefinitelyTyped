@@ -5,7 +5,9 @@ import dynamic, { LoadingComponentProps } from "next-server/dynamic";
 interface MyComponentProps {
     foo: string;
 }
-const MyComponent: React.StatelessComponent<MyComponentProps> = () => <div>I'm async!</div>;
+const MyComponent: React.StatelessComponent<MyComponentProps> = () => (
+    <div>I'm async!</div>
+);
 const asyncComponent = Promise.resolve(MyComponent);
 
 // Examples from
@@ -28,7 +30,9 @@ const dynamicComponent2JSX = <DynamicComponent2 foo="bar" />;
 const DynamicComponentWithCustomLoading = dynamic(asyncComponent, {
     loading: LoadingComponent
 });
-const dynamicComponentWithCustomLoadingJSX = <DynamicComponentWithCustomLoading foo="bar" />;
+const dynamicComponentWithCustomLoadingJSX = (
+    <DynamicComponentWithCustomLoading foo="bar" />
+);
 
 // 3. With No SSR
 const DynamicComponentWithNoSSR = dynamic(asyncComponent, {

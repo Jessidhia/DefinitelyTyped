@@ -1,7 +1,7 @@
-import slocket = require('slocket');
+import slocket = require("slocket");
 
 function someMutexedThing() {
-    slocket('/path/to/my-lock-name', (er, lock) => {
+    slocket("/path/to/my-lock-name", (er, lock) => {
         er; // $ExpectType Error | null
         lock; // $ExpectType Lock
         if (er) {
@@ -13,15 +13,14 @@ function someMutexedThing() {
     });
 }
 
-slocket('/path/to/filename.lock')
+slocket("/path/to/filename.lock")
     .then(lock => {
         lock; // $ExpectType Lock
         lock.release();
     })
-    .catch(er => {
-    });
+    .catch(er => {});
 
 async function fooSingleFile() {
-    const lock = await slocket('foo');
+    const lock = await slocket("foo");
     lock.release();
 }

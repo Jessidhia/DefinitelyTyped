@@ -4,12 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as Sinon from 'sinon';
+import * as Sinon from "sinon";
 
 interface Configuration {
     injectIntoThis?: boolean;
     injectInto?: any;
-    properties?: Array<"spy"| "stub"| "mock"| "clock"| "server"| "requests">;
+    properties?: Array<
+        "spy" | "stub" | "mock" | "clock" | "server" | "requests"
+    >;
     useFakeTimers?: boolean;
     useFakeServer?: boolean;
 }

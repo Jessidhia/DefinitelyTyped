@@ -53,9 +53,15 @@ export default interface MDCRippleAdapter {
 
     deregisterInteractionHandler(evtType: string, handler: EventListener): void;
 
-    registerDocumentInteractionHandler(evtType: string, handler: EventListener): void;
+    registerDocumentInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
 
-    deregisterDocumentInteractionHandler(evtType: string, handler: EventListener): void;
+    deregisterDocumentInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
 
     registerResizeHandler(handler: EventListener): void;
 
@@ -65,5 +71,5 @@ export default interface MDCRippleAdapter {
 
     computeBoundingRect(): ClientRect;
 
-    getWindowPageOffset(): { x: number; y: number; };
+    getWindowPageOffset(): { x: number; y: number };
 }

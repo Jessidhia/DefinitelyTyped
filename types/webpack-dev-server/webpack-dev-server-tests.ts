@@ -1,6 +1,6 @@
-import webpack = require('webpack');
-import WebpackDevServer = require('webpack-dev-server');
-import { Application } from 'express';
+import webpack = require("webpack");
+import WebpackDevServer = require("webpack-dev-server");
+import { Application } from "express";
 const compiler = webpack({});
 const multipleCompiler = webpack([]);
 
@@ -19,7 +19,7 @@ const config: WebpackDevServer.Configuration = {
     contentBase: "/path/to/directory",
     // or: contentBase: "http://localhost/",
 
-    public: 'public-host.ru',
+    public: "public-host.ru",
     // Public host for server
 
     disableHostCheck: true,
@@ -49,18 +49,17 @@ const config: WebpackDevServer.Configuration = {
     setup: (app: Application) => {
         // Here you can access the Express app object and add your own custom middleware to it.
         // For example, to define custom handlers for some paths:
-        app.get('/some/path', (req, res) => {
-            res.json({ custom: 'response' });
+        app.get("/some/path", (req, res) => {
+            res.json({ custom: "response" });
         });
     },
 
     // pass [static options](http://expressjs.com/en/4x/api.html#express.static) to inner express server
-    staticOptions: {
-    },
+    staticOptions: {},
 
     stats: {
         assets: false,
-        warningsFilter: /1/,
+        warningsFilter: /1/
     },
 
     // webpack-dev-middleware options
@@ -79,18 +78,18 @@ const config: WebpackDevServer.Configuration = {
 };
 
 const c2: WebpackDevServer.Configuration = {
-    stats: false,
+    stats: false
 };
 const c3: WebpackDevServer.Configuration = {
-    stats: "verbose",
+    stats: "verbose"
 };
 const c4: WebpackDevServer.Configuration = {
-    writeToDisk: (filePath: string) => true,
+    writeToDisk: (filePath: string) => true
 };
 
 // API example
 server = new WebpackDevServer(compiler, config);
-server.listen(8080, "localhost", () => { });
+server.listen(8080, "localhost", () => {});
 
 // HTTPS example
 server = new WebpackDevServer(compiler, {
@@ -98,16 +97,16 @@ server = new WebpackDevServer(compiler, {
     https: true
 });
 
-server.listen(8080, "localhost", () => { });
+server.listen(8080, "localhost", () => {});
 
 server.close();
 
 const webpackConfig: webpack.Configuration = {
     context: __dirname,
 
-    mode: 'development',
+    mode: "development",
 
-    target: 'node',
+    target: "node",
 
     devServer: config
 };

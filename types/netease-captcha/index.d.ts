@@ -8,7 +8,11 @@ interface Window {
 }
 
 declare namespace NeteaseCaptcha {
-    type InitFunction = (config: Config, onLoad?: onLoad, onError?: onError) => void;
+    type InitFunction = (
+        config: Config,
+        onLoad?: onLoad,
+        onError?: onError
+    ) => void;
 
     interface Config {
         /**
@@ -24,12 +28,12 @@ declare namespace NeteaseCaptcha {
         /**
          * Defaults to 'float' on desktop, and 'popup' on mobile
          */
-        mode?: 'float' | 'embed' | 'popup';
+        mode?: "float" | "embed" | "popup";
 
         /**
          * Defaults to page protocol
          */
-        protocol?: 'http' | 'https';
+        protocol?: "http" | "https";
 
         /**
          * Defaults to 'auto'
@@ -39,7 +43,7 @@ declare namespace NeteaseCaptcha {
         /**
          * Defaults to 'zh-CN'
          */
-        lang?: 'zh-CN' | 'en';
+        lang?: "zh-CN" | "en";
 
         onReady?(instance: Instance): void;
 

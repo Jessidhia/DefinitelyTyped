@@ -233,12 +233,20 @@ declare namespace adone.math {
         /**
          * Returns a Long representing the 64 bit integer that comes by concatenating the given low and high bits. Each is assumed to use 32 bits
          */
-        static fromBits(lowBits: number, highBits: number, unsigned?: boolean): Long;
+        static fromBits(
+            lowBits: number,
+            highBits: number,
+            unsigned?: boolean
+        ): Long;
 
         /**
          * Returns a Long representation of the given string, written using the specified radix
          */
-        static fromString(str: string, unsigned?: boolean, radix?: number): Long;
+        static fromString(
+            str: string,
+            unsigned?: boolean,
+            radix?: number
+        ): Long;
 
         /**
          * Returns a Long representation of the given string, written using the specified radix

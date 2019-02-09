@@ -40,11 +40,15 @@ amplify.subscribe("priorityexample", data => {
     alert(data.foo);
 });
 
-amplify.subscribe("priorityexample", data => {
-    if (data.foo === "oops") {
-        return false;
-    }
-}, 1);
+amplify.subscribe(
+    "priorityexample",
+    data => {
+        if (data.foo === "oops") {
+            return false;
+        }
+    },
+    1
+);
 
 // Store data with amplify storage picking the default storage technology:
 
@@ -111,7 +115,8 @@ amplify.request.define("ajaxRESTFulExample", "ajax", {
 });
 
 // later in code
-amplify.request("ajaxRESTFulExample",
+amplify.request(
+    "ajaxRESTFulExample",
     {
         type: "foo",
         id: "bar"
@@ -120,7 +125,7 @@ amplify.request("ajaxRESTFulExample",
         // /myRESTFulApi/foo/bar was the URL used
         data.foo; // bar
     }
-    );
+);
 
 // POST data with Ajax
 
@@ -130,7 +135,8 @@ amplify.request.define("ajaxPostExample", "ajax", {
 });
 
 // later in code
-amplify.request("ajaxPostExample",
+amplify.request(
+    "ajaxPostExample",
     {
         type: "foo",
         id: "bar"
@@ -138,7 +144,7 @@ amplify.request("ajaxPostExample",
     data => {
         data.foo; // bar
     }
-    );
+);
 // Using data maps
 
 //  When searching Twitter, the key for the search phrase is q.If we want a more descriptive name, such as term, we can use a data map:
@@ -158,7 +164,7 @@ amplify.request("twitter-search", { term: "amplifyjs" });
 amplify.request.define("twitter-mentions", "ajax", {
     url: "http://search.twitter.com/search.json",
     dataType: "jsonp",
-    dataMap: data => ({ q: "@" + data.user }),
+    dataMap: data => ({ q: "@" + data.user })
 });
 
 amplify.request("twitter-mentions", { user: "amplifyjs" });
@@ -167,7 +173,13 @@ amplify.request("twitter-mentions", { user: "amplifyjs" });
 
 // Example:
 
-const appEnvelopeDecoder: amplify.Decoder = (data, status, xhr, success, error) => {
+const appEnvelopeDecoder: amplify.Decoder = (
+    data,
+    status,
+    xhr,
+    success,
+    error
+) => {
     switch (data.status) {
         case "success":
             success(data.data);
@@ -192,7 +204,7 @@ declare module "amplify" {
 amplify.request.decoders.appEnvelope = appEnvelopeDecoder;
 
 // but you can also just add it via an index
-amplify.request.decoders['appEnvelopeStr'] = appEnvelopeDecoder;
+amplify.request.decoders["appEnvelopeStr"] = appEnvelopeDecoder;
 
 amplify.request.define("decoderExample", "ajax", {
     url: "/myAjaxUrl",
@@ -253,8 +265,6 @@ amplify.request.define("statusExample1", "ajax", {
 
 amplify.request({
     resourceId: "statusExample1",
-    success: (data, status) => {
-    },
-    error: (data, status) => {
-    }
+    success: (data, status) => {},
+    error: (data, status) => {}
 });

@@ -145,9 +145,10 @@ export interface ListProps extends CommonProps {
     onScroll?: (props: ListOnScrollProps) => any;
 }
 
-export type GridItemKeySelector = (
-    params: { columnIndex: number; rowIndex: number }
-) => Key;
+export type GridItemKeySelector = (params: {
+    columnIndex: number;
+    rowIndex: number;
+}) => Key;
 
 export interface GridOnItemsRenderedProps {
     overscanColumnStartIndex: number;

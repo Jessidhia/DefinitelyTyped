@@ -1,3 +1,3 @@
-import { HmacMD5 } from '../index';
+import { HmacMD5 } from "../index";
 
 export = HmacMD5;

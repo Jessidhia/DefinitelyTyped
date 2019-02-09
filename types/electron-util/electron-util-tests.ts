@@ -8,7 +8,7 @@ import {
     is,
     platform,
     runJS
-} from 'electron-util';
+} from "electron-util";
 
 app.app; // $ExpectType any
 app.BrowserWindow; // $ExpectType any
@@ -30,12 +30,12 @@ chromeVersion; // $ExpectType string
 
 // $ExpectType string
 platform({
-    macos: 'm',
-    windows: 'w',
-    linux: 'l',
-    default: ''
+    macos: "m",
+    windows: "w",
+    linux: "l",
+    default: ""
 });
 
 activeWindow(); // $ExpectType any
-runJS(''); // $ExpectType Promise<any>
-fixPathForAsarUnpack('file://test.txt'); // $ExpectType string
+runJS(""); // $ExpectType Promise<any>
+fixPathForAsarUnpack("file://test.txt"); // $ExpectType string

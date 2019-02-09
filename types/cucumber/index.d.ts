@@ -40,11 +40,23 @@ export interface StepDefinitionOptions {
 }
 
 export interface StepDefinitions {
-    Given(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+    Given(
+        pattern: RegExp | string,
+        options: StepDefinitionOptions,
+        code: StepDefinitionCode
+    ): void;
     Given(pattern: RegExp | string, code: StepDefinitionCode): void;
-    When(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+    When(
+        pattern: RegExp | string,
+        options: StepDefinitionOptions,
+        code: StepDefinitionCode
+    ): void;
     When(pattern: RegExp | string, code: StepDefinitionCode): void;
-    Then(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+    Then(
+        pattern: RegExp | string,
+        options: StepDefinitionOptions,
+        code: StepDefinitionCode
+    ): void;
     Then(pattern: RegExp | string, code: StepDefinitionCode): void;
     setDefaultTimeout(time: number): void;
 }
@@ -52,25 +64,60 @@ export interface StepDefinitions {
 export function After(code: HookCode): void;
 export function After(options: HookOptions | string, code: HookCode): void;
 export function AfterAll(code: GlobalHookCode): void;
-export function AfterAll(options: HookOptions | string, code: GlobalHookCode): void;
+export function AfterAll(
+    options: HookOptions | string,
+    code: GlobalHookCode
+): void;
 export function Before(code: HookCode): void;
 export function Before(options: HookOptions | string, code: HookCode): void;
 export function BeforeAll(code: GlobalHookCode): void;
-export function BeforeAll(options: HookOptions | string, code: GlobalHookCode): void;
+export function BeforeAll(
+    options: HookOptions | string,
+    code: GlobalHookCode
+): void;
 
 export function defineParameterType(transform: Transform): void;
-export function defineStep(pattern: RegExp | string, code: StepDefinitionCode): void;
-export function defineStep(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+export function defineStep(
+    pattern: RegExp | string,
+    code: StepDefinitionCode
+): void;
+export function defineStep(
+    pattern: RegExp | string,
+    options: StepDefinitionOptions,
+    code: StepDefinitionCode
+): void;
 
 export function Given(pattern: RegExp | string, code: StepDefinitionCode): void;
-export function Given(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+export function Given(
+    pattern: RegExp | string,
+    options: StepDefinitionOptions,
+    code: StepDefinitionCode
+): void;
 export function setDefaultTimeout(time: number): void;
-export function setDefinitionFunctionWrapper(fn: () => void, options?: {[key: string]: any}): void;
+export function setDefinitionFunctionWrapper(
+    fn: () => void,
+    options?: { [key: string]: any }
+): void;
 // tslint:disable-next-line ban-types
-export function setWorldConstructor(world: ((this: World, init: {attach: Function, parameters: {[key: string]: any}}) => void) | {}): void;
-export function Then(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+export function setWorldConstructor(
+    world:
+        | ((
+              this: World,
+              init: { attach: Function; parameters: { [key: string]: any } }
+          ) => void)
+        | {}
+): void;
+export function Then(
+    pattern: RegExp | string,
+    options: StepDefinitionOptions,
+    code: StepDefinitionCode
+): void;
 export function Then(pattern: RegExp | string, code: StepDefinitionCode): void;
-export function When(pattern: RegExp | string, options: StepDefinitionOptions, code: StepDefinitionCode): void;
+export function When(
+    pattern: RegExp | string,
+    options: StepDefinitionOptions,
+    code: StepDefinitionCode
+): void;
 export function When(pattern: RegExp | string, code: StepDefinitionCode): void;
 
 export interface HookScenarioResult {
@@ -124,7 +171,11 @@ export namespace pickle {
     }
 }
 
-export type HookCode = (this: World, scenario: HookScenarioResult, callback?: CallbackStepDefinition) => void;
+export type HookCode = (
+    this: World,
+    scenario: HookScenarioResult,
+    callback?: CallbackStepDefinition
+) => void;
 export type GlobalHookCode = (callback?: CallbackStepDefinition) => void;
 
 export interface Transform {
@@ -152,7 +203,14 @@ export interface Hooks {
     AfterAll(options: HookOptions | string, code: GlobalHookCode): void;
     setDefaultTimeout(time: number): void;
     // tslint:disable-next-line ban-types
-    setWorldConstructor(world: ((this: World, init: {attach: Function, parameters: {[key: string]: any}}) => void) | {}): void;
+    setWorldConstructor(
+        world:
+            | ((
+                  this: World,
+                  init: { attach: Function; parameters: { [key: string]: any } }
+              ) => void)
+            | {}
+    ): void;
     defineParameterType(transform: Transform): void;
 }
 
@@ -174,11 +232,10 @@ export namespace events {
     }
 
     // tslint:disable-next-line no-empty-interface
-    interface EventPayload {
-    }
+    interface EventPayload {}
 
     interface FeaturesPayload extends EventPayload {
-        getFeatures(): any[];                   // https://github.com/cucumber/cucumber-js/blob/dc698bf5bc10d591fa7adeec5fa21b2d90dc9679/lib/cucumber/runtime.js#L34
+        getFeatures(): any[]; // https://github.com/cucumber/cucumber-js/blob/dc698bf5bc10d591fa7adeec5fa21b2d90dc9679/lib/cucumber/runtime.js#L34
     }
 
     interface FeaturesResultPayload extends EventPayload {
@@ -292,7 +349,9 @@ export interface Feature {
 
 export type EventHook = (event: events.Event, callback?: () => void) => void;
 
-export type SupportCodeConsumer = (stepDefinitions: StepDefinitions & Hooks) => void;
+export type SupportCodeConsumer = (
+    stepDefinitions: StepDefinitions & Hooks
+) => void;
 
 export function defineSupportCode(consumer: SupportCodeConsumer): void;
 
@@ -317,20 +376,14 @@ export class PrettyFormatter extends SummaryFormatter {
     logStepResult(stepResult: any): void;
 }
 
-export class ProgressFormatter extends SummaryFormatter {
-}
+export class ProgressFormatter extends SummaryFormatter {}
 
-export class RerunFormatter extends Formatter {
-}
+export class RerunFormatter extends Formatter {}
 
-export class SnippetsFormatter extends Formatter {
-}
+export class SnippetsFormatter extends Formatter {}
 
-export class UsageFormatter extends Formatter {
-}
+export class UsageFormatter extends Formatter {}
 
-export class UsageJsonFormatter extends Formatter {
-}
+export class UsageJsonFormatter extends Formatter {}
 
-export class JsonFormatter extends Formatter {
-}
+export class JsonFormatter extends Formatter {}

@@ -8,13 +8,13 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node" />
-import http = require('http');
-import https = require('https');
-import Logger = require('bunyan');
-import url = require('url');
-import spdy = require('spdy');
-import stream = require('stream');
-import zlib = require('zlib');
+import http = require("http");
+import https = require("https");
+import Logger = require("bunyan");
+import url = require("url");
+import spdy = require("spdy");
+import stream = require("stream");
+import zlib = require("zlib");
 
 export interface ServerOptions {
     ca?: string | Buffer | ReadonlyArray<string | Buffer>;
@@ -116,7 +116,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    del(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    del(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -125,7 +128,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    get(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    get(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -134,7 +140,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    head(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    head(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -143,7 +152,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    opts(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    opts(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -152,7 +164,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    post(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    post(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -161,7 +176,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    put(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    put(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Mounts a chain on the given path against this HTTP verb
@@ -170,7 +188,10 @@ export interface Server extends http.Server {
      *                                 if options, the URL to handle, at minimum.
      * @returns                the newly created route.
      */
-    patch(opts: string | RegExp | RouteOptions, ...handlers: RequestHandlerType[]): Route | boolean;
+    patch(
+        opts: string | RegExp | RouteOptions,
+        ...handlers: RequestHandlerType[]
+    ): Route | boolean;
 
     /**
      * Minimal port of the functionality offered by Express.js Route Param
@@ -273,13 +294,13 @@ export interface Server extends http.Server {
 
     http2?: boolean;
 
-    ca: ServerOptions['ca'];
+    ca: ServerOptions["ca"];
 
-    certificate: ServerOptions['certificate'];
+    certificate: ServerOptions["certificate"];
 
-    key: ServerOptions['key'];
+    key: ServerOptions["key"];
 
-    passphrase: ServerOptions['passphrase'] | null;
+    passphrase: ServerOptions["passphrase"] | null;
 
     secure?: boolean;
 }
@@ -736,7 +757,11 @@ export interface Response extends http.ServerResponse {
      * @param    [headers]  any add'l headers to set
      * @returns  the response object
      */
-    send(code?: number, body?: any, headers?: { [header: string]: string }): any;
+    send(
+        code?: number,
+        body?: any,
+        headers?: { [header: string]: string }
+    ): any;
 
     /**
      * sends the response object. pass through to internal __send that uses a
@@ -755,7 +780,11 @@ export interface Response extends http.ServerResponse {
      * @param    [headers]  any add'l headers to set
      * @returns  the response object
      */
-    sendRaw(code?: number, body?: any, headers?: { [header: string]: string }): any;
+    sendRaw(
+        code?: number,
+        body?: any,
+        headers?: { [header: string]: string }
+    ): any;
 
     /**
      * sends the response object. pass through to internal __send that skips
@@ -851,7 +880,7 @@ export interface RedirectOptions {
     /**
      * redirect location's query string parameters
      */
-    query?: string|object;
+    query?: string | object;
 
     /**
      * if true, `options.query`
@@ -922,7 +951,11 @@ export interface MountOptions {
     versions?: string[];
 }
 
-export type FindRouteCallback = (err: Error, route?: Route, params?: any) => void;
+export type FindRouteCallback = (
+    err: Error,
+    route?: Route,
+    params?: any
+) => void;
 
 export type RequestHandler = (req: Request, res: Response, next: Next) => any;
 export type RequestHandlerType = RequestHandler | RequestHandler[];
@@ -1014,11 +1047,11 @@ export namespace bunyan {
     }
 
     const serializers: Logger.Serializers & {
-        err: Logger.Serializer,
-        req: Logger.Serializer,
-        res: Logger.Serializer,
-        client_req: Logger.Serializer,
-        client_res: Logger.Serializer
+        err: Logger.Serializer;
+        req: Logger.Serializer;
+        res: Logger.Serializer;
+        client_req: Logger.Serializer;
+        client_res: Logger.Serializer;
     };
 
     /** create a bunyan logger */
@@ -1027,7 +1060,11 @@ export namespace bunyan {
 
 export function createServer(options?: ServerOptions): Server;
 
-export type Formatter = (req: Request, res: Response, body: any) => string | Buffer | null;
+export type Formatter = (
+    req: Request,
+    res: Response,
+    body: any
+) => string | Buffer | null;
 
 export interface Formatters {
     [contentType: string]: Formatter;
@@ -1062,12 +1099,16 @@ export namespace plugins {
         /**
          * Checks req.urls query params with strict key/val format and rejects non-strict requests with status code 400.
          */
-        function strictQueryParams(options?: { message: string }): RequestHandler;
+        function strictQueryParams(options?: {
+            message: string;
+        }): RequestHandler;
 
         /**
          * Regexp to capture curl user-agents
          */
-        function userAgentConnection(options?: { userAgentRegExp: any }): RequestHandler;
+        function userAgentConnection(options?: {
+            userAgentRegExp: any;
+        }): RequestHandler;
     }
 
     // *************** This module includes the following header parser plugins:
@@ -1077,7 +1118,12 @@ export namespace plugins {
      */
     function acceptParser(accepts: string[]): RequestHandler;
 
-    type AuditLoggerContext = (req: Request, res: Response, route: any, error: any) => any;
+    type AuditLoggerContext = (
+        req: Request,
+        res: Response,
+        route: any,
+        error: any
+    ) => any;
 
     interface AuditLoggerOptions {
         /**
@@ -1089,7 +1135,7 @@ export namespace plugins {
          * The event from the server which initiates the
          * log, one of 'pre', 'routed', or 'after'
          */
-        event: 'pre' | 'routed' | 'after';
+        event: "pre" | "routed" | "after";
 
         /**
          * Restify server. If passed in, causes server to emit 'auditlog' event after audit logs are flushed
@@ -1137,7 +1183,9 @@ export namespace plugins {
     /**
      * Runs first handler that matches to the condition
      */
-    function conditionalHandler(candidates: HandlerCandidate | HandlerCandidate[]): RequestHandler;
+    function conditionalHandler(
+        candidates: HandlerCandidate | HandlerCandidate[]
+    ): RequestHandler;
 
     /**
      * Conditional headers (If-*)
@@ -1256,7 +1304,9 @@ export namespace plugins {
      * If req.params already contains a given key, that key is skipped and an
      * error is logged.
      */
-    function urlEncodedBodyParser(options?: UrlEncodedBodyParserOptions): RequestHandler[];
+    function urlEncodedBodyParser(
+        options?: UrlEncodedBodyParserOptions
+    ): RequestHandler[];
 
     interface JsonBodyParserOptions {
         mapParams?: boolean;
@@ -1381,7 +1431,9 @@ export namespace plugins {
         err: any;
     }
 
-    function inflightRequestThrottle(opts: InflightRequestThrottleOptions): RequestHandler;
+    function inflightRequestThrottle(
+        opts: InflightRequestThrottleOptions
+    ): RequestHandler;
 
     interface ServeStatic {
         appendRequestPath?: boolean;
@@ -1422,29 +1474,25 @@ export namespace plugins {
          *  An error if the request had an error
          */
         err: Error,
-
         /**
          *  Object that contains the various metrics that are returned
          */
         metrics: MetricsCallbackOptions,
-
         /**
          * The request obj
          */
         req: Request,
-
         /**
          * The response obj
          */
         res: Response,
-
         /**
          * The route obj that serviced the request
          */
-        route: Route,
+        route: Route
     ) => void;
 
-    type TMetricsCallback = 'close' | 'aborted' | undefined;
+    type TMetricsCallback = "close" | "aborted" | undefined;
 
     interface MetricsCallbackOptions {
         /**
@@ -1511,7 +1559,10 @@ export namespace plugins {
      * }));
      * ```
      */
-    function metrics(opts: { server: Server }, callback: MetricsCallback): (...args: any[]) => void;
+    function metrics(
+        opts: { server: Server },
+        callback: MetricsCallback
+    ): (...args: any[]) => void;
 
     /**
      * Parse the client's request for an OAUTH2 access tokensTable
@@ -1588,5 +1639,7 @@ export namespace pre {
     /**
      * Regexp to capture curl user-agents
      */
-    function userAgentConnection(options?: { userAgentRegExp: any }): RequestHandler;
+    function userAgentConnection(options?: {
+        userAgentRegExp: any;
+    }): RequestHandler;
 }

@@ -9,7 +9,7 @@
         "baseUrl": "../../",
         "typeRoots": ["../../"],
         "paths": {
-          "cosmiconfig": [ "cosmiconfig/v4" ]          
+            "cosmiconfig": ["cosmiconfig/v4"]
         },
         "types": [],
         "noEmit": true,

@@ -5,9 +5,9 @@
 
 /// <reference types="node" />
 
-import stream = require('stream');
+import stream = require("stream");
 
-import { Options } from 'pug';
+import { Options } from "pug";
 
 declare function GulpPug(params?: GulpPug.Params): stream.Transform;
 

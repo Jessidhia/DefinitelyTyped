@@ -14,15 +14,26 @@
 // limitations under the License.
 //
 
-import { Azure } from 'azure-sb';
+import { Azure } from "azure-sb";
 import Dictionary = Azure.ServiceBus.Dictionary;
 
 export namespace Azure.ServiceBus.Results {
     export interface ResourceResult {
-        setName(entry: Dictionary<any> | { _: { id: string } }, nameProperty: string): void;
+        setName(
+            entry: Dictionary<any> | { _: { id: string } },
+            nameProperty: string
+        ): void;
 
-        serialize(resourceName: string, resource: object, properties: string[]): string;
+        serialize(
+            resourceName: string,
+            resource: object,
+            properties: string[]
+        ): string;
 
-        parse(resourceName: string, nameProperty: string, xml: object): object | object[];
+        parse(
+            resourceName: string,
+            nameProperty: string,
+            xml: object
+        ): object | object[];
     }
 }

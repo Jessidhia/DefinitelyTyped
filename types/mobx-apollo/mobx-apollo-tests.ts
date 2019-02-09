@@ -1,5 +1,5 @@
-import { ApolloClient } from 'apollo-client';
-import query from 'mobx-apollo';
+import { ApolloClient } from "apollo-client";
+import query from "mobx-apollo";
 
 const PostsQuery = `
     {

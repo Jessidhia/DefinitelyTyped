@@ -72,13 +72,11 @@ export interface LagLng {
     longitude: number;
 }
 
-export type CallbackFunction<T> = (
-    callbacks: {
-        success: (res: T) => void;
-        fail: () => void;
-        complete: () => void;
-    }
-) => void;
+export type CallbackFunction<T> = (callbacks: {
+    success: (res: T) => void;
+    fail: () => void;
+    complete: () => void;
+}) => void;
 
 export interface MapContext {
     getCenterLocation: CallbackFunction<LagLng>;

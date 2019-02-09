@@ -188,7 +188,9 @@ declare namespace Winreg {
          * @param {array=} cb.items - an array of {@link RegistryItem} objects
          * @returns {Registry} this registry key object
          */
-        values(cb: (err: Error, result: Array<Winreg.RegistryItem>) => void): Registry;
+        values(
+            cb: (err: Error, result: Array<Winreg.RegistryItem>) => void
+        ): Registry;
 
         /**
          * Retrieve all subkeys from this registry key.
@@ -207,7 +209,10 @@ declare namespace Winreg {
          * @param {RegistryItem=} cb.item - the retrieved registry item
          * @returns {Registry} this registry key object
          */
-        get(name: string, cb: (err: Error, result: Winreg.RegistryItem) => void): Registry;
+        get(
+            name: string,
+            cb: (err: Error, result: Winreg.RegistryItem) => void
+        ): Registry;
 
         /**
          * Sets a named value in this registry key, overwriting an already existing value.
@@ -218,7 +223,12 @@ declare namespace Winreg {
          * @param {error=} cb.err - error object or null if successful
          * @returns {Registry} this registry key object
          */
-        set(name: string, type: string, value: string, cb: (err: Error) => void): Registry;
+        set(
+            name: string,
+            type: string,
+            value: string,
+            cb: (err: Error) => void
+        ): Registry;
 
         /**
          * Remove a named value from this registry key. If name is empty, sets the default value of this key.
@@ -281,7 +291,10 @@ declare namespace Winreg {
          * @param {boolean=} cb.exists - true if a value with the given name was found in this key
          * @returns {Registry} this registry key object
          */
-        valueExists(name: string, cb: (err: Error, exists: boolean) => void): Registry;
+        valueExists(
+            name: string,
+            cb: (err: Error, exists: boolean) => void
+        ): Registry;
     }
 
     /**

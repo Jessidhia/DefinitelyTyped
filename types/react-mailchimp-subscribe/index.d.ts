@@ -46,6 +46,6 @@ export interface Props<FormFields> {
     url: string;
 }
 
-export default class MailchimpSubscribe<FormFields = DefaultFormFields> extends Component<
-    Props<FormFields>
-> {}
+export default class MailchimpSubscribe<
+    FormFields = DefaultFormFields
+> extends Component<Props<FormFields>> {}

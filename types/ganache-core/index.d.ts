@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import { Provider } from 'ethereum-protocol';
+import { Provider } from "ethereum-protocol";
 export interface GanacheOpts {
     verbose?: boolean;
     logger?: {

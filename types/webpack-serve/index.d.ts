@@ -8,20 +8,23 @@
 
 /// <reference types="node" />
 
-import * as koa from 'koa';
-import * as webpack from 'webpack';
-import * as webpackDevMiddleware from 'webpack-dev-middleware';
-import * as webpackHotClient from 'webpack-hot-client';
-import * as https from 'https';
-import * as net from 'net';
+import * as koa from "koa";
+import * as webpack from "webpack";
+import * as webpackDevMiddleware from "webpack-dev-middleware";
+import * as webpackHotClient from "webpack-hot-client";
+import * as https from "https";
+import * as net from "net";
 
-declare module 'webpack' {
+declare module "webpack" {
     interface Configuration {
         serve?: WebpackServe.Options;
     }
 }
 
-declare function WebpackServe(argv: object, options: WebpackServe.Options): Promise<WebpackServe.Result>;
+declare function WebpackServe(
+    argv: object,
+    options: WebpackServe.Options
+): Promise<WebpackServe.Result>;
 
 declare namespace WebpackServe {
     interface Result {
@@ -29,7 +32,10 @@ declare namespace WebpackServe {
         app: InitializedKoa;
 
         /** A function which binds a serve event-name to a function */
-        on<K extends keyof EventMap>(type: K, callback: (args: EventMap[K]) => void): void;
+        on<K extends keyof EventMap>(
+            type: K,
+            callback: (args: EventMap[K]) => void
+        ): void;
 
         /** Access to a frozen copy of the internal options object used by the module. */
         options: InitializedOptions;
@@ -37,7 +43,11 @@ declare namespace WebpackServe {
 
     interface Options {
         /** Addon to webpack-serve that allows access to the Koa server instance */
-        add?: (app: InitializedKoa, middleware: Middleware, options: Options) => void;
+        add?: (
+            app: InitializedKoa,
+            middleware: Middleware,
+            options: Options
+        ) => void;
 
         /** Custom instance of a webpack compiler */
         compiler?: webpack.Compiler;
@@ -67,7 +77,7 @@ declare namespace WebpackServe {
         https?: https.ServerOptions;
 
         /** Level of information for webpack-serve to output */
-        logLevel?: 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'silent';
+        logLevel?: "trace" | "debug" | "info" | "warn" | "error" | "silent";
 
         /** Prepend timestamp to each log line */
         logTime?: boolean;
@@ -97,7 +107,7 @@ declare namespace WebpackServe {
     }
 
     interface InitializedOptions extends Options {
-        protocol: 'http' | 'https';
+        protocol: "http" | "https";
     }
 
     interface Middleware {
@@ -108,10 +118,10 @@ declare namespace WebpackServe {
     }
 
     interface EventMap {
-        'build-started': { compiler: webpack.Compiler };
-        'build-finished': { compiler: webpack.Compiler; stats: webpack.Stats };
-        'compiler-error': { compiler: webpack.Compiler; stats: any };
-        'compiler-warning': { compiler: webpack.Compiler; stats: any };
+        "build-started": { compiler: webpack.Compiler };
+        "build-finished": { compiler: webpack.Compiler; stats: webpack.Stats };
+        "compiler-error": { compiler: webpack.Compiler; stats: any };
+        "compiler-warning": { compiler: webpack.Compiler; stats: any };
         listening: { server: net.Server; options: InitializedOptions };
     }
 }

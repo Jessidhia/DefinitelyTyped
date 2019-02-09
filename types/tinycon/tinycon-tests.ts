@@ -1,11 +1,11 @@
-import * as Tinycon from 'tinycon';
+import * as Tinycon from "tinycon";
 
 Tinycon.setOptions({
     abbreviate: false,
-    background: '#549A2F',
-    color: '#ffffff',
+    background: "#549A2F",
+    color: "#ffffff",
     fallback: true,
-    font: '10px arial',
+    font: "10px arial",
     height: 9,
     width: 7
 });

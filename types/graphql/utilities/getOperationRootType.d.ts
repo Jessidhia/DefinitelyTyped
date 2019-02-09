@@ -1,5 +1,8 @@
 import { GraphQLSchema } from "../type/schema";
-import { OperationDefinitionNode, OperationTypeDefinitionNode } from "../language/ast";
+import {
+    OperationDefinitionNode,
+    OperationTypeDefinitionNode
+} from "../language/ast";
 import { GraphQLObjectType } from "../type/definition";
 
 /**

@@ -19,55 +19,55 @@ const routeOptionsAccess: RouteOptionsAccess = {
             scope: false
         },
         {
-            entity: 'user'
+            entity: "user"
         }
     ],
     scope: false,
-    entity: 'user',
-    mode: 'optional',
-    payload: 'optional',
-    strategies: ['', ''],
-    strategy: ''
+    entity: "user",
+    mode: "optional",
+    payload: "optional",
+    strategies: ["", ""],
+    strategy: ""
 };
 
 const corsOption: RouteOptionsCors = {
-    origin: 'ignore',
+    origin: "ignore",
     maxAge: 5000,
-    headers: ['test', 'test', 'test'],
-    additionalHeaders: ['test', 'test', 'test'],
-    exposedHeaders: ['test', 'test', 'test'],
-    additionalExposedHeaders: ['test', 'test', 'test'],
+    headers: ["test", "test", "test"],
+    additionalHeaders: ["test", "test", "test"],
+    exposedHeaders: ["test", "test", "test"],
+    additionalExposedHeaders: ["test", "test", "test"],
     credentials: false
 };
 
 const payloadOptions: RouteOptionsPayload = {
-    allow: 'string',
+    allow: "string",
     compression: {
         test1: {
             test: 2
         }
     },
-    defaultContentType: 'application/json',
+    defaultContentType: "application/json",
     failAction(request, h) {
-        return 'ok: ' + request.path;
+        return "ok: " + request.path;
     },
     maxBytes: 1048576,
     multipart: {
-        output: 'annotated'
+        output: "annotated"
     },
-    output: 'stream',
-    override: '',
-    parse: 'gunzip',
+    output: "stream",
+    override: "",
+    parse: "gunzip",
     timeout: 5000,
-    uploads: 'dir/'
+    uploads: "dir/"
 };
 
 const pre1: Lifecycle.Method = (request, h) => {
-    return 'Hello';
+    return "Hello";
 };
 
 const pre2: Lifecycle.Method = (request, h) => {
-    return 'World';
+    return "World";
 };
 
 const pre3: Lifecycle.Method = (request, h) => {
@@ -77,7 +77,7 @@ const pre3: Lifecycle.Method = (request, h) => {
 const routeOptionsResponse: RouteOptionsResponse = {
     emptyStatusCode: 200,
     failAction(request, h) {
-        return 'ok: ' + request.path;
+        return "ok: " + request.path;
     },
     modify: false,
     options: undefined,
@@ -87,36 +87,36 @@ const routeOptionsResponse: RouteOptionsResponse = {
     status: {
         200: true,
         302: true,
-        404: false,
-    },
+        404: false
+    }
 };
 
 const routeOptionSecure: RouteOptionsSecureObject = {
-    referrer: 'origin',
+    referrer: "origin",
     noSniff: true,
     xframe: "deny",
     hsts: {
         includeSubdomains: true,
         maxAge: 1111,
-        preload: false,
+        preload: false
     },
     noOpen: false,
-    xss: true,
+    xss: true
 };
 
 const routeOptionsValidate: RouteOptionsValidate = {
     errorFields: {},
     failAction(request, h) {
-        return 'ok: ' + request.path;
+        return "ok: " + request.path;
     },
     headers: false,
     options: {},
     params: false,
     payload: true,
-    query: true,
+    query: true
 };
 
-declare module 'hapi' {
+declare module "hapi" {
     interface RouteOptionsApp {
         one: number;
         two: string;
@@ -131,9 +131,9 @@ const routeOptions: RouteOptions = {
     auth: routeOptionsAccess,
     bind: null,
     cache: {
-        privacy: 'default',
+        privacy: "default",
         statuses: [200],
-        otherwise: 'no-cache'
+        otherwise: "no-cache"
     },
     compression: {
         test1: {
@@ -141,40 +141,40 @@ const routeOptions: RouteOptions = {
         }
     },
     cors: corsOption,
-    description: 'description here',
+    description: "description here",
     ext: undefined,
-    files: { relativeTo: '.' },
+    files: { relativeTo: "." },
     handler(request, h) {
-        return 'ok: ' + request.path;
+        return "ok: " + request.path;
     },
-    id: 'test',
+    id: "test",
     isInternal: false,
     json: undefined,
-    jsonp: 'callback',
+    jsonp: "callback",
     log: { collect: false },
-    notes:  ['test', 'test', 'test'],
+    notes: ["test", "test", "test"],
     payload: payloadOptions,
     plugins: {
         plugin1: {},
-        plugin2: {},
+        plugin2: {}
     },
     pre: [
         [
             // m1 and m2 executed in parallel
-            { method: pre1, assign: 'm1' },
-            { method: pre2, assign: 'm2' }
+            { method: pre1, assign: "m1" },
+            { method: pre2, assign: "m2" }
         ],
-        { method: pre3, assign: 'm3' },
+        { method: pre3, assign: "m3" }
     ],
     response: routeOptionsResponse,
     security: false,
     state: {
         parse: true,
         failAction(request, h) {
-            return 'ok: ' + request.path;
-        },
+            return "ok: " + request.path;
+        }
     },
-    tags: ['test', 'test', 'test'],
+    tags: ["test", "test", "test"],
     timeout: {
         server: 10000,
         socket: false
@@ -188,6 +188,6 @@ const server = new Server({
 });
 server.start();
 
-server.events.on('start', () => {
-    console.log('Server started at: ' + server.info.uri);
+server.events.on("start", () => {
+    console.log("Server started at: " + server.info.uri);
 });

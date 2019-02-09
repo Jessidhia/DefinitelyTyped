@@ -6,7 +6,23 @@
 declare namespace morris {
     type AutoAlways = "auto" | "always";
 
-    type Interval = "decade" | "year" | "month" | "week" | "day" | "hour" | "30min" | "15min" | "10min" | "5min" | "minute" | "30sec" | "15sec" | "10sec" | "5sec" | "second";
+    type Interval =
+        | "decade"
+        | "year"
+        | "month"
+        | "week"
+        | "day"
+        | "hour"
+        | "30min"
+        | "15min"
+        | "10min"
+        | "5min"
+        | "minute"
+        | "30sec"
+        | "15sec"
+        | "10sec"
+        | "5sec"
+        | "second";
 
     interface IChartOptions {
         /** The ID of (or a reference to) the element into which to insert the graph. */
@@ -37,7 +53,7 @@ declare namespace morris {
         /** Set the font family of the axis labels (default: sans-serif). */
         gridTextFamily?: string;
         /** Set the font weight of the axis labels (default: normal). */
-        gridTextWeight?: string;      
+        gridTextWeight?: string;
         /** Set the stroke of the grid. (default: 0.5)*/
         gridStrokeWidth?: number;
         /** Set the line color of the grid. (default: #aaa) */
@@ -62,7 +78,12 @@ declare namespace morris {
         /** Set to false to disable line smoothing. */
         smooth?: boolean;
         /** Provide a function on this option to generate custom hover legends. */
-        hoverCallback?: (index: number, options: ILineOptions, content: string, row: any) => string;
+        hoverCallback?: (
+            index: number,
+            options: ILineOptions,
+            content: string,
+            row: any
+        ) => string;
         /** Set to false to skip time/date parsing for X values, instead treating them as an equally-spaced series. */
         parseTime?: boolean;
         /** Set to a string value (eg: '%') to add a label suffix all y-labels. */
@@ -108,7 +129,12 @@ declare namespace morris {
         /** Set to true to draw bars stacked vertically. */
         stacked?: boolean;
         /** Provide a function on this option to generate custom hover legends. */
-        hoverCallback?: (index: number, options: IBarOptions, content: string, row: any) => string;
+        hoverCallback?: (
+            index: number,
+            options: IBarOptions,
+            content: string,
+            row: any
+        ) => string;
     }
 
     interface IDonutData {

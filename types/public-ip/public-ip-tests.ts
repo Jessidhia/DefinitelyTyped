@@ -1,4 +1,4 @@
-import * as publicIp from 'public-ip';
+import * as publicIp from "public-ip";
 
 publicIp.v4().then(ip => {
     ip; // $ExpectType string

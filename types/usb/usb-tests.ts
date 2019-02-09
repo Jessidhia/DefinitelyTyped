@@ -12,7 +12,14 @@ device.__claimInterface(0);
 
 device.open(true);
 device.close();
-const xferDevice: usb.Device = device.controlTransfer(1, 1, 1, 1, 1, (error: usb.LibUSBException, buf: Buffer): usb.Device => new usb.Device());
+const xferDevice: usb.Device = device.controlTransfer(
+    1,
+    1,
+    1,
+    1,
+    1,
+    (error: usb.LibUSBException, buf: Buffer): usb.Device => new usb.Device()
+);
 device.getStringDescriptor(1, (error: string, buf: Buffer) => null);
 device.getBosDescriptor((error: string, descriptor: usb.BosDescriptor) => null);
 device.getCapabilities((error: string, capabilities: usb.Capability[]) => null);
@@ -105,8 +112,11 @@ inEndpoint.direction = "in";
 inEndpoint.transferType = 1;
 inEndpoint.timeout = 1;
 inEndpoint.descriptor = endpointDesc;
-const xferInEndpoint: usb.InEndpoint = inEndpoint.transfer(1, (error: usb.LibUSBException, data: Buffer) => inEndpoint);
-inEndpoint.on("data", (data) => null);
+const xferInEndpoint: usb.InEndpoint = inEndpoint.transfer(
+    1,
+    (error: usb.LibUSBException, data: Buffer) => inEndpoint
+);
+inEndpoint.on("data", data => null);
 inEndpoint.startPoll(1, 1);
 inEndpoint.startPoll(1);
 inEndpoint.startPoll();
@@ -118,9 +128,15 @@ outEndpoint.direction = "out";
 outEndpoint.transferType = 1;
 outEndpoint.timeout = 1;
 outEndpoint.descriptor = endpointDesc;
-inEndpoint.on("error", (err) => null);
-const xferOutEndpoint: usb.OutEndpoint = outEndpoint.transfer(new Buffer([]), (error: usb.LibUSBException) => null);
-outEndpoint.transferWithZLP(new Buffer([]), (error: usb.LibUSBException) => null);
+inEndpoint.on("error", err => null);
+const xferOutEndpoint: usb.OutEndpoint = outEndpoint.transfer(
+    new Buffer([]),
+    (error: usb.LibUSBException) => null
+);
+outEndpoint.transferWithZLP(
+    new Buffer([]),
+    (error: usb.LibUSBException) => null
+);
 
 iface.endpoints = [inEndpoint, outEndpoint];
 
@@ -144,15 +160,22 @@ const CHECK_LIBUSB_CLASS_APPLICATION: number = usb.LIBUSB_CLASS_APPLICATION;
 const CHECK_LIBUSB_CLASS_VENDOR_SPEC: number = usb.LIBUSB_CLASS_VENDOR_SPEC;
 // libusb_standard_request
 const CHECK_LIBUSB_REQUEST_GET_STATUS: number = usb.LIBUSB_REQUEST_GET_STATUS;
-const CHECK_LIBUSB_REQUEST_CLEAR_FEATURE: number = usb.LIBUSB_REQUEST_CLEAR_FEATURE;
+const CHECK_LIBUSB_REQUEST_CLEAR_FEATURE: number =
+    usb.LIBUSB_REQUEST_CLEAR_FEATURE;
 const CHECK_LIBUSB_REQUEST_SET_FEATURE: number = usb.LIBUSB_REQUEST_SET_FEATURE;
 const CHECK_LIBUSB_REQUEST_SET_ADDRESS: number = usb.LIBUSB_REQUEST_SET_ADDRESS;
-const CHECK_LIBUSB_REQUEST_GET_DESCRIPTOR: number = usb.LIBUSB_REQUEST_GET_DESCRIPTOR;
-const CHECK_LIBUSB_REQUEST_SET_DESCRIPTOR: number = usb.LIBUSB_REQUEST_SET_DESCRIPTOR;
-const CHECK_LIBUSB_REQUEST_GET_CONFIGURATION: number = usb.LIBUSB_REQUEST_GET_CONFIGURATION;
-const CHECK_LIBUSB_REQUEST_SET_CONFIGURATION: number = usb.LIBUSB_REQUEST_SET_CONFIGURATION;
-const CHECK_LIBUSB_REQUEST_GET_INTERFACE: number = usb.LIBUSB_REQUEST_GET_INTERFACE;
-const CHECK_LIBUSB_REQUEST_SET_INTERFACE: number = usb.LIBUSB_REQUEST_SET_INTERFACE;
+const CHECK_LIBUSB_REQUEST_GET_DESCRIPTOR: number =
+    usb.LIBUSB_REQUEST_GET_DESCRIPTOR;
+const CHECK_LIBUSB_REQUEST_SET_DESCRIPTOR: number =
+    usb.LIBUSB_REQUEST_SET_DESCRIPTOR;
+const CHECK_LIBUSB_REQUEST_GET_CONFIGURATION: number =
+    usb.LIBUSB_REQUEST_GET_CONFIGURATION;
+const CHECK_LIBUSB_REQUEST_SET_CONFIGURATION: number =
+    usb.LIBUSB_REQUEST_SET_CONFIGURATION;
+const CHECK_LIBUSB_REQUEST_GET_INTERFACE: number =
+    usb.LIBUSB_REQUEST_GET_INTERFACE;
+const CHECK_LIBUSB_REQUEST_SET_INTERFACE: number =
+    usb.LIBUSB_REQUEST_SET_INTERFACE;
 const CHECK_LIBUSB_REQUEST_SYNCH_FRAME: number = usb.LIBUSB_REQUEST_SYNCH_FRAME;
 // libusb_descriptor_type
 const CHECK_LIBUSB_DT_DEVICE: number = usb.LIBUSB_DT_DEVICE;
@@ -168,19 +191,25 @@ const CHECK_LIBUSB_DT_HUB: number = usb.LIBUSB_DT_HUB;
 const CHECK_LIBUSB_ENDPOINT_IN: number = usb.LIBUSB_ENDPOINT_IN;
 const CHECK_LIBUSB_ENDPOINT_OUT: number = usb.LIBUSB_ENDPOINT_OUT;
 // libusb_transfer_type
-const CHECK_LIBUSB_TRANSFER_TYPE_CONTROL: number = usb.LIBUSB_TRANSFER_TYPE_CONTROL;
-const CHECK_LIBUSB_TRANSFER_TYPE_ISOCHRONOUS: number = usb.LIBUSB_TRANSFER_TYPE_ISOCHRONOUS;
+const CHECK_LIBUSB_TRANSFER_TYPE_CONTROL: number =
+    usb.LIBUSB_TRANSFER_TYPE_CONTROL;
+const CHECK_LIBUSB_TRANSFER_TYPE_ISOCHRONOUS: number =
+    usb.LIBUSB_TRANSFER_TYPE_ISOCHRONOUS;
 const CHECK_LIBUSB_TRANSFER_TYPE_BULK: number = usb.LIBUSB_TRANSFER_TYPE_BULK;
-const CHECK_LIBUSB_TRANSFER_TYPE_INTERRUPT: number = usb.LIBUSB_TRANSFER_TYPE_INTERRUPT;
+const CHECK_LIBUSB_TRANSFER_TYPE_INTERRUPT: number =
+    usb.LIBUSB_TRANSFER_TYPE_INTERRUPT;
 // libusb_iso_sync_type
 const CHECK_LIBUSB_ISO_SYNC_TYPE_NONE: number = usb.LIBUSB_ISO_SYNC_TYPE_NONE;
 const CHECK_LIBUSB_ISO_SYNC_TYPE_ASYNC: number = usb.LIBUSB_ISO_SYNC_TYPE_ASYNC;
-const CHECK_LIBUSB_ISO_SYNC_TYPE_ADAPTIVE: number = usb.LIBUSB_ISO_SYNC_TYPE_ADAPTIVE;
+const CHECK_LIBUSB_ISO_SYNC_TYPE_ADAPTIVE: number =
+    usb.LIBUSB_ISO_SYNC_TYPE_ADAPTIVE;
 const CHECK_LIBUSB_ISO_SYNC_TYPE_SYNC: number = usb.LIBUSB_ISO_SYNC_TYPE_SYNC;
 // libusb_iso_usage_type
 const CHECK_LIBUSB_ISO_USAGE_TYPE_DATA: number = usb.LIBUSB_ISO_USAGE_TYPE_DATA;
-const CHECK_LIBUSB_ISO_USAGE_TYPE_FEEDBACK: number = usb.LIBUSB_ISO_USAGE_TYPE_FEEDBACK;
-const CHECK_LIBUSB_ISO_USAGE_TYPE_IMPLICIT: number = usb.LIBUSB_ISO_USAGE_TYPE_IMPLICIT;
+const CHECK_LIBUSB_ISO_USAGE_TYPE_FEEDBACK: number =
+    usb.LIBUSB_ISO_USAGE_TYPE_FEEDBACK;
+const CHECK_LIBUSB_ISO_USAGE_TYPE_IMPLICIT: number =
+    usb.LIBUSB_ISO_USAGE_TYPE_IMPLICIT;
 // libusb_transfer_status
 const CHECK_LIBUSB_TRANSFER_COMPLETED: number = usb.LIBUSB_TRANSFER_COMPLETED;
 const CHECK_LIBUSB_TRANSFER_ERROR: number = usb.LIBUSB_TRANSFER_ERROR;
@@ -190,14 +219,19 @@ const CHECK_LIBUSB_TRANSFER_STALL: number = usb.LIBUSB_TRANSFER_STALL;
 const CHECK_LIBUSB_TRANSFER_NO_DEVICE: number = usb.LIBUSB_TRANSFER_NO_DEVICE;
 const CHECK_LIBUSB_TRANSFER_OVERFLOW: number = usb.LIBUSB_TRANSFER_OVERFLOW;
 // libusb_transfer_flags
-const CHECK_LIBUSB_TRANSFER_SHORT_NOT_OK: number = usb.LIBUSB_TRANSFER_SHORT_NOT_OK;
-const CHECK_LIBUSB_TRANSFER_FREE_BUFFER: number = usb.LIBUSB_TRANSFER_FREE_BUFFER;
-const CHECK_LIBUSB_TRANSFER_FREE_TRANSFER: number = usb.LIBUSB_TRANSFER_FREE_TRANSFER;
+const CHECK_LIBUSB_TRANSFER_SHORT_NOT_OK: number =
+    usb.LIBUSB_TRANSFER_SHORT_NOT_OK;
+const CHECK_LIBUSB_TRANSFER_FREE_BUFFER: number =
+    usb.LIBUSB_TRANSFER_FREE_BUFFER;
+const CHECK_LIBUSB_TRANSFER_FREE_TRANSFER: number =
+    usb.LIBUSB_TRANSFER_FREE_TRANSFER;
 // libusb_request_type
-const CHECK_LIBUSB_REQUEST_TYPE_STANDARD: number = usb.LIBUSB_REQUEST_TYPE_STANDARD;
+const CHECK_LIBUSB_REQUEST_TYPE_STANDARD: number =
+    usb.LIBUSB_REQUEST_TYPE_STANDARD;
 const CHECK_LIBUSB_REQUEST_TYPE_CLASS: number = usb.LIBUSB_REQUEST_TYPE_CLASS;
 const CHECK_LIBUSB_REQUEST_TYPE_VENDOR: number = usb.LIBUSB_REQUEST_TYPE_VENDOR;
-const CHECK_LIBUSB_REQUEST_TYPE_RESERVED: number = usb.LIBUSB_REQUEST_TYPE_RESERVED;
+const CHECK_LIBUSB_REQUEST_TYPE_RESERVED: number =
+    usb.LIBUSB_REQUEST_TYPE_RESERVED;
 // libusb_request_recipient
 const CHECK_LIBUSB_RECIPIENT_DEVICE: number = usb.LIBUSB_RECIPIENT_DEVICE;
 const CHECK_LIBUSB_RECIPIENT_INTERFACE: number = usb.LIBUSB_RECIPIENT_INTERFACE;

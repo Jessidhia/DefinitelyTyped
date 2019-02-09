@@ -27,10 +27,13 @@ declare namespace bonjour {
         start(): void;
         update(): void;
         stop(): void;
-        on(event: 'up' | 'down', listener: (service: Service) => void): this;
-        once(event: 'up' | 'down', listener: (service: Service) => void): this;
-        removeListener(event: 'up' | 'down', listener: (service: Service) => void): this;
-        removeAllListeners(event: 'up' | 'down'): this;
+        on(event: "up" | "down", listener: (service: Service) => void): this;
+        once(event: "up" | "down", listener: (service: Service) => void): this;
+        removeListener(
+            event: "up" | "down",
+            listener: (service: Service) => void
+        ): this;
+        removeAllListeners(event: "up" | "down"): this;
     }
     interface BrowserOptions {
         type?: string;
@@ -45,7 +48,7 @@ declare namespace bonjour {
         port: number;
         type: string;
         subtypes?: string[];
-        protocol?: 'udp'|'tcp';
+        protocol?: "udp" | "tcp";
         txt?: Object;
     }
 
@@ -76,8 +79,14 @@ declare namespace bonjour {
         (opts?: BonjourOptions): Bonjour;
         publish(options: ServiceOptions): Service;
         unpublishAll(cb?: () => void): void;
-        find(options: BrowserOptions, onUp?: (service: Service) => void): Browser;
-        findOne(options: BrowserOptions, cb?: (service: Service) => void): Browser;
+        find(
+            options: BrowserOptions,
+            onUp?: (service: Service) => void
+        ): Browser;
+        findOne(
+            options: BrowserOptions,
+            cb?: (service: Service) => void
+        ): Browser;
         destroy(): void;
     }
 }

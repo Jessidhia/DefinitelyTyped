@@ -43,21 +43,29 @@ declare namespace Vorpal {
         _cancel: Cancel | undefined;
         alias(command: string): this;
         parse(value: (command: string, args: Args) => string): this;
-        option(option: string, description: string, autocomplete?: ReadonlyArray<string>): this;
+        option(
+            option: string,
+            description: string,
+            autocomplete?: ReadonlyArray<string>
+        ): this;
         types(types: { string?: ReadonlyArray<string> }): this;
         hidden(): this;
         remove(): this;
         help(value: (args: Args) => void): this;
         validate(value: (args: Args) => boolean | string): this;
-        autocomplete(values: ReadonlyArray<string> | { data: () => Promise<ReadonlyArray<string>> }): this;
+        autocomplete(
+            values:
+                | ReadonlyArray<string>
+                | { data: () => Promise<ReadonlyArray<string>> }
+        ): this;
         action(action: Action): this;
         cancel(cancel: Cancel): this;
         allowUnknownOptions(): this;
     }
 
-    class Catch extends Command { }
+    class Catch extends Command {}
 
-    class Extension { }
+    class Extension {}
 
     class UI {
         delimiter(text?: string): string;

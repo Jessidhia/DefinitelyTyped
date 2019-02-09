@@ -1,71 +1,79 @@
 // promise api tests
-import amqp = require('amqplib');
+import amqp = require("amqplib");
 
-const msg = 'Hello World';
+const msg = "Hello World";
 
 // test promise api
-amqp.connect('amqp://localhost')
-    .then(connection => {
-        return connection.createChannel()
-            .tap(channel => channel.checkQueue('myQueue'))
-            .then(channel => channel.sendToQueue('myQueue', new Buffer(msg)))
-            .finally(() => connection.close());
-    });
+amqp.connect("amqp://localhost").then(connection => {
+    return connection
+        .createChannel()
+        .tap(channel => channel.checkQueue("myQueue"))
+        .then(channel => channel.sendToQueue("myQueue", new Buffer(msg)))
+        .finally(() => connection.close());
+});
 
-amqp.connect('amqp://localhost')
-    .then(connection => {
-        return connection.createChannel()
-            .tap(channel => channel.checkQueue('myQueue'))
-            .then(channel => {
-                return channel.consume('myQueue', newMsg => {
-                    if (newMsg != null) {
-                        // test promise api properties
-                        if (newMsg.properties.contentType === 'application/json') {
-                            console.log('New Message: ' + newMsg.content.toString());
-                        }
+amqp.connect("amqp://localhost").then(connection => {
+    return connection
+        .createChannel()
+        .tap(channel => channel.checkQueue("myQueue"))
+        .then(channel => {
+            return channel.consume("myQueue", newMsg => {
+                if (newMsg != null) {
+                    // test promise api properties
+                    if (newMsg.properties.contentType === "application/json") {
+                        console.log(
+                            "New Message: " + newMsg.content.toString()
+                        );
                     }
-                });
-            })
-            .finally(() => connection.close());
-    });
+                }
+            });
+        })
+        .finally(() => connection.close());
+});
 
 let amqpAssertExchangeOptions: amqp.Options.AssertExchange;
 let anqpAssertExchangeReplies: amqp.Replies.AssertExchange;
 
 // callback api tests
-import amqpcb = require('amqplib/callback_api');
+import amqpcb = require("amqplib/callback_api");
 
-amqpcb.connect('amqp://localhost', (err, connection) => {
+amqpcb.connect("amqp://localhost", (err, connection) => {
     if (!err) {
         connection.createChannel((err, channel) => {
-          if (!err) {
-              channel.assertQueue('myQueue', {}, (err, ok) => {
-                  if (!err) {
-                      channel.sendToQueue('myQueue', new Buffer(msg));
-                  }
-              });
-          }
+            if (!err) {
+                channel.assertQueue("myQueue", {}, (err, ok) => {
+                    if (!err) {
+                        channel.sendToQueue("myQueue", new Buffer(msg));
+                    }
+                });
+            }
         });
     }
 });
 
-amqpcb.connect('amqp://localhost', (err, connection) => {
+amqpcb.connect("amqp://localhost", (err, connection) => {
     if (!err) {
         connection.createChannel((err, channel) => {
-          if (!err) {
-              channel.assertQueue('myQueue', {}, (err, ok) => {
-                  if (!err) {
-                      channel.consume('myQueue', newMsg => {
-                          if (newMsg != null) {
-                              // test callback api properties
-                              if (newMsg.properties.contentType === 'application/json') {
-                                  console.log('New Message: ' + newMsg.content.toString());
-                              }
-                          }
-                      });
-                  }
-              });
-          }
+            if (!err) {
+                channel.assertQueue("myQueue", {}, (err, ok) => {
+                    if (!err) {
+                        channel.consume("myQueue", newMsg => {
+                            if (newMsg != null) {
+                                // test callback api properties
+                                if (
+                                    newMsg.properties.contentType ===
+                                    "application/json"
+                                ) {
+                                    console.log(
+                                        "New Message: " +
+                                            newMsg.content.toString()
+                                    );
+                                }
+                            }
+                        });
+                    }
+                });
+            }
         });
     }
 });

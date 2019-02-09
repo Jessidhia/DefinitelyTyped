@@ -1,4 +1,4 @@
-import pForever = require('p-forever');
+import pForever = require("p-forever");
 
 // $ExpectType Promise<void>
 pForever(i => {

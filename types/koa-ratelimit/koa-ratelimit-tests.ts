@@ -8,9 +8,11 @@ const redisClient = new RedisClient({
     host: "localhost"
 });
 
-app.use(rateLimit({
-    db: redisClient
-}));
+app.use(
+    rateLimit({
+        db: redisClient
+    })
+);
 
 app.use(async context => {
     context.body = "Hello";

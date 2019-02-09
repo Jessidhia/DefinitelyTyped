@@ -1,8 +1,8 @@
-import * as L from 'leaflet';
-import 'leaflet.markercluster.layersupport';
+import * as L from "leaflet";
+import "leaflet.markercluster.layersupport";
 
 const polylineOptions: L.PolylineOptions = {};
-const icon: L.Icon = L.icon({ iconUrl: 'foo' });
+const icon: L.Icon = L.icon({ iconUrl: "foo" });
 
 let markerClusterGroupOptions: L.MarkerClusterGroupLayerSupportOptions;
 markerClusterGroupOptions = {
@@ -27,7 +27,7 @@ markerClusterGroupOptions = {
     },
     chunkedLoading: false,
     chunkDelay: 100,
-    singleAddRemoveBufferDuration: 200,
+    singleAddRemoveBufferDuration: 200
 };
 
 markerClusterGroupOptions.iconCreateFunction = (cluster: L.MarkerCluster) => {
@@ -36,14 +36,14 @@ markerClusterGroupOptions.iconCreateFunction = (cluster: L.MarkerCluster) => {
 
 let mcgLayerSupportGroup: L.MarkerClusterGroup.LayerSupport;
 mcgLayerSupportGroup = L.markerClusterGroup.layerSupport();
-mcgLayerSupportGroup = L.markerClusterGroup.layerSupport(markerClusterGroupOptions);
+mcgLayerSupportGroup = L.markerClusterGroup.layerSupport(
+    markerClusterGroupOptions
+);
 
-let map = L.map('foo');
+let map = L.map("foo");
 
 mcgLayerSupportGroup = mcgLayerSupportGroup.addTo(map);
-map = map
-    .addLayer(mcgLayerSupportGroup)
-    .removeLayer(mcgLayerSupportGroup);
+map = map.addLayer(mcgLayerSupportGroup).removeLayer(mcgLayerSupportGroup);
 
 const latLng: L.LatLng = L.latLng(10, 10);
 

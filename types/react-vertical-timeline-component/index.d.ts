@@ -9,7 +9,7 @@ import * as React from "react";
 export interface VerticalTimelineProps {
     animate?: boolean;
     className?: string;
-    layout?: '1-column' | '2-columns';
+    layout?: "1-column" | "2-columns";
 }
 
 export interface VerticalTimelineElementProps {
@@ -24,5 +24,7 @@ export interface VerticalTimelineElementProps {
     visibilitySensorProps?: any;
 }
 
-export class VerticalTimeline extends React.Component<VerticalTimelineProps> { }
-export class VerticalTimelineElement extends React.Component<VerticalTimelineElementProps> { }
+export class VerticalTimeline extends React.Component<VerticalTimelineProps> {}
+export class VerticalTimelineElement extends React.Component<
+    VerticalTimelineElementProps
+> {}

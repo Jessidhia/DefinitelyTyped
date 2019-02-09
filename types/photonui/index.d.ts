@@ -9,19 +9,30 @@ declare namespace photonui {
         function escapeHtml(string: string): void;
         function uuid4(): string;
         function cleanNode(node: HTMLElement): void;
-        function getAbsolutePosition(element: HTMLElement|string): { x: number; y: number };
-        function numberToCssSize(value: number, defaultValue?: number, nullValue?: string): string;
+        function getAbsolutePosition(
+            element: HTMLElement | string
+        ): { x: number; y: number };
+        function numberToCssSize(
+            value: number,
+            defaultValue?: number,
+            nullValue?: string
+        ): string;
     }
 
     class Base {
         constructor(params?: { [key: string]: any });
         destroy(): void;
-        registerCallback(id: string, wEvent: string, callback: Function, thisArg: any): void;
+        registerCallback(
+            id: string,
+            wEvent: string,
+            callback: Function,
+            thisArg: any
+        ): void;
         removeCallback(id: string): void;
     }
 
     class Widget extends Base {
-        absolutePosition: { x: number; y: number; }; // readonly
+        absolutePosition: { x: number; y: number }; // readonly
         contextMenu: PopupWindow;
         contextMenuName: string;
         html: HTMLElement; // readonly
@@ -41,11 +52,11 @@ declare namespace photonui {
         removeClass(className: string): void;
 
         static getWidget(name: string): Widget;
-        static domInsert(widget: Widget, element?: HTMLElement|string): void;
+        static domInsert(widget: Widget, element?: HTMLElement | string): void;
     }
 
     // Methods
-    function domInsert(widget: Widget, element?: HTMLElement|string): void;
+    function domInsert(widget: Widget, element?: HTMLElement | string): void;
     function getWidget(name: string): Widget;
 
     //Widgets
@@ -63,20 +74,34 @@ declare namespace photonui {
 
         addCatalogs(catalogs: { [key: string]: any }): void;
         guessUserLanguage(): string;
-        gettext(string: string, replacements?: { [key: string]: string }): string;
-        lazyGettext(string: string, replacements?: { [key: string]: string }): string;
+        gettext(
+            string: string,
+            replacements?: { [key: string]: string }
+        ): string;
+        lazyGettext(
+            string: string,
+            replacements?: { [key: string]: string }
+        ): string;
         enableDomScan(enable: boolean): void;
         updateDomTranslation(): void;
     }
 
     class AccelManager extends Base {
-        addAccel(id: string, keys: string, callback: Function, safe?: boolean): void;
+        addAccel(
+            id: string,
+            keys: string,
+            callback: Function,
+            safe?: boolean
+        ): void;
         removeAccel(id: string): void;
     }
 
     class MouseManager extends Base {
         constructor(params?: { [key: string]: any });
-        constructor(element?: Widget|HTMLElement, params?: { [key: string]: any });
+        constructor(
+            element?: Widget | HTMLElement,
+            params?: { [key: string]: any }
+        );
 
         element: HTMLElement;
         threshold: number;
@@ -132,7 +157,7 @@ declare namespace photonui {
 
         addIcon(iconName: string, x: number, y: number): void;
         removeIcon(iconName: string): void;
-        getIconPosition(iconName: string): { x: number; y: number; };
+        getIconPosition(iconName: string): { x: number; y: number };
         getIconCSS(iconName: string): string;
 
         static getSpriteSheet(name: string): SpriteSheet;
@@ -157,7 +182,7 @@ declare namespace photonui {
         constructor(params?: { [key: string]: any });
         constructor(name: string, params?: { [key: string]: any });
 
-        forInput: Field|CheckBox;
+        forInput: Field | CheckBox;
         forInputName: string;
         text: string;
         textAlign: string;
@@ -432,4 +457,7 @@ declare namespace photonui {
     }
 }
 
-declare function _(string: string, replacements?: { [key: string]: string }): string; // alias of Translation.lazyGettext()
+declare function _(
+    string: string,
+    replacements?: { [key: string]: string }
+): string; // alias of Translation.lazyGettext()

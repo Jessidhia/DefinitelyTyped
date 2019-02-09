@@ -9,7 +9,7 @@
  * Roads module
  */
 export type Keys = string;
-export type Option = {[k in Keys]: any};
+export type Option = { [k in Keys]: any };
 
 /**
  * @param validOrigins An array of origin urls that can send requests to this API
@@ -65,7 +65,15 @@ export class Road {
      * @param fn Will be called any time a request is made on the object.
      * @see <a href="https://github.com/dancespiele/roads#roadusefunction-fn" target="_blank">Road.use(Function fn)</a>
      */
-    use(fn: (method: string, url: any, body: any, headers: Headers, next: () => any) => any): any;
+    use(
+        fn: (
+            method: string,
+            url: any,
+            body: any,
+            headers: Headers,
+            next: () => any
+        ) => any
+    ): any;
 
     /**
      * Locate and execute the resource method associated with the request parameters
@@ -191,7 +199,11 @@ export namespace middleware {
          * @param path Paht to receive the request
          * @param fn Handle the request received
          */
-        addRoute(method: string, path: string, fn: (url: any, body: any, headers: Headers, next: () => any) => any): any;
+        addRoute(
+            method: string,
+            path: string,
+            fn: (url: any, body: any, headers: Headers, next: () => any) => any
+        ): any;
 
         /**
          * Receive file request
@@ -228,7 +240,11 @@ export class PJAX {
      * @param container_element The element that will be filled with your roads output
      * @param window The pages window object to help set page title and other items
      */
-    constructor(road: Road, container_element?: Element | null, window?: Window | null);
+    constructor(
+        road: Road,
+        container_element?: Element | null,
+        window?: Window | null
+    );
 
     /**
      * Adds middleware to the assigned road whcih will adds setTitle to the request context. This allows you to easily update the page title
@@ -258,4 +274,8 @@ export class PJAX {
  * @param output_file The output file that will be accessible by your browser
  * @param options A set of options that can influence the build process. See all fields below
  */
-export function build(input_file: string, output_file: string, options?: Options): any;
+export function build(
+    input_file: string,
+    output_file: string,
+    options?: Options
+): any;

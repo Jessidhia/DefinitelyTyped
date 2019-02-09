@@ -5,14 +5,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 import {
     ViewStyle,
     TextStyle,
     TextInputProps,
     TouchableWithoutFeedbackProps,
-    ViewProps,
-} from 'react-native';
+    ViewProps
+} from "react-native";
 
 ///////////////////////////////
 // COMPONENT STYLES
@@ -94,14 +94,25 @@ export interface CardImageStyle {
 }
 
 export interface CardTitleStyle {
-    position?: 'absolute' | 'relative';
+    position?: "absolute" | "relative";
     top?: number;
     left?: number;
     backgroundColor?: string;
     padding?: number;
     fontSize?: number;
     color?: string;
-    fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+    fontWeight?:
+        | "normal"
+        | "bold"
+        | "100"
+        | "200"
+        | "300"
+        | "400"
+        | "500"
+        | "600"
+        | "700"
+        | "800"
+        | "900";
 }
 
 export interface CardContentStyle {
@@ -110,14 +121,14 @@ export interface CardContentStyle {
 }
 
 export interface CardActionStyle {
-    borderStyle?: 'solid' | 'dotted' | 'dashed';
+    borderStyle?: "solid" | "dotted" | "dashed";
     borderTopColor?: string;
     borderTopWidth?: number;
     padding?: number;
 }
 
 export interface CardMenuStyle {
-    position?: 'absolute' | 'relative';
+    position?: "absolute" | "relative";
     top?: number;
     right?: number;
     backgroundColor?: string;
@@ -170,12 +181,23 @@ export namespace MKPropTypes {
     interface font {
         color?: string;
         fontSize?: number;
-        fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
-        fontStyle?: 'normal' | 'italic';
+        fontWeight?:
+            | "normal"
+            | "bold"
+            | "100"
+            | "200"
+            | "300"
+            | "400"
+            | "500"
+            | "600"
+            | "700"
+            | "800"
+            | "900";
+        fontStyle?: "normal" | "italic";
         fontFamily?: string;
     }
 
-    type rippleLocation = 'tapLocation' | 'center';
+    type rippleLocation = "tapLocation" | "center";
 }
 
 export interface TickProperties extends ViewProps {
@@ -250,13 +272,16 @@ export interface MKColorStatic {
     palette_yellow_600: string;
 }
 
-export interface MKButtonProperties extends
-    TouchableWithoutFeedbackProps, MKRippleProperties {
-        fab?: boolean;
-        enabled?: boolean;
+export interface MKButtonProperties
+    extends TouchableWithoutFeedbackProps,
+        MKRippleProperties {
+    fab?: boolean;
+    enabled?: boolean;
 }
 
-export interface MKTextFieldProperties extends TextInputProps, FloatingLabelProperties {
+export interface MKTextFieldProperties
+    extends TextInputProps,
+        FloatingLabelProperties {
     text?: string;
     password?: boolean;
     underlineEnabled?: boolean;
@@ -284,7 +309,9 @@ export interface MKSwitchProperties extends TouchableWithoutFeedbackProps {
     onCheckedChange?(checked: boolean): void;
 }
 
-export interface MKIconToggleProperties extends MKRippleProperties, TouchableWithoutFeedbackProps {
+export interface MKIconToggleProperties
+    extends MKRippleProperties,
+        TouchableWithoutFeedbackProps {
     checked?: boolean;
     onCheckedChange?(checked: boolean): void;
 }
@@ -336,8 +363,8 @@ export interface MKRangeSliderProperties extends BaseSlider {
     minValue?: number;
     maxValue?: number;
     onStart?(): void;
-    onConfirm?(curValue: { min: number, max: number }): void;
-    onChange?(curValue: { min: number, max: number }): void;
+    onConfirm?(curValue: { min: number; max: number }): void;
+    onChange?(curValue: { min: number; max: number }): void;
 }
 
 export interface MKSpinnerProperties extends ViewProps {
@@ -346,7 +373,9 @@ export interface MKSpinnerProperties extends ViewProps {
     spinnerAniDuration?: number;
 }
 
-export interface MKRadioButtonProperties extends MKRippleProperties, TouchableWithoutFeedbackProps {
+export interface MKRadioButtonProperties
+    extends MKRippleProperties,
+        TouchableWithoutFeedbackProps {
     borderOnColor?: string;
     borderOffColor?: string;
     fillColor?: string;
@@ -356,7 +385,10 @@ export interface MKRadioButtonProperties extends MKRippleProperties, TouchableWi
     onCheckedChange?(opts: { checked: boolean }): void;
 }
 
-export interface MKCheckboxProperties extends MKRippleProperties, TickProperties, TouchableWithoutFeedbackProps {
+export interface MKCheckboxProperties
+    extends MKRippleProperties,
+        TickProperties,
+        TouchableWithoutFeedbackProps {
     borderOnColor?: string;
     borderOffColor?: string;
     fillColor?: string;
@@ -392,7 +424,9 @@ export class MKRipple extends MKComponent<MKRippleProperties, any> {}
 export class MKProgress extends MKComponent<MKProgressProperties, any> {}
 
 export namespace MKProgress {
-    class Indeterminate extends React.Component<IndeterminateProgressProperties> {}
+    class Indeterminate extends React.Component<
+        IndeterminateProgressProperties
+    > {}
 }
 
 export class MKSlider extends MKComponent<MKSliderProperties, any> {}

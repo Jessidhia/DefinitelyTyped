@@ -51,12 +51,18 @@ export default interface MDCTopAppBarAdapter {
     /**
      * Registers an event handler on the navigation icon element for a given event.
      */
-    registerNavigationIconInteractionHandler(type: string, handler: EventListener): void;
+    registerNavigationIconInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Deregisters an event handler on the navigation icon element for a given event.
      */
-    deregisterNavigationIconInteractionHandler(type: string, handler: EventListener): void;
+    deregisterNavigationIconInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Emits an event when the navigation icon is clicked.

@@ -28,7 +28,7 @@ export class Base {
 }
 
 export class AbstractPlate extends Base {
-    constructor(selector: string|Element, options?: ChartOptions);
+    constructor(selector: string | Element, options?: ChartOptions);
     static getDefaultOptions(options?: ChartOptions): ChartOptions;
     getNode(): Element;
     getSelection(): d3.Selection<d3.BaseType, any, d3.BaseType, any>;
@@ -54,9 +54,13 @@ export class SvgPlate extends AbstractPlate {
 }
 
 export class AbstractChart extends Base {
-    constructor(selector: string|Element, options?: ChartOptions);
+    constructor(selector: string | Element, options?: ChartOptions);
     static getCustomEventNames(): string[];
-    addPlate(name: string, plate: AbstractPlate, doNotAppend: boolean): AbstractPlate;
+    addPlate(
+        name: string,
+        plate: AbstractPlate,
+        doNotAppend: boolean
+    ): AbstractPlate;
     addPlate(name: string, plate: AbstractPlate): this;
     removePlate(name: string): this;
     setupDispatcher(customEventNames?: string[]): this;
@@ -69,7 +73,7 @@ export class AbstractChart extends Base {
     options(): ChartOptions;
     hasData(): boolean;
     hasNonZeroArea(): boolean;
-    fit(fitOptions?: FitOptions, watchOptions?: boolean|WatchOptions): this;
+    fit(fitOptions?: FitOptions, watchOptions?: boolean | WatchOptions): this;
     stopFitWatcher(): this;
     on(name: string, listener: () => void): this;
     off(name: string): this;
@@ -95,17 +99,21 @@ export interface ChartOptions {
 // from https://github.com/kristw/slimfit
 export interface FitOptions {
     mode?: string;
-    width?: string|number;
-    height?: string|number;
+    width?: string | number;
+    height?: string | number;
     ratio?: number;
-    maxWidth?: string|number;
-    maxHeight?: string|number;
+    maxWidth?: string | number;
+    maxHeight?: string | number;
 }
 
 // from https://github.com/kristw/slimfit
 export interface WatchOptions {
     mode?: string;
-    target?: Element|[number, number]|{width: number, height: number}|null;
+    target?:
+        | Element
+        | [number, number]
+        | { width: number; height: number }
+        | null;
     interval?: number;
 }
 
@@ -114,11 +122,11 @@ export class SvgChart extends AbstractChart {
     rootG: d3.Selection<d3.BaseType, any, d3.BaseType, any>;
     layers: LayerOrganizer;
     plate: SvgPlate;
-    constructor(selector: string|Element, options?: ChartOptions);
+    constructor(selector: string | Element, options?: ChartOptions);
 }
 
 export class CanvasChart extends AbstractChart {
-    constructor(selector: string|Element, options?: ChartOptions);
+    constructor(selector: string | Element, options?: ChartOptions);
     static getDefaultOptions(): ChartOptions;
     getContext2d(): CanvasRenderingContext2D;
     clear(): this;
@@ -129,23 +137,33 @@ export class HybridChart extends CanvasChart {
     rootG: d3.Selection<d3.BaseType, any, d3.BaseType, any>;
     layers: LayerOrganizer;
     plate: SvgPlate;
-    constructor(selector: string|Element, options?: ChartOptions);
+    constructor(selector: string | Element, options?: ChartOptions);
     static getDefaultOptions(): ChartOptions;
 }
 
 export class LayerOrganizer {
-    constructor(container: d3.Selection<d3.BaseType, any, d3.BaseType, any>, defaultTag?: string);
-    create(layerNames: string|string[]|LayerConfig|LayerConfig[]): d3.Selection<d3.BaseType, any, d3.BaseType, any>|Array<d3.Selection<d3.BaseType, any, d3.BaseType, any>>;
+    constructor(
+        container: d3.Selection<d3.BaseType, any, d3.BaseType, any>,
+        defaultTag?: string
+    );
+    create(
+        layerNames: string | string[] | LayerConfig | LayerConfig[]
+    ):
+        | d3.Selection<d3.BaseType, any, d3.BaseType, any>
+        | Array<d3.Selection<d3.BaseType, any, d3.BaseType, any>>;
     get(name: string): d3.Selection<d3.BaseType, any, d3.BaseType, any>;
     has(name: string): boolean;
 }
 
 export interface LayerConfig {
-    [layerName: string]: string|string[]|LayerConfig|LayerConfig[];
+    [layerName: string]: string | string[] | LayerConfig | LayerConfig[];
 }
 
 export namespace helper {
-    function debounce(fn: (...args: any[]) => void, delay: number): (...args: any[]) => void;
+    function debounce(
+        fn: (...args: any[]) => void,
+        delay: number
+    ): (...args: any[]) => void;
     function deepExtend(dest: any, ...args: any[]): any;
     function extend(dest: any, ...args: any[]): any;
     function functor(value: any): (...args: any[]) => any;
@@ -153,5 +171,8 @@ export namespace helper {
     function isFunction(value: any): boolean;
     function isObject(value: any): boolean;
     function kebabCase(str: string): string;
-    function throttle(fn: (...args: any[]) => void, delay: number): (...args: any[]) => void;
+    function throttle(
+        fn: (...args: any[]) => void,
+        delay: number
+    ): (...args: any[]) => void;
 }

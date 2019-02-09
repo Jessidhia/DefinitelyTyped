@@ -6,9 +6,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { BackendFactory } from 'dnd-core';
+import { BackendFactory } from "dnd-core";
 
-export default function createTouchBackend(option?: TouchBackendOptions): BackendFactory;
+export default function createTouchBackend(
+    option?: TouchBackendOptions
+): BackendFactory;
 
 export interface TouchBackendOptions {
     /**
@@ -46,5 +48,5 @@ export interface TouchBackendOptions {
      * the user to scroll in a particular direction instead of dragging. Degrees move clockwise, 0/360 pointing to the
      * left. Default: undefined
      */
-    scrollAngleRanges?: ReadonlyArray<{ start?: number, end?: number }>;
+    scrollAngleRanges?: ReadonlyArray<{ start?: number; end?: number }>;
 }

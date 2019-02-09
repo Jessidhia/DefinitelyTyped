@@ -1,5 +1,5 @@
-import Resolver = require('./Resolver');
-import { Dictionary, Concord } from './concord';
+import Resolver = require("./Resolver");
+import { Dictionary, Concord } from "./concord";
 
 export interface DescriptionFileData {
     concord?: Concord;
@@ -7,9 +7,9 @@ export interface DescriptionFileData {
 }
 
 export interface LoadDescriptionFileResult {
-    content: DescriptionFileData
-    directory: string
-    path: string
+    content: DescriptionFileData;
+    directory: string;
+    path: string;
 }
 
 declare function loadDescriptionFile(

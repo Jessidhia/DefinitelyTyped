@@ -32,5 +32,8 @@ declare namespace serializeJavascript {
  * @param options optional object
  * @returns serialized data
  */
-declare function serializeJavascript(input: any, options?: serializeJavascript.SerializeJSOptions): string;
+declare function serializeJavascript(
+    input: any,
+    options?: serializeJavascript.SerializeJSOptions
+): string;
 export = serializeJavascript;

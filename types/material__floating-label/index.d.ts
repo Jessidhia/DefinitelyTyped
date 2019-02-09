@@ -21,13 +21,16 @@
  * limitations under the License.
  */
 
-import MDCComponent from 'material__base/component';
-import MDCFloatingLabelFoundation from './foundation';
-import MDCFloatingLabelAdapter from './adapter';
+import MDCComponent from "material__base/component";
+import MDCFloatingLabelFoundation from "./foundation";
+import MDCFloatingLabelAdapter from "./adapter";
 
 export { MDCFloatingLabelFoundation, MDCFloatingLabelAdapter };
 
-export class MDCFloatingLabel extends MDCComponent<MDCFloatingLabelAdapter, MDCFloatingLabelFoundation> {
+export class MDCFloatingLabel extends MDCComponent<
+    MDCFloatingLabelAdapter,
+    MDCFloatingLabelFoundation
+> {
     static attachTo(root: Element): MDCFloatingLabel;
 
     /**

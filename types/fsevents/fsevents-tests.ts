@@ -1,14 +1,14 @@
-import fsevents = require('fsevents');
+import fsevents = require("fsevents");
 const watcher = fsevents(__dirname);
 
-watcher.on('fsevent', (path, flags, id) => {});
-watcher.on('change', (path, info) => {});
+watcher.on("fsevent", (path, flags, id) => {});
+watcher.on("change", (path, info) => {});
 // $ExpectType Watcher
 watcher.start();
 // $ExpectType Watcher
 watcher.stop();
 
-const nativeWatcher = new fsevents.FSEvents('', (path, flags, id) => {});
+const nativeWatcher = new fsevents.FSEvents("", (path, flags, id) => {});
 // $ExpectType FSEvents
 nativeWatcher.start();
 // $ExpectType FSEvents

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ServerConfig } from 'next';
+import { ServerConfig } from "next";
 
 declare function withTypescript(
     /** @default {} */

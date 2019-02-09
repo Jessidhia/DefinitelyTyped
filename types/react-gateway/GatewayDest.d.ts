@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 declare namespace GatewayDest {
     interface GatewayDestProps {
@@ -7,5 +7,7 @@ declare namespace GatewayDest {
         component?: string | React.ComponentClass;
     }
 }
-declare class GatewayDest extends React.Component<GatewayDest.GatewayDestProps> { }
+declare class GatewayDest extends React.Component<
+    GatewayDest.GatewayDestProps
+> {}
 export = GatewayDest;

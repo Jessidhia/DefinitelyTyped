@@ -6,19 +6,11 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "typeRoots": ["../"],
+        "lib": ["es6", "dom"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "fm-websync-tests.ts"
-    ]
+    "files": ["index.d.ts", "fm-websync-tests.ts"]
 }

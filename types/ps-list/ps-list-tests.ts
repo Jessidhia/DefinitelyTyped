@@ -1,4 +1,4 @@
-import psList = require('ps-list');
+import psList = require("ps-list");
 
 (async () => {
     const processes: psList.ProcessDescriptor[] = await psList();

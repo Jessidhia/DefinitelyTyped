@@ -9,6 +9,8 @@ interface GulpJsonValidatorOptions {
     allowDuplicatedKeys?: boolean;
 }
 
-declare function gulpJsonValidator(option?: GulpJsonValidatorOptions): NodeJS.ReadWriteStream;
+declare function gulpJsonValidator(
+    option?: GulpJsonValidatorOptions
+): NodeJS.ReadWriteStream;
 
 export = gulpJsonValidator;

@@ -1,16 +1,17 @@
-
-
 import less = require("less");
 
-less.render(".class { width: (1 + 1) }").then((output) => {
+less.render(".class { width: (1 + 1) }").then(output => {
     console.log(output.css);
 });
 
-less.render("fail").then((output) => {
-    throw new Error("promise should have been rejected");
-}, (error: Less.RenderError) => {
-    console.log("rejected as expected on line number " + error.line);
-});
+less.render("fail").then(
+    output => {
+        throw new Error("promise should have been rejected");
+    },
+    (error: Less.RenderError) => {
+        console.log("rejected as expected on line number " + error.line);
+    }
+);
 
 var preProcessor: Less.PreProcessor = {
     process: (src, extra) => {
@@ -30,9 +31,9 @@ var myPlugin: Less.Plugin = {
     }
 };
 
-/** Reference to: 
-  * https://github.com/less/less.js/blob/master/lib/less/default-options.js
-  */
+/** Reference to:
+ * https://github.com/less/less.js/blob/master/lib/less/default-options.js
+ */
 var options: Less.Options = {
     plugins: [myPlugin],
     /** Tells less to generate a sourcemap. */
@@ -54,16 +55,16 @@ var options: Less.Options = {
     /* Allow Imports from Insecure HTTPS Hosts */
     insecure: true,
     /** Add a path to every generated import and url in your css */
-    rootpath: '',
-    /** 
-      * How to process math
-      * 0 always           - eagerly try to solve all operations
-      * 1 parens-division  - require parens for division "/"
-      * 2 parens | strict  - require parens for all operations
-      * 3 strict-legacy    - legacy strict behavior (super-strict)
-      * https://github.com/less/less.js/blob/master/lib/less/constants.js#L2
-      * https://github.com/less/less.js/blob/master/lib/less/utils.js#L54
-    */
+    rootpath: "",
+    /**
+     * How to process math
+     * 0 always           - eagerly try to solve all operations
+     * 1 parens-division  - require parens for division "/"
+     * 2 parens | strict  - require parens for all operations
+     * 3 strict-legacy    - legacy strict behavior (super-strict)
+     * https://github.com/less/less.js/blob/master/lib/less/constants.js#L2
+     * https://github.com/less/less.js/blob/master/lib/less/utils.js#L54
+     */
     math: 0,
     /* Guess at the output unit when it does maths. */
     strictUnits: false,
@@ -76,20 +77,24 @@ var options: Less.Options = {
 less.render("h1 { background: red; }", options);
 
 less.modifyVars({
-  '@buttonFace': '#5B83AD',
-  '@buttonText': '#D9EEF2'
-}).then((output) => {
-    console.log('Successfully modified vars.');
+    "@buttonFace": "#5B83AD",
+    "@buttonText": "#D9EEF2"
+}).then(output => {
+    console.log("Successfully modified vars.");
 });
 
 less.refreshStyles();
 
 less.watch();
 
-less.refresh(true, {
-    '@buttonFace': '#5B83AD'
-}, true).then((output) => {
-    console.log('successfully refreshed less files');
+less.refresh(
+    true,
+    {
+        "@buttonFace": "#5B83AD"
+    },
+    true
+).then(output => {
+    console.log("successfully refreshed less files");
 });
 
 if (less.importManager) {

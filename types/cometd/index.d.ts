@@ -243,7 +243,11 @@ export class CometD {
      * @param subscribeCallback a function to be invoked when the subscription is acknowledged
      * @return the subscription handle to be passed to `unsubscribe`
      */
-    subscribe(channel: string, callback: Callback, subscribeCallback?: Listener): SubscriptionHandle;
+    subscribe(
+        channel: string,
+        callback: Callback,
+        subscribeCallback?: Listener
+    ): SubscriptionHandle;
 
     /**
      * Subscribes to the given channel, performing the given callback in the given scope when a
@@ -264,7 +268,12 @@ export class CometD {
      * @param subscribeCallback a function to be invoked when the subscription is acknowledged
      * @return the subscription handle to be passed to `unsubscribe`
      */
-    subscribe(channel: string, callback: Callback, subscribeProps: object, subscribeCallback?: Listener): SubscriptionHandle;
+    subscribe(
+        channel: string,
+        callback: Callback,
+        subscribeProps: object,
+        subscribeCallback?: Listener
+    ): SubscriptionHandle;
 
     /**
      * Unsubscribes the subscription obtained with a call to `subscribe`.
@@ -272,7 +281,10 @@ export class CometD {
      * @param subscription the subscription to unsubscribe.
      * @param unsubscribeCallback a function to be invoked when the unsubscription is acknowledged
      */
-    unsubscribe(subscription: SubscriptionHandle, unsubscribeCallback?: Listener): void;
+    unsubscribe(
+        subscription: SubscriptionHandle,
+        unsubscribeCallback?: Listener
+    ): void;
 
     /**
      * Unsubscribes the subscription obtained with a call to `subscribe`.
@@ -281,12 +293,19 @@ export class CometD {
      * @param unsubscribeProps an object to be merged with the unsubscribe message
      * @param unsubscribeCallback a function to be invoked when the unsubscription is acknowledged
      */
-    unsubscribe(subscription: SubscriptionHandle, unsubscribeProps: object, unsubscribeCallback?: Listener): void;
+    unsubscribe(
+        subscription: SubscriptionHandle,
+        unsubscribeProps: object,
+        unsubscribeCallback?: Listener
+    ): void;
 
     /**
      * Resubscribes as necessary in case of a re-handshake.
      */
-    resubscribe(subscription: SubscriptionHandle, subscribeProps?: object): SubscriptionHandle;
+    resubscribe(
+        subscription: SubscriptionHandle,
+        subscribeProps?: object
+    ): SubscriptionHandle;
 
     /**
      * Removes all subscriptions added via `subscribe`, but does not remove the listeners added via
@@ -313,7 +332,12 @@ export class CometD {
      * @param publishCallback a function to be invoked when the publish is acknowledged by the
      * server
      */
-    publish(channel: string, content: object, publishProps: object, publishCallback?: Listener): void;
+    publish(
+        channel: string,
+        content: object,
+        publishProps: object,
+        publishCallback?: Listener
+    ): void;
 
     /**
      * Publishes a message with binary data on the given channel.
@@ -472,5 +496,10 @@ export class CometD {
      * @param isListener whether it was a listener
      * @param message the message received from the Bayeux server
      */
-    onListenerException: (exception: any, subscriptionHandle: SubscriptionHandle, isListener: boolean, message: string) => void;
+    onListenerException: (
+        exception: any,
+        subscriptionHandle: SubscriptionHandle,
+        isListener: boolean,
+        message: string
+    ) => void;
 }

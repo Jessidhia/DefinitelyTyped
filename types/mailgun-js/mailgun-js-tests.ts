@@ -1,5 +1,5 @@
 import * as mailgunFactory from "mailgun-js";
-import mailgunFactory2 = require('mailgun-js');
+import mailgunFactory2 = require("mailgun-js");
 
 const mailgun = new mailgunFactory({
     apiKey: "auth.api_key",
@@ -34,19 +34,35 @@ const exampleSendData: mailgunFactory.messages.SendData = {
         "my_custom_file_3.png",
         Buffer.from("plain text")
     ]
-  };
+};
 
 mailgun.messages().send(exampleSendData, (err, body) => {});
 
-let validationResultPromise: Promise<mailgunFactory.validation.ValidateResponse>;
+let validationResultPromise: Promise<
+    mailgunFactory.validation.ValidateResponse
+>;
 validationResultPromise = mailgun.validate("foo@mailgun.net");
 validationResultPromise = mailgun.validate("foo@mailgun.net", true);
-validationResultPromise = mailgun.validate("foo@mailgun.net", true, { mailbox_verification: true });
-validationResultPromise = mailgun.validate("foo@mailgun.net", { mailbox_verification: false, api_key: "..." });
+validationResultPromise = mailgun.validate("foo@mailgun.net", true, {
+    mailbox_verification: true
+});
+validationResultPromise = mailgun.validate("foo@mailgun.net", {
+    mailbox_verification: false,
+    api_key: "..."
+});
 mailgun.validate("foo@mailgun.net", (error, body) => {});
 mailgun.validate("foo@mailgun.net", true, (error, body) => {});
-mailgun.validate("foo@mailgun.net", true, { mailbox_verification: true }, (error, body) => {});
-mailgun.validate("foo@mailgun.net", { mailbox_verification: false, api_key: "..." }, (error, body) => {});
+mailgun.validate(
+    "foo@mailgun.net",
+    true,
+    { mailbox_verification: true },
+    (error, body) => {}
+);
+mailgun.validate(
+    "foo@mailgun.net",
+    { mailbox_verification: false, api_key: "..." },
+    (error, body) => {}
+);
 
 const validationResult6: mailgunFactory.validation.ValidateResponse = {
     address: "foo@mailgun.net",

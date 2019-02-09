@@ -16,7 +16,10 @@ import { Readable, Stream } from "stream";
  * @param options  request options object @see RequestOptions
  * @see {@link https://github.com/hapijs/shot/blob/master/API.md#shotinjectdispatchfunc-options-callback}
  */
-export function inject(dispatchFunc: Listener, options: RequestOptions): Promise<ResponseObject>;
+export function inject(
+    dispatchFunc: Listener,
+    options: RequestOptions
+): Promise<ResponseObject>;
 
 /**
  * Checks if given object obj is a Shot Request object.
@@ -30,7 +33,10 @@ export function isInjection(obj: any): boolean;
  *    * res - a simulated response object. Inherits from node's Http.ServerResponse.
  * @see {@link https://github.com/hapijs/shot/blob/master/API.md#shotinjectdispatchfunc-options-callback}
  */
-export type Listener = (req: SimulatedRequestObject, res: SimulatedResponseObject) => void;
+export type Listener = (
+    req: SimulatedRequestObject,
+    res: SimulatedResponseObject
+) => void;
 
 /**
  * a simulated request object. Inherits from Stream.Readable.
@@ -103,5 +109,5 @@ export interface ResponseObject {
     /** the raw payload as a Buffer. */
     rawPayload: Buffer;
     /** an object containing the response trailers. */
-    trailers: {[index: string]: any};
+    trailers: { [index: string]: any };
 }

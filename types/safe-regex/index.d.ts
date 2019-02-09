@@ -4,4 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export = safe_regex;
-declare function safe_regex(re: string | RegExp, opts?: { limit?: number }): boolean;
+declare function safe_regex(
+    re: string | RegExp,
+    opts?: { limit?: number }
+): boolean;

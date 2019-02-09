@@ -20,7 +20,11 @@ declare namespace a {
         setCustomContext(context: any): boolean;
         setTag(name: string, value: string): any;
         addTags(tags: any): any;
-        captureError(error: Error | string | object, options?: object, callback?: (err?: any) => any): void;
+        captureError(
+            error: Error | string | object,
+            options?: object,
+            callback?: (err?: any) => any
+        ): void;
         startTransaction(name?: string, type?: string): any;
         endTransaction(result?: any): any;
         setTransactionName(name: string): any;

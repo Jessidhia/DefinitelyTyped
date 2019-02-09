@@ -55,7 +55,9 @@ declare namespace finder {
         engines?: { [type: string]: string };
         license?: string;
         repository?: { type: string; url: string };
-        bugs?: { url: string; email?: string } | { url?: string; email: string };
+        bugs?:
+            | { url: string; email?: string }
+            | { url?: string; email: string };
         homepage?: string;
         scripts?: { [k: string]: string };
         readme?: string;

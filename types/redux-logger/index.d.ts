@@ -6,7 +6,7 @@
 
 export as namespace ReduxLogger;
 
-import * as Redux from 'redux';
+import * as Redux from "redux";
 
 export const logger: Redux.Middleware;
 
@@ -50,7 +50,11 @@ export interface ReduxLoggerOptions {
     duration?: boolean;
     timestamp?: boolean;
     colors?: ColorsObject | false;
-    titleFormatter?(formattedAction: any, formattedTime: string, took: number): string;
+    titleFormatter?(
+        formattedAction: any,
+        formattedTime: string,
+        took: number
+    ): string;
     logger?: any;
     logErrors?: boolean;
     collapsed?: boolean | LoggerPredicate;

@@ -1,4 +1,3 @@
-import exitHook = require('exit-hook');
+import exitHook = require("exit-hook");
 
-exitHook(() => {
-});
+exitHook(() => {});

@@ -8,11 +8,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import {
-  ComponentClass,
-  StatelessComponent,
-  ReactElement
-} from "react";
+import { ComponentClass, StatelessComponent, ReactElement } from "react";
 
 export type FieldValue = any;
 
@@ -30,15 +26,15 @@ export interface DataShape {
 }
 
 export type FormErrors<FormData extends DataShape> = {
-    [P in keyof FormData]?: ReactElement<any> | string | { _error?: string };
+    [P in keyof FormData]?: ReactElement<any> | string | { _error?: string }
 };
 
 export type FormWarnings<FormData extends DataShape> = {
-    [P in keyof FormData]?: ReactElement<any> | string | { _warning?: string };
+    [P in keyof FormData]?: ReactElement<any> | string | { _warning?: string }
 };
 
 export type FormMeta<FormData extends DataShape> = {
-    [P in keyof FormData]?: FieldState;
+    [P in keyof FormData]?: FieldState
 };
 
 /**

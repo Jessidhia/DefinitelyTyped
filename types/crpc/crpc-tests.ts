@@ -1,3 +1,3 @@
-import crpc from 'crpc';
+import crpc from "crpc";
 
-const client = crpc('https://example.com/');
+const client = crpc("https://example.com/");

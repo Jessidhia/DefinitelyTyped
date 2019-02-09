@@ -1,4 +1,4 @@
-import stringify = require('fast-json-stable-stringify');
+import stringify = require("fast-json-stable-stringify");
 
 const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
 
@@ -15,6 +15,6 @@ stringify(obj, {
         a; // $ExpectType CompareDescriptor
         b; // $ExpectType CompareDescriptor
         return a.key < b.key ? 1 : -1;
-    },
+    }
 });
 stringify(obj, { cycles: true }); // $ExpectType string

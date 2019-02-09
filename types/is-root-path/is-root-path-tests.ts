@@ -1,7 +1,7 @@
-import isRootPath = require('is-root-path');
+import isRootPath = require("is-root-path");
 
-isRootPath('/');
+isRootPath("/");
 // => true
 
-isRootPath('/Users');
+isRootPath("/Users");
 // => false

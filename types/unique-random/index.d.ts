@@ -3,7 +3,6 @@
 // Definitions by: Yuki Kokubun <https://github.com/Kuniwak>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare function uniqueRandom(min: number, max: number): () => number;
 
 export = uniqueRandom;

@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Firebase Rules API v1 */
     function load(name: "firebaserules", version: "v1"): PromiseLike<void>;
-    function load(name: "firebaserules", version: "v1", callback: () => any): void;
+    function load(
+        name: "firebaserules",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const projects: firebaserules.ProjectsResource;
 

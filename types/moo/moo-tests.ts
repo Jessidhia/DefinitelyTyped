@@ -1,10 +1,10 @@
-import * as moo from 'moo';
+import * as moo from "moo";
 
 let lexer = moo.compile({
-    lparen: '(',
+    lparen: "(",
     word: /[a-z]+/,
-    rparen: ')',
-    keyword: ['while', 'if', 'else', 'moo', 'cows']
+    rparen: ")",
+    keyword: ["while", "if", "else", "moo", "cows"]
 });
 
 lexer = moo.compile({
@@ -12,17 +12,17 @@ lexer = moo.compile({
     comment: /\/\/.*?$/,
     number: /0|[1-9][0-9]*/,
     string: /"(?:\\["\\]|[^\n"\\])*"/,
-    lparen: '(',
-    rparen: ')',
-    keyword: ['while', 'if', 'else', 'moo', 'cows'],
-    NL: { match: /\n/, lineBreaks: true },
+    lparen: "(",
+    rparen: ")",
+    keyword: ["while", "if", "else", "moo", "cows"],
+    NL: { match: /\n/, lineBreaks: true }
 });
 
 lexer = moo.compile({
     IDEN: {
         match: /[a-zA-Z]+/,
         type: moo.keywords({
-            KW: ['while', 'if', 'else', 'moo', 'reloacows']
+            KW: ["while", "if", "else", "moo", "reloacows"]
         })
     },
     SPACE: { match: /\s+/, lineBreaks: true }
@@ -30,29 +30,30 @@ lexer = moo.compile({
 
 lexer = moo.compile({
     name: {
-        match: /[a-zA-Z]+/, type: moo.keywords({
-            'kw-class': 'class',
-            'kw-def': 'def',
-            'kw-if': 'if',
+        match: /[a-zA-Z]+/,
+        type: moo.keywords({
+            "kw-class": "class",
+            "kw-def": "def",
+            "kw-if": "if"
         })
     }
 });
 
 lexer = moo.states({
     main: {
-        strstart: { match: '`', push: 'lit' },
+        strstart: { match: "`", push: "lit" },
         ident: /\w+/,
-        lbrace: { match: '{', push: 'main' },
-        rbrace: { match: '}', pop: 1 },
-        colon: ':',
-        space: { match: /\s+/, lineBreaks: true },
+        lbrace: { match: "{", push: "main" },
+        rbrace: { match: "}", pop: 1 },
+        colon: ":",
+        space: { match: /\s+/, lineBreaks: true }
     },
     lit: {
-        interp: { match: '${', push: 'main' }, // tslint:disable-line no-invalid-template-strings
+        interp: { match: "${", push: "main" }, // tslint:disable-line no-invalid-template-strings
         escape: /\\./,
-        strend: { match: '`', pop: 1 },
-        const: { match: /(?:[^$`]|\$(?!\{))+/, lineBreaks: true },
-    },
+        strend: { match: "`", pop: 1 },
+        const: { match: /(?:[^$`]|\$(?!\{))+/, lineBreaks: true }
+    }
 });
 
 moo.compile({
@@ -70,19 +71,27 @@ for (const here of lexer) {
 
 const tokens: moo.Token[] = Array.from(lexer);
 
-lexer.reset('some line\n');
+lexer.reset("some line\n");
 const info = lexer.save();
 lexer.next();
 lexer.next();
-lexer.reset('a different line\n', info);
+lexer.reset("a different line\n", info);
 lexer.next();
 
 // Transform: https://github.com/no-context/moo#transform
 moo.compile({
     STRING: [
         { match: /"""[^]*?"""/, lineBreaks: true, value: x => x.slice(3, -3) },
-        { match: /"(?:\\["\\rn]|[^"\\])*?"/, lineBreaks: true, value: x => x.slice(1, -1) },
-        { match: /'(?:\\['\\rn]|[^'\\])*?'/, lineBreaks: true, value: x => x.slice(1, -1) },
-    ],
+        {
+            match: /"(?:\\["\\rn]|[^"\\])*?"/,
+            lineBreaks: true,
+            value: x => x.slice(1, -1)
+        },
+        {
+            match: /'(?:\\['\\rn]|[^'\\])*?'/,
+            lineBreaks: true,
+            value: x => x.slice(1, -1)
+        }
+    ]
     // ...
 });

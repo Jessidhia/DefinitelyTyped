@@ -1,4 +1,4 @@
-import onExit = require('signal-exit');
+import onExit = require("signal-exit");
 
 // $ExpectType () => void
 onExit((code, signal) => {

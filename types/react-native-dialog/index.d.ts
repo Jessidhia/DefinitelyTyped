@@ -56,13 +56,9 @@ interface DescriptionProps {
 }
 
 export namespace Dialog {
-    class Button extends PureComponent<
-        ButtonProps & ViewProps & TextProps
-    > {}
+    class Button extends PureComponent<ButtonProps & ViewProps & TextProps> {}
     class Container extends PureComponent<ContainerProps & ViewProps> {}
-    class Title extends PureComponent<
-        TitleProps & ViewProps & TextProps
-    > {}
+    class Title extends PureComponent<TitleProps & ViewProps & TextProps> {}
     class Input<T> extends PureComponent<
         InputProps<T> & ViewProps & TextInputProps
     > {}

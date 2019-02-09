@@ -4,11 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 
 /**
  * Enforces HTTPS connections on any incoming requests.
  */
-declare function enforceHTTPS(): (req: Request, res: Response, next: NextFunction) => void;
+declare function enforceHTTPS(): (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => void;
 
 export = enforceHTTPS;

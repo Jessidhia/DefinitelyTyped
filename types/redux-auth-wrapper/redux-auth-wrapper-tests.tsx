@@ -5,8 +5,8 @@ import { push } from "react-router-redux";
 import { LocationDescriptorObject } from "history";
 
 import {
-    connectedRouterRedirect  as H3connectedRouterRedirect,
-    connectedReduxRedirect  as H3connectedReduxRedirect,
+    connectedRouterRedirect as H3connectedRouterRedirect,
+    connectedReduxRedirect as H3connectedReduxRedirect,
     createOnEnter
 } from "redux-auth-wrapper/history3/redirect";
 import H3locationHelperBuilder from "redux-auth-wrapper/history3/locationHelper";
@@ -28,10 +28,16 @@ interface TestComponentProps {
     foo: string;
 }
 
-const stringSelector = (state: TestReduxState, ownProps: TestComponentProps) => "fizz";
-const boolSelector = (state: TestReduxState, ownProps: TestComponentProps) => true;
-const stringStateSelector = (state: TestReduxState, nextState: TestReduxState) => "buzz";
-const boolStateSelector = (state: TestReduxState, nextState: TestReduxState) => true;
+const stringSelector = (state: TestReduxState, ownProps: TestComponentProps) =>
+    "fizz";
+const boolSelector = (state: TestReduxState, ownProps: TestComponentProps) =>
+    true;
+const stringStateSelector = (
+    state: TestReduxState,
+    nextState: TestReduxState
+) => "buzz";
+const boolStateSelector = (state: TestReduxState, nextState: TestReduxState) =>
+    true;
 
 /* History 3 */
 
@@ -44,13 +50,7 @@ H3connectedRouterRedirect({
     allowRedirectBack: true,
     redirectQueryParamName: "redirect"
 })(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating,
-        redirect,
-        redirectPath
-    }) => null
+    ({ foo, isAuthenticated, isAuthenticating, redirect, redirectPath }) => null
 );
 
 H3connectedReduxRedirect({
@@ -61,14 +61,7 @@ H3connectedReduxRedirect({
     wrapperDisplayName: "Auth",
     allowRedirectBack: boolSelector,
     redirectQueryParamName: "redirect"
-})(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating,
-        redirectPath
-    }) => null
-);
+})(({ foo, isAuthenticated, isAuthenticating, redirectPath }) => null);
 
 const store = createStore(() => ({}));
 
@@ -79,14 +72,14 @@ const enter = createOnEnter({
     allowRedirectBack: true,
     redirectQueryParamName: "redirect"
 });
-enter(store, { foo : "bar" }, (location: LocationDescriptorObject) => {});
+enter(store, { foo: "bar" }, (location: LocationDescriptorObject) => {});
 
 const H3helper = H3locationHelperBuilder<TestComponentProps>({
     redirectQueryParamName: "redirect",
-    locationSelector: ({ foo }) => ({ pathname : "foo" })
+    locationSelector: ({ foo }) => ({ pathname: "foo" })
 });
-H3helper.getRedirectQueryParam({ foo : "bar" });
-H3helper.createRedirectLoc({ foo : "bar" }, "redirect");
+H3helper.getRedirectQueryParam({ foo: "bar" });
+H3helper.createRedirectLoc({ foo: "bar" }, "redirect");
 
 /* History 4 */
 
@@ -99,13 +92,7 @@ connectedRouterRedirect({
     allowRedirectBack: true,
     redirectQueryParamName: "redirect"
 })(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating,
-        redirect,
-        redirectPath
-    }) => null
+    ({ foo, isAuthenticated, isAuthenticating, redirect, redirectPath }) => null
 );
 
 class Loading extends Component {
@@ -123,21 +110,14 @@ connectedReduxRedirect({
     wrapperDisplayName: "Auth",
     allowRedirectBack: true,
     redirectQueryParamName: "redirect"
-})(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating,
-        redirectPath
-    }) => null
-);
+})(({ foo, isAuthenticated, isAuthenticating, redirectPath }) => null);
 
 const helper = locationHelperBuilder<TestComponentProps>({
     redirectQueryParamName: "redirect",
-    locationSelector: ({ foo }) => ({ pathname : "foo" })
+    locationSelector: ({ foo }) => ({ pathname: "foo" })
 });
-helper.getRedirectQueryParam({ foo : "bar" });
-helper.createRedirectLoc({ foo : "bar" }, "redirect");
+helper.getRedirectQueryParam({ foo: "bar" });
+helper.createRedirectLoc({ foo: "bar" }, "redirect");
 
 /* Other Wrappers */
 
@@ -145,13 +125,7 @@ authWrapper<TestComponentProps>({
     AuthenticatingComponent: "div",
     FailureComponent: "div",
     wrapperDisplayName: "Auth"
-})(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating
-    }) => null
-);
+})(({ foo, isAuthenticated, isAuthenticating }) => null);
 
 connectedAuthWrapper({
     authenticatedSelector: boolSelector,
@@ -159,10 +133,4 @@ connectedAuthWrapper({
     AuthenticatingComponent: "div",
     FailureComponent: "div",
     wrapperDisplayName: "Auth"
-})(
-    ({
-        foo,
-        isAuthenticated,
-        isAuthenticating
-    }) => null
-);
+})(({ foo, isAuthenticated, isAuthenticating }) => null);

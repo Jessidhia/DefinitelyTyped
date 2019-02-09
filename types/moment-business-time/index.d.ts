@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /*~ On this line, import the module which this module adds to */
-import * as moment from 'moment';
+import * as moment from "moment";
 
 /*~ Here, declare the same module as the one you imported above */
-declare module 'moment' {
+declare module "moment" {
     interface Moment {
         nextWorkingDay: () => Moment;
         nextWorkingTime: () => Moment;
@@ -16,9 +16,15 @@ declare module 'moment' {
         lastWorkingTime: () => Moment;
 
         addWorkingTime: (...args: Array<number | unitOfTime.Base>) => Moment;
-        subtractWorkingTime: (...args: Array<number | unitOfTime.Base>) => Moment;
+        subtractWorkingTime: (
+            ...args: Array<number | unitOfTime.Base>
+        ) => Moment;
 
-        workingDiff: (moment: Moment, unit: unitOfTime.Base, fractions?: boolean) => Moment;
+        workingDiff: (
+            moment: Moment,
+            unit: unitOfTime.Base,
+            fractions?: boolean
+        ) => Moment;
 
         isWorkingDay: () => boolean;
         isWorkingTime: () => boolean;

@@ -47,11 +47,17 @@ export default interface MDCChipAdapter {
     /**
      * Registers an event listener on the trailing icon element for a given event.
      */
-    registerTrailingIconInteractionHandler(evtType: string, handler: EventListener): void;
+    registerTrailingIconInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
     /**
      * Deregisters an event listener on the trailing icon element for a given event.
      */
-    deregisterTrailingIconInteractionHandler(evtType: string, handler: EventListener): void;
+    deregisterTrailingIconInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
     /**
      * Emits a custom "MDCChip:interaction" event denoting the chip has been
      * interacted with (typically on click or keydown).

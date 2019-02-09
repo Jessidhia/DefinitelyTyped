@@ -1,10 +1,8 @@
-
-
 /**
  * @summary Test for "electronicFormat" method.
  */
 function testElectronicFormat() {
-    var iban: string = 'BE68539007547034';
+    var iban: string = "BE68539007547034";
     var format: string = IBAN.electronicFormat(iban);
 }
 
@@ -12,8 +10,8 @@ function testElectronicFormat() {
  * @summary Test for "fromBBAN" method.
  */
 function testFromBBAN() {
-    var countryCode: string = 'fr';
-    var bban: string = 'BBBBBGGGGGCCCCCCCCCCCKK';
+    var countryCode: string = "fr";
+    var bban: string = "BBBBBGGGGGCCCCCCCCCCCKK";
     var iban: string = IBAN.fromBBAN(countryCode, bban);
 }
 
@@ -21,7 +19,7 @@ function testFromBBAN() {
  * @summary Test for "isValid" method.
  */
 function testIsValid() {
-    var iban: string = 'BE68539007547034';
+    var iban: string = "BE68539007547034";
     var valid: boolean = IBAN.isValid(iban);
 }
 
@@ -29,8 +27,8 @@ function testIsValid() {
  * @summary Test for "isValidBBAN" method.
  */
 function testIsValidBBAN() {
-    var countryCode: string = 'fr';
-    var bban: string = 'BBBBBGGGGGCCCCCCCCCCCKK';
+    var countryCode: string = "fr";
+    var bban: string = "BBBBBGGGGGCCCCCCCCCCCKK";
     var valid: boolean = IBAN.isValidBBAN(countryCode, bban);
 }
 
@@ -38,8 +36,8 @@ function testIsValidBBAN() {
  * @summary Test for "printFormat" method.
  */
 function testPrintFormat() {
-    var iban: string = 'BE68539007547034';
-    var separator: string = ' ';
+    var iban: string = "BE68539007547034";
+    var separator: string = " ";
     var format: string = IBAN.printFormat(iban, separator);
 }
 
@@ -47,7 +45,7 @@ function testPrintFormat() {
  * @summary Test for "toBBAN" method.
  */
 function testToBBAN() {
-    var iban: string = 'BE68539007547034';
-    var separator: string = '-';
+    var iban: string = "BE68539007547034";
+    var separator: string = "-";
     var bban: string = IBAN.toBBAN(iban, separator);
 }

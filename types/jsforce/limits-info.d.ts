@@ -8,13 +8,13 @@ export interface PermissionSets extends Limit {
 }
 
 export interface DailyApiRequests extends Limit {
-    'Chatter Desktop': Limit;
-    'Chatter Mobile for BlackBerry': Limit;
-    'Salesforce Files': Limit;
-    'Salesforce Marketing Cloud': Limit;
-    'Salesforce for Android': Limit;
-    'Salesforce for iOS': Limit;
-    'SalesforceA': Limit;
+    "Chatter Desktop": Limit;
+    "Chatter Mobile for BlackBerry": Limit;
+    "Salesforce Files": Limit;
+    "Salesforce Marketing Cloud": Limit;
+    "Salesforce for Android": Limit;
+    "Salesforce for iOS": Limit;
+    SalesforceA: Limit;
 }
 
 export interface LimitsInfo {

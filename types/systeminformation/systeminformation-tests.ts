@@ -15,15 +15,14 @@ systeminformation.battery(); // $ExpectType Promise<BatteryData>
 systeminformation.graphics(); // $ExpectType Promise<GraphicsData>
 systeminformation.osInfo(); // $ExpectType Promise<OsData>
 
-systeminformation.versions()
-    .then((versions) => {
-        versions.kernel; // $ExpectType string
-        versions.node; // $ExpectType string
-        versions.npm; // $ExpectType string
-        versions.openssl; // $ExpectType string
-        versions.pm2; // $ExpectType string
-        versions.v8; // $ExpectType string
-    });
+systeminformation.versions().then(versions => {
+    versions.kernel; // $ExpectType string
+    versions.node; // $ExpectType string
+    versions.npm; // $ExpectType string
+    versions.openssl; // $ExpectType string
+    versions.pm2; // $ExpectType string
+    versions.v8; // $ExpectType string
+});
 
 systeminformation.shell(); // $ExpectType Promise<string>
 systeminformation.users(); // $ExpectType Promise<UserData[]>
@@ -35,7 +34,7 @@ systeminformation.networkInterfaces(); // $ExpectType Promise<NetInterfacesData[
 systeminformation.networkInterfaceDefault(); // $ExpectType Promise<string>
 systeminformation.networkStats(); // $ExpectType Promise<NetStatsData>
 systeminformation.networkConnections(); // $ExpectType Promise<NetConnectionsData[]>
-systeminformation.inetChecksite('http://www.google.at'); // $ExpectType Promise<NetChecksiteData>
+systeminformation.inetChecksite("http://www.google.at"); // $ExpectType Promise<NetChecksiteData>
 systeminformation.currentLoad(); // $ExpectType Promise<CurrentLoadData>
 systeminformation.fullLoad(); // $ExpectType Promise<number>
 systeminformation.processes(); // $ExpectType Promise<ProcessesData>

@@ -1,5 +1,5 @@
-import isStream = require('is-stream');
-import * as stream from 'stream';
+import isStream = require("is-stream");
+import * as stream from "stream";
 
 const anyStream: any = new stream.Stream();
 

@@ -14,14 +14,20 @@ declare module "worker_threads" {
 
     class MessagePort extends EventEmitter {
         close(): void;
-        postMessage(value: any, transferList?: Array<ArrayBuffer | MessagePort>): void;
+        postMessage(
+            value: any,
+            transferList?: Array<ArrayBuffer | MessagePort>
+        ): void;
         ref(): void;
         unref(): void;
         start(): void;
 
         addListener(event: "close", listener: () => void): this;
         addListener(event: "message", listener: (value: any) => void): this;
-        addListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        addListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         emit(event: "close"): boolean;
         emit(event: "message", value: any): boolean;
@@ -37,15 +43,27 @@ declare module "worker_threads" {
 
         prependListener(event: "close", listener: () => void): this;
         prependListener(event: "message", listener: (value: any) => void): this;
-        prependListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         prependOnceListener(event: "close", listener: () => void): this;
-        prependOnceListener(event: "message", listener: (value: any) => void): this;
-        prependOnceListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        prependOnceListener(
+            event: "message",
+            listener: (value: any) => void
+        ): this;
+        prependOnceListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         removeListener(event: "close", listener: () => void): this;
         removeListener(event: "message", listener: (value: any) => void): this;
-        removeListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        removeListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         off(event: "close", listener: () => void): this;
         off(event: "message", listener: (value: any) => void): this;
@@ -68,7 +86,10 @@ declare module "worker_threads" {
 
         constructor(filename: string, options?: WorkerOptions);
 
-        postMessage(value: any, transferList?: Array<ArrayBuffer | MessagePort>): void;
+        postMessage(
+            value: any,
+            transferList?: Array<ArrayBuffer | MessagePort>
+        ): void;
         ref(): void;
         unref(): void;
         terminate(callback?: (err: any, exitCode: number) => void): void;
@@ -77,7 +98,10 @@ declare module "worker_threads" {
         addListener(event: "exit", listener: (exitCode: number) => void): this;
         addListener(event: "message", listener: (value: any) => void): this;
         addListener(event: "online", listener: () => void): this;
-        addListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        addListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         emit(event: "error", err: any): boolean;
         emit(event: "exit", exitCode: number): boolean;
@@ -98,22 +122,43 @@ declare module "worker_threads" {
         once(event: string | symbol, listener: (...args: any[]) => void): this;
 
         prependListener(event: "error", listener: (err: any) => void): this;
-        prependListener(event: "exit", listener: (exitCode: number) => void): this;
+        prependListener(
+            event: "exit",
+            listener: (exitCode: number) => void
+        ): this;
         prependListener(event: "message", listener: (value: any) => void): this;
         prependListener(event: "online", listener: () => void): this;
-        prependListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         prependOnceListener(event: "error", listener: (err: any) => void): this;
-        prependOnceListener(event: "exit", listener: (exitCode: number) => void): this;
-        prependOnceListener(event: "message", listener: (value: any) => void): this;
+        prependOnceListener(
+            event: "exit",
+            listener: (exitCode: number) => void
+        ): this;
+        prependOnceListener(
+            event: "message",
+            listener: (value: any) => void
+        ): this;
         prependOnceListener(event: "online", listener: () => void): this;
-        prependOnceListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        prependOnceListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         removeListener(event: "error", listener: (err: any) => void): this;
-        removeListener(event: "exit", listener: (exitCode: number) => void): this;
+        removeListener(
+            event: "exit",
+            listener: (exitCode: number) => void
+        ): this;
         removeListener(event: "message", listener: (value: any) => void): this;
         removeListener(event: "online", listener: () => void): this;
-        removeListener(event: string | symbol, listener: (...args: any[]) => void): this;
+        removeListener(
+            event: string | symbol,
+            listener: (...args: any[]) => void
+        ): this;
 
         off(event: "error", listener: (err: any) => void): this;
         off(event: "exit", listener: (exitCode: number) => void): this;

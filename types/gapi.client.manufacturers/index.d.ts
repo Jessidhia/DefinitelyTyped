@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Manufacturer Center API v1 */
     function load(name: "manufacturers", version: "v1"): PromiseLike<void>;
-    function load(name: "manufacturers", version: "v1", callback: () => any): void;
+    function load(
+        name: "manufacturers",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const accounts: manufacturers.AccountsResource;
 

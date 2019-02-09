@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import { Request, Response, PluginFunction } from 'hapi';
+import { Request, Response, PluginFunction } from "hapi";
 
 declare namespace hapiAuthJwt2 {
     /**
@@ -33,7 +33,11 @@ declare namespace hapiAuthJwt2 {
      * @param valid `true` if the JWT was valid, otherwise `false`
      * @param credentials alternative credentials to be set instead of `decoded`
      */
-    type ValidateCallback = (err: any, valid: boolean, credentials?: any) => void;
+    type ValidateCallback = (
+        err: any,
+        valid: boolean,
+        credentials?: any
+    ) => void;
 
     /**
      * Options passed to `hapi.auth.strategy` when this plugin is used
@@ -51,7 +55,11 @@ declare namespace hapiAuthJwt2 {
          * @param request the original *request* received from the client
          * @param callback the validation callback
          */
-        validateFunc(decoded: {}, request: Request, callback: ValidateCallback): void;
+        validateFunc(
+            decoded: {},
+            request: Request,
+            callback: ValidateCallback
+        ): void;
 
         /**
          * Settings to define how tokens are verified by the jsonwebtoken library
@@ -85,7 +93,10 @@ declare namespace hapiAuthJwt2 {
          * @param request the Request object
          * @param reply is called if an error occurred
          */
-        responseFunc?(request: Request, reply: (err: any, response: Response) => void): void;
+        responseFunc?(
+            request: Request,
+            reply: (err: any, response: Response) => void
+        ): void;
 
         /**
          * If you prefer to pass your token via url, simply add a token url

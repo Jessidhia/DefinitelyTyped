@@ -1,3 +1,3 @@
-import detectIt from 'detect-it';
+import detectIt from "detect-it";
 
 detectIt.update();

@@ -12,7 +12,10 @@
  * @param options - an options object
  * @returns the resultant SHA1 hash of the given message
  */
-declare function main(message: string | Buffer, options?: Sha1Options): string | Uint8Array;
+declare function main(
+    message: string | Buffer,
+    options?: Sha1Options
+): string | Uint8Array;
 export = main;
 
 interface Sha1Options {

@@ -14,13 +14,12 @@ sax = new SAXParser({ sourceCodeLocationInfo: true });
 
 sax.stop();
 
-sax
-    .on("startTag", (startTag: StartTagToken) => {
-        startTag.tagName; // $ExpectType string
-        startTag.attrs; // $ExpectType Attribute[]
-        startTag.selfClosing; // $ExpectType boolean
-        startTag.sourceCodeLocation!; // $ExpectType StartTagLocation
-    })
+sax.on("startTag", (startTag: StartTagToken) => {
+    startTag.tagName; // $ExpectType string
+    startTag.attrs; // $ExpectType Attribute[]
+    startTag.selfClosing; // $ExpectType boolean
+    startTag.sourceCodeLocation!; // $ExpectType StartTagLocation
+})
     .on("endTag", (endTag: EndTagToken) => {
         endTag.tagName; // $ExpectType string
         endTag.sourceCodeLocation!; // $ExpectType Location

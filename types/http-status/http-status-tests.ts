@@ -1,6 +1,4 @@
-
-
-import httpStatus = require('http-status');
+import httpStatus = require("http-status");
 
 var str: string;
 var nmr: number;
@@ -48,7 +46,6 @@ str = httpStatus[502];
 str = httpStatus[503];
 str = httpStatus[504];
 str = httpStatus[505];
-
 
 nmr = httpStatus.CONTINUE;
 nmr = httpStatus.SWITCHING_PROTOCOLS;

@@ -7,14 +7,24 @@
 /// <reference types="node" />
 
 import events = require("events");
-import fs = require('fs');
+import fs = require("fs");
 import minimatch = require("minimatch");
 
-declare function G(pattern: string, cb: (err: Error | null, matches: string[]) => void): void;
-declare function G(pattern: string, options: G.IOptions, cb: (err: Error | null, matches: string[]) => void): void;
+declare function G(
+    pattern: string,
+    cb: (err: Error | null, matches: string[]) => void
+): void;
+declare function G(
+    pattern: string,
+    options: G.IOptions,
+    cb: (err: Error | null, matches: string[]) => void
+): void;
 
 declare namespace G {
-    function __promisify__(pattern: string, options?: IOptions): Promise<string[]>;
+    function __promisify__(
+        pattern: string,
+        options?: IOptions
+    ): Promise<string[]>;
 
     function sync(pattern: string, options?: IOptions): string[];
 
@@ -46,7 +56,7 @@ declare namespace G {
         nocase?: boolean;
         matchBase?: any;
         nodir?: boolean;
-        ignore?: any; /* string | string[] */
+        ignore?: any /* string | string[] */;
         follow?: boolean;
         realpath?: boolean;
         nonegate?: boolean;
@@ -58,8 +68,15 @@ declare namespace G {
     }
 
     interface IGlobStatic extends events.EventEmitter {
-        new (pattern: string, cb?: (err: Error | null, matches: string[]) => void): IGlob;
-        new (pattern: string, options: IOptions, cb?: (err: Error | null, matches: string[]) => void): IGlob;
+        new (
+            pattern: string,
+            cb?: (err: Error | null, matches: string[]) => void
+        ): IGlob;
+        new (
+            pattern: string,
+            options: IOptions,
+            cb?: (err: Error | null, matches: string[]) => void
+        ): IGlob;
         prototype: IGlob;
     }
 

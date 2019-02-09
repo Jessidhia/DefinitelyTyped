@@ -7,7 +7,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 declare namespace InfiniteScroll {
     interface InfiniteScrollProps {
@@ -108,5 +108,8 @@ declare namespace InfiniteScroll {
     }
 }
 
-declare class InfiniteScroll extends React.Component<InfiniteScroll.InfiniteScrollProps, any> {}
+declare class InfiniteScroll extends React.Component<
+    InfiniteScroll.InfiniteScrollProps,
+    any
+> {}
 export = InfiniteScroll;

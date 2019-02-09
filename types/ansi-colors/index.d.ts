@@ -79,7 +79,7 @@ declare namespace colors {
         define(
             name: string,
             codes: [number, number],
-            type: 'modifier' | 'color' | 'bg' | 'bright' | 'bgBright'
+            type: "modifier" | "color" | "bg" | "bright" | "bgBright"
         ): void;
     }
 

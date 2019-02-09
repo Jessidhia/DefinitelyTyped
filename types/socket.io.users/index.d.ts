@@ -4,13 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 import { Application } from "express";
 import { SessionOptions } from "express-session";
 import SocketIO = require("socket.io");
 
 declare var CONNECTION_EVENTS: string[];
-declare var Middleware: () => (socket: SocketIO.Socket, next: () => any) => void;
+declare var Middleware: () => (
+    socket: SocketIO.Socket,
+    next: () => any
+) => void;
 declare var Session: (app: Application, options?: SessionOptions) => void;
 
 type SocketUserList = {
@@ -47,7 +50,6 @@ declare class User {
     emit(...args: any[]): void;
     to(room: string): SocketIO.Socket;
 }
-
 
 declare class Users extends EventEmitter {
     namespace: string;

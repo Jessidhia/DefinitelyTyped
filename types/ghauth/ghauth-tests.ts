@@ -10,7 +10,7 @@ const authOptions1: AuthOptions = {
     promptName: "GitHub",
     scopes: ["user"],
     note: "This token is for my awesome app",
-    userAgent: "My Awesome App",
+    userAgent: "My Awesome App"
 };
 
 ghauth(authOptions1, (err: Error, authData: TokenData) => {
@@ -20,7 +20,7 @@ ghauth(authOptions1, (err: Error, authData: TokenData) => {
 
 // Required
 const authOptions2: AuthOptions = {
-    configName: "awesome",
+    configName: "awesome"
 };
 
 ghauth(authOptions2, (err: Error, authData: TokenData) => {

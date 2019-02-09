@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ROOT: 'mdc-snackbar';
-    TEXT: 'mdc-snackbar__text';
-    ACTION_WRAPPER: 'mdc-snackbar__action-wrapper';
-    ACTION_BUTTON: 'mdc-snackbar__action-button';
-    ACTIVE: 'mdc-snackbar--active';
-    MULTILINE: 'mdc-snackbar--multiline';
-    ACTION_ON_BOTTOM: 'mdc-snackbar--action-on-bottom';
+    ROOT: "mdc-snackbar";
+    TEXT: "mdc-snackbar__text";
+    ACTION_WRAPPER: "mdc-snackbar__action-wrapper";
+    ACTION_BUTTON: "mdc-snackbar__action-button";
+    ACTIVE: "mdc-snackbar--active";
+    MULTILINE: "mdc-snackbar--multiline";
+    ACTION_ON_BOTTOM: "mdc-snackbar--action-on-bottom";
 }
 
 export interface strings extends MDCStrings {
-    TEXT_SELECTOR: '.mdc-snackbar__text';
-    ACTION_WRAPPER_SELECTOR: '.mdc-snackbar__action-wrapper';
-    ACTION_BUTTON_SELECTOR: '.mdc-snackbar__action-button';
-    SHOW_EVENT: 'MDCSnackbar:show';
-    HIDE_EVENT: 'MDCSnackbar:hide';
+    TEXT_SELECTOR: ".mdc-snackbar__text";
+    ACTION_WRAPPER_SELECTOR: ".mdc-snackbar__action-wrapper";
+    ACTION_BUTTON_SELECTOR: ".mdc-snackbar__action-button";
+    SHOW_EVENT: "MDCSnackbar:show";
+    HIDE_EVENT: "MDCSnackbar:hide";
 }
 
 export interface numbers extends MDCNumbers {

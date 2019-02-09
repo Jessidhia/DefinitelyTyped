@@ -1,13 +1,13 @@
 import * as materialize from "materialize-css";
 
-const elem = document.querySelector('.whatever')!;
+const elem = document.querySelector(".whatever")!;
 
 // $ExpectType Timepicker
 const _timePicker = new M.Timepicker(elem);
 // $ExpectType Timepicker
 const el = M.Timepicker.init(elem);
 // $ExpectType Timepicker[]
-const els = M.Timepicker.init(document.querySelectorAll('.whatever'));
+const els = M.Timepicker.init(document.querySelectorAll(".whatever"));
 
 // $ExpectType Timepicker
 new materialize.Timepicker(elem);

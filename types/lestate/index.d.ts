@@ -4,10 +4,12 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface LeState {
-    set(newValue: {}): [{
-        id: number;
-        state: {};
-    }];
+    set(newValue: {}): [
+        {
+            id: number;
+            state: {};
+        }
+    ];
     get(): any;
     insert(newValue: {}): void;
     getDescription(): {};

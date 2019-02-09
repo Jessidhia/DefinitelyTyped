@@ -33,15 +33,29 @@ interface Exphbs {
     precompiled: Object;
     create(options?: ExphbsOptions): Exphbs;
     getPartials(options?: PartialTemplateOptions): Promise<Object>;
-    getTemplate(filePath: string, options?: PartialTemplateOptions): Promise<Function>;
-    getTemplates(dirPath: string, options?: PartialTemplateOptions): Promise<Object>;
-    render(filePath: string, context: Object, options?: RenderOptions): Promise<string>;
-    renderView(viewPath: string, optionsOrCallback: any, callback?: () => string): void;
+    getTemplate(
+        filePath: string,
+        options?: PartialTemplateOptions
+    ): Promise<Function>;
+    getTemplates(
+        dirPath: string,
+        options?: PartialTemplateOptions
+    ): Promise<Object>;
+    render(
+        filePath: string,
+        context: Object,
+        options?: RenderOptions
+    ): Promise<string>;
+    renderView(
+        viewPath: string,
+        optionsOrCallback: any,
+        callback?: () => string
+    ): void;
 }
 
 interface ExpressHandlebars {
-  (options?: ExphbsOptions): Function;
-  create (options?: ExphbsOptions): Exphbs;
+    (options?: ExphbsOptions): Function;
+    create(options?: ExphbsOptions): Exphbs;
 }
 
 declare module "express-handlebars" {

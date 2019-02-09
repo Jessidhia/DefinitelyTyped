@@ -1,6 +1,11 @@
 declare namespace adone.collection {
     namespace I.BufferList {
-        type Appendable = Buffer | BufferList | string | number | Array<Buffer | BufferList | string | number>;
+        type Appendable =
+            | Buffer
+            | BufferList
+            | string
+            | number
+            | Array<Buffer | BufferList | string | number>;
     }
 
     /**
@@ -51,7 +56,12 @@ declare namespace adone.collection {
          * @param srcStart reads bytes from this position
          * @param srcEnd  read bytes to this position
          */
-        copy<T extends Buffer = Buffer>(dst: T, dstStart?: number, srcStart?: number, srcEnd?: number): T;
+        copy<T extends Buffer = Buffer>(
+            dst: T,
+            dstStart?: number,
+            srcStart?: number,
+            srcEnd?: number
+        ): T;
 
         /**
          * Returns a new BufferList object containing the bytes within the range specified.
@@ -65,7 +75,11 @@ declare namespace adone.collection {
         /**
          * Return a string representation of the buffer
          */
-        toString(encoding?: fs.I.Encoding, start?: number, end?: number): string;
+        toString(
+            encoding?: fs.I.Encoding,
+            start?: number,
+            end?: number
+        ): string;
 
         /**
          * Shifts bytes off the start of the list
@@ -87,6 +101,8 @@ declare namespace adone.collection {
             onrejected?: ((reason: any) => T2 | PromiseLike<T2>) | null
         ): PromiseLike<T1 | T2>;
 
-        catch<T>(onrejected?: ((reason: any) => T | PromiseLike<T>) | null): PromiseLike<T | Buffer>;
+        catch<T>(
+            onrejected?: ((reason: any) => T | PromiseLike<T>) | null
+        ): PromiseLike<T | Buffer>;
     }
 }

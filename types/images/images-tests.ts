@@ -5,8 +5,9 @@ const tmp_path = "tmp_path";
 const out_path = "out_path";
 const photo = images(tmp_path);
 
-photo.size(800)
-    .draw(images('./logo.png'), 800 - 421, photo.height() - 117)
+photo
+    .size(800)
+    .draw(images("./logo.png"), 800 - 421, photo.height() - 117)
     .save(out_path, { quality: 80 });
 
 // from https://github.com/zhangyuanwei/node-images/blob/master/test/index.js

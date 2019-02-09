@@ -10,8 +10,8 @@ function TestConfig() {
 function TestCtorOverloads() {
     let del: mock.requests.Delete<number> = {
         request: {
-            path: 'path',
-            method: 'DELETE'
+            path: "path",
+            method: "DELETE"
         },
         response: {
             status: 400,
@@ -20,8 +20,8 @@ function TestCtorOverloads() {
     };
     let put: mock.requests.Put<number> = {
         request: {
-            path: 'path',
-            method: 'PUT'
+            path: "path",
+            method: "PUT"
         },
         response: {
             status: 400,
@@ -29,7 +29,10 @@ function TestCtorOverloads() {
         }
     };
     let plugin: mock.Plugin = {
-        match: (mockRequest: mock.requests.Delete<number>, requestConfig: mock.requests.AllRequests<number, number>) => {
+        match: (
+            mockRequest: mock.requests.Delete<number>,
+            requestConfig: mock.requests.AllRequests<number, number>
+        ) => {
             if (requestConfig.request.method && mockRequest.request.method) {
                 return true;
             }
@@ -40,16 +43,30 @@ function TestCtorOverloads() {
 
     let noParam: mock.ProtractorHttpMock = mock();
     let emptyArray: mock.ProtractorHttpMock = mock([]);
-    let mockFiles: mock.ProtractorHttpMock = mock(['mock1', 'mock2']);
+    let mockFiles: mock.ProtractorHttpMock = mock(["mock1", "mock2"]);
     let mocks: mock.ProtractorHttpMock = mock([del, put]);
 
-    let mockFilesNpmPlugins: mock.ProtractorHttpMock = mock(['mock1'], ['plugin']);
-    let mocksWithNpmPlugins: mock.ProtractorHttpMock = mock([del, put], ['plugin']);
+    let mockFilesNpmPlugins: mock.ProtractorHttpMock = mock(
+        ["mock1"],
+        ["plugin"]
+    );
+    let mocksWithNpmPlugins: mock.ProtractorHttpMock = mock(
+        [del, put],
+        ["plugin"]
+    );
 
     let pluginMocks: mock.ProtractorHttpMock = mock([del, put], [plugin]);
 
-    let mockFilesNpmPluginsSkipDefaults: mock.ProtractorHttpMock = mock(['mock1'], ['plugin'], true);
-    let skipDefaults: mock.ProtractorHttpMock = mock([del, put], [plugin], true);
+    let mockFilesNpmPluginsSkipDefaults: mock.ProtractorHttpMock = mock(
+        ["mock1"],
+        ["plugin"],
+        true
+    );
+    let skipDefaults: mock.ProtractorHttpMock = mock(
+        [del, put],
+        [plugin],
+        true
+    );
 }
 
 function TestTeardown() {
@@ -58,7 +75,7 @@ function TestTeardown() {
 
 function TestRequestsMade() {
     let values: Array<mock.ReceivedRequest>;
-    mock.requestsMade().then(v => values = v);
+    mock.requestsMade().then(v => (values = v));
 }
 
 function TestClearRequests() {
@@ -80,7 +97,7 @@ function TestDynamicAdd() {
         }
     };
     let resolved: boolean;
-    mock.add([put]).then(r => resolved = r);
+    mock.add([put]).then(r => (resolved = r));
 }
 
 function TestDyanmicRemove() {
@@ -95,14 +112,14 @@ function TestDyanmicRemove() {
         }
     };
     let resolved: boolean;
-    mock.remove([put]).then(r => resolved = r);
+    mock.remove([put]).then(r => (resolved = r));
 }
 
 function TestGetRequestDefinitions() {
     let getMinium: mock.requests.Get<number> = {
         request: {
-            path: 'path',
-            method: 'GET',
+            path: "path",
+            method: "GET",
             regex: true
         },
         response: {
@@ -113,11 +130,11 @@ function TestGetRequestDefinitions() {
 
     let getParams: mock.requests.Get<number> = {
         request: {
-            path: 'path',
-            method: 'GET',
+            path: "path",
+            method: "GET",
             regex: true,
             params: {
-                param1: 'param1',
+                param1: "param1",
                 param2: 2
             }
         },
@@ -129,8 +146,8 @@ function TestGetRequestDefinitions() {
 
     let post: mock.requests.Post<number> = {
         request: {
-            path: 'path',
-            method: 'POST',
+            path: "path",
+            method: "POST",
             regex: true
         },
         response: {
@@ -141,11 +158,11 @@ function TestGetRequestDefinitions() {
 
     let getQueryString: mock.requests.Get<number> = {
         request: {
-            path: 'path',
-            method: 'GET',
+            path: "path",
+            method: "GET",
             regex: true,
             queryString: {
-                query1: 'query1',
+                query1: "query1",
                 query2: 2
             }
         },
@@ -157,12 +174,12 @@ function TestGetRequestDefinitions() {
 
     let getHeaders: mock.requests.Get<number> = {
         request: {
-            path: 'path',
-            method: 'GET',
+            path: "path",
+            method: "GET",
             regex: true,
             headers: {
-                head1: 'head1',
-                head2: 'head2'
+                head1: "head1",
+                head2: "head2"
             }
         },
         response: {
@@ -175,8 +192,8 @@ function TestGetRequestDefinitions() {
 function TestPostRequestDefinitions() {
     let post: mock.requests.Post<number> = {
         request: {
-            path: 'path',
-            method: 'POST',
+            path: "path",
+            method: "POST",
             regex: true
         },
         response: {
@@ -187,9 +204,9 @@ function TestPostRequestDefinitions() {
 
     let postData: mock.requests.PostData<number, string> = {
         request: {
-            path: 'path',
-            method: 'POST',
-            data: 'data',
+            path: "path",
+            method: "POST",
+            data: "data",
             regex: true
         },
         response: {
@@ -202,8 +219,8 @@ function TestPostRequestDefinitions() {
 function TestHeadRequestDefinitions() {
     let head: mock.requests.Head<number> = {
         request: {
-            path: 'path',
-            method: 'HEAD',
+            path: "path",
+            method: "HEAD",
             regex: true
         },
         response: {
@@ -216,8 +233,8 @@ function TestHeadRequestDefinitions() {
 function TestDeleteRequestDefinitions() {
     let del: mock.requests.Delete<number> = {
         request: {
-            path: 'path',
-            method: 'DELETE',
+            path: "path",
+            method: "DELETE",
             regex: true
         },
         response: {
@@ -230,8 +247,8 @@ function TestDeleteRequestDefinitions() {
 function TestPutRequestDefinitions() {
     let put: mock.requests.Put<number> = {
         request: {
-            path: 'path',
-            method: 'PUT',
+            path: "path",
+            method: "PUT",
             regex: true
         },
         response: {
@@ -244,8 +261,8 @@ function TestPutRequestDefinitions() {
 function TestPatchRequestDefinitions() {
     let patch: mock.requests.Patch<number> = {
         request: {
-            path: 'path',
-            method: 'PATCH',
+            path: "path",
+            method: "PATCH",
             regex: true
         },
         response: {
@@ -258,8 +275,8 @@ function TestPatchRequestDefinitions() {
 function TestJsonpRequestDefinitions() {
     let jsonp: mock.requests.Jsonp<number> = {
         request: {
-            path: 'path',
-            method: 'JSONP',
+            path: "path",
+            method: "JSONP",
             regex: true
         },
         response: {
@@ -270,33 +287,37 @@ function TestJsonpRequestDefinitions() {
 }
 
 function TestRuntimeMocks() {
-    mock.add([{
-        request: {
-            path: '/users',
-            method: 'GET',
-            params: {
-                name: 'Charlie'
-            }
-        },
-        response: {
-            data: {
-                name: 'Override'
+    mock.add([
+        {
+            request: {
+                path: "/users",
+                method: "GET",
+                params: {
+                    name: "Charlie"
+                }
+            },
+            response: {
+                data: {
+                    name: "Override"
+                }
             }
         }
-    }]);
+    ]);
 
-    mock.remove([{
-        request: {
-            path: '/users',
-            method: 'GET',
-            params: {
-                name: 'Charlie'
-            }
-        },
-        response: {
-            data: {
-                name: 'Override'
+    mock.remove([
+        {
+            request: {
+                path: "/users",
+                method: "GET",
+                params: {
+                    name: "Charlie"
+                }
+            },
+            response: {
+                data: {
+                    name: "Override"
+                }
             }
         }
-    }]);
+    ]);
 }

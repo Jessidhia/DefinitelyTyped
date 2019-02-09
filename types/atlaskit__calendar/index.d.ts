@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component, HTMLAttributes, FocusEvent } from 'react';
+import { Component, HTMLAttributes, FocusEvent } from "react";
 
-export type ArrowKeys = 'left' | 'up' | 'right' | 'down';
+export type ArrowKeys = "left" | "up" | "right" | "down";
 
 export interface DateObj {
     day: number;
@@ -16,7 +16,7 @@ export interface DateObj {
 
 export interface ChangeEvent extends DateObj {
     iso: string;
-    type: 'left' | 'up' | 'right' | 'down' | 'prev' | 'next';
+    type: "left" | "up" | "right" | "down" | "prev" | "next";
 }
 
 export interface SelectEvent extends DateObj {

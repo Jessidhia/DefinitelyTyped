@@ -5,12 +5,15 @@
 
 declare namespace focusWithin {
     interface FocusWithinOpts {
-      attr?: boolean;
-      className?: string;
+        attr?: boolean;
+        className?: string;
     }
 }
 
-declare function focusWithin(document: HTMLDocument, opts?: focusWithin.FocusWithinOpts): void;
+declare function focusWithin(
+    document: HTMLDocument,
+    opts?: focusWithin.FocusWithinOpts
+): void;
 
 export as namespace focusWithin;
 export = focusWithin;

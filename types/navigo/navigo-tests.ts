@@ -1,7 +1,7 @@
 import Navigo = require("navigo");
 
 type Keys = string;
-type State = {[k in Keys]: any};
+type State = { [k in Keys]: any };
 type Params = State;
 
 const root = null;
@@ -19,7 +19,7 @@ router.hooks({
 });
 
 router
-    .on('/products/list', () => {
+    .on("/products/list", () => {
         // display all the products
     })
     .resolve();
@@ -32,10 +32,10 @@ router
 
 router
     .on({
-        '/products/list': () => {
+        "/products/list": () => {
             // do something
         },
-        '/products': () => {
+        "/products": () => {
             // do something
         }
     })
@@ -43,20 +43,20 @@ router
 
 router
     .on({
-        'products/:id': () => {
+        "products/:id": () => {
             // do something
         },
         products: () => {
             // do something
         },
-        '*': () => {
+        "*": () => {
             // do something
         }
     })
     .resolve();
 
 router
-    .on('/user/:id/:action', (params: Params) => {
+    .on("/user/:id/:action", (params: Params) => {
         // If we have http://site.com/user/42/save as a url then
         // params.id = 42
         // params.action = save
@@ -64,7 +64,7 @@ router
     .resolve();
 
 router
-    .on('/user/:id/:action', (params: Params, query: string) => {
+    .on("/user/:id/:action", (params: Params, query: string) => {
         // If we have http://site.com/user/42/save?answer=42 as a url then
         // params.id = 42
         // params.action = save
@@ -85,7 +85,7 @@ router
     .resolve();
 
 router
-    .on('/user/*', () => {
+    .on("/user/*", () => {
         // This function will be called on every
         // URL that starts with /user
     })
@@ -96,40 +96,40 @@ router.notFound(() => {
     // there is no route matching
 });
 
-router.navigate('/products/list');
+router.navigate("/products/list");
 
-router.navigate('http://site.com/products/list', true);
+router.navigate("http://site.com/products/list", true);
 
-router = new Navigo('http://site.com/', true);
+router = new Navigo("http://site.com/", true);
 const handler = () => {
     // do something
 };
 router.on({
-    '/trip/:tripId/edit': { as: 'trip.edit', uses: handler },
-    '/trip/save': { as: 'trip.save', uses: handler },
-    '/trip/:action/:tripId': { as: 'trip.action', uses: handler }
+    "/trip/:tripId/edit": { as: "trip.edit", uses: handler },
+    "/trip/save": { as: "trip.save", uses: handler },
+    "/trip/:action/:tripId": { as: "trip.action", uses: handler }
 });
-let a: string = (router.generate('trip.edit', { tripId: 42 })); // --> /trip/42/edit
-a = (router.generate('trip.action', { tripId: 42, action: 'save' })); // --> /trip/save/42
-a = (router.generate('trip.save')); // --> /trip/save
+let a: string = router.generate("trip.edit", { tripId: 42 }); // --> /trip/42/edit
+a = router.generate("trip.action", { tripId: 42, action: "save" }); // --> /trip/save/42
+a = router.generate("trip.save"); // --> /trip/save
 
 router.pause();
-router.navigate('/en/products');
+router.navigate("/en/products");
 router.resume(); // or .pause(false)
 
 router.pause();
-router.historyAPIUpdateMethod('replaceState');
+router.historyAPIUpdateMethod("replaceState");
 router.disableIfAPINotAvailable();
-router.off('/trip/:number', { as: 'trip', uses: (params, query) => {}});
+router.off("/trip/:number", { as: "trip", uses: (params, query) => {} });
 router.resume();
 
 router.on(
-    '/user/edit',
+    "/user/edit",
     () => {
         // show user edit page
     },
     {
-        before: (done) => {
+        before: done => {
             // doing some async operation
             done(false);
             done();

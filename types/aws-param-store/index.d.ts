@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node" />
-import { SSM } from 'aws-sdk';
+import { SSM } from "aws-sdk";
 
 export function getParameter(
     name: SSM.Types.PSParameterName,
@@ -38,11 +38,22 @@ export function getParametersByPathSync(
 
 export interface ParameterQuery {
     path(path: SSM.Types.PSParameterName): ParameterQuery;
-    named(nameOrNames: SSM.Types.PSParameterName | SSM.Types.ParameterNameList): ParameterQuery;
+    named(
+        nameOrNames: SSM.Types.PSParameterName | SSM.Types.ParameterNameList
+    ): ParameterQuery;
     decryption(enabled: boolean): ParameterQuery;
     recursive(enabled: boolean): ParameterQuery;
-    execute(): Promise<SSM.Types.ParameterList | SSM.Types.Parameter | SSM.Types.GetParametersResult>;
-    executeSync(): SSM.Types.ParameterList | SSM.Types.Parameter | SSM.Types.GetParametersResult;
+    execute(): Promise<
+        | SSM.Types.ParameterList
+        | SSM.Types.Parameter
+        | SSM.Types.GetParametersResult
+    >;
+    executeSync():
+        | SSM.Types.ParameterList
+        | SSM.Types.Parameter
+        | SSM.Types.GetParametersResult;
 }
 
-export function parameterQuery(options?: SSM.Types.ClientConfiguration): ParameterQuery;
+export function parameterQuery(
+    options?: SSM.Types.ClientConfiguration
+): ParameterQuery;

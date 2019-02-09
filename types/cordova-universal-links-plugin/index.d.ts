@@ -4,7 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace universalLinks {
-    function subscribe(eventName: string | null, callback: (data: EventData) => void): void;
+    function subscribe(
+        eventName: string | null,
+        callback: (data: EventData) => void
+    ): void;
     function unsubscribe(eventName: string | null): void;
 
     interface EventData {

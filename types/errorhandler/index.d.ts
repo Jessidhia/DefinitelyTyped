@@ -4,13 +4,20 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as express from 'express';
+import * as express from "express";
 
-declare function errorHandler(options?: errorHandler.Options): express.ErrorRequestHandler;
+declare function errorHandler(
+    options?: errorHandler.Options
+): express.ErrorRequestHandler;
 
 declare namespace errorHandler {
     interface LoggingCallback {
-        (err: Error, str: string, req: express.Request, res: express.Response): void;
+        (
+            err: Error,
+            str: string,
+            req: express.Request,
+            res: express.Response
+        ): void;
     }
 
     interface Options {

@@ -22,7 +22,10 @@ declare module "webpack-validator" {
     /**
      * Validate your webpack configs with joi
      */
-    function Validate(config: Configuration, options: ValidationOptions): Configuration;
+    function Validate(
+        config: Configuration,
+        options: ValidationOptions
+    ): Configuration;
 
     export = Validate;
 }

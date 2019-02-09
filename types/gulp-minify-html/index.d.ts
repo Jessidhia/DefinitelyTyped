@@ -7,7 +7,6 @@
 
 // This package has been deprecated in favor of gulp-htmlmin, which should be faster and more comprehensive.
 
-
 declare namespace minifyHtml {
     // Options from https://github.com/Swaagie/minimize#options
     interface Options {
@@ -34,6 +33,8 @@ declare namespace minifyHtml {
     }
 }
 
-declare function minifyHtml(options?: minifyHtml.Options): NodeJS.ReadWriteStream;
+declare function minifyHtml(
+    options?: minifyHtml.Options
+): NodeJS.ReadWriteStream;
 
 export = minifyHtml;

@@ -20,12 +20,12 @@ declare namespace ReactImgpro {
         width: number;
         height: number;
         mode:
-            "horizontal_left" |
-            "horizontal_center" |
-            "horizontal_right" |
-            "vertical_top" |
-            "vertical_bottom" |
-            "vertical_middle";
+            | "horizontal_left"
+            | "horizontal_center"
+            | "horizontal_right"
+            | "vertical_top"
+            | "vertical_bottom"
+            | "vertical_middle";
     }
     interface ProcessImageProps {
         image: string;
@@ -50,12 +50,12 @@ declare namespace ReactImgpro {
             degree: number;
             mode: Mode;
         };
-        brightness?: number; /* should be -1 to 1 */
-        contrast?: number; /* should be -1 to 1 */
-        fade?: number; /* should be 0 - 1 */
-        opacity?: number; /* should be 0 - 1 */
-        blur?: number; /* should be 0 - 100 */
-        posterize?: number; /* should be 0 - 100 */
+        brightness?: number /* should be -1 to 1 */;
+        contrast?: number /* should be -1 to 1 */;
+        fade?: number /* should be 0 - 1 */;
+        opacity?: number /* should be 0 - 1 */;
+        blur?: number /* should be 0 - 100 */;
+        posterize?: number /* should be 0 - 100 */;
         cover?: Size;
         contain?: Size;
         colors?: {
@@ -69,7 +69,7 @@ declare namespace ReactImgpro {
             mix?: {
                 color?: string;
                 amount?: number;
-            },
+            };
             tint?: number;
             xor?: number;
             shade?: number;

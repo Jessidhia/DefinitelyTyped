@@ -3,7 +3,6 @@
 // Definitions by: David Broder-Rodgers <https://github.com/DavidBR-SW/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 /**
  * Generate a salt synchronously
  * @param rounds Number of rounds to process the data for (default - 10)
@@ -16,7 +15,10 @@ export declare function genSaltSync(rounds?: number): string;
  * @param rounds Number of rounds to process the data for (default - 10)
  * @param callback Callback with error and resulting salt, to be fired once the salt has been generated
  */
-export declare function genSalt(rounds: number, callback: (error: Error, result: string) => void): void;
+export declare function genSalt(
+    rounds: number,
+    callback: (error: Error, result: string) => void
+): void;
 
 /**
  * Generate a hash synchronously
@@ -32,7 +34,11 @@ export declare function hashSync(data: string, salt?: string): string;
  * @param salt Salt to be used in encryption
  * @param callback Callback with error and hashed result, to be fired once the data has been encrypted
  */
-export declare function hash(data: string, salt: string, callback: (error: Error, result: string) => void): void;
+export declare function hash(
+    data: string,
+    salt: string,
+    callback: (error: Error, result: string) => void
+): void;
 
 /**
  * Generate a hash asynchronously
@@ -41,7 +47,12 @@ export declare function hash(data: string, salt: string, callback: (error: Error
  * @param progressCallback Callback to be fired multiple times during the hash calculation to signify progress
  * @param callback Callback with error and hashed result, to be fired once the data has been encrypted
  */
-export declare function hash(data: string, salt: string, progressCallback: () => void, callback: (error: Error, result: string) => void): void;
+export declare function hash(
+    data: string,
+    salt: string,
+    progressCallback: () => void,
+    callback: (error: Error, result: string) => void
+): void;
 
 /**
  * Compares data with a hash synchronously
@@ -57,7 +68,11 @@ export declare function compareSync(data: string, hash: string): boolean;
  * @param hash Hash to be compared to
  * @param callback Callback with error and match result, to be fired once the data has been compared
  */
-export declare function compare(data: string, hash: string, callback: (error: Error, result: boolean) => void): void;
+export declare function compare(
+    data: string,
+    hash: string,
+    callback: (error: Error, result: boolean) => void
+): void;
 
 /**
  * Get number of rounds used for hash

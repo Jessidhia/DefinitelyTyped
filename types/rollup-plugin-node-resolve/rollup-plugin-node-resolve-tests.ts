@@ -1,4 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from "rollup-plugin-node-resolve";
 
 // $ExpectType Plugin
 resolve();
@@ -12,12 +12,12 @@ resolve({
     jsnext: true,
     main: true,
     browser: true,
-    extensions: [ '.mjs', '.js', '.jsx', '.json' ],
+    extensions: [".mjs", ".js", ".jsx", ".json"],
     preferBuiltins: false,
-    jail: '/my/jail/path',
-    only: [ 'some_module', /^@some_scope\/.*$/ ],
+    jail: "/my/jail/path",
+    only: ["some_module", /^@some_scope\/.*$/],
     modulesOnly: true,
     customResolveOptions: {
-        moduleDirectory: 'js_modules',
-    },
+        moduleDirectory: "js_modules"
+    }
 });

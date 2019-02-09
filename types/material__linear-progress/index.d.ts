@@ -20,13 +20,16 @@
  * limitations under the License.
  */
 
-import { MDCComponent } from 'material__base';
-import MDCLinearProgressAdapter from './adapter';
-import MDCLinearProgressFoundation from './foundation';
+import { MDCComponent } from "material__base";
+import MDCLinearProgressAdapter from "./adapter";
+import MDCLinearProgressFoundation from "./foundation";
 
 export { MDCLinearProgressAdapter, MDCLinearProgressFoundation };
 
-export class MDCLinearProgress extends MDCComponent<MDCLinearProgressAdapter, MDCLinearProgressFoundation> {
+export class MDCLinearProgress extends MDCComponent<
+    MDCLinearProgressAdapter,
+    MDCLinearProgressFoundation
+> {
     static attachTo(root: Element): MDCLinearProgress;
 
     determinate: boolean;

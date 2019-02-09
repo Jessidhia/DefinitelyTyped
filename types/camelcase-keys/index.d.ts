@@ -4,4 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export = camelcaseKeys;
-declare function camelcaseKeys(input: any, options?: { exclude?: string[] | RegExp[], deep?: boolean }): any;
+declare function camelcaseKeys(
+    input: any,
+    options?: { exclude?: string[] | RegExp[]; deep?: boolean }
+): any;

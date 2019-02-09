@@ -7,9 +7,16 @@
 import * as React from "react";
 import * as ReactNative from "react-native";
 
-export type onChangeTextCallback = (formatted: string, extracted: string) => void;
+export type onChangeTextCallback = (
+    formatted: string,
+    extracted: string
+) => void;
 
-export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.TextInputIOSProps, ReactNative.TextInputAndroidProps, ReactNative.AccessibilityProps {
+export interface TextInputMaskProps
+    extends ReactNative.ViewProps,
+        ReactNative.TextInputIOSProps,
+        ReactNative.TextInputAndroidProps,
+        ReactNative.AccessibilityProps {
     maskDefaultValue?: boolean;
     mask: string;
     onChangeText: onChangeTextCallback;
@@ -94,21 +101,21 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
     /**
      * Callback that is called when the text input is blurred
      */
-    onBlur?: (e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputFocusEventData>) => void;
+    onBlur?: (
+        e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputFocusEventData>
+    ) => void;
 
     /**
      * Callback that is called when the text input's text changes.
      */
-    onChange?: (
-        event: {
-            nativeEvent: {
-                text: string;
-                contentSize: { width: number; height: number };
-                target: number;
-                eventCount: number;
-            };
-        }
-    ) => void;
+    onChange?: (event: {
+        nativeEvent: {
+            text: string;
+            contentSize: { width: number; height: number };
+            target: number;
+            eventCount: number;
+        };
+    }) => void;
 
     /**
      * Callback that is called when the text input's content size changes.
@@ -117,7 +124,9 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
      *
      * Only called for multiline text inputs.
      */
-    onContentSizeChange?: (event: { nativeEvent: { contentSize: { width: number; height: number } } }) => void;
+    onContentSizeChange?: (event: {
+        nativeEvent: { contentSize: { width: number; height: number } };
+    }) => void;
 
     /**
      * Callback that is called when text input ends.
@@ -127,12 +136,18 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
     /**
      * Callback that is called when the text input is focused
      */
-    onFocus?: (e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputFocusEventData>) => void;
+    onFocus?: (
+        e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputFocusEventData>
+    ) => void;
 
     /**
      * Callback that is called when the text input selection is changed.
      */
-    onSelectionChange?: (e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputSelectionChangeEventData>) => void;
+    onSelectionChange?: (
+        e: ReactNative.NativeSyntheticEvent<
+            ReactNative.TextInputSelectionChangeEventData
+        >
+    ) => void;
 
     /**
      * Callback that is called when the text input's submit button is pressed.
@@ -145,7 +160,11 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
      *
      * May also contain other properties from ScrollEvent but on Android contentSize is not provided for performance reasons.
      */
-    onScroll?: (e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputScrollEventData>) => void;
+    onScroll?: (
+        e: ReactNative.NativeSyntheticEvent<
+            ReactNative.TextInputScrollEventData
+        >
+    ) => void;
 
     /**
      * Callback that is called when a key is pressed.
@@ -156,7 +175,11 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
      * Fires before onChange callbacks.
      * Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
      */
-    onKeyPress?: (e: ReactNative.NativeSyntheticEvent<ReactNative.TextInputKeyPressEventData>) => void;
+    onKeyPress?: (
+        e: ReactNative.NativeSyntheticEvent<
+            ReactNative.TextInputKeyPressEventData
+        >
+    ) => void;
 
     /**
      * The string that will be rendered before text input has been entered
@@ -223,4 +246,6 @@ export interface TextInputMaskProps extends ReactNative.ViewProps, ReactNative.T
     value?: string;
 }
 
-export default class TextInputMask extends React.Component<TextInputMaskProps> { }
+export default class TextInputMask extends React.Component<
+    TextInputMaskProps
+> {}

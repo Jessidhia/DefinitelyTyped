@@ -7,7 +7,10 @@
 
 export = prettyMs;
 
-declare function prettyMs(input: number, options?: prettyMs.PrettyMsOptions): string;
+declare function prettyMs(
+    input: number,
+    options?: prettyMs.PrettyMsOptions
+): string;
 
 declare namespace prettyMs {
     interface PrettyMsOptions {

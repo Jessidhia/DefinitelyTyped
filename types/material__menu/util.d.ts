@@ -17,7 +17,10 @@
 /**
  * Returns the name of the correct transform property to use on the current browser.
  */
-export function getTransformPropertyName(globalObj: Window, forceRefresh?: boolean): string|undefined;
+export function getTransformPropertyName(
+    globalObj: Window,
+    forceRefresh?: boolean
+): string | undefined;
 
 /**
  * Clamps a value between the minimum and the maximum, returning the clamped value.
@@ -34,4 +37,10 @@ export function clamp(value: number, min?: number, max?: number): number;
  * - x2: The x value of control point P2.
  * - y2: The y value of control point P2.
  */
-export function bezierProgress(time: number, x1: number, y1: number, x2: number, y2: number): number;
+export function bezierProgress(
+    time: number,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number
+): number;

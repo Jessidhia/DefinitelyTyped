@@ -20,7 +20,7 @@ export interface Options {
     handleUncaughtExceptions?: boolean;
     hookRequire?: boolean;
     emptyCacheBetweenOperations?: boolean;
-    environment?: 'auto' | 'browser' | 'node';
+    environment?: "auto" | "browser" | "node";
     overrideRetrieveFile?: boolean;
     overrideRetrieveSourceMap?: boolean;
     retrieveFile?(path: string): string;

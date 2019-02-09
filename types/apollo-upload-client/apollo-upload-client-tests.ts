@@ -3,7 +3,7 @@ import { createUploadLink, ReactNativeFile } from "apollo-upload-client";
 new ReactNativeFile({
     name: "its coming home",
     type: "its coming",
-    uri: "football's coming home",
+    uri: "football's coming home"
 });
 
 createUploadLink({
@@ -12,5 +12,5 @@ createUploadLink({
     headers: { special: "Special header value" },
     includeExtensions: true,
     uri: "http://localhost",
-    credentials: "beepboop",
+    credentials: "beepboop"
 });

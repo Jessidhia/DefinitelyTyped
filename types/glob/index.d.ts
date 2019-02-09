@@ -10,11 +10,21 @@
 import events = require("events");
 import minimatch = require("minimatch");
 
-declare function G(pattern: string, cb: (err: Error | null, matches: string[]) => void): void;
-declare function G(pattern: string, options: G.IOptions, cb: (err: Error | null, matches: string[]) => void): void;
+declare function G(
+    pattern: string,
+    cb: (err: Error | null, matches: string[]) => void
+): void;
+declare function G(
+    pattern: string,
+    options: G.IOptions,
+    cb: (err: Error | null, matches: string[]) => void
+): void;
 
 declare namespace G {
-    function __promisify__(pattern: string, options?: IOptions): Promise<string[]>;
+    function __promisify__(
+        pattern: string,
+        options?: IOptions
+    ): Promise<string[]>;
 
     function sync(pattern: string, options?: IOptions): string[];
 
@@ -33,8 +43,12 @@ declare namespace G {
         stat?: boolean;
         silent?: boolean;
         strict?: boolean;
-        cache?: { [path: string]: boolean | 'DIR' | 'FILE' | ReadonlyArray<string> };
-        statCache?: { [path: string]: false | { isDirectory(): boolean} | undefined };
+        cache?: {
+            [path: string]: boolean | "DIR" | "FILE" | ReadonlyArray<string>;
+        };
+        statCache?: {
+            [path: string]: false | { isDirectory(): boolean } | undefined;
+        };
         symlinks?: { [path: string]: boolean | undefined };
         realpathCache?: { [path: string]: string };
         sync?: boolean;
@@ -56,8 +70,15 @@ declare namespace G {
     }
 
     interface IGlobStatic extends events.EventEmitter {
-        new (pattern: string, cb?: (err: Error | null, matches: string[]) => void): IGlob;
-        new (pattern: string, options: IOptions, cb?: (err: Error | null, matches: string[]) => void): IGlob;
+        new (
+            pattern: string,
+            cb?: (err: Error | null, matches: string[]) => void
+        ): IGlob;
+        new (
+            pattern: string,
+            options: IOptions,
+            cb?: (err: Error | null, matches: string[]) => void
+        ): IGlob;
         prototype: IGlob;
     }
 
@@ -70,8 +91,12 @@ declare namespace G {
         minimatch: minimatch.IMinimatch;
         options: IOptions;
         aborted: boolean;
-        cache: { [path: string]: boolean | 'DIR' | 'FILE' | ReadonlyArray<string> };
-        statCache: { [path: string]: false | { isDirectory(): boolean; } | undefined };
+        cache: {
+            [path: string]: boolean | "DIR" | "FILE" | ReadonlyArray<string>;
+        };
+        statCache: {
+            [path: string]: false | { isDirectory(): boolean } | undefined;
+        };
         symlinks: { [path: string]: boolean | undefined };
         realpathCache: { [path: string]: string };
         found: string[];

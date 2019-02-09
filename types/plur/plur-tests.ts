@@ -1,5 +1,5 @@
-import plur = require('plur');
+import plur = require("plur");
 
-const word = 'chicken';
+const word = "chicken";
 
 plur(word, 2);

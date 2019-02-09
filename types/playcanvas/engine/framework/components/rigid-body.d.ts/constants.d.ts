@@ -1,8 +1,8 @@
 declare namespace pc {
     // types
-    const BODYTYPE_STATIC = 'static';
-    const BODYTYPE_DYNAMIC = 'dynamic';
-    const BODYTYPE_KINEMATIC = 'kinematic';
+    const BODYTYPE_STATIC = "static";
+    const BODYTYPE_DYNAMIC = "dynamic";
+    const BODYTYPE_KINEMATIC = "kinematic";
 
     // Collision flags
     const BODYFLAG_STATIC_OBJECT = 1;

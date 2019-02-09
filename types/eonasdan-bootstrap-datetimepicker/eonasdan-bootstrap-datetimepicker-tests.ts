@@ -1,5 +1,5 @@
-import * as moment from 'moment';
-import * as EonasdanBootstrapDatetimepicker from './index';
+import * as moment from "moment";
+import * as EonasdanBootstrapDatetimepicker from "./index";
 
 // Minimum Setup
 $("#datetimepicker1").datetimepicker();
@@ -34,11 +34,15 @@ $("#datetimepicker").datetimepicker({
 $("#datetimepicker7").datetimepicker({
     useCurrent: false
 });
-$("#datetimepicker6").on("dp.change", function (e) {
-    $("#datetimepicker7").data("DateTimePicker").minDate(e.date);
+$("#datetimepicker6").on("dp.change", function(e) {
+    $("#datetimepicker7")
+        .data("DateTimePicker")
+        .minDate(e.date);
 });
-$("#datetimepicker7").on("dp.change", function (e) {
-    $("#datetimepicker6").data("DateTimePicker").maxDate(e.date);
+$("#datetimepicker7").on("dp.change", function(e) {
+    $("#datetimepicker6")
+        .data("DateTimePicker")
+        .maxDate(e.date);
 });
 
 // Custom Icons
@@ -59,7 +63,11 @@ $("#datetimepicker10").datetimepicker({
 
 // Disabled Days of the Week
 $("#datetimepicker11").datetimepicker({
-    daysOfWeekDisabled: [0, 6, EonasdanBootstrapDatetimepicker.DayOfWeek.Thursday]
+    daysOfWeekDisabled: [
+        0,
+        6,
+        EonasdanBootstrapDatetimepicker.DayOfWeek.Thursday
+    ]
 });
 
 // Inline
@@ -78,7 +86,9 @@ $("#dtpFrom").datetimepicker({
     maxDate: new Date(),
     toolbarPlacement: "top"
 });
-$("#dtpFrom").data("DateTimePicker").date(moment(new Date()).format("DD/MM/YYYY"));
+$("#dtpFrom")
+    .data("DateTimePicker")
+    .date(moment(new Date()).format("DD/MM/YYYY"));
 
 // Event
 var datepicker = $("#datepicker").parent();
@@ -92,6 +102,6 @@ datepicker.datetimepicker({
         horizontal: "right"
     }
 });
-datepicker.on("dp.change", function (e) {
+datepicker.on("dp.change", function(e) {
     alert("e.date=" + e.date);
 });

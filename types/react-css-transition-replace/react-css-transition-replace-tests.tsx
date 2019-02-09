@@ -1,5 +1,5 @@
-import * as React from "react"
-import { render } from 'react-dom';
+import * as React from "react";
+import { render } from "react-dom";
 import CSSTransitionReplace = require("react-css-transition-replace");
 
 render(
@@ -7,4 +7,4 @@ render(
         <div>Test</div>
     </CSSTransitionReplace>,
     document.getElementById("main")
-)
+);

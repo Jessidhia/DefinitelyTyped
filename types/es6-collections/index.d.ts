@@ -37,7 +37,10 @@ interface ForEachable<T> {
 interface Map<K, V> {
     clear(): void;
     delete(key: K): boolean;
-    forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
+    forEach(
+        callbackfn: (value: V, index: K, map: Map<K, V>) => void,
+        thisArg?: any
+    ): void;
     get(key: K): V;
     has(key: K): boolean;
     set(key: K, value?: V): Map<K, V>;
@@ -59,7 +62,10 @@ interface Set<T> {
     add(value: T): Set<T>;
     clear(): void;
     delete(value: T): boolean;
-    forEach(callbackfn: (value: T, index: T, set: Set<T>) => void, thisArg?: any): void;
+    forEach(
+        callbackfn: (value: T, index: T, set: Set<T>) => void,
+        thisArg?: any
+    ): void;
     has(value: T): boolean;
     entries(): Iterator<[T, T]>;
     keys(): Iterator<T>;
@@ -77,7 +83,7 @@ declare var Set: SetConstructor;
 
 interface WeakMap<K extends object, V> {
     delete(key: K): boolean;
-	clear(): void;
+    clear(): void;
     get(key: K): V;
     has(key: K): boolean;
     set(key: K, value?: V): WeakMap<K, V>;
@@ -93,7 +99,7 @@ declare var WeakMap: WeakMapConstructor;
 
 interface WeakSet<T> {
     delete(value: T): boolean;
-	clear(): void;
+    clear(): void;
     add(value: T): WeakSet<T>;
     has(value: T): boolean;
 }

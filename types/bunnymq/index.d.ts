@@ -41,7 +41,11 @@ declare namespace bunnymq {
          *
          * @return The consumer response.
          */
-        publish<T>(queueName: string, message: any, options?: ProducerOptions): Promise<T>;
+        publish<T>(
+            queueName: string,
+            message: any,
+            options?: ProducerOptions
+        ): Promise<T>;
     }
 
     interface Logger {
@@ -81,7 +85,11 @@ declare namespace bunnymq {
          * @param message A message.
          * @return The consumer response.
          */
-        produce<T>(queue: string, message: any, options?: ProducerOptions): Promise<T>;
+        produce<T>(
+            queue: string,
+            message: any,
+            options?: ProducerOptions
+        ): Promise<T>;
     }
 
     interface ProducerOptions {

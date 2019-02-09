@@ -64,7 +64,7 @@ declare namespace SteamID {
         PUBLIC = 1,
         BETA = 2,
         INTERNAL = 3,
-        DEV = 4,
+        DEV = 4
     }
 
     // Type constants
@@ -79,7 +79,7 @@ declare namespace SteamID {
         CLAN = 7,
         CHAT = 8,
         P2P_SUPER_SEEDER = 9,
-        ANON_USER = 10,
+        ANON_USER = 10
     }
 
     // Instance constants
@@ -87,7 +87,7 @@ declare namespace SteamID {
         ALL = 0,
         DESKTOP = 1,
         CONSOLE = 2,
-        WEB = 4,
+        WEB = 4
     }
 
     // Type chars
@@ -101,27 +101,27 @@ declare namespace SteamID {
         C = Type.CONTENT_SERVER,
         g = Type.CLAN,
         T = Type.CHAT,
-        a = Type.ANON_USER,
+        a = Type.ANON_USER
     }
 
-    const AccountIDMask = 0xFFFFFFFF;
-    const AccountInstanceMask = 0x000FFFFF;
+    const AccountIDMask = 0xffffffff;
+    const AccountInstanceMask = 0x000fffff;
 
     enum ChatInstanceFlags {
         /**
          * (AccountInstanceMask + 1) >> 1
          */
-        Clan = (0x000FFFFF + 1) >> 1,
+        Clan = (0x000fffff + 1) >> 1,
 
         /**
          * (AccountInstanceMask + 1) >> 2
          */
-        Lobby = (0x000FFFFF + 1) >> 2,
+        Lobby = (0x000fffff + 1) >> 2,
 
         /**
          * (AccountInstanceMask + 1) >> 3
          */
-        MMSLobby = (0x000FFFFF + 1) >> 3,
+        MMSLobby = (0x000fffff + 1) >> 3
     }
 
     /**

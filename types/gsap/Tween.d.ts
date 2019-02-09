@@ -22,7 +22,13 @@ declare namespace gsap {
         static ticker: any;
 
         /** Provides a simple way to call a () => void after a set amount of time (or frames). */
-        static delayedCall(delay: number, callback: () => void, params?: any[], scope?: any, useFrames?: boolean): TweenLite;
+        static delayedCall(
+            delay: number,
+            callback: () => void,
+            params?: any[],
+            scope?: any,
+            useFrames?: boolean
+        ): TweenLite;
 
         /**
          * Static method for creating a TweenLite instance that tweens backwards - you define the BEGINNING values and the current values are used as the destination values which is great for doing
@@ -34,7 +40,12 @@ declare namespace gsap {
          * Static method for creating a TweenLite instance that allows you to define both the starting and ending values (as opposed to to() and from() tweens which are based on the target's
          * current values at one end or the other).
          */
-        static fromTo(target: any, duration: number, fromVars: any, toVars: any): TweenLite;
+        static fromTo(
+            target: any,
+            duration: number,
+            fromVars: any,
+            toVars: any
+        ): TweenLite;
 
         /**
          * Returns an array containing all the tweens of a particular target (or group of targets) that have not been released for garbage collection yet which typically happens within a few
@@ -52,7 +63,11 @@ declare namespace gsap {
         static killDelayedCallsTo(func: () => void): void;
 
         /** Kills all the tweens (or specific tweening properties) of a particular object or delayedCalls to a particular () => void. */
-        static killTweensOf(target: any, onlyActive?: boolean, vars?: any): void;
+        static killTweensOf(
+            target: any,
+            onlyActive?: boolean,
+            vars?: any
+        ): void;
 
         /** Permits you to control what happens when too much time elapses between two ticks (updates) of the engine, adjusting the core timing mechanism to compensate and avoid "jumps". */
         static lagSmoothing(threshold: number, adjustedLag: number): void;
@@ -74,7 +89,13 @@ declare namespace gsap {
         constructor(target: {}, duration: number, vars: {});
 
         /** Provides a simple way to call a () => void after a set amount of time (or frames). */
-        static delayedCall(delay: number, callback: () => void, params?: any[], scope?: {}, useFrames?: boolean): TweenMax;
+        static delayedCall(
+            delay: number,
+            callback: () => void,
+            params?: any[],
+            scope?: {},
+            useFrames?: boolean
+        ): TweenMax;
 
         /**
          * Static method for creating a TweenMax instance that tweens backwards - you define the BEGINNING values and the current values are used as the destination values which is great for
@@ -86,7 +107,12 @@ declare namespace gsap {
          * Static method for creating a TweenMax instance that allows you to define both the starting and ending values (as opposed to to() and from() tweens which are based on the target's
          * current values at one end or the other).
          */
-        static fromTo(target: {}, duration: number, fromVars: {}, toVars: {}): TweenMax;
+        static fromTo(
+            target: {},
+            duration: number,
+            fromVars: {},
+            toVars: {}
+        ): TweenMax;
 
         /** Returns an array containing all tweens (and optionally timelines too, excluding the root timelines). */
         static getAllTweens(includeTimelines?: boolean): Tween[];
@@ -104,7 +130,12 @@ declare namespace gsap {
         static isTweening(target: {}): boolean;
 
         /** Kills all tweens and/or delayedCalls/callbacks, and/or timelines, optionally forcing them to completion first. */
-        static killAll(complete?: boolean, tweens?: boolean, delayedCalls?: boolean, timelines?: boolean): void;
+        static killAll(
+            complete?: boolean,
+            tweens?: boolean,
+            delayedCalls?: boolean,
+            timelines?: boolean
+        ): void;
 
         /** Kills all tweens of the children of a particular DOM element, optionally forcing them to completion first. */
         static killChildTweensOf(parent: any, complete?: boolean): void;
@@ -116,7 +147,11 @@ declare namespace gsap {
         static killTweensOf(target: {}, vars?: {}): void;
 
         /** Pauses all tweens and/or delayedCalls/callbacks and/or timelines. */
-        static pauseAll(tweens?: boolean, delayedCalls?: boolean, timelines?: boolean): void;
+        static pauseAll(
+            tweens?: boolean,
+            delayedCalls?: boolean,
+            timelines?: boolean
+        ): void;
 
         /**
          * Gets or sets the tween's progress which is a value between 0 and 1 indicating the position of the virtual playhead (excluding repeats) where 0 is at the beginning, 0.5 is halfway
@@ -130,7 +165,11 @@ declare namespace gsap {
         repeatDelay(value: number): TweenMax;
 
         /** Resumes all paused tweens and/or delayedCalls/callbacks and/or timelines. */
-        static resumeAll(tweens?: boolean, delayedCalls?: boolean, timelines?: boolean): void;
+        static resumeAll(
+            tweens?: boolean,
+            delayedCalls?: boolean,
+            timelines?: boolean
+        ): void;
 
         /** Immediately sets properties of the target accordingly - essentially a zero-duration to() tween with a more intuitive name. */
         static set(target: {}, vars: {}): TweenMax;

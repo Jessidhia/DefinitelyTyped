@@ -5,7 +5,11 @@
 
 export = terminalLink;
 
-declare function terminalLink(text: string, url: string, options?: terminalLink.Options): string;
+declare function terminalLink(
+    text: string,
+    url: string,
+    options?: terminalLink.Options
+): string;
 
 declare namespace terminalLink {
     function isSupported(): boolean;

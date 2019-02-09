@@ -5,11 +5,11 @@
 
 /// <reference types="node" />
 
-declare module 'xmlrpc' {
-    import { EventEmitter } from 'events';
-    import { Server as HttpServer } from 'http';
-    import { Server as HttpsServer } from 'https';
-    import { TlsOptions } from 'tls';
+declare module "xmlrpc" {
+    import { EventEmitter } from "events";
+    import { Server as HttpServer } from "http";
+    import { Server as HttpsServer } from "https";
+    import { TlsOptions } from "tls";
 
     interface ClientOptions {
         host?: string;
@@ -18,7 +18,7 @@ declare module 'xmlrpc' {
         url?: string;
         cookies?: boolean;
         headers?: { [header: string]: string };
-        basic_auth?: { user: string, pass: string };
+        basic_auth?: { user: string; pass: string };
         method?: string;
     }
 
@@ -38,7 +38,11 @@ declare module 'xmlrpc' {
 
     class Cookies {
         get(name: string): string;
-        set(name: string, value: string, options?: { secure: boolean, expires: Date }): void;
+        set(
+            name: string,
+            value: string,
+            options?: { secure: boolean; expires: Date }
+        ): void;
         toString(): string;
     }
 
@@ -46,8 +50,14 @@ declare module 'xmlrpc' {
         function createClient(options: string | ClientOptions): Client;
         function createSecureClient(options: string | ClientOptions): Client;
 
-        function createServer(options: string | ServerOptions, callback: () => void): Server;
-        function createSecureServer(options: string | TlsOptions, callback: () => void): Server;
+        function createServer(
+            options: string | ServerOptions,
+            callback: () => void
+        ): Server;
+        function createSecureServer(
+            options: string | TlsOptions,
+            callback: () => void
+        ): Server;
 
         interface Client {
             options: ClientOptions;
@@ -55,19 +65,30 @@ declare module 'xmlrpc' {
             headersProcessors: { processors: HeadersProcessor[] };
             cookies?: Cookies;
 
-            methodCall(method: string, params: any[], callback: (error: Object, value: any) => void): void;
+            methodCall(
+                method: string,
+                params: any[],
+                callback: (error: Object, value: any) => void
+            ): void;
 
             getCookie(name: string): string;
             setCookie(name: string, value: string): this;
         }
 
-        type ServerFunction = (error: any, params: any, callback: (error: any, value: any) => void) => void;
-        type ServerNotFoundFunction = (methodName: string, params: any[]) => void;
+        type ServerFunction = (
+            error: any,
+            params: any,
+            callback: (error: any, value: any) => void
+        ) => void;
+        type ServerNotFoundFunction = (
+            methodName: string,
+            params: any[]
+        ) => void;
 
         interface Server extends EventEmitter {
             httpServer: HttpServer | HttpsServer;
 
-            on(eventName: 'NotFound', callback: ServerNotFoundFunction): this;
+            on(eventName: "NotFound", callback: ServerNotFoundFunction): this;
             on(eventName: string, callback: ServerFunction): this;
         }
 
@@ -83,7 +104,7 @@ declare module 'xmlrpc' {
 
             decodeIso8601(time: string): Date;
             encodeIso8601(date: Date): string;
-        }
+        };
 
         export class CustomType {
             tagName: string;

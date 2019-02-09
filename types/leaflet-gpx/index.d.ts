@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     interface GPXOptions {
         async?: boolean;
         max_point_interval?: number;
         marker_options?: MarkerOptions;
         polyline_options?: PolylineOptions;
-        gpx_options?: { parseElements: ['track', 'route', 'waypoint'] };
+        gpx_options?: { parseElements: ["track", "route", "waypoint"] };
     }
 
     class GPX extends FeatureGroup {

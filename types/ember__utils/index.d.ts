@@ -46,15 +46,23 @@ export function isPresent(obj?: any): boolean;
 export function tryInvoke<FNAME extends keyof T, T extends object>(
     obj: T,
     methodName: FNAME,
-    args: FunctionArgs<T[FNAME]>): T[FNAME] extends ((...args: any[]) => any)
-        ? ReturnType<T[FNAME]>
-        : undefined;
-export function tryInvoke<FNAME extends keyof T, T extends object>(obj: T, methodName: FNAME): T[FNAME] extends (() => any) ? ReturnType<T[FNAME]> : undefined;
-export function tryInvoke(obj: object, methodName: string, args?: any[]): undefined;
+    args: FunctionArgs<T[FNAME]>
+): T[FNAME] extends ((...args: any[]) => any)
+    ? ReturnType<T[FNAME]>
+    : undefined;
+export function tryInvoke<FNAME extends keyof T, T extends object>(
+    obj: T,
+    methodName: FNAME
+): T[FNAME] extends (() => any) ? ReturnType<T[FNAME]> : undefined;
+export function tryInvoke(
+    obj: object,
+    methodName: string,
+    args?: any[]
+): undefined;
 
 /**
  * Returns a consistent type for the passed object.
  */
 export function typeOf<T>(value: T): KeysOfType<TypeLookup, T>;
-export function typeOf(): 'undefined';
+export function typeOf(): "undefined";
 export function typeOf(item: any): string;

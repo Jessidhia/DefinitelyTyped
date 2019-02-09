@@ -1,15 +1,10 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "jsx": "react",
         "strictNullChecks": true,
         "strictFunctionTypes": true,
@@ -18,8 +13,5 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "react-better-password-tests.tsx"
-    ]
+    "files": ["index.d.ts", "react-better-password-tests.tsx"]
 }

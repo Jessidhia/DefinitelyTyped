@@ -5,10 +5,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Animated, ScrollViewProps, ViewStyle, TextStyle, StyleProp } from 'react-native';
+import * as React from "react";
+import {
+    Animated,
+    ScrollViewProps,
+    ViewStyle,
+    TextStyle,
+    StyleProp
+} from "react-native";
 
-export interface ScrollableTabViewProperties extends React.Props<ScrollableTabView> {
+export interface ScrollableTabViewProperties
+    extends React.Props<ScrollableTabView> {
     /**
      * accept 1 argument props and should return a component
      * to use as the tab bar. The component has goToPage, tabs, activeTab and ref added to the props,
@@ -23,7 +30,7 @@ export interface ScrollableTabViewProperties extends React.Props<ScrollableTabVi
      * "overlayTop" or "overlayBottom" for a semitransparent tab bar that overlays content. Custom
      * tab bars must consume a style prop on their outer element to support this feature: style={this.props.style}.
      */
-    tabBarPosition?: 'top' | 'bottom' | 'overlayTop' | 'overlayBottom';
+    tabBarPosition?: "top" | "bottom" | "overlayTop" | "overlayBottom";
 
     /**
      * function to call when tab changes, should accept 1 argument which is
@@ -119,8 +126,9 @@ export interface ChangeTabProperties {
     from: number;
 }
 
-export default class ScrollableTabView extends React.Component<ScrollableTabViewProperties> {
-}
+export default class ScrollableTabView extends React.Component<
+    ScrollableTabViewProperties
+> {}
 
 // Each top-level child component should have a tabLabel prop
 // that can be used by the tab bar component to render out the labels.
@@ -138,11 +146,16 @@ export interface DefaultTabBarProps {
     underlineStyle?: ViewStyle;
 }
 
-export type RenderTabProperties =
-    (name: string, pageIndex: number, isTabActive: boolean, goToPage: (pageNumber: number) => void) => JSX.Element;
+export type RenderTabProperties = (
+    name: string,
+    pageIndex: number,
+    isTabActive: boolean,
+    goToPage: (pageNumber: number) => void
+) => JSX.Element;
 
-export class DefaultTabBar extends React.Component<TabBarProps<DefaultTabBarProps>> {
-}
+export class DefaultTabBar extends React.Component<
+    TabBarProps<DefaultTabBarProps>
+> {}
 
 export interface ScrollableTabBarProps extends DefaultTabBarProps {
     scrollOffset?: number;
@@ -150,5 +163,6 @@ export interface ScrollableTabBarProps extends DefaultTabBarProps {
     tabsContainerStyle?: ViewStyle;
 }
 
-export class ScrollableTabBar extends React.Component<TabBarProps<ScrollableTabBarProps>> {
-}
+export class ScrollableTabBar extends React.Component<
+    TabBarProps<ScrollableTabBarProps>
+> {}

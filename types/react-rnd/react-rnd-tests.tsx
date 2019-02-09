@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 import { default as Rnd, ResizeHandler } from "react-rnd";
 
 const onResize: ResizeHandler = (e, direction, ref, delta, position) => {
-    direction === 'right';
+    direction === "right";
     delta.width;
     delta.height;
     position.x;
@@ -21,6 +21,6 @@ const onResize: ResizeHandler = (e, direction, ref, delta, position) => {
     }}
     disableDragging={false}
     resizeHandleStyles={{
-        top: { background: '#000' }
+        top: { background: "#000" }
     }}
 />;

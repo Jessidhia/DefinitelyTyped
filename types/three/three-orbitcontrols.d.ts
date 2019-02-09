@@ -28,12 +28,11 @@ export class OrbitControls {
     minAzimuthAngle: number;
     maxAzimuthAngle: number;
     enableKeys: boolean;
-    keys: {LEFT: number; UP: number; RIGHT: number; BOTTOM: number;};
-    mouseButtons: {ORBIT: MOUSE; ZOOM: MOUSE; PAN: MOUSE;};
+    keys: { LEFT: number; UP: number; RIGHT: number; BOTTOM: number };
+    mouseButtons: { ORBIT: MOUSE; ZOOM: MOUSE; PAN: MOUSE };
     enableDamping: boolean;
     dampingFactor: number;
     screenSpacePanning: boolean;
-
 
     rotateLeft(angle?: number): void;
 
@@ -66,5 +65,5 @@ export class OrbitControls {
 
     removeEventListener(type: string, listener: (event: any) => void): void;
 
-    dispatchEvent(event: {type: string; target: any;}): void;
+    dispatchEvent(event: { type: string; target: any }): void;
 }

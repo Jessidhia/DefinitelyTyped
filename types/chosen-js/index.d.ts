@@ -9,8 +9,17 @@
 /// <reference types="jquery"/>
 
 declare namespace Chosen {
-    type OnEvent = "chosen:ready" | "chosen:maxselected" | "chosen:showing_dropdown" | "chosen:hiding_dropdown" | "chosen:no_results";
-    type TriggerEvent = "chosen:updated" | "chosen:activate" | "chosen:open" | "chosen:close";
+    type OnEvent =
+        | "chosen:ready"
+        | "chosen:maxselected"
+        | "chosen:showing_dropdown"
+        | "chosen:hiding_dropdown"
+        | "chosen:no_results";
+    type TriggerEvent =
+        | "chosen:updated"
+        | "chosen:activate"
+        | "chosen:open"
+        | "chosen:close";
 
     interface Options {
         /**
@@ -130,7 +139,13 @@ interface JQuery {
     /**
      * Chosen triggers the standard DOM event whenever a selection is made (it also sends a selected or deselected parameter that tells you which option was changed).
      */
-    on(events: "change", handler: (eventObject: JQueryEventObject, args: Chosen.SelectedData) => any): JQuery;
+    on(
+        events: "change",
+        handler: (
+            eventObject: JQueryEventObject,
+            args: Chosen.SelectedData
+        ) => any
+    ): JQuery;
 
     /**
      * * `chosen:ready` Triggered after Chosen has been fully instantiated.
@@ -139,7 +154,10 @@ interface JQuery {
      * * `chosen:hiding_dropdown` Triggered when Chosen’s dropdown is closed.
      * * `chosen:no_results` Triggered when a search returns no matching results.
      */
-    on(events: Chosen.OnEvent, handler: (eventObject: JQueryEventObject) => any): JQuery;
+    on(
+        events: Chosen.OnEvent,
+        handler: (eventObject: JQueryEventObject) => any
+    ): JQuery;
 
     /**
      * * `chosen:updated` This event should be triggered whenever Chosen’s underlying select element changes (such as a change in selected options).

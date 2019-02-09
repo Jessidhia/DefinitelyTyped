@@ -1,16 +1,26 @@
 /// <reference types="node" />
 
 import {
-    ReadableStream, ReadableStreamSource, WritableStream,
-    ReadableStreamDefaultController, WritableStreamSink, WritableStreamDefaultController, ReadableByteStreamController,
-    TransformStream, TransformStreamDefaultController, TransformStreamTransformer
+    ReadableStream,
+    ReadableStreamSource,
+    WritableStream,
+    ReadableStreamDefaultController,
+    WritableStreamSink,
+    WritableStreamDefaultController,
+    ReadableByteStreamController,
+    TransformStream,
+    TransformStreamDefaultController,
+    TransformStreamTransformer
 } from "whatwg-streams";
 
 // Examples taken from https://streams.spec.whatwg.org/#creating-examples
 
 // 8.1. A readable stream with an underlying push source (no backpressure support)
 
-function makeReadableWebSocketStream(url: string, protocols: string | string[]) {
+function makeReadableWebSocketStream(
+    url: string,
+    protocols: string | string[]
+) {
     const ws = new WebSocket(url, protocols);
     ws.binaryType = "arraybuffer";
 
@@ -18,7 +28,8 @@ function makeReadableWebSocketStream(url: string, protocols: string | string[]) 
         start(controller) {
             ws.onmessage = event => controller.enqueue(event.data);
             ws.onclose = () => controller.close();
-            ws.onerror = () => controller.error(new Error("The WebSocket errored!"));
+            ws.onerror = () =>
+                controller.error(new Error("The WebSocket errored!"));
         },
 
         cancel() {
@@ -30,13 +41,16 @@ function makeReadableWebSocketStream(url: string, protocols: string | string[]) 
 {
     const writableStream = new WritableStream();
 
-    const webSocketStream = makeReadableWebSocketStream("wss://example.com:443/", "protocol");
+    const webSocketStream = makeReadableWebSocketStream(
+        "wss://example.com:443/",
+        "protocol"
+    );
 
-    webSocketStream.pipeTo(writableStream)
+    webSocketStream
+        .pipeTo(writableStream)
         .then(() => console.log("All data successfully written!"))
         .catch(e => console.error("Something went wrong!", e));
 }
-
 
 // 8.2. A readable stream with an underlying push source and backpressure support
 
@@ -56,7 +70,8 @@ function makeReadableBackpressureSocketStream(host: string, port: number) {
             };
 
             socket.onend = () => controller.close();
-            socket.onerror = () => controller.error(new Error("The socket errored!"));
+            socket.onerror = () =>
+                controller.error(new Error("The socket errored!"));
         },
 
         pull() {
@@ -71,9 +86,8 @@ function makeReadableBackpressureSocketStream(host: string, port: number) {
         }
     });
 
-    function createBackpressureSocket(host: string, port: number): any { };
+    function createBackpressureSocket(host: string, port: number): any {}
 }
-
 
 // 8.3. A readable byte stream with an underlying push source (no backpressure support)
 
@@ -95,12 +109,22 @@ function makeUDPSocketStream(host: string, port: number) {
                     let bytesRead: number;
                     if (controller.byobRequest) {
                         const v = controller.byobRequest.view;
-                        bytesRead = socket.readInto(v.buffer, v.byteOffset, v.byteLength);
+                        bytesRead = socket.readInto(
+                            v.buffer,
+                            v.byteOffset,
+                            v.byteLength
+                        );
                         controller.byobRequest.respond(bytesRead);
                     } else {
                         const buffer = new ArrayBuffer(DEFAULT_CHUNK_SIZE);
-                        bytesRead = socket.readInto(buffer, 0, DEFAULT_CHUNK_SIZE);
-                        controller.enqueue(new Uint8Array(buffer, 0, bytesRead));
+                        bytesRead = socket.readInto(
+                            buffer,
+                            0,
+                            DEFAULT_CHUNK_SIZE
+                        );
+                        controller.enqueue(
+                            new Uint8Array(buffer, 0, bytesRead)
+                        );
                     }
 
                     if (bytesRead === 0) {
@@ -118,17 +142,27 @@ function makeUDPSocketStream(host: string, port: number) {
         }
     });
 
-    function createUDPSocket(host: string, port: number): any { };
+    function createUDPSocket(host: string, port: number): any {}
 }
-
 
 // 8.4. A readable stream with an underlying pull source
 
 //const fs = require("pr/fs"); // https://github.com/jden/pr
 interface fs {
     open(path: string | Buffer, flags: string | number): Promise<number>;
-    read(fd: number, buffer: Buffer, offset: number, length: number, position: number): Promise<number>;
-    write(fd: number, buffer: Buffer | string, offset: number, length: number): Promise<number>;
+    read(
+        fd: number,
+        buffer: Buffer,
+        offset: number,
+        length: number,
+        position: number
+    ): Promise<number>;
+    write(
+        fd: number,
+        buffer: Buffer | string,
+        offset: number,
+        length: number
+    ): Promise<number>;
     close(fd: number): Promise<void>;
 }
 let fs: fs;
@@ -149,14 +183,18 @@ function makeReadableFileStream(filename: string) {
         pull(controller) {
             const buffer = new ArrayBuffer(CHUNK_SIZE);
 
-            return fs.read(fd, buffer as any, 0, CHUNK_SIZE, position).then(bytesRead => {
-                if (bytesRead === 0) {
-                    return fs.close(fd).then(() => controller.close());
-                } else {
-                    position += bytesRead;
-                    controller.enqueue(new Uint8Array(buffer, 0, bytesRead));
-                }
-            });
+            return fs
+                .read(fd, buffer as any, 0, CHUNK_SIZE, position)
+                .then(bytesRead => {
+                    if (bytesRead === 0) {
+                        return fs.close(fd).then(() => controller.close());
+                    } else {
+                        position += bytesRead;
+                        controller.enqueue(
+                            new Uint8Array(buffer, 0, bytesRead)
+                        );
+                    }
+                });
         },
 
         cancel() {
@@ -164,7 +202,6 @@ function makeReadableFileStream(filename: string) {
         }
     });
 }
-
 
 // 8.5. A readable byte stream with an underlying pull source
 
@@ -189,14 +226,16 @@ function makeReadableByteFileStream(filename: string) {
             // feature allocates a buffer and passes it to us via byobRequest.
             const v = controller.byobRequest!.view;
 
-            return fs.read(fd, v.buffer as any, v.byteOffset, v.byteLength, position).then(bytesRead => {
-                if (bytesRead === 0) {
-                    return fs.close(fd).then(() => controller.close());
-                } else {
-                    position += bytesRead;
-                    controller.byobRequest!.respond(bytesRead);
-                }
-            });
+            return fs
+                .read(fd, v.buffer as any, v.byteOffset, v.byteLength, position)
+                .then(bytesRead => {
+                    if (bytesRead === 0) {
+                        return fs.close(fd).then(() => controller.close());
+                    } else {
+                        position += bytesRead;
+                        controller.byobRequest!.respond(bytesRead);
+                    }
+                });
         },
 
         cancel() {
@@ -207,16 +246,19 @@ function makeReadableByteFileStream(filename: string) {
     });
 }
 
-
 // 8.6. A writable stream with no backpressure or success signals
 
-function makeWritableWebSocketStream(url: string, protocols: string | string[]) {
+function makeWritableWebSocketStream(
+    url: string,
+    protocols: string | string[]
+) {
     const ws = new WebSocket(url, protocols);
 
     return new WritableStream({
         start(controller) {
-            ws.onerror = () => controller.error(new Error("The WebSocket errored!"));
-            return new Promise<void>(resolve => ws.onopen = () => resolve());
+            ws.onerror = () =>
+                controller.error(new Error("The WebSocket errored!"));
+            return new Promise<void>(resolve => (ws.onopen = () => resolve()));
         },
 
         write(chunk) {
@@ -237,13 +279,16 @@ function makeWritableWebSocketStream(url: string, protocols: string | string[]) 
 {
     const readableStream = new ReadableStream();
 
-    const webSocketStream = makeWritableWebSocketStream("wss://example.com:443/", "protocol");
+    const webSocketStream = makeWritableWebSocketStream(
+        "wss://example.com:443/",
+        "protocol"
+    );
 
-    readableStream.pipeTo(webSocketStream)
+    readableStream
+        .pipeTo(webSocketStream)
         .then(() => console.log("All data successfully written!"))
         .catch(e => console.error("Something went wrong!", e));
 }
-
 
 // 8.7. A writable stream with backpressure and success signals
 
@@ -276,14 +321,15 @@ function makeWritableFileStream(filename: string) {
     writer.write("To stream, or not to stream\n");
     writer.write("That is the question\n");
 
-    writer.close()
-        .then(() => console.log("chunks written and stream closed successfully!"))
+    writer
+        .close()
+        .then(() =>
+            console.log("chunks written and stream closed successfully!")
+        )
         .catch(e => console.error(e));
 }
 
-
 // 8.8. A { readable, writable } stream pair wrapping the same underlying resource
-
 
 function streamifyWebSocket(url: string, protocol: string) {
     const ws = new WebSocket(url, protocol);
@@ -328,7 +374,9 @@ class WebSocketSink implements WritableStreamSink {
             controller.error(new Error("The WebSocket errored!"));
         });
 
-        return new Promise<void>(resolve => this._ws.onopen = () => resolve());
+        return new Promise<void>(
+            resolve => (this._ws.onopen = () => resolve())
+        );
     }
 
     write(chunk: any) {
@@ -356,11 +404,9 @@ class WebSocketSink implements WritableStreamSink {
     });
 }
 
-
 // 8.9. A transform stream that replaces template tags
 
-
-type Dictionary<T> = { [key: string]: T }
+type Dictionary<T> = { [key: string]: T };
 
 declare function fetch(input?: Request | string): Promise<Response>;
 declare interface FetchEvent {
@@ -374,10 +420,11 @@ declare class Response {
     constructor(body?: ReadableStream);
     readonly body: ReadableStream;
 }
-declare class TextDecoderStream extends TransformStream<string, ArrayBufferView> {
-}
-declare class TextEncoderStream extends TransformStream<Uint8Array, string> {
-}
+declare class TextDecoderStream extends TransformStream<
+    string,
+    ArrayBufferView
+> {}
+declare class TextEncoderStream extends TransformStream<Uint8Array, string> {}
 
 class LipFuzzTransformer implements TransformStreamTransformer<string, string> {
     substitutions: Dictionary<string>;
@@ -390,12 +437,18 @@ class LipFuzzTransformer implements TransformStreamTransformer<string, string> {
         this.lastIndex = undefined;
     }
 
-    transform(chunk: string, controller: TransformStreamDefaultController<string>) {
+    transform(
+        chunk: string,
+        controller: TransformStreamDefaultController<string>
+    ) {
         chunk = this.partialChunk + chunk;
         this.partialChunk = "";
         // lastIndex is the index of the first character after the last substitution.
         this.lastIndex = 0;
-        chunk = chunk.replace(/\{\{([a-zA-Z0-9_-]+)\}\}/g, this.replaceTag.bind(this));
+        chunk = chunk.replace(
+            /\{\{([a-zA-Z0-9_-]+)\}\}/g,
+            this.replaceTag.bind(this)
+        );
         // Regular expression for an incomplete template at the end of a string.
         const partialAtEndRegexp = /\{(\{([a-zA-Z0-9_-]+(\})?)?)?$/g;
         // Avoid looking at any characters that have already been substituted.
@@ -449,7 +502,6 @@ class LipFuzzTransformer implements TransformStreamTransformer<string, string> {
     );
 }
 
-
 // 8.10. A transform stream created from a sync mapper function
 
 function mapperTransformStream<R, W>(mapperFunction: (chunk: W) => R) {
@@ -469,7 +521,6 @@ function mapperTransformStream<R, W>(mapperFunction: (chunk: W) => R) {
 
     // Logs "NO NEED TO SHOUT":
     reader.read().then(({ value }) => console.log(value));
-
 }
 
 {

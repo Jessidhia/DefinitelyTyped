@@ -17,7 +17,10 @@ export interface EventOptions {
     capture?: boolean;
 }
 
-export function withOptions<T>(handler: (ev: T) => any, options: EventOptions): (ev: T) => any;
+export function withOptions<T>(
+    handler: (ev: T) => any,
+    options: EventOptions
+): (ev: T) => any;
 
 export interface EventListenerProps {
     // Global events
@@ -226,4 +229,6 @@ export interface EventListenerProps {
     target: Window | Document | string;
 }
 
-export default class EventListener extends React.Component<EventListenerProps> { }
+export default class EventListener extends React.Component<
+    EventListenerProps
+> {}

@@ -1,4 +1,4 @@
-import timeSpan = require('time-span');
+import timeSpan = require("time-span");
 
 const end = timeSpan();
 

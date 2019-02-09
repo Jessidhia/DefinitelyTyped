@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-export type PolyfillFlag = 'gated' | 'always';
-export type Unknown = 'polyfill' | 'ignore';
+export type PolyfillFlag = "gated" | "always";
+export type Unknown = "polyfill" | "ignore";
 
 export interface Feature {
     flags?: PolyfillFlag[];
@@ -37,6 +37,10 @@ export interface GetPolyfillsResponse {
 
 export function listAllPolyfills(): Promise<ReadonlyArray<string>>;
 
-export function getPolyfillString(options: GetPolyfillStringOptions): Promise<string>;
+export function getPolyfillString(
+    options: GetPolyfillStringOptions
+): Promise<string>;
 
-export function getPolyfills(options: GetPolyfillsOptions): Promise<GetPolyfillsResponse>;
+export function getPolyfills(
+    options: GetPolyfillsOptions
+): Promise<GetPolyfillsResponse>;

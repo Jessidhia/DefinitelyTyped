@@ -1,4 +1,4 @@
-import { ObserverMethod } from '@ember/object/-private/types';
+import { ObserverMethod } from "@ember/object/-private/types";
 
 /**
  * Add an event listener

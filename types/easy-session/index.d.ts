@@ -26,7 +26,7 @@ declare namespace Express {
 }
 
 declare module "easy-session" {
-    import express = require('express');
+    import express = require("express");
 
     interface SessionOptions {
         ipCheck?: boolean;
@@ -35,8 +35,16 @@ declare module "easy-session" {
         maxFreshTimeout?: number;
     }
 
-    export function main(session: any, options?: SessionOptions): express.RequestHandler;
-    export function isLoggedIn(errorCallback?: Function): express.RequestHandler;
+    export function main(
+        session: any,
+        options?: SessionOptions
+    ): express.RequestHandler;
+    export function isLoggedIn(
+        errorCallback?: Function
+    ): express.RequestHandler;
     export function isFresh(errorCallback?: Function): express.RequestHandler;
-    export function checkRole(role: string, errorCallback?: Function): express.RequestHandler;
+    export function checkRole(
+        role: string,
+        errorCallback?: Function
+    ): express.RequestHandler;
 }

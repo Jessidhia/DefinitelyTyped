@@ -11,7 +11,7 @@ import * as React from "react";
 import * as moment from "moment";
 import * as momentRange from "moment-range";
 
-export default class DateRangePicker extends React.Component<Props> { }
+export default class DateRangePicker extends React.Component<Props> {}
 export as namespace ReactDateRangePicker;
 
 export interface Props<T = DateRangePicker> extends React.Props<T> {
@@ -35,13 +35,18 @@ export interface Props<T = DateRangePicker> extends React.Props<T> {
     onHighlightRange?(date: Date): void;
     onSelect?(value: OnSelectCallbackParam): void;
     onSelectStart?(value: momentRange.MomentRangeExtends): void;
-    paginationArrowComponent?: React.ComponentClass<PaginationArrowProps> | React.SFC<PaginationArrowProps>;
+    paginationArrowComponent?:
+        | React.ComponentClass<PaginationArrowProps>
+        | React.SFC<PaginationArrowProps>;
     selectedLabel?: string;
-    selectionType?: 'single' | 'range';
+    selectionType?: "single" | "range";
     singleDateRange?: boolean;
     showLegend?: boolean;
     stateDefinitions?: StateDefinitions;
-    value?: momentRange.MomentRangeExtends | momentRange.DateRange | moment.Moment;
+    value?:
+        | momentRange.MomentRangeExtends
+        | momentRange.DateRange
+        | moment.Moment;
 }
 
 export interface DateState {
@@ -62,7 +67,7 @@ export interface StateDefinition {
 export interface PaginationArrowProps<T = {}> extends React.Props<T> {
     disabled?: boolean;
     onTrigger?(): void;
-    direction?: 'next' | 'previous';
+    direction?: "next" | "previous";
 }
 
 export interface OnSelectCallbackParam {

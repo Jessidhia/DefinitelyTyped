@@ -16,7 +16,10 @@ class GetAndSet {
     get<K extends keyof this>(key: K): UnboxGetProperty<this[K]> {
         return this[key] as any;
     }
-    set<K extends keyof this>(key: K, newVal: UnboxSetProperty<this[K]>): UnboxSetProperty<this[K]> {
+    set<K extends keyof this>(
+        key: K,
+        newVal: UnboxSetProperty<this[K]>
+    ): UnboxSetProperty<this[K]> {
         const rawVal: UnboxSetProperty<this[K]> = this[key] as any;
         if (rawVal instanceof BoxedProperty) {
             rawVal.__setType = newVal;
@@ -36,27 +39,27 @@ class Foo123 extends GetAndSet {
         super();
         this.a = 1;
         this.b = [true, false];
-        this.c = 'hello';
+        this.c = "hello";
     }
 }
 
 let f = new Foo123();
 
-f.get('a'); // $ExpectType number
-f.set('a'); // $ExpectError
-f.set('a', '1'); // $ExpectError
-f.set('a', 1); // $ExpectType number
+f.get("a"); // $ExpectType number
+f.set("a"); // $ExpectError
+f.set("a", "1"); // $ExpectError
+f.set("a", 1); // $ExpectType number
 
-f.get('b'); // $ExpectType [boolean, boolean]
-f.set('b', 1); // $ExpectError
-f.set('b', []); // $ExpectError
-f.set('b', [true]); // $ExpectError
-f.set('b', [false, true]); // $ExpectType [boolean, boolean]
-f.set('b', [false, true, false]); // $ExpectError
+f.get("b"); // $ExpectType [boolean, boolean]
+f.set("b", 1); // $ExpectError
+f.set("b", []); // $ExpectError
+f.set("b", [true]); // $ExpectError
+f.set("b", [false, true]); // $ExpectType [boolean, boolean]
+f.set("b", [false, true, false]); // $ExpectError
 
-f.get('c'); // $ExpectType string
-f.set('c', '1'); // $ExpectType string
+f.get("c"); // $ExpectType string
+f.set("c", "1"); // $ExpectType string
 
-f.get('cpA'); // $ExpectType string
-f.set('cpA', ['newValue']); // $ExpectError
-f.set('cpA', 'newValue'); // $ExpectType string
+f.get("cpA"); // $ExpectType string
+f.set("cpA", ["newValue"]); // $ExpectError
+f.set("cpA", "newValue"); // $ExpectType string

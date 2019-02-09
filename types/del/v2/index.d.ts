@@ -5,7 +5,10 @@
 
 import glob = require("glob");
 
-declare function del(patterns: string | string[], options?: del.Options): Promise<string[]>;
+declare function del(
+    patterns: string | string[],
+    options?: del.Options
+): Promise<string[]>;
 
 declare namespace del {
     function sync(patterns: string | string[], options?: Options): string[];

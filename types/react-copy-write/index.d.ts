@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Component } from 'react';
+import { Component } from "react";
 
 // It'd be nice if this could somehow be improved! Perhaps we need variadic
 // kinds plus infer keyword? Alternatively unions may solve our issue if we had
@@ -17,7 +17,9 @@ type Mutator<T> = (mutator: MutateFn<T>) => void;
 
 type SelectorFn<T> = (state: T) => AnyDeepMemberOfState<T>;
 
-type RenderFn<T> = (...state: Array<Readonly<ReturnType<SelectorFn<T>>>>) => JSX.Element | JSX.Element[] | null;
+type RenderFn<T> = (
+    ...state: Array<Readonly<ReturnType<SelectorFn<T>>>>
+) => JSX.Element | JSX.Element[] | null;
 
 interface ConsumerPropsBase<T> {
     select?: Array<SelectorFn<T>>;
@@ -31,7 +33,9 @@ interface ConsumerPropsImplicitRender<T> extends ConsumerPropsBase<T> {
     children?: RenderFn<T>;
 }
 
-type ConsumerProps<T> = ConsumerPropsExplicitRender<T> | ConsumerPropsImplicitRender<T>;
+type ConsumerProps<T> =
+    | ConsumerPropsExplicitRender<T>
+    | ConsumerPropsImplicitRender<T>;
 
 declare class Consumer<T> extends Component<ConsumerProps<T>> {}
 
@@ -42,11 +46,13 @@ interface ProviderProps<T> {
 
 declare class Provider<T> extends Component<ProviderProps<T>> {}
 
-declare function create<T extends object>(state: T): {
-    Provider: new() => Provider<T>,
-    Consumer: new() => Consumer<T>,
-    createSelector: SelectorFn<T>,
-    mutate: Mutator<T>,
+declare function create<T extends object>(
+    state: T
+): {
+    Provider: new () => Provider<T>;
+    Consumer: new () => Consumer<T>;
+    createSelector: SelectorFn<T>;
+    mutate: Mutator<T>;
 };
 
 export default create;

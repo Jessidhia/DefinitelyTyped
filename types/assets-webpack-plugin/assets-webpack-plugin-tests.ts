@@ -1,25 +1,24 @@
-import * as webpack from 'webpack';
-import AssetsPlugin = require('assets-webpack-plugin');
+import * as webpack from "webpack";
+import AssetsPlugin = require("assets-webpack-plugin");
 
 const config: webpack.Configuration = {
     plugins: [
         new AssetsPlugin(),
         new AssetsPlugin({
-            filename: 'assets.json'
+            filename: "assets.json"
         }),
         new AssetsPlugin({
-            filename: 'assets.json',
+            filename: "assets.json",
             fullPath: false,
             includeManifest: true,
-            path: '/foo/bar',
+            path: "/foo/bar",
             prettyPrint: true,
-            processOutput: (assets) => (
-                'window.assets = ' + JSON.stringify(assets)
-            ),
+            processOutput: assets =>
+                "window.assets = " + JSON.stringify(assets),
             update: true,
             metadata: {
-                meta: 'data'
-            },
+                meta: "data"
+            }
         })
     ]
 };

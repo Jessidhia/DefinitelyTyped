@@ -1,4 +1,4 @@
-import emptyTrash = require('empty-trash');
+import emptyTrash = require("empty-trash");
 
 (async () => {
     await emptyTrash();

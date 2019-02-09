@@ -1,3 +1,3 @@
-import { RIPEMD160 } from '../index';
+import { RIPEMD160 } from "../index";
 
 export = RIPEMD160;

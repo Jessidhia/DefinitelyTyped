@@ -1,4 +1,4 @@
-import monthDays = require('month-days');
+import monthDays = require("month-days");
 
 // $ExpectType number
 monthDays();

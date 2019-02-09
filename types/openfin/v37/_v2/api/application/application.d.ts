@@ -1,13 +1,15 @@
-import { EmitterBase, Base, Reply } from '../base';
-import { Identity } from '../../identity';
-import { _Window } from '../window/window';
-import { Point } from '../system/point';
-import { MonitorInfo } from '../system/monitor';
-import Transport from '../../transport/transport';
-import Bounds from '../window/bounds';
-import { ApplicationEvents } from '../events/application';
-import { ApplicationOption } from './applicationOption';
-export interface TrayIconClickReply extends Point, Reply<'application', 'tray-icon-clicked'> {
+import { EmitterBase, Base, Reply } from "../base";
+import { Identity } from "../../identity";
+import { _Window } from "../window/window";
+import { Point } from "../system/point";
+import { MonitorInfo } from "../system/monitor";
+import Transport from "../../transport/transport";
+import Bounds from "../window/bounds";
+import { ApplicationEvents } from "../events/application";
+import { ApplicationOption } from "./applicationOption";
+export interface TrayIconClickReply
+    extends Point,
+        Reply<"application", "tray-icon-clicked"> {
     button: number;
     monitorInfo: MonitorInfo;
 }
@@ -19,7 +21,10 @@ export interface ApplicationInfo {
     parentUuid?: string;
     runtime: object;
 }
-export declare class NavigationRejectedReply extends Reply<'window-navigation-rejected', void> {
+export declare class NavigationRejectedReply extends Reply<
+    "window-navigation-rejected",
+    void
+> {
     sourceName: string;
     url: string;
 }
@@ -156,12 +161,12 @@ export declare class Application extends EmitterBase<ApplicationEvents> {
      */
     getWindow(): Promise<_Window>;
     /**
-    * Manually registers a user with the licensing service. The only data sent by this call is userName and appName.
-    * @param { string } userName - username to be passed to the RVM.
-    * @param { string } appName - app name to be passed to the RVM.
-    * @return {Promise.<void>}
-    * @tutorial Application.registerUser
-    */
+     * Manually registers a user with the licensing service. The only data sent by this call is userName and appName.
+     * @param { string } userName - username to be passed to the RVM.
+     * @param { string } appName - app name to be passed to the RVM.
+     * @return {Promise.<void>}
+     * @tutorial Application.registerUser
+     */
     registerUser(userName: string, appName: string): Promise<void>;
     /**
      * Removes the application’s icon from the tray.

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCRadioAdapter from './adapter';
-import { cssClasses, strings } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCRadioAdapter from "./adapter";
+import { cssClasses, strings } from "./constants";
 
 export default class MDCRadioFoundation extends MDCFoundation<MDCRadioAdapter> {
     static readonly cssClasses: cssClasses;

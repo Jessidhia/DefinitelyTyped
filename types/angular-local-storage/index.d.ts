@@ -6,15 +6,16 @@
 
 /// <reference types="angular" />
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
 export type ILocalStorageServiceProvider = angular.local.storage.ILocalStorageServiceProvider;
 export type ILocalStorageService = angular.local.storage.ILocalStorageService;
 export type ICookie = angular.local.storage.ICookie;
 
-declare module 'angular' {
+declare module "angular" {
     export namespace local.storage {
-        interface ILocalStorageServiceProvider extends angular.IServiceProvider {
+        interface ILocalStorageServiceProvider
+            extends angular.IServiceProvider {
             /**
              * Setter for the prefix
              * You should set a prefix to avoid overwriting any local storage variables from the rest of your app
@@ -35,25 +36,36 @@ declare module 'angular' {
              * If localStorage is not supported, the library will default to cookies instead. This behavior can be disabled
              * @param shouldDefault default: true
              */
-            setDefaultToCookie(shouldDefault: boolean): ILocalStorageServiceProvider;
+            setDefaultToCookie(
+                shouldDefault: boolean
+            ): ILocalStorageServiceProvider;
             /**
              * Setter for cookie config
              * @param exp number of days before cookies expire (0 = does not expire). default: 30
              * @param path the web path the cookie represents. default: '/'
              * @param secure to store cookies as secure. default: false
              */
-            setStorageCookie(exp: number, path: string, secure: boolean): ILocalStorageServiceProvider;
+            setStorageCookie(
+                exp: number,
+                path: string,
+                secure: boolean
+            ): ILocalStorageServiceProvider;
             /**
              * Set the cookie domain, since this runs inside a the config() block, only providers and constants can be injected. As a result, $location service can't be used here, use a hardcoded string or window.location.
              * No default value
              */
-            setStorageCookieDomain(domain: string): ILocalStorageServiceProvider;
+            setStorageCookieDomain(
+                domain: string
+            ): ILocalStorageServiceProvider;
             /**
              * Send signals for each of the following actions:
              * @param setItem default: true
              * @param removeItem default: false
              */
-            setNotify(setItem: boolean, removeItem: boolean): ILocalStorageServiceProvider;
+            setNotify(
+                setItem: boolean,
+                removeItem: boolean
+            ): ILocalStorageServiceProvider;
         }
 
         interface ICookie {
@@ -96,8 +108,8 @@ declare module 'angular' {
              */
             clearAll(): any;
         }
-        
-        type StorageType = 'localStorage' | 'sessionStorage';
+
+        type StorageType = "localStorage" | "sessionStorage";
 
         interface ILocalStorageService {
             /**
@@ -143,7 +155,10 @@ declare module 'angular' {
              * Returns: Boolean
              * @param regularExpression
              */
-            clearAll(regularExpression?: RegExp, storageType?: StorageType): boolean;
+            clearAll(
+                regularExpression?: RegExp,
+                storageType?: StorageType
+            ): boolean;
             /**
              * Bind $scope key to localStorageService.
              * Usage: localStorageService.bind(scope, property, value[optional], key[optional])
@@ -153,7 +168,13 @@ declare module 'angular' {
              * @param value optional
              * @param key The corresponding key used in local storage
              */
-            bind(scope: angular.IScope, property: string, value?: any, key?: string, storageType?: StorageType): Function;
+            bind(
+                scope: angular.IScope,
+                property: string,
+                value?: any,
+                key?: string,
+                storageType?: StorageType
+            ): Function;
             /**
              * Return the derive key
              * Returns String

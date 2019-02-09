@@ -16,7 +16,7 @@ export class Mail extends winston.Transport
     level: string;
     unique: boolean;
     silent: boolean;
-    filter: ((obj: { level: string; message: string; meta: any }) => boolean);
+    filter: (obj: { level: string; message: string; meta: any }) => boolean;
     subject: string;
     html: boolean;
     log(level: any, msg: any, meta: any, callback: any): any;
@@ -37,13 +37,11 @@ export interface MailTransportOptions {
     ssl?: boolean | { key: string; ca: string; cert: string };
     tls?: boolean | { ciphers: string };
     unique?: boolean;
-    filter?: ((obj: { level: string; message: string; meta: any }) => boolean);
+    filter?: (obj: { level: string; message: string; meta: any }) => boolean;
     html?: boolean;
     timeout?: number;
     authentication?: string[];
-    formatter?: ((
-        obj: { level: string; message: string; meta: any }
-    ) => string);
+    formatter?: (obj: { level: string; message: string; meta: any }) => string;
 }
 
 declare module "winston" {

@@ -211,7 +211,10 @@ declare module "perf_hooks" {
         getEntriesByType(type: string): PerformanceEntry[];
     }
 
-    type PerformanceObserverCallback = (list: PerformanceObserverEntryList, observer: PerformanceObserver) => void;
+    type PerformanceObserverCallback = (
+        list: PerformanceObserverEntryList,
+        observer: PerformanceObserver
+    ) => void;
 
     class PerformanceObserver extends AsyncResource {
         constructor(callback: PerformanceObserverCallback);
@@ -227,7 +230,7 @@ declare module "perf_hooks" {
          * Property buffered defaults to false.
          * @param options
          */
-        observe(options: { entryTypes: string[], buffered?: boolean }): void;
+        observe(options: { entryTypes: string[]; buffered?: boolean }): void;
     }
 
     namespace constants {

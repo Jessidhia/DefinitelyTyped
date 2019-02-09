@@ -1,9 +1,22 @@
-import React = require('react');
+import React = require("react");
 
-import { EmojiData, EmojiSkin, CustomEmoji } from './emoji-index/nimble-emoji-index';
+import {
+    EmojiData,
+    EmojiSkin,
+    CustomEmoji
+} from "./emoji-index/nimble-emoji-index";
 
-export type BackgroundImageFn = (set: EmojiSet, sheetSize: EmojiSheetSize) => string;
-export type EmojiSet = 'apple' | 'google' | 'twitter' | 'emojione' | 'messenger' | 'facebook';
+export type BackgroundImageFn = (
+    set: EmojiSet,
+    sheetSize: EmojiSheetSize
+) => string;
+export type EmojiSet =
+    | "apple"
+    | "google"
+    | "twitter"
+    | "emojione"
+    | "messenger"
+    | "facebook";
 export type EmojiSheetSize = 16 | 20 | 32 | 64;
 
 export interface EmojiProps {
@@ -32,7 +45,18 @@ export interface EmojiProps {
     /** data is omitted here as it should be used for NimbleEmoji only - not emoji */
 }
 
-export type CategoryName = 'search' | 'recent' | 'people' | 'nature' | 'foods' | 'activity' | 'places' | 'objects' | 'symbols' | 'flags' | 'custom';
+export type CategoryName =
+    | "search"
+    | "recent"
+    | "people"
+    | "nature"
+    | "foods"
+    | "activity"
+    | "places"
+    | "objects"
+    | "symbols"
+    | "flags"
+    | "custom";
 
 // tslint:disable-next-line interface-name
 export interface I18n {
@@ -42,7 +66,11 @@ export interface I18n {
     skintext: string;
 }
 
-export type PartialI18n = Partial<Pick<I18n, 'search' | 'notfound'> & { categories: Partial<I18n['categories']> }>;
+export type PartialI18n = Partial<
+    Pick<I18n, "search" | "notfound"> & {
+        categories: Partial<I18n["categories"]>;
+    }
+>;
 
 export interface CustomIcons {
     categories: Record<CategoryName, () => React.Component>;

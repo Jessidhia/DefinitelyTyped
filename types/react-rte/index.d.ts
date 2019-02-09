@@ -8,9 +8,7 @@ import { Component, ReactNode } from "react";
 import { ContentBlock, EditorState } from "draft-js";
 import draftjs = require("draft-js");
 
-type CustomBlockFn = (
-    element: Element
-) => undefined | null | CustomBlockObject;
+type CustomBlockFn = (element: Element) => undefined | null | CustomBlockObject;
 type CustomInlineFn = (
     element: Element,
     inlineCreators: InlineCreators

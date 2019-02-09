@@ -5,8 +5,8 @@
 
 /// <reference types="node" />
 
-import { IncomingMessage } from 'http';
-import { Stream } from 'stream';
+import { IncomingMessage } from "http";
+import { Stream } from "stream";
 
 export = ResponseLike;
 

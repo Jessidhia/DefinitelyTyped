@@ -1,4 +1,4 @@
-import roundTo = require('round-to');
+import roundTo = require("round-to");
 
 // $ExpectType number
 roundTo(1.234, 2);

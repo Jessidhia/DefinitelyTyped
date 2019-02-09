@@ -39,7 +39,11 @@ declare class TraceProxy extends Tracer {
      * @param operationName The operation name to be used for this span.
      * @param options Configuration options. These will take precedence over environment variables.
      */
-    trace(operationName: string, options: TraceOptions, callback: (span: Span) => void): void;
+    trace(
+        operationName: string,
+        options: TraceOptions,
+        callback: (span: Span) => void
+    ): void;
 
     /**
      * Get the span from the current context.

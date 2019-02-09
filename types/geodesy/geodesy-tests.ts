@@ -1,17 +1,18 @@
 import {
-  Mgrs,
-  Utm,
-  Dms,
-  Vector3d,
-  OsGridRef,
-  LatLonEllipsoidal as LatLon, LatLonSpherical,
-  LatLonVectors
-} from 'geodesy';
+    Mgrs,
+    Utm,
+    Dms,
+    Vector3d,
+    OsGridRef,
+    LatLonEllipsoidal as LatLon,
+    LatLonSpherical,
+    LatLonVectors
+} from "geodesy";
 
 /**
  * Mgrs
  */
-const mgrs = new Mgrs(31, 'U', 'D', 'Q', 48251, 11932);
+const mgrs = new Mgrs(31, "U", "D", "Q", 48251, 11932);
 const bandMgrs = mgrs.band;
 const datumMgrs = mgrs.datum;
 const e100kMgrs = mgrs.e100k;
@@ -26,12 +27,12 @@ mgrs.toString();
 mgrs.toUtm();
 
 // Static Functions
-Mgrs.parse('31U DQ 48251 11932');
+Mgrs.parse("31U DQ 48251 11932");
 
 /**
  * Utm
  */
-const utm = new Utm(31, 'N', 448251, 5411932);
+const utm = new Utm(31, "N", 448251, 5411932);
 const convergenceUtm = utm.convergence;
 const datumUtm = utm.datum;
 const eastingUtm = utm.easting;
@@ -43,36 +44,36 @@ utm.toMgrs();
 utm.toString();
 
 // Static Functions
-Utm.parse('31 N 448251 5411932');
+Utm.parse("31 N 448251 5411932");
 
 /**
  * Dms
  */
 
-Dms.separator = '\u202f';
+Dms.separator = "\u202f";
 
 // Static Functions
-Dms.parseDMS('51° 28′ 40.12″ N');
+Dms.parseDMS("51° 28′ 40.12″ N");
 
 Dms.toDMS(45);
-Dms.toDMS(45, 'dm');
-Dms.toDMS(45, 'd', 2);
-Dms.toDMS(45, 'dms', 4);
+Dms.toDMS(45, "dm");
+Dms.toDMS(45, "d", 2);
+Dms.toDMS(45, "dms", 4);
 
 Dms.toLat(45);
-Dms.toLat(45, 'dm');
-Dms.toLat(45, 'd', 2);
-Dms.toLat(45, 'dms', 4);
+Dms.toLat(45, "dm");
+Dms.toLat(45, "d", 2);
+Dms.toLat(45, "dms", 4);
 
 Dms.toLon(45);
-Dms.toLon(45, 'dm');
-Dms.toLon(45, 'd', 2);
-Dms.toLon(45, 'dms', 4);
+Dms.toLon(45, "dm");
+Dms.toLon(45, "d", 2);
+Dms.toLon(45, "dms", 4);
 
 Dms.toBrng(90);
-Dms.toBrng(90, 'dm');
-Dms.toBrng(90, 'd', 2);
-Dms.toBrng(90, 'dms', 4);
+Dms.toBrng(90, "dm");
+Dms.toBrng(90, "d", 2);
+Dms.toBrng(90, "dms", 4);
 
 Dms.compassPoint(180);
 Dms.compassPoint(180, 1);
@@ -99,8 +100,8 @@ const pOSGB = pWGS84.convertDatum(LatLon.datum.OSGB36);
 latlon.toUtm();
 latlon.toCartesian();
 latlon.toString();
-latlon.toString('dm');
-latlon.toString('d', 0);
+latlon.toString("dm");
+latlon.toString("d", 0);
 
 const mgrsGrid = new LatLon(45.4215296, -75.697193).toUtm().toMgrs();
 mgrsGrid.toString(6);
@@ -109,14 +110,14 @@ mgrsGrid.toString(6);
  * OsGridRef
  */
 const gridref = new OsGridRef(651409, 313177);
-const osgrid = new OsGridRef(651409.903, 313177.270);
+const osgrid = new OsGridRef(651409.903, 313177.27);
 new OsGridRef(651409, 313177).toString();
 
 // Static Functions
 OsGridRef.latLonToOsGrid(latlon);
 OsGridRef.osGridToLatLon(gridref);
 OsGridRef.osGridToLatLon(gridref, LatLon.datum.OSGB36);
-OsGridRef.parse('TG 51409 13177');
+OsGridRef.parse("TG 51409 13177");
 
 /**
  * LatLonSpherical
@@ -135,9 +136,9 @@ point1.destinationPoint(7794, 300.7, 6371e3); // 51.5135°N, 000.0983°W
 
 const ctCurrent = new LatLonSpherical(53.2611, -0.7972);
 const ct1 = new LatLonSpherical(53.3206, -1.7297);
-const ct2 = new LatLonSpherical(53.1887,  0.1334);
-ctCurrent.crossTrackDistanceTo(ct1, ct2);  // -307.5 m
-ctCurrent.crossTrackDistanceTo(ct1, ct2, 6371e3);  // -307.5 m
+const ct2 = new LatLonSpherical(53.1887, 0.1334);
+ctCurrent.crossTrackDistanceTo(ct1, ct2); // -307.5 m
+ctCurrent.crossTrackDistanceTo(ct1, ct2, 6371e3); // -307.5 m
 
 point1.maxLatitude(156);
 
@@ -155,16 +156,20 @@ const eq2 = new LatLonSpherical(52.205, 0.119);
 eq1.equals(eq2); // true
 
 eq1.toString();
-eq1.toString('dm');
-eq1.toString('d', 0);
+eq1.toString("dm");
+eq1.toString("d", 0);
 
 // Static functions
 const brng1 = 108.547;
-const brng2 =  32.435;
+const brng2 = 32.435;
 LatLonSpherical.intersection(point1, brng1, point2, brng2); // 50.9078°N, 004.5084°E
 LatLonSpherical.crossingParallels(point1, point2, 30);
 
-const polygon = [new LatLonSpherical(0, 0), new LatLonSpherical(1, 0), new LatLonSpherical(0, 1)];
+const polygon = [
+    new LatLonSpherical(0, 0),
+    new LatLonSpherical(1, 0),
+    new LatLonSpherical(0, 1)
+];
 LatLonSpherical.areaOf(polygon); // 6.18e9 m²
 LatLonSpherical.areaOf(polygon, 6371e3); // 6.18e9 m²
 
@@ -196,7 +201,7 @@ const boundary = [point4, point5, point6, point7];
 point3.enclosedBy(boundary); // true
 point3.equals(point4); // false
 point3.equals(point8); // true
-point3.toString('dms', 3); // 49°47′18.456″N, 097°26′35.016″W
+point3.toString("dms", 3); // 49°47′18.456″N, 097°26′35.016″W
 
 // Static functions
 LatLonVectors.intersection(point4, point5, point3, 1); // LatLon { lat: 49.7981787830497, lon: -97.44279718554108 }

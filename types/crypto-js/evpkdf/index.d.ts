@@ -1,3 +1,3 @@
-import { EvpKDF } from '../index';
+import { EvpKDF } from "../index";
 
 export = EvpKDF;

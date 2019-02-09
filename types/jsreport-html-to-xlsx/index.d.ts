@@ -4,23 +4,25 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { ExtensionDefinition } from 'jsreport-core';
-import { Options as BaseOptions } from 'jsreport-xlsx';
+import { ExtensionDefinition } from "jsreport-core";
+import { Options as BaseOptions } from "jsreport-xlsx";
 
-declare module 'jsreport-core' {
-	type htmlEngine = 'phantom' | 'chrome';
-	interface Template {
-		htmlToXlsx: { htmlEngine: htmlEngine; };
-		recipe: 'html-to-xlsx' | string;
-	}
+declare module "jsreport-core" {
+    type htmlEngine = "phantom" | "chrome";
+    interface Template {
+        htmlToXlsx: { htmlEngine: htmlEngine };
+        recipe: "html-to-xlsx" | string;
+    }
 }
 
 declare namespace JsReportHtml2Xlsx {
-	interface Options extends BaseOptions {
-		strategy: string;
-	}
+    interface Options extends BaseOptions {
+        strategy: string;
+    }
 }
 
-declare function JsReportHtml2Xlsx(options?: Partial<JsReportHtml2Xlsx.Options>): ExtensionDefinition;
+declare function JsReportHtml2Xlsx(
+    options?: Partial<JsReportHtml2Xlsx.Options>
+): ExtensionDefinition;
 
 export = JsReportHtml2Xlsx;

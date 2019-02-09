@@ -1,10 +1,14 @@
-import { StateNavigator } from 'navigation';
-import { NavigationBackLink, NavigationLink, RefreshLink } from 'navigation-react';
-import * as React from 'react';
+import { StateNavigator } from "navigation";
+import {
+    NavigationBackLink,
+    NavigationLink,
+    RefreshLink
+} from "navigation-react";
+import * as React from "react";
 
 const stateNavigator = new StateNavigator([
-    { key: 'people', route: 'people/{page}' },
-    { key: 'person', route: 'person/{id}', trackCrumbTrail: true }
+    { key: "people", route: "people/{page}" },
+    { key: "person", route: "person/{id}", trackCrumbTrail: true }
 ]);
 
 // Refresh Link
@@ -20,17 +24,20 @@ RefreshLinkTest = () => {
             disableActive={true}
             lazy={false}
             historyAction="replace"
-            navigating= {(e: MouseEvent, domId: string, link: string) => true}
+            navigating={(e: MouseEvent, domId: string, link: string) => true}
             stateNavigator={stateNavigator}
             target="_blank"
-            aria-label="Go to the second page of people">
+            aria-label="Go to the second page of people"
+        >
             People
         </RefreshLink>
     );
 };
 
 // Navigation Link
-let NavigationLinkTest = () => <NavigationLink stateKey="person">Person</NavigationLink>;
+let NavigationLinkTest = () => (
+    <NavigationLink stateKey="person">Person</NavigationLink>
+);
 
 NavigationLinkTest = () => {
     return (
@@ -43,17 +50,20 @@ NavigationLinkTest = () => {
             disableActive={false}
             lazy={false}
             historyAction="add"
-            navigating= {(e: MouseEvent, domId: string, link: string) => true}
+            navigating={(e: MouseEvent, domId: string, link: string) => true}
             stateNavigator={stateNavigator}
             target="_blank"
-            aria-label="View the person's details">
+            aria-label="View the person's details"
+        >
             Person
         </NavigationLink>
     );
 };
 
 // Navigation Back Link
-let NavigationBackLinkTest = () => <NavigationBackLink distance={1}>People</NavigationBackLink>;
+let NavigationBackLinkTest = () => (
+    <NavigationBackLink distance={1}>People</NavigationBackLink>
+);
 
 NavigationBackLinkTest = () => {
     return (
@@ -61,10 +71,11 @@ NavigationBackLinkTest = () => {
             distance={1}
             lazy={false}
             historyAction="none"
-            navigating= {(e: MouseEvent, domId: string, link: string) => true}
+            navigating={(e: MouseEvent, domId: string, link: string) => true}
             stateNavigator={stateNavigator}
             target="_blank"
-            aria-label="Go back to the list of people">
+            aria-label="Go back to the list of people"
+        >
             People
         </NavigationBackLink>
     );

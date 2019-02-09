@@ -12,11 +12,8 @@ export {
     MessageOptions,
     LanguageData,
     I18n
-} from './i18n';
+} from "./i18n";
 
-export {
-    date,
-    number
-} from './formats';
+export { date, number } from "./formats";
 
 export function i18nMark(id: string): string;

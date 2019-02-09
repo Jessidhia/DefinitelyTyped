@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @name pc.PostEffectQueue
      * @description Create a new PostEffectQueue
@@ -8,7 +7,7 @@ declare namespace pc {
      * @param {pc.CameraComponent} camera The camera component
      */
     class PostEffectQueue {
-        constructor(app: pc.Application, camera: pc.CameraComponent)
+        constructor(app: pc.Application, camera: pc.CameraComponent);
 
         /**
          * @private
@@ -19,7 +18,10 @@ declare namespace pc {
          * @param {Boolean} hdr Use HDR render target format
          * @returns {pc.RenderTarget} The render target
          */
-        private _createOffscreenTarget(useDepth: boolean, hdr: boolean): pc.RenderTarget;
+        private _createOffscreenTarget(
+            useDepth: boolean,
+            hdr: boolean
+        ): pc.RenderTarget;
 
         /**
          * @function

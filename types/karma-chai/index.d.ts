@@ -3,7 +3,7 @@
 // Definitions by: JayAndCatchFire <https://github.com/JayAndCatchFire>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import chai = require('chai');
+import chai = require("chai");
 
 declare global {
     var assert: Chai.AssertStatic;

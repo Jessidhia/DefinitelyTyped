@@ -1,8 +1,8 @@
-import filterConsole = require('filter-console');
+import filterConsole = require("filter-console");
 
-const disableFilter = filterConsole(['🐼']);
+const disableFilter = filterConsole(["🐼"]);
 disableFilter; // $ExpectType () => void
 filterConsole([/🐼/]);
-filterConsole([input => input === '🐼']);
+filterConsole([input => input === "🐼"]);
 
 disableFilter();

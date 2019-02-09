@@ -9,12 +9,12 @@ import { Fields, Files } from "formidable";
 
 // Extend the express request object with attached formidable files and fields
 declare global {
-  namespace Express {
-    interface Request {
-      fields?: Fields;
-      files?: Files;
+    namespace Express {
+        interface Request {
+            fields?: Fields;
+            files?: Files;
+        }
     }
-  }
 }
 
 interface ExpressFormidableOptions {
@@ -29,7 +29,9 @@ interface ExpressFormidableOptions {
     multiples?: boolean;
 }
 
-declare function ExpressFormidable(options?: ExpressFormidableOptions): express.RequestHandler;
+declare function ExpressFormidable(
+    options?: ExpressFormidableOptions
+): express.RequestHandler;
 
 declare namespace ExpressFormidable {}
 

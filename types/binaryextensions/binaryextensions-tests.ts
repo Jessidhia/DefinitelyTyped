@@ -1,3 +1,3 @@
-import extensions = require('binaryextensions');
+import extensions = require("binaryextensions");
 
 extensions; // $ExpectType string[]

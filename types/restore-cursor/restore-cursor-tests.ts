@@ -1,3 +1,3 @@
-import restoreCursor = require('restore-cursor');
+import restoreCursor = require("restore-cursor");
 
 restoreCursor();

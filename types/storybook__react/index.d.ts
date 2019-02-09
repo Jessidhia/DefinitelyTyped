@@ -8,7 +8,7 @@
 
 /// <reference types="webpack-env" />
 
-import * as React from 'react';
+import * as React from "react";
 
 export type Renderable = React.ComponentType | JSX.Element;
 export type RenderFunction = () => Renderable | Renderable[];
@@ -16,11 +16,18 @@ export type RenderFunction = () => Renderable | Renderable[];
 export interface DecoratorParameters {
     [key: string]: any;
 }
-export type StoryDecorator = (story: RenderFunction, context: { kind: string, story: string }) => Renderable | null;
+export type StoryDecorator = (
+    story: RenderFunction,
+    context: { kind: string; story: string }
+) => Renderable | null;
 
 export interface Story {
     readonly kind: string;
-    add(storyName: string, callback: RenderFunction, parameters?: DecoratorParameters): this;
+    add(
+        storyName: string,
+        callback: RenderFunction,
+        parameters?: DecoratorParameters
+    ): this;
     addDecorator(decorator: StoryDecorator): this;
     addParameters(parameters: DecoratorParameters): this;
 }

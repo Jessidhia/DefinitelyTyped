@@ -6,29 +6,40 @@
 
 import * as react from "react";
 
-export type VerticalAlign = "baseline" | "length" | "sub" | "super" | "top" | "text-top" | "middle" | "bottom" | "text-bottom" | "initial" | "inherit";
+export type VerticalAlign =
+    | "baseline"
+    | "length"
+    | "sub"
+    | "super"
+    | "top"
+    | "text-top"
+    | "middle"
+    | "bottom"
+    | "text-bottom"
+    | "initial"
+    | "inherit";
 
 export interface HalogenCommonProps {
-  loading?: boolean;
-  color?: string;
-  id?: string;
-  className?: string;
-  verticalAlign?: VerticalAlign;
+    loading?: boolean;
+    color?: string;
+    id?: string;
+    className?: string;
+    verticalAlign?: VerticalAlign;
 }
 
 export interface SizeLoaderProps extends HalogenCommonProps {
-  size?: string;
+    size?: string;
 }
 
 export interface MarginLoaderProps<T> extends HalogenCommonProps {
-  margin?: T;
-  size?: T;
+    margin?: T;
+    size?: T;
 }
 
 export interface RadiusLoaderProps extends MarginLoaderProps<string> {
-  height?: string;
-  width?: string;
-  radius?: string;
+    height?: string;
+    width?: string;
+    radius?: string;
 }
 
 /**

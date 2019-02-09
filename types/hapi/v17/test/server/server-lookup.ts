@@ -2,19 +2,19 @@
 import { RequestRoute, Server } from "hapi";
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 
 server.route({
-    path: '/',
-    method: 'GET',
+    path: "/",
+    method: "GET",
     options: {
-        id: 'root',
-        handler: () => 'ok'
+        id: "root",
+        handler: () => "ok"
     }
 });
 
-const route: RequestRoute | null = server.lookup('root');
+const route: RequestRoute | null = server.lookup("root");
 console.log(route);
 
 server.start();

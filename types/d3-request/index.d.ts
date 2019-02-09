@@ -10,7 +10,7 @@
 
 // Last module patch version validated against: 1.0.6
 
-import { DSVParsedArray, DSVRowString } from 'd3-dsv';
+import { DSVParsedArray, DSVRowString } from "d3-dsv";
 
 export interface Request {
     /**
@@ -34,7 +34,10 @@ export interface Request {
     /**
      * Equivalent to `request.send` with the GET method: `request.send("GET", data, callback)`.
      */
-    get<RequestData, ResponseData>(data: RequestData, callback: (error: any, d: ResponseData) => void): this;
+    get<RequestData, ResponseData>(
+        data: RequestData,
+        callback: (error: any, d: ResponseData) => void
+    ): this;
 
     /**
      * Returns the current value of the request header with the specified name.
@@ -71,19 +74,25 @@ export interface Request {
     /**
      * Returns the currently-assigned listener for the "beforesend" type, if any.
      */
-    on(type: 'beforesend'): ((this: this, xhr: XMLHttpRequest) => void) | undefined;
+    on(
+        type: "beforesend"
+    ): ((this: this, xhr: XMLHttpRequest) => void) | undefined;
     /**
      * Returns the currently-assigned listener for the "progress" type, if any.
      */
-    on(type: 'progress'): ((this: this, progressEvent: ProgressEvent) => void) | undefined;
+    on(
+        type: "progress"
+    ): ((this: this, progressEvent: ProgressEvent) => void) | undefined;
     /**
      * Returns the currently-assigned listener for the "error" type, if any.
      */
-    on(type: 'error'): ((this: this, error: any) => void) | undefined;
+    on(type: "error"): ((this: this, error: any) => void) | undefined;
     /**
      * Returns the currently-assigned listener for the "load" type, if any.
      */
-    on<ResponseData>(type: 'load'): ((this: this, data: ResponseData) => void) | undefined;
+    on<ResponseData>(
+        type: "load"
+    ): ((this: this, data: ResponseData) => void) | undefined;
     /**
      * Returns the currently-assigned listener for the specified type, if any.
      */
@@ -102,7 +111,10 @@ export interface Request {
      * If an event listener was already registered for the same type, the existing listener is removed before the new listener is added.
      * To register multiple listeners for the same type, the type may be followed by an optional name, such as `beforesend.foo`. See d3-dispatch for details.
      */
-    on(type: 'beforesend', listener: (this: this, xhr: XMLHttpRequest) => void): this;
+    on(
+        type: "beforesend",
+        listener: (this: this, xhr: XMLHttpRequest) => void
+    ): this;
     /**
      * Sets the event listener for the "progress" type,
      * to monitor the progress of the request,
@@ -111,7 +123,10 @@ export interface Request {
      * If an event listener was already registered for the same type, the existing listener is removed before the new listener is added.
      * To register multiple listeners for the same type, the type may be followed by an optional name, such as `progress.foo`. See d3-dispatch for details.
      */
-    on(type: 'progress', listener: (this: this, progressEvent: ProgressEvent) => void): this;
+    on(
+        type: "progress",
+        listener: (this: this, progressEvent: ProgressEvent) => void
+    ): this;
     /**
      * Sets the event listener for the "error" type,
      * when the request completes unsuccessfully; this includes 4xx and 5xx response codes,
@@ -120,7 +135,7 @@ export interface Request {
      * If an event listener was already registered for the same type, the existing listener is removed before the new listener is added.
      * To register multiple listeners for the same type, the type may be followed by an optional name, such as `error.foo`. See d3-dispatch for details.
      */
-    on(type: 'error', listener: (this: this, error: any) => void): this;
+    on(type: "error", listener: (this: this, error: any) => void): this;
     /**
      * Sets the event listener for the "load" type,
      * when the request completes successfully,
@@ -129,7 +144,10 @@ export interface Request {
      * If an event listener was already registered for the same type, the existing listener is removed before the new listener is added.
      * To register multiple listeners for the same type, the type may be followed by an optional name, such as `load.foo`. See d3-dispatch for details.
      */
-    on<ResponseData>(type: 'load', listener: (this: this, data: ResponseData) => void): this;
+    on<ResponseData>(
+        type: "load",
+        listener: (this: this, data: ResponseData) => void
+    ): this;
     /**
      * Sets the event listener for the specified type,
      * and returns this request instance.
@@ -161,18 +179,25 @@ export interface Request {
     /**
      * Equivalent to `request.send` with the POST method: `request.send("POST", callback)`.
      */
-    post<ResponseData>(callback: (this: this, error: any, d: ResponseData) => void): this;
+    post<ResponseData>(
+        callback: (this: this, error: any, d: ResponseData) => void
+    ): this;
     /**
      * Equivalent to `request.send` with the POST method: `request.send("POST", data, callback)`.
      */
-    post<RequestData, ResponseData>(data: RequestData, callback: (this: this, error: any, d: ResponseData) => void): this;
+    post<RequestData, ResponseData>(
+        data: RequestData,
+        callback: (this: this, error: any, d: ResponseData) => void
+    ): this;
 
     /**
      * Sets the response value function to the specified function and returns this request instance.
      * The response value function is used to map the response XMLHttpRequest object to a useful data value.
      * See the convenience methods `json` and `text` for examples.
      */
-    response<ResponseData>(callback: (this: this, response: XMLHttpRequest) => ResponseData): this;
+    response<ResponseData>(
+        callback: (this: this, response: XMLHttpRequest) => ResponseData
+    ): this;
 
     /**
      * Returns the current response type, which defaults to `` (the empty string).
@@ -201,14 +226,29 @@ export interface Request {
      * The callback is invoked with two arguments: the error, if any, and the response value.
      * The response value is undefined if an error occurs.
      */
-    send<ResponseData>(method: string, callback: (this: this, error: any | null, d: ResponseData | null) => void): this;
+    send<ResponseData>(
+        method: string,
+        callback: (
+            this: this,
+            error: any | null,
+            d: ResponseData | null
+        ) => void
+    ): this;
     /**
      * Issues this request using the specified method (such as GET or POST), posting the specified data in the request body, and returns this request instance.
      * The callback will be invoked asynchronously when the request succeeds or fails.
      * The callback is invoked with two arguments: the error, if any, and the response value.
      * The response value is undefined if an error occurs.
      */
-    send<RequestData, ResponseData>(method: string, data: RequestData, callback: (this: this, error: any | null, d: ResponseData | null) => void): this;
+    send<RequestData, ResponseData>(
+        method: string,
+        data: RequestData,
+        callback: (
+            this: this,
+            error: any | null,
+            d: ResponseData | null
+        ) => void
+    ): this;
 
     /**
      * Returns the current response timeout, which defaults to 0.
@@ -230,7 +270,13 @@ export interface Request {
 }
 
 export interface DsvRequest extends Request {
-    row<ParsedRow extends object>(value: (rawRow: DSVRowString, index: number, columns: string[]) => ParsedRow): DsvRequest;
+    row<ParsedRow extends object>(
+        value: (
+            rawRow: DSVRowString,
+            index: number,
+            columns: string[]
+        ) => ParsedRow
+    ): DsvRequest;
 }
 
 /**
@@ -241,7 +287,14 @@ export function csv(url: string): DsvRequest;
  * Returns a new request for the CSV file at the specified url with the default mime type `text/csv`.
  * And send a GET request.
  */
-export function csv(url: string, callback: (this: DsvRequest, error: any, d: DSVParsedArray<DSVRowString>) => void): DsvRequest;
+export function csv(
+    url: string,
+    callback: (
+        this: DsvRequest,
+        error: any,
+        d: DSVParsedArray<DSVRowString>
+    ) => void
+): DsvRequest;
 /**
  * Returns a new request for the CSV file at the specified url with the default mime type `text/csv`.
  * And send a GET request.
@@ -250,7 +303,11 @@ export function csv(url: string, callback: (this: DsvRequest, error: any, d: DSV
 export function csv<ParsedRow extends object>(
     url: string,
     row: (rawRow: DSVRowString, index: number, columns: string[]) => ParsedRow,
-    callback: (this: DsvRequest, error: any, d: DSVParsedArray<ParsedRow>) => void
+    callback: (
+        this: DsvRequest,
+        error: any,
+        d: DSVParsedArray<ParsedRow>
+    ) => void
 ): DsvRequest;
 
 /**
@@ -261,7 +318,10 @@ export function html(url: string): Request;
  * Returns a new request for the HTML file at the specified url with the default mime type `text/html`. The HTML file is returned as a document fragment.
  * And send a GET request.
  */
-export function html(url: string, callback: (this: Request, error: any, d: DocumentFragment) => void): Request;
+export function html(
+    url: string,
+    callback: (this: Request, error: any, d: DocumentFragment) => void
+): Request;
 
 /**
  * Returns a new request to get the JSON file at the specified url with the default mime type `application/json`.
@@ -271,7 +331,10 @@ export function json(url: string): Request;
  * Returns a new request to get the JSON file at the specified url with the default mime type `application/json`.
  * And send a GET request.
  */
-export function json<ParsedObject extends { [key: string]: any }>(url: string, callback: (this: Request, error: any, d: ParsedObject) => void): Request;
+export function json<ParsedObject extends { [key: string]: any }>(
+    url: string,
+    callback: (this: Request, error: any, d: ParsedObject) => void
+): Request;
 
 /**
  * Returns a new request for specified url. The returned request is not yet sent and can be further configured.
@@ -288,7 +351,10 @@ export function request(url: string): Request;
  *
  * See `d3.json`, `d3.csv`, `d3.tsv`, `d3.text`, `d3.html` and `d3.xml` for content-specific convenience constructors.
  */
-export function request(url: string, callback: (this: Request, error: any, d: XMLHttpRequest) => void): Request;
+export function request(
+    url: string,
+    callback: (this: Request, error: any, d: XMLHttpRequest) => void
+): Request;
 
 /**
  * Returns a new request to get the text file at the specified url with the default mime type `text/plain`.
@@ -298,7 +364,10 @@ export function text(url: string): Request;
  * Returns a new request to get the text file at the specified url with the default mime type `text/plain`.
  * And send a GET request.
  */
-export function text(url: string, callback: (this: Request, error: any, d: string) => void): Request;
+export function text(
+    url: string,
+    callback: (this: Request, error: any, d: string) => void
+): Request;
 
 /**
  * Returns a new request for a TSV file at the specified url with the default mime type `text/tab-separated-values`.
@@ -308,7 +377,14 @@ export function tsv(url: string): DsvRequest;
  * Returns a new request for a TSV file at the specified url with the default mime type `text/tab-separated-values`.
  * And send a GET request.
  */
-export function tsv(url: string, callback: (this: DsvRequest, error: any, d: DSVParsedArray<DSVRowString>) => void): DsvRequest;
+export function tsv(
+    url: string,
+    callback: (
+        this: DsvRequest,
+        error: any,
+        d: DSVParsedArray<DSVRowString>
+    ) => void
+): DsvRequest;
 /**
  * Returns a new request for a TSV file at the specified url with the default mime type `text/tab-separated-values`.
  * And send a GET request.
@@ -317,7 +393,11 @@ export function tsv(url: string, callback: (this: DsvRequest, error: any, d: DSV
 export function tsv<ParsedRow extends object>(
     url: string,
     row: (rawRow: DSVRowString, index: number, columns: string[]) => ParsedRow,
-    callback: (this: DsvRequest, error: any, d: DSVParsedArray<ParsedRow>) => void
+    callback: (
+        this: DsvRequest,
+        error: any,
+        d: DSVParsedArray<ParsedRow>
+    ) => void
 ): DsvRequest;
 
 /**
@@ -328,4 +408,7 @@ export function xml(url: string): Request;
  * Returns a new request to get the XML file at the specified url with the default mime type `application/xml`.
  * And send a GET request.
  */
-export function xml(url: string, callback: (this: Request, error: any, d: any) => void): Request;
+export function xml(
+    url: string,
+    callback: (this: Request, error: any, d: any) => void
+): Request;

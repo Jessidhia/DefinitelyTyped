@@ -7,7 +7,14 @@ import {
     StatelessComponent
 } from "react";
 import { Dispatch } from "redux";
-import { DataShape, FieldValue, FormErrors, FormWarnings, RegisteredFieldState, ComponentConstructor } from "../index";
+import {
+    DataShape,
+    FieldValue,
+    FormErrors,
+    FormWarnings,
+    RegisteredFieldState,
+    ComponentConstructor
+} from "../index";
 
 export function reduxForm<FormData extends DataShape, P, S>(
     config: Config<FormData, P, S>
@@ -26,7 +33,9 @@ export function reduxForm(
  * Because of that, React HoCs can't be fully defined. https://www.typescriptlang.org/docs/handbook/decorators.html
  */
 export interface FormDecorator<FormData extends DataShape, P, S> {
-    <T extends ComponentConstructor<P & FormProps<FormData, P, S>>>(component: T): T;
+    <T extends ComponentConstructor<P & FormProps<FormData, P, S>>>(
+        component: T
+    ): T;
 }
 
 export interface Config<FormData extends DataShape, P, S> {
@@ -52,7 +61,12 @@ export interface Config<FormData extends DataShape, P, S> {
      *
      * See Asynchronous Blur Validation Example for more details.
      */
-    asyncValidate?(values: FormData, dispatch: Dispatch<S>, props: P, blurredField: string): Promise<any>;
+    asyncValidate?(
+        values: FormData,
+        dispatch: Dispatch<S>,
+        props: P,
+        blurredField: string
+    ): Promise<any>;
 
     /**
      * Whether or not to automatically destroy your form's state in the Redux
@@ -121,7 +135,12 @@ export interface Config<FormData extends DataShape, P, S> {
      *                    likely a `SubmissionError`, otherwise it can be any error or null.
      * @param props       The props passed into your decorated component.
      */
-    onSubmitFail?(errors: FormErrors<FormData>, dispatch: Dispatch<S>, submitError: any, props: P): void;
+    onSubmitFail?(
+        errors: FormErrors<FormData>,
+        dispatch: Dispatch<S>,
+        submitError: any,
+        props: P
+    ): void;
 
     /**
      * A callback function that will be called when a submission succeeds.
@@ -183,7 +202,10 @@ export interface Config<FormData extends DataShape, P, S> {
      * { field1: <String>, field2: <String> }.
      * Defaults to (values, props) => ({}).
      */
-    validate?(values: FormData, props: FormProps<FormData, P, S> & P): FormErrors<FormData>;
+    validate?(
+        values: FormData,
+        props: FormProps<FormData, P, S> & P
+    ): FormErrors<FormData>;
 
     /**
      * A synchronous warning function that takes the form values and props passed into your component.
@@ -191,7 +213,10 @@ export interface Config<FormData extends DataShape, P, S> {
      * it should return {}. If the check fails, it should return the warnings in the form
      * { field1: <String>, field2: <String> }. Defaults to (values, props) => ({}).
      */
-    warn?(values: FormData, props: FormProps<FormData, P, S> & P): FormWarnings<FormData>;
+    warn?(
+        values: FormData,
+        props: FormProps<FormData, P, S> & P
+    ): FormWarnings<FormData>;
 }
 
 /**
@@ -204,7 +229,11 @@ export interface Config<FormData extends DataShape, P, S> {
  * and it will be given as the error prop.
  */
 export interface SubmitHandler<FormData extends DataShape, P, S> {
-    (values: FormData, dispatch: Dispatch<S>, props: FormProps<FormData, P, S> & P): void | FormErrors<FormData> | Promise<any>;
+    (
+        values: FormData,
+        dispatch: Dispatch<S>,
+        props: FormProps<FormData, P, S> & P
+    ): void | FormErrors<FormData> | Promise<any>;
 }
 
 interface ValidateCallback<FormData extends DataShape> {
@@ -283,7 +312,8 @@ export class SubmissionError<FormData extends DataShape> extends Error {
  * The following are methods or properties that you can access on an instance
  * of your decorated form component (outermost component named "ReduxForm").
  */
-export interface FormComponent<FormData extends DataShape, P, S> extends ComponentClass<P> {
+export interface FormComponent<FormData extends DataShape, P, S>
+    extends ComponentClass<P> {
     /**
      * true if the form data has changed from its initialized values. Opposite
      * of pristine.
@@ -391,7 +421,12 @@ export interface StrictFormProps<FormData extends DataShape, P, S> {
         /**
          * Performs an Array.splice operation on the given array in your form.
          */
-        splice(field: string, index: number, removeNum: number, value: FieldValue): void;
+        splice(
+            field: string,
+            index: number,
+            removeNum: number,
+            value: FieldValue
+        ): void;
 
         /**
          * Swaps two values at the given indexes of the given array field in your form.
@@ -566,4 +601,5 @@ export interface StrictFormProps<FormData extends DataShape, P, S> {
  * These are the props that will be passed to your form component.
  * Your form component's props can extend this interface.
  */
-export interface FormProps<FormData extends DataShape, P, S> extends Partial<StrictFormProps<FormData, P, S>> {}
+export interface FormProps<FormData extends DataShape, P, S>
+    extends Partial<StrictFormProps<FormData, P, S>> {}

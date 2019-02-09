@@ -18,7 +18,7 @@ declare namespace detective {
         /**
          * Give some source body 'src', return 'found' DetectiveResults
          */
-		find(src: string, opts?: Options): DetectiveResults;
+        find(src: string, opts?: Options): DetectiveResults;
     }
 
     interface Options {
@@ -82,7 +82,7 @@ declare namespace detective {
          * Indicate the mode the code should be parsed in. Can be either "script" or "module".
          * This influences global strict mode and parsing of import and export declarations.
          */
-        sourceType?: ("script" | "module");
+        sourceType?: "script" | "module";
     }
 
     interface DetectiveResults {

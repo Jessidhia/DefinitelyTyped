@@ -1,7 +1,7 @@
-import InlineEdit from '@atlaskit/inline-edit';
+import InlineEdit from "@atlaskit/inline-edit";
 
-import * as React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import { render } from "react-dom";
 
 declare const container: Element;
 
@@ -11,5 +11,5 @@ render(
         onConfirm={() => {}}
         onCancel={() => {}}
     />,
-    container,
+    container
 );

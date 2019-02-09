@@ -1,17 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
@@ -19,13 +15,8 @@
             "@feathersjs/authentication-local": [
                 "feathersjs__authentication-local"
             ],
-            "@feathersjs/feathers": [
-                "feathersjs__feathers"
-            ]
+            "@feathersjs/feathers": ["feathersjs__feathers"]
         }
     },
-    "files": [
-        "index.d.ts",
-        "feathersjs__authentication-local-tests.ts"
-    ]
+    "files": ["index.d.ts", "feathersjs__authentication-local-tests.ts"]
 }

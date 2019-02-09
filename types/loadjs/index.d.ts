@@ -8,8 +8,15 @@ export as namespace loadjs;
 
 export = loadjs;
 
-declare function loadjs(files: string | string[], bundleIdOrLoaded: string | loadjs.LoadedFn): void;
-declare function loadjs(files: string[], bundleId: string, optionsOrCallback: loadjs.LoadOptions | loadjs.LoadedFn): void;
+declare function loadjs(
+    files: string | string[],
+    bundleIdOrLoaded: string | loadjs.LoadedFn
+): void;
+declare function loadjs(
+    files: string[],
+    bundleId: string,
+    optionsOrCallback: loadjs.LoadOptions | loadjs.LoadedFn
+): void;
 
 declare namespace loadjs {
     type LoadedFn = () => void;
@@ -27,7 +34,10 @@ declare namespace loadjs {
         error?(depsNotFound: string): void;
     }
 
-    function ready(bundleIds: string | string[], optionsOrCallback: ReadyOptions | LoadedFn): typeof loadjs;
+    function ready(
+        bundleIds: string | string[],
+        optionsOrCallback: ReadyOptions | LoadedFn
+    ): typeof loadjs;
     function isDefined(bundleId: string): boolean;
     function done(bundleId: string): void;
     function reset(): void;

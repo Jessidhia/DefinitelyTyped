@@ -13,12 +13,12 @@ interface JsonRPCResponse {
 }
 
 interface Callback<ResultType> {
-  (error: Error): void;
-  (error: null, val: ResultType): void;
+    (error: Error): void;
+    (error: null, val: ResultType): void;
 }
 
 export class Provider {
-  send(payload: JsonRPCRequest, callback: Callback<JsonRPCResponse>): any;
+    send(payload: JsonRPCRequest, callback: Callback<JsonRPCResponse>): any;
 }
 
 export class WebsocketProvider extends Provider {

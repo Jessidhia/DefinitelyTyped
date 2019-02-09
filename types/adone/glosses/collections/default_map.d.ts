@@ -4,6 +4,9 @@ declare namespace adone.collection {
      * Each get of non-existent key goes through the factory
      */
     class DefaultMap<K = string, V = any> extends Map<K, V> {
-        constructor(factory?: ((key: K) => V) | { [key: string]: V }, iterable?: Iterable<[K, V]>);
+        constructor(
+            factory?: ((key: K) => V) | { [key: string]: V },
+            iterable?: Iterable<[K, V]>
+        );
     }
 }

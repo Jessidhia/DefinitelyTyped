@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as GeoJSON from 'geojson';
-import * as Knex from 'knex';
+import * as GeoJSON from "geojson";
+import * as Knex from "knex";
 
 // Same as in Knex but not exported
 type ColumnName = string | Knex.Raw | Knex.QueryBuilder;
@@ -75,7 +75,12 @@ declare namespace KnexPostgis {
          *
          * @see {@link https://postgis.net/docs/ST_DWithin.html}
          */
-        dwithin(geom1: ColumnName, geom2: ColumnName, distance: number, spheroid?: boolean): Knex.QueryBuilder;
+        dwithin(
+            geom1: ColumnName,
+            geom2: ColumnName,
+            distance: number,
+            spheroid?: boolean
+        ): Knex.QueryBuilder;
 
         /**
          * Returns a geometry that represents the shared portion of geomA and geomB.
@@ -115,7 +120,9 @@ declare namespace KnexPostgis {
          *
          * @see {@link https://postgis.net/docs/ST_GeomFromGeoJSON.html}
          */
-        geomFromGeoJSON(geojson: GeoJSON.GeoJsonObject|ColumnName): Knex.QueryBuilder;
+        geomFromGeoJSON(
+            geojson: GeoJSON.GeoJsonObject | ColumnName
+        ): Knex.QueryBuilder;
 
         /**
          * Creates a rectangular Polygon formed from the given minimums and maximums. Input values
@@ -123,14 +130,25 @@ declare namespace KnexPostgis {
          *
          * @see {@link https://postgis.net/docs/ST_MakeEnvelope.html}
          */
-        makeEnvelope(minlon: number, minlat: number, maxlon: number, maxlat: number, srid?: number): Knex.QueryBuilder;
+        makeEnvelope(
+            minlon: number,
+            minlat: number,
+            maxlon: number,
+            maxlat: number,
+            srid?: number
+        ): Knex.QueryBuilder;
 
         /**
          * Creates a 2D,3DZ or 4D point geometry.
          *
          * @see {@link https://postgis.net/docs/ST_MakePoint.html}
          */
-        makePoint(lon: number, lat: number, z?: number, measure?: number): Knex.QueryBuilder;
+        makePoint(
+            lon: number,
+            lat: number,
+            z?: number,
+            measure?: number
+        ): Knex.QueryBuilder;
 
         /**
          * Attempts to make an invalid geometry valid without losing vertices.

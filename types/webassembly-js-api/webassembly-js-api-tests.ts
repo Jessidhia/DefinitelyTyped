@@ -1,15 +1,19 @@
 function debug(s: string) {
-  // debug(s)
+    // debug(s)
 }
 
 // Table
-let table = new WebAssembly.Table({element: "anyfunc", initial: 1, maximum: 10});
+let table = new WebAssembly.Table({
+    element: "anyfunc",
+    initial: 1,
+    maximum: 10
+});
 debug(`table.length=${table.length}`);
 debug(`table.get(0)=${table.get(0)}`);
 table.grow(1);
 
 // Memory
-let memory = new WebAssembly.Memory({initial: 2, maximum: 8});
+let memory = new WebAssembly.Memory({ initial: 2, maximum: 8 });
 debug(`memory.grow(6)=${memory.grow(6)}`);
 let u8 = new Uint8Array(memory.buffer);
 u8[0] = 1;
@@ -60,14 +64,24 @@ WebAssembly.compile(wasmDataU8).then((mod: WebAssembly.Module) => {
 WebAssembly.instantiate(wasmDataU8).then((result: WebAssembly.ResultObject) => {
     debug(`Primary overload mod=${result.module}`);
     debug(`Primary overload inst=${result.instance}`);
-    debug(`Primary exec instance.exports.addTwo1(-1, 1)=${result.instance.exports.addTwo1(-1, 1)}`);
+    debug(
+        `Primary exec instance.exports.addTwo1(-1, 1)=${result.instance.exports.addTwo1(
+            -1,
+            1
+        )}`
+    );
 });
 
 // Instantiate
 //   Secondary overload — taking a Module object
 WebAssembly.instantiate(wasmModule).then((instance: WebAssembly.Instance) => {
     debug(`Secondary overload instance=${instance}`);
-    debug(`Secondary exec instance.exports.addTwo1(0, -1)=${instance.exports.addTwo1(0, -1)}`);
+    debug(
+        `Secondary exec instance.exports.addTwo1(0, -1)=${instance.exports.addTwo1(
+            0,
+            -1
+        )}`
+    );
 });
 
 // Validate

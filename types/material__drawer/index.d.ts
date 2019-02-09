@@ -20,31 +20,36 @@
  * limitations under the License.
  */
 
-import MDCComponent from 'material__base/component';
-import { MDCDismissibleDrawerFoundation } from './dismissible/foundation';
-import { MDCModalDrawerFoundation } from './modal/foundation';
-import { MDCDrawerAdapter } from './adapter';
-import { MDCList, MDCListFoundation } from 'material__list/index';
-import { strings } from './constants';
-import * as util from './util';
-import createFocusTrap, { FocusTrap } from './focus-trap';
+import MDCComponent from "material__base/component";
+import { MDCDismissibleDrawerFoundation } from "./dismissible/foundation";
+import { MDCModalDrawerFoundation } from "./modal/foundation";
+import { MDCDrawerAdapter } from "./adapter";
+import { MDCList, MDCListFoundation } from "material__list/index";
+import { strings } from "./constants";
+import * as util from "./util";
+import createFocusTrap, { FocusTrap } from "./focus-trap";
 
-export class MDCDrawer extends MDCComponent<MDCDrawer, MDCDismissibleDrawerFoundation | MDCModalDrawerFoundation> {
-  constructor(...args: any[]);
-  static attachTo(root: Element): MDCDrawer;
+export class MDCDrawer extends MDCComponent<
+    MDCDrawer,
+    MDCDismissibleDrawerFoundation | MDCModalDrawerFoundation
+> {
+    constructor(...args: any[]);
+    static attachTo(root: Element): MDCDrawer;
 
-  /**
-   * Returns true if drawer is in the open position.
-   */
-  open: boolean;
+    /**
+     * Returns true if drawer is in the open position.
+     */
+    open: boolean;
 
-  initialize(focusTrapFactory: FocusTrap, listFactory: MDCList): void;
+    initialize(focusTrapFactory: FocusTrap, listFactory: MDCList): void;
 
-  initialSyncWithDOM(): void;
+    initialSyncWithDOM(): void;
 
-  destroy(): void;
+    destroy(): void;
 
-  getDefaultFoundation(): MDCDismissibleDrawerFoundation | MDCModalDrawerFoundation;
+    getDefaultFoundation():
+        | MDCDismissibleDrawerFoundation
+        | MDCModalDrawerFoundation;
 }
 
 export { MDCDismissibleDrawerFoundation, MDCModalDrawerFoundation, util };

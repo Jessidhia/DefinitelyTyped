@@ -151,13 +151,19 @@ declare namespace LRU {
          * Just like `Array.prototype.forEach`. Iterates over all the keys in the cache,
          * in order of recent-ness. (Ie, more recently used items are iterated over first.)
          */
-        forEach<T = this>(callbackFn: (this: T, value: V, key: K, cache: this) => void, thisArg?: T): void;
+        forEach<T = this>(
+            callbackFn: (this: T, value: V, key: K, cache: this) => void,
+            thisArg?: T
+        ): void;
 
         /**
          * The same as `cache.forEach(...)` but items are iterated over in reverse order.
          * (ie, less recently used items are iterated over first.)
          */
-        rforEach<T = this>(callbackFn: (this: T, value: V, key: K, cache: this) => void, thisArg?: T): void;
+        rforEach<T = this>(
+            callbackFn: (this: T, value: V, key: K, cache: this) => void,
+            thisArg?: T
+        ): void;
 
         /**
          * Return an array of the keys in the cache.

@@ -7,7 +7,10 @@
 
 export = streamToString;
 
-declare function streamToString(stream: NodeJS.ReadableStream, cb?: Callback): Promise<string>;
+declare function streamToString(
+    stream: NodeJS.ReadableStream,
+    cb?: Callback
+): Promise<string>;
 declare function streamToString(
     stream: NodeJS.ReadableStream,
     enc: string,

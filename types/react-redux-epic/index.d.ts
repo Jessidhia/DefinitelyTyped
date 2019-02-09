@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { Observable } from 'rxjs/Observable';
-import { Action } from 'redux';
-import { Epic } from 'redux-observable';
+import * as React from "react";
+import { Observable } from "rxjs/Observable";
+import { Action } from "redux";
+import { Epic } from "redux-observable";
 
 export interface Action {
     type: string;

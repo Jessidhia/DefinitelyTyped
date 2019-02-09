@@ -18,16 +18,32 @@ const clusterBrokerClient = scClusterBrokerClient
         console.log(`Received ${err}`);
     })
     .on("subscribe", data => {
-        console.log(`Subscribed to ${data.channel}, ${data.poolIndex}, ${data.targetURI}`);
+        console.log(
+            `Subscribed to ${data.channel}, ${data.poolIndex}, ${
+                data.targetURI
+            }`
+        );
     })
     .on("subscribeFail", data => {
-        console.log(`Error ${data.error} while subscribing to ${data.channel}, ${data.poolIndex}, ${data.targetURI}`);
+        console.log(
+            `Error ${data.error} while subscribing to ${data.channel}, ${
+                data.poolIndex
+            }, ${data.targetURI}`
+        );
     })
     .on("publish", data => {
-        console.log(`Published ${data.data} to ${data.channel}, ${data.poolIndex}, ${data.targetURI}`);
+        console.log(
+            `Published ${data.data} to ${data.channel}, ${data.poolIndex}, ${
+                data.targetURI
+            }`
+        );
     })
     .on("publishFail", data => {
-        console.log(`Error while publishing ${data.data} to ${data.channel}, ${data.poolIndex}, ${data.targetURI}`);
+        console.log(
+            `Error while publishing ${data.data} to ${data.channel}, ${
+                data.poolIndex
+            }, ${data.targetURI}`
+        );
     })
     .on("message", (channelName, packet) => {
         console.log(`Received ${packet} on channel ${channelName}`);

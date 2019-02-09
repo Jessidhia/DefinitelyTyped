@@ -1,24 +1,24 @@
-import { Transform, TransformOptions } from 'stream';
+import { Transform, TransformOptions } from "stream";
 
-import * as make from 'stream-json';
+import * as make from "stream-json";
 
-import * as Assembler from 'stream-json/Assembler';
-import * as Emitter from 'stream-json/Emitter';
-import * as Parser from 'stream-json/Parser';
-import * as Stringer from 'stream-json/Stringer';
+import * as Assembler from "stream-json/Assembler";
+import * as Emitter from "stream-json/Emitter";
+import * as Parser from "stream-json/Parser";
+import * as Stringer from "stream-json/Stringer";
 
-import * as FilterBase from 'stream-json/filters/FilterBase';
-import * as Pick from 'stream-json/filters/Pick';
-import * as Replace from 'stream-json/filters/Replace';
-import * as Ignore from 'stream-json/filters/Ignore';
-import * as Filter from 'stream-json/filters/Filter';
+import * as FilterBase from "stream-json/filters/FilterBase";
+import * as Pick from "stream-json/filters/Pick";
+import * as Replace from "stream-json/filters/Replace";
+import * as Ignore from "stream-json/filters/Ignore";
+import * as Filter from "stream-json/filters/Filter";
 
-import * as StreamArray from 'stream-json/streamers/StreamArray';
-import * as StreamObject from 'stream-json/streamers/StreamObject';
-import * as StreamValues from 'stream-json/streamers/StreamValues';
+import * as StreamArray from "stream-json/streamers/StreamArray";
+import * as StreamObject from "stream-json/streamers/StreamObject";
+import * as StreamValues from "stream-json/streamers/StreamValues";
 
-import * as emit from 'stream-json/utils/emit';
-import * as withParser from 'stream-json/utils/withParser';
+import * as emit from "stream-json/utils/emit";
+import * as withParser from "stream-json/utils/withParser";
 
 const used = (array: any[]) => array.forEach(value => console.log(!!value));
 
@@ -46,13 +46,22 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
     const parser: Parser = new Parser({ streamValues: false });
     const asm: Assembler = Assembler.connectTo(parser);
 
-    asm.consume({ name: 'startObject' });
+    asm.consume({ name: "startObject" });
     asm.dropToLevel(0);
 
-    parser.on('keyValue', (value: string) =>
-        console.log(value, asm.key, asm.stack.length, asm.done, asm.depth, asm.path)
+    parser.on("keyValue", (value: string) =>
+        console.log(
+            value,
+            asm.key,
+            asm.stack.length,
+            asm.done,
+            asm.depth,
+            asm.path
+        )
     );
-    asm.on('done', (asm: Assembler) => console.log(JSON.stringify(asm.current)));
+    asm.on("done", (asm: Assembler) =>
+        console.log(JSON.stringify(asm.current))
+    );
 }
 
 {
@@ -71,7 +80,7 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
     parser.pipe(e4);
     parser.pipe(e5);
 
-    e1.on('startArray', () => console.log('array'));
+    e1.on("startArray", () => console.log("array"));
 }
 
 {
@@ -80,8 +89,15 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
     const p1: Parser = new Parser({ packValues: false });
     const p2: Parser = Parser.make({ jsonStreaming: true });
     const p3: Parser = Parser.parser({ streamValues: false });
-    const p4: Parser.make.Constructor = Parser.make({ packValues: false, packKeys: true });
-    const p5: Parser.parser.Constructor = Parser.parser({ packValues: false, packKeys: true, streamKeys: false });
+    const p4: Parser.make.Constructor = Parser.make({
+        packValues: false,
+        packKeys: true
+    });
+    const p5: Parser.parser.Constructor = Parser.parser({
+        packValues: false,
+        packKeys: true,
+        streamKeys: false
+    });
 
     used([p1, p2, p3, p4, p5]);
 }
@@ -103,20 +119,25 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
 
     const parser: Parser = new Parser();
 
-    const f1: Pick = new Pick({ filter: 'data' });
-    const f2: Pick = Pick.make({ filter: 'data' });
-    const f3: Pick = Pick.pick({ filter: 'data' });
-    const f4: Pick.make.Constructor = Pick.make({ filter: 'data' });
-    const f5: Pick.pick.Constructor = Pick.pick({ filter: 'data' });
+    const f1: Pick = new Pick({ filter: "data" });
+    const f2: Pick = Pick.make({ filter: "data" });
+    const f3: Pick = Pick.pick({ filter: "data" });
+    const f4: Pick.make.Constructor = Pick.make({ filter: "data" });
+    const f5: Pick.pick.Constructor = Pick.pick({ filter: "data" });
 
     used([f1, f2, f3, f4, f5]);
 
     parser
-        .pipe(new Pick({ filter: 'data' }))
+        .pipe(new Pick({ filter: "data" }))
         .pipe(Pick.make({ filter: /\bvalues\b/i }))
-        .pipe(Pick.pick({ filter: (stack: FilterBase.Stack, token: FilterBase.Token) => token.name === 'startArray' }));
+        .pipe(
+            Pick.pick({
+                filter: (stack: FilterBase.Stack, token: FilterBase.Token) =>
+                    token.name === "startArray"
+            })
+        );
 
-    Pick.withParser({ filter: 'data' });
+    Pick.withParser({ filter: "data" });
 }
 
 {
@@ -124,27 +145,43 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
 
     const parser: Parser = new Parser();
 
-    const f1: Replace = new Replace({ filter: 'data' });
-    const f2: Replace = Replace.make({ filter: 'data' });
-    const f3: Replace = Replace.replace({ filter: 'data' });
-    const f4: Replace.make.Constructor = Replace.make({ filter: 'data' });
-    const f5: Replace.replace.Constructor = Replace.replace({ filter: 'data' });
+    const f1: Replace = new Replace({ filter: "data" });
+    const f2: Replace = Replace.make({ filter: "data" });
+    const f3: Replace = Replace.replace({ filter: "data" });
+    const f4: Replace.make.Constructor = Replace.make({ filter: "data" });
+    const f5: Replace.replace.Constructor = Replace.replace({ filter: "data" });
 
     used([f1, f2, f3, f4, f5]);
 
     parser
-        .pipe(new Replace({ filter: 'total', replacement: [{ name: 'trueValue' }] }))
-        .pipe(Replace.make({ filter: /\b_\w*\b/i, allowEmptyReplacement: true }))
+        .pipe(
+            new Replace({
+                filter: "total",
+                replacement: [{ name: "trueValue" }]
+            })
+        )
+        .pipe(
+            Replace.make({ filter: /\b_\w*\b/i, allowEmptyReplacement: true })
+        )
         .pipe(
             Replace.replace({
-                filter: (stack: FilterBase.Stack, token: FilterBase.Token) => stack.length > 2,
-                replacement: (stack: FilterBase.Stack, token: FilterBase.Token) => [
-                    { name: token.name === 'startArray' ? 'trueValue' : 'falseValue' }
+                filter: (stack: FilterBase.Stack, token: FilterBase.Token) =>
+                    stack.length > 2,
+                replacement: (
+                    stack: FilterBase.Stack,
+                    token: FilterBase.Token
+                ) => [
+                    {
+                        name:
+                            token.name === "startArray"
+                                ? "trueValue"
+                                : "falseValue"
+                    }
                 ]
             })
         );
 
-    Replace.withParser({ filter: '_meta' });
+    Replace.withParser({ filter: "_meta" });
 }
 
 {
@@ -152,20 +189,25 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
 
     const parser: Parser = new Parser({ streamValues: false });
 
-    const f1: Ignore = new Ignore({ filter: 'data' });
-    const f2: Ignore = Ignore.make({ filter: 'data' });
-    const f3: Ignore = Ignore.ignore({ filter: 'data' });
-    const f4: Ignore.make.Constructor = Ignore.make({ filter: 'data' });
-    const f5: Ignore.ignore.Constructor = Ignore.ignore({ filter: 'data' });
+    const f1: Ignore = new Ignore({ filter: "data" });
+    const f2: Ignore = Ignore.make({ filter: "data" });
+    const f3: Ignore = Ignore.ignore({ filter: "data" });
+    const f4: Ignore.make.Constructor = Ignore.make({ filter: "data" });
+    const f5: Ignore.ignore.Constructor = Ignore.ignore({ filter: "data" });
 
     used([f1, f2, f3, f4, f5]);
 
     parser
-        .pipe(new Ignore({ filter: 'total' }))
+        .pipe(new Ignore({ filter: "total" }))
         .pipe(Ignore.make({ filter: /\b_\w*\b/i }))
-        .pipe(Ignore.ignore({ filter: (stack: FilterBase.Stack, token: FilterBase.Token) => stack.length > 2 }));
+        .pipe(
+            Ignore.ignore({
+                filter: (stack: FilterBase.Stack, token: FilterBase.Token) =>
+                    stack.length > 2
+            })
+        );
 
-    Ignore.withParser({ filter: '_meta' });
+    Ignore.withParser({ filter: "_meta" });
 }
 
 {
@@ -173,20 +215,25 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
 
     const parser: Parser = new Parser({ streamValues: false });
 
-    const f1: Filter = new Filter({ filter: 'data' });
-    const f2: Filter = Filter.make({ filter: 'data' });
-    const f3: Filter = Filter.filter({ filter: 'data' });
-    const f4: Filter.make.Constructor = Filter.make({ filter: 'data' });
-    const f5: Filter.filter.Constructor = Filter.filter({ filter: 'data' });
+    const f1: Filter = new Filter({ filter: "data" });
+    const f2: Filter = Filter.make({ filter: "data" });
+    const f3: Filter = Filter.filter({ filter: "data" });
+    const f4: Filter.make.Constructor = Filter.make({ filter: "data" });
+    const f5: Filter.filter.Constructor = Filter.filter({ filter: "data" });
 
     used([f1, f2, f3, f4, f5]);
 
     parser
-        .pipe(new Filter({ filter: 'total' }))
+        .pipe(new Filter({ filter: "total" }))
         .pipe(Filter.make({ filter: /\b_\w*\b/i }))
-        .pipe(Filter.filter({ filter: (stack: FilterBase.Stack, token: FilterBase.Token) => stack.length > 2 }));
+        .pipe(
+            Filter.filter({
+                filter: (stack: FilterBase.Stack, token: FilterBase.Token) =>
+                    stack.length > 2
+            })
+        );
 
-    Filter.withParser({ filter: '_meta' });
+    Filter.withParser({ filter: "_meta" });
 }
 
 {
@@ -207,8 +254,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: true,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -218,8 +265,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: false,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -247,8 +294,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: true,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -258,8 +305,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: false,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -287,8 +334,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: true,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -298,8 +345,8 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
             includeUndecided: false,
             objectFilter: (asm: Assembler) => {
                 if (asm.current) {
-                    if (asm.current.action === 'accept') return true;
-                    if (asm.current.action === 'reject') return false;
+                    if (asm.current.action === "accept") return true;
+                    if (asm.current.action === "reject") return false;
                 }
             }
         })
@@ -313,17 +360,24 @@ const used = (array: any[]) => array.forEach(value => console.log(!!value));
     // emit() tests
 
     const parser: Parser = emit(new Parser());
-    parser.on('keyValue', () => console.log('key'));
+    parser.on("keyValue", () => console.log("key"));
 }
 
 {
     // withParser() tests
 
-    withParser(Pick.make, { filter: 'data' });
-    withParser(Pick.pick, { filter: 'data', packValues: false });
+    withParser(Pick.make, { filter: "data" });
+    withParser(Pick.pick, { filter: "data", packValues: false });
 
-    withParser(StreamArray.streamArray, { objectFilter: (asm: Assembler) => asm.current });
-    withParser(StreamArray.make, { objectFilter: (asm: Assembler) => asm.current, packValues: false });
+    withParser(StreamArray.streamArray, {
+        objectFilter: (asm: Assembler) => asm.current
+    });
+    withParser(StreamArray.make, {
+        objectFilter: (asm: Assembler) => asm.current,
+        packValues: false
+    });
 
-    withParser((options?: TransformOptions) => new Transform(options), { streamValues: false });
+    withParser((options?: TransformOptions) => new Transform(options), {
+        streamValues: false
+    });
 }

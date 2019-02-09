@@ -26,5 +26,12 @@ export interface Result {
     results: Results[];
 }
 
-export function ping(options: Options, callback: (error: Error, result: Result) => void): void;
-export function probe(address: string, port: number, callback: (error: Error, result: Result) => void): void;
+export function ping(
+    options: Options,
+    callback: (error: Error, result: Result) => void
+): void;
+export function probe(
+    address: string,
+    port: number,
+    callback: (error: Error, result: Result) => void
+): void;

@@ -86,7 +86,13 @@ declare module "repl" {
         breakEvalOnSigint?: boolean;
     }
 
-    type REPLEval = (this: REPLServer, evalCmd: string, context: Context, file: string, cb: (err: Error | null, result: any) => void) => void;
+    type REPLEval = (
+        this: REPLServer,
+        evalCmd: string,
+        context: Context,
+        file: string,
+        cb: (err: Error | null, result: any) => void
+    ) => void;
     type REPLWriter = (this: REPLServer, obj: any) => string;
 
     /**
@@ -237,7 +243,10 @@ declare module "repl" {
          *
          * @see https://nodejs.org/dist/latest-v10.x/docs/api/repl.html#repl_replserver_definecommand_keyword_cmd
          */
-        defineCommand(keyword: string, cmd: REPLCommandAction | REPLCommand): void;
+        defineCommand(
+            keyword: string,
+            cmd: REPLCommandAction | REPLCommand
+        ): void;
         /**
          * Readies the REPL instance for input from the user, printing the configured `prompt` to a
          * new line in the `output` and resuming the `input` to accept new input.
@@ -317,7 +326,10 @@ declare module "repl" {
         once(event: "exit", listener: () => void): this;
         once(event: "reset", listener: (context: Context) => void): this;
 
-        prependListener(event: string, listener: (...args: any[]) => void): this;
+        prependListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependListener(event: "close", listener: () => void): this;
         prependListener(event: "line", listener: (input: string) => void): this;
         prependListener(event: "pause", listener: () => void): this;
@@ -326,18 +338,30 @@ declare module "repl" {
         prependListener(event: "SIGINT", listener: () => void): this;
         prependListener(event: "SIGTSTP", listener: () => void): this;
         prependListener(event: "exit", listener: () => void): this;
-        prependListener(event: "reset", listener: (context: Context) => void): this;
+        prependListener(
+            event: "reset",
+            listener: (context: Context) => void
+        ): this;
 
-        prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+        prependOnceListener(
+            event: string,
+            listener: (...args: any[]) => void
+        ): this;
         prependOnceListener(event: "close", listener: () => void): this;
-        prependOnceListener(event: "line", listener: (input: string) => void): this;
+        prependOnceListener(
+            event: "line",
+            listener: (input: string) => void
+        ): this;
         prependOnceListener(event: "pause", listener: () => void): this;
         prependOnceListener(event: "resume", listener: () => void): this;
         prependOnceListener(event: "SIGCONT", listener: () => void): this;
         prependOnceListener(event: "SIGINT", listener: () => void): this;
         prependOnceListener(event: "SIGTSTP", listener: () => void): this;
         prependOnceListener(event: "exit", listener: () => void): this;
-        prependOnceListener(event: "reset", listener: (context: Context) => void): this;
+        prependOnceListener(
+            event: "reset",
+            listener: (context: Context) => void
+        ): this;
     }
 
     /**

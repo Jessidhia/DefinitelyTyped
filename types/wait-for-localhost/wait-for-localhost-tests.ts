@@ -1,4 +1,4 @@
-import waitForLocalhost = require('wait-for-localhost');
+import waitForLocalhost = require("wait-for-localhost");
 
 // $ExpectType Promise<void>
 waitForLocalhost();

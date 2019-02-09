@@ -3,11 +3,11 @@
 // Definitions by: hans windhoff <https://github.com/hansrwindhoff>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
 export = d3.layout.cloud;
 
-declare module 'd3' {
+declare module "d3" {
     namespace layout {
         export function cloud(): Cloud<cloud.Word>;
         export function cloud<T extends cloud.Word>(): Cloud<T>;
@@ -49,7 +49,9 @@ declare module 'd3' {
 
             fontWeight(): (datum: T, index: number) => string | number;
             fontWeight(weight: string | number): Cloud<T>;
-            fontWeight(weight: (datum: T, index: number) => string | number): Cloud<T>;
+            fontWeight(
+                weight: (datum: T, index: number) => string | number
+            ): Cloud<T>;
 
             rotate(): (datum: T, index: number) => number;
             rotate(rotate: number): Cloud<T>;
@@ -61,7 +63,9 @@ declare module 'd3' {
 
             spiral(): (size: number) => (t: number) => [number, number];
             spiral(name: string): Cloud<T>;
-            spiral(spiral: (size: number) => (t: number) => [number, number]): Cloud<T>;
+            spiral(
+                spiral: (size: number) => (t: number) => [number, number]
+            ): Cloud<T>;
 
             fontSize(): (datum: T, index: number) => number;
             fontSize(size: number): Cloud<T>;
@@ -72,11 +76,19 @@ declare module 'd3' {
             padding(padding: (datum: T, index: number) => number): Cloud<T>;
 
             on(type: "word", listener: (word: T) => void): Cloud<T>;
-            on(type: "end", listener: (tags: T[], bounds: { x: number; y: number }[]) => void): Cloud<T>;
+            on(
+                type: "end",
+                listener: (
+                    tags: T[],
+                    bounds: { x: number; y: number }[]
+                ) => void
+            ): Cloud<T>;
             on(type: string, listener: (...args: any[]) => void): Cloud<T>;
 
             on(type: "word"): (word: T) => void;
-            on(type: "end"): (tags: T[], bounds: { x: number; y: number }[]) => void;
+            on(
+                type: "end"
+            ): (tags: T[], bounds: { x: number; y: number }[]) => void;
             on(type: string): (...args: any[]) => void;
         }
     }

@@ -1025,7 +1025,7 @@ declare namespace Foxx {
         register: (endpoint: Endpoint) => SimpleMiddleware;
     }
     type Middleware = SimpleMiddleware | DelegateMiddleware;
-    type Handler = ((req: Request, res: Response) => void);
+    type Handler = (req: Request, res: Response) => void;
     type NextFunction = () => void;
 
     interface ValidationResult<T> {
@@ -1456,7 +1456,11 @@ declare module "@arangodb/foxx/queues" {
         mount: string;
     }
 
-    type JobCallback = (result: any, jobData: any, job: ArangoDB.Document<Job>) => void;
+    type JobCallback = (
+        result: any,
+        jobData: any,
+        job: ArangoDB.Document<Job>
+    ) => void;
 
     interface Job {
         status: string;
@@ -1504,7 +1508,16 @@ declare module "@arangodb/foxx/queues" {
     function deleteQueue(name: string): boolean;
     function get(name: string): Queue;
 
-    export { createQueue as create, deleteQueue as delete, get, JobOptions, Job, Queue, QueueItem, Script, };
+    export {
+        createQueue as create,
+        deleteQueue as delete,
+        get,
+        JobOptions,
+        Job,
+        Queue,
+        QueueItem,
+        Script
+    };
 }
 
 declare module "@arangodb/foxx/graphql" {

@@ -1,4 +1,4 @@
-import Resolver = require('./Resolver');
+import Resolver = require("./Resolver");
 declare class ModuleKindPlugin {
     source: string;
     target: string;

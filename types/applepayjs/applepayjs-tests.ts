@@ -25,13 +25,8 @@ describe("ApplePaySession", () => {
         const paymentRequest: ApplePayJS.ApplePayPaymentRequest = {
             countryCode: "US",
             currencyCode: "USD",
-            supportedNetworks: [
-                "masterCard",
-                "visa"
-            ],
-            merchantCapabilities: [
-                "supports3DS"
-            ],
+            supportedNetworks: ["masterCard", "visa"],
+            merchantCapabilities: ["supports3DS"],
             total: {
                 label: "My Store",
                 amount: "9.99"
@@ -46,25 +41,22 @@ describe("ApplePaySession", () => {
         const canMakePayments: boolean = ApplePaySession.canMakePayments();
         const supported: boolean = ApplePaySession.supportsVersion(2);
 
-        ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier)
-            .then((status: boolean) => {
+        ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier).then(
+            (status: boolean) => {
                 console.log(`Can make payments with active card: ${status}.`);
-            });
+            }
+        );
 
-        ApplePaySession.openPaymentSetup(merchantIdentifier)
-            .then((success) => {
-                console.log(`Apple Pay setup: ${success}.`);
-            });
+        ApplePaySession.openPaymentSetup(merchantIdentifier).then(success => {
+            console.log(`Apple Pay setup: ${success}.`);
+        });
     });
     it("can call instance methods", () => {
         const version = 3;
         const paymentRequest: ApplePayJS.ApplePayPaymentRequest = {
             countryCode: "US",
             currencyCode: "USD",
-            supportedNetworks: [
-                "masterCard",
-                "visa"
-            ],
+            supportedNetworks: ["masterCard", "visa"],
             merchantCapabilities: [
                 "supports3DS",
                 "supportsCredit",
@@ -147,7 +139,8 @@ describe("ApplePaySession", () => {
             ApplePaySession.STATUS_INVALID_SHIPPING_POSTAL_ADDRESS,
             shippingMethods,
             total,
-            lineItems);
+            lineItems
+        );
 
         const contactUpdate = {
             newTotal: total
@@ -158,7 +151,8 @@ describe("ApplePaySession", () => {
         session.completeShippingMethodSelection(
             ApplePaySession.STATUS_SUCCESS,
             total,
-            lineItems);
+            lineItems
+        );
 
         const shippingUpdate = {
             newTotal: total
@@ -170,31 +164,50 @@ describe("ApplePaySession", () => {
             event.cancelBubble = true;
         };
 
-        session.onpaymentauthorized = (event: ApplePayJS.ApplePayPaymentAuthorizedEvent) => {
+        session.onpaymentauthorized = (
+            event: ApplePayJS.ApplePayPaymentAuthorizedEvent
+        ) => {
             if (event.payment) {
                 console.log("Payment data:", JSON.stringify(event.payment));
             }
         };
 
-        session.onpaymentmethodselected = (event: ApplePayJS.ApplePayPaymentMethodSelectedEvent) => {
+        session.onpaymentmethodselected = (
+            event: ApplePayJS.ApplePayPaymentMethodSelectedEvent
+        ) => {
             if (event.paymentMethod) {
-                console.log("Payment method:", JSON.stringify(event.paymentMethod));
+                console.log(
+                    "Payment method:",
+                    JSON.stringify(event.paymentMethod)
+                );
             }
         };
 
-        session.onshippingcontactselected = (event: ApplePayJS.ApplePayShippingContactSelectedEvent) => {
+        session.onshippingcontactselected = (
+            event: ApplePayJS.ApplePayShippingContactSelectedEvent
+        ) => {
             if (event.shippingContact) {
-                console.log("Shipping contact:", JSON.stringify(event.shippingContact));
+                console.log(
+                    "Shipping contact:",
+                    JSON.stringify(event.shippingContact)
+                );
             }
         };
 
-        session.onshippingmethodselected = (event: ApplePayJS.ApplePayShippingMethodSelectedEvent) => {
+        session.onshippingmethodselected = (
+            event: ApplePayJS.ApplePayShippingMethodSelectedEvent
+        ) => {
             if (event.shippingMethod) {
-                console.log("Shipping method:", JSON.stringify(event.shippingMethod));
+                console.log(
+                    "Shipping method:",
+                    JSON.stringify(event.shippingMethod)
+                );
             }
         };
 
-        session.onvalidatemerchant = (event: ApplePayJS.ApplePayValidateMerchantEvent) => {
+        session.onvalidatemerchant = (
+            event: ApplePayJS.ApplePayValidateMerchantEvent
+        ) => {
             if (event.validationURL) {
                 console.log(`The validation URL is '${event.validationURL}'.`);
             }
@@ -232,9 +245,7 @@ describe("ApplePayPaymentRequest", () => {
             familyName: "Patel",
             givenName: "Ravi",
             phoneNumber: "(408) 555-5555",
-            addressLines: [
-                "1 Infinite Loop"
-            ],
+            addressLines: ["1 Infinite Loop"],
             locality: "Cupertino",
             subLocality: "",
             administrativeArea: "CA",
@@ -261,10 +272,7 @@ describe("ApplePayPaymentRequest", () => {
             }
         ];
 
-        paymentRequest.requiredBillingContactFields = [
-            "postalAddress",
-            "name"
-        ];
+        paymentRequest.requiredBillingContactFields = ["postalAddress", "name"];
 
         paymentRequest.requiredShippingContactFields = [
             "postalAddress",
@@ -280,9 +288,7 @@ describe("ApplePayPaymentRequest", () => {
             phoneNumber: "(408) 555-5555",
             phoneticFamilyName: "Patel",
             phoneticGivenName: "Ravi",
-            addressLines: [
-                "1 Infinite Loop"
-            ],
+            addressLines: ["1 Infinite Loop"],
             locality: "Cupertino",
             subLocality: "",
             administrativeArea: "CA",

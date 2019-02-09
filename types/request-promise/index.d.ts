@@ -7,10 +7,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import request = require('request');
-import http = require('http');
-import errors = require('./errors');
-import Promise = require('bluebird');
+import request = require("request");
+import http = require("http");
+import errors = require("./errors");
+import Promise = require("bluebird");
 
 declare namespace requestPromise {
     interface RequestPromise extends request.Request {
@@ -23,7 +23,11 @@ declare namespace requestPromise {
 
     interface RequestPromiseOptions extends request.CoreOptions {
         simple?: boolean;
-        transform?(body: any, response: request.Response, resolveWithFullResponse?: boolean): any;
+        transform?(
+            body: any,
+            response: request.Response,
+            resolveWithFullResponse?: boolean
+        ): any;
         transform2xxOnly?: boolean;
         resolveWithFullResponse?: boolean;
     }
@@ -33,5 +37,9 @@ declare namespace requestPromise {
     type Options = OptionsWithUri | OptionsWithUrl;
 }
 
-declare var requestPromise: request.RequestAPI<requestPromise.RequestPromise, requestPromise.RequestPromiseOptions, request.RequiredUriUrl>;
+declare var requestPromise: request.RequestAPI<
+    requestPromise.RequestPromise,
+    requestPromise.RequestPromiseOptions,
+    request.RequiredUriUrl
+>;
 export = requestPromise;

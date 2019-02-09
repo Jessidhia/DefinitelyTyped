@@ -1,4 +1,4 @@
-import isInstalledGlobally = require('is-installed-globally');
+import isInstalledGlobally = require("is-installed-globally");
 
 // $ExpectType boolean
 isInstalledGlobally;

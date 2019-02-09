@@ -6,31 +6,29 @@ const config = {
     offset: 100,
     stack: {
         limit: 3,
-        spacing: 50,
+        spacing: 50
     },
     effect: "genie",
     beep: {
         info: "beep.mp3",
         error: "beep.mp3",
         warning: "beep.mp3",
-        success: "beep.mp3",
+        success: "beep.mp3"
     },
     timeout: 1000,
     html: true,
     onClose: () => {},
     onShow: () => {},
-    customFields: {},
+    customFields: {}
 };
 
 class Test extends React.Component {
     render() {
         return (
-          <div>
-              <Alert />
-              <Alert
-                  {...config}
-              />
-          </div>
+            <div>
+                <Alert />
+                <Alert {...config} />
+            </div>
         );
     }
 }

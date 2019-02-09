@@ -1,6 +1,6 @@
-import meter = require('stream-meter');
+import meter = require("stream-meter");
 
-var m:meter.StreamMeter = meter();
+var m: meter.StreamMeter = meter();
 process.stdin.pipe(m).pipe(process.stdout);
 
 var bytes: number;

@@ -1,10 +1,10 @@
-import body = require('koa-better-body');
+import body = require("koa-better-body");
 
 // $ExpectType Body
 body();
 
 const testOptions: body.Options = {
-  jsonLimit: '100mb',
+    jsonLimit: "100mb"
 };
 
 // $ExpectType Body

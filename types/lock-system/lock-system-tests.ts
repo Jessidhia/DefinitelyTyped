@@ -1,3 +1,3 @@
-import lockSystem = require('lock-system');
+import lockSystem = require("lock-system");
 
 lockSystem();

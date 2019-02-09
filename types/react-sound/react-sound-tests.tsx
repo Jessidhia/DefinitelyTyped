@@ -2,10 +2,7 @@ import ReactSound, { PlayStatus } from "react-sound";
 import * as React from "react";
 
 const ReactSoundRequiredOptions: JSX.Element = (
-    <ReactSound
-        url="http://test.com"
-        playStatus={PlayStatus.Stopped}
-    />
+    <ReactSound url="http://test.com" playStatus={PlayStatus.Stopped} />
 );
 
 const callbackFn = () => ({});

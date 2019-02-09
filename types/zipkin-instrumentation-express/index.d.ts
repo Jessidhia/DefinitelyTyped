@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import express = require('express');
-import { Tracer } from 'zipkin';
+import express = require("express");
+import { Tracer } from "zipkin";
 
 export interface Options {
     tracer: Tracer;

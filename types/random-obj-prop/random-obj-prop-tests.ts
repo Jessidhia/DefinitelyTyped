@@ -1,4 +1,4 @@
-import randomObjProp = require('random-obj-prop');
+import randomObjProp = require("random-obj-prop");
 
 // $ExpectType string | number
-randomObjProp({ foo: 'pony', bar: 1 });
+randomObjProp({ foo: "pony", bar: 1 });

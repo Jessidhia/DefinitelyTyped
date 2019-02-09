@@ -6,21 +6,18 @@
 
 /// <reference types="node"/>
 
-import { Middleware } from 'koa';
-import { DestinationStream, LoggerOptions, Logger, Level } from 'pino';
-import { Options } from 'pino-http';
-import * as stream from 'stream';
-import * as http from 'http';
+import { Middleware } from "koa";
+import { DestinationStream, LoggerOptions, Logger, Level } from "pino";
+import { Options } from "pino-http";
+import * as stream from "stream";
+import * as http from "http";
 
 export = logger;
 
-declare function logger(
-    opts?: Options,
-    stream?: DestinationStream
-): Middleware;
+declare function logger(opts?: Options, stream?: DestinationStream): Middleware;
 declare function logger(stream?: DestinationStream): Middleware;
 
-declare module 'koa' {
+declare module "koa" {
     interface Context {
         log: Logger;
     }

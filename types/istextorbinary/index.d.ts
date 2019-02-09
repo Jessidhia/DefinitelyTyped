@@ -72,7 +72,10 @@ export function isBinary(
  * @param [opts.chunkBegin = 0]
  * @returns either an Error instance if something went wrong, or if successful "utf8" or "binary"
  */
-export function getEncodingSync(buffer: Buffer, opts?: Options): 'utf8' | 'binary';
+export function getEncodingSync(
+    buffer: Buffer,
+    opts?: Options
+): "utf8" | "binary";
 
 /**
  * Get the encoding of a buffer
@@ -84,7 +87,7 @@ export function getEncodingSync(buffer: Buffer, opts?: Options): 'utf8' | 'binar
 export function getEncoding(
     buffer: Buffer,
     opts: Options | undefined,
-    next: (err: null, result: 'utf8' | 'binary') => void
+    next: (err: null, result: "utf8" | "binary") => void
 ): void;
 
 export interface Options {

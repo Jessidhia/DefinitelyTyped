@@ -3,11 +3,10 @@
 // Definitions by: Adam R. Smith <https://github.com/sunetos>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import $ = require('jquery');
+import $ = require("jquery");
 
 declare global {
     namespace JQueryBbq {
-
         interface JQuery {
             /**
              * Adds a 'state' into the browser history at the current position, setting
@@ -80,7 +79,6 @@ declare global {
              */
             (params: string, coerce?: boolean): any;
 
-
             /**
              * Parse the query string from a URL or the current window.location.href,
              * deserializing it into an object, optionally coercing numbers, booleans,
@@ -119,7 +117,11 @@ declare global {
          * @name coerce (Boolean) If true, coerces any numbers or true, false, null, and undefined to their actual value. Defaults to false if omitted.
          * @name merge_mode An object representing the deserialized params string.
          */
-        querystring(url?: string, coerce?: boolean, merge_mode?: number): string;
+        querystring(
+            url?: string,
+            coerce?: boolean,
+            merge_mode?: number
+        ): string;
 
         querystring(url?: string, coerce?: any, merge_mode?: number): string;
 
@@ -155,8 +157,13 @@ declare global {
 
         fragment(attr?: any, params?: any, merge_mode?: number): JQuery;
 
-        hashchange(eventData?: any, handler?: (eventObject: JQueryBbq.EventObject) => any): JQuery;
+        hashchange(
+            eventData?: any,
+            handler?: (eventObject: JQueryBbq.EventObject) => any
+        ): JQuery;
 
-        hashchange(handler: (eventObject: JQueryBbq.EventObject) => any): JQuery;
+        hashchange(
+            handler: (eventObject: JQueryBbq.EventObject) => any
+        ): JQuery;
     }
 }

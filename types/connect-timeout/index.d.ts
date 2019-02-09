@@ -37,6 +37,9 @@ declare module "connect-timeout" {
         }
     }
 
-    function e(timeout: string, options?: e.TimeoutOptions): express.RequestHandler;
+    function e(
+        timeout: string,
+        options?: e.TimeoutOptions
+    ): express.RequestHandler;
     export = e;
 }

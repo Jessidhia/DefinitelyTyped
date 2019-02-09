@@ -40,7 +40,7 @@ namespace stdTests {
     }
 
     namespace http2 {
-        std.http2.connect("somewhere").on("stream", (stream) => {
+        std.http2.connect("somewhere").on("stream", stream => {
             stream.pipe(process.stdout);
         });
     }
@@ -50,7 +50,9 @@ namespace stdTests {
     }
 
     namespace child_process {
-        std.child_process.fork(__filename, [], { stdio: ["ipc"] }).send("hello");
+        std.child_process
+            .fork(__filename, [], { stdio: ["ipc"] })
+            .send("hello");
     }
 
     namespace os {
@@ -82,7 +84,10 @@ namespace stdTests {
     }
 
     namespace crypto {
-        std.crypto.createHash("sha1").update("hello").digest("hex");
+        std.crypto
+            .createHash("sha1")
+            .update("hello")
+            .digest("hex");
     }
 
     namespace vm {

@@ -1,7 +1,7 @@
 // Example from https://github.com/tajo/react-portal
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Portal, PortalWithState } from 'react-portal';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { Portal, PortalWithState } from "react-portal";
 
 interface AppState {
     isPortalOneActive: boolean;
@@ -33,7 +33,9 @@ export default class App extends React.Component<{}, AppState> {
                     onClick={() =>
                         this.setState(prevState => ({
                             isPortalOneActive: !prevState.isPortalOneActive
-                        }))}>
+                        }))
+                    }
+                >
                     Toggle
                 </button>
                 {this.state.isPortalOneActive && (
@@ -47,11 +49,15 @@ export default class App extends React.Component<{}, AppState> {
                     onClick={() =>
                         this.setState(prevState => ({
                             isPortalTwoActive: !prevState.isPortalTwoActive
-                        }))}>
+                        }))
+                    }
+                >
                     Toggle
                 </button>
                 {this.state.isPortalTwoActive && (
-                    <Portal node={document && document.getElementById('user-node')}>
+                    <Portal
+                        node={document && document.getElementById("user-node")}
+                    >
                         <p>This thing was portaled!</p>
                     </Portal>
                 )}
@@ -60,13 +66,15 @@ export default class App extends React.Component<{}, AppState> {
                 <PortalWithState closeOnOutsideClick closeOnEsc>
                     {({ openPortal, closePortal, isOpen, portal }) => [
                         <button key="foo" onClick={openPortal}>
-                            Open Portal {isOpen && '(this counts as an outised click)'}
+                            Open Portal{" "}
+                            {isOpen && "(this counts as an outised click)"}
                         </button>,
                         portal(
                             <p>
-                                This is more advanced Portal. It handles its own state.{' '}
-                                <button onClick={closePortal}>Close me!</button>, hit ESC or
-                                click outside of me.
+                                This is more advanced Portal. It handles its own
+                                state.{" "}
+                                <button onClick={closePortal}>Close me!</button>
+                                , hit ESC or click outside of me.
                             </p>
                         )
                     ]}
@@ -76,4 +84,4 @@ export default class App extends React.Component<{}, AppState> {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));

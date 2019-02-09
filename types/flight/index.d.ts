@@ -7,9 +7,7 @@
 /// <reference types="jquery" />
 
 declare namespace Flight {
-
     export interface Base {
-
         /**
          * Most Components and Mixins need to define attributes. In Flight,
          * default values are assigned by passing an object to the attributes
@@ -132,15 +130,47 @@ declare namespace Flight {
          * @param eventPayload This is the payload of data that accompanies the event.
          */
         trigger(eventType: string): void;
-        trigger(selector: string, eventType: string, eventPayload?: Object): void;
-        trigger(selector: Document, eventType: string, eventPayload?: Object): void;
-        trigger(selector: Element, eventType: string, eventPayload?: Object): void;
-        trigger(selector: Element[], eventType: string, eventPayload?: Object): void;
+        trigger(
+            selector: string,
+            eventType: string,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Document,
+            eventType: string,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Element,
+            eventType: string,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Element[],
+            eventType: string,
+            eventPayload?: Object
+        ): void;
         trigger(eventType: Object): void;
-        trigger(selector: string, eventType: Object, eventPayload?: Object): void;
-        trigger(selector: Document, eventType: Object, eventPayload?: Object): void;
-        trigger(selector: Element, eventType: Object, eventPayload?: Object): void;
-        trigger(selector: Element[], eventType: Object, eventPayload?: Object): void;
+        trigger(
+            selector: string,
+            eventType: Object,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Document,
+            eventType: Object,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Element,
+            eventType: Object,
+            eventPayload?: Object
+        ): void;
+        trigger(
+            selector: Element[],
+            eventType: Object,
+            eventPayload?: Object
+        ): void;
 
         /**
          * Remove a component instance and its event bindings.
@@ -219,7 +249,7 @@ declare namespace Flight {
             logByAction(action: string): void;
             logByName(name: string): void;
             logNone(): void;
-        }
+        };
     }
 
     export interface UtilsStatic {

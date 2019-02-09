@@ -11,13 +11,13 @@ const num5: number = debounce(doThings, 1000, true)();
 // $ExpectType void
 debounce(doThings, 1000)();
 
-const exclaim = (a: string) => a + '!';
+const exclaim = (a: string) => a + "!";
 
-const str: string = debounce(exclaim)('hey');
-const str2: string = debounce(exclaim, 0)('hi');
-const str3: string = debounce(exclaim, 0, true)('hi');
-const str4: string = debounce(exclaim, 0, false)('hi');
-const str5: string = debounce(exclaim, 1000, true)('hooray');
+const str: string = debounce(exclaim)("hey");
+const str2: string = debounce(exclaim, 0)("hi");
+const str3: string = debounce(exclaim, 0, true)("hi");
+const str4: string = debounce(exclaim, 0, false)("hi");
+const str5: string = debounce(exclaim, 1000, true)("hooray");
 
 // $ExpectType void
-debounce(exclaim, 1000)('hello');
+debounce(exclaim, 1000)("hello");

@@ -51,10 +51,14 @@ function special() {
         };
 
         // Sample usage
-        $("p").on("multiclick", {
-            clicks: 3
-        }, () => {
-            alert("clicked 3 times");
-        });
+        $("p").on(
+            "multiclick",
+            {
+                clicks: 3
+            },
+            () => {
+                alert("clicked 3 times");
+            }
+        );
     }
 }

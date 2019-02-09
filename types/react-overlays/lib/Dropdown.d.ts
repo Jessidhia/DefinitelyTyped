@@ -16,7 +16,7 @@ declare namespace Dropdown {
         };
     }
 
-    type Directions = 'up' | 'left' | 'right' | 'down';
+    type Directions = "up" | "left" | "right" | "down";
 
     interface DropdownProps {
         /**

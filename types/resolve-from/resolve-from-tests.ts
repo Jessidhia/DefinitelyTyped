@@ -1,6 +1,6 @@
 import resolveFrom = require("resolve-from");
 
 // $ExpectType string
-resolveFrom('foo', './bar');
+resolveFrom("foo", "./bar");
 // $ExpectType string | null
-resolveFrom.silent('foo', './baz');
+resolveFrom.silent("foo", "./baz");

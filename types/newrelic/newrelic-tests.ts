@@ -6,7 +6,7 @@ newrelic.setTransactionName("foo"); // $ExpectType void
 const trans = newrelic.getTransaction();
 trans.ignore(); // $ExpectType void
 trans.end(); // $ExpectType void
-trans.end(() => { }); // $ExpectType void
+trans.end(() => {}); // $ExpectType void
 
 newrelic.setDispatcher("foo"); // $ExpectType void
 newrelic.setDispatcher("foo", "42"); // $ExpectType void
@@ -31,18 +31,20 @@ newrelic.addIgnoringRule(/^[0-9]+$/); // $ExpectType void
 
 newrelic.getBrowserTimingHeader(); // $ExpectType string
 
-newrelic.startSegment('foo', false, () => "bar"); // $ExpectType string
-newrelic.startSegment('foo', false, () => "bar", () => "baz"); // $ExpectType string
-newrelic.startSegment('foo', false, Promise.all([5, 7])).then(([a, b]: [number, number]) => {
-    console.log(a, b);
-});
+newrelic.startSegment("foo", false, () => "bar"); // $ExpectType string
+newrelic.startSegment("foo", false, () => "bar", () => "baz"); // $ExpectType string
+newrelic
+    .startSegment("foo", false, Promise.all([5, 7]))
+    .then(([a, b]: [number, number]) => {
+        console.log(a, b);
+    });
 
 const wrappedFn = newrelic.createTracer("foo", (x: number) => {
     return x * x;
 });
 const wrappedResult: number = wrappedFn(42);
 
-newrelic.startWebTransaction('/some/url/path', () => {
+newrelic.startWebTransaction("/some/url/path", () => {
     const transaction = newrelic.getTransaction();
     Promise.all([]);
     setTimeout(() => {
@@ -51,8 +53,8 @@ newrelic.startWebTransaction('/some/url/path', () => {
     }, 100);
 });
 
-newrelic.startBackgroundTransaction('Red October', (foo) => foo); // $ExpectType any
-newrelic.startBackgroundTransaction('Red October', 'Subs', () => {
+newrelic.startBackgroundTransaction("Red October", foo => foo); // $ExpectType any
+newrelic.startBackgroundTransaction("Red October", "Subs", () => {
     const transaction = newrelic.getTransaction();
     setTimeout(() => {
         // do some work
@@ -68,7 +70,7 @@ newrelic.recordMetric("foo", {
     total: 42,
     min: 1,
     max: 17,
-    sumOfSquares: 60,
+    sumOfSquares: 60
 });
 
 newrelic.incrementMetric("foo"); // $ExpectType void
@@ -77,31 +79,31 @@ newrelic.incrementMetric("foo", 42); // $ExpectType void
 newrelic.recordCustomEvent("my_event", {
     foo: true,
     bar: 42,
-    baz: "don't panic",
+    baz: "don't panic"
 });
 
-newrelic.instrument("foo", () => { }); // $ExpectType void
-newrelic.instrumentDatastore("foo", () => { }, (err: Error) => { });
+newrelic.instrument("foo", () => {}); // $ExpectType void
+newrelic.instrumentDatastore("foo", () => {}, (err: Error) => {});
 newrelic.instrumentWebframework({
     moduleName: "foo",
-    onRequire: () => { },
+    onRequire: () => {}
 });
 newrelic.instrumentMessages({
     moduleName: "foo",
-    onRequire: () => { },
-    onError: (err) => {
+    onRequire: () => {},
+    onError: err => {
         const error: Error = err;
-     },
+    }
 });
 
 newrelic.shutdown(); // $ExpectType void
 newrelic.shutdown({ collectPendingData: true });
 newrelic.shutdown({ timeout: 3000 });
 newrelic.shutdown({ collectPendingData: true, timeout: 3000 });
-newrelic.shutdown({ collectPendingData: true, timeout: 3000 }, (err) => {
+newrelic.shutdown({ collectPendingData: true, timeout: 3000 }, err => {
     const error: Error | undefined = err;
 });
-newrelic.shutdown((err) => {
+newrelic.shutdown(err => {
     const error: Error | undefined = err;
 });
 

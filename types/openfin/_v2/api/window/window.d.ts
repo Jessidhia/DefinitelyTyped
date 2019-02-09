@@ -1,13 +1,13 @@
-import { Base, EmitterBase } from '../base';
-import { Identity } from '../../identity';
-import Bounds from './bounds';
-import { Transition, TransitionOptions } from './transition';
-import { Application } from '../application/application';
-import Transport from '../../transport/transport';
-import { WindowEvents } from '../events/window';
-import { AnchorType } from './anchor-type';
-import { WindowOption } from './windowOption';
-import { EntityType } from '../frame/frame';
+import { Base, EmitterBase } from "../base";
+import { Identity } from "../../identity";
+import Bounds from "./bounds";
+import { Transition, TransitionOptions } from "./transition";
+import { Application } from "../application/application";
+import Transport from "../../transport/transport";
+import { WindowEvents } from "../events/window";
+import { AnchorType } from "./anchor-type";
+import { WindowOption } from "./windowOption";
+import { EntityType } from "../frame/frame";
 /**
  * @lends Window
  */
@@ -285,7 +285,7 @@ export interface Area {
  * @property {Opacity} opacity - The Opacity transition
  * @property {Position} position - The Position transition
  * @property {Size} size - The Size transition
-*/
+ */
 /**
  * @typedef {object} TransitionOptions
  * @property {boolean} interrupt - This option interrupts the current animation. When false it pushes
@@ -311,7 +311,7 @@ this animation onto the end of the animation queue.
  * @property {number} duration - The total time in milliseconds this transition should take.
  * @property {boolean} relative - Treat 'opacity' as absolute or as a delta. Defaults to false.
  * @property {number} opacity - This value is clamped from 0.0 to 1.0.
-*/
+ */
 /**
  * Bounds is a interface that has the properties of height,
  * width, left, top which are all numbers
@@ -426,7 +426,7 @@ export declare class _Window extends EmitterBase<WindowEvents> {
      * Gets the current bounds (top, left, width, height) of the window.
      * @return {Promise.<Bounds>}
      * @tutorial Window.getBounds
-    */
+     */
     getBounds(): Promise<Bounds>;
     /**
      * Gives focus to the window.
@@ -467,7 +467,7 @@ export declare class _Window extends EmitterBase<WindowEvents> {
      *  ‘close-requested’ has been subscribed to for application’s main window.
      * @return {Promise.<void>}
      * @tutorial Window.close
-    */
+     */
     close(force?: boolean): Promise<void>;
     /**
      * Returns the native OS level Id.
@@ -632,7 +632,11 @@ export declare class _Window extends EmitterBase<WindowEvents> {
      * @return {Promise.<void>}
      * @tutorial Window.resizeBy
      */
-    resizeBy(deltaWidth: number, deltaHeight: number, anchor: AnchorType): Promise<void>;
+    resizeBy(
+        deltaWidth: number,
+        deltaHeight: number,
+        anchor: AnchorType
+    ): Promise<void>;
     /**
      * Resizes the window to the specified dimensions.
      * @param { number } width The change in the width of the window

@@ -13,7 +13,11 @@ declare module "codemirror" {
          *  `start`: This provides the starting position of the search. It can be a `{line, ch} object,
          *          or can be left off to default to the start of the document
          *  `caseFold`: This is only relevant when matching a string. IT will cause the search to be case-insenstive */
-        getSearchCursor(query: string | RegExp, start?: Position, caseFold?: boolean): SearchCursor;
+        getSearchCursor(
+            query: string | RegExp,
+            start?: Position,
+            caseFold?: boolean
+        ): SearchCursor;
     }
 
     interface SearchCursor {
@@ -39,7 +43,6 @@ declare module "codemirror" {
         /** Only valid when the last call to find, findNext, or findPrevious did not return false. Returns {line, ch}
          * objects pointing the end of the match. */
         to(): Position;
-
 
         /** Replaces the currently found match with the given text and adjusts the cursor position to reflect the deplacement. */
         replace(text: string, origin?: string): void;

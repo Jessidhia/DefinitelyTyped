@@ -1,11 +1,11 @@
-import * as Tus from 'tus-js-client';
+import * as Tus from "tus-js-client";
 
 const isSupported = Tus.isSupported;
 const canStoreURLs = Tus.canStoreURLs;
 const defaultChunkSize = Tus.defaultOptions.chunkSize;
 
 const file = new File(["foo"], "foo.txt", {
-  type: "text/plain",
+    type: "text/plain"
 });
 
 const upload = new Tus.Upload(file, {
@@ -16,17 +16,17 @@ const upload = new Tus.Upload(file, {
         filename: "foo.txt"
     },
     onProgress: (bytesSent: number, bytesTotal: number) => {
-        const percentage = (bytesSent / bytesTotal * 100).toFixed(2);
+        const percentage = ((bytesSent / bytesTotal) * 100).toFixed(2);
         console.log(bytesSent, bytesTotal, percentage + "%");
     },
     onChunkComplete: (chunkSize: number, bytesAccepted: number) => {},
     onSuccess: () => {
-    	console.log("Download from %s complete", upload.url);
+        console.log("Download from %s complete", upload.url);
     },
     onError: (error: Error) => {
-    	console.log("Failed because: " + error);
+        console.log("Failed because: " + error);
     },
-    headers: {TestHeader: 'TestValue'},
+    headers: { TestHeader: "TestValue" },
     chunkSize: 100,
     withCredentials: true,
     uploadUrl: "",
@@ -41,5 +41,5 @@ upload.start();
 upload.abort();
 
 const upload2 = new Tus.Upload(file, {
-	endpoint: ""
+    endpoint: ""
 });

@@ -4,6 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Mongoose, Schema } from 'mongoose';
+import { Mongoose, Schema } from "mongoose";
 
-export default function(mognoose: Mongoose): (schema: Schema, options: Object) => void;
+export default function(
+    mognoose: Mongoose
+): (schema: Schema, options: Object) => void;

@@ -34,7 +34,7 @@ export function throttle<T extends (...args: any[]) => any>(
     delay: number,
     noTrailing: boolean,
     callback: T,
-    debounceMode?: boolean,
+    debounceMode?: boolean
 ): T;
 
 /**
@@ -60,7 +60,7 @@ export function throttle<T extends (...args: any[]) => any>(
 export function throttle<T extends (...args: any[]) => any>(
     delay: number,
     callback: T,
-    debounceMode?: boolean,
+    debounceMode?: boolean
 ): T;
 
 /**
@@ -87,7 +87,11 @@ export function throttle<T extends (...args: any[]) => any>(
  * @return
  * A new, debounced function.
  */
-export function debounce<T extends (...args: any[]) => any>(delay: number, atBegin: boolean, callback: T): T;
+export function debounce<T extends (...args: any[]) => any>(
+    delay: number,
+    atBegin: boolean,
+    callback: T
+): T;
 
 /**
  * Debounce execution of a function. Debouncing, unlike throttling,
@@ -106,4 +110,7 @@ export function debounce<T extends (...args: any[]) => any>(delay: number, atBeg
  * @return
  * A new, debounced function.
  */
-export function debounce<T extends (...args: any[]) => any>(delay: number, callback: T): T;
+export function debounce<T extends (...args: any[]) => any>(
+    delay: number,
+    callback: T
+): T;

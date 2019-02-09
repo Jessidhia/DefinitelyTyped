@@ -24,7 +24,11 @@ export enum VolumeType {
  * @param onError a callback when setting fails.
  * @returns void
  */
-export function setAudioMode(mode: AudioMode, onSuccess: () => void, onError: (error: any) => void): void;
+export function setAudioMode(
+    mode: AudioMode,
+    onSuccess: () => void,
+    onError: (error: any) => void
+): void;
 
 /**
  * Gets the current `AudioManagement.AudioMode` of the device.
@@ -33,7 +37,10 @@ export function setAudioMode(mode: AudioMode, onSuccess: () => void, onError: (e
  * @param onError a callback when getting fails.
  * @returns void
  */
-export function getAudioMode(onSuccess: (results: { audioMode: AudioMode, label: string }) => void, onError: (error: any) => void): void;
+export function getAudioMode(
+    onSuccess: (results: { audioMode: AudioMode; label: string }) => void,
+    onError: (error: any) => void
+): void;
 
 /**
  * Sets the specified `AudioManagement.VolumeType` for the device with the value from `volume`.
@@ -44,7 +51,12 @@ export function getAudioMode(onSuccess: (results: { audioMode: AudioMode, label:
  * @param onError a callback when setting fails.
  * @returns void
  */
-export function setVolume(type: VolumeType, volume: number, onSuccess: () => void, onError: (error: any) => void): void;
+export function setVolume(
+    type: VolumeType,
+    volume: number,
+    onSuccess: () => void,
+    onError: (error: any) => void
+): void;
 
 /**
  * Gets the specified `AudioManagement.VolumeType`'s `volume`.
@@ -54,7 +66,11 @@ export function setVolume(type: VolumeType, volume: number, onSuccess: () => voi
  * @param onError a callback when getting fails.
  * @returns void
  */
-export function getVolume(type: VolumeType, onSuccess: (results: { volume: number }) => void, onError: (error: any) => void): void;
+export function getVolume(
+    type: VolumeType,
+    onSuccess: (results: { volume: number }) => void,
+    onError: (error: any) => void
+): void;
 
 /**
  * Gets the specified `AudioManagement.VolumeType`'s maximum `volume` that the device is currently set to.
@@ -64,4 +80,8 @@ export function getVolume(type: VolumeType, onSuccess: (results: { volume: numbe
  * @param onError a callback when getting fails.
  * @returns void
  */
-export function getMaxVolume(type: VolumeType, onSuccess: (results: { maxVolume: number }) => void, onError: (error: any) => void): void;
+export function getMaxVolume(
+    type: VolumeType,
+    onSuccess: (results: { maxVolume: number }) => void,
+    onError: (error: any) => void
+): void;

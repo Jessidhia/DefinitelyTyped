@@ -1,4 +1,4 @@
-import Pbf = require('pbf');
+import Pbf = require("pbf");
 
 const pbf = new Pbf(new Uint8Array(1));
 new Pbf();
@@ -57,7 +57,7 @@ pbf.writeSFixed64(1);
 pbf.writeVarint(1);
 pbf.writeSVarint(1);
 pbf.writeBoolean(true);
-pbf.writeString('');
+pbf.writeString("");
 pbf.writeFloat(1);
 pbf.writeDouble(1);
 pbf.writeBytes(new Uint8Array(1));
@@ -83,7 +83,7 @@ pbf.writeFixed64Field(1, 2);
 pbf.writeSFixed64Field(1, 2);
 pbf.writeVarintField(1, 2);
 pbf.writeSVarintField(1, 2);
-pbf.writeStringField(1, '');
+pbf.writeStringField(1, "");
 pbf.writeFloatField(1, 2);
 pbf.writeDoubleField(1, 2);
 pbf.writeBooleanField(1, true);

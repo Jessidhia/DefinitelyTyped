@@ -8,8 +8,8 @@
 /// <reference types="node" />
 
 // See Karma public API https://karma-runner.github.io/0.13/dev/public-api.html
-import Promise = require('bluebird');
-import https = require('https');
+import Promise = require("bluebird");
+import https = require("https");
 
 declare namespace karma {
     interface Karma {
@@ -64,7 +64,13 @@ declare namespace karma {
     interface Launcher {
         Launcher: LauncherStatic;
         //TODO: Can this return value ever be typified?
-        launch(names: string[], protocol: string, hostname: string, port: number, urlRoot: string): any[];
+        launch(
+            names: string[],
+            protocol: string,
+            hostname: string,
+            port: number,
+            urlRoot: string
+        ): any[];
         kill(id: string, callback: Function): boolean;
         restart(id: string): boolean;
         killAll(callback: Function): void;
@@ -77,17 +83,18 @@ declare namespace karma {
     }
 
     interface Runner {
-        run(options?: ConfigOptions | ConfigFile, callback?: ServerCallback): void;
+        run(
+            options?: ConfigOptions | ConfigFile,
+            callback?: ServerCallback
+        ): void;
     }
-
 
     interface Stopper {
         /**
-          * This function will signal a running server to stop. The equivalent of karma stop.
-          */
+         * This function will signal a running server to stop. The equivalent of karma stop.
+         */
         stop(options?: ConfigOptions, callback?: ServerCallback): void;
     }
-
 
     interface TestResults {
         disconnected: boolean;
@@ -98,7 +105,10 @@ declare namespace karma {
     }
 
     interface Server extends NodeJS.EventEmitter {
-        new (options?: ConfigOptions | ConfigFile, callback?: ServerCallback): Server;
+        new (
+            options?: ConfigOptions | ConfigFile,
+            callback?: ServerCallback
+        ): Server;
         /**
          * Start the server
          */
@@ -118,7 +128,10 @@ declare namespace karma {
         /**
          * Listen to the 'run_complete' event.
          */
-        on(event: 'run_complete', listener: (browsers: any, results: TestResults) => void): this;
+        on(
+            event: "run_complete",
+            listener: (browsers: any, results: TestResults) => void
+        ): this;
 
         ///**
         // * Backward-compatibility with karma-intellij bundled with WebStorm.
@@ -150,8 +163,8 @@ declare namespace karma {
         category?: string;
         layout?: {
             type: string;
-            [key: string]: any
-        }
+            [key: string]: any;
+        };
     }
 
     interface ConfigOptions {
@@ -312,7 +325,7 @@ declare namespace karma {
          * @description Redefine default mapping from file extensions to MIME-type.
          * Set property name to required MIME, provide Array of extensions (without dots) as it's value.
          */
-        mime?: {[type: string]: string[]};
+        mime?: { [type: string]: string[] };
         /**
          * @default ['karma-*']
          * @description List of plugins to load. A plugin can be a string (in which case it will be required
@@ -342,7 +355,7 @@ declare namespace karma {
          * but your interactive debugging does not.
          *
          */
-        preprocessors?: { [name: string]: string | string[] }
+        preprocessors?: { [name: string]: string | string[] };
         /**
          * @default 'http:'
          * Possible Values:
@@ -359,7 +372,7 @@ declare namespace karma {
          * @default {}
          * @description A map of path-proxy pairs.
          */
-        proxies?: { [path: string]: string }
+        proxies?: { [path: string]: string };
         /**
          * @default true
          * @description Whether or not Karma or any browsers should raise an error when an inavlid SSL certificate is found.

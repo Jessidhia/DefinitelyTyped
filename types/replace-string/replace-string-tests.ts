@@ -1,11 +1,11 @@
-import replaceString = require('replace-string');
+import replaceString = require("replace-string");
 
-const input = 'My friend has a 🐑. I want a 🐑 too!';
+const input = "My friend has a 🐑. I want a 🐑 too!";
 
 // $ExpectType string
-replaceString(input, '🐑', '🦄');
+replaceString(input, "🐑", "🦄");
 // $ExpectType string
-replaceString(input, '🐑', (needle, matchCount, input, matchIndex) => {
+replaceString(input, "🐑", (needle, matchCount, input, matchIndex) => {
     // $ExpectType string
     needle;
     // $ExpectType number
@@ -15,7 +15,7 @@ replaceString(input, '🐑', (needle, matchCount, input, matchIndex) => {
     // $ExpectType number
     matchIndex;
 
-    return '🦄';
+    return "🦄";
 });
 // $ExpectType string
-replaceString(input, '🐑', '🦄', { fromIndex: 1 });
+replaceString(input, "🐑", "🦄", { fromIndex: 1 });

@@ -4,18 +4,27 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare const toast: {
-    (options: ToastOptions): Toast,
-    success: (options: ToastOptions) => Toast,
-    warning: (options: ToastOptions) => Toast,
-    info: (options: ToastOptions) => Toast,
-    error: (options: ToastOptions) => Toast,
+    (options: ToastOptions): Toast;
+    success: (options: ToastOptions) => Toast;
+    warning: (options: ToastOptions) => Toast;
+    info: (options: ToastOptions) => Toast;
+    error: (options: ToastOptions) => Toast;
 };
 
 export default toast;
 
 export interface ToastOptions {
     message?: string;
-    position?: "center" | "west" | "east" | "south" | "south-west" | "south-east" | "north" | "north-west" | "north-east";
+    position?:
+        | "center"
+        | "west"
+        | "east"
+        | "south"
+        | "south-west"
+        | "south-east"
+        | "north"
+        | "north-west"
+        | "north-east";
     timeout?: number;
     el?: HTMLElement;
     rounded?: boolean;

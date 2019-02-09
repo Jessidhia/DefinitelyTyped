@@ -46,7 +46,11 @@ declare namespace AngularUITree {
     }
 
     interface IAcceptCallback {
-        (source: ITreeNodeScope, destination: ITreeNodeScope, destinationIndex: number): boolean;
+        (
+            source: ITreeNodeScope,
+            destination: ITreeNodeScope,
+            destinationIndex: number
+        ): boolean;
     }
 
     interface IDroppedCallback {
@@ -71,8 +75,8 @@ declare namespace AngularUITree {
     }
 
     /**
-      * Node in list
-      */
+     * Node in list
+     */
     interface ITreeNode {
         id: number | string;
         nodes: ITreeNode[];

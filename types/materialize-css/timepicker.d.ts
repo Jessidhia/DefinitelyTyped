@@ -10,12 +10,18 @@ declare namespace M {
         /**
          * Init Timepicker
          */
-        static init(els: Element, options?: Partial<TimepickerOptions>): Timepicker;
+        static init(
+            els: Element,
+            options?: Partial<TimepickerOptions>
+        ): Timepicker;
 
         /**
          * Init Timepickers
          */
-        static init(els: MElements, options?: Partial<TimepickerOptions>): Timepicker[];
+        static init(
+            els: MElements,
+            options?: Partial<TimepickerOptions>
+        ): Timepicker[];
 
         /**
          * If the picker is open.
@@ -130,7 +136,12 @@ declare namespace M {
 }
 
 interface JQuery {
-    timepicker(method: keyof Pick<M.Timepicker, "open" | "close" | "destroy">): JQuery;
-    timepicker(method: keyof Pick<M.Timepicker, "showView">, view: "hours" | "minutes"): JQuery;
+    timepicker(
+        method: keyof Pick<M.Timepicker, "open" | "close" | "destroy">
+    ): JQuery;
+    timepicker(
+        method: keyof Pick<M.Timepicker, "showView">,
+        view: "hours" | "minutes"
+    ): JQuery;
     timepicker(options?: Partial<M.TimepickerOptions>): JQuery;
 }

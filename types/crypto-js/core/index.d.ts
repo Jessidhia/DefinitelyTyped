@@ -1,3 +1,3 @@
-import * as Core from '../index';
+import * as Core from "../index";
 
 export = Core;

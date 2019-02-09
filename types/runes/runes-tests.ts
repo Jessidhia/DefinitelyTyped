@@ -1,4 +1,4 @@
-import runes = require('runes');
+import runes = require("runes");
 
-runes('hello world 😁');
-runes.substr('hello world 😁', 1);
+runes("hello world 😁");
+runes.substr("hello world 😁", 1);

@@ -5,10 +5,17 @@
 // TypeScript Version: 2.3
 
 /// <reference types="node" />
-import { Plugin } from 'rollup';
+import { Plugin } from "rollup";
 
-export type ReadFileCallback = (err: NodeJS.ErrnoException, data: string) => void;
-export type ReadFileFunction = (file: string | Buffer | number, encoding: string, callback: ReadFileCallback) => void;
+export type ReadFileCallback = (
+    err: NodeJS.ErrnoException,
+    data: string
+) => void;
+export type ReadFileFunction = (
+    file: string | Buffer | number,
+    encoding: string,
+    callback: ReadFileCallback
+) => void;
 
 export interface Options {
     include?: Array<string | RegExp> | string | RegExp | null;

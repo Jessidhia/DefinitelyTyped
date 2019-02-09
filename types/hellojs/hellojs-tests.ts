@@ -1,38 +1,38 @@
 hello.init({
     serviceName: {
-        name: 'Test',
+        name: "Test",
         oauth: {
             version: 2,
-            auth: '',
-            grant: '',
-            response_type: 'id_token token'
+            auth: "",
+            grant: "",
+            response_type: "id_token token"
         },
         refresh: true,
-        scope_delim: ' ',
+        scope_delim: " ",
         logout: () => {
-            const id_token = hello('networkName').getAuthResponse().id_token;
-            hello.utils.store('networkName', null);
+            const id_token = hello("networkName").getAuthResponse().id_token;
+            hello.utils.store("networkName", null);
         },
-        xhr: (p) => {
+        xhr: p => {
             const token = p.query.access_token;
             delete p.query.access_token;
             if (token) {
                 p.headers = {
-                    Authorization: 'Bearer ' + token,
+                    Authorization: "Bearer " + token
                 };
             }
 
             switch (p.method) {
-                case 'post':
-                case 'put':
-                    if (typeof (p.data) === 'object') {
+                case "post":
+                case "put":
+                    if (typeof p.data === "object") {
                         try {
                             p.data = JSON.stringify(p.data);
-                            p.headers['content-type'] = 'application/json';
-                        } catch (e) { }
+                            p.headers["content-type"] = "application/json";
+                        } catch (e) {}
                     }
                     break;
-                case 'patch':
+                case "patch":
                     hello.utils.extend(p.query, p.data);
                     p.data = null;
                     break;
@@ -47,51 +47,51 @@ hello.init({
 // https://github.com/MrSwitch/hello.js/blob/v1.15.1/src/modules/joinme.js
 hello.init({
     joinme: {
-        name: 'join.me',
+        name: "join.me",
         oauth: {
             version: 2,
-            auth: '',
-            grant: ''
+            auth: "",
+            grant: ""
         },
         refresh: false,
         scope: {
-            basic: 'user_info',
-            user: 'user_info',
-            scheduler: 'scheduler',
-            start: 'start_meeting',
-            email: '',
-            friends: '',
-            share: '',
-            publish: '',
-            photos: '',
-            publish_files: '',
-            files: '',
-            videos: '',
-            offline_access: ''
+            basic: "user_info",
+            user: "user_info",
+            scheduler: "scheduler",
+            start: "start_meeting",
+            email: "",
+            friends: "",
+            share: "",
+            publish: "",
+            photos: "",
+            publish_files: "",
+            files: "",
+            videos: "",
+            offline_access: ""
         },
-        scope_delim: ' ',
-        login: (p) => {
+        scope_delim: " ",
+        login: p => {
             p.options.popup.width = 400;
             p.options.popup.height = 700;
         },
-        base: 'https://api.join.me/v1/',
+        base: "https://api.join.me/v1/",
         get: {
-            me: 'user',
-            meetings: 'meetings',
-            'meetings/info': 'meetings/@{id}'
+            me: "user",
+            meetings: "meetings",
+            "meetings/info": "meetings/@{id}"
         },
         post: {
-            'meetings/start/adhoc': (p, callback) => {
-                callback('meetings/start');
-            },
+            "meetings/start/adhoc": (p, callback) => {
+                callback("meetings/start");
+            }
         },
         patch: {
-            'meetings/update': (p, callback) => {
-                callback('meetings/' + p.data.meetingId);
+            "meetings/update": (p, callback) => {
+                callback("meetings/" + p.data.meetingId);
             }
         },
         del: {
-            'meetings/delete': 'meetings/@{id}'
+            "meetings/delete": "meetings/@{id}"
         },
         wrap: {
             me: (o, headers) => {
@@ -100,8 +100,8 @@ hello.init({
                 }
 
                 o.name = o.fullName;
-                o.first_name = o.name.split(' ')[0];
-                o.last_name = o.name.split(' ')[1];
+                o.first_name = o.name.split(" ")[0];
+                o.last_name = o.name.split(" ")[1];
                 o.id = o.email;
 
                 return o;
@@ -113,46 +113,56 @@ hello.init({
         xhr: (p, qs) => {
             const token = qs.access_token;
             delete qs.access_token;
-            p.headers.Authorization = 'Bearer ' + token;
+            p.headers.Authorization = "Bearer " + token;
         }
     }
 });
 
-hello.init({
-    facebook: '<app key>',
-}, {
-    redirect_uri: 'hello.html',
-    display: 'page',
-});
+hello.init(
+    {
+        facebook: "<app key>"
+    },
+    {
+        redirect_uri: "hello.html",
+        display: "page"
+    }
+);
 
 hello.init({
-    facebook: '359288236870',
-    windows: '000000004403AD10'
+    facebook: "359288236870",
+    windows: "000000004403AD10"
 });
 
-hello('facebook').login();
+hello("facebook").login();
 
-hello('facebook').logout();
+hello("facebook").logout();
 
-hello.on('auth.login', auth => {
-    alert('log to ' + auth.network);
-}).on('auth.logout', auth => {
-    alert('unlog from ' + auth.network);
+hello
+    .on("auth.login", auth => {
+        alert("log to " + auth.network);
+    })
+    .on("auth.logout", auth => {
+        alert("unlog from " + auth.network);
+    });
+
+hello.getAuthResponse("facebook");
+
+hello.login("facebook", null, () => {
+    const req = hello.getAuthResponse("facebook");
 });
 
-hello.getAuthResponse('facebook');
+hello.logout("facebook");
 
-hello.login('facebook', null, () => {
-    const req = hello.getAuthResponse('facebook');
-});
-
-hello.logout('facebook');
-
-hello("facebook").api("me").then((json) => {
-    alert("Your name is " + json.name);
-}, () => {
-    alert("Whoops!");
-});
+hello("facebook")
+    .api("me")
+    .then(
+        json => {
+            alert("Your name is " + json.name);
+        },
+        () => {
+            alert("Whoops!");
+        }
+    );
 
 const sessionstart = () => {
     alert("Session has started");

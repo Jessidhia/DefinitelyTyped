@@ -5,20 +5,23 @@ const app = fastify();
 
 app.register<fastifyMultipart.FastifyMultipartOptions>(fastifyMultipart, {
     limits: {
-            fieldNameSize: 200,
-            fieldSize: 200,
-            fields: 200,
-            fileSize: 200,
-            files: 2,
-            headerPairs: 200,
+        fieldNameSize: 200,
+        fieldSize: 200,
+        fields: 200,
+        fileSize: 200,
+        files: 2,
+        headerPairs: 200
     }
 });
 
-app.get("/path", (request) => {
+app.get("/path", request => {
     const isMultiPart = request.isMultipart();
-    request.multipart((field, file, filename, encoding, mimetype) => {
-        console.log(field, file, filename, encoding, mimetype);
-    }, (err) => {
-        throw err;
-    });
+    request.multipart(
+        (field, file, filename, encoding, mimetype) => {
+            console.log(field, file, filename, encoding, mimetype);
+        },
+        err => {
+            throw err;
+        }
+    );
 });

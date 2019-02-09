@@ -10,7 +10,12 @@ declare class Tracker {
     _getVersion(): string;
     _getVisitorCustomVar(index: number): string;
     _setAccount(): string;
-    _setCustomVar(index: number, name: string, value: string, opt_scope?: number): boolean;
+    _setCustomVar(
+        index: number,
+        name: string,
+        value: string,
+        opt_scope?: number
+    ): boolean;
     _setSampleRate(newRate: string): void;
     _setSessionCookieTimeout(cookieTimeoutMillis: number): void;
     _setSiteSpeedSampleRate(sampleRate: number): void;
@@ -40,7 +45,15 @@ declare namespace UniversalAnalytics {
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/method-reference
 
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#hitType
-    type HitType = 'pageview' | 'screenview' | 'event' | 'transaction' | 'item' | 'social' | 'exception' | 'timing';
+    type HitType =
+        | "pageview"
+        | "screenview"
+        | "event"
+        | "transaction"
+        | "item"
+        | "social"
+        | "exception"
+        | "timing";
 
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference
 
@@ -545,76 +558,105 @@ declare namespace UniversalAnalytics {
         q: any[];
 
         (
-            command: 'send',
-            hitType: 'event',
+            command: "send",
+            hitType: "event",
             eventCategory: string,
             eventAction: string,
             eventLabel?: string,
             eventValue?: number,
-            fieldsObject?: FieldsObject): void;
+            fieldsObject?: FieldsObject
+        ): void;
         (
-            command: 'send',
-            hitType: 'event',
+            command: "send",
+            hitType: "event",
             fieldsObject: {
-                eventCategory: string,
-                eventAction: string,
-                eventLabel?: string,
-                eventValue?: number,
-                nonInteraction?: boolean
-            }): void;
+                eventCategory: string;
+                eventAction: string;
+                eventLabel?: string;
+                eventValue?: number;
+                nonInteraction?: boolean;
+            }
+        ): void;
         (
-            command: 'send',
+            command: "send",
             fieldsObject: {
-                hitType: HitType, // 'event'
-                eventCategory: string,
-                eventAction: string,
-                eventLabel?: string,
-                eventValue?: number,
-                nonInteraction?: boolean
-            }): void;
-        (command: 'send', hitType: 'pageview', page: string): void;
+                hitType: HitType; // 'event'
+                eventCategory: string;
+                eventAction: string;
+                eventLabel?: string;
+                eventValue?: number;
+                nonInteraction?: boolean;
+            }
+        ): void;
+        (command: "send", hitType: "pageview", page: string): void;
         (
-            command: 'send',
-            hitType: 'social',
+            command: "send",
+            hitType: "social",
             socialNetwork: string,
             socialAction: string,
-            socialTarget: string): void;
+            socialTarget: string
+        ): void;
         (
-            command: 'send',
-            hitType: 'social',
+            command: "send",
+            hitType: "social",
             fieldsObject: {
-                socialNetwork: string,
-                socialAction: string,
-                socialTarget: string
-            }): void;
+                socialNetwork: string;
+                socialAction: string;
+                socialTarget: string;
+            }
+        ): void;
         (
-            command: 'send',
-            hitType: 'timing',
+            command: "send",
+            hitType: "timing",
             timingCategory: string,
             timingVar: string,
-            timingValue: number): void;
+            timingValue: number
+        ): void;
         (
-            command: 'send',
-            hitType: 'timing',
+            command: "send",
+            hitType: "timing",
             fieldsObject: {
-                timingCategory: string,
-                timingVar: string,
-                timingValue: number
-            }): void;
-        (command: 'send', fieldsObject: FieldsObject): void;
+                timingCategory: string;
+                timingVar: string;
+                timingValue: number;
+            }
+        ): void;
+        (command: "send", fieldsObject: FieldsObject): void;
         (command: string, hitType: HitType, ...fields: any[]): void;
-        (command: 'require', pluginName: string, pluginOptions?: any): void;
-        (command: 'provide', pluginName: string, pluginConstructor: (tracker: Tracker, pluginOptions?: Object) => void): void;
+        (command: "require", pluginName: string, pluginOptions?: any): void;
+        (
+            command: "provide",
+            pluginName: string,
+            pluginConstructor: (
+                tracker: Tracker,
+                pluginOptions?: Object
+            ) => void
+        ): void;
 
-        (command: 'create', trackingId: string, cookieDomain?: string, name?: string, fieldsObject?: FieldsObject): void;
-        (command: 'remove'): void;
+        (
+            command: "create",
+            trackingId: string,
+            cookieDomain?: string,
+            name?: string,
+            fieldsObject?: FieldsObject
+        ): void;
+        (command: "remove"): void;
 
         (command: string, ...fields: any[]): void;
 
         (readyCallback: (defaultTracker?: Tracker) => void): void;
 
-        create(trackingId: string, cookieDomain: string, name: string, fieldsObject?: FieldsObject): Tracker;
-        create(trackingId: string, cookieDomain: string, fieldsObject?: FieldsObject): Tracker;
+        create(
+            trackingId: string,
+            cookieDomain: string,
+            name: string,
+            fieldsObject?: FieldsObject
+        ): Tracker;
+        create(
+            trackingId: string,
+            cookieDomain: string,
+            fieldsObject?: FieldsObject
+        ): Tracker;
         create(trackingId: string, fieldsObject?: FieldsObject): Tracker;
 
         getAll(): Tracker[];

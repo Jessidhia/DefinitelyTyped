@@ -56,10 +56,12 @@ namespace applicationTests {
         }
         {
             @DApplication({
-                commandsGroups: [{
-                    name: "a",
-                    description: "b"
-                }]
+                commandsGroups: [
+                    {
+                        name: "a",
+                        description: "b"
+                    }
+                ]
             })
             class App extends CliApplication {}
         }
@@ -111,10 +113,12 @@ namespace applicationTests {
         }
         {
             @DSubsystem({
-                commandsGroups: [{
-                    name: "a",
-                    description: "b"
-                }]
+                commandsGroups: [
+                    {
+                        name: "a",
+                        description: "b"
+                    }
+                ]
             })
             class App extends Subsystem {}
         }
@@ -158,7 +162,7 @@ namespace applicationTests {
         {
             class App extends CliApplication {
                 @DMainCliCommand({
-                    match: (arg) => arg.startsWith("hello")
+                    match: arg => arg.startsWith("hello")
                 })
                 main() {}
             }
@@ -166,10 +170,12 @@ namespace applicationTests {
         {
             class App extends CliApplication {
                 @DMainCliCommand({
-                    optionsGroups: [{
-                        description: "a",
-                        name: "a"
-                    }]
+                    optionsGroups: [
+                        {
+                            description: "a",
+                            name: "a"
+                        }
+                    ]
                 })
                 main() {}
             }
@@ -187,263 +193,11 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DMainCliCommand({
-                        arguments: [{
-                            name: "hello"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: ["hello"]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "append"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "count"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "set"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_const"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_false"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_true"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            appendChoicesHelpMessage: true
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            appendDefaultMessage: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            default: null
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            description: "hello"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            enabled: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            help: "asd"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            holder: "a"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            holder: ["a"]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: 1
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "*"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "+"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "?"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            required: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: String
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: (x: string, i: number) => {
-                                return true;
+                        arguments: [
+                            {
+                                name: "hello"
                             }
-                        }]
+                        ]
                     })
                     main() {}
                 }
@@ -451,36 +205,344 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: [(x: string, i: number) => {
-                                return true;
-                            }]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: [/^abc$/]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            verify: (args, opts) => {
-                                return true;
+                        arguments: [
+                            {
+                                name: ["hello"]
                             }
-                        }]
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "append"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "count"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "set"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_const"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_false"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_true"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                appendChoicesHelpMessage: true
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                appendDefaultMessage: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                default: null
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                description: "hello"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                enabled: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                help: "asd"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                holder: "a"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                holder: ["a"]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: 1
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "*"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "+"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "?"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                required: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: String
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: (x: string, i: number) => {
+                                    return true;
+                                }
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: [
+                                    (x: string, i: number) => {
+                                        return true;
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: [/^abc$/]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                verify: (args, opts) => {
+                                    return true;
+                                }
+                            }
+                        ]
                     })
                     main() {}
                 }
@@ -499,263 +561,11 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DMainCliCommand({
-                        options: [{
-                            name: "--hello"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: ["hello"]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "append"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "count"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "set"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_const"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_false"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_true"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            appendChoicesHelpMessage: true
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            appendDefaultMessage: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            default: null
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            description: "hello"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            enabled: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            help: "asd"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            holder: "a"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            holder: ["a"]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: 1
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "*"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "+"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "?"
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            required: false
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: String
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: (x: string, i: number) => {
-                                return true;
+                        options: [
+                            {
+                                name: "--hello"
                             }
-                        }]
+                        ]
                     })
                     main() {}
                 }
@@ -763,36 +573,344 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: [(x: string, i: number) => {
-                                return true;
-                            }]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: [/^abc$/]
-                        }]
-                    })
-                    main() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            verify: (args, opts) => {
-                                return true;
+                        options: [
+                            {
+                                name: ["hello"]
                             }
-                        }]
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "append"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "count"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "set"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_const"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_false"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_true"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                appendChoicesHelpMessage: true
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                appendDefaultMessage: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                default: null
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                description: "hello"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                enabled: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                help: "asd"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                holder: "a"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                holder: ["a"]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: 1
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "*"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "+"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "?"
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                required: false
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: String
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: (x: string, i: number) => {
+                                    return true;
+                                }
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: [
+                                    (x: string, i: number) => {
+                                        return true;
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: [/^abc$/]
+                            }
+                        ]
+                    })
+                    main() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DMainCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                verify: (args, opts) => {
+                                    return true;
+                                }
+                            }
+                        ]
                     })
                     main() {}
                 }
@@ -838,7 +956,7 @@ namespace applicationTests {
         {
             class App extends CliApplication {
                 @DCliCommand({
-                    match: (arg) => arg.startsWith("hello")
+                    match: arg => arg.startsWith("hello")
                 })
                 cmd() {}
             }
@@ -846,10 +964,12 @@ namespace applicationTests {
         {
             class App extends CliApplication {
                 @DCliCommand({
-                    optionsGroups: [{
-                        description: "a",
-                        name: "a"
-                    }]
+                    optionsGroups: [
+                        {
+                            description: "a",
+                            name: "a"
+                        }
+                    ]
                 })
                 cmd() {}
             }
@@ -883,263 +1003,11 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DCliCommand({
-                        arguments: [{
-                            name: "hello"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: ["hello"]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "append"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "count"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "set"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_const"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_false"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store_true"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            action: "store"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            appendChoicesHelpMessage: true
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            appendDefaultMessage: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            default: null
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            description: "hello"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            enabled: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            help: "asd"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            holder: "a"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            holder: ["a"]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: 1
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "*"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "+"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            nargs: "?"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            required: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: String
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: (x: string, i: number) => {
-                                return true;
+                        arguments: [
+                            {
+                                name: "hello"
                             }
-                        }]
+                        ]
                     })
                     cmd() {}
                 }
@@ -1147,36 +1015,344 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: [(x: string, i: number) => {
-                                return true;
-                            }]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            type: [/^abc$/]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        arguments: [{
-                            name: "hello",
-                            verify: (args, opts) => {
-                                return true;
+                        arguments: [
+                            {
+                                name: ["hello"]
                             }
-                        }]
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "append"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "count"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "set"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_const"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_false"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store_true"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                action: "store"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                appendChoicesHelpMessage: true
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                appendDefaultMessage: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                default: null
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                description: "hello"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                enabled: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                help: "asd"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                holder: "a"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                holder: ["a"]
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: 1
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "*"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "+"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                nargs: "?"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                required: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: String
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: (x: string, i: number) => {
+                                    return true;
+                                }
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: [
+                                    (x: string, i: number) => {
+                                        return true;
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                type: [/^abc$/]
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        arguments: [
+                            {
+                                name: "hello",
+                                verify: (args, opts) => {
+                                    return true;
+                                }
+                            }
+                        ]
                     })
                     cmd() {}
                 }
@@ -1195,263 +1371,11 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DCliCommand({
-                        options: [{
-                            name: "--hello"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: ["hello"]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "append"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "count"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "set"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_const"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_false"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store_true"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            action: "store"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            appendChoicesHelpMessage: true
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            appendDefaultMessage: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            default: null
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            description: "hello"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            enabled: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            help: "asd"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            holder: "a"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            holder: ["a"]
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: 1
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "*"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "+"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            nargs: "?"
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            required: false
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: String
-                        }]
-                    })
-                    cmd() {}
-                }
-            }
-            {
-                class App extends CliApplication {
-                    @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: (x: string, i: number) => {
-                                return true;
+                        options: [
+                            {
+                                name: "--hello"
                             }
-                        }]
+                        ]
                     })
                     cmd() {}
                 }
@@ -1459,12 +1383,11 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: [(x: string, i: number) => {
-                                return true;
-                            }]
-                        }]
+                        options: [
+                            {
+                                name: ["hello"]
+                            }
+                        ]
                     })
                     cmd() {}
                 }
@@ -1472,10 +1395,317 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DCliCommand({
-                        options: [{
-                            name: "--hello",
-                            type: [/^abc$/]
-                        }]
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "append"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "count"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "set"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_const"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_false"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store_true"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                action: "store"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                appendChoicesHelpMessage: true
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                appendDefaultMessage: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                default: null
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                description: "hello"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                enabled: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                help: "asd"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                holder: "a"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                holder: ["a"]
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: 1
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "*"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "+"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                nargs: "?"
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                required: false
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: String
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: (x: string, i: number) => {
+                                    return true;
+                                }
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: [
+                                    (x: string, i: number) => {
+                                        return true;
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                    cmd() {}
+                }
+            }
+            {
+                class App extends CliApplication {
+                    @DCliCommand({
+                        options: [
+                            {
+                                name: "--hello",
+                                type: [/^abc$/]
+                            }
+                        ]
                     })
                     cmd() {}
                 }
@@ -1483,12 +1713,14 @@ namespace applicationTests {
             {
                 class App extends CliApplication {
                     @DMainCliCommand({
-                        options: [{
-                            name: "--hello",
-                            verify: (args, opts) => {
-                                return true;
+                        options: [
+                            {
+                                name: "--hello",
+                                verify: (args, opts) => {
+                                    return true;
+                                }
                             }
-                        }]
+                        ]
                     })
                     cmd() {}
                 }
@@ -1516,14 +1748,25 @@ namespace applicationTests {
         new Subsystem().loadSubsystem("a").then(() => {});
         new Subsystem().loadSubsystem(new Subsystem()).then(() => {});
         new Subsystem().loadSubsystem(new Subsystem(), {}).then(() => {});
-        new Subsystem().loadSubsystem(new Subsystem(), { description: "a" }).then(() => {});
-        new Subsystem().loadSubsystem(new Subsystem(), { group: "a" }).then(() => {});
-        new Subsystem().loadSubsystem(new Subsystem(), { name: "a" }).then(() => {});
-        new Subsystem().loadSubsystem(new Subsystem(), { transpile: false }).then(() => {});
+        new Subsystem()
+            .loadSubsystem(new Subsystem(), { description: "a" })
+            .then(() => {});
+        new Subsystem()
+            .loadSubsystem(new Subsystem(), { group: "a" })
+            .then(() => {});
+        new Subsystem()
+            .loadSubsystem(new Subsystem(), { name: "a" })
+            .then(() => {});
+        new Subsystem()
+            .loadSubsystem(new Subsystem(), { transpile: false })
+            .then(() => {});
         new Subsystem().unloadSubsystem("a").then(() => {});
         new Subsystem().initializeSubsystem("a").then(() => {});
         new Subsystem().uninitializeSubsystem("a").then(() => {});
-        new Subsystem().getSubsystem("a").waitForState(2).then(() => {});
+        new Subsystem()
+            .getSubsystem("a")
+            .waitForState(2)
+            .then(() => {});
         new Subsystem().hasSubsystem("a") === true;
         new Subsystem().hasSubsystem("a") === true;
         new Subsystem().hasSubsystems() === true;
@@ -1546,7 +1789,9 @@ namespace applicationTests {
             sysInfo.path.charCodeAt(100);
         }
         {
-            const sysInfo = new Subsystem().addSubsystem({ subsystem: new Subsystem() });
+            const sysInfo = new Subsystem().addSubsystem({
+                subsystem: new Subsystem()
+            });
             sysInfo.configureArgs[0];
             sysInfo.description.charCodeAt(10);
             sysInfo.group.charCodeAt(10);
@@ -1556,8 +1801,12 @@ namespace applicationTests {
         }
         new Subsystem().addSubsystemsFrom("asd", {});
         new Subsystem().addSubsystemsFrom("asd", { filter: ["a"] });
-        new Subsystem().addSubsystemsFrom("asd", { filter: (file) => file.charCodeAt(100) === 100 });
-        new Subsystem().addSubsystemsFrom("asd", { filter: async (file) => file.charCodeAt(100) === 100 });
+        new Subsystem().addSubsystemsFrom("asd", {
+            filter: file => file.charCodeAt(100) === 100
+        });
+        new Subsystem().addSubsystemsFrom("asd", {
+            filter: async file => file.charCodeAt(100) === 100
+        });
         new Subsystem().addSubsystemsFrom("asd", { bind: "a" });
         new Subsystem().addSubsystemsFrom("asd", { bind: true });
         new Subsystem().addSubsystemsFrom("asd", { configureArgs: [1] });
@@ -1567,9 +1816,18 @@ namespace applicationTests {
         new Subsystem().addSubsystemsFrom("asd", { transpile: true });
         new Subsystem().addSubsystemsFrom("asd", { useFilename: true });
 
-        new Subsystem().instantiateSubsystem("asd").waitForState(2, 200).then(() => {});
-        new Subsystem().instantiateSubsystem(new Subsystem()).waitForState(2, 200).then(() => {});
-        new Subsystem().instantiateSubsystem(new Subsystem(), { transpile: false }).waitForState(2, 200).then(() => {});
+        new Subsystem()
+            .instantiateSubsystem("asd")
+            .waitForState(2, 200)
+            .then(() => {});
+        new Subsystem()
+            .instantiateSubsystem(new Subsystem())
+            .waitForState(2, 200)
+            .then(() => {});
+        new Subsystem()
+            .instantiateSubsystem(new Subsystem(), { transpile: false })
+            .waitForState(2, 200)
+            .then(() => {});
         new Subsystem().deleteSubsystem("name");
         new Subsystem().deleteSubsystem("name", true);
         new Subsystem().getSubsystemInfo("name").configureArgs[0];
@@ -1602,39 +1860,51 @@ namespace applicationTests {
         new CliApplication().exposeCliInterface();
         new CliApplication().mainCommand;
         new CliApplication().defineMainCommand({
-            arguments: [{
-                name: "a",
-                default: 100500,
-                nargs: 100,
-                required: false
-            }],
-            options: [{
-                name: "--a",
-                default: 1000,
-                nargs: 101231
-            }],
-            optionsGroups: [{
-                name: "a",
-                description: "a"
-            }]
+            arguments: [
+                {
+                    name: "a",
+                    default: 100500,
+                    nargs: 100,
+                    required: false
+                }
+            ],
+            options: [
+                {
+                    name: "--a",
+                    default: 1000,
+                    nargs: 101231
+                }
+            ],
+            optionsGroups: [
+                {
+                    name: "a",
+                    description: "a"
+                }
+            ]
         });
         new CliApplication().defineCommand({
             name: "a",
-            arguments: [{
-                name: "a",
-                default: 100500,
-                nargs: 100,
-                required: false
-            }],
-            options: [{
-                name: "--a",
-                default: 1000,
-                nargs: 101231
-            }],
-            optionsGroups: [{
-                name: "a",
-                description: "a"
-            }]
+            arguments: [
+                {
+                    name: "a",
+                    default: 100500,
+                    nargs: 100,
+                    required: false
+                }
+            ],
+            options: [
+                {
+                    name: "--a",
+                    default: 1000,
+                    nargs: 101231
+                }
+            ],
+            optionsGroups: [
+                {
+                    name: "a",
+                    description: "a"
+                }
+            ]
         });
         new CliApplication().defineCommandFromSubsystem({
             configureArgs: [1],

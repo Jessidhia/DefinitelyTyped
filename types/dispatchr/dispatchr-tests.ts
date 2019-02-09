@@ -1,19 +1,19 @@
-import { createDispatcher, Store } from 'dispatchr';
-import createStore = require('dispatchr/addons/createStore');
-import BaseStore = require('dispatchr/addons/BaseStore');
+import { createDispatcher, Store } from "dispatchr";
+import createStore = require("dispatchr/addons/createStore");
+import BaseStore = require("dispatchr/addons/BaseStore");
 
 const TestStore = createStore({
-    storeName: 'TestStore',
+    storeName: "TestStore",
 
     handlers: {
-        ACTION_NAME: 'actionHandler'
+        ACTION_NAME: "actionHandler"
     },
 
     statics: {
         staticMethod() {}
     },
 
-    initialize() { },
+    initialize() {},
 
     actionHandler() {
         this.emitChange();
@@ -25,7 +25,7 @@ const TestStore = createStore({
 
 class ExtendedStore extends BaseStore {
     static handlers = {
-        ACTION_NAME: 'actionHandler'
+        ACTION_NAME: "actionHandler"
     };
 
     actionHandler() {
@@ -43,4 +43,4 @@ const dispatcher = createDispatcher({
 });
 
 const context = dispatcher.createContext({});
-context.dispatch('ACTION_NAME', {});
+context.dispatch("ACTION_NAME", {});

@@ -1,8 +1,16 @@
 // Added test in addition to docs, for request.query
-import { Lifecycle, Request, RequestQuery, ResponseToolkit, Server, ServerOptions, ServerRoute } from "hapi";
+import {
+    Lifecycle,
+    Request,
+    RequestQuery,
+    ResponseToolkit,
+    Server,
+    ServerOptions,
+    ServerRoute
+} from "hapi";
 
 const options: ServerOptions = {
-    port: 8000,
+    port: 8000
 };
 
 const handlerFn: Lifecycle.Method = (request, h) => {
@@ -15,12 +23,12 @@ const handlerFn: Lifecycle.Method = (request, h) => {
 };
 
 const serverRoute: ServerRoute = {
-    path: '/',
-    method: 'GET',
+    path: "/",
+    method: "GET",
     handler: handlerFn
 };
 
 const server = new Server(options);
 server.route(serverRoute);
 server.start();
-console.log('Server started at: ' + server.info.uri);
+console.log("Server started at: " + server.info.uri);

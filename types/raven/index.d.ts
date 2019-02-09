@@ -8,14 +8,21 @@
 /// <reference types="node" />
 
 import {
-  IncomingMessage, ServerResponse, OutgoingHttpHeaders, Agent, ClientRequest
-} from 'http';
-import { EventEmitter } from 'events';
+    IncomingMessage,
+    ServerResponse,
+    OutgoingHttpHeaders,
+    Agent,
+    ClientRequest
+} from "http";
+import { EventEmitter } from "events";
 
 // expose all methods of `Client` class since raven exposes a singleton instance
 // todo: there has to be a better way of doing this that doesn't require duplicating so much stuff
 export function config(options?: ConstructorOptions): Client;
-export function config(dsn?: string | false, options?: ConstructorOptions): Client;
+export function config(
+    dsn?: string | false,
+    options?: ConstructorOptions
+): Client;
 export function install(cb?: FatalErrorCallback): Client;
 export function uninstall(): Client;
 export function wrap<T>(func: () => T): () => T;
@@ -24,12 +31,29 @@ export function interceptErr(ctx: any): Client; // todo: part of public?
 export function setContext(ctx: any): Client;
 export function mergeContext(ctx: any): Client;
 export function getContext(): any;
-export function requestHandler(): (req: IncomingMessage, res: ServerResponse, next: () => void) => void;
-export function errorHandler(): (e: Error, req: IncomingMessage, res: ServerResponse, next: () => void) => void;
+export function requestHandler(): (
+    req: IncomingMessage,
+    res: ServerResponse,
+    next: () => void
+) => void;
+export function errorHandler(): (
+    e: Error,
+    req: IncomingMessage,
+    res: ServerResponse,
+    next: () => void
+) => void;
 export function captureException(e: Error, cb?: CaptureCallback): string;
-export function captureException(e: Error, options?: CaptureOptions, cb?: CaptureCallback): string;
+export function captureException(
+    e: Error,
+    options?: CaptureOptions,
+    cb?: CaptureCallback
+): string;
 export function captureMessage(message: string, cb?: CaptureCallback): string;
-export function captureMessage(message: string, options?: CaptureOptions, cb?: CaptureCallback): string;
+export function captureMessage(
+    message: string,
+    options?: CaptureOptions,
+    cb?: CaptureCallback
+): string;
 export function captureBreadcrumb(breadcrumb: any): void;
 export function setDataCallback(fn: DataCallback): Client;
 export function setShouldSendCallback(fn: ShouldSendCallback): Client;
@@ -56,12 +80,29 @@ export class Client extends EventEmitter {
     setContext(ctx: any): this;
     mergeContext(ctx: any): this;
     getContext(): any;
-    requestHandler(): (req: IncomingMessage, res: ServerResponse, next: () => void) => void;
-    errorHandler(): (e: Error, req: IncomingMessage, res: ServerResponse, next: () => void) => void;
+    requestHandler(): (
+        req: IncomingMessage,
+        res: ServerResponse,
+        next: () => void
+    ) => void;
+    errorHandler(): (
+        e: Error,
+        req: IncomingMessage,
+        res: ServerResponse,
+        next: () => void
+    ) => void;
     captureException(error: Error, cb?: CaptureCallback): string;
-    captureException(error: Error, options?: CaptureOptions, cb?: CaptureCallback): string;
+    captureException(
+        error: Error,
+        options?: CaptureOptions,
+        cb?: CaptureCallback
+    ): string;
     captureMessage(message: string, cb?: CaptureCallback): string;
-    captureMessage(message: string, options?: CaptureOptions, cb?: CaptureCallback): string;
+    captureMessage(
+        message: string,
+        options?: CaptureOptions,
+        cb?: CaptureCallback
+    ): string;
     captureBreadcrumb(breadcrumb: any): void;
     setDataCallback(fn: DataCallback): this;
     setShouldSendCallback(fn: ShouldSendCallback): this;
@@ -102,9 +143,16 @@ export interface parsedDSN {
     port: number;
 }
 
-export type FatalErrorCallback = (err: Error, sendErr: Error | null | undefined, eventId: string) => void;
+export type FatalErrorCallback = (
+    err: Error,
+    sendErr: Error | null | undefined,
+    eventId: string
+) => void;
 
-export type CaptureCallback = (sendErr: Error | null | undefined, eventId: any) => void;
+export type CaptureCallback = (
+    sendErr: Error | null | undefined,
+    eventId: any
+) => void;
 
 /**
  * Needs to return the modified data. It is not enough
@@ -125,40 +173,39 @@ export interface CaptureOptions {
 }
 
 export namespace transports {
-  interface HTTPTransportOptions {
-    hostname?: string;
-    path?: string;
-    headers?: OutgoingHttpHeaders;
-    method?: 'POST' | 'GET';
-    port?: number;
-    ca?: string;
-    agent?: Agent;
-    rejectUnauthorized?: boolean;
-  }
-  abstract class Transport extends EventEmitter {
-    abstract send(
-      client: Client,
-      message: any,
-      headers: OutgoingHttpHeaders,
-      eventId: string,
-      cb: CaptureCallback
-    ): void;
-  }
-  class HTTPTransport extends Transport {
-    defaultPort: string;
-    options: HTTPTransportOptions;
-    agent: Agent;
-    constructor(options?: HTTPTransportOptions);
-    send(
-      client: Client,
-      message: any,
-      headers: OutgoingHttpHeaders,
-      eventId: string,
-      cb: CaptureCallback
-    ): void;
-  }
-  class HTTPSTransport extends HTTPTransport {
-  }
-  const https: HTTPSTransport;
-  const http: HTTPTransport;
+    interface HTTPTransportOptions {
+        hostname?: string;
+        path?: string;
+        headers?: OutgoingHttpHeaders;
+        method?: "POST" | "GET";
+        port?: number;
+        ca?: string;
+        agent?: Agent;
+        rejectUnauthorized?: boolean;
+    }
+    abstract class Transport extends EventEmitter {
+        abstract send(
+            client: Client,
+            message: any,
+            headers: OutgoingHttpHeaders,
+            eventId: string,
+            cb: CaptureCallback
+        ): void;
+    }
+    class HTTPTransport extends Transport {
+        defaultPort: string;
+        options: HTTPTransportOptions;
+        agent: Agent;
+        constructor(options?: HTTPTransportOptions);
+        send(
+            client: Client,
+            message: any,
+            headers: OutgoingHttpHeaders,
+            eventId: string,
+            cb: CaptureCallback
+        ): void;
+    }
+    class HTTPSTransport extends HTTPTransport {}
+    const https: HTTPSTransport;
+    const http: HTTPTransport;
 }

@@ -53,22 +53,32 @@ async function main() {
     const subfolders = ["common"];
     const promises: Array<Promise<string[]>> = [];
     for (const subfolder of subfolders) {
-        promises.push(new Promise<string[]>((resolve, reject) => {
-            fs.readdir(path.join("..", subfolder), (err, files) => {
-                if (err) {
-                    console.error(`failed to list directory contents for '${subfolder}': `, err);
-                    reject(err);
-                    return;
-                }
-                const filePaths = files.map(f => path.join("..", subfolder, f));
-                try {
-                    resolve(processDefinitions(filePaths, commonTypes));
-                } catch (e) {
-                    console.error(`failed to process files in '${subfolder}': `, e);
-                    reject(e);
-                }
-            });
-        }));
+        promises.push(
+            new Promise<string[]>((resolve, reject) => {
+                fs.readdir(path.join("..", subfolder), (err, files) => {
+                    if (err) {
+                        console.error(
+                            `failed to list directory contents for '${subfolder}': `,
+                            err
+                        );
+                        reject(err);
+                        return;
+                    }
+                    const filePaths = files.map(f =>
+                        path.join("..", subfolder, f)
+                    );
+                    try {
+                        resolve(processDefinitions(filePaths, commonTypes));
+                    } catch (e) {
+                        console.error(
+                            `failed to process files in '${subfolder}': `,
+                            e
+                        );
+                        reject(e);
+                    }
+                });
+            })
+        );
     }
 
     let functions: string;
@@ -79,10 +89,19 @@ async function main() {
         return;
     }
     _.pull(commonTypes, "LoDashExplicitWrapper");
-    const commonTypeSearch = new RegExp(`\\b(${commonTypes.join("|")})\\b`, "g");
+    const commonTypeSearch = new RegExp(
+        `\\b(${commonTypes.join("|")})\\b`,
+        "g"
+    );
     functions = functions.replace(commonTypeSearch, "_.$1");
-    const syncFunctions = functions.replace(/\bLoDashExplicitWrapper\b/g, "LoDashExplicitSyncWrapper");
-    const asyncFunctions = functions.replace(/\bLoDashExplicitWrapper\b/g, "LoDashExplicitAsyncWrapper");
+    const syncFunctions = functions.replace(
+        /\bLoDashExplicitWrapper\b/g,
+        "LoDashExplicitSyncWrapper"
+    );
+    const asyncFunctions = functions.replace(
+        /\bLoDashExplicitWrapper\b/g,
+        "LoDashExplicitAsyncWrapper"
+    );
 
     const lodashFile = [
         "// AUTO-GENERATED: do not modify this file directly.",
@@ -99,12 +118,17 @@ async function main() {
         asyncFunctions,
         "    }",
         "}",
-        "",
+        ""
     ].join(lineBreak);
-    const lodashFilePath = path.resolve(__dirname, "..", "..", "lowdb", "_lodash.d.ts");
-    fs.writeFile(lodashFilePath, lodashFile, (err) => {
-        if (err)
-            console.error(`Failed to write ${lodashFilePath}: `, err);
+    const lodashFilePath = path.resolve(
+        __dirname,
+        "..",
+        "..",
+        "lowdb",
+        "_lodash.d.ts"
+    );
+    fs.writeFile(lodashFilePath, lodashFile, err => {
+        if (err) console.error(`Failed to write ${lodashFilePath}: `, err);
     });
 }
 
@@ -124,14 +148,20 @@ function readFile(filePath: string): Promise<string> {
     });
 }
 
-async function processDefinitions(filePaths: string[], commonTypes: string[]): Promise<string[]> {
+async function processDefinitions(
+    filePaths: string[],
+    commonTypes: string[]
+): Promise<string[]> {
     const functions: string[] = [];
     for (const filePath of filePaths)
-        functions.push(...await parseFile(filePath, commonTypes));
+        functions.push(...(await parseFile(filePath, commonTypes)));
     return functions;
 }
 
-async function parseFile(filePath: string, commonTypes: string[]): Promise<string[]> {
+async function parseFile(
+    filePath: string,
+    commonTypes: string[]
+): Promise<string[]> {
     const definitionString = await readFile(filePath);
     const newCommonTypeRegExp = /    (?:type|interface) ([A-Za-z0-9_]+)/g;
     let newCommonType = newCommonTypeRegExp.exec(definitionString);
@@ -145,17 +175,30 @@ async function parseFile(filePath: string, commonTypes: string[]): Promise<strin
     const lodashWrapperRegExp = /( *)interface +LoDashExplicitWrapper<\w+> *(?:extends .+)? *{/g;
     let lodashWrapperMatch = lodashWrapperRegExp.exec(definitionString);
     while (lodashWrapperMatch) {
-        const startIndex = definitionString.indexOf(lineBreak, lodashWrapperMatch.index) + lineBreak.length;
-        const endIndex = definitionString.indexOf(`${lineBreak}${lodashWrapperMatch[1]}}`, startIndex);
+        const startIndex =
+            definitionString.indexOf(lineBreak, lodashWrapperMatch.index) +
+            lineBreak.length;
+        const endIndex = definitionString.indexOf(
+            `${lineBreak}${lodashWrapperMatch[1]}}`,
+            startIndex
+        );
         if (endIndex === -1) {
             const lineNumber = getLineNumber(definitionString, startIndex);
-            console.warn(`Failed to find end of interface 'LoDashExplicitWrapper' (starting at ${filePath} line ${lineNumber}).`);
+            console.warn(
+                `Failed to find end of interface 'LoDashExplicitWrapper' (starting at ${filePath} line ${lineNumber}).`
+            );
             break;
         }
         let functionString = definitionString.substring(startIndex, endIndex);
         // Remove comments since they're generally useless (e.g. @see XXXX)
-        functionString = functionString.replace(/ *\/\*\*[\s\S]+?\*\/(?:\r\n|\n|\r)/g, "");
-        functionString = functionString.replace(/(?:(\r\n){2,}|(\n){2,}|(\r){2,})/g, "$1$2$3");
+        functionString = functionString.replace(
+            / *\/\*\*[\s\S]+?\*\/(?:\r\n|\n|\r)/g,
+            ""
+        );
+        functionString = functionString.replace(
+            /(?:(\r\n){2,}|(\n){2,}|(\r){2,})/g,
+            "$1$2$3"
+        );
         functions.push(functionString);
         lodashWrapperMatch = lodashWrapperRegExp.exec(definitionString);
     }

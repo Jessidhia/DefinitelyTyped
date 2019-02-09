@@ -1,5 +1,9 @@
 import * as React from "react";
-import Form, { UiSchema, ErrorListProps, WidgetProps } from "react-jsonschema-form";
+import Form, {
+    UiSchema,
+    ErrorListProps,
+    WidgetProps
+} from "react-jsonschema-form";
 import { JSONSchema6 } from "json-schema";
 
 // example taken from the react-jsonschema-form playground:
@@ -109,8 +113,9 @@ export class Example extends React.Component<any, IExampleState> {
     }
 }
 
-export const CustomWidget: React.SFC<WidgetProps> = (props) =>
+export const CustomWidget: React.SFC<WidgetProps> = props => (
     <input
-        onFocus={()=> props.onFocus('id', 'value')}
-        onBlur={()=> props.onFocus('id', 'value')}
+        onFocus={() => props.onFocus("id", "value")}
+        onBlur={() => props.onFocus("id", "value")}
     />
+);

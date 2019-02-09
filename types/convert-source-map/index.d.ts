@@ -53,7 +53,10 @@ export function fromComment(comment: string): SourceMapConverter;
  * Returns source map converter from given filename by parsing //# sourceMappingURL=filename.
  * filename must point to a file that is found inside the mapFileDir. Most tools store this file right next to the generated file, i.e. the one containing the source map.
  */
-export function fromMapFileComment(comment: string, commentFileDir: string): SourceMapConverter;
+export function fromMapFileComment(
+    comment: string,
+    commentFileDir: string
+): SourceMapConverter;
 
 /**
  * Finds last sourcemap comment in file and returns source map converter or returns null if no source map comment was found.
@@ -64,7 +67,10 @@ export function fromSource(content: string): SourceMapConverter | null;
  * Finds last sourcemap comment in file and returns source map converter or returns null if no source map comment was found.
  * The sourcemap will be read from the map file found by parsing # sourceMappingURL=file comment. For more info see fromMapFileComment.
  */
-export function fromMapFileSource(content: string, commentFileDir: string): SourceMapConverter | null;
+export function fromMapFileSource(
+    content: string,
+    commentFileDir: string
+): SourceMapConverter | null;
 
 /** Returns src with all source map comments removed */
 export function removeComments(src: string): string;
@@ -83,4 +89,7 @@ export const mapFileCommentRegex: RegExp;
  * By default, the comment is formatted like: //# sourceMappingURL=..., which you would normally see in a JS source file.
  * When options.multiline == true, the comment is formatted like: /*# sourceMappingURL=... *\/, which you would find in a CSS source file.
  */
-export function generateMapFileComment(file: string, options?: { multiline?: boolean }): string;
+export function generateMapFileComment(
+    file: string,
+    options?: { multiline?: boolean }
+): string;

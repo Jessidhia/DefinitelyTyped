@@ -3,7 +3,7 @@
 // Definitions by: Paul Loyd <https://github.com/loyd>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import ref = require('ref');
+import ref = require("ref");
 
 /**
  * This is the `constructor` of the Struct type that gets returned.
@@ -54,6 +54,6 @@ declare var UnionType: {
     new (fields?: any[]): UnionType;
     (fields?: {}): UnionType;
     (fields?: any[]): UnionType;
-}
+};
 
 export = UnionType;

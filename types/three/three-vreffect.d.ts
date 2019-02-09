@@ -13,9 +13,19 @@ export class VREffect {
 
     FovToNDCScaleOffset(fov: VRFov): VREffectOffset;
 
-    FovPortToProjection(fov: VRFov, rightHanded: boolean, zNear: number, zFar: number): Matrix4;
+    FovPortToProjection(
+        fov: VRFov,
+        rightHanded: boolean,
+        zNear: number,
+        zFar: number
+    ): Matrix4;
 
-    FovToProjection(fov: VRFov, rightHanded: boolean, zNear: number, zFar: number): Matrix4;
+    FovToProjection(
+        fov: VRFov,
+        rightHanded: boolean,
+        zNear: number,
+        zFar: number
+    ): Matrix4;
 
     setVRDisplay(display: VRDisplay): void;
 }

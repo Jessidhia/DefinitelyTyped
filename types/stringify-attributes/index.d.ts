@@ -5,7 +5,9 @@
 
 export = stringifyAttributes;
 
-declare function stringifyAttributes(attributes: stringifyAttributes.Attributes): string;
+declare function stringifyAttributes(
+    attributes: stringifyAttributes.Attributes
+): string;
 
 declare namespace stringifyAttributes {
     interface Attributes {

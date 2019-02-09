@@ -18,7 +18,10 @@ declare class Notify {
      * @param onPermissionGrantedCallback A callback for permission is granted.
      * @param onPermissionDeniedCallback  A callback for permission is denied.
      */
-    static requestPermission(onPermissionGrantedCallback?: () => any, onPermissionDeniedCallback?: () => any): void;
+    static requestPermission(
+        onPermissionGrantedCallback?: () => any,
+        onPermissionDeniedCallback?: () => any
+    ): void;
 
     /**
      * return true if the browser supports HTML5 Notification
@@ -57,7 +60,6 @@ declare class Notify {
  * Interface for the Notify's optional parameter.
  */
 interface INotifyOption {
-
     /**
      * notification message body
      */
@@ -74,8 +76,8 @@ interface INotifyOption {
     tag?: string;
 
     /**
-    * number of seconds to close the notification automatically
-    */
+     * number of seconds to close the notification automatically
+     */
     timeout?: number;
 
     /**
@@ -109,4 +111,4 @@ interface INotifyOption {
      */
     requireInteraction?: boolean;
 }
-export = Notify
+export = Notify;

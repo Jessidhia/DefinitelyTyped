@@ -1,4 +1,4 @@
-import * as internalIp from 'internal-ip';
+import * as internalIp from "internal-ip";
 
 internalIp.v6().then(ip => {
     // $ExpectType string | null

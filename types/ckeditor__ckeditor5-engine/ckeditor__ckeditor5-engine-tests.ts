@@ -2,13 +2,13 @@ import * as engine from "ckeditor__ckeditor5-engine";
 
 declare let pattern: engine.view.MatcherPattern;
 
-pattern = {name: /^p/};
+pattern = { name: /^p/ };
 
 pattern = {
     attributes: {
         title: "foobar",
         foo: /^\w+/,
-        bar: true,
+        bar: true
     }
 };
 
@@ -41,7 +41,7 @@ pattern = {
 
 pattern = (element: engine.view.Element) => {
     if (element.name === "div" && element.childCount > 0) {
-        return {name: true};
+        return { name: true };
     }
 
     return null;
@@ -53,7 +53,7 @@ pattern = (element: engine.view.Element) => {
         const size = fontSize.match(/(\d+)/px);
 
         if (size && Number(size[1]) > 26) {
-            return {name: true, attribute: ["font-size"]};
+            return { name: true, attribute: ["font-size"] };
         }
     }
 
@@ -66,16 +66,16 @@ viewDefinition = "p";
 
 viewDefinition = {
     name: "h1",
-    classes: ["foo", "bar"],
+    classes: ["foo", "bar"]
 };
 
 viewDefinition = {
     name: "span",
     styles: {
         "font-size": "12px",
-        "font-weight": "bold",
+        "font-weight": "bold"
     },
     attributes: {
-        "data-id": "123",
+        "data-id": "123"
     }
 };

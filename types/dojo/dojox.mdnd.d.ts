@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace mdnd {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/mdnd/AreaManager.html
@@ -38,7 +36,12 @@ declare namespace dojox {
              * @param index the place in the area
              * @param notCheckParent
              */
-            addDragItem(area: HTMLElement, node: HTMLElement, index: number, notCheckParent: boolean): any;
+            addDragItem(
+                area: HTMLElement,
+                node: HTMLElement,
+                index: number,
+                notCheckParent: boolean
+            ): any;
             /**
              * Destroy the component.
              *
@@ -99,7 +102,12 @@ declare namespace dojox {
              * @param size an object encapsulating width and height values
              * @param mousePosition coordinates of mouse
              */
-            onDrag(node: HTMLElement, coords: Object, size: Object, mousePosition: Object): void;
+            onDrag(
+                node: HTMLElement,
+                coords: Object,
+                size: Object,
+                mousePosition: Object
+            ): void;
             /**
              * Optionally called by the getTargetArea method of TargetFinder class.
              *
@@ -309,7 +317,12 @@ declare namespace dojox {
              * @param size an object encapsulating width and height values
              * @param mousePosition coordiantes of mouse
              */
-            onDrag(node: HTMLElement, coords: Object, size: Object, mousePosition: Object): void;
+            onDrag(
+                node: HTMLElement,
+                coords: Object,
+                size: Object,
+                mousePosition: Object
+            ): void;
             /**
              * Stub function
              * Notes : Coordinates don't contain margins
@@ -506,7 +519,11 @@ declare namespace dojox {
              * @param before insert before the anchor, if true, and after the anchor otherwise
              * @param anchor the anchor node to be used as a point of insertion
              */
-            insertNodes(data: Object, before: boolean, anchor: HTMLElement): Function;
+            insertNodes(
+                data: Object,
+                before: boolean,
+                anchor: HTMLElement
+            ): Function;
             /**
              * inserts new data items (see dojo/dnd/Container.insertNodes() method for details)
              *
@@ -515,7 +532,12 @@ declare namespace dojox {
              * @param before insert before the anchor, if true, and after the anchor otherwise
              * @param anchor the anchor node to be used as a point of insertion
              */
-            insertNodes(addSelected: boolean, data: any[], before: boolean, anchor: HTMLElement): Function;
+            insertNodes(
+                addSelected: boolean,
+                data: any[],
+                before: boolean,
+                anchor: HTMLElement
+            ): Function;
             /**
              * Markup methods.
              *
@@ -723,7 +745,11 @@ declare namespace dojox {
                  * @param type A String to identify the node.
                  * @param dojoTarget True if the dojo D&D have to be enable when mouse is hover the registered target dojo.
                  */
-                register(area: HTMLElement, type: String, dojoTarget: boolean): void;
+                register(
+                    area: HTMLElement,
+                    type: String,
+                    dojoTarget: boolean
+                ): void;
                 /**
                  * Unregister all targets dojo.
                  *
@@ -803,7 +829,11 @@ declare namespace dojox {
                  * @param size an object encapsulating width and height values
                  * @param mousePosition coordinates of mouse
                  */
-                getDragPoint(coords: Object, size: Object, mousePosition: Object): any;
+                getDragPoint(
+                    coords: Object,
+                    size: Object,
+                    mousePosition: Object
+                ): any;
                 /**
                  * Return the index where the drop has to be placed.
                  *
@@ -819,7 +849,11 @@ declare namespace dojox {
                  * @param coords coordinates [x,y] of the dragItem
                  * @param currentIndexArea an index representing the active DnD area
                  */
-                getTargetArea(areaList: any[], coords: Object, currentIndexArea: number): any;
+                getTargetArea(
+                    areaList: any[],
+                    coords: Object,
+                    currentIndexArea: number
+                ): any;
                 /**
                  * initialize the horizontal line in order to determinate the drop zone.
                  *
@@ -834,7 +868,12 @@ declare namespace dojox {
                  * @param size dropIndicator size
                  * @param added boolean to know if a dropIndicator has been added or deleted
                  */
-                refreshItems(area: Object, indexItem: number, size: Object, added: boolean): void;
+                refreshItems(
+                    area: Object,
+                    indexItem: number,
+                    size: Object,
+                    added: boolean
+                ): void;
                 /**
                  * Refresh intervals between areas to determinate the nearest area to drop an item.
                  * Algorithm :
@@ -876,7 +915,11 @@ declare namespace dojox {
                  * @param size an object encapsulating width and height values
                  * @param mousePosition coordinates of mouse
                  */
-                getDragPoint(coords: Object, size: Object, mousePosition: Object): any;
+                getDragPoint(
+                    coords: Object,
+                    size: Object,
+                    mousePosition: Object
+                ): any;
                 /**
                  * Return the index where the drop has to be placed.
                  *
@@ -891,7 +934,11 @@ declare namespace dojox {
                  * @param coords coordinates [x,y] of the dragItem (see getDragPoint())
                  * @param currentIndexArea an index representing the active D&D area
                  */
-                getTargetArea(areaList: any[], coords: Object, currentIndexArea: number): any;
+                getTargetArea(
+                    areaList: any[],
+                    coords: Object,
+                    currentIndexArea: number
+                ): any;
                 /**
                  * initialize the horizontal line in order to determinate the drop zone.
                  *
@@ -906,7 +953,12 @@ declare namespace dojox {
                  * @param size dropIndicator size
                  * @param added boolean to know if a dropIndicator has been added or deleted
                  */
-                refreshItems(area: Object, indexItem: number, size: Object, added: boolean): void;
+                refreshItems(
+                    area: Object,
+                    indexItem: number,
+                    size: Object,
+                    added: boolean
+                ): void;
                 /**
                  * refresh areas position and size to determinate the nearest area to drop an item
                  * the area position (and size) is equal to the postion of the domNode associated.
@@ -948,7 +1000,11 @@ declare namespace dojox {
                  * @param size an object encapsulating width and height values
                  * @param mousePosition coordinates of mouse
                  */
-                getDragPoint(coords: Object, size: Object, mousePosition: Object): any;
+                getDragPoint(
+                    coords: Object,
+                    size: Object,
+                    mousePosition: Object
+                ): any;
                 /**
                  * Return the index where the drop has to be placed.
                  *
@@ -964,7 +1020,11 @@ declare namespace dojox {
                  * @param coords coordinates [x,y] of the dragItem
                  * @param currentIndexArea an index representing the active DnD area
                  */
-                getTargetArea(areaList: any[], coords: Object, currentIndexArea: number): any;
+                getTargetArea(
+                    areaList: any[],
+                    coords: Object,
+                    currentIndexArea: number
+                ): any;
                 /**
                  * initialize the horizontal line in order to determinate the drop zone.
                  *
@@ -979,7 +1039,12 @@ declare namespace dojox {
                  * @param size dropIndicator size
                  * @param added boolean to know if a dropIndicator has been added or deleted
                  */
-                refreshItems(area: Object, indexItem: number, size: Object, added: boolean): void;
+                refreshItems(
+                    area: Object,
+                    indexItem: number,
+                    size: Object,
+                    added: boolean
+                ): void;
                 /**
                  * Refresh intervals between areas to determinate the nearest area to drop an item.
                  * Algorithm :
@@ -993,52 +1058,50 @@ declare namespace dojox {
                 updateAreas(areaList: any[]): void;
             }
         }
-
     }
-
 }
 
 declare module "dojox/mdnd/AutoScroll" {
-    var exp: dojox.mdnd.AutoScroll
-    export=exp;
+    var exp: dojox.mdnd.AutoScroll;
+    export = exp;
 }
 declare module "dojox/mdnd/DropIndicator" {
-    var exp: dojox.mdnd.DropIndicator
-    export=exp;
+    var exp: dojox.mdnd.DropIndicator;
+    export = exp;
 }
 declare module "dojox/mdnd/AreaManager" {
-    var exp: dojox.mdnd.AreaManager
-    export=exp;
+    var exp: dojox.mdnd.AreaManager;
+    export = exp;
 }
 declare module "dojox/mdnd/LazyManager" {
-    var exp: dojox.mdnd.LazyManager
-    export=exp;
+    var exp: dojox.mdnd.LazyManager;
+    export = exp;
 }
 declare module "dojox/mdnd/Moveable" {
-    var exp: dojox.mdnd.Moveable
-    export=exp;
+    var exp: dojox.mdnd.Moveable;
+    export = exp;
 }
 declare module "dojox/mdnd/PureSource" {
-    var exp: dojox.mdnd.PureSource
-    export=exp;
+    var exp: dojox.mdnd.PureSource;
+    export = exp;
 }
 declare module "dojox/mdnd/adapter/DndFromDojo" {
-    var exp: dojox.mdnd.adapter.DndFromDojo
-    export=exp;
+    var exp: dojox.mdnd.adapter.DndFromDojo;
+    export = exp;
 }
 declare module "dojox/mdnd/adapter/DndToDojo" {
-    var exp: dojox.mdnd.adapter.DndToDojo
-    export=exp;
+    var exp: dojox.mdnd.adapter.DndToDojo;
+    export = exp;
 }
 declare module "dojox/mdnd/dropMode/DefaultDropMode" {
-    var exp: dojox.mdnd.dropMode.DefaultDropMode
-    export=exp;
+    var exp: dojox.mdnd.dropMode.DefaultDropMode;
+    export = exp;
 }
 declare module "dojox/mdnd/dropMode/OverDropMode" {
-    var exp: dojox.mdnd.dropMode.OverDropMode
-    export=exp;
+    var exp: dojox.mdnd.dropMode.OverDropMode;
+    export = exp;
 }
 declare module "dojox/mdnd/dropMode/VerticalDropMode" {
-    var exp: dojox.mdnd.dropMode.VerticalDropMode
-    export=exp;
+    var exp: dojox.mdnd.dropMode.VerticalDropMode;
+    export = exp;
 }

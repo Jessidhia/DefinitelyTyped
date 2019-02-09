@@ -8,9 +8,11 @@ queue
         const str: string = sindre;
     });
 
-queue.addAll([() => Promise.resolve("oh"), () => Promise.resolve("hi")]).then(r => {
-    r.indexOf("h");
-});
+queue
+    .addAll([() => Promise.resolve("oh"), () => Promise.resolve("hi")])
+    .then(r => {
+        r.indexOf("h");
+    });
 
 Promise.resolve((): Promise<string> => Promise.resolve("unicorn"))
     .then(task => queue.add(task, { priority: 5 }))

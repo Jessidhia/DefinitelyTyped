@@ -5,7 +5,11 @@
 
 export = pLocate;
 
-declare function pLocate<T>(input: Iterable<PromiseLike<T> | T>, tester: (element: T) => Promise<boolean> | boolean, options?: pLocate.Options): Promise<T | undefined>;
+declare function pLocate<T>(
+    input: Iterable<PromiseLike<T> | T>,
+    tester: (element: T) => Promise<boolean> | boolean,
+    options?: pLocate.Options
+): Promise<T | undefined>;
 
 declare namespace pLocate {
     interface Options {

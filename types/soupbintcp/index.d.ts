@@ -8,11 +8,11 @@
 
 export as namespace soupbintcp;
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 import { Socket } from "net";
 
 export class Client extends EventEmitter {
-    constructor(options: { port: number, host: string }, callback?: () => void);
+    constructor(options: { port: number; host: string }, callback?: () => void);
 
     login(payload: LoginRequestPayload, callback?: (data?: any) => void): void;
 
@@ -33,7 +33,11 @@ export interface ConnectionOptions {
 export class Connection extends EventEmitter {
     constructor(socket: Socket, options: ConnectionOptions);
 
-    send(packetType: PacketType, payload: any, callback?: (data?: any) => void): void;
+    send(
+        packetType: PacketType,
+        payload: any,
+        callback?: (data?: any) => void
+    ): void;
 
     end(): void;
 }
@@ -88,9 +92,12 @@ export class Parser {
 }
 
 export class Server extends EventEmitter {
-    constructor(options: { port: number, host: string }, callback?: (data?: any) => void);
+    constructor(
+        options: { port: number; host: string },
+        callback?: (data?: any) => void
+    );
 
-    address(): { port: number; family: string; address: string; };
+    address(): { port: number; family: string; address: string };
 
     close(callback: () => void): void;
 }
@@ -98,9 +105,15 @@ export class Server extends EventEmitter {
 export class Session extends EventEmitter {
     constructor(socket: Socket);
 
-    accept(payload: LoginAcceptedPayload, callback?: (data?: any) => void): void;
+    accept(
+        payload: LoginAcceptedPayload,
+        callback?: (data?: any) => void
+    ): void;
 
-    reject(payload: LoginRejectedPayload, callback?: (data?: any) => void): void;
+    reject(
+        payload: LoginRejectedPayload,
+        callback?: (data?: any) => void
+    ): void;
 
     send(payload: any, callback?: (data?: any) => void): void;
 

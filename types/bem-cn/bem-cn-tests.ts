@@ -8,10 +8,10 @@ block("block")();
 block("block")("elem")();
 
 // expected 'block__elem block__elem_disabled block__elem_size_small'
-block("block")("elem", { disabled: true, size: 'small' })();
+block("block")("elem", { disabled: true, size: "small" })();
 
 // expected 'block block_disabled'
-block("block")({ disabled: true})();
+block("block")({ disabled: true })();
 
 // expected 'block mix'
 block("block").mix("mix");
@@ -35,20 +35,20 @@ block("block").is({ loading: true });
 block("block").has({ content: true });
 
 block.setup({
-    el: '~~',
-    mod: '--',
-    modValue: '-'
+    el: "~~",
+    mod: "--",
+    modValue: "-"
 });
 
 // expected 'block~~elem'
 block("block")("elem");
 
 // expected 'block block--mod-value'
-block("block")({ mod: "value"});
+block("block")({ mod: "value" });
 
 // I can use bem-cn interfaces
 const customSettings: Settings = {
-    ns: 'prefix'
+    ns: "prefix"
 };
 
 block.setup(customSettings);

@@ -1,33 +1,33 @@
-import linkifyIssues = require('linkify-issues');
+import linkifyIssues = require("linkify-issues");
 
 // $ExpectType string
-linkifyIssues('Fixes #143 and avajs/ava#1023', {
-    user: 'sindresorhus',
-    repo: 'dofle',
+linkifyIssues("Fixes #143 and avajs/ava#1023", {
+    user: "sindresorhus",
+    repo: "dofle"
 });
 // $ExpectType string
-linkifyIssues('Fixes #143 and avajs/ava#1023', {
-    user: 'sindresorhus',
-    repo: 'dofle',
+linkifyIssues("Fixes #143 and avajs/ava#1023", {
+    user: "sindresorhus",
+    repo: "dofle",
     attributes: {
-        class: 'unicorn',
-        multiple: ['a', 'b'],
+        class: "unicorn",
+        multiple: ["a", "b"],
         number: 1,
         exclude: false,
-        include: true,
-    },
+        include: true
+    }
 });
 // $ExpectType string
-linkifyIssues('Fixes #143 and avajs/ava#1023', {
-    user: 'sindresorhus',
-    repo: 'dofle',
-    type: 'string',
+linkifyIssues("Fixes #143 and avajs/ava#1023", {
+    user: "sindresorhus",
+    repo: "dofle",
+    type: "string"
 });
 
-const fragment = linkifyIssues('Fixes #143 and avajs/ava#1023', {
-    user: 'sindresorhus',
-    repo: 'dofle',
-    type: 'dom',
+const fragment = linkifyIssues("Fixes #143 and avajs/ava#1023", {
+    user: "sindresorhus",
+    repo: "dofle",
+    type: "dom"
 });
 
 // $ExpectType DocumentFragment

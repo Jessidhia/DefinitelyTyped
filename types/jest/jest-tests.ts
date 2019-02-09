@@ -242,8 +242,7 @@ nodeRequire.requireMock("moduleName");
 
 const customMatcherFactories: jasmine.CustomMatcherFactories = {};
 
-jest
-    .addMatchers(customMatcherFactories)
+jest.addMatchers(customMatcherFactories)
     .addMatchers({})
     .addMatchers(customMatcherFactories)
     .autoMockOff()
@@ -306,29 +305,41 @@ const mock7 = jest.fn((arg: number) => arg);
 // $ExpectType Mock<number, [number]>
 const mock8: jest.Mock = jest.fn((arg: number) => arg);
 // $ExpectType Mock<Promise<boolean>, [number, string, {}, [], boolean]>
-const mock9 = jest.fn((a: number, _b: string, _c: {}, _iReallyDontCare: [], _makeItStop: boolean) => Promise.resolve(_makeItStop));
+const mock9 = jest.fn(
+    (
+        a: number,
+        _b: string,
+        _c: {},
+        _iReallyDontCare: [],
+        _makeItStop: boolean
+    ) => Promise.resolve(_makeItStop)
+);
 // $ExpectType Mock<never, [never]>
-const mock10 = jest.fn((arg: never) => { throw new Error(arg); });
+const mock10 = jest.fn((arg: never) => {
+    throw new Error(arg);
+});
 // $ExpectType Mock<unknown, [unknown]>
 const mock11 = jest.fn((arg: unknown) => arg);
 
 // $ExpectType number
-mock1('test');
+mock1("test");
 
 // $ExpectError
-mock7('abc');
+mock7("abc");
 // $ExpectError
 mock7.mockImplementation((arg: string) => 1);
 
 // compiles because mock8 is declared as jest.Mock<{}, any>
-mock8('abc');
+mock8("abc");
 mock8.mockImplementation((arg: string) => 1);
 
 // mockImplementation not required to declare all arguments
 mock9.mockImplementation((a: number) => Promise.resolve(a === 0));
 
 const genMockModule1: {} = jest.genMockFromModule("moduleName");
-const genMockModule2: { a: "b" } = jest.genMockFromModule<{ a: "b" }>("moduleName");
+const genMockModule2: { a: "b" } = jest.genMockFromModule<{ a: "b" }>(
+    "moduleName"
+);
 
 const isStringMock: boolean = jest.isMockFunction("foo");
 const isMockMock: boolean = jest.isMockFunction(mock1);
@@ -349,7 +360,7 @@ jest.fn().mockReset();
 jest.fn().mockRestore();
 
 const spiedTarget = {
-    returnsVoid(): void { },
+    returnsVoid(): void {},
     setValue(value: string): void {
         this.value = value;
     },
@@ -405,7 +416,7 @@ spy4.mockRestore();
 // $ExpectType SpyInstance<number, []>
 const spy5 = jest.spyOn(spiedTarget2, "value", "get");
 // $ExpectError
-spy5.mockReturnValue('5');
+spy5.mockReturnValue("5");
 
 // $ExpectType SpyInstance<void, [number]>
 const spy6 = jest.spyOn(spiedTarget2, "value", "set");
@@ -417,24 +428,24 @@ jest.fn().mockImplementation((test: number) => test);
 
 const snapshotSerializerPlugin: jest.SnapshotSerializerPlugin = {
     print: () => "",
-    test: () => true,
+    test: () => true
 };
 
 expect.addSnapshotSerializer(snapshotSerializerPlugin);
 
 expect.addSnapshotSerializer({
     print: (value: {}) => "",
-    test: (value: {}) => value === value,
+    test: (value: {}) => value === value
 });
 
 expect.addSnapshotSerializer({
     print: (
         value: {},
-        serialize: ((val: {}) => string),
-        indent: ((str: string) => string),
-        opts: {},
+        serialize: (val: {}) => string,
+        indent: (str: string) => string,
+        opts: {}
     ) => "",
-    test: (value: {}) => value === value,
+    test: (value: {}) => value === value
 });
 
 expect.addSnapshotSerializer({
@@ -503,7 +514,7 @@ expect.addSnapshotSerializer({
             colors.content,
             colors.prop,
             colors.tag,
-            colors.value,
+            colors.value
         ]) {
             result += color.open;
             result += color.close;
@@ -511,7 +522,7 @@ expect.addSnapshotSerializer({
 
         return result;
     },
-    test: (value: {}) => value === value,
+    test: (value: {}) => value === value
 });
 
 /* expect extensions */
@@ -524,7 +535,7 @@ expect.extend({
     foo(this: jest.MatcherUtils, received: {}, ...actual: Array<{}>) {
         return {
             message: () => JSON.stringify(received),
-            pass: false,
+            pass: false
         };
     }
 });
@@ -532,7 +543,7 @@ expect.extend({
     foo(this: jest.MatcherUtils, received: {}, ...actual: Array<{}>) {
         return {
             message: JSON.stringify(received),
-            pass: false,
+            pass: false
         };
     }
 });
@@ -540,7 +551,7 @@ expect.extend({
     async foo(this: jest.MatcherUtils, received: {}, ...actual: Array<{}>) {
         return {
             message: () => JSON.stringify(received),
-            pass: false,
+            pass: false
         };
     }
 });
@@ -579,14 +590,14 @@ expect.extend({
         this.utils.matcherHint("matcher", "received", "expected");
         this.utils.matcherHint("matcher", "received", "expected", {});
         this.utils.matcherHint("matcher", "received", "expected", {
-            isDirectExpectCall: true,
+            isDirectExpectCall: true
         });
         this.utils.matcherHint("matcher", "received", "expected", {
-            secondArgument: "",
+            secondArgument: ""
         });
         this.utils.matcherHint("matcher", "received", "expected", {
             isDirectExpectCall: true,
-            secondArgument: "",
+            secondArgument: ""
         });
 
         const plural: string = this.utils.pluralize("word", 3);
@@ -598,7 +609,8 @@ expect.extend({
         const printedWithType: string = this.utils.printWithType(
             "name",
             {},
-            (value: {}) => "");
+            (value: {}) => ""
+        );
 
         const stringified: string = this.utils.stringify({});
         const stringifiedWithMaxDepth: string = this.utils.stringify({}, 3);
@@ -607,7 +619,7 @@ expect.extend({
 
         return {
             message: () => "",
-            pass: false,
+            pass: false
         };
     }
 });
@@ -731,40 +743,49 @@ describe("", () => {
         expect({}).toMatchObject({});
         expect({ abc: "def" }).toMatchObject({ abc: "def" });
         expect({}).toMatchObject([{}, {}]);
-        expect({ abc: "def" }).toMatchObject([{ abc: "def" }, { invalid: "property" }]);
+        expect({ abc: "def" }).toMatchObject([
+            { abc: "def" },
+            { invalid: "property" }
+        ]);
 
         expect({}).toMatchSnapshot();
         expect({}).toMatchSnapshot("snapshotName");
-        expect({ abc: "def" }).toMatchSnapshot({ abc: expect.any(String) }, "snapshotName");
+        expect({ abc: "def" }).toMatchSnapshot(
+            { abc: expect.any(String) },
+            "snapshotName"
+        );
         expect({
             one: 1,
             two: "2",
             three: 3,
             four: { four: 3 },
-            date: new Date(),
+            date: new Date()
         }).toMatchSnapshot({
             one: expect.any(Number),
             // Leave 'two' to the auto-generated snapshot
             three: 3,
             four: { four: expect.any(Number) },
-            date: expect.any(Date),
+            date: expect.any(Date)
         });
 
         expect({}).toMatchInlineSnapshot();
         expect({}).toMatchInlineSnapshot("snapshot");
-        expect({ abc: "def" }).toMatchInlineSnapshot({ abc: expect.any(String) }, "snapshot");
+        expect({ abc: "def" }).toMatchInlineSnapshot(
+            { abc: expect.any(String) },
+            "snapshot"
+        );
         expect({
             one: 1,
             two: "2",
             three: 3,
             four: { four: 3 },
-            date: new Date(),
+            date: new Date()
         }).toMatchInlineSnapshot({
             one: expect.any(Number),
             // leave out two
             three: 3,
             four: { four: expect.any(Number) },
-            date: expect.any(Date),
+            date: expect.any(Date)
         });
 
         expect(jest.fn()).toReturn();
@@ -779,7 +800,9 @@ describe("", () => {
         expect({}).toStrictEqual({});
 
         const errInstance = new Error();
-        const willThrow = () => { throw new Error(); };
+        const willThrow = () => {
+            throw new Error();
+        };
         expect(() => {}).toThrow();
         expect(willThrow).toThrow("");
         expect(willThrow).toThrow(errInstance);
@@ -792,13 +815,15 @@ describe("", () => {
         expect(jest.fn(willThrow)).toThrowErrorMatchingSnapshot();
 
         expect(() => {}).toThrowErrorMatchingInlineSnapshot();
-        expect(() => {}).toThrowErrorMatchingInlineSnapshot('Error Message');
+        expect(() => {}).toThrowErrorMatchingInlineSnapshot("Error Message");
         expect(willThrow).toThrowErrorMatchingInlineSnapshot();
-        expect(willThrow).toThrowErrorMatchingInlineSnapshot('Error Message');
+        expect(willThrow).toThrowErrorMatchingInlineSnapshot("Error Message");
         expect(jest.fn()).toThrowErrorMatchingInlineSnapshot();
-        expect(jest.fn()).toThrowErrorMatchingInlineSnapshot('Error Message');
+        expect(jest.fn()).toThrowErrorMatchingInlineSnapshot("Error Message");
         expect(jest.fn(willThrow)).toThrowErrorMatchingInlineSnapshot();
-        expect(jest.fn(willThrow)).toThrowErrorMatchingInlineSnapshot('Error Message');
+        expect(jest.fn(willThrow)).toThrowErrorMatchingInlineSnapshot(
+            "Error Message"
+        );
 
         /* not */
 
@@ -821,7 +846,7 @@ describe("", () => {
 
         expect({}).toBe(expect.anything());
 
-        expect({}).toBe(expect.any(class Foo { }));
+        expect({}).toBe(expect.any(class Foo {}));
         expect(new Error()).toBe(expect.any(Error));
         expect(7).toBe(expect.any(Number));
 
@@ -833,20 +858,30 @@ describe("", () => {
         expect.stringMatching(/foo/);
         expect.stringContaining("foo");
 
-        expect({ abc: "def" }).toBe(expect.objectContaining({
-            abc: expect.arrayContaining([expect.any(Date), {}]),
-            def: expect.objectContaining({
-                foo: "bar",
-            }),
-            ghi: expect.stringMatching("foo"),
-        }));
+        expect({ abc: "def" }).toBe(
+            expect.objectContaining({
+                abc: expect.arrayContaining([expect.any(Date), {}]),
+                def: expect.objectContaining({
+                    foo: "bar"
+                }),
+                ghi: expect.stringMatching("foo")
+            })
+        );
 
         /* Inverse type matchers */
 
-        expect('How are you?').toEqual(expect.not.stringContaining('Hello world!'));
-        expect('How are you?').toEqual(expect.not.stringMatching(/Hello world!/));
-        expect({bar: 'baz'}).toEqual(expect.not.objectContaining({foo: 'bar'}));
-        expect(['Alice', 'Bob', 'Eve']).toEqual(expect.not.arrayContaining(['Samantha']));
+        expect("How are you?").toEqual(
+            expect.not.stringContaining("Hello world!")
+        );
+        expect("How are you?").toEqual(
+            expect.not.stringMatching(/Hello world!/)
+        );
+        expect({ bar: "baz" }).toEqual(
+            expect.not.objectContaining({ foo: "bar" })
+        );
+        expect(["Alice", "Bob", "Eve"]).toEqual(
+            expect.not.arrayContaining(["Samantha"])
+        );
 
         /* Miscellaneous */
 
@@ -864,15 +899,15 @@ const globalConfig: jest.GlobalConfig = {
     collectCoverageFrom: ["glob"],
     collectCoverageOnlyFrom: {
         abc: true,
-        def: false,
+        def: false
     },
     coverageDirectory: "",
     coverageReporters: [""],
     coverageThreshold: {
         global: {
             abc: 90,
-            def: 100,
-        },
+            def: 100
+        }
     },
     expand: true,
     forceExit: false,
@@ -882,10 +917,7 @@ const globalConfig: jest.GlobalConfig = {
     notify: false,
     projects: ["projects"],
     replname: "",
-    reporters: [
-        ["abc", {}],
-        ["def", {}],
-    ],
+    reporters: [["abc", {}], ["def", {}]],
     rootDir: "path",
     silent: true,
     testNamePattern: "",
@@ -895,7 +927,7 @@ const globalConfig: jest.GlobalConfig = {
     useStderr: true,
     verbose: false,
     watch: true,
-    watchman: false,
+    watchman: false
 };
 
 const projectConfig: jest.ProjectConfig = {
@@ -910,21 +942,18 @@ const projectConfig: jest.ProjectConfig = {
     displayName: "",
     forceCoverageMatch: ["abc", "def"],
     globals: {
-        "ts-jest": {},
+        "ts-jest": {}
     },
     haste: {
         defaultPlatform: "",
         hasteImplModulePath: "",
         platforms: ["win95", "win2000", "clippy"],
-        providesModuleNodeModules: ["abc", "def"],
+        providesModuleNodeModules: ["abc", "def"]
     },
     moduleDirectories: ["", ""],
     moduleFileExtensions: [".ts", ".json"],
     moduleLoader: "laoder",
-    moduleNameMapper: [
-        ["abc", "def"],
-        ["ghi", "jkl"],
-    ],
+    moduleNameMapper: [["abc", "def"], ["ghi", "jkl"]],
     modulePathIgnorePatterns: ["abc", "def"],
     modulePaths: ["abc", "def"],
     name: "",
@@ -947,39 +976,39 @@ const projectConfig: jest.ProjectConfig = {
     testRunner: "m",
     testURL: "localhost:3000",
     timers: "real",
-    transform: [
-        ["abc", "def"],
-    ],
+    transform: [["abc", "def"]],
     transformIgnorePatterns: ["", ""],
     unmockedModulePathPatterns: ["abc"],
-    watchPathIgnorePatterns: ["def"],
+    watchPathIgnorePatterns: ["def"]
 };
 
 const environment = {
     global: {},
     fakeTimers: {
-        clearAllTimers() { },
-        runAllImmediates() { },
-        runAllTicks() { },
-        runAllTimers() { },
-        runTimersToTime(time: number) { },
-        advanceTimersByTime(time: number) { },
-        runOnlyPendingTimers() { },
+        clearAllTimers() {},
+        runAllImmediates() {},
+        runAllTicks() {},
+        runAllTimers() {},
+        runTimersToTime(time: number) {},
+        advanceTimersByTime(time: number) {},
+        runOnlyPendingTimers() {},
         runWithRealTimers(callback: () => void) {
             callback();
         },
-        useFakeTimers() { },
-        useRealTimers() { },
+        useFakeTimers() {},
+        useRealTimers() {}
     },
     testFilePath: "",
     moduleMocker: {},
     dispose() {},
     runScript(script: "") {
         return {};
-    },
+    }
 };
 
-const workTestFramework = async (testFramework: jest.TestFramework): Promise<jest.TestResult> => {
+const workTestFramework = async (
+    testFramework: jest.TestFramework
+): Promise<jest.TestResult> => {
     return testFramework(
         globalConfig,
         projectConfig,
@@ -1022,7 +1051,7 @@ clock.tick(9001);
 
 expect({}).toBe(jasmine.anything());
 
-expect({}).toBe(jasmine.any(class Foo { }));
+expect({}).toBe(jasmine.any(class Foo {}));
 expect(new Error()).toBe(jasmine.any(Error));
 expect(7).toBe(jasmine.any(Number));
 
@@ -1031,9 +1060,7 @@ expect(["abc"]).toBe(jasmine.arrayContaining(["a", "b"]));
 
 jasmine.arrayContaining([]);
 new (jasmine.arrayContaining([]))([]);
-const arrayContained: boolean = jasmine
-    .arrayContaining([])
-    .asymmetricMatch([]);
+const arrayContained: boolean = jasmine.arrayContaining([]).asymmetricMatch([]);
 const arrayContainedName: string = jasmine
     .arrayContaining([])
     .jasmineToString();
@@ -1057,13 +1084,15 @@ const stringContainedName: string = jasmine
     .stringMatching("foo")
     .jasmineToString();
 
-expect({ abc: "def" }).toBe(jasmine.objectContaining({
-    abc: jasmine.arrayContaining([jasmine.any(Date), {}]),
-    def: jasmine.objectContaining({
-        foo: "bar",
-    }),
-    ghi: jasmine.stringMatching("foo"),
-}));
+expect({ abc: "def" }).toBe(
+    jasmine.objectContaining({
+        abc: jasmine.arrayContaining([jasmine.any(Date), {}]),
+        def: jasmine.objectContaining({
+            foo: "bar"
+        }),
+        ghi: jasmine.stringMatching("foo")
+    })
+);
 
 /* Jasmine spies */
 
@@ -1075,7 +1104,8 @@ describe("", () => {
         jasmine.createSpy("name", (arg: {}) => arg);
         jasmine.createSpy("name", (...args: string[]) => args.join(""));
 
-        spy = jasmine.createSpy()
+        spy = jasmine
+            .createSpy()
             .and.callFake(() => {})
             .and.callFake((arg: {}) => arg)
             .and.callFake((...args: string[]) => args.join(""))
@@ -1103,7 +1133,7 @@ describe("", () => {
         for (const call of [
             ...spy.calls.all(),
             spy.calls.first(),
-            spy.calls.mostRecent(),
+            spy.calls.mostRecent()
         ]) {
             const callType: jasmine.CallInfo = call;
             const callArgs: any[] = call.args;
@@ -1120,13 +1150,15 @@ describe("", () => {
             abc() {
                 return "";
             },
-            def: 7,
+            def: 7
         };
 
         spyObject = jasmine.createSpyObj("baseName", ["abc"]);
         spyObject = jasmine.createSpyObj<typeof spyObject>("baseName", ["abc"]);
 
-        const newSpyObject: typeof spyObject = jasmine.createSpyObj<typeof spyObject>("baseName", ["abc"]);
+        const newSpyObject: typeof spyObject = jasmine.createSpyObj<
+            typeof spyObject
+        >("baseName", ["abc"]);
     });
 });
 
@@ -1137,7 +1169,10 @@ const pp: string = jasmine.pp({});
 /* Jasmine equality testers */
 
 const equalityTesterObject = (first: {}, second: {}) => false;
-const equalityTesterString: jasmine.CustomEqualityTester = (first: string, second: string) => first === second;
+const equalityTesterString: jasmine.CustomEqualityTester = (
+    first: string,
+    second: string
+) => first === second;
 
 jasmine.addCustomEqualityTester(equalityTesterObject);
 jasmine.addCustomEqualityTester(equalityTesterObject);
@@ -1145,56 +1180,77 @@ jasmine.addCustomEqualityTester(equalityTesterObject);
 /* Jasmine matchers */
 
 const customMatcherFactoriesNone = {};
-const customMatcherFactoriesIndex: { [i: string]: jasmine.CustomMatcherFactory } = {};
+const customMatcherFactoriesIndex: {
+    [i: string]: jasmine.CustomMatcherFactory;
+} = {};
 const customMatcherFactoriesManual = {
     abc: () => ({
         compare: (actual: "", expected: "", ...args: Array<{}>) => ({
             pass: true,
-            message: "",
-        }),
+            message: ""
+        })
     }),
-    def: (util: jasmine.MatchersUtil, customEqualityTestesr: jasmine.CustomEqualityTester): jasmine.CustomMatcher => ({
-        compare<T extends string>(actual: T, expected: T): jasmine.CustomMatcherResult {
+    def: (
+        util: jasmine.MatchersUtil,
+        customEqualityTestesr: jasmine.CustomEqualityTester
+    ): jasmine.CustomMatcher => ({
+        compare<T extends string>(
+            actual: T,
+            expected: T
+        ): jasmine.CustomMatcherResult {
             return {
                 pass: actual === expected,
-                message: () => "foo",
+                message: () => "foo"
             };
-        },
-    }),
+        }
+    })
 };
 
 const matchersUtil1 = {
     buildFailureMessage: () => "",
-    contains: (haystack: string, needle: string) => haystack.indexOf(needle) !== -1,
-    equals: (a: {}, b: {}) => false,
+    contains: (haystack: string, needle: string) =>
+        haystack.indexOf(needle) !== -1,
+    equals: (a: {}, b: {}) => false
 };
 
 let matchersUtil2: jasmine.MatchersUtil = {
-    buildFailureMessage(matcherName: string, isNot: boolean, actual: any, ...expected: any[]): string {
-        return `${matcherName}${isNot ? "1" : "0"}${actual}${expected.join("")}`;
+    buildFailureMessage(
+        matcherName: string,
+        isNot: boolean,
+        actual: any,
+        ...expected: any[]
+    ): string {
+        return `${matcherName}${isNot ? "1" : "0"}${actual}${expected.join(
+            ""
+        )}`;
     },
-    contains<T>(haystack: T[], needle: T, customTesters?: jasmine.CustomEqualityTester[]) {
+    contains<T>(
+        haystack: T[],
+        needle: T,
+        customTesters?: jasmine.CustomEqualityTester[]
+    ) {
         return true;
     },
-    equals: (a: {}, b: {}, customTesters?: jasmine.CustomEqualityTester[]) => false,
+    equals: (a: {}, b: {}, customTesters?: jasmine.CustomEqualityTester[]) =>
+        false
 };
 
 // Jest config
 
 const testJestConfig = (defaults: jest.DefaultOptions) => {
     const config: jest.InitialOptions = {
-      transform: {
-        '^.+\\.(ts|tsx)$': 'ts-jest'
-      },
-      testMatch: [
-        ...defaults.testMatch,
-        '**/__tests__/**/*.ts?(x)',
-        '**/?(*.)+(spec|test).ts?(x)'
-      ],
-      moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
-      globals: {
-        'ts-jest': {}
-      }
+        transform: {
+            "^.+\\.(ts|tsx)$": "ts-jest"
+        },
+        testMatch: [
+            ...defaults.testMatch,
+            "**/__tests__/**/*.ts?(x)",
+            "**/?(*.)+(spec|test).ts?(x)"
+        ],
+        moduleFileExtensions: [...defaults.moduleFileExtensions, "ts", "tsx"],
+        globals: {
+            "ts-jest": {}
+        }
     };
 };
 

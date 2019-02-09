@@ -8,7 +8,7 @@ export = uuidv4;
 declare function uuidv4(): string;
 
 declare namespace uuidv4 {
-    type EmptyUUIDv4 = '00000000-0000-0000-0000-000000000000';
+    type EmptyUUIDv4 = "00000000-0000-0000-0000-000000000000";
 
     function is(value: string): boolean;
 

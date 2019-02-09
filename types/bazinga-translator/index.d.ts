@@ -56,8 +56,12 @@ interface BazingaTranslator {
      *
      * @return {Object}           Translator
      */
-    add(id: string, message: string, domain: string, locale: string): BazingaTranslator;
-
+    add(
+        id: string,
+        message: string,
+        domain: string,
+        locale: string
+    ): BazingaTranslator;
 
     /**
      * Translates the given message.
@@ -82,7 +86,13 @@ interface BazingaTranslator {
      *
      * @return {String}                 The translated string
      */
-    transChoice(id: string, number: number, parameters: any, domain: string, locale?: string): string,
+    transChoice(
+        id: string,
+        number: number,
+        parameters: any,
+        domain: string,
+        locale?: string
+    ): string;
 
     /**
      * Loads translations from JSON.

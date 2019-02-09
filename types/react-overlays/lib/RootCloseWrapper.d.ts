@@ -26,6 +26,6 @@ declare namespace RootCloseWrapper {
         /**
          * Choose which document mouse event to bind to
          */
-        event?: 'click' | 'mousedown';
+        event?: "click" | "mousedown";
     }
 }

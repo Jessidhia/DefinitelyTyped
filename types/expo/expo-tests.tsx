@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Text } from 'react-native';
+import * as React from "react";
+import { Text } from "react-native";
 
 import {
     Accelerometer,
@@ -50,14 +50,16 @@ import {
     SecureStore,
     Svg,
     Updates
-} from 'expo';
+} from "expo";
 
-const reverseGeocode: Promise<Location.GeocodeData[]> = Location.reverseGeocodeAsync({
+const reverseGeocode: Promise<
+    Location.GeocodeData[]
+> = Location.reverseGeocodeAsync({
     latitude: 0,
     longitude: 0
 });
 
-Accelerometer.addListener((obj) => {
+Accelerometer.addListener(obj => {
     obj.x;
     obj.y;
     obj.z;
@@ -86,37 +88,37 @@ Accelerometer.setUpdateInterval(1000);
     />
 );
 
-AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-AdMobInterstitial.setTestDeviceID('EMULATOR');
+AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); // Test ID, Replace with your-admob-unit-id
+AdMobInterstitial.setTestDeviceID("EMULATOR");
 async () => {
     await AdMobInterstitial.requestAdAsync();
     await AdMobInterstitial.showAdAsync();
 };
 
-AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-AdMobRewarded.setTestDeviceID('EMULATOR');
+AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); // Test ID, Replace with your-admob-unit-id
+AdMobRewarded.setTestDeviceID("EMULATOR");
 async () => {
     await AdMobRewarded.requestAdAsync();
     await AdMobRewarded.showAdAsync();
 };
 
-Amplitude.initialize('key');
-Amplitude.setUserId('userId');
-Amplitude.setUserProperties({key: 1});
+Amplitude.initialize("key");
+Amplitude.setUserId("userId");
+Amplitude.setUserProperties({ key: 1 });
 Amplitude.clearUserProperties();
-Amplitude.logEvent('name');
-Amplitude.logEventWithProperties('event', {key: 'value'});
-Amplitude.setGroup('type', ['value']);
+Amplitude.logEvent("name");
+Amplitude.logEventWithProperties("event", { key: "value" });
+Amplitude.setGroup("type", ["value"]);
 
 const asset = Asset.fromModule(1);
 asset.downloadAsync();
 Asset.loadAsync(1);
 Asset.loadAsync([1, 2, 3]);
 const asset1 = new Asset({
-    uri: 'uri',
-    type: 'type',
-    name: 'name',
-    hash: 'hash',
+    uri: "uri",
+    type: "type",
+    name: "name",
+    hash: "hash",
     width: 122,
     height: 122
 });
@@ -124,27 +126,27 @@ const asset1 = new Asset({
 const url = AuthSession.getRedirectUrl();
 AuthSession.dismiss();
 AuthSession.startAsync({
-    authUrl: 'url1',
-    returnUrl: 'url2'
+    authUrl: "url1",
+    returnUrl: "url2"
 }).then(result => {
     switch (result.type) {
-        case 'success':
+        case "success":
             result.event;
             result.params;
             break;
-        case 'error':
+        case "error":
             result.errorCode;
             result.params;
             result.event;
             break;
-        case 'dismissed':
-        case 'cancel':
+        case "dismissed":
+        case "cancel":
             result.type;
             break;
     }
 });
 AuthSession.startAsync({
-    authUrl: 'url1',
+    authUrl: "url1",
     returnUrl: undefined
 });
 
@@ -153,7 +155,7 @@ Audio.setAudioModeAsync({
     playsInSilentModeIOS: true,
     interruptionModeIOS: 2,
     interruptionModeAndroid: 1,
-    allowsRecordingIOS: true,
+    allowsRecordingIOS: true
 });
 Audio.setIsEnabledAsync(true);
 
@@ -183,40 +185,40 @@ Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_HE_AAC === 4;
 Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC_ELD === 5;
 Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_VORBIS === 6;
 
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM === 'lpcm';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AC3 === 'ac-3';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_60958AC3 === 'cac3';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLEIMA4 === 'ima4';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC === 'aac ';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4CELP === 'celp';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4HVXC === 'hvxc';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4TWINVQ === 'twvq';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE3 === 'MAC3';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE6 === 'MAC6';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ULAW === 'ulaw';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ALAW === 'alaw';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN === 'QDMC';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN2 === 'QDM2';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QUALCOMM === 'Qclp';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER1 === '.mp1';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER2 === '.mp2';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER3 === '.mp3';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLELOSSLESS === 'alac';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE === 'aach';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_LD === 'aacl';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD === 'aace';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_SBR === 'aacf';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_V2 === 'aacg';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE_V2 === 'aacp';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_SPATIAL === 'aacs';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR === 'samr';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR_WB === 'sawb';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AUDIBLE === 'AUDB';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ILBC === 'ilbc';
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM === "lpcm";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AC3 === "ac-3";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_60958AC3 === "cac3";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLEIMA4 === "ima4";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC === "aac ";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4CELP === "celp";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4HVXC === "hvxc";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4TWINVQ === "twvq";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE3 === "MAC3";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MACE6 === "MAC6";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ULAW === "ulaw";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ALAW === "alaw";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN === "QDMC";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QDESIGN2 === "QDM2";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_QUALCOMM === "Qclp";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER1 === ".mp1";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER2 === ".mp2";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEGLAYER3 === ".mp3";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_APPLELOSSLESS === "alac";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE === "aach";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_LD === "aacl";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD === "aace";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_SBR === "aacf";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_ELD_V2 === "aacg";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_HE_V2 === "aacp";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MPEG4AAC_SPATIAL === "aacs";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR === "samr";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AMR_WB === "sawb";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AUDIBLE === "AUDB";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ILBC === "ilbc";
 Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_DVIINTELIMA === 0x6d730011;
 Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_MICROSOFTGSM === 0x6d730031;
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AES3 === 'aes3';
-Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ENHANCEDAC3 === 'ec-3';
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_AES3 === "aes3";
+Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_ENHANCEDAC3 === "ec-3";
 
 Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_MIN === 0;
 Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_LOW === 0x20;
@@ -232,10 +234,15 @@ Audio.RECORDING_OPTION_IOS_BIT_RATE_STRATEGY_VARIABLE === 3;
 Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY;
 Audio.RECORDING_OPTIONS_PRESET_LOW_QUALITY;
 async () => {
-    const result = await Audio.Sound.createAsync({uri: 'uri'}, {
-        volume: 0.55,
-        rate: 16.5
-    }, null, true);
+    const result = await Audio.Sound.createAsync(
+        { uri: "uri" },
+        {
+            volume: 0.55,
+            rate: 16.5
+        },
+        null,
+        true
+    );
 
     const sound = result.sound;
     const status = result.status;
@@ -248,18 +255,17 @@ async () => {
     }
 
     const _status = await sound.getStatusAsync();
-    await sound.loadAsync({uri: 'uri'});
+    await sound.loadAsync({ uri: "uri" });
 };
 
 () => (
     <AppLoading
         startAsync={() => Promise.resolve()}
         onFinish={() => {}}
-        onError={(error) => console.log(error)} />
+        onError={error => console.log(error)}
+    />
 );
-() => (
-    <AppLoading />
-);
+() => <AppLoading />;
 
 const barcodeReadCallback = () => {};
 () => (
@@ -267,14 +273,11 @@ const barcodeReadCallback = () => {};
         type="front"
         torchMode="off"
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.aztec]}
-        onBarCodeScanned={barcodeReadCallback} />
+        onBarCodeScanned={barcodeReadCallback}
+    />
 );
 
-() => (
-    <BlurView
-        tint="dark"
-        intensity={2} />
-);
+() => <BlurView tint="dark" intensity={2} />;
 
 async () => {
     await Brightness.setBrightnessAsync(0.65);
@@ -290,11 +293,15 @@ Camera.Constants.WhiteBalance;
 Camera.Constants.VideoQuality;
 Camera.Constants.BarCodeType;
 () => {
-    return(<Camera ref={(component: any) => {
-        if (component) {
-            component.recordAsync();
-        }
-    }} />);
+    return (
+        <Camera
+            ref={(component: any) => {
+                if (component) {
+                    component.recordAsync();
+                }
+            }}
+        />
+    );
 };
 async (camera: CameraObject) => {
     const picture = await camera.takePictureAsync({
@@ -324,7 +331,7 @@ async (camera: CameraObject) => {
 async () => {
     const result = await DocumentPicker.getDocumentAsync();
 
-    if (result.type === 'success') {
+    if (result.type === "success") {
         result.name;
         result.uri;
         result.size;
@@ -332,7 +339,11 @@ async () => {
 };
 
 async () => {
-    const { type, expires, token } = await Facebook.logInWithReadPermissionsAsync("appId");
+    const {
+        type,
+        expires,
+        token
+    } = await Facebook.logInWithReadPermissionsAsync("appId");
 };
 
 () => (
@@ -340,11 +351,12 @@ async () => {
         type="large"
         placementId="str"
         onPress={() => {}}
-        onError={() => {}} />
+        onError={() => {}}
+    />
 );
 
 async () => {
-    const info = await FileSystem.getInfoAsync('file');
+    const info = await FileSystem.getInfoAsync("file");
 
     info.exists;
     info.isDirectory;
@@ -356,14 +368,14 @@ async () => {
         info.modificationTime;
     }
 
-    const string: string = await FileSystem.readAsStringAsync('file');
-    await FileSystem.writeAsStringAsync('file', 'content');
-    await FileSystem.deleteAsync('file');
-    await FileSystem.moveAsync({ from: 'from', to: 'to'});
-    await FileSystem.copyAsync({ from: 'from', to: 'to' });
-    await FileSystem.makeDirectoryAsync('dir');
-    const dirs: string[] = await FileSystem.readDirectoryAsync('dir');
-    const result = await FileSystem.downloadAsync('from', 'to');
+    const string: string = await FileSystem.readAsStringAsync("file");
+    await FileSystem.writeAsStringAsync("file", "content");
+    await FileSystem.deleteAsync("file");
+    await FileSystem.moveAsync({ from: "from", to: "to" });
+    await FileSystem.copyAsync({ from: "from", to: "to" });
+    await FileSystem.makeDirectoryAsync("dir");
+    const dirs: string[] = await FileSystem.readDirectoryAsync("dir");
+    const result = await FileSystem.downloadAsync("from", "to");
 
     result.headers;
     result.status;
@@ -374,7 +386,7 @@ async () => {
 async () => {
     // Video test
     const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Videos,
+        mediaTypes: ImagePicker.MediaTypeOptions.Videos
     });
 
     if (!result.cancelled) {
@@ -393,7 +405,7 @@ async () => {
         base64: true,
         aspect: [4, 3],
         quality: 1,
-        exif: true,
+        exif: true
     });
 
     if (!result.cancelled) {
@@ -407,14 +419,18 @@ async () => {
 };
 
 async () => {
-    const result = await ImageManipulator.manipulateAsync('url', [
-        { rotate: 90 },
-        { resize: { width: 300 } },
-        { resize: { height: 300 } },
-        { resize: { height: 300, width: 300 } },
-    ], {
-        compress: 0.75
-    });
+    const result = await ImageManipulator.manipulateAsync(
+        "url",
+        [
+            { rotate: 90 },
+            { resize: { width: 300 } },
+            { resize: { height: 300 } },
+            { resize: { height: 300, width: 300 } }
+        ],
+        {
+            compress: 0.75
+        }
+    );
 
     result.height;
     result.uri;
@@ -422,14 +438,18 @@ async () => {
 };
 
 async () => {
-    const result = await ImageManipulator.manipulateAsync('url', [
-        { rotate: 360 },
-        { resize: { width: 300 } },
-        { resize: { height: 300 } },
-        { resize: { height: 300, width: 300 } },
-    ], {
-        compress: 0.75
-    });
+    const result = await ImageManipulator.manipulateAsync(
+        "url",
+        [
+            { rotate: 360 },
+            { resize: { width: 300 } },
+            { resize: { height: 300 } },
+            { resize: { height: 300, width: 300 } }
+        ],
+        {
+            compress: 0.75
+        }
+    );
 
     result.height;
     result.uri;
@@ -443,7 +463,7 @@ FaceDetector.Constants.Landmarks.none;
 FaceDetector.Constants.Classifications.all;
 FaceDetector.Constants.Classifications.none;
 async () => {
-    const result = await FaceDetector.detectFaces('url', {
+    const result = await FaceDetector.detectFaces("url", {
         mode: FaceDetector.Constants.Mode.fast,
         detectLandmarks: FaceDetector.Constants.Landmarks.all,
         runClassifications: FaceDetector.Constants.Classifications.none
@@ -453,48 +473,47 @@ async () => {
 };
 
 async () => {
-    function isBoolean(x: boolean) {
-    }
-    function isString(x: string) {
-    }
+    function isBoolean(x: boolean) {}
+    function isString(x: string) {}
     // Two examples of members inherited from react-native Linking
     // to prove that inheritence is working.
-    Linking.addEventListener('url', (e) => {
-        e.url === '';
+    Linking.addEventListener("url", e => {
+        e.url === "";
     });
-    isBoolean(await Linking.canOpenURL('expo://'));
+    isBoolean(await Linking.canOpenURL("expo://"));
 
     // Extensions added by expo.
 
-    isString(Linking.makeUrl('path'));
-    isString(Linking.makeUrl('path', { q: 2, u: 'ery', }));
+    isString(Linking.makeUrl("path"));
+    isString(Linking.makeUrl("path", { q: 2, u: "ery" }));
 
-    const {
-        path,
-        queryParams,
-    } = Linking.parse('');
+    const { path, queryParams } = Linking.parse("");
     isString(path);
-    isString(queryParams['x'] || '');
+    isString(queryParams["x"] || "");
 
     const {
         path: path2,
-        queryParams: queryParams2,
+        queryParams: queryParams2
     } = await Linking.parseInitialURLAsync();
     isString(path2);
-    isString(queryParams2['y'] || '');
+    isString(queryParams2["y"] || "");
 };
 
 // #region securestore
 async () => {
-    await SecureStore.setItemAsync('some-key', 'some-val', {
+    await SecureStore.setItemAsync("some-key", "some-val", {
         keychainService: "some-service",
-        keychainAccessible: SecureStore.WHEN_PASSCODE_SET_THIS_DEVICE_ONLY,
+        keychainAccessible: SecureStore.WHEN_PASSCODE_SET_THIS_DEVICE_ONLY
     });
-    const result = await SecureStore.getItemAsync('some-key', { keychainService: "some-service" });
+    const result = await SecureStore.getItemAsync("some-key", {
+        keychainService: "some-service"
+    });
     if (result != null) {
-        result.slice() === 'some-val';
+        result.slice() === "some-val";
     }
-    await SecureStore.deleteItemAsync('some-key', { keychainService: "some-service" });
+    await SecureStore.deleteItemAsync("some-key", {
+        keychainService: "some-service"
+    });
 };
 
 const allSecureStoreKeychainAccessibleValues: number[] = [
@@ -504,7 +523,7 @@ const allSecureStoreKeychainAccessibleValues: number[] = [
     SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
     SecureStore.WHEN_PASSCODE_SET_THIS_DEVICE_ONLY,
     SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY,
-    SecureStore.ALWAYS_THIS_DEVICE_ONLY,
+    SecureStore.ALWAYS_THIS_DEVICE_ONLY
 ];
 // #endregion
 
@@ -515,9 +534,9 @@ const allSecureStoreKeychainAccessibleValues: number[] = [
             y={5}
             width={150}
             height={50}
-            fill='rgb(0,0,255)'
+            fill="rgb(0,0,255)"
             strokeWidth={3}
-            stroke='rgb(0,0,0)'
+            stroke="rgb(0,0,0)"
             transform="translate(0, 0)"
         />
         <Svg.Circle
@@ -573,41 +592,61 @@ const allSecureStoreKeychainAccessibleValues: number[] = [
             STROKED TEXT
         </Svg.Text>
         <Svg.Defs>
-            <Svg.Path
-                id="path"
-                d=""
-            />
+            <Svg.Path id="path" d="" />
         </Svg.Defs>
         <Svg.G transform="translate(0, 0)" y={20}>
             <Svg.Text fill="blue" transform={{ translateX: 0, translateY: 0 }}>
                 <Svg.TextPath href="#path" startOffset="-10%">
                     We go up and down,
-                    <Svg.TSpan fill="red" dy="5,5,5">then up again</Svg.TSpan>
+                    <Svg.TSpan fill="red" dy="5,5,5">
+                        then up again
+                    </Svg.TSpan>
                 </Svg.TextPath>
             </Svg.Text>
-            <Svg.Path
-                d=""
-                fill="none"
-                stroke="red"
-                strokeWidth={1}
-            />
+            <Svg.Path d="" fill="none" stroke="red" strokeWidth={1} />
         </Svg.G>
         <Svg.Use href="#shape" transform="translate(0, 0)" x="20" y="0" />
-        <Svg.Use href="#shape" transform={{ translateX: 0, translateY: 0 }} x="20" y="0" width="20" height="20"/>
+        <Svg.Use
+            href="#shape"
+            transform={{ translateX: 0, translateY: 0 }}
+            x="20"
+            y="0"
+            width="20"
+            height="20"
+        />
         <Svg.Symbol id="symbol" viewBox="0 0 150 110" width="100" height="50">
-            <Svg.Circle cx="50" cy="50" r="40" strokeWidth="8" stroke="red" fill="red"/>
-            <Svg.Circle cx="90" cy="60" r="40" strokeWidth="8" stroke="green" fill="white"/>
+            <Svg.Circle
+                cx="50"
+                cy="50"
+                r="40"
+                strokeWidth="8"
+                stroke="red"
+                fill="red"
+            />
+            <Svg.Circle
+                cx="90"
+                cy="60"
+                r="40"
+                strokeWidth="8"
+                stroke="green"
+                fill="white"
+            />
         </Svg.Symbol>
         <Svg.Defs>
             <Svg.ClipPath id="clip">
-                <Svg.Circle cx="50%" cy="50%" r="40%"/>
+                <Svg.Circle cx="50%" cy="50%" r="40%" />
             </Svg.ClipPath>
-            <Svg.RadialGradient id="grad" cx="50%" cy="50%" rx="50%" ry="50%" fx="50%" fy="50%" gradientUnits="userSpaceOnUse">
-                <Svg.Stop
-                    offset="0%"
-                    stopColor="#ff0"
-                    stopOpacity="1"
-                />
+            <Svg.RadialGradient
+                id="grad"
+                cx="50%"
+                cy="50%"
+                rx="50%"
+                ry="50%"
+                fx="50%"
+                fy="50%"
+                gradientUnits="userSpaceOnUse"
+            >
+                <Svg.Stop offset="0%" stopColor="#ff0" stopOpacity="1" />
             </Svg.RadialGradient>
             <Svg.LinearGradient id="grad" x1="0" y1="0" x2="170" y2="0">
                 <Svg.Stop offset="1" stopColor="red" stopOpacity="1" />
@@ -616,122 +655,184 @@ const allSecureStoreKeychainAccessibleValues: number[] = [
     </Svg>
 );
 
-() => (
-    <Svg width={100} height={50} preserveAspectRatio="none" />
-);
+() => <Svg width={100} height={50} preserveAspectRatio="none" />;
 
-IntentLauncherAndroid.ACTION_ACCESSIBILITY_SETTINGS === 'android.settings.ACCESSIBILITY_SETTINGS';
-IntentLauncherAndroid.ACTION_APP_NOTIFICATION_REDACTION === 'android.settings.ACTION_APP_NOTIFICATION_REDACTION';
-IntentLauncherAndroid.ACTION_CONDITION_PROVIDER_SETTINGS === 'android.settings.ACTION_CONDITION_PROVIDER_SETTINGS';
-IntentLauncherAndroid.ACTION_NOTIFICATION_LISTENER_SETTINGS === 'android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS';
-IntentLauncherAndroid.ACTION_PRINT_SETTINGS === 'android.settings.ACTION_PRINT_SETTINGS';
-IntentLauncherAndroid.ACTION_ADD_ACCOUNT_SETTINGS === 'android.settings.ADD_ACCOUNT_SETTINGS';
-IntentLauncherAndroid.ACTION_AIRPLANE_MODE_SETTINGS === 'android.settings.AIRPLANE_MODE_SETTINGS';
-IntentLauncherAndroid.ACTION_APN_SETTINGS === 'android.settings.APN_SETTINGS';
-IntentLauncherAndroid.ACTION_APPLICATION_DETAILS_SETTINGS === 'android.settings.APPLICATION_DETAILS_SETTINGS';
-IntentLauncherAndroid.ACTION_APPLICATION_DEVELOPMENT_SETTINGS === 'android.settings.APPLICATION_DEVELOPMENT_SETTINGS';
-IntentLauncherAndroid.ACTION_APPLICATION_SETTINGS === 'android.settings.APPLICATION_SETTINGS';
-IntentLauncherAndroid.ACTION_APP_NOTIFICATION_SETTINGS === 'android.settings.APP_NOTIFICATION_SETTINGS';
-IntentLauncherAndroid.ACTION_APP_OPS_SETTINGS === 'android.settings.APP_OPS_SETTINGS';
-IntentLauncherAndroid.ACTION_BATTERY_SAVER_SETTINGS === 'android.settings.BATTERY_SAVER_SETTINGS';
-IntentLauncherAndroid.ACTION_BLUETOOTH_SETTINGS === 'android.settings.BLUETOOTH_SETTINGS';
-IntentLauncherAndroid.ACTION_CAPTIONING_SETTINGS === 'android.settings.CAPTIONING_SETTINGS';
-IntentLauncherAndroid.ACTION_CAST_SETTINGS === 'android.settings.CAST_SETTINGS';
-IntentLauncherAndroid.ACTION_DATA_ROAMING_SETTINGS === 'android.settings.DATA_ROAMING_SETTINGS';
-IntentLauncherAndroid.ACTION_DATE_SETTINGS === 'android.settings.DATE_SETTINGS';
-IntentLauncherAndroid.ACTION_DEVICE_INFO_SETTINGS === 'android.settings.DEVICE_INFO_SETTINGS';
-IntentLauncherAndroid.ACTION_DEVICE_NAME === 'android.settings.DEVICE_NAME';
-IntentLauncherAndroid.ACTION_DISPLAY_SETTINGS === 'android.settings.DISPLAY_SETTINGS';
-IntentLauncherAndroid.ACTION_DREAM_SETTINGS === 'android.settings.DREAM_SETTINGS';
-IntentLauncherAndroid.ACTION_HARD_KEYBOARD_SETTINGS === 'android.settings.HARD_KEYBOARD_SETTINGS';
-IntentLauncherAndroid.ACTION_HOME_SETTINGS === 'android.settings.HOME_SETTINGS';
-IntentLauncherAndroid.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS === 'android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS';
-IntentLauncherAndroid.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS === 'android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS';
-IntentLauncherAndroid.ACTION_INPUT_METHOD_SETTINGS === 'android.settings.INPUT_METHOD_SETTINGS';
-IntentLauncherAndroid.ACTION_INPUT_METHOD_SUBTYPE_SETTINGS === 'android.settings.INPUT_METHOD_SUBTYPE_SETTINGS';
-IntentLauncherAndroid.ACTION_INTERNAL_STORAGE_SETTINGS === 'android.settings.INTERNAL_STORAGE_SETTINGS';
-IntentLauncherAndroid.ACTION_LOCALE_SETTINGS === 'android.settings.LOCALE_SETTINGS';
-IntentLauncherAndroid.ACTION_LOCATION_SOURCE_SETTINGS === 'android.settings.LOCATION_SOURCE_SETTINGS';
-IntentLauncherAndroid.ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS === 'android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS';
-IntentLauncherAndroid.ACTION_MANAGE_APPLICATIONS_SETTINGS === 'android.settings.MANAGE_APPLICATIONS_SETTINGS';
-IntentLauncherAndroid.ACTION_MANAGE_DEFAULT_APPS_SETTINGS === 'android.settings.MANAGE_DEFAULT_APPS_SETTINGS';
-IntentLauncherAndroid.ACTION_MEMORY_CARD_SETTINGS === 'android.settings.MEMORY_CARD_SETTINGS';
-IntentLauncherAndroid.ACTION_MONITORING_CERT_INFO === 'android.settings.MONITORING_CERT_INFO';
-IntentLauncherAndroid.ACTION_NETWORK_OPERATOR_SETTINGS === 'android.settings.NETWORK_OPERATOR_SETTINGS';
-IntentLauncherAndroid.ACTION_NFCSHARING_SETTINGS === 'android.settings.NFCSHARING_SETTINGS';
-IntentLauncherAndroid.ACTION_NFC_PAYMENT_SETTINGS === 'android.settings.NFC_PAYMENT_SETTINGS';
-IntentLauncherAndroid.ACTION_NFC_SETTINGS === 'android.settings.NFC_SETTINGS';
-IntentLauncherAndroid.ACTION_NIGHT_DISPLAY_SETTINGS === 'android.settings.NIGHT_DISPLAY_SETTINGS';
-IntentLauncherAndroid.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS === 'android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS';
-IntentLauncherAndroid.ACTION_NOTIFICATION_SETTINGS === 'android.settings.NOTIFICATION_SETTINGS';
-IntentLauncherAndroid.ACTION_PAIRING_SETTINGS === 'android.settings.PAIRING_SETTINGS';
-IntentLauncherAndroid.ACTION_PRIVACY_SETTINGS === 'android.settings.PRIVACY_SETTINGS';
-IntentLauncherAndroid.ACTION_QUICK_LAUNCH_SETTINGS === 'android.settings.QUICK_LAUNCH_SETTINGS';
-IntentLauncherAndroid.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS === 'android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS';
-IntentLauncherAndroid.ACTION_SECURITY_SETTINGS === 'android.settings.SECURITY_SETTINGS';
-IntentLauncherAndroid.ACTION_SETTINGS === 'android.settings.SETTINGS';
-IntentLauncherAndroid.ACTION_SHOW_ADMIN_SUPPORT_DETAILS === 'android.settings.SHOW_ADMIN_SUPPORT_DETAILS';
-IntentLauncherAndroid.ACTION_SHOW_INPUT_METHOD_PICKER === 'android.settings.SHOW_INPUT_METHOD_PICKER';
-IntentLauncherAndroid.ACTION_SHOW_REGULATORY_INFO === 'android.settings.SHOW_REGULATORY_INFO';
-IntentLauncherAndroid.ACTION_SHOW_REMOTE_BUGREPORT_DIALOG === 'android.settings.SHOW_REMOTE_BUGREPORT_DIALOG';
-IntentLauncherAndroid.ACTION_SOUND_SETTINGS === 'android.settings.SOUND_SETTINGS';
-IntentLauncherAndroid.ACTION_STORAGE_MANAGER_SETTINGS === 'android.settings.STORAGE_MANAGER_SETTINGS';
-IntentLauncherAndroid.ACTION_SYNC_SETTINGS === 'android.settings.SYNC_SETTINGS';
-IntentLauncherAndroid.ACTION_SYSTEM_UPDATE_SETTINGS === 'android.settings.SYSTEM_UPDATE_SETTINGS';
-IntentLauncherAndroid.ACTION_TETHER_PROVISIONING_UI === 'android.settings.TETHER_PROVISIONING_UI';
-IntentLauncherAndroid.ACTION_TRUSTED_CREDENTIALS_USER === 'android.settings.TRUSTED_CREDENTIALS_USER';
-IntentLauncherAndroid.ACTION_USAGE_ACCESS_SETTINGS === 'android.settings.USAGE_ACCESS_SETTINGS';
-IntentLauncherAndroid.ACTION_USER_DICTIONARY_INSERT === 'android.settings.USER_DICTIONARY_INSERT';
-IntentLauncherAndroid.ACTION_USER_DICTIONARY_SETTINGS === 'android.settings.USER_DICTIONARY_SETTINGS';
-IntentLauncherAndroid.ACTION_USER_SETTINGS === 'android.settings.USER_SETTINGS';
-IntentLauncherAndroid.ACTION_VOICE_CONTROL_AIRPLANE_MODE === 'android.settings.VOICE_CONTROL_AIRPLANE_MODE';
-IntentLauncherAndroid.ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE === 'android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE';
-IntentLauncherAndroid.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE === 'android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE';
-IntentLauncherAndroid.ACTION_VOICE_INPUT_SETTINGS === 'android.settings.VOICE_INPUT_SETTINGS';
-IntentLauncherAndroid.ACTION_VPN_SETTINGS === 'android.settings.VPN_SETTINGS';
-IntentLauncherAndroid.ACTION_VR_LISTENER_SETTINGS === 'android.settings.VR_LISTENER_SETTINGS';
-IntentLauncherAndroid.ACTION_WEBVIEW_SETTINGS === 'android.settings.WEBVIEW_SETTINGS';
-IntentLauncherAndroid.ACTION_WIFI_IP_SETTINGS === 'android.settings.WIFI_IP_SETTINGS';
-IntentLauncherAndroid.ACTION_WIFI_SETTINGS === 'android.settings.WIFI_SETTINGS';
-IntentLauncherAndroid.ACTION_WIRELESS_SETTINGS === 'android.settings.WIRELESS_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_AUTOMATION_SETTINGS === 'android.settings.ZEN_MODE_AUTOMATION_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_EVENT_RULE_SETTINGS === 'android.settings.ZEN_MODE_EVENT_RULE_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_EXTERNAL_RULE_SETTINGS === 'android.settings.ZEN_MODE_EXTERNAL_RULE_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_PRIORITY_SETTINGS === 'android.settings.ZEN_MODE_PRIORITY_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_SCHEDULE_RULE_SETTINGS === 'android.settings.ZEN_MODE_SCHEDULE_RULE_SETTINGS';
-IntentLauncherAndroid.ACTION_ZEN_MODE_SETTINGS === 'android.settings.ZEN_MODE_SETTINGS';
+IntentLauncherAndroid.ACTION_ACCESSIBILITY_SETTINGS ===
+    "android.settings.ACCESSIBILITY_SETTINGS";
+IntentLauncherAndroid.ACTION_APP_NOTIFICATION_REDACTION ===
+    "android.settings.ACTION_APP_NOTIFICATION_REDACTION";
+IntentLauncherAndroid.ACTION_CONDITION_PROVIDER_SETTINGS ===
+    "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS";
+IntentLauncherAndroid.ACTION_NOTIFICATION_LISTENER_SETTINGS ===
+    "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS";
+IntentLauncherAndroid.ACTION_PRINT_SETTINGS ===
+    "android.settings.ACTION_PRINT_SETTINGS";
+IntentLauncherAndroid.ACTION_ADD_ACCOUNT_SETTINGS ===
+    "android.settings.ADD_ACCOUNT_SETTINGS";
+IntentLauncherAndroid.ACTION_AIRPLANE_MODE_SETTINGS ===
+    "android.settings.AIRPLANE_MODE_SETTINGS";
+IntentLauncherAndroid.ACTION_APN_SETTINGS === "android.settings.APN_SETTINGS";
+IntentLauncherAndroid.ACTION_APPLICATION_DETAILS_SETTINGS ===
+    "android.settings.APPLICATION_DETAILS_SETTINGS";
+IntentLauncherAndroid.ACTION_APPLICATION_DEVELOPMENT_SETTINGS ===
+    "android.settings.APPLICATION_DEVELOPMENT_SETTINGS";
+IntentLauncherAndroid.ACTION_APPLICATION_SETTINGS ===
+    "android.settings.APPLICATION_SETTINGS";
+IntentLauncherAndroid.ACTION_APP_NOTIFICATION_SETTINGS ===
+    "android.settings.APP_NOTIFICATION_SETTINGS";
+IntentLauncherAndroid.ACTION_APP_OPS_SETTINGS ===
+    "android.settings.APP_OPS_SETTINGS";
+IntentLauncherAndroid.ACTION_BATTERY_SAVER_SETTINGS ===
+    "android.settings.BATTERY_SAVER_SETTINGS";
+IntentLauncherAndroid.ACTION_BLUETOOTH_SETTINGS ===
+    "android.settings.BLUETOOTH_SETTINGS";
+IntentLauncherAndroid.ACTION_CAPTIONING_SETTINGS ===
+    "android.settings.CAPTIONING_SETTINGS";
+IntentLauncherAndroid.ACTION_CAST_SETTINGS === "android.settings.CAST_SETTINGS";
+IntentLauncherAndroid.ACTION_DATA_ROAMING_SETTINGS ===
+    "android.settings.DATA_ROAMING_SETTINGS";
+IntentLauncherAndroid.ACTION_DATE_SETTINGS === "android.settings.DATE_SETTINGS";
+IntentLauncherAndroid.ACTION_DEVICE_INFO_SETTINGS ===
+    "android.settings.DEVICE_INFO_SETTINGS";
+IntentLauncherAndroid.ACTION_DEVICE_NAME === "android.settings.DEVICE_NAME";
+IntentLauncherAndroid.ACTION_DISPLAY_SETTINGS ===
+    "android.settings.DISPLAY_SETTINGS";
+IntentLauncherAndroid.ACTION_DREAM_SETTINGS ===
+    "android.settings.DREAM_SETTINGS";
+IntentLauncherAndroid.ACTION_HARD_KEYBOARD_SETTINGS ===
+    "android.settings.HARD_KEYBOARD_SETTINGS";
+IntentLauncherAndroid.ACTION_HOME_SETTINGS === "android.settings.HOME_SETTINGS";
+IntentLauncherAndroid.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS ===
+    "android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS";
+IntentLauncherAndroid.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS ===
+    "android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS";
+IntentLauncherAndroid.ACTION_INPUT_METHOD_SETTINGS ===
+    "android.settings.INPUT_METHOD_SETTINGS";
+IntentLauncherAndroid.ACTION_INPUT_METHOD_SUBTYPE_SETTINGS ===
+    "android.settings.INPUT_METHOD_SUBTYPE_SETTINGS";
+IntentLauncherAndroid.ACTION_INTERNAL_STORAGE_SETTINGS ===
+    "android.settings.INTERNAL_STORAGE_SETTINGS";
+IntentLauncherAndroid.ACTION_LOCALE_SETTINGS ===
+    "android.settings.LOCALE_SETTINGS";
+IntentLauncherAndroid.ACTION_LOCATION_SOURCE_SETTINGS ===
+    "android.settings.LOCATION_SOURCE_SETTINGS";
+IntentLauncherAndroid.ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS ===
+    "android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS";
+IntentLauncherAndroid.ACTION_MANAGE_APPLICATIONS_SETTINGS ===
+    "android.settings.MANAGE_APPLICATIONS_SETTINGS";
+IntentLauncherAndroid.ACTION_MANAGE_DEFAULT_APPS_SETTINGS ===
+    "android.settings.MANAGE_DEFAULT_APPS_SETTINGS";
+IntentLauncherAndroid.ACTION_MEMORY_CARD_SETTINGS ===
+    "android.settings.MEMORY_CARD_SETTINGS";
+IntentLauncherAndroid.ACTION_MONITORING_CERT_INFO ===
+    "android.settings.MONITORING_CERT_INFO";
+IntentLauncherAndroid.ACTION_NETWORK_OPERATOR_SETTINGS ===
+    "android.settings.NETWORK_OPERATOR_SETTINGS";
+IntentLauncherAndroid.ACTION_NFCSHARING_SETTINGS ===
+    "android.settings.NFCSHARING_SETTINGS";
+IntentLauncherAndroid.ACTION_NFC_PAYMENT_SETTINGS ===
+    "android.settings.NFC_PAYMENT_SETTINGS";
+IntentLauncherAndroid.ACTION_NFC_SETTINGS === "android.settings.NFC_SETTINGS";
+IntentLauncherAndroid.ACTION_NIGHT_DISPLAY_SETTINGS ===
+    "android.settings.NIGHT_DISPLAY_SETTINGS";
+IntentLauncherAndroid.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS ===
+    "android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS";
+IntentLauncherAndroid.ACTION_NOTIFICATION_SETTINGS ===
+    "android.settings.NOTIFICATION_SETTINGS";
+IntentLauncherAndroid.ACTION_PAIRING_SETTINGS ===
+    "android.settings.PAIRING_SETTINGS";
+IntentLauncherAndroid.ACTION_PRIVACY_SETTINGS ===
+    "android.settings.PRIVACY_SETTINGS";
+IntentLauncherAndroid.ACTION_QUICK_LAUNCH_SETTINGS ===
+    "android.settings.QUICK_LAUNCH_SETTINGS";
+IntentLauncherAndroid.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS ===
+    "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS";
+IntentLauncherAndroid.ACTION_SECURITY_SETTINGS ===
+    "android.settings.SECURITY_SETTINGS";
+IntentLauncherAndroid.ACTION_SETTINGS === "android.settings.SETTINGS";
+IntentLauncherAndroid.ACTION_SHOW_ADMIN_SUPPORT_DETAILS ===
+    "android.settings.SHOW_ADMIN_SUPPORT_DETAILS";
+IntentLauncherAndroid.ACTION_SHOW_INPUT_METHOD_PICKER ===
+    "android.settings.SHOW_INPUT_METHOD_PICKER";
+IntentLauncherAndroid.ACTION_SHOW_REGULATORY_INFO ===
+    "android.settings.SHOW_REGULATORY_INFO";
+IntentLauncherAndroid.ACTION_SHOW_REMOTE_BUGREPORT_DIALOG ===
+    "android.settings.SHOW_REMOTE_BUGREPORT_DIALOG";
+IntentLauncherAndroid.ACTION_SOUND_SETTINGS ===
+    "android.settings.SOUND_SETTINGS";
+IntentLauncherAndroid.ACTION_STORAGE_MANAGER_SETTINGS ===
+    "android.settings.STORAGE_MANAGER_SETTINGS";
+IntentLauncherAndroid.ACTION_SYNC_SETTINGS === "android.settings.SYNC_SETTINGS";
+IntentLauncherAndroid.ACTION_SYSTEM_UPDATE_SETTINGS ===
+    "android.settings.SYSTEM_UPDATE_SETTINGS";
+IntentLauncherAndroid.ACTION_TETHER_PROVISIONING_UI ===
+    "android.settings.TETHER_PROVISIONING_UI";
+IntentLauncherAndroid.ACTION_TRUSTED_CREDENTIALS_USER ===
+    "android.settings.TRUSTED_CREDENTIALS_USER";
+IntentLauncherAndroid.ACTION_USAGE_ACCESS_SETTINGS ===
+    "android.settings.USAGE_ACCESS_SETTINGS";
+IntentLauncherAndroid.ACTION_USER_DICTIONARY_INSERT ===
+    "android.settings.USER_DICTIONARY_INSERT";
+IntentLauncherAndroid.ACTION_USER_DICTIONARY_SETTINGS ===
+    "android.settings.USER_DICTIONARY_SETTINGS";
+IntentLauncherAndroid.ACTION_USER_SETTINGS === "android.settings.USER_SETTINGS";
+IntentLauncherAndroid.ACTION_VOICE_CONTROL_AIRPLANE_MODE ===
+    "android.settings.VOICE_CONTROL_AIRPLANE_MODE";
+IntentLauncherAndroid.ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE ===
+    "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE";
+IntentLauncherAndroid.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE ===
+    "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE";
+IntentLauncherAndroid.ACTION_VOICE_INPUT_SETTINGS ===
+    "android.settings.VOICE_INPUT_SETTINGS";
+IntentLauncherAndroid.ACTION_VPN_SETTINGS === "android.settings.VPN_SETTINGS";
+IntentLauncherAndroid.ACTION_VR_LISTENER_SETTINGS ===
+    "android.settings.VR_LISTENER_SETTINGS";
+IntentLauncherAndroid.ACTION_WEBVIEW_SETTINGS ===
+    "android.settings.WEBVIEW_SETTINGS";
+IntentLauncherAndroid.ACTION_WIFI_IP_SETTINGS ===
+    "android.settings.WIFI_IP_SETTINGS";
+IntentLauncherAndroid.ACTION_WIFI_SETTINGS === "android.settings.WIFI_SETTINGS";
+IntentLauncherAndroid.ACTION_WIRELESS_SETTINGS ===
+    "android.settings.WIRELESS_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_AUTOMATION_SETTINGS ===
+    "android.settings.ZEN_MODE_AUTOMATION_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_EVENT_RULE_SETTINGS ===
+    "android.settings.ZEN_MODE_EVENT_RULE_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_EXTERNAL_RULE_SETTINGS ===
+    "android.settings.ZEN_MODE_EXTERNAL_RULE_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_PRIORITY_SETTINGS ===
+    "android.settings.ZEN_MODE_PRIORITY_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_SCHEDULE_RULE_SETTINGS ===
+    "android.settings.ZEN_MODE_SCHEDULE_RULE_SETTINGS";
+IntentLauncherAndroid.ACTION_ZEN_MODE_SETTINGS ===
+    "android.settings.ZEN_MODE_SETTINGS";
 
 KeepAwake.activate();
 KeepAwake.deactivate();
 
-() => (
-    <LinearGradient
-        colors={['#fff']}
-        start={[1, 1]} />
-);
+() => <LinearGradient colors={["#fff"]} start={[1, 1]} />;
 
-() => (
-    <LinearGradient
-        colors={['#fff']}
-        style={{ flex: 1 }} />
-);
+() => <LinearGradient colors={["#fff"]} style={{ flex: 1 }} />;
 
-Permissions.CAMERA === 'camera';
-Permissions.CAMERA_ROLL === 'cameraRoll';
-Permissions.AUDIO_RECORDING === 'audioRecording';
-Permissions.CONTACTS === 'contacts';
-Permissions.NOTIFICATIONS === 'notifications';
-Permissions.SYSTEM_BRIGHTNESS === 'systemBrightness';
-Permissions.USER_FACING_NOTIFICATIONS === 'userFacingNotifications';
-Permissions.REMINDERS === 'reminders';
+Permissions.CAMERA === "camera";
+Permissions.CAMERA_ROLL === "cameraRoll";
+Permissions.AUDIO_RECORDING === "audioRecording";
+Permissions.CONTACTS === "contacts";
+Permissions.NOTIFICATIONS === "notifications";
+Permissions.SYSTEM_BRIGHTNESS === "systemBrightness";
+Permissions.USER_FACING_NOTIFICATIONS === "userFacingNotifications";
+Permissions.REMINDERS === "reminders";
 async () => {
-    const result = await Permissions.askAsync(Permissions.CAMERA, Permissions.CONTACTS);
+    const result = await Permissions.askAsync(
+        Permissions.CAMERA,
+        Permissions.CONTACTS
+    );
 
-    result.status === 'granted';
-    result.status === 'denied';
-    result.status === 'undetermined';
+    result.status === "granted";
+    result.status === "denied";
+    result.status === "undetermined";
 
-    result.expires === 'never';
+    result.expires === "never";
 };
 
 ScreenOrientation.Orientation.ALL;
@@ -739,70 +840,68 @@ ScreenOrientation.allow(ScreenOrientation.Orientation.ALL);
 
 class __TestEntry__ extends React.Component {
     render() {
-        return(
-            <Text>test</Text>
-        );
+        return <Text>test</Text>;
     }
 }
 registerRootComponent(__TestEntry__);
 
-Calendar.EntityTypes.EVENT === 'event';
-Calendar.EntityTypes.REMINDER === 'reminder';
+Calendar.EntityTypes.EVENT === "event";
+Calendar.EntityTypes.REMINDER === "reminder";
 
-Calendar.CalendarType.LOCAL === 'local';
-Calendar.CalendarType.CALDAV === 'caldav';
-Calendar.CalendarType.EXCHANGE === 'exchange';
-Calendar.CalendarType.SUBSCRIBED === 'subscribed';
-Calendar.CalendarType.BIRTHDAYS === 'birthdays';
+Calendar.CalendarType.LOCAL === "local";
+Calendar.CalendarType.CALDAV === "caldav";
+Calendar.CalendarType.EXCHANGE === "exchange";
+Calendar.CalendarType.SUBSCRIBED === "subscribed";
+Calendar.CalendarType.BIRTHDAYS === "birthdays";
 
 async () => {
     const result = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);
     result.length;
 
     const calendar = result[0];
-    calendar.id === '';
-    calendar.title === '';
-    calendar.sourceId === '';
+    calendar.id === "";
+    calendar.title === "";
+    calendar.sourceId === "";
     calendar.type === Calendar.CalendarType.BIRTHDAYS;
-    calendar.color === '';
+    calendar.color === "";
     calendar.entityType === Calendar.EntityTypes.EVENT;
     calendar.allowsModifications === true;
-    calendar.allowedAvailabilities === [''];
+    calendar.allowedAvailabilities === [""];
     calendar.isPrimary === true;
-    calendar.name === '';
-    calendar.ownerAccount === '';
-    calendar.timeZone === '';
-    calendar.allowedReminders === [''];
-    calendar.allowedAttendeeTypes === [''];
+    calendar.name === "";
+    calendar.ownerAccount === "";
+    calendar.timeZone === "";
+    calendar.allowedReminders === [""];
+    calendar.allowedAttendeeTypes === [""];
     calendar.isVisible === false;
     calendar.isSynced === false;
     calendar.accessLevel === Calendar.CalendarAccessLevel.CONTRIBUTOR;
 
     if (calendar.source) {
-        calendar.source.id === '';
-        calendar.source.type === '';
-        calendar.source.name === '';
+        calendar.source.id === "";
+        calendar.source.type === "";
+        calendar.source.name === "";
         calendar.source.isLocalAccount === false;
     }
 
-    const id1 =  await Calendar.createCalendarAsync({
+    const id1 = await Calendar.createCalendarAsync({
         accessLevel: Calendar.CalendarAccessLevel.EDITOR
     });
 
-    id1 === '';
+    id1 === "";
 
-    const id2 = await Calendar.updateCalendarAsync('1234', {
+    const id2 = await Calendar.updateCalendarAsync("1234", {
         isVisible: false
     });
 
-    id2 === '';
+    id2 === "";
 
-    const id3 = await Calendar.updateCalendarAsync('1234', null);
+    const id3 = await Calendar.updateCalendarAsync("1234", null);
 
-    await Calendar.deleteCalendarAsync('1234');
+    await Calendar.deleteCalendarAsync("1234");
 
     const events = await Calendar.getEventsAsync(
-        ['123', '124'],
+        ["123", "124"],
         new Date(),
         new Date()
     );
@@ -813,92 +912,94 @@ async () => {
     event1.alarms === [];
     event1.allDay === true;
     event1.availability === Calendar.Availability.FREE;
-    event1.calendarId === '';
-    event1.creationDate === '';
-    event1.endDate === '';
-    event1.endTimeZone === '';
+    event1.calendarId === "";
+    event1.creationDate === "";
+    event1.endDate === "";
+    event1.endTimeZone === "";
     event1.guestsCanInviteOthers === true;
     event1.guestsCanModify === true;
     event1.guestsCanSeeGuests === false;
-    event1.id === '';
-    event1.instanceId === '';
+    event1.id === "";
+    event1.instanceId === "";
     event1.isDetached === false;
 
-    const event2 = await Calendar.getEventAsync('123', {
+    const event2 = await Calendar.getEventAsync("123", {
         futureEvents: true
     });
 
-    const eventId1 = await Calendar.createEventAsync('123');
+    const eventId1 = await Calendar.createEventAsync("123");
 
-    const eventId2 = await Calendar.updateEventAsync('1234');
+    const eventId2 = await Calendar.updateEventAsync("1234");
 
-    await Calendar.deleteEventAsync('1234');
+    await Calendar.deleteEventAsync("1234");
 
-    const attendees = await Calendar.getAttendeesForEventAsync('123');
+    const attendees = await Calendar.getAttendeesForEventAsync("123");
 
-    const aId1 = await Calendar.createAttendeeAsync('123');
+    const aId1 = await Calendar.createAttendeeAsync("123");
 
-    const aId2 = await Calendar.updateAttendeeAsync('123');
+    const aId2 = await Calendar.updateAttendeeAsync("123");
 
-    await Calendar.deleteAttendeeAsync('123');
+    await Calendar.deleteAttendeeAsync("123");
 
-    const reminders = await Calendar.getRemindersAsync(['123']);
+    const reminders = await Calendar.getRemindersAsync(["123"]);
 
-    const reminder = await Calendar.getReminderAsync('123');
+    const reminder = await Calendar.getReminderAsync("123");
 
-    const remId1 = await Calendar.createReminderAsync('123');
+    const remId1 = await Calendar.createReminderAsync("123");
 
-    const remId2 = await Calendar.updateReminderAsync('123');
+    const remId2 = await Calendar.updateReminderAsync("123");
 
-    await Calendar.deleteReminderAsync('123');
+    await Calendar.deleteReminderAsync("123");
 
     const sources = await Calendar.getSourcesAsync();
 
-    const source = await Calendar.getSourceAsync('123');
+    const source = await Calendar.getSourceAsync("123");
 
-    Calendar.openEventInCalendar('123');
+    Calendar.openEventInCalendar("123");
 };
 
 async () => {
     const result = await MailComposer.composeAsync({
-        subject: 'sss'
+        subject: "sss"
     });
 
-    result.status === 'saved';
+    result.status === "saved";
 };
 
 // #region MapView
 const initialRegion: Region = {
-  latitude: 0,
-  longitude: 0,
-  latitudeDelta: 0,
-  longitudeDelta: 0,
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0,
+    longitudeDelta: 0
 };
 
 const edgePadding: EdgePadding = {
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
 };
 
 const edgeInsets: EdgeInsets = {
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
 };
 
-const mapStyleElements: MapStyleElement[] = [{
-  featureType: 'featureType',
-  elementType: 'elementType',
-  stylers: [{}, {}],
-}];
+const mapStyleElements: MapStyleElement[] = [
+    {
+        featureType: "featureType",
+        elementType: "elementType",
+        stylers: [{}, {}]
+    }
+];
 
 const mapEventCallback = (event: MapEvent) => console.log(event);
-const regionCallback = (region: Region) =>  console.log(region);
-const kmlCallback = (kml: KmlMapEvent) =>  console.log(kml);
-const userLocationCallback = (event: EventUserLocation) =>  console.log(event);
+const regionCallback = (region: Region) => console.log(region);
+const kmlCallback = (kml: KmlMapEvent) => console.log(kml);
+const userLocationCallback = (event: EventUserLocation) => console.log(event);
 
 () => (
     <MapView
@@ -935,7 +1036,6 @@ const userLocationCallback = (event: EventUserLocation) =>  console.log(event);
         maxDelta={0}
         minDelta={0}
         legalLabelInsets={edgeInsets}
-
         onMapReady={() => ({})}
         onKmlReady={kmlCallback}
         onRegionChange={regionCallback}
@@ -944,15 +1044,24 @@ const userLocationCallback = (event: EventUserLocation) =>  console.log(event);
         onLongPress={mapEventCallback}
         onUserLocationChange={userLocationCallback}
         onPanDrag={mapEventCallback}
-        onPoiClick={(event: MapEvent<{ placeId: string, name: string }>) => console.log(event)}
-        onMarkerPress={(event: MapEvent<{ action: 'marker-press', id: string }>) =>  console.log(event)}
-        onMarkerSelect={(event: MapEvent<{ action: 'marker-select', id: string }>) => console.log(event)}
-        onMarkerDeselect={(event: MapEvent<{ action: 'marker-deselect', id: string }>) => console.log(event)}
-        onCalloutPress={(event: MapEvent<{ action: 'callout-press' }>) => console.log(event)}
+        onPoiClick={(event: MapEvent<{ placeId: string; name: string }>) =>
+            console.log(event)
+        }
+        onMarkerPress={(
+            event: MapEvent<{ action: "marker-press"; id: string }>
+        ) => console.log(event)}
+        onMarkerSelect={(
+            event: MapEvent<{ action: "marker-select"; id: string }>
+        ) => console.log(event)}
+        onMarkerDeselect={(
+            event: MapEvent<{ action: "marker-deselect"; id: string }>
+        ) => console.log(event)}
+        onCalloutPress={(event: MapEvent<{ action: "callout-press" }>) =>
+            console.log(event)
+        }
         onMarkerDragStart={mapEventCallback}
         onMarkerDrag={mapEventCallback}
         onMarkerDragEnd={mapEventCallback}
-
         minZoomLevel={0}
         maxZoomLevel={0}
         kmlSrc="src"
@@ -995,70 +1104,98 @@ async () => {
 };
 
 async () => {
-  const asset: MediaLibrary.Asset = await MediaLibrary.createAssetAsync('some-url');
-  const getAssetsOptions: MediaLibrary.GetAssetsOptions = {
-    first: 0,
-    after: 'lastAssetId',
-    album: 'albumId',
-    sortBy: MediaLibrary.SortBy.creationTime,
-    mediaType: MediaLibrary.MediaType.photo
-  };
-  const assetsList: MediaLibrary.GetAssetsResult = await MediaLibrary.getAssetsAsync(getAssetsOptions);
-  const endCursor: string = assetsList.endCursor;
-  const hasNextPage: boolean = assetsList.hasNextPage;
-  const totalCount: number = assetsList.totalCount;
-  const asset1: MediaLibrary.Asset = await MediaLibrary.getAssetInfoAsync(asset);
-  if (await MediaLibrary.deleteAssetsAsync(assetsList.assets)) {
-    console.log('assets deleted');
-  }
-  const albums: MediaLibrary.Album[] = await MediaLibrary.getAlbumsAsync();
-  const album: MediaLibrary.Album | null = await MediaLibrary.getAlbumAsync('albumName');
-  const album1: MediaLibrary.Album = await MediaLibrary.createAlbumAsync('albumName', asset1);
-  if (await MediaLibrary.addAssetsToAlbumAsync([asset, asset1], album1, true)) {
-    console.log('assets added');
-  }
+    const asset: MediaLibrary.Asset = await MediaLibrary.createAssetAsync(
+        "some-url"
+    );
+    const getAssetsOptions: MediaLibrary.GetAssetsOptions = {
+        first: 0,
+        after: "lastAssetId",
+        album: "albumId",
+        sortBy: MediaLibrary.SortBy.creationTime,
+        mediaType: MediaLibrary.MediaType.photo
+    };
+    const assetsList: MediaLibrary.GetAssetsResult = await MediaLibrary.getAssetsAsync(
+        getAssetsOptions
+    );
+    const endCursor: string = assetsList.endCursor;
+    const hasNextPage: boolean = assetsList.hasNextPage;
+    const totalCount: number = assetsList.totalCount;
+    const asset1: MediaLibrary.Asset = await MediaLibrary.getAssetInfoAsync(
+        asset
+    );
+    if (await MediaLibrary.deleteAssetsAsync(assetsList.assets)) {
+        console.log("assets deleted");
+    }
+    const albums: MediaLibrary.Album[] = await MediaLibrary.getAlbumsAsync();
+    const album: MediaLibrary.Album | null = await MediaLibrary.getAlbumAsync(
+        "albumName"
+    );
+    const album1: MediaLibrary.Album = await MediaLibrary.createAlbumAsync(
+        "albumName",
+        asset1
+    );
+    if (
+        await MediaLibrary.addAssetsToAlbumAsync([asset, asset1], album1, true)
+    ) {
+        console.log("assets added");
+    }
 
-  const moments: MediaLibrary.Album[] = await MediaLibrary.getMomentsAsync();
+    const moments: MediaLibrary.Album[] = await MediaLibrary.getMomentsAsync();
 
-  switch (getAssetsOptions.mediaType) {
-    case MediaLibrary.MediaType.audio:
-    case MediaLibrary.MediaType.photo:
-    case MediaLibrary.MediaType.video:
-    case MediaLibrary.MediaType.unknow:
-      return true;
-  }
+    switch (getAssetsOptions.mediaType) {
+        case MediaLibrary.MediaType.audio:
+        case MediaLibrary.MediaType.photo:
+        case MediaLibrary.MediaType.video:
+        case MediaLibrary.MediaType.unknow:
+            return true;
+    }
 
-  switch (getAssetsOptions.sortBy) {
-    case MediaLibrary.SortBy.default:
-    case MediaLibrary.SortBy.id:
-    case MediaLibrary.SortBy.creationTime:
-    case MediaLibrary.SortBy.modificationTime:
-    case MediaLibrary.SortBy.mediaType:
-    case MediaLibrary.SortBy.width:
-    case MediaLibrary.SortBy.height:
-    case MediaLibrary.SortBy.duration:
-      return true;
-  }
+    switch (getAssetsOptions.sortBy) {
+        case MediaLibrary.SortBy.default:
+        case MediaLibrary.SortBy.id:
+        case MediaLibrary.SortBy.creationTime:
+        case MediaLibrary.SortBy.modificationTime:
+        case MediaLibrary.SortBy.mediaType:
+        case MediaLibrary.SortBy.width:
+        case MediaLibrary.SortBy.height:
+        case MediaLibrary.SortBy.duration:
+            return true;
+    }
 };
 
 // #region MediaLibrary
 async () => {
-  const mlAsset: MediaLibrary.Asset = await MediaLibrary.createAssetAsync('localUri');
-  const mlAssetResult: MediaLibrary.GetAssetsResult = await MediaLibrary.getAssetsAsync({
-    first: 0,
-    after: '',
-    album: 'Album',
-    sortBy: MediaLibrary.SortBy.creationTime,
-    mediaType: MediaLibrary.MediaType.photo
-  });
-  const mlAsset1: MediaLibrary.Asset = await MediaLibrary.getAssetInfoAsync(mlAsset);
-  const areDeleted: boolean = await MediaLibrary.deleteAssetsAsync([mlAsset]);
-  const albums: MediaLibrary.Album[] = await MediaLibrary.getAlbumsAsync();
-  const album: MediaLibrary.Album = await MediaLibrary.getAlbumAsync('album');
-  const album1: MediaLibrary.Album = await MediaLibrary.createAlbumAsync('album', mlAsset);
-  const areAddedToAlbum: boolean = await MediaLibrary.addAssetsToAlbumAsync([mlAsset, mlAsset1], 'album');
-  const areDeletedFromAlbum: boolean = await MediaLibrary.removeAssetsFromAlbumAsync([mlAsset, mlAsset1], 'album');
-  const momuents: MediaLibrary.Album[] = await MediaLibrary.getMomentsAsync();
+    const mlAsset: MediaLibrary.Asset = await MediaLibrary.createAssetAsync(
+        "localUri"
+    );
+    const mlAssetResult: MediaLibrary.GetAssetsResult = await MediaLibrary.getAssetsAsync(
+        {
+            first: 0,
+            after: "",
+            album: "Album",
+            sortBy: MediaLibrary.SortBy.creationTime,
+            mediaType: MediaLibrary.MediaType.photo
+        }
+    );
+    const mlAsset1: MediaLibrary.Asset = await MediaLibrary.getAssetInfoAsync(
+        mlAsset
+    );
+    const areDeleted: boolean = await MediaLibrary.deleteAssetsAsync([mlAsset]);
+    const albums: MediaLibrary.Album[] = await MediaLibrary.getAlbumsAsync();
+    const album: MediaLibrary.Album = await MediaLibrary.getAlbumAsync("album");
+    const album1: MediaLibrary.Album = await MediaLibrary.createAlbumAsync(
+        "album",
+        mlAsset
+    );
+    const areAddedToAlbum: boolean = await MediaLibrary.addAssetsToAlbumAsync(
+        [mlAsset, mlAsset1],
+        "album"
+    );
+    const areDeletedFromAlbum: boolean = await MediaLibrary.removeAssetsFromAlbumAsync(
+        [mlAsset, mlAsset1],
+        "album"
+    );
+    const momuents: MediaLibrary.Album[] = await MediaLibrary.getMomentsAsync();
 };
 //#endregion
 
@@ -1094,170 +1231,205 @@ async () => {
 // #endregion
 
 // #region Contacts
-Contacts.Fields.ID === 'id';
-Contacts.Fields.Name === 'name';
-Contacts.Fields.FirstName === 'firstName';
-Contacts.Fields.MiddleName === 'middleName';
-Contacts.Fields.LastName === 'lastName';
-Contacts.Fields.NamePrefix === 'namePrefix';
-Contacts.Fields.NameSuffix === 'nameSuffix';
-Contacts.Fields.PhoneticFirstName === 'phoneticFirstName';
-Contacts.Fields.PhoneticMiddleName === 'phoneticMiddleName';
-Contacts.Fields.PhoneticLastName === 'phoneticLastName';
-Contacts.Fields.Birthday === 'birthday';
-Contacts.Fields.Emails === 'emails';
-Contacts.Fields.PhoneNumbers === 'phoneNumbers';
-Contacts.Fields.Addresses === 'addresses';
-Contacts.Fields.InstantMessageAddresses === 'instantMessageAddresses';
-Contacts.Fields.UrlAddresses === 'urlAddresses';
-Contacts.Fields.Company === 'company';
-Contacts.Fields.JobTitle === 'jobTitle';
-Contacts.Fields.Department === 'department';
-Contacts.Fields.ImageAvailable === 'imageAvailable';
-Contacts.Fields.Image === 'image';
-Contacts.Fields.Note === 'note';
-Contacts.Fields.Dates === 'dates';
-Contacts.Fields.Relationships === 'relationships';
-Contacts.Fields.Nickname === 'nickname';
-Contacts.Fields.RawImage === 'rawImage';
-Contacts.Fields.MaidenName === 'maidenName';
-Contacts.Fields.ContactType === 'contactType';
-Contacts.Fields.SocialProfiles === 'socialProfiles';
-Contacts.Fields.NonGregorianBirthday === 'nonGregorianBirthday';
+Contacts.Fields.ID === "id";
+Contacts.Fields.Name === "name";
+Contacts.Fields.FirstName === "firstName";
+Contacts.Fields.MiddleName === "middleName";
+Contacts.Fields.LastName === "lastName";
+Contacts.Fields.NamePrefix === "namePrefix";
+Contacts.Fields.NameSuffix === "nameSuffix";
+Contacts.Fields.PhoneticFirstName === "phoneticFirstName";
+Contacts.Fields.PhoneticMiddleName === "phoneticMiddleName";
+Contacts.Fields.PhoneticLastName === "phoneticLastName";
+Contacts.Fields.Birthday === "birthday";
+Contacts.Fields.Emails === "emails";
+Contacts.Fields.PhoneNumbers === "phoneNumbers";
+Contacts.Fields.Addresses === "addresses";
+Contacts.Fields.InstantMessageAddresses === "instantMessageAddresses";
+Contacts.Fields.UrlAddresses === "urlAddresses";
+Contacts.Fields.Company === "company";
+Contacts.Fields.JobTitle === "jobTitle";
+Contacts.Fields.Department === "department";
+Contacts.Fields.ImageAvailable === "imageAvailable";
+Contacts.Fields.Image === "image";
+Contacts.Fields.Note === "note";
+Contacts.Fields.Dates === "dates";
+Contacts.Fields.Relationships === "relationships";
+Contacts.Fields.Nickname === "nickname";
+Contacts.Fields.RawImage === "rawImage";
+Contacts.Fields.MaidenName === "maidenName";
+Contacts.Fields.ContactType === "contactType";
+Contacts.Fields.SocialProfiles === "socialProfiles";
+Contacts.Fields.NonGregorianBirthday === "nonGregorianBirthday";
 
 const contact: Contacts.Contact = {
-    [Contacts.Fields.ID]: 'id',
-    [Contacts.Fields.Name]: 'name',
-    [Contacts.Fields.FirstName]: 'firstName',
-    [Contacts.Fields.MiddleName]: 'middleName',
-    [Contacts.Fields.LastName]: 'lastName',
-    [Contacts.Fields.NamePrefix]: 'namePrefix',
-    [Contacts.Fields.NameSuffix]: 'nameSuffix',
-    [Contacts.Fields.PhoneticFirstName]: 'phoneticFirstName',
-    [Contacts.Fields.PhoneticMiddleName]: 'phoneticMiddleName',
-    [Contacts.Fields.PhoneticLastName]: 'phoneticLastName',
+    [Contacts.Fields.ID]: "id",
+    [Contacts.Fields.Name]: "name",
+    [Contacts.Fields.FirstName]: "firstName",
+    [Contacts.Fields.MiddleName]: "middleName",
+    [Contacts.Fields.LastName]: "lastName",
+    [Contacts.Fields.NamePrefix]: "namePrefix",
+    [Contacts.Fields.NameSuffix]: "nameSuffix",
+    [Contacts.Fields.PhoneticFirstName]: "phoneticFirstName",
+    [Contacts.Fields.PhoneticMiddleName]: "phoneticMiddleName",
+    [Contacts.Fields.PhoneticLastName]: "phoneticLastName",
     [Contacts.Fields.Birthday]: {
         day: 1,
         month: 1,
         year: 2010,
         format: Contacts.CalendarFormats.Gregorian,
-        id: 'id',
-        label: 'label'
+        id: "id",
+        label: "label"
     },
-    [Contacts.Fields.Emails]: [{
-        email: 'email',
-        isPrimary: true,
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.PhoneNumbers]: [{
-        number: 'number',
-        isPrimary: true,
-        digits: 'digits',
-        countryCode: 'countryCode',
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.Addresses]: [{
-        street: 'street',
-        city: 'city',
-        country: 'country',
-        region: 'region',
-        neighborhood: 'neighborhood',
-        postalCode: 'postalCode',
-        poBox: 'poBox',
-        isoCountryCode: 'isoCountryCode',
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.InstantMessageAddresses]: [{
-        service: 'service',
-        username: 'username',
-        localizedProfile: 'localizedProfile',
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.UrlAddresses]: [{
-        url: 'url',
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.Company]: 'company',
-    [Contacts.Fields.JobTitle]: 'jobTitle',
-    [Contacts.Fields.Department]: 'department',
+    [Contacts.Fields.Emails]: [
+        {
+            email: "email",
+            isPrimary: true,
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.PhoneNumbers]: [
+        {
+            number: "number",
+            isPrimary: true,
+            digits: "digits",
+            countryCode: "countryCode",
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.Addresses]: [
+        {
+            street: "street",
+            city: "city",
+            country: "country",
+            region: "region",
+            neighborhood: "neighborhood",
+            postalCode: "postalCode",
+            poBox: "poBox",
+            isoCountryCode: "isoCountryCode",
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.InstantMessageAddresses]: [
+        {
+            service: "service",
+            username: "username",
+            localizedProfile: "localizedProfile",
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.UrlAddresses]: [
+        {
+            url: "url",
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.Company]: "company",
+    [Contacts.Fields.JobTitle]: "jobTitle",
+    [Contacts.Fields.Department]: "department",
     [Contacts.Fields.ImageAvailable]: true,
     [Contacts.Fields.Image]: {
-        uri: 'uri'
+        uri: "uri"
     },
-    [Contacts.Fields.Note]: 'note',
-    [Contacts.Fields.Dates]: [{
-        day: 1,
-        month: 1,
-        year: 2010,
-        format: Contacts.CalendarFormats.Gregorian,
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.Relationships]: [{
-        name: 'name',
-        id: 'id',
-        label: 'label'
-    }],
-    [Contacts.Fields.Nickname]: 'nickname',
+    [Contacts.Fields.Note]: "note",
+    [Contacts.Fields.Dates]: [
+        {
+            day: 1,
+            month: 1,
+            year: 2010,
+            format: Contacts.CalendarFormats.Gregorian,
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.Relationships]: [
+        {
+            name: "name",
+            id: "id",
+            label: "label"
+        }
+    ],
+    [Contacts.Fields.Nickname]: "nickname",
     [Contacts.Fields.RawImage]: {
-        uri: 'uri'
+        uri: "uri"
     },
-    [Contacts.Fields.MaidenName]: 'maidenName',
+    [Contacts.Fields.MaidenName]: "maidenName",
     [Contacts.Fields.ContactType]: Contacts.ContactTypes.Person,
-    [Contacts.Fields.SocialProfiles]: [{
-        service: 'service',
-        username: 'username',
-        localizedProfile: 'localizedProfile',
-        url: 'url',
-        userId: 'userId',
-        id: 'id',
-        label: 'label'
-    }],
+    [Contacts.Fields.SocialProfiles]: [
+        {
+            service: "service",
+            username: "username",
+            localizedProfile: "localizedProfile",
+            url: "url",
+            userId: "userId",
+            id: "id",
+            label: "label"
+        }
+    ],
     [Contacts.Fields.NonGregorianBirthday]: {
         day: 1,
         month: 1,
         year: 2010,
         format: Contacts.CalendarFormats.Hebrew,
-        id: 'id',
-        label: 'label'
+        id: "id",
+        label: "label"
     }
 };
 
 async () => {
     const response1: Contacts.ContactResponse = await Contacts.getContactsAsync();
-    const response2: Contacts.ContactResponse = await Contacts.getContactsAsync({ id: 'contactId' });
+    const response2: Contacts.ContactResponse = await Contacts.getContactsAsync(
+        { id: "contactId" }
+    );
 
-    const response3: Contacts.Contact = await Contacts.getContactByIdAsync('contactId');
-    const response4: Contacts.Contact = await Contacts.getContactByIdAsync('contactId', [Contacts.Fields.Name]);
+    const response3: Contacts.Contact = await Contacts.getContactByIdAsync(
+        "contactId"
+    );
+    const response4: Contacts.Contact = await Contacts.getContactByIdAsync(
+        "contactId",
+        [Contacts.Fields.Name]
+    );
 
     const response5: string = await Contacts.addContactAsync(contact);
-    const response6: string = await Contacts.addContactAsync(contact, 'containerId');
+    const response6: string = await Contacts.addContactAsync(
+        contact,
+        "containerId"
+    );
 
     const response7: string = await Contacts.updateContactAsync(contact);
-    await Contacts.removeContactAsync('contactId');
-    const response8: string = await Contacts.writeContactToFileAsync({ id: 'contactId' });
-    await Contacts.presentFormAsync('contactId');
-    await Contacts.addExistingGroupToContainerAsync('groupId', 'containerId');
+    await Contacts.removeContactAsync("contactId");
+    const response8: string = await Contacts.writeContactToFileAsync({
+        id: "contactId"
+    });
+    await Contacts.presentFormAsync("contactId");
+    await Contacts.addExistingGroupToContainerAsync("groupId", "containerId");
 
-    const response9: string = await Contacts.createGroupAsync('groupId');
-    const response10: string = await Contacts.createGroupAsync('groupId', 'containerId');
+    const response9: string = await Contacts.createGroupAsync("groupId");
+    const response10: string = await Contacts.createGroupAsync(
+        "groupId",
+        "containerId"
+    );
 
-    await Contacts.updateGroupNameAsync('groupName', 'groupId');
-    await Contacts.removeGroupAsync('groupId');
-    await Contacts.addExistingContactToGroupAsync('contactId', 'groupId');
-    await Contacts.removeContactFromGroupAsync('contactId', 'groupId');
+    await Contacts.updateGroupNameAsync("groupName", "groupId");
+    await Contacts.removeGroupAsync("groupId");
+    await Contacts.addExistingContactToGroupAsync("contactId", "groupId");
+    await Contacts.removeContactFromGroupAsync("contactId", "groupId");
 
-    const response11 = await Contacts.getGroupsAsync({ groupName: 'groupName' });
+    const response11 = await Contacts.getGroupsAsync({
+        groupName: "groupName"
+    });
     response11.forEach((_: Contacts.Group) => _);
 
     const response12: string = await Contacts.getDefaultContainerIdAsync();
 
-    const response13 = await Contacts.getContainersAsync({ containerId: 'containerId' });
+    const response13 = await Contacts.getContainersAsync({
+        containerId: "containerId"
+    });
     response13.forEach((_: Contacts.Container) => _);
 };
 // #endregion

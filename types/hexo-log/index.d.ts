@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import bunyan = require('hexo-bunyan');
-import streams = require('stream');
+import bunyan = require("hexo-bunyan");
+import streams = require("stream");
 
 declare class HexoLogger extends bunyan {
     /**
@@ -154,6 +154,10 @@ declare class HexoLogger extends bunyan {
     log(format: any, ...params: any[]): void;
 }
 
-declare function createLogger(options?: { name?: string; silent?: boolean; debug?: boolean; }): HexoLogger;
+declare function createLogger(options?: {
+    name?: string;
+    silent?: boolean;
+    debug?: boolean;
+}): HexoLogger;
 
 export = createLogger;

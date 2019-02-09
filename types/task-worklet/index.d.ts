@@ -21,11 +21,11 @@ export interface Task<T = any> {
 }
 
 export type State =
-    | 'cancelled'
-    | 'completed'
-    | 'fulfilled'
-    | 'pending'
-    | 'scheduled';
+    | "cancelled"
+    | "completed"
+    | "fulfilled"
+    | "pending"
+    | "scheduled";
 
 export default TaskQueue;
 export as namespace TaskQueue;

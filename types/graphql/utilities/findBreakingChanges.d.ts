@@ -6,7 +6,7 @@ import {
     GraphQLInterfaceType,
     GraphQLObjectType,
     GraphQLUnionType,
-    GraphQLNamedType,
+    GraphQLNamedType
 } from "../type/definition";
 import { GraphQLDirective } from "../type/directives";
 import { GraphQLSchema } from "../type/schema";
@@ -59,25 +59,37 @@ export interface DangerousChange {
  * Given two schemas, returns an Array containing descriptions of all the types
  * of breaking changes covered by the other functions down below.
  */
-export function findBreakingChanges(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findBreakingChanges(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of all the types
  * of potentially dangerous changes covered by the other functions down below.
  */
-export function findDangerousChanges(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<DangerousChange>;
+export function findDangerousChanges(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<DangerousChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any breaking
  * changes in the newSchema related to removing an entire type.
  */
-export function findRemovedTypes(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findRemovedTypes(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any breaking
  * changes in the newSchema related to changing the type of a type.
  */
-export function findTypesThatChangedKind(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findTypesThatChangedKind(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any
@@ -110,25 +122,37 @@ export function findFieldsThatChangedTypeOnInputObjectTypes(
  * Given two schemas, returns an Array containing descriptions of any breaking
  * changes in the newSchema related to removing types from a union type.
  */
-export function findTypesRemovedFromUnions(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findTypesRemovedFromUnions(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any dangerous
  * changes in the newSchema related to adding types to a union type.
  */
-export function findTypesAddedToUnions(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<DangerousChange>;
+export function findTypesAddedToUnions(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<DangerousChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any breaking
  * changes in the newSchema related to removing values from an enum type.
  */
-export function findValuesRemovedFromEnums(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findValuesRemovedFromEnums(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 /**
  * Given two schemas, returns an Array containing descriptions of any dangerous
  * changes in the newSchema related to adding values to an enum type.
  */
-export function findValuesAddedToEnums(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<DangerousChange>;
+export function findValuesAddedToEnums(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<DangerousChange>;
 
 export function findInterfacesRemovedFromObjectTypes(
     oldSchema: GraphQLSchema,
@@ -140,9 +164,15 @@ export function findInterfacesAddedToObjectTypes(
     newSchema: GraphQLSchema
 ): Array<DangerousChange>;
 
-export function findRemovedDirectives(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findRemovedDirectives(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
-export function findRemovedDirectiveArgs(oldSchema: GraphQLSchema, newSchema: GraphQLSchema): Array<BreakingChange>;
+export function findRemovedDirectiveArgs(
+    oldSchema: GraphQLSchema,
+    newSchema: GraphQLSchema
+): Array<BreakingChange>;
 
 export function findAddedNonNullDirectiveArgs(
     oldSchema: GraphQLSchema,

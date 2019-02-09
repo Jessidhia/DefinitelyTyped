@@ -43,12 +43,10 @@ export as namespace h337;
  * var heatmapInstance = h337.create(config);
  */
 export function create<
-    V extends string = 'value',
-    X extends string = 'x',
-    Y extends string = 'y'
->(
-    configObject: HeatmapConfiguration<V, X, Y>
-): Heatmap<V, X, Y>;
+    V extends string = "value",
+    X extends string = "x",
+    Y extends string = "y"
+>(configObject: HeatmapConfiguration<V, X, Y>): Heatmap<V, X, Y>;
 
 export function register(pluginKey: string, plugin: any): void;
 
@@ -79,7 +77,9 @@ export class Heatmap<V extends string, X extends string, Y extends string> {
      * var dataPoints = [dataPoint, dataPoint, dataPoint, dataPoint];
      * heatmapInstance.addData(dataPoints);
      */
-    addData(dataPoint: DataPoint<V, X, Y> | ReadonlyArray<DataPoint<V, X, Y>>): this;
+    addData(
+        dataPoint: DataPoint<V, X, Y> | ReadonlyArray<DataPoint<V, X, Y>>
+    ): this;
 
     /**
      * Initialize a heatmap instance with the given dataset. Removes all
@@ -159,7 +159,7 @@ export class Heatmap<V extends string, X extends string, Y extends string> {
      * // get the value at x=10, y=10
      * heatmapInstance.getValueAt({ x: 10, y: 10 }); // returns 100
      */
-    getValueAt(point: { x: number, y: number }): number;
+    getValueAt(point: { x: number; y: number }): number;
 
     /**
      * Returns a persistable and reimportable (with setData) JSON object.
@@ -191,7 +191,7 @@ export class Heatmap<V extends string, X extends string, Y extends string> {
     repaint(): this;
 }
 
-export interface BaseHeatmapConfiguration<V extends string = 'value'> {
+export interface BaseHeatmapConfiguration<V extends string = "value"> {
     /**
      * A background color string in form of hexcode, color name, or rgb(a)
      */
@@ -264,9 +264,9 @@ export interface BaseHeatmapConfiguration<V extends string = 'value'> {
  * Configuration object of a heatmap
  */
 export interface HeatmapConfiguration<
-    V extends string = 'value',
-    X extends string = 'x',
-    Y extends string = 'y',
+    V extends string = "value",
+    X extends string = "x",
+    Y extends string = "y"
 > extends BaseHeatmapConfiguration<V> {
     /**
      * A DOM node where the heatmap canvas should be appended (heatmap will adapt to
@@ -288,9 +288,9 @@ export interface HeatmapConfiguration<
 }
 
 export interface HeatmapOverlayConfiguration<
-    V extends string = 'value',
-    TLat extends string = 'lat',
-    TLong extends string = 'lng',
+    V extends string = "value",
+    TLat extends string = "lat",
+    TLong extends string = "lng"
 > extends BaseHeatmapConfiguration<V> {
     /**
      * The property name of your latitude coordinate in a datapoint
@@ -311,9 +311,9 @@ export interface HeatmapOverlayConfiguration<
  * config object.
  */
 export type DataPoint<
-    V extends string = 'value',
-    X extends string = 'x',
-    Y extends string = 'y',
+    V extends string = "value",
+    X extends string = "x",
+    Y extends string = "y"
 > = Record<V | X | Y, number>;
 
 /**
@@ -373,7 +373,11 @@ declare global {
         /**
          * Experimential... not ready.
          */
-        addData(data: DataPoint<V, TLat, TLng> | ReadonlyArray<DataPoint<V, TLat, TLng>>): void;
+        addData(
+            data:
+                | DataPoint<V, TLat, TLng>
+                | ReadonlyArray<DataPoint<V, TLat, TLng>>
+        ): void;
 
         /**
          * Create DOM elements for an overlay, adding them to map panes and puts

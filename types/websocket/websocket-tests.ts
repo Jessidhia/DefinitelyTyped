@@ -1,7 +1,6 @@
-
-import websocket = require('websocket');
-import http = require('http');
-import os = require('os');
+import websocket = require("websocket");
+import http = require("http");
+import os = require("os");
 
 /*
 function serverTest() {
@@ -133,7 +132,10 @@ function getLocalIpArray(): Array<string> {
     var ipArray: Array<string> = [];
     for (var dev in interfaces) {
         for (var i = 0; i < interfaces[dev].length; i++) {
-            if (interfaces[dev][i].family == "IPv4" && interfaces[dev][i].internal == false) {
+            if (
+                interfaces[dev][i].family == "IPv4" &&
+                interfaces[dev][i].internal == false
+            ) {
                 ipArray.push(interfaces[dev][i].address);
             }
         }
@@ -153,31 +155,30 @@ function serverTest2() {
         autoAcceptConnections: true
     });
 
-    wsServer.on("connect", (conn) => {
-        conn.sendUTF(`Your IP Address is - ${conn.remoteAddress}`)
+    wsServer.on("connect", conn => {
+        conn.sendUTF(`Your IP Address is - ${conn.remoteAddress}`);
     });
 }
 
 function clientTest2() {
     var ipArray = getLocalIpArray();
-    
+
     var client = new websocket.client();
-    client.on("connect", (conn) => {
+    client.on("connect", conn => {
         console.log(`on connect`);
-        conn.on("frame", (frame) => {
+        conn.on("frame", frame => {
             console.log(`on frame - ${frame.binaryPayload.toString()}`);
         });
-        conn.on("message", (data) => {
+        conn.on("message", data => {
             console.log(`on message - ${data.utf8Data}`);
         });
     });
-    client.on("connectFailed", (err) => {
+    client.on("connectFailed", err => {
         console.log(`on failed: ${err}`);
     });
     client.connect(`ws://${ipArray[0]}:8888`, undefined, undefined, undefined, {
         localAddress: ipArray[0]
     });
-    
 }
 
 function testClientAbortApi() {

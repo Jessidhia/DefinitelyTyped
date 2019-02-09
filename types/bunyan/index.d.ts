@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 declare class Logger extends EventEmitter {
     constructor(options: Logger.LoggerOptions);
@@ -207,7 +207,13 @@ declare namespace Logger {
     const ERROR: number;
     const FATAL: number;
 
-    type LogLevelString = 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal';
+    type LogLevelString =
+        | "trace"
+        | "debug"
+        | "info"
+        | "warn"
+        | "error"
+        | "fatal";
     type LogLevel = LogLevelString | number;
 
     const levelFromName: { [name in LogLevelString]: number };
@@ -277,7 +283,8 @@ declare namespace Logger {
         period?: string;
     }
 
-    class RotatingFileStream extends EventEmitter implements NodeJS.WritableStream {
+    class RotatingFileStream extends EventEmitter
+        implements NodeJS.WritableStream {
         constructor(options: RotatingFileStreamOptions);
 
         writable: boolean;

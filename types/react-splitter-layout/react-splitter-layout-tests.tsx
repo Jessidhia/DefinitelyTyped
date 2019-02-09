@@ -5,7 +5,7 @@ export class SplitterLayoutTest extends React.PureComponent {
     render(): JSX.Element {
         const props: SplitterLayoutProps = {
             percentage: true,
-            secondaryInitialSize: 40,
+            secondaryInitialSize: 40
         };
         return (
             <SplitterLayout {...props}>

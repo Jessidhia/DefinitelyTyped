@@ -28,31 +28,22 @@ $(".js-example-theme-single").select2({
 let dataFormat: Select2.DataFormat[];
 let groupedDataFormat: Select2.GroupedDataFormat[];
 
-dataFormat = [
-    {id: 1, text: "Option 1"},
-    {id: 2, text: "Option 2"},
-];
+dataFormat = [{ id: 1, text: "Option 1" }, { id: 2, text: "Option 2" }];
 
 dataFormat = [
-    {id: 1, text: "Option 1"},
-    {id: 2, text: "Option 2", selected: true},
-    {id: 3, text: "Option 3", disabled: true},
+    { id: 1, text: "Option 1" },
+    { id: 2, text: "Option 2", selected: true },
+    { id: 3, text: "Option 3", disabled: true }
 ];
 
 groupedDataFormat = [
     {
         text: "Group 1",
-        children : [
-            {id: 1, text: "Option 1.1"},
-            {id: 2, text: "Option 1.2"},
-        ]
+        children: [{ id: 1, text: "Option 1.1" }, { id: 2, text: "Option 1.2" }]
     },
     {
         text: "Group 2",
-        children : [
-            {id: 3, text: "Option 2.1"},
-            {id: 4, text: "Option 2.2"},
-        ]
+        children: [{ id: 3, text: "Option 2.1" }, { id: 4, text: "Option 2.2" }]
     }
 ];
 
@@ -66,7 +57,7 @@ groupedDataFormat = [
 $("#mySelect2").select2({
     ajax: {
         url: "https://api.github.com/orgs/select2/repos",
-        data: (params) => {
+        data: params => {
             return {
                 search: params.term,
                 type: "public"
@@ -97,7 +88,7 @@ $("#mySelect2").select2({
 $("#mySelect2").select2({
     ajax: {
         url: "https://api.github.com/search/repositories",
-        data: (params) => {
+        data: params => {
             return {
                 search: params.term,
                 page: params.page || 1
@@ -119,7 +110,7 @@ $("#mySelect2").select2({
             return {
                 results: data.results,
                 pagination: {
-                    more: (params.page * 10) < data.count_filtered
+                    more: params.page * 10 < data.count_filtered
                 }
             };
         }
@@ -138,7 +129,7 @@ $("#mySelect2").select2({
 
 $("#mySelect2").select2({
     ajax: {
-        url: (params) => {
+        url: params => {
             return "/some/url/" + params.term;
         }
     }
@@ -150,7 +141,11 @@ declare let AjaxSettings2RequestInit: (s: JQueryAjaxSettings) => RequestInit;
 
 $("#mySelect2").select2({
     ajax: {
-        transport: (params: JQueryAjaxSettings, success?: (data: any) => undefined, failure?: () => undefined) => {
+        transport: (
+            params: JQueryAjaxSettings,
+            success?: (data: any) => undefined,
+            failure?: () => undefined
+        ) => {
             const p = AjaxSettings2RequestInit(params);
             fetch(params.url!, p)
                 .then(success)
@@ -172,8 +167,8 @@ interface GithubRepositories {
     name: string;
     full_name: string;
     owner: {
-        avatar_url: string
-        gravatar_id: string
+        avatar_url: string;
+        gravatar_id: string;
     };
     description?: string;
     stargazers_count: number;
@@ -194,13 +189,16 @@ $(".js-example-data-ajax").select2<GithubRepositories, GithubApiResult>({
                 page: params.page
             };
         },
-        processResults: (data: GithubApiResult, params: Select2.QueryOptions) => {
+        processResults: (
+            data: GithubApiResult,
+            params: Select2.QueryOptions
+        ) => {
             params.page = params.page || 1;
 
             return {
                 results: data.items,
                 pagination: {
-                    more: (params.page * data.items.length) < data.total_count
+                    more: params.page * data.items.length < data.total_count
                 }
             };
         },
@@ -220,28 +218,46 @@ function formatRepo(obj: Select2.LoadingData | GithubRepositories) {
 
     const repo = obj as GithubRepositories;
 
-    let markup = '<div class="select2-result-repository clearfix">' +
-        `<div class="select2-result-repository__avatar"><img src="${repo.owner.avatar_url}"></div>` +
+    let markup =
+        '<div class="select2-result-repository clearfix">' +
+        `<div class="select2-result-repository__avatar"><img src="${
+            repo.owner.avatar_url
+        }"></div>` +
         '<div class="select2-result-repository__meta">' +
-        `<div class="select2-result-repository__title"> ${repo.full_name} </div>`;
+        `<div class="select2-result-repository__title"> ${
+            repo.full_name
+        } </div>`;
 
     if (repo.description) {
-        markup += `<div class="select2-result-repository__description">${repo.description}</div>`;
+        markup += `<div class="select2-result-repository__description">${
+            repo.description
+        }</div>`;
     }
 
-    markup += '<div class="select2-result-repository__statistics">' +
-        `<div class="select2-result-repository__forks"><i class="fa fa-flash"></i> ${repo.forks_count} Forks</div>` +
-        `<div class="select2-result-repository__stargazers"><i class="fa fa-star"></i> ${repo.stargazers_count} Stars</div>` +
-        `<div class="select2-result-repository__watchers"><i class="fa fa-eye"></i> ${repo.watchers_count} Watchers</div>` +
+    markup +=
+        '<div class="select2-result-repository__statistics">' +
+        `<div class="select2-result-repository__forks"><i class="fa fa-flash"></i> ${
+            repo.forks_count
+        } Forks</div>` +
+        `<div class="select2-result-repository__stargazers"><i class="fa fa-star"></i> ${
+            repo.stargazers_count
+        } Stars</div>` +
+        `<div class="select2-result-repository__watchers"><i class="fa fa-eye"></i> ${
+            repo.watchers_count
+        } Watchers</div>` +
         "</div>" +
         "</div></div>";
 
     return markup;
 }
 
-function formatRepoSelection(repo: Select2.IdTextPair | Select2.LoadingData | GithubRepositories) {
-    return (repo as GithubRepositories).full_name ||
-        (repo as Select2.IdTextPair | Select2.LoadingData).text;
+function formatRepoSelection(
+    repo: Select2.IdTextPair | Select2.LoadingData | GithubRepositories
+) {
+    return (
+        (repo as GithubRepositories).full_name ||
+        (repo as Select2.IdTextPair | Select2.LoadingData).text
+    );
 }
 
 // =====================================================
@@ -271,7 +287,9 @@ function formatState(state: Select2.LoadingData | Select2.OptionData) {
     }
     const baseUrl = "/user/pages/images/flags";
     const $state = $(
-        `<span><img src="${baseUrl}/${opt.element.value.toLowerCase()}.png" class="img-flag"> ${opt.text}</span>`
+        `<span><img src="${baseUrl}/${opt.element.value.toLowerCase()}.png" class="img-flag"> ${
+            opt.text
+        }</span>`
     );
     return $state;
 }
@@ -336,7 +354,7 @@ $(".js-example-tokenizer").select2({
 
 $("select").select2({
     tags: true,
-    createTag: (params) => {
+    createTag: params => {
         const term = params.term.trim();
 
         if (term === "") {
@@ -346,14 +364,14 @@ $("select").select2({
         return {
             id: term,
             text: term,
-            newTag: true, // not for select2 use
+            newTag: true // not for select2 use
         };
     }
 });
 
 $("select").select2({
     tags: true,
-    createTag: (params) => {
+    createTag: params => {
         if (params.term.indexOf("@") === -1) {
             return null;
         }
@@ -404,7 +422,9 @@ $("select").select2({
 // Customizing placeholder appearance
 
 $("select").select2({
-    templateSelection: (data: Select2.IdTextPair | Select2.LoadingData | Select2.OptionData) => {
+    templateSelection: (
+        data: Select2.IdTextPair | Select2.LoadingData | Select2.OptionData
+    ) => {
         if (data.id === "") {
             return "Custom styled placeholder text";
         }
@@ -430,7 +450,7 @@ $(".js-example-matcher").select2({
         }
 
         if (data.text.indexOf(params.term) > -1) {
-            const modifiedData = {...data};
+            const modifiedData = { ...data };
             modifiedData.text += " (matched)";
             return modifiedData;
         }
@@ -441,7 +461,10 @@ $(".js-example-matcher").select2({
 
 // Matching grouped options
 
-function matchStart(params: Select2.SearchOptions, data: Select2.OptGroupData | Select2.OptionData) {
+function matchStart(
+    params: Select2.SearchOptions,
+    data: Select2.OptGroupData | Select2.OptionData
+) {
     if (params.term.trim() === "") {
         return data;
     }
@@ -458,7 +481,7 @@ function matchStart(params: Select2.SearchOptions, data: Select2.OptGroupData | 
     });
 
     if (filteredChildren.length) {
-        const modifiedData = {...data};
+        const modifiedData = { ...data };
         modifiedData.children = filteredChildren;
 
         return modifiedData;
@@ -496,10 +519,15 @@ $("#js-example-basic-hide-search").select2({
 });
 
 $("#js-example-basic-hide-search-multi").select2();
-$("#js-example-basic-hide-search-multi").on("select2:opening select2:closing", function(event) {
-    const $searchfield = $(this).parent().find(".select2-search__field");
-    $searchfield.prop("disabled", true);
-});
+$("#js-example-basic-hide-search-multi").on(
+    "select2:opening select2:closing",
+    function(event) {
+        const $searchfield = $(this)
+            .parent()
+            .find(".select2-search__field");
+        $searchfield.prop("disabled", true);
+    }
+);
 
 // =====================================================
 // Programmatic control -- Add, select, or clear items
@@ -570,7 +598,7 @@ $("#mySelect2").select2("destroy");
 
 $("#example").select2();
 
-$("#example").on("select2:select", (e) => {
+$("#example").on("select2:select", e => {
     console.log("select event");
 });
 
@@ -618,13 +646,13 @@ $(".js-programmatic-multi-clear").on("click", () => {
 
 // Listening for events
 
-$("#mySelect2").on("select2:select", (e) => {
+$("#mySelect2").on("select2:select", e => {
     // Do something
 });
 
 // Event data
 
-$("#mySelect2").on("select2:select", (e) => {
+$("#mySelect2").on("select2:select", e => {
     const data = e.params.data;
     console.log(data);
 });
@@ -652,13 +680,29 @@ const $eventSelect = $(".js-example-events");
 
 $eventSelect.select2();
 
-$eventSelect.on("select2:open", (e) => { log("select2:open", e); });
-$eventSelect.on("select2:close", (e) => { log("select2:close", e); });
-$eventSelect.on("select2:select", (e) => { log("select2:select", e); });
-$eventSelect.on("select2:unselect", (e) => { log("select2:unselect", e); });
-$eventSelect.on("change", (e) => { log("change"); });
+$eventSelect.on("select2:open", e => {
+    log("select2:open", e);
+});
+$eventSelect.on("select2:close", e => {
+    log("select2:close", e);
+});
+$eventSelect.on("select2:select", e => {
+    log("select2:select", e);
+});
+$eventSelect.on("select2:unselect", e => {
+    log("select2:unselect", e);
+});
+$eventSelect.on("change", e => {
+    log("change");
+});
 
-function log(name: string, evt?: Select2.Event<HTMLElement, {} | Select2.IngParams | Select2.DataParams>) {
+function log(
+    name: string,
+    evt?: Select2.Event<
+        HTMLElement,
+        {} | Select2.IngParams | Select2.DataParams
+    >
+) {
     let args = "{}";
     if (evt) {
         args = JSON.stringify(evt.params, (key, value) => {
@@ -693,20 +737,24 @@ const fr: Select2.Translation = {
     errorLoading: () => {
         return "Les résultats ne peuvent pas être chargés.";
     },
-    inputTooLong: (args) => {
+    inputTooLong: args => {
         const overChars = args.input.length - args.maximum;
         return `Supprimez ${overChars} caractère${overChars > 1 ? "s" : ""}`;
     },
-    inputTooShort: (args) => {
+    inputTooShort: args => {
         const remainingChars = args.minimum - args.input.length;
-        return `Saisissez au moins ${remainingChars} caractère${remainingChars > 1 ? "s" : ""}`;
+        return `Saisissez au moins ${remainingChars} caractère${
+            remainingChars > 1 ? "s" : ""
+        }`;
     },
     loadingMore: () => {
         return "Chargement de résultats supplémentaires…";
     },
-    maximumSelected: (args) => {
-        return `Vous pouvez seulement sélectionner ${args.maximum}` +
-            ` élément${args.maximum > 1 ? "s" : ""}`;
+    maximumSelected: args => {
+        return (
+            `Vous pouvez seulement sélectionner ${args.maximum}` +
+            ` élément${args.maximum > 1 ? "s" : ""}`
+        );
     },
     noResults: () => {
         return "Aucun résultat trouvé";
@@ -734,9 +782,16 @@ $(".js-example-rtl").select2({
 // See: https://select2.org/advanced
 
 $.fn.select2.amd.require(
-    ["select2/utils", "select2/selection/single", "select2/selection/placeholder"],
+    [
+        "select2/utils",
+        "select2/selection/single",
+        "select2/selection/placeholder"
+    ],
     (Utils: any, SingleSelection: any, Placeholder: any) => {
-        const CustomSelectionAdapter = Utils.Decorate(SingleSelection, Placeholder);
+        const CustomSelectionAdapter = Utils.Decorate(
+            SingleSelection,
+            Placeholder
+        );
     }
 );
 
@@ -747,25 +802,30 @@ $.fn.select2.amd.require(
 // =====================================================
 // Code not from the official documentation
 
-$().data("select2").$container.on("keyup", "input", console.log);
+$()
+    .data("select2")
+    .$container.on("keyup", "input", console.log);
 
 $(".js-multiple").select2({
-    multiple: false,
+    multiple: false
 });
 
 $(".js-states").select2({
-    sorter: (data) => {
-        return data.sort((a, b) => a.text > b.text ? 1 : 0);
+    sorter: data => {
+        return data.sort((a, b) => (a.text > b.text ? 1 : 0));
     }
 });
 
-$("#mySelect2").select2({
-    theme: "bootstrap",
-}).on("select2:closing", function() {
-    $(this).val("Bye");
-}).on("select2:close", function() {
-    $(this).trigger("change");
-});
+$("#mySelect2")
+    .select2({
+        theme: "bootstrap"
+    })
+    .on("select2:closing", function() {
+        $(this).val("Bye");
+    })
+    .on("select2:close", function() {
+        $(this).trigger("change");
+    });
 
 const selectedData: Select2.OptionData[] = $("#mySelect2").select2("data");
 // TODO
@@ -777,7 +837,7 @@ declare let select: HTMLSelectElement;
 const $select: JQuery<HTMLSelectElement> = $(select);
 
 select = $select.select2().get(0);
-select = $select.select2({tags: true}).get(0);
+select = $select.select2({ tags: true }).get(0);
 select = $select.select2("open").get(0);
 select = $select.select2("close").get(0);
 select = $select.select2("destroy").get(0);

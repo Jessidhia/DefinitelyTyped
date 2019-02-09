@@ -286,14 +286,14 @@ interface Numeric {
     // Deep copy of Array
     clone<
         T extends NonNullPrimitive[] | MultidimensionalArray<NonNullPrimitive>
-        >(
+    >(
         x: T
     ): T;
     cloneV(x: NonNullPrimitive[]): NonNullPrimitive[];
     cloneeq(x: NonNullPrimitive[]): NonNullPrimitive[];
     cloneeq<
         T extends NonNullPrimitive[] | MultidimensionalArray<NonNullPrimitive>
-        >(
+    >(
         x: T
     ): T;
     cloneeqV(x: NonNullPrimitive[]): NonNullPrimitive[];

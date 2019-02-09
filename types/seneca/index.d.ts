@@ -5,15 +5,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/seneca
 // TypeScript Version: 2.3
 
-
 declare module "seneca" {
-
     function SNS(options?: SNS.Options): SNS.Instance;
 
     namespace SNS {
-
         type UnknownType = any;
-
 
         interface Options {
             [plugin_name: string]: any;
@@ -21,14 +17,14 @@ declare module "seneca" {
             // Standard length of identifiers for actions.
             idlen?: number;
             // Standard timeout for actions.
-            timeout?: number;   // milliseconds
+            timeout?: number; // milliseconds
             // Register (true) default plugins. Set false to not register when
             // using custom versions.
             default_plugins?: {
-                basic?:       boolean;
-                'mem-store'?: boolean;
-                transport?:   boolean;
-                web?:         boolean;
+                basic?: boolean;
+                "mem-store"?: boolean;
+                transport?: boolean;
+                web?: boolean;
             };
             // Settings for network REPL.
             repl?: {
@@ -38,9 +34,9 @@ declare module "seneca" {
             // Debug settings.
             debug?: {
                 // Throw (some) errors from seneca.act.
-                fragile?:    boolean;
+                fragile?: boolean;
                 // Fatal errors ... aren't fatal. Not for production!
-                undead?:     boolean;
+                undead?: boolean;
                 // Print debug info to console
                 print?: {
                     // Print options. Best used via --seneca.print.options.
@@ -65,14 +61,14 @@ declare module "seneca" {
             // Action cache. Makes inbound messages idempotent.
             actcache?: {
                 active?: boolean;
-                size?:   number;
+                size?: number;
             };
             // Action executor tracing. See gate-executor module.
             trace?: {
                 act?: boolean;
                 stack?: boolean;
                 unknown?: string;
-            },
+            };
             // Action statistics settings. See rolling-stats module.
             stats?: {
                 size?: number;
@@ -107,13 +103,15 @@ declare module "seneca" {
                 interval?: number;
                 // By default, does not run.
                 running?: boolean;
-            },
+            };
             // zig module settings for seneca.start() chaining.
             zig?: any;
-            log?: LogSpec | {
-                level?: LogLevel;
-                short?: boolean;
-            };
+            log?:
+                | LogSpec
+                | {
+                      level?: LogLevel;
+                      short?: boolean;
+                  };
             errhandler?: GlobalErrorHandler;
         }
 
@@ -123,23 +121,19 @@ declare module "seneca" {
         }
 
         type LogSpec =
-            'quiet' |    // { level: 'none' }
-            'silent' |   // { level: 'none' }
-            'any' |      // { level: 'debug+' }
-            'all' |      // { level: 'debug+' }
-            'print' |    // { level: 'debug+' }
-            'standard' | // { level: 'info+' }
-            'test'       // { level: 'warn+' }
+            | "quiet" // { level: 'none' }
+            | "silent" // { level: 'none' }
+            | "any" // { level: 'debug+' }
+            | "all" // { level: 'debug+' }
+            | "print" // { level: 'debug+' }
+            | "standard" // { level: 'info+' }
+            | "test"; // { level: 'warn+' }
 
-        type LogLevel =
-            'none' |
-            'debug+' |
-            'info+' |
-            'warn+'        
+        type LogLevel = "none" | "debug+" | "info+" | "warn+";
 
         interface Optioner {
-        set: (input: string | Options) => Options;
-        get: () => Options;
+            set: (input: string | Options) => Options;
+            get: () => Options;
         }
 
         type ExecutorWorker = (callback: any) => void;
@@ -154,15 +148,12 @@ declare module "seneca" {
             execute: UnknownType;
         }
 
-        interface PluginOptions {
-        }
+        interface PluginOptions {}
         type PluginModule = (options: any) => void;
 
-        interface ClientOptions {
-        }
+        interface ClientOptions {}
 
-        interface ListenOptions {
-        }
+        interface ListenOptions {}
 
         interface EntityDataWithQuery {
             [entityKey: string]: any;
@@ -183,18 +174,18 @@ declare module "seneca" {
         type GlobalErrorHandler = (error: Error) => void;
         type AddCallback<T = any> = (
             msg: MessagePayload<T>,
-            respond: (error: Error | null, msg?: any) => void,
+            respond: (error: Error | null, msg?: any) => void
         ) => void;
         type ActCallback = (error: Error | null, result?: any) => void;
-        type CloseCallback = (optional: any, done: (error: Error) => void) => void;
+        type CloseCallback = (
+            optional: any,
+            done: (error: Error) => void
+        ) => void;
         type DatabaseID = string;
         type EntitySaveCallback = (error: Error, result: any) => void;
         type EntityLoadCallback = (error: Error, result: any) => void;
         type EntityRemoveCallback = (error: Error) => void;
         type EntityListCallback = (error: Error, result: any[]) => void;
-
-
-
 
         interface Instance {
             version: string;
@@ -213,26 +204,37 @@ declare module "seneca" {
 
             add<PatternType = any, CallBackParams = any>(
                 pattern: PatternType,
-                action: AddCallback<PatternType & CallBackParams>,
+                action: AddCallback<PatternType & CallBackParams>
             ): this;
             add<PatternType = any, CallbackParams = any>(
                 pattern: PatternType,
                 paramspec: any,
-                action: AddCallback<PatternType & CallbackParams>,
+                action: AddCallback<PatternType & CallbackParams>
             ): this;
 
-            act<PatternWithArgs = Pattern>(pattern: PatternWithArgs, respond: ActCallback): void;
-            act<PatternWithArgs = Pattern>(pattern: PatternWithArgs, msg: any, respond: ActCallback): void;
+            act<PatternWithArgs = Pattern>(
+                pattern: PatternWithArgs,
+                respond: ActCallback
+            ): void;
+            act<PatternWithArgs = Pattern>(
+                pattern: PatternWithArgs,
+                msg: any,
+                respond: ActCallback
+            ): void;
             make(entity_canon: string, properties?: any): Entity;
             make(base: string, entity_canon: string, properties?: any): Entity;
-            make(zone: string, base: string, entity_canon: string, properties?: any): Entity;
+            make(
+                zone: string,
+                base: string,
+                entity_canon: string,
+                properties?: any
+            ): Entity;
 
             // @param name reference to plugin provided object
             export(name: string): PluginModule;
 
             pin(pattern: Pattern): void;
         }
-
 
         // NOTE: senecas documented use of:
         //    var product = seneca.make('product')
@@ -249,14 +251,24 @@ declare module "seneca" {
             make$(zone: string, base: string, name: string): Entity;
 
             save$(callback: EntitySaveCallback): void;
-            save$(props: EntityDataWithQuery, callback: EntitySaveCallback): void;
-            load$(id: DatabaseID | EntityDataWithQuery, callback: EntityLoadCallback): void;
-            remove$(id: DatabaseID | EntityDataWithQuery, callback: EntityRemoveCallback): void;
-            list$(query: EntityDataWithQuery, callback: EntityListCallback): void;
+            save$(
+                props: EntityDataWithQuery,
+                callback: EntitySaveCallback
+            ): void;
+            load$(
+                id: DatabaseID | EntityDataWithQuery,
+                callback: EntityLoadCallback
+            ): void;
+            remove$(
+                id: DatabaseID | EntityDataWithQuery,
+                callback: EntityRemoveCallback
+            ): void;
+            list$(
+                query: EntityDataWithQuery,
+                callback: EntityListCallback
+            ): void;
         }
-        
     }
 
     export = SNS;
 }
-

@@ -10,7 +10,7 @@ window.onload = show;
 // Example 2 (from the spec):
 const start = () => {
     document.onfullscreenchange = () => {
-        screen.orientation.lock('natural').then(startInternal);
+        screen.orientation.lock("natural").then(startInternal);
     };
     document.documentElement.requestFullscreen();
 };
@@ -19,18 +19,21 @@ const start = () => {
 const startInternal = () => {};
 
 const start2 = () => {
-    screen.orientation.lock('landscape-primary').then(startInternal, () => {
-        alert('To start, rotate your screen to landscape.');
+    screen.orientation.lock("landscape-primary").then(startInternal, () => {
+        alert("To start, rotate your screen to landscape.");
 
         const orientationChangeHandler = () => {
-            if (!screen.orientation.type.startsWith('landscape')) {
+            if (!screen.orientation.type.startsWith("landscape")) {
                 return;
             }
-            screen.orientation.removeEventListener('change', orientationChangeHandler);
+            screen.orientation.removeEventListener(
+                "change",
+                orientationChangeHandler
+            );
             startInternal();
         };
 
-        screen.orientation.addEventListener('change', orientationChangeHandler);
+        screen.orientation.addEventListener("change", orientationChangeHandler);
     });
 };
 window.onload = start2;

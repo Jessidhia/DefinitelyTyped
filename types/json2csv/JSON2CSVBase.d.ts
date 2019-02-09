@@ -37,7 +37,7 @@ declare abstract class JSON2CSVBase<T> {
      * delimiter, default value, quote mark, header, etc.
      * @returns {json2csv.Options} preprocessed Options object
      */
-    protected preprocessOpts(opts?: json2csv.Options<T>) : json2csv.Options<T>;
+    protected preprocessOpts(opts?: json2csv.Options<T>): json2csv.Options<T>;
 
     /**
      * Create the title row with all the provided fields as column headings
@@ -68,7 +68,7 @@ declare abstract class JSON2CSVBase<T> {
      * @param {object} fieldInfo Details of the field to process to be a CSV cell
      * @returns {string} CSV string (cell)
      */
-    protected processCell(row: T, fieldInfo: json2csv.FieldInfo<T>) : string;
+    protected processCell(row: T, fieldInfo: json2csv.FieldInfo<T>): string;
 
     /**
      * Create the content of a specfic CSV row cell
@@ -104,7 +104,10 @@ declare abstract class JSON2CSVBase<T> {
      * @param {string[]} unwindPaths The paths as strings to be used to deconstruct the array
      * @returns {Array} Array of objects containing all rows after unwind of chosen paths
      */
-    protected unwindData(dataRow: Array<T>, unwindPaths: Array<string>): Array<object>;
+    protected unwindData(
+        dataRow: Array<T>,
+        unwindPaths: Array<string>
+    ): Array<object>;
 }
 
 export default JSON2CSVBase;

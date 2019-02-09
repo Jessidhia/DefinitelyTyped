@@ -1,4 +1,4 @@
-import { Converter, Validator, Validation } from '../ojvalidation-base';
+import { Converter, Validator, Validation } from "../ojvalidation-base";
 export class IntlNumberConverter extends NumberConverter {
     constructor(options?: IntlNumberConverter.ConverterOptions);
     format(value: number): string;
@@ -10,21 +10,21 @@ export class IntlNumberConverter extends NumberConverter {
 export namespace IntlNumberConverter {
     // tslint:disable-next-line interface-over-type-literal
     type ConverterOptions = {
-        style?: 'decimal' | 'currency' | 'percent' | 'unit';
+        style?: "decimal" | "currency" | "percent" | "unit";
         currency?: string;
-        unit?: 'byte' | 'bit';
-        currencyDisplay?: 'code' | 'symbol' | 'name';
-        decimalFormat?: 'standard' | 'short' | 'long';
-        currencyFormat?: 'standard' | 'short' | 'long';
+        unit?: "byte" | "bit";
+        currencyDisplay?: "code" | "symbol" | "name";
+        decimalFormat?: "standard" | "short" | "long";
+        currencyFormat?: "standard" | "short" | "long";
         minimumIntegerDigits?: number;
         minimumFractionDigits?: number;
         maximumFractionDigits?: number;
         useGrouping?: boolean;
         pattern?: string;
-        roundingMode?: 'HALF_UP' | 'HALF_DOWN' | 'HALF_EVEN';
+        roundingMode?: "HALF_UP" | "HALF_DOWN" | "HALF_EVEN";
         roundDuringParse?: boolean;
         separators?: Separators;
-        lenientParse?: 'full' | 'none';
+        lenientParse?: "full" | "none";
     };
     // tslint:disable-next-line interface-over-type-literal
     type Separators = {
@@ -37,7 +37,9 @@ export class NumberConverter implements Converter<number> {
     parse(value: string): number | null;
 }
 export interface NumberConverterFactory {
-    createConverter(options?: IntlNumberConverter.ConverterOptions): IntlNumberConverter;
+    createConverter(
+        options?: IntlNumberConverter.ConverterOptions
+    ): IntlNumberConverter;
 }
 export class NumberRangeValidator implements Validator<string | number> {
     constructor(options?: NumberRangeValidator.ValidatorOptions);
@@ -68,5 +70,7 @@ export namespace NumberRangeValidator {
     };
 }
 export interface NumberRangeValidatorFactory {
-    createValidator(options?: NumberRangeValidator.ValidatorOptions): NumberRangeValidator;
+    createValidator(
+        options?: NumberRangeValidator.ValidatorOptions
+    ): NumberRangeValidator;
 }

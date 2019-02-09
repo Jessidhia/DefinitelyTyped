@@ -14,10 +14,18 @@ interface CordovaPlugins {
 declare namespace OneSignalCordovaPlugin {
     interface OneSignalCordovaPlugin {
         startInit(appId: string): OneSignalBuilder;
-        promptForPushNotificationsWithUserResponse(callback: (accepted: boolean) => void): void;
-        getPermissionSubscriptionState(callback: (status: OSPermissionSubscriptionState) => void): void;
-        addPermissionObserver(callback: (state: OSPermissionState) => void): void;
-        addSubscriptionObserver(callback: (state: OSSubscriptionState) => void): void;
+        promptForPushNotificationsWithUserResponse(
+            callback: (accepted: boolean) => void
+        ): void;
+        getPermissionSubscriptionState(
+            callback: (status: OSPermissionSubscriptionState) => void
+        ): void;
+        addPermissionObserver(
+            callback: (state: OSPermissionState) => void
+        ): void;
+        addSubscriptionObserver(
+            callback: (state: OSSubscriptionState) => void
+        ): void;
         getTags(callback: (tags: any) => void): void;
         sendTag(key: string, value: string): void;
         sendTags(tags: { [key: string]: string }): void;
@@ -25,19 +33,29 @@ declare namespace OneSignalCordovaPlugin {
         deleteTags(keys: string[]): void;
         promptLocation(): void;
         syncHashedEmail(email: string): void;
-        postNotification(notificationObj: any, onSuccess: (json: any) => void, onFailure: (json: any) => void): void;
+        postNotification(
+            notificationObj: any,
+            onSuccess: (json: any) => void,
+            onFailure: (json: any) => void
+        ): void;
         clearOneSignalNotifications(): void;
         setSubscription(enable: boolean): void;
         enableVibrate(enable: boolean): void;
         enableSound(enable: boolean): void;
-        setLogLevel(logLevel: { logLevel: number, visualLevel: number }): void;
-        getIds(callback: (id: { userId: string; pushToken: string }) => void): void;
+        setLogLevel(logLevel: { logLevel: number; visualLevel: number }): void;
+        getIds(
+            callback: (id: { userId: string; pushToken: string }) => void
+        ): void;
         registerForPushNotifications(): void;
     }
 
     interface OneSignalBuilder {
-        handleNotificationReceived(callback: (json: OSNotification) => void): OneSignalBuilder;
-        handleNotificationOpened(callback: (json: OSNotificationOpenedResult) => void): OneSignalBuilder;
+        handleNotificationReceived(
+            callback: (json: OSNotification) => void
+        ): OneSignalBuilder;
+        handleNotificationOpened(
+            callback: (json: OSNotificationOpenedResult) => void
+        ): OneSignalBuilder;
         inFocusDisplaying(displayOption: OSDisplayType): OneSignalBuilder;
         iOSSettings(settings: {
             kOSSettingsKeyAutoPrompt: boolean;
@@ -200,6 +218,6 @@ declare namespace OneSignalCordovaPlugin {
     const enum OSNotificationPermission {
         NotDetermined = 0,
         Authorized = 1,
-        Denied = 2,
+        Denied = 2
     }
 }

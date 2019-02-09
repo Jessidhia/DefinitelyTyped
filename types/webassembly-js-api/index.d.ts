@@ -13,7 +13,7 @@
  * for more information.
  */
 declare namespace WebAssembly {
-    type Imports =  Array<{
+    type Imports = Array<{
         name: string;
         kind: string;
     }>;
@@ -31,7 +31,10 @@ declare namespace WebAssembly {
      */
     class Module {
         constructor(bufferSource: BufferSource);
-        static customSections(module: Module, sectionName: string): ArrayBuffer[];
+        static customSections(
+            module: Module,
+            sectionName: string
+        ): ArrayBuffer[];
         static exports(module: Module): Imports;
         static imports(module: Module): Exports;
     }
@@ -110,8 +113,14 @@ declare namespace WebAssembly {
         instance: Instance;
     }
 
-    function instantiate(bufferSource: BufferSource, importObject?: object): Promise<ResultObject>;
-    function instantiate(module: Module, importObject?: object): Promise<Instance>;
+    function instantiate(
+        bufferSource: BufferSource,
+        importObject?: object
+    ): Promise<ResultObject>;
+    function instantiate(
+        module: Module,
+        importObject?: object
+    ): Promise<Instance>;
 
     function validate(bufferSource: BufferSource): boolean;
 }

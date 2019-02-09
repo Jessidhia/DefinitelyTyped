@@ -57,7 +57,11 @@ interface Settings extends NodeJS.EventEmitter {
      *                     exist.
      * @see #getAll
      */
-    get(keyPath: string, defaultValue?: any, options?: SettingsOptions): JsonValue;
+    get(
+        keyPath: string,
+        defaultValue?: any,
+        options?: SettingsOptions
+    ): JsonValue;
 
     /**
      * Returns all settings.

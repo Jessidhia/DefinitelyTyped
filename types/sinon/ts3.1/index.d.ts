@@ -5,9 +5,7 @@ interface Event {} // tslint:disable-line no-empty-interface
 interface Document {} // tslint:disable-line no-empty-interface
 
 declare namespace Sinon {
-    type MatchArguments<T> = {
-        [K in keyof T]: SinonMatcher | T[K];
-    };
+    type MatchArguments<T> = { [K in keyof T]: SinonMatcher | T[K] };
 
     interface SinonSpyCallApi<TArgs extends any[] = any[], TReturnValue = any> {
         // Properties
@@ -68,7 +66,7 @@ declare namespace Sinon {
          * Uses deep comparison for objects and arrays. Use spy.returned(sinon.match.same(obj)) for strict comparison (see matchers).
          * @param value
          */
-        returned(value: TReturnValue|SinonMatcher): boolean;
+        returned(value: TReturnValue | SinonMatcher): boolean;
         /**
          * Returns true if spy threw an exception at least once.
          */
@@ -147,9 +145,9 @@ declare namespace Sinon {
 
     interface SinonSpy<TArgs extends any[] = any[], TReturnValue = any>
         extends Pick<
-                SinonSpyCallApi<TArgs, TReturnValue>,
-                Exclude<keyof SinonSpyCallApi<TArgs, TReturnValue>, 'args'>
-            > {
+            SinonSpyCallApi<TArgs, TReturnValue>,
+            Exclude<keyof SinonSpyCallApi<TArgs, TReturnValue>, "args">
+        > {
         // Properties
         /**
          * The number of recorded calls.
@@ -346,9 +344,11 @@ declare namespace Sinon {
          * The original method can be restored by calling object.method.restore().
          * The returned spy is the function object which replaced the original method. spy === object.method.
          */
-        <T, K extends keyof T>(obj: T, method: K, types?: string[]): T[K] extends (
-            ...args: infer TArgs
-        ) => infer TReturnValue
+        <T, K extends keyof T>(
+            obj: T,
+            method: K,
+            types?: string[]
+        ): T[K] extends (...args: infer TArgs) => infer TReturnValue
             ? SinonSpy<TArgs, TReturnValue>
             : SinonSpy;
     }
@@ -399,7 +399,11 @@ declare namespace Sinon {
          * The Promise library can be overwritten using the usingPromise method.
          * Since sinon@2.0.0
          */
-        resolves(value?: TReturnValue extends Promise<infer TResolveValue> ? TResolveValue : never): SinonStub<TArgs, TReturnValue>;
+        resolves(
+            value?: TReturnValue extends Promise<infer TResolveValue>
+                ? TResolveValue
+                : never
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Causes the stub to return a Promise which resolves to the argument at the provided index.
          * stub.resolvesArg(0); causes the stub to return a Promise which resolves to the first argument.
@@ -468,7 +472,10 @@ declare namespace Sinon {
          * @param index
          * @param args
          */
-        callsArgWith(index: number, ...args: any[]): SinonStub<TArgs, TReturnValue>;
+        callsArgWith(
+            index: number,
+            ...args: any[]
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Like above but with an additional parameter to pass the this context.
          * @param index
@@ -494,13 +501,19 @@ declare namespace Sinon {
          * @param index
          * @param context
          */
-        callsArgOnAsync(index: number, context: any): SinonStub<TArgs, TReturnValue>;
+        callsArgOnAsync(
+            index: number,
+            context: any
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Same as their corresponding non-Async counterparts, but with callback being deferred at called after all instructions in the current call stack are processed.
          * In Node environment the callback is deferred with process.nextTick.
          * In a browser the callback is deferred with setTimeout(callback, 0).
          */
-        callsArgWithAsync(index: number, ...args: any[]): SinonStub<TArgs, TReturnValue>;
+        callsArgWithAsync(
+            index: number,
+            ...args: any[]
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Same as their corresponding non-Async counterparts, but with callback being deferred at called after all instructions in the current call stack are processed.
          * In Node environment the callback is deferred with process.nextTick.
@@ -515,7 +528,9 @@ declare namespace Sinon {
          * Makes the stub call the provided @param func when invoked.
          * @param func
          */
-        callsFake(func: (...args: TArgs) => TReturnValue): SinonStub<TArgs, TReturnValue>;
+        callsFake(
+            func: (...args: TArgs) => TReturnValue
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Replaces a new getter for this stub.
          */
@@ -571,7 +586,10 @@ declare namespace Sinon {
          * @param property
          * @param args
          */
-        yieldsTo(property: string, ...args: any[]): SinonStub<TArgs, TReturnValue>;
+        yieldsTo(
+            property: string,
+            ...args: any[]
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Like above but with an additional parameter to pass the this context.
          */
@@ -594,7 +612,10 @@ declare namespace Sinon {
          * @param context
          * @param args
          */
-        yieldsOnAsync(context: any, ...args: any[]): SinonStub<TArgs, TReturnValue>;
+        yieldsOnAsync(
+            context: any,
+            ...args: any[]
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Same as their corresponding non-Async counterparts, but with callback being deferred at called after all instructions in the current call stack are processed.
          * In Node environment the callback is deferred with process.nextTick.
@@ -602,7 +623,10 @@ declare namespace Sinon {
          * @param property
          * @param args
          */
-        yieldsToAsync(property: string, ...args: any[]): SinonStub<TArgs, TReturnValue>;
+        yieldsToAsync(
+            property: string,
+            ...args: any[]
+        ): SinonStub<TArgs, TReturnValue>;
         /**
          * Same as their corresponding non-Async counterparts, but with callback being deferred at called after all instructions in the current call stack are processed.
          * In Node environment the callback is deferred with process.nextTick.
@@ -622,7 +646,9 @@ declare namespace Sinon {
          * It is also useful to create a stub that can act differently in response to different arguments.
          * @param args
          */
-        withArgs(...args: MatchArguments<TArgs>): SinonStub<TArgs, TReturnValue>;
+        withArgs(
+            ...args: MatchArguments<TArgs>
+        ): SinonStub<TArgs, TReturnValue>;
     }
 
     interface SinonStubStatic {
@@ -631,7 +657,7 @@ declare namespace Sinon {
          * Creates an anonymous stub function
          */
         // tslint:disable-next-line no-unnecessary-generics
-        <TArgs extends any[]= any[], R = any>(): SinonStub<TArgs, R>;
+        <TArgs extends any[] = any[], R = any>(): SinonStub<TArgs, R>;
 
         /**
          * Stubs all the object’s methods.
@@ -1535,7 +1561,9 @@ declare namespace Sinon {
      */
     type SinonStubbedMember<T> = T extends (
         ...args: infer TArgs
-    ) => infer TReturnValue ? SinonStub<TArgs, TReturnValue> : T;
+    ) => infer TReturnValue
+        ? SinonStub<TArgs, TReturnValue>
+        : T;
 
     interface SinonFake {
         /**

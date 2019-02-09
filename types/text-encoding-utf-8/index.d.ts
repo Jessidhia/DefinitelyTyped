@@ -21,7 +21,10 @@ export namespace TextEncoding {
         encoding: string;
         fatal: boolean;
         ignoreBOM: boolean;
-        decode(input?: ArrayBuffer | ArrayBufferView, options?: TextDecodeOptions): string;
+        decode(
+            input?: ArrayBuffer | ArrayBufferView,
+            options?: TextDecodeOptions
+        ): string;
     }
 
     interface TextEncoder {

@@ -62,7 +62,7 @@ declare namespace OSS {
         displayName: string;
     }
 
-    interface ObjectMeta  {
+    interface ObjectMeta {
         name: string; // object name on oss
         lastModified: string; // object last modified GMT date, e.g.: 2015-02-19T08:39:44.000Z
         etag: string; // object etag contains ", e.g.: "5B3C1A2E053D763E1B002CC607C5A0FE"
@@ -102,13 +102,13 @@ declare namespace OSS {
         etag: string; // object etag contains ", e.g.: "5B3C1A2E053D763E1B002CC607C5A0FE"
     }
 
-    interface Checkpoint  {
+    interface Checkpoint {
         file: any; // The file object selected by the user, if the browser is restarted, it needs the user to manually trigger the settings
         name: string; //  object key
         fileSize: number;
         partSize: number;
         uploadId: string;
-        doneParts: Array<{ number: number, etag: string }>;
+        doneParts: Array<{ number: number; etag: string }>;
     }
 
     interface ObjectPart {
@@ -138,11 +138,11 @@ declare namespace OSS {
         EndTime: string;
         RemoteAddr: string; //  the remote addr
     }
-// parameters type
+    // parameters type
     interface ListBucketsQueryType {
         prefix?: string; // search buckets using prefix key
         marker?: string; // search start from marker, including marker key
-        'max-keys'?: string | number; // max buckets, default is 100, limit to 1000
+        "max-keys"?: string | number; // max buckets, default is 100, limit to 1000
     }
 
     interface PutBucketOptions {
@@ -159,7 +159,7 @@ declare namespace OSS {
         prefix?: string; // search object using prefix key
         marker?: string; // search start from marker, including marker key
         delimiter?: string; // delimiter search scope e.g. / only search current dir, not including subdir
-        'max-keys': string | number; // max objects, default is 100, limit to 1000
+        "max-keys": string | number; // max objects, default is 100, limit to 1000
     }
 
     interface ListObjectResult {
@@ -263,15 +263,15 @@ declare namespace OSS {
     }
 
     interface ResponseHeaderType {
-        'content-type'?: string;
-        'content-disposition'?: string;
-        'cache-control'?: string;
+        "content-type"?: string;
+        "content-disposition"?: string;
+        "cache-control"?: string;
     }
 
     interface SignatureUrlOptions {
         expires?: number; // after expires seconds, the url will become invalid, default is 1800
         method?: HTTPMethods; // the HTTP method, default is 'GET'
-        'Content-Type'?: string; // set the request content type
+        "Content-Type"?: string; // set the request content type
         process?: string;
         response?: ResponseHeaderType; // set the response headers for download
         callback?: ObjectCallback;
@@ -290,7 +290,7 @@ declare namespace OSS {
     }
 
     interface InitMultipartUploadResult {
-        res: { status: number, headers: object, size: number, rt: number };
+        res: { status: number; headers: object; size: number; rt: number };
         bucket: string; // bucket name
         name: string; // object name store on OSS
         uploadId: string; // upload id, use for uploadPart, completeMultipart
@@ -352,9 +352,9 @@ declare namespace OSS {
     }
 
     interface ListPartsQuery {
-        'max-parts': number; // The maximum part number in the response of the OSS. default value: 1000.
-        'part-number-marker': number; // Starting position of a specific list. A part is listed only when the part number is greater than the value of this parameter.
-        'encoding-type': string; // Specify the encoding of the returned content and the encoding type. Optional value: url
+        "max-parts": number; // The maximum part number in the response of the OSS. default value: 1000.
+        "part-number-marker": number; // Starting position of a specific list. A part is listed only when the part number is greater than the value of this parameter.
+        "encoding-type": string; // Specify the encoding of the returned content and the encoding type. Optional value: url
     }
 
     interface ListPartsResult {
@@ -371,9 +371,9 @@ declare namespace OSS {
 
     interface ListUploadsQuery {
         prefix?: string;
-        'max-uploads'?: number;
-        'key-marker'?: string;
-        'upload-id-marker'?: string;
+        "max-uploads"?: number;
+        "key-marker"?: string;
+        "upload-id-marker"?: string;
     }
 
     interface ListUploadsResult {
@@ -389,10 +389,10 @@ declare namespace OSS {
         Description?: string;
         Status?: string;
         Target?: {
-            Type: string,
-            FragDuration: number,
-            FragCount: number,
-            PlaylistName: string
+            Type: string;
+            FragDuration: number;
+            FragCount: number;
+            PlaylistName: string;
         };
     }
 
@@ -414,7 +414,7 @@ declare namespace OSS {
     interface ListChannelsQuery {
         prefix: string; // the channel id prefix (returns channels with this prefix)
         marker: string; // the channel id marker (returns channels after this id)
-        'max-keys ': number; // max number of channels to return
+        "max-keys ": number; // max number of channels to return
     }
 
     interface ListChannelsResult {
@@ -450,33 +450,75 @@ declare namespace OSS {
     }
 
     class Cluster {
-        constructor(options: ClusterOptions)
+        constructor(options: ClusterOptions);
 
-        list(query: ListObjectsQuery | null, options: RequestOptions): Promise<ListObjectResult>;
+        list(
+            query: ListObjectsQuery | null,
+            options: RequestOptions
+        ): Promise<ListObjectResult>;
 
-        put(name: string, file: any, options?: PutObjectOptions): Promise<PutObjectResult>;
+        put(
+            name: string,
+            file: any,
+            options?: PutObjectOptions
+        ): Promise<PutObjectResult>;
 
-        putStream(name: string, stream: any, options?: PutStreamOptions): Promise<{ name: string, res: NormalSuccessResponse }>;
+        putStream(
+            name: string,
+            stream: any,
+            options?: PutStreamOptions
+        ): Promise<{ name: string; res: NormalSuccessResponse }>;
 
-        head(name: string, options?: HeadObjectOptions): Promise<HeadObjectResult>;
+        head(
+            name: string,
+            options?: HeadObjectOptions
+        ): Promise<HeadObjectResult>;
 
-        get(name: string, file?: any, options?: GetObjectOptions): Promise<GetObjectResult>;
+        get(
+            name: string,
+            file?: any,
+            options?: GetObjectOptions
+        ): Promise<GetObjectResult>;
 
-        getStream(name?: string, options?: GetStreamOptions): Promise<GetStreamResult>;
+        getStream(
+            name?: string,
+            options?: GetStreamOptions
+        ): Promise<GetStreamResult>;
 
-        delete(name: string, options?: RequestOptions): Promise<NormalSuccessResponse>;
+        delete(
+            name: string,
+            options?: RequestOptions
+        ): Promise<NormalSuccessResponse>;
 
-        copy(name: string, sourceName: string, options?: CopyObjectOptions): Promise<CopyAndPutMetaResult>;
+        copy(
+            name: string,
+            sourceName: string,
+            options?: CopyObjectOptions
+        ): Promise<CopyAndPutMetaResult>;
 
-        putMeta(name: string, meta: UserMeta, options: RequestOptions): Promise<CopyAndPutMetaResult>;
+        putMeta(
+            name: string,
+            meta: UserMeta,
+            options: RequestOptions
+        ): Promise<CopyAndPutMetaResult>;
 
-        deleteMulti(names: string[], options?: DeleteMultiOptions): Promise<DeleteMultiResult>;
+        deleteMulti(
+            names: string[],
+            options?: DeleteMultiOptions
+        ): Promise<DeleteMultiResult>;
 
         signatureUrl(name: string, options?: SignatureUrlOptions): string;
 
-        putACL(name: string, acl: ACLType, options?: RequestOptions): Promise<NormalSuccessResponse>;
+        putACL(
+            name: string,
+            acl: ACLType,
+            options?: RequestOptions
+        ): Promise<NormalSuccessResponse>;
 
-        restore(name: string, options?: RequestOptions): Promise<NormalSuccessResponse>;
+        restore(
+            name: string,
+            options?: RequestOptions
+        ): Promise<NormalSuccessResponse>;
     }
 }
 
@@ -505,37 +547,57 @@ declare namespace OSS {
     }
 
     class ImageClient {
-        constructor(options: ImageClientOptions)
+        constructor(options: ImageClientOptions);
 
         /**
          * Get an image from the image channel.
          */
-        get(name: string, file?: any, options?: ImageGetOptions): Promise<{ content: any, res: NormalSuccessResponse }>;
+        get(
+            name: string,
+            file?: any,
+            options?: ImageGetOptions
+        ): Promise<{ content: any; res: NormalSuccessResponse }>;
 
         /**
          * Get an image read stream.
          */
-        getStream(name: string, options?: ImageGetOptions): Promise<{ stream: any, res: NormalSuccessResponse }>;
+        getStream(
+            name: string,
+            options?: ImageGetOptions
+        ): Promise<{ stream: any; res: NormalSuccessResponse }>;
 
         /**
          * Get a image exif info by image object name from the image channel.
          */
-        getExif(name: string, options?: RequestOptions): Promise<{ data: object, res: NormalSuccessResponse }>;
+        getExif(
+            name: string,
+            options?: RequestOptions
+        ): Promise<{ data: object; res: NormalSuccessResponse }>;
 
         /**
          * Get a image info and exif info by image object name from the image channel.
          */
-        getInfo(name: string, options?: RequestOptions): Promise<{ data: object, res: NormalSuccessResponse }>;
+        getInfo(
+            name: string,
+            options?: RequestOptions
+        ): Promise<{ data: object; res: NormalSuccessResponse }>;
 
         /**
          * todo
          */
-        putStyle(name: string, style: string, options?: RequestOptions): Promise<{ data: object, res: NormalSuccessResponse }>;
+        putStyle(
+            name: string,
+            style: string,
+            options?: RequestOptions
+        ): Promise<{ data: object; res: NormalSuccessResponse }>;
 
         /**
          * Get a style by name from the image channel.
          */
-        getStyle(name: string, options?: RequestOptions): Promise<{ data: StyleData, res: NormalSuccessResponse}>;
+        getStyle(
+            name: string,
+            options?: RequestOptions
+        ): Promise<{ data: StyleData; res: NormalSuccessResponse }>;
 
         /**
          * Get all styles from the image channel.
@@ -545,17 +607,23 @@ declare namespace OSS {
         /**
          * todo
          */
-        deleteStyle(styleName: string, options?: RequestOptions): Promise<NormalSuccessResponse>;
+        deleteStyle(
+            styleName: string,
+            options?: RequestOptions
+        ): Promise<NormalSuccessResponse>;
 
         /**
          * Create a signature url for directly download.
          */
-        signatureUrl(name: string, options?: { expires?: string, timeout?: string }): string;
+        signatureUrl(
+            name: string,
+            options?: { expires?: string; timeout?: string }
+        ): string;
     }
 }
 
 declare class OSS {
-    constructor(options: OSS.Options)
+    constructor(options: OSS.Options);
 
     /******************************************* the bucket operations *************************************************/
 
@@ -563,12 +631,18 @@ declare class OSS {
     /**
      * List buckets in this account.
      */
-    listBuckets(query: OSS.ListBucketsQueryType | null, options?: OSS.RequestOptions): Promise<OSS.Bucket[]>;
+    listBuckets(
+        query: OSS.ListBucketsQueryType | null,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.Bucket[]>;
 
     /**
      * Create a new bucket.
      */
-    putBucket(name: string, options?: OSS.PutBucketOptions): Promise<{ bucket: string, res: OSS.NormalSuccessResponse }>;
+    putBucket(
+        name: string,
+        options?: OSS.PutBucketOptions
+    ): Promise<{ bucket: string; res: OSS.NormalSuccessResponse }>;
 
     /**
      * Use the bucket.
@@ -578,7 +652,10 @@ declare class OSS {
     /**
      * Delete an empty bucket.
      */
-    deleteBucket(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteBucket(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get bucket information,include CreationDate、ExtranetEndpoint、IntranetEndpoint、Location、Name、StorageClass、 Owner、AccessControlList
@@ -594,88 +671,153 @@ declare class OSS {
     /**
      * Update the bucket ACL.
      */
-    putBucketACL(name: string, acl: OSS.ACLType, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putBucketACL(
+        name: string,
+        acl: OSS.ACLType,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the bucket ACL.
      *   acl - acl settings string
      */
-    getBucketACL(name: string, options?: OSS.RequestOptions): Promise<{ acl: string, res: OSS.NormalSuccessResponse }>;
+    getBucketACL(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<{ acl: string; res: OSS.NormalSuccessResponse }>;
 
     // logging operations
     /**
      * Update the bucket logging settings. Log file will create every one hour and name format: <prefix><bucket>-YYYY-mm-DD-HH-MM-SS-UniqueString.
      */
-    putBucketLogging(name: string, prefix?: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putBucketLogging(
+        name: string,
+        prefix?: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the bucket logging settings.
      */
-    getBucketLogging(name: string, options?: OSS.RequestOptions): Promise<{ enable: boolean, prefix: string | null, res: OSS.NormalSuccessResponse }>;
+    getBucketLogging(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<{
+        enable: boolean;
+        prefix: string | null;
+        res: OSS.NormalSuccessResponse;
+    }>;
 
     /**
      * Delete the bucket logging settings.
      */
-    deleteBucketLogging(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteBucketLogging(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     // Website operations
     /**
      * Set the bucket as a static website.
      */
-    putBucketWebsite(name: string, config: OSS.PutBucketWebsiteConfig): Promise<OSS.NormalSuccessResponse>;
+    putBucketWebsite(
+        name: string,
+        config: OSS.PutBucketWebsiteConfig
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the bucket website config.
      */
-    getBucketWebsite(name: string, options?: OSS.RequestOptions): Promise<{ index: string, error: string, res: OSS.NormalSuccessResponse }>;
+    getBucketWebsite(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<{
+        index: string;
+        error: string;
+        res: OSS.NormalSuccessResponse;
+    }>;
 
     /**
      * Delete the bucket website config.
      */
-    deleteBucketWebsite(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteBucketWebsite(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     // referer operations
     /**
      * Set the bucket request Referer white list.
      */
-    putBucketReferer(name: string, allowEmpty: boolean, referers: string[], options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putBucketReferer(
+        name: string,
+        allowEmpty: boolean,
+        referers: string[],
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the bucket request Referer white list.
      */
-    getBucketReferer(name: string, options?: OSS.RequestOptions): Promise<{ allowEmpty: boolean, referers: string[], res: OSS.NormalSuccessResponse }>;
+    getBucketReferer(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<{
+        allowEmpty: boolean;
+        referers: string[];
+        res: OSS.NormalSuccessResponse;
+    }>;
 
     /**
      * Delete the bucket request Referer white list.
      */
-    deleteBucketReferer(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteBucketReferer(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     // lifecycle operations
     /**
      * Set the bucket object lifecycle.
      */
-    putBucketLifecycle(name: string, rules: OSS.LifecycleRule[], options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putBucketLifecycle(
+        name: string,
+        rules: OSS.LifecycleRule[],
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the bucket object lifecycle.
      */
-    getBucketLifecycle(name: string, options?: OSS.RequestOptions): Promise<{ rules: OSS.LifecycleRule[], res: OSS.NormalSuccessResponse }>;
+    getBucketLifecycle(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<{ rules: OSS.LifecycleRule[]; res: OSS.NormalSuccessResponse }>;
 
     /**
      * Delete the bucket object lifecycle.
      */
-    deleteBucketLifecycle(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteBucketLifecycle(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     // CORS operations
     /**
      * Set CORS rules of the bucket object
      */
-    putBucketCORS(name: string, rules: OSS.CORSRule[], options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putBucketCORS(
+        name: string,
+        rules: OSS.CORSRule[],
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get CORS rules of the bucket object.
      */
-    getBucketCORS(name: string): Promise<{ rules: OSS.CORSRule[], res: OSS.NormalSuccessResponse }>;
+    getBucketCORS(
+        name: string
+    ): Promise<{ rules: OSS.CORSRule[]; res: OSS.NormalSuccessResponse }>;
 
     /**
      * Delete CORS rules of the bucket object.
@@ -686,22 +828,37 @@ declare class OSS {
     /**
      * List objects in the bucket.
      */
-    list(query: OSS.ListObjectsQuery | null, options: OSS.RequestOptions): Promise<OSS.ListObjectResult>;
+    list(
+        query: OSS.ListObjectsQuery | null,
+        options: OSS.RequestOptions
+    ): Promise<OSS.ListObjectResult>;
 
     /**
      * Add an object to the bucket.
      */
-    put(name: string, file: any, options?: OSS.PutObjectOptions): Promise<OSS.PutObjectResult>;
+    put(
+        name: string,
+        file: any,
+        options?: OSS.PutObjectOptions
+    ): Promise<OSS.PutObjectResult>;
 
     /**
      * Add a stream object to the bucket.
      */
-    putStream(name: string, stream: any, options?: OSS.PutStreamOptions): Promise<{ name: string, res: OSS.NormalSuccessResponse }>;
+    putStream(
+        name: string,
+        stream: any,
+        options?: OSS.PutStreamOptions
+    ): Promise<{ name: string; res: OSS.NormalSuccessResponse }>;
 
     /**
      * Append an object to the bucket, it's almost same as put, but it can add content to existing object rather than override it.
      */
-    append(name: string, file: any, options?: OSS.AppendObjectOptions): Promise<OSS.AppendObjectResult>;
+    append(
+        name: string,
+        file: any,
+        options?: OSS.AppendObjectOptions
+    ): Promise<OSS.AppendObjectResult>;
 
     /**
      * Get the Object url. If provide baseUrl, will use baseUrl instead the default endpoint.
@@ -716,37 +873,61 @@ declare class OSS {
     /**
      * Head an object and get the meta info.
      */
-    head(name: string, options?: OSS.HeadObjectOptions): Promise<OSS.HeadObjectResult>;
+    head(
+        name: string,
+        options?: OSS.HeadObjectOptions
+    ): Promise<OSS.HeadObjectResult>;
 
     /**
      * Get an object from the bucket.
      */
-    get(name: string, file?: any, options?: OSS.GetObjectOptions): Promise<OSS.GetObjectResult>;
+    get(
+        name: string,
+        file?: any,
+        options?: OSS.GetObjectOptions
+    ): Promise<OSS.GetObjectResult>;
 
     /**
      * Get an object read stream.
      */
-    getStream(name?: string, options?: OSS.GetStreamOptions): Promise<OSS.GetStreamResult>;
+    getStream(
+        name?: string,
+        options?: OSS.GetStreamOptions
+    ): Promise<OSS.GetStreamResult>;
 
     /**
      * Delete an object from the bucket.
      */
-    delete(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    delete(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Copy an object from sourceName to name.
      */
-    copy(name: string, sourceName: string, options?: OSS.CopyObjectOptions): Promise<OSS.CopyAndPutMetaResult>;
+    copy(
+        name: string,
+        sourceName: string,
+        options?: OSS.CopyObjectOptions
+    ): Promise<OSS.CopyAndPutMetaResult>;
 
     /**
      * Set an exists object meta.
      */
-    putMeta(name: string, meta: OSS.UserMeta, options: OSS.RequestOptions): Promise<OSS.CopyAndPutMetaResult>;
+    putMeta(
+        name: string,
+        meta: OSS.UserMeta,
+        options: OSS.RequestOptions
+    ): Promise<OSS.CopyAndPutMetaResult>;
 
     /**
      * Delete multi objects in one request.
      */
-    deleteMulti(names: string[], options?: OSS.DeleteMultiOptions): Promise<OSS.DeleteMultiResult>;
+    deleteMulti(
+        names: string[],
+        options?: OSS.DeleteMultiOptions
+    ): Promise<OSS.DeleteMultiResult>;
 
     /**
      * Create a signature url for download or upload object. When you put object with signatureUrl ,you need to pass Content-Type.Please look at the example.
@@ -756,27 +937,48 @@ declare class OSS {
     /**
      * Set object's ACL.
      */
-    putACL(name: string, acl: OSS.ACLType, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putACL(
+        name: string,
+        acl: OSS.ACLType,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get object's ACL.
      */
-    getACL(name: string, options?: OSS.RequestOptions): Promise<OSS.GetACLResult>;
+    getACL(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.GetACLResult>;
 
     /**
      * Restore Object.
      */
-    restore(name: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    restore(
+        name: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * multi upload
      */
-    initMultipartUpload(name: string, options?: OSS.InitMultipartUploadOptions): Promise<OSS.InitMultipartUploadResult>;
+    initMultipartUpload(
+        name: string,
+        options?: OSS.InitMultipartUploadOptions
+    ): Promise<OSS.InitMultipartUploadResult>;
 
     /**
      * After initiating a Multipart Upload event, you can upload data in parts based on the specified object name and Upload ID.
      */
-    uploadPart(name: string, uploadId: string, partNo: number, file: any, start: number, end: number, options?: OSS.RequestOptions): Promise<OSS.UploadPartResult>;
+    uploadPart(
+        name: string,
+        uploadId: string,
+        partNo: number,
+        file: any,
+        start: number,
+        end: number,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.UploadPartResult>;
 
     /**
      * Using Upload Part Copy, you can copy data from an existing object and upload a part of the data.
@@ -787,8 +989,8 @@ declare class OSS {
         uploadId: string,
         partNo: number,
         range: string,
-        sourceData: { sourceKey: string, sourceBucketName: string },
-        options: { timeout?: number, headers?: object }
+        sourceData: { sourceKey: string; sourceBucketName: string },
+        options: { timeout?: number; headers?: object }
     ): Promise<OSS.UploadPartResult>;
 
     /**
@@ -797,77 +999,125 @@ declare class OSS {
     completeMultipartUpload(
         name: string,
         uploadId: string,
-        parts: Array<{ number: number, etag: string }>,
+        parts: Array<{ number: number; etag: string }>,
         options?: OSS.CompleteMultipartUploadOptions
     ): Promise<OSS.CompleteMultipartUploadResult>;
 
     /**
      * Upload file with OSS multipart.
      */
-    multipartUpload(name: string, file: any, options: OSS.MultipartUploadOptions): Promise<OSS.MultipartUploadResult>;
+    multipartUpload(
+        name: string,
+        file: any,
+        options: OSS.MultipartUploadOptions
+    ): Promise<OSS.MultipartUploadResult>;
 
     /**
      * Copy file with OSS multipart.
      * this function contains head, initMultipartUpload, uploadPartCopy, completeMultipartUpload.
      * When copying a file larger than 1 GB, you should use the Upload Part Copy method. If you want to copy a file smaller than 1 GB, see Copy Object.
      */
-    multipartUploadCopy(name: string, sourceData: OSS.MultipartUploadCopySourceData, options?: OSS.MultipartUploadOptions): Promise<OSS.MultipartUploadCopyResult>;
+    multipartUploadCopy(
+        name: string,
+        sourceData: OSS.MultipartUploadCopySourceData,
+        options?: OSS.MultipartUploadOptions
+    ): Promise<OSS.MultipartUploadCopyResult>;
 
     /**
      * The ListParts command can be used to list all successfully uploaded parts mapped to a specific upload ID, i.e.: those not completed and not aborted.
      */
-    listParts(name: string, uploadId: string, query?: OSS.ListPartsQuery, options?: OSS.RequestOptions): Promise<OSS.ListPartsResult>;
+    listParts(
+        name: string,
+        uploadId: string,
+        query?: OSS.ListPartsQuery,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.ListPartsResult>;
 
     /**
      * List on-going multipart uploads, i.e.: those not completed and not aborted.
      */
-    listUploads(query: OSS.ListUploadsQuery, options?: OSS.RequestOptions): Promise<OSS.ListUploadsResult>;
+    listUploads(
+        query: OSS.ListUploadsQuery,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.ListUploadsResult>;
 
     /**
      * Abort a multipart upload for object.
      */
-    abortMultipartUpload(name: string, uploadId: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    abortMultipartUpload(
+        name: string,
+        uploadId: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /************************************************ RTMP Operations *************************************************************/
     /**
      * Create a live channel.
      */
-    putChannel(id: string, conf: OSS.PutChannelConf, options?: OSS.RequestOptions): Promise<OSS.PutChannelResult>;
+    putChannel(
+        id: string,
+        conf: OSS.PutChannelConf,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.PutChannelResult>;
 
     /**
      * Get live channel info.
      */
-    getChannel(id: string, options?: OSS.RequestOptions): Promise<{ data: OSS.PutChannelConf, res: OSS.NormalSuccessResponse }>;
+    getChannel(
+        id: string,
+        options?: OSS.RequestOptions
+    ): Promise<{ data: OSS.PutChannelConf; res: OSS.NormalSuccessResponse }>;
 
     /**
      * Delete a live channel.
      */
-    deleteChannel(id: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    deleteChannel(
+        id: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Change the live channel status.
      */
-    putChannelStatus(id: string, status?: string, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    putChannelStatus(
+        id: string,
+        status?: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get the live channel status.
      */
-    getChannelStatus(id: string, options?: OSS.RequestOptions): Promise<OSS.GetChannelResult>;
+    getChannelStatus(
+        id: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.GetChannelResult>;
 
     /**
      * List channels.
      */
-    listChannels(query: OSS.ListChannelsQuery, options?: OSS.RequestOptions): Promise<OSS.ListChannelsResult>;
+    listChannels(
+        query: OSS.ListChannelsQuery,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.ListChannelsResult>;
 
     /**
      * Get the live channel history.
      */
-    getChannelHistory(id: string, options?: OSS.RequestOptions): Promise<OSS.ChannelHistoryResult>;
+    getChannelHistory(
+        id: string,
+        options?: OSS.RequestOptions
+    ): Promise<OSS.ChannelHistoryResult>;
 
     /**
      * Create a VOD playlist for the channel.
      */
-    createVod(id: string, name: string, time: { startTime: number, endTime: number }, options?: OSS.RequestOptions): Promise<OSS.NormalSuccessResponse>;
+    createVod(
+        id: string,
+        name: string,
+        time: { startTime: number; endTime: number },
+        options?: OSS.RequestOptions
+    ): Promise<OSS.NormalSuccessResponse>;
 
     /**
      * Get signatured rtmp url for publishing.

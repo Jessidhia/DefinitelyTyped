@@ -656,7 +656,7 @@ async function typedThemes() {
         createGlobalStyle,
         ThemeProvider,
         ThemeConsumer
-    } = (await import("styled-components")) as any as ThemedStyledComponentsModule<
+    } = ((await import("styled-components")) as any) as ThemedStyledComponentsModule<
         typeof theme
     >;
 
@@ -754,10 +754,10 @@ async function themeAugmentation() {
         accent: string;
     }
 
-    const base = (await import("styled-components")) as any as ThemedStyledComponentsModule<
+    const base = ((await import("styled-components")) as any) as ThemedStyledComponentsModule<
         BaseTheme
     >;
-    const extra = (await import("styled-components")) as any as ThemedStyledComponentsModule<
+    const extra = ((await import("styled-components")) as any) as ThemedStyledComponentsModule<
         ExtraTheme,
         BaseTheme
     >;
@@ -956,7 +956,7 @@ function validateDefaultProps() {
 
     class MyComponent extends React.PureComponent<Props> {
         static defaultProps = {
-            optionalProp: 'fallback'
+            optionalProp: "fallback"
         };
 
         render() {
@@ -971,7 +971,7 @@ function validateDefaultProps() {
     }
 
     const StyledComponent = styled(MyComponent)`
-        color: red
+        color: red;
     `;
 
     // this test is failing in TS 2.9 but not in 3.0
@@ -986,13 +986,18 @@ function validateDefaultProps() {
 
     // example of a simple helper that sets defaultProps and update the type
     type WithDefaultProps<C, D> = C & { defaultProps: D };
-    function withDefaultProps<C, D>(component: C, defaultProps: D): WithDefaultProps<C, D> {
+    function withDefaultProps<C, D>(
+        component: C,
+        defaultProps: D
+    ): WithDefaultProps<C, D> {
         (component as WithDefaultProps<C, D>).defaultProps = defaultProps;
         return component as WithDefaultProps<C, D>;
     }
 
     const OtherStyledComponent = withDefaultProps(
-        styled(MyComponent)` color: red `,
+        styled(MyComponent)`
+            color: red;
+        `,
         { requiredProp: true }
     );
 

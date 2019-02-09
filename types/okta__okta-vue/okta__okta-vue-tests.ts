@@ -1,29 +1,29 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Auth from 'okta__okta-vue';
+import Vue from "vue";
+import Router from "vue-router";
+import Auth from "okta__okta-vue";
 
 Vue.use(Auth, {
-  issuer: 'https://{yourOktaDomain}.com/oauth2/default',
-  client_id: '{client_id}',
-  redirect_uri: 'http://localhost:{port}/implicit/callback',
-  scope: 'openid profile email'
+    issuer: "https://{yourOktaDomain}.com/oauth2/default",
+    client_id: "{client_id}",
+    redirect_uri: "http://localhost:{port}/implicit/callback",
+    scope: "openid profile email"
 });
 
 Vue.use(Router);
 const router = new Router({
-    mode: 'history',
+    mode: "history",
     routes: [
-        { path: '/implicit/callback', component: Auth.handleCallback() },
+        { path: "/implicit/callback", component: Auth.handleCallback() },
         {
-            path: '/protected',
+            path: "/protected",
             component: {
-                name: 'protected',
-                template: '<div>Protected Route</div>'
+                name: "protected",
+                template: "<div>Protected Route</div>"
             },
             meta: {
                 requiresAuth: true
             }
-        },
+        }
     ]
 });
 
@@ -47,14 +47,14 @@ const component = Vue.extend({
             this.$auth.loginRedirect();
         },
         profileRedirect() {
-            this.$auth.loginRedirect('/profile', {
-                sessionToken: 'string',
-                responseMode: 'string',
-                responseType: 'string',
-                scopes: ['string1', 'string2'],
-                state: 'string',
-                nonce: 'string',
+            this.$auth.loginRedirect("/profile", {
+                sessionToken: "string",
+                responseMode: "string",
+                responseType: "string",
+                scopes: ["string1", "string2"],
+                state: "string",
+                nonce: "string"
             });
-        },
-    },
+        }
+    }
 });

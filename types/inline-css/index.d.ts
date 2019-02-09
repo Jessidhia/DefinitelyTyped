@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import Promise = require('bluebird');
+import Promise = require("bluebird");
 
 declare namespace InlineCss {
     export interface Options {
@@ -20,6 +20,9 @@ declare namespace InlineCss {
     }
 }
 
-declare function InlineCss(html: string, options: InlineCss.Options): Promise<string>;
+declare function InlineCss(
+    html: string,
+    options: InlineCss.Options
+): Promise<string>;
 
 export = InlineCss;

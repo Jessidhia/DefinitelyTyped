@@ -1,4 +1,4 @@
-import Resolver = require('./Resolver');
+import Resolver = require("./Resolver");
 declare class ModulesInHierachicDirectoriesPlugin {
     directories: string[];
     source: string;

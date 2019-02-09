@@ -7,9 +7,9 @@
 
 /// <reference types="node" />
 
-import * as fs from 'fs';
+import * as fs from "fs";
 
-export * from 'fs';
+export * from "fs";
 
 /**
  * Use this method to patch the global fs module (or any other fs-like module).
@@ -41,7 +41,7 @@ export interface Lutimes {
     lutimesSync: typeof fs.lutimesSync;
 }
 
-declare module 'fs' {
+declare module "fs" {
     /**
      * Asynchronously change file timestamps of the file referenced by the supplied path.
      * If path refers to a symbolic link, then the link is not dereferenced: instead, the timestamps
@@ -50,10 +50,12 @@ declare module 'fs' {
      * @param atime The last access time. If a string is provided, it will be coerced to number.
      * @param mtime The last modified time. If a string is provided, it will be coerced to number.
      */
-    function lutimes(path: PathLike,
-                     atime: string | number | Date,
-                     mtime: string | number | Date,
-                     callback?: (err: NodeJS.ErrnoException | null) => void): void;
+    function lutimes(
+        path: PathLike,
+        atime: string | number | Date,
+        mtime: string | number | Date,
+        callback?: (err: NodeJS.ErrnoException | null) => void
+    ): void;
 
     // NOTE: This namespace provides design-time support for util.promisify. Exported members do not exist at runtime.
     namespace lutimes {
@@ -65,7 +67,11 @@ declare module 'fs' {
          * @param atime The last access time. If a string is provided, it will be coerced to number.
          * @param mtime The last modified time. If a string is provided, it will be coerced to number.
          */
-        function __promisify__(path: PathLike, atime: string | number | Date, mtime: string | number | Date): Promise<void>;
+        function __promisify__(
+            path: PathLike,
+            atime: string | number | Date,
+            mtime: string | number | Date
+        ): Promise<void>;
     }
 
     /**
@@ -76,5 +82,9 @@ declare module 'fs' {
      * @param atime The last access time. If a string is provided, it will be coerced to number.
      * @param mtime The last modified time. If a string is provided, it will be coerced to number.
      */
-    function lutimesSync(path: PathLike, atime: string | number | Date, mtime: string | number | Date): void;
+    function lutimesSync(
+        path: PathLike,
+        atime: string | number | Date,
+        mtime: string | number | Date
+    ): void;
 }

@@ -5,12 +5,11 @@
 
 declare module "pdfobject" {
     interface PDFObject {
-        embed(url:string, target?:any, options?:any): HTMLElement;
+        embed(url: string, target?: any, options?: any): HTMLElement;
         pdfobjectversion: string;
         supportsPDFs: boolean;
     }
 
     var pdfObject: PDFObject;
     export = pdfObject;
-
 }

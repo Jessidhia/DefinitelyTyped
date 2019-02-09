@@ -355,7 +355,11 @@ declare namespace Handsontable {
         /**
          * Callback fired before getting cell settings.
          */
-        beforeGetCellMeta?: (row: number, col: number, cellProperties: Object) => void;
+        beforeGetCellMeta?: (
+            row: number,
+            col: number,
+            cellProperties: Object
+        ) => void;
 
         /**
          * Parameters:
@@ -363,7 +367,11 @@ declare namespace Handsontable {
          *   - end is an object containing information about last filled cell: { row : 4, col : 1 }.
          *   - data is an 2D array containing information about fill pattern: [ ["1", "Ted"], ["1", "John"] ].
          */
-        beforeAutofill?: (start: CellPosition, end: CellPosition, data: string[][]) => void;
+        beforeAutofill?: (
+            start: CellPosition,
+            end: CellPosition,
+            data: string[][]
+        ) => void;
 
         /**
          * Callback fired before keydown event is handled. It can be used to overwrite default key bindings. Caution - in your beforeKeyDown handler you need to call event.stopImmediatePropagation() to prevent default key behavior.
@@ -373,7 +381,12 @@ declare namespace Handsontable {
         /**
          * A plugin hook executed before validator function, only if validator function is defined. This can be used to manipulate value of changed cell before it is applied to the validator function. NOTICE: this will not affect values of changes. This will change value ONLY for validation!
          */
-        beforeValidate?: (value: any, row: number, prop: string, source: string) => void;
+        beforeValidate?: (
+            value: any,
+            row: number,
+            prop: string,
+            source: string
+        ) => void;
 
         /**
          * Callback fired after Handsontable instance is initiated.
@@ -416,7 +429,12 @@ declare namespace Handsontable {
         /**
          * The same as above, but data source object property name is used instead of the column number.
          */
-        afterSelectionByProp?: (r: number, p: string, r2: number, p2: string) => void;
+        afterSelectionByProp?: (
+            r: number,
+            p: string,
+            r2: number,
+            p2: string
+        ) => void;
 
         /**
          * Callback fired while one or more cells are being selected (on mouse up). Parameters:
@@ -425,12 +443,22 @@ declare namespace Handsontable {
          *   - r2 selection end row
          *   - c2 selection end column
          */
-        afterSelectionEnd?: (r: number, c: number, r2: number, c2: number) => void;
+        afterSelectionEnd?: (
+            r: number,
+            c: number,
+            r2: number,
+            c2: number
+        ) => void;
 
         /**
          * The same as above, but data source object property name is used instead of the column number.
          */
-        afterSelectionEndByProp?: (r: number, p: string, r2: number, p2: string) => void;
+        afterSelectionEndByProp?: (
+            r: number,
+            p: string,
+            r2: number,
+            p2: string
+        ) => void;
 
         /**
          * Event called when current cell is deselected.
@@ -440,12 +468,19 @@ declare namespace Handsontable {
         /**
          * Callback fired after getting cell settings.
          */
-        afterGetCellMeta?: (row: number, col: number, cellProperties: Object) => void;
+        afterGetCellMeta?: (
+            row: number,
+            col: number,
+            cellProperties: Object
+        ) => void;
 
         /**
          * Callback fired after getting info about column header.
          */
-        afterGetColHeader?: (col: number, TH: HTMLTableHeaderCellElement) => void;
+        afterGetColHeader?: (
+            col: number,
+            TH: HTMLTableHeaderCellElement
+        ) => void;
 
         /**
          * Callback fired after calculating column width.
@@ -512,12 +547,23 @@ declare namespace Handsontable {
         /**
          * Callback fired if copyRowsLimit or copyColumnsLimit was reached.
          */
-        afterCopyLimit?: (selectedRowsCount: number, selectedColsCount: number, copyRowsLimit: number, copyColsLimit: number) => void;
+        afterCopyLimit?: (
+            selectedRowsCount: number,
+            selectedColsCount: number,
+            copyRowsLimit: number,
+            copyColsLimit: number
+        ) => void;
 
         /**
          * A plugin hook executed after validator function, only if validator function is defined. Validation result is the first parameter. This can be used to determinate if validation passed successfully or not. You can cancel current change by returning false.
          */
-        afterValidate?: (isValid: boolean, value: any, row: number, prop: string, source: string) => boolean;
+        afterValidate?: (
+            isValid: boolean,
+            value: any,
+            row: number,
+            prop: string,
+            source: string
+        ) => boolean;
 
         /**
          * Callback fired before setting range is ended. Parameters:
@@ -527,19 +573,34 @@ declare namespace Handsontable {
 
         afterUpdateSettings?: Function;
 
-        afterRenderer?: (TD: HTMLTableDataCellElement, row: number, col: number, prop: string, value: string, cellProperties: Object) => void;
+        afterRenderer?: (
+            TD: HTMLTableDataCellElement,
+            row: number,
+            col: number,
+            prop: string,
+            value: string,
+            cellProperties: Object
+        ) => void;
 
         /**
          * Callback fired after clicking on a cell or row/column header.
          * In case the row/column header was clicked, the index is negative. For example clicking on the row header of cell (0, 0) results with afterOnCellMouseDown called with coords {row: 0, col: -1}.
          */
-        afterOnCellMouseDown?: (event: MouseEvent, coords: CellPosition, TD: HTMLTableDataCellElement) => void;
+        afterOnCellMouseDown?: (
+            event: MouseEvent,
+            coords: CellPosition,
+            TD: HTMLTableDataCellElement
+        ) => void;
 
         /**
          * Callback fired after hovering a cell or row/column header with the mouse cursor.
          * In case the row/column header was hovered, the index is negative. For example clicking on the row header of cell (0, 0) results with afterOnCellMouseOver called with coords {row: 0, col: -1}.
          */
-        afterOnCellMouseOver?: (event: MouseEvent, coords: CellPosition, TD: HTMLTableDataCellElement) => void;
+        afterOnCellMouseOver?: (
+            event: MouseEvent,
+            coords: CellPosition,
+            TD: HTMLTableDataCellElement
+        ) => void;
 
         /**
          * Callback fired after.
@@ -585,7 +646,12 @@ declare namespace Handsontable {
         /**
          * Deprecated! Now event is called afterSelectionByProp.
          */
-        onSelectionByProp?: (r: number, p: number, r2: number, p2: number) => void;
+        onSelectionByProp?: (
+            r: number,
+            p: number,
+            r2: number,
+            p2: number
+        ) => void;
 
         /**
          * Deprecated! Now event is called afterSelectionEnd.
@@ -595,7 +661,12 @@ declare namespace Handsontable {
         /**
          * Deprecated! Now event is called afterSelectionEndByProp.
          */
-        onSelectionEndByProp?: (r: number, p: number, r2: number, p2: number) => void;
+        onSelectionEndByProp?: (
+            r: number,
+            p: number,
+            r2: number,
+            p2: number
+        ) => void;
 
         /**
          * Deprecated! Now event is called beforeChange.
@@ -610,7 +681,12 @@ declare namespace Handsontable {
         /**
          * Deprecated! Now event is called afterCopyLimit.
          */
-        onCopyLimit?: (selectedRowsCount: number, selectedColsCount: number, copyRowsLimit: number, copyColsLimit: number) => void;
+        onCopyLimit?: (
+            selectedRowsCount: number,
+            selectedColsCount: number,
+            copyRowsLimit: number,
+            copyColsLimit: number
+        ) => void;
     }
 
     interface Context {
@@ -712,7 +788,12 @@ declare namespace Handsontable {
         /**
          * Get value of selected range. Each column is separated by tab, each row is separated by new line character.
          */
-        getCopyableData(startRow: number, startCol: number, endRow: number, endCol: number): any;
+        getCopyableData(
+            startRow: number,
+            startCol: number,
+            endRow: number,
+            endCol: number
+        ): any;
 
         /**
          * Returns value of selected cell.
@@ -722,7 +803,12 @@ declare namespace Handsontable {
         /**
          * Set new value to a cell. To change many cells at once, pass an array of changes in format [ [row, col, value], ... ] as the only parameter. col is the index of visible column (note that if columns were reordered, the current order will be used). source is a flag for before/afterChange events. If you pass only array of changes then source could be set as second parameter.
          */
-        setDataAtCell(row: number, col: number, value: any, source?: string): void;
+        setDataAtCell(
+            row: number,
+            col: number,
+            value: any,
+            source?: string
+        ): void;
 
         /**
          * Set new value to a cell. To change many cells at once, pass an array of changes in format [ [row, col, value], ... ] as the only parameter. col is the index of visible column (note that if columns were reordered, the current order will be used). source is a flag for before/afterChange events. If you pass only array of changes then source could be set as second parameter.
@@ -732,7 +818,12 @@ declare namespace Handsontable {
         /**
          * Same as above, except instead of col, you provide name of the object property (e.g. [0, 'first.name', 'Jennifer']).
          */
-        setDataAtRowProp(row: number, prop: string, value: any, source?: string): void;
+        setDataAtRowProp(
+            row: number,
+            prop: string,
+            value: any,
+            source?: string
+        ): void;
 
         /**
          * Same as above, except instead of col, you provide name of the object property (e.g. [0, 'first.name', 'Jennifer']).
@@ -745,39 +836,82 @@ declare namespace Handsontable {
          * @param source (default value "populateFromArray") is used to identify this call in the resulting events (beforeChange, afterChange).
          * @param populateMethod (default value "overwrite", possible values "shift_down" and "shift_right") has the same effect as pasteMethod option (see Options page).
          */
-        populateFromArray(row: number, col: number, input: any[], endRow: number, endCol: number, source?: string, populateMethod?: string): void;
+        populateFromArray(
+            row: number,
+            col: number,
+            input: any[],
+            endRow: number,
+            endCol: number,
+            source?: string,
+            populateMethod?: string
+        ): void;
 
         /**
          * Adds/removes data from the column. This function works is modelled after Array.splice. Parameter col is the index of column in which do you want to do splice. Parameter index is the row index at which to start changing the array. If negative, will begin that many elements from the end. Parameter amount, is the number of old array elements to remove. If the amount is 0, no elements are removed. Fourth and further parameters are the elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array.
          */
-        spliceCol(col: number, index: number, amount: number, ...elements: any[]): void;
+        spliceCol(
+            col: number,
+            index: number,
+            amount: number,
+            ...elements: any[]
+        ): void;
 
         /**
          * Adds/removes data from the row. This function works is modelled after Array.splice. Parameter row is the index of row in which do you want to do splice. Parameter index is the column index at which to start changing the array. If negative, will begin that many elements from the end. Parameter amount, is the number of old array elements to remove. If the amount is 0, no elements are removed. Fourth and further parameters are the elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array.
          */
-        spliceRow(row: number, index: number, amount: number, ...elements: any[]): void;
+        spliceRow(
+            row: number,
+            index: number,
+            amount: number,
+            ...elements: any[]
+        ): void;
 
         /**
          * Insert new row(s) above the row at given index. If index is null or undefined, the new row will be added after the current last row. Default amount equals 1.
          */
-        alter(type: 'insert_row', index: number, amount?: number, source?: string): void;
+        alter(
+            type: "insert_row",
+            index: number,
+            amount?: number,
+            source?: string
+        ): void;
 
         /**
          * Insert new column(s) before the column at given index. If index is null or undefined, the new column will be added after the current last column. Default amount equals 1.
          */
-        alter(type: 'insert_col', index: number, amount?: number, source?: string): void;
+        alter(
+            type: "insert_col",
+            index: number,
+            amount?: number,
+            source?: string
+        ): void;
 
         /**
          * Remove the row(s) at given index. Default amount equals 1.
          */
-        alter(type: 'remove_row', index: number, amount?: number, source?: string): void;
+        alter(
+            type: "remove_row",
+            index: number,
+            amount?: number,
+            source?: string
+        ): void;
 
         /**
          * Remove the column(s) at given index. Default amount equals 1.
          */
-        alter(type: 'remove_col', index: number, amount?: number, source?: string): void;
+        alter(
+            type: "remove_col",
+            index: number,
+            amount?: number,
+            source?: string
+        ): void;
 
-        alter(type: string, index: number, amount?: number, source?: string): void;
+        alter(
+            type: string,
+            index: number,
+            amount?: number,
+            source?: string
+        ): void;
 
         /**
          * Returns TD element for given row, col if it is rendered on screen.
@@ -803,7 +937,13 @@ declare namespace Handsontable {
         /**
          * Select cell row, col or range finishing at row2, col2. By default, viewport will be scrolled to selection.
          */
-        selectCell(row: number, col: number, row2: number, col2: number, scrollToSelection?: boolean): void;
+        selectCell(
+            row: number,
+            col: number,
+            row2: number,
+            col2: number,
+            scrollToSelection?: boolean
+        ): void;
 
         /**
          * Deselect current selection.

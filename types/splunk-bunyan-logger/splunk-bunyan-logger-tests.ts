@@ -1,6 +1,6 @@
-import { createStream } from 'splunk-bunyan-logger';
-import { Config } from 'splunk-logging';
-import { createLogger } from 'bunyan';
+import { createStream } from "splunk-bunyan-logger";
+import { Config } from "splunk-logging";
+import { createLogger } from "bunyan";
 
 const config = {
     token: "your-token-here",
@@ -38,25 +38,23 @@ splunkStream.setEventFormatter((message, severity) => {
 // Note: splunkStream must be set to an element in the streams array
 const Logger = createLogger({
     name: "my logger",
-    streams: [
-        splunkStream
-    ]
+    streams: [splunkStream]
 });
 
 // Fully-specified config
 
 const fullConfig: Config = {
-    token: 'token',
-    name: 'loggerName',
-    host: 'splunkHost',
+    token: "token",
+    name: "loggerName",
+    host: "splunkHost",
     maxRetries: 2,
-    path: 'splunkPath',
-    protocol: 'https',
+    path: "splunkPath",
+    protocol: "https",
     port: 234,
-    level: 'info',
+    level: "info",
     batchInterval: 200,
     maxBatchSize: 300,
-    maxBatchCount: 400,
+    maxBatchCount: 400
 };
 
 createStream(fullConfig);

@@ -19,4 +19,9 @@ interface Path {
  * encountered coercion errors.
  *
  */
-export function coerceValue(value: any, type: GraphQLInputType, blameNode?: ASTNode, path?: Path): CoercedValue;
+export function coerceValue(
+    value: any,
+    type: GraphQLInputType,
+    blameNode?: ASTNode,
+    path?: Path
+): CoercedValue;

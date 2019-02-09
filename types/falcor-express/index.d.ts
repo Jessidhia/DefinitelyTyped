@@ -6,6 +6,8 @@
 
 /// <reference types="falcor" />
 
-import { Request, Response, Handler } from 'express';
-import {DataSource} from 'falcor';
-declare function dataSourceRoute(getDataSource: (req: Request, res: Response) => DataSource): Handler;
+import { Request, Response, Handler } from "express";
+import { DataSource } from "falcor";
+declare function dataSourceRoute(
+    getDataSource: (req: Request, res: Response) => DataSource
+): Handler;

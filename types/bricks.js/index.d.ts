@@ -10,14 +10,23 @@ export interface BricksInstance {
     update(): BricksInstance;
     resize(flag?: boolean): BricksInstance;
 
-    on(event: 'pack' | 'update', listener: () => any): BricksInstance;
-    on(event: 'resize', listener: (sizeDetail: SizeDetail) => any): BricksInstance;
+    on(event: "pack" | "update", listener: () => any): BricksInstance;
+    on(
+        event: "resize",
+        listener: (sizeDetail: SizeDetail) => any
+    ): BricksInstance;
 
-    once(event: 'pack' | 'update', listener: () => any): BricksInstance;
-    once(event: 'resize', listener: (sizeDetail: SizeDetail) => any): BricksInstance;
+    once(event: "pack" | "update", listener: () => any): BricksInstance;
+    once(
+        event: "resize",
+        listener: (sizeDetail: SizeDetail) => any
+    ): BricksInstance;
 
-    off(event: 'pack' | 'update', listener?: () => any): BricksInstance;
-    off(event: 'resize', listener?: (sizeDetail: SizeDetail) => any): BricksInstance;
+    off(event: "pack" | "update", listener?: () => any): BricksInstance;
+    off(
+        event: "resize",
+        listener?: (sizeDetail: SizeDetail) => any
+    ): BricksInstance;
 }
 
 export interface BricksOptions {

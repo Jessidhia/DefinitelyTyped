@@ -3,64 +3,61 @@
 // jQuery tests
 
 let $flickity = $("#flickity-selector").flickity({
-        initialIndex: 0,
-        accessibility: true,
-        asNavFor: "#nav-bar",
-        autoPlay: true,
-        cellAlign: "left",
-        cellSelector: ".gallery-cell",
-        contain: true,
-        draggable: true,
-        freeScroll: false,
-        freeScrollFriction: 0.5,
-        friction: 0.8,
-        imagesLoaded: false,
-        lazyLoad: false,
-        pageDots: false,
-        arrowShape: "arrow.svg",
-        percentPosition: false,
-        prevNextButtons: false,
-        selectedAttraction: 0.050,
-        setGallerySize: true,
-        watchCSS: true,
-        wrapAround: true,
-        resize: true,
-        rightToLeft: false
-    });
+    initialIndex: 0,
+    accessibility: true,
+    asNavFor: "#nav-bar",
+    autoPlay: true,
+    cellAlign: "left",
+    cellSelector: ".gallery-cell",
+    contain: true,
+    draggable: true,
+    freeScroll: false,
+    freeScrollFriction: 0.5,
+    friction: 0.8,
+    imagesLoaded: false,
+    lazyLoad: false,
+    pageDots: false,
+    arrowShape: "arrow.svg",
+    percentPosition: false,
+    prevNextButtons: false,
+    selectedAttraction: 0.05,
+    setGallerySize: true,
+    watchCSS: true,
+    wrapAround: true,
+    resize: true,
+    rightToLeft: false
+});
 
-$flickity.flickity("next")
-    .flickity("select", 4);
+$flickity.flickity("next").flickity("select", 4);
 
 // Vanilla jQuery tests
 let flikty: Flickity = new Flickity("#flickity-gallery");
 
-let flikty2: Flickity =
-    new Flickity("#flickity-gallery",
-        {
-            initialIndex: 0,
-            accessibility: true,
-            asNavFor: "#nav-bar",
-            autoPlay: true,
-            cellAlign: "left",
-            cellSelector: ".gallery-cell",
-            contain: true,
-            draggable: true,
-            freeScroll: false,
-            freeScrollFriction: 0.5,
-            friction: 0.8,
-            imagesLoaded: false,
-            lazyLoad: false,
-            pageDots: false,
-            arrowShape: "arrow.svg",
-            percentPosition: false,
-            prevNextButtons: false,
-            selectedAttraction: 0.050,
-            setGallerySize: true,
-            watchCSS: true,
-            wrapAround: true,
-            resize: true,
-            rightToLeft: false
-        });
+let flikty2: Flickity = new Flickity("#flickity-gallery", {
+    initialIndex: 0,
+    accessibility: true,
+    asNavFor: "#nav-bar",
+    autoPlay: true,
+    cellAlign: "left",
+    cellSelector: ".gallery-cell",
+    contain: true,
+    draggable: true,
+    freeScroll: false,
+    freeScrollFriction: 0.5,
+    friction: 0.8,
+    imagesLoaded: false,
+    lazyLoad: false,
+    pageDots: false,
+    arrowShape: "arrow.svg",
+    percentPosition: false,
+    prevNextButtons: false,
+    selectedAttraction: 0.05,
+    setGallerySize: true,
+    watchCSS: true,
+    wrapAround: true,
+    resize: true,
+    rightToLeft: false
+});
 
 // ES6 element selector for tests
 let element = document.querySelector("#gallery");
@@ -135,8 +132,10 @@ let flikty3: Flickity = new Flickity("#flickity-gallery", {
 let flikty4: Flickity = new Flickity(new HTMLElement(), {
     arrowShape: {
         x0: 10,
-        x1: 60, y1: 50,
-        x2: 70, y2: 40,
+        x1: 60,
+        y1: 50,
+        x2: 70,
+        y2: 40,
         x3: 30
     }
 });

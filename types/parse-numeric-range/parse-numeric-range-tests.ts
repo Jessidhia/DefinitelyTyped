@@ -1,19 +1,19 @@
-import { parse } from 'parse-numeric-range';
+import { parse } from "parse-numeric-range";
 
 // $ExpectType number[]
-parse('');
+parse("");
 
 // $ExpectType number[]
-parse('The cake is a lie.');
+parse("The cake is a lie.");
 
 // $ExpectType number[]
-parse('4');
+parse("4");
 
 // $ExpectType number[]
-parse('1..3');
+parse("1..3");
 
 // $ExpectType number[]
-parse('5-16,18,20');
+parse("5-16,18,20");
 
 // $ExpectType number[]
-parse('5\u202516');
+parse("5\u202516");

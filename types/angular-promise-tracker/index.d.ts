@@ -6,9 +6,9 @@
 
 /// <reference types="angular" />
 
-import * as angular from 'angular';
+import * as angular from "angular";
 
-declare module 'angular' {
+declare module "angular" {
     export namespace promisetracker {
         interface PromiseTrackerOptions {
             activationDelay?: number;
@@ -19,7 +19,9 @@ declare module 'angular' {
             active(): boolean;
             tracking(): boolean;
             trackingCount(): number;
-            addPromise<T>(promise: angular.IPromise<T>): angular.IDeferred<void>;
+            addPromise<T>(
+                promise: angular.IPromise<T>
+            ): angular.IDeferred<void>;
             createPromise(): angular.IDeferred<void>;
             cancel(): void;
         }
@@ -30,6 +32,8 @@ declare module 'angular' {
     }
 
     interface IRequestShortcutConfig {
-        tracker?: angular.promisetracker.PromiseTracker | angular.promisetracker.PromiseTracker[];
+        tracker?:
+            | angular.promisetracker.PromiseTracker
+            | angular.promisetracker.PromiseTracker[];
     }
 }

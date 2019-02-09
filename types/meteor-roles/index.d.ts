@@ -30,7 +30,7 @@ declare namespace Roles {
      * @static
      * @final
      */
-    var GLOBAL_GROUP : string;
+    var GLOBAL_GROUP: string;
 
     /**
      * Subscription handle for the currently logged in user's permissions.
@@ -47,7 +47,7 @@ declare namespace Roles {
      * @type Object
      * @for Roles
      */
-    var subscription : Subscription;
+    var subscription: Subscription;
 
     /**
      * Add users to roles. Will create roles as needed.
@@ -81,10 +81,10 @@ declare namespace Roles {
      *                         included in checks for any group.
      */
     function addUsersToRoles(
-        user : string|string[]|Object|Object[],
-        roles : string|string[],
-        group? : string
-    ) : void;
+        user: string | string[] | Object | Object[],
+        roles: string | string[],
+        group?: string
+    ): void;
 
     /**
      * Create a new role. Whitespace will be trimmed.
@@ -93,7 +93,7 @@ declare namespace Roles {
      * @param {String} role Name of role
      * @return {String} id of new role
      */
-    function createRole(role : string) : string;
+    function createRole(role: string): string;
 
     /**
      * Delete an existing role.  Will throw "Role in use" error if any users
@@ -102,7 +102,7 @@ declare namespace Roles {
      * @method deleteRole
      * @param {String} role Name of role
      */
-    function deleteRole (role : string) : void;
+    function deleteRole(role: string): void;
 
     /**
      * Retrieve set of all existing roles
@@ -110,7 +110,7 @@ declare namespace Roles {
      * @method getAllRoles
      * @return {Cursor} cursor of existing roles
      */
-    function getAllRoles() : Mongo.Cursor<Role>;
+    function getAllRoles(): Mongo.Cursor<Role>;
 
     /**
      * Retrieve users groups, if any
@@ -121,10 +121,7 @@ declare namespace Roles {
      *
      * @return {Array} Array of user's groups, unsorted. Roles.GLOBAL_GROUP will be omitted
      */
-    function getGroupsForUser(
-        user : string|Object,
-        role? : string
-    ) : string[];
+    function getGroupsForUser(user: string | Object, role?: string): string[];
 
     /**
      * Retrieve users roles
@@ -135,10 +132,7 @@ declare namespace Roles {
      *                         User's Roles.GLOBAL_GROUP will also be included.
      * @return {Array} Array of user's roles, unsorted.
      */
-    function getRolesForUser(
-        user : string|Object,
-        group? : string
-    ) : string[];
+    function getRolesForUser(user: string | Object, group?: string): string[];
 
     /**
      * Retrieve all users who are in target role.
@@ -159,16 +153,17 @@ declare namespace Roles {
      * @return {Cursor} cursor of users in role
      */
     function getUsersInRole(
-        role : string|string[],
-        group? : string,
-        options? : {
+        role: string | string[],
+        group?: string,
+        options?: {
             sort?: Mongo.SortSpecifier;
-        skip?: number;
-        limit?: number;
-        fields?: Mongo.FieldSpecifier;
-        reactive?: boolean;
-        transform?: Function;
-    }) : Mongo.Cursor<Meteor.User>;
+            skip?: number;
+            limit?: number;
+            fields?: Mongo.FieldSpecifier;
+            reactive?: boolean;
+            transform?: Function;
+        }
+    ): Mongo.Cursor<Meteor.User>;
 
     /**
      * Remove users from roles
@@ -186,10 +181,10 @@ declare namespace Roles {
      *                         group will have roles removed.
      */
     function removeUsersFromRoles(
-        user : string|string[]|Object|Object[],
-        roles? : string[],
-        group? : string
-    ) : void;
+        user: string | string[] | Object | Object[],
+        roles?: string[],
+        group?: string
+    ): void;
 
     /**
      * Set a users roles/permissions.
@@ -215,11 +210,11 @@ declare namespace Roles {
      *                         Roles.GLOBAL_GROUP group will be automatically
      *                         included in checks for any group.
      */
-    function setUserRoles (
-        user : string|string[]|Object|Object[],
-        roles : string|string[],
-        group? : string
-    ) : void;
+    function setUserRoles(
+        user: string | string[] | Object | Object[],
+        roles: string | string[],
+        group?: string
+    ): void;
 
     /**
      * Check if user has specified permissions/roles
@@ -251,20 +246,19 @@ declare namespace Roles {
      * @return {Boolean} true if user is in _any_ of the target roles
      */
     function userIsInRole(
-        user : string|string[]|Object|Object[],
-        roles : string|string[],
-        group? : string
-    ) : boolean;
+        user: string | string[] | Object | Object[],
+        roles: string | string[],
+        group?: string
+    ): boolean;
 
     interface Role {
-        name : string;
+        name: string;
     }
 } // module
 
 declare namespace Meteor {
-    var roles : Mongo.Collection<Roles.Role>;
+    var roles: Mongo.Collection<Roles.Role>;
 }
-
 
 /* Declaring in the format prescribed by Meteor */
 declare module "meteor/alanning:roles" {
@@ -286,7 +280,7 @@ declare module "meteor/alanning:roles" {
          * @static
          * @final
          */
-        var GLOBAL_GROUP : string;
+        var GLOBAL_GROUP: string;
 
         /**
          * Subscription handle for the currently logged in user's permissions.
@@ -303,7 +297,7 @@ declare module "meteor/alanning:roles" {
          * @type Object
          * @for Roles
          */
-        var subscription : Subscription;
+        var subscription: Subscription;
 
         /**
          * Add users to roles. Will create roles as needed.
@@ -337,10 +331,10 @@ declare module "meteor/alanning:roles" {
          *                         included in checks for any group.
          */
         function addUsersToRoles(
-            user : string|string[]|Object|Object[],
-            roles : string|string[],
-            group? : string
-        ) : void;
+            user: string | string[] | Object | Object[],
+            roles: string | string[],
+            group?: string
+        ): void;
 
         /**
          * Create a new role. Whitespace will be trimmed.
@@ -349,7 +343,7 @@ declare module "meteor/alanning:roles" {
          * @param {String} role Name of role
          * @return {String} id of new role
          */
-        function createRole(role : string) : string;
+        function createRole(role: string): string;
 
         /**
          * Delete an existing role.  Will throw "Role in use" error if any users
@@ -358,7 +352,7 @@ declare module "meteor/alanning:roles" {
          * @method deleteRole
          * @param {String} role Name of role
          */
-        function deleteRole (role : string) : void;
+        function deleteRole(role: string): void;
 
         /**
          * Retrieve set of all existing roles
@@ -366,7 +360,7 @@ declare module "meteor/alanning:roles" {
          * @method getAllRoles
          * @return {Cursor} cursor of existing roles
          */
-        function getAllRoles() : Mongo.Cursor<Role>;
+        function getAllRoles(): Mongo.Cursor<Role>;
 
         /**
          * Retrieve users groups, if any
@@ -378,9 +372,9 @@ declare module "meteor/alanning:roles" {
          * @return {Array} Array of user's groups, unsorted. Roles.GLOBAL_GROUP will be omitted
          */
         function getGroupsForUser(
-            user : string|Object,
-            role? : string
-        ) : string[];
+            user: string | Object,
+            role?: string
+        ): string[];
 
         /**
          * Retrieve users roles
@@ -392,9 +386,9 @@ declare module "meteor/alanning:roles" {
          * @return {Array} Array of user's roles, unsorted.
          */
         function getRolesForUser(
-            user : string|Object,
-            group? : string
-        ) : string[];
+            user: string | Object,
+            group?: string
+        ): string[];
 
         /**
          * Retrieve all users who are in target role.
@@ -415,16 +409,17 @@ declare module "meteor/alanning:roles" {
          * @return {Cursor} cursor of users in role
          */
         function getUsersInRole(
-            role : string|string[],
-            group? : string,
-            options? : {
+            role: string | string[],
+            group?: string,
+            options?: {
                 sort?: Mongo.SortSpecifier;
-            skip?: number;
-            limit?: number;
-            fields?: Mongo.FieldSpecifier;
-            reactive?: boolean;
-            transform?: Function;
-        }) : Mongo.Cursor<Meteor.User>;
+                skip?: number;
+                limit?: number;
+                fields?: Mongo.FieldSpecifier;
+                reactive?: boolean;
+                transform?: Function;
+            }
+        ): Mongo.Cursor<Meteor.User>;
 
         /**
          * Remove users from roles
@@ -442,10 +437,10 @@ declare module "meteor/alanning:roles" {
          *                         group will have roles removed.
          */
         function removeUsersFromRoles(
-            user : string|string[]|Object|Object[],
-            roles? : string[],
-            group? : string
-        ) : void;
+            user: string | string[] | Object | Object[],
+            roles?: string[],
+            group?: string
+        ): void;
 
         /**
          * Set a users roles/permissions.
@@ -471,11 +466,11 @@ declare module "meteor/alanning:roles" {
          *                         Roles.GLOBAL_GROUP group will be automatically
          *                         included in checks for any group.
          */
-        function setUserRoles (
-            user : string|string[]|Object|Object[],
-            roles : string|string[],
-            group? : string
-        ) : void;
+        function setUserRoles(
+            user: string | string[] | Object | Object[],
+            roles: string | string[],
+            group?: string
+        ): void;
 
         /**
          * Check if user has specified permissions/roles
@@ -507,13 +502,13 @@ declare module "meteor/alanning:roles" {
          * @return {Boolean} true if user is in _any_ of the target roles
          */
         function userIsInRole(
-            user : string|string[]|Object|Object[],
-            roles : string|string[],
-            group? : string
-        ) : boolean;
+            user: string | string[] | Object | Object[],
+            roles: string | string[],
+            group?: string
+        ): boolean;
 
         interface Role {
-            name : string;
+            name: string;
         }
     }
 }

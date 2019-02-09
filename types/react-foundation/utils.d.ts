@@ -1,5 +1,12 @@
-import * as PropTypes from 'prop-types';
-import { Breakpoints, FloatTypes, HorizontalAlignments, VerticalAlignments, SpaceControls, ExtendedBreakpoints } from './enums';
+import * as PropTypes from "prop-types";
+import {
+    Breakpoints,
+    FloatTypes,
+    HorizontalAlignments,
+    VerticalAlignments,
+    SpaceControls,
+    ExtendedBreakpoints
+} from "./enums";
 export interface ClassNameProps {
     noDefaultClassName?: string;
     className?: string;
@@ -44,32 +51,34 @@ export declare function createClassName(...args: any[]): string;
 /**
  * Parses the general class names from the given properties.
  */
-export declare function generalClassNames(props: GeneralPropTypes): {
-    'show-for-medium': boolean;
-    'show-for-large': boolean;
-    'show-for-small-only': boolean;
-    'show-for-medium-only': boolean;
-    'show-for-large-only': boolean;
-    'hide-for-medium': boolean;
-    'hide-for-large': boolean;
-    'hide-for-small-only': boolean;
-    'hide-for-medium-only': boolean;
-    'hide-for-large-only': boolean;
-    'hide': boolean | undefined;
-    'invisible': boolean | undefined;
-    'show-for-landscape': boolean | undefined;
-    'show-for-portrait': boolean | undefined;
-    'show-for-sr': boolean | undefined;
-    'show-on-focus': boolean | undefined;
-    'clearfix': boolean | undefined;
-    'float-left': boolean;
-    'float-center': boolean;
-    'float-right': boolean;
+export declare function generalClassNames(
+    props: GeneralPropTypes
+): {
+    "show-for-medium": boolean;
+    "show-for-large": boolean;
+    "show-for-small-only": boolean;
+    "show-for-medium-only": boolean;
+    "show-for-large-only": boolean;
+    "hide-for-medium": boolean;
+    "hide-for-large": boolean;
+    "hide-for-small-only": boolean;
+    "hide-for-medium-only": boolean;
+    "hide-for-large-only": boolean;
+    hide: boolean | undefined;
+    invisible: boolean | undefined;
+    "show-for-landscape": boolean | undefined;
+    "show-for-portrait": boolean | undefined;
+    "show-for-sr": boolean | undefined;
+    "show-on-focus": boolean | undefined;
+    clearfix: boolean | undefined;
+    "float-left": boolean;
+    "float-center": boolean;
+    "float-right": boolean;
 };
 /**
  * Returns the keys for the given object.
  * This method is used for getting the keys for prop types.
-  */
+ */
 export declare function objectKeys(object: object): string[];
 /**
  * Returns the values for the given object.
@@ -97,7 +106,10 @@ export declare function addBreakpoint(prop: string, size: string): string;
  * Sets direction for grid and gutters (horizontal or vertical).
  *
  */
-export declare function setDirection(isVertical?: boolean, gutters?: string | null): string;
+export declare function setDirection(
+    isVertical?: boolean,
+    gutters?: string | null
+): string;
 /**
  * Property types for flexbox utilities.
  *
@@ -140,6 +152,8 @@ export interface FlexboxPropTypes extends GeneralPropTypes {
  * Parses the flexbox class names from the given properties.
  *
  */
-export declare function flexboxClassNames(props: FlexboxPropTypes): {
+export declare function flexboxClassNames(
+    props: FlexboxPropTypes
+): {
     [name: string]: boolean | undefined;
 };

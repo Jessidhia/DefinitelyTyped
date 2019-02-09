@@ -4,10 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import {
-    Component,
-    Props
-} from "react";
+import { Component, Props } from "react";
 
 type ItemRenderer = (index: number, key: number | string) => JSX.Element;
 type ItemsRenderer = (items: JSX.Element[], ref: string) => JSX.Element;
@@ -16,7 +13,7 @@ type ItemSizeGetter = (index: number) => number;
 type ScrollParentGetter = () => JSX.Element;
 
 interface ReactListProps extends Props<ReactList> {
-    axis?: 'x' | 'y';
+    axis?: "x" | "y";
     initialIndex?: number;
     itemRenderer?: ItemRenderer;
     itemSizeEstimator?: ItemSizeEstimator;
@@ -37,5 +34,5 @@ declare class ReactList extends Component<ReactListProps> {
     scrollAround(index: number): void;
     getVisibleRange(): number[];
 }
-declare namespace ReactList { }
+declare namespace ReactList {}
 export = ReactList;

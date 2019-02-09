@@ -12,7 +12,10 @@ export type State = "sound" | "silence" | "hotword" | "error";
 export class Detector extends Stream {
     constructor(params: any);
 
-    on(event: State | symbol, callback: (index: any, hotword?: any, buffer?: Buffer) => void): this;
+    on(
+        event: State | symbol,
+        callback: (index: any, hotword?: any, buffer?: Buffer) => void
+    ): this;
 }
 
 export class Models {

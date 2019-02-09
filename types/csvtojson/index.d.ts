@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import * as stream from 'stream';
+import * as stream from "stream";
 
 declare namespace csvtojson {
     /**
@@ -17,10 +17,10 @@ declare namespace csvtojson {
      * Converter options
      */
     interface ConverterOptions {
-       /**
-        * Whether to construct final json object in memory which will be populated in "end_parsed"
-        * event. Set to false if deal with huge csv data. default: true.
-        */
+        /**
+         * Whether to construct final json object in memory which will be populated in "end_parsed"
+         * event. Set to false if deal with huge csv data. default: true.
+         */
         constructResult?: boolean;
 
         /**
@@ -156,7 +156,11 @@ declare namespace csvtojson {
     /**
      * Event handler for "record_parsed" events.
      */
-    type RecordParsedEventHandler = (jsonObj: any, csvRoe: string[], rowNumber: number) => void;
+    type RecordParsedEventHandler = (
+        jsonObj: any,
+        csvRoe: string[],
+        rowNumber: number
+    ) => void;
 
     /**
      * Event handler for "end" events.
@@ -242,29 +246,50 @@ declare namespace csvtojson {
          * @return returns this object for chaining
          */
         // tslint:disable-next-line ban-types
-        on(event: string, listener: Function | JsonEventHandler | CsvEventHandler | DataEventHandler | ErrorEventHandler
-            | RecordParsedEventHandler | EndEventHandler | EndParsedEventHandler | DoneEventHandler): this;
+        on(
+            event: string,
+            listener:
+                | Function
+                | JsonEventHandler
+                | CsvEventHandler
+                | DataEventHandler
+                | ErrorEventHandler
+                | RecordParsedEventHandler
+                | EndEventHandler
+                | EndParsedEventHandler
+                | DoneEventHandler
+        ): this;
 
         /**
          * Transform objects after CSV parsing but before result being emitted or pushed downstream.
          * @param  callback transform function
          * @return returns this object for chaining
          */
-        transf(callback: (jsonObj: any, csvRow: string[], rowNumber: number) => void): this;
+        transf(
+            callback: (
+                jsonObj: any,
+                csvRow: string[],
+                rowNumber: number
+            ) => void
+        ): this;
 
         /**
          * The function in preRawData will be called directly with the string from upper stream.
          * @param  callback callback function
          * @return returns this object for chaining
          */
-        preRawData(callback: (csvRawData: string, cb: (newData: any) => void) => void): this;
+        preRawData(
+            callback: (csvRawData: string, cb: (newData: any) => void) => void
+        ): this;
 
         /**
          * The function is called each time a file line being found in csv stream.
          * @param  callback callback function
          * @return returns this object for chaining
          */
-        preFileLine(callback: (line: string, rowNumber: number) => string): this;
+        preFileLine(
+            callback: (line: string, rowNumber: number) => string
+        ): this;
     }
 }
 
@@ -274,6 +299,9 @@ declare namespace csvtojson {
  * @param    streamOptions stream options
  * @return Converter object
  */
-declare function csvtojson(options?: csvtojson.ConverterOptions, streamOptions?: csvtojson.StreamOptions): csvtojson.Converter;
+declare function csvtojson(
+    options?: csvtojson.ConverterOptions,
+    streamOptions?: csvtojson.StreamOptions
+): csvtojson.Converter;
 
 export = csvtojson;

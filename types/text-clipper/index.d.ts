@@ -11,5 +11,9 @@ interface Options {
     maxLines?: number;
 }
 
-declare function clip(string: string, maxLength: number, options?: Options): string;
+declare function clip(
+    string: string,
+    maxLength: number,
+    options?: Options
+): string;
 export = clip;

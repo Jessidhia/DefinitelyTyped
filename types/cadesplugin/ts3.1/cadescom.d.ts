@@ -4,7 +4,9 @@ declare namespace CAdESCOM {
         CheckCertificate: boolean;
 
         KeyPin: string;
-        Options: CADES_Common.ValuesOf<CAPICOM.CAPICOM_CERTIFICATE_INCLUDE_OPTION>;
+        Options: CADES_Common.ValuesOf<
+            CAPICOM.CAPICOM_CERTIFICATE_INCLUDE_OPTION
+        >;
         readonly SignatureTimeStampTime: CADES_Common.VarDate;
         readonly SigningTime: CADES_Common.VarDate;
         TSAAddress: string;
@@ -23,11 +25,24 @@ declare namespace CAdESCOM {
 
         Display(hwndParent?: number, title?: string): void;
 
-        EnhanceCades(cadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>, TSAAddress?: string, encodingType?: CADES_Common.ValuesOf<CAPICOM.CAPICOM_ENCODING_TYPE>): string;
+        EnhanceCades(
+            cadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>,
+            TSAAddress?: string,
+            encodingType?: CADES_Common.ValuesOf<CAPICOM.CAPICOM_ENCODING_TYPE>
+        ): string;
 
-        SignCades(signer?: CPSigner, CadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>, bDetached?: boolean, EncodingType?: CADES_Common.ValuesOf<CAPICOM.CAPICOM_ENCODING_TYPE>): string;
+        SignCades(
+            signer?: CPSigner,
+            CadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>,
+            bDetached?: boolean,
+            EncodingType?: CADES_Common.ValuesOf<CAPICOM.CAPICOM_ENCODING_TYPE>
+        ): string;
 
-        VerifyCades(SignedMessage: string, CadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>, bDetached?: boolean): void;
+        VerifyCades(
+            SignedMessage: string,
+            CadesType?: CADES_Common.ValuesOf<CADESCOM_CADES_TYPE>,
+            bDetached?: boolean
+        ): void;
     }
 
     interface Version {
@@ -92,6 +107,10 @@ declare namespace CAdESCOM {
     interface RawSignature {
         SignHash(hash: CPHashedData, certificate?: string): string;
 
-        VerifyHash(hash: CPHashedData, certificate: CAPICOM.Certificate, signature: string): void;
+        VerifyHash(
+            hash: CPHashedData,
+            certificate: CAPICOM.Certificate,
+            signature: string
+        ): void;
     }
 }

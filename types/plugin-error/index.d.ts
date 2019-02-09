@@ -39,7 +39,11 @@ declare class PluginError extends Error {
      * @param message If you pass an error object as the message the stack will be pulled from that, otherwise one will be created.
      * @param options Options
      */
-    constructor(pluginName: string, message: string | Error, options?: PluginError.PluginErrorOpts);
+    constructor(
+        pluginName: string,
+        message: string | Error,
+        options?: PluginError.PluginErrorOpts
+    );
 
     /**
      * Constructor

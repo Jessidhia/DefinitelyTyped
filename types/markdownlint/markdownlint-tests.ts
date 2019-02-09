@@ -1,19 +1,19 @@
-import * as markdownlint from 'markdownlint';
+import * as markdownlint from "markdownlint";
 
 const config: markdownlint.MarkdownlintConfig = {
     default: true,
-    MD003: { style: 'atx_closed' },
+    MD003: { style: "atx_closed" },
     MD007: { indent: 4 },
-    'no-hard-tabs': false,
-    whitespace: false,
+    "no-hard-tabs": false,
+    whitespace: false
 };
 
 const options: markdownlint.MarkdownlintOptions = {
-    files: ['README.md'],
-    strings: { 'file.md': 'Header' },
+    files: ["README.md"],
+    strings: { "file.md": "Header" },
     config,
     noInlineConfig: false,
-    resultVersion: 1,
+    resultVersion: 1
 };
 
 // $ExpectType MarkdownlintResults
@@ -31,7 +31,7 @@ markdownlint(options, (err, results) => {
     results.toString() as markdownlint.MarkdownlintResult[];
 
     const fileErrors: markdownlint.MarkdownlintResult[] = results[
-        'file.md'
+        "file.md"
     ] as markdownlint.MarkdownlintResult[];
     const firstFileError: markdownlint.MarkdownlintResult = fileErrors[0];
     const firstFileErrorRule: string = firstFileError.ruleName;

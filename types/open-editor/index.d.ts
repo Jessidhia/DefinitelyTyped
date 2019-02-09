@@ -4,11 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { PathSpec } from 'line-column-path';
+import { PathSpec } from "line-column-path";
 
 export = openEditor;
 
-declare function openEditor(files: PathSpec[], options?: openEditor.Options): void;
+declare function openEditor(
+    files: PathSpec[],
+    options?: openEditor.Options
+): void;
 
 declare namespace openEditor {
     function make(files: PathSpec[], options?: Options): EditorRunConfig;

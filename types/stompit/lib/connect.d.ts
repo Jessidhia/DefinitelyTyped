@@ -4,8 +4,15 @@ import { ConnectionOptions as TlsConnectionOptions } from "tls";
 import Client = require("./Client");
 import { SocketOptions } from "./Socket";
 
-declare function connect(optionsOrPath: connect.ConnectOptions | string, connectionListener?: (err: Error | null, client: Client) => void): Client;
-declare function connect(port: number, host?: string, connectionListener?: (err: Error | null, client: Client) => void): Client;
+declare function connect(
+    optionsOrPath: connect.ConnectOptions | string,
+    connectionListener?: (err: Error | null, client: Client) => void
+): Client;
+declare function connect(
+    port: number,
+    host?: string,
+    connectionListener?: (err: Error | null, client: Client) => void
+): Client;
 
 export = connect;
 
@@ -21,20 +28,32 @@ declare namespace connect {
     interface BaseConnectOptions extends SocketOptions {
         connectHeaders?: ConnectHeaders;
         ssl?: boolean;
-        connect?: (options: ConnectOptions, connectionListener?: () => void) => Socket;
+        connect?: (
+            options: ConnectOptions,
+            connectionListener?: () => void
+        ) => Socket;
     }
 
-    interface NetTcpConnectOptions extends BaseConnectOptions, TcpNetConnectOpts {
+    interface NetTcpConnectOptions
+        extends BaseConnectOptions,
+            TcpNetConnectOpts {
         ssl?: false;
     }
 
-    interface NetIpcConnectOptions extends BaseConnectOptions, IpcNetConnectOpts {
+    interface NetIpcConnectOptions
+        extends BaseConnectOptions,
+            IpcNetConnectOpts {
         ssl?: false;
     }
 
-    interface SslConnectOptions extends BaseConnectOptions, TlsConnectionOptions {
+    interface SslConnectOptions
+        extends BaseConnectOptions,
+            TlsConnectionOptions {
         ssl: true;
     }
 
-    type ConnectOptions = NetTcpConnectOptions | NetIpcConnectOptions | SslConnectOptions;
+    type ConnectOptions =
+        | NetTcpConnectOptions
+        | NetIpcConnectOptions
+        | SslConnectOptions;
 }

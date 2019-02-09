@@ -6,5 +6,5 @@
 declare function defaults(options: any, defaultOptions: any): any;
 
 declare module "defaults" {
-  export = defaults;
+    export = defaults;
 }

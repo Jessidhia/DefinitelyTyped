@@ -5,12 +5,20 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import express = require('express');
+import express = require("express");
 
 declare namespace morgan {
-    type FormatFn = (tokens: TokenIndexer, req: express.Request, res: express.Response) => string;
+    type FormatFn = (
+        tokens: TokenIndexer,
+        req: express.Request,
+        res: express.Response
+    ) => string;
 
-    type TokenCallbackFn = (req: express.Request, res: express.Response, arg?: string | number | boolean) => string;
+    type TokenCallbackFn = (
+        req: express.Request,
+        res: express.Response,
+        arg?: string | number | boolean
+    ) => string;
 
     interface TokenIndexer {
         [tokenName: string]: TokenCallbackFn;
@@ -35,14 +43,14 @@ declare namespace morgan {
          * @param format
          * @param options
          */
-        (format: 'combined', options?: Options): express.RequestHandler;
+        (format: "combined", options?: Options): express.RequestHandler;
         /***
          * Standard Apache common log output.
          * :remote-addr - :remote-user [:date] ":method :url HTTP/:http-version" :status :res[content-length]
          * @param format
          * @param options
          */
-        (format: 'common', options?: Options): express.RequestHandler;
+        (format: "common", options?: Options): express.RequestHandler;
         /**
          * Concise output colored by response status for development use. The
          * :status token will be colored red for server error codes, yellow for
@@ -50,7 +58,7 @@ declare namespace morgan {
          * all other codes.
          * :method :url :status :response-time ms - :res[content-length]
          */
-        (format: 'dev', options?: Options): express.RequestHandler;
+        (format: "dev", options?: Options): express.RequestHandler;
 
         /***
          * Shorter than default, also including response time.
@@ -58,7 +66,7 @@ declare namespace morgan {
          * @param format
          * @param options
          */
-        (format: 'short', options?: Options): express.RequestHandler;
+        (format: "short", options?: Options): express.RequestHandler;
 
         /***
          * The minimal output.
@@ -66,7 +74,7 @@ declare namespace morgan {
          * @param format
          * @param options
          */
-        (format: 'tiny', options?: Options): express.RequestHandler;
+        (format: "tiny", options?: Options): express.RequestHandler;
 
         /***
          * Create a new morgan logger middleware function using the given format
@@ -165,7 +173,10 @@ declare namespace morgan {
  * @param format
  * @param options
  */
-declare function morgan(format: string, options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: string,
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * Standard Apache combined log output.
@@ -173,7 +184,10 @@ declare function morgan(format: string, options?: morgan.Options): express.Reque
  * @param format
  * @param options
  */
-declare function morgan(format: 'combined', options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: "combined",
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * Standard Apache common log output.
@@ -181,7 +195,10 @@ declare function morgan(format: 'combined', options?: morgan.Options): express.R
  * @param format
  * @param options
  */
-declare function morgan(format: 'common', options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: "common",
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * Concise output colored by response status for development use. The :status
@@ -191,7 +208,10 @@ declare function morgan(format: 'common', options?: morgan.Options): express.Req
  * @param format
  * @param options
  */
-declare function morgan(format: 'dev', options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: "dev",
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * Shorter than default, also including response time.
@@ -199,7 +219,10 @@ declare function morgan(format: 'dev', options?: morgan.Options): express.Reques
  * @param format
  * @param options
  */
-declare function morgan(format: 'short', options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: "short",
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * The minimal output.
@@ -207,7 +230,10 @@ declare function morgan(format: 'short', options?: morgan.Options): express.Requ
  * @param format
  * @param options
  */
-declare function morgan(format: 'tiny', options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: "tiny",
+    options?: morgan.Options
+): express.RequestHandler;
 
 /***
  * Create a new morgan logger middleware function using the given format and
@@ -216,6 +242,9 @@ declare function morgan(format: 'tiny', options?: morgan.Options): express.Reque
  * @param format
  * @param options
  */
-declare function morgan(format: morgan.FormatFn, options?: morgan.Options): express.RequestHandler;
+declare function morgan(
+    format: morgan.FormatFn,
+    options?: morgan.Options
+): express.RequestHandler;
 
 export = morgan;

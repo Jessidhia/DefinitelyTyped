@@ -14,25 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    ENTRY_ANIMATION_NAME: 'mdc-chip-entry';
-    INTERACTION_EVENT: 'MDCChip:interaction';
-    TRAILING_ICON_INTERACTION_EVENT: 'MDCChip:trailingIconInteraction';
-    REMOVAL_EVENT: 'MDCChip:removal';
-    CHECKMARK_SELECTOR: '.mdc-chip__checkmark';
-    LEADING_ICON_SELECTOR: '.mdc-chip__icon--leading';
-    TRAILING_ICON_SELECTOR: '.mdc-chip__icon--trailing';
+    ENTRY_ANIMATION_NAME: "mdc-chip-entry";
+    INTERACTION_EVENT: "MDCChip:interaction";
+    TRAILING_ICON_INTERACTION_EVENT: "MDCChip:trailingIconInteraction";
+    REMOVAL_EVENT: "MDCChip:removal";
+    CHECKMARK_SELECTOR: ".mdc-chip__checkmark";
+    LEADING_ICON_SELECTOR: ".mdc-chip__icon--leading";
+    TRAILING_ICON_SELECTOR: ".mdc-chip__icon--trailing";
 }
 
 export interface cssClasses extends MDCStrings {
-    CHECKMARK: 'mdc-chip__checkmark';
-    CHIP: 'mdc-chip';
-    CHIP_EXIT: 'mdc-chip--exit';
-    HIDDEN_LEADING_ICON: 'mdc-chip__icon--leading-hidden';
-    LEADING_ICON: 'mdc-chip__icon--leading';
-    TRAILING_ICON: 'mdc-chip__icon--trailing';
-    SELECTED: 'mdc-chip--selected';
-    TEXT: 'mdc-chip__text';
+    CHECKMARK: "mdc-chip__checkmark";
+    CHIP: "mdc-chip";
+    CHIP_EXIT: "mdc-chip--exit";
+    HIDDEN_LEADING_ICON: "mdc-chip__icon--leading-hidden";
+    LEADING_ICON: "mdc-chip__icon--leading";
+    TRAILING_ICON: "mdc-chip__icon--trailing";
+    SELECTED: "mdc-chip--selected";
+    TEXT: "mdc-chip__text";
 }

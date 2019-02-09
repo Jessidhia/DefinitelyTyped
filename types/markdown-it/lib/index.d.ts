@@ -1,16 +1,16 @@
-import { LinkifyIt } from 'linkify-it'
+import { LinkifyIt } from "linkify-it";
 
-import State = require('./rules_core/state_core');
-import StateBlock = require('./rules_block/state_block');
-import StateInline = require('./rules_inline/state_inline');
+import State = require("./rules_core/state_core");
+import StateBlock = require("./rules_block/state_block");
+import StateInline = require("./rules_inline/state_inline");
 
-import Core = require('./parser_core');
-import ParserBlock = require('./parser_block');
-import ParserInline = require('./parser_inline');
+import Core = require("./parser_core");
+import ParserBlock = require("./parser_block");
+import ParserInline = require("./parser_inline");
 
-import Renderer = require('./renderer');
-import Ruler = require('./ruler');
-import Token = require('./token');
+import Renderer = require("./renderer");
+import Ruler = require("./ruler");
+import Token = require("./token");
 
 export = MarkdownIt;
 export as namespace markdownit;
@@ -19,10 +19,16 @@ declare const MarkdownIt: MarkdownItConstructor;
 
 interface MarkdownItConstructor {
     new (): MarkdownIt;
-    new (presetName: "commonmark" | "zero" | "default", options?: MarkdownIt.Options): MarkdownIt;
+    new (
+        presetName: "commonmark" | "zero" | "default",
+        options?: MarkdownIt.Options
+    ): MarkdownIt;
     new (options: MarkdownIt.Options): MarkdownIt;
     (): MarkdownIt;
-    (presetName: "commonmark" | "zero" | "default", options ?: MarkdownIt.Options): MarkdownIt;
+    (
+        presetName: "commonmark" | "zero" | "default",
+        options?: MarkdownIt.Options
+    ): MarkdownIt;
     (options: MarkdownIt.Options): MarkdownIt;
 }
 
@@ -42,7 +48,10 @@ interface MarkdownIt {
     ): MarkdownIt;
     */
 
-    use(plugin: (md: MarkdownIt, ...params: any[]) => void, ...params: any[]): MarkdownIt;
+    use(
+        plugin: (md: MarkdownIt, ...params: any[]) => void,
+        ...params: any[]
+    ): MarkdownIt;
 
     utils: {
         assign(obj: any): any;
@@ -53,14 +62,14 @@ interface MarkdownIt {
         isValidEntityCode(str: any): boolean;
         fromCodePoint(str: string): string;
         escapeHtml(str: string): string;
-        arrayReplaceAt(src: any[], pos: number, newElements: any[]): any[]
+        arrayReplaceAt(src: any[], pos: number, newElements: any[]): any[];
         isSpace(str: any): boolean;
-        isWhiteSpace(str: any): boolean
+        isWhiteSpace(str: any): boolean;
         isMdAsciiPunct(str: any): boolean;
         isPunctChar(str: any): boolean;
         escapeRE(str: string): string;
         normalizeReference(str: string): string;
-    }
+    };
 
     disable(rules: string[] | string, ignoreInvalid?: boolean): MarkdownIt;
     enable(rules: string[] | string, ignoreInvalid?: boolean): MarkdownIt;
@@ -98,7 +107,13 @@ declare module MarkdownIt {
     interface RulerInline extends Ruler<StateInline> {}
     interface RulerBlock extends Ruler<StateBlock> {}
 
-    type TokenRender = (tokens: Token[], index: number, options: any, env: any, self: Renderer) => void;
+    type TokenRender = (
+        tokens: Token[],
+        index: number,
+        options: any,
+        env: any,
+        self: Renderer
+    ) => void;
 
     interface Delimiter {
         close: boolean;

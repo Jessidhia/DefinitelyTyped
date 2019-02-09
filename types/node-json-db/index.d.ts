@@ -4,15 +4,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare class JsonDB {
-        /**
+    /**
      * Create the JSON database
      * @param filename where to save the data base
      * @param saveOnPush saving on modification of the data
-     * @param humanReadable is the json file humand readable 
+     * @param humanReadable is the json file humand readable
      * @returns {JsonDB}
      * @constructor
      */
-    constructor(filename: string, saveOnPush?: boolean, humanReadable?: boolean);
+    constructor(
+        filename: string,
+        saveOnPush?: boolean,
+        humanReadable?: boolean
+    );
 
     /**
      * Get the deta stored in the data base
@@ -45,7 +49,7 @@ declare class JsonDB {
      * It is automatically called when the first getData is done
      */
     load(): void;
-            
+
     /**
      * Manually save the database
      * By default you can't save the database if it's not loaded

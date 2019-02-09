@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { StateNavigator } from 'navigation';
-import { Component, HTMLProps } from 'react';
+import { StateNavigator } from "navigation";
+import { Component, HTMLProps } from "react";
 
 /**
  * Defines the Link Props contract
@@ -18,7 +18,7 @@ export interface LinkProps extends HTMLProps<HTMLAnchorElement> {
     /**
      * Determines the effect on browser history
      */
-    historyAction?: 'add' | 'replace' | 'none';
+    historyAction?: "add" | "replace" | "none";
     /**
      * Handles Link click events
      */
@@ -58,7 +58,7 @@ export interface RefreshLinkProps extends LinkProps {
 /**
  * Hyperlink Component the navigates to the current State
  */
-export class RefreshLink extends Component<RefreshLinkProps> { }
+export class RefreshLink extends Component<RefreshLinkProps> {}
 
 /**
  * Defines the Navigation Link Props contract
@@ -73,7 +73,7 @@ export interface NavigationLinkProps extends RefreshLinkProps {
 /**
  * Hyperlink Component the navigates to a State
  */
-export class NavigationLink extends Component<NavigationLinkProps> { }
+export class NavigationLink extends Component<NavigationLinkProps> {}
 
 /**
  * Defines the Navigation Back Link Props contract
@@ -88,4 +88,4 @@ export interface NavigationBackLinkProps extends RefreshLinkProps {
 /**
  * Hyperlink Component the navigates back along the crumb trail
  */
-export class NavigationBackLink extends Component<NavigationBackLinkProps> { }
+export class NavigationBackLink extends Component<NavigationBackLinkProps> {}

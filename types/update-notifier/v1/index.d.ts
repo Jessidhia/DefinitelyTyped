@@ -5,7 +5,9 @@
 
 export = UpdateNotifier;
 
-declare function UpdateNotifier(settings?: UpdateNotifier.Settings): UpdateNotifier.UpdateNotifier;
+declare function UpdateNotifier(
+    settings?: UpdateNotifier.Settings
+): UpdateNotifier.UpdateNotifier;
 
 declare namespace UpdateNotifier {
     class UpdateNotifier {

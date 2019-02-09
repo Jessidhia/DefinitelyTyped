@@ -112,7 +112,7 @@ declare namespace session {
         hash(sess: any): string;
     }
 
-    interface opts extends Omit<Cookies.SetOption, 'maxAge'> {
+    interface opts extends Omit<Cookies.SetOption, "maxAge"> {
         /**
          * cookie key (default is koa:sess)
          */
@@ -160,7 +160,7 @@ declare namespace session {
          * ContextStore must be a class which claims three instance methods demonstrated above.
          * new ContextStore(ctx) will be executed on every request.
          */
-        ContextStore?: { new(ctx: Koa.Context): stores };
+        ContextStore?: { new (ctx: Koa.Context): stores };
 
         /**
          * If you want to add prefix for all external session id, you can use options.prefix, it will not work if options.genid present.
@@ -182,12 +182,21 @@ declare namespace session {
         /**
          * get session object by key
          */
-        get(key: string, maxAge: opts["maxAge"], data: { rolling: opts["rolling"] }): any;
+        get(
+            key: string,
+            maxAge: opts["maxAge"],
+            data: { rolling: opts["rolling"] }
+        ): any;
 
         /**
          * set session object for key, with a maxAge (in ms)
          */
-        set(key: string, sess: Partial<Session> & { _expire?: number, _maxAge?: number }, maxAge: opts["maxAge"], data: { changed: boolean; rolling: opts["rolling"] }): any;
+        set(
+            key: string,
+            sess: Partial<Session> & { _expire?: number; _maxAge?: number },
+            maxAge: opts["maxAge"],
+            data: { changed: boolean; rolling: opts["rolling"] }
+        ): any;
 
         /**
          * destroy session for key
@@ -196,7 +205,10 @@ declare namespace session {
     }
 }
 
-declare function session(CONFIG: Partial<session.opts>, app: Koa): Koa.Middleware;
+declare function session(
+    CONFIG: Partial<session.opts>,
+    app: Koa
+): Koa.Middleware;
 
 declare function session(app: Koa): Koa.Middleware;
 
@@ -207,8 +219,22 @@ declare module "koa" {
     }
 
     interface Application {
-        on(name: "session:missed" | "session:expired" | "session:invalid", data: { key?: string, value?: Partial<session.Session>, ctx: Context }): void;
-        once(name: "session:missed" | "session:expired" | "session:invalid", data: { key?: string, value?: Partial<session.Session>, ctx: Context }): void;
+        on(
+            name: "session:missed" | "session:expired" | "session:invalid",
+            data: {
+                key?: string;
+                value?: Partial<session.Session>;
+                ctx: Context;
+            }
+        ): void;
+        once(
+            name: "session:missed" | "session:expired" | "session:invalid",
+            data: {
+                key?: string;
+                value?: Partial<session.Session>;
+                ctx: Context;
+            }
+        ): void;
     }
 }
 

@@ -22,8 +22,12 @@ export interface IntrospectionQuery {
 
 export interface IntrospectionSchema {
     readonly queryType: IntrospectionNamedTypeRef<IntrospectionObjectType>;
-    readonly mutationType: Maybe<IntrospectionNamedTypeRef<IntrospectionObjectType>>;
-    readonly subscriptionType: Maybe<IntrospectionNamedTypeRef<IntrospectionObjectType>>;
+    readonly mutationType: Maybe<
+        IntrospectionNamedTypeRef<IntrospectionObjectType>
+    >;
+    readonly subscriptionType: Maybe<
+        IntrospectionNamedTypeRef<IntrospectionObjectType>
+    >;
     readonly types: ReadonlyArray<IntrospectionType>;
     readonly directives: ReadonlyArray<IntrospectionDirective>;
 }
@@ -43,7 +47,10 @@ export type IntrospectionOutputType =
     | IntrospectionUnionType
     | IntrospectionEnumType;
 
-export type IntrospectionInputType = IntrospectionScalarType | IntrospectionEnumType | IntrospectionInputObjectType;
+export type IntrospectionInputType =
+    | IntrospectionScalarType
+    | IntrospectionEnumType
+    | IntrospectionInputObjectType;
 
 export interface IntrospectionScalarType {
     readonly kind: "SCALAR";
@@ -56,7 +63,9 @@ export interface IntrospectionObjectType {
     readonly name: string;
     readonly description?: Maybe<string>;
     readonly fields: ReadonlyArray<IntrospectionField>;
-    readonly interfaces: ReadonlyArray<IntrospectionNamedTypeRef<IntrospectionInterfaceType>>;
+    readonly interfaces: ReadonlyArray<
+        IntrospectionNamedTypeRef<IntrospectionInterfaceType>
+    >;
 }
 
 export interface IntrospectionInterfaceType {
@@ -64,14 +73,18 @@ export interface IntrospectionInterfaceType {
     readonly name: string;
     readonly description?: Maybe<string>;
     readonly fields: ReadonlyArray<IntrospectionField>;
-    readonly possibleTypes: ReadonlyArray<IntrospectionNamedTypeRef<IntrospectionObjectType>>;
+    readonly possibleTypes: ReadonlyArray<
+        IntrospectionNamedTypeRef<IntrospectionObjectType>
+    >;
 }
 
 export interface IntrospectionUnionType {
     readonly kind: "UNION";
     readonly name: string;
     readonly description?: Maybe<string>;
-    readonly possibleTypes: ReadonlyArray<IntrospectionNamedTypeRef<IntrospectionObjectType>>;
+    readonly possibleTypes: ReadonlyArray<
+        IntrospectionNamedTypeRef<IntrospectionObjectType>
+    >;
 }
 
 export interface IntrospectionEnumType {
@@ -88,12 +101,16 @@ export interface IntrospectionInputObjectType {
     readonly inputFields: ReadonlyArray<IntrospectionInputValue>;
 }
 
-export interface IntrospectionListTypeRef<T extends IntrospectionTypeRef = IntrospectionTypeRef> {
+export interface IntrospectionListTypeRef<
+    T extends IntrospectionTypeRef = IntrospectionTypeRef
+> {
     readonly kind: "LIST";
     readonly ofType: T;
 }
 
-export interface IntrospectionNonNullTypeRef<T extends IntrospectionTypeRef = IntrospectionTypeRef> {
+export interface IntrospectionNonNullTypeRef<
+    T extends IntrospectionTypeRef = IntrospectionTypeRef
+> {
     readonly kind: "NON_NULL";
     readonly ofType: T;
 }
@@ -101,19 +118,30 @@ export interface IntrospectionNonNullTypeRef<T extends IntrospectionTypeRef = In
 export type IntrospectionTypeRef =
     | IntrospectionNamedTypeRef<IntrospectionType>
     | IntrospectionListTypeRef<any>
-    | IntrospectionNonNullTypeRef<IntrospectionNamedTypeRef<IntrospectionType> | IntrospectionListTypeRef<any>>;
+    | IntrospectionNonNullTypeRef<
+          | IntrospectionNamedTypeRef<IntrospectionType>
+          | IntrospectionListTypeRef<any>
+      >;
 
 export type IntrospectionOutputTypeRef =
     | IntrospectionNamedTypeRef<IntrospectionOutputType>
     | IntrospectionListTypeRef<any>
-    | IntrospectionNonNullTypeRef<IntrospectionNamedTypeRef<IntrospectionOutputType> | IntrospectionListTypeRef<any>>;
+    | IntrospectionNonNullTypeRef<
+          | IntrospectionNamedTypeRef<IntrospectionOutputType>
+          | IntrospectionListTypeRef<any>
+      >;
 
 export type IntrospectionInputTypeRef =
     | IntrospectionNamedTypeRef<IntrospectionInputType>
     | IntrospectionListTypeRef<any>
-    | IntrospectionNonNullTypeRef<IntrospectionNamedTypeRef<IntrospectionInputType> | IntrospectionListTypeRef<any>>;
+    | IntrospectionNonNullTypeRef<
+          | IntrospectionNamedTypeRef<IntrospectionInputType>
+          | IntrospectionListTypeRef<any>
+      >;
 
-export interface IntrospectionNamedTypeRef<T extends IntrospectionType = IntrospectionType> {
+export interface IntrospectionNamedTypeRef<
+    T extends IntrospectionType = IntrospectionType
+> {
     readonly kind: T["kind"];
     readonly name: string;
 }

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ComponentClass, ComponentType } from 'react';
+import { ComponentClass, ComponentType } from "react";
 
 export interface FrontloadProps {
     noServerRender?: boolean;
@@ -20,12 +20,12 @@ export const Frontload: ComponentClass<FrontloadProps>;
 
 export function frontloadConnect(
     frontload: (props: any) => Promise<void>,
-    options?: FrontloadConnectOptions,
+    options?: FrontloadConnectOptions
 ): <P = {}>(Component: ComponentType<P>) => ComponentType<P>;
 
 export function frontloadServerRender(
     renderMarkup: (dryRun?: boolean) => string,
-    withLogging?: boolean,
+    withLogging?: boolean
 ): Promise<string>;
 
 export as namespace ReactFrontload;

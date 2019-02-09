@@ -1,4 +1,4 @@
-import toposort = require('toposort');
+import toposort = require("toposort");
 
 const testGraph: ReadonlyArray<[string, string]> = [
     ["string1", "string2"],

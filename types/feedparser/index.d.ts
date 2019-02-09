@@ -8,8 +8,8 @@
 
 /// <reference types="node" />
 
-import stream = require('stream');
-import { SAXStream } from 'sax';
+import stream = require("stream");
+import { SAXStream } from "sax";
 export = FeedParser;
 
 declare class FeedParser extends stream.Duplex {
@@ -17,14 +17,14 @@ declare class FeedParser extends stream.Duplex {
     options: FeedParser.Options;
     stream: SAXStream;
     meta: {
-        [key: string]: any
+        [key: string]: any;
     };
     _emitted_meta: boolean;
     stack: any[];
     xmlbase: any[];
     in_xhtml: boolean;
     xhtml: {
-        [key: string]: any
+        [key: string]: any;
     };
     errors: Error[];
 
@@ -44,9 +44,17 @@ declare class FeedParser extends stream.Duplex {
 
     handleError(e: Error): void;
 
-    handleItem(node: FeedParser.Node, type: FeedParser.Type, options: FeedParser.Options): FeedParser.Item;
+    handleItem(
+        node: FeedParser.Node,
+        type: FeedParser.Type,
+        options: FeedParser.Options
+    ): FeedParser.Item;
 
-    handleMeta(node: FeedParser.Node, type: FeedParser.Type, options: FeedParser.Options): FeedParser.Meta;
+    handleMeta(
+        node: FeedParser.Node,
+        type: FeedParser.Type,
+        options: FeedParser.Options
+    ): FeedParser.Meta;
 
     handleOpenTag(node: FeedParser.Node): void;
 

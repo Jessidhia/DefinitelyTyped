@@ -1,10 +1,19 @@
-type AnimationEffectTimingFillMode = "none" | "forwards" | "backwards" | "both" | "auto";
-type AnimationEffectTimingPlaybackDirection = "normal" | "reverse" | "alternate" | "alternate-reverse";
+type AnimationEffectTimingFillMode =
+    | "none"
+    | "forwards"
+    | "backwards"
+    | "both"
+    | "auto";
+type AnimationEffectTimingPlaybackDirection =
+    | "normal"
+    | "reverse"
+    | "alternate"
+    | "alternate-reverse";
 
 interface AnimationPlaybackEvent {
     target: Animation;
     readonly currentTime: number | null;
-    readonly timelineTime: number |  null;
+    readonly timelineTime: number | null;
     type: string;
     bubbles: boolean;
     cancelable: boolean;
@@ -21,14 +30,17 @@ interface AnimationPlaybackEventInit extends EventInit {
 
 declare var AnimationPlaybackEvent: {
     prototype: AnimationPlaybackEvent;
-    new(type: string, eventInitDict?: AnimationPlaybackEventInit): AnimationPlaybackEvent;
+    new (
+        type: string,
+        eventInitDict?: AnimationPlaybackEventInit
+    ): AnimationPlaybackEvent;
 };
 
 interface AnimationKeyFrame {
     easing?: string | string[];
     offset?: number | Array<number | null> | null;
     opacity?: number | number[];
-    transform?: string |  string[];
+    transform?: string | string[];
     // [key: string]: string | number | [string | number, string | number] | undefined; (duplicate string indexer in TypeScript 2.7+)
 }
 
@@ -62,7 +74,9 @@ interface ComputedTimingProperties {
     currentIteration: number | null;
 }
 
-type AnimationEventListener = ((this: Animation, evt: AnimationPlaybackEvent) => any) | null;
+type AnimationEventListener =
+    | ((this: Animation, evt: AnimationPlaybackEvent) => any)
+    | null;
 
 interface Animation extends EventTarget {
     currentTime: number | null;
@@ -78,7 +92,10 @@ interface Animation extends EventTarget {
     play(): void;
     reverse(): void;
     addEventListener(type: "finish" | "cancel", handler: EventListener): void;
-    removeEventListener(type: "finish" | "cancel", handler: EventListener): void;
+    removeEventListener(
+        type: "finish" | "cancel",
+        handler: EventListener
+    ): void;
     effect: AnimationEffect | null;
     readonly finished: Promise<Animation>;
     readonly ready: Promise<Animation>;
@@ -87,7 +104,10 @@ interface Animation extends EventTarget {
 
 declare var Animation: {
     prototype: Animation;
-    new(effect?: AnimationEffect | null, timeline?: AnimationTimeline | null): Animation;
+    new (
+        effect?: AnimationEffect | null,
+        timeline?: AnimationTimeline | null
+    ): Animation;
 };
 
 declare class SequenceEffect extends KeyframeEffect {
@@ -97,7 +117,10 @@ declare class GroupEffect extends KeyframeEffect {
     constructor(effects: KeyframeEffect[]);
 }
 interface Element {
-    animate(effect: AnimationKeyFrame | AnimationKeyFrame[] | null, timing: number | AnimationEffectTiming): Animation;
+    animate(
+        effect: AnimationKeyFrame | AnimationKeyFrame[] | null,
+        timing: number | AnimationEffectTiming
+    ): Animation;
     getAnimations(): Animation[];
 }
 interface Document {

@@ -1,6 +1,6 @@
 import { EventType } from "./cast.framework.events";
 
-export as namespace system
+export as namespace system;
 export type EventType =
     // Fired when the system is ready.
     | "READY"

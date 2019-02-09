@@ -21,7 +21,9 @@ export class RemarkableTest {
             linkify: false,
             typographer: false,
             quotes: "“”‘’",
-            highlight(/*str, lang*/) { return ""; },
+            highlight(/*str, lang*/) {
+                return "";
+            }
         });
 
         md.render("# Remarkable rulezz!");
@@ -32,7 +34,7 @@ export class RemarkableTest {
 
         md.set({
             html: true,
-            breaks: true,
+            breaks: true
         });
     }
 
@@ -49,7 +51,7 @@ export class RemarkableTest {
         md = new Remarkable("full", {
             html: true,
             linkify: true,
-            typographer: true,
+            typographer: true
         });
 
         md.render("# Remarkable rulezz!");
@@ -61,15 +63,15 @@ export class RemarkableTest {
                 if (lang && hljs.getLanguage(lang)) {
                     try {
                         return hljs.highlight(lang, str).value;
-                    } catch (err) { }
+                    } catch (err) {}
                 }
 
                 try {
                     return hljs.highlightAuto(str).value;
-                } catch (err) { }
+                } catch (err) {}
 
                 return "";
-            },
+            }
         });
 
         md.render("# Remarkable rulezz!");
@@ -84,32 +86,27 @@ export class RemarkableTest {
         md = new Remarkable("full", {
             html: true,
             linkify: true,
-            typographer: true,
+            typographer: true
         });
     }
 
     enableRulesManually() {
         const md = new Remarkable();
-        md.core.ruler.enable([
-            "abbr",
-        ]);
-        md.block.ruler.enable([
-            "footnote",
-            "deflist",
-        ]);
+        md.core.ruler.enable(["abbr"]);
+        md.block.ruler.enable(["footnote", "deflist"]);
         md.inline.ruler.enable([
             "footnote_inline",
             "ins",
             "mark",
             "sub",
-            "sup",
+            "sup"
         ]);
     }
 
     typographer() {
         const md = new Remarkable({
             typographer: true,
-            quotes: "“”‘’",
+            quotes: "“”‘’"
         });
 
         // Disable rules at all:
@@ -118,9 +115,12 @@ export class RemarkableTest {
 
     loadPlugins() {
         const md = new Remarkable();
-        const noop = () => { };
+        const noop = () => {};
         const plugin1: Remarkable.Plugin = noop as (md: Remarkable) => void;
-        const plugin2: Remarkable.Plugin = noop as (md: Remarkable, options: {}) => void;
+        const plugin2: Remarkable.Plugin = noop as (
+            md: Remarkable,
+            options: {}
+        ) => void;
         const plugin3: Remarkable.Plugin = noop as (md: Remarkable) => void;
         const opts: any = undefined;
 
@@ -151,7 +151,7 @@ export class TokenTest {
         const state = {
             level: 0,
             line: 0,
-            tokens,
+            tokens
         };
 
         const lines: [number, number] = [0, 0];
@@ -160,12 +160,12 @@ export class TokenTest {
         state.tokens.push({
             type: "blockquote_open",
             lines,
-            level: state.level++,
+            level: state.level++
         });
 
         state.tokens.push({
             type: "blockquote_close",
-            level: --state.level,
+            level: --state.level
         });
 
         state.tokens.push({
@@ -173,7 +173,7 @@ export class TokenTest {
             content: "",
             block: true,
             lines,
-            level: state.level,
+            level: state.level
         });
 
         state.tokens.push({
@@ -181,7 +181,7 @@ export class TokenTest {
             content: "",
             level: state.level + 1,
             lines,
-            children: [],
+            children: []
         });
 
         state.tokens.push({
@@ -189,29 +189,33 @@ export class TokenTest {
             params: [],
             content: "",
             lines: [startLine, state.line],
-            level: state.level,
+            level: state.level
         });
 
         state.tokens.push({
             type: "footnote_reference_open",
             label: "",
-            level: state.level++,
+            level: state.level++
         });
 
-        state.tokens.push({ type: "heading_close", hLevel: 1, level: state.level });
+        state.tokens.push({
+            type: "heading_close",
+            hLevel: 1,
+            level: state.level
+        });
 
         state.tokens.push({
             type: "ordered_list_open",
             order: 0,
             lines: [startLine, 0],
-            level: state.level++,
+            level: state.level++
         });
 
         state.tokens.push({
             type: "paragraph_open",
             tight: false,
             lines: [startLine, state.line],
-            level: state.level,
+            level: state.level
         });
     }
 
@@ -226,24 +230,24 @@ export class TokenTest {
         nodes.push({
             type: "text",
             content: "",
-            level,
+            level
         });
 
         nodes.push({
             type: "abbr_open",
             title: state.env["abbreviations"][":" + m[2]],
-            level: level++,
+            level: level++
         });
 
         nodes.push({
             type: "text",
             content: m[2],
-            level,
+            level
         });
 
         nodes.push({
             type: "abbr_close",
-            level: --level,
+            level: --level
         });
 
         state.tokens.push({
@@ -251,14 +255,14 @@ export class TokenTest {
             content: state.src.replace(/\n/g, " ").trim(),
             level: 0,
             lines: [0, 1],
-            children: [],
+            children: []
         });
 
         tokens.push({
             type: "inline",
             content: "",
             level,
-            children: [],
+            children: []
         });
     }
 
@@ -269,27 +273,27 @@ export class TokenTest {
         state.push({
             type: "link_open",
             href: "",
-            level,
+            level
         });
 
         state.push({
             type: "code",
             content: "",
             block: false,
-            level,
+            level
         });
 
         state.push({
             type: "footnote_ref",
             id: 1,
-            level,
+            level
         });
 
         state.push({
             type: "footnote_ref",
             id: 1,
             subId: 1,
-            level,
+            level
         });
 
         state.push({
@@ -297,14 +301,14 @@ export class TokenTest {
             src: "",
             title: "",
             alt: "",
-            level,
+            level
         });
 
         state.push({
             type: "link_open",
             href: "",
             title: "",
-            level: level++,
+            level: level++
         });
     }
 }
@@ -334,8 +338,8 @@ export class UtilsTest {
     }
 
     isValidEntityCode() {
-        Remarkable.utils.isValidEntityCode(0xD800);
-        Remarkable.utils.isValidEntityCode(0xD7FF);
+        Remarkable.utils.isValidEntityCode(0xd800);
+        Remarkable.utils.isValidEntityCode(0xd7ff);
         Remarkable.utils.isValidEntityCode(1000);
     }
 

@@ -1,7 +1,7 @@
+import nexpect = require("nexpect");
 
-import nexpect = require('nexpect');
-
-nexpect.spawn("echo", ["hello"])
+nexpect
+    .spawn("echo", ["hello"])
     .expect("hello")
     .run((err, stdout, exitcode) => {
         if (!err) {
@@ -9,24 +9,25 @@ nexpect.spawn("echo", ["hello"])
         }
     });
 
-nexpect.spawn("ls -la /tmp/undefined", {stream: 'stderr'})
+nexpect
+    .spawn("ls -la /tmp/undefined", { stream: "stderr" })
     .expect("No such file or directory")
-    .run((err) => {
+    .run(err => {
         if (!err) {
             console.log("checked that file doesn't exists");
         }
     });
 
-nexpect.spawn("node --interactive")
+nexpect
+    .spawn("node --interactive")
     .expect(">")
     .sendline("console.log('testing')")
     .expect("testing")
     .sendline("process.exit()")
-    .run((err) => {
+    .run(err => {
         if (!err) {
             console.log("node process started, console logged, process exited");
-        }
-        else {
-            console.log(err)
+        } else {
+            console.log(err);
         }
     });

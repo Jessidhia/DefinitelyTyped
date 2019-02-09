@@ -4,11 +4,11 @@ export type EndHandler = (node: HTMLElement, done: () => void) => void;
 export type EnterHandler = (node: HTMLElement, isAppearing: boolean) => void;
 export type ExitHandler = (node: HTMLElement) => void;
 
-export const UNMOUNTED = 'unmounted';
-export const EXITED = 'exited';
-export const ENTERING = 'entering';
-export const ENTERED = 'entered';
-export const EXITING = 'exiting';
+export const UNMOUNTED = "unmounted";
+export const EXITED = "exited";
+export const ENTERING = "entering";
+export const ENTERED = "entered";
+export const EXITING = "exiting";
 
 export interface TransitionActions {
     appear?: boolean;
@@ -17,17 +17,19 @@ export interface TransitionActions {
 }
 
 export type TransitionStatus =
-    typeof ENTERING |
-    typeof ENTERED |
-    typeof EXITING |
-    typeof EXITED |
-    typeof UNMOUNTED;
-export type TransitionChildren = React.ReactNode | ((status: TransitionStatus) => React.ReactNode);
+    | typeof ENTERING
+    | typeof ENTERED
+    | typeof EXITING
+    | typeof EXITED
+    | typeof UNMOUNTED;
+export type TransitionChildren =
+    | React.ReactNode
+    | ((status: TransitionStatus) => React.ReactNode);
 export interface TransitionProps extends TransitionActions {
     in?: boolean;
     mountOnEnter?: boolean;
     unmountOnExit?: boolean;
-    timeout: number | { enter?: number, exit?: number };
+    timeout: number | { enter?: number; exit?: number };
     addEndListener?: EndHandler;
     onEnter?: EnterHandler;
     onEntering?: EnterHandler;

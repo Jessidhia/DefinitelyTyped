@@ -1,6 +1,6 @@
 import * as React from "react";
 import { create } from "react-test-renderer";
-import { createRenderer } from 'react-test-renderer/shallow';
+import { createRenderer } from "react-test-renderer/shallow";
 
 const tree = create(React.createElement("div"), {
     createNodeMock: (el: React.ReactElement<any>) => {
@@ -10,12 +10,12 @@ const tree = create(React.createElement("div"), {
 
 tree.type = "t";
 tree.props = {
-    prop1: "p",
+    prop1: "p"
 };
 tree.children = [tree];
 tree.$$typeof = "t";
 
-class TestComponent extends React.Component { }
+class TestComponent extends React.Component {}
 
 const component = React.createElement(TestComponent);
 const shallowRenderer = createRenderer();

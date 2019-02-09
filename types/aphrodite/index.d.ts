@@ -8,13 +8,14 @@ import * as CSS from "csstype";
 
 type BaseCSSProperties = CSS.Properties<number | string>;
 
-type FontFamily =
-    | BaseCSSProperties['fontFamily']
-    | CSS.FontFace;
+type FontFamily = BaseCSSProperties["fontFamily"] | CSS.FontFace;
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-type CSSProperties = Omit<BaseCSSProperties, 'fontFamily' | 'transition' | 'animationName' > & {
+type CSSProperties = Omit<
+    BaseCSSProperties,
+    "fontFamily" | "transition" | "animationName"
+> & {
     fontFamily?: FontFamily | FontFamily[];
     animationName?: string | OpenCSSProperties | OpenCSSProperties[];
 };
@@ -53,7 +54,7 @@ interface StaticRendererResult {
     css: {
         content: string;
         renderedClassNames: string[];
-    }
+    };
 }
 
 /**
@@ -80,9 +81,8 @@ interface StyleSheetTestUtilsStatic {
     suppressStyleInjection(): void;
     /**
      * Opposite method of preventStyleInject.
-    */
+     */
     clearBufferAndResumeStyleInjection(): void;
 }
 
 export var StyleSheetTestUtils: StyleSheetTestUtilsStatic;
-

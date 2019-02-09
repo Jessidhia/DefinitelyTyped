@@ -1,5 +1,3 @@
-
-
 // Call with no arguments (accepting defaults)
 $(".truncate").succinct();
 
@@ -21,7 +19,7 @@ $(".truncate").succinct({
 // Combine options
 $(".truncate").succinct({
     size: 120,
-    omission: '...',
+    omission: "...",
     ignore: false
 });
 

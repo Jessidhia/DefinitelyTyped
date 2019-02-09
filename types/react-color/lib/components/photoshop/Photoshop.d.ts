@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { ColorChangeHandler, ColorPickerProps } from "../../..";
 
-export interface PhotoshopPickerProps extends ColorPickerProps<PhotoshopPicker> {
+export interface PhotoshopPickerProps
+    extends ColorPickerProps<PhotoshopPicker> {
     header?: string;
     onAccept?: ColorChangeHandler;
     onCancel?: ColorChangeHandler;

@@ -66,7 +66,10 @@ declare module "pathfinding" {
             clone(): Grid;
 
             getNodeAt(): Pathfinding.Node;
-            getNeighbors(node: Pathfinding.Node, diagonalMovement: DiagonalMovement): Pathfinding.Node[];
+            getNeighbors(
+                node: Pathfinding.Node,
+                diagonalMovement: DiagonalMovement
+            ): Pathfinding.Node[];
             isWalkableAt(x: number, y: number): boolean;
             isInside(x: number, y: number): boolean;
 
@@ -75,7 +78,13 @@ declare module "pathfinding" {
         }
 
         interface Finder {
-            findPath(startX: number, startY: number, endX: number, endY: number, matrix: Grid): number[][];
+            findPath(
+                startX: number,
+                startY: number,
+                endX: number,
+                endY: number,
+                matrix: Grid
+            ): number[][];
         }
 
         interface AStarFinder extends Finder {
@@ -133,14 +142,19 @@ declare module "pathfinding" {
             new (opt: JumpPointFinderBaseOptions): JPFAlwaysMoveDiagonally;
         }
 
-        interface JPFMoveDiagonallyIfAtMostOneObstacle extends JumpPointFinderBase {
+        interface JPFMoveDiagonallyIfAtMostOneObstacle
+            extends JumpPointFinderBase {
             new (): JPFMoveDiagonallyIfAtMostOneObstacle;
-            new (opt: JumpPointFinderBaseOptions): JPFMoveDiagonallyIfAtMostOneObstacle;
+            new (
+                opt: JumpPointFinderBaseOptions
+            ): JPFMoveDiagonallyIfAtMostOneObstacle;
         }
 
         interface JPFMoveDiagonallyIfNoObstacles extends JumpPointFinderBase {
             new (): JPFMoveDiagonallyIfNoObstacles;
-            new (opt: JumpPointFinderBaseOptions): JPFMoveDiagonallyIfNoObstacles;
+            new (
+                opt: JumpPointFinderBaseOptions
+            ): JPFMoveDiagonallyIfNoObstacles;
         }
 
         interface JPFNeverMoveDiagonally extends JumpPointFinderBase {
@@ -149,7 +163,11 @@ declare module "pathfinding" {
         }
 
         interface JumpPointFinder {
-            (opt: JumpPointFinderOptions): JPFNeverMoveDiagonally | JPFAlwaysMoveDiagonally | JPFMoveDiagonallyIfNoObstacles | JPFMoveDiagonallyIfAtMostOneObstacle;
+            (opt: JumpPointFinderOptions):
+                | JPFNeverMoveDiagonally
+                | JPFAlwaysMoveDiagonally
+                | JPFMoveDiagonallyIfNoObstacles
+                | JPFMoveDiagonallyIfAtMostOneObstacle;
         }
 
         export var Grid: Grid;

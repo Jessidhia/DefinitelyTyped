@@ -6,7 +6,7 @@
 //                 Jason Dreyzehner <https://github.com/bitjson>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import glob = require('glob');
+import glob = require("glob");
 
 declare function del(
     patterns: string | ReadonlyArray<string>,

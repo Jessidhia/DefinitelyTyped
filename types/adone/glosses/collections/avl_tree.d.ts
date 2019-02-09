@@ -3,7 +3,9 @@ declare namespace adone.collection {
      * Represents an AVL tree, a self-balancing binary search tree
      */
     class AVLTree<K = any, V = any> {
-        constructor(options?: I.BinarySearchTree.ConstructorOptions<K, V, AVLTree<K, V>>);
+        constructor(
+            options?: I.BinarySearchTree.ConstructorOptions<K, V, AVLTree<K, V>>
+        );
 
         /**
          * Checks whether the tree is an avl tree

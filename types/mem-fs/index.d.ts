@@ -5,9 +5,9 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import { Transform } from 'stream';
-import * as File from 'vinyl';
+import { EventEmitter } from "events";
+import { Transform } from "stream";
+import * as File from "vinyl";
 
 export interface Store extends EventEmitter {
     get: (filepath: string) => File;
@@ -18,5 +18,4 @@ export interface Store extends EventEmitter {
 
 export function create(): Store;
 
-export namespace memFs {
-}
+export namespace memFs {}

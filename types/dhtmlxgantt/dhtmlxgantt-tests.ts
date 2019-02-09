@@ -1,5 +1,3 @@
-
-
 //date operations
 var start: Date = gantt.date.week_start(new Date());
 var next: Date = gantt.date.add(new Date(), 1, "week");
@@ -14,12 +12,10 @@ gantt.config.scale_height = 40;
 gantt.config.xml_date = "%m-%d-%Y";
 
 //templates
-gantt.templates.task_class = function (start: Date, end: Date, task: any) {
-	if (task.some)
-		return "classA";
-	else
-		return "classB";
-}
+gantt.templates.task_class = function(start: Date, end: Date, task: any) {
+    if (task.some) return "classA";
+    else return "classB";
+};
 
 //locale
 gantt.locale.labels.new_task = "New task";
@@ -31,8 +27,8 @@ gantt.load("/data/events");
 const wbs: string = gantt.getWBSCode(gantt.getTask(1));
 
 //events
-gantt.attachEvent("onBeforeLightbox", function (id?: string) {
-	gantt.showTask(id);
+gantt.attachEvent("onBeforeLightbox", function(id?: string) {
+    gantt.showTask(id);
 });
 //gantt enterprise
 var gantt2 = Gantt.getGanttInstance();

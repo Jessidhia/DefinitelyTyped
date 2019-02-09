@@ -1,3 +1,3 @@
-import isPlainObj = require('is-plain-obj');
+import isPlainObj = require("is-plain-obj");
 
-isPlainObj({ foo: 'bar' }); // $ExpectType boolean
+isPlainObj({ foo: "bar" }); // $ExpectType boolean

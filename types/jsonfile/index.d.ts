@@ -7,14 +7,14 @@
 
 /// <reference types="node"/>
 
-import { Url } from 'url';
+import { Url } from "url";
 import {
     PathLike,
     readFile as fsReadFile,
     readFileSync as fsReadFileSync,
     writeFile as fsWriteFile,
-    writeFileSync as fsWriteFileSync,
-} from 'fs';
+    writeFileSync as fsWriteFileSync
+} from "fs";
 
 export type Path = PathLike | Url;
 
@@ -50,10 +50,17 @@ export type JFWriteOptions =
     | string
     | null;
 
-export type ReadCallback = (err: NodeJS.ErrnoException | null, data: any) => void;
+export type ReadCallback = (
+    err: NodeJS.ErrnoException | null,
+    data: any
+) => void;
 export type WriteCallback = (err: NodeJS.ErrnoException) => void;
 
-export function readFile(file: Path, options: JFReadOptions, callback: ReadCallback): void;
+export function readFile(
+    file: Path,
+    options: JFReadOptions,
+    callback: ReadCallback
+): void;
 export function readFile(file: Path, callback: ReadCallback): void;
 export function readFile(file: Path, options?: JFReadOptions): Promise<any>;
 
@@ -66,6 +73,14 @@ export function writeFile(
     callback: WriteCallback
 ): void;
 export function writeFile(file: Path, obj: any, callback: WriteCallback): void;
-export function writeFile(file: Path, obj: any, options?: JFWriteOptions): Promise<void>;
+export function writeFile(
+    file: Path,
+    obj: any,
+    options?: JFWriteOptions
+): Promise<void>;
 
-export function writeFileSync(file: Path, obj: any, options?: JFWriteOptions): void;
+export function writeFileSync(
+    file: Path,
+    obj: any,
+    options?: JFWriteOptions
+): void;

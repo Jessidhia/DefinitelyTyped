@@ -5,4 +5,7 @@
 
 export = pDoWhilst;
 
-declare function pDoWhilst(action: () => any, condition: () => boolean): Promise<void>;
+declare function pDoWhilst(
+    action: () => any,
+    condition: () => boolean
+): Promise<void>;

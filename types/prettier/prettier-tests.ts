@@ -1,5 +1,5 @@
-import * as prettier from 'prettier';
-import { ExpressionStatement, CallExpression, Identifier } from 'babel-types';
+import * as prettier from "prettier";
+import { ExpressionStatement, CallExpression, Identifier } from "babel-types";
 
 const formatted = prettier.format("foo ( );", { semi: false });
 
@@ -18,28 +18,28 @@ const customFormatted = prettier.format("lodash ( )", {
     }
 });
 
-prettier.resolveConfig('path/to/somewhere').then(options => {
+prettier.resolveConfig("path/to/somewhere").then(options => {
     if (options !== null) {
-        const formatted = prettier.format('hello world', options);
+        const formatted = prettier.format("hello world", options);
     }
 });
 
-if (prettier.getFileInfo.sync('./tsconfig.json').inferredParser !== 'json') {
-    throw new Error('Bad parser');
+if (prettier.getFileInfo.sync("./tsconfig.json").inferredParser !== "json") {
+    throw new Error("Bad parser");
 }
 
-prettier.getFileInfo('./tsconfig.json').then((result) => {
-  if (result.inferredParser !== 'json') {
-      throw new Error('Bad parser');
-  }
+prettier.getFileInfo("./tsconfig.json").then(result => {
+    if (result.inferredParser !== "json") {
+        throw new Error("Bad parser");
+    }
 });
 
 // $ExpectError
 prettier.resolveConfig();
 
-const options = prettier.resolveConfig.sync('path/to/somewhere');
+const options = prettier.resolveConfig.sync("path/to/somewhere");
 if (options !== null) {
-    const formatted = prettier.format('hello world', options);
+    const formatted = prettier.format("hello world", options);
 }
 
 prettier.clearConfigCache();

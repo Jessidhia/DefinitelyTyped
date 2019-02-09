@@ -9,9 +9,9 @@
 
 /// <reference types="node" />
 
-import events = require('events');
-import express = require('express');
-export import redisClientFactory = require('redis');
+import events = require("events");
+import express = require("express");
+export import redisClientFactory = require("redis");
 
 export declare class Queue extends events.EventEmitter {
     name: string;
@@ -33,7 +33,11 @@ export declare class Queue extends events.EventEmitter {
     checkActiveJobTtl(ttlOptions: Object): void;
     watchStuckJobs(ms: number): void;
     setting(name: string, fn: Function): Queue;
-    process(type: string, n?: number | ProcessCallback, fn?: ProcessCallback): void;
+    process(
+        type: string,
+        n?: number | ProcessCallback,
+        fn?: ProcessCallback
+    ): void;
     shutdown(timeout: number, fn: Function): Queue;
     shutdown(timeout: number, type: string, fn: Function): Queue;
     types(fn: Function): Queue;
@@ -90,8 +94,21 @@ export declare class Job extends events.EventEmitter {
     static removeBadJob(id: number): void;
     static log(id: number, fn: Function): void;
     static range(from: number, to: number, order: string, fn: Function): void;
-    static rangeByState(state: string, from: number, to: number, order: string, fn: Function): void;
-    static rangeByType(type: string, state: string, from: number, to: number, order: string, fn: Function): void;
+    static rangeByState(
+        state: string,
+        from: number,
+        to: number,
+        order: string,
+        fn: Function
+    ): void;
+    static rangeByType(
+        type: string,
+        state: string,
+        from: number,
+        to: number,
+        order: string,
+        fn: Function
+    ): void;
 
     constructor(type: string, data?: any);
     toJSON(): Object;

@@ -15,11 +15,7 @@
 //                 Ethan Setnik <https://github.com/esetnik>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
-import {
-  ComponentClass,
-  StatelessComponent,
-  ReactElement
-} from "react";
+import { ComponentClass, StatelessComponent, ReactElement } from "react";
 
 export type FieldType = "Field" | "FieldArray";
 
@@ -28,15 +24,16 @@ export interface ErrorOther<T = string> {
 }
 
 export type FormErrors<FormData = {}, T = string> = {
-    [P in keyof FormData]?: ReactElement<any> | T;
-} & ErrorOther<T>;
+    [P in keyof FormData]?: ReactElement<any> | T
+} &
+    ErrorOther<T>;
 
 export interface WarningOther<T = void> {
     _warning?: T;
 }
 
 export type FormWarnings<FormData = {}, T = void> = {
-    [P in keyof FormData]?: ReactElement<any> | string | WarningOther<T>;
+    [P in keyof FormData]?: ReactElement<any> | string | WarningOther<T>
 };
 
 export interface RegisteredFieldState {
@@ -44,7 +41,14 @@ export interface RegisteredFieldState {
     type: FieldType;
 }
 
-export type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never, [x: number]: never })[keyof T]>;
+export type Omit<T, K extends keyof T> = Pick<
+    T,
+    ({ [P in keyof T]: P } &
+        { [P in K]: never } & {
+            [x: string]: never;
+            [x: number]: never;
+        })[keyof T]
+>;
 
 export * from "./lib/reduxForm";
 export * from "./lib/Field";

@@ -7,10 +7,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import Koa = require('koa');
-import webpack = require('webpack');
-import webpackDevMiddleware = require('webpack-dev-middleware');
-import webpackHotClient = require('webpack-hot-client');
+import Koa = require("koa");
+import webpack = require("webpack");
+import webpackDevMiddleware = require("webpack-dev-middleware");
+import webpackHotClient = require("webpack-hot-client");
 
 declare function koaWebpack(
     options?: koaWebpack.Options

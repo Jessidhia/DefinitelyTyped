@@ -10,13 +10,9 @@
         "noImplicitThis": true,
         "strictFunctionTypes": true,
         "strictNullChecks": true,
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "styled-components": [
-                "styled-components/v3"
-            ]
+            "styled-components": ["styled-components/v3"]
         },
         "types": []
     },

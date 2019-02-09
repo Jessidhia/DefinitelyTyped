@@ -97,7 +97,7 @@ export type Secret = string | Buffer | { key: string; passphrase: string };
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
-    options?: SignOptions,
+    options?: SignOptions
 ): string;
 
 /**
@@ -110,13 +110,13 @@ export function sign(
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
-    callback: SignCallback,
+    callback: SignCallback
 ): void;
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
     options: SignOptions,
-    callback: SignCallback,
+    callback: SignCallback
 ): void;
 
 /**
@@ -142,7 +142,7 @@ export function signAsync(
 export function verify(
     token: string,
     secretOrPublicKey: string | Buffer,
-    options?: VerifyOptions,
+    options?: VerifyOptions
 ): object | string;
 
 /**
@@ -174,7 +174,7 @@ export function verifyAsync(
     token: string,
     secretOrPublicKey: string | Buffer,
     options?: VerifyOptions
-): Promise<object|string>;
+): Promise<object | string>;
 
 /**
  * Returns the decoded payload without verifying if the signature is valid.
@@ -184,5 +184,5 @@ export function verifyAsync(
  */
 export function decode(
     token: string,
-    options?: DecodeOptions,
+    options?: DecodeOptions
 ): null | { [key: string]: any } | string;

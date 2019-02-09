@@ -43,7 +43,6 @@ declare namespace ReactInputMask {
     }
 }
 
-declare class ReactInputMask extends React.Component<ReactInputMask.Props> {
-}
+declare class ReactInputMask extends React.Component<ReactInputMask.Props> {}
 
 export default ReactInputMask;

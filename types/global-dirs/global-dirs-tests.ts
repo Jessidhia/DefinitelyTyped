@@ -1,4 +1,4 @@
-import * as globalDirs from 'global-dirs';
+import * as globalDirs from "global-dirs";
 
 // $ExpectType string
 globalDirs.npm.prefix;

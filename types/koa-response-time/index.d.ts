@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Middleware } from 'koa';
+import { Middleware } from "koa";
 
 declare function koa_response_time(): Middleware;
 export = koa_response_time;

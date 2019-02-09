@@ -12,16 +12,34 @@
 /// <reference types="node" />
 
 import events = require("events");
-import stream = require ("stream");
+import stream = require("stream");
 import Bluebird = require("bluebird");
 
 type Callback = (...args: any[]) => void;
 type Client = (...args: any[]) => void;
-type Value = string | number | boolean | Date | string[] | number[] | Date[] | boolean[] | Buffer | Knex.Raw;
-interface ValueMap { [key: string]: Value | Knex.QueryBuilder; }
-type ColumnName = string | Knex.Raw | Knex.QueryBuilder | {[key: string]: string };
+type Value =
+    | string
+    | number
+    | boolean
+    | Date
+    | string[]
+    | number[]
+    | Date[]
+    | boolean[]
+    | Buffer
+    | Knex.Raw;
+interface ValueMap {
+    [key: string]: Value | Knex.QueryBuilder;
+}
+type ColumnName =
+    | string
+    | Knex.Raw
+    | Knex.QueryBuilder
+    | { [key: string]: string };
 type TableName = string | Knex.Raw | Knex.QueryBuilder;
-interface Identifier { [alias: string]: string; }
+interface Identifier {
+    [alias: string]: string;
+}
 
 interface Knex extends Knex.QueryInterface {
     (tableName?: TableName | Identifier): Knex.QueryBuilder;
@@ -29,10 +47,18 @@ interface Knex extends Knex.QueryInterface {
     __knex__: string;
 
     raw: Knex.RawBuilder;
-    transaction<T>(transactionScope: (trx: Knex.Transaction) => Promise<T> | Bluebird<T> | void): Bluebird<T>;
+    transaction<T>(
+        transactionScope: (
+            trx: Knex.Transaction
+        ) => Promise<T> | Bluebird<T> | void
+    ): Bluebird<T>;
     destroy(callback: (...args: any[]) => void): void;
     destroy(): Bluebird<void>;
-    batchInsert(tableName: TableName, data: any[], chunkSize?: number): Knex.QueryBuilder;
+    batchInsert(
+        tableName: TableName,
+        data: any[],
+        chunkSize?: number
+    ): Knex.QueryBuilder;
     schema: Knex.SchemaBuilder;
     queryBuilder(): Knex.QueryBuilder;
 
@@ -40,7 +66,10 @@ interface Knex extends Knex.QueryInterface {
     migrate: Knex.Migrator;
     seed: any;
     fn: Knex.FunctionHelper;
-    on(eventName: string, callback: (...args: any[]) => void): Knex.QueryBuilder;
+    on(
+        eventName: string,
+        callback: (...args: any[]) => void
+    ): Knex.QueryBuilder;
 }
 
 declare function Knex(config: Knex.Config): Knex;
@@ -140,18 +169,34 @@ declare namespace Knex {
 
         // Aggregation
         count(...columnNames: string[]): QueryBuilder;
-        count(columnName: Record<string, string | string[] | Raw> | Raw): QueryBuilder;
-        countDistinct(columnName: string | Record<string, string | Raw> | Raw): QueryBuilder;
+        count(
+            columnName: Record<string, string | string[] | Raw> | Raw
+        ): QueryBuilder;
+        countDistinct(
+            columnName: string | Record<string, string | Raw> | Raw
+        ): QueryBuilder;
         min(columnName: string, ...columnNames: string[]): QueryBuilder;
-        min(columnName: Record<string, string | string[] | Raw> | Raw): QueryBuilder;
+        min(
+            columnName: Record<string, string | string[] | Raw> | Raw
+        ): QueryBuilder;
         max(columnName: string, ...columnNames: string[]): QueryBuilder;
-        max(columnName: Record<string, string | string[] | Raw> | Raw): QueryBuilder;
+        max(
+            columnName: Record<string, string | string[] | Raw> | Raw
+        ): QueryBuilder;
         sum(columnName: string, ...columnNames: string[]): QueryBuilder;
-        sum(columnName: Record<string, string | string[] | Raw> | Raw): QueryBuilder;
-        sumDistinct(columnName: string | Record<string, string | Raw> | Raw): QueryBuilder;
+        sum(
+            columnName: Record<string, string | string[] | Raw> | Raw
+        ): QueryBuilder;
+        sumDistinct(
+            columnName: string | Record<string, string | Raw> | Raw
+        ): QueryBuilder;
         avg(columnName: string, ...columnNames: string[]): QueryBuilder;
-        avg(columnName: Record<string, string | string[] | Raw> | Raw): QueryBuilder;
-        avgDistinct(columnName: string | Record<string, string | Raw> | Raw): QueryBuilder;
+        avg(
+            columnName: Record<string, string | string[] | Raw> | Raw
+        ): QueryBuilder;
+        avgDistinct(
+            columnName: string | Record<string, string | Raw> | Raw
+        ): QueryBuilder;
         increment(columnName: string, amount?: number): QueryBuilder;
         decrement(columnName: string, amount?: number): QueryBuilder;
 
@@ -163,7 +208,11 @@ declare namespace Knex {
         insert(data: any, returning?: string | string[]): QueryBuilder;
         modify(callback: QueryCallbackWithArgs, ...args: any[]): QueryBuilder;
         update(data: any, returning?: string | string[]): QueryBuilder;
-        update(columnName: string, value: Value, returning?: string | string[]): QueryBuilder;
+        update(
+            columnName: string,
+            value: Value,
+            returning?: string | string[]
+        ): QueryBuilder;
         returning(column: string | string[]): QueryBuilder;
 
         del(returning?: string | string[]): QueryBuilder;
@@ -187,8 +236,7 @@ declare namespace Knex {
     }
 
     // tslint:disable-next-line no-empty-interface
-    interface Distinct extends ColumnNameQueryBuilder {
-    }
+    interface Distinct extends ColumnNameQueryBuilder {}
 
     interface JoinCallback {
         (this: JoinClause, join: JoinClause): void;
@@ -196,12 +244,31 @@ declare namespace Knex {
 
     interface Join {
         (raw: Raw): QueryBuilder;
-        (tableName: TableName | QueryCallback, clause: JoinCallback): QueryBuilder;
-        (tableName: TableName | QueryCallback, columns: { [key: string]: string | number | Raw }): QueryBuilder;
+        (
+            tableName: TableName | QueryCallback,
+            clause: JoinCallback
+        ): QueryBuilder;
+        (
+            tableName: TableName | QueryCallback,
+            columns: { [key: string]: string | number | Raw }
+        ): QueryBuilder;
         (tableName: TableName | QueryCallback, raw: Raw): QueryBuilder;
-        (tableName: TableName | QueryCallback, column1: string, column2: string): QueryBuilder;
-        (tableName: TableName | QueryCallback, column1: string, raw: Raw): QueryBuilder;
-        (tableName: TableName | QueryCallback, column1: string, operator: string, column2: string): QueryBuilder;
+        (
+            tableName: TableName | QueryCallback,
+            column1: string,
+            column2: string
+        ): QueryBuilder;
+        (
+            tableName: TableName | QueryCallback,
+            column1: string,
+            raw: Raw
+        ): QueryBuilder;
+        (
+            tableName: TableName | QueryCallback,
+            column1: string,
+            operator: string,
+            column2: string
+        ): QueryBuilder;
     }
 
     interface JoinClause {
@@ -210,19 +277,31 @@ declare namespace Knex {
         on(columns: { [key: string]: string | Raw }): JoinClause;
         on(column1: string, column2: string): JoinClause;
         on(column1: string, raw: Raw): JoinClause;
-        on(column1: string, operator: string, column2: string | Raw): JoinClause;
+        on(
+            column1: string,
+            operator: string,
+            column2: string | Raw
+        ): JoinClause;
         andOn(raw: Raw): JoinClause;
         andOn(callback: JoinCallback): JoinClause;
         andOn(columns: { [key: string]: string | Raw }): JoinClause;
         andOn(column1: string, column2: string): JoinClause;
         andOn(column1: string, raw: Raw): JoinClause;
-        andOn(column1: string, operator: string, column2: string | Raw): JoinClause;
+        andOn(
+            column1: string,
+            operator: string,
+            column2: string | Raw
+        ): JoinClause;
         orOn(raw: Raw): JoinClause;
         orOn(callback: JoinCallback): JoinClause;
         orOn(columns: { [key: string]: string | Raw }): JoinClause;
         orOn(column1: string, column2: string): JoinClause;
         orOn(column1: string, raw: Raw): JoinClause;
-        orOn(column1: string, operator: string, column2: string | Raw): JoinClause;
+        orOn(
+            column1: string,
+            operator: string,
+            column2: string | Raw
+        ): JoinClause;
         onIn(column1: string, values: any[]): JoinClause;
         andOnIn(column1: string, values: any[]): JoinClause;
         orOnIn(column1: string, values: any[]): JoinClause;
@@ -247,7 +326,9 @@ declare namespace Knex {
         onNotBetween(column1: string, range: [any, any]): JoinClause;
         andOnNotBetween(column1: string, range: [any, any]): JoinClause;
         orOnNotBetween(column1: string, range: [any, any]): JoinClause;
-        using(column: string | string[] | Raw | { [key: string]: string | Raw }): JoinClause;
+        using(
+            column: string | string[] | Raw | { [key: string]: string | Raw }
+        ): JoinClause;
         type(type: string): JoinClause;
     }
 
@@ -255,8 +336,7 @@ declare namespace Knex {
         (tableName: string, binding?: Value): QueryBuilder;
     }
 
-    interface With extends WithRaw, WithWrapped {
-    }
+    interface With extends WithRaw, WithWrapped {}
 
     interface WithRaw {
         (alias: string, raw: Raw): QueryBuilder;
@@ -269,7 +349,10 @@ declare namespace Knex {
 
     interface WithWrapped {
         (alias: string, queryBuilder: QueryBuilder): QueryBuilder;
-        (alias: string, callback: (queryBuilder: QueryBuilder) => any): QueryBuilder;
+        (
+            alias: string,
+            callback: (queryBuilder: QueryBuilder) => any
+        ): QueryBuilder;
     }
 
     interface Where extends WhereRaw, WhereWrapped, WhereNull {
@@ -277,8 +360,16 @@ declare namespace Knex {
         (callback: QueryCallback): QueryBuilder;
         (object: object): QueryBuilder;
         (columnName: string, value: Value | null): QueryBuilder;
-        (columnName: string, operator: string, value: Value | QueryBuilder | null): QueryBuilder;
-        (left: Raw, operator: string, right: Value | QueryBuilder | null): QueryBuilder;
+        (
+            columnName: string,
+            operator: string,
+            value: Value | QueryBuilder | null
+        ): QueryBuilder;
+        (
+            left: Raw,
+            operator: string,
+            right: Value | QueryBuilder | null
+        ): QueryBuilder;
     }
 
     interface WhereRaw extends RawQueryBuilder {
@@ -307,26 +398,42 @@ declare namespace Knex {
     }
 
     interface WhereIn {
-        (columnName: string, values: Value[] | QueryBuilder | QueryCallback): QueryBuilder;
-        (columnNames: string[], values: Value[][] | QueryBuilder | QueryCallback): QueryBuilder;
+        (
+            columnName: string,
+            values: Value[] | QueryBuilder | QueryCallback
+        ): QueryBuilder;
+        (
+            columnNames: string[],
+            values: Value[][] | QueryBuilder | QueryCallback
+        ): QueryBuilder;
     }
 
-    interface GroupBy extends RawQueryBuilder, ColumnNameQueryBuilder {
-    }
+    interface GroupBy extends RawQueryBuilder, ColumnNameQueryBuilder {}
 
     interface OrderBy {
         (columnName: string, direction?: string): QueryBuilder;
     }
 
     interface Union {
-        (callback: QueryCallback | QueryBuilder | Raw, wrap?: boolean): QueryBuilder;
-        (callbacks: Array<QueryCallback | QueryBuilder | Raw>, wrap?: boolean): QueryBuilder;
+        (
+            callback: QueryCallback | QueryBuilder | Raw,
+            wrap?: boolean
+        ): QueryBuilder;
+        (
+            callbacks: Array<QueryCallback | QueryBuilder | Raw>,
+            wrap?: boolean
+        ): QueryBuilder;
         (...callbacks: Array<QueryCallback | QueryBuilder | Raw>): QueryBuilder;
         // (...callbacks: QueryCallback[], wrap?: boolean): QueryInterface;
     }
 
     interface Having extends RawQueryBuilder, WhereWrapped {
-        (tableName: string, column1: string, operator: string, column2: string): QueryBuilder;
+        (
+            tableName: string,
+            column1: string,
+            operator: string,
+            column2: string
+        ): QueryBuilder;
     }
 
     interface HavingIn {
@@ -342,7 +449,10 @@ declare namespace Knex {
 
     interface RawQueryBuilder {
         (sql: string, ...bindings: Array<Value | QueryBuilder>): QueryBuilder;
-        (sql: string, bindings: Array<Value | QueryBuilder> | ValueMap): QueryBuilder;
+        (
+            sql: string,
+            bindings: Array<Value | QueryBuilder> | ValueMap
+        ): QueryBuilder;
         (raw: Raw): QueryBuilder;
     }
 
@@ -363,7 +473,11 @@ declare namespace Knex {
     //
 
     type QueryCallback = (this: QueryBuilder, builder: QueryBuilder) => void;
-    type QueryCallbackWithArgs = (this: QueryBuilder, builder: QueryBuilder, ...args: any[]) => void;
+    type QueryCallbackWithArgs = (
+        this: QueryBuilder,
+        builder: QueryBuilder,
+        ...args: any[]
+    ) => void;
 
     interface QueryBuilder extends QueryInterface, ChainableInterface {
         or: QueryBuilder;
@@ -398,10 +512,16 @@ declare namespace Knex {
         debug(enabled: boolean): this;
         transacting(trx: Transaction): this;
         stream(handler: (readable: stream.PassThrough) => any): Bluebird<any>;
-        stream(options: { [key: string]: any }, handler: (readable: stream.PassThrough) => any): Bluebird<any>;
+        stream(
+            options: { [key: string]: any },
+            handler: (readable: stream.PassThrough) => any
+        ): Bluebird<any>;
         stream(options?: { [key: string]: any }): stream.PassThrough;
         // tslint:disable-next-line no-unnecessary-generics
-        pipe<T extends NodeJS.WritableStream>(writable: T, options?: { [key: string]: any }): stream.PassThrough;
+        pipe<T extends NodeJS.WritableStream>(
+            writable: T,
+            options?: { [key: string]: any }
+        ): stream.PassThrough;
     }
 
     interface Transaction extends Knex {
@@ -415,14 +535,26 @@ declare namespace Knex {
     //
 
     interface SchemaBuilder extends ChainableInterface {
-        createTable(tableName: string, callback: (tableBuilder: CreateTableBuilder) => any): SchemaBuilder;
-        createTableIfNotExists(tableName: string, callback: (tableBuilder: CreateTableBuilder) => any): SchemaBuilder;
-        alterTable(tableName: string, callback: (tableBuilder: CreateTableBuilder) => any): SchemaBuilder;
+        createTable(
+            tableName: string,
+            callback: (tableBuilder: CreateTableBuilder) => any
+        ): SchemaBuilder;
+        createTableIfNotExists(
+            tableName: string,
+            callback: (tableBuilder: CreateTableBuilder) => any
+        ): SchemaBuilder;
+        alterTable(
+            tableName: string,
+            callback: (tableBuilder: CreateTableBuilder) => any
+        ): SchemaBuilder;
         renameTable(oldTableName: string, newTableName: string): Bluebird<void>;
         dropTable(tableName: string): SchemaBuilder;
         hasTable(tableName: string): Bluebird<boolean>;
         hasColumn(tableName: string, columnName: string): Bluebird<boolean>;
-        table(tableName: string, callback: (tableBuilder: AlterTableBuilder) => any): Bluebird<void>;
+        table(
+            tableName: string,
+            callback: (tableBuilder: AlterTableBuilder) => any
+        ): Bluebird<void>;
         dropTableIfExists(tableName: string): SchemaBuilder;
         raw(statement: string): SchemaBuilder;
         withSchema(schemaName: string): SchemaBuilder;
@@ -438,37 +570,77 @@ declare namespace Knex {
         bigInteger(columnName: string): ColumnBuilder;
         text(columnName: string, textType?: string): ColumnBuilder;
         string(columnName: string, length?: number): ColumnBuilder;
-        float(columnName: string, precision?: number, scale?: number): ColumnBuilder;
-        decimal(columnName: string, precision?: number | null, scale?: number): ColumnBuilder;
+        float(
+            columnName: string,
+            precision?: number,
+            scale?: number
+        ): ColumnBuilder;
+        decimal(
+            columnName: string,
+            precision?: number | null,
+            scale?: number
+        ): ColumnBuilder;
         boolean(columnName: string): ColumnBuilder;
         date(columnName: string): ColumnBuilder;
         dateTime(columnName: string): ColumnBuilder;
         time(columnName: string): ColumnBuilder;
         timestamp(columnName: string, standard?: boolean): ColumnBuilder;
-        timestamps(useTimestampType?: boolean, makeDefaultNow?: boolean): ColumnBuilder;
+        timestamps(
+            useTimestampType?: boolean,
+            makeDefaultNow?: boolean
+        ): ColumnBuilder;
         binary(columnName: string, length?: number): ColumnBuilder;
-        enum(columnName: string, values: Value[], options?: EnumOptions): ColumnBuilder;
-        enu(columnName: string, values: Value[], options?: EnumOptions): ColumnBuilder;
+        enum(
+            columnName: string,
+            values: Value[],
+            options?: EnumOptions
+        ): ColumnBuilder;
+        enu(
+            columnName: string,
+            values: Value[],
+            options?: EnumOptions
+        ): ColumnBuilder;
         json(columnName: string): ColumnBuilder;
         jsonb(columnName: string): ColumnBuilder;
         uuid(columnName: string): ColumnBuilder;
         comment(val: string): TableBuilder;
         specificType(columnName: string, type: string): ColumnBuilder;
         primary(columnNames: string[]): TableBuilder;
-        index(columnNames: Array<string | Raw>, indexName?: string, indexType?: string): TableBuilder;
-        unique(columnNames: Array<string | Raw>, indexName?: string): TableBuilder;
-        foreign(column: string, foreignKeyName?: string): ForeignConstraintBuilder;
-        foreign(columns: string[], foreignKeyName?: string): MultikeyForeignConstraintBuilder;
-        dropForeign(columnNames: string[], foreignKeyName?: string): TableBuilder;
-        dropUnique(columnNames: Array<string | Raw>, indexName?: string): TableBuilder;
+        index(
+            columnNames: Array<string | Raw>,
+            indexName?: string,
+            indexType?: string
+        ): TableBuilder;
+        unique(
+            columnNames: Array<string | Raw>,
+            indexName?: string
+        ): TableBuilder;
+        foreign(
+            column: string,
+            foreignKeyName?: string
+        ): ForeignConstraintBuilder;
+        foreign(
+            columns: string[],
+            foreignKeyName?: string
+        ): MultikeyForeignConstraintBuilder;
+        dropForeign(
+            columnNames: string[],
+            foreignKeyName?: string
+        ): TableBuilder;
+        dropUnique(
+            columnNames: Array<string | Raw>,
+            indexName?: string
+        ): TableBuilder;
         dropPrimary(constraintName?: string): TableBuilder;
-        dropIndex(columnNames: Array<string | Raw>, indexName?: string): TableBuilder;
+        dropIndex(
+            columnNames: Array<string | Raw>,
+            indexName?: string
+        ): TableBuilder;
         dropTimestamps(): ColumnBuilder;
     }
 
     // tslint:disable-next-line no-empty-interface
-    interface CreateTableBuilder extends TableBuilder {
-    }
+    interface CreateTableBuilder extends TableBuilder {}
 
     interface MySqlTableBuilder extends CreateTableBuilder {
         engine(val: string): CreateTableBuilder;
@@ -477,12 +649,10 @@ declare namespace Knex {
     }
 
     // tslint:disable-next-line no-empty-interface
-    interface AlterTableBuilder extends TableBuilder {
-    }
+    interface AlterTableBuilder extends TableBuilder {}
 
     // tslint:disable-next-line no-empty-interface
-    interface MySqlAlterTableBuilder extends AlterTableBuilder {
-    }
+    interface MySqlAlterTableBuilder extends AlterTableBuilder {}
 
     interface ColumnBuilder {
         index(indexName?: string): ColumnBuilder;
@@ -516,8 +686,7 @@ declare namespace Knex {
     }
 
     // tslint:disable-next-line no-empty-interface
-    interface AlterColumnBuilder extends ColumnBuilder {
-    }
+    interface AlterColumnBuilder extends ColumnBuilder {}
 
     interface MySqlAlterColumnBuilder extends AlterColumnBuilder {
         first(): AlterColumnBuilder;
@@ -545,12 +714,22 @@ declare namespace Knex {
         client?: string | typeof Client;
         dialect?: string;
         version?: string;
-        connection?: string | ConnectionConfig | MariaSqlConnectionConfig |
-            MySqlConnectionConfig | MsSqlConnectionConfig | Sqlite3ConnectionConfig | SocketConnectionConfig;
+        connection?:
+            | string
+            | ConnectionConfig
+            | MariaSqlConnectionConfig
+            | MySqlConnectionConfig
+            | MsSqlConnectionConfig
+            | Sqlite3ConnectionConfig
+            | SocketConnectionConfig;
         pool?: PoolConfig;
         migrations?: MigratorConfig;
         postProcessResponse?: (result: any, queryContext: any) => any;
-        wrapIdentifier?: (value: string, origImpl: (value: string) => string, queryContext: any) => string;
+        wrapIdentifier?: (
+            value: string,
+            origImpl: (value: string) => string,
+            queryContext: any
+        ) => string;
         seeds?: SeedsConfig;
         acquireConnectionTimeout?: number;
         useNullAsDefault?: boolean;
@@ -717,15 +896,15 @@ declare namespace Knex {
     //
 
     class Client extends events.EventEmitter {
-      constructor(config: Config);
-      config: Config;
-      dialect: string;
-      driverName: string;
-      connectionSettings: object;
+        constructor(config: Config);
+        config: Config;
+        dialect: string;
+        driverName: string;
+        connectionSettings: object;
 
-      acquireRawConnection(): Promise<any>;
-      destroyRawConnection(connection: any): Promise<void>;
-      validateConnection(connection: any): Promise<boolean>;
+        acquireRawConnection(): Promise<any>;
+        destroyRawConnection(connection: any): Promise<void>;
+        validateConnection(connection: any): Promise<boolean>;
     }
 }
 

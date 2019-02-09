@@ -1,5 +1,11 @@
-import { combineReducers, applyMiddleware, createStore } from 'redux';
-import { createBrowserHistory, routerReducer, routerMiddleware, startListener, push } from 'redux-first-routing';
+import { combineReducers, applyMiddleware, createStore } from "redux";
+import {
+    createBrowserHistory,
+    routerReducer,
+    routerMiddleware,
+    startListener,
+    push
+} from "redux-first-routing";
 
 // Create the history object
 const history = createBrowserHistory();
@@ -27,13 +33,15 @@ const unsubscribe = store.subscribe(() => {
     currentLocation = store.getState().router.pathname;
 
     if (previousLocation !== currentLocation) {
-        console.log(`Location changed from ${previousLocation} to ${currentLocation}`);
+        console.log(
+            `Location changed from ${previousLocation} to ${currentLocation}`
+        );
         // Render your application reactively here (optionally using a compatible router)
     }
 });
 
 // And you can dispatch navigation actions from anywhere!
-store.dispatch(push('/about'));
+store.dispatch(push("/about"));
 
 // Unsubscribe
 unsubscribe();

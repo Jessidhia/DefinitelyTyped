@@ -58,5 +58,8 @@ declare namespace MediaQuery {
     }
 }
 
-declare class MediaQuery extends React.Component<MediaQuery.MediaQueryProps, any> { }
+declare class MediaQuery extends React.Component<
+    MediaQuery.MediaQueryProps,
+    any
+> {}
 export = MediaQuery;

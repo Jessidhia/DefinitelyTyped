@@ -64,21 +64,31 @@ declare class Peer {
     open: boolean;
     rooms: any;
 
-    call(peerId: string, stream?: MediaStream, options?: CallOptions): MediaConnection | undefined;
-    connect(peerId: string, options?: ConnectOptions): DataConnection | undefined;
+    call(
+        peerId: string,
+        stream?: MediaStream,
+        options?: CallOptions
+    ): MediaConnection | undefined;
+    connect(
+        peerId: string,
+        options?: ConnectOptions
+    ): DataConnection | undefined;
     destroy(): undefined;
     disconnect(): undefined;
-    joinRoom(roomName: string, roomOptions?: RoomOptions): SFURoom | MeshRoom | undefined | null;
+    joinRoom(
+        roomName: string,
+        roomOptions?: RoomOptions
+    ): SFURoom | MeshRoom | undefined | null;
     listAllPeers(cb: (peerIds: Array<string>) => void): void;
     updateCredential(newCredential: Credential): undefined;
 
     on(event: string, cb: (ret: any) => void): void;
-    on(event: 'open', cb: (id: string) => void): void;
-    on(event: 'call', cb: (call: MediaConnection) => void): void;
-    on(event: 'close', cb: () => void): void;
-    on(event: 'connection', cb: (connection: DataConnection) => void): void;
-    on(event: 'disconnected', cb: (id: string) => void): void;
-    on(event: 'error', cb: (err: any) => void): void;
+    on(event: "open", cb: (id: string) => void): void;
+    on(event: "call", cb: (call: MediaConnection) => void): void;
+    on(event: "close", cb: () => void): void;
+    on(event: "connection", cb: (connection: DataConnection) => void): void;
+    on(event: "disconnected", cb: (id: string) => void): void;
+    on(event: "error", cb: (err: any) => void): void;
 }
 
 declare class MediaConnection {
@@ -92,9 +102,9 @@ declare class MediaConnection {
     replaceStream(stream: MediaStream): undefined;
 
     on(event: string, cb: () => void): void;
-    on(event: 'stream', cb: (stream: MediaStream) => void): void;
-    on(event: 'close', cb: () => void): void;
-    on(event: 'removeStream', cb: (reamoteStream: MediaStream) => void): void;
+    on(event: "stream", cb: (stream: MediaStream) => void): void;
+    on(event: "close", cb: () => void): void;
+    on(event: "removeStream", cb: (reamoteStream: MediaStream) => void): void;
 }
 
 declare class DataConnection {
@@ -107,8 +117,8 @@ declare class DataConnection {
     close(): void | undefined;
 
     on(event: string, cb: () => void): void;
-    on(event: 'data', cb: (data: any) => void): void;
-    on(event: 'close', cb: () => void): void;
+    on(event: "data", cb: (data: any) => void): void;
+    on(event: "close", cb: () => void): void;
 }
 
 interface DataObject {
@@ -123,15 +133,15 @@ declare class MeshRoom {
     send(data: any): undefined;
 
     on(event: string, cb: () => void): void;
-    on(event: 'open', cb: () => void): void;
-    on(event: 'peerJoin', cb: (peerId: string) => void): void;
-    on(event: 'peerLeave', cb: (peerId: string) => void): void;
-    on(event: 'log', cb: (logs: Array<string>) => void): void;
-    once(event: 'log', cb: (logs: Array<string>) => void): void;
-    on(event: 'stream', cb: (stream: MediaStream) => void): void;
-    on(event: 'data', cb: (object: DataObject) => void): void;
-    on(event: 'close', cb: () => void): void;
-    on(event: 'removeStream', cb: (stream: MediaStream) => void): void;
+    on(event: "open", cb: () => void): void;
+    on(event: "peerJoin", cb: (peerId: string) => void): void;
+    on(event: "peerLeave", cb: (peerId: string) => void): void;
+    on(event: "log", cb: (logs: Array<string>) => void): void;
+    once(event: "log", cb: (logs: Array<string>) => void): void;
+    on(event: "stream", cb: (stream: MediaStream) => void): void;
+    on(event: "data", cb: (object: DataObject) => void): void;
+    on(event: "close", cb: () => void): void;
+    on(event: "removeStream", cb: (stream: MediaStream) => void): void;
 }
 
 declare class SFURoom {
@@ -141,13 +151,13 @@ declare class SFURoom {
     send(data: any): undefined;
 
     on(event: string, cb: () => void): void;
-    on(event: 'open', cb: () => void): void;
-    on(event: 'peerJoin', cb: (peerId: string) => void): void;
-    on(event: 'peerLeave', cb: (peerId: string) => void): void;
-    on(event: 'log', cb: (logs: Array<string>) => void): void;
-    once(event: 'log', cb: (logs: Array<string>) => void): void;
-    on(event: 'stream', cb: (stream: MediaStream) => void): void;
-    on(event: 'data', cb: (object: DataObject) => void): void;
-    on(event: 'close', cb: () => void): void;
-    on(event: 'removeStream', cb: (stream: MediaStream) => void): void;
+    on(event: "open", cb: () => void): void;
+    on(event: "peerJoin", cb: (peerId: string) => void): void;
+    on(event: "peerLeave", cb: (peerId: string) => void): void;
+    on(event: "log", cb: (logs: Array<string>) => void): void;
+    once(event: "log", cb: (logs: Array<string>) => void): void;
+    on(event: "stream", cb: (stream: MediaStream) => void): void;
+    on(event: "data", cb: (object: DataObject) => void): void;
+    on(event: "close", cb: () => void): void;
+    on(event: "removeStream", cb: (stream: MediaStream) => void): void;
 }

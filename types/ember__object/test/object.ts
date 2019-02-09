@@ -28,30 +28,34 @@ class MyObject31 extends EmberObject {
 
 class Foo extends EmberObject {
     a = computed({
-        get() { return ''; },
-        set(key: string, newVal: string) { return ''; }
+        get() {
+            return "";
+        },
+        set(key: string, newVal: string) {
+            return "";
+        }
     });
     b = 5;
     baz() {
         const y = this.b; // $ExpectType number
         const z = this.a; // $ExpectType ComputedProperty<string, string>
         this.b = 10;
-        this.get('b').toFixed(4); // $ExpectType string
-        this.set('a', 'abc').split(','); // $ExpectType string[]
-        this.set('b', 10).toFixed(4); // $ExpectType string
+        this.get("b").toFixed(4); // $ExpectType string
+        this.set("a", "abc").split(","); // $ExpectType string[]
+        this.set("b", 10).toFixed(4); // $ExpectType string
 
         this.setProperties({ b: 11 });
         // this.setProperties({ b: '11' }); // $ExpectError
         this.setProperties({
-            a: 'def',
+            a: "def",
             b: 11
         });
     }
     bar() {
-        notifyPropertyChange(this, 'name');
+        notifyPropertyChange(this, "name");
         notifyPropertyChange(this); // $ExpectError
-        notifyPropertyChange('name'); // $ExpectError
-        notifyPropertyChange(this, 'name', 'bar'); // $ExpectError
+        notifyPropertyChange("name"); // $ExpectError
+        notifyPropertyChange(this, "name", "bar"); // $ExpectError
     }
 }
 

@@ -11,7 +11,7 @@ export import system = system;
 export import messages = messages;
 
 export type HTMLMediaElement = any;
-export as namespace framework
+export as namespace framework;
 export type LoggerLevel =
     | "DEBUG"
     | "VERBOSE"
@@ -153,7 +153,9 @@ export class QueueBase {
     /**
      * Returns next items after the reference item; often the end of the current queue; called by the receiver MediaManager.
      */
-    nextItems(itemId?: number): messages.QueueItem[] | Promise<messages.QueueItem[]>;
+    nextItems(
+        itemId?: number
+    ): messages.QueueItem[] | Promise<messages.QueueItem[]>;
 
     /**
      * Sets the current item with the itemId; called by the receiver MediaManager when it changes the current playing item.
@@ -175,7 +177,9 @@ export class QueueBase {
     /**
      * Returns previous items before the reference item; often at the beginning of the queue; called by the receiver MediaManager.
      */
-    prevItems(itemId?: number): messages.QueueItem[] | Promise<messages.QueueItem[]>;
+    prevItems(
+        itemId?: number
+    ): messages.QueueItem[] | Promise<messages.QueueItem[]>;
 
     /**
      * Shuffles the queue and returns new queue items. Returns null if the operation is not supported.
@@ -300,7 +304,10 @@ export class PlayerManager {
     /**
      * Requests a text string to be played back locally on the receiver device.
      */
-    playString(stringId: messages.PlayStringId, args?: string[]): Promise<messages.ErrorData>;
+    playString(
+        stringId: messages.PlayStringId,
+        args?: string[]
+    ): Promise<messages.ErrorData>;
 
     /**
      * Request Google Assistant to refresh the credentials. Only works if the original credentials came from the assistant.
@@ -615,10 +622,7 @@ export class CastReceiverContext {
     /**
      * Sets message listener on custom message channel.
      */
-    addCustomMessageListener(
-        namespace: string,
-        listener: EventHandler
-    ): void;
+    addCustomMessageListener(namespace: string, listener: EventHandler): void;
 
     /**
      * Add listener to cast system events.
@@ -708,11 +712,7 @@ export class CastReceiverContext {
     /**
      * Sends a message to a specific sender.
      */
-    sendCustomMessage(
-        namespace: string,
-        senderId: string,
-        message: any
-    ): void;
+    sendCustomMessage(namespace: string, senderId: string, message: any): void;
 
     /**
      * This function should be called in response to the feedbackstarted event if the application

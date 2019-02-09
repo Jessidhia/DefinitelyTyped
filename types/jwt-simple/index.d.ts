@@ -8,16 +8,21 @@
  * @param token
  * @param key
  * @param noVerify
-   * @param algorithm default is HS256
+ * @param algorithm default is HS256
  * @api public
  */
-export function decode(token: any, key: string, noVerify?: boolean, algorithm?: string): any;
+export function decode(
+    token: any,
+    key: string,
+    noVerify?: boolean,
+    algorithm?: string
+): any;
 /**
  * Encode jwt
  * @param payload
  * @param key
  * @param algorithm default is HS256
-   * @param options
+ * @param options
  * @api public
  */
 export function encode(payload: any, key: string, algorithm?: string): string;

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { CSSModule } from '../index';
+import * as React from "react";
+import { CSSModule } from "../index";
 
 export type CarouselIndicatorsProps<T = {}> = React.HTMLProps<HTMLElement> & {
     items: object[];
@@ -8,5 +8,7 @@ export type CarouselIndicatorsProps<T = {}> = React.HTMLProps<HTMLElement> & {
     onClickHandler: (idx: number) => void;
 } & T;
 
-declare class CarouselIndicators<T = {[key: string]: any}> extends React.Component<CarouselIndicatorsProps<T>> {}
+declare class CarouselIndicators<
+    T = { [key: string]: any }
+> extends React.Component<CarouselIndicatorsProps<T>> {}
 export default CarouselIndicators;

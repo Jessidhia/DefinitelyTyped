@@ -7,21 +7,42 @@ declare namespace adone {
         }
 
         class Emitter {
-            static listenerCount(emitter: Emitter, event: string | symbol): number;
+            static listenerCount(
+                emitter: Emitter,
+                event: string | symbol
+            ): number;
 
             static defaultMaxListeners: number;
 
-            addListener(event: string | symbol, listener: (...args: any[]) => void): this;
+            addListener(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
-            on(event: string | symbol, listener: (...args: any[]) => void): this;
+            on(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
-            once(event: string | symbol, listener: (...args: any[]) => void): this;
+            once(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
-            prependListener(event: string | symbol, listener: (...args: any[]) => void): this;
+            prependListener(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
-            prependOnceListener(event: string | symbol, listener: (...args: any[]) => void): this;
+            prependOnceListener(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
-            removeListener(event: string | symbol, listener: (...args: any[]) => void): this;
+            removeListener(
+                event: string | symbol,
+                listener: (...args: any[]) => void
+            ): this;
 
             removeAllListeners(event?: string | symbol): this;
 
@@ -37,9 +58,16 @@ declare namespace adone {
 
             listenerCount(type: string | symbol): number;
 
-            propagateEvents(dest: Emitter, events: string[]): I.PropagateEventsEnder;
+            propagateEvents(
+                dest: Emitter,
+                events: string[]
+            ): I.PropagateEventsEnder;
 
-            static propagateEvents(source: Emitter, dest: Emitter, events: string[]): I.PropagateEventsEnder;
+            static propagateEvents(
+                source: Emitter,
+                dest: Emitter,
+                events: string[]
+            ): I.PropagateEventsEnder;
         }
 
         class AsyncEmitter extends Emitter {
@@ -55,7 +83,11 @@ declare namespace adone {
 
             emitReduceRight(event: string, ...args: any[]): Promise<any>;
 
-            subscribe(event: string, listener: (...args: any[]) => void, once?: boolean): () => void;
+            subscribe(
+                event: string,
+                listener: (...args: any[]) => void,
+                once?: boolean
+            ): () => void;
         }
     }
 }

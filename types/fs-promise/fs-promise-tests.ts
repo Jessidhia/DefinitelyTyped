@@ -50,8 +50,10 @@ async function test() {
     return dirs;
 }
 
-test().then((dirs: string[]) => {
-    console.log(dirs);
-}).catch((err) => {
-    console.log(err);
-});
+test()
+    .then((dirs: string[]) => {
+        console.log(dirs);
+    })
+    .catch(err => {
+        console.log(err);
+    });

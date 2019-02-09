@@ -1,11 +1,17 @@
-import { RegistryClient, RegistryRequest, LivingAvroSchema } from "schema-registry";
+import {
+    RegistryClient,
+    RegistryRequest,
+    LivingAvroSchema
+} from "schema-registry";
 
 const config = {
-    host: "host", port: 2,
+    host: "host",
+    port: 2
 };
 const registryClient = new RegistryClient(config);
 const livingAvroSchema = new LivingAvroSchema("subject", "version", {
-    host: "host", port: 2,
+    host: "host",
+    port: 2
 });
 
 // $ExpectType Promise<AvroSchemaResponseInterface>
@@ -15,9 +21,9 @@ registryClient.request();
 // $ExpectError
 registryClient.request({});
 // $ExpectError
-registryClient.request('a');
+registryClient.request("a");
 // $ExpectError
-registryClient.request({}, 'a');
+registryClient.request({}, "a");
 // $ExpectError
 registryClient.request({}, {});
 
@@ -67,7 +73,7 @@ registryClient.getSchemaById(2);
 // $ExpectError
 registryClient.getSchemaById();
 // $ExpectError
-registryClient.getSchemaById('a');
+registryClient.getSchemaById("a");
 // $ExpectError
 registryClient.getSchemaById({});
 

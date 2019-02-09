@@ -9,7 +9,6 @@ import tls = require("tls");
 import nodemailer = require("nodemailer");
 
 declare namespace smtpPool {
-
     export interface AuthOptions {
         user?: string;
         pass?: string;
@@ -80,6 +79,7 @@ declare namespace smtpPool {
     }
 }
 
-
-declare function smtpPool(options: smtpPool.SmtpPoolOptions): nodemailer.Transport;
+declare function smtpPool(
+    options: smtpPool.SmtpPoolOptions
+): nodemailer.Transport;
 export = smtpPool;

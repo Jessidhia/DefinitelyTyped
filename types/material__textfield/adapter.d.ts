@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import { MDCTextFieldHelperTextFoundation } from './helper-text';
-import { MDCTextFieldIconFoundation } from './icon';
+import { MDCTextFieldHelperTextFoundation } from "./helper-text";
+import { MDCTextFieldIconFoundation } from "./icon";
 
 export interface NativeInputType {
     value: string;
@@ -60,22 +60,34 @@ export default interface MDCTextFieldAdapter {
     /**
      * Registers an event handler on the root element for a given event.
      */
-    registerTextFieldInteractionHandler(type: string, handler: EventListener): void;
+    registerTextFieldInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Deregisters an event handler on the root element for a given event.
      */
-    deregisterTextFieldInteractionHandler(type: string, handler: EventListener): void;
+    deregisterTextFieldInteractionHandler(
+        type: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Registers an event listener on the native input element for a given event.
      */
-    registerInputInteractionHandler(evtType: string, handler: EventListener): void;
+    registerInputInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Deregisters an event listener on the native input element for a given event.
      */
-    deregisterInputInteractionHandler(evtType: string, handler: EventListener): void;
+    deregisterInputInteractionHandler(
+        evtType: string,
+        handler: EventListener
+    ): void;
 
     /**
      * Registers a validation attribute change listener on the input element.
@@ -85,7 +97,9 @@ export default interface MDCTextFieldAdapter {
     /**
      * Disconnects a validation attribute observer on the input element.
      */
-    deregisterValidationAttributeChangeHandler(observer: MutationObserver): void;
+    deregisterValidationAttributeChangeHandler(
+        observer: MutationObserver
+    ): void;
 
     /**
      * Returns an object representing the native text input element, with a

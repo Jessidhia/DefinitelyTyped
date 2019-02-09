@@ -6,8 +6,16 @@
 /// <reference types="node" />
 
 declare namespace Tesseract {
-    type ImageLike = string | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement
-        | CanvasRenderingContext2D | File | Blob | ImageData | Buffer;
+    type ImageLike =
+        | string
+        | HTMLImageElement
+        | HTMLCanvasElement
+        | HTMLVideoElement
+        | CanvasRenderingContext2D
+        | File
+        | Blob
+        | ImageData
+        | Buffer;
     interface Progress {
         status: string;
         progress: number;
@@ -124,7 +132,9 @@ declare namespace Tesseract {
         then: (callback: (result: Page) => void) => TesseractJob;
         progress: (callback: (progress: Progress) => void) => TesseractJob;
         catch: (callback: (error: Error) => void) => TesseractJob;
-        finally: (callback: (resultOrError: Error | Page) => void) => TesseractJob;
+        finally: (
+            callback: (resultOrError: Error | Page) => void
+        ) => TesseractJob;
         error?: (error: Error) => TesseractJob;
     }
 

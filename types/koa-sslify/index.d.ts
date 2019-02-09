@@ -4,20 +4,20 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as koa from 'koa';
+import * as koa from "koa";
 
 declare namespace sslify {
-  interface Options {
-    trustProtoHeader?: boolean;
-    trustAzureHeader?: boolean;
-    port?: number;
-    hostname?: string;
-    ignoreUrl?: boolean;
-    temporary?: boolean;
-    redirectMethods?: string[];
-    internalRedirectMethods?: string[];
-    specCompliantDisallow?: boolean;
-  }
+    interface Options {
+        trustProtoHeader?: boolean;
+        trustAzureHeader?: boolean;
+        port?: number;
+        hostname?: string;
+        ignoreUrl?: boolean;
+        temporary?: boolean;
+        redirectMethods?: string[];
+        internalRedirectMethods?: string[];
+        specCompliantDisallow?: boolean;
+    }
 }
 
 declare function sslify(options: sslify.Options): koa.Middleware;

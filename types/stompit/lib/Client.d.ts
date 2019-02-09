@@ -11,22 +11,54 @@ declare class Client extends Socket {
     constructor(transportSocket: Duplex, options?: SocketOptions);
 
     send(headers?: any, options?: Client.SendOptions): Writable;
-    sendFrame(command: string, headers?: any, options?: Client.SendOptions): Writable;
-    sendString(headers?: any, body?: any, options?: Client.SendOptions, callback?: (error?: Error | null) => void): void;
+    sendFrame(
+        command: string,
+        headers?: any,
+        options?: Client.SendOptions
+    ): Writable;
+    sendString(
+        headers?: any,
+        body?: any,
+        options?: Client.SendOptions,
+        callback?: (error?: Error | null) => void
+    ): void;
 
-    connect(headers?: any, callback?: (err: Error | null, client: Client) => void): void;
+    connect(
+        headers?: any,
+        callback?: (err: Error | null, client: Client) => void
+    ): void;
     disconnect(callback?: (error: Error | null, client: Client) => void): void;
 
-    subscribe(headers?: any, messageListener?: Client.MessageCallback): Subscription;
-    setImplicitSubscription(id: number, ack?: Client.Ack, messageListener?: Client.MessageCallback): Subscription;
+    subscribe(
+        headers?: any,
+        messageListener?: Client.MessageCallback
+    ): Subscription;
+    setImplicitSubscription(
+        id: number,
+        ack?: Client.Ack,
+        messageListener?: Client.MessageCallback
+    ): Subscription;
     getSubscription(id: number): Subscription;
 
     begin(headers?: any): Transaction;
 
-    ack(message: Client.Message, headers?: any, sendOptions?: Client.SendOptions, callback?: (error?: Error | null) => void): void;
-    nack(message: Client.Message, headers?: any, sendOptions?: Client.SendOptions, callback?: (error?: Error | null) => void): void;
+    ack(
+        message: Client.Message,
+        headers?: any,
+        sendOptions?: Client.SendOptions,
+        callback?: (error?: Error | null) => void
+    ): void;
+    nack(
+        message: Client.Message,
+        headers?: any,
+        sendOptions?: Client.SendOptions,
+        callback?: (error?: Error | null) => void
+    ): void;
 
-    readEmptyBody(frame: IncomingFrameStream, callback?: (client: Client) => void): void;
+    readEmptyBody(
+        frame: IncomingFrameStream,
+        callback?: (client: Client) => void
+    ): void;
 
     getOptions(): SocketOptions;
 }

@@ -10,7 +10,9 @@
  * @param stream The input stream
  * @returns A promise containing the stream output as a buffer
  */
-declare function streamToPromise(stream: NodeJS.ReadableStream): Promise<Buffer>;
+declare function streamToPromise(
+    stream: NodeJS.ReadableStream
+): Promise<Buffer>;
 
 /**
  * Return s promise which resolves when the input stream ends

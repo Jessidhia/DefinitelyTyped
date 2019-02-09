@@ -4,17 +4,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-export type Uint8ArrayOutputFormat = 'uint8array';
+export type Uint8ArrayOutputFormat = "uint8array";
 
-export type StringOutputFormat = 'text' | 'hex' | 'base64';
+export type StringOutputFormat = "text" | "hex" | "base64";
 
-export type KeyType = 'curve25519' | 'ed25519' | 'x25519';
+export type KeyType = "curve25519" | "ed25519" | "x25519";
 
 export enum base64_variants {
     ORIGINAL,
     ORIGINAL_NO_PADDING,
     URLSAFE,
-    URLSAFE_NO_PADDING,
+    URLSAFE_NO_PADDING
 }
 
 export interface CryptoBox {
@@ -281,7 +281,7 @@ export function crypto_aead_chacha20poly1305_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_decrypt(
@@ -290,7 +290,7 @@ export function crypto_aead_chacha20poly1305_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_decrypt_detached(
@@ -300,7 +300,7 @@ export function crypto_aead_chacha20poly1305_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_decrypt_detached(
@@ -310,7 +310,7 @@ export function crypto_aead_chacha20poly1305_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_encrypt(
@@ -319,7 +319,7 @@ export function crypto_aead_chacha20poly1305_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_encrypt(
@@ -328,7 +328,7 @@ export function crypto_aead_chacha20poly1305_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_encrypt_detached(
@@ -337,7 +337,7 @@ export function crypto_aead_chacha20poly1305_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoBox;
 
 export function crypto_aead_chacha20poly1305_encrypt_detached(
@@ -346,7 +346,7 @@ export function crypto_aead_chacha20poly1305_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoBox;
 
 export function crypto_aead_chacha20poly1305_ietf_decrypt(
@@ -355,7 +355,7 @@ export function crypto_aead_chacha20poly1305_ietf_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_ietf_decrypt(
@@ -364,7 +364,7 @@ export function crypto_aead_chacha20poly1305_ietf_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_ietf_decrypt_detached(
@@ -374,7 +374,7 @@ export function crypto_aead_chacha20poly1305_ietf_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_ietf_decrypt_detached(
@@ -384,7 +384,7 @@ export function crypto_aead_chacha20poly1305_ietf_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_ietf_encrypt(
@@ -393,7 +393,7 @@ export function crypto_aead_chacha20poly1305_ietf_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_chacha20poly1305_ietf_encrypt(
@@ -402,7 +402,7 @@ export function crypto_aead_chacha20poly1305_ietf_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_chacha20poly1305_ietf_encrypt_detached(
@@ -411,7 +411,7 @@ export function crypto_aead_chacha20poly1305_ietf_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoBox;
 
 export function crypto_aead_chacha20poly1305_ietf_encrypt_detached(
@@ -420,16 +420,24 @@ export function crypto_aead_chacha20poly1305_ietf_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoBox;
 
-export function crypto_aead_chacha20poly1305_ietf_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_aead_chacha20poly1305_ietf_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_aead_chacha20poly1305_ietf_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_aead_chacha20poly1305_ietf_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
-export function crypto_aead_chacha20poly1305_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_aead_chacha20poly1305_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_aead_chacha20poly1305_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_aead_chacha20poly1305_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_aead_xchacha20poly1305_ietf_decrypt(
     secret_nonce?: string | Uint8Array | null,
@@ -437,7 +445,7 @@ export function crypto_aead_xchacha20poly1305_ietf_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_xchacha20poly1305_ietf_decrypt(
@@ -446,7 +454,7 @@ export function crypto_aead_xchacha20poly1305_ietf_decrypt(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_xchacha20poly1305_ietf_decrypt_detached(
@@ -456,7 +464,7 @@ export function crypto_aead_xchacha20poly1305_ietf_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_xchacha20poly1305_ietf_decrypt_detached(
@@ -466,7 +474,7 @@ export function crypto_aead_xchacha20poly1305_ietf_decrypt_detached(
     additional_data?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_xchacha20poly1305_ietf_encrypt(
@@ -475,7 +483,7 @@ export function crypto_aead_xchacha20poly1305_ietf_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_aead_xchacha20poly1305_ietf_encrypt(
@@ -484,7 +492,7 @@ export function crypto_aead_xchacha20poly1305_ietf_encrypt(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_aead_xchacha20poly1305_ietf_encrypt_detached(
@@ -493,7 +501,7 @@ export function crypto_aead_xchacha20poly1305_ietf_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoBox;
 
 export function crypto_aead_xchacha20poly1305_ietf_encrypt_detached(
@@ -502,41 +510,53 @@ export function crypto_aead_xchacha20poly1305_ietf_encrypt_detached(
     secret_nonce?: string | Uint8Array | null,
     public_nonce?: Uint8Array,
     key?: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoBox;
 
-export function crypto_aead_xchacha20poly1305_ietf_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
-
-export function crypto_aead_xchacha20poly1305_ietf_keygen(outputFormat?: StringOutputFormat | null): string;
-
-export function crypto_auth(
-    message: string | Uint8Array,
-    key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+export function crypto_aead_xchacha20poly1305_ietf_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
-export function crypto_auth(
-    message: string | Uint8Array,
-    key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+export function crypto_aead_xchacha20poly1305_ietf_keygen(
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_auth_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_auth(
+    message: string | Uint8Array,
+    key: Uint8Array,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_auth_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_auth(
+    message: string | Uint8Array,
+    key: Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): string;
 
-export function crypto_auth_verify(tag: Uint8Array, message: string | Uint8Array, key: Uint8Array): boolean;
+export function crypto_auth_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
+
+export function crypto_auth_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
+
+export function crypto_auth_verify(
+    tag: Uint8Array,
+    message: string | Uint8Array,
+    key: Uint8Array
+): boolean;
 
 export function crypto_box_beforenm(
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_beforenm(
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_detached(
@@ -544,7 +564,7 @@ export function crypto_box_detached(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoBox;
 
 export function crypto_box_detached(
@@ -552,7 +572,7 @@ export function crypto_box_detached(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoBox;
 
 export function crypto_box_easy(
@@ -560,7 +580,7 @@ export function crypto_box_easy(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_easy(
@@ -568,26 +588,30 @@ export function crypto_box_easy(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_easy_afternm(
     message: string | Uint8Array,
     nonce: Uint8Array,
     sharedKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_easy_afternm(
     message: string | Uint8Array,
     nonce: Uint8Array,
     sharedKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_box_keypair(outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_box_keypair(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_box_keypair(outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_box_keypair(
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
 export function crypto_box_open_detached(
     ciphertext: string | Uint8Array,
@@ -595,7 +619,7 @@ export function crypto_box_open_detached(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_open_detached(
@@ -604,7 +628,7 @@ export function crypto_box_open_detached(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_open_easy(
@@ -612,7 +636,7 @@ export function crypto_box_open_easy(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_open_easy(
@@ -620,100 +644,119 @@ export function crypto_box_open_easy(
     nonce: Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_open_easy_afternm(
     ciphertext: string | Uint8Array,
     nonce: Uint8Array,
     sharedKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_open_easy_afternm(
     ciphertext: string | Uint8Array,
     nonce: Uint8Array,
     sharedKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_seal(
     message: string | Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_seal(
     message: string | Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_box_seal_open(
     ciphertext: string | Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_box_seal_open(
     ciphertext: string | Uint8Array,
     publicKey: Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_box_seed_keypair(seed: Uint8Array, outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_box_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_box_seed_keypair(seed: Uint8Array, outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_box_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
 export function crypto_generichash(
     hash_length?: number,
     message?: string | Uint8Array,
     key?: string | Uint8Array | null,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_generichash(
     hash_length?: number,
     message?: string | Uint8Array,
     key?: string | Uint8Array | null,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_generichash_final(
     state_address: generichash_state_address,
     hash_length: number,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_generichash_final(
     state_address: generichash_state_address,
     hash_length: number,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_generichash_init(key?: string | Uint8Array | null, hash_length?: number): state_address;
+export function crypto_generichash_init(
+    key?: string | Uint8Array | null,
+    hash_length?: number
+): state_address;
 
-export function crypto_generichash_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_generichash_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_generichash_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_generichash_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_generichash_update(
     state_address: generichash_state_address,
-    message_chunk: string | Uint8Array,
+    message_chunk: string | Uint8Array
 ): void;
 
-export function crypto_hash(message: string | Uint8Array, outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_hash(
+    message: string | Uint8Array,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_hash(message: string | Uint8Array, outputFormat?: StringOutputFormat | null): string;
+export function crypto_hash(
+    message: string | Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_kdf_derive_from_key(
     subkey_len: number,
     subkey_id: number,
     ctx: string,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_kdf_derive_from_key(
@@ -721,47 +764,61 @@ export function crypto_kdf_derive_from_key(
     subkey_id: number,
     ctx: string,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_kdf_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_kdf_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_kdf_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_kdf_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_kx_client_session_keys(
     clientPublicKey: Uint8Array,
     clientSecretKey: Uint8Array,
     serverPublicKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoKX;
 
 export function crypto_kx_client_session_keys(
     clientPublicKey: Uint8Array,
     clientSecretKey: Uint8Array,
     serverPublicKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoKX;
 
-export function crypto_kx_keypair(outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_kx_keypair(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_kx_keypair(outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_kx_keypair(
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
-export function crypto_kx_seed_keypair(seed: Uint8Array, outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_kx_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_kx_seed_keypair(seed: Uint8Array, outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_kx_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
 export function crypto_kx_server_session_keys(
     serverPublicKey: Uint8Array,
     serverSecretKey: Uint8Array,
     clientPublicKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): CryptoKX;
 
 export function crypto_kx_server_session_keys(
     serverPublicKey: Uint8Array,
     serverSecretKey: Uint8Array,
     clientPublicKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringCryptoKX;
 
 export function crypto_pwhash(
@@ -771,7 +828,7 @@ export function crypto_pwhash(
     opsLimit: number,
     memLimit: number,
     algorithm: number,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_pwhash(
@@ -781,70 +838,84 @@ export function crypto_pwhash(
     opsLimit: number,
     memLimit: number,
     algorithm: number,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_pwhash_str(password: string | Uint8Array, opsLimit: number, memLimit: number): string;
+export function crypto_pwhash_str(
+    password: string | Uint8Array,
+    opsLimit: number,
+    memLimit: number
+): string;
 
-export function crypto_pwhash_str_verify(hashed_password: string, password: string | Uint8Array): boolean;
+export function crypto_pwhash_str_verify(
+    hashed_password: string,
+    password: string | Uint8Array
+): boolean;
 
 export function crypto_scalarmult(
     privateKey: Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_scalarmult(
     privateKey: Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_scalarmult_base(
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
-export function crypto_scalarmult_base(privateKey: Uint8Array, outputFormat?: StringOutputFormat | null): string;
+export function crypto_scalarmult_base(
+    privateKey: Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_secretbox_detached(
     message: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): SecretBox;
 
 export function crypto_secretbox_detached(
     message: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): StringSecretBox;
 
 export function crypto_secretbox_easy(
     message: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_secretbox_easy(
     message: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_secretbox_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_secretbox_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_secretbox_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_secretbox_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_secretbox_open_detached(
     ciphertext: string | Uint8Array,
     mac: Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_secretbox_open_detached(
@@ -852,51 +923,58 @@ export function crypto_secretbox_open_detached(
     mac: Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_secretbox_open_easy(
     ciphertext: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_secretbox_open_easy(
     ciphertext: string | Uint8Array,
     nonce: Uint8Array,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_secretstream_xchacha20poly1305_init_pull(header: Uint8Array, key: Uint8Array): state_address;
+export function crypto_secretstream_xchacha20poly1305_init_pull(
+    header: Uint8Array,
+    key: Uint8Array
+): state_address;
 
 export function crypto_secretstream_xchacha20poly1305_init_push(
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): { state: state_address; header: Uint8Array };
 
 export function crypto_secretstream_xchacha20poly1305_init_push(
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): { state: state_address; header: string };
 
-export function crypto_secretstream_xchacha20poly1305_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_secretstream_xchacha20poly1305_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_secretstream_xchacha20poly1305_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_secretstream_xchacha20poly1305_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_secretstream_xchacha20poly1305_pull(
     state_address: secretstream_xchacha20poly1305_state_address,
     cipher: string | Uint8Array,
     ad?: string | Uint8Array | null,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): { message: Uint8Array; tag: number };
 
 export function crypto_secretstream_xchacha20poly1305_pull(
     state_address: secretstream_xchacha20poly1305_state_address,
     cipher: string | Uint8Array,
     ad?: string | Uint8Array | null,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): { message: string; tag: number };
 
 export function crypto_secretstream_xchacha20poly1305_push(
@@ -904,7 +982,7 @@ export function crypto_secretstream_xchacha20poly1305_push(
     message_chunk: string | Uint8Array,
     ad?: string | Uint8Array | null,
     tag?: number,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_secretstream_xchacha20poly1305_push(
@@ -912,126 +990,150 @@ export function crypto_secretstream_xchacha20poly1305_push(
     message_chunk: string | Uint8Array,
     ad?: string | Uint8Array | null,
     tag?: number,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_secretstream_xchacha20poly1305_rekey(
-    state_address: secretstream_xchacha20poly1305_state_address,
+    state_address: secretstream_xchacha20poly1305_state_address
 ): true;
 
 export function crypto_shorthash(
     message: string | Uint8Array,
     key: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_shorthash(
     message: string | Uint8Array,
     key: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_shorthash_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_shorthash_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_shorthash_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_shorthash_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function crypto_sign(
     message: string | Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign(
     message: string | Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_sign_detached(
     message: string | Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign_detached(
     message: string | Uint8Array,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_sign_ed25519_pk_to_curve25519(
     edPk: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign_ed25519_pk_to_curve25519(
     edPk: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_sign_ed25519_sk_to_curve25519(
     edSk: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign_ed25519_sk_to_curve25519(
     edSk: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_sign_final_create(
     state_address: sign_state_address,
     privateKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign_final_create(
     state_address: sign_state_address,
     privateKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function crypto_sign_final_verify(
     state_address: sign_state_address,
     signature: Uint8Array,
-    publicKey: Uint8Array,
+    publicKey: Uint8Array
 ): boolean;
 
 export function crypto_sign_init(): state_address;
 
-export function crypto_sign_keypair(outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_sign_keypair(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_sign_keypair(outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_sign_keypair(
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
 export function crypto_sign_open(
     signedMessage: string | Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function crypto_sign_open(
     signedMessage: string | Uint8Array,
     publicKey: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
-export function crypto_sign_seed_keypair(seed: Uint8Array, outputFormat?: Uint8ArrayOutputFormat | null): KeyPair;
+export function crypto_sign_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): KeyPair;
 
-export function crypto_sign_seed_keypair(seed: Uint8Array, outputFormat?: StringOutputFormat | null): StringKeyPair;
+export function crypto_sign_seed_keypair(
+    seed: Uint8Array,
+    outputFormat?: StringOutputFormat | null
+): StringKeyPair;
 
-export function crypto_sign_update(state_address: sign_state_address, message_chunk: string | Uint8Array): void;
+export function crypto_sign_update(
+    state_address: sign_state_address,
+    message_chunk: string | Uint8Array
+): void;
 
 export function crypto_sign_verify_detached(
     signature: Uint8Array,
     message: string | Uint8Array,
-    publicKey: Uint8Array,
+    publicKey: Uint8Array
 ): boolean;
 
-export function crypto_stream_keygen(outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function crypto_stream_keygen(
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function crypto_stream_keygen(outputFormat?: StringOutputFormat | null): string;
+export function crypto_stream_keygen(
+    outputFormat?: StringOutputFormat | null
+): string;
 
-export function from_base64(input: string, variant?: base64_variants): Uint8Array;
+export function from_base64(
+    input: string,
+    variant?: base64_variants
+): Uint8Array;
 
 export function from_hex(input: string): Uint8Array;
 
@@ -1047,27 +1149,35 @@ export function memzero(bytes: Uint8Array): void;
 
 export function pad(buf: Uint8Array, blocksize: number): Uint8Array;
 
-export function randombytes_buf(length: number, outputFormat?: Uint8ArrayOutputFormat | null): Uint8Array;
+export function randombytes_buf(
+    length: number,
+    outputFormat?: Uint8ArrayOutputFormat | null
+): Uint8Array;
 
-export function randombytes_buf(length: number, outputFormat?: StringOutputFormat | null): string;
+export function randombytes_buf(
+    length: number,
+    outputFormat?: StringOutputFormat | null
+): string;
 
 export function randombytes_buf_deterministic(
     length: number,
     seed: Uint8Array,
-    outputFormat?: Uint8ArrayOutputFormat | null,
+    outputFormat?: Uint8ArrayOutputFormat | null
 ): Uint8Array;
 
 export function randombytes_buf_deterministic(
     length: number,
     seed: Uint8Array,
-    outputFormat?: StringOutputFormat | null,
+    outputFormat?: StringOutputFormat | null
 ): string;
 
 export function randombytes_close(): void;
 
 export function randombytes_random(): number;
 
-export function randombytes_set_implementation(implementation: Uint8Array): void;
+export function randombytes_set_implementation(
+    implementation: Uint8Array
+): void;
 
 export function randombytes_stir(): void;
 
@@ -1077,7 +1187,10 @@ export function sodium_version_string(): string;
 
 export function symbols(): string[];
 
-export function to_base64(input: string | Uint8Array, variant?: base64_variants): string;
+export function to_base64(
+    input: string | Uint8Array,
+    variant?: base64_variants
+): string;
 
 export function to_hex(input: string | Uint8Array): string;
 

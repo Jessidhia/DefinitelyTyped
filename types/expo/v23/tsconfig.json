@@ -8,23 +8,14 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "expo": [
-                "expo/v23"
-            ],
-            "expo/*": [
-                "expo/v23/*"
-            ]
+            "expo": ["expo/v23"],
+            "expo/*": ["expo/v23/*"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "expo-tests.tsx"
-    ]
+    "files": ["index.d.ts", "expo-tests.tsx"]
 }

@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load BigQuery Data Transfer API v1 */
-    function load(name: "bigquerydatatransfer", version: "v1"): PromiseLike<void>;
-    function load(name: "bigquerydatatransfer", version: "v1", callback: () => any): void;
+    function load(
+        name: "bigquerydatatransfer",
+        version: "v1"
+    ): PromiseLike<void>;
+    function load(
+        name: "bigquerydatatransfer",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const projects: bigquerydatatransfer.ProjectsResource;
 

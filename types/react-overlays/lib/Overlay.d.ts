@@ -10,7 +10,7 @@ declare class Overlay extends React.Component<Overlay.OverlayProps> {}
 export = Overlay;
 
 declare namespace Overlay {
-    type Placements = 'top' | 'left' | 'right' | 'bottom';
+    type Placements = "top" | "left" | "right" | "bottom";
 
     interface OverlayRenderProps {
         show: boolean;
@@ -20,7 +20,7 @@ declare namespace Overlay {
         props: {
             ref?(element: HTMLElement): void;
             style: { [key: string]: string | number };
-            'aria-labelledby'?: string;
+            "aria-labelledby"?: string;
         };
         arrowProps: {
             ref?(element: HTMLElement): void;
@@ -62,7 +62,7 @@ declare namespace Overlay {
         /**
          * Specify event for toggling overlay
          */
-        rootCloseEvent?: RootCloseWrapper.RootCloseWrapperProps['event'];
+        rootCloseEvent?: RootCloseWrapper.RootCloseWrapperProps["event"];
 
         /**
          * Specify disabled for disable RootCloseWrapper

@@ -3,7 +3,6 @@
 // Definitions by: Rand Scullard <https://github.com/RandScullard>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace FontFaceObserver {
     interface FontVariant {
         weight?: number | string;

@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import micromatch = require('micromatch');
+import micromatch = require("micromatch");
 
 export = findupSync;
 

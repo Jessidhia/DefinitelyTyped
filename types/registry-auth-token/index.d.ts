@@ -44,7 +44,7 @@ declare namespace auth {
         /**
          * The type of token
          */
-        type: 'Basic'|'Bearer';
+        type: "Basic" | "Bearer";
         /**
          * The username used in `Basic`
          */
@@ -65,6 +65,9 @@ declare namespace auth {
  * first parameter, this parameter is ignored.
  * @returns The `NpmCredentials` object or undefined if no match found.
  */
-declare function auth(registryUrl: string | auth.AuthOptions, options?: auth.AuthOptions): auth.NpmCredentials;
+declare function auth(
+    registryUrl: string | auth.AuthOptions,
+    options?: auth.AuthOptions
+): auth.NpmCredentials;
 
 export = auth;

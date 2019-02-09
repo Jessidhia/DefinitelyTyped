@@ -1,9 +1,17 @@
 import Maybe from "../tsutils/Maybe";
 import { GraphQLError } from "../error/GraphQLError";
-import { GraphQLInputType, GraphQLField, GraphQLArgument } from "../type/definition";
+import {
+    GraphQLInputType,
+    GraphQLField,
+    GraphQLArgument
+} from "../type/definition";
 import { GraphQLDirective } from "../type/directives";
 import { GraphQLSchema } from "../type/schema";
-import { FieldNode, DirectiveNode, VariableDefinitionNode } from "../language/ast";
+import {
+    FieldNode,
+    DirectiveNode,
+    VariableDefinitionNode
+} from "../language/ast";
 
 interface CoercedVariableValues {
     errors: ReadonlyArray<GraphQLError> | undefined;

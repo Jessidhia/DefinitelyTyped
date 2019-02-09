@@ -1,8 +1,4 @@
-
-
 function test_Finch() {
-
-
     Finch.route("Hello/Route", function() {
         return console.log("Well hello there! How you doin'?!");
     });
@@ -65,41 +61,46 @@ function test_Finch() {
     });
 
     Finch.route("Some/Route", function(bindings) {
-        return Finch.observe(function(params) {
-        });
+        return Finch.observe(function(params) {});
     });
 
     Finch.navigate("Some/Route");
 
     Finch.navigate("Some/Route", {
-        hello: 'world',
-        foo: 'bar'
+        hello: "world",
+        foo: "bar"
     });
 
-    Finch.navigate("Some/Route", {
-        foo: 'bar'
-    }, true);
+    Finch.navigate(
+        "Some/Route",
+        {
+            foo: "bar"
+        },
+        true
+    );
 
     Finch.navigate("Some/Route", true);
 
     Finch.navigate({
-        hello: 'world2',
-        wow: 'wee'
+        hello: "world2",
+        wow: "wee"
     });
 
     Finch.navigate({
-        foo: 'bar',
-        wow: 'wee!!!'
+        foo: "bar",
+        wow: "wee!!!"
     });
 
-    Finch.navigate({
-        hello: 'world2'
-    }, true);
+    Finch.navigate(
+        {
+            hello: "world2"
+        },
+        true
+    );
 
     Finch.listen();
     Finch.ignore();
     Finch.abort();
-
 
     //test from Finch
     Finch.call("/foo/bar");
@@ -165,15 +166,11 @@ function test_Finch() {
     Finch.route("bar", this.stub());
     Finch.call("/foo");
     Finch.call("/bar");
-    Finch.route("/", function() {
-    });
-    Finch.route("[/]home", function() {
-    });
+    Finch.route("/", function() {});
+    Finch.route("[/]home", function() {});
     Finch.route("[/home]/news", {
-        setup: function() {
-        },
-        load: function() {
-        },
+        setup: function() {},
+        load: function() {},
         unload: function() {
             return true;
         },
@@ -188,20 +185,14 @@ function test_Finch() {
         load: function() {
             return true;
         },
-        unload: function() {
-        },
-        teardown: function() {
-        }
+        unload: function() {},
+        teardown: function() {}
     });
     Finch.route("[/]bar", {
-        setup: function() {
-        },
-        load: function() {
-        },
-        unload: function() {
-        },
-        teardown: function() {
-        }
+        setup: function() {},
+        load: function() {},
+        unload: function() {},
+        teardown: function() {}
     });
     Finch.call("/bar");
     Finch.call("/home/news");
@@ -245,8 +236,7 @@ function test_Finch() {
     Finch.call("/foo");
 
     Finch.route("/", function(bindings) {
-        return Finch.observe(["x"], function(x) {
-        });
+        return Finch.observe(["x"], function(x) {});
     });
     Finch.call("/?x=123");
     Finch.call("/?x=123.456");
@@ -261,8 +251,7 @@ function test_Finch() {
     Finch.call("/?x=true");
     Finch.call("/?x=false");
     Finch.call("/?x=stuff");
-    Finch.route("/:x", function(_arg) {
-    });
+    Finch.route("/:x", function(_arg) {});
     Finch.call("/123");
     Finch.call("/123.456");
     Finch.call("/true");
@@ -292,12 +281,18 @@ function test_Finch() {
     Finch.navigate({
         foos: "baz"
     });
-    Finch.navigate({
-        hello: "world"
-    }, true);
-    Finch.navigate({
-        foos: null
-    }, true);
+    Finch.navigate(
+        {
+            hello: "world"
+        },
+        true
+    );
+    Finch.navigate(
+        {
+            foos: null
+        },
+        true
+    );
     Finch.navigate("/home/news", true);
     Finch.navigate("/hello world", {});
     Finch.navigate("/hello world", {
@@ -306,9 +301,12 @@ function test_Finch() {
     Finch.navigate({
         foo: "baz baz"
     });
-    Finch.navigate({
-        hello: 'world world'
-    }, true);
+    Finch.navigate(
+        {
+            hello: "world world"
+        },
+        true
+    );
     Finch.navigate("/home?foo=bar", {
         hello: "world"
     });
@@ -326,9 +324,13 @@ function test_Finch() {
         free: "birds",
         hello: "worlds"
     });
-    Finch.navigate("#/home/news", {
-        foo: "bar"
-    }, true);
+    Finch.navigate(
+        "#/home/news",
+        {
+            foo: "bar"
+        },
+        true
+    );
     Finch.navigate("/home/news");
     Finch.navigate("../");
     Finch.navigate("./");
@@ -338,31 +340,29 @@ function test_Finch() {
 
     Finch.listen();
     Finch.ignore();
-    Finch.route("/home", function(bindings, continuation) {
-    });
-    Finch.route("/foo", function(bindings, continuation) {
-    });
+    Finch.route("/home", function(bindings, continuation) {});
+    Finch.route("/foo", function(bindings, continuation) {});
     Finch.call("home");
     Finch.call("foo");
     Finch.abort();
     Finch.call("foo");
     Finch.route("/", {
-        'setup': cb.slash_setup = this.stub(),
-        'load': cb.slash_load = this.stub(),
-        'unload': cb.slash_unload = this.stub(),
-        'teardown': cb.slash_teardown = this.stub()
+        setup: cb.slash_setup = this.stub(),
+        load: cb.slash_load = this.stub(),
+        unload: cb.slash_unload = this.stub(),
+        teardown: cb.slash_teardown = this.stub()
     });
     Finch.route("[/]users/profile", {
-        'setup': cb.profile_setup = this.stub(),
-        'load': cb.profile_load = this.stub(),
-        'unload': cb.profile_unload = this.stub(),
-        'teardown': cb.profile_teardown = this.stub()
+        setup: cb.profile_setup = this.stub(),
+        load: cb.profile_load = this.stub(),
+        unload: cb.profile_unload = this.stub(),
+        teardown: cb.profile_teardown = this.stub()
     });
     Finch.route("[/]:page", {
-        'setup': cb.page_setup = this.stub(),
-        'load': cb.page_load = this.stub(),
-        'unload': cb.page_unload = this.stub(),
-        'teardown': cb.page_teardown = this.stub()
+        setup: cb.page_setup = this.stub(),
+        load: cb.page_load = this.stub(),
+        unload: cb.page_unload = this.stub(),
+        teardown: cb.page_teardown = this.stub()
     });
     Finch.call("/users");
 }

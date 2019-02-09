@@ -8,7 +8,10 @@
 // exposes NEEDS (will throw error otherwise) to be called with the `new` keyword
 // BUT returns a random object...not an instance of the class
 declare class Settings {
-    constructor(pathOrModule: Settings.PathOrModule, options?: Settings.Options);
+    constructor(
+        pathOrModule: Settings.PathOrModule,
+        options?: Settings.Options
+    );
 
     [setting: string]: any;
 }
@@ -20,11 +23,12 @@ declare namespace Settings {
         defaults?: any;
     }
 
-    type PathOrModule = string |
-        {
-            forceEnv?: string,
-            common: any, // error is thrown if 'common' object is not provided
-            [envName: string]: any
-        };
+    type PathOrModule =
+        | string
+        | {
+              forceEnv?: string;
+              common: any; // error is thrown if 'common' object is not provided
+              [envName: string]: any;
+          };
 }
 export = Settings;

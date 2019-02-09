@@ -1,6 +1,6 @@
-import { Repository } from './repository';
-import { Oid } from './oid';
-import { Signature } from './signature';
+import { Repository } from "./repository";
+import { Oid } from "./oid";
+import { Signature } from "./signature";
 
 export class Reflog {
     static delete(repo: Repository, name: string): number;

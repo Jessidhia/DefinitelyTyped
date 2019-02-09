@@ -10,14 +10,18 @@
 // DirtyFlag /////////////////////////////////////////////
 
 interface DirtyFlag {
-    new (objectToTrack: any, isInitiallyDirty?: boolean, hashFunction?: () => any): any;
+    new (
+        objectToTrack: any,
+        isInitiallyDirty?: boolean,
+        hashFunction?: () => any
+    ): any;
     (): DirtyFlagResult;
 }
 
 interface DirtyFlagResult {
     isDirty: KnockoutComputed<boolean>;
     reset(): void;
-    forceDirty(): void; 
+    forceDirty(): void;
 }
 
 interface KnockoutStatic {
@@ -30,6 +34,6 @@ interface KnockoutDirtyFlagStatic {
 
 // AMD
 declare var kodirtyflag: KnockoutDirtyFlagStatic;
-declare module 'kodirtyflag'{
+declare module "kodirtyflag" {
     export = kodirtyflag;
 }

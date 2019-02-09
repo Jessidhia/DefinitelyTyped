@@ -9,6 +9,9 @@ export interface MemoryHistory {
     canGo(n: number): boolean;
 }
 
-declare const createMemoryHistory: CreateHistory<MemoryHistoryOptions, MemoryHistory>;
+declare const createMemoryHistory: CreateHistory<
+    MemoryHistoryOptions,
+    MemoryHistory
+>;
 
 export default createMemoryHistory;

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { EmitterSubscription } from 'react-native';
+import { EmitterSubscription } from "react-native";
 
 export interface SafariViewOptions {
     /**
@@ -55,7 +55,10 @@ declare namespace SafariView {
      */
     function isAvailable(): Promise<boolean>;
 
-    function addEventListener(event: string, listener: () => void): EmitterSubscription;
+    function addEventListener(
+        event: string,
+        listener: () => void
+    ): EmitterSubscription;
 
     function removeEventListener(event: string, listener: () => void): void;
 }

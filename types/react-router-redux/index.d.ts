@@ -6,29 +6,26 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import {
-    Store,
-    Dispatch,
-    Middleware,
-    Reducer
-} from 'redux';
+import { Store, Dispatch, Middleware, Reducer } from "redux";
 import {
     History,
     Location,
     Path,
     LocationState,
     LocationDescriptor
-} from 'history';
-import * as React from 'react';
-import { match } from 'react-router';
+} from "history";
+import * as React from "react";
+import { match } from "react-router";
 
 export interface ConnectedRouterProps<State> {
     store?: Store<State>;
     history: History;
 }
-export class ConnectedRouter<State> extends React.Component<ConnectedRouterProps<State>> {}
+export class ConnectedRouter<State> extends React.Component<
+    ConnectedRouterProps<State>
+> {}
 
-export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE";
 
 export interface RouterState {
     location: Location | null;
@@ -36,20 +33,26 @@ export interface RouterState {
 
 export const routerReducer: Reducer<RouterState>;
 
-export const CALL_HISTORY_METHOD = '@@router/CALL_HISTORY_METHOD';
+export const CALL_HISTORY_METHOD = "@@router/CALL_HISTORY_METHOD";
 
-export function push(location: LocationDescriptor, state?: LocationState): RouterAction;
-export function replace(location: LocationDescriptor, state?: LocationState): RouterAction;
+export function push(
+    location: LocationDescriptor,
+    state?: LocationState
+): RouterAction;
+export function replace(
+    location: LocationDescriptor,
+    state?: LocationState
+): RouterAction;
 export function go(n: number): RouterAction;
 export function goBack(): RouterAction;
 export function goForward(): RouterAction;
 
 export const routerActions: {
-    push: typeof push
-    replace: typeof replace
-    go: typeof go
-    goBack: typeof goBack
-    goForward: typeof goForward
+    push: typeof push;
+    replace: typeof replace;
+    go: typeof go;
+    goBack: typeof goBack;
+    goForward: typeof goForward;
 };
 
 export interface LocationActionPayload {
@@ -71,13 +74,15 @@ export interface LocationChangeAction {
                 url: string;
                 params: any;
                 isExact: boolean;
-            },
+            };
             location: Location;
             history: History;
-        }
+        };
     };
 }
 
 export function routerMiddleware(history: History): Middleware;
 
-export function createMatchSelector(path: string): (state: { router: RouterState }) => match | null;
+export function createMatchSelector(
+    path: string
+): (state: { router: RouterState }) => match | null;

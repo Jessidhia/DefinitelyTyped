@@ -2,7 +2,7 @@
  * A collection of response builders.
  */
 
-import { OrderUpdate } from './transactions';
+import { OrderUpdate } from "./transactions";
 
 /**
  * List of possible options to display the image in a BasicCard.
@@ -125,8 +125,8 @@ export interface Button {
     title: string;
     /** Action to take when selected. */
     openUrlAction: {
-      /** String URL to open. */
-      url: string;
+        /** String URL to open. */
+        url: string;
     };
 }
 
@@ -156,7 +156,10 @@ export interface ItemStructuredResponse {
     structuredResponse: StructuredResponse;
 }
 
-export type RichResponseItem = ItemBasicCard | ItemSimpleResponse | ItemStructuredResponse;
+export type RichResponseItem =
+    | ItemBasicCard
+    | ItemSimpleResponse
+    | ItemStructuredResponse;
 
 /**
  * Class for initializing and constructing Rich Responses with chainable interface.
@@ -243,7 +246,10 @@ export class RichResponse {
      * @param suggestionUrl - String URL to open when suggestion is used.
      * @return Returns current constructed RichResponse.
      */
-    addSuggestionLink(destinationName: string, suggestionUrl: string): RichResponse;
+    addSuggestionLink(
+        destinationName: string,
+        suggestionUrl: string
+    ): RichResponse;
 
     /**
      * Adds an order update to this response. Use after a successful transaction
@@ -325,7 +331,12 @@ export class BasicCard {
      * @param height Height of the image.
      * @return Returns current constructed BasicCard.
      */
-    setImage(url: string, accessibilityText: string, width?: number, height?: number): BasicCard;
+    setImage(
+        url: string,
+        accessibilityText: string,
+        width?: number,
+        height?: number
+    ): BasicCard;
 
     /**
      * Sets the display options for the image in this Basic Card.
@@ -406,12 +417,12 @@ export class BrowseCarousel {
      */
     items: BrowseItem[];
 
-     /**
-      * Adds a single item or list of items to the carousel.
-      *
-      * @param browseItems BrowseItems to add.
-      * @return Returns current constructed BrowseCarousel.
-      */
+    /**
+     * Adds a single item or list of items to the carousel.
+     *
+     * @param browseItems BrowseItems to add.
+     * @return Returns current constructed BrowseCarousel.
+     */
     addItems(browseItems: BrowseItem | BrowseItem[]): BrowseCarousel;
 
     /**
@@ -538,7 +549,12 @@ export class BrowseItem {
      * @param height Height of the image.
      * @return Returns current constructed BrowseItem.
      */
-    setImage(url: string, accessibilityText: string, width?: number, height?: number): BrowseItem;
+    setImage(
+        url: string,
+        accessibilityText: string,
+        width?: number,
+        height?: number
+    ): BrowseItem;
 
     /**
      * Sets the Open URL action - which includes the url and possibly the typeHint
@@ -623,7 +639,12 @@ export class OptionItem {
      * @param height Height of the image.
      * @return Returns current constructed OptionItem.
      */
-    setImage(url: string, accessibilityText: string, width?: number, height?: number): OptionItem;
+    setImage(
+        url: string,
+        accessibilityText: string,
+        width?: number,
+        height?: number
+    ): OptionItem;
 
     /**
      * Sets the key for the OptionInfo of this Option Item. This will be returned

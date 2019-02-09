@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import * as webdriver from 'selenium-webdriver';
+import * as webdriver from "selenium-webdriver";
 
 declare namespace mock {
     interface ProtractorHttpMock {
@@ -15,7 +15,11 @@ declare namespace mock {
          * @param plugins An array of Plugin objects.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
+        <TResponse, TPayload>(
+            mocks?: Array<requests.AllRequests<TResponse, TPayload>>,
+            plugins?: Array<Plugin>,
+            skipDefaults?: boolean
+        ): ProtractorHttpMock;
 
         /**
          * Instantiate mock module. This must be done before the browser connects.
@@ -24,7 +28,11 @@ declare namespace mock {
          * @param plugins An array of NPM modules as strings.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: Array<string>, skipDefaults?: boolean): ProtractorHttpMock;
+        <TResponse, TPayload>(
+            mocks?: Array<requests.AllRequests<TResponse, TPayload>>,
+            plugins?: Array<string>,
+            skipDefaults?: boolean
+        ): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -33,7 +41,11 @@ declare namespace mock {
          * @param plugins An array of Plugin objects.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        (mocks: Array<string>, plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
+        (
+            mocks: Array<string>,
+            plugins?: Array<Plugin>,
+            skipDefaults?: boolean
+        ): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -42,7 +54,11 @@ declare namespace mock {
          * @param plugins An array of NPM modules as strings.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        (mocks: Array<string>, plugins?: Array<string>, skipDefaults?: boolean): ProtractorHttpMock;
+        (
+            mocks: Array<string>,
+            plugins?: Array<string>,
+            skipDefaults?: boolean
+        ): ProtractorHttpMock;
 
         /**
          * Clean up.
@@ -87,7 +103,9 @@ declare namespace mock {
          *
          * @param mocks An array of mock modules to load into the application.
          */
-        add<T1, T2>(mocks: Array<requests.AllRequests<T1, T2>>): webdriver.promise.Promise<boolean>;
+        add<T1, T2>(
+            mocks: Array<requests.AllRequests<T1, T2>>
+        ): webdriver.promise.Promise<boolean>;
 
         /**
          * Remove mocks during test execution.
@@ -96,7 +114,9 @@ declare namespace mock {
          *
          * @param mocks An array of mock modules to remove from the application.
          */
-        remove<T1, T2>(mocks: Array<requests.AllRequests<T1, T2>>): webdriver.promise.Promise<boolean>;
+        remove<T1, T2>(
+            mocks: Array<requests.AllRequests<T1, T2>>
+        ): webdriver.promise.Promise<boolean>;
     }
 
     /**
@@ -118,7 +138,10 @@ declare namespace mock {
          * @param mockRequest The mock to compare request with.
          * @param requestConfig The request object to compare mock with.
          */
-        match<T1, T2>(mockRequest: requests.AllRequests<T1, T2>, requestConfig: requests.AllRequests<T1, T2>): boolean;
+        match<T1, T2>(
+            mockRequest: requests.AllRequests<T1, T2>,
+            requestConfig: requests.AllRequests<T1, T2>
+        ): boolean;
     }
 
     /**
@@ -132,26 +155,37 @@ declare namespace mock {
          * @param mockRequest The mock to compare request with.
          * @param requestConfig The request object to compare mock with.
          */
-        match<T1, T2>(mockRequest: requests.AllRequests<T1, T2>, requestConfig: requests.AllRequests<T1, T2>): boolean;
+        match<T1, T2>(
+            mockRequest: requests.AllRequests<T1, T2>,
+            requestConfig: requests.AllRequests<T1, T2>
+        ): boolean;
     }
 
     namespace requests {
         /**
          * Request methods type
          */
-        type Method = "GET" | "POST" | "DELETE" | "PUT" | "HEAD" | "PATCH" | "JSONP";
+        type Method =
+            | "GET"
+            | "POST"
+            | "DELETE"
+            | "PUT"
+            | "HEAD"
+            | "PATCH"
+            | "JSONP";
 
         /**
          * All available request types.
          */
-        type AllRequests<T1, T2> = Get<T1> |
-            PostData<T1, T2> |
-            Post<T1> |
-            Head<T1> |
-            Delete<T1> |
-            Put<T1> |
-            Patch<T1> |
-            Jsonp<T1>;
+        type AllRequests<T1, T2> =
+            | Get<T1>
+            | PostData<T1, T2>
+            | Post<T1>
+            | Head<T1>
+            | Delete<T1>
+            | Put<T1>
+            | Patch<T1>
+            | Jsonp<T1>;
 
         /**
          * GET request mock.

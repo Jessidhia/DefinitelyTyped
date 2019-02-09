@@ -5,7 +5,9 @@ export { default as MdAccessAlarms } from "../../md/access-alarms";
 export { default as MdAccessTime } from "../../md/access-time";
 export { default as MdAccessibility } from "../../md/accessibility";
 export { default as MdAccessible } from "../../md/accessible";
-export { default as MdAccountBalanceWallet } from "../../md/account-balance-wallet";
+export {
+    default as MdAccountBalanceWallet
+} from "../../md/account-balance-wallet";
 export { default as MdAccountBalance } from "../../md/account-balance";
 export { default as MdAccountBox } from "../../md/account-box";
 export { default as MdAccountCircle } from "../../md/account-circle";
@@ -22,16 +24,32 @@ export { default as MdAddToPhotos } from "../../md/add-to-photos";
 export { default as MdAddToQueue } from "../../md/add-to-queue";
 export { default as MdAdd } from "../../md/add";
 export { default as MdAdjust } from "../../md/adjust";
-export { default as MdAirlineSeatFlatAngled } from "../../md/airline-seat-flat-angled";
+export {
+    default as MdAirlineSeatFlatAngled
+} from "../../md/airline-seat-flat-angled";
 export { default as MdAirlineSeatFlat } from "../../md/airline-seat-flat";
-export { default as MdAirlineSeatIndividualSuite } from "../../md/airline-seat-individual-suite";
-export { default as MdAirlineSeatLegroomExtra } from "../../md/airline-seat-legroom-extra";
-export { default as MdAirlineSeatLegroomNormal } from "../../md/airline-seat-legroom-normal";
-export { default as MdAirlineSeatLegroomReduced } from "../../md/airline-seat-legroom-reduced";
-export { default as MdAirlineSeatReclineExtra } from "../../md/airline-seat-recline-extra";
-export { default as MdAirlineSeatReclineNormal } from "../../md/airline-seat-recline-normal";
+export {
+    default as MdAirlineSeatIndividualSuite
+} from "../../md/airline-seat-individual-suite";
+export {
+    default as MdAirlineSeatLegroomExtra
+} from "../../md/airline-seat-legroom-extra";
+export {
+    default as MdAirlineSeatLegroomNormal
+} from "../../md/airline-seat-legroom-normal";
+export {
+    default as MdAirlineSeatLegroomReduced
+} from "../../md/airline-seat-legroom-reduced";
+export {
+    default as MdAirlineSeatReclineExtra
+} from "../../md/airline-seat-recline-extra";
+export {
+    default as MdAirlineSeatReclineNormal
+} from "../../md/airline-seat-recline-normal";
 export { default as MdAirplanemodeActive } from "../../md/airplanemode-active";
-export { default as MdAirplanemodeInactive } from "../../md/airplanemode-inactive";
+export {
+    default as MdAirplanemodeInactive
+} from "../../md/airplanemode-inactive";
 export { default as MdAirplay } from "../../md/airplay";
 export { default as MdAirportShuttle } from "../../md/airport-shuttle";
 export { default as MdAlarmAdd } from "../../md/alarm-add";
@@ -47,7 +65,9 @@ export { default as MdApps } from "../../md/apps";
 export { default as MdArchive } from "../../md/archive";
 export { default as MdArrowBack } from "../../md/arrow-back";
 export { default as MdArrowDownward } from "../../md/arrow-downward";
-export { default as MdArrowDropDownCircle } from "../../md/arrow-drop-down-circle";
+export {
+    default as MdArrowDropDownCircle
+} from "../../md/arrow-drop-down-circle";
 export { default as MdArrowDropDown } from "../../md/arrow-drop-down";
 export { default as MdArrowDropUp } from "../../md/arrow-drop-up";
 export { default as MdArrowForward } from "../../md/arrow-forward";
@@ -72,7 +92,9 @@ export { default as MdAvTimer } from "../../md/av-timer";
 export { default as MdBackspace } from "../../md/backspace";
 export { default as MdBackup } from "../../md/backup";
 export { default as MdBatteryAlert } from "../../md/battery-alert";
-export { default as MdBatteryChargingFull } from "../../md/battery-charging-full";
+export {
+    default as MdBatteryChargingFull
+} from "../../md/battery-charging-full";
 export { default as MdBatteryFull } from "../../md/battery-full";
 export { default as MdBatteryStd } from "../../md/battery-std";
 export { default as MdBatteryUnknown } from "../../md/battery-unknown";
@@ -153,7 +175,9 @@ export { default as MdChangeHistory } from "../../md/change-history";
 export { default as MdChatBubbleOutline } from "../../md/chat-bubble-outline";
 export { default as MdChatBubble } from "../../md/chat-bubble";
 export { default as MdChat } from "../../md/chat";
-export { default as MdCheckBoxOutlineBlank } from "../../md/check-box-outline-blank";
+export {
+    default as MdCheckBoxOutlineBlank
+} from "../../md/check-box-outline-blank";
 export { default as MdCheckBox } from "../../md/check-box";
 export { default as MdCheckCircle } from "../../md/check-circle";
 export { default as MdCheck } from "../../md/check";
@@ -175,7 +199,9 @@ export { default as MdCloudQueue } from "../../md/cloud-queue";
 export { default as MdCloudUpload } from "../../md/cloud-upload";
 export { default as MdCloud } from "../../md/cloud";
 export { default as MdCode } from "../../md/code";
-export { default as MdCollectionsBookmark } from "../../md/collections-bookmark";
+export {
+    default as MdCollectionsBookmark
+} from "../../md/collections-bookmark";
 export { default as MdCollections } from "../../md/collections";
 export { default as MdColorLens } from "../../md/color-lens";
 export { default as MdColorize } from "../../md/colorize";
@@ -190,7 +216,9 @@ export { default as MdContacts } from "../../md/contacts";
 export { default as MdContentCopy } from "../../md/content-copy";
 export { default as MdContentCut } from "../../md/content-cut";
 export { default as MdContentPaste } from "../../md/content-paste";
-export { default as MdControlPointDuplicate } from "../../md/control-point-duplicate";
+export {
+    default as MdControlPointDuplicate
+} from "../../md/control-point-duplicate";
 export { default as MdControlPoint } from "../../md/control-point";
 export { default as MdCopyright } from "../../md/copyright";
 export { default as MdCreateNewFolder } from "../../md/create-new-folder";
@@ -347,8 +375,12 @@ export { default as MdFormatClear } from "../../md/format-clear";
 export { default as MdFormatColorFill } from "../../md/format-color-fill";
 export { default as MdFormatColorReset } from "../../md/format-color-reset";
 export { default as MdFormatColorText } from "../../md/format-color-text";
-export { default as MdFormatIndentDecrease } from "../../md/format-indent-decrease";
-export { default as MdFormatIndentIncrease } from "../../md/format-indent-increase";
+export {
+    default as MdFormatIndentDecrease
+} from "../../md/format-indent-decrease";
+export {
+    default as MdFormatIndentIncrease
+} from "../../md/format-indent-increase";
 export { default as MdFormatItalic } from "../../md/format-italic";
 export { default as MdFormatLineSpacing } from "../../md/format-line-spacing";
 export { default as MdFormatListBulleted } from "../../md/format-list-bulleted";
@@ -357,9 +389,15 @@ export { default as MdFormatPaint } from "../../md/format-paint";
 export { default as MdFormatQuote } from "../../md/format-quote";
 export { default as MdFormatShapes } from "../../md/format-shapes";
 export { default as MdFormatSize } from "../../md/format-size";
-export { default as MdFormatStrikethrough } from "../../md/format-strikethrough";
-export { default as MdFormatTextdirectionLToR } from "../../md/format-textdirection-l-to-r";
-export { default as MdFormatTextdirectionRToL } from "../../md/format-textdirection-r-to-l";
+export {
+    default as MdFormatStrikethrough
+} from "../../md/format-strikethrough";
+export {
+    default as MdFormatTextdirectionLToR
+} from "../../md/format-textdirection-l-to-r";
+export {
+    default as MdFormatTextdirectionRToL
+} from "../../md/format-textdirection-r-to-l";
 export { default as MdFormatUnderlined } from "../../md/format-underlined";
 export { default as MdForum } from "../../md/forum";
 export { default as MdForward10 } from "../../md/forward-10";
@@ -420,7 +458,9 @@ export { default as MdImportContacts } from "../../md/import-contacts";
 export { default as MdImportExport } from "../../md/import-export";
 export { default as MdImportantDevices } from "../../md/important-devices";
 export { default as MdInbox } from "../../md/inbox";
-export { default as MdIndeterminateCheckBox } from "../../md/indeterminate-check-box";
+export {
+    default as MdIndeterminateCheckBox
+} from "../../md/indeterminate-check-box";
 export { default as MdInfoOutline } from "../../md/info-outline";
 export { default as MdInfo } from "../../md/info";
 export { default as MdInput } from "../../md/input";
@@ -481,14 +521,18 @@ export { default as MdLocalAttraction } from "../../md/local-attraction";
 export { default as MdLocalBar } from "../../md/local-bar";
 export { default as MdLocalCafe } from "../../md/local-cafe";
 export { default as MdLocalCarWash } from "../../md/local-car-wash";
-export { default as MdLocalConvenienceStore } from "../../md/local-convenience-store";
+export {
+    default as MdLocalConvenienceStore
+} from "../../md/local-convenience-store";
 export { default as MdLocalDrink } from "../../md/local-drink";
 export { default as MdLocalFlorist } from "../../md/local-florist";
 export { default as MdLocalGasStation } from "../../md/local-gas-station";
 export { default as MdLocalGroceryStore } from "../../md/local-grocery-store";
 export { default as MdLocalHospital } from "../../md/local-hospital";
 export { default as MdLocalHotel } from "../../md/local-hotel";
-export { default as MdLocalLaundryService } from "../../md/local-laundry-service";
+export {
+    default as MdLocalLaundryService
+} from "../../md/local-laundry-service";
 export { default as MdLocalLibrary } from "../../md/local-library";
 export { default as MdLocalMall } from "../../md/local-mall";
 export { default as MdLocalMovies } from "../../md/local-movies";
@@ -575,10 +619,14 @@ export { default as MdNoSim } from "../../md/no-sim";
 export { default as MdNotInterested } from "../../md/not-interested";
 export { default as MdNoteAdd } from "../../md/note-add";
 export { default as MdNote } from "../../md/note";
-export { default as MdNotificationsActive } from "../../md/notifications-active";
+export {
+    default as MdNotificationsActive
+} from "../../md/notifications-active";
 export { default as MdNotificationsNone } from "../../md/notifications-none";
 export { default as MdNotificationsOff } from "../../md/notifications-off";
-export { default as MdNotificationsPaused } from "../../md/notifications-paused";
+export {
+    default as MdNotificationsPaused
+} from "../../md/notifications-paused";
 export { default as MdNotifications } from "../../md/notifications";
 export { default as MdNowWallpaper } from "../../md/now-wallpaper";
 export { default as MdNowWidgets } from "../../md/now-widgets";
@@ -605,9 +653,13 @@ export { default as MdPayment } from "../../md/payment";
 export { default as MdPeopleOutline } from "../../md/people-outline";
 export { default as MdPeople } from "../../md/people";
 export { default as MdPermCameraMic } from "../../md/perm-camera-mic";
-export { default as MdPermContactCalendar } from "../../md/perm-contact-calendar";
+export {
+    default as MdPermContactCalendar
+} from "../../md/perm-contact-calendar";
 export { default as MdPermDataSetting } from "../../md/perm-data-setting";
-export { default as MdPermDeviceInformation } from "../../md/perm-device-information";
+export {
+    default as MdPermDeviceInformation
+} from "../../md/perm-device-information";
 export { default as MdPermIdentity } from "../../md/perm-identity";
 export { default as MdPermMedia } from "../../md/perm-media";
 export { default as MdPermPhoneMsg } from "../../md/perm-phone-msg";
@@ -620,7 +672,9 @@ export { default as MdPerson } from "../../md/person";
 export { default as MdPersonalVideo } from "../../md/personal-video";
 export { default as MdPets } from "../../md/pets";
 export { default as MdPhoneAndroid } from "../../md/phone-android";
-export { default as MdPhoneBluetoothSpeaker } from "../../md/phone-bluetooth-speaker";
+export {
+    default as MdPhoneBluetoothSpeaker
+} from "../../md/phone-bluetooth-speaker";
 export { default as MdPhoneForwarded } from "../../md/phone-forwarded";
 export { default as MdPhoneInTalk } from "../../md/phone-in-talk";
 export { default as MdPhoneIphone } from "../../md/phone-iphone";
@@ -638,12 +692,20 @@ export { default as MdPhotoAlbum } from "../../md/photo-album";
 export { default as MdPhotoCamera } from "../../md/photo-camera";
 export { default as MdPhotoFilter } from "../../md/photo-filter";
 export { default as MdPhotoLibrary } from "../../md/photo-library";
-export { default as MdPhotoSizeSelectActual } from "../../md/photo-size-select-actual";
-export { default as MdPhotoSizeSelectLarge } from "../../md/photo-size-select-large";
-export { default as MdPhotoSizeSelectSmall } from "../../md/photo-size-select-small";
+export {
+    default as MdPhotoSizeSelectActual
+} from "../../md/photo-size-select-actual";
+export {
+    default as MdPhotoSizeSelectLarge
+} from "../../md/photo-size-select-large";
+export {
+    default as MdPhotoSizeSelectSmall
+} from "../../md/photo-size-select-small";
 export { default as MdPhoto } from "../../md/photo";
 export { default as MdPictureAsPdf } from "../../md/picture-as-pdf";
-export { default as MdPictureInPictureAlt } from "../../md/picture-in-picture-alt";
+export {
+    default as MdPictureInPictureAlt
+} from "../../md/picture-in-picture-alt";
 export { default as MdPictureInPicture } from "../../md/picture-in-picture";
 export { default as MdPieChartOutlined } from "../../md/pie-chart-outlined";
 export { default as MdPieChart } from "../../md/pie-chart";
@@ -677,7 +739,9 @@ export { default as MdQueueMusic } from "../../md/queue-music";
 export { default as MdQueuePlayNext } from "../../md/queue-play-next";
 export { default as MdQueue } from "../../md/queue";
 export { default as MdRadioButtonChecked } from "../../md/radio-button-checked";
-export { default as MdRadioButtonUnchecked } from "../../md/radio-button-unchecked";
+export {
+    default as MdRadioButtonUnchecked
+} from "../../md/radio-button-unchecked";
 export { default as MdRadio } from "../../md/radio";
 export { default as MdRateReview } from "../../md/rate-review";
 export { default as MdReceipt } from "../../md/receipt";
@@ -686,7 +750,9 @@ export { default as MdRecordVoiceOver } from "../../md/record-voice-over";
 export { default as MdRedeem } from "../../md/redeem";
 export { default as MdRedo } from "../../md/redo";
 export { default as MdRefresh } from "../../md/refresh";
-export { default as MdRemoveCircleOutline } from "../../md/remove-circle-outline";
+export {
+    default as MdRemoveCircleOutline
+} from "../../md/remove-circle-outline";
 export { default as MdRemoveCircle } from "../../md/remove-circle";
 export { default as MdRemoveFromQueue } from "../../md/remove-from-queue";
 export { default as MdRemoveRedEye } from "../../md/remove-red-eye";
@@ -710,7 +776,9 @@ export { default as MdRestore } from "../../md/restore";
 export { default as MdRingVolume } from "../../md/ring-volume";
 export { default as MdRoomService } from "../../md/room-service";
 export { default as MdRoom } from "../../md/room";
-export { default as MdRotate90DegreesCcw } from "../../md/rotate-90-degrees-ccw";
+export {
+    default as MdRotate90DegreesCcw
+} from "../../md/rotate-90-degrees-ccw";
 export { default as MdRotateLeft } from "../../md/rotate-left";
 export { default as MdRotateRight } from "../../md/rotate-right";
 export { default as MdRoundedCorner } from "../../md/rounded-corner";
@@ -723,7 +791,9 @@ export { default as MdSave } from "../../md/save";
 export { default as MdScanner } from "../../md/scanner";
 export { default as MdSchedule } from "../../md/schedule";
 export { default as MdSchool } from "../../md/school";
-export { default as MdScreenLockLandscape } from "../../md/screen-lock-landscape";
+export {
+    default as MdScreenLockLandscape
+} from "../../md/screen-lock-landscape";
 export { default as MdScreenLockPortrait } from "../../md/screen-lock-portrait";
 export { default as MdScreenLockRotation } from "../../md/screen-lock-rotation";
 export { default as MdScreenRotation } from "../../md/screen-rotation";
@@ -734,27 +804,47 @@ export { default as MdSearch } from "../../md/search";
 export { default as MdSecurity } from "../../md/security";
 export { default as MdSelectAll } from "../../md/select-all";
 export { default as MdSend } from "../../md/send";
-export { default as MdSentimentDissatisfied } from "../../md/sentiment-dissatisfied";
+export {
+    default as MdSentimentDissatisfied
+} from "../../md/sentiment-dissatisfied";
 export { default as MdSentimentNeutral } from "../../md/sentiment-neutral";
 export { default as MdSentimentSatisfied } from "../../md/sentiment-satisfied";
-export { default as MdSentimentVeryDissatisfied } from "../../md/sentiment-very-dissatisfied";
-export { default as MdSentimentVerySatisfied } from "../../md/sentiment-very-satisfied";
-export { default as MdSettingsApplications } from "../../md/settings-applications";
-export { default as MdSettingsBackupRestore } from "../../md/settings-backup-restore";
+export {
+    default as MdSentimentVeryDissatisfied
+} from "../../md/sentiment-very-dissatisfied";
+export {
+    default as MdSentimentVerySatisfied
+} from "../../md/sentiment-very-satisfied";
+export {
+    default as MdSettingsApplications
+} from "../../md/settings-applications";
+export {
+    default as MdSettingsBackupRestore
+} from "../../md/settings-backup-restore";
 export { default as MdSettingsBluetooth } from "../../md/settings-bluetooth";
 export { default as MdSettingsBrightness } from "../../md/settings-brightness";
 export { default as MdSettingsCell } from "../../md/settings-cell";
 export { default as MdSettingsEthernet } from "../../md/settings-ethernet";
-export { default as MdSettingsInputAntenna } from "../../md/settings-input-antenna";
-export { default as MdSettingsInputComponent } from "../../md/settings-input-component";
-export { default as MdSettingsInputComposite } from "../../md/settings-input-composite";
+export {
+    default as MdSettingsInputAntenna
+} from "../../md/settings-input-antenna";
+export {
+    default as MdSettingsInputComponent
+} from "../../md/settings-input-component";
+export {
+    default as MdSettingsInputComposite
+} from "../../md/settings-input-composite";
 export { default as MdSettingsInputHdmi } from "../../md/settings-input-hdmi";
-export { default as MdSettingsInputSvideo } from "../../md/settings-input-svideo";
+export {
+    default as MdSettingsInputSvideo
+} from "../../md/settings-input-svideo";
 export { default as MdSettingsOverscan } from "../../md/settings-overscan";
 export { default as MdSettingsPhone } from "../../md/settings-phone";
 export { default as MdSettingsPower } from "../../md/settings-power";
 export { default as MdSettingsRemote } from "../../md/settings-remote";
-export { default as MdSettingsSystemDaydream } from "../../md/settings-system-daydream";
+export {
+    default as MdSettingsSystemDaydream
+} from "../../md/settings-system-daydream";
 export { default as MdSettingsVoice } from "../../md/settings-voice";
 export { default as MdSettings } from "../../md/settings";
 export { default as MdShare } from "../../md/share";
@@ -765,12 +855,20 @@ export { default as MdShoppingCart } from "../../md/shopping-cart";
 export { default as MdShortText } from "../../md/short-text";
 export { default as MdShowChart } from "../../md/show-chart";
 export { default as MdShuffle } from "../../md/shuffle";
-export { default as MdSignalCellular4Bar } from "../../md/signal-cellular-4-bar";
-export { default as MdSignalCellularConnectedNoInternet4Bar } from "../../md/signal-cellular-connected-no-internet-4-bar";
-export { default as MdSignalCellularNoSim } from "../../md/signal-cellular-no-sim";
+export {
+    default as MdSignalCellular4Bar
+} from "../../md/signal-cellular-4-bar";
+export {
+    default as MdSignalCellularConnectedNoInternet4Bar
+} from "../../md/signal-cellular-connected-no-internet-4-bar";
+export {
+    default as MdSignalCellularNoSim
+} from "../../md/signal-cellular-no-sim";
 export { default as MdSignalCellularNull } from "../../md/signal-cellular-null";
 export { default as MdSignalCellularOff } from "../../md/signal-cellular-off";
-export { default as MdSignalWifi4BarLock } from "../../md/signal-wifi-4-bar-lock";
+export {
+    default as MdSignalWifi4BarLock
+} from "../../md/signal-wifi-4-bar-lock";
 export { default as MdSignalWifi4Bar } from "../../md/signal-wifi-4-bar";
 export { default as MdSignalWifiOff } from "../../md/signal-wifi-off";
 export { default as MdSimCardAlert } from "../../md/sim-card-alert";
@@ -800,10 +898,18 @@ export { default as MdStarHalf } from "../../md/star-half";
 export { default as MdStarOutline } from "../../md/star-outline";
 export { default as MdStar } from "../../md/star";
 export { default as MdStars } from "../../md/stars";
-export { default as MdStayCurrentLandscape } from "../../md/stay-current-landscape";
-export { default as MdStayCurrentPortrait } from "../../md/stay-current-portrait";
-export { default as MdStayPrimaryLandscape } from "../../md/stay-primary-landscape";
-export { default as MdStayPrimaryPortrait } from "../../md/stay-primary-portrait";
+export {
+    default as MdStayCurrentLandscape
+} from "../../md/stay-current-landscape";
+export {
+    default as MdStayCurrentPortrait
+} from "../../md/stay-current-portrait";
+export {
+    default as MdStayPrimaryLandscape
+} from "../../md/stay-primary-landscape";
+export {
+    default as MdStayPrimaryPortrait
+} from "../../md/stay-primary-portrait";
 export { default as MdStopScreenShare } from "../../md/stop-screen-share";
 export { default as MdStop } from "../../md/stop";
 export { default as MdStorage } from "../../md/storage";
@@ -813,8 +919,12 @@ export { default as MdStraighten } from "../../md/straighten";
 export { default as MdStreetview } from "../../md/streetview";
 export { default as MdStrikethroughS } from "../../md/strikethrough-s";
 export { default as MdStyle } from "../../md/style";
-export { default as MdSubdirectoryArrowLeft } from "../../md/subdirectory-arrow-left";
-export { default as MdSubdirectoryArrowRight } from "../../md/subdirectory-arrow-right";
+export {
+    default as MdSubdirectoryArrowLeft
+} from "../../md/subdirectory-arrow-left";
+export {
+    default as MdSubdirectoryArrowRight
+} from "../../md/subdirectory-arrow-right";
 export { default as MdSubject } from "../../md/subject";
 export { default as MdSubscriptions } from "../../md/subscriptions";
 export { default as MdSubtitles } from "../../md/subtitles";
@@ -866,7 +976,9 @@ export { default as MdTrackChanges } from "../../md/track-changes";
 export { default as MdTraffic } from "../../md/traffic";
 export { default as MdTrain } from "../../md/train";
 export { default as MdTram } from "../../md/tram";
-export { default as MdTransferWithinAStation } from "../../md/transfer-within-a-station";
+export {
+    default as MdTransferWithinAStation
+} from "../../md/transfer-within-a-station";
 export { default as MdTransform } from "../../md/transform";
 export { default as MdTranslate } from "../../md/translate";
 export { default as MdTrendingDown } from "../../md/trending-down";
@@ -884,8 +996,12 @@ export { default as MdUnfoldMore } from "../../md/unfold-more";
 export { default as MdUpdate } from "../../md/update";
 export { default as MdUsb } from "../../md/usb";
 export { default as MdVerifiedUser } from "../../md/verified-user";
-export { default as MdVerticalAlignBottom } from "../../md/vertical-align-bottom";
-export { default as MdVerticalAlignCenter } from "../../md/vertical-align-center";
+export {
+    default as MdVerticalAlignBottom
+} from "../../md/vertical-align-bottom";
+export {
+    default as MdVerticalAlignCenter
+} from "../../md/vertical-align-center";
 export { default as MdVerticalAlignTop } from "../../md/vertical-align-top";
 export { default as MdVibration } from "../../md/vibration";
 export { default as MdVideoCall } from "../../md/video-call";

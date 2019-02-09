@@ -8,7 +8,10 @@ export = toSemver;
 /**
  * Get an array of valid, sorted, and cleaned [semver](http://semver.org/) versions from an array of strings.
  */
-declare function toSemver(versions: string[], options?: toSemver.Options): string[];
+declare function toSemver(
+    versions: string[],
+    options?: toSemver.Options
+): string[];
 
 declare namespace toSemver {
     interface Options {

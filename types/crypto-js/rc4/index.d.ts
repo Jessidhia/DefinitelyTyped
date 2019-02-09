@@ -1,3 +1,3 @@
-import { RC4 } from '../index';
+import { RC4 } from "../index";
 
 export = RC4;

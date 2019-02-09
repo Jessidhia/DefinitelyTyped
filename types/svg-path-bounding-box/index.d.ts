@@ -6,7 +6,7 @@
 export = svgPathBoundingBox;
 
 declare function svgPathBoundingBox(
-    path: string,
+    path: string
 ): svgPathBoundingBox.BoundingBoxView;
 
 declare namespace svgPathBoundingBox {
@@ -38,7 +38,7 @@ declare namespace svgPathBoundingBox {
             p1x: number,
             p1y: number,
             p2x: number,
-            p2y: number,
+            p2y: number
         ): void;
 
         /** @see http://blog.hackers-cafe.net/2009/06/how-to-calculate-bezier-curves-bounding.html */
@@ -50,7 +50,7 @@ declare namespace svgPathBoundingBox {
             p2x: number,
             p2y: number,
             p3x: number,
-            p3y: number,
+            p3y: number
         ): void;
     }
 

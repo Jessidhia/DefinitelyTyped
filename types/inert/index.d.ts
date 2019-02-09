@@ -6,10 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import {
-    Plugin,
-    Request,
-} from 'hapi';
+import { Plugin, Request } from "hapi";
 
 declare namespace inert {
     type RequestHandler<T> = (request: Request) => T;
@@ -30,7 +27,7 @@ declare namespace inert {
          *  * 'attachment'
          *  *'inline'
          */
-        mode?: false | 'attachment' | 'inline';
+        mode?: false | "attachment" | "inline";
         /**
          * lookupCompressed - if true, looks for for a pre-compressed version of the file with the same filename with an extension, depending on the accepted encoding. Defaults to false.
          */
@@ -38,14 +35,14 @@ declare namespace inert {
         /**
          * lookupMap - an object which maps content encoding to expected file name extension. Defaults to `{ gzip: '.gz' }.
          */
-        lookupMap?: {[index: string]: string};
+        lookupMap?: { [index: string]: string };
         /**
          * etagMethod - specifies the method used to calculate the ETag header response. Available values:
          *  * 'hash' - SHA1 sum of the file contents, suitable for distributed deployments. Default value.
          *  * 'simple' - Hex encoded size and modification date, suitable when files are stored on a single server.
          *  * false - Disable ETag computation.
          */
-        etagMethod?: 'hash' | 'simple' | false;
+        etagMethod?: "hash" | "simple" | false;
         /**
          * start - offset in file to reading from, defaults to 0.
          */
@@ -103,7 +100,7 @@ declare namespace inert {
          *  * 'simple' - Hex encoded size and modification date, suitable when files are stored on a single server.
          *  * false - Disable ETag computation.
          */
-        etagMethod?: 'hash' | 'simple' | false;
+        etagMethod?: "hash" | "simple" | false;
         /**
          * defaultExtension - optional string, appended to file requests if the requested file is not found. Defaults to no extension.
          */
@@ -126,7 +123,7 @@ declare const inert: Plugin<inert.OptionalRegistrationOptions>;
 
 export = inert;
 
-declare module 'hapi' {
+declare module "hapi" {
     interface HandlerDecorations {
         /**
          * The file handler
@@ -137,7 +134,10 @@ declare module 'hapi' {
          *  * an object with one or more of the following options @see IFileHandler
          * @see {@link https://github.com/hapijs/inert#the-file-handler}
          */
-        file?: string | inert.RequestHandler<string> | inert.FileHandlerRouteObject;
+        file?:
+            | string
+            | inert.RequestHandler<string>
+            | inert.FileHandlerRouteObject;
         /**
          * The directory handler
          *
@@ -164,6 +164,9 @@ declare module 'hapi' {
          * Transmits a file from the file system. The 'Content-Type' header defaults to the matching mime type based on filename extension.
          * @see {@link https://github.com/hapijs/inert#replyfilepath-options}
          */
-        file(path: string, options?: inert.ReplyFileHandlerOptions): ResponseObject;
+        file(
+            path: string,
+            options?: inert.ReplyFileHandlerOptions
+        ): ResponseObject;
     }
 }

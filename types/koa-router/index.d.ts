@@ -16,7 +16,6 @@
 
  =============================================== */
 
-
 import * as Koa from "koa";
 
 declare namespace Router {
@@ -59,15 +58,22 @@ declare namespace Router {
         _matchedRouteName: string | undefined;
     }
 
-    export type RouterContext<StateT = any, CustomT = {}> =
-        Koa.ParameterizedContext<StateT, CustomT & IRouterParamContext<StateT, CustomT>>;
+    export type RouterContext<
+        StateT = any,
+        CustomT = {}
+    > = Koa.ParameterizedContext<
+        StateT,
+        CustomT & IRouterParamContext<StateT, CustomT>
+    >;
 
     // For backward compatibility IRouterContext needs to be an interface
     // But it's deprecated - please use `RouterContext` instead
     export interface IRouterContext extends RouterContext {}
 
-    export type IMiddleware<StateT = any, CustomT = {}> =
-        Koa.Middleware<StateT, CustomT & IRouterParamContext<StateT, CustomT>>
+    export type IMiddleware<StateT = any, CustomT = {}> = Koa.Middleware<
+        StateT,
+        CustomT & IRouterParamContext<StateT, CustomT>
+    >;
 
     export interface IParamMiddleware {
         (param: string, ctx: RouterContext, next: () => Promise<any>): any;
@@ -124,8 +130,18 @@ declare namespace Router {
         regexp: RegExp;
         path: string;
 
-        constructor(path: string | RegExp, methods: string[], middleware: Router.IMiddleware, opts?: ILayerOptions);
-        constructor(path: string | RegExp, methods: string[], middleware: Array<Router.IMiddleware>, opts?: ILayerOptions);
+        constructor(
+            path: string | RegExp,
+            methods: string[],
+            middleware: Router.IMiddleware,
+            opts?: ILayerOptions
+        );
+        constructor(
+            path: string | RegExp,
+            methods: string[],
+            middleware: Array<Router.IMiddleware>,
+            opts?: ILayerOptions
+        );
 
         /**
          * Returns whether request `path` matches route.
@@ -135,7 +151,11 @@ declare namespace Router {
         /**
          * Returns map of URL parameters for given `path` and `paramNames`.
          */
-        params(path: string | RegExp, captures: string[], existingParams?: Object): Object;
+        params(
+            path: string | RegExp,
+            captures: string[],
+            existingParams?: Object
+        ): Object;
 
         /**
          * Returns array of regexp url path captures.
@@ -175,7 +195,9 @@ declare class Router<StateT = any, CustomT = {}> {
      * sequentially, requests start at the first middleware and work their way
      * "down" the middleware stack.
      */
-    use(...middleware: Array<Router.IMiddleware<StateT, CustomT>>): Router<StateT, CustomT>;
+    use(
+        ...middleware: Array<Router.IMiddleware<StateT, CustomT>>
+    ): Router<StateT, CustomT>;
     use(
         path: string | string[] | RegExp,
         ...middleware: Array<Router.IMiddleware<StateT, CustomT>>
@@ -353,7 +375,11 @@ declare class Router<StateT = any, CustomT = {}> {
      *
      * Both `source` and `destination` can be route names.
      */
-    redirect(source: string, destination: string, code?: number): Router<StateT, CustomT>;
+    redirect(
+        source: string,
+        destination: string,
+        code?: number
+    ): Router<StateT, CustomT>;
 
     /**
      * Create and register a route.
@@ -401,7 +427,10 @@ declare class Router<StateT = any, CustomT = {}> {
     /**
      * Run middleware for named route parameters. Useful for auto-loading or validation.
      */
-    param(param: string, middleware: Router.IParamMiddleware): Router<StateT, CustomT>;
+    param(
+        param: string,
+        middleware: Router.IParamMiddleware
+    ): Router<StateT, CustomT>;
 
     /**
      * Generate URL from url pattern and given `params`.

@@ -1,7 +1,5 @@
 namespace adoneTests.text {
-    const {
-        text
-    } = adone;
+    const { text } = adone;
 
     let str: string;
     let regExp: RegExp;
@@ -9,9 +7,7 @@ namespace adoneTests.text {
     let num: number;
 
     namespace escape {
-        const {
-            escape
-        } = text;
+        const { escape } = text;
 
         str = escape.regExpPattern("asd");
         str = escape.regExpReplacement("asd");
@@ -22,9 +18,7 @@ namespace adoneTests.text {
     }
 
     namespace regexp {
-        const {
-            regexp
-        } = text;
+        const { regexp } = text;
 
         str = regexp.array2alternatives(["a"]);
     }

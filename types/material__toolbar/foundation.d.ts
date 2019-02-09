@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MDCFoundation from 'material__base/foundation';
-import { cssClasses, strings, numbers } from './constants';
-import MDCToolbarAdapter from './adapter';
+import MDCFoundation from "material__base/foundation";
+import { cssClasses, strings, numbers } from "./constants";
+import MDCToolbarAdapter from "./adapter";
 
-export default class MDCToolbarFoundation extends MDCFoundation<MDCToolbarAdapter> {
+export default class MDCToolbarFoundation extends MDCFoundation<
+    MDCToolbarAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

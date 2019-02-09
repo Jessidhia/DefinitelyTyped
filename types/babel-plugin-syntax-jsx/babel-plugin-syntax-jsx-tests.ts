@@ -5,6 +5,6 @@ import jsx from "babel-plugin-syntax-jsx";
 export default function myBabelPlugin() {
     return {
         visitor: {},
-        inherits: jsx,
+        inherits: jsx
     };
 }

@@ -1,24 +1,16 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "baseUrl": "../",
         "strictNullChecks": true,
         "strictFunctionTypes": true,
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "leakage-tests.ts"
-    ]
+    "files": ["index.d.ts", "leakage-tests.ts"]
 }
-

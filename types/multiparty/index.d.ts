@@ -5,10 +5,9 @@
 
 /// <reference types="node" />
 
-
-import http = require('http');
-import events = require('events');
-import stream = require('stream');
+import http = require("http");
+import events = require("events");
+import stream = require("stream");
 
 export declare class Form extends events.EventEmitter {
     constructor(options?: FormOptions);
@@ -18,12 +17,18 @@ export declare class Form extends events.EventEmitter {
      * @param request
      * @param callback
      */
-    parse(request: http.IncomingMessage, callback?: (error: Error, fields: any, files: any) => any): void;
+    parse(
+        request: http.IncomingMessage,
+        callback?: (error: Error, fields: any, files: any) => any
+    ): void;
 
     on(event: "part", listener: (part: Part) => void): this;
     on(event: "close", listener: () => void): this;
     on(event: "error", listener: (err: Error) => void): this;
-    on(event: "progress", listener: (bytesReceived: number, bytesExpected: number) => void): this;
+    on(
+        event: "progress",
+        listener: (bytesReceived: number, bytesExpected: number) => void
+    ): this;
     on(event: "field", listener: (name: string, value: string) => void): this;
     on(event: string | symbol, listener: (...args: any[]) => void): this;
 }

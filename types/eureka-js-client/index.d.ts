@@ -6,17 +6,26 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export class Eureka {
-    constructor(config: EurekaClient.EurekaConfig | EurekaClient.EurekaYmlConfig)
+    constructor(
+        config: EurekaClient.EurekaConfig | EurekaClient.EurekaYmlConfig
+    );
     start(cb?: (err: Error, ...rest: any[]) => void): void;
     stop(cb?: (err: Error, ...rest: any[]) => void): void;
     getInstancesByAppId(appId: string): EurekaClient.EurekaInstanceConfig[];
-    getInstancesByVipAddress(vidAddress: string): EurekaClient.EurekaInstanceConfig[];
+    getInstancesByVipAddress(
+        vidAddress: string
+    ): EurekaClient.EurekaInstanceConfig[];
 }
 
 export namespace EurekaClient {
-    type InstanceStatus = 'UP' | 'DOWN' | 'STARTING' | 'OUT_OF_SERVICE' | 'UNKNOWN';
-    type ActionType = 'ADDED' | 'MODIFIED' | 'DELETED';
-    type DataCenterName = 'Netflix' | 'Amazon' | 'MyOwn';
+    type InstanceStatus =
+        | "UP"
+        | "DOWN"
+        | "STARTING"
+        | "OUT_OF_SERVICE"
+        | "UNKNOWN";
+    type ActionType = "ADDED" | "MODIFIED" | "DELETED";
+    type DataCenterName = "Netflix" | "Amazon" | "MyOwn";
 
     interface EurekaConfig {
         instance: EurekaInstanceConfig;
@@ -81,8 +90,8 @@ export namespace EurekaClient {
         filename?: string;
     }
     interface LegacyPortWrapper {
-        '$': number;
-        '@enabled': boolean;
+        $: number;
+        "@enabled": boolean;
     }
     interface PortWrapper {
         enabled: boolean;
@@ -98,6 +107,6 @@ export namespace EurekaClient {
     }
     interface DataCenterInfo {
         name: DataCenterName;
-        '@class'?: string;
+        "@class"?: string;
     }
 }

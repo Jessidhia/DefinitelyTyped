@@ -1,6 +1,6 @@
-import StructuredSource = require('structured-source');
+import StructuredSource = require("structured-source");
 
-const src = new StructuredSource('aaa\u2028aaaa\u2029aaaaa\n');
+const src = new StructuredSource("aaa\u2028aaaa\u2029aaaaa\n");
 
 // $ExpectType: number
 src.positionToIndex({ line: 1, column: 2 });

@@ -174,7 +174,7 @@ declare namespace ansi {
     }
 
     interface Colorer {
-        [key: string]: (...anything: any[]) => (Cursor | Colorer);
+        [key: string]: (...anything: any[]) => Cursor | Colorer;
     }
 }
 

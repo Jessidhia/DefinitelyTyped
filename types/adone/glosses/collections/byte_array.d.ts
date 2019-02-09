@@ -20,7 +20,12 @@ declare namespace adone.collection {
                 length: number;
             }
 
-            type Wrappable = string | ByteArray | Buffer | Uint8Array | ArrayBuffer;
+            type Wrappable =
+                | string
+                | ByteArray
+                | Buffer
+                | Uint8Array
+                | ArrayBuffer;
 
             type Metrics = "b" | "c";
         }
@@ -203,7 +208,12 @@ declare namespace adone.collection {
          * @param length length to read from the source
          * @param encoding encoding to use for wrapping the source in bytearray
          */
-        write(source: I.ByteArray.Wrappable, offset?: number, length?: number, encoding?: string): this;
+        write(
+            source: I.ByteArray.Wrappable,
+            offset?: number,
+            length?: number,
+            encoding?: string
+        ): this;
 
         /**
          * Writes the array as a bitset.
@@ -321,14 +331,20 @@ declare namespace adone.collection {
          *
          * @param offset Offset to write at
          */
-        writeUInt64LE(value: math.Long | string | number, offset?: number): this;
+        writeUInt64LE(
+            value: math.Long | string | number,
+            offset?: number
+        ): this;
 
         /**
          * Writes a 64bit unsigned be long integer
          *
          * @param offset Offset to write at
          */
-        writeUInt64BE(value: math.Long | string | number, offset?: number): this;
+        writeUInt64BE(
+            value: math.Long | string | number,
+            offset?: number
+        ): this;
 
         /**
          * Writes a 32bit le float
@@ -416,7 +432,10 @@ declare namespace adone.collection {
          *
          * @param offset Offset to write at
          */
-        writeVarint64(value: math.Long | string | number, offset: number): number;
+        writeVarint64(
+            value: math.Long | string | number,
+            offset: number
+        ): number;
 
         /**
          * Writes a zig-zag encoded 64bit base 128 variable-length integer
@@ -428,7 +447,10 @@ declare namespace adone.collection {
          *
          * @param offset Offset to write at
          */
-        writeVarint64ZigZag(value: math.Long | string | number, offset: number): number;
+        writeVarint64ZigZag(
+            value: math.Long | string | number,
+            offset: number
+        ): number;
 
         /**
          * Reads a 64bit base 128 variable-length integer
@@ -509,7 +531,11 @@ declare namespace adone.collection {
          * @param metrics Metrics specifying what n is meant to count. Defaults to ByteArray.METRICS_CHARS("c")
          * @param offset Offset to read from
          */
-        readString(length: number, metrics: I.ByteArray.Metrics, offset: number): I.ByteArray.String;
+        readString(
+            length: number,
+            metrics: I.ByteArray.Metrics,
+            offset: number
+        ): I.ByteArray.String;
 
         /**
          * Reads an UTF8 encoded string
@@ -599,7 +625,12 @@ declare namespace adone.collection {
          * @param sourceOffset Offset to start copying from. Will use and increase offset by the number of bytes copied if omitted
          * @param sourceLimit Offset to end copying from, defaults to the buffer limit
          */
-        copyTo(target: ByteArray, targetOffset?: number, souceOffset?: number, sourceLimit?: number): this | ByteArray;
+        copyTo(
+            target: ByteArray,
+            targetOffset?: number,
+            souceOffset?: number,
+            sourceLimit?: number
+        ): this | ByteArray;
 
         /**
          * Makes sure that this ByteArray is backed by a ByteArray#buffer of at least the specified capacity.
@@ -652,7 +683,11 @@ declare namespace adone.collection {
          * @param encoding Encoding if data is a string
          * @param offset Offset to prepend at. Will use and decrease offset by the number of bytes prepended if omitted.
          */
-        prepend(source: I.ByteArray.Wrappable, encoding?: string, offset?: number): this;
+        prepend(
+            source: I.ByteArray.Wrappable,
+            encoding?: string,
+            offset?: number
+        ): this;
 
         /**
          * Prepends this ByteArray to another ByteArray.
@@ -783,7 +818,11 @@ declare namespace adone.collection {
          * @param encoding Encoding for strings
          * @param noAssert Whether to skip assertions of offsets and values. Defaults to ByteArray.DEFAULT_NOASSERT(false)
          */
-        static concat(buffers: I.ByteArray.Wrappable[], encoding?: string, noAssert?: boolean): ByteArray;
+        static concat(
+            buffers: I.ByteArray.Wrappable[],
+            encoding?: string,
+            noAssert?: boolean
+        ): ByteArray;
 
         static type(): typeof Buffer;
 
@@ -794,7 +833,11 @@ declare namespace adone.collection {
          * @param encoding Encoding for strings
          * @param noAssert Whether to skip assertions of offsets and values. Defaults to ByteArray.DEFAULT_NOASSERT(false)
          */
-        static wrap(buffer: I.ByteArray.Wrappable, encoding?: string, noAssert?: boolean): ByteArray;
+        static wrap(
+            buffer: I.ByteArray.Wrappable,
+            encoding?: string,
+            noAssert?: boolean
+        ): ByteArray;
 
         /**
          * Calculates the actual number of bytes required to store a 32bit base 128 variable-length integer

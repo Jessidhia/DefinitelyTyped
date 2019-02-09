@@ -14,7 +14,7 @@ numeric.parseFloat(["25.15", "44.25", "as"]); // $ExpectType number[]
 numeric.parseCSV("car, bike"); // $ExpectType string[][]
 numeric.toCSV([[25, 52, 62, 66], ["car", "bad", "bike", {}]]); // $ExpectType string
 numeric.imageURL([[25, 50], [52, 52]]); // $ExpectType string
-numeric.getURL('sdf'); // $ExpectType any
+numeric.getURL("sdf"); // $ExpectType any
 
 numeric.dim(matrix); // $ExpectType number[]
 numeric.same(25, [25]); // $ExpectType boolean

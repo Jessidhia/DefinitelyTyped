@@ -1,11 +1,20 @@
-import { Oid } from './oid';
-import { Repository } from './repository';
-import { Buf } from './buf';
+import { Oid } from "./oid";
+import { Repository } from "./repository";
+import { Buf } from "./buf";
 
 export class Object {
     static size(type: Object.TYPE): number;
-    static lookup(repo: Repository, id: Oid, type: Object.TYPE): Promise<Object>;
-    static lookupPrefix(repo: Repository, id: Oid, len: number, type: Object.TYPE): Promise<Object>;
+    static lookup(
+        repo: Repository,
+        id: Oid,
+        type: Object.TYPE
+    ): Promise<Object>;
+    static lookupPrefix(
+        repo: Repository,
+        id: Oid,
+        len: number,
+        type: Object.TYPE
+    ): Promise<Object>;
     static string2Type(str: string): Object.TYPE;
     static type2String(type: Object.TYPE): string;
     static typeisloose(type: Object.TYPE): number;

@@ -5,7 +5,7 @@
 
 /// <reference types="node"/>
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 export = SonicBoom;
 
@@ -15,7 +15,7 @@ declare class SonicBoom extends EventEmitter {
      * relative protocol is enabled. Default: process.stdout
      * @returns a new sonic-boom instance
      */
-    constructor(fileDescriptor: string | number)
+    constructor(fileDescriptor: string | number);
 
     /**
      * Writes the string to the file. It will return false to signal the producer to slow down.

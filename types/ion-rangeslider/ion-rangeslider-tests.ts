@@ -1,5 +1,5 @@
 /// <reference types="jquery"/>
-let sliderInputElement = $('<input />');
+let sliderInputElement = $("<input />");
 sliderInputElement.ionRangeSlider({
     decorate_both: true,
     disable: false,
@@ -28,7 +28,7 @@ sliderInputElement.ionRangeSlider({
     onUpdate: obj => console.log(obj),
     postfix: ".00",
     prefix: "$",
-    prettify: (num: number) => (String(num)),
+    prettify: (num: number) => String(num),
     prettify_enabled: true,
     prettify_separator: ",",
     step: 10,

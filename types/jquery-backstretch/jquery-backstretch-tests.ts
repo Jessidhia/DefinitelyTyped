@@ -1,7 +1,7 @@
-var backstretch = jQuery.backstretch(['image.png'], {
+var backstretch = jQuery.backstretch(["image.png"], {
     centeredX: false,
     centeredY: false,
-    duration: 'normal',
+    duration: "normal",
     fade: 1000
 });
 
@@ -12,5 +12,7 @@ backstretch.resize();
 backstretch.resume();
 backstretch.destroy(true);
 
-jQuery('body').backstretch(['image.png']).pause();
-jQuery('body').backstretch('resume');
+jQuery("body")
+    .backstretch(["image.png"])
+    .pause();
+jQuery("body").backstretch("resume");

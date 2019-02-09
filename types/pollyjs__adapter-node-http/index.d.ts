@@ -4,6 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import Adapter from '@pollyjs/adapter';
+import Adapter from "@pollyjs/adapter";
 
 export default class HttpAdapter extends Adapter {}

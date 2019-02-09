@@ -4,6 +4,8 @@
 // Definitions: https://github.com/feathersjs-ecosystem/feathers-typescript
 // TypeScript Version: 2.3
 
-import { Application } from '@feathersjs/feathers';
+import { Application } from "@feathersjs/feathers";
 
-export default function feathersConfiguration(): <T>(app: Application<T>) => Application<T>;
+export default function feathersConfiguration(): <T>(
+    app: Application<T>
+) => Application<T>;

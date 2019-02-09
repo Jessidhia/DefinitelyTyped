@@ -1,3 +1,3 @@
-import { HmacRIPEMD160 } from '../index';
+import { HmacRIPEMD160 } from "../index";
 
 export = HmacRIPEMD160;

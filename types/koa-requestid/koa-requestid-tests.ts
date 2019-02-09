@@ -1,5 +1,5 @@
-import Koa = require('koa');
-import requestId = require('koa-requestid');
+import Koa = require("koa");
+import requestId = require("koa-requestid");
 const app = new Koa();
 
 app.use(requestId());

@@ -29,21 +29,21 @@ lolex.createClock<lolex.NodeClock>(7, 9001);
 lolex.createClock<lolex.NodeClock>(new Date(), 9001);
 
 const browserInstalledClock = lolex.install<lolex.BrowserClock>({
-	advanceTimeDelta: 20,
-	loopLimit: 10,
-	now: 0,
-	shouldAdvanceTime: true,
-	target: {},
-	toFake: ["setTimeout", "nextTick", "hrtime"]
+    advanceTimeDelta: 20,
+    loopLimit: 10,
+    now: 0,
+    shouldAdvanceTime: true,
+    target: {},
+    toFake: ["setTimeout", "nextTick", "hrtime"]
 });
 
 const nodeInstalledClock = lolex.install<lolex.NodeClock>({
-	advanceTimeDelta: 20,
-	loopLimit: 10,
-	now: new Date(0),
-	shouldAdvanceTime: true,
-	target: {},
-	toFake: ["setTimeout", "nextTick", "hrtime"]
+    advanceTimeDelta: 20,
+    loopLimit: 10,
+    now: new Date(0),
+    shouldAdvanceTime: true,
+    target: {},
+    toFake: ["setTimeout", "nextTick", "hrtime"]
 });
 
 const browserNow: number = browserClock.now;
@@ -58,11 +58,15 @@ const nodeDate: Date = new nodeClock.Date();
 const browserTimeout: number = browserClock.setTimeout(() => {}, 7);
 const browserInterval: number = browserClock.setInterval(() => {}, 7);
 const browserImmediate: number = browserClock.setImmediate(() => {});
-const browserAnimationFrame: number = browserClock.requestAnimationFrame(() => {});
+const browserAnimationFrame: number = browserClock.requestAnimationFrame(
+    () => {}
+);
 const nodeTimeout: lolex.NodeTimer = nodeClock.setTimeout(() => {}, 7);
 const nodeInterval: lolex.NodeTimer = nodeClock.setInterval(() => {}, 7);
 const nodeImmediate: lolex.NodeTimer = nodeClock.setImmediate(() => {});
-const nodeAnimationFrame: lolex.NodeTimer = nodeClock.requestAnimationFrame(() => {});
+const nodeAnimationFrame: lolex.NodeTimer = nodeClock.requestAnimationFrame(
+    () => {}
+);
 
 nodeTimeout.ref();
 nodeTimeout.unref();

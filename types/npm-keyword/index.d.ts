@@ -21,7 +21,10 @@ declare namespace npmKeyword {
      * @param keyword One or more keywords. Only matches packages that have *all* the given keywords. Example: `['string', 'camelcase']`
      * @returns A promise for a list of package names. Use this if you don't need the description as it's faster.
      */
-    function names(keyword: string | string[], options?: Options): Promise<string[]>;
+    function names(
+        keyword: string | string[],
+        options?: Options
+    ): Promise<string[]>;
 
     /**
      * @param keyword One or more keywords. Only matches packages that have *all* the given keywords. Example: `['string', 'camelcase']`

@@ -8,7 +8,10 @@ declare namespace adone.crypto {
         /**
          * Exports a privateKey in DER format
          */
-        function privateKeyExport(privateKey: Buffer, compressed?: boolean): Buffer;
+        function privateKeyExport(
+            privateKey: Buffer,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Imports a privateKey in DER format
@@ -38,12 +41,18 @@ declare namespace adone.crypto {
         /**
          * Computes the public key for a privateKey
          */
-        function publicKeyCreate(privateKey: Buffer, compressed?: boolean): Buffer;
+        function publicKeyCreate(
+            privateKey: Buffer,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Converts a publicKey to compressed or uncompressed form
          */
-        function publicKeyConvert(publicKey: Buffer, compressed?: boolean): Buffer;
+        function publicKeyConvert(
+            publicKey: Buffer,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Verifies an ECDSA publicKey
@@ -53,17 +62,28 @@ declare namespace adone.crypto {
         /**
          * Tweaks a publicKey by adding tweak times the generator to it
          */
-        function publicKeyTweakAdd(publicKey: Buffer, tweak: Buffer, compressed?: boolean): Buffer;
+        function publicKeyTweakAdd(
+            publicKey: Buffer,
+            tweak: Buffer,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Tweaks a publicKey by multiplying it by a tweak value
          */
-        function publicKeyTweakMul(publicKey: Buffer, tweak: Buffer, compressed?: boolean): Buffer;
+        function publicKeyTweakMul(
+            publicKey: Buffer,
+            tweak: Buffer,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Adds a given publicKeys together
          */
-        function publicKeyCombine(publicKeys: Buffer[], compressed?: boolean): Buffer;
+        function publicKeyCombine(
+            publicKeys: Buffer[],
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Converts a signature to a normalized lower-S form
@@ -87,7 +107,13 @@ declare namespace adone.crypto {
 
         namespace I {
             interface SignOptions {
-                noncefn?: (message: Buffer, privateKey: Buffer, algo: Buffer, data: Buffer, attempt: number) => Buffer;
+                noncefn?: (
+                    message: Buffer,
+                    privateKey: Buffer,
+                    algo: Buffer,
+                    data: Buffer,
+                    attempt: number
+                ) => Buffer;
                 data?: Buffer | null;
             }
 
@@ -100,19 +126,32 @@ declare namespace adone.crypto {
         /**
          * Creates an ECDSA signature. Always return low-S signature.
          */
-        function sign(message: Buffer, privateKey: Buffer, options?: I.SignOptions): I.SignResult;
+        function sign(
+            message: Buffer,
+            privateKey: Buffer,
+            options?: I.SignOptions
+        ): I.SignResult;
 
         /**
          * Verifies an ECDSA signature
          *
          * Note: return false for high signatures!
          */
-        function verify(message: Buffer, signature: Buffer, publicKey: Buffer): boolean;
+        function verify(
+            message: Buffer,
+            signature: Buffer,
+            publicKey: Buffer
+        ): boolean;
 
         /**
          * Recovers an ECDSA public key from a signature
          */
-        function recover(message: Buffer, signature: Buffer, recovery: number, compressed?: boolean): Buffer;
+        function recover(
+            message: Buffer,
+            signature: Buffer,
+            recovery: number,
+            compressed?: boolean
+        ): Buffer;
 
         /**
          * Computes an EC Diffie-Hellman secret and applied sha256 to compressed public key
@@ -122,6 +161,10 @@ declare namespace adone.crypto {
         /**
          * Computes an EC Diffie-Hellman secret and return public key as result
          */
-        function ecdhUnsafe(publicKey: Buffer, privateKey: Buffer, compressed?: boolean): Buffer;
+        function ecdhUnsafe(
+            publicKey: Buffer,
+            privateKey: Buffer,
+            compressed?: boolean
+        ): Buffer;
     }
 }

@@ -34,21 +34,35 @@ export interface MentionsInputProps {
     displayTransform?: DisplayTransformFunc;
     onChange?: OnChangeHandlerFunc;
     placeholder?: string;
-    onBlur?: (event: React.FocusEvent<HTMLInputElement> | React.FocusEvent<HTMLTextAreaElement>, clickedSuggestion: boolean) => void;
+    onBlur?: (
+        event:
+            | React.FocusEvent<HTMLInputElement>
+            | React.FocusEvent<HTMLTextAreaElement>,
+        clickedSuggestion: boolean
+    ) => void;
     onSelect?: (event: React.UIEvent) => void;
-    onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement> | React.KeyboardEvent<HTMLInputElement>) => void;
-    children: React.ReactElement<MentionProps> | Array<React.ReactElement<MentionProps>>;
+    onKeyDown?: (
+        event:
+            | React.KeyboardEvent<HTMLTextAreaElement>
+            | React.KeyboardEvent<HTMLInputElement>
+    ) => void;
+    children:
+        | React.ReactElement<MentionProps>
+        | Array<React.ReactElement<MentionProps>>;
     className?: string;
     style?: any;
     regex?: RegExp;
     suggestionsPortalHost?: Element;
-    inputRef?: React.RefObject<HTMLTextAreaElement> | React.RefObject<HTMLInputElement>;
+    inputRef?:
+        | React.RefObject<HTMLTextAreaElement>
+        | React.RefObject<HTMLInputElement>;
 }
 
 /**
  * Exposes the type for use with the @see MentionsInputComponent.wrappedInstance which is added by react-mentions' use of substyle (https://github.com/jfschwarz/substyle).
  */
-export interface MentionsInputComponentUnrwapped extends React.Component<MentionsInputProps> {
+export interface MentionsInputComponentUnrwapped
+    extends React.Component<MentionsInputProps> {
     /**
      * @deprecated since version 2.4.0. Please use @see MentionsInputProps.inputRef
      */
@@ -58,7 +72,8 @@ export interface MentionsInputComponentUnrwapped extends React.Component<Mention
 /**
  * Used with @see React.RefObject<MentionsInputComponent>.
  */
-export interface MentionsInputComponent extends React.Component<MentionsInputProps> {
+export interface MentionsInputComponent
+    extends React.Component<MentionsInputProps> {
     // MentionsInput uses substyle (https://github.com/jfschwarz/substyle) which adds this wrappedInstance
     wrappedInstance?: MentionsInputComponentUnrwapped;
 }
@@ -66,8 +81,8 @@ export interface MentionsInputComponent extends React.Component<MentionsInputPro
 /**
  * Used to reference MentionsInput element in a TSX file.
  */
-export interface MentionsInputClass extends React.ComponentClass<MentionsInputProps> {
-}
+export interface MentionsInputClass
+    extends React.ComponentClass<MentionsInputProps> {}
 
 /**
  * Props definition for a mention subelement.
@@ -75,7 +90,13 @@ export interface MentionsInputClass extends React.ComponentClass<MentionsInputPr
 export interface MentionProps {
     type?: string;
     onAdd?: (id: string | number, display: string) => void;
-    renderSuggestion?: (suggestion: SuggestionDataItem, search: string, highlightedDisplay: React.ReactNode, index: number, focused: boolean) => React.ReactNode;
+    renderSuggestion?: (
+        suggestion: SuggestionDataItem,
+        search: string,
+        highlightedDisplay: React.ReactNode,
+        index: number,
+        focused: boolean
+    ) => React.ReactNode;
     className?: string;
     trigger: string | RegExp;
     isLoading?: boolean;
@@ -104,14 +125,26 @@ export interface SuggestionDataItem {
 /**
  * Defines the function signature for implementing @see MentionsInputProps.displayTransform
  */
-export type DisplayTransformFunc = (id: string, display: string, type: string) => string;
+export type DisplayTransformFunc = (
+    id: string,
+    display: string,
+    type: string
+) => string;
 
 /**
  * Defines the function signature for implementing @see MentionsInputProps.onChange
  */
-export type OnChangeHandlerFunc = (event: { target: { value: string } }, newValue: string, newPlainTextValue: string, mentions: MentionItem[]) => void;
+export type OnChangeHandlerFunc = (
+    event: { target: { value: string } },
+    newValue: string,
+    newPlainTextValue: string,
+    mentions: MentionItem[]
+) => void;
 
 /**
  * The function to implement asynchronous loading of suggestions in @see MentionProps.data .
  */
-export type DataFunc = (query: string, callback: (data: SuggestionDataItem[]) => void) => void | SuggestionDataItem[];
+export type DataFunc = (
+    query: string,
+    callback: (data: SuggestionDataItem[]) => void
+) => void | SuggestionDataItem[];

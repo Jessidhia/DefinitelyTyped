@@ -30,16 +30,16 @@ interface Exchange extends Topology {
 }
 
 interface FanoutExchange extends Exchange {
-    type: 'fanout';
+    type: "fanout";
 }
 
 interface TopicExchange extends Exchange {
-    type: 'topic';
+    type: "topic";
     bindings: TopicBinding[];
 }
 
 interface DirectExchange extends Exchange {
-    type: 'direct';
+    type: "direct";
     bindings: DirectBinding[];
 }
 
@@ -61,7 +61,11 @@ declare class RabbitMQSchema {
 
     validate(schema: Topology | Topology[], parentPath?: string): void;
 
-    validateMessage<T>(exchangeName: string, routingPattern: string, message: T): T;
+    validateMessage<T>(
+        exchangeName: string,
+        routingPattern: string,
+        message: T
+    ): T;
 
     getQueueByName(name: string): Queue | void;
 

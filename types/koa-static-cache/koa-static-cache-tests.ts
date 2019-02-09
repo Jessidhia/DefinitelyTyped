@@ -1,14 +1,14 @@
-import Koa = require('koa');
-import staticCache = require('koa-static-cache');
+import Koa = require("koa");
+import staticCache = require("koa-static-cache");
 
 const app = new Koa();
 
-app.use(staticCache('.'));
+app.use(staticCache("."));
 
 app.use(
-    staticCache('.', {
+    staticCache(".", {
         maxAge: 0,
-        filter: ['']
+        filter: [""]
     })
 );
 
@@ -16,7 +16,7 @@ const files: staticCache.Files = {};
 
 app.use(
     staticCache(
-        '.',
+        ".",
         {
             maxAge: 0,
             filter: path => !!path
@@ -25,11 +25,11 @@ app.use(
     )
 );
 
-files['/service-worker.js'].maxAge = 0;
+files["/service-worker.js"].maxAge = 0;
 
 app.use(
     staticCache({
-        dir: '.',
+        dir: ".",
         maxAge: 0,
         files
     })
@@ -38,7 +38,7 @@ app.use(
 app.use(
     staticCache(
         {
-            dir: '.',
+            dir: ".",
             maxAge: 0
         },
         files

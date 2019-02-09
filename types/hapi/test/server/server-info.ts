@@ -2,9 +2,9 @@
 import { Server } from "hapi";
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 server.start();
 
 console.log(server.info);
-console.log('Server started at: ' + server.info.uri);
+console.log("Server started at: " + server.info.uri);

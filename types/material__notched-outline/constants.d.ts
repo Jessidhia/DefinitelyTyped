@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    PATH_SELECTOR: '.mdc-notched-outline__path';
-    IDLE_OUTLINE_SELECTOR: '.mdc-notched-outline__idle';
+    PATH_SELECTOR: ".mdc-notched-outline__path";
+    IDLE_OUTLINE_SELECTOR: ".mdc-notched-outline__idle";
 }
 
 export interface cssClasses extends MDCStrings {
-    OUTLINE_NOTCHED: 'mdc-notched-outline--notched';
+    OUTLINE_NOTCHED: "mdc-notched-outline--notched";
 }

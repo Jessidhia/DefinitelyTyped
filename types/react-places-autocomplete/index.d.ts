@@ -8,7 +8,7 @@
 // TypeScript Version: 2.8
 //
 /// <reference types="googlemaps" />
-import * as React from 'react';
+import * as React from "react";
 
 export type AutocompletePrediction = google.maps.places.AutocompletePrediction;
 
@@ -44,41 +44,54 @@ export interface PropTypes {
     highlightFirstSuggestion?: boolean;
     shouldFetchSuggestions?: boolean;
     googleCallbackName?: string;
-    children: (opts: Readonly<{
-        loading: boolean;
-        suggestions: ReadonlyArray<Suggestion>;
-        getInputProps: <InputProps extends {}>(options?: InputProps) => {
-            type: 'text';
-            autoComplete: 'off';
-            role: 'combobox';
-            'aria-autocomplete': 'list';
-            'aria-expanded': boolean;
-            'aria-activedescendant': string | null;
-            disabled: boolean;
-            onKeyDown: React.KeyboardEventHandler;
-            onBlur: () => void;
-            value: string | undefined;
-            onChange: (ev: { target: { value: string }}) => void;
-        } & InputProps;
-        getSuggestionItemProps: <SuggestionProps extends {}>(suggestion: Suggestion, options?: SuggestionProps) => {
-            key: number;
-            id: string | null;
-            role: 'option';
-            onMouseEnter: () => void;
-            onMouseLeave: () => void;
-            onMouseDown: React.MouseEventHandler;
-            onMouseUp: () => void;
-            onTouchStart: () => void;
-            onTouchEnd: () => void;
-            onClick: (event?: Event) => void;
-        } & SuggestionProps;
-    }>) => React.ReactNode;
+    children: (
+        opts: Readonly<{
+            loading: boolean;
+            suggestions: ReadonlyArray<Suggestion>;
+            getInputProps: <InputProps extends {}>(
+                options?: InputProps
+            ) => {
+                type: "text";
+                autoComplete: "off";
+                role: "combobox";
+                "aria-autocomplete": "list";
+                "aria-expanded": boolean;
+                "aria-activedescendant": string | null;
+                disabled: boolean;
+                onKeyDown: React.KeyboardEventHandler;
+                onBlur: () => void;
+                value: string | undefined;
+                onChange: (ev: { target: { value: string } }) => void;
+            } & InputProps;
+            getSuggestionItemProps: <SuggestionProps extends {}>(
+                suggestion: Suggestion,
+                options?: SuggestionProps
+            ) => {
+                key: number;
+                id: string | null;
+                role: "option";
+                onMouseEnter: () => void;
+                onMouseLeave: () => void;
+                onMouseDown: React.MouseEventHandler;
+                onMouseUp: () => void;
+                onTouchStart: () => void;
+                onTouchEnd: () => void;
+                onClick: (event?: Event) => void;
+            } & SuggestionProps;
+        }>
+    ) => React.ReactNode;
 }
 
-export function geocodeByAddress(address: string): Promise<google.maps.GeocoderResult[]>;
+export function geocodeByAddress(
+    address: string
+): Promise<google.maps.GeocoderResult[]>;
 
-export function geocodeByPlaceId(placeId: string): Promise<google.maps.GeocoderResult[]>;
+export function geocodeByPlaceId(
+    placeId: string
+): Promise<google.maps.GeocoderResult[]>;
 
-export function getLatLng(results: google.maps.GeocoderResult): Promise<google.maps.LatLngLiteral>;
+export function getLatLng(
+    results: google.maps.GeocoderResult
+): Promise<google.maps.LatLngLiteral>;
 
 export default class PlacesAutocomplete extends React.Component<PropTypes> {}

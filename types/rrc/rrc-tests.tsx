@@ -1,5 +1,11 @@
 import * as React from "react";
-import { Switch, Route, RouteComponentProps, BrowserRouter, Link } from "react-router-dom";
+import {
+    Switch,
+    Route,
+    RouteComponentProps,
+    BrowserRouter,
+    Link
+} from "react-router-dom";
 import {
     ScrollIntoView,
     ConfigSwitch,
@@ -15,29 +21,42 @@ import {
 
 class RouteOne extends React.Component<RouteComponentProps> {
     render() {
-        return <div>
-            <ConfigSwitch location={this.props.location} routes={[
-                {
-                    path: "/one/one",
-                    render: () => <ScrollIntoView alignToTop id="id">
-                        <div>Main view</div>
-                    </ScrollIntoView>
-                },
-                { path: "/one/two", render: () => <div>One two route</div> }
-            ]} />
-        </div>;
+        return (
+            <div>
+                <ConfigSwitch
+                    location={this.props.location}
+                    routes={[
+                        {
+                            path: "/one/one",
+                            render: () => (
+                                <ScrollIntoView alignToTop id="id">
+                                    <div>Main view</div>
+                                </ScrollIntoView>
+                            )
+                        },
+                        {
+                            path: "/one/two",
+                            render: () => <div>One two route</div>
+                        }
+                    ]}
+                />
+            </div>
+        );
     }
 }
 
 class RouteTwo extends React.Component<RouteComponentProps> {
-    private readonly onUpdate: OnUpdateCall = (location) => { console.log("update"); };
+    private readonly onUpdate: OnUpdateCall = location => {
+        console.log("update");
+    };
 
     render() {
-        return <div>
-            Route 2
-            <Link to={{ pathname: "/one" }}>Go to Route 1</Link>
-            <OnUpdate call={this.onUpdate} />
-        </div >;
+        return (
+            <div>
+                Route 2<Link to={{ pathname: "/one" }}>Go to Route 1</Link>
+                <OnUpdate call={this.onUpdate} />
+            </div>
+        );
     }
 }
 
@@ -48,13 +67,15 @@ interface LayoutProps {
 
 class Layout extends React.Component<LayoutProps> {
     render() {
-        return <div>
-            <div>{`Layout ${this.props.title}`}</div>
+        return (
             <div>
-                <span>Content</span>
-                {this.props.children}
+                <div>{`Layout ${this.props.title}`}</div>
+                <div>
+                    <span>Content</span>
+                    {this.props.children}
+                </div>
             </div>
-        </div>;
+        );
     }
 }
 
@@ -69,24 +90,28 @@ class RouteFour extends React.Component<RouteComponentProps> {
         { path: "/four/something/:page", component: RouteTwo }
     ];
 
-    private readonly getKey: GetKeyFunction<Params> = (match, route, location) => {
+    private readonly getKey: GetKeyFunction<Params> = (
+        match,
+        route,
+        location
+    ) => {
         return "my-key-" + match.url;
-    }
+    };
 
     render() {
-        return <div>
+        return (
             <div>
-                Route four
+                <div>Route four</div>
+                <div>
+                    <WrappedLayout
+                        getKey={this.getKey}
+                        routes={this.routes}
+                        location={this.props.location}
+                        title="wrapped layout title"
+                    />
+                </div>
             </div>
-            <div>
-                <WrappedLayout
-                    getKey={this.getKey}
-                    routes={this.routes}
-                    location={this.props.location}
-                    title="wrapped layout title"
-                />
-            </div>
-        </div>;
+        );
     }
 }
 
@@ -97,26 +122,40 @@ interface MyContainerProps {
 
 class MyContainer extends React.Component<MyContainerProps> {
     render() {
-        return <div className={this.props.className}>
-            {this.props.children}
-        </div>;
+        return (
+            <div className={this.props.className}>{this.props.children}</div>
+        );
     }
 }
 
-const ExtendedContainer = whenActive<MyContainerProps>({ className: "active" })(MyContainer);
+const ExtendedContainer = whenActive<MyContainerProps>({ className: "active" })(
+    MyContainer
+);
 
 const RouteTwoWithScroll = withScroll(RouteTwo);
 
-export const Routes =
+export const Routes = (
     <BrowserRouter>
         <div>
             <div>My page</div>
-            <Switch >
+            <Switch>
                 <Route path="/one" component={RouteOne} />
                 <Route path="/two" component={RouteTwoWithScroll} />
                 <Route path="/four" component={RouteFour} />
-                <Route strict path="/" render={() => <ExtendedContainer className="extended-container" color={3}>Route 3</ExtendedContainer>} />
+                <Route
+                    strict
+                    path="/"
+                    render={() => (
+                        <ExtendedContainer
+                            className="extended-container"
+                            color={3}
+                        >
+                            Route 3
+                        </ExtendedContainer>
+                    )}
+                />
             </Switch>
             <Status code="200" />
         </div>
-    </BrowserRouter>;
+    </BrowserRouter>
+);

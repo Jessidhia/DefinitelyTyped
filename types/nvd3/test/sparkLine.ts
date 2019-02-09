@@ -1,11 +1,10 @@
-
 namespace nvd3_test_sparkLine {
-
     nv.addGraph({
-        generate: function () {
-            var chart = nv.models.sparkline()
+        generate: function() {
+            var chart = nv.models
+                .sparkline()
                 .width(400)
-                .height(30)
+                .height(30);
 
             d3.select("#chart1")
                 .datum(sine())

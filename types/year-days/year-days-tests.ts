@@ -1,4 +1,4 @@
-import yearDays = require('year-days');
+import yearDays = require("year-days");
 
 // $ExpectType number
 yearDays();

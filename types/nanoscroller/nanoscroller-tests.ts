@@ -1,6 +1,6 @@
-$('.nano').nanoScroller();
+$(".nano").nanoScroller();
 
-$('.nano').nanoScroller({
-    scroll: 'bottom',
+$(".nano").nanoScroller({
+    scroll: "bottom",
     flash: true
 });

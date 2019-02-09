@@ -35,9 +35,18 @@ export interface ReactTestInstance {
     findByType(type: ReactType): ReactTestInstance;
     findByProps(props: { [propName: string]: any }): ReactTestInstance;
 
-    findAll(predicate: (node: ReactTestInstance) => boolean, options?: { deep: boolean }): ReactTestInstance[];
-    findAllByType(type: ReactType, options?: { deep: boolean }): ReactTestInstance[];
-    findAllByProps(props: { [propName: string]: any }, options?: { deep: boolean }): ReactTestInstance[];
+    findAll(
+        predicate: (node: ReactTestInstance) => boolean,
+        options?: { deep: boolean }
+    ): ReactTestInstance[];
+    findAllByType(
+        type: ReactType,
+        options?: { deep: boolean }
+    ): ReactTestInstance[];
+    findAllByProps(
+        props: { [propName: string]: any },
+        options?: { deep: boolean }
+    ): ReactTestInstance[];
 }
 export interface ReactTestRenderer {
     toJSON(): null | ReactTestRendererJSON;
@@ -50,7 +59,10 @@ export interface ReactTestRenderer {
 export interface TestRendererOptions {
     createNodeMock(element: ReactElement<any>): any;
 }
-export function create(nextElement: ReactElement<any>, options?: TestRendererOptions): ReactTestRenderer;
+export function create(
+    nextElement: ReactElement<any>,
+    options?: TestRendererOptions
+): ReactTestRenderer;
 
 /**
  * Wrap any code rendering and triggering updates to your components into `act()` calls.
@@ -72,5 +84,8 @@ export function act(callback: () => void | undefined): DebugPromiseLike | {};
 // Ideally this should be as hard to accidentally use as possible.
 export interface DebugPromiseLike {
     // the actual then() in here is 0-ary, but that doesn't count as a PromiseLike.
-    then(onfulfilled: (value: never) => never, onrejected: (reason: never) => never): never;
+    then(
+        onfulfilled: (value: never) => never,
+        onrejected: (reason: never) => never
+    ): never;
 }

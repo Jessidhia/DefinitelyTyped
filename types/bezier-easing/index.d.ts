@@ -7,6 +7,11 @@ declare namespace BezierEasing {
     type Easing = (x: number) => number;
 }
 
-declare function BezierEasing(mX1: number, mY1: number, mX2: number, mY2: number): BezierEasing.Easing;
+declare function BezierEasing(
+    mX1: number,
+    mY1: number,
+    mX2: number,
+    mY2: number
+): BezierEasing.Easing;
 export = BezierEasing;
 export as namespace BezierEasing;

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    LINE_RIPPLE_ACTIVE: 'mdc-line-ripple--active';
-    LINE_RIPPLE_DEACTIVATING: 'mdc-line-ripple--deactivating';
+    LINE_RIPPLE_ACTIVE: "mdc-line-ripple--active";
+    LINE_RIPPLE_DEACTIVATING: "mdc-line-ripple--deactivating";
 }

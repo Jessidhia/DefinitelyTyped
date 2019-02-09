@@ -5,8 +5,6 @@
 //                 Mateusz Jagiełło <https://github.com/sigo>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare function OuterXRegExp(pattern: string, flags?: string): RegExp;
 declare function OuterXRegExp(pattern: RegExp): RegExp;
 
@@ -47,13 +45,31 @@ declare namespace OuterXRegExp {
     */
 
     // begin API definitions
-    function addToken(regex: RegExp, handler: (matchArr: RegExpExecArray, scope: string) => string, options?: TokenOpts): void;
+    function addToken(
+        regex: RegExp,
+        handler: (matchArr: RegExpExecArray, scope: string) => string,
+        options?: TokenOpts
+    ): void;
 
     function build(pattern: string, subs: string[], flags?: string): RegExp;
     function cache(pattern: string, flags?: string): RegExp;
     function escape(str: string): string;
-    function exec(str: string, regex: RegExp, pos?: number, sticky?: boolean): RegExpExecArray;
-    function forEach(str: string, regex: RegExp, callback: (matchArr: RegExpExecArray, index: number, input: string, regexp: RegExp) => void): any;
+    function exec(
+        str: string,
+        regex: RegExp,
+        pos?: number,
+        sticky?: boolean
+    ): RegExpExecArray;
+    function forEach(
+        str: string,
+        regex: RegExp,
+        callback: (
+            matchArr: RegExpExecArray,
+            index: number,
+            input: string,
+            regexp: RegExp
+        ) => void
+    ): any;
     function globalize(regex: RegExp): RegExp;
 
     function install(options: string): void;
@@ -66,20 +82,60 @@ declare namespace OuterXRegExp {
     function match(str: string, regex: RegExp, scope: "all"): string[];
     function match(str: string, regex: RegExp): string[];
     function matchChain(str: string, chain: RegExp[]): string[];
-    function matchChain(str: string, chain: { regex: RegExp; backref: string }[]): string[];
-    function matchChain(str: string, chain: { regex: RegExp; backref: number }[]): string[];
-    function matchRecursive(str: string, left: string, right: string, flags?: string, options?: Object): string[];
+    function matchChain(
+        str: string,
+        chain: { regex: RegExp; backref: string }[]
+    ): string[];
+    function matchChain(
+        str: string,
+        chain: { regex: RegExp; backref: number }[]
+    ): string[];
+    function matchRecursive(
+        str: string,
+        left: string,
+        right: string,
+        flags?: string,
+        options?: Object
+    ): string[];
 
-    function replace(str: string, search: string, replacement: string, scope?: string): string;
-    function replace(str: string, search: string, replacement: Function, scope?: string): string;
-    function replace(str: string, search: RegExp, replacement: string, scope?: string): string;
-    function replace(str: string, search: RegExp, replacement: Function, scope?: string): string;
-    function replaceEach(str: string, replacements: Array<RegExp | string>[]): string;
+    function replace(
+        str: string,
+        search: string,
+        replacement: string,
+        scope?: string
+    ): string;
+    function replace(
+        str: string,
+        search: string,
+        replacement: Function,
+        scope?: string
+    ): string;
+    function replace(
+        str: string,
+        search: RegExp,
+        replacement: string,
+        scope?: string
+    ): string;
+    function replace(
+        str: string,
+        search: RegExp,
+        replacement: Function,
+        scope?: string
+    ): string;
+    function replaceEach(
+        str: string,
+        replacements: Array<RegExp | string>[]
+    ): string;
 
     function split(str: string, separator: string, limit?: number): string[];
     function split(str: string, separator: RegExp, limit?: number): string[];
 
-    function test(str: string, regex: RegExp, pos?: number, sticky?: boolean): boolean;
+    function test(
+        str: string,
+        regex: RegExp,
+        pos?: number,
+        sticky?: boolean
+    ): boolean;
 
     function uninstall(options: Object): void;
     function uninstall(options: string): void;
@@ -90,13 +146,31 @@ declare namespace OuterXRegExp {
 
     namespace XRegExp {
         // begin API definitions
-        function addToken(regex: RegExp, handler: (matchArr: RegExpExecArray, scope: string) => string, options?: TokenOpts): void;
+        function addToken(
+            regex: RegExp,
+            handler: (matchArr: RegExpExecArray, scope: string) => string,
+            options?: TokenOpts
+        ): void;
 
         function build(pattern: string, subs: string[], flags?: string): RegExp;
         function cache(pattern: string, flags?: string): RegExp;
         function escape(str: string): string;
-        function exec(str: string, regex: RegExp, pos?: number, sticky?: boolean): RegExpExecArray;
-        function forEach(str: string, regex: RegExp, callback: (matchArr: RegExpExecArray, index: number, input: string, regexp: RegExp) => void): any;
+        function exec(
+            str: string,
+            regex: RegExp,
+            pos?: number,
+            sticky?: boolean
+        ): RegExpExecArray;
+        function forEach(
+            str: string,
+            regex: RegExp,
+            callback: (
+                matchArr: RegExpExecArray,
+                index: number,
+                input: string,
+                regexp: RegExp
+            ) => void
+        ): any;
         function globalize(regex: RegExp): RegExp;
 
         function install(options: string): void;
@@ -109,20 +183,68 @@ declare namespace OuterXRegExp {
         function match(str: string, regex: RegExp, scope: "all"): string[];
         function match(str: string, regex: RegExp): string[];
         function matchChain(str: string, chain: RegExp[]): string[];
-        function matchChain(str: string, chain: { regex: RegExp; backref: string }[]): string[];
-        function matchChain(str: string, chain: { regex: RegExp; backref: number }[]): string[];
-        function matchRecursive(str: string, left: string, right: string, flags?: string, options?: Object): string[];
+        function matchChain(
+            str: string,
+            chain: { regex: RegExp; backref: string }[]
+        ): string[];
+        function matchChain(
+            str: string,
+            chain: { regex: RegExp; backref: number }[]
+        ): string[];
+        function matchRecursive(
+            str: string,
+            left: string,
+            right: string,
+            flags?: string,
+            options?: Object
+        ): string[];
 
-        function replace(str: string, search: string, replacement: string, scope?: string): string;
-        function replace(str: string, search: string, replacement: Function, scope?: string): string;
-        function replace(str: string, search: RegExp, replacement: string, scope?: string): string;
-        function replace(str: string, search: RegExp, replacement: Function, scope?: string): string;
-        function replaceEach(str: string, replacements: Array<RegExp | string>[]): string;
+        function replace(
+            str: string,
+            search: string,
+            replacement: string,
+            scope?: string
+        ): string;
+        function replace(
+            str: string,
+            search: string,
+            replacement: Function,
+            scope?: string
+        ): string;
+        function replace(
+            str: string,
+            search: RegExp,
+            replacement: string,
+            scope?: string
+        ): string;
+        function replace(
+            str: string,
+            search: RegExp,
+            replacement: Function,
+            scope?: string
+        ): string;
+        function replaceEach(
+            str: string,
+            replacements: Array<RegExp | string>[]
+        ): string;
 
-        function split(str: string, separator: string, limit?: number): string[];
-        function split(str: string, separator: RegExp, limit?: number): string[];
+        function split(
+            str: string,
+            separator: string,
+            limit?: number
+        ): string[];
+        function split(
+            str: string,
+            separator: RegExp,
+            limit?: number
+        ): string[];
 
-        function test(str: string, regex: RegExp, pos?: number, sticky?: boolean): boolean;
+        function test(
+            str: string,
+            regex: RegExp,
+            pos?: number,
+            sticky?: boolean
+        ): boolean;
 
         function uninstall(options: Object): void;
         function uninstall(options: string): void;

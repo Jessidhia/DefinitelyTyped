@@ -118,7 +118,7 @@ export interface TransformOptions {
      *
      * Default: `{}`
      */
-    env?: { [index: string]: TransformOptions | null | undefined; } | null;
+    env?: { [index: string]: TransformOptions | null | undefined } | null;
 
     /**
      * A path to a `.babelrc` file to extend
@@ -281,10 +281,19 @@ export interface TransformOptions {
      * An optional callback that can be used to wrap visitor methods. **NOTE**: This is useful for things like introspection, and not really needed for implementing anything. Called as
      * `wrapPluginVisitorMethod(pluginAlias, visitorType, callback)`.
      */
-    wrapPluginVisitorMethod?: ((pluginAlias: string, visitorType: "enter" | "exit", callback: (path: NodePath, state: any) => void) => (path: NodePath, state: any) => void) | null;
+    wrapPluginVisitorMethod?:
+        | ((
+              pluginAlias: string,
+              visitorType: "enter" | "exit",
+              callback: (path: NodePath, state: any) => void
+          ) => (path: NodePath, state: any) => void)
+        | null;
 }
 
-export type FileResultCallback = (err: Error | null, result: BabelFileResult | null) => any;
+export type FileResultCallback = (
+    err: Error | null,
+    result: BabelFileResult | null
+) => any;
 
 /**
  * Transforms the passed in code. Calling a callback with an object with the generated code, source map, and AST.
@@ -294,62 +303,105 @@ export function transform(code: string, callback: FileResultCallback): void;
 /**
  * Transforms the passed in code. Calling a callback with an object with the generated code, source map, and AST.
  */
-export function transform(code: string, opts: TransformOptions | undefined, callback: FileResultCallback): void;
+export function transform(
+    code: string,
+    opts: TransformOptions | undefined,
+    callback: FileResultCallback
+): void;
 
 /**
  * Here for backward-compatibility. Ideally use `transformSync` if you want a synchronous API.
  */
-export function transform(code: string, opts?: TransformOptions): BabelFileResult | null;
+export function transform(
+    code: string,
+    opts?: TransformOptions
+): BabelFileResult | null;
 
 /**
  * Transforms the passed in code. Returning an object with the generated code, source map, and AST.
  */
-export function transformSync(code: string, opts?: TransformOptions): BabelFileResult | null;
+export function transformSync(
+    code: string,
+    opts?: TransformOptions
+): BabelFileResult | null;
 
 /**
  * Transforms the passed in code. Calling a callback with an object with the generated code, source map, and AST.
  */
-export function transformAsync(code: string, opts?: TransformOptions): Promise<BabelFileResult | null>;
+export function transformAsync(
+    code: string,
+    opts?: TransformOptions
+): Promise<BabelFileResult | null>;
 
 /**
  * Asynchronously transforms the entire contents of a file.
  */
-export function transformFile(filename: string, callback: FileResultCallback): void;
+export function transformFile(
+    filename: string,
+    callback: FileResultCallback
+): void;
 
 /**
  * Asynchronously transforms the entire contents of a file.
  */
-export function transformFile(filename: string, opts: TransformOptions | undefined, callback: FileResultCallback): void;
+export function transformFile(
+    filename: string,
+    opts: TransformOptions | undefined,
+    callback: FileResultCallback
+): void;
 
 /**
  * Synchronous version of `babel.transformFile`. Returns the transformed contents of the `filename`.
  */
-export function transformFileSync(filename: string, opts?: TransformOptions): BabelFileResult | null;
+export function transformFileSync(
+    filename: string,
+    opts?: TransformOptions
+): BabelFileResult | null;
 
 /**
  * Asynchronously transforms the entire contents of a file.
  */
-export function transformFileAsync(filename: string, opts?: TransformOptions): Promise<BabelFileResult | null>;
+export function transformFileAsync(
+    filename: string,
+    opts?: TransformOptions
+): Promise<BabelFileResult | null>;
 
 /**
  * Given an AST, transform it.
  */
-export function transformFromAst(ast: Node, code: string | undefined, callback: FileResultCallback): void;
+export function transformFromAst(
+    ast: Node,
+    code: string | undefined,
+    callback: FileResultCallback
+): void;
 
 /**
  * Given an AST, transform it.
  */
-export function transformFromAst(ast: Node, code: string | undefined, opts: TransformOptions | undefined, callback: FileResultCallback): void;
+export function transformFromAst(
+    ast: Node,
+    code: string | undefined,
+    opts: TransformOptions | undefined,
+    callback: FileResultCallback
+): void;
 
 /**
  * Here for backward-compatibility. Ideally use ".transformSync" if you want a synchronous API.
  */
-export function transformFromAstSync(ast: Node, code?: string, opts?: TransformOptions): BabelFileResult | null;
+export function transformFromAstSync(
+    ast: Node,
+    code?: string,
+    opts?: TransformOptions
+): BabelFileResult | null;
 
 /**
  * Given an AST, transform it.
  */
-export function transformFromAstAsync(ast: Node, code?: string, opts?: TransformOptions): Promise<BabelFileResult | null>;
+export function transformFromAstAsync(
+    ast: Node,
+    code?: string,
+    opts?: TransformOptions
+): Promise<BabelFileResult | null>;
 
 // A babel plugin is a simple function which must return an object matching
 // the following interface. Babel will throw if it finds unknown properties.
@@ -398,7 +450,10 @@ export interface BabelFileModulesMetadata {
     };
 }
 
-export type FileParseCallback = (err: Error | null, result: ParseResult | null) => any;
+export type FileParseCallback = (
+    err: Error | null,
+    result: ParseResult | null
+) => any;
 
 /**
  * Given some code, parse it using Babel's standard behavior.
@@ -410,25 +465,38 @@ export function parse(code: string, callback: FileParseCallback): void;
  * Given some code, parse it using Babel's standard behavior.
  * Referenced presets and plugins will be loaded such that optional syntax plugins are automatically enabled.
  */
-export function parse(code: string, options: TransformOptions | undefined, callback: FileParseCallback): void;
+export function parse(
+    code: string,
+    options: TransformOptions | undefined,
+    callback: FileParseCallback
+): void;
 
 /**
  * Given some code, parse it using Babel's standard behavior.
  * Referenced presets and plugins will be loaded such that optional syntax plugins are automatically enabled.
  */
-export function parse(code: string, options?: TransformOptions): ParseResult | null;
+export function parse(
+    code: string,
+    options?: TransformOptions
+): ParseResult | null;
 
 /**
  * Given some code, parse it using Babel's standard behavior.
  * Referenced presets and plugins will be loaded such that optional syntax plugins are automatically enabled.
  */
-export function parseSync(code: string, options?: TransformOptions): ParseResult | null;
+export function parseSync(
+    code: string,
+    options?: TransformOptions
+): ParseResult | null;
 
 /**
  * Given some code, parse it using Babel's standard behavior.
  * Referenced presets and plugins will be loaded such that optional syntax plugins are automatically enabled.
  */
-export function parseAsync(code: string, options?: TransformOptions): Promise<ParseResult | null>;
+export function parseAsync(
+    code: string,
+    options?: TransformOptions
+): Promise<ParseResult | null>;
 
 /**
  * Resolve Babel's options fully, resulting in an options object where:
@@ -463,7 +531,9 @@ export function loadOptions(options?: TransformOptions): object | null;
  * Babel config value, or with a replacement item created by `babel.createConfigItem`. See that function for
  * information about `ConfigItem` fields.
  */
-export function loadPartialConfig(options?: TransformOptions): Readonly<PartialConfig> | null;
+export function loadPartialConfig(
+    options?: TransformOptions
+): Readonly<PartialConfig> | null;
 
 export interface PartialConfig {
     options: TransformOptions;
@@ -514,7 +584,12 @@ export type PluginOptions = object | undefined | false;
 
 export type PluginTarget = string | object | ((...args: any[]) => any);
 
-export type PluginItem = ConfigItem | PluginObj<any> | PluginTarget | [PluginTarget, PluginOptions] | [PluginTarget, PluginOptions, string | undefined];
+export type PluginItem =
+    | ConfigItem
+    | PluginObj<any>
+    | PluginTarget
+    | [PluginTarget, PluginOptions]
+    | [PluginTarget, PluginOptions, string | undefined];
 
 export interface CreateConfigItemOptions {
     dirname?: string;
@@ -526,6 +601,12 @@ export interface CreateConfigItemOptions {
  * given plugin, Babel will call the plugin's function itself multiple times. If you have a clear set of expected
  * plugins and presets to inject, pre-constructing the config items would be recommended.
  */
-export function createConfigItem(value: PluginTarget | [PluginTarget, PluginOptions] | [PluginTarget, PluginOptions, string | undefined], options?: CreateConfigItemOptions): ConfigItem;
+export function createConfigItem(
+    value:
+        | PluginTarget
+        | [PluginTarget, PluginOptions]
+        | [PluginTarget, PluginOptions, string | undefined],
+    options?: CreateConfigItemOptions
+): ConfigItem;
 
 export as namespace babel;

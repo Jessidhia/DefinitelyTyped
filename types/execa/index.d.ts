@@ -9,8 +9,8 @@
 
 /// <reference types="node" />
 
-import { ChildProcess } from 'child_process';
-import { Stream } from 'stream';
+import { ChildProcess } from "child_process";
+import { Stream } from "stream";
 
 /**
  * A better `child_process`
@@ -88,10 +88,10 @@ declare namespace execa {
     }
 
     type StdIOOption =
-        | 'pipe'
-        | 'ipc'
-        | 'ignore'
-        | 'inherit'
+        | "pipe"
+        | "ipc"
+        | "ignore"
+        | "inherit"
         | Stream
         | number
         | null
@@ -127,7 +127,7 @@ declare namespace execa {
          *
          * @see https://nodejs.org/api/child_process.html#child_process_options_stdio
          */
-        stdio?: 'pipe' | 'ignore' | 'inherit' | ReadonlyArray<StdIOOption>;
+        stdio?: "pipe" | "ignore" | "inherit" | ReadonlyArray<StdIOOption>;
         /**
          * Prepare child to run independently of its parent process.
          * Specific behavior depends on the platform.

@@ -54,11 +54,16 @@ cometd.subscribe(
 const additionalInfoSubscribe = {
     "com.acme.priority": 10
 };
-cometd.subscribe("/foo", message => {}, additionalInfoSubscribe, subscribeReply => {
-    if (subscribeReply.successful) {
-        // The server successfully subscribed this client to the "/foo" channel.
+cometd.subscribe(
+    "/foo",
+    message => {},
+    additionalInfoSubscribe,
+    subscribeReply => {
+        if (subscribeReply.successful) {
+            // The server successfully subscribed this client to the "/foo" channel.
+        }
     }
-});
+);
 
 const subscription1 = cometd.addListener("/meta/connect", () => {});
 const subscription2 = cometd.subscribe("/foo/bar/", () => {});
@@ -71,9 +76,13 @@ const subscription3 = cometd.subscribe("/foo/bar/", () => {});
 const additionalInfoUnsubscribe = {
     "com.acme.discard": true
 };
-cometd.unsubscribe(subscription3, additionalInfoUnsubscribe, unsubscribeReply => {
-    // Your logic here.
-});
+cometd.unsubscribe(
+    subscription3,
+    additionalInfoUnsubscribe,
+    unsubscribeReply => {
+        // Your logic here.
+    }
+);
 
 // Subscribers versus Listeners
 // ============================
@@ -94,7 +103,10 @@ cometd.addListener("/meta/handshake", message => {
             // Messy to add listeners after removal, prefer using cometd.subscribe(...)
             if (_reportListener) {
                 cometd.removeListener(_reportListener);
-                _reportListener = cometd.addListener("/service/report", m => {});
+                _reportListener = cometd.addListener(
+                    "/service/report",
+                    m => {}
+                );
             }
 
             // Wrong to add listeners without removal
@@ -111,20 +123,20 @@ let _subscription: SubscriptionHandle | undefined;
 class Controller {
     dynamicSubscribe = () => {
         _subscription = cometd.subscribe("/dynamic", this.onEvent);
-    }
+    };
 
     onEvent = (message: Message) => {
         if (message.successful) {
             // Your logic here.
         }
-    }
+    };
 
     dynamicUnsubscribe = () => {
         if (_subscription) {
             cometd.unsubscribe(_subscription);
             _subscription = undefined;
         }
-    }
+    };
 }
 
 cometd.addListener("/meta/handshake", message => {
@@ -144,7 +156,12 @@ cometd.addListener("/meta/handshake", message => {
 // Listeners and Subscribers Exception Handling
 // ============================================
 
-cometd.onListenerException = function(exception, subscriptionHandle, isListener, message) {
+cometd.onListenerException = function(
+    exception,
+    subscriptionHandle,
+    isListener,
+    message
+) {
     // Uh-oh, something went wrong, disable this listener/subscriber
     // Object "this" points to the CometD object
     if (isListener) {

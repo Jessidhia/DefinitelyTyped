@@ -5,7 +5,6 @@
 // TypeScript Version: 2.2
 
 declare module "saml2-js" {
-
     export class IdentityProvider {
         constructor(options: IdentityProviderOptions);
     }
@@ -18,15 +17,34 @@ declare module "saml2-js" {
         allow_unencrypted_assertion?: boolean;
     }
 
-
     export class ServiceProvider {
         constructor(options: ServiceProviderOptions);
 
-        create_login_request_url(IdP: IdentityProvider, options: CreateLoginRequestUrlOptions, cb: (error: any, login_url: string, request_id: string) => void): void;
-        redirect_assert(IdP: IdentityProvider, options: GetAssertOptions, cb: (error: any, response: any) => void): void;
-        post_assert(IdP: IdentityProvider, options: GetAssertOptions, cb: (error: any, response: any) => void): void;
-        create_logout_request_url(IdP: IdentityProvider, options: CreateLogoutRequestUrlOptions, cb: (error: any, request_url: string) => void): void;
-        create_logout_response_url(IdP: IdentityProvider, options: CreateLogoutResponseUrlOptions, cb: (error: any, response_url: string) => void): void;
+        create_login_request_url(
+            IdP: IdentityProvider,
+            options: CreateLoginRequestUrlOptions,
+            cb: (error: any, login_url: string, request_id: string) => void
+        ): void;
+        redirect_assert(
+            IdP: IdentityProvider,
+            options: GetAssertOptions,
+            cb: (error: any, response: any) => void
+        ): void;
+        post_assert(
+            IdP: IdentityProvider,
+            options: GetAssertOptions,
+            cb: (error: any, response: any) => void
+        ): void;
+        create_logout_request_url(
+            IdP: IdentityProvider,
+            options: CreateLogoutRequestUrlOptions,
+            cb: (error: any, request_url: string) => void
+        ): void;
+        create_logout_response_url(
+            IdP: IdentityProvider,
+            options: CreateLogoutResponseUrlOptions,
+            cb: (error: any, response_url: string) => void
+        ): void;
         create_metadata(): string;
     }
     export interface ServiceProviderOptions {
@@ -66,10 +84,8 @@ declare module "saml2-js" {
         relay_state?: string;
     }
 
-
     export interface AuthnContextClassRef {
         comparison: string;
         class_refs: string[];
     }
-
 }

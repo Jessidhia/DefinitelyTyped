@@ -1,10 +1,10 @@
-import cliBoxes = require('cli-boxes');
+import cliBoxes = require("cli-boxes");
 
 cliBoxes.single; // $ExpectType BoxDefinition
 cliBoxes.double; // $ExpectType BoxDefinition
 cliBoxes.round; // $ExpectType BoxDefinition
-cliBoxes['single-double']; // $ExpectType BoxDefinition
-cliBoxes['double-single']; // $ExpectType BoxDefinition
+cliBoxes["single-double"]; // $ExpectType BoxDefinition
+cliBoxes["double-single"]; // $ExpectType BoxDefinition
 cliBoxes.classic; // $ExpectType BoxDefinition
 
 const single = cliBoxes.single;

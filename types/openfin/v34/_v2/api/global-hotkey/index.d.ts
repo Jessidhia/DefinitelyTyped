@@ -1,5 +1,5 @@
-import { EmitterBase } from '../base';
-import Transport from '../../transport/transport';
+import { EmitterBase } from "../base";
+import Transport from "../../transport/transport";
 /**
  * The GlobalHotkey module can register/unregister a global hotkeys.
  * @namespace

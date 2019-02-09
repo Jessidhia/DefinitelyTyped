@@ -9,7 +9,6 @@ export = socketty;
 export as namespace socketty;
 
 declare namespace socketty {
-
     interface Socketty {
         /**
          * Connect to a socketty server.
@@ -17,7 +16,10 @@ declare namespace socketty {
          * @param callback The callback to be run when the connection is open
          * @return A Socket
          */
-        connect(url: string, callback: (socket: SockettySocket) => void): SockettySocket;
+        connect(
+            url: string,
+            callback: (socket: SockettySocket) => void
+        ): SockettySocket;
 
         /**
          * Create a socketty server.

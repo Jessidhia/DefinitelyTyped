@@ -11,7 +11,8 @@ declare namespace CSSTransitionGroup {
         appearActive?: string;
     }
 
-    interface CSSTransitionGroupProps extends HTMLTransitionGroupProps<CSSTransitionGroup> {
+    interface CSSTransitionGroupProps
+        extends HTMLTransitionGroupProps<CSSTransitionGroup> {
         transitionName: string | CSSTransitionGroupTransitionName;
         transitionAppear?: boolean;
         transitionAppearTimeout?: number;
@@ -22,6 +23,8 @@ declare namespace CSSTransitionGroup {
     }
 }
 
-declare class CSSTransitionGroup extends Component<CSSTransitionGroup.CSSTransitionGroupProps> {}
+declare class CSSTransitionGroup extends Component<
+    CSSTransitionGroup.CSSTransitionGroupProps
+> {}
 
 export = CSSTransitionGroup;

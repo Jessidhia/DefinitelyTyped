@@ -1,22 +1,28 @@
-import * as TestRendererScheduling from './ReactTestRendererScheduling';
+import * as TestRendererScheduling from "./ReactTestRendererScheduling";
 
 export type Type = string;
 export type Props = object;
 export interface Container {
     children: Array<Instance | TextInstance>;
-    createNodeMock: ({ type, props }: { type: Type, props: Props }) => PublicInstance;
-    tag: 'CONTAINER';
+    createNodeMock: ({
+        type,
+        props
+    }: {
+        type: Type;
+        props: Props;
+    }) => PublicInstance;
+    tag: "CONTAINER";
 }
 export interface Instance {
     type: string;
     props: object;
     children: Array<Instance | TextInstance>;
     rootContainerInstance: Container;
-    tag: 'INSTANCE';
+    tag: "INSTANCE";
 }
 export interface TextInstance {
     text: string;
-    tag: 'TEXT';
+    tag: "TEXT";
 }
 export type HydratableInstance = Instance | TextInstance;
 export type PublicInstance = Instance | TextInstance;
@@ -27,8 +33,8 @@ export type TimeoutHandle = any;
 export type NoTimeout = -1;
 /* eslint-enable no-use-before-define */
 
-export * from './HostConfigWithNoPersistence';
-export * from './HostConfigWithNoHydration';
+export * from "./HostConfigWithNoPersistence";
+export * from "./HostConfigWithNoHydration";
 
 const NO_CONTEXT = {};
 const UPDATE_SIGNAL = {};
@@ -40,11 +46,11 @@ if (__DEV__) {
 
 export function getPublicInstance(inst: Instance | TextInstance) {
     switch (inst.tag) {
-        case 'INSTANCE':
+        case "INSTANCE":
             const createNodeMock = inst.rootContainerInstance.createNodeMock;
             return createNodeMock({
                 type: inst.type,
-                props: inst.props,
+                props: inst.props
             });
         default:
             return inst;
@@ -53,7 +59,7 @@ export function getPublicInstance(inst: Instance | TextInstance) {
 
 export function appendChild(
     parentInstance: Instance | Container,
-    child: Instance | TextInstance,
+    child: Instance | TextInstance
 ): void {
     const index = parentInstance.children.indexOf(child);
     if (index !== -1) {
@@ -65,7 +71,7 @@ export function appendChild(
 export function insertBefore(
     parentInstance: Instance | Container,
     child: Instance | TextInstance,
-    beforeChild: Instance | TextInstance,
+    beforeChild: Instance | TextInstance
 ): void {
     const index = parentInstance.children.indexOf(child);
     if (index !== -1) {
@@ -77,14 +83,14 @@ export function insertBefore(
 
 export function removeChild(
     parentInstance: Instance | Container,
-    child: Instance | TextInstance,
+    child: Instance | TextInstance
 ): void {
     const index = parentInstance.children.indexOf(child);
     parentInstance.children.splice(index, 1);
 }
 
 export function getRootHostContext(
-    rootContainerInstance: Container,
+    rootContainerInstance: Container
 ): HostContext {
     return NO_CONTEXT;
 }
@@ -92,7 +98,7 @@ export function getRootHostContext(
 export function getChildHostContext(
     parentHostContext: HostContext,
     type: string,
-    rootContainerInstance: Container,
+    rootContainerInstance: Container
 ): HostContext {
     return NO_CONTEXT;
 }
@@ -110,20 +116,20 @@ export function createInstance(
     props: Props,
     rootContainerInstance: Container,
     hostContext: object,
-    internalInstanceHandle: object,
+    internalInstanceHandle: object
 ): Instance {
     return {
         type,
         props,
         children: [],
         rootContainerInstance,
-        tag: 'INSTANCE',
+        tag: "INSTANCE"
     };
 }
 
 export function appendInitialChild(
     parentInstance: Instance,
-    child: Instance | TextInstance,
+    child: Instance | TextInstance
 ): void {
     const index = parentInstance.children.indexOf(child);
     if (index !== -1) {
@@ -137,7 +143,7 @@ export function finalizeInitialChildren(
     type: string,
     props: Props,
     rootContainerInstance: Container,
-    hostContext: object,
+    hostContext: object
 ): boolean {
     return false;
 }
@@ -148,7 +154,7 @@ export function prepareUpdate(
     oldProps: Props,
     newProps: Props,
     rootContainerInstance: Container,
-    hostContext: object,
+    hostContext: object
 ): null | {} {
     return UPDATE_SIGNAL;
 }
@@ -165,11 +171,11 @@ export function createTextInstance(
     text: string,
     rootContainerInstance: Container,
     hostContext: object,
-    internalInstanceHandle: object,
+    internalInstanceHandle: object
 ): TextInstance {
     return {
         text,
-        tag: 'TEXT',
+        tag: "TEXT"
     };
 }
 
@@ -183,7 +189,7 @@ export const cancelDeferredCallback =
     TestRendererScheduling.cancelDeferredCallback;
 
 export const setTimeout = (handler: any) => -1;
-export const clearTimeout = (handle: number) => { };
+export const clearTimeout = (handle: number) => {};
 export const noTimeout = -1;
 
 // -------------------
@@ -198,7 +204,7 @@ export function commitUpdate(
     type: string,
     oldProps: Props,
     newProps: Props,
-    internalInstanceHandle: object,
+    internalInstanceHandle: object
 ): void {
     instance.type = type;
     instance.props = newProps;
@@ -208,7 +214,7 @@ export function commitMount(
     instance: Instance,
     type: string,
     newProps: Props,
-    internalInstanceHandle: object,
+    internalInstanceHandle: object
 ): void {
     // noop
 }
@@ -216,7 +222,7 @@ export function commitMount(
 export function commitTextUpdate(
     textInstance: TextInstance,
     oldText: string,
-    newText: string,
+    newText: string
 ): void {
     textInstance.text = newText;
 }

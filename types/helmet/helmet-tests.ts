@@ -1,6 +1,4 @@
-
-
-import express = require("express")
+import express = require("express");
 import helmet = require("helmet");
 
 var app = express();
@@ -13,69 +11,80 @@ function helmetTest() {
     app.use(helmet({}));
     app.use(helmet({ frameguard: false }));
     app.use(helmet({ frameguard: true }));
-    app.use(helmet({
-      frameguard: {
-        action: 'deny'
-      }
-    }));
+    app.use(
+        helmet({
+            frameguard: {
+                action: "deny"
+            }
+        })
+    );
 }
 
 /**
  * @summary Test for {@see helmet#contentSecurityPolicy} function.
  */
 function contentSecurityPolicyTest() {
-    const emptyArray: string[] =  [];
+    const emptyArray: string[] = [];
     const config: helmet.IHelmetContentSecurityPolicyConfiguration = {
         directives: {
-            baseUri: ['base.example.com'],
+            baseUri: ["base.example.com"],
             blockAllMixedContent: true,
-            childSrc: ['child.example.com'],
-            connectSrc: ['connect.example.com'],
-            defaultSrc: ['*'],
-            fontSrc: ['font.example.com'],
-            formAction: ['formaction.example.com'],
+            childSrc: ["child.example.com"],
+            connectSrc: ["connect.example.com"],
+            defaultSrc: ["*"],
+            fontSrc: ["font.example.com"],
+            formAction: ["formaction.example.com"],
             frameAncestors: ["'none'"],
             frameSrc: emptyArray,
-            imgSrc: ['images.example.com'],
-            mediaSrc: ['media.example.com'],
-            manifestSrc: ['manifest.example.com'],
-            objectSrc: ['objects.example.com'],
+            imgSrc: ["images.example.com"],
+            mediaSrc: ["media.example.com"],
+            manifestSrc: ["manifest.example.com"],
+            objectSrc: ["objects.example.com"],
             pluginTypes: emptyArray,
-            prefetchSrc: ['prefetch.example.com'],
-            reportUri: '/some-url',
-            reportTo: 'report.example.com',
+            prefetchSrc: ["prefetch.example.com"],
+            reportUri: "/some-url",
+            reportTo: "report.example.com",
             requireSriFor: emptyArray,
-            sandbox: ['allow-presentation'],
-            scriptSrc: ['scripts.example.com', function (req: express.Request, res: express.Response) {
-              return "'nonce-abc123'";
-            }],
-            styleSrc: ['css.example.com'],
+            sandbox: ["allow-presentation"],
+            scriptSrc: [
+                "scripts.example.com",
+                function(req: express.Request, res: express.Response) {
+                    return "'nonce-abc123'";
+                }
+            ],
+            styleSrc: ["css.example.com"],
             upgradeInsecureRequests: true,
-            workerSrc: ['worker.example.com']
+            workerSrc: ["worker.example.com"]
         },
         reportOnly: false,
         setAllHeaders: false,
         disableAndroid: false
     };
 
-    function reportUriCb(req: express.Request, res: express.Response) { return '/some-uri'; }
-    function reportOnlyCb(req: express.Request, res: express.Response) { return false; }
+    function reportUriCb(req: express.Request, res: express.Response) {
+        return "/some-uri";
+    }
+    function reportOnlyCb(req: express.Request, res: express.Response) {
+        return false;
+    }
 
     app.use(helmet.contentSecurityPolicy());
     app.use(helmet.contentSecurityPolicy({}));
     app.use(helmet.contentSecurityPolicy(config));
-    app.use(helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            reportUri: reportUriCb,
-            'report-uri': reportUriCb,
-            reportTo: reportUriCb,
-            'report-to': reportUriCb
-        },
-        reportOnly: reportOnlyCb,
-        loose: false,
-        setAllHeaders: true
-    }));
+    app.use(
+        helmet.contentSecurityPolicy({
+            directives: {
+                defaultSrc: ["'self'"],
+                reportUri: reportUriCb,
+                "report-uri": reportUriCb,
+                reportTo: reportUriCb,
+                "report-to": reportUriCb
+            },
+            reportOnly: reportOnlyCb,
+            loose: false,
+            setAllHeaders: true
+        })
+    );
 }
 
 /**
@@ -93,12 +102,14 @@ function dnsPrefetchControlTest() {
 function frameguardTest() {
     app.use(helmet.frameguard());
     app.use(helmet.frameguard({}));
-    app.use(helmet.frameguard({ action: 'deny' }));
-    app.use(helmet.frameguard({ action: 'sameorigin' }));
-    app.use(helmet.frameguard({
-      action: 'allow-from',
-      domain: 'http://example.com'
-    }));
+    app.use(helmet.frameguard({ action: "deny" }));
+    app.use(helmet.frameguard({ action: "sameorigin" }));
+    app.use(
+        helmet.frameguard({
+            action: "allow-from",
+            domain: "http://example.com"
+        })
+    );
 }
 
 /**
@@ -107,47 +118,61 @@ function frameguardTest() {
 function hidePoweredBy() {
     app.use(helmet.hidePoweredBy());
     app.use(helmet.hidePoweredBy({}));
-    app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+    app.use(helmet.hidePoweredBy({ setTo: "PHP 4.2.0" }));
 }
 
 /**
  * @summary Test for {@see helmet#hpkp} function.
  */
 function hpkpTest() {
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="]
+        })
+    );
 
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-        includeSubdomains: false
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="],
+            includeSubdomains: false
+        })
+    );
 
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-        includeSubdomains: true
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="],
+            includeSubdomains: true
+        })
+    );
 
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-        reportUri: 'http://example.com'
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="],
+            reportUri: "http://example.com"
+        })
+    );
 
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-        reportOnly: true
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="],
+            reportOnly: true
+        })
+    );
 
-    app.use(helmet.hpkp({
-        maxAge: 7776000000,
-        sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-        setIf: function (req, res) { return true; }
-    }));
+    app.use(
+        helmet.hpkp({
+            maxAge: 7776000000,
+            sha256s: ["AbCdEf123=", "ZyXwVu456="],
+            setIf: function(req, res) {
+                return true;
+            }
+        })
+    );
 }
 
 /**
@@ -158,29 +183,41 @@ function hstsTest() {
 
     app.use(helmet.hsts({ maxAge: 7776000000 }));
 
-    app.use(helmet.hsts({
-      maxAge: 7776000000,
-    }));
+    app.use(
+        helmet.hsts({
+            maxAge: 7776000000
+        })
+    );
 
-    app.use(helmet.hsts({
-      maxAge: 7776000000,
-      includeSubdomains: true
-    }));
+    app.use(
+        helmet.hsts({
+            maxAge: 7776000000,
+            includeSubdomains: true
+        })
+    );
 
-    app.use(helmet.hsts({
-      maxAge: 7776000000,
-      preload: true
-    }));
+    app.use(
+        helmet.hsts({
+            maxAge: 7776000000,
+            preload: true
+        })
+    );
 
-    app.use(helmet.hsts({
-      maxAge: 7776000000,
-      force: true
-    }));
+    app.use(
+        helmet.hsts({
+            maxAge: 7776000000,
+            force: true
+        })
+    );
 
-    app.use(helmet.hsts({
-      maxAge: 7776000000,
-      setIf: function (req, res) { return true; }
-    }));
+    app.use(
+        helmet.hsts({
+            maxAge: 7776000000,
+            setIf: function(req, res) {
+                return true;
+            }
+        })
+    );
 }
 
 /**
@@ -210,7 +247,7 @@ function noSniffTest() {
  * @summary Test for {@see helmet#referrerPolicy} function.
  */
 function referrerPolicyTest() {
-    app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+    app.use(helmet.referrerPolicy({ policy: "same-origin" }));
 }
 
 /**
@@ -229,5 +266,5 @@ function xssFilterTest() {
 function permittedCrossDomainPoliciesTest() {
     app.use(helmet.permittedCrossDomainPolicies());
     app.use(helmet.permittedCrossDomainPolicies({}));
-    app.use(helmet.permittedCrossDomainPolicies({ permittedPolicies: 'none' }));
+    app.use(helmet.permittedCrossDomainPolicies({ permittedPolicies: "none" }));
 }

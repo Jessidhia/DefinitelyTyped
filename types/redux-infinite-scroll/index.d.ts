@@ -20,6 +20,8 @@ interface InfiniteScrollerProps {
     holderType?: string;
 }
 
-declare class InfiniteScoller extends Component<InfiniteScrollerProps & HTMLProps<HTMLDivElement>> {}
+declare class InfiniteScoller extends Component<
+    InfiniteScrollerProps & HTMLProps<HTMLDivElement>
+> {}
 
 export default InfiniteScoller;

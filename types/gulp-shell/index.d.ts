@@ -5,12 +5,13 @@
 
 /// <reference types="node" />
 
-
-
 declare namespace shell {
     interface Shell {
         (commands: string | string[], options?: Option): NodeJS.ReadWriteStream;
-        task(commands: string | string[], options?: Option): (done: Function) => NodeJS.ReadWriteStream;
+        task(
+            commands: string | string[],
+            options?: Option
+        ): (done: Function) => NodeJS.ReadWriteStream;
     }
 
     interface Option {

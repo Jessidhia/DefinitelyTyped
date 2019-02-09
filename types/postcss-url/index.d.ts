@@ -6,7 +6,7 @@
 
 /// <reference types="node" />
 
-import { Plugin } from 'postcss';
+import { Plugin } from "postcss";
 
 declare namespace url {
     type CustomTransformFunction = (
@@ -56,7 +56,7 @@ declare namespace url {
              * File path.
              */
             file?: string;
-        },
+        }
     ) => string;
     type CustomHashFunction = (file: Buffer) => string;
     type CustomFilterFunction = (file: string) => boolean;
@@ -67,7 +67,7 @@ declare namespace url {
          *
          * @default 'rebase'
          */
-        url?: 'copy' | 'inline' | 'rebase' | CustomTransformFunction;
+        url?: "copy" | "inline" | "rebase" | CustomTransformFunction;
 
         /**
          * Specify the maximum file size to inline (in kilobytes).
@@ -127,7 +127,7 @@ declare namespace url {
             /**
              * Hashing method or custom function.
              */
-            method?: 'xxhash32' | 'xxhash64' | CustomHashFunction;
+            method?: "xxhash32" | "xxhash64" | CustomHashFunction;
 
             /**
              * Shrink hast to certain length.

@@ -1,3 +1,3 @@
-import npmEmail = require('npm-email');
+import npmEmail = require("npm-email");
 
-npmEmail('sindresorhus'); // $ExpectType Promise<string>
+npmEmail("sindresorhus"); // $ExpectType Promise<string>

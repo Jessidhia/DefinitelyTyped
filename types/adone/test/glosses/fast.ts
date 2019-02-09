@@ -8,7 +8,9 @@ namespace fastTests {
         new File({ base: "/" });
         new File({ contents: Buffer.from("hello") });
         new File({ contents: Buffer.from("hello") }).contents.fill(0);
-        new File({ contents: adone.fs.createReadStream("hello") }).contents.pipe(process.stdout);
+        new File({
+            contents: adone.fs.createReadStream("hello")
+        }).contents.pipe(process.stdout);
         new File({ contents: null }).contents === null;
         new File({ cwd: "/" });
         new File({ history: ["a", "b"] });
@@ -60,37 +62,37 @@ namespace fastTests {
 
         src("hello");
         src(["hello"]);
-        src("hello").forEach((x) => {
+        src("hello").forEach(x => {
             x.isBuffer();
             x.contents.fill(0);
         });
-        src("hello", { buffer: true }).forEach((x) => {
+        src("hello", { buffer: true }).forEach(x => {
             x.isBuffer();
             x.contents.fill(0);
         });
-        src("hello", { read: true, buffer: true }).forEach((x) => {
+        src("hello", { read: true, buffer: true }).forEach(x => {
             x.isBuffer();
             x.contents.fill(0);
         });
-        src("hello", { stream: true }).forEach((x) => {
+        src("hello", { stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        src("hello", { read: true, stream: true }).forEach((x) => {
+        src("hello", { read: true, stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        src("hello", { read: true, stream: true, buffer: true }).forEach((x) => {
+        src("hello", { read: true, stream: true, buffer: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        src("hello", { read: false }).forEach((x) => {
+        src("hello", { read: false }).forEach(x => {
             const a: null = x.contents;
         });
-        src("hello", { read: false, stream: true }).forEach((x) => {
+        src("hello", { read: false, stream: true }).forEach(x => {
             const a: null = x.contents;
         });
-        src("hello", { read: false, stream: true, buffer: true }).forEach((x) => {
+        src("hello", { read: false, stream: true, buffer: true }).forEach(x => {
             const a: null = x.contents;
         });
-        src("hello", { cwd: "/" }).forEach((x) => {
+        src("hello", { cwd: "/" }).forEach(x => {
             x.contents.fill(0);
         });
 
@@ -102,11 +104,11 @@ namespace fastTests {
         src("hello").dest("hello", { originOwner: true });
         src("hello").dest("hello", { originTimes: true });
         src("hello").dest("hello", { produceFiles: true });
-        src("hello").dest((file) => {
+        src("hello").dest(file => {
             file.contents.fill(0);
             return "a";
         });
-        src("hello", { stream: true }).dest((file) => {
+        src("hello", { stream: true }).dest(file => {
             file.contents.pipe(process.stdout);
             return "a";
         });
@@ -114,30 +116,32 @@ namespace fastTests {
 
     namespace watchTests {
         const { watch } = fast;
-        watch("hello").forEach((x) => {
+        watch("hello").forEach(x => {
             x.contents.fill(0);
         });
-        watch(["hello"]).forEach((x) => {
+        watch(["hello"]).forEach(x => {
             x.contents.fill(0);
         });
-        watch("hello", { read: false }).forEach((x) => {
+        watch("hello", { read: false }).forEach(x => {
             const a: null = x.contents;
         });
-        watch("hello", { read: false, stream: true }).forEach((x) => {
+        watch("hello", { read: false, stream: true }).forEach(x => {
             const a: null = x.contents;
         });
-        watch("hello", { read: false, buffer: true }).forEach((x) => {
+        watch("hello", { read: false, buffer: true }).forEach(x => {
             const a: null = x.contents;
         });
-        watch("hello", { stream: true }).forEach((x) => {
+        watch("hello", { stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        watch("hello", { read: true, stream: true }).forEach((x) => {
+        watch("hello", { read: true, stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        watch("hello", { read: true, stream: true, buffer: true }).forEach((x) => {
-            x.contents.pipe(process.stdout);
-        });
+        watch("hello", { read: true, stream: true, buffer: true }).forEach(
+            x => {
+                x.contents.pipe(process.stdout);
+            }
+        );
         watch("hello", { alwaysStat: true });
         watch("hello", { followSymlinks: true });
     }
@@ -148,13 +152,15 @@ namespace fastTests {
         map({
             from: "a",
             to: "b"
-        }).forEach((x) => {
+        }).forEach(x => {
             x.contents.fill(0);
         });
-        map([{
-            from: "a",
-            to: "b"
-        }]).forEach((x) => {
+        map([
+            {
+                from: "a",
+                to: "b"
+            }
+        ]).forEach(x => {
             x.contents.fill(0);
         });
         map([]).dest({ cwd: "/" });
@@ -164,25 +170,25 @@ namespace fastTests {
         map([]).dest({ originOwner: false });
         map([]).dest({ originTimes: true });
         map([]).dest({ produceFiles: true });
-        map([], { read: false }).forEach((x) => {
+        map([], { read: false }).forEach(x => {
             const a: null = x.contents;
         });
-        map([], { read: false, stream: true }).forEach((x) => {
+        map([], { read: false, stream: true }).forEach(x => {
             const a: null = x.contents;
         });
-        map([], { read: false, stream: true, buffer: true }).forEach((x) => {
+        map([], { read: false, stream: true, buffer: true }).forEach(x => {
             const a: null = x.contents;
         });
-        map([], { stream: true }).forEach((x) => {
+        map([], { stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        map([], { stream: true, buffer: true }).forEach((x) => {
+        map([], { stream: true, buffer: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        map([], { read: true, stream: true, buffer: true }).forEach((x) => {
+        map([], { read: true, stream: true, buffer: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        map([], { buffer: true }).forEach((x) => {
+        map([], { buffer: true }).forEach(x => {
             x.contents.fill(0);
         });
     }
@@ -193,37 +199,39 @@ namespace fastTests {
         watchMap({
             from: "a",
             to: "b"
-        }).forEach((x) => {
+        }).forEach(x => {
             x.contents.fill(0);
         });
-        watchMap([{
-            from: "a",
-            to: "b"
-        }]).forEach((x) => {
+        watchMap([
+            {
+                from: "a",
+                to: "b"
+            }
+        ]).forEach(x => {
             x.contents.fill(0);
         });
-        watchMap([], { read: false }).forEach((x) => {
+        watchMap([], { read: false }).forEach(x => {
             const a: null = x.contents;
         });
-        watchMap([], { stream: true }).forEach((x) => {
+        watchMap([], { stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        watchMap([], { read: true, stream: true }).forEach((x) => {
+        watchMap([], { read: true, stream: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        watchMap([], { read: true, stream: true, buffer: true }).forEach((x) => {
+        watchMap([], { read: true, stream: true, buffer: true }).forEach(x => {
             x.contents.pipe(process.stdout);
         });
-        watchMap([], { buffer: true }).forEach((x) => {
+        watchMap([], { buffer: true }).forEach(x => {
             x.contents.fill(0);
         });
-        watchMap([], { read: true, buffer: true }).forEach((x) => {
+        watchMap([], { read: true, buffer: true }).forEach(x => {
             x.contents.fill(0);
         });
-        watchMap([], { read: false, stream: true }).forEach((x) => {
+        watchMap([], { read: false, stream: true }).forEach(x => {
             const a: null = x.contents;
         });
-        watchMap([], { read: false, stream: true, buffer: true }).forEach((x) => {
+        watchMap([], { read: false, stream: true, buffer: true }).forEach(x => {
             const a: null = x.contents;
         });
     }
@@ -263,7 +271,7 @@ namespace fastTests {
 
         namespace renameTests {
             src("hello").rename("opa");
-            src("hello").rename((obj) => {
+            src("hello").rename(obj => {
                 const a: string = obj.basename;
                 const b: string = obj.dirname;
                 const c: string = obj.extname;
@@ -305,12 +313,22 @@ namespace fastTests {
             src("hello").sourcemapsWrite({ clone: { contents: true } });
             src("hello").sourcemapsWrite({ destPath: "../" });
             src("hello").sourcemapsWrite({ includeContent: true });
-            src("hello").sourcemapsWrite({ mapFile: (f) => f.contents.fill(0) && f.path });
-            src("hello").sourcemapsWrite({ mapSources: (path: string, file) => file.contents.fill(0) && path });
+            src("hello").sourcemapsWrite({
+                mapFile: f => f.contents.fill(0) && f.path
+            });
+            src("hello").sourcemapsWrite({
+                mapSources: (path: string, file) =>
+                    file.contents.fill(0) && path
+            });
             src("hello").sourcemapsWrite({ mapSourcesAbsolute: true });
-            src("hello").sourcemapsWrite({ sourceMappingURL: (file) => file.contents.fill(0) && file.path });
+            src("hello").sourcemapsWrite({
+                sourceMappingURL: file => file.contents.fill(0) && file.path
+            });
             src("hello").sourcemapsWrite({ sourceMappingURLPrefix: "haha" });
-            src("hello").sourcemapsWrite({ sourceMappingURLPrefix: (file) => file.contents.fill(0) && file.path });
+            src("hello").sourcemapsWrite({
+                sourceMappingURLPrefix: file =>
+                    file.contents.fill(0) && file.path
+            });
             src("hello").sourcemapsWrite({ sourceRoot: "../" });
             src("hello").sourcemapsWrite("../", {});
             src("hello").sourcemapsWrite("../", { addComment: true });
@@ -319,20 +337,35 @@ namespace fastTests {
             src("hello").sourcemapsWrite("../", { clone: { contents: true } });
             src("hello").sourcemapsWrite("../", { destPath: "../" });
             src("hello").sourcemapsWrite("../", { includeContent: true });
-            src("hello").sourcemapsWrite("../", { mapFile: (f) => f.contents.fill(0) && f.path });
-            src("hello").sourcemapsWrite("../", { mapSources: (path: string, file) => file.contents.fill(0) && path });
+            src("hello").sourcemapsWrite("../", {
+                mapFile: f => f.contents.fill(0) && f.path
+            });
+            src("hello").sourcemapsWrite("../", {
+                mapSources: (path: string, file) =>
+                    file.contents.fill(0) && path
+            });
             src("hello").sourcemapsWrite("../", { mapSourcesAbsolute: true });
-            src("hello").sourcemapsWrite("../", { sourceMappingURL: (file) => file.contents.fill(0) && file.path });
-            src("hello").sourcemapsWrite("../", { sourceMappingURLPrefix: "haha" });
-            src("hello").sourcemapsWrite("../", { sourceMappingURLPrefix: (file) => file.contents.fill(0) && file.path });
+            src("hello").sourcemapsWrite("../", {
+                sourceMappingURL: file => file.contents.fill(0) && file.path
+            });
+            src("hello").sourcemapsWrite("../", {
+                sourceMappingURLPrefix: "haha"
+            });
+            src("hello").sourcemapsWrite("../", {
+                sourceMappingURLPrefix: file =>
+                    file.contents.fill(0) && file.path
+            });
             src("hello").sourcemapsWrite("../", { sourceRoot: "../" });
         }
 
         namespace wrapTests {
             src("hello").wrap("template");
             src("hello").wrap({ src: "template path" });
-            src("hello").wrap((data) =>  "123");
-            src("hello").wrap("template", (file) => file.contents.fill(0) && { a: 1 });
+            src("hello").wrap(data => "123");
+            src("hello").wrap(
+                "template",
+                file => file.contents.fill(0) && { a: 1 }
+            );
             src("hello").wrap("template", { a: 1 });
             src("hello").wrap("template", undefined, { escape: /aasd/ });
             src("hello").wrap("template", undefined, { evaluate: /aa/ });
@@ -341,7 +374,11 @@ namespace fastTests {
             src("hello").wrap("template", undefined, { parse: true });
             src("hello").wrap("template", undefined, { sourceURL: ".a" });
             src("hello").wrap("template", undefined, { variable: "a" });
-            src("hello").wrap("template", undefined, (file) => (file.contents.fill(0) && { parse: true }));
+            src("hello").wrap(
+                "template",
+                undefined,
+                file => file.contents.fill(0) && { parse: true }
+            );
         }
 
         namespace replaceTests {
@@ -537,7 +574,7 @@ namespace fastTests {
                 emitError: true
             });
             src("hello").notify({
-                filter: (file) => file.contents.fill(0) && true
+                filter: file => file.contents.fill(0) && true
             });
             src("hello").notify({
                 gui: true
@@ -549,7 +586,7 @@ namespace fastTests {
                 message: "hello"
             });
             src("hello").notify({
-                message: (file) => file.contents.fill(0) && file.path
+                message: file => file.contents.fill(0) && file.path
             });
             src("hello").notify({
                 notifier: {} // TODO
@@ -558,7 +595,7 @@ namespace fastTests {
                 onLast: true
             });
             src("hello").notify({
-                open: (file) => file.contents.fill(0) && file.path
+                open: file => file.contents.fill(0) && file.path
             });
             src("hello").notify({
                 open: "hello"
@@ -567,7 +604,7 @@ namespace fastTests {
                 port: 31337
             });
             src("hello").notify({
-                subtitle: (file) => file.contents.fill(0) && file.path
+                subtitle: file => file.contents.fill(0) && file.path
             });
             src("hello").notify({
                 subtitle: "hello"
@@ -579,7 +616,7 @@ namespace fastTests {
                 title: "hello"
             });
             src("hello").notify({
-                title: (file) => file.contents.fill(0) && file.path
+                title: file => file.contents.fill(0) && file.path
             });
             src("hello").notifyError("hello");
             src("hello").notifyError({
@@ -612,7 +649,7 @@ namespace fastTests {
                 emitError: true
             });
             src("hello").notifyError({
-                filter: (file) => file.contents.fill(0) && true
+                filter: file => file.contents.fill(0) && true
             });
             src("hello").notifyError({
                 gui: true
@@ -624,7 +661,7 @@ namespace fastTests {
                 message: "hello"
             });
             src("hello").notifyError({
-                message: (file) => file.contents.fill(0) && file.path
+                message: file => file.contents.fill(0) && file.path
             });
             src("hello").notifyError({
                 notifier: {} // TODO
@@ -633,7 +670,7 @@ namespace fastTests {
                 onLast: true
             });
             src("hello").notifyError({
-                open: (file) => file.contents.fill(0) && file.path
+                open: file => file.contents.fill(0) && file.path
             });
             src("hello").notifyError({
                 open: "hello"
@@ -642,7 +679,7 @@ namespace fastTests {
                 port: 31337
             });
             src("hello").notifyError({
-                subtitle: (file) => file.contents.fill(0) && file.path
+                subtitle: file => file.contents.fill(0) && file.path
             });
             src("hello").notifyError({
                 subtitle: "hello"
@@ -654,7 +691,7 @@ namespace fastTests {
                 title: "hello"
             });
             src("hello").notifyError({
-                title: (file) => file.contents.fill(0) && file.path
+                title: file => file.contents.fill(0) && file.path
             });
 
             fast.plugin.notify.onError("hello");
@@ -688,7 +725,7 @@ namespace fastTests {
                 emitError: true
             });
             fast.plugin.notify.onError({
-                filter: (file) => true
+                filter: file => true
             });
             fast.plugin.notify.onError({
                 gui: true
@@ -700,7 +737,7 @@ namespace fastTests {
                 message: "hello"
             });
             fast.plugin.notify.onError({
-                message: (file) => file.path
+                message: file => file.path
             });
             fast.plugin.notify.onError({
                 notifier: {} // TODO
@@ -709,7 +746,7 @@ namespace fastTests {
                 onLast: true
             });
             fast.plugin.notify.onError({
-                open: (file) => file.path
+                open: file => file.path
             });
             fast.plugin.notify.onError({
                 open: "hello"
@@ -718,7 +755,7 @@ namespace fastTests {
                 port: 31337
             });
             fast.plugin.notify.onError({
-                subtitle: (file) => file.path
+                subtitle: file => file.path
             });
             fast.plugin.notify.onError({
                 subtitle: "hello"
@@ -730,7 +767,7 @@ namespace fastTests {
                 title: "hello"
             });
             fast.plugin.notify.onError({
-                title: (file) => file.path
+                title: file => file.path
             });
         }
     }

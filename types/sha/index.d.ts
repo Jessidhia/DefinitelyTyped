@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import { Transform } from 'stream';
+import { Transform } from "stream";
 
 export type CheckCallback<R> = (err: Error | null) => R;
 export type GetCallback = (err: Error | null, actual: string) => void;
@@ -19,18 +19,35 @@ export interface ShaOptions {
  * Asynchronously check that `fileName` has a "hash" of `expected`. The callback will be called with either `null`
  * or an error (indicating that they did not match).
  */
-export function check<R>(fileName: string, expected: string, cb: CheckCallback<R>): void | R;
-export function check<R>(fileName: string, expected: string, options: ShaOptions, cb: CheckCallback<R>): void | R;
+export function check<R>(
+    fileName: string,
+    expected: string,
+    cb: CheckCallback<R>
+): void | R;
+export function check<R>(
+    fileName: string,
+    expected: string,
+    options: ShaOptions,
+    cb: CheckCallback<R>
+): void | R;
 /**
  * Synchronously check that `fileName` has a "hash" of `expected`. Throws if they do not match.
  */
-export function checkSync(fileName: string, expected: string, options?: ShaOptions): void;
+export function checkSync(
+    fileName: string,
+    expected: string,
+    options?: ShaOptions
+): void;
 /**
  * Asynchronously get the "hash" of `fileName`. The callback will be called with an optional `error` object and the
  * (lower cased) hex digest of the hash.
  */
 export function get(fileName: string, cb: GetCallback): void;
-export function get(fileName: string, options: ShaOptions, cb: GetCallback): void;
+export function get(
+    fileName: string,
+    options: ShaOptions,
+    cb: GetCallback
+): void;
 /** Synchronously get the "hash" of `fileName`. */
 export function getSync(fileName: string, options?: ShaOptions): string;
 /**

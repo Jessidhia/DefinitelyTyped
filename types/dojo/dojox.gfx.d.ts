@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx.html
      *
@@ -280,7 +278,11 @@ declare namespace dojox {
          * @param width width of surface, e.g., "100px" or 100
          * @param height height of surface, e.g., "100px" or 100
          */
-        createSurface(parentNode: HTMLElement, width: String, height: String): dojox.gfx.Surface;
+        createSurface(
+            parentNode: HTMLElement,
+            width: String,
+            height: String
+        ): dojox.gfx.Surface;
         /**
          * creates a surface
          *
@@ -288,7 +290,11 @@ declare namespace dojox {
          * @param width width of surface, e.g., "100px" or 100
          * @param height height of surface, e.g., "100px" or 100
          */
-        createSurface(parentNode: HTMLElement, width: number, height: String): dojox.gfx.Surface;
+        createSurface(
+            parentNode: HTMLElement,
+            width: number,
+            height: String
+        ): dojox.gfx.Surface;
         /**
          * creates a surface
          *
@@ -296,7 +302,11 @@ declare namespace dojox {
          * @param width width of surface, e.g., "100px" or 100
          * @param height height of surface, e.g., "100px" or 100
          */
-        createSurface(parentNode: HTMLElement, width: String, height: number): dojox.gfx.Surface;
+        createSurface(
+            parentNode: HTMLElement,
+            width: String,
+            height: number
+        ): dojox.gfx.Surface;
         /**
          * creates a surface
          *
@@ -304,7 +314,11 @@ declare namespace dojox {
          * @param width width of surface, e.g., "100px" or 100
          * @param height height of surface, e.g., "100px" or 100
          */
-        createSurface(parentNode: HTMLElement, width: number, height: number): dojox.gfx.Surface;
+        createSurface(
+            parentNode: HTMLElement,
+            width: number,
+            height: number
+        ): dojox.gfx.Surface;
         /**
          * Decompose a 2D matrix into translation, scaling, and rotation components.
          * This function decompose a matrix into four logical components:
@@ -383,7 +397,7 @@ declare namespace dojox {
          *
          * @param color A color representation.
          */
-        normalizeColor(color: dojo._base.Color ): any;
+        normalizeColor(color: dojo._base.Color): any;
         /**
          * converts any legal color representation to normalized
          * dojo/Color object
@@ -2795,7 +2809,13 @@ declare namespace dojox {
              * @param fillArgs
              * @param strokeArgs
              */
-            draw(group: dojox.gfx.shape.Container, textArgs: dojox.gfx.Text, fontArgs: dojox.gfx.Font, fillArgs: dojox.gfx.Fill, strokeArgs: dojox.gfx.Stroke): any;
+            draw(
+                group: dojox.gfx.shape.Container,
+                textArgs: dojox.gfx.Text,
+                fontArgs: dojox.gfx.Font,
+                fillArgs: dojox.gfx.Fill,
+                strokeArgs: dojox.gfx.Stroke
+            ): any;
             /**
              * Find the baseline coord for alignment; adjust for scale if passed.
              *
@@ -2837,7 +2857,7 @@ declare namespace dojox {
              *
              * @param url The svg to parse.
              */
-            load(url:  dojo._base.url): Function;
+            load(url: dojo._base.url): Function;
             /**
              *
              * @param font
@@ -2959,7 +2979,13 @@ declare namespace dojox {
              * @param fillArgs
              * @param strokeArgs
              */
-            draw(group: dojox.gfx.shape.Container, textArgs: dojox.gfx.Text, fontArgs: dojox.gfx.Font, fillArgs: dojox.gfx.Fill, strokeArgs: dojox.gfx.Stroke): any;
+            draw(
+                group: dojox.gfx.shape.Container,
+                textArgs: dojox.gfx.Text,
+                fontArgs: dojox.gfx.Font,
+                fillArgs: dojox.gfx.Fill,
+                strokeArgs: dojox.gfx.Stroke
+            ): any;
             /**
              * Find the baseline coord for alignment; adjust for scale if passed.
              *
@@ -3001,7 +3027,7 @@ declare namespace dojox {
              *
              * @param url The svg to parse.
              */
-            load(url:  dojo._base.url): Function;
+            load(url: dojo._base.url): Function;
             /**
              *
              * @param font
@@ -3287,7 +3313,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3295,7 +3325,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: String): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: String
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3303,7 +3337,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: number): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: number
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3311,7 +3349,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: number): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: number
+            ): dojox.gfx.Surface;
             /**
              * Decompose a 2D matrix into translation, scaling, and rotation components.
              * This function decompose a matrix into four logical components:
@@ -3390,7 +3432,7 @@ declare namespace dojox {
              *
              * @param color A color representation.
              */
-            normalizeColor(color: dojo._base.Color ): any;
+            normalizeColor(color: dojo._base.Color): any;
             /**
              * converts any legal color representation to normalized
              * dojo/Color object
@@ -3508,8 +3550,7 @@ declare namespace dojox {
          *
          *
          */
-        interface _svgFontCache {
-        }
+        interface _svgFontCache {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/_gfxBidiSupport.html
          *
@@ -3784,7 +3825,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3792,7 +3837,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: String): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: String
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3800,7 +3849,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: number): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: number
+            ): dojox.gfx.Surface;
             /**
              * creates a surface
              *
@@ -3808,7 +3861,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: number): dojox.gfx.Surface;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: number
+            ): dojox.gfx.Surface;
             /**
              * Decompose a 2D matrix into translation, scaling, and rotation components.
              * This function decompose a matrix into four logical components:
@@ -3887,7 +3944,7 @@ declare namespace dojox {
              *
              * @param color A color representation.
              */
-            normalizeColor(color: dojo._base.Color ): any;
+            normalizeColor(color: dojo._base.Color): any;
             /**
              * converts any legal color representation to normalized
              * dojo/Color object
@@ -4005,8 +4062,7 @@ declare namespace dojox {
          *
          *
          */
-        interface _vectorFontCache {
-        }
+        interface _vectorFontCache {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/arc.html
          *
@@ -4034,7 +4090,16 @@ declare namespace dojox {
              * @param x the x coordinate of the end point of the arc
              * @param y the y coordinate of the end point of the arc
              */
-            arcAsBezier(last: Object, rx: number, ry: number, xRotg: number, large: boolean, sweep: boolean, x: number, y: number): any[];
+            arcAsBezier(
+                last: Object,
+                rx: number,
+                ry: number,
+                xRotg: number,
+                large: boolean,
+                sweep: boolean,
+                x: number,
+                y: number
+            ): any[];
             /**
              * return a start point, 1st and 2nd control points, and an end point of
              * a an arc, which is reflected on the x axis
@@ -4113,7 +4178,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px"
              * @param height height of surface, e.g., "100px"
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): any;
             /**
              *
              */
@@ -4194,7 +4263,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px"
              * @param height height of surface, e.g., "100px"
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): any;
             /**
              *
              */
@@ -4247,8 +4320,7 @@ declare namespace dojox {
          * when your application specifically targets the HTML5 Canvas renderer.
          *
          */
-        interface canvasext {
-        }
+        interface canvasext {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/canvasWithEvents.html
          *
@@ -4275,7 +4347,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px"
              * @param height height of surface, e.g., "100px"
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): void;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): void;
             /**
              *
              */
@@ -4976,7 +5052,14 @@ declare namespace dojox {
              * @param ttl top-left corner of shape's transformed bounding box
              * @param trb right-bottom corner of shape's transformed bounding box
              */
-            project(matrix: dojox.gfx.matrix.Matrix2D , gradient: Object, tl: Object, rb: Object, ttl: Object, trb: Object): Object;
+            project(
+                matrix: dojox.gfx.matrix.Matrix2D,
+                gradient: Object,
+                tl: Object,
+                rb: Object,
+                ttl: Object,
+                trb: Object
+            ): Object;
             /**
              * Returns a new gradient using the "VML algorithm" and suitable for VML.
              *
@@ -4987,7 +5070,14 @@ declare namespace dojox {
              * @param ttl top-left corner of shape's transformed bounding box
              * @param trb right-bottom corner of shape's transformed bounding box
              */
-            project(matrix: any, gradient: Object, tl: Object, rb: Object, ttl: Object, trb: Object): Object;
+            project(
+                matrix: any,
+                gradient: Object,
+                tl: Object,
+                rb: Object,
+                ttl: Object,
+                trb: Object
+            ): Object;
             /**
              * Recalculates a gradient from 0-1 window to
              * "from"-"to" window blending and replicating colors,
@@ -5065,8 +5155,7 @@ declare namespace dojox {
          *
          *
          */
-        interface move {
-        }
+        interface move {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/matrix.html
          *
@@ -5104,7 +5193,9 @@ declare namespace dojox {
              *
              * @param matrix a 2D matrix-like object to be inverted
              */
-            invert(matrix: dojox.gfx.matrix.Matrix2D): dojox.gfx.matrix.Matrix2D;
+            invert(
+                matrix: dojox.gfx.matrix.Matrix2D
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * returns whether the specified matrix is the identity.
              *
@@ -5125,7 +5216,11 @@ declare namespace dojox {
              * @param a an x coordinate of a point, or a point
              * @param b               Optionala y coordinate of a point
              */
-            multiplyPoint(matrix: dojox.gfx.matrix.Matrix2D, a: number, b: number): dojox.gfx.Point;
+            multiplyPoint(
+                matrix: dojox.gfx.matrix.Matrix2D,
+                a: number,
+                b: number
+            ): dojox.gfx.Point;
             /**
              * applies a matrix to a point
              *
@@ -5133,7 +5228,11 @@ declare namespace dojox {
              * @param a an x coordinate of a point, or a point
              * @param b               Optionala y coordinate of a point
              */
-            multiplyPoint(matrix: dojox.gfx.matrix.Matrix2D, a:  dojox.gfx.Point, b: number): dojox.gfx.Point;
+            multiplyPoint(
+                matrix: dojox.gfx.matrix.Matrix2D,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.Point;
             /**
              * Applies a matrix to a rectangle.
              * The method applies the transformation on all corners of the
@@ -5143,7 +5242,10 @@ declare namespace dojox {
              * @param matrix a 2D matrix object to be applied.
              * @param rect the rectangle to transform.
              */
-            multiplyRectangle(matrix: dojox.gfx.matrix.Matrix2D, rect: dojox.gfx.shape.Rect): dojox.gfx.Rectangle;
+            multiplyRectangle(
+                matrix: dojox.gfx.matrix.Matrix2D,
+                rect: dojox.gfx.shape.Rect
+            ): dojox.gfx.Rectangle;
             /**
              * converts an object to a matrix, if necessary
              * Converts any 2D matrix-like object or an array of
@@ -5160,7 +5262,7 @@ declare namespace dojox {
              * @param a a point-like object, which specifies a vector of projection, oran x coordinate value
              * @param b               Optionala y coordinate value
              */
-            project(a: dojox.gfx.Point , b: number): dojox.gfx.matrix.Matrix2D;
+            project(a: dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
             /**
              * forms an orthogonal projection matrix
              * The resulting matrix is used to project points orthogonally on a vector,
@@ -5178,7 +5280,7 @@ declare namespace dojox {
              * @param a a point-like object, which specifies a vector of reflection, or an X value
              * @param b               Optionala Y value
              */
-            reflect(a: dojox.gfx.Point , b: number): dojox.gfx.matrix.Matrix2D;
+            reflect(a: dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a reflection matrix
              * The resulting matrix is used to reflect points around a vector,
@@ -5204,7 +5306,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            rotateAt(angle: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            rotateAt(
+                angle: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * rotates a picture using a specified point as a center of rotation
              * Compare with dojox/gfx/matrix.rotate().
@@ -5213,7 +5319,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            rotateAt(angle: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            rotateAt(
+                angle: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a rotating matrix
              * The resulting matrix is used to rotate points
@@ -5231,7 +5341,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            rotategAt(degree: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            rotategAt(
+                degree: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * rotates a picture using a specified point as a center of rotation
              * Compare with dojox/gfx/matrix.rotateg().
@@ -5240,7 +5354,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            rotategAt(degree: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            rotategAt(
+                degree: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a scaling matrix
              * The resulting matrix is used to scale (magnify) points by specified offsets.
@@ -5256,7 +5374,7 @@ declare namespace dojox {
              * @param a a scaling factor used for the x coordinate, ora uniform scaling factor used for the both coordinates, ora point-like object, which specifies scale factors for both dimensions
              * @param b               Optionala scaling factor used for the y coordinate
              */
-            scale(a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            scale(a: dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
             /**
              * scales a picture using a specified point as a center of scaling
              * Compare with dojox/gfx/matrix.scale().
@@ -5266,7 +5384,12 @@ declare namespace dojox {
              * @param c an x component of a central point, or a central point
              * @param d a y component of a central point
              */
-            scaleAt(a: number, b: number, c: number, d: number): dojox.gfx.matrix.Matrix2D;
+            scaleAt(
+                a: number,
+                b: number,
+                c: number,
+                d: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * scales a picture using a specified point as a center of scaling
              * Compare with dojox/gfx/matrix.scale().
@@ -5276,7 +5399,12 @@ declare namespace dojox {
              * @param c an x component of a central point, or a central point
              * @param d a y component of a central point
              */
-            scaleAt(a: number, b: number, c: dojox.gfx.Point, d: number): dojox.gfx.matrix.Matrix2D;
+            scaleAt(
+                a: number,
+                b: number,
+                c: dojox.gfx.Point,
+                d: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms an x skewing matrix
              * The resulting matrix is used to skew points in the x dimension
@@ -5293,7 +5421,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewXAt(angle: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            skewXAt(
+                angle: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * skews a picture along the x axis using a specified point as a center of skewing
              * Compare with dojox/gfx/matrix.skewX().
@@ -5302,7 +5434,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewXAt(angle: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            skewXAt(
+                angle: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms an x skewing matrix
              * The resulting matrix is used to skew points in the x dimension
@@ -5320,7 +5456,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewXgAt(degree: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            skewXgAt(
+                degree: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * skews a picture along the x axis using a specified point as a center of skewing
              * Compare with dojox/gfx/matrix.skewXg().
@@ -5329,7 +5469,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewXgAt(degree: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            skewXgAt(
+                degree: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a y skewing matrix
              * The resulting matrix is used to skew points in the y dimension
@@ -5346,7 +5490,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewYAt(angle: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            skewYAt(
+                angle: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * skews a picture along the y axis using a specified point as a center of skewing
              * Compare with dojox/gfx/matrix.skewY().
@@ -5355,7 +5503,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewYAt(angle: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            skewYAt(
+                angle: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a y skewing matrix
              * The resulting matrix is used to skew points in the y dimension
@@ -5373,7 +5525,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewYgAt(degree: number, a: number, b: number): dojox.gfx.matrix.Matrix2D;
+            skewYgAt(
+                degree: number,
+                a: number,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * skews a picture along the y axis using a specified point as a center of skewing
              * Compare with dojox/gfx/matrix.skewYg().
@@ -5382,7 +5538,11 @@ declare namespace dojox {
              * @param a an x component of a central point, or a central point
              * @param b               Optionala y component of a central point
              */
-            skewYgAt(degree: number, a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            skewYgAt(
+                degree: number,
+                a: dojox.gfx.Point,
+                b: number
+            ): dojox.gfx.matrix.Matrix2D;
             /**
              * forms a translation matrix
              * The resulting matrix is used to translate (move) points by specified offsets.
@@ -5398,7 +5558,7 @@ declare namespace dojox {
              * @param a an x coordinate value, or a point-like object, which specifies offsets for both dimensions
              * @param b               Optionala y coordinate value
              */
-            translate(a:  dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
+            translate(a: dojox.gfx.Point, b: number): dojox.gfx.matrix.Matrix2D;
         }
         namespace matrix {
             /**
@@ -5494,7 +5654,6 @@ declare namespace dojox {
          *
          */
         interface shape {
-
             /**
              * Returns the shape that matches the specified id.
              *
@@ -5516,7 +5675,6 @@ declare namespace dojox {
              * @param s The shape to register.
              */
             register(s: dojox.gfx.shape.Shape): number;
-
         }
         namespace shape {
             /**
@@ -5525,48 +5683,48 @@ declare namespace dojox {
              * to logically group shapes (e.g, to propagate matricies)
              *
              */
-            class Container { }
+            class Container {}
             /**
              * shape creators
              *
              */
-            class Creator { }
+            class Creator {}
             /**
              *
              */
-            class Circle{}
+            class Circle {}
             /**
              *
              */
-            class Ellipse{}
+            class Ellipse {}
             /**
              *
              */
-            class Image{}
+            class Image {}
             /**
              *
              */
-            class Line{}
+            class Line {}
             /**
              *
              */
-            class Polyline{}
+            class Polyline {}
             /**
              *
              */
-            class Rect{}
+            class Rect {}
             /**
              *
              */
-            class Shape{}
+            class Shape {}
             /**
              *
              */
-            class Surface{}
+            class Surface {}
             /**
              *
              */
-            class Text{}
+            class Text {}
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/silverlight_attach.html
@@ -5599,7 +5757,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px"
              * @param height height of surface, e.g., "100px"
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): void;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): void;
             /**
              *
              */
@@ -5676,7 +5838,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px"
              * @param height height of surface, e.g., "100px"
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): void;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): void;
             /**
              *
              */
@@ -5762,8 +5928,7 @@ declare namespace dojox {
          * when your application specifically targets the SVG renderer.
          *
          */
-        interface svgext {
-        }
+        interface svgext {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/utils.html
          *
@@ -5776,14 +5941,17 @@ declare namespace dojox {
              * @param parent The destination container for the deserialized shapes.
              * @param object The shapes to deserialize.
              */
-            deserialize(parent:  dojox.gfx.shape.Shape, object: dojox.gfx.shape.Shape ): any;
+            deserialize(
+                parent: dojox.gfx.shape.Shape,
+                object: dojox.gfx.shape.Shape
+            ): any;
             /**
              * Takes a surface or a shape and populates it with an object produced by serialize().
              *
              * @param parent The destination container for the deserialized shapes.
              * @param object The shapes to deserialize.
              */
-            deserialize(parent:  dojox.gfx.shape.Shape, object: any[]): any;
+            deserialize(parent: dojox.gfx.shape.Shape, object: any[]): any;
             /**
              * Takes a shape or a surface and applies a function "f" to in the context of "o"
              * (or global, if missing). If "shape" was a surface or a group, it applies the same
@@ -5793,7 +5961,11 @@ declare namespace dojox {
              * @param f The function to apply.
              * @param o               OptionalThe scope.
              */
-            forEach(object:  dojox.gfx.shape.Shape, f: Function, o: Object): void;
+            forEach(
+                object: dojox.gfx.shape.Shape,
+                f: Function,
+                o: Object
+            ): void;
             /**
              * Takes a shape or a surface and applies a function "f" to in the context of "o"
              * (or global, if missing). If "shape" was a surface or a group, it applies the same
@@ -5803,7 +5975,7 @@ declare namespace dojox {
              * @param f The function to apply.
              * @param o               OptionalThe scope.
              */
-            forEach(object:  dojox.gfx.shape.Shape, f: String, o: Object): void;
+            forEach(object: dojox.gfx.shape.Shape, f: String, o: Object): void;
             /**
              * Takes a shape or a surface and applies a function "f" to in the context of "o"
              * (or global, if missing). If "shape" was a surface or a group, it applies the same
@@ -5813,27 +5985,27 @@ declare namespace dojox {
              * @param f The function to apply.
              * @param o               OptionalThe scope.
              */
-            forEach(object:  dojox.gfx.shape.Shape, f: any[], o: Object): void;
+            forEach(object: dojox.gfx.shape.Shape, f: any[], o: Object): void;
             /**
              * Works just like deserialize() but takes a JSON representation of the object.
              *
              * @param parent The destination container for the deserialized shapes.
              * @param json The shapes to deserialize.
              */
-            fromJson(parent:  dojox.gfx.shape.Shape, json: String): any;
+            fromJson(parent: dojox.gfx.shape.Shape, json: String): any;
             /**
              * Takes a shape or a surface and returns an object, which describes underlying shapes.
              *
              * @param object The container to serialize.
              */
-            serialize(object:  dojox.gfx.shape.Shape): any;
+            serialize(object: dojox.gfx.shape.Shape): any;
             /**
              * Works just like serialize() but returns a JSON string. If prettyPrint is true, the string is pretty-printed to make it more human-readable.
              *
              * @param object The container to serialize.
              * @param prettyPrint               OptionalIndicates whether the output string should be formatted.
              */
-            toJson(object:  dojox.gfx.shape.Shape, prettyPrint: boolean): String;
+            toJson(object: dojox.gfx.shape.Shape, prettyPrint: boolean): String;
             /**
              * Function to serialize a GFX surface to SVG text.
              * Function to serialize a GFX surface to SVG text.  The value of this output
@@ -6007,7 +6179,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -6015,7 +6191,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: String
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -6023,7 +6203,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: number): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: number
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -6031,7 +6215,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: number): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: number
+            ): any;
             /**
              *
              */
@@ -6153,8 +6341,7 @@ declare namespace dojox {
          * Note: the dojox/gfx/tests/test_filter.html test shows the rendering of all the predefined filters.
          *
          */
-        interface filters {
-        }
+        interface filters {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/renderer.html
          *
@@ -6162,8 +6349,7 @@ declare namespace dojox {
          * implementation based on detected environment and current configuration settings.
          *
          */
-        interface renderer {
-        }
+        interface renderer {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gfx/registry.html
          *
@@ -6317,7 +6503,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -6504,7 +6692,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -6692,7 +6882,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -6879,7 +7071,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -7074,7 +7268,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -7282,7 +7478,10 @@ declare namespace dojox {
                  * @param shape an VML shape object
                  * @param silently               Optionalif true, regenerate a picture
                  */
-                remove(shape: dojox.gfx.shape.Shape, silently: boolean): Function;
+                remove(
+                    shape: dojox.gfx.shape.Shape,
+                    silently: boolean
+                ): Function;
                 /**
                  * removes the shape from its parent's list of shapes
                  *
@@ -7352,7 +7551,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -7606,7 +7807,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -7802,7 +8005,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -7986,7 +8191,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -8318,7 +8525,10 @@ declare namespace dojox {
                  * @param shape an VML shape object
                  * @param silently               Optionalif true, regenerate a picture
                  */
-                remove(shape: dojox.gfx.shape.Shape, silently: boolean): Function;
+                remove(
+                    shape: dojox.gfx.shape.Shape,
+                    silently: boolean
+                ): Function;
                 /**
                  * sets the width and height of the rawNode
                  *
@@ -8401,7 +8611,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -8636,7 +8848,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -9015,7 +9229,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: String
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -9023,7 +9241,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: String): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: String
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -9031,7 +9253,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: String, height: number): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: String,
+                height: number
+            ): any;
             /**
              * creates a surface (VML)
              *
@@ -9039,7 +9265,11 @@ declare namespace dojox {
              * @param width width of surface, e.g., "100px" or 100
              * @param height height of surface, e.g., "100px" or 100
              */
-            createSurface(parentNode: HTMLElement, width: number, height: number): any;
+            createSurface(
+                parentNode: HTMLElement,
+                width: number,
+                height: number
+            ): any;
             /**
              *
              */
@@ -9119,7 +9349,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -9309,7 +9541,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -9499,7 +9733,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -9690,7 +9926,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -9886,7 +10124,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -10083,7 +10323,10 @@ declare namespace dojox {
                  * @param shape a VML shape object
                  * @param silently               Optionalif true, regenerate a picture
                  */
-                remove(shape: dojox.gfx.shape.Shape, silently: boolean): Function;
+                remove(
+                    shape: dojox.gfx.shape.Shape,
+                    silently: boolean
+                ): Function;
                 /**
                  * removes the shape from its parent's list of shapes
                  *
@@ -10157,7 +10400,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -10355,7 +10600,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -10541,7 +10788,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -10882,7 +11131,10 @@ declare namespace dojox {
                  * @param shape a VML shape object
                  * @param silently               Optionalif true, regenerate a picture
                  */
-                remove(shape: dojox.gfx.shape.Shape, silently: boolean): Function;
+                remove(
+                    shape: dojox.gfx.shape.Shape,
+                    silently: boolean
+                ): Function;
                 /**
                  * sets the width and height of the rawNode
                  *
@@ -10966,7 +11218,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -11205,7 +11459,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -11476,7 +11732,9 @@ declare namespace dojox {
                  *
                  * @param matrix a matrix or a matrix-like object(see an argument of dojox/gfx/matrix.Matrix2Dconstructor for a list of acceptable arguments)
                  */
-                applyRightTransform(matrix: dojox.gfx.matrix.Matrix2D): Function;
+                applyRightTransform(
+                    matrix: dojox.gfx.matrix.Matrix2D
+                ): Function;
                 /**
                  * a shortcut for dojox/gfx/shape.Shape.applyRightTransform
                  *
@@ -11797,398 +12055,397 @@ declare namespace dojox {
          *
          * @param matrix a 2D matrix-like object
          */
-        interface decompose{(matrix: dojox.gfx.matrix.Matrix2D): void}
-        namespace attach {
+        interface decompose {
+            (matrix: dojox.gfx.matrix.Matrix2D): void;
         }
-
+        namespace attach {}
     }
-
 }
 declare module "dojox/gfx" {
-    var exp: dojox.gfx
-    export=exp;
+    var exp: dojox.gfx;
+    export = exp;
 }
 declare module "dojox/gfx.__MoveableCtorArgs" {
-    var exp: dojox.gfx.__MoveableCtorArgs
-    export=exp;
+    var exp: dojox.gfx.__MoveableCtorArgs;
+    export = exp;
 }
 declare module "dojox/gfx.Circle" {
-    var exp: dojox.gfx.Circle
-    export=exp;
+    var exp: dojox.gfx.Circle;
+    export = exp;
 }
 declare module "dojox/gfx.Ellipse" {
-    var exp: dojox.gfx.Ellipse
-    export=exp;
+    var exp: dojox.gfx.Ellipse;
+    export = exp;
 }
 declare module "dojox/gfx/path" {
-    var exp: dojox.gfx.path
-    export=exp;
+    var exp: dojox.gfx.path;
+    export = exp;
 }
 declare module "dojox/gfx/Mover" {
-    var exp: dojox.gfx.Mover
-    export=exp;
+    var exp: dojox.gfx.Mover;
+    export = exp;
 }
 declare module "dojox/gfx/Moveable" {
-    var exp: dojox.gfx.Moveable
-    export=exp;
+    var exp: dojox.gfx.Moveable;
+    export = exp;
 }
 declare module "dojox/gfx.Line" {
-    var exp: dojox.gfx.Line
-    export=exp;
+    var exp: dojox.gfx.Line;
+    export = exp;
 }
 declare module "dojox/gfx.Point" {
-    var exp: dojox.gfx.Point
-    export=exp;
+    var exp: dojox.gfx.Point;
+    export = exp;
 }
 declare module "dojox/gfx.Group" {
-    var exp: dojox.gfx.Group
-    export=exp;
+    var exp: dojox.gfx.Group;
+    export = exp;
 }
 declare module "dojox/gfx.Polyline" {
-    var exp: dojox.gfx.Polyline
-    export=exp;
+    var exp: dojox.gfx.Polyline;
+    export = exp;
 }
 declare module "dojox/gfx.Rect" {
-    var exp: dojox.gfx.Rect
-    export=exp;
+    var exp: dojox.gfx.Rect;
+    export = exp;
 }
 declare module "dojox/gfx.Rectangle" {
-    var exp: dojox.gfx.Rectangle
-    export=exp;
+    var exp: dojox.gfx.Rectangle;
+    export = exp;
 }
 declare module "dojox/gfx.Surface" {
-    var exp: dojox.gfx.Surface
-    export=exp;
+    var exp: dojox.gfx.Surface;
+    export = exp;
 }
 declare module "dojox/gfx.TextPath" {
-    var exp: dojox.gfx.TextPath
-    export=exp;
+    var exp: dojox.gfx.TextPath;
+    export = exp;
 }
 declare module "dojox/gfx.Text" {
-    var exp: dojox.gfx.Text
-    export=exp;
+    var exp: dojox.gfx.Text;
+    export = exp;
 }
 declare module "dojox/gfx.VectorFont" {
-    var exp: dojox.gfx.VectorFont
-    export=exp;
+    var exp: dojox.gfx.VectorFont;
+    export = exp;
 }
 declare module "dojox/gfx/VectorText" {
-    var exp: dojox.gfx.VectorText
-    export=exp;
+    var exp: dojox.gfx.VectorText;
+    export = exp;
 }
 declare module "dojox/gfx/decompose" {
-    var exp: dojox.gfx.decompose
-    export=exp;
+    var exp: dojox.gfx.decompose;
+    export = exp;
 }
 declare module "dojox/gfx._vectorFontCache" {
-    var exp: dojox.gfx._vectorFontCache
-    export=exp;
+    var exp: dojox.gfx._vectorFontCache;
+    export = exp;
 }
 declare module "dojox/gfx._svgFontCache" {
-    var exp: dojox.gfx._svgFontCache
-    export=exp;
+    var exp: dojox.gfx._svgFontCache;
+    export = exp;
 }
 declare module "dojox/gfx/arc" {
-    var exp: dojox.gfx.arc
-    export=exp;
+    var exp: dojox.gfx.arc;
+    export = exp;
 }
 declare module "dojox/gfx/bezierutils" {
-    var exp: dojox.gfx.bezierutils
-    export=exp;
+    var exp: dojox.gfx.bezierutils;
+    export = exp;
 }
 declare module "dojox/gfx/_base" {
-    var exp: dojox.gfx._base
-    export=exp;
+    var exp: dojox.gfx._base;
+    export = exp;
 }
 declare module "dojox/gfx/_gfxBidiSupport" {
-    var exp: dojox.gfx._gfxBidiSupport
-    export=exp;
+    var exp: dojox.gfx._gfxBidiSupport;
+    export = exp;
 }
 declare module "dojox/gfx/canvas" {
-    var exp: dojox.gfx.canvas
-    export=exp;
+    var exp: dojox.gfx.canvas;
+    export = exp;
 }
 declare module "dojox/gfx/canvasWithEvents" {
-    var exp: dojox.gfx.canvasWithEvents
-    export=exp;
+    var exp: dojox.gfx.canvasWithEvents;
+    export = exp;
 }
 declare module "dojox/gfx.defaultCircle" {
-    var exp: dojox.gfx.defaultCircle
-    export=exp;
+    var exp: dojox.gfx.defaultCircle;
+    export = exp;
 }
 declare module "dojox/gfx/canvasext" {
-    var exp: dojox.gfx.canvasext
-    export=exp;
+    var exp: dojox.gfx.canvasext;
+    export = exp;
 }
 declare module "dojox/gfx.defaultImage" {
-    var exp: dojox.gfx.defaultImage
-    export=exp;
+    var exp: dojox.gfx.defaultImage;
+    export = exp;
 }
 declare module "dojox/gfx.defaultLine" {
-    var exp: dojox.gfx.defaultLine
-    export=exp;
+    var exp: dojox.gfx.defaultLine;
+    export = exp;
 }
 declare module "dojox/gfx/canvas_attach" {
-    var exp: dojox.gfx.canvas_attach
-    export=exp;
+    var exp: dojox.gfx.canvas_attach;
+    export = exp;
 }
 declare module "dojox/gfx.defaultLinearGradient" {
-    var exp: dojox.gfx.defaultLinearGradient
-    export=exp;
+    var exp: dojox.gfx.defaultLinearGradient;
+    export = exp;
 }
 declare module "dojox/gfx.defaultEllipse" {
-    var exp: dojox.gfx.defaultEllipse
-    export=exp;
+    var exp: dojox.gfx.defaultEllipse;
+    export = exp;
 }
 declare module "dojox/gfx.defaultFont" {
-    var exp: dojox.gfx.defaultFont
-    export=exp;
+    var exp: dojox.gfx.defaultFont;
+    export = exp;
 }
 declare module "dojox/gfx.defaultPath" {
-    var exp: dojox.gfx.defaultPath
-    export=exp;
+    var exp: dojox.gfx.defaultPath;
+    export = exp;
 }
 declare module "dojox/gfx.defaultPattern" {
-    var exp: dojox.gfx.defaultPattern
-    export=exp;
+    var exp: dojox.gfx.defaultPattern;
+    export = exp;
 }
 declare module "dojox/gfx.defaultRadialGradient" {
-    var exp: dojox.gfx.defaultRadialGradient
-    export=exp;
+    var exp: dojox.gfx.defaultRadialGradient;
+    export = exp;
 }
 declare module "dojox/gfx.defaultRect" {
-    var exp: dojox.gfx.defaultRect
-    export=exp;
+    var exp: dojox.gfx.defaultRect;
+    export = exp;
 }
 declare module "dojox/gfx.defaultPolyline" {
-    var exp: dojox.gfx.defaultPolyline
-    export=exp;
+    var exp: dojox.gfx.defaultPolyline;
+    export = exp;
 }
 declare module "dojox/gfx.defaultStroke" {
-    var exp: dojox.gfx.defaultStroke
-    export=exp;
+    var exp: dojox.gfx.defaultStroke;
+    export = exp;
 }
 declare module "dojox/gfx.defaultText" {
-    var exp: dojox.gfx.defaultText
-    export=exp;
+    var exp: dojox.gfx.defaultText;
+    export = exp;
 }
 declare module "dojox/gfx.Fill" {
-    var exp: dojox.gfx.Fill
-    export=exp;
+    var exp: dojox.gfx.Fill;
+    export = exp;
 }
 declare module "dojox/gfx.defaultVectorFont" {
-    var exp: dojox.gfx.defaultVectorFont
-    export=exp;
+    var exp: dojox.gfx.defaultVectorFont;
+    export = exp;
 }
 declare module "dojox/gfx.defaultVectorText" {
-    var exp: dojox.gfx.defaultVectorText
-    export=exp;
+    var exp: dojox.gfx.defaultVectorText;
+    export = exp;
 }
 declare module "dojox/gfx.defaultTextPath" {
-    var exp: dojox.gfx.defaultTextPath
-    export=exp;
+    var exp: dojox.gfx.defaultTextPath;
+    export = exp;
 }
 declare module "dojox/gfx/fx" {
-    var exp: dojox.gfx.fx
-    export=exp;
+    var exp: dojox.gfx.fx;
+    export = exp;
 }
 declare module "dojox/gfx/gradient" {
-    var exp: dojox.gfx.gradient
-    export=exp;
+    var exp: dojox.gfx.gradient;
+    export = exp;
 }
 declare module "dojox/gfx.Font" {
-    var exp: dojox.gfx.Font
-    export=exp;
+    var exp: dojox.gfx.Font;
+    export = exp;
 }
 declare module "dojox/gfx/gradutils" {
-    var exp: dojox.gfx.gradutils
-    export=exp;
+    var exp: dojox.gfx.gradutils;
+    export = exp;
 }
 declare module "dojox/gfx.LinearGradient" {
-    var exp: dojox.gfx.LinearGradient
-    export=exp;
+    var exp: dojox.gfx.LinearGradient;
+    export = exp;
 }
 declare module "dojox/gfx/move" {
-    var exp: dojox.gfx.move
-    export=exp;
+    var exp: dojox.gfx.move;
+    export = exp;
 }
 declare module "dojox/gfx/matrix" {
-    var exp: dojox.gfx.matrix
-    export=exp;
+    var exp: dojox.gfx.matrix;
+    export = exp;
 }
 declare module "dojox/gfx.Pattern" {
-    var exp: dojox.gfx.Pattern
-    export=exp;
+    var exp: dojox.gfx.Pattern;
+    export = exp;
 }
 declare module "dojox/gfx.RadialGradient" {
-    var exp: dojox.gfx.RadialGradient
-    export=exp;
+    var exp: dojox.gfx.RadialGradient;
+    export = exp;
 }
 declare module "dojox/gfx/shape" {
-    var exp: dojox.gfx.shape
-    export=exp;
+    var exp: dojox.gfx.shape;
+    export = exp;
 }
 declare module "dojox/gfx/silverlight" {
-    var exp: dojox.gfx.silverlight
-    export=exp;
+    var exp: dojox.gfx.silverlight;
+    export = exp;
 }
 declare module "dojox/gfx.Stroke" {
-    var exp: dojox.gfx.Stroke
-    export=exp;
+    var exp: dojox.gfx.Stroke;
+    export = exp;
 }
 declare module "dojox/gfx/silverlight_attach" {
-    var exp: dojox.gfx.silverlight_attach
-    export=exp;
+    var exp: dojox.gfx.silverlight_attach;
+    export = exp;
 }
 declare module "dojox/gfx/svgext" {
-    var exp: dojox.gfx.svgext
-    export=exp;
+    var exp: dojox.gfx.svgext;
+    export = exp;
 }
 declare module "dojox/gfx/svg" {
-    var exp: dojox.gfx.svg
-    export=exp;
+    var exp: dojox.gfx.svg;
+    export = exp;
 }
 declare module "dojox/gfx.vectorFontFitting" {
-    var exp: dojox.gfx.vectorFontFitting
-    export=exp;
+    var exp: dojox.gfx.vectorFontFitting;
+    export = exp;
 }
 declare module "dojox/gfx/utils" {
-    var exp: dojox.gfx.utils
-    export=exp;
+    var exp: dojox.gfx.utils;
+    export = exp;
 }
 declare module "dojox/gfx/vml" {
-    var exp: dojox.gfx.vml
-    export=exp;
+    var exp: dojox.gfx.vml;
+    export = exp;
 }
 declare module "dojox/gfx/filters" {
-    var exp: dojox.gfx.filters
-    export=exp;
+    var exp: dojox.gfx.filters;
+    export = exp;
 }
 declare module "dojox/gfx/registry" {
-    var exp: dojox.gfx.registry
-    export=exp;
+    var exp: dojox.gfx.registry;
+    export = exp;
 }
 declare module "dojox/gfx/renderer" {
-    var exp: dojox.gfx.renderer
-    export=exp;
+    var exp: dojox.gfx.renderer;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach" {
-    var exp: dojox.gfx.svg_attach
-    export=exp;
+    var exp: dojox.gfx.svg_attach;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Ellipse" {
-    var exp: dojox.gfx.svg_attach.Ellipse
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Ellipse;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Group" {
-    var exp: dojox.gfx.svg_attach.Group
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Group;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Circle" {
-    var exp: dojox.gfx.svg_attach.Circle
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Circle;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Line" {
-    var exp: dojox.gfx.svg_attach.Line
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Line;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Image" {
-    var exp: dojox.gfx.svg_attach.Image
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Image;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Path" {
-    var exp: dojox.gfx.svg_attach.Path
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Path;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Polyline" {
-    var exp: dojox.gfx.svg_attach.Polyline
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Polyline;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Surface" {
-    var exp: dojox.gfx.svg_attach.Surface
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Surface;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Shape" {
-    var exp: dojox.gfx.svg_attach.Shape
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Shape;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Rect" {
-    var exp: dojox.gfx.svg_attach.Rect
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Rect;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.Text" {
-    var exp: dojox.gfx.svg_attach.Text
-    export=exp;
+    var exp: dojox.gfx.svg_attach.Text;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.TextPath" {
-    var exp: dojox.gfx.svg_attach.TextPath
-    export=exp;
+    var exp: dojox.gfx.svg_attach.TextPath;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.dasharray" {
-    var exp: dojox.gfx.svg_attach.dasharray
-    export=exp;
+    var exp: dojox.gfx.svg_attach.dasharray;
+    export = exp;
 }
 declare module "dojox/gfx/svg_attach.xmlns" {
-    var exp: dojox.gfx.svg_attach.xmlns
-    export=exp;
+    var exp: dojox.gfx.svg_attach.xmlns;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach" {
-    var exp: dojox.gfx.vml_attach
-    export=exp;
+    var exp: dojox.gfx.vml_attach;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Circle" {
-    var exp: dojox.gfx.vml_attach.Circle
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Circle;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Group" {
-    var exp: dojox.gfx.vml_attach.Group
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Group;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Ellipse" {
-    var exp: dojox.gfx.vml_attach.Ellipse
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Ellipse;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Image" {
-    var exp: dojox.gfx.vml_attach.Image
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Image;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Line" {
-    var exp: dojox.gfx.vml_attach.Line
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Line;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Polyline" {
-    var exp: dojox.gfx.vml_attach.Polyline
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Polyline;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Surface" {
-    var exp: dojox.gfx.vml_attach.Surface
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Surface;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Rect" {
-    var exp: dojox.gfx.vml_attach.Rect
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Rect;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Path" {
-    var exp: dojox.gfx.vml_attach.Path
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Path;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Shape" {
-    var exp: dojox.gfx.vml_attach.Shape
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Shape;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.Text" {
-    var exp: dojox.gfx.vml_attach.Text
-    export=exp;
+    var exp: dojox.gfx.vml_attach.Text;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.TextPath" {
-    var exp: dojox.gfx.vml_attach.TextPath
-    export=exp;
+    var exp: dojox.gfx.vml_attach.TextPath;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach._bool" {
-    var exp: dojox.gfx.vml_attach._bool
-    export=exp;
+    var exp: dojox.gfx.vml_attach._bool;
+    export = exp;
 }
 declare module "dojox/gfx/vml_attach.text_alignment" {
-    var exp: dojox.gfx.vml_attach.text_alignment
-    export=exp;
+    var exp: dojox.gfx.vml_attach.text_alignment;
+    export = exp;
 }

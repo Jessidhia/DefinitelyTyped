@@ -14,7 +14,7 @@ let dt: DataTables.Api = $("selector").DataTable({
 
 // Statics
 let fixed_1 = new $.fn.dataTable.FixedHeader(dt, {
-    footer: true,
+    footer: true
 });
 
 let fixed_2 = new $.fn.dataTable.FixedHeader(dt, true);
@@ -29,6 +29,4 @@ dt.fixedHeader.disable();
 dt.fixedHeader.enable(true);
 
 // Chaining
-dt
-    .fixedHeader.footerOffset(10)
-    .fixedHeader.headerOffset(10);
+dt.fixedHeader.footerOffset(10).fixedHeader.headerOffset(10);

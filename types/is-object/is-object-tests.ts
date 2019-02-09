@@ -1,4 +1,4 @@
-import isObject = require('is-object');
+import isObject = require("is-object");
 
 isObject({});
 isObject(null);

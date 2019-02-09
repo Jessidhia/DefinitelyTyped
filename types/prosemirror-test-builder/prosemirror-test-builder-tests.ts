@@ -1,17 +1,17 @@
-import { Schema } from 'prosemirror-model';
+import { Schema } from "prosemirror-model";
 import {
     EditorState,
     NodeSelection,
     Selection,
     TextSelection,
-    Transaction,
-} from 'prosemirror-state';
-import pm, { TaggedProsemirrorNode } from 'prosemirror-test-builder';
+    Transaction
+} from "prosemirror-state";
+import pm, { TaggedProsemirrorNode } from "prosemirror-test-builder";
 
 export type DispatchFunction = (tr: Transaction) => void;
 export type CommandFunction = (
     state: EditorState,
-    dispatch?: DispatchFunction,
+    dispatch?: DispatchFunction
 ) => boolean;
 
 function selectionFor(docNode: TaggedProsemirrorNode) {
@@ -23,7 +23,7 @@ function selectionFor(docNode: TaggedProsemirrorNode) {
                 $aTag,
                 docNode.tag.b != null
                     ? docNode.resolve(docNode.tag.b)
-                    : undefined,
+                    : undefined
             );
         } else {
             return new NodeSelection($aTag);
@@ -39,7 +39,7 @@ function createState(d: TaggedProsemirrorNode) {
 export function apply(
     docNode: TaggedProsemirrorNode,
     command: CommandFunction,
-    result?: TaggedProsemirrorNode,
+    result?: TaggedProsemirrorNode
 ): [boolean, TaggedProsemirrorNode] {
     let state = createState(docNode);
     command(state, tr => (state = state.apply(tr)));
@@ -51,7 +51,7 @@ export function apply(
     if (result && result.tag.a != null) {
         return [
             pm.eq(state.selection, selectionFor(result)),
-            result || docNode,
+            result || docNode
         ];
     }
     return [true, state.doc as TaggedProsemirrorNode];
@@ -59,65 +59,65 @@ export function apply(
 
 const { p, doc, builders } = pm;
 
-apply(doc(p('hi'), p('<a>there')), () => true, doc(p('hi there')));
+apply(doc(p("hi"), p("<a>there")), () => true, doc(p("hi there")));
 
-export const schema = new Schema<'doc' | 'paragraph' | 'blockquote', 'em'>({
+export const schema = new Schema<"doc" | "paragraph" | "blockquote", "em">({
     nodes: {
         doc: {
-            content: 'block+',
+            content: "block+"
         },
 
         paragraph: {
-            group: 'block',
-            parseDOM: [{ tag: 'p' }],
+            group: "block",
+            parseDOM: [{ tag: "p" }],
             toDOM() {
-                return ['p', 0];
-            },
+                return ["p", 0];
+            }
         },
 
         blockquote: {
-            content: 'block+',
-            group: 'block',
-            parseDOM: [{ tag: 'blockquote' }],
+            content: "block+",
+            group: "block",
+            parseDOM: [{ tag: "blockquote" }],
             toDOM() {
-                return ['blockquote', 0];
-            },
-        },
+                return ["blockquote", 0];
+            }
+        }
     },
 
     marks: {
         em: {
             parseDOM: [
-                { tag: 'i' },
-                { tag: 'em' },
+                { tag: "i" },
+                { tag: "em" },
                 {
-                    style: 'font-style',
-                    getAttrs: value => value === 'italic' && null,
-                },
+                    style: "font-style",
+                    getAttrs: value => value === "italic" && null
+                }
             ],
             toDOM() {
-                return ['em'];
-            },
-        },
-    },
+                return ["em"];
+            }
+        }
+    }
 });
 
 const { h1, a } = builders(schema, {
-    p: { nodeType: 'paragraph' },
-    h1: { nodeType: 'heading', level: 1 },
-    h2: { nodeType: 'heading', level: 2 },
-    hr: { nodeType: 'horizontal_rule' },
-    li: { nodeType: 'list_item' },
-    ol: { nodeType: 'ordered_list' },
-    ul: { nodeType: 'bullet_list' },
-    pre: { nodeType: 'code_block' },
-    a: { markType: 'link', href: 'foo' },
-    br: { nodeType: 'hard_break' },
-    img: { nodeType: 'image', src: 'img.png', alt: 'x' },
+    p: { nodeType: "paragraph" },
+    h1: { nodeType: "heading", level: 1 },
+    h2: { nodeType: "heading", level: 2 },
+    hr: { nodeType: "horizontal_rule" },
+    li: { nodeType: "list_item" },
+    ol: { nodeType: "ordered_list" },
+    ul: { nodeType: "bullet_list" },
+    pre: { nodeType: "code_block" },
+    a: { markType: "link", href: "foo" },
+    br: { nodeType: "hard_break" },
+    img: { nodeType: "image", src: "img.png", alt: "x" }
 });
 
 const TEST1 = h1; // $ExpectType NodeBuilderMethod<Schema<"doc" | "paragraph" | "blockquote", "em">>
 const TEST2 = a; // $ExpectType MarkBuilderMethod<Schema<"doc" | "paragraph" | "blockquote", "em">>
 
-h1(''); // $ExpectType TaggedProsemirrorNode<Schema<"doc" | "paragraph" | "blockquote", "em">>
-a(''); // $ExpectType TaggedFlatObject<Schema<"doc" | "paragraph" | "blockquote", "em">>
+h1(""); // $ExpectType TaggedProsemirrorNode<Schema<"doc" | "paragraph" | "blockquote", "em">>
+a(""); // $ExpectType TaggedFlatObject<Schema<"doc" | "paragraph" | "blockquote", "em">>

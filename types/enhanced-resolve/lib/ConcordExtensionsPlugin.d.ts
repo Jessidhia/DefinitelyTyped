@@ -1,5 +1,5 @@
-import Resolver = require('./Resolver');
-import { Dictionary } from './concord';
+import Resolver = require("./Resolver");
+import { Dictionary } from "./concord";
 
 declare class ConcordExtensionsPlugin {
     options: Dictionary<any>;

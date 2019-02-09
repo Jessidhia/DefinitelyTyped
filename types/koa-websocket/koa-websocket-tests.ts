@@ -1,10 +1,10 @@
-import Koa = require('koa');
-import websocket = require('koa-websocket');
+import Koa = require("koa");
+import websocket = require("koa-websocket");
 
 const app = websocket(new Koa());
 
 app.ws.use(async (ctx, next) => {
-    ctx.websocket.on('message', (message) => {
+    ctx.websocket.on("message", message => {
         console.log(message);
         const server = ctx.app.ws.server;
         if (server) {
@@ -15,7 +15,7 @@ app.ws.use(async (ctx, next) => {
             });
         }
     });
-    ctx.websocket.send('Hello world');
+    ctx.websocket.send("Hello world");
     await next();
 });
 

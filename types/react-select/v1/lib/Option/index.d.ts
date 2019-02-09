@@ -1,4 +1,4 @@
-import { OptionComponentType } from '../../';
+import { OptionComponentType } from "../../";
 
 declare const OptionComponent: OptionComponentType;
 

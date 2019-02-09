@@ -9,7 +9,7 @@
 import { Duplex } from "stream";
 
 declare namespace favicons {
-     interface Configuration {
+    interface Configuration {
         /** Path for overriding default icons path @default "/" */
         path: string;
         /** Your application's name @default null */
@@ -66,18 +66,18 @@ declare namespace favicons {
         }>;
     }
 
-     interface FavIconResponse {
+    interface FavIconResponse {
         images: Array<{ name: string; contents: Buffer }>;
         files: Array<{ name: string; contents: Buffer }>;
         html: string[];
     }
 
-     type Callback = (error: Error | null, response: FavIconResponse) => void;
+    type Callback = (error: Error | null, response: FavIconResponse) => void;
 
     /** You can programmatically access Favicons configuration (icon filenames, HTML, manifest files, etc) with this export */
-     const config: Configuration;
+    const config: Configuration;
 
-     function stream(configuration?: Configuration): Duplex;
+    function stream(configuration?: Configuration): Duplex;
 }
 /**
  * Generate favicons
@@ -87,7 +87,7 @@ declare namespace favicons {
  */
 declare function favicons(
     source: string | Buffer | string[],
-    configuration?: Partial<favicons.Configuration>,
+    configuration?: Partial<favicons.Configuration>
 ): Promise<favicons.FavIconResponse>;
 declare function favicons(
     source: string | Buffer | string[],

@@ -56,12 +56,22 @@ declare namespace adone {
     /**
      * Extends the given object(or creates a new one) with the given lazyfied properties
      */
-    export function lazify(modules: object, obj?: object, require?: (path: string) => any, options?: I.LazifyOptions): object;
+    export function lazify(
+        modules: object,
+        obj?: object,
+        require?: (path: string) => any,
+        options?: I.LazifyOptions
+    ): object;
 
     /**
      * Defines or extends the private part of the given object with the given lazyfied properties
      */
-    export function lazifyPrivate(modules: object, obj?: object, require?: (path: string) => any, options?: I.LazifyOptions): object;
+    export function lazifyPrivate(
+        modules: object,
+        obj?: object,
+        require?: (path: string) => any,
+        options?: I.LazifyOptions
+    ): object;
 
     /**
      * Defines the private part of the given object with the given modules

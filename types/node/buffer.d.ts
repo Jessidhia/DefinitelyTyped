@@ -4,7 +4,7 @@ declare module "buffer" {
 
     export const SlowBuffer: {
         /** @deprecated since v6.0.0, use Buffer.allocUnsafeSlow() */
-        new(size: number): Buffer;
+        new (size: number): Buffer;
         prototype: Buffer;
     };
 

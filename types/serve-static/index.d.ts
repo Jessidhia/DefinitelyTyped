@@ -22,13 +22,16 @@ import * as m from "mime";
  * The file to serve will be determined by combining req.url with the provided root directory.
  * When a file is not found, instead of sending a 404 response, this module will instead call next() to move on to the next middleware, allowing for stacking and fall-backs.
  */
-declare function serveStatic(root: string, options?: serveStatic.ServeStaticOptions): express.Handler;
+declare function serveStatic(
+    root: string,
+    options?: serveStatic.ServeStaticOptions
+): express.Handler;
 
 declare namespace serveStatic {
     var mime: typeof m;
     interface ServeStaticOptions {
         /**
-         * Enable or disable setting Cache-Control response header, defaults to true. 
+         * Enable or disable setting Cache-Control response header, defaults to true.
          * Disabling this will ignore the immutable and maxAge options.
          */
         cacheControl?: boolean;
@@ -98,7 +101,10 @@ declare namespace serveStatic {
          */
         setHeaders?: (res: express.Response, path: string, stat: any) => any;
     }
-    function serveStatic(root: string, options?: ServeStaticOptions): express.Handler;
+    function serveStatic(
+        root: string,
+        options?: ServeStaticOptions
+    ): express.Handler;
 }
 
 export = serveStatic;

@@ -19,13 +19,13 @@ function test_configuration() {
     });
 
     NProgress.configure({
-        easing: 'ease',
+        easing: "ease",
         minimum: 0.09,
         showSpinner: false,
         speed: 420,
         template: "<div>blah</div>",
         trickle: false,
         trickleSpeed: 42,
-        parent: 'body',
+        parent: "body"
     });
 }

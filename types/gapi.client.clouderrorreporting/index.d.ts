@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Stackdriver Error Reporting API v1beta1 */
-    function load(name: "clouderrorreporting", version: "v1beta1"): PromiseLike<void>;
-    function load(name: "clouderrorreporting", version: "v1beta1", callback: () => any): void;
+    function load(
+        name: "clouderrorreporting",
+        version: "v1beta1"
+    ): PromiseLike<void>;
+    function load(
+        name: "clouderrorreporting",
+        version: "v1beta1",
+        callback: () => any
+    ): void;
 
     const projects: clouderrorreporting.ProjectsResource;
 

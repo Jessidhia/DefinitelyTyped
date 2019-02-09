@@ -106,7 +106,12 @@ declare namespace adone {
             function color(): string;
             function department(): string;
             function productName(): string;
-            function price(min?: number, max?: number, dec?: number, symbol?: string): string;
+            function price(
+                min?: number,
+                max?: number,
+                dec?: number,
+                symbol?: string
+            ): string;
             function productAdjective(): string;
             function productMaterial(): string;
             function product(): string;
@@ -134,13 +139,22 @@ declare namespace adone {
         }
 
         namespace date {
-            function past(years?: number, refDate?: string|Date): Date;
-            function future(years?: number, refDate?: string|Date): Date;
-            function between(from: string|number|Date, to: string|Date): Date;
+            function past(years?: number, refDate?: string | Date): Date;
+            function future(years?: number, refDate?: string | Date): Date;
+            function between(
+                from: string | number | Date,
+                to: string | Date
+            ): Date;
             function recent(days?: number): Date;
             function soon(days?: number): Date;
-            function month(options?: { abbr?: boolean, context?: boolean }): string;
-            function weekday(options?: { abbr?: boolean, context?: boolean }): string;
+            function month(options?: {
+                abbr?: boolean;
+                context?: boolean;
+            }): string;
+            function weekday(options?: {
+                abbr?: boolean;
+                context?: boolean;
+            }): string;
         }
 
         function fake(str: string): string;
@@ -148,8 +162,17 @@ declare namespace adone {
         namespace finance {
             function account(length?: number): string;
             function accountName(): string;
-            function mask(length?: number, parens?: boolean, elipsis?: boolean): string;
-            function amount(min?: number, max?: number, dec?: number, symbol?: string): string;
+            function mask(
+                length?: number,
+                parens?: boolean,
+                elipsis?: boolean
+            ): string;
+            function amount(
+                min?: number,
+                max?: number,
+                dec?: number,
+                symbol?: string
+            ): string;
             function transactionType(): string;
             function currencyCode(): string;
             function currencyName(): string;
@@ -173,11 +196,21 @@ declare namespace adone {
             function randomize<T>(array: T[]): T;
             function randomize(): string;
             function slugify(string?: string): string;
-            function replaceSymbolWithNumber(string?: string, symbol?: string): string;
+            function replaceSymbolWithNumber(
+                string?: string,
+                symbol?: string
+            ): string;
             function replaceSymbols(string?: string): string;
             function shuffle<T>(o: T[]): T[];
             function shuffle(): string[];
-            function mustache(str: string, data: { [key: string]: string|((substring: string, ...args: any[]) => string) }): string;
+            function mustache(
+                str: string,
+                data: {
+                    [key: string]:
+                        | string
+                        | ((substring: string, ...args: any[]) => string);
+                }
+            ): string;
             function createCard(): I.Card;
             function contextualCard(): I.ContextualCard;
             function userCard(): I.UserCard;
@@ -187,7 +220,11 @@ declare namespace adone {
         namespace image {
             function image(): string;
             function avatar(): string;
-            function imageUrl(width?: number, height?: number, category?: string): string;
+            function imageUrl(
+                width?: number,
+                height?: number,
+                category?: string
+            ): string;
             function abstract(width?: number, height?: number): string;
             function animals(width?: number, height?: number): string;
             function business(width?: number, height?: number): string;
@@ -206,8 +243,15 @@ declare namespace adone {
 
         namespace internet {
             function avatar(): string;
-            function email(firstName?: string, lastName?: string, provider?: string): string;
-            function exampleEmail(firstName?: string, lastName?: string): string;
+            function email(
+                firstName?: string,
+                lastName?: string,
+                provider?: string
+            ): string;
+            function exampleEmail(
+                firstName?: string,
+                lastName?: string
+            ): string;
             function userName(firstName?: string, lastName?: string): string;
             function protocol(): string;
             function url(): string;
@@ -217,9 +261,18 @@ declare namespace adone {
             function ip(): string;
             function ipv6(): string;
             function userAgent(): string;
-            function color(baseRed255?: number, baseGreen255?: number, baseBlue255?: number): string;
+            function color(
+                baseRed255?: number,
+                baseGreen255?: number,
+                baseBlue255?: number
+            ): string;
             function mac(): string;
-            function password(len?: number, memorable?: boolean, pattern?: string|RegExp, prefix?: string): string;
+            function password(
+                len?: number,
+                memorable?: boolean,
+                pattern?: string | RegExp,
+                prefix?: string
+            ): string;
         }
 
         namespace lorem {
@@ -229,7 +282,10 @@ declare namespace adone {
             function slug(wordCount?: number): string;
             function sentences(sentenceCount?: number): string;
             function paragraph(sentenceCount?: number): string;
-            function paragraphs(paragraphCount?: number, separator?: string): string;
+            function paragraphs(
+                paragraphCount?: number,
+                separator?: string
+            ): string;
             function text(times?: number): string;
             function lines(lineCount?: number): string;
         }
@@ -237,7 +293,11 @@ declare namespace adone {
         namespace name {
             function firstName(gender?: number): string;
             function lastName(gender?: number): string;
-            function findName(firstName?: string, lastName?: string, gender?: number): string;
+            function findName(
+                firstName?: string,
+                lastName?: string,
+                gender?: number
+            ): string;
             function jobTitle(): string;
             function prefix(): string;
             function suffix(): string;
@@ -255,11 +315,21 @@ declare namespace adone {
 
         namespace random {
             function number(max: number): number;
-            function number(options?: { min?: number, max?: number, precision?: number }): number;
+            function number(options?: {
+                min?: number;
+                max?: number;
+                precision?: number;
+            }): number;
             function arrayElement(): string;
             function arrayElement<T>(array: T[]): T;
-            function objectElement(object?: { [key: string]: any }, field?: "key"): string;
-            function objectElement<T>(object?: { [key: string]: T }, field?: any): T;
+            function objectElement(
+                object?: { [key: string]: any },
+                field?: "key"
+            ): string;
+            function objectElement<T>(
+                object?: { [key: string]: T },
+                field?: any
+            ): T;
             function uuid(): string;
             function boolean(): boolean;
             function word(type?: string): string;

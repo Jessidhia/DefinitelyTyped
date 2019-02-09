@@ -1,8 +1,6 @@
 namespace adoneTests.system.process {
     const {
-        system: {
-            process
-        }
+        system: { process }
     } = adone;
 
     let str: string;
@@ -199,7 +197,7 @@ namespace adoneTests.system.process {
         }
         {
             const ret = process.exec("node", ["1.js"]);
-            ret.then((x) => {
+            ret.then(x => {
                 str = x.cmd;
                 num = x.code;
                 bool = x.killed;
@@ -210,7 +208,7 @@ namespace adoneTests.system.process {
                 str = x.stdout;
                 bool = x.timedOut;
             });
-            ret.catch((x) => {
+            ret.catch(x => {
                 str = x.cmd;
                 num = x.code;
                 bool = x.killed;
@@ -410,7 +408,7 @@ namespace adoneTests.system.process {
         }
         {
             const ret = process.execStdout("node", ["1.js"]);
-            ret.then((x) => {
+            ret.then(x => {
                 str = x;
             });
         }
@@ -599,7 +597,7 @@ namespace adoneTests.system.process {
         }
         {
             const ret = process.execStderr("node", ["1.js"]);
-            ret.then((x) => {
+            ret.then(x => {
                 str = x;
             });
         }
@@ -787,7 +785,7 @@ namespace adoneTests.system.process {
         }
         {
             const ret = process.shell("node 1.js");
-            ret.then((x) => {
+            ret.then(x => {
                 str = x.cmd;
                 num = x.code;
                 bool = x.killed;
@@ -798,7 +796,7 @@ namespace adoneTests.system.process {
                 str = x.stdout;
                 bool = x.timedOut;
             });
-            ret.catch((x) => {
+            ret.catch(x => {
                 str = x.cmd;
                 num = x.code;
                 bool = x.killed;

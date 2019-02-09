@@ -15,6 +15,9 @@ declare namespace GulpZip {
     }
 }
 
-declare function GulpZip(filename: string, options?: GulpZip.GulpZipOptions): NodeJS.ReadStream;
+declare function GulpZip(
+    filename: string,
+    options?: GulpZip.GulpZipOptions
+): NodeJS.ReadStream;
 
 export = GulpZip;

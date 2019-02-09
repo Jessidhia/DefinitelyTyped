@@ -1,4 +1,4 @@
-import pMinDelay = require('p-min-delay');
+import pMinDelay = require("p-min-delay");
 
 // $ExpectType Promise<number>
 pMinDelay(Promise.resolve(1), 1000);

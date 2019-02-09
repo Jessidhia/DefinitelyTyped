@@ -12,7 +12,10 @@ declare class ApplePaySession extends EventTarget {
      * @param version - The version number of the ApplePay JS API you are using. The current API version number is 3.
      * @param paymentRequest - An ApplePayPaymentRequest object that contains the information to be displayed on the Apple Pay payment sheet.
      */
-    constructor(version: number, paymentRequest: ApplePayJS.ApplePayPaymentRequest);
+    constructor(
+        version: number,
+        paymentRequest: ApplePayJS.ApplePayPaymentRequest
+    );
 
     /**
      * A callback function that is automatically called when the payment UI is dismissed.
@@ -22,27 +25,37 @@ declare class ApplePaySession extends EventTarget {
     /**
      * A callback function that is automatically called when the user has authorized the Apple Pay payment with Touch ID, Face ID, or passcode.
      */
-    onpaymentauthorized: (event: ApplePayJS.ApplePayPaymentAuthorizedEvent) => void;
+    onpaymentauthorized: (
+        event: ApplePayJS.ApplePayPaymentAuthorizedEvent
+    ) => void;
 
     /**
      * A callback function that is automatically called when a new payment method is selected.
      */
-    onpaymentmethodselected: (event: ApplePayJS.ApplePayPaymentMethodSelectedEvent) => void;
+    onpaymentmethodselected: (
+        event: ApplePayJS.ApplePayPaymentMethodSelectedEvent
+    ) => void;
 
     /**
      * A callback function that is called when a shipping contact is selected in the payment sheet.
      */
-    onshippingcontactselected: (event: ApplePayJS.ApplePayShippingContactSelectedEvent) => void;
+    onshippingcontactselected: (
+        event: ApplePayJS.ApplePayShippingContactSelectedEvent
+    ) => void;
 
     /**
      * A callback function that is automatically called when a shipping method is selected.
      */
-    onshippingmethodselected: (event: ApplePayJS.ApplePayShippingMethodSelectedEvent) => void;
+    onshippingmethodselected: (
+        event: ApplePayJS.ApplePayShippingMethodSelectedEvent
+    ) => void;
 
     /**
      * A callback function that is automatically called when the payment sheet is displayed.
      */
-    onvalidatemerchant: (event: ApplePayJS.ApplePayValidateMerchantEvent) => void;
+    onvalidatemerchant: (
+        event: ApplePayJS.ApplePayValidateMerchantEvent
+    ) => void;
 
     /**
      * Indicates whether the device supports Apple Pay.
@@ -55,7 +68,9 @@ declare class ApplePaySession extends EventTarget {
      * @param merchantIdentifier - The merchant ID created when the merchant enrolled in Apple Pay.
      * @returns true if the device supports Apple Pay and there is at least one active card in Wallet that is qualified for payments on the web; otherwise, false.
      */
-    static canMakePaymentsWithActiveCard(merchantIdentifier: string): Promise<boolean>;
+    static canMakePaymentsWithActiveCard(
+        merchantIdentifier: string
+    ): Promise<boolean>;
 
     /**
      * Displays the Set up Apple Pay button.
@@ -92,20 +107,27 @@ declare class ApplePaySession extends EventTarget {
      * @param result - The status of the payment, whether it succeeded or failed for Apple Pay JS versions 1 and 2,
      * or the result of the payment authorization, including its status and list of errors for Apple Pay JS version 3.
      */
-    completePayment(result: number | ApplePayJS.ApplePayPaymentAuthorizationResult): void;
+    completePayment(
+        result: number | ApplePayJS.ApplePayPaymentAuthorizationResult
+    ): void;
 
     /**
      * Call after a payment method has been selected for Apple Pay JS versions 1 and 2.
      * @param newTotal - An ApplePayLineItem dictionary representing the total price for the purchase.
      * @param newLineItems - A sequence of ApplePayLineItem dictionaries.
      */
-    completePaymentMethodSelection(newTotal: ApplePayJS.ApplePayLineItem, newLineItems: ApplePayJS.ApplePayLineItem[]): void;
+    completePaymentMethodSelection(
+        newTotal: ApplePayJS.ApplePayLineItem,
+        newLineItems: ApplePayJS.ApplePayLineItem[]
+    ): void;
 
     /**
      * Completes the selection of a payment method with an update for Apple Pay JS version 3.
      * @param update - The updated payment method.
      */
-    completePaymentMethodSelection(update: ApplePayJS.ApplePayPaymentMethodUpdate): void;
+    completePaymentMethodSelection(
+        update: ApplePayJS.ApplePayPaymentMethodUpdate
+    ): void;
 
     /**
      * Completes the selection of a shipping contact with an update for Apple Pay JS versions 1 and 2.
@@ -118,13 +140,16 @@ declare class ApplePaySession extends EventTarget {
         status: number,
         newShippingMethods: ApplePayJS.ApplePayShippingMethod[],
         newTotal: ApplePayJS.ApplePayLineItem,
-        newLineItems: ApplePayJS.ApplePayLineItem[]): void;
+        newLineItems: ApplePayJS.ApplePayLineItem[]
+    ): void;
 
     /**
      * Completes the selection of a shipping contact with an update for Apple Pay JS version 3.
      * @param update - The updated shipping contact.
      */
-    completeShippingContactSelection(update: ApplePayJS.ApplePayShippingContactUpdate): void;
+    completeShippingContactSelection(
+        update: ApplePayJS.ApplePayShippingContactUpdate
+    ): void;
 
     /**
      * Call after the shipping method has been selected for Apple Pay JS versions 1 and 2.
@@ -132,13 +157,19 @@ declare class ApplePaySession extends EventTarget {
      * @param newTotal - An ApplePayLineItem dictionary representing the total price for the purchase.
      * @param newLineItems - A sequence of ApplePayLineItem dictionaries.
      */
-    completeShippingMethodSelection(status: number, newTotal: ApplePayJS.ApplePayLineItem, newLineItems: ApplePayJS.ApplePayLineItem[]): void;
+    completeShippingMethodSelection(
+        status: number,
+        newTotal: ApplePayJS.ApplePayLineItem,
+        newLineItems: ApplePayJS.ApplePayLineItem[]
+    ): void;
 
     /**
      * Completes the selection of a shipping method with an update for Apple Pay JS version 3.
      * @param update - The updated shipping method.
      */
-    completeShippingMethodSelection(update: ApplePayJS.ApplePayShippingMethodUpdate): void;
+    completeShippingMethodSelection(
+        update: ApplePayJS.ApplePayShippingMethodUpdate
+    ): void;
 
     /**
      * The requested action succeeded.
@@ -186,11 +217,11 @@ declare namespace ApplePayJS {
      * Field names used for requesting contact information in a payment request.
      */
     type ApplePayContactField =
-        'email' |
-        'name' |
-        'phone' |
-        'postalAddress' |
-        'phoneticName';
+        | "email"
+        | "name"
+        | "phone"
+        | "postalAddress"
+        | "phoneticName";
 
     /**
      * A customizable error type that you create to indicate problems with the address or contact information on an Apple Pay sheet.
@@ -219,40 +250,40 @@ declare namespace ApplePayJS {
         /**
          * Shipping address or contact information is invalid or missing.
          */
-        'shippingContactInvalid' |
+        | "shippingContactInvalid"
 
         /**
          * Billing address information is invalid or missing.
          */
-        'billingContactInvalid' |
+        | "billingContactInvalid"
 
         /**
          * The merchant cannot provide service to the shipping address (for example, can't deliver to a P.O. Box).
          */
-        'addressUnserviceable' |
+        | "addressUnserviceable"
 
         /**
          * An unknown but nonfatal error occurred during payment processing. The user can attempt authorization again.
          */
-        'unknown';
+        | "unknown";
 
     /**
      * Names of the fields in the shipping or billing contact information, used to locate errors in the payment sheet.
      */
     type ApplePayErrorContactField =
-        'phoneNumber' |
-        'emailAddress' |
-        'name' |
-        'phoneticName' |
-        'postalAddress' |
-        'addressLines' |
-        'locality' |
-        'subLocality' |
-        'postalCode' |
-        'administrativeArea' |
-        'subAdministrativeArea' |
-        'country' |
-        'countryCode';
+        | "phoneNumber"
+        | "emailAddress"
+        | "name"
+        | "phoneticName"
+        | "postalAddress"
+        | "addressLines"
+        | "locality"
+        | "subLocality"
+        | "postalCode"
+        | "administrativeArea"
+        | "subAdministrativeArea"
+        | "country"
+        | "countryCode";
 
     /**
      * Defines a line item in a payment request - for example, total, tax, discount, or grand total.
@@ -281,12 +312,12 @@ declare namespace ApplePayJS {
         /**
          * A line item representing the known, final cost.
          */
-        'final' |
+        | "final"
 
         /**
          * A line item representing an estimated or unknown cost.
          */
-        'pending';
+        | "pending";
 
     /**
      * The payment capabilities supported by the merchant.
@@ -295,22 +326,22 @@ declare namespace ApplePayJS {
         /**
          * Required. This value must be supplied.
          */
-        'supports3DS' |
+        | "supports3DS"
 
         /**
          * Include this value only if you support China Union Pay transactions.
          */
-        'supportsEMV' |
+        | "supportsEMV"
 
         /**
          * Optional. If present, only transactions that are categorized as credit cards are allowed.
          */
-        'supportsCredit' |
+        | "supportsCredit"
 
         /**
          * Optional. If present, only transactions that are categorized as debit cards are allowed.
          */
-        'supportsDebit';
+        | "supportsDebit";
 
     /**
      * Represents the result of authorizing a payment request and contains encrypted payment information.
@@ -460,11 +491,7 @@ declare namespace ApplePayJS {
     /**
      * A payment card's type of payment.
      */
-    type ApplePayPaymentMethodType =
-        'debit' |
-        'credit' |
-        'prepaid' |
-        'store';
+    type ApplePayPaymentMethodType = "debit" | "credit" | "prepaid" | "store";
 
     /**
      * The ApplePayPaymentMethodSelectedEvent class defines the attributes contained by the ApplePaySession.onpaymentmethodselected callback function.
@@ -528,27 +555,27 @@ declare namespace ApplePayJS {
         /**
          * Active and ready to be used for payment.
          */
-        'activated' |
+        | "activated"
 
         /**
          * Not active but may be activated by the issuer.
          */
-        'requiresActivation' |
+        | "requiresActivation"
 
         /**
          * Not ready for use but activation is in progress.
          */
-        'activating' |
+        | "activating"
 
         /**
          * Not active and can't be activated.
          */
-        'suspended' |
+        | "suspended"
 
         /**
          * Not active because the issuer has disabled the account associated with the device.
          */
-        'deactivated';
+        | "deactivated";
 
     /**
      * Encapsulates a request for payment, including information about payment processing capabilities, the payment amount, and shipping information.
@@ -735,10 +762,10 @@ declare namespace ApplePayJS {
      * A type that indicates how purchased items are to be shipped.
      */
     type ApplePayShippingType =
-        'shipping' |
-        'delivery' |
-        'storePickup' |
-        'servicePickup';
+        | "shipping"
+        | "delivery"
+        | "storePickup"
+        | "servicePickup";
 
     /**
      * The attributes contained by the onvalidatemerchant callback function.

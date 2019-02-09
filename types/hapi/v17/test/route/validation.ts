@@ -1,15 +1,24 @@
 // from https://hapijs.com/tutorials/validation?lang=en_US
-import { Request, ResponseToolkit, RouteOptions, Server, ServerOptions, ServerRoute } from "hapi";
+import {
+    Request,
+    ResponseToolkit,
+    RouteOptions,
+    Server,
+    ServerOptions,
+    ServerRoute
+} from "hapi";
 import * as Joi from "joi";
 
 const options: ServerOptions = {
-    port: 8000,
+    port: 8000
 };
 
 const routeOptions: RouteOptions = {
     validate: {
         payload: {
-            id: Joi.string().uuid().required(),
+            id: Joi.string()
+                .uuid()
+                .required(),
             name: Joi.object({
                 firstName: Joi.string().required(),
                 lastName: Joi.string().allow(null)
@@ -17,7 +26,9 @@ const routeOptions: RouteOptions = {
             firstName: Joi.ref("name.firstName")
         },
         params: {
-            name: Joi.string().min(3).max(10),
+            name: Joi.string()
+                .min(3)
+                .max(10),
             nameRef: Joi.ref("name")
         }
     },
@@ -33,10 +44,10 @@ const routeOptions: RouteOptions = {
 };
 
 const serverRoute: ServerRoute = {
-    path: '/',
-    method: 'GET',
+    path: "/",
+    method: "GET",
     handler(request, h) {
-        return 'ok: ' + request.path;
+        return "ok: " + request.path;
     },
     options: routeOptions
 };
@@ -45,4 +56,4 @@ const server = new Server(options);
 server.route(serverRoute);
 
 server.start();
-console.log('Server started at: ' + server.info.uri);
+console.log("Server started at: " + server.info.uri);

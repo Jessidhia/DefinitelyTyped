@@ -1,4 +1,4 @@
-import { Map, TileDesc } from 'athenajs';
+import { Map, TileDesc } from "athenajs";
 
 const map = new Map({
     src: "tiles",

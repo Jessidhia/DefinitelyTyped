@@ -6,7 +6,9 @@
 
 import { Request, RequestHandler } from "express";
 
-declare function SwaggerExpressValidator(options: SwaggerExpressValidator.Options): RequestHandler;
+declare function SwaggerExpressValidator(
+    options: SwaggerExpressValidator.Options
+): RequestHandler;
 
 declare namespace SwaggerExpressValidator {
     interface Options {

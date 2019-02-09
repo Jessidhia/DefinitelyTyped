@@ -6,7 +6,7 @@
  * are not intended as functional tests.
  */
 
-import * as d3Voronoi from 'd3-voronoi';
+import * as d3Voronoi from "d3-voronoi";
 
 // ---------------------------------------------------------------------
 // Preparatory Steps
@@ -68,7 +68,7 @@ point = [10, 10];
 // $ExpectError
 point = [10]; // fails, second element for y-coordinate missing
 // $ExpectError
-point = ['a', 'b']; // fails, wrong element type
+point = ["a", "b"]; // fails, wrong element type
 
 // VoronoiPointPair ---------------------------------------------------
 
@@ -88,7 +88,7 @@ pointPair = [[10, 10], [50]]; // fails, one element is not of type [number, numb
 // $ExpectError
 pointPair = [[10], [50, 50]]; // fails, one element is not of type [number, number]
 // $ExpectError
-pointPair = [['a', 10], [50, 50]]; // fails, one element is not of type [number, number]
+pointPair = [["a", 10], [50, 50]]; // fails, one element is not of type [number, number]
 
 // VoronoiPolygon -------------------------------------------------------
 
@@ -147,7 +147,13 @@ size = voronoiLayout.size();
 
 let defaultVoronoiDiagram: d3Voronoi.VoronoiDiagram<[number, number]>;
 
-defaultVoronoiDiagram = defaultVoronoiLayout([[10, 10], [10, 20], [15, 30], [40, 10], [40, 40]]);
+defaultVoronoiDiagram = defaultVoronoiLayout([
+    [10, 10],
+    [10, 20],
+    [15, 30],
+    [40, 10],
+    [40, 40]
+]);
 
 let voronoiDiagram: d3Voronoi.VoronoiDiagram<VoronoiTestDatum>;
 voronoiDiagram = voronoiLayout(testData);
@@ -247,4 +253,6 @@ nearestSite = voronoiDiagram.find(10, 50, 20);
 
 // wrong data type
 // $ExpectError
-const wrongSiteDataType: d3Voronoi.VoronoiSite<[number, number]> | null = voronoiDiagram.find(10, 50); // fails, due to data type mismatch
+const wrongSiteDataType: d3Voronoi.VoronoiSite<
+    [number, number]
+> | null = voronoiDiagram.find(10, 50); // fails, due to data type mismatch

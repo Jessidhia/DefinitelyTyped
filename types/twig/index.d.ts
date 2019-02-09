@@ -24,7 +24,11 @@ export interface Parameters {
 
 export interface Template {
     reset(blocks: any): void;
-    render(context?: any, params?: any, allow_async?: boolean): string | Promise<string>;
+    render(
+        context?: any,
+        params?: any,
+        allow_async?: boolean
+    ): string | Promise<string>;
     renderAsync(context?: any, params?: any): Promise<string>;
     importFile(file: string): Template;
     importBlocks(file: string, override?: boolean): void;
@@ -39,11 +43,31 @@ export interface CompileOptions {
 }
 
 export function twig(params: Parameters): Template;
-export function extendFilter(name: string, definition: (left: any, ...params: any[]) => string): void;
-export function extendFunction(name: string, definition: (...params: any[]) => string): void;
-export function extendTest(name: string, definition: (value: any) => boolean): void;
+export function extendFilter(
+    name: string,
+    definition: (left: any, ...params: any[]) => string
+): void;
+export function extendFunction(
+    name: string,
+    definition: (...params: any[]) => string
+): void;
+export function extendTest(
+    name: string,
+    definition: (value: any) => boolean
+): void;
 export function extendTag(definition: any): void;
-export function compile(markup: string, options: CompileOptions): (context: any) => any;
-export function renderFile(path: string, options: CompileOptions, fn: (err: Error, result: any) => void): void;
-export function __express(path: string, options: CompileOptions, fn: (err: Error, result: any) => void): void;
+export function compile(
+    markup: string,
+    options: CompileOptions
+): (context: any) => any;
+export function renderFile(
+    path: string,
+    options: CompileOptions,
+    fn: (err: Error, result: any) => void
+): void;
+export function __express(
+    path: string,
+    options: CompileOptions,
+    fn: (err: Error, result: any) => void
+): void;
 export function cache(value: boolean): void;

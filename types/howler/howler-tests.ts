@@ -1,23 +1,23 @@
 import * as howler from "howler";
 
 var sound = new Howl({
-    src: ['sound.mp3']
+    src: ["sound.mp3"]
 });
 
 sound.play();
 
 var sound = new Howl({
-    src: ['sound.webm', 'sound.mp3', 'sound.wav'],
+    src: ["sound.webm", "sound.mp3", "sound.wav"],
     autoplay: true,
     loop: true,
     volume: 0.5,
     onend: function() {
-        console.log('Finished!');
+        console.log("Finished!");
     }
 });
 
 var sound = new Howl({
-    src: ['sounds.webm', 'sounds.mp3'],
+    src: ["sounds.webm", "sounds.mp3"],
     sprite: {
         blast: [0, 1000],
         laser: [2000, 3000],
@@ -26,24 +26,24 @@ var sound = new Howl({
 });
 
 // Shoot the laser!
-sound.play('laser');
+sound.play("laser");
 
 var sound = new Howl({
-    src: ['sound.webm', 'sound.mp3']
+    src: ["sound.webm", "sound.mp3"]
 });
 
 // Clear listener after first call.
-sound.once('load', function(){
+sound.once("load", function() {
     sound.play();
 });
 
 // Fires when the sound finishes playing.
-sound.on('end', function(){
-    console.log('Finished!');
+sound.on("end", function() {
+    console.log("Finished!");
 });
 
 var sound = new Howl({
-    src: ['sound.webm', 'sound.mp3']
+    src: ["sound.webm", "sound.mp3"]
 });
 
 // Play returns a uniqe Sound ID that can be passed

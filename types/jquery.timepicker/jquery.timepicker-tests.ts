@@ -1,21 +1,25 @@
-var beforeShowCallback, onSelectCallback, onCloseCallback, onHourShow, onMinuteShow;
-$('#timepicker').timepicker({
-    timeSeparator: ':',
+var beforeShowCallback,
+    onSelectCallback,
+    onCloseCallback,
+    onHourShow,
+    onMinuteShow;
+$("#timepicker").timepicker({
+    timeSeparator: ":",
     showLeadingZero: true,
     showMinutesLeadingZero: true,
     showPeriod: false,
     showPeriodLabels: true,
-    periodSeparator: ' ',
-    altField: '#alternate_input',
-    defaultTime: '12:34',
-    showOn: 'focus',
+    periodSeparator: " ",
+    altField: "#alternate_input",
+    defaultTime: "12:34",
+    showOn: "focus",
     button: null,
-    hourText: 'Hour',
-    minuteText: 'Minute',
-    amPmText: ['AM', 'PM'],
+    hourText: "Hour",
+    minuteText: "Minute",
+    amPmText: ["AM", "PM"],
 
-    myPosition: 'left top',
-    atPosition: 'left bottom',
+    myPosition: "left top",
+    atPosition: "left bottom",
     beforeShow: beforeShowCallback,
     onSelect: onSelectCallback,
     onClose: onCloseCallback,
@@ -34,12 +38,12 @@ $('#timepicker').timepicker({
     showHours: true,
     showMinutes: true,
     showCloseButton: false,
-    closeButtonText: 'Done',
+    closeButtonText: "Done",
     showNowButton: false,
-    nowButtonText: 'Now',
+    nowButtonText: "Now",
     showDeselectButton: false,
-    deselectButtonText: 'Deselect'
+    deselectButtonText: "Deselect"
 });
 
-$().timepicker('getTime');
-$().timepicker('setTime', new Date());
+$().timepicker("getTime");
+$().timepicker("setTime", new Date());

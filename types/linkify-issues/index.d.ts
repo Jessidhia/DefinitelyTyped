@@ -5,7 +5,10 @@
 
 export = linkifyIssues;
 
-declare function linkifyIssues(input: string, options?: linkifyIssues.TypeStringOptions): string;
+declare function linkifyIssues(
+    input: string,
+    options?: linkifyIssues.TypeStringOptions
+): string;
 declare function linkifyIssues(
     input: string,
     options: linkifyIssues.TypeDomOptions
@@ -15,15 +18,21 @@ declare namespace linkifyIssues {
     interface BaseOptions {
         user: string;
         repo: string;
-        attributes?: { [attrName: string]: string | number | boolean | Array<string | number> };
+        attributes?: {
+            [attrName: string]:
+                | string
+                | number
+                | boolean
+                | Array<string | number>;
+        };
         baseUrl?: string;
     }
 
     interface TypeStringOptions extends BaseOptions {
-        type?: 'string';
+        type?: "string";
     }
 
     interface TypeDomOptions extends BaseOptions {
-        type: 'dom';
+        type: "dom";
     }
 }

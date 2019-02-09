@@ -119,7 +119,11 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    channelExtData(channel: number, data: string | Buffer, type: number): boolean;
+    channelExtData(
+        channel: number,
+        data: string | Buffer,
+        type: number
+    ): boolean;
 
     /**
      * (Client/Server)
@@ -127,7 +131,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    channelOpenConfirm(remoteChannel: number, localChannel: number, initWindow: number, maxPacket: number): boolean;
+    channelOpenConfirm(
+        remoteChannel: number,
+        localChannel: number,
+        initWindow: number,
+        maxPacket: number
+    ): boolean;
 
     /**
      * (Client/Server)
@@ -135,8 +144,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    channelOpenFail(remoteChannel: number, reasonCode: number, description?: string, lang?: string): boolean;
-
+    channelOpenFail(
+        remoteChannel: number,
+        reasonCode: number,
+        description?: string,
+        lang?: string
+    ): boolean;
 
     /**
      * (Client-only)
@@ -152,7 +165,11 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    tcpipForward(bindAddr: string, bindPort: number, wantReply?: boolean): boolean;
+    tcpipForward(
+        bindAddr: string,
+        bindPort: number,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -160,7 +177,11 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    cancelTcpipForward(bindAddr: string, bindPort: number, wantReply?: boolean): boolean;
+    cancelTcpipForward(
+        bindAddr: string,
+        bindPort: number,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -180,7 +201,11 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    authPK(username: string, pubKey: ParsedKey, cbSign?: (blob: Buffer, callback: (signedBlob: Buffer) => void) => void): boolean;
+    authPK(
+        username: string,
+        pubKey: ParsedKey,
+        cbSign?: (blob: Buffer, callback: (signedBlob: Buffer) => void) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -191,7 +216,13 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    authHostBased(username: string, pubKey: ParsedKey, localHostname: string, localUsername: string, cbSign?: (blob: Buffer, callback: (signedBlob: Buffer) => void) => void): boolean;
+    authHostBased(
+        username: string,
+        pubKey: ParsedKey,
+        localHostname: string,
+        localUsername: string,
+        cbSign?: (blob: Buffer, callback: (signedBlob: Buffer) => void) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -225,7 +256,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    directTcpip(channel: number, initWindow: number, maxPacket: number, config: TcpipForwardingConfig): boolean;
+    directTcpip(
+        channel: number,
+        initWindow: number,
+        maxPacket: number,
+        config: TcpipForwardingConfig
+    ): boolean;
 
     /**
      * (Client-only)
@@ -250,7 +286,13 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    windowChange(channel: number, rows: number, cols: number, height: number, width: number): boolean;
+    windowChange(
+        channel: number,
+        rows: number,
+        cols: number,
+        height: number,
+        width: number
+    ): boolean;
 
     /**
      * (Client-only)
@@ -259,7 +301,16 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    pty(channel: number, rows: number, cols: number, height: number, width: number, terminalType?: string, terminalModes?: any, wantReply?: boolean): boolean;
+    pty(
+        channel: number,
+        rows: number,
+        cols: number,
+        height: number,
+        width: number,
+        terminalType?: string,
+        terminalModes?: any,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -268,7 +319,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    env(channel: number, key: string, value: string | Buffer, wantReply?: boolean): boolean;
+    env(
+        channel: number,
+        key: string,
+        value: string | Buffer,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -300,7 +356,11 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    x11Forward(channel: number, config: X11ForwardingConfig, wantReply?: boolean): boolean;
+    x11Forward(
+        channel: number,
+        config: X11ForwardingConfig,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -325,7 +385,10 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_streamLocalForward(socketPath: string, wantReply?: boolean): boolean;
+    openssh_streamLocalForward(
+        socketPath: string,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -334,7 +397,10 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_cancelStreamLocalForward(socketPath: string, wantReply?: boolean): boolean;
+    openssh_cancelStreamLocalForward(
+        socketPath: string,
+        wantReply?: boolean
+    ): boolean;
 
     /**
      * (Client-only)
@@ -343,8 +409,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_directStreamLocal(channel: number, initWindow: number, maxPacket: number, config: SocketForwardingConfig): boolean;
-
+    openssh_directStreamLocal(
+        channel: number,
+        initWindow: number,
+        maxPacket: number,
+        config: SocketForwardingConfig
+    ): boolean;
 
     /**
      * (Server-only)
@@ -394,7 +464,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    forwardedTcpip(channel: number, initWindow: number, maxPacket: number, info: ForwardedTcpip): boolean;
+    forwardedTcpip(
+        channel: number,
+        initWindow: number,
+        maxPacket: number,
+        info: ForwardedTcpip
+    ): boolean;
 
     /**
      * (Server-only)
@@ -402,7 +477,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    x11(channel: number, initWindow: number, maxPacket: number, info: ForwardedX11): boolean;
+    x11(
+        channel: number,
+        initWindow: number,
+        maxPacket: number,
+        info: ForwardedX11
+    ): boolean;
 
     /**
      * (Server-only)
@@ -411,7 +491,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    openssh_forwardedStreamLocal(channel: number, initWindow: number, maxPacket: number, info: ForwardedSocket): boolean;
+    openssh_forwardedStreamLocal(
+        channel: number,
+        initWindow: number,
+        maxPacket: number,
+        info: ForwardedSocket
+    ): boolean;
 
     /**
      * (Server-only)
@@ -427,8 +512,12 @@ export class SSH2Stream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    exitSignal(channel: number, signalName: string, coreDumped: boolean, errorMessage: string): boolean;
-
+    exitSignal(
+        channel: number,
+        signalName: string,
+        coreDumped: boolean,
+        errorMessage: string
+    ): boolean;
 
     /**
      * (Client/Server)
@@ -439,12 +528,26 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Client/Server)
      */
-    on(event: "GLOBAL_REQUEST", listener: (reqName: string, wantReply: boolean, request: GlobalRequest | Buffer | undefined) => void): this;
+    on(
+        event: "GLOBAL_REQUEST",
+        listener: (
+            reqName: string,
+            wantReply: boolean,
+            request: GlobalRequest | Buffer | undefined
+        ) => void
+    ): this;
 
     /**
      * (Client/Server)
      */
-    on(event: "DISCONNECT", listener: (reason: string, reasonCode: number, description: string) => void): this;
+    on(
+        event: "DISCONNECT",
+        listener: (
+            reason: string,
+            reasonCode: number,
+            description: string
+        ) => void
+    ): this;
 
     /**
      * (Client/Server)
@@ -469,22 +572,34 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_OPEN", listener: (channelInfo: ChannelOpenInfo) => void): this;
+    on(
+        event: "CHANNEL_OPEN",
+        listener: (channelInfo: ChannelOpenInfo) => void
+    ): this;
 
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_OPEN_CONFIRMATION:0", listener: (channelInfo: ChannelOpenConfirmationInfo) => void): this;
+    on(
+        event: "CHANNEL_OPEN_CONFIRMATION:0",
+        listener: (channelInfo: ChannelOpenConfirmationInfo) => void
+    ): this;
 
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_OPEN_FAILURE:0", listener: (failInfo: ChannelOpenFailureInfo) => void): this;
+    on(
+        event: "CHANNEL_OPEN_FAILURE:0",
+        listener: (failInfo: ChannelOpenFailureInfo) => void
+    ): this;
 
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_REQUEST:0", listener: (request: ChannelRequest) => void): this;
+    on(
+        event: "CHANNEL_REQUEST:0",
+        listener: (request: ChannelRequest) => void
+    ): this;
 
     /**
      * (Client/Server)
@@ -494,12 +609,18 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_EXTENDED_DATA:0", listener: (type: number, data: Buffer) => void): this;
+    on(
+        event: "CHANNEL_EXTENDED_DATA:0",
+        listener: (type: number, data: Buffer) => void
+    ): this;
 
     /**
      * (Client/Server)
      */
-    on(event: "CHANNEL_WINDOW_ADJUST:0", listener: (bytesToAdd: number) => void): this;
+    on(
+        event: "CHANNEL_WINDOW_ADJUST:0",
+        listener: (bytesToAdd: number) => void
+    ): this;
 
     /**
      * (Client/Server)
@@ -521,7 +642,6 @@ export class SSH2Stream extends stream.Transform {
      */
     on(event: "CHANNEL_CLOSE:0", listener: () => void): this;
 
-
     /**
      * (Client-only)
      * This event allows you to verify a host's key. If `callback` is called with `true`, the
@@ -529,7 +649,13 @@ export class SSH2Stream extends stream.Transform {
      * `false`. The default behavior is to auto-allow any host key if there are no handlers
      * for this event.
      */
-    on(event: "fingerprint", listener: (hostKey: Buffer, callback: (success: boolean) => void) => void): this;
+    on(
+        event: "fingerprint",
+        listener: (
+            hostKey: Buffer,
+            callback: (success: boolean) => void
+        ) => void
+    ): this;
 
     /**
      * (Client-only)
@@ -539,12 +665,23 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Client-only)
      */
-    on(event: "USERAUTH_PASSWD_CHANGEREQ", listener: (message: string) => void): this;
+    on(
+        event: "USERAUTH_PASSWD_CHANGEREQ",
+        listener: (message: string) => void
+    ): this;
 
     /**
      * (Client-only)
      */
-    on(event: "USERAUTH_INFO_REQUEST", listener: (name: string, instructions: string, lang: string, prompts: Prompt[]) => void): this;
+    on(
+        event: "USERAUTH_INFO_REQUEST",
+        listener: (
+            name: string,
+            instructions: string,
+            lang: string,
+            prompts: Prompt[]
+        ) => void
+    ): this;
 
     /**
      * (Client-only)
@@ -559,7 +696,10 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Client-only)
      */
-    on(event: "USERAUTH_FAILURE", listener: (methodsContinue: string[], partialSuccess: boolean) => void): this;
+    on(
+        event: "USERAUTH_FAILURE",
+        listener: (methodsContinue: string[], partialSuccess: boolean) => void
+    ): this;
 
     /**
      * (Client-only)
@@ -574,12 +714,23 @@ export class SSH2Stream extends stream.Transform {
     /**
      * (Server-only)
      */
-    on(event: "USERAUTH_REQUEST", listener: (username: string, serviceName: string, authMethod: string, authMethodData: AuthMethodData) => void): this;
+    on(
+        event: "USERAUTH_REQUEST",
+        listener: (
+            username: string,
+            serviceName: string,
+            authMethod: string,
+            authMethodData: AuthMethodData
+        ) => void
+    ): this;
 
     /**
      * (Server-only)
      */
-    on(event: "USERAUTH_INFO_RESPONSE", listener: (responses: string[]) => void): this;
+    on(
+        event: "USERAUTH_INFO_RESPONSE",
+        listener: (responses: string[]) => void
+    ): this;
 
     /**
      * Emitted when the connection has authenticated.
@@ -726,7 +877,10 @@ export interface openssh_StreamLocalForwardGlobalRequest {
     socketPath: string;
 }
 
-export type GlobalRequest = TcpipForwardGlobalRequest | openssh_StreamLocalForwardGlobalRequest | Buffer;
+export type GlobalRequest =
+    | TcpipForwardGlobalRequest
+    | openssh_StreamLocalForwardGlobalRequest
+    | Buffer;
 
 export interface ChannelOpenConfirmationInfo {
     recipient: number;
@@ -812,7 +966,14 @@ export interface SessionChannelInfo {
     packetSize: number;
 }
 
-export type ChannelOpenInfo = X11ChannelInfo | ForwardedTcpipChannelInfo | openssh_ForwardedStreamLocalChannelInfo | openssh_AuthAgentChannelInfo | DirectTcpipChannelInfo | openssh_DirectStreamLocalChannelInfo | SessionChannelInfo;
+export type ChannelOpenInfo =
+    | X11ChannelInfo
+    | ForwardedTcpipChannelInfo
+    | openssh_ForwardedStreamLocalChannelInfo
+    | openssh_AuthAgentChannelInfo
+    | DirectTcpipChannelInfo
+    | openssh_DirectStreamLocalChannelInfo
+    | SessionChannelInfo;
 
 export interface ExitStatusChannelRequest {
     request: "exit-status";
@@ -904,7 +1065,18 @@ export interface openssh_AuthAgentChannelRequest {
     recipient: number;
 }
 
-export type ChannelRequest = ExitStatusChannelRequest | ExitSignalChannelRequest | PseudoTtyChannelRequest | WindowChangeChannelRequest | X11ChannelRequest | EnvChannelRequest | ShellChannelRequest | ExecChannelRequest | SubsystemChannelRequest | SignalChannelRequest | FlowControlChannelRequest;
+export type ChannelRequest =
+    | ExitStatusChannelRequest
+    | ExitSignalChannelRequest
+    | PseudoTtyChannelRequest
+    | WindowChangeChannelRequest
+    | X11ChannelRequest
+    | EnvChannelRequest
+    | ShellChannelRequest
+    | ExecChannelRequest
+    | SubsystemChannelRequest
+    | SignalChannelRequest
+    | FlowControlChannelRequest;
 
 export interface PublicKeyAuthMethodData {
     keyAlgo: string;
@@ -922,7 +1094,10 @@ export interface HostbasedAuthMethodData {
     localUsername: string;
 }
 
-export type AuthMethodData = string | PublicKeyAuthMethodData | HostbasedAuthMethodData;
+export type AuthMethodData =
+    | string
+    | PublicKeyAuthMethodData
+    | HostbasedAuthMethodData;
 
 export interface TcpipForwardingConfig {
     /**
@@ -1024,55 +1199,90 @@ export class SFTPStream extends stream.Transform {
      * (Client-only)
      * Downloads a file at `remotePath` to `localPath` using parallel reads for faster throughput.
      */
-    fastGet(remotePath: string, localPath: string, options: TransferOptions, callback: (err: any) => void): void;
+    fastGet(
+        remotePath: string,
+        localPath: string,
+        options: TransferOptions,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Downloads a file at `remotePath` to `localPath` using parallel reads for faster throughput.
      */
-    fastGet(remotePath: string, localPath: string, callback: (err: any) => void): void;
+    fastGet(
+        remotePath: string,
+        localPath: string,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Uploads a file from `localPath` to `remotePath` using parallel reads for faster throughput.
      */
-    fastPut(localPath: string, remotePath: string, options: TransferOptions, callback: (err: any) => void): void;
+    fastPut(
+        localPath: string,
+        remotePath: string,
+        options: TransferOptions,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Uploads a file from `localPath` to `remotePath` using parallel reads for faster throughput.
      */
-    fastPut(localPath: string, remotePath: string, callback: (err: any) => void): void;
+    fastPut(
+        localPath: string,
+        remotePath: string,
+        callback: (err: any) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, options: ReadFileOptions, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        options: ReadFileOptions,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, encoding: string, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        encoding: string,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Reads a file in memory and returns its contents
      */
-    readFile(remotePath: string, callback: (err: any, handle: Buffer) => void): void;
+    readFile(
+        remotePath: string,
+        callback: (err: any, handle: Buffer) => void
+    ): void;
 
     /**
      * (Client-only)
      * Returns a new readable stream for `path`.
      */
-    createReadStream(path: string, options?: ReadStreamOptions): stream.Readable;
+    createReadStream(
+        path: string,
+        options?: ReadStreamOptions
+    ): stream.Readable;
 
     /**
      * (Client-only)
      * Returns a new writable stream for `path`.
      */
-    createWriteStream(path: string, options?: WriteStreamOptions): stream.Writable;
+    createWriteStream(
+        path: string,
+        options?: WriteStreamOptions
+    ): stream.Writable;
 
     /**
      * (Client-only)
@@ -1080,7 +1290,12 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    open(filename: string, mode: string, attributes: InputAttributes, callback: (err: any, handle: Buffer) => void): boolean;
+    open(
+        filename: string,
+        mode: string,
+        attributes: InputAttributes,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1088,7 +1303,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    open(filename: string, mode: string, callback: (err: any, handle: Buffer) => void): boolean;
+    open(
+        filename: string,
+        mode: string,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1105,13 +1324,32 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    readData(handle: Buffer, buffer: Buffer, offset: number, length: number, position: number, callback: (err: any, bytesRead: number, buffer: Buffer, position: number) => void): boolean;
+    readData(
+        handle: Buffer,
+        buffer: Buffer,
+        offset: number,
+        length: number,
+        position: number,
+        callback: (
+            err: any,
+            bytesRead: number,
+            buffer: Buffer,
+            position: number
+        ) => void
+    ): boolean;
 
     /**
      * (Client-only)
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    writeData(handle: Buffer, buffer: Buffer, offset: number, length: number, position: number, callback: (err: any) => void): boolean;
+    writeData(
+        handle: Buffer,
+        buffer: Buffer,
+        offset: number,
+        length: number,
+        position: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1127,7 +1365,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fsetstat(handle: Buffer, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    fsetstat(
+        handle: Buffer,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1135,7 +1377,12 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    futimes(handle: Buffer, atime: number | Date, mtime: number | Date, callback: (err: any) => void): boolean;
+    futimes(
+        handle: Buffer,
+        atime: number | Date,
+        mtime: number | Date,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1143,7 +1390,12 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fchown(handle: Buffer, uid: number, gid: number, callback: (err: any) => void): boolean;
+    fchown(
+        handle: Buffer,
+        uid: number,
+        gid: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1151,7 +1403,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    fchmod(handle: Buffer, mode: number | string, callback: (err: any) => void): boolean;
+    fchmod(
+        handle: Buffer,
+        mode: number | string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1159,7 +1415,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    opendir(path: string, callback: (err: any, handle: Buffer) => void): boolean;
+    opendir(
+        path: string,
+        callback: (err: any, handle: Buffer) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1167,7 +1426,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    readdir(location: string | Buffer, callback: (err: any, list: FileEntry[]) => void): boolean;
+    readdir(
+        location: string | Buffer,
+        callback: (err: any, list: FileEntry[]) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1183,7 +1445,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    rename(srcPath: string, destPath: string, callback: (err: any) => void): boolean;
+    rename(
+        srcPath: string,
+        destPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1191,7 +1457,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    mkdir(path: string, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    mkdir(
+        path: string,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1232,7 +1502,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    setstat(path: string, attributes: InputAttributes, callback: (err: any) => void): boolean;
+    setstat(
+        path: string,
+        attributes: InputAttributes,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1240,7 +1514,12 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    utimes(path: string, atime: number | Date, mtime: number | Date, callback: (err: any) => void): boolean;
+    utimes(
+        path: string,
+        atime: number | Date,
+        mtime: number | Date,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1248,7 +1527,12 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    chown(path: string, uid: number, gid: number, callback: (err: any) => void): boolean;
+    chown(
+        path: string,
+        uid: number,
+        gid: number,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1256,7 +1540,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    chmod(path: string, mode: number | string, callback: (err: any) => void): boolean;
+    chmod(
+        path: string,
+        mode: number | string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1264,7 +1552,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    readlink(path: string, callback: (err: any, target: string) => void): boolean;
+    readlink(
+        path: string,
+        callback: (err: any, target: string) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1272,7 +1563,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    symlink(targetPath: string, linkPath: string, callback: (err: any) => void): boolean;
+    symlink(
+        targetPath: string,
+        linkPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only)
@@ -1280,7 +1575,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    realpath(path: string, callback: (err: any, absPath: string) => void): boolean;
+    realpath(
+        path: string,
+        callback: (err: any, absPath: string) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1288,7 +1586,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_rename(srcPath: string, destPath: string, callback: (err: any) => void): boolean;
+    ext_openssh_rename(
+        srcPath: string,
+        destPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1296,7 +1598,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_statvfs(path: string, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_statvfs(
+        path: string,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1304,7 +1609,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_fstatvfs(handle: Buffer, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_fstatvfs(
+        handle: Buffer,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1312,7 +1620,11 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_hardlink(targetPath: string, linkPath: string, callback: (err: any) => void): boolean;
+    ext_openssh_hardlink(
+        targetPath: string,
+        linkPath: string,
+        callback: (err: any) => void
+    ): boolean;
 
     /**
      * (Client-only, OpenSSH extension)
@@ -1320,7 +1632,10 @@ export class SFTPStream extends stream.Transform {
      *
      * Returns `false` if you should wait for the `continue` event before sending any more traffic.
      */
-    ext_openssh_fsync(handle: Buffer, callback: (err: any, fsInfo: any) => void): boolean;
+    ext_openssh_fsync(
+        handle: Buffer,
+        callback: (err: any, fsInfo: any) => void
+    ): boolean;
 
     /**
      * (Server-only)
@@ -1380,7 +1695,15 @@ export class SFTPStream extends stream.Transform {
      * * `handle()` - This indicates a successful opening of the file and passes the given handle back to the client to use to refer to this open file for future operations (e.g. reading, writing, closing).
      * * `status()` - Use this to indicate a failure to open the requested file.
      */
-    on(event: "OPEN", listener: (reqID: number, filename: string, flags: number, attrs: InputAttributes) => void): this;
+    on(
+        event: "OPEN",
+        listener: (
+            reqID: number,
+            filename: string,
+            flags: number,
+            attrs: InputAttributes
+        ) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1390,7 +1713,15 @@ export class SFTPStream extends stream.Transform {
      * * `data()` - Use this to send the requested chunk of data back to the client. The amount of data sent is allowed to be less than the `length` requested.
      * * `status()` - Use this to indicate either end of file (`STATUS_CODE.EOF`) has been reached (`offset` is past the end of the file) or if an error occurred while reading the requested part of the file.
      */
-    on(event: "READ", listener: (reqID: number, handle: Buffer, offset: number, length: number) => void): this;
+    on(
+        event: "READ",
+        listener: (
+            reqID: number,
+            handle: Buffer,
+            offset: number,
+            length: number
+        ) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1399,7 +1730,15 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicate success/failure of the write to the file.
      */
-    on(event: "WRITE", listener: (reqID: number, handle: Buffer, offset: number, data: Buffer) => void): this;
+    on(
+        event: "WRITE",
+        listener: (
+            reqID: number,
+            handle: Buffer,
+            offset: number,
+            data: Buffer
+        ) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1418,7 +1757,14 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicates success/failure of the setting of the given file/directory attributes.
      */
-    on(event: "FSETSTAT", listener: (reqID: number, handle: Buffer, attrs: InputAttributes) => void): this;
+    on(
+        event: "FSETSTAT",
+        listener: (
+            reqID: number,
+            handle: Buffer,
+            attrs: InputAttributes
+        ) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1447,7 +1793,10 @@ export class SFTPStream extends stream.Transform {
      * * `name()` - Use this to send one or more directory listings for the open directory back to the client.
      * * `status()` - Use this to indicate either end of directory contents (`STATUS_CODE.EOF`) or if an error occurred while reading the directory contents.
      */
-    on(event: "READDIR", listener: (reqID: number, handle: Buffer) => void): this;
+    on(
+        event: "READDIR",
+        listener: (reqID: number, handle: Buffer) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1496,7 +1845,10 @@ export class SFTPStream extends stream.Transform {
      * * `name()` - Use this to respond with a normalized version of `path`. No file/directory attributes are required to be sent in this response.
      * * `status()` - Use this to indicate a failure in normalizing `path`.
      */
-    on(event: "REALPATH", listener: (reqID: number, path: string) => void): this;
+    on(
+        event: "REALPATH",
+        listener: (reqID: number, path: string) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1506,7 +1858,10 @@ export class SFTPStream extends stream.Transform {
      * * `name()` - Use this to respond with the target of the symlink at `path`. No file/directory attributes are required to be sent in this response.
      * * `status()` - Use this to indicate a failure in reading the symlink at `path`.
      */
-    on(event: "READLINK", listener: (reqID: number, path: string) => void): this;
+    on(
+        event: "READLINK",
+        listener: (reqID: number, path: string) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1515,7 +1870,10 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicates success/failure of the setting of the given file/directory attributes.
      */
-    on(event: "SETSTAT", listener: (reqID: number, path: string, attrs: InputAttributes) => void): this;
+    on(
+        event: "SETSTAT",
+        listener: (reqID: number, path: string, attrs: InputAttributes) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1524,7 +1882,10 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicate success/failure of the creation of the directory at `path`.
      */
-    on(event: "MKDIR", listener: (reqID: number, path: string, attrs: InputAttributes) => void): this;
+    on(
+        event: "MKDIR",
+        listener: (reqID: number, path: string, attrs: InputAttributes) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1533,7 +1894,10 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicate success/failure of the renaming of the file/directory at `oldPath` to `newPath`.
      */
-    on(event: "RENAME", listener: (reqID: number, oldPath: string, newPath: string) => void): this;
+    on(
+        event: "RENAME",
+        listener: (reqID: number, oldPath: string, newPath: string) => void
+    ): this;
 
     /**
      * (Server-only)
@@ -1542,7 +1906,10 @@ export class SFTPStream extends stream.Transform {
      * Respond with:
      * * `status()` - Use this to indicate success/failure of the symlink creation.
      */
-    on(event: "SYMLINK", listener: (reqID: number, linkPath: string, targetPath: string) => void): this;
+    on(
+        event: "SYMLINK",
+        listener: (reqID: number, linkPath: string, targetPath: string) => void
+    ): this;
 
     /**
      * Emitted when the socket has disconnected.
@@ -1688,7 +2055,10 @@ export interface Stats extends Attributes {
 export namespace utils {
     export function parseKey(keyData: string | Buffer): ParsedKey | Error;
     export function genPublicKey(privKeyInfo: ParsedKey): ParsedKey;
-    export function decryptKey(privKeyInfo: ParsedKey, passphrase: string): void;
+    export function decryptKey(
+        privKeyInfo: ParsedKey,
+        passphrase: string
+    ): void;
 }
 
 export interface ParsedKey {

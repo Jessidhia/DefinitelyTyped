@@ -6,7 +6,7 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node"/>
-import * as fs from 'fs';
+import * as fs from "fs";
 
 export = makeDir;
 
@@ -14,7 +14,10 @@ export = makeDir;
  * Returns a `Promise` for the path to the created directory.
  * @param path Directory to create.
  */
-declare function makeDir(path: string, options?: makeDir.Options): Promise<string>;
+declare function makeDir(
+    path: string,
+    options?: makeDir.Options
+): Promise<string>;
 
 declare namespace makeDir {
     /**

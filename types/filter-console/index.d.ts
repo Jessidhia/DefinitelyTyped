@@ -29,7 +29,7 @@ declare namespace filterConsole {
          * Console methods to filter.
          * @default ['log', 'debug', 'info', 'warn', 'error']
          */
-        methods?: Array<'log' | 'debug' | 'info' | 'warn' | 'error'>;
+        methods?: Array<"log" | "debug" | "info" | "warn" | "error">;
 
         /**
          * Use a custom `console` object. Can be useful for testing or mocking.
@@ -38,7 +38,7 @@ declare namespace filterConsole {
     }
 
     type Console = Record<
-        'log' | 'debug' | 'info' | 'warn' | 'error',
+        "log" | "debug" | "info" | "warn" | "error",
         (message?: any, ...optionalParams: any[]) => void
     >;
 }

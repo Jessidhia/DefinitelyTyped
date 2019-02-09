@@ -1,6 +1,4 @@
-
-
-import gravatar = require('gravatar');
+import gravatar = require("gravatar");
 
 gravatar.url("email@example.com");
 gravatar.url("email@example.com", { s: "200", r: "pg", d: "404" });

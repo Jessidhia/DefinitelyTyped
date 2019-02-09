@@ -6,16 +6,16 @@
 
 /// <reference types="node" />
 
-import * as http from 'http';
+import * as http from "http";
 
 interface RequestHeaders extends http.IncomingHttpHeaders {
-    'x-client-ip'?: string;
-    'x-forwarded-for'?: string;
-    'x-real-ip'?: string;
-    'x-cluster-client-ip'?: string;
-    'x-forwarded'?: string;
-    'forwarded-for'?: string;
-    'forwarded'?: string;
+    "x-client-ip"?: string;
+    "x-forwarded-for"?: string;
+    "x-real-ip"?: string;
+    "x-cluster-client-ip"?: string;
+    "x-forwarded"?: string;
+    "forwarded-for"?: string;
+    forwarded?: string;
 }
 
 interface Request {
@@ -23,14 +23,14 @@ interface Request {
     connection: {
         remoteAddress?: string;
         socket?: {
-            remoteAddress?: string
+            remoteAddress?: string;
         };
     };
     info?: {
-        remoteAddress?: string
+        remoteAddress?: string;
     };
     socket?: {
-        remoteAddress?: string
+        remoteAddress?: string;
     };
 }
 
@@ -40,4 +40,6 @@ interface Options {
 
 export declare function getClientIp(req: Request): string;
 
-export function mw(options?: Options): (req: Request, res: any, next: any) => any;
+export function mw(
+    options?: Options
+): (req: Request, res: any, next: any) => any;

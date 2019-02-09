@@ -21,7 +21,10 @@ import { Duplex } from "stream";
  * @returns A sharp instance that can be used to chain operations
  */
 declare function sharp(options?: sharp.SharpOptions): sharp.Sharp;
-declare function sharp(input?: string | Buffer, options?: sharp.SharpOptions): sharp.Sharp;
+declare function sharp(
+    input?: string | Buffer,
+    options?: sharp.SharpOptions
+): sharp.Sharp;
 
 declare namespace sharp {
     /** Object containing nested boolean values representing the available input and output formats/methods. */
@@ -138,7 +141,10 @@ declare namespace sharp {
          * @throws {Error} Invalid parameters
          * @returns A sharp instance that can be used to chain operations
          */
-        joinChannel(images: string | Buffer | ArrayLike<string|Buffer>, options?: SharpOptions): Sharp;
+        joinChannel(
+            images: string | Buffer | ArrayLike<string | Buffer>,
+            options?: SharpOptions
+        ): Sharp;
 
         /**
          * Perform a bitwise boolean operation on all input image channels (bands) to produce a single channel output image.
@@ -403,7 +409,11 @@ declare namespace sharp {
          * @throws {Error} Invalid parameters
          * @returns A sharp instance that can be used to chain operations
          */
-        boolean(operand: string | Buffer, operator: string, options?: { raw: Raw }): Sharp;
+        boolean(
+            operand: string | Buffer,
+            operator: string,
+            options?: { raw: Raw }
+        ): Sharp;
 
         /**
          * Apply the linear formula a * input + b to the image (levels adjustment)
@@ -427,7 +437,10 @@ declare namespace sharp {
          * @throws {Error} Invalid parameters
          * @returns A sharp instance that can be used to chain operations
          */
-        toFile(fileOut: string, callback: (err: Error, info: OutputInfo) => void): Sharp;
+        toFile(
+            fileOut: string,
+            callback: (err: Error, info: OutputInfo) => void
+        ): Sharp;
 
         /**
          * Write output image data to a file.
@@ -443,7 +456,9 @@ declare namespace sharp {
          * @param callback Callback function called on completion with three arguments (err, buffer, info).
          * @returns A sharp instance that can be used to chain operations
          */
-        toBuffer(callback: (err: Error, buffer: Buffer, info: OutputInfo) => void): Sharp;
+        toBuffer(
+            callback: (err: Error, buffer: Buffer, info: OutputInfo) => void
+        ): Sharp;
 
         /**
          * Write output to a Buffer. JPEG, PNG, WebP, TIFF and RAW output are supported.
@@ -461,7 +476,9 @@ declare namespace sharp {
          * @param options.resolveWithObject Resolve the Promise with an Object containing data and info properties instead of resolving only with data.
          * @returns A promise that resolves with an object containing the Buffer data and an info object containing the output image format, size (bytes), width, height and channels
          */
-        toBuffer(options: { resolveWithObject: true }): Promise<{ data: Buffer, info: OutputInfo }>;
+        toBuffer(options: {
+            resolveWithObject: true;
+        }): Promise<{ data: Buffer; info: OutputInfo }>;
 
         /**
          * Include all metadata (EXIF, XMP, IPTC) from the input image in the output image.
@@ -519,7 +536,15 @@ declare namespace sharp {
          * @throws {Error} Unsupported format or options
          * @returns A sharp instance that can be used to chain operations
          */
-        toFormat(format: string | AvailableFormatInfo, options?: OutputOptions | JpegOptions | PngOptions | WebpOptions | TiffOptions): Sharp;
+        toFormat(
+            format: string | AvailableFormatInfo,
+            options?:
+                | OutputOptions
+                | JpegOptions
+                | PngOptions
+                | WebpOptions
+                | TiffOptions
+        ): Sharp;
 
         /**
          * Use tile-based deep zoom (image pyramid) output.
@@ -570,7 +595,11 @@ declare namespace sharp {
          * @throws {Error} Invalid parameters
          * @returns A sharp instance that can be used to chain operations
          */
-        resize(width?: number|null, height?: number|null, options?: ResizeOptions): Sharp;
+        resize(
+            width?: number | null,
+            height?: number | null,
+            options?: ResizeOptions
+        ): Sharp;
 
         /**
          * Extends/pads the edges of the image with the provided background colour.
@@ -932,8 +961,8 @@ declare namespace sharp {
 
     interface AvailableFormatInfo {
         id: string;
-        input: { file: boolean; buffer: boolean; stream: boolean; };
-        output: { file: boolean; buffer: boolean; stream: boolean; };
+        input: { file: boolean; buffer: boolean; stream: boolean };
+        output: { file: boolean; buffer: boolean; stream: boolean };
     }
 
     interface FitEnum {
@@ -1004,9 +1033,9 @@ declare namespace sharp {
     }
 
     interface CacheResult {
-        memory: { current: number; high: number; max: number; };
-        files: { current: number; max: number; };
-        items: { current: number; max: number; };
+        memory: { current: number; high: number; max: number };
+        files: { current: number; max: number };
+        items: { current: number; max: number };
     }
 }
 

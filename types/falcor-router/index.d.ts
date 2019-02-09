@@ -4,13 +4,15 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 /// <reference types="falcor" />
-import * as FalcorModel from 'falcor';
-import * as FalcorJsonGraph from 'falcor-json-graph';
+import * as FalcorModel from "falcor";
+import * as FalcorJsonGraph from "falcor-json-graph";
 import DataSource = FalcorModel.DataSource;
 
 declare class FalcorRouter extends DataSource {
-
-    constructor(routes: Array<FalcorRouter.RouteDefinition>, options?: FalcorRouter.RouterOptions);
+    constructor(
+        routes: Array<FalcorRouter.RouteDefinition>,
+        options?: FalcorRouter.RouterOptions
+    );
 
     /**
      * When a route misses on a call, get, or set the unhandledDataSource will
@@ -18,11 +20,12 @@ declare class FalcorRouter extends DataSource {
      **/
     routeUnhandledPathsTo(dataSource: DataSource): void;
 
-    static createClass(routes?: Array<FalcorRouter.RouteDefinition>): typeof FalcorRouter.CreatedRouter;
+    static createClass(
+        routes?: Array<FalcorRouter.RouteDefinition>
+    ): typeof FalcorRouter.CreatedRouter;
 }
 
 declare namespace FalcorRouter {
-
     class CreatedRouter extends FalcorRouter {
         constructor(options?: RouterOptions);
     }
@@ -34,7 +37,10 @@ declare namespace FalcorRouter {
     type RoutePathSet = FalcorJsonGraph.PathSet;
 
     interface CallRoute extends Route {
-        call(callPath: RoutePathSet, args: Array<any>): CallRouteResult | Promise<CallRouteResult>;
+        call(
+            callPath: RoutePathSet,
+            args: Array<any>
+        ): CallRouteResult | Promise<CallRouteResult>;
     }
 
     interface GetRoute extends Route {
@@ -42,12 +48,21 @@ declare namespace FalcorRouter {
     }
 
     interface SetRoute extends Route {
-        set(jsonGraph: FalcorJsonGraph.JSONGraph): RouteResult | Promise<RouteResult>;
+        set(
+            jsonGraph: FalcorJsonGraph.JSONGraph
+        ): RouteResult | Promise<RouteResult>;
     }
 
     type RouteDefinition = GetRoute | SetRoute | CallRoute;
-    type RouteResult = FalcorJsonGraph.PathValue | Array<FalcorJsonGraph.PathValue> | FalcorJsonGraph.JSONEnvelope<any>;
-    type CallRouteResult = FalcorJsonGraph.PathValue | FalcorJsonGraph.InvalidPath | Array<FalcorJsonGraph.PathValue | FalcorJsonGraph.InvalidPath> | FalcorJsonGraph.JSONGraphEnvelope;
+    type RouteResult =
+        | FalcorJsonGraph.PathValue
+        | Array<FalcorJsonGraph.PathValue>
+        | FalcorJsonGraph.JSONEnvelope<any>;
+    type CallRouteResult =
+        | FalcorJsonGraph.PathValue
+        | FalcorJsonGraph.InvalidPath
+        | Array<FalcorJsonGraph.PathValue | FalcorJsonGraph.InvalidPath>
+        | FalcorJsonGraph.JSONGraphEnvelope;
 
     interface RouterOptions {
         debug?: boolean;
@@ -57,4 +72,3 @@ declare namespace FalcorRouter {
 }
 
 export = FalcorRouter;
-

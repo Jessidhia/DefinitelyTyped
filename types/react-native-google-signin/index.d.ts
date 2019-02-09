@@ -7,8 +7,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { ViewProps } from 'react-native';
+import * as React from "react";
+import { ViewProps } from "react-native";
 
 export interface GoogleSigninButtonProps extends ViewProps {
     size?: GoogleSigninButton.Size;
@@ -17,7 +17,9 @@ export interface GoogleSigninButtonProps extends ViewProps {
     onPress?(): void;
 }
 
-export class GoogleSigninButton extends React.Component<GoogleSigninButtonProps> {
+export class GoogleSigninButton extends React.Component<
+    GoogleSigninButtonProps
+> {
     constructor(props: GoogleSigninButtonProps);
 }
 

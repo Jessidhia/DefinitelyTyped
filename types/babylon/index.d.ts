@@ -5,11 +5,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { File, Expression } from 'babel-types';
+import { File, Expression } from "babel-types";
 
 export function parse(code: string, opts?: BabylonOptions): File;
 
-export function parseExpression(input: string, options?: BabylonOptions): Expression;
+export function parseExpression(
+    input: string,
+    options?: BabylonOptions
+): Expression;
 
 export interface BabylonOptions {
     /**
@@ -28,7 +31,7 @@ export interface BabylonOptions {
     /**
      * Indicate the mode the code should be parsed in. Can be either "script" or "module".
      */
-    sourceType?: 'script' | 'module';
+    sourceType?: "script" | "module";
 
     /**
      * Correlate output AST nodes with their source filename. Useful when
@@ -43,17 +46,17 @@ export interface BabylonOptions {
 }
 
 export type PluginName =
-    'estree' |
-    'jsx' |
-    'flow' |
-    'typescript' |
-    'classConstructorCall' |
-    'doExpressions' |
-    'objectRestSpread' |
-    'decorators' |
-    'classProperties' |
-    'exportExtensions' |
-    'asyncGenerators' |
-    'functionBind' |
-    'functionSent' |
-    'dynamicImport';
+    | "estree"
+    | "jsx"
+    | "flow"
+    | "typescript"
+    | "classConstructorCall"
+    | "doExpressions"
+    | "objectRestSpread"
+    | "decorators"
+    | "classProperties"
+    | "exportExtensions"
+    | "asyncGenerators"
+    | "functionBind"
+    | "functionSent"
+    | "dynamicImport";

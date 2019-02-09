@@ -3,7 +3,7 @@
 // Definitions by: BendingBender <https://github.com/BendingBender>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import { Extensions } from 'interpret';
+import { Extensions } from "interpret";
 
 export function prepare(
     config: Extensions,

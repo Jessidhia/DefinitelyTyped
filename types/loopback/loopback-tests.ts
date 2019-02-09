@@ -1,5 +1,5 @@
-import loopback = require('loopback');
-import cookieParser = require('cookie-parser');
+import loopback = require("loopback");
+import cookieParser = require("cookie-parser");
 
 class TestModel {
     id: number;
@@ -19,7 +19,7 @@ class Server {
 
         this.app.use(loopback.favicon());
         this.app.use(loopback.rest());
-        this.app.use(loopback.static('.'));
+        this.app.use(loopback.static("."));
         this.app.use(loopback.status());
         this.app.use(loopback.rewriteUserLiteral());
         this.app.use(loopback.token());
@@ -36,19 +36,27 @@ class Server {
                 console.dir(data.name);
             }
 
-            model.findOne<TestModel>({}, (err: Error | null, instance: TestModel) => {
-                if (err) {
-                    console.dir(err);
+            model.findOne<TestModel>(
+                {},
+                (err: Error | null, instance: TestModel) => {
+                    if (err) {
+                        console.dir(err);
+                    }
+                    console.dir(instance.name);
                 }
-                console.dir(instance.name);
-            });
-            model.remoteMethod('getStuff', {
+            );
+            model.remoteMethod("getStuff", {
                 description: "Get some stuff",
                 accepts: [
-                    {arg: 'aParam', type: "String", required: true, description: "A parameter to process"}
+                    {
+                        arg: "aParam",
+                        type: "String",
+                        required: true,
+                        description: "A parameter to process"
+                    }
                 ],
-                http: {verb: "get", path: "/get-stuff"},
-                returns: {arg: "res", type: "Object"},
+                http: { verb: "get", path: "/get-stuff" },
+                returns: { arg: "res", type: "Object" }
             });
         };
     }

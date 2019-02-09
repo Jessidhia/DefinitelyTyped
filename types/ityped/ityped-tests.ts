@@ -1,9 +1,7 @@
 import { init } from "ityped";
 
 const config = {
-    strings: [
-        "Strings!",
-    ],
+    strings: ["Strings!"],
     typeSpeed: 120,
     pause: 500,
     loop: true

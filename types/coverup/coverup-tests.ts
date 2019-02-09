@@ -21,7 +21,7 @@ coverup("4242-4242-4242-4242", { keepRight: 4 }); // $ExpectType string
 let options: coverup.Options = {
     char: "x",
     keepLeft: 3,
-    keepRight: 3,
+    keepRight: 3
 };
 
 coverup("4242-4242-4242-4242", options); // $ExpectType string
@@ -31,7 +31,7 @@ options = {
     keepLeft: 1,
     keepRight: 1,
     compactTo: 4,
-    keepSymbols: true,
+    keepSymbols: true
 };
 
 coverup("4242-4242-4242-4242", options); // $ExpectError "you cannot define both compactTo and keepSymbols"

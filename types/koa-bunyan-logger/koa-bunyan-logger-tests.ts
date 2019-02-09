@@ -1,5 +1,5 @@
-import Koa = require('koa');
-import koaBunyanLogger = require('koa-bunyan-logger');
+import Koa = require("koa");
+import koaBunyanLogger = require("koa-bunyan-logger");
 
 const app = new Koa();
 app.use(koaBunyanLogger());
@@ -7,7 +7,7 @@ app.use(koaBunyanLogger.requestIdContext());
 app.use(koaBunyanLogger.requestLogger());
 
 app.use(async (ctx, next) => {
-    ctx.log.info('Got a request from %s for %s', ctx.request.ip, ctx.path);
+    ctx.log.info("Got a request from %s for %s", ctx.request.ip, ctx.path);
     await next();
 });
 

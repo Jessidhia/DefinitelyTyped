@@ -23,4 +23,7 @@ iconv.end("hoge");
 iconv.end("hoge", "utf-8");
 iconv.end(new Buffer("hoge"), "utf-8");
 
-const st: Writable = iconv.pipe(new Writable, {end: true});
+const st: Writable = iconv.pipe(
+    new Writable(),
+    { end: true }
+);

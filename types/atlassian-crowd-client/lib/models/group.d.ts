@@ -5,9 +5,19 @@ declare class Group {
     readonly active: boolean;
     readonly attributes?: any;
 
-    constructor(groupname: string, description?: string, active?: boolean, attributes?: any);
+    constructor(
+        groupname: string,
+        description?: string,
+        active?: boolean,
+        attributes?: any
+    );
     toCrowd(): GroupObj;
-    static fromCrowd(obj: {name: string, description?: string, active?: boolean, attributes: any}): Group;
+    static fromCrowd(obj: {
+        name: string;
+        description?: string;
+        active?: boolean;
+        attributes: any;
+    }): Group;
 }
 
 interface GroupObj {

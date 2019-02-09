@@ -6,15 +6,15 @@
  * are not intended as functional tests.
  */
 
-import * as d3Contour from 'd3-contour';
+import * as d3Contour from "d3-contour";
 import {
     range,
     thresholdSturges,
     ThresholdNumberArrayGenerator,
     ThresholdCountGenerator
-} from 'd3-array';
-import { geoPath } from 'd3-geo';
-import { randomNormal } from 'd3-random';
+} from "d3-array";
+import { geoPath } from "d3-geo";
+import { randomNormal } from "d3-random";
 
 // -----------------------------------------------------------------------------
 // Preparatory Steps
@@ -27,25 +27,37 @@ const m = 256;
 const values: number[] = new Array(n * m);
 for (let j = 0.5, k = 0; j < m; ++j) {
     for (let i = 0.5; i < n; i++) {
-        values[k] = goldsteinPrice(i / n * 4 - 2, 1 - j / m * 3);
+        values[k] = goldsteinPrice((i / n) * 4 - 2, 1 - (j / m) * 3);
         k++;
     }
 }
 
 function goldsteinPrice(x: number, y: number) {
-    return (1 + Math.pow(x + y + 1, 2) * (19 - 14 * x + 3 * x * x - 14 * y + 6 * x * x + 3 * y * y))
-        * (30 + Math.pow(2 * x - 3 * y, 2) * (18 - 32 * x + 12 * x * x + 48 * y - 36 * x * y + 27 * y * y));
+    return (
+        (1 +
+            Math.pow(x + y + 1, 2) *
+                (19 - 14 * x + 3 * x * x - 14 * y + 6 * x * x + 3 * y * y)) *
+        (30 +
+            Math.pow(2 * x - 3 * y, 2) *
+                (18 - 32 * x + 12 * x * x + 48 * y - 36 * x * y + 27 * y * y))
+    );
 }
 
 let size: [number, number];
 let boolFlag: boolean;
-const thresholdArrayGen: ThresholdNumberArrayGenerator<number> = (values: ArrayLike<number>, min?: number, max?: number) => {
+const thresholdArrayGen: ThresholdNumberArrayGenerator<number> = (
+    values: ArrayLike<number>,
+    min?: number,
+    max?: number
+) => {
     let thresholds: number[];
     thresholds = [values[1], values[2], values[4]];
     return thresholds;
 };
 
-let thresholdGenerator: ThresholdNumberArrayGenerator<number> | ThresholdCountGenerator<number>;
+let thresholdGenerator:
+    | ThresholdNumberArrayGenerator<number>
+    | ThresholdCountGenerator<number>;
 let pathStringMaybe: string | null;
 let num: number;
 
@@ -83,8 +95,7 @@ boolFlag = contGen.smooth();
 contGen = contGen.thresholds(10);
 
 // set with array
-const thresholds1 = range(1, 21)
-    .map(p => Math.pow(2, p));
+const thresholds1 = range(1, 21).map(p => Math.pow(2, p));
 contGen = contGen.thresholds(thresholds1);
 
 // set with threshold array generator
@@ -116,16 +127,20 @@ interface CustomDatum {
 // test generic parameter defaults for ContourDensity and contourDensity
 const contDensDefault: d3Contour.ContourDensity = d3Contour.contourDensity();
 // tslint:disable-next-line: use-default-type-parameter
-const contDensDefaultCopy: d3Contour.ContourDensity<[number, number]> = contDensDefault;
+const contDensDefaultCopy: d3Contour.ContourDensity<
+    [number, number]
+> = contDensDefault;
 // test with explicit generic parameter
-let contDensCustom: d3Contour.ContourDensity<CustomDatum> = d3Contour.contourDensity<CustomDatum>();
+let contDensCustom: d3Contour.ContourDensity<
+    CustomDatum
+> = d3Contour.contourDensity<CustomDatum>();
 
 // Configure contour generator =================================================
 
 // x(...) ----------------------------------------------------------------------
 
 // set with chainability
-contDensCustom = contDensCustom.x((datum) => {
+contDensCustom = contDensCustom.x(datum => {
     const d: CustomDatum = datum; // check passed in argument type
     return d.x;
 });
@@ -136,7 +151,7 @@ const xAcc: (d: CustomDatum) => number = contDensCustom.x();
 // y(...) ----------------------------------------------------------------------
 
 // set with chainability
-contDensCustom = contDensCustom.y((datum) => {
+contDensCustom = contDensCustom.y(datum => {
     const d: CustomDatum = datum; // check passed in argument type
     return d.y;
 });
@@ -145,7 +160,7 @@ contDensCustom = contDensCustom.y((datum) => {
 const yAcc: (d: CustomDatum) => number = contDensCustom.y();
 
 // weight(...) -----------------------------------------------------------------
-contDensCustom = contDensCustom.weight((datum) => {
+contDensCustom = contDensCustom.weight(datum => {
     return 5;
 });
 

@@ -32,7 +32,11 @@ export interface ElementFactory {
      */
     create(
         type: ElementType,
-        options: CardElementOptions | IBANElementOptions | IdealBankOptions | PaymentButtonOptions
+        options:
+            | CardElementOptions
+            | IBANElementOptions
+            | IdealBankOptions
+            | PaymentButtonOptions
     ): StripeElement;
 }
 
@@ -49,7 +53,21 @@ export interface ElementCreatorOptions {
      *
      * @default 'auto'
      */
-    locale?: 'auto' | 'da' | 'de' | 'en' | 'es' | 'fi' | 'fr' | 'it' | 'ja' | 'no' | 'nl' | 'sv' | 'zh' | string;
+    locale?:
+        | "auto"
+        | "da"
+        | "de"
+        | "en"
+        | "es"
+        | "fi"
+        | "fr"
+        | "it"
+        | "ja"
+        | "no"
+        | "nl"
+        | "sv"
+        | "zh"
+        | string;
 }
 
 export interface FontCSSElement {
@@ -79,7 +97,7 @@ export interface FontConfigElement {
      * The style of the text
      * @default 'normal'
      */
-    style?: 'normal' | 'italic' | 'oblique';
+    style?: "normal" | "italic" | "oblique";
 
     /**
      * A unicode range for the font that should be used
@@ -91,7 +109,15 @@ export interface FontConfigElement {
      * The weight of the font
      * NOTE: This cannot be a number!
      */
-    weight?: 'initial' | 'inherit' | 'bold' | 'bolder' | 'lighter' | 'normal' | 'revert' | 'unset';
+    weight?:
+        | "initial"
+        | "inherit"
+        | "bold"
+        | "bolder"
+        | "lighter"
+        | "normal"
+        | "revert"
+        | "unset";
 }
 
 // --- ELEMENT --- //
@@ -118,9 +144,12 @@ export interface StripeElement {
      * @param event - What event to listen to
      * @param handler - The handler function that is called when the event fires
      */
-    on(event: 'blur' | 'focus' | 'ready', handler: () => void): void;
-    on(event: 'click', handler: (event: { preventDefault: () => void }) => void): void;
-    on(event: 'change', handler: (event: OnChange) => void): void;
+    on(event: "blur" | "focus" | "ready", handler: () => void): void;
+    on(
+        event: "click",
+        handler: (event: { preventDefault: () => void }) => void
+    ): void;
+    on(event: "change", handler: (event: OnChange) => void): void;
 
     /**
      * Blur the element
@@ -156,14 +185,26 @@ export interface StripeElement {
      * NOTE: Updates are merged into the existing configuration
      * @param options - The options that should be used to update the element
      */
-    update(options: CardElementOptions | IBANElementOptions | IdealBankOptions | PaymentButtonOptions): void;
+    update(
+        options:
+            | CardElementOptions
+            | IBANElementOptions
+            | IdealBankOptions
+            | PaymentButtonOptions
+    ): void;
 }
 
 /**
  * The type of element that can be created by the ElementCreator
  * @see ElementCreator
  */
-export type ElementType = 'card' | 'cardNumber' | 'cardExpiry' | 'cardCvc' | 'postalCode' | 'paymentRequestButton';
+export type ElementType =
+    | "card"
+    | "cardNumber"
+    | "cardExpiry"
+    | "cardCvc"
+    | "postalCode"
+    | "paymentRequestButton";
 
 // --- ELEMENT EVENTS --- //
 export interface OnChange {
@@ -236,7 +277,7 @@ export interface CardElementOptions extends BaseOptions {
     /**
      * Appearance of the icon in the Element
      */
-    iconStyle?: 'solid' | 'default';
+    iconStyle?: "solid" | "default";
 
     /**
      * A placeholder text
@@ -261,7 +302,7 @@ export interface IBANElementOptions extends BaseOptions {
     /**
      * Appearance of the icon in the Element
      */
-    iconStyle?: 'solid' | 'default';
+    iconStyle?: "solid" | "default";
 }
 
 // --- IDEAL ELEMENT --- //
@@ -284,10 +325,10 @@ export interface PaymentButtonOptions {
      * particular state.
      */
     classes?: {
-        base?: string; /** @default StripeElement */
-        complete?: string; /** @default StripeElement--complete */
-        focus: string; /** @default StripeElement--focus */
-        invalid: string; /** @default StripeElement--invalid */
+        base?: string /** @default StripeElement */;
+        complete?: string /** @default StripeElement--complete */;
+        focus: string /** @default StripeElement--focus */;
+        invalid: string /** @default StripeElement--invalid */;
     };
 
     style?: {
@@ -304,13 +345,13 @@ export interface PaymentRequestButtonStyle {
      * The type of button that should be shown
      * @default 'default'
      */
-    type?: 'default' | 'donate' | 'buy';
+    type?: "default" | "donate" | "buy";
 
     /**
      * The theme of the button that should be used
      * @default 'dark'
      */
-    theme?: 'dark' | 'light' | 'light-outline';
+    theme?: "dark" | "light" | "light-outline";
 
     /**
      * The height of the button
@@ -329,12 +370,12 @@ export interface BaseOptions {
      * particular state.
      */
     classes?: {
-        base?: string; /** @default StripeElement */
-        complete?: string; /** @default StripeElement--complete */
-        empty?: string; /** @default StripeElement--empty */
-        focus?: string; /** @default StripeElement--focus */
-        invalid?: string; /** @default StripeElement--invalid */
-        webkitAutofill?: string; /** @default StripeElement--webkit-autofill */
+        base?: string /** @default StripeElement */;
+        complete?: string /** @default StripeElement--complete */;
+        empty?: string /** @default StripeElement--empty */;
+        focus?: string /** @default StripeElement--focus */;
+        invalid?: string /** @default StripeElement--invalid */;
+        webkitAutofill?: string /** @default StripeElement--webkit-autofill */;
     };
 
     /**
@@ -379,7 +420,7 @@ export interface StyleAttributes {
      * NOTE: Only available for the `cardNumber`, `cardExpiry`, and `cardCvc` Elements
      */
     textAlign?: string;
-    '::-ms-clear'?: MSClearAttributes;
+    "::-ms-clear"?: MSClearAttributes;
 
     /**
      * Add padding to the element
@@ -390,12 +431,12 @@ export interface StyleAttributes {
     textDecoration?: string;
     textShadow?: string;
     textTransform?: string;
-    ':hover'?: StyleAttributes;
-    ':focus'?: StyleAttributes;
-    '::placeholder'?: StyleAttributes;
-    '::selection'?: StyleAttributes;
-    ':-webkit-autofill'?: StyleAttributes;
-    ':disabled'?: StyleAttributes;
+    ":hover"?: StyleAttributes;
+    ":focus"?: StyleAttributes;
+    "::placeholder"?: StyleAttributes;
+    "::selection"?: StyleAttributes;
+    ":-webkit-autofill"?: StyleAttributes;
+    ":disabled"?: StyleAttributes;
 }
 
 export interface MSClearAttributes extends StyleAttributes {

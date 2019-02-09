@@ -5,7 +5,10 @@
 
 export = pWaitFor;
 
-declare function pWaitFor(condition: () => PromiseLike<boolean> | boolean, options?: pWaitFor.Options): Promise<void>;
+declare function pWaitFor(
+    condition: () => PromiseLike<boolean> | boolean,
+    options?: pWaitFor.Options
+): Promise<void>;
 
 declare namespace pWaitFor {
     interface Options {

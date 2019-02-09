@@ -7,8 +7,8 @@
 
 /// <reference types="node" />
 
-import { Readable } from 'stream';
-import { Buffer } from 'buffer';
+import { Readable } from "stream";
+import { Buffer } from "buffer";
 
 export interface Options {
     mtime: Date;
@@ -36,12 +36,27 @@ export interface DosDateTime {
 }
 
 export class ZipFile {
-    addFile(realPath: string, metadataPath: string, options?: Partial<Options>): void;
+    addFile(
+        realPath: string,
+        metadataPath: string,
+        options?: Partial<Options>
+    ): void;
     outputStream: Readable;
-    addReadStream(input: Readable, metadataPath: string, options?: Partial<ReadStreamOptions>): void;
-    addBuffer(buffer: Buffer, metadataPath: string, options?: Partial<Options>): void;
+    addReadStream(
+        input: Readable,
+        metadataPath: string,
+        options?: Partial<ReadStreamOptions>
+    ): void;
+    addBuffer(
+        buffer: Buffer,
+        metadataPath: string,
+        options?: Partial<Options>
+    ): void;
     end(optoins?: EndOptions, finalSizeCallback?: () => void): void;
 
-    addEmptyDirectory(metadataPath: string, options?: Partial<DirectoryOptions>): void;
+    addEmptyDirectory(
+        metadataPath: string,
+        options?: Partial<DirectoryOptions>
+    ): void;
     dateToDosDateTime(jsDate: Date): DosDateTime;
 }

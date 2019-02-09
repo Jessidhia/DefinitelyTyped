@@ -1,4 +1,4 @@
-import leapYear = require('leap-year');
+import leapYear = require("leap-year");
 
 // $ExpectType boolean
 leapYear();

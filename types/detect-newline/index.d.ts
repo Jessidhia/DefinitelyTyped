@@ -5,8 +5,8 @@
 
 export = detectNewline;
 
-declare function detectNewline(str: string): '\r\n' | '\n' | null;
+declare function detectNewline(str: string): "\r\n" | "\n" | null;
 
 declare namespace detectNewline {
-    function graceful(str: string): '\r\n' | '\n';
+    function graceful(str: string): "\r\n" | "\n";
 }

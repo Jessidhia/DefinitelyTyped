@@ -1,6 +1,11 @@
 import getFieldNames = require("graphql-list-fields");
 
-import { GraphQLID, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
+import {
+    GraphQLID,
+    GraphQLObjectType,
+    GraphQLSchema,
+    GraphQLString
+} from "graphql";
 
 const schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -10,7 +15,7 @@ const schema = new GraphQLSchema({
                 type: GraphQLString,
                 resolve(source, args, context, info) {
                     const fieldNames: string[] = getFieldNames(info);
-                },
+                }
             },
             someType: {
                 type: new GraphQLObjectType({
@@ -19,13 +24,13 @@ const schema = new GraphQLSchema({
                         a: { type: GraphQLID },
                         b: { type: GraphQLString },
                         c: { type: GraphQLString },
-                        d: { type: GraphQLString },
-                    },
+                        d: { type: GraphQLString }
+                    }
                 }),
                 resolve(source, args, context, info) {
                     const fieldNames: string[] = getFieldNames(info);
-                },
-            },
-        },
-    }),
+                }
+            }
+        }
+    })
 });

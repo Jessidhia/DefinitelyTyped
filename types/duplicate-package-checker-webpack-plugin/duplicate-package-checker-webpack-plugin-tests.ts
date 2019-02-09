@@ -1,20 +1,16 @@
-import webpack = require('webpack');
-import DuplicatePackageCheckerWebpackPlugin = require('duplicate-package-checker-webpack-plugin');
+import webpack = require("webpack");
+import DuplicatePackageCheckerWebpackPlugin = require("duplicate-package-checker-webpack-plugin");
 
 const a: webpack.Configuration = {
-    entry: 'test.js',
-    plugins: [
-        new DuplicatePackageCheckerWebpackPlugin()
-    ]
+    entry: "test.js",
+    plugins: [new DuplicatePackageCheckerWebpackPlugin()]
 };
 const b: webpack.Configuration = {
-    entry: 'test.js',
-    plugins: [
-        new DuplicatePackageCheckerWebpackPlugin({})
-    ]
+    entry: "test.js",
+    plugins: [new DuplicatePackageCheckerWebpackPlugin({})]
 };
 const c: webpack.Configuration = {
-    entry: 'test.js',
+    entry: "test.js",
     plugins: [
         new DuplicatePackageCheckerWebpackPlugin({
             verbose: true,

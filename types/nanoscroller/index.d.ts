@@ -11,7 +11,7 @@ declare namespace JQueryNanoScroller {
         /**
          * To scroll at the top or bottom.
          */
-        scroll?: 'top' | 'bottom';
+        scroll?: "top" | "bottom";
         /**
          * To scroll at the top with an offset value.
          */

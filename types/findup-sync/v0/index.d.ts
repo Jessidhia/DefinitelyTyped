@@ -3,7 +3,7 @@
 // Definitions by: Bart van der Schoor <https://github.com/Bartvds>, Nathan Brown <https://github.com/ngbrown>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import minimatch = require('minimatch');
+import minimatch = require("minimatch");
 
 interface IOptions extends minimatch.IOptions {
     cwd?: string;

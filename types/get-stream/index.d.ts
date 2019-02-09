@@ -6,14 +6,14 @@
 
 /// <reference types="node" />
 
-import { Stream } from 'stream';
+import { Stream } from "stream";
 
 interface Options {
     /**
      * Encoding of the incoming stream.
      * @default 'utf8'
      */
-    encoding?: BufferEncoding | 'buffer';
+    encoding?: BufferEncoding | "buffer";
     /**
      * Maximum length of the returned string. If it exceeds this value before
      * the stream ends, the promise will be rejected.

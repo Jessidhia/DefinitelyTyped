@@ -2,15 +2,15 @@
 import { Lifecycle, Request, ResponseToolkit, Server } from "hapi";
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 
 const pre1: Lifecycle.Method = (request, h) => {
-    return 'Hello';
+    return "Hello";
 };
 
 const pre2: Lifecycle.Method = (request, h) => {
-    return 'World';
+    return "World";
 };
 
 const pre3: Lifecycle.Method = (request, h) => {
@@ -18,25 +18,25 @@ const pre3: Lifecycle.Method = (request, h) => {
 };
 
 server.route({
-    method: 'GET',
-    path: '/',
+    method: "GET",
+    path: "/",
     options: {
         pre: [
             [
                 // m1 and m2 executed in parallel
-                { method: pre1, assign: 'm1' },
-                { method: pre2, assign: 'm2' }
+                { method: pre1, assign: "m1" },
+                { method: pre2, assign: "m2" }
             ],
-            { method: pre3, assign: 'm3' },
+            { method: pre3, assign: "m3" }
         ],
         handler(request, h) {
-            return request.pre.m3 + '!\n';
+            return request.pre.m3 + "!\n";
         }
     }
 });
 
 server.start();
 
-server.events.on('start', () => {
-    console.log('Server started at: ' + server.info.uri);
+server.events.on("start", () => {
+    console.log("Server started at: " + server.info.uri);
 });

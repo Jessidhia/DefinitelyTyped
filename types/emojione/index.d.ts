@@ -9,7 +9,7 @@ export let sprites: boolean;
 export let imagePathPNG: string;
 export let imagePathSVG: string;
 export let imagePathSVGSprites: string;
-export let imageType: 'png' | 'svg';
+export let imageType: "png" | "svg";
 export let unicodeAlt: boolean;
 export let ascii: boolean;
 export let unicodeRegexp: string;

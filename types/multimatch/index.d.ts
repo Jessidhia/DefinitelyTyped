@@ -4,7 +4,7 @@
 //                 BendingBender <https://github.com/BendingBender>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import { IOptions } from 'minimatch';
+import { IOptions } from "minimatch";
 
 /**
  * Match utility function which supports multiple pattern globbing.

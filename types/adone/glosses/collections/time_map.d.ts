@@ -22,7 +22,10 @@ declare namespace adone.collection {
         /**
          * Iterates over the map and calls the callback for each element
          */
-        forEach<T = any>(callback: (this: T, value: V, key: K, cache: this) => void, thisArg?: T): this;
+        forEach<T = any>(
+            callback: (this: T, value: V, key: K, cache: this) => void,
+            thisArg?: T
+        ): this;
 
         /**
          * Deletes the given key

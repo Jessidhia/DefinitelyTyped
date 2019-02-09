@@ -10,7 +10,7 @@ export let yieldedValues: any[] = [];
 
 export function scheduleDeferredCallback(
     callback: (deadline: Deadline) => any,
-    options?: { timeout: number },
+    options?: { timeout: number }
 ): number {
     scheduledCallback = callback;
     const fakeCallbackId = 0;
@@ -38,7 +38,7 @@ export function flushAll(): any[] {
             // React's scheduler has its own way of keeping track of expired
             // work and doesn't read this, so don't bother setting it to the
             // correct value.
-            didTimeout: false,
+            didTimeout: false
         });
     }
     return yieldedValues;
@@ -63,7 +63,7 @@ export function flushNumberOfYields(count: number): any[] {
             // React's scheduler has its own way of keeping track of expired
             // work and doesn't read this, so don't bother setting it to the
             // correct value.
-            didTimeout: false,
+            didTimeout: false
         });
     }
     return yieldedValues;

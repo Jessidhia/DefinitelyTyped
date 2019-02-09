@@ -36,11 +36,37 @@ export interface TimeLocaleDefinition {
     /**
      * The full names of the months (starting with January).
      */
-    months: [string, string, string, string, string, string, string, string, string, string, string, string];
+    months: [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+    ];
     /**
      * the abbreviated names of the months (starting with January).
      */
-    shortMonths: [string, string, string, string, string, string, string, string, string, string, string, string];
+    shortMonths: [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+    ];
 }
 
 /**
@@ -120,7 +146,7 @@ export interface TimeLocaleObject {
      *
      * @param specifier A specifier string for the date format.
      */
-    parse(specifier: string): (dateString: string) => (Date | null);
+    parse(specifier: string): (dateString: string) => Date | null;
     /**
      * Equivalent to locale.format (TimeLocaleObject.format), except all directives are interpreted as Coordinated Universal Time (UTC) rather than local time.
      *
@@ -132,7 +158,7 @@ export interface TimeLocaleObject {
      *
      * @param specifier A specifier string for the date format.
      */
-    utcParse(specifier: string): (dateString: string) => (Date | null);
+    utcParse(specifier: string): (dateString: string) => Date | null;
 }
 
 /**
@@ -141,7 +167,9 @@ export interface TimeLocaleObject {
  *
  * @param timeLocale A time locale definition.
  */
-export function timeFormatLocale(timeLocale: TimeLocaleDefinition): TimeLocaleObject;
+export function timeFormatLocale(
+    timeLocale: TimeLocaleDefinition
+): TimeLocaleObject;
 
 /**
  * Create a new time-locale-based object which exposes time-formatting
@@ -150,7 +178,9 @@ export function timeFormatLocale(timeLocale: TimeLocaleDefinition): TimeLocaleOb
  *
  * @param timeLocale A time locale definition.
  */
-export function timeFormatDefaultLocale(defaultTimeLocale: TimeLocaleDefinition): TimeLocaleObject;
+export function timeFormatDefaultLocale(
+    defaultTimeLocale: TimeLocaleDefinition
+): TimeLocaleObject;
 
 /**
  * Returns a new formatter for the given string specifier. The returned function formats a specified date, returning the corresponding string.
@@ -168,7 +198,9 @@ export function timeFormat(specifier: string): (date: Date) => string;
  *
  * @param specifier A specifier string for the date format.
  */
-export function timeParse(specifier: string): (dateString: string) => (Date | null);
+export function timeParse(
+    specifier: string
+): (dateString: string) => Date | null;
 
 /**
  * Equivalent to timeFormat, except all directives are interpreted as Coordinated Universal Time (UTC) rather than local time.
@@ -186,7 +218,9 @@ export function utcFormat(specifier: string): (date: Date) => string;
  *
  * @param specifier A specifier string for the date format.
  */
-export function utcParse(specifier: string): (dateString: string) => (Date | null);
+export function utcParse(
+    specifier: string
+): (dateString: string) => Date | null;
 
 /**
  * The full ISO 8601 UTC time formatter. Where available, this method will use Date.toISOString to format.

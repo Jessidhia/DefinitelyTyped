@@ -1,3 +1,3 @@
-import { TripleDES } from '../index';
+import { TripleDES } from "../index";
 
 export = TripleDES;

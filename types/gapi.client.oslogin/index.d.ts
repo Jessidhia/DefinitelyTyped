@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Cloud OS Login API v1alpha */
     function load(name: "oslogin", version: "v1alpha"): PromiseLike<void>;
-    function load(name: "oslogin", version: "v1alpha", callback: () => any): void;
+    function load(
+        name: "oslogin",
+        version: "v1alpha",
+        callback: () => any
+    ): void;
 
     const users: oslogin.UsersResource;
 

@@ -35,8 +35,8 @@ export interface MediaQueryMatchers {
     colorIndex?: boolean;
     monochrome?: boolean;
     resolution?: number | string;
-    orientation?: 'portrait' | 'landscape';
-    scan?: 'progressive' | 'interlace';
+    orientation?: "portrait" | "landscape";
+    scan?: "progressive" | "interlace";
     type?: MediaQueryType;
 }
 
@@ -72,10 +72,16 @@ export interface MediaQueryFeatures extends MediaQueryMatchers {
     maxResolution?: number | string;
 }
 
-export interface MediaQueryAllQueryable extends MediaQueryFeatures, MediaQueryTypes {}
+export interface MediaQueryAllQueryable
+    extends MediaQueryFeatures,
+        MediaQueryTypes {}
 
 export interface MediaQueryProps extends MediaQueryAllQueryable {
-    component?: string | React.SFC<any> | React.ClassType<any, any, any> | React.ComponentClass<any>;
+    component?:
+        | string
+        | React.SFC<any>
+        | React.ClassType<any, any, any>
+        | React.ComponentClass<any>;
     query?: string;
     style?: React.CSSProperties;
     className?: string;
@@ -85,6 +91,6 @@ export interface MediaQueryProps extends MediaQueryAllQueryable {
     onChange?: (matches: boolean) => void;
 }
 
-declare class MediaQuery extends React.Component<MediaQueryProps> { }
+declare class MediaQuery extends React.Component<MediaQueryProps> {}
 export function toQuery(matchers: Partial<MediaQueryAllQueryable>): string;
 export default MediaQuery;

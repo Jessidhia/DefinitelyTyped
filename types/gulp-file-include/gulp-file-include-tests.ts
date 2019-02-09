@@ -5,28 +5,32 @@ function testA() {
     fileinclude({
         prefix: "@@",
         basepath: "/home/"
-    })
+    });
 }
 
 function testB() {
-    gulp.task("fileinclude", function () {
+    gulp.task("fileinclude", function() {
         gulp.src(["index.html"])
-            .pipe(fileinclude({
-                prefix: "@@",
-                basepath: "@file"
-            }))
+            .pipe(
+                fileinclude({
+                    prefix: "@@",
+                    basepath: "@file"
+                })
+            )
             .pipe(gulp.dest("./"));
     });
 }
 
 function testC() {
-    gulp.task("fileinclude", function () {
+    gulp.task("fileinclude", function() {
         gulp.src(["index.html"])
-            .pipe(fileinclude({
-                filters: {
-                    markdown: (x) => "nope"
-                }
-            }))
+            .pipe(
+                fileinclude({
+                    filters: {
+                        markdown: x => "nope"
+                    }
+                })
+            )
             .pipe(gulp.dest("./"));
     });
 }
@@ -40,5 +44,5 @@ function testD() {
 }
 
 function testE() {
-    fileinclude('@@');
+    fileinclude("@@");
 }

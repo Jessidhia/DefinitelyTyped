@@ -1,23 +1,23 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     ComposableMap,
     Geographies,
     Geography,
     Marker,
     Markers,
-    ZoomableGroup,
-} from 'react-simple-maps';
+    ZoomableGroup
+} from "react-simple-maps";
 
 const Map = () => (
     <ComposableMap
         projectionConfig={{
             rotation: [-11, 0, 0],
-            scale: 205,
+            scale: 205
         }}
         height={551}
         style={{
-            height: 'auto',
-            width: '100%',
+            height: "auto",
+            width: "100%"
         }}
         width={980}
     >
@@ -31,23 +31,23 @@ const Map = () => (
                             projection={projection}
                             style={{
                                 default: {
-                                    fill: '#ECEFF1',
-                                    outline: 'none',
-                                    stroke: '#607D8B',
-                                    strokeWidth: 0.75,
+                                    fill: "#ECEFF1",
+                                    outline: "none",
+                                    stroke: "#607D8B",
+                                    strokeWidth: 0.75
                                 },
                                 hover: {
-                                    fill: '#607D8B',
-                                    outline: 'none',
-                                    stroke: '#607D8B',
-                                    strokeWidth: 0.75,
+                                    fill: "#607D8B",
+                                    outline: "none",
+                                    stroke: "#607D8B",
+                                    strokeWidth: 0.75
                                 },
                                 pressed: {
-                                    fill: '#607D8B',
-                                    outline: 'none',
-                                    stroke: '#607D8B',
-                                    strokeWidth: 0.75,
-                                },
+                                    fill: "#607D8B",
+                                    outline: "none",
+                                    stroke: "#607D8B",
+                                    strokeWidth: 0.75
+                                }
                             }}
                         />
                     ))
@@ -60,7 +60,7 @@ const Map = () => (
                         cy={0}
                         r={5}
                         style={{
-                            fill: '#D13913',
+                            fill: "#D13913"
                         }}
                     />
                 </Marker>

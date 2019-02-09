@@ -91,32 +91,44 @@ import * as scHotReboot from "sc-hot-reboot";
 {
     const argv = minimist(process.argv.slice(2));
 
-    const workerControllerPath = argv.wc || process.env.SOCKETCLUSTER_WORKER_CONTROLLER;
-    const brokerControllerPath = argv.bc || process.env.SOCKETCLUSTER_BROKER_CONTROLLER;
-    const workerClusterControllerPath = argv.wcc || process.env.SOCKETCLUSTER_WORKERCLUSTER_CONTROLLER;
+    const workerControllerPath =
+        argv.wc || process.env.SOCKETCLUSTER_WORKER_CONTROLLER;
+    const brokerControllerPath =
+        argv.bc || process.env.SOCKETCLUSTER_BROKER_CONTROLLER;
+    const workerClusterControllerPath =
+        argv.wcc || process.env.SOCKETCLUSTER_WORKERCLUSTER_CONTROLLER;
     const environment = process.env.ENV || "dev";
 
     const options: SCServer.SCServerOptions = {
-        workers: Number(argv.w) || Number(process.env.SOCKETCLUSTER_WORKERS) || 1,
-        brokers: Number(argv.b) || Number(process.env.SOCKETCLUSTER_BROKERS) || 1,
+        workers:
+            Number(argv.w) || Number(process.env.SOCKETCLUSTER_WORKERS) || 1,
+        brokers:
+            Number(argv.b) || Number(process.env.SOCKETCLUSTER_BROKERS) || 1,
         port: Number(argv.p) || Number(process.env.SOCKETCLUSTER_PORT) || 8000,
         // You can switch to 'sc-uws' for improved performance.
         wsEngine: process.env.SOCKETCLUSTER_WS_ENGINE || "ws",
         appName: argv.n || process.env.SOCKETCLUSTER_APP_NAME || null,
-        workerController: workerControllerPath || path.join(__dirname, "worker.js"),
-        brokerController: brokerControllerPath || path.join(__dirname, "broker.js"),
+        workerController:
+            workerControllerPath || path.join(__dirname, "worker.js"),
+        brokerController:
+            brokerControllerPath || path.join(__dirname, "broker.js"),
         workerClusterController: workerClusterControllerPath || null,
-        socketChannelLimit: Number(process.env.SOCKETCLUSTER_SOCKET_CHANNEL_LIMIT) || 1000,
-        clusterStateServerHost: argv.cssh || process.env.SCC_STATE_SERVER_HOST || null,
+        socketChannelLimit:
+            Number(process.env.SOCKETCLUSTER_SOCKET_CHANNEL_LIMIT) || 1000,
+        clusterStateServerHost:
+            argv.cssh || process.env.SCC_STATE_SERVER_HOST || null,
         clusterStateServerPort: process.env.SCC_STATE_SERVER_PORT || null,
         clusterMappingEngine: process.env.SCC_MAPPING_ENGINE || null,
         clusterClientPoolSize: process.env.SCC_CLIENT_POOL_SIZE || null,
         clusterAuthKey: process.env.SCC_AUTH_KEY || null,
         clusterInstanceIp: process.env.SCC_INSTANCE_IP || null,
         clusterInstanceIpFamily: process.env.SCC_INSTANCE_IP_FAMILY || null,
-        clusterStateServerConnectTimeout: Number(process.env.SCC_STATE_SERVER_CONNECT_TIMEOUT) || null,
-        clusterStateServerAckTimeout: Number(process.env.SCC_STATE_SERVER_ACK_TIMEOUT) || null,
-        clusterStateServerReconnectRandomness: Number(process.env.SCC_STATE_SERVER_RECONNECT_RANDOMNESS) || null,
+        clusterStateServerConnectTimeout:
+            Number(process.env.SCC_STATE_SERVER_CONNECT_TIMEOUT) || null,
+        clusterStateServerAckTimeout:
+            Number(process.env.SCC_STATE_SERVER_ACK_TIMEOUT) || null,
+        clusterStateServerReconnectRandomness:
+            Number(process.env.SCC_STATE_SERVER_RECONNECT_RANDOMNESS) || null,
         crashWorkerOnError: argv["auto-reboot"] !== false,
         // If using nodemon, set this to true, and make sure that environment is 'dev'.
         killMasterOnSignal: false,
@@ -125,18 +137,32 @@ import * as scHotReboot from "sc-hot-reboot";
 
     const socketCluster = new SocketCluster(options);
 
-    socketCluster.on(socketCluster.EVENT_WORKER_CLUSTER_START, workerClusterInfo => {
-        console.log("   >> WorkerCluster PID:", workerClusterInfo.pid);
-    });
+    socketCluster.on(
+        socketCluster.EVENT_WORKER_CLUSTER_START,
+        workerClusterInfo => {
+            console.log("   >> WorkerCluster PID:", workerClusterInfo.pid);
+        }
+    );
 
     if (socketCluster.options.environment === "dev") {
         // This will cause SC workers to reboot when code changes anywhere in the app directory.
         // The second options argument here is passed directly to chokidar.
         // See https://github.com/paulmillr/chokidar#api for details.
-        console.log(`   !! The sc-hot-reboot plugin is watching for code changes in the ${__dirname} directory`);
+        console.log(
+            `   !! The sc-hot-reboot plugin is watching for code changes in the ${__dirname} directory`
+        );
         scHotReboot.attach(socketCluster, {
             cwd: __dirname,
-            ignored: ["public", "node_modules", "README.md", "Dockerfile", "server.js", "broker.js", /[\/\\]\./, "*.log"]
+            ignored: [
+                "public",
+                "node_modules",
+                "README.md",
+                "Dockerfile",
+                "server.js",
+                "broker.js",
+                /[\/\\]\./,
+                "*.log"
+            ]
         });
     }
 }
@@ -149,6 +175,17 @@ import * as scHotReboot from "sc-hot-reboot";
     fsutil.fileExists("/path/to/folder", err => {});
     fsutil.fileExists(Buffer.from(""), err => {});
 
-    const pathPromise: Promise<void> = fsutil.waitForFile("/path/to/folder", 100, 0, 100);
-    const bufferPromise: Promise<void> = fsutil.waitForFile(Buffer.from(""), 0, 0, 0, "timeout");
+    const pathPromise: Promise<void> = fsutil.waitForFile(
+        "/path/to/folder",
+        100,
+        0,
+        100
+    );
+    const bufferPromise: Promise<void> = fsutil.waitForFile(
+        Buffer.from(""),
+        0,
+        0,
+        0,
+        "timeout"
+    );
 }

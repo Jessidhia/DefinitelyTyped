@@ -4,15 +4,18 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { OperationOptions } from 'retry';
+import { OperationOptions } from "retry";
 
 export = pRetry;
 
-declare function pRetry<T>(input: (attemptCount: number) => PromiseLike<T> | T, options?: pRetry.Options): Promise<T>;
+declare function pRetry<T>(
+    input: (attemptCount: number) => PromiseLike<T> | T,
+    options?: pRetry.Options
+): Promise<T>;
 
 declare namespace pRetry {
     class AbortError extends Error {
-        readonly name: 'AbortError';
+        readonly name: "AbortError";
         readonly originalError: Error;
         constructor(message: string | Error);
     }

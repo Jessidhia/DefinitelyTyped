@@ -7,11 +7,11 @@ import * as fs from "fs";
 const config = {
     client: new AWS.S3({}),
     concurrency: 6,
-    chunkSize: '512KB',
+    chunkSize: "512KB",
     params: {
-        Key: 'key-name',
-        Bucket: 'bucket-name'
+        Key: "key-name",
+        Bucket: "bucket-name"
     }
 };
 
-S3Stream(config).pipe(fs.createWriteStream('/path/to/a/file'));
+S3Stream(config).pipe(fs.createWriteStream("/path/to/a/file"));

@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import { EventEmitter } from 'events';
-import DirectoryWatcher = require('./DirectoryWatcher');
+import { EventEmitter } from "events";
+import DirectoryWatcher = require("./DirectoryWatcher");
 
 declare class Watcher extends EventEmitter {
     data: number;
@@ -8,7 +8,11 @@ declare class Watcher extends EventEmitter {
     path: string;
     startTime: number;
 
-    constructor(directoryWatcher: DirectoryWatcher, filePath: string, startTime: number);
+    constructor(
+        directoryWatcher: DirectoryWatcher,
+        filePath: string,
+        startTime: number
+    );
 
     checkStartTime(mtime: number, initial: boolean): boolean;
 

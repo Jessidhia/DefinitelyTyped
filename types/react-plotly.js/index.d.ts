@@ -4,13 +4,13 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as Plotly from 'plotly.js';
-import * as React from 'react';
+import * as Plotly from "plotly.js";
+import * as React from "react";
 
 export interface Frame {
     name: string;
-    data: [{ x: Plotly.Datum, y: Plotly.Datum }];
-    group: 'lower' | 'upper';
+    data: [{ x: Plotly.Datum; y: Plotly.Datum }];
+    group: "lower" | "upper";
 }
 
 export interface Figure {
@@ -32,19 +32,28 @@ export interface PlotParams {
      * @param figure Object with three keys corresponding to input props: data, layout and frames.
      * @param graphDiv Reference to the DOM node into which the figure was rendered.
      */
-    onInitialized?: (figure: Readonly<Figure>, graphDiv: Readonly<HTMLElement>) => void;
+    onInitialized?: (
+        figure: Readonly<Figure>,
+        graphDiv: Readonly<HTMLElement>
+    ) => void;
     /**
      * Callback executed when when a plot is updated due to new data or layout, or when user interacts with a plot.
      * @param figure Object with three keys corresponding to input props: data, layout and frames.
      * @param graphDiv Reference to the DOM node into which the figure was rendered.
      */
-    onUpdate?: (figure: Readonly<Figure>, graphDiv: Readonly<HTMLElement>) => void;
+    onUpdate?: (
+        figure: Readonly<Figure>,
+        graphDiv: Readonly<HTMLElement>
+    ) => void;
     /**
      * Callback executed when component unmounts, before Plotly.purge strips the graphDiv of all private attributes.
      * @param figure Object with three keys corresponding to input props: data, layout and frames.
      * @param graphDiv Reference to the DOM node into which the figure was rendered.
      */
-    onPurge?: (figure: Readonly<Figure>, graphDiv: Readonly<HTMLElement>) => void;
+    onPurge?: (
+        figure: Readonly<Figure>,
+        graphDiv: Readonly<HTMLElement>
+    ) => void;
     /**
      * Callback executed when a plotly.js API method rejects
      * @param err Error
@@ -100,5 +109,4 @@ export interface PlotParams {
     onUnhover?: (event: Readonly<Plotly.PlotMouseEvent>) => void;
 }
 
-export default class Plot extends React.PureComponent<PlotParams> {
-}
+export default class Plot extends React.PureComponent<PlotParams> {}

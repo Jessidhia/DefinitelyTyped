@@ -1,8 +1,6 @@
 namespace adoneTests.crypto.secp256k1 {
     const {
-        crypto: {
-            secp256k1
-        }
+        crypto: { secp256k1 }
     } = adone;
 
     let bool: boolean;
@@ -77,7 +75,13 @@ namespace adoneTests.crypto.secp256k1 {
     }
     {
         const res = secp256k1.sign(message, privateKey, {
-            noncefn(msg: Buffer, privateKey: Buffer, algo: Buffer, data: Buffer, attempt: number) {
+            noncefn(
+                msg: Buffer,
+                privateKey: Buffer,
+                algo: Buffer,
+                data: Buffer,
+                attempt: number
+            ) {
                 return Buffer.from("hehe");
             }
         });

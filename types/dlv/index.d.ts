@@ -9,4 +9,8 @@
  * return a default if the full key path does not exist or the value is
  * undefined
  */
-export default function dlv(object: object, key: string | string[], defaultValue?: any): any;
+export default function dlv(
+    object: object,
+    key: string | string[],
+    defaultValue?: any
+): any;

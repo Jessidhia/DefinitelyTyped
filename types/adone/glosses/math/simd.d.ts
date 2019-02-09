@@ -6,10 +6,16 @@ declare namespace adone.math {
      */
     namespace simd {
         namespace I {
-            type TypedArray = Int8Array | Uint8Array | Uint8ClampedArray
-                | Int16Array | Uint16Array
-                | Int32Array | Uint32Array
-                | Float32Array | Float64Array;
+            type TypedArray =
+                | Int8Array
+                | Uint8Array
+                | Uint8ClampedArray
+                | Int16Array
+                | Uint16Array
+                | Int32Array
+                | Uint32Array
+                | Float32Array
+                | Float64Array;
 
             /**
              * 128-bits divided into 4 lanes storing single precision floating point values.
@@ -54,12 +60,25 @@ declare namespace adone.math {
                 /**
                  * Returns a new instance with the lane values swizzled.
                  */
-                swizzle(a: Float32x4, l1: number, l2: number, l3: number, l4: number): Float32x4;
+                swizzle(
+                    a: Float32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Float32x4;
 
                 /**
                  * Returns a new instance with the lane values shuffled.
                  */
-                shuffle(a: Float32x4, b: Float32x4, l1: number, l2: number, l3: number, l4: number): Float32x4;
+                shuffle(
+                    a: Float32x4,
+                    b: Float32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Float32x4;
 
                 /**
                  * Returns a new instance if the parameter is a valid SIMD data type and the same as Float32x4. Throws a TypeError otherwise.
@@ -77,7 +96,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Float32x4, lane: number, value: number): Float32x4;
+                replaceLane(
+                    simd: Float32x4,
+                    lane: number,
+                    value: number
+                ): Float32x4;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -85,7 +108,11 @@ declare namespace adone.math {
                  * @param a If the selector mask lane is `true`, pick the corresponding lane value from here.
                  * @param b If the selector mask lane is `false`, pick the corresponding lane value from here.
                  */
-                select(selector: Bool32x4, a: Float32x4, b: Float32x4): Float32x4;
+                select(
+                    selector: Bool32x4,
+                    a: Float32x4,
+                    b: Float32x4
+                ): Float32x4;
 
                 equal(a: Float32x4, b: Float32x4): Bool32x4;
 
@@ -160,7 +187,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Float32x4): Float32x4;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Float32x4
+                ): Float32x4;
 
                 /**
                  * Store 1 values of a SIMD data type into a typed array.
@@ -169,7 +200,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store1(tarray: TypedArray, index: number, value: Float32x4): Float32x4;
+                store1(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Float32x4
+                ): Float32x4;
 
                 /**
                  * Store 2 values of a SIMD data type into a typed array.
@@ -178,7 +213,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store2(tarray: TypedArray, index: number, value: Float32x4): Float32x4;
+                store2(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Float32x4
+                ): Float32x4;
 
                 /**
                  * Store 3 values of a SIMD data type into a typed array.
@@ -187,7 +226,19 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store3(tarray: Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array, index: number, value: Float32x4): Float32x4;
+                store3(
+                    tarray:
+                        | Uint8Array
+                        | Uint8ClampedArray
+                        | Int16Array
+                        | Uint16Array
+                        | Int32Array
+                        | Uint32Array
+                        | Float32Array
+                        | Float64Array,
+                    index: number,
+                    value: Float32x4
+                ): Float32x4;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Int32x4.
@@ -281,12 +332,25 @@ declare namespace adone.math {
                 /**
                  * Returns a new instance with the lane values swizzled.
                  */
-                swizzle(a: Int32x4, l1: number, l2: number, l3: number, l4: number): Int32x4;
+                swizzle(
+                    a: Int32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Int32x4;
 
                 /**
                  * Returns a new instance with the lane values shuffled.
                  */
-                shuffle(a: Int32x4, b: Int32x4, l1: number, l2: number, l3: number, l4: number): Int32x4;
+                shuffle(
+                    a: Int32x4,
+                    b: Int32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Int32x4;
 
                 /**
                  * Returns a new instance if the parameter is a valid SIMD data type and the same as Int32x4. Throws a TypeError otherwise.
@@ -304,7 +368,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Int32x4, lane: number, value: number): Int32x4;
+                replaceLane(
+                    simd: Int32x4,
+                    lane: number,
+                    value: number
+                ): Int32x4;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -393,7 +461,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Int32x4): Int32x4;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int32x4
+                ): Int32x4;
 
                 /**
                  * Store 1 values of a SIMD data type into a typed array.
@@ -402,7 +474,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store1(tarray: TypedArray, index: number, value: Int32x4): Int32x4;
+                store1(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int32x4
+                ): Int32x4;
 
                 /**
                  * Store 2 values of a SIMD data type into a typed array.
@@ -411,7 +487,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store2(tarray: TypedArray, index: number, value: Int32x4): Int32x4;
+                store2(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int32x4
+                ): Int32x4;
 
                 /**
                  * Store 3 values of a SIMD data type into a typed array.
@@ -420,7 +500,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store3(tarray: TypedArray, index: number, value: Int32x4): Int32x4;
+                store3(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int32x4
+                ): Int32x4;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Float32x4.
@@ -503,7 +587,16 @@ declare namespace adone.math {
                  * @param s7 A 16bit int specifying the value of the lane.
                  * @return SIMD.Int16x8 object
                  */
-                (s0?: number, s1?: number, s2?: number, s3?: number, s4?: number, s5?: number, s6?: number, s7?: number): Int16x8;
+                (
+                    s0?: number,
+                    s1?: number,
+                    s2?: number,
+                    s3?: number,
+                    s4?: number,
+                    s5?: number,
+                    s6?: number,
+                    s7?: number
+                ): Int16x8;
 
                 prototype: Int16x8;
 
@@ -518,12 +611,33 @@ declare namespace adone.math {
                 /**
                  * Returns a new instance with the lane values swizzled.
                  */
-                swizzle(a: Int16x8, l1: number, l2: number, l3: number, l4: number, l5: number, l6: number, l7: number, l8: number): Int16x8;
+                swizzle(
+                    a: Int16x8,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number,
+                    l5: number,
+                    l6: number,
+                    l7: number,
+                    l8: number
+                ): Int16x8;
 
                 /**
                  * Returns a new instance with the lane values shuffled.
                  */
-                shuffle(a: Int16x8, b: Int16x8, l1: number, l2: number, l3: number, l4: number, l5: number, l6: number, l7: number, l8: number): Int16x8;
+                shuffle(
+                    a: Int16x8,
+                    b: Int16x8,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number,
+                    l5: number,
+                    l6: number,
+                    l7: number,
+                    l8: number
+                ): Int16x8;
 
                 /**
                  * Returns a new instance if the parameter is a valid SIMD data type and the same as Int16x8. Throws a TypeError otherwise.
@@ -541,7 +655,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Int16x8, lane: number, value: number): Int16x8;
+                replaceLane(
+                    simd: Int16x8,
+                    lane: number,
+                    value: number
+                ): Int16x8;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -613,7 +731,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Int16x8): Int16x8;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int16x8
+                ): Int16x8;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Uint16x8.
@@ -790,7 +912,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Int8x16, lane: number, value: number): Int8x16;
+                replaceLane(
+                    simd: Int8x16,
+                    lane: number,
+                    value: number
+                ): Int8x16;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -862,7 +988,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Int8x16): Int8x16;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Int8x16
+                ): Int8x16;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Uint8x16.
@@ -950,12 +1080,25 @@ declare namespace adone.math {
                 /**
                  * Returns a new instance with the lane values swizzled.
                  */
-                swizzle(a: Uint32x4, l1: number, l2: number, l3: number, l4: number): Uint32x4;
+                swizzle(
+                    a: Uint32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Uint32x4;
 
                 /**
                  * Returns a new instance with the lane values shuffled.
                  */
-                shuffle(a: Uint32x4, b: Uint32x4, l1: number, l2: number, l3: number, l4: number): Uint32x4;
+                shuffle(
+                    a: Uint32x4,
+                    b: Uint32x4,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number
+                ): Uint32x4;
 
                 /**
                  * Returns a new instance if the parameter is a valid SIMD data type and the same as Uint32x4. Throws a TypeError otherwise.
@@ -973,7 +1116,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Uint32x4, lane: number, value: number): Uint32x4;
+                replaceLane(
+                    simd: Uint32x4,
+                    lane: number,
+                    value: number
+                ): Uint32x4;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -1060,7 +1207,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Uint32x4): Uint32x4;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint32x4
+                ): Uint32x4;
 
                 /**
                  * Store 1 values of a SIMD data type into a typed array.
@@ -1069,7 +1220,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store1(tarray: TypedArray, index: number, value: Uint32x4): Uint32x4;
+                store1(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint32x4
+                ): Uint32x4;
 
                 /**
                  * Store 2 values of a SIMD data type into a typed array.
@@ -1078,7 +1233,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store2(tarray: TypedArray, index: number, value: Uint32x4): Uint32x4;
+                store2(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint32x4
+                ): Uint32x4;
 
                 /**
                  * Store 3 values of a SIMD data type into a typed array.
@@ -1087,7 +1246,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store3(tarray: TypedArray, index: number, value: Uint32x4): Uint32x4;
+                store3(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint32x4
+                ): Uint32x4;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Float32x4.
@@ -1170,7 +1333,16 @@ declare namespace adone.math {
                  * @param s7 A 16bit uint specifying the value of the lane.
                  * @return SIMD.Uint16x8 object
                  */
-                (s0?: number, s1?: number, s2?: number, s3?: number, s4?: number, s5?: number, s6?: number, s7?: number): Uint16x8;
+                (
+                    s0?: number,
+                    s1?: number,
+                    s2?: number,
+                    s3?: number,
+                    s4?: number,
+                    s5?: number,
+                    s6?: number,
+                    s7?: number
+                ): Uint16x8;
 
                 prototype: Uint16x8;
 
@@ -1185,12 +1357,33 @@ declare namespace adone.math {
                 /**
                  * Returns a new instance with the lane values swizzled.
                  */
-                swizzle(a: Uint16x8, l1: number, l2: number, l3: number, l4: number, l5: number, l6: number, l7: number, l8: number): Uint16x8;
+                swizzle(
+                    a: Uint16x8,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number,
+                    l5: number,
+                    l6: number,
+                    l7: number,
+                    l8: number
+                ): Uint16x8;
 
                 /**
                  * Returns a new instance with the lane values shuffled.
                  */
-                shuffle(a: Uint16x8, b: Uint16x8, l1: number, l2: number, l3: number, l4: number, l5: number, l6: number, l7: number, l8: number): Uint16x8;
+                shuffle(
+                    a: Uint16x8,
+                    b: Uint16x8,
+                    l1: number,
+                    l2: number,
+                    l3: number,
+                    l4: number,
+                    l5: number,
+                    l6: number,
+                    l7: number,
+                    l8: number
+                ): Uint16x8;
 
                 /**
                  * Returns a new instance if the parameter is a valid SIMD data type and the same as Uint16x8. Throws a TypeError otherwise.
@@ -1208,7 +1401,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Uint16x8, lane: number, value: number): Uint16x8;
+                replaceLane(
+                    simd: Uint16x8,
+                    lane: number,
+                    value: number
+                ): Uint16x8;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -1278,7 +1475,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Uint16x8): Uint16x8;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint16x8
+                ): Uint16x8;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Int16x8.
@@ -1455,7 +1656,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Uint8x16, lane: number, value: number): Uint8x16;
+                replaceLane(
+                    simd: Uint8x16,
+                    lane: number,
+                    value: number
+                ): Uint8x16;
 
                 /**
                  * Returns a new instance with the lane values being a mix of the lanes depending on the selector mask.
@@ -1525,7 +1730,11 @@ declare namespace adone.math {
                  * @param value An instance of a SIMD data type to store into the typed array.
                  * @return The value that has been stored (a SIMD data type).
                  */
-                store(tarray: TypedArray, index: number, value: Uint8x16): Uint8x16;
+                store(
+                    tarray: TypedArray,
+                    index: number,
+                    value: Uint8x16
+                ): Uint8x16;
 
                 /**
                  * Creates a new SIMD data type with a float conversion from a Int8x16.
@@ -1598,7 +1807,12 @@ declare namespace adone.math {
                  * @param s3 A 32bit bool specifying the value of the lane.
                  * @return SIMD.Bool32x4 object
                  */
-                (s0?: boolean, s1?: boolean, s2?: boolean, s3?: boolean): Bool32x4;
+                (
+                    s0?: boolean,
+                    s1?: boolean,
+                    s2?: boolean,
+                    s3?: boolean
+                ): Bool32x4;
 
                 prototype: Bool32x4;
 
@@ -1626,7 +1840,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Bool32x4, lane: number, value: boolean): Bool32x4;
+                replaceLane(
+                    simd: Bool32x4,
+                    lane: number,
+                    value: boolean
+                ): Bool32x4;
 
                 /**
                  * If all lane values are `true`, return `true`.
@@ -1679,7 +1897,16 @@ declare namespace adone.math {
                  * @param s7 A 16bit bool specifying the value of the lane.
                  * @return SIMD.Bool16x8 object
                  */
-                (s0?: boolean, s1?: boolean, s2?: boolean, s3?: boolean, s4?: boolean, s5?: boolean, s6?: boolean, s7?: boolean): Bool16x8;
+                (
+                    s0?: boolean,
+                    s1?: boolean,
+                    s2?: boolean,
+                    s3?: boolean,
+                    s4?: boolean,
+                    s5?: boolean,
+                    s6?: boolean,
+                    s7?: boolean
+                ): Bool16x8;
 
                 prototype: Bool16x8;
 
@@ -1707,7 +1934,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Bool16x8, lane: number, value: boolean): Bool16x8;
+                replaceLane(
+                    simd: Bool16x8,
+                    lane: number,
+                    value: boolean
+                ): Bool16x8;
 
                 /**
                  * If all lane values are `true`, return `true`.
@@ -1769,7 +2000,8 @@ declare namespace adone.math {
                  * @return SIMD.Bool8x16 object
                  */
                 (
-                    s0?: boolean, s1?: boolean,
+                    s0?: boolean,
+                    s1?: boolean,
                     s2?: boolean,
                     s3?: boolean,
                     s4?: boolean,
@@ -1812,7 +2044,11 @@ declare namespace adone.math {
                  * @param value A new value to be used for the lane.
                  * @return A new SIMD data type with the given lane value replaced.
                  */
-                replaceLane(simd: Bool8x16, lane: number, value: boolean): Bool8x16;
+                replaceLane(
+                    simd: Bool8x16,
+                    lane: number,
+                    value: boolean
+                ): Bool8x16;
 
                 /**
                  * If all lane values are `true`, return `true`.

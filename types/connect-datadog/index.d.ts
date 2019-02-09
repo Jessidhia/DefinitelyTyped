@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import express = require('express');
-import dogstatsd = require('node-dogstatsd');
+import express = require("express");
+import dogstatsd = require("node-dogstatsd");
 
 export = Factory;
 

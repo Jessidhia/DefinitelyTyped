@@ -11,7 +11,9 @@ export interface ReactJsonEditorProps {
     values: {};
 }
 
-export default class ReactJsoneditor extends React.Component<ReactJsonEditorProps> {
+export default class ReactJsoneditor extends React.Component<
+    ReactJsonEditorProps
+> {
     private editor?: JSONEditor;
     private options?: JSONEditorOptions;
 }

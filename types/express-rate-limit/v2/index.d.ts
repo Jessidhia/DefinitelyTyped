@@ -24,7 +24,11 @@ declare namespace RateLimit {
     interface Options {
         delayAfter?: number;
         delayMs?: number;
-        handler?(req: express.Request, res: express.Response, next: express.NextFunction): any;
+        handler?(
+            req: express.Request,
+            res: express.Response,
+            next: express.NextFunction
+        ): any;
         headers?: boolean;
         keyGenerator?(req: express.Request, res: express.Response): string;
         max?: number;
@@ -33,10 +37,16 @@ declare namespace RateLimit {
         skipFailedRequests?: boolean;
         statusCode?: number;
         store?: Store;
-        onLimitReached?(req: express.Request, res: express.Response, optionsUsed: Options): void;
+        onLimitReached?(
+            req: express.Request,
+            res: express.Response,
+            optionsUsed: Options
+        ): void;
         windowMs?: number;
     }
 }
 
-declare var RateLimit: new (options: RateLimit.Options) => express.RequestHandler;
+declare var RateLimit: new (
+    options: RateLimit.Options
+) => express.RequestHandler;
 export = RateLimit;

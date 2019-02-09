@@ -8,8 +8,12 @@ export type RNFetchBlob = RNFetchBlobStatic;
 export default RNFetchBlob;
 
 interface RNFetchBlobStatic {
-    fetch(method: Methods, url: string, headers?: { [key: string]: string }, body?: {}
-        | null): StatefulPromise<FetchBlobResponse>;
+    fetch(
+        method: Methods,
+        url: string,
+        headers?: { [key: string]: string },
+        body?: {} | null
+    ): StatefulPromise<FetchBlobResponse>;
     base64: { encode(input: string): string; decode(input: string): string };
     android: AndroidApi;
     ios: IOSApi;
@@ -40,7 +44,10 @@ export declare class PolyfillFetch extends RNFetchBlobFetchPolyfill {
 export declare class RNFetchBlobFetchPolyfill {
     constructor(config: RNFetchBlobConfig);
 
-    build(): (url: string, options: RNFetchBlobConfig) => StatefulPromise<RNFetchBlobFetchRepsonse>;
+    build(): (
+        url: string,
+        options: RNFetchBlobConfig
+    ) => StatefulPromise<RNFetchBlobFetchRepsonse>;
 }
 
 export interface RNFetchBlobFetchRepsonse {
@@ -135,8 +142,7 @@ export declare namespace PolyfillFileReader {
     const DONE: number;
 }
 
-export declare class PolyfillEvent {
-}
+export declare class PolyfillEvent {}
 
 export interface PolyfillProgressEvent extends EventTarget {
     lengthComputable: boolean;
@@ -202,10 +208,10 @@ export declare namespace PolyfillBlob {
     function setLog(level: number): void;
 }
 
-export declare class PolyfillFile extends PolyfillBlob {
-}
+export declare class PolyfillFile extends PolyfillBlob {}
 
-export interface PolyfillXMLHttpRequest extends PolyfillXMLHttpRequestEventTarget {
+export interface PolyfillXMLHttpRequest
+    extends PolyfillXMLHttpRequestEventTarget {
     upload: PolyfillXMLHttpRequestEventTarget;
     readonly UNSENT: number;
     readonly OPENED: number;
@@ -222,7 +228,13 @@ export interface PolyfillXMLHttpRequest extends PolyfillXMLHttpRequestEventTarge
      * @param  user NOT SUPPORTED
      * @param  password NOT SUPPORTED
      */
-    open(method: string, url: string, async: true, user: any, password: any): void;
+    open(
+        method: string,
+        url: string,
+        async: true,
+        user: any,
+        password: any
+    ): void;
 
     /**
      * Invoke this function to send HTTP request, and set body.
@@ -323,7 +335,12 @@ export interface FS {
      * @param  bufferSize Size of stream buffer.
      * @return RNFetchBlobStream stream instance.
      */
-    readStream(path: string, encoding: Encoding, bufferSize?: number, tick?: number): Promise<RNFetchBlobReadStream>;
+    readStream(
+        path: string,
+        encoding: Encoding,
+        bufferSize?: number,
+        tick?: number
+    ): Promise<RNFetchBlobReadStream>;
 
     mv(path: string, dest: string): Promise<boolean>;
 
@@ -336,7 +353,11 @@ export interface FS {
      * @param  append  A flag represent if data append to existing ones.
      * @return A promise resolves a `WriteStream` object.
      */
-    writeStream(path: string, encoding: Encoding, append?: boolean): Promise<RNFetchBlobWriteStream>;
+    writeStream(
+        path: string,
+        encoding: Encoding,
+        append?: boolean
+    ): Promise<RNFetchBlobWriteStream>;
 
     /**
      * Write data to file.
@@ -344,16 +365,28 @@ export interface FS {
      * @param  data Data to write to the file.
      * @param  encoding Encoding of data (Optional).
      */
-    writeFile(path: string, data: string | number[], encoding?: Encoding): Promise<void>;
+    writeFile(
+        path: string,
+        data: string | number[],
+        encoding?: Encoding
+    ): Promise<void>;
 
-    appendFile(path: string, data: string | number[], encoding?: Encoding): Promise<void>;
+    appendFile(
+        path: string,
+        data: string | number[],
+        encoding?: Encoding
+    ): Promise<void>;
 
     /**
      * Wrapper method of readStream.
      * @param  path Path of the file.
      * @param  encoding Encoding of read stream.
      */
-    readFile(path: string, encoding: Encoding, bufferSize?: number): Promise<any>;
+    readFile(
+        path: string,
+        encoding: Encoding,
+        bufferSize?: number
+    ): Promise<any>;
     /**
      * Check if file exists and if it is a folder.
      * @param  path Path to check
@@ -382,7 +415,7 @@ export interface FS {
 
     slice(src: string, dest: string, start: number, end: number): Promise<void>;
     asset(path: string): string;
-    df(): Promise<{ free: number, total: number }>;
+    df(): Promise<{ free: number; total: number }>;
 }
 
 export interface Dirs {
@@ -450,7 +483,15 @@ export interface AndroidApi {
     actionViewIntent(path: string, mime: string): Promise<any>;
 }
 
-type Methods = "POST" | "GET" | "DELETE" | "PUT" | "post" | "get" | "delete" | "put";
+type Methods =
+    | "POST"
+    | "GET"
+    | "DELETE"
+    | "PUT"
+    | "post"
+    | "get"
+    | "delete"
+    | "put";
 
 /**
  * A declare class inherits Promise, it has extra method like progress, uploadProgress,
@@ -465,22 +506,32 @@ export interface StatefulPromise<T> extends Promise<T> {
     /**
      * Add an event listener which triggers when data receiving from server.
      */
-    progress(callback: (received: number, total: number) => void): StatefulPromise<FetchBlobResponse>;
+    progress(
+        callback: (received: number, total: number) => void
+    ): StatefulPromise<FetchBlobResponse>;
 
     /**
      * Add an event listener with custom configuration
      */
-    progress(config: { count?: number, interval?: number }, callback: (received: number, total: number) => void): StatefulPromise<FetchBlobResponse>;
+    progress(
+        config: { count?: number; interval?: number },
+        callback: (received: number, total: number) => void
+    ): StatefulPromise<FetchBlobResponse>;
 
     /**
      * Add an event listener with custom configuration.
      */
-    uploadProgress(callback: (sent: number, total: number) => void): StatefulPromise<FetchBlobResponse>;
+    uploadProgress(
+        callback: (sent: number, total: number) => void
+    ): StatefulPromise<FetchBlobResponse>;
 
     /**
      * Add an event listener with custom configuration
      */
-    uploadProgress(config: { count?: number, interval?: number }, callback: (sent: number, total: number) => void): StatefulPromise<FetchBlobResponse>;
+    uploadProgress(
+        config: { count?: number; interval?: number },
+        callback: (sent: number, total: number) => void
+    ): StatefulPromise<FetchBlobResponse>;
 
     /**
      * An IOS only API, when IOS app turns into background network tasks will be terminated after ~180 seconds,
@@ -609,8 +660,7 @@ export interface RNFetchBlobStream {
     onEnd(): void;
 }
 
-export declare class RNFetchBlobFile {
-}
+export declare class RNFetchBlobFile {}
 
 export declare class RNFetchBlobStat {
     lastModified: string;

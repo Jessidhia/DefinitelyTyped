@@ -39,6 +39,9 @@ declare namespace adone.collection {
          *
          * @param allowDuplicates Whether to allow duplicates in the set, false by default
          */
-        static from<T>(iterable: Iterable<T>, allowDuplicates?: boolean): ArraySet<T>;
+        static from<T>(
+            iterable: Iterable<T>,
+            allowDuplicates?: boolean
+        ): ArraySet<T>;
     }
 }

@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "uglify-js": [
-                "uglify-js/v2"
-            ]
+            "uglify-js": ["uglify-js/v2"]
         }
     },
-    "files": [
-        "index.d.ts",
-        "express-minify-tests.ts"
-    ]
+    "files": ["index.d.ts", "express-minify-tests.ts"]
 }

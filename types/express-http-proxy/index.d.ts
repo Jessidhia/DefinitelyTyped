@@ -11,8 +11,17 @@ import { Response } from "express-serve-static-core";
 
 interface ProxyOptions {
     proxyReqPathResolver?: (req: Request) => string;
-    proxyReqOptDecorator?: (proxyReqOpts: RequestOptions, srcReq: Request) => RequestOptions;
-    userResHeaderDecorator?: (headers: IncomingHttpHeaders, userReq: Request, userRes: Response, proxyReq: Request, proxyRes: Response) => OutgoingHttpHeaders;
+    proxyReqOptDecorator?: (
+        proxyReqOpts: RequestOptions,
+        srcReq: Request
+    ) => RequestOptions;
+    userResHeaderDecorator?: (
+        headers: IncomingHttpHeaders,
+        userReq: Request,
+        userRes: Response,
+        proxyReq: Request,
+        proxyRes: Response
+    ) => OutgoingHttpHeaders;
 }
 
 declare function proxy(host: string, options?: ProxyOptions): RequestHandler;

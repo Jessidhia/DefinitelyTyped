@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Component, MouseEvent, StatelessComponent } from 'react';
-import { render } from 'react-dom';
-import onClickOutside from 'react-onclickoutside';
+import * as React from "react";
+import { Component, MouseEvent, StatelessComponent } from "react";
+import { render } from "react-dom";
+import onClickOutside from "react-onclickoutside";
 
 interface TestStatelessProps {
     disableOnClickOutside(): void;
@@ -11,14 +11,17 @@ interface TestStatelessProps {
 
 function TestStateless(props: TestStatelessProps) {
     return (
-        <div onKeyUp={props.enableOnClickOutside} onKeyDown={props.disableOnClickOutside}>
+        <div
+            onKeyUp={props.enableOnClickOutside}
+            onKeyDown={props.disableOnClickOutside}
+        >
             {props.nonClickOutsideProp}
         </div>
     );
 }
 
 const TestConfigObject = onClickOutside(TestStateless, {
-    handleClickOutside: () => console.log('Stateless HandleClickOutside'),
+    handleClickOutside: () => console.log("Stateless HandleClickOutside"),
     excludeScrollbar: true
 });
 
@@ -37,16 +40,19 @@ render(
         preventDefault
         stopPropagation
         outsideClickIgnoreClass="ignore"
-        handleClickOutside={() => console.log('Stateless HandleClickOutside')}
+        handleClickOutside={() => console.log("Stateless HandleClickOutside")}
         excludeScrollbar
     />,
     document.getElementById("main")
 );
 
-class TestComponent extends React.Component<{ disableOnClickOutside(): void; enableOnClickOutside(): void; }> {
+class TestComponent extends React.Component<{
+    disableOnClickOutside(): void;
+    enableOnClickOutside(): void;
+}> {
     handleClickOutside = () => {
-        console.log('this.handleClickOutside');
-    }
+        console.log("this.handleClickOutside");
+    };
 
     render() {
         this.props.disableOnClickOutside();
@@ -60,10 +66,6 @@ class TestComponent extends React.Component<{ disableOnClickOutside(): void; ena
 const WrappedComponent = onClickOutside(TestComponent);
 
 render(
-    <WrappedComponent
-        eventTypes="whatever"
-        preventDefault
-        stopPropagation
-    />,
+    <WrappedComponent eventTypes="whatever" preventDefault stopPropagation />,
     document.getElementById("main")
 );

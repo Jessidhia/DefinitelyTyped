@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace dojox {
-
     /**
      * Permalink: http://dojotoolkit.org/api/1.9/dojox/validate.html
      *
@@ -12,8 +11,7 @@ declare namespace dojox {
      * this module.
      *
      */
-    interface validate {
-    }
+    interface validate {}
     namespace validate {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/validate/_base.html
@@ -60,7 +58,12 @@ declare namespace dojox {
              * @param fieldName The form dom name of the field being validated.
              * @param elem The form element field.
              */
-            evaluateConstraint(profile: any, constraint: any[], fieldName: any, elem: any): void;
+            evaluateConstraint(
+                profile: any,
+                constraint: any[],
+                fieldName: any,
+                elem: any
+            ): void;
             /**
              * Check if value is an email address list. If an empty list
              * is returned, the value didn't pass the test or it was empty.
@@ -292,8 +295,7 @@ declare namespace dojox {
              *
              *
              */
-            interface _isInRangeCache {
-            }
+            interface _isInRangeCache {}
         }
 
         /**
@@ -341,7 +343,12 @@ declare namespace dojox {
              * @param fieldName The form dom name of the field being validated.
              * @param elem The form element field.
              */
-            evaluateConstraint(profile: any, constraint: any[], fieldName: any, elem: any): void;
+            evaluateConstraint(
+                profile: any,
+                constraint: any[],
+                fieldName: any,
+                elem: any
+            ): void;
             /**
              * Check if value is an email address list. If an empty list
              * is returned, the value didn't pass the test or it was empty.
@@ -573,8 +580,7 @@ declare namespace dojox {
              *
              *
              */
-            interface _isInRangeCache {
-            }
+            interface _isInRangeCache {}
         }
 
         /**
@@ -624,8 +630,7 @@ declare namespace dojox {
          * rules in conjunction with the Luhn algorigthm, with a pluggable card info database.
          *
          */
-        interface creditCard {
-        }
+        interface creditCard {}
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/validate/regexp.html
          *
@@ -766,7 +771,12 @@ declare namespace dojox {
              * @param fieldName The form dom name of the field being validated.
              * @param elem The form element field.
              */
-            evaluateConstraint(profile: any, constraint: any[], fieldName: any, elem: any): void;
+            evaluateConstraint(
+                profile: any,
+                constraint: any[],
+                fieldName: any,
+                elem: any
+            ): void;
             /**
              * Check if value is an email address list. If an empty list
              * is returned, the value didn't pass the test or it was empty.
@@ -998,8 +1008,7 @@ declare namespace dojox {
              *
              *
              */
-            interface _isInRangeCache {
-            }
+            interface _isInRangeCache {}
         }
 
         /**
@@ -1047,7 +1056,12 @@ declare namespace dojox {
              * @param fieldName The form dom name of the field being validated.
              * @param elem The form element field.
              */
-            evaluateConstraint(profile: any, constraint: any[], fieldName: any, elem: any): void;
+            evaluateConstraint(
+                profile: any,
+                constraint: any[],
+                fieldName: any,
+                elem: any
+            ): void;
             /**
              * Check if value is an email address list. If an empty list
              * is returned, the value didn't pass the test or it was empty.
@@ -1224,8 +1238,7 @@ declare namespace dojox {
              *
              *
              */
-            interface _isInRangeCache {
-            }
+            interface _isInRangeCache {}
             /**
              * Permalink: http://dojotoolkit.org/api/1.9/dojox/validate/web._cardInfo.html
              *
@@ -1292,7 +1305,9 @@ declare namespace dojox {
          * @param form form to be validated
          * @param profile specifies how the form fields are to be validated{trim:Array, uppercase:Array, lowercase:Array, ucfirst:Array, digit:Array,required:Array, dependencies:Object, constraints:Object, confirm:Object}
          */
-        interface check { (form: HTMLFormElement, profile: Object): void }
+        interface check {
+            (form: HTMLFormElement, profile: Object): void;
+        }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/validate/isbn.html
          *
@@ -1300,88 +1315,89 @@ declare namespace dojox {
          *
          * @param value An ISBN to validate
          */
-        interface isbn { (value: String): void }
+        interface isbn {
+            (value: String): void;
+        }
     }
-
 }
 
 declare module "dojox/validate" {
-    var exp: dojox.validate
-    export=exp;
+    var exp: dojox.validate;
+    export = exp;
 }
 declare module "dojox/validate/check" {
-    var exp: dojox.validate.check
-    export=exp;
+    var exp: dojox.validate.check;
+    export = exp;
 }
 declare module "dojox/validate/isbn" {
-    var exp: dojox.validate.isbn
-    export=exp;
+    var exp: dojox.validate.isbn;
+    export = exp;
 }
 declare module "dojox/validate/ca" {
-    var exp: dojox.validate.ca
-    export=exp;
+    var exp: dojox.validate.ca;
+    export = exp;
 }
 declare module "dojox/validate/creditCard" {
-    var exp: dojox.validate.creditCard
-    export=exp;
+    var exp: dojox.validate.creditCard;
+    export = exp;
 }
 declare module "dojox/validate/_base" {
-    var exp: dojox.validate._base
-    export=exp;
+    var exp: dojox.validate._base;
+    export = exp;
 }
 declare module "dojox/validate/_base._cardInfo" {
-    var exp: dojox.validate._base._cardInfo
-    export=exp;
+    var exp: dojox.validate._base._cardInfo;
+    export = exp;
 }
 declare module "dojox/validate/_base._isInRangeCache" {
-    var exp: dojox.validate._base._isInRangeCache
-    export=exp;
+    var exp: dojox.validate._base._isInRangeCache;
+    export = exp;
 }
 declare module "dojox/validate/regexp" {
-    var exp: dojox.validate.regexp
-    export=exp;
+    var exp: dojox.validate.regexp;
+    export = exp;
 }
 declare module "dojox/validate/regexp.us" {
-    var exp: dojox.validate.regexp.us
-    export=exp;
+    var exp: dojox.validate.regexp.us;
+    export = exp;
 }
 declare module "dojox/validate/regexp.ca" {
-    var exp: dojox.validate.regexp.ca
-    export=exp;
+    var exp: dojox.validate.regexp.ca;
+    export = exp;
 }
 declare module "dojox/validate/br" {
-    var exp: dojox.validate.br
-    export=exp;
+    var exp: dojox.validate.br;
+    export = exp;
 }
 declare module "dojox/validate/br._isInRangeCache" {
-    var exp: dojox.validate.br._isInRangeCache
-    export=exp;
+    var exp: dojox.validate.br._isInRangeCache;
+    export = exp;
 }
 declare module "dojox/validate/br._cardInfo" {
-    var exp: dojox.validate.br._cardInfo
-    export=exp;
+    var exp: dojox.validate.br._cardInfo;
+    export = exp;
 }
 declare module "dojox/validate/us" {
-    var exp: dojox.validate.us
-    export=exp;
+    var exp: dojox.validate.us;
+    export = exp;
 }
 declare module "dojox/validate/us._isInRangeCache" {
-    var exp: dojox.validate.us._isInRangeCache
-    export=exp;
+    var exp: dojox.validate.us._isInRangeCache;
+    export = exp;
 }
 declare module "dojox/validate/us._cardInfo" {
-    var exp: dojox.validate.us._cardInfo
-    export=exp;
+    var exp: dojox.validate.us._cardInfo;
+    export = exp;
 }
 declare module "dojox/validate/web" {
-    var exp: dojox.validate.web
-    export=exp;
+    var exp: dojox.validate.web;
+    export = exp;
 }
 declare module "dojox/validate/web._cardInfo" {
-    var exp: dojox.validate.web._cardInfo
-    export=exp;
+    var exp: dojox.validate.web._cardInfo;
+    export = exp;
 }
 declare module "dojox/validate/web._isInRangeCache" {
-    var exp: dojox.validate.web._isInRangeCache
-    export=exp;
+    var exp: dojox.validate.web._isInRangeCache;
+    export = exp;
 }

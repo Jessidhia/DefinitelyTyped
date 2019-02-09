@@ -1,5 +1,5 @@
-import Bunyan = require('bunyan');
-import expressBunyan = require('express-bunyan-logger');
+import Bunyan = require("bunyan");
+import expressBunyan = require("express-bunyan-logger");
 
 // works with no options
 const middleware = expressBunyan({});
@@ -7,17 +7,17 @@ const middleware2 = expressBunyan.errorLogger({});
 
 // format accepts both string and function
 const middleware3 = expressBunyan({
-    format: ':name'
+    format: ":name"
 });
 const middleware4 = expressBunyan({
     format(meta: any) {
-        return 'foo';
+        return "foo";
     }
 });
 
 // works when provided a bunyan logger
 const logger = Bunyan.createLogger({
-    name: 'myLogger'
+    name: "myLogger"
 });
 const middleware5 = expressBunyan({
     logger

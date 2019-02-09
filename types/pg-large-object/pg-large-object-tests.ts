@@ -1,9 +1,9 @@
 import {
-  LargeObject,
-  LargeObjectManager,
-  LargeObjectManagerSettings,
-  ReadStream,
-  WriteStream
+    LargeObject,
+    LargeObjectManager,
+    LargeObjectManagerSettings,
+    ReadStream,
+    WriteStream
 } from "pg-large-object";
 import { Buffer } from "buffer";
 import pg = require("pg");
@@ -38,19 +38,30 @@ const writeConst = LargeObjectManager.WRITE; // $ExpectType number
 const readConst = LargeObjectManager.READ; // $ExpectType number
 const readWriteConst = LargeObjectManager.READWRITE; // $ExpectType number
 const config: LargeObjectManagerSettings = {
-  pg: new pg.Client(),
-  pgPromise: {}
+    pg: new pg.Client(),
+    pgPromise: {}
 };
 
 const lom = new LargeObjectManager(config);
-lom.open(oid, LargeObjectManager.READWRITE, (error: Error, result: LargeObject) => {}); // $ExpectType void
+lom.open(
+    oid,
+    LargeObjectManager.READWRITE,
+    (error: Error, result: LargeObject) => {}
+); // $ExpectType void
 lom.openAsync(oid, LargeObjectManager.READWRITE); // $ExpectType Promise<LargeObject>
 lom.create((error: Error, oid: number) => {}); // $ExpectType void
 lom.createAsync(); // $ExpectType Promise<number>
 lom.unlink(oid, (error: Error) => {}); // $ExpectType void
 lom.unlinkAsync(oid); // $ExpectType Promise<any>
-lom.openAndReadableStream(oid, bufferSize, (error: Error, size: number, stream: ReadStream) => {}); // $ExpectType void
+lom.openAndReadableStream(
+    oid,
+    bufferSize,
+    (error: Error, size: number, stream: ReadStream) => {}
+); // $ExpectType void
 lom.openAndReadableStreamAsync(oid, bufferSize); // $ExpectType Promise<[number, ReadStream]>
-lom.createAndWritableStream(bufferSize, (error: Error, oid: number, stream: WriteStream) => {}); // $ExpectType void
+lom.createAndWritableStream(
+    bufferSize,
+    (error: Error, oid: number, stream: WriteStream) => {}
+); // $ExpectType void
 lom.createAndWritableStreamAsync(bufferSize); // $ExpectType Promise<[number, WriteStream]>
 lom.unlinkAsync(oid); // $ExpectType Promise<any>

@@ -39,4 +39,8 @@ interface Options extends GraphQLSchemaValidationOptions {
  *        Provide true to use preceding comments as the description.
  *
  */
-export function extendSchema(schema: GraphQLSchema, documentAST: DocumentNode, options?: Options): GraphQLSchema;
+export function extendSchema(
+    schema: GraphQLSchema,
+    documentAST: DocumentNode,
+    options?: Options
+): GraphQLSchema;

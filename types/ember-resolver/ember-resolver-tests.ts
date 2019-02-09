@@ -1,9 +1,9 @@
-import EmberResolver from 'ember-resolver';
-import Ember from 'ember';
+import EmberResolver from "ember-resolver";
+import Ember from "ember";
 
 const MyResolver = EmberResolver.extend({
     pluralizedTypes: {
-        sheep: 'sheep'
+        sheep: "sheep"
     }
 });
 

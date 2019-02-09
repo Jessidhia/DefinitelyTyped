@@ -7,7 +7,7 @@
 // TypeScript Version: 2.3
 
 /// <reference types="jquery"/>
-import moment = require('moment');
+import moment = require("moment");
 
 declare global {
     interface JQuery {
@@ -15,7 +15,7 @@ declare global {
             options?: daterangepicker.Options,
             callback?: daterangepicker.DataRangePickerCallback
         ) => JQuery) & { defaultOptions?: daterangepicker.Options };
-        data(key: 'daterangepicker'): daterangepicker | undefined;
+        data(key: "daterangepicker"): daterangepicker | undefined;
     }
 }
 
@@ -123,11 +123,11 @@ declare namespace daterangepicker {
         /**
          * Whether the picker appears aligned to the left, to the right, or centered under the HTML element it's attached to
          */
-        opens?: 'left' | 'right' | 'center';
+        opens?: "left" | "right" | "center";
         /**
          * Whether the picker appears below (default) or above the HTML element it's attached to
          */
-        drops?: 'down' | 'up';
+        drops?: "down" | "up";
         /**
          * CSS class names that will be added to all buttons in the picker
          */
@@ -162,7 +162,10 @@ declare namespace daterangepicker {
         /**
          * A function that is passed each date in the two calendars before they are displayed, and may return true or false to indicate whether that date should be available for selection or not.
          */
-        isInvalidDate?(startDate: DateOrString, endDate?: DateOrString): boolean;
+        isInvalidDate?(
+            startDate: DateOrString,
+            endDate?: DateOrString
+        ): boolean;
         /**
          * A function that is passed each date in the two calendars before they are displayed, and may return a string or array of CSS class names to apply to that date's calendar cell.
          */

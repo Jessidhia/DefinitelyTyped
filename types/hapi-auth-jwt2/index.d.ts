@@ -5,18 +5,21 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { Request, ResponseObject, Plugin, ResponseToolkit } from 'hapi';
-import { VerifyOptions } from 'jsonwebtoken';
+import { Request, ResponseObject, Plugin, ResponseToolkit } from "hapi";
+import { VerifyOptions } from "jsonwebtoken";
 
-declare module 'hapi' {
+declare module "hapi" {
     interface ServerAuth {
-        strategy(name: string, scheme: 'jwt', options?: hapiAuthJwt2.Options): void;
+        strategy(
+            name: string,
+            scheme: "jwt",
+            options?: hapiAuthJwt2.Options
+        ): void;
     }
 }
 
 declare namespace hapiAuthJwt2 {
-    interface ExtraInfo {
-    }
+    interface ExtraInfo {}
 
     interface ErrorContext {
         /**
@@ -52,7 +55,10 @@ declare namespace hapiAuthJwt2 {
         /**
          * The secret key used to check the signature of the token *or* a *key lookup function*
          */
-        key?: string | string[] | Promise<{ isValid: boolean; key: string; extraInfo?: ExtraInfo }>;
+        key?:
+            | string
+            | string[]
+            | Promise<{ isValid: boolean; key: string; extraInfo?: ExtraInfo }>;
 
         /**
          * The function which is run once the Token has been decoded
@@ -60,7 +66,11 @@ declare namespace hapiAuthJwt2 {
          * @param decoded the *decoded* and *verified* JWT received from the client in *request.headers.authorization*
          * @param request the original *request* received from the client
          */
-        validate(decoded: {}, request: Request, tk: ResponseToolkit): ValidationResult | Promise<ValidationResult>;
+        validate(
+            decoded: {},
+            request: Request,
+            tk: ResponseToolkit
+        ): ValidationResult | Promise<ValidationResult>;
 
         /**
          * Settings to define how tokens are verified by the jsonwebtoken library
@@ -74,7 +84,10 @@ declare namespace hapiAuthJwt2 {
          * @param request the Request object
          * @param reply is called if an error occurred
          */
-        responseFunc?(request: Request, reply: (err: any, response: ResponseObject) => void): void;
+        responseFunc?(
+            request: Request,
+            reply: (err: any, response: ResponseObject) => void
+        ): void;
 
         /**
          *
@@ -126,7 +139,10 @@ declare namespace hapiAuthJwt2 {
         /**
          * function which is run once the Token has been decoded (instead of a validate) with signature async function(decoded, request) where:
          */
-        verify?(decoded: any, request: Request): Promise<{
+        verify?(
+            decoded: any,
+            request: Request
+        ): Promise<{
             isValid: boolean;
             credentials?: any;
         }>;

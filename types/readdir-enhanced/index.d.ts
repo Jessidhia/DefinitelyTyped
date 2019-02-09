@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import fs = require('fs');
+import fs = require("fs");
 
 declare namespace re {
     interface Entry extends fs.Stats {
@@ -34,24 +34,46 @@ declare namespace re {
 
     function stat(root: string, options?: Options): Promise<Entry[]>;
     function stat(root: string, callback: CallbackEntry): void;
-    function stat(root: string, options: Options, callback: CallbackEntry): void;
+    function stat(
+        root: string,
+        options: Options,
+        callback: CallbackEntry
+    ): void;
 
     function async(root: string, options?: Options): Promise<string[]>;
     function async(root: string, callback: CallbackString): void;
-    function async(root: string, options: Options, callback: CallbackString): void;
+    function async(
+        root: string,
+        options: Options,
+        callback: CallbackString
+    ): void;
 
-    function readdirAsyncStat(root: string, options?: Options): Promise<Entry[]>;
+    function readdirAsyncStat(
+        root: string,
+        options?: Options
+    ): Promise<Entry[]>;
     function readdirAsyncStat(root: string, callback: CallbackEntry): void;
-    function readdirAsyncStat(root: string, options: Options, callback: CallbackEntry): void;
+    function readdirAsyncStat(
+        root: string,
+        options: Options,
+        callback: CallbackEntry
+    ): void;
 
     namespace async {
         function stat(root: string, options?: Options): Promise<Entry[]>;
         function stat(root: string, callback: CallbackEntry): void;
-        function stat(root: string, options: Options, callback: CallbackEntry): void;
+        function stat(
+            root: string,
+            options: Options,
+            callback: CallbackEntry
+        ): void;
     }
 
     function stream(root: string, options?: Options): NodeJS.ReadableStream;
-    function readdirStreamStat(root: string, options?: Options): NodeJS.ReadableStream;
+    function readdirStreamStat(
+        root: string,
+        options?: Options
+    ): NodeJS.ReadableStream;
 
     namespace stream {
         function stat(root: string, options?: Options): NodeJS.ReadableStream;
@@ -67,6 +89,10 @@ declare namespace re {
 
 declare function re(root: string, options?: re.Options): Promise<string[]>;
 declare function re(root: string, callback: re.CallbackString): void;
-declare function re(root: string, options: re.Options, callback: re.CallbackString): void;
+declare function re(
+    root: string,
+    options: re.Options,
+    callback: re.CallbackString
+): void;
 
 export = re;

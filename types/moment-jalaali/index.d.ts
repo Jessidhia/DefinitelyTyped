@@ -3,12 +3,12 @@
 // Definitions by: Ali Taheri Moghaddar <https://github.com/alitaheri>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import moment = require('moment');
+import moment = require("moment");
 
 export = moment;
 
-declare module 'moment' {
-    type JUnitOfTime = 'jYear' | 'jMonth';
+declare module "moment" {
+    type JUnitOfTime = "jYear" | "jMonth";
 
     interface LoadPersianOptions {
         /**
@@ -20,7 +20,7 @@ declare module 'moment' {
          *      persian: default dialect(امرداد، آدینه، ...)
          *      persian-modern: modern dialect(مرداد، جمعه، ...)
          */
-        dialect?: 'persian' | 'persian-modern';
+        dialect?: "persian" | "persian-modern";
     }
 
     /**
@@ -52,5 +52,4 @@ declare module 'moment' {
         jDayOfYear(d: number): Moment;
         jDayOfYear(): number;
     }
-
 }

@@ -9,11 +9,9 @@
  * This is a wrapper "namespace" for the various types used by the UAirship module.
  */
 declare namespace UrbanAirshipPlugin {
-
     //#region API Definitions
 
     interface UrbanAirshipStatic {
-
         /**
          * The enumeration values for use with setNotificationTypes().
          */
@@ -22,7 +20,7 @@ declare namespace UrbanAirshipPlugin {
             badge: number;
             sound: number;
             alert: number;
-        }
+        };
 
         /**
          * Enables or disables user notifications on the device.
@@ -31,7 +29,10 @@ declare namespace UrbanAirshipPlugin {
          * @param enabled Set to true to enable notifications, false to disable.
          * @param callback The function to call on completion.
          */
-        setUserNotificationsEnabled(enabled: boolean, callback: (status: string) => void): void;
+        setUserNotificationsEnabled(
+            enabled: boolean,
+            callback: (status: string) => void
+        ): void;
 
         /**
          * Checks if user notifications are enabled or not.
@@ -57,7 +58,10 @@ declare namespace UrbanAirshipPlugin {
          * @param clear Set to true to clear the notification.
          * @param callback The function to call on completion.
          */
-        getLaunchNotification(clear: boolean, callback: (push: UrbanAirshipPlugin.PushEvent) => void): void;
+        getLaunchNotification(
+            clear: boolean,
+            callback: (push: UrbanAirshipPlugin.PushEvent) => void
+        ): void;
 
         /**
          * Enables or disables quiet time.
@@ -83,7 +87,13 @@ declare namespace UrbanAirshipPlugin {
          * @param endMinute the end minute for quiet time.
          * @param callback The function to call on completion.
          */
-        setQuietTime(startHour: number, startMinute: number, endHour: number, endMinute: number, callback: () => void): void;
+        setQuietTime(
+            startHour: number,
+            startMinute: number,
+            endHour: number,
+            endMinute: number,
+            callback: () => void
+        ): void;
 
         /**
          * Get the current quiet time. The quietTime object represents a timespan
@@ -93,7 +103,9 @@ declare namespace UrbanAirshipPlugin {
          *
          * @param callback The function to call on completion.
          */
-        getQuietTime(callback: (quietTime: UrbanAirshipPlugin.QuietTimeTimeSpan) => void): void;
+        getQuietTime(
+            callback: (quietTime: UrbanAirshipPlugin.QuietTimeTimeSpan) => void
+        ): void;
 
         /**
          * Checks if quiet time is currently in effect.
@@ -303,7 +315,11 @@ declare namespace UrbanAirshipPlugin {
          * @param actionValue The value for the action.
          * @param callback The function to call on completion.
          */
-        runAction(actionName: string, actionValue: string, callback: (result: UrbanAirshipPlugin.RunActionResult) => void): void;
+        runAction(
+            actionName: string,
+            actionValue: string,
+            callback: (result: UrbanAirshipPlugin.RunActionResult) => void
+        ): void;
 
         /**
          * Enables or disables Urban Airship location services on the device.
@@ -326,7 +342,10 @@ declare namespace UrbanAirshipPlugin {
          * @param enabled Set to true to enable background location, false to disable.
          * @param callback The function to call on completion.
          */
-        setBackgroundLocationEnabled(enabled: boolean, callback: () => void): void;
+        setBackgroundLocationEnabled(
+            enabled: boolean,
+            callback: () => void
+        ): void;
 
         /**
          * Checks if background location updates are enabled or not.
@@ -347,7 +366,6 @@ declare namespace UrbanAirshipPlugin {
      * Describes the chainable API object returned by editNamedUserTagGroups().
      */
     interface EditNamedUserTagGroupsApi {
-
         /**
          * Used to add the given tags to the given tag group.
          *
@@ -356,7 +374,10 @@ declare namespace UrbanAirshipPlugin {
          *
          * @returns The chainable API instance.
          */
-        addTags: (tagGroup: string, tags: string[]) => EditNamedUserTagGroupsApi;
+        addTags: (
+            tagGroup: string,
+            tags: string[]
+        ) => EditNamedUserTagGroupsApi;
 
         /**
          * Used to remove the given tags from the given tag group.
@@ -366,7 +387,10 @@ declare namespace UrbanAirshipPlugin {
          *
          * @returns The chainable API instance.
          */
-        removeTags: (tagGroup: string, tags: string[]) => EditNamedUserTagGroupsApi;
+        removeTags: (
+            tagGroup: string,
+            tags: string[]
+        ) => EditNamedUserTagGroupsApi;
 
         /**
          * Used to apply the changes from the chained API call.
@@ -380,7 +404,6 @@ declare namespace UrbanAirshipPlugin {
      * Describes the chainable API object returned by editChannelTagGroups().
      */
     interface EditChannelTagGroupsApi {
-
         /**
          * Used to add the given tags to the given tag group.
          *
@@ -399,7 +422,10 @@ declare namespace UrbanAirshipPlugin {
          *
          * @returns The chainable API instance.
          */
-        removeTags: (tagGroup: string, tags: string[]) => EditChannelTagGroupsApi;
+        removeTags: (
+            tagGroup: string,
+            tags: string[]
+        ) => EditChannelTagGroupsApi;
 
         /**
          * Used to apply the changes from the chained API call.
@@ -419,7 +445,6 @@ declare namespace UrbanAirshipPlugin {
     }
 
     interface RegistrationEvent extends Event {
-
         error: string;
 
         /**
@@ -442,10 +467,10 @@ declare namespace UrbanAirshipPlugin {
      * { startHour: 22, startMinute: 0, endHour: 6, endMinute: 0 }
      */
     interface QuietTimeTimeSpan {
-        startHour: number,
-        startMinute: number,
-        endHour: number,
-        endMinute: number
+        startHour: number;
+        startMinute: number;
+        endHour: number;
+        endMinute: number;
     }
 
     /**
@@ -470,8 +495,16 @@ declare var UAirship: UrbanAirshipPlugin.UrbanAirshipStatic;
 //#region Additional Document Events
 
 interface Document {
-    addEventListener(type: "urbanairship.push", listener: (ev: UrbanAirshipPlugin.PushEvent) => void, useCapture?: boolean): void;
-    addEventListener(type: "urbanairship.registration", listener: (ev: UrbanAirshipPlugin.RegistrationEvent) => void, useCapture?: boolean): void;
+    addEventListener(
+        type: "urbanairship.push",
+        listener: (ev: UrbanAirshipPlugin.PushEvent) => void,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "urbanairship.registration",
+        listener: (ev: UrbanAirshipPlugin.RegistrationEvent) => void,
+        useCapture?: boolean
+    ): void;
 }
 
 //#endregion

@@ -32,12 +32,18 @@ declare class Delaunator<P> {
     /**
      * Constructs a delaunay triangulation object given an array of points (e.g. [x, y]). Duplicate points are skipped.
      */
-    static from(points: ArrayLike<ArrayLike<number>>): Delaunator<ArrayLike<number>>;
+    static from(
+        points: ArrayLike<ArrayLike<number>>
+    ): Delaunator<ArrayLike<number>>;
 
     /**
      * Constructs a delaunay triangulation object given an array of custom points. Duplicate points are skipped.
      */
-    static from<P>(points: ArrayLike<P>, getX: (point: P) => number, getY: (point: P) => number): Delaunator<P>;
+    static from<P>(
+        points: ArrayLike<P>,
+        getX: (point: P) => number,
+        getY: (point: P) => number
+    ): Delaunator<P>;
 }
 
 declare namespace Delaunator {
@@ -46,8 +52,8 @@ declare namespace Delaunator {
         x: number;
         y: number;
         t: number;
-        prev: Node|null;
-        next: Node|null;
+        prev: Node | null;
+        next: Node | null;
         removed: boolean;
     }
 }

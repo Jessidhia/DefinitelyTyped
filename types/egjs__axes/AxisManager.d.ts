@@ -15,12 +15,23 @@ export declare class AxisManager {
     constructor(axis: any, options: AxesOption);
     getDelta(depaPos: Axis, destPos: Axis): Axis;
     get(axes?: string[] | Axis): Axis;
-    moveTo(pos: Axis): {
+    moveTo(
+        pos: Axis
+    ): {
         [key: string]: Axis;
     };
     set(pos: Axis): void;
-    every(pos: Axis, callback: (value: number, key: string, options: AxisOption) => boolean): boolean;
-    filter(pos: Axis, callback: (value: number, key: string, options: AxisOption) => boolean): Axis;
-    map(pos: Axis, callback: (value: number, key: string, options: AxisOption) => any): any;
+    every(
+        pos: Axis,
+        callback: (value: number, key: string, options: AxisOption) => boolean
+    ): boolean;
+    filter(
+        pos: Axis,
+        callback: (value: number, key: string, options: AxisOption) => boolean
+    ): Axis;
+    map(
+        pos: Axis,
+        callback: (value: number, key: string, options: AxisOption) => any
+    ): any;
     isOutside(axes?: string[]): boolean;
 }

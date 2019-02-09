@@ -16,13 +16,19 @@ declare namespace lozad {
         triggerLoad(element: Element): void;
     }
 
-    type Selector = string | Element | HTMLCollectionOf<Element> | NodeListOf<Element>;
+    type Selector =
+        | string
+        | Element
+        | HTMLCollectionOf<Element>
+        | NodeListOf<Element>;
 
-    const prototype: {
-    };
+    const prototype: {};
 }
 
-declare function lozad(selector?: lozad.Selector, options?: lozad.Option): lozad.Observer;
+declare function lozad(
+    selector?: lozad.Selector,
+    options?: lozad.Option
+): lozad.Observer;
 
 export as namespace lozad;
 

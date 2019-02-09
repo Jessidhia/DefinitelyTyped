@@ -26,5 +26,5 @@ export {
     isValid,
     SubmissionError,
     startSubmit,
-    stopSubmit,
-} from '../';
+    stopSubmit
+} from "../";

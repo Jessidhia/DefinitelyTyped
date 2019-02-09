@@ -5,7 +5,7 @@
 
 export interface Options {
     automaticOpen?: boolean;
-    binaryType?: 'blob' | 'arraybuffer';
+    binaryType?: "blob" | "arraybuffer";
     debug?: boolean;
     maxReconnectAttempts?: number | null;
     maxReconnectInterval?: number;

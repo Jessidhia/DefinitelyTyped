@@ -33,13 +33,19 @@ export class Authentication {
      *
      * @param options: https://auth0.com/docs/api-auth/grant/password
      */
-    loginWithDefaultDirectory(options: DefaultDirectoryLoginOptions, callback: Auth0Callback<any>): void;
+    loginWithDefaultDirectory(
+        options: DefaultDirectoryLoginOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Makes a call to the `/ro` endpoint
      * @deprecated `loginWithResourceOwner` will be soon deprecated, user `login` instead.
      */
-    loginWithResourceOwner(options: ResourceOwnerLoginOptions, callback: Auth0Callback<any>): void;
+    loginWithResourceOwner(
+        options: ResourceOwnerLoginOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Makes a call to the `oauth/token` endpoint with `password-realm` grant type
@@ -61,20 +67,29 @@ export class Authentication {
      * Makes a call to the `/ssodata` endpoint
      *
      */
-    getSSOData(withActiveDirectories: boolean, callback?: Auth0Callback<any>): void;
+    getSSOData(
+        withActiveDirectories: boolean,
+        callback?: Auth0Callback<any>
+    ): void;
 
     /**
      * Makes a call to the `/userinfo` endpoint and returns the user profile
      *
      */
-    userInfo(accessToken: string, callback: Auth0Callback<Auth0UserProfile>): void;
+    userInfo(
+        accessToken: string,
+        callback: Auth0Callback<Auth0UserProfile>
+    ): void;
 
     /**
      * Makes a call to the `/delegation` endpoint
      *
      * @param options: https://auth0.com/docs/api/authentication#!#post--delegation
      */
-    delegation(options: DelegationOptions, callback: Auth0Callback<Auth0DelegationToken>): any;
+    delegation(
+        options: DelegationOptions,
+        callback: Auth0Callback<Auth0DelegationToken>
+    ): any;
 
     /**
      * Fetches the user country based on the ip.
@@ -97,13 +112,19 @@ export class PasswordlessAuthentication {
      *
      * @param options: https://auth0.com/docs/api/authentication#passwordless
      */
-    start(options: PasswordlessStartOptions, callback: Auth0Callback<any>): void;
+    start(
+        options: PasswordlessStartOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Verifies the passwordless TOTP and returns an error if any.
      *
      */
-    verify(options: PasswordlessVerifyOptions, callback: Auth0Callback<any>): void;
+    verify(
+        options: PasswordlessVerifyOptions,
+        callback: Auth0Callback<any>
+    ): void;
 }
 
 export class DBConnection {
@@ -121,7 +142,10 @@ export class DBConnection {
      *
      * @param options: https://auth0.com/docs/api/authentication#!#post--dbconnections-change_password
      */
-    changePassword(options: ChangePasswordOptions, callback: Auth0Callback<any>): void;
+    changePassword(
+        options: ChangePasswordOptions,
+        callback: Auth0Callback<any>
+    ): void;
 }
 
 export class Management {
@@ -141,13 +165,21 @@ export class Management {
      * https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id
      *
      */
-    patchUserMetadata(userId: string, userMetadata: any, callback: Auth0Callback<Auth0UserProfile>): void;
+    patchUserMetadata(
+        userId: string,
+        userMetadata: any,
+        callback: Auth0Callback<Auth0UserProfile>
+    ): void;
 
     /**
      * Link two users. https://auth0.com/docs/api/management/v2#!/Users/post_identities
      *
      */
-    linkUser(userId: string, secondaryUserToken: string, callback: Auth0Callback<any>): void;
+    linkUser(
+        userId: string,
+        secondaryUserToken: string,
+        callback: Auth0Callback<any>
+    ): void;
 }
 
 export class WebAuth {
@@ -173,7 +205,9 @@ export class WebAuth {
      *
      * @param callback: any(err, token_payload)
      */
-    parseHash(callback: Auth0Callback<Auth0DecodedHash | null, Auth0ParseHashError>): void;
+    parseHash(
+        callback: Auth0Callback<Auth0DecodedHash | null, Auth0ParseHashError>
+    ): void;
 
     /**
      * Parse the url hash and extract the returned tokens depending on the transaction.
@@ -184,14 +218,21 @@ export class WebAuth {
      *
      * @param callback: any(err, token_payload)
      */
-    parseHash(options: ParseHashOptions, callback: Auth0Callback<Auth0DecodedHash | null, Auth0ParseHashError>): void;
+    parseHash(
+        options: ParseHashOptions,
+        callback: Auth0Callback<Auth0DecodedHash | null, Auth0ParseHashError>
+    ): void;
 
     /**
      * Decodes the id_token and verifies  the nonce.
      *
      * @param callback: function(err, {payload, transaction})
      */
-    validateToken(token: string, nonce: string, callback: Auth0Callback<any>): void;
+    validateToken(
+        token: string,
+        nonce: string,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Executes a silent authentication transaction under the hood in order to fetch a new tokens for the current session.
@@ -208,7 +249,10 @@ export class WebAuth {
      *
      * @param options: https://auth0.com/docs/api/authentication#!#post--dbconnections-change_password
      */
-    changePassword(options: ChangePasswordOptions, callback: Auth0Callback<any>): void;
+    changePassword(
+        options: ChangePasswordOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Signs up a new user
@@ -223,7 +267,10 @@ export class WebAuth {
      *
      * @param options: https://auth0.com/docs/api/authentication#!#post--dbconnections-signup
      */
-    signupAndAuthorize(options: DbSignUpOptions, callback: Auth0Callback<any>): void;
+    signupAndAuthorize(
+        options: DbSignUpOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Logs in the user with username and password using the cross origin authentication (/co/authenticate) flow.
@@ -261,21 +308,30 @@ export class WebAuth {
      *
      * @param options: https://auth0.com/docs/api/authentication#passwordless
      */
-    passwordlessStart(options: PasswordlessStartOptions, callback: Auth0Callback<any>): void;
+    passwordlessStart(
+        options: PasswordlessStartOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Verifies the passwordless TOTP and redirects to finish the passwordless transaction
      *
      * @param options:
      */
-    passwordlessVerify(options: PasswordlessVerifyOptions, callback: Auth0Callback<any>): void;
+    passwordlessVerify(
+        options: PasswordlessVerifyOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Logs in a user with the verification code sent to the user
      * @param options
      * @param callback
      */
-    passwordlessLogin(options: PasswordlessLoginOptions, callback: Auth0Callback<any>): void;
+    passwordlessLogin(
+        options: PasswordlessLoginOptions,
+        callback: Auth0Callback<any>
+    ): void;
 
     /**
      * Renews an existing session on Auth0's servers using `response_mode=web_message` (i.e. Auth0's hosted login page)
@@ -283,7 +339,10 @@ export class WebAuth {
      * @param options options used in {@link authorize} call
      * @param callback: any(err, token_payload)
      */
-    checkSession(options: CheckSessionOptions, callback: Auth0Callback<any>): void;
+    checkSession(
+        options: CheckSessionOptions,
+        callback: Auth0Callback<any>
+    ): void;
 }
 
 export class Redirect {
@@ -298,15 +357,15 @@ export class Redirect {
     loginWithCredentials(
         options: {
             /** url that the Auth0 will redirect after Auth with the Authorization Response */
-            redirectUri?: string,
+            redirectUri?: string;
             /** type of the response used. It can be any of the values `code` and `token` */
-            responseType?: string,
+            responseType?: string;
             /** how the AuthN response is encoded and redirected back to the client. */
-            responseMode?: "query" | "fragment",
+            responseMode?: "query" | "fragment";
             /** scopes to be requested during AuthN. e.g. `openid email` */
-            scope: string,
+            scope: string;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 
     /**
@@ -315,13 +374,13 @@ export class Redirect {
     signupAndLogin(
         options: {
             /** user email address */
-            email: string,
+            email: string;
             /** user password */
-            password: string,
+            password: string;
             /** name of the connection where the user will be created */
-            connection: string,
+            connection: string;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 }
 
@@ -350,16 +409,16 @@ export class Popup {
          * the url hash.
          * @default window.location.hash
          */
-        hash: string,
+        hash: string;
         /** value originally sent in `state` parameter to {@link authorize} to mitigate XSRF */
-        state?: string,
+        state?: string;
         /** value originally sent in `nonce` parameter to {@link authorize} to prevent replay attacks */
-        nonce?: string,
+        nonce?: string;
         /**
          * makes parseHash perform or skip `id_token` verification.
          * We **strongly** recommend validating the `id_token` yourself if you disable the verification.
          */
-        _idTokenVerification?: string,
+        _idTokenVerification?: string;
     }): void;
 
     /**
@@ -369,46 +428,46 @@ export class Popup {
     authorize(
         options: {
             /** your Auth0 domain */
-            domain: string,
+            domain: string;
             /** your Auth0 client identifier obtained when creating the client in the Auth0 Dashboard */
-            clientId?: string,
+            clientId?: string;
             /**
              * identity provider whose login page will be displayed in the popup.
              * If omitted the hosted login page is used.
              * {@link https://auth0.com/docs/identityproviders}
              */
-            connection?: string,
+            connection?: string;
             /** url that the Auth0 will redirect after Auth with the Authorization Response */
-            redirectUri: string,
+            redirectUri: string;
             /**
              * type of the response used by OAuth 2.0 flow.
              * It can be any space separated list of the values `code`, `token`, `id_token`.
              * {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0}
              */
-            responseType: string,
+            responseType: string;
             /**
              * how the Auth response is encoded and redirected back to the client.
              * {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
              */
-            responseMode?: "query" | "fragment" | "form_post",
+            responseMode?: "query" | "fragment" | "form_post";
             /**
              * value used to mitigate XSRF attacks.
              * {@link https://auth0.com/docs/protocols/oauth2/oauth-state}
              */
-            state?: string,
+            state?: string;
             /**
              * value used to mitigate replay attacks when using Implicit Grant.
              * {@link https://auth0.com/docs/api-auth/tutorials/nonce}
              */
-            nonce?: string,
+            nonce?: string;
             /** scopes to be requested during Auth. e.g. `openid email` */
-            scope?: string,
+            scope?: string;
             /** identifier of the resource server who will consume the access token issued after Auth */
-            audience?: string,
+            audience?: string;
             /** determines if Auth0 should render the relay page or not and the caller is responsible of handling the response. */
-            owp?: boolean,
+            owp?: boolean;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 
     /**
@@ -420,15 +479,15 @@ export class Popup {
     loginWithCredentials(
         options: {
             /** url that the Auth0 will redirect after Auth with the Authorization Response */
-            redirectUri?: string,
+            redirectUri?: string;
             /** type of the response used. */
-            responseType?: "code" | "token",
+            responseType?: "code" | "token";
             /** how the AuthN response is encoded and redirected back to the client. */
-            responseMode?: "query" | "fragment",
+            responseMode?: "query" | "fragment";
             /** scopes to be requested during AuthN. e.g. `openid email` */
-            scope?: string,
+            scope?: string;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 
     /**
@@ -436,17 +495,17 @@ export class Popup {
      */
     passwordlessVerify(
         options: {
-            type: "sms" | "email",
+            type: "sms" | "email";
             /**  only if type = sms */
-            phoneNumber?: string,
+            phoneNumber?: string;
             /** only if type = email */
-            email?: string,
+            email?: string;
             /** the connection name */
-            connection: string,
+            connection: string;
             /** the TOTP code */
-            verificationCode: string,
+            verificationCode: string;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 
     /**
@@ -458,13 +517,13 @@ export class Popup {
     signupAndLogin(
         options: {
             /** user email address */
-            email: string,
+            email: string;
             /** user password */
-            password: string,
+            password: string;
             /** name of the connection where the user will be created */
-            connection: string,
+            connection: string;
         },
-        callback: Auth0Callback<any>,
+        callback: Auth0Callback<any>
     ): void;
 }
 
@@ -490,7 +549,10 @@ export class CrossOriginAuthentication {
     callback(): void;
 }
 
-export type Auth0Callback<T, E = Auth0Error> = (error: null | E, result: T) => void;
+export type Auth0Callback<T, E = Auth0Error> = (
+    error: null | E,
+    result: T
+) => void;
 
 export interface TokenProvider {
     enableCache?: boolean;
@@ -533,38 +595,38 @@ export interface PasswordlessAuthOptions {
 /**
  * These are error codes defined by the auth0-js lib.
  */
-export type LibErrorCodes = 'timeout' | 'request_error' | 'invalid_token';
+export type LibErrorCodes = "timeout" | "request_error" | "invalid_token";
 
 /**
  * The user was not logged in at Auth0, so silent authentication is not possible.
  */
-export type LoginRequiredErrorCode = 'login_required';
+export type LoginRequiredErrorCode = "login_required";
 
 /**
  * The user was logged in at Auth0 and has authorized the application, but needs to
  * be redirected elsewhere before authentication can be completed; for example, when
  * using a redirect rule.
  */
-export type InteractionRequiredErrorCode = 'interaction_required';
+export type InteractionRequiredErrorCode = "interaction_required";
 
 /**
  * The user was logged in at Auth0, but needs to give consent to authorize the application.
  */
-export type ConsentRequiredErrorCode = 'consent_required';
+export type ConsentRequiredErrorCode = "consent_required";
 
 /**
  * These are error codes defined by the OpenID Connect specification.
  */
 export type SpecErrorCodes =
-    LoginRequiredErrorCode |
-    InteractionRequiredErrorCode |
-    ConsentRequiredErrorCode |
-    'account_selection_required' |
-    'invalid_request_uri' |
-    'invalid_request_object' |
-    'request_not_supported' |
-    'request_uri_not_supported' |
-    'registration_not_supported';
+    | LoginRequiredErrorCode
+    | InteractionRequiredErrorCode
+    | ConsentRequiredErrorCode
+    | "account_selection_required"
+    | "invalid_request_uri"
+    | "invalid_request_object"
+    | "request_not_supported"
+    | "request_uri_not_supported"
+    | "registration_not_supported";
 
 export interface Auth0Error {
     error: LibErrorCodes | SpecErrorCodes | string;
@@ -816,17 +878,17 @@ export interface AuthorizeOptions {
     nonce?: string;
     scope?: string;
     audience?: string;
-	language?: string;
+    language?: string;
     login_hint?: string;
-	prompt?: string;
+    prompt?: string;
     mode?: "login" | "signUp";
     accessType?: string;
     approvalPrompt?: string;
 }
 
 export interface CheckSessionOptions extends AuthorizeOptions {
-	/**
-	 * optional parameter for auth0 to use postMessage to communicate between the silent callback and the SPA.
-	 */
-	usePostMessage?: boolean;
+    /**
+     * optional parameter for auth0 to use postMessage to communicate between the silent callback and the SPA.
+     */
+    usePostMessage?: boolean;
 }

@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { RawSourceMap } from 'source-map';
+import { RawSourceMap } from "source-map";
 export interface ParseOptions {
     /** Support top level `return` statements */
     bare_returns?: boolean;
@@ -89,7 +89,7 @@ export interface CompressOptions {
      * implementation adds some overhead (compression will be slower).
      */
     pure_funcs?: string[];
-    pure_getters?: boolean | 'strict';
+    pure_getters?: boolean | "strict";
     /**
      * Allows single-use functions to be inlined as function expressions when permissible allowing further optimization.
      * Enabled by default. Option depends on reduce_vars being enabled. Some code runs faster in the Chrome V8 engine if
@@ -160,7 +160,7 @@ export interface OutputOptions {
     ascii_only?: boolean;
     beautify?: boolean;
     braces?: boolean;
-    comments?: boolean | 'all' | 'some' | RegExp;
+    comments?: boolean | "all" | "some" | RegExp;
     indent_level?: number;
     indent_start?: boolean;
     inline_script?: boolean;
@@ -186,7 +186,7 @@ export enum OutputQuoteStyle {
 
 export interface MinifyOptions {
     /** Pass true to return compressor warnings in result.warnings. Use the value `verbose` for more detailed warnings. */
-    warnings?: boolean | 'verbose';
+    warnings?: boolean | "verbose";
     parse?: ParseOptions;
     compress?: boolean | CompressOptions;
     mangle?: boolean | MangleOptions;
@@ -208,9 +208,12 @@ export interface MinifyOutput {
 export interface SourceMapOptions {
     includeSources?: boolean;
     filename?: string;
-    url?: string | 'inline';
+    url?: string | "inline";
     root?: string;
     content?: RawSourceMap;
 }
 
-export function minify(files: string | string[] | { [file: string]: string }, options?: MinifyOptions): MinifyOutput;
+export function minify(
+    files: string | string[] | { [file: string]: string },
+    options?: MinifyOptions
+): MinifyOutput;

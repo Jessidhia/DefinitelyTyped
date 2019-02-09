@@ -9,7 +9,10 @@ const ap2: Transformer = scope({
             return exportedName;
         }
 
-        const sanitisedPath = path.replace(/\.[^\.\/\\]+$/, "").replace(/[\W_]+/g, "_").replace(/^_|_$/g, "");
-return `_${sanitisedPath}__${exportedName}`;
+        const sanitisedPath = path
+            .replace(/\.[^\.\/\\]+$/, "")
+            .replace(/[\W_]+/g, "_")
+            .replace(/^_|_$/g, "");
+        return `_${sanitisedPath}__${exportedName}`;
     }
 });

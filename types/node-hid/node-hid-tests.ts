@@ -1,4 +1,4 @@
-import HID = require('node-hid');
+import HID = require("node-hid");
 
 const devices = HID.devices();
 

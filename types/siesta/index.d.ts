@@ -28,7 +28,7 @@ declare namespace Siesta {
 
         listenters: {
             [key: string]: (event: Event, ...args: any[]) => void;
-        }
+        };
 
         maxThreads: number;
 
@@ -159,7 +159,7 @@ declare namespace Siesta {
 
             runCore: string;
 
-            transparentEx: boolean
+            transparentEx: boolean;
         }
 
         interface IBrowserSingleton extends IBrowser {
@@ -171,8 +171,7 @@ declare namespace Siesta {
         /**
          * @singleton
          */
-        interface IHarnessNodeJS extends IHarness {
-        }
+        interface IHarnessNodeJS extends IHarness {}
 
         var Browser: IBrowserSingleton;
 
@@ -187,7 +186,13 @@ declare namespace Siesta {
 
         beginAsync(time: number, errback: Function): any;
 
-        compareObjects(obj1: any, obj2: any, strict?: boolean, onlyPrimitives?: boolean, asObjects?: boolean): boolean;
+        compareObjects(
+            obj1: any,
+            obj2: any,
+            strict?: boolean,
+            onlyPrimitives?: boolean,
+            asObjects?: boolean
+        ): boolean;
 
         diag(desc: string): void;
 
@@ -199,7 +204,11 @@ declare namespace Siesta {
 
         fail(desc: string, annotation: any): void;
 
-        getSubTest(name: string, code: (t: ITest) => void, timeout?: number): ITest;
+        getSubTest(
+            name: string,
+            code: (t: ITest) => void,
+            timeout?: number
+        ): ITest;
 
         is(got: any, expected: any, desc: string): void;
 
@@ -219,7 +228,12 @@ declare namespace Siesta {
 
         pass(desc: string, annotation: any): void;
 
-        subTest(desc: string, code: (t: ITest) => void, callback: Function, timeout?: number): void;
+        subTest(
+            desc: string,
+            code: (t: ITest) => void,
+            callback: Function,
+            timeout?: number
+        ): void;
 
         todo(why: string, code: Function): void;
 
@@ -284,8 +298,7 @@ declare namespace Siesta {
             /**
              * @class
              */
-            interface DoubleTap extends IAction, Role.IHasTarget {
-            }
+            interface DoubleTap extends IAction, Role.IHasTarget {}
 
             /**
              * @class
@@ -312,8 +325,7 @@ declare namespace Siesta {
             /**
              * @class
              */
-            interface LongPress extends IAction, Role.IHasTarget {
-            }
+            interface LongPress extends IAction, Role.IHasTarget {}
 
             /**
              * @class
@@ -341,8 +353,7 @@ declare namespace Siesta {
             /**
              * @class
              */
-            interface MoveCursorTo extends IAction, Role.IHasTarget {
-            }
+            interface MoveCursorTo extends IAction, Role.IHasTarget {}
 
             /**
              * @class
@@ -370,8 +381,7 @@ declare namespace Siesta {
             /**
              * @class
              */
-            interface Type extends IAction, Role.IHasTarget {
-            }
+            interface Type extends IAction, Role.IHasTarget {}
 
             /**
              * @class
@@ -449,12 +459,25 @@ declare namespace Siesta {
          * @mixin
          */
         interface IExtJSAjax {
-            ajaxRequestAndThen(url: string, callback: Function, scope: any): void;
+            ajaxRequestAndThen(
+                url: string,
+                callback: Function,
+                scope: any
+            ): void;
 
             isAjaxLoading(object?: any, description?: string): void;
 
-            waitForAjaxRequest(callback: Function, scope?: any, timeout?: number): void;
-            waitForAjaxRequest(object: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForAjaxRequest(
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForAjaxRequest(
+                object: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**
@@ -463,45 +486,174 @@ declare namespace Siesta {
         interface IExtJSComponent {
             destroysOk(components: any, description?: string): void;
 
-            hasPosition(component: any, x: number, y: number, description?: string): void;
+            hasPosition(
+                component: any,
+                x: number,
+                y: number,
+                description?: string
+            ): void;
 
-            hasSize(component: any, width: number, height: number, description?: string): void;
+            hasSize(
+                component: any,
+                width: number,
+                height: number,
+                description?: string
+            ): void;
 
-            waitForCQ(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForCQ(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForCQ(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForCQ(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForCQNotFound(query: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForCQNotFound(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForCQNotVisible(query: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForCQNotVisible(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForCQVisible(query: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForCQVisible(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponent(component: string, rendered: boolean, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponent(
+                component: string,
+                rendered: boolean,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentNotVisible(component: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentNotVisible(
+                component: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentQuery(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForComponentQuery(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentQuery(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForComponentQuery(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentQueryNotFound(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForComponentQueryNotFound(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentQueryNotFound(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForComponentQueryNotFound(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentQueryNotVisible(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForComponentQueryNotVisible(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentQueryNotVisible(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForComponentQueryNotVisible(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentQueryVisible(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForComponentQueryVisible(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentQueryVisible(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForComponentQueryVisible(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForComponentVisible(component: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForComponentVisible(
+                component: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForCompositeQuery(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForCompositeQuery(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForCompositeQuery(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForCompositeQuery(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForCompositeQueryNotFound(query: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForCompositeQueryNotFound(query: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForCompositeQueryNotFound(
+                query: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForCompositeQueryNotFound(
+                query: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForXType(xtype: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForXType(xtype: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForXType(
+                xtype: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForXType(
+                xtype: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**
@@ -510,7 +662,12 @@ declare namespace Siesta {
         interface IExtJSDataView {
             getFirstItem(view: any): any;
 
-            waitForViewRendered(view: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForViewRendered(
+                view: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**
@@ -543,25 +700,62 @@ declare namespace Siesta {
 
             getRow(panel: any, index: number): any;
 
-            matchGridCellContent(panel: any, row: number, column: number, string: RegExp, description?: string): void;
-            matchGridCellContent(panel: any, row: number, column: number, string: string, description?: string): void;
+            matchGridCellContent(
+                panel: any,
+                row: number,
+                column: number,
+                string: RegExp,
+                description?: string
+            ): void;
+            matchGridCellContent(
+                panel: any,
+                row: number,
+                column: number,
+                string: string,
+                description?: string
+            ): void;
 
-            waitForRowsVisible(panel: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForRowsVisible(
+                panel: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**
          * @mixin
          */
         interface IExtJSObservable {
-            firesAtLeastNTimes(observable: any, event: string, n: number, desc: string): void;
+            firesAtLeastNTimes(
+                observable: any,
+                event: string,
+                n: number,
+                desc: string
+            ): void;
 
             firesOnce(observable: any, event: string, desc: string): void;
 
-            hasListener(observable: any, eventName: string, description?: string): void;
+            hasListener(
+                observable: any,
+                eventName: string,
+                description?: string
+            ): void;
 
-            isFiredWithSignature(observable: any, event: string, checkerFn: Function, desc: string): void;
+            isFiredWithSignature(
+                observable: any,
+                event: string,
+                checkerFn: Function,
+                desc: string
+            ): void;
 
-            waitForEvent(observable: any, event: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForEvent(
+                observable: any,
+                event: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
             wontFire(observable: any, event: string, desc: string): void;
         }
@@ -580,12 +774,29 @@ declare namespace Siesta {
         /**
          * @class
          */
-        interface ExtJS extends Browser, IExtJSAjax, IExtJSComponent, IExtJSDataView, IExtJSElement, IExtJSFormField, IExtJSGrid, IExtJSObservable, IExtJSStore, IExtJSCore {
-            assertMaxNumberOfGlobalExtOverrides(maxNumber: number, description?): void;
+        interface ExtJS
+            extends Browser,
+                IExtJSAjax,
+                IExtJSComponent,
+                IExtJSDataView,
+                IExtJSElement,
+                IExtJSFormField,
+                IExtJSGrid,
+                IExtJSObservable,
+                IExtJSStore,
+                IExtJSCore {
+            assertMaxNumberOfGlobalExtOverrides(
+                maxNumber: number,
+                description?
+            ): void;
 
             assertNoGlobalExtOverrides(description?: string): void;
 
-            assertNoLayoutTriggered(fn: Function, scope: any, description?: string): void;
+            assertNoLayoutTriggered(
+                fn: Function,
+                scope: any,
+                description?: string
+            ): void;
 
             getTotalLayoutCounter(): number;
 
@@ -599,7 +810,12 @@ declare namespace Siesta {
             interface IEvent {
                 simulateEventsWith: string;
 
-                simulateEvent(el: any, type: string, the?: any, suppressLog?: boolean): void;
+                simulateEvent(
+                    el: any,
+                    type: string,
+                    the?: any,
+                    suppressLog?: boolean
+                ): void;
             }
 
             /**
@@ -608,121 +824,127 @@ declare namespace Siesta {
             interface IKeyboard {
                 keyPress(el: any, key: string, options: any): void;
 
-                type(el: any, text: string, callback?: Function, scope?: any, options?: any): void;
+                type(
+                    el: any,
+                    text: string,
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
             }
 
             // NOTE https://github.com/DefinitelyTyped/DefinitelyTyped/pull/3135
             var KeyCodes: {
-                '\b': number; // = 8,
-                'BACKSPACE': number; // = 8,
+                "\b": number; // = 8,
+                BACKSPACE: number; // = 8,
 
-                '\t': number; // = 9,
-                'TAB': number; // = 9,
+                "\t": number; // = 9,
+                TAB: number; // = 9,
 
-                '\r': number; // = 13,
-                'RETURN': number; // = 13,
-                'ENTER': number; // = 13,
+                "\r": number; // = 13,
+                RETURN: number; // = 13,
+                ENTER: number; // = 13,
 
-                'SHIFT': number; // = 16,
-                'CTRL': number; // = 17,
-                'ALT': number; // = 18,
+                SHIFT: number; // = 16,
+                CTRL: number; // = 17,
+                ALT: number; // = 18,
 
-                'PAUSE-BREAK': number; // = 19,
-                'CAPS': number; // = 20,
-                'ESCAPE': number; // = 27,
-                'NUM-LOCK': number; // = 144,
-                'SCROLL-LOCK': number; // = 145,
-                'PRINT': number; // = 44,
+                "PAUSE-BREAK": number; // = 19,
+                CAPS: number; // = 20,
+                ESCAPE: number; // = 27,
+                "NUM-LOCK": number; // = 144,
+                "SCROLL-LOCK": number; // = 145,
+                PRINT: number; // = 44,
 
-                'PAGE-UP': number; // = 33,
-                'PAGE-DOWN': number; // = 34,
-                'END': number; // = 35,
-                'HOME': number; // = 36,
-                'LEFT': number; // = 37,
-                'UP': number; // = 38,
-                'RIGHT': number; // = 39,
-                'DOWN': number; // = 40,
-                'INSERT': number; // = 45,
-                'DELETE': number; // = 46,
+                "PAGE-UP": number; // = 33,
+                "PAGE-DOWN": number; // = 34,
+                END: number; // = 35,
+                HOME: number; // = 36,
+                LEFT: number; // = 37,
+                UP: number; // = 38,
+                RIGHT: number; // = 39,
+                DOWN: number; // = 40,
+                INSERT: number; // = 45,
+                DELETE: number; // = 46,
 
-                ' ': number; // = 32,
-                '0': number; // = 48,
-                '1': number; // = 49,
-                '2': number; // = 50,
-                '3': number; // = 51,
-                '4': number; // = 52,
-                '5': number; // = 53,
-                '6': number; // = 54,
-                '7': number; // = 55,
-                '8': number; // = 56,
-                '9': number; // = 57,
-                'A': number; // = 65,
-                'B': number; // = 66,
-                'C': number; // = 67,
-                'D': number; // = 68,
-                'E': number; // = 69,
-                'F': number; // = 70,
-                'G': number; // = 71,
-                'H': number; // = 72,
-                'I': number; // = 73,
-                'J': number; // = 74,
-                'K': number; // = 75,
-                'L': number; // = 76,
-                'M': number; // = 77,
-                'N': number; // = 78,
-                'O': number; // = 79,
-                'P': number; // = 80,
-                'Q': number; // = 81,
-                'R': number; // = 82,
-                'S': number; // = 83,
-                'T': number; // = 84,
-                'U': number; // = 85,
-                'V': number; // = 86,
-                'W': number; // = 87,
-                'X': number; // = 88,
-                'Y': number; // = 89,
-                'Z': number; // = 90,
+                " ": number; // = 32,
+                "0": number; // = 48,
+                "1": number; // = 49,
+                "2": number; // = 50,
+                "3": number; // = 51,
+                "4": number; // = 52,
+                "5": number; // = 53,
+                "6": number; // = 54,
+                "7": number; // = 55,
+                "8": number; // = 56,
+                "9": number; // = 57,
+                A: number; // = 65,
+                B: number; // = 66,
+                C: number; // = 67,
+                D: number; // = 68,
+                E: number; // = 69,
+                F: number; // = 70,
+                G: number; // = 71,
+                H: number; // = 72,
+                I: number; // = 73,
+                J: number; // = 74,
+                K: number; // = 75,
+                L: number; // = 76,
+                M: number; // = 77,
+                N: number; // = 78,
+                O: number; // = 79,
+                P: number; // = 80,
+                Q: number; // = 81,
+                R: number; // = 82,
+                S: number; // = 83,
+                T: number; // = 84,
+                U: number; // = 85,
+                V: number; // = 86,
+                W: number; // = 87,
+                X: number; // = 88,
+                Y: number; // = 89,
+                Z: number; // = 90,
 
-                'NUM0': number; // = 96,
-                'NUM1': number; // = 97,
-                'NUM2': number; // = 98,
-                'NUM3': number; // = 99,
-                'NUM4': number; // = 100,
-                'NUM5': number; // = 101,
-                'NUM6': number; // = 102,
-                'NUM7': number; // = 103,
-                'NUM8': number; // = 104,
-                'NUM9': number; // = 105,
-                'NUM*': number; // = 106,
-                'NUM+': number; // = 107,
+                NUM0: number; // = 96,
+                NUM1: number; // = 97,
+                NUM2: number; // = 98,
+                NUM3: number; // = 99,
+                NUM4: number; // = 100,
+                NUM5: number; // = 101,
+                NUM6: number; // = 102,
+                NUM7: number; // = 103,
+                NUM8: number; // = 104,
+                NUM9: number; // = 105,
+                "NUM*": number; // = 106,
+                "NUM+": number; // = 107,
                 //'NUM-' = 109,
                 //'NUM.' = 110,
                 //'NUM/' = 111,
 
-                ';': number; // = 186,
-                '=': number; // = 187,
-                ',': number; // = 188,
-                '-': number; // = 189,
-                '.': number; // = 190,
-                '/': number; // = 191,
-                '`': number; // = 192,
-                '[': number; // = 219,
-                '\\': number; // = 220,
-                ']': number; // = 221,
-                '\'': number; // = 222,
+                ";": number; // = 186,
+                "=": number; // = 187,
+                ",": number; // = 188,
+                "-": number; // = 189,
+                ".": number; // = 190,
+                "/": number; // = 191,
+                "`": number; // = 192,
+                "[": number; // = 219,
+                "\\": number; // = 220,
+                "]": number; // = 221,
+                "'": number; // = 222,
 
-                'F1': number; // = 112,
-                'F2': number; // = 113,
-                'F3': number; // = 114,
-                'F4': number; // = 115,
-                'F5': number; // = 116,
-                'F6': number; // = 117,
-                'F7': number; // = 118,
-                'F8': number; // = 119,
-                'F9': number; // = 120,
-                'F10': number; // = 121,
-                'F11': number; // = 122,
-                'F12': number; // = 123
+                F1: number; // = 112,
+                F2: number; // = 113,
+                F3: number; // = 114,
+                F4: number; // = 115,
+                F5: number; // = 116,
+                F6: number; // = 117,
+                F7: number; // = 118,
+                F8: number; // = 119,
+                F9: number; // = 120,
+                F10: number; // = 121,
+                F11: number; // = 122,
+                F12: number; // = 123
             };
 
             /**
@@ -735,17 +957,52 @@ declare namespace Siesta {
 
                 moveCursorBetweenPoints: boolean;
 
-                click(el?: any, callback?: Function, scope?: any, options?: any): void;
+                click(
+                    el?: any,
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
                 click(callback?: Function, scope?: any, options?: any): void;
 
-                doubleClick(el?: any, callback?: Function, scope?: any, options?: any): void;
-                doubleClick(callback?: Function, scope?: any, options?: any): void;
+                doubleClick(
+                    el?: any,
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
+                doubleClick(
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
 
-                drag(source: any, target?: any, delta?: number[], callback?: Function, scope?: any, options?: any): void;
+                drag(
+                    source: any,
+                    target?: any,
+                    delta?: number[],
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
 
-                dragBy(source: any, delta: number[], callback?: Function, scope?: any, options?: any, dragOnly?: boolean): void;
+                dragBy(
+                    source: any,
+                    delta: number[],
+                    callback?: Function,
+                    scope?: any,
+                    options?: any,
+                    dragOnly?: boolean
+                ): void;
 
-                dragTo(source: any, target: any, callback?: Function, scope?: any, options?: any, dragOnly?: boolean): void;
+                dragTo(
+                    source: any,
+                    target: any,
+                    callback?: Function,
+                    scope?: any,
+                    options?: any,
+                    dragOnly?: boolean
+                ): void;
 
                 mouseDown(el: any, options: any): void;
 
@@ -755,28 +1012,68 @@ declare namespace Siesta {
 
                 mouseUp(el: any, options: any): void;
 
-                moveCursorBy(delta: number[], callback?: Function, scope?: any): void;
+                moveCursorBy(
+                    delta: number[],
+                    callback?: Function,
+                    scope?: any
+                ): void;
 
-                moveCursorTo(target?: any, callback?: Function, scope?: any): void;
+                moveCursorTo(
+                    target?: any,
+                    callback?: Function,
+                    scope?: any
+                ): void;
 
-                moveMouseBy(delta: number[], callback?: Function, scope?: any): void;
+                moveMouseBy(
+                    delta: number[],
+                    callback?: Function,
+                    scope?: any
+                ): void;
 
-                moveMouseTo(target?: any, callback?: Function, scope?: any): void;
+                moveMouseTo(
+                    target?: any,
+                    callback?: Function,
+                    scope?: any
+                ): void;
 
-                rightClick(el?: any, callback?: Function, scope?: any, options?: any): void;
-                rightClick(callback?: Function, scope?: any, options?: any): void;
+                rightClick(
+                    el?: any,
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
+                rightClick(
+                    callback?: Function,
+                    scope?: any,
+                    options?: any
+                ): void;
             }
         }
 
         /**
          * @class
          */
-        interface Browser extends ITest, Simulate.IEvent, Simulate.IKeyboard, Simulate.IMouse, IElement, ITextSelection {
+        interface Browser
+            extends ITest,
+                Simulate.IEvent,
+                Simulate.IKeyboard,
+                Simulate.IMouse,
+                IElement,
+                ITextSelection {
             clearTimeout(timeoutId: number): void;
 
-            elementFromPoint(x: number, y: number, shallow?: boolean): HTMLElement;
+            elementFromPoint(
+                x: number,
+                y: number,
+                shallow?: boolean
+            ): HTMLElement;
 
-            firesAtLeastNTimes(observable: any, event: string, n: number, desc: string): void;
+            firesAtLeastNTimes(
+                observable: any,
+                event: string,
+                n: number,
+                desc: string
+            ): void;
 
             firesOk(options: any): void;
 
@@ -786,11 +1083,22 @@ declare namespace Siesta {
 
             setTimeout(func: Function, delay: number): number;
 
-            waitForEvent(observable: any, event: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForEvent(
+                observable: any,
+                event: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
             waitForPageLoad(callback: Function, scope?: any): void;
 
-            willFireNTimes(observable: any, event: string, n: number, desc: string): void;
+            willFireNTimes(
+                observable: any,
+                event: string,
+                n: number,
+                desc: string
+            ): void;
 
             wontFire(observable: any, event: string, desc: string): void;
         }
@@ -799,7 +1107,11 @@ declare namespace Siesta {
          * @mixin
          */
         interface IDate {
-            isDateEqual(got: Date, expectedDate: Date, description?: string): void;
+            isDateEqual(
+                got: Date,
+                expectedDate: Date,
+                description?: string
+            ): void;
         }
 
         /**
@@ -808,24 +1120,47 @@ declare namespace Siesta {
         interface IElement {
             chainClick(elements: any[], callback: Function): void;
 
-            clickSelector(selector: string, callback: Function, scope?: any): void;
-            clickSelector(selector: string, root: any, callback: Function, scope?: any): void;
+            clickSelector(
+                selector: string,
+                callback: Function,
+                scope?: any
+            ): void;
+            clickSelector(
+                selector: string,
+                root: any,
+                callback: Function,
+                scope?: any
+            ): void;
 
             contentLike(el: any, text: string, description?: string): void;
 
             contentNotLike(el: any, text: string, description?: string): void;
 
-            elementIsAt(el: any, xy: number[], allowChildren: boolean, description?: string): void;
+            elementIsAt(
+                el: any,
+                xy: number[],
+                allowChildren: boolean,
+                description?: string
+            ): void;
 
             elementIsInView(el: any): void;
 
-            elementIsNotTopElement(el: any, allowChildren: boolean, description?: string): void;
+            elementIsNotTopElement(
+                el: any,
+                allowChildren: boolean,
+                description?: string
+            ): void;
 
             elementIsNotVisible(el: any, description?: string): void;
 
             elementIsTop(el: any, allowChildren: boolean): boolean;
 
-            elementIsTopElement(el: any, allowChildren: boolean, description?: string, strict?): void;
+            elementIsTopElement(
+                el: any,
+                allowChildren: boolean,
+                description?: string,
+                strict?
+            ): void;
 
             elementIsVisible(el: any, description?: string): void;
 
@@ -835,61 +1170,199 @@ declare namespace Siesta {
 
             hasNotCls(el: any, cls: string, description?: string): void;
 
-            hasNotStyle(el: any, property: string, value: string, description?: string): void;
+            hasNotStyle(
+                el: any,
+                property: string,
+                value: string,
+                description?: string
+            ): void;
 
-            hasStyle(el: any, property: string, value: string, description?: string): void;
+            hasStyle(
+                el: any,
+                property: string,
+                value: string,
+                description?: string
+            ): void;
 
             isElementVisible(el: any): boolean;
 
             isInView(el: any, description?: string): void;
 
-            monkeyTest(el: any, nbrInteractions: number, description?: string, callback?: Function, scope?: any): void;
+            monkeyTest(
+                el: any,
+                nbrInteractions: number,
+                description?: string,
+                callback?: Function,
+                scope?: any
+            ): void;
 
-            scrollHorizontallyTo(el: any, newLeft: number, delay?: number, callback?: Function): number;
+            scrollHorizontallyTo(
+                el: any,
+                newLeft: number,
+                delay?: number,
+                callback?: Function
+            ): number;
 
-            scrollVerticallyTo(el: any, newTop: number, delay?: number, callback?: Function): number;
+            scrollVerticallyTo(
+                el: any,
+                newTop: number,
+                delay?: number,
+                callback?: Function
+            ): number;
 
-            selectorCountIs(selector: string, count: number, description: string): void;
-            selectorCountIs(selector: string, root: any, count: number, description: string): void;
+            selectorCountIs(
+                selector: string,
+                count: number,
+                description: string
+            ): void;
+            selectorCountIs(
+                selector: string,
+                root: any,
+                count: number,
+                description: string
+            ): void;
 
             selectorExists(selector: string, description?: string): void;
 
-            selectorIsAt(selector: string, xy: number[], allowChildren: boolean, description?: string): void;
+            selectorIsAt(
+                selector: string,
+                xy: number[],
+                allowChildren: boolean,
+                description?: string
+            ): void;
 
             selectorNotExists(selector: string, description?: string): void;
 
-            waitForContentLike(el: any, text: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForContentLike(
+                el: any,
+                text: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForContentNotLike(el: any, text: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForContentNotLike(
+                el: any,
+                text: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForElementNotTop(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForElementNotTop(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForElementNotVisible(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForElementNotVisible(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForElementTop(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForElementTop(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForElementVisible(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForElementVisible(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForScrollChange(el: any, side: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForScrollChange(
+                el: any,
+                side: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForScrollLeftChange(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForScrollLeftChange(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForScrollTopChange(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForScrollTopChange(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForSelector(selector: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForSelector(selector: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForSelector(
+                selector: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForSelector(
+                selector: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForSelectorAt(xy: number[], selector: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForSelectorAt(
+                xy: number[],
+                selector: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForSelectorAtCursor(xy: number[], selector: string, callback: Function, scope?: any, timeout?: number): void;
+            waitForSelectorAtCursor(
+                xy: number[],
+                selector: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForSelectorNotFound(selector: string, callback: Function, scope?: any, timeout?: number): void;
-            waitForSelectorNotFound(selector: string, root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForSelectorNotFound(
+                selector: string,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForSelectorNotFound(
+                selector: string,
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitForSelectors(selectors: string[], callback: Function, scope?: any, timeout?: number): void;
-            waitForSelectors(selectors: string[], root: any, callback: Function, scope?: any, timeout?: number): void;
+            waitForSelectors(
+                selectors: string[],
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
+            waitForSelectors(
+                selectors: string[],
+                root: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
 
-            waitUntilInView(el: any, callback: Function, scope?: any, timeout?: number): void;
+            waitUntilInView(
+                el: any,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**
@@ -900,9 +1373,17 @@ declare namespace Siesta {
 
             clickCQ(selector: string, root: any, callback: Function);
 
-            clickComponentQuery(selector: string, root: any, callback: Function);
+            clickComponentQuery(
+                selector: string,
+                root: any,
+                callback: Function
+            );
 
-            compositeQuery(selector: string, root: any, allowEmpty: boolean): HTMLElement[];
+            compositeQuery(
+                selector: string,
+                root: any,
+                allowEmpty: boolean
+            ): HTMLElement[];
 
             cq(selector: string);
 
@@ -922,8 +1403,18 @@ declare namespace Siesta {
             isCalled(fn: string, host: any, desc: string): void;
             isCalled(fn: Function, host: any, desc: string): void;
 
-            isCalledNTimes(fn: string, host: any, n: number, desc: string): void;
-            isCalledNTimes(fn: Function, host: any, n: number, desc: string): void;
+            isCalledNTimes(
+                fn: string,
+                host: any,
+                n: number,
+                desc: string
+            ): void;
+            isCalledNTimes(
+                fn: Function,
+                host: any,
+                n: number,
+                desc: string
+            ): void;
 
             isCalledOnce(fn: string, host: any, desc: string): void;
             isCalledOnce(fn: Function, host: any, desc: string): void;
@@ -934,17 +1425,53 @@ declare namespace Siesta {
             methodIsCalled(fn: string, className: string, desc: string): void;
             methodIsCalled(fn: Function, className: string, desc: string): void;
             methodIsCalled(fn: string, className: Function, desc: string): void;
-            methodIsCalled(fn: Function, className: Function, desc: string): void;
+            methodIsCalled(
+                fn: Function,
+                className: Function,
+                desc: string
+            ): void;
 
-            methodIsCalledNTimes(fn: string, className: string, n: number, desc: string): void;
-            methodIsCalledNTimes(fn: Function, className: string, n: number, desc: string): void;
-            methodIsCalledNTimes(fn: string, className: Function, n: number, desc: string): void;
-            methodIsCalledNTimes(fn: Function, className: Function, n: number, desc: string): void;
+            methodIsCalledNTimes(
+                fn: string,
+                className: string,
+                n: number,
+                desc: string
+            ): void;
+            methodIsCalledNTimes(
+                fn: Function,
+                className: string,
+                n: number,
+                desc: string
+            ): void;
+            methodIsCalledNTimes(
+                fn: string,
+                className: Function,
+                n: number,
+                desc: string
+            ): void;
+            methodIsCalledNTimes(
+                fn: Function,
+                className: Function,
+                n: number,
+                desc: string
+            ): void;
 
             methodIsntCalled(fn: string, className: string, desc: string): void;
-            methodIsntCalled(fn: Function, className: string, desc: string): void;
-            methodIsntCalled(fn: string, className: Function, desc: string): void;
-            methodIsntCalled(fn: Function, className: Function, desc: string): void;
+            methodIsntCalled(
+                fn: Function,
+                className: string,
+                desc: string
+            ): void;
+            methodIsntCalled(
+                fn: string,
+                className: Function,
+                desc: string
+            ): void;
+            methodIsntCalled(
+                fn: Function,
+                className: Function,
+                desc: string
+            ): void;
         }
 
         /**
@@ -967,7 +1494,7 @@ declare namespace Siesta {
         }
 
         interface IWaitForReturn {
-            force: Function
+            force: Function;
         }
 
         /**
@@ -981,7 +1508,12 @@ declare namespace Siesta {
 
             expectGlobals(...names: any[]): void;
 
-            isApprox(value1: number, value2: number, threshHold: number, desc: string): void;
+            isApprox(
+                value1: number,
+                value2: number,
+                threshHold: number,
+                desc: string
+            ): void;
 
             isArray(value: any, desc: string): void;
 
@@ -1027,8 +1559,20 @@ declare namespace Siesta {
 
             verifyGlobals(...names: string[]): void;
 
-            waitFor(wait: number, callback: Function, scope?: any, timeout?: number, interval?: number): IWaitForReturn;
-            waitFor(method: Function, callback: Function, scope?: any, timeout?: number, interval?: number): IWaitForReturn;
+            waitFor(
+                wait: number,
+                callback: Function,
+                scope?: any,
+                timeout?: number,
+                interval?: number
+            ): IWaitForReturn;
+            waitFor(
+                method: Function,
+                callback: Function,
+                scope?: any,
+                timeout?: number,
+                interval?: number
+            ): IWaitForReturn;
             waitFor(config: IWaitForConfig): IWaitForReturn;
         }
 
@@ -1041,22 +1585,65 @@ declare namespace Siesta {
         /**
          * @class
          */
-        interface SenchaTouch extends Browser, IExtJSComponent, IExtJSElement, IExtJSFormField, IExtJSObservable, IExtJSStore, IExtJSCore {
-            doubleTap(target: any, callback?: Function, scope?: any, offset?: number[]): void;
+        interface SenchaTouch
+            extends Browser,
+                IExtJSComponent,
+                IExtJSElement,
+                IExtJSFormField,
+                IExtJSObservable,
+                IExtJSStore,
+                IExtJSCore {
+            doubleTap(
+                target: any,
+                callback?: Function,
+                scope?: any,
+                offset?: number[]
+            ): void;
 
-            longpress(target: any, callback?: Function, scope?: any, offset?: number[]): void;
+            longpress(
+                target: any,
+                callback?: Function,
+                scope?: any,
+                offset?: number[]
+            ): void;
 
-            moveFingerBy(delta: number[], callback?: Function, scope?: any): void;
+            moveFingerBy(
+                delta: number[],
+                callback?: Function,
+                scope?: any
+            ): void;
 
-            moveFingerTo(target: any, callback?: Function, scope?: any, offset?: number[]): void;
+            moveFingerTo(
+                target: any,
+                callback?: Function,
+                scope?: any,
+                offset?: number[]
+            ): void;
 
-            scrollUntilElementVisible(scrollable: any, direction: string, actionTarget: any, callback: Function, scope: any): void;
+            scrollUntilElementVisible(
+                scrollable: any,
+                direction: string,
+                actionTarget: any,
+                callback: Function,
+                scope: any
+            ): void;
 
-            swipe(target: any, direction: string, callback?: Function, scope?: any): void;
+            swipe(
+                target: any,
+                direction: string,
+                callback?: Function,
+                scope?: any
+            ): void;
 
             tap(target: any, callback?: Function, scope?: any): void;
 
-            waitForScrollerPosition(scroller: any, position: IPositionConfig, callback: Function, scope?: any, timeout?: number): void;
+            waitForScrollerPosition(
+                scroller: any,
+                position: IPositionConfig,
+                callback: Function,
+                scope?: any,
+                timeout?: number
+            ): void;
         }
 
         /**

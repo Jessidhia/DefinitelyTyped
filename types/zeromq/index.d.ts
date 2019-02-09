@@ -65,14 +65,14 @@ export class Socket {
      * @param opt Option
      * @param val Value
      */
-    setsocketopt(opt: number|string, val: any): Socket;
+    setsocketopt(opt: number | string, val: any): Socket;
 
     /**
      * Get socket `opt`.
      *
      * @param opt Option number
      */
-    getsocketopt(opt: number|string): any;
+    getsocketopt(opt: number | string): any;
 
     /**
      * Async bind.
@@ -142,7 +142,7 @@ export class Socket {
      * @param msg The message
      * @param flags Message flags
      */
-    send(msg: string|Buffer|any[], flags?: number): Socket;
+    send(msg: string | Buffer | any[], flags?: number): Socket;
 
     /**
      * Enable monitoring of a Socket. This enables the following additional events:
@@ -227,7 +227,7 @@ export let options: SocketOptions;
  * Creates a ZeroMQ socket of the specified type.
  * @return The created socket in an unconnected state.
  */
-export function socket(type: string|number, options?: any): Socket;
+export function socket(type: string | number, options?: any): Socket;
 
 /**
  * Creates a ZeroMQ socket of the specified type.
@@ -250,4 +250,8 @@ export function curveKeypair(): CurveKeyPair;
  * @param capture If defined, this socket will receive all messages from frontend and backend socket
  *                Capture socket should be a 'pub', 'dealer', 'push' or 'pair' socket.
  */
-export function proxy(frontend: Socket, backend: Socket, capture ?: Socket): void;
+export function proxy(
+    frontend: Socket,
+    backend: Socket,
+    capture?: Socket
+): void;

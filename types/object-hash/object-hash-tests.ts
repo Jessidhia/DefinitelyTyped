@@ -1,6 +1,4 @@
-
-
-import hash = require('object-hash');
+import hash = require("object-hash");
 
 var hashed: string;
 
@@ -15,10 +13,10 @@ hashed = hash.MD5(obj);
 hashed = hash.keysMD5(obj);
 
 var options = {
-	algorithm: 'md5',
-	encoding: 'utf8',
-	excludeValues: true,
-	unorderedArrays: true
+    algorithm: "md5",
+    encoding: "utf8",
+    excludeValues: true,
+    unorderedArrays: true
 };
 
 hashed = hash(obj, options);
@@ -33,13 +31,13 @@ table = table.add(obj, obj);
 table = table.remove(obj);
 table = table.remove(obj, obj);
 
-var has: boolean = table.hasKey('whatEver');
-var value: any = table.getValue('whatEver');
-var count: number = table.getCount('whatEver');
+var has: boolean = table.hasKey("whatEver");
+var value: any = table.getValue("whatEver");
+var count: number = table.getCount("whatEver");
 
 var tableObject = table.table();
-tableObject['whatEver'].value;
-tableObject['whatEver'].count;
+tableObject["whatEver"].value;
+tableObject["whatEver"].count;
 
 var tableArray = table.toArray();
 tableArray.shift().value;

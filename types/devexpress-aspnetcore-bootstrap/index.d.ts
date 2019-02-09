@@ -9,7 +9,7 @@ declare namespace DevExpress.AspNetCore {
     enum BootstrapSchedulerGroupType {
         Date = "Date",
         None = "None",
-        Resource = "Resource",
+        Resource = "Resource"
     }
     enum BootstrapSchedulerViewType {
         Day = "Day",
@@ -18,26 +18,26 @@ declare namespace DevExpress.AspNetCore {
         Month = "Month",
         Timeline = "Timeline",
         FullWeek = "FullWeek",
-        Agenda = "Agenda",
+        Agenda = "Agenda"
     }
     enum BootstrapSchedulerAppointmentType {
         Normal = "Normal",
         Pattern = "Pattern",
         Occurrence = "Occurrence",
         ChangedOccurrence = "ChangedOccurrence",
-        DeletedOccurrence = "DeletedOccurrence",
+        DeletedOccurrence = "DeletedOccurrence"
     }
     enum BootstrapSchedulerRecurrenceRange {
         NoEndDate = "NoEndDate",
         OccurrenceCount = "OccurrenceCount",
-        EndByDate = "EndByDate",
+        EndByDate = "EndByDate"
     }
     enum BootstrapSchedulerRecurrenceType {
         Daily = "Daily",
         Weekly = "Weekly",
         Monthly = "Monthly",
         Yearly = "Yearly",
-        Hourly = "Hourly",
+        Hourly = "Hourly"
     }
     enum WeekDays {
         Sunday = 1,
@@ -49,7 +49,7 @@ declare namespace DevExpress.AspNetCore {
         Saturday = 64,
         WeekendDays = 65,
         WorkDays = 62,
-        EveryDay = 127,
+        EveryDay = 127
     }
     enum WeekOfMonth {
         None = 0,
@@ -57,20 +57,26 @@ declare namespace DevExpress.AspNetCore {
         Second = 2,
         Third = 3,
         Fourth = 4,
-        Last = 5,
+        Last = 5
     }
     enum BootstrapPopupControlCloseReason {
         API = "API",
         CloseButton = "CloseButton",
         OuterMouseClick = "OuterMouseClick",
         MouseOut = "MouseOut",
-        Escape = "Escape",
+        Escape = "Escape"
     }
 
     const Utils: {
         getControls: () => Control[];
-        getSerializedEditorValuesInContainer: (containerOrId: string | HTMLElement, processInvisibleEditors?: boolean) => any;
-        getEditorValuesInContainer: (containerOrId: string | HTMLElement, processInvisibleEditors?: boolean) => any;
+        getSerializedEditorValuesInContainer: (
+            containerOrId: string | HTMLElement,
+            processInvisibleEditors?: boolean
+        ) => any;
+        getEditorValuesInContainer: (
+            containerOrId: string | HTMLElement,
+            processInvisibleEditors?: boolean
+        ) => any;
     };
 
     interface EventArgs {
@@ -97,7 +103,8 @@ declare namespace DevExpress.AspNetCore {
         readonly control: Control;
     }
 
-    interface EndCallbackEventArgs extends EventArgs { // tslint:disable-line:no-empty-interface
+    interface EndCallbackEventArgs extends EventArgs {
+        // tslint:disable-line:no-empty-interface
     }
 
     interface GlobalEndCallbackEventArgs extends EndCallbackEventArgs {
@@ -156,14 +163,23 @@ declare namespace DevExpress.AspNetCore {
         setHeight(height: number): void;
         setVisible(visible: boolean): void;
         setWidth(width: number): void;
-        on<K extends keyof ControlEventMap>(eventName: K, callback: (this: Control, args?: ControlEventMap[K]) => void): this;
-        once<K extends keyof ControlEventMap>(eventName: K, callback: (this: Control, args?: ControlEventMap[K]) => void): this;
+        on<K extends keyof ControlEventMap>(
+            eventName: K,
+            callback: (this: Control, args?: ControlEventMap[K]) => void
+        ): this;
+        once<K extends keyof ControlEventMap>(
+            eventName: K,
+            callback: (this: Control, args?: ControlEventMap[K]) => void
+        ): this;
         off<K extends keyof ControlEventMap>(): this; // tslint:disable-line:no-unnecessary-generics
         off<K extends keyof ControlEventMap>(eventName: K): this; // tslint:disable-line:unified-signatures no-unnecessary-generics
-        off<K extends keyof ControlEventMap>(eventName: K, callback: (this: Control, args?: ControlEventMap[K]) => void): this; // tslint:disable-line:unified-signatures
+        off<K extends keyof ControlEventMap>(
+            eventName: K,
+            callback: (this: Control, args?: ControlEventMap[K]) => void
+        ): this; // tslint:disable-line:unified-signatures
     }
     interface ControlEventMap {
-        "init": EventArgs;
+        init: EventArgs;
     }
 
     class BootstrapClientEdit extends Control {
@@ -182,15 +198,33 @@ declare namespace DevExpress.AspNetCore {
         setReadOnly(readOnly: boolean): void;
         setValue(value: any): void;
         validate(): void;
-        on<K extends keyof BootstrapClientEditEventMap>(eventName: K, callback: (this: BootstrapClientEdit, args?: BootstrapClientEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapClientEditEventMap>(eventName: K, callback: (this: BootstrapClientEdit, args?: BootstrapClientEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapClientEditEventMap>(eventName?: K, callback?: (this: BootstrapClientEdit, args?: BootstrapClientEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapClientEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapClientEdit,
+                args?: BootstrapClientEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapClientEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapClientEdit,
+                args?: BootstrapClientEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapClientEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapClientEdit,
+                args?: BootstrapClientEditEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapClientEditEventMap extends ControlEventMap {
-        "gotFocus": EventArgs;
-        "lostFocus": EventArgs;
-        "validation": EditValidationEventArgs;
-        "valueChanged": ProcessingModeEventArgs;
+        gotFocus: EventArgs;
+        lostFocus: EventArgs;
+        validation: EditValidationEventArgs;
+        valueChanged: ProcessingModeEventArgs;
     }
 
     interface AccordionItemEventArgs extends ProcessingModeEventArgs {
@@ -203,11 +237,13 @@ declare namespace DevExpress.AspNetCore {
         readonly group: BootstrapAccordionGroup;
     }
 
-    interface AccordionGroupCancelEventArgs extends ProcessingModeCancelEventArgs {
+    interface AccordionGroupCancelEventArgs
+        extends ProcessingModeCancelEventArgs {
         readonly group: BootstrapAccordionGroup;
     }
 
-    interface AccordionGroupClickEventArgs extends AccordionGroupCancelEventArgs {
+    interface AccordionGroupClickEventArgs
+        extends AccordionGroupCancelEventArgs {
         readonly htmlElement: object;
         readonly htmlEvent: object;
     }
@@ -223,18 +259,36 @@ declare namespace DevExpress.AspNetCore {
         getSelectedItem(): BootstrapAccordionItem | null;
         setActiveGroup(group: BootstrapAccordionGroup): void;
         setSelectedItem(item: BootstrapAccordionItem): void;
-        on<K extends keyof BootstrapAccordionEventMap>(eventName: K, callback: (this: BootstrapAccordion, args?: BootstrapAccordionEventMap[K]) => void): this;
-        once<K extends keyof BootstrapAccordionEventMap>(eventName: K, callback: (this: BootstrapAccordion, args?: BootstrapAccordionEventMap[K]) => void): this;
-        off<K extends keyof BootstrapAccordionEventMap>(eventName?: K, callback?: (this: BootstrapAccordion, args?: BootstrapAccordionEventMap[K]) => void): this;
+        on<K extends keyof BootstrapAccordionEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapAccordion,
+                args?: BootstrapAccordionEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapAccordionEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapAccordion,
+                args?: BootstrapAccordionEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapAccordionEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapAccordion,
+                args?: BootstrapAccordionEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapAccordionEventMap extends ControlEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "expandedChanged": AccordionGroupEventArgs;
-        "expandedChanging": AccordionGroupCancelEventArgs;
-        "headerClick": AccordionGroupClickEventArgs;
-        "itemClick": AccordionItemEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        endCallback: EndCallbackEventArgs;
+        expandedChanged: AccordionGroupEventArgs;
+        expandedChanging: AccordionGroupCancelEventArgs;
+        headerClick: AccordionGroupClickEventArgs;
+        itemClick: AccordionItemEventArgs;
     }
 
     class BootstrapAccordionGroup {
@@ -292,15 +346,33 @@ declare namespace DevExpress.AspNetCore {
         performCallback(data: any, onSuccess: () => void): void;
         setSize(width: number, height: number): void;
         setValue(value: any): void;
-        on<K extends keyof BootstrapBinaryImageEventMap>(eventName: K, callback: (this: BootstrapBinaryImage, args?: BootstrapBinaryImageEventMap[K]) => void): this;
-        once<K extends keyof BootstrapBinaryImageEventMap>(eventName: K, callback: (this: BootstrapBinaryImage, args?: BootstrapBinaryImageEventMap[K]) => void): this;
-        off<K extends keyof BootstrapBinaryImageEventMap>(eventName?: K, callback?: (this: BootstrapBinaryImage, args?: BootstrapBinaryImageEventMap[K]) => void): this;
+        on<K extends keyof BootstrapBinaryImageEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapBinaryImage,
+                args?: BootstrapBinaryImageEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapBinaryImageEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapBinaryImage,
+                args?: BootstrapBinaryImageEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapBinaryImageEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapBinaryImage,
+                args?: BootstrapBinaryImageEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapBinaryImageEventMap extends BootstrapClientEditEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "click": EditClickEventArgs;
-        "endCallback": EndCallbackEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        click: EditClickEventArgs;
+        endCallback: EndCallbackEventArgs;
     }
 
     interface ButtonClickEventArgs extends ProcessingModeEventArgs {
@@ -322,15 +394,33 @@ declare namespace DevExpress.AspNetCore {
         setEnabled(value: boolean): void;
         setImageUrl(value: string): void;
         setText(value: string): void;
-        on<K extends keyof BootstrapButtonEventMap>(eventName: K, callback: (this: BootstrapButton, args?: BootstrapButtonEventMap[K]) => void): this;
-        once<K extends keyof BootstrapButtonEventMap>(eventName: K, callback: (this: BootstrapButton, args?: BootstrapButtonEventMap[K]) => void): this;
-        off<K extends keyof BootstrapButtonEventMap>(eventName?: K, callback?: (this: BootstrapButton, args?: BootstrapButtonEventMap[K]) => void): this;
+        on<K extends keyof BootstrapButtonEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapButton,
+                args?: BootstrapButtonEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapButtonEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapButton,
+                args?: BootstrapButtonEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapButtonEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapButton,
+                args?: BootstrapButtonEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapButtonEventMap extends ControlEventMap {
-        "checkedChanged": ProcessingModeEventArgs;
-        "click": ButtonClickEventArgs;
-        "gotFocus": EventArgs;
-        "lostFocus": EventArgs;
+        checkedChanged: ProcessingModeEventArgs;
+        click: ButtonClickEventArgs;
+        gotFocus: EventArgs;
+        lostFocus: EventArgs;
     }
 
     interface CalendarCustomDisabledDateEventArgs extends EventArgs {
@@ -356,20 +446,38 @@ declare namespace DevExpress.AspNetCore {
         setMinDate(date: Date): void;
         setSelectedDate(date: Date): void;
         setVisibleDate(date: Date): void;
-        on<K extends keyof BootstrapCalendarEventMap>(eventName: K, callback: (this: BootstrapCalendar, args?: BootstrapCalendarEventMap[K]) => void): this;
-        once<K extends keyof BootstrapCalendarEventMap>(eventName: K, callback: (this: BootstrapCalendar, args?: BootstrapCalendarEventMap[K]) => void): this;
-        off<K extends keyof BootstrapCalendarEventMap>(eventName?: K, callback?: (this: BootstrapCalendar, args?: BootstrapCalendarEventMap[K]) => void): this;
+        on<K extends keyof BootstrapCalendarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCalendar,
+                args?: BootstrapCalendarEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapCalendarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCalendar,
+                args?: BootstrapCalendarEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapCalendarEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapCalendar,
+                args?: BootstrapCalendarEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapCalendarEventMap extends BootstrapClientEditEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "customDisabledDate": CalendarCustomDisabledDateEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "selectionChanged": ProcessingModeEventArgs;
-        "visibleMonthChanged": ProcessingModeEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        customDisabledDate: CalendarCustomDisabledDateEventArgs;
+        endCallback: EndCallbackEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        selectionChanged: ProcessingModeEventArgs;
+        visibleMonthChanged: ProcessingModeEventArgs;
     }
 
     interface GridToolbarItemClickEventArgs extends ProcessingModeEventArgs {
@@ -382,12 +490,30 @@ declare namespace DevExpress.AspNetCore {
     class BootstrapGridBase extends Control {
         getToolbar(index: number): BootstrapMenu | null;
         getToolbarByName(name: string): BootstrapMenu | null;
-        on<K extends keyof BootstrapGridBaseEventMap>(eventName: K, callback: (this: BootstrapGridBase, args?: BootstrapGridBaseEventMap[K]) => void): this;
-        once<K extends keyof BootstrapGridBaseEventMap>(eventName: K, callback: (this: BootstrapGridBase, args?: BootstrapGridBaseEventMap[K]) => void): this;
-        off<K extends keyof BootstrapGridBaseEventMap>(eventName?: K, callback?: (this: BootstrapGridBase, args?: BootstrapGridBaseEventMap[K]) => void): this;
+        on<K extends keyof BootstrapGridBaseEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapGridBase,
+                args?: BootstrapGridBaseEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapGridBaseEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapGridBase,
+                args?: BootstrapGridBaseEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapGridBaseEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapGridBase,
+                args?: BootstrapGridBaseEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapGridBaseEventMap extends ControlEventMap {
-        "toolbarItemClick": GridToolbarItemClickEventArgs;
+        toolbarItemClick: GridToolbarItemClickEventArgs;
     }
 
     interface CardViewColumnCancelEventArgs extends CancelEventArgs {
@@ -451,7 +577,8 @@ declare namespace DevExpress.AspNetCore {
         readonly updatedValues: any;
     }
 
-    interface CardViewBatchEditChangesCancelingEventArgs extends CancelEventArgs {
+    interface CardViewBatchEditChangesCancelingEventArgs
+        extends CancelEventArgs {
         readonly deletedValues: any;
         readonly insertedValues: any;
         readonly updatedValues: any;
@@ -486,7 +613,9 @@ declare namespace DevExpress.AspNetCore {
         focusEditor(columnFieldNameOrId: string): void; // tslint:disable-line:unified-signatures unified-signatures
         getCardKey(visibleIndex: number): string;
         getColumn(columnIndex: number): BootstrapCardViewColumn | null;
-        getColumnByField(columnFieldName: string): BootstrapCardViewColumn | null;
+        getColumnByField(
+            columnFieldName: string
+        ): BootstrapCardViewColumn | null;
         getColumnById(columnId: string): BootstrapCardViewColumn | null;
         getColumnCount(): number;
         getEditValue(column: BootstrapCardViewColumn): string;
@@ -514,12 +643,30 @@ declare namespace DevExpress.AspNetCore {
         moveColumn(column: BootstrapCardViewColumn): void;
         moveColumn(columnIndex: number): void; // tslint:disable-line:unified-signatures
         moveColumn(columnFieldNameOrId: string): void; // tslint:disable-line:unified-signatures unified-signatures
-        moveColumn(column: BootstrapCardViewColumn, moveToColumnVisibleIndex: number): void; // tslint:disable-line:unified-signatures
+        moveColumn(
+            column: BootstrapCardViewColumn,
+            moveToColumnVisibleIndex: number
+        ): void; // tslint:disable-line:unified-signatures
         moveColumn(columnIndex: number, moveToColumnVisibleIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures
-        moveColumn(columnFieldNameOrId: string, moveToColumnVisibleIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        moveColumn(column: BootstrapCardViewColumn, moveToColumnVisibleIndex: number, moveBefore: boolean): void; // tslint:disable-line:unified-signatures
-        moveColumn(columnIndex: number, moveToColumnVisibleIndex: number, moveBefore: boolean): void; // tslint:disable-line:unified-signatures unified-signatures
-        moveColumn(columnFieldNameOrId: string, moveToColumnVisibleIndex: number, moveBefore: boolean): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        moveColumn(
+            columnFieldNameOrId: string,
+            moveToColumnVisibleIndex: number
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        moveColumn(
+            column: BootstrapCardViewColumn,
+            moveToColumnVisibleIndex: number,
+            moveBefore: boolean
+        ): void; // tslint:disable-line:unified-signatures
+        moveColumn(
+            columnIndex: number,
+            moveToColumnVisibleIndex: number,
+            moveBefore: boolean
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
+        moveColumn(
+            columnFieldNameOrId: string,
+            moveToColumnVisibleIndex: number,
+            moveBefore: boolean
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
         nextPage(): void;
         performCallback(data: any): Promise<void>;
         performCallback(data: any, onSuccess: () => void): void;
@@ -549,12 +696,35 @@ declare namespace DevExpress.AspNetCore {
         sortBy(column: BootstrapCardViewColumn, sortOrder: string): void; // tslint:disable-line:unified-signatures
         sortBy(columnIndex: number, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures
         sortBy(columnFieldNameOrId: string, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        sortBy(column: BootstrapCardViewColumn, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures
+        sortBy(
+            column: BootstrapCardViewColumn,
+            sortOrder: string,
+            reset: boolean
+        ): void; // tslint:disable-line:unified-signatures
         sortBy(columnIndex: number, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures unified-signatures
-        sortBy(columnFieldNameOrId: string, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        sortBy(column: BootstrapCardViewColumn, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures
-        sortBy(columnIndex: number, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures
-        sortBy(columnFieldNameOrId: string, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        sortBy(
+            columnFieldNameOrId: string,
+            sortOrder: string,
+            reset: boolean
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        sortBy(
+            column: BootstrapCardViewColumn,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures
+        sortBy(
+            columnIndex: number,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
+        sortBy(
+            columnFieldNameOrId: string,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
         startEditCard(visibleIndex: number): void;
         startEditCardByKey(key: any): void;
         unselectAllCardsOnPage(): void;
@@ -564,32 +734,50 @@ declare namespace DevExpress.AspNetCore {
         unselectCardsByKey(key: any): void; // tslint:disable-line:unified-signatures
         unselectFilteredCards(): void;
         updateEdit(): void;
-        on<K extends keyof BootstrapCardViewEventMap>(eventName: K, callback: (this: BootstrapCardView, args?: BootstrapCardViewEventMap[K]) => void): this;
-        once<K extends keyof BootstrapCardViewEventMap>(eventName: K, callback: (this: BootstrapCardView, args?: BootstrapCardViewEventMap[K]) => void): this;
-        off<K extends keyof BootstrapCardViewEventMap>(eventName?: K, callback?: (this: BootstrapCardView, args?: BootstrapCardViewEventMap[K]) => void): this;
+        on<K extends keyof BootstrapCardViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCardView,
+                args?: BootstrapCardViewEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapCardViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCardView,
+                args?: BootstrapCardViewEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapCardViewEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapCardView,
+                args?: BootstrapCardViewEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapCardViewEventMap extends BootstrapGridBaseEventMap {
-        "batchEditCardDeleting": CardViewBatchEditCardDeletingEventArgs;
-        "batchEditCardInserting": CardViewBatchEditCardInsertingEventArgs;
-        "batchEditCardValidating": CardViewBatchEditCardValidatingEventArgs;
-        "batchEditChangesCanceling": CardViewBatchEditChangesCancelingEventArgs;
-        "batchEditChangesSaving": CardViewBatchEditChangesSavingEventArgs;
-        "batchEditConfirmShowing": CardViewBatchEditConfirmShowingEventArgs;
-        "batchEditEndEditing": CardViewBatchEditEndEditingEventArgs;
-        "batchEditStartEditing": CardViewBatchEditStartEditingEventArgs;
-        "batchEditTemplateCellFocused": CardViewBatchEditTemplateCellFocusedEventArgs;
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "cardClick": CardViewCardClickEventArgs;
-        "cardDblClick": CardViewCardClickEventArgs;
-        "cardFocusing": CardViewCardFocusingEventArgs;
-        "columnSorting": CardViewColumnCancelEventArgs;
-        "customButtonClick": CardViewCustomButtonEventArgs;
-        "customizationWindowCloseUp": EventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "focusedCardChanged": CardViewFocusEventArgs;
-        "focusedCellChanging": CardViewFocusedCellChangingEventArgs;
-        "selectionChanged": CardViewSelectionEventArgs;
+        batchEditCardDeleting: CardViewBatchEditCardDeletingEventArgs;
+        batchEditCardInserting: CardViewBatchEditCardInsertingEventArgs;
+        batchEditCardValidating: CardViewBatchEditCardValidatingEventArgs;
+        batchEditChangesCanceling: CardViewBatchEditChangesCancelingEventArgs;
+        batchEditChangesSaving: CardViewBatchEditChangesSavingEventArgs;
+        batchEditConfirmShowing: CardViewBatchEditConfirmShowingEventArgs;
+        batchEditEndEditing: CardViewBatchEditEndEditingEventArgs;
+        batchEditStartEditing: CardViewBatchEditStartEditingEventArgs;
+        batchEditTemplateCellFocused: CardViewBatchEditTemplateCellFocusedEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        cardClick: CardViewCardClickEventArgs;
+        cardDblClick: CardViewCardClickEventArgs;
+        cardFocusing: CardViewCardFocusingEventArgs;
+        columnSorting: CardViewColumnCancelEventArgs;
+        customButtonClick: CardViewCustomButtonEventArgs;
+        customizationWindowCloseUp: EventArgs;
+        endCallback: EndCallbackEventArgs;
+        focusedCardChanged: CardViewFocusEventArgs;
+        focusedCellChanging: CardViewFocusedCellChangingEventArgs;
+        selectionChanged: CardViewSelectionEventArgs;
     }
 
     class BootstrapCardViewBatchEditApi {
@@ -619,8 +807,15 @@ declare namespace DevExpress.AspNetCore {
         protected constructor(instance: any);
         readonly cardVisibleIndex: number;
         endEdit(): void;
-        getCellTextContainer(visibleIndex: number, columnFieldNameOrId: string): any;
-        getCellValue(visibleIndex: number, columnFieldNameOrId: string, initial: boolean): any;
+        getCellTextContainer(
+            visibleIndex: number,
+            columnFieldNameOrId: string
+        ): any;
+        getCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            initial: boolean
+        ): any;
         getColumnDisplayText(columnFieldNameOrId: string, value: any): string;
         getEditCellInfo(): BootstrapCardViewCellInfo | null;
         hasChanges(): boolean;
@@ -628,8 +823,18 @@ declare namespace DevExpress.AspNetCore {
         moveFocusForward(): boolean;
         resetChanges(visibleIndex: number): void;
         resetChanges(visibleIndex: number, columnIndex: number): void; // tslint:disable-line:unified-signatures
-        setCellValue(visibleIndex: number, columnFieldNameOrId: string, value: any): void;
-        setCellValue(visibleIndex: number, columnFieldNameOrId: string, value: any, displayText: string, cancelCellHighlighting: boolean): void;
+        setCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            value: any
+        ): void;
+        setCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            value: any,
+            displayText: string,
+            cancelCellHighlighting: boolean
+        ): void;
         startEdit(visibleIndex: number, columnIndex: number): void;
     }
 
@@ -642,29 +847,34 @@ declare namespace DevExpress.AspNetCore {
         readonly target: any;
     }
 
-    interface BootstrapChartElementActionEventArgs extends BootstrapChartEventArgsBase {
+    interface BootstrapChartElementActionEventArgs
+        extends BootstrapChartEventArgsBase {
         readonly target: any;
     }
 
-    interface BootstrapChartElementClickEventArgs extends BootstrapChartElementActionEventArgs {
+    interface BootstrapChartElementClickEventArgs
+        extends BootstrapChartElementActionEventArgs {
         readonly jQueryEvent: any;
     }
 
-    interface BootstrapChartExportEventArgs extends BootstrapChartEventArgsBase {
+    interface BootstrapChartExportEventArgs
+        extends BootstrapChartEventArgsBase {
         cancel: boolean;
         readonly data: any;
         readonly fileName: string;
         readonly format: string;
     }
 
-    interface BootstrapChartOptionChangedEventArgs extends BootstrapChartEventArgsBase {
+    interface BootstrapChartOptionChangedEventArgs
+        extends BootstrapChartEventArgsBase {
         readonly fullName: string;
         readonly name: string;
         readonly previousValue: any;
         readonly value: any;
     }
 
-    interface BootstrapChartZoomEndEventArgs extends BootstrapChartEventArgsBase {
+    interface BootstrapChartZoomEndEventArgs
+        extends BootstrapChartEventArgsBase {
         readonly rangeEnd: any;
         readonly rangeStart: any;
     }
@@ -676,32 +886,50 @@ declare namespace DevExpress.AspNetCore {
         print(): void;
         setDataSource(dataSource: any): void;
         setOptions(options: any): void;
-        on<K extends keyof BootstrapChartEventMap>(eventName: K, callback: (this: BootstrapChart, args?: BootstrapChartEventMap[K]) => void): this;
-        once<K extends keyof BootstrapChartEventMap>(eventName: K, callback: (this: BootstrapChart, args?: BootstrapChartEventMap[K]) => void): this;
-        off<K extends keyof BootstrapChartEventMap>(eventName?: K, callback?: (this: BootstrapChart, args?: BootstrapChartEventMap[K]) => void): this;
+        on<K extends keyof BootstrapChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapChart,
+                args?: BootstrapChartEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapChart,
+                args?: BootstrapChartEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapChartEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapChart,
+                args?: BootstrapChartEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapChartEventMap extends ControlEventMap {
-        "argumentAxisClick": BootstrapChartElementClickEventArgs;
-        "disposing": BootstrapChartEventArgsBase;
-        "done": BootstrapChartEventArgsBase;
-        "drawn": BootstrapChartEventArgsBase;
-        "exported": BootstrapChartEventArgsBase;
-        "exporting": BootstrapChartExportEventArgs;
-        "fileSaving": BootstrapChartExportEventArgs;
-        "incidentOccurred": BootstrapChartErrorEventArgs;
-        "init": BootstrapChartEventArgsBase;
-        "legendClick": BootstrapChartElementClickEventArgs;
-        "optionChanged": BootstrapChartOptionChangedEventArgs;
-        "pointClick": BootstrapChartElementClickEventArgs;
-        "pointHoverChanged": BootstrapChartElementActionEventArgs;
-        "pointSelectionChanged": BootstrapChartElementActionEventArgs;
-        "seriesClick": BootstrapChartElementClickEventArgs;
-        "seriesHoverChanged": BootstrapChartElementActionEventArgs;
-        "seriesSelectionChanged": BootstrapChartElementActionEventArgs;
-        "tooltipHidden": BootstrapChartElementActionEventArgs;
-        "tooltipShown": BootstrapChartElementActionEventArgs;
-        "zoomEnd": BootstrapChartZoomEndEventArgs;
-        "zoomStart": BootstrapChartEventArgsBase;
+        argumentAxisClick: BootstrapChartElementClickEventArgs;
+        disposing: BootstrapChartEventArgsBase;
+        done: BootstrapChartEventArgsBase;
+        drawn: BootstrapChartEventArgsBase;
+        exported: BootstrapChartEventArgsBase;
+        exporting: BootstrapChartExportEventArgs;
+        fileSaving: BootstrapChartExportEventArgs;
+        incidentOccurred: BootstrapChartErrorEventArgs;
+        init: BootstrapChartEventArgsBase;
+        legendClick: BootstrapChartElementClickEventArgs;
+        optionChanged: BootstrapChartOptionChangedEventArgs;
+        pointClick: BootstrapChartElementClickEventArgs;
+        pointHoverChanged: BootstrapChartElementActionEventArgs;
+        pointSelectionChanged: BootstrapChartElementActionEventArgs;
+        seriesClick: BootstrapChartElementClickEventArgs;
+        seriesHoverChanged: BootstrapChartElementActionEventArgs;
+        seriesSelectionChanged: BootstrapChartElementActionEventArgs;
+        tooltipHidden: BootstrapChartElementActionEventArgs;
+        tooltipShown: BootstrapChartElementActionEventArgs;
+        zoomEnd: BootstrapChartZoomEndEventArgs;
+        zoomStart: BootstrapChartEventArgsBase;
     }
 
     class BootstrapPolarChart extends Control {
@@ -711,30 +939,48 @@ declare namespace DevExpress.AspNetCore {
         print(): void;
         setDataSource(dataSource: any): void;
         setOptions(options: any): void;
-        on<K extends keyof BootstrapPolarChartEventMap>(eventName: K, callback: (this: BootstrapPolarChart, args?: BootstrapPolarChartEventMap[K]) => void): this;
-        once<K extends keyof BootstrapPolarChartEventMap>(eventName: K, callback: (this: BootstrapPolarChart, args?: BootstrapPolarChartEventMap[K]) => void): this;
-        off<K extends keyof BootstrapPolarChartEventMap>(eventName?: K, callback?: (this: BootstrapPolarChart, args?: BootstrapPolarChartEventMap[K]) => void): this;
+        on<K extends keyof BootstrapPolarChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPolarChart,
+                args?: BootstrapPolarChartEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapPolarChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPolarChart,
+                args?: BootstrapPolarChartEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapPolarChartEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapPolarChart,
+                args?: BootstrapPolarChartEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapPolarChartEventMap extends ControlEventMap {
-        "argumentAxisClick": BootstrapChartElementClickEventArgs;
-        "disposing": BootstrapChartEventArgsBase;
-        "done": BootstrapChartEventArgsBase;
-        "drawn": BootstrapChartEventArgsBase;
-        "exported": BootstrapChartEventArgsBase;
-        "exporting": BootstrapChartExportEventArgs;
-        "fileSaving": BootstrapChartExportEventArgs;
-        "incidentOccurred": BootstrapChartErrorEventArgs;
-        "init": BootstrapChartEventArgsBase;
-        "legendClick": BootstrapChartElementClickEventArgs;
-        "optionChanged": BootstrapChartOptionChangedEventArgs;
-        "pointClick": BootstrapChartElementClickEventArgs;
-        "pointHoverChanged": BootstrapChartElementActionEventArgs;
-        "pointSelectionChanged": BootstrapChartElementActionEventArgs;
-        "seriesClick": BootstrapChartElementClickEventArgs;
-        "seriesHoverChanged": BootstrapChartElementActionEventArgs;
-        "seriesSelectionChanged": BootstrapChartElementActionEventArgs;
-        "tooltipHidden": BootstrapChartElementActionEventArgs;
-        "tooltipShown": BootstrapChartElementActionEventArgs;
+        argumentAxisClick: BootstrapChartElementClickEventArgs;
+        disposing: BootstrapChartEventArgsBase;
+        done: BootstrapChartEventArgsBase;
+        drawn: BootstrapChartEventArgsBase;
+        exported: BootstrapChartEventArgsBase;
+        exporting: BootstrapChartExportEventArgs;
+        fileSaving: BootstrapChartExportEventArgs;
+        incidentOccurred: BootstrapChartErrorEventArgs;
+        init: BootstrapChartEventArgsBase;
+        legendClick: BootstrapChartElementClickEventArgs;
+        optionChanged: BootstrapChartOptionChangedEventArgs;
+        pointClick: BootstrapChartElementClickEventArgs;
+        pointHoverChanged: BootstrapChartElementActionEventArgs;
+        pointSelectionChanged: BootstrapChartElementActionEventArgs;
+        seriesClick: BootstrapChartElementClickEventArgs;
+        seriesHoverChanged: BootstrapChartElementActionEventArgs;
+        seriesSelectionChanged: BootstrapChartElementActionEventArgs;
+        tooltipHidden: BootstrapChartElementActionEventArgs;
+        tooltipShown: BootstrapChartElementActionEventArgs;
     }
 
     class BootstrapPieChart extends Control {
@@ -744,26 +990,44 @@ declare namespace DevExpress.AspNetCore {
         print(): void;
         setDataSource(dataSource: any): void;
         setOptions(options: any): void;
-        on<K extends keyof BootstrapPieChartEventMap>(eventName: K, callback: (this: BootstrapPieChart, args?: BootstrapPieChartEventMap[K]) => void): this;
-        once<K extends keyof BootstrapPieChartEventMap>(eventName: K, callback: (this: BootstrapPieChart, args?: BootstrapPieChartEventMap[K]) => void): this;
-        off<K extends keyof BootstrapPieChartEventMap>(eventName?: K, callback?: (this: BootstrapPieChart, args?: BootstrapPieChartEventMap[K]) => void): this;
+        on<K extends keyof BootstrapPieChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPieChart,
+                args?: BootstrapPieChartEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapPieChartEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPieChart,
+                args?: BootstrapPieChartEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapPieChartEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapPieChart,
+                args?: BootstrapPieChartEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapPieChartEventMap extends ControlEventMap {
-        "disposing": BootstrapChartEventArgsBase;
-        "done": BootstrapChartEventArgsBase;
-        "drawn": BootstrapChartEventArgsBase;
-        "exported": BootstrapChartEventArgsBase;
-        "exporting": BootstrapChartExportEventArgs;
-        "fileSaving": BootstrapChartExportEventArgs;
-        "incidentOccurred": BootstrapChartErrorEventArgs;
-        "init": BootstrapChartEventArgsBase;
-        "legendClick": BootstrapChartElementClickEventArgs;
-        "optionChanged": BootstrapChartOptionChangedEventArgs;
-        "pointClick": BootstrapChartElementClickEventArgs;
-        "pointHoverChanged": BootstrapChartElementActionEventArgs;
-        "pointSelectionChanged": BootstrapChartElementActionEventArgs;
-        "tooltipHidden": BootstrapChartElementActionEventArgs;
-        "tooltipShown": BootstrapChartElementActionEventArgs;
+        disposing: BootstrapChartEventArgsBase;
+        done: BootstrapChartEventArgsBase;
+        drawn: BootstrapChartEventArgsBase;
+        exported: BootstrapChartEventArgsBase;
+        exporting: BootstrapChartExportEventArgs;
+        fileSaving: BootstrapChartExportEventArgs;
+        incidentOccurred: BootstrapChartErrorEventArgs;
+        init: BootstrapChartEventArgsBase;
+        legendClick: BootstrapChartElementClickEventArgs;
+        optionChanged: BootstrapChartOptionChangedEventArgs;
+        pointClick: BootstrapChartElementClickEventArgs;
+        pointHoverChanged: BootstrapChartElementActionEventArgs;
+        pointSelectionChanged: BootstrapChartElementActionEventArgs;
+        tooltipHidden: BootstrapChartElementActionEventArgs;
+        tooltipShown: BootstrapChartElementActionEventArgs;
     }
 
     class BootstrapCheckBox extends BootstrapClientEdit {
@@ -773,12 +1037,30 @@ declare namespace DevExpress.AspNetCore {
         setCheckState(checkState: string): void;
         setChecked(isChecked: boolean): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapCheckBoxEventMap>(eventName: K, callback: (this: BootstrapCheckBox, args?: BootstrapCheckBoxEventMap[K]) => void): this;
-        once<K extends keyof BootstrapCheckBoxEventMap>(eventName: K, callback: (this: BootstrapCheckBox, args?: BootstrapCheckBoxEventMap[K]) => void): this;
-        off<K extends keyof BootstrapCheckBoxEventMap>(eventName?: K, callback?: (this: BootstrapCheckBox, args?: BootstrapCheckBoxEventMap[K]) => void): this;
+        on<K extends keyof BootstrapCheckBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCheckBox,
+                args?: BootstrapCheckBoxEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapCheckBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCheckBox,
+                args?: BootstrapCheckBoxEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapCheckBoxEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapCheckBox,
+                args?: BootstrapCheckBoxEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapCheckBoxEventMap extends BootstrapClientEditEventMap {
-        "checkedChanged": ProcessingModeEventArgs;
+        checkedChanged: ProcessingModeEventArgs;
     }
 
     class BootstrapRadioButton extends BootstrapClientEdit {
@@ -788,12 +1070,30 @@ declare namespace DevExpress.AspNetCore {
         setCheckState(checkState: string): void;
         setChecked(isChecked: boolean): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapRadioButtonEventMap>(eventName: K, callback: (this: BootstrapRadioButton, args?: BootstrapRadioButtonEventMap[K]) => void): this;
-        once<K extends keyof BootstrapRadioButtonEventMap>(eventName: K, callback: (this: BootstrapRadioButton, args?: BootstrapRadioButtonEventMap[K]) => void): this;
-        off<K extends keyof BootstrapRadioButtonEventMap>(eventName?: K, callback?: (this: BootstrapRadioButton, args?: BootstrapRadioButtonEventMap[K]) => void): this;
+        on<K extends keyof BootstrapRadioButtonEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapRadioButton,
+                args?: BootstrapRadioButtonEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapRadioButtonEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapRadioButton,
+                args?: BootstrapRadioButtonEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapRadioButtonEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapRadioButton,
+                args?: BootstrapRadioButtonEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapRadioButtonEventMap extends BootstrapClientEditEventMap {
-        "checkedChanged": ProcessingModeEventArgs;
+        checkedChanged: ProcessingModeEventArgs;
     }
 
     class BootstrapComboBox extends BootstrapClientEdit {
@@ -804,7 +1104,11 @@ declare namespace DevExpress.AspNetCore {
         addItem(texts: string[], value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures
         addItem(text: string, value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures unified-signatures
         addItemCssClass(index: number, className: string): void;
-        addItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        addItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         adjustDropDownWindow(): void;
         beginUpdate(): void;
         clearItems(): void;
@@ -826,48 +1130,92 @@ declare namespace DevExpress.AspNetCore {
         insertItem(index: number, text: string): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, texts: string[], value: any): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, text: string, value: any): void; // tslint:disable-line:unified-signatures unified-signatures
-        insertItem(index: number, texts: string[], value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures
-        insertItem(index: number, text: string, value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures unified-signatures
+        insertItem(
+            index: number,
+            texts: string[],
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures
+        insertItem(
+            index: number,
+            text: string,
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
         makeItemVisible(index: number): void;
         performCallback(data: any): Promise<void>;
         performCallback(data: any, onSuccess: () => void): void;
         removeItem(index: number): void;
         removeItemCssClass(index: number, className: string): void;
-        removeItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        removeItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         selectAll(): void;
         setButtonVisible(number: number, value: boolean): void;
         setCaretPosition(position: number): void;
         setItemBadgeIconCssClass(index: number, cssClass: string): void;
         setItemBadgeText(index: number, text: string): void;
         setItemHtml(index: number, html: string): void;
-        setItemTextCellHtml(itemIndex: number, textCellIndex: number, html: string): void;
-        setItemTextCellTooltip(itemIndex: number, textCellIndex: number, tooltip: string): void;
+        setItemTextCellHtml(
+            itemIndex: number,
+            textCellIndex: number,
+            html: string
+        ): void;
+        setItemTextCellTooltip(
+            itemIndex: number,
+            textCellIndex: number,
+            tooltip: string
+        ): void;
         setItemTooltip(index: number, tooltip: string): void;
         setSelectedIndex(index: number): void;
         setSelectedItem(item: BootstrapListBoxItem): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string, applyFilter: boolean): void;
         showDropDown(): void;
-        on<K extends keyof BootstrapComboBoxEventMap>(eventName: K, callback: (this: BootstrapComboBox, args?: BootstrapComboBoxEventMap[K]) => void): this;
-        once<K extends keyof BootstrapComboBoxEventMap>(eventName: K, callback: (this: BootstrapComboBox, args?: BootstrapComboBoxEventMap[K]) => void): this;
-        off<K extends keyof BootstrapComboBoxEventMap>(eventName?: K, callback?: (this: BootstrapComboBox, args?: BootstrapComboBoxEventMap[K]) => void): this;
+        on<K extends keyof BootstrapComboBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapComboBox,
+                args?: BootstrapComboBoxEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapComboBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapComboBox,
+                args?: BootstrapComboBoxEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapComboBoxEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapComboBox,
+                args?: BootstrapComboBoxEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapComboBoxEventMap extends BootstrapClientEditEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "buttonClick": ButtonEditClickEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "closeUp": EventArgs;
-        "customHighlighting": ListEditCustomHighlightingEventArgs;
-        "dropDown": EventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "itemFiltering": ListEditItemFilteringEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "queryCloseUp": CancelEventArgs;
-        "selectedIndexChanged": ProcessingModeEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        closeUp: EventArgs;
+        customHighlighting: ListEditCustomHighlightingEventArgs;
+        dropDown: EventArgs;
+        endCallback: EndCallbackEventArgs;
+        itemFiltering: ListEditItemFilteringEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        queryCloseUp: CancelEventArgs;
+        selectedIndexChanged: ProcessingModeEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     interface ParseDateEventArgs extends EventArgs {
@@ -894,26 +1242,48 @@ declare namespace DevExpress.AspNetCore {
         setDate(date: Date): void;
         setMaxDate(date: Date): void;
         setMinDate(date: Date): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
         showDropDown(): void;
-        on<K extends keyof BootstrapDateEditEventMap>(eventName: K, callback: (this: BootstrapDateEdit, args?: BootstrapDateEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapDateEditEventMap>(eventName: K, callback: (this: BootstrapDateEdit, args?: BootstrapDateEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapDateEditEventMap>(eventName?: K, callback?: (this: BootstrapDateEdit, args?: BootstrapDateEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapDateEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapDateEdit,
+                args?: BootstrapDateEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapDateEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapDateEdit,
+                args?: BootstrapDateEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapDateEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapDateEdit,
+                args?: BootstrapDateEditEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapDateEditEventMap extends BootstrapClientEditEventMap {
-        "buttonClick": ButtonEditClickEventArgs;
-        "calendarCustomDisabledDate": CalendarCustomDisabledDateEventArgs;
-        "closeUp": EventArgs;
-        "dateChanged": ProcessingModeEventArgs;
-        "dropDown": EventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "parseDate": ParseDateEventArgs;
-        "queryCloseUp": CancelEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        calendarCustomDisabledDate: CalendarCustomDisabledDateEventArgs;
+        closeUp: EventArgs;
+        dateChanged: ProcessingModeEventArgs;
+        dropDown: EventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        parseDate: ParseDateEventArgs;
+        queryCloseUp: CancelEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapDropDownEdit extends BootstrapClientEdit {
@@ -927,32 +1297,74 @@ declare namespace DevExpress.AspNetCore {
         setButtonVisible(number: number, value: boolean): void;
         setCaretPosition(position: number): void;
         setKeyValue(keyValue: string): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
         showDropDown(): void;
-        on<K extends keyof BootstrapDropDownEditEventMap>(eventName: K, callback: (this: BootstrapDropDownEdit, args?: BootstrapDropDownEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapDropDownEditEventMap>(eventName: K, callback: (this: BootstrapDropDownEdit, args?: BootstrapDropDownEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapDropDownEditEventMap>(eventName?: K, callback?: (this: BootstrapDropDownEdit, args?: BootstrapDropDownEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapDropDownEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapDropDownEdit,
+                args?: BootstrapDropDownEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapDropDownEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapDropDownEdit,
+                args?: BootstrapDropDownEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapDropDownEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapDropDownEdit,
+                args?: BootstrapDropDownEditEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapDropDownEditEventMap extends BootstrapClientEditEventMap {
-        "buttonClick": ButtonEditClickEventArgs;
-        "closeUp": EventArgs;
-        "dropDown": EventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "queryCloseUp": CancelEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+    interface BootstrapDropDownEditEventMap
+        extends BootstrapClientEditEventMap {
+        buttonClick: ButtonEditClickEventArgs;
+        closeUp: EventArgs;
+        dropDown: EventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        queryCloseUp: CancelEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapFormLayout extends Control {
         getItemByName(name: string): BootstrapFormLayoutItem | null;
-        on<K extends keyof BootstrapFormLayoutEventMap>(eventName: K, callback: (this: BootstrapFormLayout, args?: BootstrapFormLayoutEventMap[K]) => void): this;
-        once<K extends keyof BootstrapFormLayoutEventMap>(eventName: K, callback: (this: BootstrapFormLayout, args?: BootstrapFormLayoutEventMap[K]) => void): this;
-        off<K extends keyof BootstrapFormLayoutEventMap>(eventName?: K, callback?: (this: BootstrapFormLayout, args?: BootstrapFormLayoutEventMap[K]) => void): this;
+        on<K extends keyof BootstrapFormLayoutEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapFormLayout,
+                args?: BootstrapFormLayoutEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapFormLayoutEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapFormLayout,
+                args?: BootstrapFormLayoutEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapFormLayoutEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapFormLayout,
+                args?: BootstrapFormLayoutEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapFormLayoutEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapFormLayoutEventMap extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapFormLayoutItem {
@@ -972,7 +1384,8 @@ declare namespace DevExpress.AspNetCore {
         readonly column: BootstrapGridViewColumn;
     }
 
-    interface GridViewColumnProcessingModeEventArgs extends ProcessingModeEventArgs {
+    interface GridViewColumnProcessingModeEventArgs
+        extends ProcessingModeEventArgs {
         readonly column: BootstrapGridViewColumn;
     }
 
@@ -1007,7 +1420,8 @@ declare namespace DevExpress.AspNetCore {
         showBrowserMenu: boolean;
     }
 
-    interface GridViewContextMenuItemClickEventArgs extends ProcessingModeEventArgs {
+    interface GridViewContextMenuItemClickEventArgs
+        extends ProcessingModeEventArgs {
         readonly elementIndex: number;
         handled: boolean;
         readonly item: BootstrapMenuItem;
@@ -1059,7 +1473,8 @@ declare namespace DevExpress.AspNetCore {
         readonly updatedValues: any;
     }
 
-    interface GridViewBatchEditChangesCancelingEventArgs extends CancelEventArgs {
+    interface GridViewBatchEditChangesCancelingEventArgs
+        extends CancelEventArgs {
         readonly deletedValues: any;
         readonly insertedValues: any;
         readonly updatedValues: any;
@@ -1110,7 +1525,9 @@ declare namespace DevExpress.AspNetCore {
         getAutoFilterEditor(columnIndex: number): any; // tslint:disable-line:unified-signatures
         getAutoFilterEditor(columnFieldNameOrId: string): any; // tslint:disable-line:unified-signatures unified-signatures
         getColumn(columnIndex: number): BootstrapGridViewColumn | null;
-        getColumnByField(columnFieldName: string): BootstrapGridViewColumn | null;
+        getColumnByField(
+            columnFieldName: string
+        ): BootstrapGridViewColumn | null;
         getColumnById(columnId: string): BootstrapGridViewColumn | null;
         getColumnCount(): number;
         getColumnLayout(): any;
@@ -1126,7 +1543,9 @@ declare namespace DevExpress.AspNetCore {
         getPageCount(): number;
         getPageIndex(): number;
         getPopupEditForm(): BootstrapPopupControl | null;
-        getRowIndicesVisibleInViewPort(includePartiallyVisible: boolean): number[];
+        getRowIndicesVisibleInViewPort(
+            includePartiallyVisible: boolean
+        ): number[];
         getRowKey(visibleIndex: number): string;
         getSelectedKeysOnPage(): any[];
         getSelectedRowCount(): number;
@@ -1140,9 +1559,21 @@ declare namespace DevExpress.AspNetCore {
         groupBy(column: BootstrapGridViewColumn, groupIndex: number): void; // tslint:disable-line:unified-signatures
         groupBy(columnIndex: number, groupIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures
         groupBy(columnFieldNameOrId: string, groupIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        groupBy(column: BootstrapGridViewColumn, groupIndex: number, sortOrder: string): void; // tslint:disable-line:unified-signatures
-        groupBy(columnIndex: number, groupIndex: number, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures
-        groupBy(columnFieldNameOrId: string, groupIndex: number, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        groupBy(
+            column: BootstrapGridViewColumn,
+            groupIndex: number,
+            sortOrder: string
+        ): void; // tslint:disable-line:unified-signatures
+        groupBy(
+            columnIndex: number,
+            groupIndex: number,
+            sortOrder: string
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
+        groupBy(
+            columnFieldNameOrId: string,
+            groupIndex: number,
+            sortOrder: string
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
         hideCustomizationWindow(): void;
         isCustomizationWindowVisible(): boolean;
         isDataRow(visibleIndex: number): boolean;
@@ -1185,12 +1616,35 @@ declare namespace DevExpress.AspNetCore {
         sortBy(column: BootstrapGridViewColumn, sortOrder: string): void; // tslint:disable-line:unified-signatures
         sortBy(columnIndex: number, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures
         sortBy(columnFieldNameOrId: string, sortOrder: string): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        sortBy(column: BootstrapGridViewColumn, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures
+        sortBy(
+            column: BootstrapGridViewColumn,
+            sortOrder: string,
+            reset: boolean
+        ): void; // tslint:disable-line:unified-signatures
         sortBy(columnIndex: number, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures unified-signatures
-        sortBy(columnFieldNameOrId: string, sortOrder: string, reset: boolean): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
-        sortBy(column: BootstrapGridViewColumn, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures
-        sortBy(columnIndex: number, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures
-        sortBy(columnFieldNameOrId: string, sortOrder: string, reset: boolean, sortIndex: number): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        sortBy(
+            columnFieldNameOrId: string,
+            sortOrder: string,
+            reset: boolean
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
+        sortBy(
+            column: BootstrapGridViewColumn,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures
+        sortBy(
+            columnIndex: number,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
+        sortBy(
+            columnFieldNameOrId: string,
+            sortOrder: string,
+            reset: boolean,
+            sortIndex: number
+        ): void; // tslint:disable-line:unified-signatures unified-signatures unified-signatures
         startEditRow(visibleIndex: number): void;
         startEditRowByKey(key: any): void;
         ungroup(column: BootstrapGridViewColumn): void;
@@ -1203,43 +1657,61 @@ declare namespace DevExpress.AspNetCore {
         unselectRowsByKey(keys: any[]): void;
         unselectRowsByKey(key: any): void; // tslint:disable-line:unified-signatures
         updateEdit(): void;
-        on<K extends keyof BootstrapGridViewEventMap>(eventName: K, callback: (this: BootstrapGridView, args?: BootstrapGridViewEventMap[K]) => void): this;
-        once<K extends keyof BootstrapGridViewEventMap>(eventName: K, callback: (this: BootstrapGridView, args?: BootstrapGridViewEventMap[K]) => void): this;
-        off<K extends keyof BootstrapGridViewEventMap>(eventName?: K, callback?: (this: BootstrapGridView, args?: BootstrapGridViewEventMap[K]) => void): this;
+        on<K extends keyof BootstrapGridViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapGridView,
+                args?: BootstrapGridViewEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapGridViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapGridView,
+                args?: BootstrapGridViewEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapGridViewEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapGridView,
+                args?: BootstrapGridViewEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapGridViewEventMap extends BootstrapGridBaseEventMap {
-        "batchEditChangesCanceling": GridViewBatchEditChangesCancelingEventArgs;
-        "batchEditChangesSaving": GridViewBatchEditChangesSavingEventArgs;
-        "batchEditConfirmShowing": GridViewBatchEditConfirmShowingEventArgs;
-        "batchEditEndEditing": GridViewBatchEditEndEditingEventArgs;
-        "batchEditRowDeleting": GridViewBatchEditRowDeletingEventArgs;
-        "batchEditRowInserting": GridViewBatchEditRowInsertingEventArgs;
-        "batchEditRowValidating": GridViewBatchEditRowValidatingEventArgs;
-        "batchEditStartEditing": GridViewBatchEditStartEditingEventArgs;
-        "batchEditTemplateCellFocused": GridViewBatchEditTemplateCellFocusedEventArgs;
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "columnGrouping": GridViewColumnCancelEventArgs;
-        "columnMoving": GridViewColumnMovingEventArgs;
-        "columnResized": GridViewColumnProcessingModeEventArgs;
-        "columnResizing": GridViewColumnCancelEventArgs;
-        "columnSorting": GridViewColumnCancelEventArgs;
-        "columnStartDragging": GridViewColumnCancelEventArgs;
-        "contextMenu": GridViewContextMenuEventArgs;
-        "contextMenuItemClick": GridViewContextMenuItemClickEventArgs;
-        "customButtonClick": GridViewCustomButtonEventArgs;
-        "customizationWindowCloseUp": EventArgs;
-        "detailRowCollapsing": GridViewRowCancelEventArgs;
-        "detailRowExpanding": GridViewRowCancelEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "focusedCellChanging": GridViewFocusedCellChangingEventArgs;
-        "focusedRowChanged": GridViewFocusEventArgs;
-        "rowClick": GridViewRowClickEventArgs;
-        "rowCollapsing": GridViewRowCancelEventArgs;
-        "rowDblClick": GridViewRowClickEventArgs;
-        "rowExpanding": GridViewRowCancelEventArgs;
-        "rowFocusing": GridViewRowFocusingEventArgs;
-        "selectionChanged": GridViewSelectionEventArgs;
+        batchEditChangesCanceling: GridViewBatchEditChangesCancelingEventArgs;
+        batchEditChangesSaving: GridViewBatchEditChangesSavingEventArgs;
+        batchEditConfirmShowing: GridViewBatchEditConfirmShowingEventArgs;
+        batchEditEndEditing: GridViewBatchEditEndEditingEventArgs;
+        batchEditRowDeleting: GridViewBatchEditRowDeletingEventArgs;
+        batchEditRowInserting: GridViewBatchEditRowInsertingEventArgs;
+        batchEditRowValidating: GridViewBatchEditRowValidatingEventArgs;
+        batchEditStartEditing: GridViewBatchEditStartEditingEventArgs;
+        batchEditTemplateCellFocused: GridViewBatchEditTemplateCellFocusedEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        columnGrouping: GridViewColumnCancelEventArgs;
+        columnMoving: GridViewColumnMovingEventArgs;
+        columnResized: GridViewColumnProcessingModeEventArgs;
+        columnResizing: GridViewColumnCancelEventArgs;
+        columnSorting: GridViewColumnCancelEventArgs;
+        columnStartDragging: GridViewColumnCancelEventArgs;
+        contextMenu: GridViewContextMenuEventArgs;
+        contextMenuItemClick: GridViewContextMenuItemClickEventArgs;
+        customButtonClick: GridViewCustomButtonEventArgs;
+        customizationWindowCloseUp: EventArgs;
+        detailRowCollapsing: GridViewRowCancelEventArgs;
+        detailRowExpanding: GridViewRowCancelEventArgs;
+        endCallback: EndCallbackEventArgs;
+        focusedCellChanging: GridViewFocusedCellChangingEventArgs;
+        focusedRowChanged: GridViewFocusEventArgs;
+        rowClick: GridViewRowClickEventArgs;
+        rowCollapsing: GridViewRowCancelEventArgs;
+        rowDblClick: GridViewRowClickEventArgs;
+        rowExpanding: GridViewRowCancelEventArgs;
+        rowFocusing: GridViewRowFocusingEventArgs;
+        selectionChanged: GridViewSelectionEventArgs;
     }
 
     class BootstrapGridViewBatchEditApi {
@@ -1249,8 +1721,15 @@ declare namespace DevExpress.AspNetCore {
         deleteRow(visibleIndex: number): void;
         deleteRowByKey(key: any): void;
         endEdit(): void;
-        getCellTextContainer(visibleIndex: number, columnFieldNameOrId: string): any;
-        getCellValue(visibleIndex: number, columnFieldNameOrId: string, initial: boolean): any;
+        getCellTextContainer(
+            visibleIndex: number,
+            columnFieldNameOrId: string
+        ): any;
+        getCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            initial: boolean
+        ): any;
         getColumnDisplayText(columnFieldNameOrId: string, value: any): string;
         getDeletedRowIndices(): number[];
         getEditCellInfo(): BootstrapGridViewCellInfo | null;
@@ -1265,8 +1744,18 @@ declare namespace DevExpress.AspNetCore {
         recoverRowByKey(key: any): void;
         resetChanges(visibleIndex: number): void;
         resetChanges(visibleIndex: number, columnIndex: number): void; // tslint:disable-line:unified-signatures
-        setCellValue(visibleIndex: number, columnFieldNameOrId: string, value: any): void;
-        setCellValue(visibleIndex: number, columnFieldNameOrId: string, value: any, displayText: string, cancelCellHighlighting: boolean): void;
+        setCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            value: any
+        ): void;
+        setCellValue(
+            visibleIndex: number,
+            columnFieldNameOrId: string,
+            value: any,
+            displayText: string,
+            cancelCellHighlighting: boolean
+        ): void;
         startEdit(visibleIndex: number, columnIndex: number): void;
         validateRow(visibleIndex: number): boolean;
         validateRows(validateOnlyModified: boolean): boolean;
@@ -1302,15 +1791,34 @@ declare namespace DevExpress.AspNetCore {
         setNavigateUrl(url: string): void;
         setText(text: string): void;
         setValue(value: any): void;
-        on<K extends keyof BootstrapHyperLinkEventMap>(eventName: K, callback: (this: BootstrapHyperLink, args?: BootstrapHyperLinkEventMap[K]) => void): this;
-        once<K extends keyof BootstrapHyperLinkEventMap>(eventName: K, callback: (this: BootstrapHyperLink, args?: BootstrapHyperLinkEventMap[K]) => void): this;
-        off<K extends keyof BootstrapHyperLinkEventMap>(eventName?: K, callback?: (this: BootstrapHyperLink, args?: BootstrapHyperLinkEventMap[K]) => void): this;
+        on<K extends keyof BootstrapHyperLinkEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapHyperLink,
+                args?: BootstrapHyperLinkEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapHyperLinkEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapHyperLink,
+                args?: BootstrapHyperLinkEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapHyperLinkEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapHyperLink,
+                args?: BootstrapHyperLinkEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapHyperLinkEventMap extends ControlEventMap {
-        "click": EditClickEventArgs;
+        click: EditClickEventArgs;
     }
 
-    interface ListEditItemSelectedChangedEventArgs extends ProcessingModeEventArgs {
+    interface ListEditItemSelectedChangedEventArgs
+        extends ProcessingModeEventArgs {
         readonly index: number;
         readonly isSelected: boolean;
     }
@@ -1334,7 +1842,11 @@ declare namespace DevExpress.AspNetCore {
         addItem(texts: string[], value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures
         addItem(text: string, value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures unified-signatures
         addItemCssClass(index: number, className: string): void;
-        addItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        addItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         beginUpdate(): void;
         clearItems(): void;
         endUpdate(): void;
@@ -1353,14 +1865,28 @@ declare namespace DevExpress.AspNetCore {
         insertItem(index: number, text: string): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, texts: string[], value: any): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, text: string, value: any): void; // tslint:disable-line:unified-signatures unified-signatures
-        insertItem(index: number, texts: string[], value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures
-        insertItem(index: number, text: string, value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures unified-signatures
+        insertItem(
+            index: number,
+            texts: string[],
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures
+        insertItem(
+            index: number,
+            text: string,
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
         makeItemVisible(index: number): void;
         performCallback(data: any): Promise<void>;
         performCallback(data: any, onSuccess: () => void): void;
         removeItem(index: number): void;
         removeItemCssClass(index: number, className: string): void;
-        removeItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        removeItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         selectAll(): void;
         selectIndices(indices: number[]): void;
         selectItems(items: BootstrapListBoxItem[]): void;
@@ -1368,8 +1894,16 @@ declare namespace DevExpress.AspNetCore {
         setItemBadgeIconCssClass(index: number, cssClass: string): void;
         setItemBadgeText(index: number, text: string): void;
         setItemHtml(index: number, html: string): void;
-        setItemTextCellHtml(itemIndex: number, textCellIndex: number, html: string): void;
-        setItemTextCellTooltip(itemIndex: number, textCellIndex: number, tooltip: string): void;
+        setItemTextCellHtml(
+            itemIndex: number,
+            textCellIndex: number,
+            html: string
+        ): void;
+        setItemTextCellTooltip(
+            itemIndex: number,
+            textCellIndex: number,
+            tooltip: string
+        ): void;
         setItemTooltip(index: number, tooltip: string): void;
         setSelectedIndex(index: number): void;
         setSelectedItem(item: BootstrapListBoxItem): void;
@@ -1377,21 +1911,39 @@ declare namespace DevExpress.AspNetCore {
         unselectIndices(indices: number[]): void;
         unselectItems(items: BootstrapListBoxItem[]): void;
         unselectValues(values: any[]): void;
-        on<K extends keyof BootstrapListBoxEventMap>(eventName: K, callback: (this: BootstrapListBox, args?: BootstrapListBoxEventMap[K]) => void): this;
-        once<K extends keyof BootstrapListBoxEventMap>(eventName: K, callback: (this: BootstrapListBox, args?: BootstrapListBoxEventMap[K]) => void): this;
-        off<K extends keyof BootstrapListBoxEventMap>(eventName?: K, callback?: (this: BootstrapListBox, args?: BootstrapListBoxEventMap[K]) => void): this;
+        on<K extends keyof BootstrapListBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapListBox,
+                args?: BootstrapListBoxEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapListBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapListBox,
+                args?: BootstrapListBoxEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapListBoxEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapListBox,
+                args?: BootstrapListBoxEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapListBoxEventMap extends BootstrapClientEditEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "customHighlighting": ListEditCustomHighlightingEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "itemDoubleClick": EventArgs;
-        "itemFiltering": ListEditItemFilteringEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "selectedIndexChanged": ProcessingModeEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        customHighlighting: ListEditCustomHighlightingEventArgs;
+        endCallback: EndCallbackEventArgs;
+        itemDoubleClick: EventArgs;
+        itemFiltering: ListEditItemFilteringEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        selectedIndexChanged: ProcessingModeEventArgs;
     }
 
     class BootstrapListBoxItem {
@@ -1423,28 +1975,68 @@ declare namespace DevExpress.AspNetCore {
         unselectIndices(indices: number[]): void;
         unselectItems(items: BootstrapListBoxItem[]): void;
         unselectValues(values: any[]): void;
-        on<K extends keyof BootstrapCheckBoxListEventMap>(eventName: K, callback: (this: BootstrapCheckBoxList, args?: BootstrapCheckBoxListEventMap[K]) => void): this;
-        once<K extends keyof BootstrapCheckBoxListEventMap>(eventName: K, callback: (this: BootstrapCheckBoxList, args?: BootstrapCheckBoxListEventMap[K]) => void): this;
-        off<K extends keyof BootstrapCheckBoxListEventMap>(eventName?: K, callback?: (this: BootstrapCheckBoxList, args?: BootstrapCheckBoxListEventMap[K]) => void): this;
+        on<K extends keyof BootstrapCheckBoxListEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCheckBoxList,
+                args?: BootstrapCheckBoxListEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapCheckBoxListEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapCheckBoxList,
+                args?: BootstrapCheckBoxListEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapCheckBoxListEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapCheckBoxList,
+                args?: BootstrapCheckBoxListEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapCheckBoxListEventMap extends BootstrapListBoxEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapCheckBoxListEventMap extends BootstrapListBoxEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapRadioButtonList extends BootstrapListBox {
         getItem(index: number): BootstrapListBoxItem | null;
         getItemCount(): number;
-        on<K extends keyof BootstrapRadioButtonListEventMap>(eventName: K, callback: (this: BootstrapRadioButtonList, args?: BootstrapRadioButtonListEventMap[K]) => void): this;
-        once<K extends keyof BootstrapRadioButtonListEventMap>(eventName: K, callback: (this: BootstrapRadioButtonList, args?: BootstrapRadioButtonListEventMap[K]) => void): this;
-        off<K extends keyof BootstrapRadioButtonListEventMap>(eventName?: K, callback?: (this: BootstrapRadioButtonList, args?: BootstrapRadioButtonListEventMap[K]) => void): this;
+        on<K extends keyof BootstrapRadioButtonListEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapRadioButtonList,
+                args?: BootstrapRadioButtonListEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapRadioButtonListEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapRadioButtonList,
+                args?: BootstrapRadioButtonListEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapRadioButtonListEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapRadioButtonList,
+                args?: BootstrapRadioButtonListEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapRadioButtonListEventMap extends BootstrapListBoxEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapRadioButtonListEventMap
+        extends BootstrapListBoxEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     interface MenuItemEventArgs extends EventArgs {
         readonly item: BootstrapMenuItem;
     }
 
-    interface MenuItemMouseEventArgs extends MenuItemEventArgs { // tslint:disable-line:no-empty-interface
+    interface MenuItemMouseEventArgs extends MenuItemEventArgs {
+        // tslint:disable-line:no-empty-interface
     }
 
     interface MenuItemClickEventArgs extends ProcessingModeEventArgs {
@@ -1462,16 +2054,34 @@ declare namespace DevExpress.AspNetCore {
         getSelectedItem(): BootstrapMenuItem | null;
         setOrientation(orientation: string): void;
         setSelectedItem(item: BootstrapMenuItem): void;
-        on<K extends keyof BootstrapMenuEventMap>(eventName: K, callback: (this: BootstrapMenu, args?: BootstrapMenuEventMap[K]) => void): this;
-        once<K extends keyof BootstrapMenuEventMap>(eventName: K, callback: (this: BootstrapMenu, args?: BootstrapMenuEventMap[K]) => void): this;
-        off<K extends keyof BootstrapMenuEventMap>(eventName?: K, callback?: (this: BootstrapMenu, args?: BootstrapMenuEventMap[K]) => void): this;
+        on<K extends keyof BootstrapMenuEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapMenu,
+                args?: BootstrapMenuEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapMenuEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapMenu,
+                args?: BootstrapMenuEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapMenuEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapMenu,
+                args?: BootstrapMenuEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapMenuEventMap extends ControlEventMap {
-        "closeUp": MenuItemEventArgs;
-        "itemClick": MenuItemClickEventArgs;
-        "itemMouseOut": MenuItemMouseEventArgs;
-        "itemMouseOver": MenuItemMouseEventArgs;
-        "popUp": MenuItemEventArgs;
+        closeUp: MenuItemEventArgs;
+        itemClick: MenuItemClickEventArgs;
+        itemMouseOut: MenuItemMouseEventArgs;
+        itemMouseOver: MenuItemMouseEventArgs;
+        popUp: MenuItemEventArgs;
     }
 
     class BootstrapMenuItem {
@@ -1596,52 +2206,114 @@ declare namespace DevExpress.AspNetCore {
         setPopupElementCssSelector(selector: string): void;
         setPopupElementID(popupElementId: string): void;
         setSize(width: number, height: number): void;
-        setWindowAdaptiveMaxHeight(window: BootstrapPopupWindow, maxHeight: number): void;
-        setWindowAdaptiveMaxHeight(window: BootstrapPopupWindow, maxHeight: string): void; // tslint:disable-line:unified-signatures
-        setWindowAdaptiveMaxWidth(window: BootstrapPopupWindow, maxWidth: number): void;
-        setWindowAdaptiveMaxWidth(window: BootstrapPopupWindow, maxWidth: string): void; // tslint:disable-line:unified-signatures
-        setWindowAdaptiveMinHeight(window: BootstrapPopupWindow, minHeight: number): void;
-        setWindowAdaptiveMinHeight(window: BootstrapPopupWindow, minHeight: string): void; // tslint:disable-line:unified-signatures
-        setWindowAdaptiveMinWidth(window: BootstrapPopupWindow, minWidth: number): void;
-        setWindowAdaptiveMinWidth(window: BootstrapPopupWindow, minWidth: string): void; // tslint:disable-line:unified-signatures
+        setWindowAdaptiveMaxHeight(
+            window: BootstrapPopupWindow,
+            maxHeight: number
+        ): void;
+        setWindowAdaptiveMaxHeight(
+            window: BootstrapPopupWindow,
+            maxHeight: string
+        ): void; // tslint:disable-line:unified-signatures
+        setWindowAdaptiveMaxWidth(
+            window: BootstrapPopupWindow,
+            maxWidth: number
+        ): void;
+        setWindowAdaptiveMaxWidth(
+            window: BootstrapPopupWindow,
+            maxWidth: string
+        ): void; // tslint:disable-line:unified-signatures
+        setWindowAdaptiveMinHeight(
+            window: BootstrapPopupWindow,
+            minHeight: number
+        ): void;
+        setWindowAdaptiveMinHeight(
+            window: BootstrapPopupWindow,
+            minHeight: string
+        ): void; // tslint:disable-line:unified-signatures
+        setWindowAdaptiveMinWidth(
+            window: BootstrapPopupWindow,
+            minWidth: number
+        ): void;
+        setWindowAdaptiveMinWidth(
+            window: BootstrapPopupWindow,
+            minWidth: string
+        ): void; // tslint:disable-line:unified-signatures
         setWindowCollapsed(window: BootstrapPopupWindow, value: boolean): void;
         setWindowContentHtml(window: BootstrapPopupWindow, html: string): void;
         setWindowContentUrl(window: BootstrapPopupWindow, url: string): void;
         setWindowMaximized(window: BootstrapPopupWindow, value: boolean): void;
         setWindowPinned(window: BootstrapPopupWindow, value: boolean): void;
-        setWindowPopupElementID(window: BootstrapPopupWindow, popupElementId: string): void;
-        setWindowSize(window: BootstrapPopupWindow, width: number, height: number): void;
+        setWindowPopupElementID(
+            window: BootstrapPopupWindow,
+            popupElementId: string
+        ): void;
+        setWindowSize(
+            window: BootstrapPopupWindow,
+            width: number,
+            height: number
+        ): void;
         show(): void;
         showAtElement(htmlElement: any): void;
         showAtElementByID(id: string): void;
         showAtPos(x: number, y: number): void;
         showWindow(window: BootstrapPopupWindow): void;
-        showWindow(window: BootstrapPopupWindow, popupElementIndex: number): void; // tslint:disable-line:unified-signatures
-        showWindowAtElement(window: BootstrapPopupWindow, htmlElement: any): void;
+        showWindow(
+            window: BootstrapPopupWindow,
+            popupElementIndex: number
+        ): void; // tslint:disable-line:unified-signatures
+        showWindowAtElement(
+            window: BootstrapPopupWindow,
+            htmlElement: any
+        ): void;
         showWindowAtElementByID(window: BootstrapPopupWindow, id: string): void;
-        showWindowAtPos(window: BootstrapPopupWindow, x: number, y: number): void;
+        showWindowAtPos(
+            window: BootstrapPopupWindow,
+            x: number,
+            y: number
+        ): void;
         stretchVertically(): void;
         updatePosition(): void;
         updatePositionAtElement(htmlElement: any): void;
         updateWindowPosition(window: BootstrapPopupWindow): void;
-        updateWindowPositionAtElement(window: BootstrapPopupWindow, htmlElement: any): void;
+        updateWindowPositionAtElement(
+            window: BootstrapPopupWindow,
+            htmlElement: any
+        ): void;
         windowStretchVertically(window: BootstrapPopupWindow): void;
-        on<K extends keyof BootstrapPopupControlEventMap>(eventName: K, callback: (this: BootstrapPopupControl, args?: BootstrapPopupControlEventMap[K]) => void): this;
-        once<K extends keyof BootstrapPopupControlEventMap>(eventName: K, callback: (this: BootstrapPopupControl, args?: BootstrapPopupControlEventMap[K]) => void): this;
-        off<K extends keyof BootstrapPopupControlEventMap>(eventName?: K, callback?: (this: BootstrapPopupControl, args?: BootstrapPopupControlEventMap[K]) => void): this;
+        on<K extends keyof BootstrapPopupControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPopupControl,
+                args?: BootstrapPopupControlEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapPopupControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPopupControl,
+                args?: BootstrapPopupControlEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapPopupControlEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapPopupControl,
+                args?: BootstrapPopupControlEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapPopupControlEventMap extends ControlEventMap {
-        "afterResizing": PopupWindowEventArgs;
-        "beforeResizing": PopupWindowEventArgs;
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "closeUp": PopupWindowCloseUpEventArgs;
-        "closing": PopupWindowCancelEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "pinnedChanged": PopupWindowPinnedChangedEventArgs;
-        "popUp": PopupWindowEventArgs;
-        "resize": PopupWindowResizeEventArgs;
-        "shown": PopupWindowEventArgs;
+        afterResizing: PopupWindowEventArgs;
+        beforeResizing: PopupWindowEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        closeUp: PopupWindowCloseUpEventArgs;
+        closing: PopupWindowCancelEventArgs;
+        endCallback: EndCallbackEventArgs;
+        pinnedChanged: PopupWindowPinnedChangedEventArgs;
+        popUp: PopupWindowEventArgs;
+        resize: PopupWindowResizeEventArgs;
+        shown: PopupWindowEventArgs;
     }
 
     class BootstrapPopupWindow {
@@ -1680,11 +2352,30 @@ declare namespace DevExpress.AspNetCore {
         showAtElement(htmlElement: any): void;
         showAtElementByID(id: string): void;
         showAtPos(x: number, y: number): void;
-        on<K extends keyof BootstrapPopupMenuEventMap>(eventName: K, callback: (this: BootstrapPopupMenu, args?: BootstrapPopupMenuEventMap[K]) => void): this;
-        once<K extends keyof BootstrapPopupMenuEventMap>(eventName: K, callback: (this: BootstrapPopupMenu, args?: BootstrapPopupMenuEventMap[K]) => void): this;
-        off<K extends keyof BootstrapPopupMenuEventMap>(eventName?: K, callback?: (this: BootstrapPopupMenu, args?: BootstrapPopupMenuEventMap[K]) => void): this;
+        on<K extends keyof BootstrapPopupMenuEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPopupMenu,
+                args?: BootstrapPopupMenuEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapPopupMenuEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPopupMenu,
+                args?: BootstrapPopupMenuEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapPopupMenuEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapPopupMenu,
+                args?: BootstrapPopupMenuEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapPopupMenuEventMap extends BootstrapMenuEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapPopupMenuEventMap extends BootstrapMenuEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapProgressBar extends Control {
@@ -1704,11 +2395,30 @@ declare namespace DevExpress.AspNetCore {
         setMinimum(min: number): void;
         setPosition(position: number): void;
         setValue(value: any): void;
-        on<K extends keyof BootstrapProgressBarEventMap>(eventName: K, callback: (this: BootstrapProgressBar, args?: BootstrapProgressBarEventMap[K]) => void): this;
-        once<K extends keyof BootstrapProgressBarEventMap>(eventName: K, callback: (this: BootstrapProgressBar, args?: BootstrapProgressBarEventMap[K]) => void): this;
-        off<K extends keyof BootstrapProgressBarEventMap>(eventName?: K, callback?: (this: BootstrapProgressBar, args?: BootstrapProgressBarEventMap[K]) => void): this;
+        on<K extends keyof BootstrapProgressBarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapProgressBar,
+                args?: BootstrapProgressBarEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapProgressBarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapProgressBar,
+                args?: BootstrapProgressBarEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapProgressBarEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapProgressBar,
+                args?: BootstrapProgressBarEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapProgressBarEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapProgressBarEventMap extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     interface ActiveViewChangingEventArgs extends EventArgs {
@@ -1800,7 +2510,11 @@ declare namespace DevExpress.AspNetCore {
         getActiveViewType(): BootstrapSchedulerViewType;
         getAllDayAreaHeight(): number;
         getAppointmentById(id: any): BootstrapSchedulerAppointment | null;
-        getAppointmentProperties(aptId: number, propertyNames: string[], onCallBack: any): string[];
+        getAppointmentProperties(
+            aptId: number,
+            propertyNames: string[],
+            onCallBack: any
+        ): string[];
         getGroupType(): BootstrapSchedulerGroupType;
         getResourceNavigatorVisible(): boolean;
         getScrollAreaHeight(): number;
@@ -1824,7 +2538,11 @@ declare namespace DevExpress.AspNetCore {
         navigateForward(): void;
         performCallback(parameter: string): void;
         refresh(): void;
-        refreshClientAppointmentProperties(clientAppointment: BootstrapSchedulerAppointment, propertyNames: string[], onCallBack: any): void;
+        refreshClientAppointmentProperties(
+            clientAppointment: BootstrapSchedulerAppointment,
+            propertyNames: string[],
+            onCallBack: any
+        ): void;
         reminderFormCancel(): void;
         reminderFormDismiss(): void;
         reminderFormDismissAll(): void;
@@ -1838,10 +2556,17 @@ declare namespace DevExpress.AspNetCore {
         setResourceNavigatorVisible(visible: boolean): void;
         setSelection(interval: BootstrapTimeInterval): void;
         setSelection(interval: BootstrapTimeInterval, resourceId: string): void; // tslint:disable-line:unified-signatures
-        setSelection(interval: BootstrapTimeInterval, resourceId: string, scrollToSelection: boolean): void; // tslint:disable-line:unified-signatures
+        setSelection(
+            interval: BootstrapTimeInterval,
+            resourceId: string,
+            scrollToSelection: boolean
+        ): void; // tslint:disable-line:unified-signatures
         setToolbarVisible(visible: boolean): void;
         setTopRowTime(duration: number): void;
-        setTopRowTime(duration: number, viewType: BootstrapSchedulerViewType): void; // tslint:disable-line:unified-signatures
+        setTopRowTime(
+            duration: number,
+            viewType: BootstrapSchedulerViewType
+        ): void; // tslint:disable-line:unified-signatures
         setVisibleResources(resourceIds: string[]): void;
         showAppointmentFormByClientId(aptClientId: string): void;
         showAppointmentFormByServerId(aptServerId: string): void;
@@ -1850,33 +2575,51 @@ declare namespace DevExpress.AspNetCore {
         showLoadingPanel(): void;
         showSelectionToolTip(x: number, y: number): void;
         updateAppointment(apt: BootstrapSchedulerAppointment): void;
-        on<K extends keyof BootstrapSchedulerEventMap>(eventName: K, callback: (this: BootstrapScheduler, args?: BootstrapSchedulerEventMap[K]) => void): this;
-        once<K extends keyof BootstrapSchedulerEventMap>(eventName: K, callback: (this: BootstrapScheduler, args?: BootstrapSchedulerEventMap[K]) => void): this;
-        off<K extends keyof BootstrapSchedulerEventMap>(eventName?: K, callback?: (this: BootstrapScheduler, args?: BootstrapSchedulerEventMap[K]) => void): this;
+        on<K extends keyof BootstrapSchedulerEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapScheduler,
+                args?: BootstrapSchedulerEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapSchedulerEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapScheduler,
+                args?: BootstrapSchedulerEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapSchedulerEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapScheduler,
+                args?: BootstrapSchedulerEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapSchedulerEventMap extends ControlEventMap {
-        "activeViewChanged": EventArgs;
-        "activeViewChanging": ActiveViewChangingEventArgs;
-        "appointmentClick": AppointmentClickEventArgs;
-        "appointmentDeleting": AppointmentDeletingEventArgs;
-        "appointmentDoubleClick": AppointmentClickEventArgs;
-        "appointmentDrag": AppointmentDragEventArgs;
-        "appointmentDrop": AppointmentDropEventArgs;
-        "appointmentResize": AppointmentResizeEventArgs;
-        "appointmentResizing": AppointmentResizingEventArgs;
-        "appointmentToolTipShowing": AppointmentToolTipShowingEventArgs;
-        "appointmentsSelectionChanged": AppointmentsSelectionEventArgs;
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "cellClick": CellClickEventArgs;
-        "cellDoubleClick": CellClickEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "menuItemClicked": MenuItemClickedEventArgs;
-        "moreButtonClicked": MoreButtonClickedEventArgs;
-        "selectionChanged": EventArgs;
-        "selectionChanging": EventArgs;
-        "shortcut": ShortcutEventArgs;
-        "visibleIntervalChanged": EventArgs;
+        activeViewChanged: EventArgs;
+        activeViewChanging: ActiveViewChangingEventArgs;
+        appointmentClick: AppointmentClickEventArgs;
+        appointmentDeleting: AppointmentDeletingEventArgs;
+        appointmentDoubleClick: AppointmentClickEventArgs;
+        appointmentDrag: AppointmentDragEventArgs;
+        appointmentDrop: AppointmentDropEventArgs;
+        appointmentResize: AppointmentResizeEventArgs;
+        appointmentResizing: AppointmentResizingEventArgs;
+        appointmentToolTipShowing: AppointmentToolTipShowingEventArgs;
+        appointmentsSelectionChanged: AppointmentsSelectionEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        cellClick: CellClickEventArgs;
+        cellDoubleClick: CellClickEventArgs;
+        endCallback: EndCallbackEventArgs;
+        menuItemClicked: MenuItemClickedEventArgs;
+        moreButtonClicked: MoreButtonClickedEventArgs;
+        selectionChanged: EventArgs;
+        selectionChanging: EventArgs;
+        shortcut: ShortcutEventArgs;
+        visibleIntervalChanged: EventArgs;
     }
 
     class BootstrapTimeInterval {
@@ -1928,7 +2671,9 @@ declare namespace DevExpress.AspNetCore {
         setId(id: any): void;
         setLabelId(statusId: number): void;
         setLocation(location: string): void;
-        setRecurrenceInfo(recurrenceInfo: BootstrapSchedulerRecurrenceInfo): void;
+        setRecurrenceInfo(
+            recurrenceInfo: BootstrapSchedulerRecurrenceInfo
+        ): void;
         setStart(start: Date): void;
         setStatusId(statusId: number): void;
         setSubject(subject: string): void;
@@ -1983,21 +2728,39 @@ declare namespace DevExpress.AspNetCore {
         print(): void;
         setDataSource(dataSource: any): void;
         setOptions(options: any): void;
-        on<K extends keyof BootstrapSparklineEventMap>(eventName: K, callback: (this: BootstrapSparkline, args?: BootstrapSparklineEventMap[K]) => void): this;
-        once<K extends keyof BootstrapSparklineEventMap>(eventName: K, callback: (this: BootstrapSparkline, args?: BootstrapSparklineEventMap[K]) => void): this;
-        off<K extends keyof BootstrapSparklineEventMap>(eventName?: K, callback?: (this: BootstrapSparkline, args?: BootstrapSparklineEventMap[K]) => void): this;
+        on<K extends keyof BootstrapSparklineEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapSparkline,
+                args?: BootstrapSparklineEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapSparklineEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapSparkline,
+                args?: BootstrapSparklineEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapSparklineEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapSparkline,
+                args?: BootstrapSparklineEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapSparklineEventMap extends ControlEventMap {
-        "disposing": BootstrapChartEventArgsBase;
-        "drawn": BootstrapChartEventArgsBase;
-        "exported": BootstrapChartEventArgsBase;
-        "exporting": BootstrapChartExportEventArgs;
-        "fileSaving": BootstrapChartExportEventArgs;
-        "incidentOccurred": BootstrapChartErrorEventArgs;
-        "init": BootstrapChartEventArgsBase;
-        "optionChanged": BootstrapChartOptionChangedEventArgs;
-        "tooltipHidden": BootstrapChartEventArgsBase;
-        "tooltipShown": BootstrapChartEventArgsBase;
+        disposing: BootstrapChartEventArgsBase;
+        drawn: BootstrapChartEventArgsBase;
+        exported: BootstrapChartEventArgsBase;
+        exporting: BootstrapChartExportEventArgs;
+        fileSaving: BootstrapChartExportEventArgs;
+        incidentOccurred: BootstrapChartErrorEventArgs;
+        init: BootstrapChartEventArgsBase;
+        optionChanged: BootstrapChartOptionChangedEventArgs;
+        tooltipHidden: BootstrapChartEventArgsBase;
+        tooltipShown: BootstrapChartEventArgsBase;
     }
 
     class BootstrapTimeEdit extends BootstrapClientEdit {
@@ -2009,20 +2772,42 @@ declare namespace DevExpress.AspNetCore {
         setButtonVisible(number: number, value: boolean): void;
         setCaretPosition(position: number): void;
         setDate(date: Date): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapTimeEditEventMap>(eventName: K, callback: (this: BootstrapTimeEdit, args?: BootstrapTimeEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTimeEditEventMap>(eventName: K, callback: (this: BootstrapTimeEdit, args?: BootstrapTimeEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTimeEditEventMap>(eventName?: K, callback?: (this: BootstrapTimeEdit, args?: BootstrapTimeEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTimeEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTimeEdit,
+                args?: BootstrapTimeEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTimeEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTimeEdit,
+                args?: BootstrapTimeEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTimeEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTimeEdit,
+                args?: BootstrapTimeEditEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapTimeEditEventMap extends BootstrapClientEditEventMap {
-        "buttonClick": ButtonEditClickEventArgs;
-        "dateChanged": ProcessingModeEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        dateChanged: ProcessingModeEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapSpinEdit extends BootstrapClientEdit {
@@ -2038,28 +2823,51 @@ declare namespace DevExpress.AspNetCore {
         setMaxValue(value: number): void;
         setMinValue(value: number): void;
         setNumber(number: number): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
         setValue(number: number): void;
-        on<K extends keyof BootstrapSpinEditEventMap>(eventName: K, callback: (this: BootstrapSpinEdit, args?: BootstrapSpinEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapSpinEditEventMap>(eventName: K, callback: (this: BootstrapSpinEdit, args?: BootstrapSpinEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapSpinEditEventMap>(eventName?: K, callback?: (this: BootstrapSpinEdit, args?: BootstrapSpinEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapSpinEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapSpinEdit,
+                args?: BootstrapSpinEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapSpinEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapSpinEdit,
+                args?: BootstrapSpinEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapSpinEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapSpinEdit,
+                args?: BootstrapSpinEditEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapSpinEditEventMap extends BootstrapClientEditEventMap {
-        "buttonClick": ButtonEditClickEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "numberChanged": ProcessingModeEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        numberChanged: ProcessingModeEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     interface TabControlTabEventArgs extends EventArgs {
         readonly tab: BootstrapTab;
     }
 
-    interface TabControlTabCancelEventArgs extends ProcessingModeCancelEventArgs {
+    interface TabControlTabCancelEventArgs
+        extends ProcessingModeCancelEventArgs {
         reloadContentOnCallback: boolean;
         readonly tab: BootstrapTab;
     }
@@ -2078,17 +2886,35 @@ declare namespace DevExpress.AspNetCore {
         getTabCount(): number;
         setActiveTab(tab: BootstrapTab): void;
         setActiveTabIndex(index: number): void;
-        on<K extends keyof BootstrapTabControlEventMap>(eventName: K, callback: (this: BootstrapTabControl, args?: BootstrapTabControlEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTabControlEventMap>(eventName: K, callback: (this: BootstrapTabControl, args?: BootstrapTabControlEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTabControlEventMap>(eventName?: K, callback?: (this: BootstrapTabControl, args?: BootstrapTabControlEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTabControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTabControl,
+                args?: BootstrapTabControlEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTabControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTabControl,
+                args?: BootstrapTabControlEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTabControlEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTabControl,
+                args?: BootstrapTabControlEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapTabControlEventMap extends ControlEventMap {
-        "activeTabChanged": TabControlTabEventArgs;
-        "activeTabChanging": TabControlTabCancelEventArgs;
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "tabClick": TabControlTabClickEventArgs;
+        activeTabChanged: TabControlTabEventArgs;
+        activeTabChanging: TabControlTabCancelEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        endCallback: EndCallbackEventArgs;
+        tabClick: TabControlTabClickEventArgs;
     }
 
     class BootstrapTab {
@@ -2128,11 +2954,30 @@ declare namespace DevExpress.AspNetCore {
         performCallback(data: any, onSuccess: () => void): void;
         setActiveTab(tab: BootstrapTab): void;
         setTabContentHTML(tab: BootstrapTab, html: string): void;
-        on<K extends keyof BootstrapPageControlEventMap>(eventName: K, callback: (this: BootstrapPageControl, args?: BootstrapPageControlEventMap[K]) => void): this;
-        once<K extends keyof BootstrapPageControlEventMap>(eventName: K, callback: (this: BootstrapPageControl, args?: BootstrapPageControlEventMap[K]) => void): this;
-        off<K extends keyof BootstrapPageControlEventMap>(eventName?: K, callback?: (this: BootstrapPageControl, args?: BootstrapPageControlEventMap[K]) => void): this;
+        on<K extends keyof BootstrapPageControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPageControl,
+                args?: BootstrapPageControlEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapPageControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapPageControl,
+                args?: BootstrapPageControlEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapPageControlEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapPageControl,
+                args?: BootstrapPageControlEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapPageControlEventMap extends BootstrapTabControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapPageControlEventMap extends BootstrapTabControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapTagBox extends BootstrapClientEdit {
@@ -2143,7 +2988,11 @@ declare namespace DevExpress.AspNetCore {
         addItem(texts: string[], value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures
         addItem(text: string, value: any, iconCssClass: string): number; // tslint:disable-line:unified-signatures unified-signatures
         addItemCssClass(index: number, className: string): void;
-        addItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        addItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         addTag(text: string): void;
         adjustDropDownWindow(): void;
         beginUpdate(): void;
@@ -2173,15 +3022,29 @@ declare namespace DevExpress.AspNetCore {
         insertItem(index: number, text: string): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, texts: string[], value: any): void; // tslint:disable-line:unified-signatures
         insertItem(index: number, text: string, value: any): void; // tslint:disable-line:unified-signatures unified-signatures
-        insertItem(index: number, texts: string[], value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures
-        insertItem(index: number, text: string, value: any, iconCssClass: string): void; // tslint:disable-line:unified-signatures unified-signatures
+        insertItem(
+            index: number,
+            texts: string[],
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures
+        insertItem(
+            index: number,
+            text: string,
+            value: any,
+            iconCssClass: string
+        ): void; // tslint:disable-line:unified-signatures unified-signatures
         isCustomTag(text: string, caseSensitive: boolean): boolean;
         makeItemVisible(index: number): void;
         performCallback(data: any): Promise<void>;
         performCallback(data: any, onSuccess: () => void): void;
         removeItem(index: number): void;
         removeItemCssClass(index: number, className: string): void;
-        removeItemTextCellCssClass(itemIndex: number, textCellIndex: number, className: string): void;
+        removeItemTextCellCssClass(
+            itemIndex: number,
+            textCellIndex: number,
+            className: string
+        ): void;
         removeTag(index: number): void;
         removeTagByText(text: string): void;
         selectAll(): void;
@@ -2190,37 +3053,67 @@ declare namespace DevExpress.AspNetCore {
         setItemBadgeIconCssClass(index: number, cssClass: string): void;
         setItemBadgeText(index: number, text: string): void;
         setItemHtml(index: number, html: string): void;
-        setItemTextCellHtml(itemIndex: number, textCellIndex: number, html: string): void;
-        setItemTextCellTooltip(itemIndex: number, textCellIndex: number, tooltip: string): void;
+        setItemTextCellHtml(
+            itemIndex: number,
+            textCellIndex: number,
+            html: string
+        ): void;
+        setItemTextCellTooltip(
+            itemIndex: number,
+            textCellIndex: number,
+            tooltip: string
+        ): void;
         setItemTooltip(index: number, tooltip: string): void;
         setSelectedIndex(index: number): void;
         setSelectedItem(item: BootstrapListBoxItem): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setTagCollection(collection: string[]): void;
         setText(text: string): void;
         setValue(value: string): void;
         showDropDown(): void;
-        on<K extends keyof BootstrapTagBoxEventMap>(eventName: K, callback: (this: BootstrapTagBox, args?: BootstrapTagBoxEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTagBoxEventMap>(eventName: K, callback: (this: BootstrapTagBox, args?: BootstrapTagBoxEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTagBoxEventMap>(eventName?: K, callback?: (this: BootstrapTagBox, args?: BootstrapTagBoxEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTagBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTagBox,
+                args?: BootstrapTagBoxEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTagBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTagBox,
+                args?: BootstrapTagBoxEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTagBoxEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTagBox,
+                args?: BootstrapTagBoxEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapTagBoxEventMap extends BootstrapClientEditEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "buttonClick": ButtonEditClickEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "closeUp": EventArgs;
-        "customHighlighting": ListEditCustomHighlightingEventArgs;
-        "dropDown": EventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "itemFiltering": ListEditItemFilteringEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "queryCloseUp": CancelEventArgs;
-        "selectedIndexChanged": ProcessingModeEventArgs;
-        "tagsChanged": EventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        closeUp: EventArgs;
+        customHighlighting: ListEditCustomHighlightingEventArgs;
+        dropDown: EventArgs;
+        endCallback: EndCallbackEventArgs;
+        itemFiltering: ListEditItemFilteringEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        queryCloseUp: CancelEventArgs;
+        selectedIndexChanged: ProcessingModeEventArgs;
+        tagsChanged: EventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     interface ButtonEditClickEventArgs extends ProcessingModeEventArgs {
@@ -2234,19 +3127,41 @@ declare namespace DevExpress.AspNetCore {
         selectAll(): void;
         setButtonVisible(number: number, value: boolean): void;
         setCaretPosition(position: number): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapButtonEditEventMap>(eventName: K, callback: (this: BootstrapButtonEdit, args?: BootstrapButtonEditEventMap[K]) => void): this;
-        once<K extends keyof BootstrapButtonEditEventMap>(eventName: K, callback: (this: BootstrapButtonEdit, args?: BootstrapButtonEditEventMap[K]) => void): this;
-        off<K extends keyof BootstrapButtonEditEventMap>(eventName?: K, callback?: (this: BootstrapButtonEdit, args?: BootstrapButtonEditEventMap[K]) => void): this;
+        on<K extends keyof BootstrapButtonEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapButtonEdit,
+                args?: BootstrapButtonEditEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapButtonEditEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapButtonEdit,
+                args?: BootstrapButtonEditEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapButtonEditEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapButtonEdit,
+                args?: BootstrapButtonEditEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapButtonEditEventMap extends BootstrapClientEditEventMap {
-        "buttonClick": ButtonEditClickEventArgs;
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        buttonClick: ButtonEditClickEventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapMemo extends BootstrapClientEdit {
@@ -2254,18 +3169,40 @@ declare namespace DevExpress.AspNetCore {
         getText(): string;
         selectAll(): void;
         setCaretPosition(position: number): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapMemoEventMap>(eventName: K, callback: (this: BootstrapMemo, args?: BootstrapMemoEventMap[K]) => void): this;
-        once<K extends keyof BootstrapMemoEventMap>(eventName: K, callback: (this: BootstrapMemo, args?: BootstrapMemoEventMap[K]) => void): this;
-        off<K extends keyof BootstrapMemoEventMap>(eventName?: K, callback?: (this: BootstrapMemo, args?: BootstrapMemoEventMap[K]) => void): this;
+        on<K extends keyof BootstrapMemoEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapMemo,
+                args?: BootstrapMemoEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapMemoEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapMemo,
+                args?: BootstrapMemoEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapMemoEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapMemo,
+                args?: BootstrapMemoEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapMemoEventMap extends BootstrapClientEditEventMap {
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapTextBox extends BootstrapClientEdit {
@@ -2273,33 +3210,76 @@ declare namespace DevExpress.AspNetCore {
         getText(): string;
         selectAll(): void;
         setCaretPosition(position: number): void;
-        setSelection(startPos: number, endPos: number, scrollToSelection: boolean): void;
+        setSelection(
+            startPos: number,
+            endPos: number,
+            scrollToSelection: boolean
+        ): void;
         setText(text: string): void;
-        on<K extends keyof BootstrapTextBoxEventMap>(eventName: K, callback: (this: BootstrapTextBox, args?: BootstrapTextBoxEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTextBoxEventMap>(eventName: K, callback: (this: BootstrapTextBox, args?: BootstrapTextBoxEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTextBoxEventMap>(eventName?: K, callback?: (this: BootstrapTextBox, args?: BootstrapTextBoxEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTextBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTextBox,
+                args?: BootstrapTextBoxEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTextBoxEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTextBox,
+                args?: BootstrapTextBoxEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTextBoxEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTextBox,
+                args?: BootstrapTextBoxEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapTextBoxEventMap extends BootstrapClientEditEventMap {
-        "keyDown": EditKeyEventArgs;
-        "keyPress": EditKeyEventArgs;
-        "keyUp": EditKeyEventArgs;
-        "textChanged": ProcessingModeEventArgs;
-        "userInput": EventArgs;
+        keyDown: EditKeyEventArgs;
+        keyPress: EditKeyEventArgs;
+        keyUp: EditKeyEventArgs;
+        textChanged: ProcessingModeEventArgs;
+        userInput: EventArgs;
     }
 
     class BootstrapToolbar extends BootstrapMenu {
-        on<K extends keyof BootstrapToolbarEventMap>(eventName: K, callback: (this: BootstrapToolbar, args?: BootstrapToolbarEventMap[K]) => void): this;
-        once<K extends keyof BootstrapToolbarEventMap>(eventName: K, callback: (this: BootstrapToolbar, args?: BootstrapToolbarEventMap[K]) => void): this;
-        off<K extends keyof BootstrapToolbarEventMap>(eventName?: K, callback?: (this: BootstrapToolbar, args?: BootstrapToolbarEventMap[K]) => void): this;
+        on<K extends keyof BootstrapToolbarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapToolbar,
+                args?: BootstrapToolbarEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapToolbarEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapToolbar,
+                args?: BootstrapToolbarEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapToolbarEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapToolbar,
+                args?: BootstrapToolbarEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapToolbarEventMap extends BootstrapMenuEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapToolbarEventMap extends BootstrapMenuEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
-    interface TreeViewNodeProcessingModeEventArgs extends ProcessingModeEventArgs {
+    interface TreeViewNodeProcessingModeEventArgs
+        extends ProcessingModeEventArgs {
         readonly node: BootstrapTreeViewNode;
     }
 
-    interface TreeViewNodeClickEventArgs extends TreeViewNodeProcessingModeEventArgs {
+    interface TreeViewNodeClickEventArgs
+        extends TreeViewNodeProcessingModeEventArgs {
         readonly htmlElement: any;
         readonly htmlEvent: any;
     }
@@ -2308,7 +3288,8 @@ declare namespace DevExpress.AspNetCore {
         readonly node: BootstrapTreeViewNode;
     }
 
-    interface TreeViewNodeCancelEventArgs extends ProcessingModeCancelEventArgs {
+    interface TreeViewNodeCancelEventArgs
+        extends ProcessingModeCancelEventArgs {
         readonly node: BootstrapTreeViewNode;
     }
 
@@ -2322,18 +3303,36 @@ declare namespace DevExpress.AspNetCore {
         getRootNode(): BootstrapTreeViewNode | null;
         getSelectedNode(): BootstrapTreeViewNode | null;
         setSelectedNode(node: BootstrapTreeViewNode): void;
-        on<K extends keyof BootstrapTreeViewEventMap>(eventName: K, callback: (this: BootstrapTreeView, args?: BootstrapTreeViewEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTreeViewEventMap>(eventName: K, callback: (this: BootstrapTreeView, args?: BootstrapTreeViewEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTreeViewEventMap>(eventName?: K, callback?: (this: BootstrapTreeView, args?: BootstrapTreeViewEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTreeViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTreeView,
+                args?: BootstrapTreeViewEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTreeViewEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTreeView,
+                args?: BootstrapTreeViewEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTreeViewEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTreeView,
+                args?: BootstrapTreeViewEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapTreeViewEventMap extends ControlEventMap {
-        "beginCallback": BeginCallbackEventArgs;
-        "callbackError": CallbackErrorEventArgs;
-        "checkedChanged": TreeViewNodeProcessingModeEventArgs;
-        "endCallback": EndCallbackEventArgs;
-        "expandedChanged": TreeViewNodeEventArgs;
-        "expandedChanging": TreeViewNodeCancelEventArgs;
-        "nodeClick": TreeViewNodeClickEventArgs;
+        beginCallback: BeginCallbackEventArgs;
+        callbackError: CallbackErrorEventArgs;
+        checkedChanged: TreeViewNodeProcessingModeEventArgs;
+        endCallback: EndCallbackEventArgs;
+        expandedChanged: TreeViewNodeEventArgs;
+        expandedChanging: TreeViewNodeCancelEventArgs;
+        nodeClick: TreeViewNodeClickEventArgs;
     }
 
     class BootstrapTreeViewNode extends Control {
@@ -2367,11 +3366,30 @@ declare namespace DevExpress.AspNetCore {
         setNavigateUrl(value: string): void;
         setText(value: string): void;
         setVisible(value: boolean): void;
-        on<K extends keyof BootstrapTreeViewNodeEventMap>(eventName: K, callback: (this: BootstrapTreeViewNode, args?: BootstrapTreeViewNodeEventMap[K]) => void): this;
-        once<K extends keyof BootstrapTreeViewNodeEventMap>(eventName: K, callback: (this: BootstrapTreeViewNode, args?: BootstrapTreeViewNodeEventMap[K]) => void): this;
-        off<K extends keyof BootstrapTreeViewNodeEventMap>(eventName?: K, callback?: (this: BootstrapTreeViewNode, args?: BootstrapTreeViewNodeEventMap[K]) => void): this;
+        on<K extends keyof BootstrapTreeViewNodeEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTreeViewNode,
+                args?: BootstrapTreeViewNodeEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapTreeViewNodeEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapTreeViewNode,
+                args?: BootstrapTreeViewNodeEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapTreeViewNodeEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapTreeViewNode,
+                args?: BootstrapTreeViewNodeEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapTreeViewNodeEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapTreeViewNodeEventMap extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     interface UploadControlFilesUploadStartEventArgs extends EventArgs {
@@ -2439,44 +3457,98 @@ declare namespace DevExpress.AspNetCore {
         setFileInputCount(count: number): void;
         setUploadButtonText(text: string): void;
         upload(): void;
-        on<K extends keyof BootstrapUploadControlEventMap>(eventName: K, callback: (this: BootstrapUploadControl, args?: BootstrapUploadControlEventMap[K]) => void): this;
-        once<K extends keyof BootstrapUploadControlEventMap>(eventName: K, callback: (this: BootstrapUploadControl, args?: BootstrapUploadControlEventMap[K]) => void): this;
-        off<K extends keyof BootstrapUploadControlEventMap>(eventName?: K, callback?: (this: BootstrapUploadControl, args?: BootstrapUploadControlEventMap[K]) => void): this;
+        on<K extends keyof BootstrapUploadControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControl,
+                args?: BootstrapUploadControlEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapUploadControlEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControl,
+                args?: BootstrapUploadControlEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapUploadControlEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapUploadControl,
+                args?: BootstrapUploadControlEventMap[K]
+            ) => void
+        ): this;
     }
     interface BootstrapUploadControlEventMap extends ControlEventMap {
-        "dropZoneEnter": UploadControlDropZoneEnterEventArgs;
-        "dropZoneLeave": UploadControlDropZoneLeaveEventArgs;
-        "fileInputCountChanged": EventArgs;
-        "fileUploadComplete": UploadControlFileUploadCompleteEventArgs;
-        "filesUploadComplete": UploadControlFilesUploadCompleteEventArgs;
-        "filesUploadStart": UploadControlFilesUploadStartEventArgs;
-        "textChanged": UploadControlTextChangedEventArgs;
-        "uploadingProgressChanged": UploadControlUploadingProgressChangedEventArgs;
-        "validationErrorOccurred": UploadControlValidationErrorOccurredEventArgs;
+        dropZoneEnter: UploadControlDropZoneEnterEventArgs;
+        dropZoneLeave: UploadControlDropZoneLeaveEventArgs;
+        fileInputCountChanged: EventArgs;
+        fileUploadComplete: UploadControlFileUploadCompleteEventArgs;
+        filesUploadComplete: UploadControlFilesUploadCompleteEventArgs;
+        filesUploadStart: UploadControlFilesUploadStartEventArgs;
+        textChanged: UploadControlTextChangedEventArgs;
+        uploadingProgressChanged: UploadControlUploadingProgressChangedEventArgs;
+        validationErrorOccurred: UploadControlValidationErrorOccurredEventArgs;
     }
 
     class BootstrapUploadControlFile extends Control {
         readonly name: string;
         readonly size: number;
         readonly sourceFileObject: any;
-        on<K extends keyof BootstrapUploadControlFileEventMap>(eventName: K, callback: (this: BootstrapUploadControlFile, args?: BootstrapUploadControlFileEventMap[K]) => void): this;
-        once<K extends keyof BootstrapUploadControlFileEventMap>(eventName: K, callback: (this: BootstrapUploadControlFile, args?: BootstrapUploadControlFileEventMap[K]) => void): this;
-        off<K extends keyof BootstrapUploadControlFileEventMap>(eventName?: K, callback?: (this: BootstrapUploadControlFile, args?: BootstrapUploadControlFileEventMap[K]) => void): this;
+        on<K extends keyof BootstrapUploadControlFileEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlFile,
+                args?: BootstrapUploadControlFileEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapUploadControlFileEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlFile,
+                args?: BootstrapUploadControlFileEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapUploadControlFileEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapUploadControlFile,
+                args?: BootstrapUploadControlFileEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapUploadControlFileEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapUploadControlFileEventMap extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapUploadControlInvalidFileInfo extends Control {
         readonly fileName: string;
         readonly fileSize: number;
-        on<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(eventName: K, callback: (this: BootstrapUploadControlInvalidFileInfo, args?:
-             BootstrapUploadControlInvalidFileInfoEventMap[K]) => void): this;
-        once<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(eventName: K, callback: (this: BootstrapUploadControlInvalidFileInfo,
-             args?: BootstrapUploadControlInvalidFileInfoEventMap[K]) => void): this;
-        off<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(eventName?: K, callback?: (this: BootstrapUploadControlInvalidFileInfo,
-             args?: BootstrapUploadControlInvalidFileInfoEventMap[K]) => void): this;
+        on<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlInvalidFileInfo,
+                args?: BootstrapUploadControlInvalidFileInfoEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlInvalidFileInfo,
+                args?: BootstrapUploadControlInvalidFileInfoEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapUploadControlInvalidFileInfoEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapUploadControlInvalidFileInfo,
+                args?: BootstrapUploadControlInvalidFileInfoEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapUploadControlInvalidFileInfoEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapUploadControlInvalidFileInfoEventMap
+        extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 
     class BootstrapUploadControlValidationSettings extends Control {
@@ -2484,13 +3556,30 @@ declare namespace DevExpress.AspNetCore {
         readonly invalidFileNameCharacters: string[];
         readonly maxFileCount: number;
         readonly maxFileSize: number;
-        on<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(eventName: K, callback: (this: BootstrapUploadControlValidationSettings,
-             args?: BootstrapUploadControlValidationSettingsEventMap[K]) => void): this;
-        once<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(eventName: K, callback: (this:
-             BootstrapUploadControlValidationSettings, args?: BootstrapUploadControlValidationSettingsEventMap[K]) => void): this;
-        off<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(eventName?: K, callback?: (this:
-             BootstrapUploadControlValidationSettings, args?: BootstrapUploadControlValidationSettingsEventMap[K]) => void): this;
+        on<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlValidationSettings,
+                args?: BootstrapUploadControlValidationSettingsEventMap[K]
+            ) => void
+        ): this;
+        once<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(
+            eventName: K,
+            callback: (
+                this: BootstrapUploadControlValidationSettings,
+                args?: BootstrapUploadControlValidationSettingsEventMap[K]
+            ) => void
+        ): this;
+        off<K extends keyof BootstrapUploadControlValidationSettingsEventMap>(
+            eventName?: K,
+            callback?: (
+                this: BootstrapUploadControlValidationSettings,
+                args?: BootstrapUploadControlValidationSettingsEventMap[K]
+            ) => void
+        ): this;
     }
-    interface BootstrapUploadControlValidationSettingsEventMap extends ControlEventMap { // tslint:disable-line:no-empty-interface
+    interface BootstrapUploadControlValidationSettingsEventMap
+        extends ControlEventMap {
+        // tslint:disable-line:no-empty-interface
     }
 }

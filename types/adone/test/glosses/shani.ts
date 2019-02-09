@@ -17,98 +17,160 @@ namespace shaniTests {
         namespace describeTests {
             c.describe("hello", () => {});
 
-            c.describe("hello", function () {
+            c.describe("hello", function() {
                 this.skip();
                 this.timeout(10);
                 this.a;
             });
 
-            c.describe("1", "2", "3", "4", "45", function () {
+            c.describe("1", "2", "3", "4", "45", function() {
                 this.skip();
                 this.timeout(10);
                 this.a;
             });
 
-            c.describe("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", function () {
-                this.skip();
-                this.timeout(10);
-                this.a;
-            });
+            c.describe(
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                function() {
+                    this.skip();
+                    this.timeout(10);
+                    this.a;
+                }
+            );
 
-            c.context("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", function () {
-                this.skip();
-                this.timeout(10);
-                this.a;
-            });
+            c.context(
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                function() {
+                    this.skip();
+                    this.timeout(10);
+                    this.a;
+                }
+            );
         }
 
         namespace itTests {
             c.it("should be here", () => {});
 
-            c.it("should be here", function () {
+            c.it("should be here", function() {
                 this.timeout(100);
                 this.skip();
                 this.a;
             });
 
-            c.it("should be here", function (done) {
+            c.it("should be here", function(done) {
                 this.timeout(100);
                 this.skip();
                 done();
                 this.a;
             });
 
-            c.it("hello", {}, () => { });
+            c.it("hello", {}, () => {});
 
-            c.it("hello", {
-                skip: true
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    skip: true
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                skip: () => true
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    skip: () => true
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                timeout: () => 1202
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    timeout: () => 1202
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                timeout: 1010
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    timeout: 1010
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                before() { }
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    before() {}
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                before: ["hello", () => { }]
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    before: ["hello", () => {}]
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                after() { }
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    after() {}
+                },
+                () => {}
+            );
 
-            c.it("hello", {
-                after: ["hello", () => { }]
-            }, () => { });
+            c.it(
+                "hello",
+                {
+                    after: ["hello", () => {}]
+                },
+                () => {}
+            );
 
-            c.specify("hello", {
-                after: ["hello", () => { }]
-            }, () => { });
+            c.specify(
+                "hello",
+                {
+                    after: ["hello", () => {}]
+                },
+                () => {}
+            );
         }
 
         namespace beforeTests {
-            c.before(function () {
+            c.before(function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.before("description", function () {
+            c.before("description", function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.before("description", function (done) {
+            c.before("description", function(done) {
                 this.timeout(100);
                 done();
                 this.a;
@@ -116,17 +178,17 @@ namespace shaniTests {
         }
 
         namespace afterTests {
-            c.after(function () {
+            c.after(function() {
                 this.timeout(10);
                 this.a;
             });
 
-            c.after("description", function () {
+            c.after("description", function() {
                 this.timeout(10);
                 this.a;
             });
 
-            c.after("description", function (done) {
+            c.after("description", function(done) {
                 this.timeout(10);
                 done();
                 this.a;
@@ -134,17 +196,17 @@ namespace shaniTests {
         }
 
         namespace beforeEachTests {
-            c.beforeEach(function () {
+            c.beforeEach(function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.beforeEach("hello", function () {
+            c.beforeEach("hello", function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.beforeEach("hello", function (done) {
+            c.beforeEach("hello", function(done) {
                 this.timeout(100);
                 done();
                 this.a;
@@ -152,17 +214,17 @@ namespace shaniTests {
         }
 
         namespace afterEachTests {
-            c.afterEach(function () {
+            c.afterEach(function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.afterEach("asd", function () {
+            c.afterEach("asd", function() {
                 this.timeout(100);
                 this.a;
             });
 
-            c.afterEach("asd", function (done) {
+            c.afterEach("asd", function(done) {
                 this.timeout(100);
                 done();
                 this.a;
@@ -172,14 +234,19 @@ namespace shaniTests {
         namespace rootTests {
             const { root } = c;
             root.children[0];
-            root.prepare().then((x) => { });
+            root.prepare().then(x => {});
             root.addChild(root);
             const check = (hook: adone.shani.I.Hook) => {
-                hook.run().then((x) => x);
+                hook.run().then(x => x);
                 hook.cause();
-                { const a: boolean = hook.failed(); }
+                {
+                    const a: boolean = hook.failed();
+                }
                 hook.timeout() + 2;
-                hook.timeout(10).timeout(10).timeout() + 2;
+                hook
+                    .timeout(10)
+                    .timeout(10)
+                    .timeout() + 2;
             };
             for (const hook of root.beforeHooks()) {
                 check(hook);
@@ -193,81 +260,109 @@ namespace shaniTests {
             for (const hook of root.afterEachHooks()) {
                 check(hook);
             }
-            { const a: boolean = root.isInclusive(); }
-            { const a: boolean = root.isExclusive(); }
-            { const a: boolean = root.hasInclusive(); }
-            root.skip().only().skip();
+            {
+                const a: boolean = root.isInclusive();
+            }
+            {
+                const a: boolean = root.isExclusive();
+            }
+            {
+                const a: boolean = root.hasInclusive();
+            }
+            root.skip()
+                .only()
+                .skip();
             const a: number | null = root.timeout();
             root.timeout(100).timeout(100);
             root.level() + 2;
             root.level(2).level() + 2;
             root.chain().toLowerCase();
-            root.blockChain()[0].blockChain()[0].addChild(root);
+            root.blockChain()[0]
+                .blockChain()[0]
+                .addChild(root);
         }
 
         namespace eventEmitterTests {
             const a = c.start();
             a.on("enter block", ({ block }) => {
                 block.addChild(block);
-            }).on("exit block", ({ block }) => {
-                block.addChild(block);
-            }).on("start test", ({ block, test }) => {
-                block.addChild(test);
-                test.chain();
-            }).on("end test", ({ block, test, meta }) => {
-                block.addChild(test);
-                test.chain();
-                meta.err;
-                meta.elapsed + 2;
-            }).on("start before hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end before hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("start after hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end after hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("start before each hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end before each hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("start after each hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end after each hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("start before test hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end before test hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("start after test hook", ({ block, hook }) => {
-                block.addChild(block);
-                hook.desctiption;
-            }).on("end after test hook", ({ block, hook, meta }) => {
-                block.addChild(block);
-                hook.desctiption;
-                meta.err;
-                meta.elapsed;
-            }).on("error", (err) => {}).on("done", () => {}).stop();
+            })
+                .on("exit block", ({ block }) => {
+                    block.addChild(block);
+                })
+                .on("start test", ({ block, test }) => {
+                    block.addChild(test);
+                    test.chain();
+                })
+                .on("end test", ({ block, test, meta }) => {
+                    block.addChild(test);
+                    test.chain();
+                    meta.err;
+                    meta.elapsed + 2;
+                })
+                .on("start before hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end before hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("start after hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end after hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("start before each hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end before each hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("start after each hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end after each hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("start before test hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end before test hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("start after test hook", ({ block, hook }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                })
+                .on("end after test hook", ({ block, hook, meta }) => {
+                    block.addChild(block);
+                    hook.desctiption;
+                    meta.err;
+                    meta.elapsed;
+                })
+                .on("error", err => {})
+                .on("done", () => {})
+                .stop();
         }
     }
 
@@ -276,23 +371,49 @@ namespace shaniTests {
 
         namespace spyCallTests {
             const call = util.spy().firstCall;
-            { const a: boolean = call.calledBefore(call); }
-            { const a: boolean = call.calledAfter(call); }
-            { const a: boolean = call.calledWithNew(call); }
+            {
+                const a: boolean = call.calledBefore(call);
+            }
+            {
+                const a: boolean = call.calledAfter(call);
+            }
+            {
+                const a: boolean = call.calledWithNew(call);
+            }
             call.thisValue;
             call.args[0];
             call.exception;
             call.returnValue;
-            { const a: boolean = call.calledOn({}); }
-            { const a: boolean = call.calledWith(1, 2, 3); }
-            { const a: boolean = call.calledWithExactly(1, 2, 3); }
-            { const a: boolean = call.calledWithMatch(1, 2, 3); }
-            { const a: boolean = call.notCalledWith(1, 2, 3); }
-            { const a: boolean = call.notCalledWithMatch(1, 2, 3); }
-            { const a: boolean = call.returned(1); }
-            { const a: boolean = call.threw(); }
-            { const a: boolean = call.threw("12"); }
-            { const a: boolean = call.threw({}); }
+            {
+                const a: boolean = call.calledOn({});
+            }
+            {
+                const a: boolean = call.calledWith(1, 2, 3);
+            }
+            {
+                const a: boolean = call.calledWithExactly(1, 2, 3);
+            }
+            {
+                const a: boolean = call.calledWithMatch(1, 2, 3);
+            }
+            {
+                const a: boolean = call.notCalledWith(1, 2, 3);
+            }
+            {
+                const a: boolean = call.notCalledWithMatch(1, 2, 3);
+            }
+            {
+                const a: boolean = call.returned(1);
+            }
+            {
+                const a: boolean = call.threw();
+            }
+            {
+                const a: boolean = call.threw("12");
+            }
+            {
+                const a: boolean = call.threw({});
+            }
             call.callArg(1);
             call.callArgOn(1, {});
             call.callArgWith(1, 1, 2, 3);
@@ -304,14 +425,24 @@ namespace shaniTests {
 
         namespace spyTests {
             util.spy().alwaysCalledOn({});
-            util.spy(() => { }).alwaysCalledOn({});
+            util.spy(() => {}).alwaysCalledOn({});
             const a: number = util.spy().callCount;
             const s = util.spy();
-            { const a: boolean = s.called; }
-            { const a: boolean = s.notCalled; }
-            { const a: boolean = s.calledOnce; }
-            { const a: boolean = s.calledTwice; }
-            { const a: boolean = s.calledThrice; }
+            {
+                const a: boolean = s.called;
+            }
+            {
+                const a: boolean = s.notCalled;
+            }
+            {
+                const a: boolean = s.calledOnce;
+            }
+            {
+                const a: boolean = s.calledTwice;
+            }
+            {
+                const a: boolean = s.calledThrice;
+            }
             s.firstCall.args;
             s.secondCall.args;
             s.thirdCall.args;
@@ -325,18 +456,40 @@ namespace shaniTests {
             s.calledAfter(s);
             s.calledImmediatelyAfter(s);
             s.calledImmediatelyBefore(s);
-            { const a: boolean = s.calledWithNew(); }
+            {
+                const a: boolean = s.calledWithNew();
+            }
             s.withArgs(1, 2, 3).firstCall.args;
-            { const a: boolean = s.alwaysCalledOn({}); }
-            { const a: boolean = s.alwaysCalledWith(1, 2, 3); }
-            { const a: boolean = s.alwaysCalledWithExactly(1, 2, 3); }
-            { const a: boolean = s.alwaysCalledWithMatch(1, 2, 3); }
-            { const a: boolean = s.neverCalledWith(1, 2, 3); }
-            { const a: boolean = s.neverCalledWithMatch(1, 2, 3); }
-            { const a: boolean = s.alwaysThrew(); }
-            { const a: boolean = s.alwaysThrew("a"); }
-            { const a: boolean = s.alwaysThrew({}); }
-            { const a: boolean = s.alwaysReturned({}); }
+            {
+                const a: boolean = s.alwaysCalledOn({});
+            }
+            {
+                const a: boolean = s.alwaysCalledWith(1, 2, 3);
+            }
+            {
+                const a: boolean = s.alwaysCalledWithExactly(1, 2, 3);
+            }
+            {
+                const a: boolean = s.alwaysCalledWithMatch(1, 2, 3);
+            }
+            {
+                const a: boolean = s.neverCalledWith(1, 2, 3);
+            }
+            {
+                const a: boolean = s.neverCalledWithMatch(1, 2, 3);
+            }
+            {
+                const a: boolean = s.alwaysThrew();
+            }
+            {
+                const a: boolean = s.alwaysThrew("a");
+            }
+            {
+                const a: boolean = s.alwaysThrew({});
+            }
+            {
+                const a: boolean = s.alwaysReturned({});
+            }
             s.invokeCallback(1, 2, 3);
             s.getCall(0).args;
             s.getCalls()[0].args;
@@ -347,7 +500,9 @@ namespace shaniTests {
             s.waitFor(() => true, () => 2).then((x: number) => {});
             s.waitForCall().then((x: adone.shani.util.I.SpyCall) => {});
             s.waitForNCalls(10).then((x: adone.shani.util.I.SpyCall[]) => {});
-            s.waitForArg(1, "hello").then((x: adone.shani.util.I.SpyCall) => {});
+            s.waitForArg(1, "hello").then(
+                (x: adone.shani.util.I.SpyCall) => {}
+            );
             s.waitForArgs(1, 2, 3).then((x: adone.shani.util.I.SpyCall) => {});
         }
 
@@ -382,9 +537,9 @@ namespace shaniTests {
             s.callsArgAsync(1).resetBehavior();
             s.callsArgOnAsync(1, {}).resetBehavior();
             s.callsArgOnWithAsync(1, {}, 1, 2, 3).resetBehavior();
-            s.callsFake(() => { }).resetBehavior();
-            s.get(() => { }).resetBehavior();
-            s.set((v) => 1).resetBehavior();
+            s.callsFake(() => {}).resetBehavior();
+            s.get(() => {}).resetBehavior();
+            s.set(v => 1).resetBehavior();
             s.onCall(1).resetBehavior();
             s.onFirstCall().resetBehavior();
             s.onSecondCall().resetBehavior();
@@ -421,7 +576,9 @@ namespace shaniTests {
 
         namespace mockTests {
             util.mock().never();
-            util.mock({}).expects("").restore();
+            util.mock({})
+                .expects("")
+                .restore();
             util.mock({}).verify();
         }
 
@@ -516,7 +673,11 @@ namespace shaniTests {
 
     namespace requestTests {
         const r = request({});
-        r.get("/").head("/").post("/").put("/").options("/");
+        r.get("/")
+            .head("/")
+            .post("/")
+            .put("/")
+            .options("/");
         r.attach("fname", "hello");
         r.attach("fname", "hello", {});
         r.attach("fname", "hello", { type: "application/javascript" });
@@ -527,7 +688,7 @@ namespace shaniTests {
         r.auth("user", "pass");
         r.expect(() => true);
         r.expect(async () => true);
-        r.expect((response) => {
+        r.expect(response => {
             assert.equal(response.statusCode, 200);
             return response.body.length === 0;
         });

@@ -1,15 +1,10 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "noImplicitAny": true,
@@ -17,8 +12,5 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true
     },
-    "files": [
-        "index.d.ts",
-        "gapi.plus-tests.ts"
-    ]
+    "files": ["index.d.ts", "gapi.plus-tests.ts"]
 }

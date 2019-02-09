@@ -3,8 +3,10 @@
 // Definitions by: BendingBender <https://github.com/BendingBender>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import pCancelable = require('p-cancelable');
+import pCancelable = require("p-cancelable");
 
 export = elementReady;
 
-declare function elementReady(selector: string): pCancelable.PCancelable<HTMLElement>;
+declare function elementReady(
+    selector: string
+): pCancelable.PCancelable<HTMLElement>;

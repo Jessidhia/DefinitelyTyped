@@ -7,9 +7,12 @@
 
 /// <reference types="node"/>
 
-import stream = require('stream');
+import stream = require("stream");
 
-declare function m(stream: NodeJS.ReadableStream | Buffer | string, image?: string): m.State;
+declare function m(
+    stream: NodeJS.ReadableStream | Buffer | string,
+    image?: string
+): m.State;
 declare function m(width: number, height: number, color?: string): m.State;
 
 declare namespace m {
@@ -35,7 +38,7 @@ declare namespace m {
         Minimum: string;
         Maximum: string;
         Mean: string;
-        'Standard Deviation': string;
+        "Standard Deviation": string;
     }
 
     interface Dimensions {
@@ -44,14 +47,14 @@ declare namespace m {
     }
 
     interface GetterOptions {
-       bufferStream?: boolean;
+        bufferStream?: boolean;
     }
 
     interface ImageInfo {
-        'Background Color': string;
-        'Border Color': string;
-        'Channel Depths': ChannelInfo<string>;
-        'Channel Statistics': ChannelInfo<ColorStatistics>;
+        "Background Color": string;
+        "Border Color": string;
+        "Channel Depths": ChannelInfo<string>;
+        "Channel Statistics": ChannelInfo<ColorStatistics>;
         Class: string;
         color: number;
         Compose: string;
@@ -65,23 +68,23 @@ declare namespace m {
         Geometry: string;
         Interlace: string;
         Iterations: string;
-        'JPEG-Quality'?: string;
-        'JPEG-Colorspace'?: string;
-        'JPEG-Colorspace-Name'?: string;
-        'JPEG-Sampling-factors'?: string;
-        'Matte Color': string;
+        "JPEG-Quality"?: string;
+        "JPEG-Colorspace"?: string;
+        "JPEG-Colorspace-Name"?: string;
+        "JPEG-Sampling-factors"?: string;
+        "Matte Color": string;
         Orientation: string;
-        'Page geometry': string;
+        "Page geometry": string;
         path: string;
 
-        'Profile-color'?: string;
-        'Profile-iptc'?: {
+        "Profile-color"?: string;
+        "Profile-iptc"?: {
             [key: string]: string;
         };
-        'Profile-EXIF'?: {
+        "Profile-EXIF"?: {
             [key: string]: string;
         };
-        'Profile-XMP'?: string;
+        "Profile-XMP"?: string;
         Resolution?: string;
         size: Dimensions;
         Signature: string;
@@ -102,7 +105,12 @@ declare namespace m {
         background(color: string): State;
         bitdepth(bits: number): State;
         blackThreshold(intensity: number): State;
-        blackThreshold(red: number, green: number, blue: number, opacity?: number): State;
+        blackThreshold(
+            red: number,
+            green: number,
+            blue: number,
+            opacity?: number
+        ): State;
         bluePrimary(x: number, y: number): State;
         blur(radius: number, sigma?: number): State;
         border(width: number, height: number): State;
@@ -114,7 +122,7 @@ declare namespace m {
         clip(): State;
         coalesce(): State;
         colorize(red: number, green: number, blue: number): State;
-        colorMap(type: 'shared' | 'private' | string): State;
+        colorMap(type: "shared" | "private" | string): State;
         colors(colors: number): State;
         colorspace(space: ColorSpace | string): State;
         command(customCommand: string): State;
@@ -123,7 +131,13 @@ declare namespace m {
         contrast(multiplier: number): State;
         convolve(kernel: string): State;
         createDirectories(): State;
-        crop(width: number, height: number, x?: number, y?: number, percent?: boolean): State;
+        crop(
+            width: number,
+            height: number,
+            x?: number,
+            y?: number,
+            percent?: boolean
+        ): State;
         cycle(amount: number): State;
         deconstruct(): State;
         define(value: string): State;
@@ -148,7 +162,12 @@ declare namespace m {
         flip(): State;
         flop(): State;
         foreground(color: string): State;
-        frame(width: number, height: number, outerBevelWidth: number, outBevelHeight: number): State;
+        frame(
+            width: number,
+            height: number,
+            outerBevelWidth: number,
+            outBevelHeight: number
+        ): State;
         fuzz(distance: number, percent?: boolean): State;
         gamma(r: number, g: number, b: number): State;
         gaussian(radius: number, sigma?: number): State;
@@ -164,8 +183,18 @@ declare namespace m {
         intent(type: IntentType | string): State;
         interlace(type: InterlaceType | string): State;
         label(name: string): State;
-        lat(width: number, height: number, offset: number, percent?: boolean): State;
-        level(blackPoint: number, gamma: number, whitePoint: number, percent?: boolean): State;
+        lat(
+            width: number,
+            height: number,
+            offset: number,
+            percent?: boolean
+        ): State;
+        level(
+            blackPoint: number,
+            gamma: number,
+            whitePoint: number,
+            percent?: boolean
+        ): State;
         limit(type: LimitType | string, val: string): State;
         list(type: ListType | string): State;
         log(format: string): State;
@@ -183,7 +212,11 @@ declare namespace m {
         modulate(b: number, s: number, h: number): State;
         monitor(): State;
         monochrome(): State;
-        morph(otherImg: string | string[], outName: string, callback?: WriteCallback): State;
+        morph(
+            otherImg: string | string[],
+            outName: string,
+            callback?: WriteCallback
+        ): State;
         mosaic(): State;
         motionBlur(radius: number, sigma?: number, angle?: number): State;
         name(): State;
@@ -192,11 +225,20 @@ declare namespace m {
         noop(): State;
         normalize(): State;
         opaque(color: string): State;
-        operator(channel: string, operator: ChannelOperator | string, rvalue: number, percent?: boolean): State;
+        operator(
+            channel: string,
+            operator: ChannelOperator | string,
+            rvalue: number,
+            percent?: boolean
+        ): State;
         orderedDither(channelType: ChannelType | string, NxN: string): State;
         out(...customArguments: string[]): State;
         outputDirectory(directory: string): State;
-        page(width: number, height: number, arg?: '%' | '!' | '<' | '>' |string): State;
+        page(
+            width: number,
+            height: number,
+            arg?: "%" | "!" | "<" | ">" | string
+        ): State;
         pause(seconds: number): State;
         pen(color: string): State;
         ping(): State;
@@ -215,8 +257,14 @@ declare namespace m {
         region(width: number, height: number, x?: number, y?: number): State;
         remote(): State;
         render(): State;
-        repage(reset: '+' | string): State;
-        repage(width: number, height: number, xoff: number, yoff: number, arg?: string): State;
+        repage(reset: "+" | string): State;
+        repage(
+            width: number,
+            height: number,
+            xoff: number,
+            yoff: number,
+            arg?: string
+        ): State;
         sample(geometry: string): State;
         samplingFactor(horizontalFactor: number, verticalFactor: number): State;
         rawSize(width: number, height: number, offset?: number): State;
@@ -249,9 +297,27 @@ declare namespace m {
         swirl(degrees: number): State;
         textFont(font: string): State;
         threshold(value: number, percent?: boolean): State;
-        thumb(width: number, height: number, outName: string, callback: WriteCallback): State;
-        thumb(width: number, height: number, outName: string, quality: number, callback: WriteCallback): State;
-        thumb(width: number, height: number, outName: string, quality: number, align: 'topleft' | 'center' | string, callback: WriteCallback): State;
+        thumb(
+            width: number,
+            height: number,
+            outName: string,
+            callback: WriteCallback
+        ): State;
+        thumb(
+            width: number,
+            height: number,
+            outName: string,
+            quality: number,
+            callback: WriteCallback
+        ): State;
+        thumb(
+            width: number,
+            height: number,
+            outName: string,
+            quality: number,
+            align: "topleft" | "center" | string,
+            callback: WriteCallback
+        ): State;
         tile(filename: string): State;
         title(title: string): State;
         transform(color: string): State;
@@ -261,7 +327,12 @@ declare namespace m {
         type(type: ImageType | string): State;
         update(seconds: number): State;
         units(type: UnitType | string): State;
-        unsharp(radius: number, sigma?: number, amount?: number, threshold?: number): State;
+        unsharp(
+            radius: number,
+            sigma?: number,
+            amount?: number,
+            threshold?: number
+        ): State;
         usePixmap(): State;
         view(): State;
         virtualPixel(method: VirtualPixelMethod | string): State;
@@ -270,7 +341,12 @@ declare namespace m {
         wave(amplitude: number, wavelength: number): State;
         whitePoint(x: number, y: number): State;
         whiteThreshold(intensity: number): State;
-        whiteThreshold(red: number, green: number, blue: number, opacity?: number): State;
+        whiteThreshold(
+            red: number,
+            green: number,
+            blue: number,
+            opacity?: number
+        ): State;
         window(id: string): State;
         windowGroup(): State;
 
@@ -284,38 +360,94 @@ declare namespace m {
         format(callback: GetterCallback<string>): State;
         format(opts: GetterOptions, callback: GetterCallback<string>): State;
         identify(callback: GetterCallback<ImageInfo>): State;
-        identify(opts: GetterOptions, callback: GetterCallback<ImageInfo>): State;
+        identify(
+            opts: GetterOptions,
+            callback: GetterCallback<ImageInfo>
+        ): State;
         res(callback: GetterCallback<string>): State;
         res(opts: GetterOptions, callback: GetterCallback<string>): State;
         size(callback: GetterCallback<Dimensions>): State;
         size(opts: GetterOptions, callback: GetterCallback<Dimensions>): State;
         orientation(callback: GetterCallback<string>): State;
-        orientation(opts: GetterOptions, callback: GetterCallback<string>): State;
+        orientation(
+            opts: GetterOptions,
+            callback: GetterCallback<string>
+        ): State;
 
         // Drawing Operations
         draw(args: string): State;
-        drawArc(x0: number, y0: number, x1: number, y1: number, r0: number, r1: number): State;
-        drawBezier(coord0: [number, number], coord1: [number, number], ...coords: Array<[number, number]>): State;
+        drawArc(
+            x0: number,
+            y0: number,
+            x1: number,
+            y1: number,
+            r0: number,
+            r1: number
+        ): State;
+        drawBezier(
+            coord0: [number, number],
+            coord1: [number, number],
+            ...coords: Array<[number, number]>
+        ): State;
         drawCircle(x0: number, y0: number, x1: number, y1: number): State;
-        drawEllipse(x0: number, y0: number, rx: number, ry: number, a0: number, a1: number): State;
+        drawEllipse(
+            x0: number,
+            y0: number,
+            rx: number,
+            ry: number,
+            a0: number,
+            a1: number
+        ): State;
         drawLine(x0: number, y0: number, x1: number, y1: number): State;
         drawPoint(x: number, y: number): State;
-        drawPolygon(coord0: [number, number], coord1: [number, number], coord2: [number, number], ...coords: Array<[number, number]>): State;
-        drawPolyline(coord0: [number, number], coord1: [number, number], coord2: [number, number], ...coords: Array<[number, number]>): State;
-        drawRectangle(x0: number, y0: number, x1: number, y1: number, wc?: number, hc?: number): State;
-        drawText(x: number, y: number, text: string, gravity?: GravityDirection | string): State;
+        drawPolygon(
+            coord0: [number, number],
+            coord1: [number, number],
+            coord2: [number, number],
+            ...coords: Array<[number, number]>
+        ): State;
+        drawPolyline(
+            coord0: [number, number],
+            coord1: [number, number],
+            coord2: [number, number],
+            ...coords: Array<[number, number]>
+        ): State;
+        drawRectangle(
+            x0: number,
+            y0: number,
+            x1: number,
+            y1: number,
+            wc?: number,
+            hc?: number
+        ): State;
+        drawText(
+            x: number,
+            y: number,
+            text: string,
+            gravity?: GravityDirection | string
+        ): State;
         fill(color: string): State;
         font(name: string, size?: number): State;
         fontSize(size: number): State;
         stroke(color: string, width?: number): State;
         strokeWidth(width: number): State;
-        setDraw(property: SetDrawProperty | string, x: number, y: number, method: SetDrawMethod | string): State;
+        setDraw(
+            property: SetDrawProperty | string,
+            x: number,
+            y: number,
+            method: SetDrawMethod | string
+        ): State;
 
         // Commands
         stream(callback?: WriteCallback): stream.PassThrough;
         stream(format: string, callback?: WriteCallback): stream.PassThrough;
-        toBuffer(callback: (err: Error, buffer: Buffer) => any): stream.PassThrough;
-        toBuffer(format: string, callback: (err: Error, buffer: Buffer) => any): stream.PassThrough;
+        toBuffer(
+            callback: (err: Error, buffer: Buffer) => any
+        ): stream.PassThrough;
+        toBuffer(
+            format: string,
+            callback: (err: Error, buffer: Buffer) => any
+        ): stream.PassThrough;
         write(filename: string, callback: WriteCallback): void;
     }
 
@@ -325,281 +457,290 @@ declare namespace m {
         (width: number, height: number, color?: string): State;
     }
 
-    function compare(filename1: string, filename2: string, callback: CompareCallback): void;
-    function compare(filename1: string, filename2: string, options: CompareOptions | number, callback: CompareCallback): void;
+    function compare(
+        filename1: string,
+        filename2: string,
+        callback: CompareCallback
+    ): void;
+    function compare(
+        filename1: string,
+        filename2: string,
+        options: CompareOptions | number,
+        callback: CompareCallback
+    ): void;
 
     function subClass(options: ClassOptions): SubClass;
 
-    type ChannelOperator = 'Add'
-        | 'And'
-        | 'Assign'
-        | 'Depth'
-        | 'Divide'
-        | 'Gamma'
-        | 'Negate'
-        | 'LShift'
-        | 'Log'
-        | 'Max'
-        | 'Min'
-        | 'Multiply'
-        | 'Or'
-        | 'Pow'
-        | 'RShift'
-        | 'Subtract'
-        | 'Threshold'
-        | 'Threshold-White'
-        | 'Threshold-White-Negate'
-        | 'Threshold-Black'
-        | 'Threshold-Black-Negate'
-        | 'Xor'
-        | 'Noise-Gaussian'
-        | 'Noise-Impulse'
-        | 'Noise-Laplacian'
-        | 'Noise-Multiplicative'
-        | 'Noise-Poisson'
-        | 'Noise-Random'
-        | 'Noise-Uniform';
+    type ChannelOperator =
+        | "Add"
+        | "And"
+        | "Assign"
+        | "Depth"
+        | "Divide"
+        | "Gamma"
+        | "Negate"
+        | "LShift"
+        | "Log"
+        | "Max"
+        | "Min"
+        | "Multiply"
+        | "Or"
+        | "Pow"
+        | "RShift"
+        | "Subtract"
+        | "Threshold"
+        | "Threshold-White"
+        | "Threshold-White-Negate"
+        | "Threshold-Black"
+        | "Threshold-Black-Negate"
+        | "Xor"
+        | "Noise-Gaussian"
+        | "Noise-Impulse"
+        | "Noise-Laplacian"
+        | "Noise-Multiplicative"
+        | "Noise-Poisson"
+        | "Noise-Random"
+        | "Noise-Uniform";
 
-    type ChannelType = 'All'
-        | 'Intensity'
-        | 'Red'
-        | 'Green'
-        | 'Blue'
-        | 'Cyan'
-        | 'Magenta'
-        | 'Yellow'
-        | 'Black'
-        | 'Opacity';
+    type ChannelType =
+        | "All"
+        | "Intensity"
+        | "Red"
+        | "Green"
+        | "Blue"
+        | "Cyan"
+        | "Magenta"
+        | "Yellow"
+        | "Black"
+        | "Opacity";
 
-    type ColorSpace = 'CineonLog'
-        | 'CMYK'
-        | 'GRAY'
-        | 'HSL'
-        | 'HSB'
-        | 'OHTA'
-        | 'RGB'
-        | 'Rec601Luma'
-        | 'Rec709Luma'
-        | 'Rec601YCbCr'
-        | 'Rec709YCbCr'
-        | 'Transparent'
-        | 'XYZ'
-        | 'YCbCr'
-        | 'YIQ'
-        | 'YPbPr'
-        | 'YUV';
+    type ColorSpace =
+        | "CineonLog"
+        | "CMYK"
+        | "GRAY"
+        | "HSL"
+        | "HSB"
+        | "OHTA"
+        | "RGB"
+        | "Rec601Luma"
+        | "Rec709Luma"
+        | "Rec601YCbCr"
+        | "Rec709YCbCr"
+        | "Transparent"
+        | "XYZ"
+        | "YCbCr"
+        | "YIQ"
+        | "YPbPr"
+        | "YUV";
 
-    type CompareCallback = (err: Error, isEqual: boolean, equality: number, raw: number) => any;
+    type CompareCallback = (
+        err: Error,
+        isEqual: boolean,
+        equality: number,
+        raw: number
+    ) => any;
 
-    type ComposeOperator = 'Over'
-        | 'In'
-        | 'Out'
-        | 'Atop'
-        | 'Xor'
-        | 'Plus'
-        | 'Minus'
-        | 'Add'
-        | 'Subtract'
-        | 'Difference'
-        | 'Divide'
-        | 'Multiply'
-        | 'Bumpmap'
-        | 'Copy'
-        | 'CopyRed'
-        | 'CopyGreen'
-        | 'CopyBlue'
-        | 'CopyOpacity'
-        | 'CopyCyan'
-        | 'CopyMagenta'
-        | 'CopyYellow'
-        | 'CopyBlack';
+    type ComposeOperator =
+        | "Over"
+        | "In"
+        | "Out"
+        | "Atop"
+        | "Xor"
+        | "Plus"
+        | "Minus"
+        | "Add"
+        | "Subtract"
+        | "Difference"
+        | "Divide"
+        | "Multiply"
+        | "Bumpmap"
+        | "Copy"
+        | "CopyRed"
+        | "CopyGreen"
+        | "CopyBlue"
+        | "CopyOpacity"
+        | "CopyCyan"
+        | "CopyMagenta"
+        | "CopyYellow"
+        | "CopyBlack";
 
-    type CompressionType = 'None'
-        | 'BZip'
-        | 'Fax'
-        | 'Group4'
-        | 'JPEG'
-        | 'Lossless'
-        | 'LZW'
-        | 'RLE'
-        | 'Zip'
-        | 'LZMA';
+    type CompressionType =
+        | "None"
+        | "BZip"
+        | "Fax"
+        | "Group4"
+        | "JPEG"
+        | "Lossless"
+        | "LZW"
+        | "RLE"
+        | "Zip"
+        | "LZMA";
 
-    type DisposeMethod = 'Undefined'
-        | 'None'
-        | 'Background'
-        | 'Previous';
+    type DisposeMethod = "Undefined" | "None" | "Background" | "Previous";
 
-    type Encoding = 'AdobeCustom'
-        | 'AdobeExpert'
-        | 'AdobeStandard'
-        | 'AppleRoman'
-        | 'BIG5'
-        | 'GB2312'
-        | 'Latin 2'
-        | 'None'
-        | 'SJIScode'
-        | 'Symbol'
-        | 'Unicode'
-        | 'Wansung';
+    type Encoding =
+        | "AdobeCustom"
+        | "AdobeExpert"
+        | "AdobeStandard"
+        | "AppleRoman"
+        | "BIG5"
+        | "GB2312"
+        | "Latin 2"
+        | "None"
+        | "SJIScode"
+        | "Symbol"
+        | "Unicode"
+        | "Wansung";
 
-    type EndianType = 'MSB'
-        | 'LSB'
-        | 'Native';
+    type EndianType = "MSB" | "LSB" | "Native";
 
-    type FilterType = 'Point'
-        | 'Box'
-        | 'Triangle'
-        | 'Hermite'
-        | 'Hanning'
-        | 'Hamming'
-        | 'Blackman'
-        | 'Gaussian'
-        | 'Quadratic'
-        | 'Cubic'
-        | 'Catrom'
-        | 'Mitchell'
-        | 'Lanczos'
-        | 'Bessel'
-        | 'Sinc';
+    type FilterType =
+        | "Point"
+        | "Box"
+        | "Triangle"
+        | "Hermite"
+        | "Hanning"
+        | "Hamming"
+        | "Blackman"
+        | "Gaussian"
+        | "Quadratic"
+        | "Cubic"
+        | "Catrom"
+        | "Mitchell"
+        | "Lanczos"
+        | "Bessel"
+        | "Sinc";
 
     type GetterCallback<T> = (err: Error, value: T) => any;
 
-    type GravityDirection = 'NorthWest'
-        | 'North'
-        | 'NorthEast'
-        | 'West'
-        | 'Center'
-        | 'East'
-        | 'SouthWest'
-        | 'South'
-        | 'SouthEast';
+    type GravityDirection =
+        | "NorthWest"
+        | "North"
+        | "NorthEast"
+        | "West"
+        | "Center"
+        | "East"
+        | "SouthWest"
+        | "South"
+        | "SouthEast";
 
-    type HighlightStyle = 'Assign'
-        | 'Threshold'
-        | 'Tint'
-        | 'XOR';
+    type HighlightStyle = "Assign" | "Threshold" | "Tint" | "XOR";
 
-    type ImageType = 'Bilevel'
-        | 'Grayscale'
-        | 'Palette'
-        | 'PaletteMatte'
-        | 'TrueColor'
-        | 'TrueColorMatte'
-        | 'ColorSeparation'
-        | 'ColorSeparationMatte'
-        | 'Optimize';
+    type ImageType =
+        | "Bilevel"
+        | "Grayscale"
+        | "Palette"
+        | "PaletteMatte"
+        | "TrueColor"
+        | "TrueColorMatte"
+        | "ColorSeparation"
+        | "ColorSeparationMatte"
+        | "Optimize";
 
-    type IntentType = 'Absolute'
-        | 'Perceptual'
-        | 'Relative'
-        | 'Saturation';
+    type IntentType = "Absolute" | "Perceptual" | "Relative" | "Saturation";
 
-    type InterlaceType = 'None'
-        | 'Line'
-        | 'Plane'
-        | 'Partition';
+    type InterlaceType = "None" | "Line" | "Plane" | "Partition";
 
-    type LimitType = 'disk'
-        | 'file'
-        | 'map'
-        | 'memory'
-        | 'pixels'
-        | 'threads';
+    type LimitType = "disk" | "file" | "map" | "memory" | "pixels" | "threads";
 
-    type ListType = 'Color'
-        | 'Delegate'
-        | 'Format'
-        | 'Magic'
-        | 'Module'
-        | 'Resource'
-        | 'Type';
+    type ListType =
+        | "Color"
+        | "Delegate"
+        | "Format"
+        | "Magic"
+        | "Module"
+        | "Resource"
+        | "Type";
 
-    type NamedColor = 'Red'
-        | 'Green'
-        | 'Blue'
-        | 'Opacity'
-        | 'Matte'
-        | 'Cyan'
-        | 'Magenta'
-        | 'Yellow'
-        | 'Black'
-        | 'Gray';
+    type NamedColor =
+        | "Red"
+        | "Green"
+        | "Blue"
+        | "Opacity"
+        | "Matte"
+        | "Cyan"
+        | "Magenta"
+        | "Yellow"
+        | "Black"
+        | "Gray";
 
-    type NoiseType = 'uniform'
-        | 'gaussian'
-        | 'multiplicative'
-        | 'impulse'
-        | 'laplacian'
-        | 'poisson';
+    type NoiseType =
+        | "uniform"
+        | "gaussian"
+        | "multiplicative"
+        | "impulse"
+        | "laplacian"
+        | "poisson";
 
-    type OperationMode = 'frame'
-        | 'unframe'
-        | 'concatenate';
+    type OperationMode = "frame" | "unframe" | "concatenate";
 
-    type PreviewType = 'Rotate'
-        | 'Shear'
-        | 'Roll'
-        | 'Hue'
-        | 'Saturation'
-        | 'Brightness'
-        | 'Gamma'
-        | 'Spiff'
-        | 'Dull'
-        | 'Grayscale'
-        | 'Quantize'
-        | 'Despeckle'
-        | 'ReduceNoise'
-        | 'AddNoise'
-        | 'Sharpen'
-        | 'Blur'
-        | 'Threshold'
-        | 'EdgeDetect'
-        | 'Spread'
-        | 'Shade'
-        | 'Raise'
-        | 'Segment'
-        | 'Solarize'
-        | 'Swirl'
-        | 'Implode'
-        | 'Wave'
-        | 'OilPaint'
-        | 'CharcoalDrawing'
-        | 'JPEG';
+    type PreviewType =
+        | "Rotate"
+        | "Shear"
+        | "Roll"
+        | "Hue"
+        | "Saturation"
+        | "Brightness"
+        | "Gamma"
+        | "Spiff"
+        | "Dull"
+        | "Grayscale"
+        | "Quantize"
+        | "Despeckle"
+        | "ReduceNoise"
+        | "AddNoise"
+        | "Sharpen"
+        | "Blur"
+        | "Threshold"
+        | "EdgeDetect"
+        | "Spread"
+        | "Shade"
+        | "Raise"
+        | "Segment"
+        | "Solarize"
+        | "Swirl"
+        | "Implode"
+        | "Wave"
+        | "OilPaint"
+        | "CharcoalDrawing"
+        | "JPEG";
 
-    type ResizeOption = '%' /** Width and height are specified in percents */
-        | '@' /** Specify maximum area in pixels */
-        | '!' /** Ignore aspect ratio */
-        | '^' /** Width and height are minimum values */
-        | '<' /** Change dimensions only if image is smaller than width or height */
-        | '>'; /** Change dimensions only if image is larger than width or height */
+    type ResizeOption =
+        | "%" /** Width and height are specified in percents */
+        | "@" /** Specify maximum area in pixels */
+        | "!" /** Ignore aspect ratio */
+        | "^" /** Width and height are minimum values */
+        | "<" /** Change dimensions only if image is smaller than width or height */
+        | ">"; /** Change dimensions only if image is larger than width or height */
 
-    type SetDrawMethod = 'point'
-        | 'replace'
-        | 'floodfill'
-        | 'filltoborder'
-        | 'reset';
+    type SetDrawMethod =
+        | "point"
+        | "replace"
+        | "floodfill"
+        | "filltoborder"
+        | "reset";
 
-    type SetDrawProperty = 'color' | 'matte';
+    type SetDrawProperty = "color" | "matte";
 
-    type UnitType = 'Undefined'
-        | 'PixelsPerInch'
-        | 'PixelsPerCentimeter';
+    type UnitType = "Undefined" | "PixelsPerInch" | "PixelsPerCentimeter";
 
-    type VirtualPixelMethod = 'Constant'
-        | 'Edge'
-        | 'Mirror'
-        | 'Tile';
+    type VirtualPixelMethod = "Constant" | "Edge" | "Mirror" | "Tile";
 
-    type VisualType = 'StaticGray'
-        | 'GrayScale'
-        | 'StaticColor'
-        | 'PseudoColor'
-        | 'TrueColor'
-        | 'DirectColor'
-        | 'default';
+    type VisualType =
+        | "StaticGray"
+        | "GrayScale"
+        | "StaticColor"
+        | "PseudoColor"
+        | "TrueColor"
+        | "DirectColor"
+        | "default";
 
-    type WriteCallback = (err: Error, stdout: string, stderr: string, cmd: string) => any;
+    type WriteCallback = (
+        err: Error,
+        stdout: string,
+        stderr: string,
+        cmd: string
+    ) => any;
 }
 
 export = m;

@@ -47,7 +47,7 @@ export namespace v1 {
         EC_SIGN_P256_SHA256 = 12,
 
         // ECDSA on the NIST P-384 curve with a SHA384 digest.
-        EC_SIGN_P384_SHA384 = 13,
+        EC_SIGN_P384_SHA384 = 13
     }
 
     enum CryptoKeyVersionState {
@@ -74,7 +74,7 @@ export namespace v1 {
         // Call
         // [RestoreCryptoKeyVersion][google.cloud.kms.v1.KeyManagementService.RestoreCryptoKeyVersion]
         // to put it back into the [DISABLED][google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.DISABLED] state.
-        DESTROY_SCHEDULED = 4,
+        DESTROY_SCHEDULED = 4
     }
 
     enum CryptoKeyVersionView {
@@ -84,7 +84,7 @@ export namespace v1 {
 
         // Provides all fields in each [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion], including the
         // [attestation][google.cloud.kms.v1.CryptoKeyVersion.attestation].
-        FULL = 1,
+        FULL = 1
     }
 
     enum ProtectionLevel {
@@ -95,7 +95,7 @@ export namespace v1 {
         SOFTWARE = 1,
 
         // Crypto operations are performed in a Hardware Security Module.
-        HSM = 2,
+        HSM = 2
     }
 
     enum AttestationFormat {
@@ -103,7 +103,7 @@ export namespace v1 {
 
         // Cavium HSM attestation compressed with gzip. Note that this format is
         // defined by Cavium and subject to change at any time.
-        CAVIUM_V1_COMPRESSED = 3,
+        CAVIUM_V1_COMPRESSED = 3
     }
 
     interface KeyOperationAttestation {
@@ -144,7 +144,7 @@ export namespace v1 {
         // [CryptoKeys][google.cloud.kms.v1.CryptoKey] with this purpose may be used with
         // [AsymmetricDecrypt][google.cloud.kms.v1.KeyManagementService.AsymmetricDecrypt] and
         // [GetPublicKey][google.cloud.kms.v1.KeyManagementService.GetPublicKey].
-        ASYMMETRIC_DECRYPT = 6,
+        ASYMMETRIC_DECRYPT = 6
     }
 
     interface CryptoKey {
@@ -154,7 +154,7 @@ export namespace v1 {
         createTime: google_protobuf_timestamp_pb.Timestamp.AsObject;
         nextRotationTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
         versionTemplate: CryptoKeyVersionTemplate;
-        labels: { [s: string]: string; };
+        labels: { [s: string]: string };
     }
 
     interface KeyRing {
@@ -166,7 +166,7 @@ export namespace v1 {
         interface ConfigurationObject {
             credentials?: {
                 client_email?: string;
-                private_key?: string
+                private_key?: string;
             };
             email?: string;
             keyFilename?: string;
@@ -185,7 +185,10 @@ export namespace v1 {
             name: string;
             ciphertext: Buffer;
         }
-        type EncryptCallback = (err: Error | null, apiResponse: [EncryptResponse, any, any]) => void;
+        type EncryptCallback = (
+            err: Error | null,
+            apiResponse: [EncryptResponse, any, any]
+        ) => void;
 
         interface DecryptRequest {
             name: string;
@@ -195,47 +198,112 @@ export namespace v1 {
         interface DecryptResponse {
             plaintext: Buffer;
         }
-        type DecryptCallback = (err: Error | null, apiResponse: [DecryptResponse, any, any]) => void;
+        type DecryptCallback = (
+            err: Error | null,
+            apiResponse: [DecryptResponse, any, any]
+        ) => void;
 
         interface ListKeyRingsRequest {
             parent: string;
             page_size?: number;
             page_token?: string;
         }
-        type ListKeyRingsCallback = (err: Error | null, apiResponse: [KeyRing[], any, any]) => void;
+        type ListKeyRingsCallback = (
+            err: Error | null,
+            apiResponse: [KeyRing[], any, any]
+        ) => void;
 
         interface ListCryptoKeysRequest {
             parent: string;
             page_size?: number;
             page_token?: string;
         }
-        type ListCryptoKeysCallback = (err: Error | null, apiResponse: [CryptoKey[], any, any]) => void;
+        type ListCryptoKeysCallback = (
+            err: Error | null,
+            apiResponse: [CryptoKey[], any, any]
+        ) => void;
     }
 
     class KeyManagementServiceClient {
         constructor(options?: KeyManagementServiceClient.ConfigurationObject);
 
         keyRingPath(project: string, location: string, keyRing: string): string;
-        cryptoKeyPathPath(project: string, location: string, keyRing: string, cryptoKeyPath: string): string;
+        cryptoKeyPathPath(
+            project: string,
+            location: string,
+            keyRing: string,
+            cryptoKeyPath: string
+        ): string;
         locationPath(project: string, location: string): string;
-        cryptoKeyPath(project: string, location: string, keyRing: string, cryptoKey: string): string;
-        cryptoKeyVersionPath(project: string, location: string, keyRing: string, cryptoKey: string, cryptoKeyVersion: string): string;
+        cryptoKeyPath(
+            project: string,
+            location: string,
+            keyRing: string,
+            cryptoKey: string
+        ): string;
+        cryptoKeyVersionPath(
+            project: string,
+            location: string,
+            keyRing: string,
+            cryptoKey: string,
+            cryptoKeyVersion: string
+        ): string;
 
-        encrypt(request: KeyManagementServiceClient.EncryptRequest, gaxOpts?: GAX.CallOptions): Promise<[KeyManagementServiceClient.EncryptResponse, any, any]>;
-        encrypt(request: KeyManagementServiceClient.EncryptRequest, callback: KeyManagementServiceClient.EncryptCallback): void;
-        encrypt(request: KeyManagementServiceClient.EncryptRequest, gaxOpts: GAX.CallOptions, callback: KeyManagementServiceClient.EncryptCallback): void;
+        encrypt(
+            request: KeyManagementServiceClient.EncryptRequest,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<[KeyManagementServiceClient.EncryptResponse, any, any]>;
+        encrypt(
+            request: KeyManagementServiceClient.EncryptRequest,
+            callback: KeyManagementServiceClient.EncryptCallback
+        ): void;
+        encrypt(
+            request: KeyManagementServiceClient.EncryptRequest,
+            gaxOpts: GAX.CallOptions,
+            callback: KeyManagementServiceClient.EncryptCallback
+        ): void;
 
-        decrypt(request: KeyManagementServiceClient.DecryptRequest, gaxOpts?: GAX.CallOptions): Promise<[KeyManagementServiceClient.DecryptResponse, any, any]>;
-        decrypt(request: KeyManagementServiceClient.DecryptRequest, callback: KeyManagementServiceClient.DecryptCallback): void;
-        decrypt(request: KeyManagementServiceClient.DecryptRequest, gaxOpts: GAX.CallOptions, callback: KeyManagementServiceClient.DecryptCallback): void;
+        decrypt(
+            request: KeyManagementServiceClient.DecryptRequest,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<[KeyManagementServiceClient.DecryptResponse, any, any]>;
+        decrypt(
+            request: KeyManagementServiceClient.DecryptRequest,
+            callback: KeyManagementServiceClient.DecryptCallback
+        ): void;
+        decrypt(
+            request: KeyManagementServiceClient.DecryptRequest,
+            gaxOpts: GAX.CallOptions,
+            callback: KeyManagementServiceClient.DecryptCallback
+        ): void;
 
-        listKeyRings(request: KeyManagementServiceClient.ListKeyRingsRequest, gaxOpts?: GAX.CallOptions): Promise<[KeyRing[], any, any]>;
-        listKeyRings(request: KeyManagementServiceClient.ListKeyRingsRequest, callback: KeyManagementServiceClient.ListKeyRingsCallback): void;
-        listKeyRings(request: KeyManagementServiceClient.ListKeyRingsRequest, gaxOpts: GAX.CallOptions, callback: KeyManagementServiceClient.ListKeyRingsCallback): void;
+        listKeyRings(
+            request: KeyManagementServiceClient.ListKeyRingsRequest,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<[KeyRing[], any, any]>;
+        listKeyRings(
+            request: KeyManagementServiceClient.ListKeyRingsRequest,
+            callback: KeyManagementServiceClient.ListKeyRingsCallback
+        ): void;
+        listKeyRings(
+            request: KeyManagementServiceClient.ListKeyRingsRequest,
+            gaxOpts: GAX.CallOptions,
+            callback: KeyManagementServiceClient.ListKeyRingsCallback
+        ): void;
 
-        listCryptoKeys(request: KeyManagementServiceClient.ListCryptoKeysRequest, gaxOpts?: GAX.CallOptions): Promise<[CryptoKey[], any, any]>;
-        listCryptoKeys(request: KeyManagementServiceClient.ListCryptoKeysRequest, callback: KeyManagementServiceClient.ListCryptoKeysCallback): void;
-        listCryptoKeys(request: KeyManagementServiceClient.ListCryptoKeysRequest, gaxOpts: GAX.CallOptions, callback: KeyManagementServiceClient.ListCryptoKeysCallback): void;
+        listCryptoKeys(
+            request: KeyManagementServiceClient.ListCryptoKeysRequest,
+            gaxOpts?: GAX.CallOptions
+        ): Promise<[CryptoKey[], any, any]>;
+        listCryptoKeys(
+            request: KeyManagementServiceClient.ListCryptoKeysRequest,
+            callback: KeyManagementServiceClient.ListCryptoKeysCallback
+        ): void;
+        listCryptoKeys(
+            request: KeyManagementServiceClient.ListCryptoKeysRequest,
+            gaxOpts: GAX.CallOptions,
+            callback: KeyManagementServiceClient.ListCryptoKeysCallback
+        ): void;
     }
 }
 

@@ -8,7 +8,11 @@ declare module "meteor/ddp-rate-limiter" {
             clientAddress?: string | ((clientAddress: string) => boolean);
         }
 
-        function addRule(matcher: Matcher, numRequests: number, timeInterval: number): string;
+        function addRule(
+            matcher: Matcher,
+            numRequests: number,
+            timeInterval: number
+        ): string;
 
         function removeRule(ruleId: string): boolean;
     }

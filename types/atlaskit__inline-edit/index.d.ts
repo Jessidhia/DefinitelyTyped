@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ReactElement, Component } from 'react';
+import { ReactElement, Component } from "react";
 export default class InlineEdit extends Component<StatefulProps> {}
 export class InlineEditStateless extends Component<StatelessProps> {}
 

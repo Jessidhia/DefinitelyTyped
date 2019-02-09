@@ -1,4 +1,4 @@
-import stripBom = require('strip-bom');
+import stripBom = require("strip-bom");
 
-stripBom('\uFEFFunicorn');
+stripBom("\uFEFFunicorn");
 // => 'unicorn'

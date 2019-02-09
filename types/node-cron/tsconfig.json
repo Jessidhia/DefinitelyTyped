@@ -1,9 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "strictNullChecks": true,
         "noImplicitThis": true,
@@ -11,15 +9,10 @@
         "strictFunctionTypes": true,
         "noUnusedParameters": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "node-cron-tests.ts"
-    ]
+    "files": ["index.d.ts", "node-cron-tests.ts"]
 }

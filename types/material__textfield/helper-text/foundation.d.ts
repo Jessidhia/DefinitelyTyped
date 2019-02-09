@@ -15,11 +15,13 @@
  * limitations under the License.
  */
 
-import MDCFoundation from 'material__base/foundation';
-import MDCTextFieldHelperTextAdapter from './adapter';
-import { cssClasses, strings } from './constants';
+import MDCFoundation from "material__base/foundation";
+import MDCTextFieldHelperTextAdapter from "./adapter";
+import { cssClasses, strings } from "./constants";
 
-export default class MDCTextFieldHelperTextFoundation extends MDCFoundation<MDCTextFieldHelperTextAdapter> {
+export default class MDCTextFieldHelperTextFoundation extends MDCFoundation<
+    MDCTextFieldHelperTextAdapter
+> {
     static readonly cssClasses: cssClasses;
 
     static readonly strings: strings;

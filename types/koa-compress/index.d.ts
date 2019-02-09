@@ -17,7 +17,6 @@
 /// <reference types="koa" />
 
 declare module "koa-compress" {
-
     import * as Koa from "koa";
     import * as zlib from "zlib";
 
@@ -30,7 +29,7 @@ declare module "koa-compress" {
         /**
          * Minimum response size in bytes to compress. Default 1024 bytes or 1kb.
          */
-        threshold?: number
+        threshold?: number;
     }
 
     /**

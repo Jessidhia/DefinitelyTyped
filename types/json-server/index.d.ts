@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-import { NextHandleFunction } from 'connect';
-import { Application, RequestHandler, Router } from 'express';
+import { NextHandleFunction } from "connect";
+import { Application, RequestHandler, Router } from "express";
 
 /**
  * Returns an Express server.
@@ -22,7 +22,10 @@ export function defaults(options?: MiddlewaresOptions): RequestHandler[];
  * @param source Either a path to a json file (e.g. `'db.json'`) or an object in memory
  * @param options Set foreign key suffix (default: `'Id'`)
  */
-export function router(source: string | object, options?: { foreignKeySuffix: string }): Router;
+export function router(
+    source: string | object,
+    options?: { foreignKeySuffix: string }
+): Router;
 
 /**
  * Add custom rewrite rules.

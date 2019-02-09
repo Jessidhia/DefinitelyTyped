@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-   CHIP_SELECTOR: '.mdc-chip';
+    CHIP_SELECTOR: ".mdc-chip";
 }
 
 export interface cssClasses extends MDCStrings {
-    CHOICE: 'mdc-chip-set--choice';
-    FILTER: 'mdc-chip-set--filter';
+    CHOICE: "mdc-chip-set--choice";
+    FILTER: "mdc-chip-set--filter";
 }

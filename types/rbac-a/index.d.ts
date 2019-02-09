@@ -6,9 +6,7 @@
 
 /// <reference types="node"/>
 
-import {
-    EventEmitter,
-} from "events";
+import { EventEmitter } from "events";
 
 export interface Roles {
     [_: string]: number | Roles;
@@ -52,7 +50,11 @@ export class Provider {
     getAttributes(role: string): string[] | Promise<string[]>;
 }
 
-export type AttributeFunction = (user: any, role: string, params: object) => any;
+export type AttributeFunction = (
+    user: any,
+    role: string,
+    params: object
+) => any;
 
 /**
  * Attributes Manager
@@ -80,10 +82,13 @@ export class AttributesManager {
     validate(attribute: string, user: any, role: string, params: object): any;
 }
 
-export class RBAC<P extends Provider, AM extends AttributesManager = AttributesManager> extends EventEmitter {
+export class RBAC<
+    P extends Provider,
+    AM extends AttributesManager = AttributesManager
+> extends EventEmitter {
     readonly provider: P;
     readonly attributes: AM;
-    constructor(opts: { provider: P, attributes?: AM });
+    constructor(opts: { provider: P; attributes?: AM });
     /**
      * Check the user for the given permissions. The method will return
      * a Promise resolving with a number. If the user has sufficient
@@ -92,10 +97,14 @@ export class RBAC<P extends Provider, AM extends AttributesManager = AttributesM
      * Promise is rejected, it should be considered as if the user has
      * insufficient access to the specified ressources.
      */
-    check(user: any, permission: string | string[], params?: object): Promise<number>;
+    check(
+        user: any,
+        permission: string | string[],
+        params?: object
+    ): Promise<number>;
 }
 
 export const Providers: {
     /** Basic JSON permissions provider */
-    JsonProvider: { new(roles: object): Provider };
+    JsonProvider: { new (roles: object): Provider };
 };

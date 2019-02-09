@@ -1,4 +1,4 @@
-import * as webdriver from './index';
+import * as webdriver from "./index";
 
 /**
  * A record object that defines the configuration options for a DriverService
@@ -6,7 +6,7 @@ import * as webdriver from './index';
  *
  * @record
  */
-interface ServiceOptions { }
+interface ServiceOptions {}
 
 /**
  * Manages the life and death of a native executable WebDriver server.
@@ -101,5 +101,8 @@ export class FileDetector extends webdriver.FileDetector {
      * @return {!webdriver.promise.Promise<string>} A promise for the processed
      *     file path.
      */
-    handleFile(driver: webdriver.WebDriver, file: string): webdriver.promise.Promise<string>;
+    handleFile(
+        driver: webdriver.WebDriver,
+        file: string
+    ): webdriver.promise.Promise<string>;
 }

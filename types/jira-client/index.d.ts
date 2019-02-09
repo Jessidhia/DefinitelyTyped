@@ -39,19 +39,30 @@ declare class JiraApi {
 
     findRapidView(projectName: string): Promise<JiraApi.JsonResponse[]>;
 
-    getLastSprintForRapidView(rapidViewId: string): Promise<JiraApi.JsonResponse>;
+    getLastSprintForRapidView(
+        rapidViewId: string
+    ): Promise<JiraApi.JsonResponse>;
 
-    getSprintIssues(rapidViewId: string, sprintId: string): Promise<JiraApi.JsonResponse>;
+    getSprintIssues(
+        rapidViewId: string,
+        sprintId: string
+    ): Promise<JiraApi.JsonResponse>;
 
     listSprints(rapidViewId: string): Promise<JiraApi.JsonResponse>;
 
-    addIssueToSprint(issueId: string, sprintId: string): Promise<JiraApi.JsonResponse>;
+    addIssueToSprint(
+        issueId: string,
+        sprintId: string
+    ): Promise<JiraApi.JsonResponse>;
 
     issueLink(link: JiraApi.LinkObject): Promise<JiraApi.JsonResponse>;
 
     getRemoteLinks(issueNumber: string): Promise<JiraApi.JsonResponse>;
 
-    createRemoteLink(issueNumber: string, remoteLink: JiraApi.LinkObject): Promise<JiraApi.JsonResponse>;
+    createRemoteLink(
+        issueNumber: string,
+        remoteLink: JiraApi.LinkObject
+    ): Promise<JiraApi.JsonResponse>;
 
     getVersions(project: string): Promise<JiraApi.JsonResponse>;
 
@@ -65,33 +76,55 @@ declare class JiraApi {
         moveAffectedIssuesToId: string
     ): Promise<JiraApi.JsonResponse>;
 
-    searchJira(searchString: string, optional?: JiraApi.SearchQuery): Promise<JiraApi.JsonResponse>;
+    searchJira(
+        searchString: string,
+        optional?: JiraApi.SearchQuery
+    ): Promise<JiraApi.JsonResponse>;
 
     createUser(user: JiraApi.UserObject): Promise<JiraApi.JsonResponse>;
 
-    searchUsers(options: JiraApi.SearchUserOptions): Promise<JiraApi.JsonResponse>;
+    searchUsers(
+        options: JiraApi.SearchUserOptions
+    ): Promise<JiraApi.JsonResponse>;
 
-    getUsersInGroup(groupname: string, startAt?: number, maxResults?: number): Promise<JiraApi.JsonResponse>;
+    getUsersInGroup(
+        groupname: string,
+        startAt?: number,
+        maxResults?: number
+    ): Promise<JiraApi.JsonResponse>;
 
     addNewIssue(issue: JiraApi.IssueObject): Promise<JiraApi.JsonResponse>;
 
-    addWatcher(issueKey: string, username: string): Promise<JiraApi.JsonResponse>;
+    addWatcher(
+        issueKey: string,
+        username: string
+    ): Promise<JiraApi.JsonResponse>;
 
     deleteIssue(issueId: string): Promise<JiraApi.JsonResponse>;
 
-    updateIssue(issueId: string, issueUpdate: JiraApi.IssueObject): Promise<JiraApi.JsonResponse>;
+    updateIssue(
+        issueId: string,
+        issueUpdate: JiraApi.IssueObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listComponents(project: string): Promise<JiraApi.JsonResponse>;
 
-    addNewComponent(component: JiraApi.ComponentObject): Promise<JiraApi.JsonResponse>;
+    addNewComponent(
+        component: JiraApi.ComponentObject
+    ): Promise<JiraApi.JsonResponse>;
 
     deleteComponent(componentId: string): Promise<JiraApi.JsonResponse>;
 
-    createCustomField(field: JiraApi.FieldObject): Promise<JiraApi.JsonResponse>;
+    createCustomField(
+        field: JiraApi.FieldObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listFields(): Promise<JiraApi.FieldObject[]>;
 
-    createFieldOption(fieldKey: string, option: JiraApi.FieldOptionObject): Promise<JiraApi.JsonResponse>;
+    createFieldOption(
+        fieldKey: string,
+        option: JiraApi.FieldOptionObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listFieldOptions(fieldKey: string): Promise<JiraApi.JsonResponse>;
 
@@ -101,23 +134,40 @@ declare class JiraApi {
         option: JiraApi.FieldOptionObject
     ): Promise<JiraApi.JsonResponse>;
 
-    getFieldOption(fieldKey: string, optionId: string): Promise<JiraApi.JsonResponse>;
+    getFieldOption(
+        fieldKey: string,
+        optionId: string
+    ): Promise<JiraApi.JsonResponse>;
 
-    deleteFieldOption(fieldKey: string, optionId: string): Promise<JiraApi.JsonResponse>;
+    deleteFieldOption(
+        fieldKey: string,
+        optionId: string
+    ): Promise<JiraApi.JsonResponse>;
 
-    getIssueProperty(issueNumber: string, property: string): Promise<JiraApi.JsonResponse>;
+    getIssueProperty(
+        issueNumber: string,
+        property: string
+    ): Promise<JiraApi.JsonResponse>;
 
     listPriorities(): Promise<JiraApi.JsonResponse>;
 
     listTransitions(issueId: string): Promise<JiraApi.JsonResponse>;
 
-    transitionIssue(issueId: string, issueTransition: JiraApi.TransitionObject): Promise<JiraApi.JsonResponse>;
+    transitionIssue(
+        issueId: string,
+        issueTransition: JiraApi.TransitionObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listProjects(): Promise<JiraApi.JsonResponse>;
 
     addComment(issueId: string, comment: string): Promise<JiraApi.JsonResponse>;
 
-    updateComment(issueId: string, commentId: string, comment: string, options?: any): Promise<JiraApi.JsonResponse>;
+    updateComment(
+        issueId: string,
+        commentId: string,
+        comment: string,
+        options?: any
+    ): Promise<JiraApi.JsonResponse>;
 
     addWorklog(
         issueId: string,
@@ -125,11 +175,16 @@ declare class JiraApi {
         newEstimate: JiraApi.EstimateObject
     ): Promise<JiraApi.JsonResponse>;
 
-    deleteWorklog(issueId: string, worklogId: string): Promise<JiraApi.JsonResponse>;
+    deleteWorklog(
+        issueId: string,
+        worklogId: string
+    ): Promise<JiraApi.JsonResponse>;
 
     listIssueTypes(): Promise<JiraApi.JsonResponse>;
 
-    registerWebhook(webhook: JiraApi.WebhookObject): Promise<JiraApi.JsonResponse>;
+    registerWebhook(
+        webhook: JiraApi.WebhookObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listWebhooks(): Promise<JiraApi.JsonResponse>;
 
@@ -141,15 +196,25 @@ declare class JiraApi {
 
     getBacklogForRapidView(rapidViewId: string): Promise<JiraApi.JsonResponse>;
 
-    addAttachmentOnIssue(issueId: string, readStream: ReadStream): Promise<JiraApi.JsonResponse>;
+    addAttachmentOnIssue(
+        issueId: string,
+        readStream: ReadStream
+    ): Promise<JiraApi.JsonResponse>;
 
-    issueNotify(issueId: string, notificationBody: JiraApi.NotificationObject): Promise<JiraApi.JsonResponse>;
+    issueNotify(
+        issueId: string,
+        notificationBody: JiraApi.NotificationObject
+    ): Promise<JiraApi.JsonResponse>;
 
     listStatus(): Promise<JiraApi.JsonResponse>;
 
     getDevStatusSummary(issueId: string): Promise<JiraApi.JsonResponse>;
 
-    getDevStatusDetail(issueId: string, applicationType: string, dataType: string): Promise<JiraApi.JsonResponse>;
+    getDevStatusDetail(
+        issueId: string,
+        applicationType: string,
+        dataType: string
+    ): Promise<JiraApi.JsonResponse>;
 
     moveToBacklog(issues: string[]): Promise<JiraApi.JsonResponse>;
 
@@ -204,17 +269,31 @@ declare class JiraApi {
         fields?: string
     ): Promise<JiraApi.JsonResponse>;
 
-    getProjects(boardId: string, startAt?: number, maxResults?: number): Promise<JiraApi.JsonResponse>;
+    getProjects(
+        boardId: string,
+        startAt?: number,
+        maxResults?: number
+    ): Promise<JiraApi.JsonResponse>;
 
     getProjectsFull(boardId: string): Promise<JiraApi.JsonResponse>;
 
     getBoardPropertiesKeys(boardId: string): Promise<JiraApi.JsonResponse>;
 
-    deleteBoardProperty(boardId: string, propertyKey: string): Promise<JiraApi.JsonResponse>;
+    deleteBoardProperty(
+        boardId: string,
+        propertyKey: string
+    ): Promise<JiraApi.JsonResponse>;
 
-    setBoardProperty(boardId: string, propertyKey: string, body: string): Promise<JiraApi.JsonResponse>;
+    setBoardProperty(
+        boardId: string,
+        propertyKey: string,
+        body: string
+    ): Promise<JiraApi.JsonResponse>;
 
-    getBoardProperty(boardId: string, propertyKey: string): Promise<JiraApi.JsonResponse>;
+    getBoardProperty(
+        boardId: string,
+        propertyKey: string
+    ): Promise<JiraApi.JsonResponse>;
 
     getAllSprints(
         boardId: string,

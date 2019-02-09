@@ -8,4 +8,12 @@ const Layout = () => (
     </Flex>
 );
 
-const cssTest = <Flex css='background: transparent;'><Box css={css`${{color: 'inherit'}}`}/></Flex>;
+const cssTest = (
+    <Flex css="background: transparent;">
+        <Box
+            css={css`
+                ${{ color: "inherit" }}
+            `}
+        />
+    </Flex>
+);

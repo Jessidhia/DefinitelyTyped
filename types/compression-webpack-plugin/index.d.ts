@@ -5,8 +5,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import { Plugin } from 'webpack';
-import { ZlibOptions as ZlibCompressionOptions } from 'zlib';
+import { Plugin } from "webpack";
+import { ZlibOptions as ZlibCompressionOptions } from "zlib";
 
 export = CompressionPlugin;
 
@@ -16,11 +16,19 @@ declare class CompressionPlugin<O = any> extends Plugin {
 
 declare namespace CompressionPlugin {
     type AlgorithmCallback = (error: Error | null, result: Buffer) => void;
-    type Algorithm<O> = (source: string, options: O, callback: AlgorithmCallback) => void;
+    type Algorithm<O> = (
+        source: string,
+        options: O,
+        callback: AlgorithmCallback
+    ) => void;
 
     // NOTE: These are the async compression algorithms on the zlib object.
-    type ZlibAlgorithm = 'deflate' | 'deflateRaw' | 'gzip';
-    type Pattern = string | RegExp | ReadonlyArray<RegExp> | ReadonlyArray<string>;
+    type ZlibAlgorithm = "deflate" | "deflateRaw" | "gzip";
+    type Pattern =
+        | string
+        | RegExp
+        | ReadonlyArray<RegExp>
+        | ReadonlyArray<string>;
 
     interface BaseOptions {
         cache?: boolean | string;

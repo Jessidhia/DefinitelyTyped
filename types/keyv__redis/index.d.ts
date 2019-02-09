@@ -6,13 +6,14 @@
 
 /// <reference types="node" />
 
-import { Store } from 'keyv';
-import { ClientOpts } from 'redis';
-import { EventEmitter } from 'events';
+import { Store } from "keyv";
+import { ClientOpts } from "redis";
+import { EventEmitter } from "events";
 
 export = KeyvRedis;
 
-declare class KeyvRedis extends EventEmitter implements Store<string | undefined> {
+declare class KeyvRedis extends EventEmitter
+    implements Store<string | undefined> {
     readonly ttlSupport: true;
     namespace?: string;
 

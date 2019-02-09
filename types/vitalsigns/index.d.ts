@@ -139,7 +139,7 @@ declare module "vitalsigns" {
          * @constructors
          * @param {Options} [options] Options.
          */
-        constructor (options?: vitalsigns.Options);
+        constructor(options?: vitalsigns.Options);
 
         /**
          * Pushes a health constraint onto this instance's constraint array.
@@ -186,7 +186,10 @@ declare module "vitalsigns" {
          * @param {string} monitorName A monitor name.
          * @param {MonitorField} [field] Options.
          */
-        monitor(monitor: string | vitalsigns.Monitor | {}, field?: vitalsigns.MonitorField): void;
+        monitor(
+            monitor: string | vitalsigns.Monitor | {},
+            field?: vitalsigns.MonitorField
+        ): void;
 
         /**
          * Defines a new health constraint in a chainable, more easily readable format.
@@ -196,7 +199,10 @@ declare module "vitalsigns" {
          * @param {string} fieldName A field name.
          * @return {ConstraintWrapper} The constraint wrapper.
          */
-        unhealthyWhen: (monitorName: string, fieldName: string) => vitalsigns.ConstraintWrapper;
+        unhealthyWhen: (
+            monitorName: string,
+            fieldName: string
+        ) => vitalsigns.ConstraintWrapper;
     }
 
     export = VitalSigns;

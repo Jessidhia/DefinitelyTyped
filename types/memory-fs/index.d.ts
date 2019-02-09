@@ -15,7 +15,9 @@ declare class MemoryFileSystem {
 
     existsSync(_path: string): boolean;
 
-    statSync(_path: string): {
+    statSync(
+        _path: string
+    ): {
         isFile: () => boolean;
         isDirectory: () => boolean;
         isBlockDevice: () => boolean;
@@ -33,7 +35,11 @@ declare class MemoryFileSystem {
 
     mkdirSync(_path: string): void;
 
-    _remove(_path: string, name: string, testFn: ((part: string) => boolean)): void;
+    _remove(
+        _path: string,
+        name: string,
+        testFn: (part: string) => boolean
+    ): void;
 
     rmdirSync(_path: string): void;
 
@@ -41,10 +47,15 @@ declare class MemoryFileSystem {
 
     readlinkSync(_path: string): string;
 
-    writeFileSync(_path: string, content: string | Buffer, encoding?: string): void;
+    writeFileSync(
+        _path: string,
+        content: string | Buffer,
+        encoding?: string
+    ): void;
 
     createReadStream(
-        path: string, options?: {
+        path: string,
+        options?: {
             start: number;
             end: number;
         }
@@ -54,9 +65,18 @@ declare class MemoryFileSystem {
 
     exists(path: string, callback: (isExist: boolean) => void): void;
 
-    writeFile(path: string, content: string | Buffer, callback: (err: Error | undefined) => void): void;
+    writeFile(
+        path: string,
+        content: string | Buffer,
+        callback: (err: Error | undefined) => void
+    ): void;
 
-    writeFile(path: string, content: string | Buffer, encoding: string, callback: (err: Error | undefined) => void): void;
+    writeFile(
+        path: string,
+        content: string | Buffer,
+        encoding: string,
+        callback: (err: Error | undefined) => void
+    ): void;
 
     join(path: string, request: string): string;
 
@@ -64,23 +84,52 @@ declare class MemoryFileSystem {
 
     normalize(path: string): string;
 
-    stat(path: string, callback: (err: Error | null, result?: any) => void): void;
+    stat(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    readdir(path: string, callback: (err: Error | null, result?: any) => void): void;
+    readdir(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    mkdirp(path: string, callback: (err: Error | null, result?: any) => void): void;
+    mkdirp(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    rmdir(path: string, callback: (err: Error | null, result?: any) => void): void;
+    rmdir(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    unlink(path: string, callback: (err: Error | null, result?: any) => void): void;
+    unlink(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    readlink(path: string, callback: (err: Error | null, result?: any) => void): void;
+    readlink(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
     mkdir(path: string, callback: (err: Error | null) => void): void;
-    mkdir(path: string, optArg: {}, callback: (err: Error | null, result?: any) => void): void;
+    mkdir(
+        path: string,
+        optArg: {},
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 
-    readFile(path: string, callback: (err: Error | null, result?: any) => void): void;
-    readFile(path: string, optArg: {}, callback: (err: Error | null, result?: any) => void): void;
+    readFile(
+        path: string,
+        callback: (err: Error | null, result?: any) => void
+    ): void;
+    readFile(
+        path: string,
+        optArg: {},
+        callback: (err: Error | null, result?: any) => void
+    ): void;
 }
 
 export = MemoryFileSystem;

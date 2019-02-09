@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace gesture {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gesture/Base.html
@@ -97,11 +95,9 @@ declare namespace dojox {
             unLock(): void;
         }
     }
-
 }
 
-
 declare module "dojox/gesture/Base" {
-    var exp: dojox.gesture.Base
-    export=exp;
+    var exp: dojox.gesture.Base;
+    export = exp;
 }

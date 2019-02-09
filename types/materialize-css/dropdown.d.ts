@@ -15,7 +15,10 @@ declare namespace M {
         /**
          * Init Dropdowns
          */
-        static init(els: MElements, options?: Partial<DropdownOptions>): Dropdown[];
+        static init(
+            els: MElements,
+            options?: Partial<DropdownOptions>
+        ): Dropdown[];
 
         /**
          * ID of the dropdown element
@@ -63,7 +66,7 @@ declare namespace M {
          * Defines the edge the menu is aligned to
          * @default 'left'
          */
-        alignment: 'left' | 'right';
+        alignment: "left" | "right";
 
         /**
          * If true, automatically focus dropdown el for keyboard
@@ -140,6 +143,11 @@ declare namespace M {
 }
 
 interface JQuery {
-    dropdown(method: keyof Pick<M.Dropdown, "recalculateDimensions" | "open" | "close" | "destroy">): JQuery;
+    dropdown(
+        method: keyof Pick<
+            M.Dropdown,
+            "recalculateDimensions" | "open" | "close" | "destroy"
+        >
+    ): JQuery;
     dropdown(options?: Partial<M.DropdownOptions>): JQuery;
 }

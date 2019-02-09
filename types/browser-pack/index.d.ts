@@ -8,7 +8,6 @@
 /** pack node-style source files from a json stream into a browser bundle
  */
 declare namespace browserPack {
-
     export interface Options {
         /** Whether the bundle should include require= (or the opts.externalRequireName) so that
          * require() is available outside the bundle
@@ -54,6 +53,8 @@ declare namespace browserPack {
 
 /** pack node-style source files from a json stream into a browser bundle
  */
-declare function browserPack(opts?: browserPack.Options): NodeJS.ReadWriteStream;
+declare function browserPack(
+    opts?: browserPack.Options
+): NodeJS.ReadWriteStream;
 export = browserPack;
 export as namespace browserPack;

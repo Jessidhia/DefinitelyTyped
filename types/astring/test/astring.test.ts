@@ -27,6 +27,18 @@ const stream: Stream = generate(ast, {
 });
 
 // Generator should map node types to functions whose first parameter is same node type
-baseGenerator.Program(ast, { write(s: string) { return; } });
-baseGenerator.FunctionExpression(functionE, { write(s: string) { return; } });
-baseGenerator.MemberExpression(memberE, { write(s: string) { return; } });
+baseGenerator.Program(ast, {
+    write(s: string) {
+        return;
+    }
+});
+baseGenerator.FunctionExpression(functionE, {
+    write(s: string) {
+        return;
+    }
+});
+baseGenerator.MemberExpression(memberE, {
+    write(s: string) {
+        return;
+    }
+});

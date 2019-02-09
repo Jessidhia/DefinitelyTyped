@@ -6,18 +6,19 @@
 
 import Transport = require("winston-transport");
 
-export interface SlackTransportOptions extends Transport.TransportStreamOptions {
-  domain: string;
-  token: string;
-  webhook_url: string;
-  channel: string;
+export interface SlackTransportOptions
+    extends Transport.TransportStreamOptions {
+    domain: string;
+    token: string;
+    webhook_url: string;
+    channel: string;
 
-  username?: string;
-  icon_emoji?: string;
-  message?: string;
-  queueDelay?: number;
+    username?: string;
+    icon_emoji?: string;
+    message?: string;
+    queueDelay?: number;
 }
 
 export class Slack extends Transport {
-  constructor(options?: SlackTransportOptions);
+    constructor(options?: SlackTransportOptions);
 }

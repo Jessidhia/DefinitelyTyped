@@ -1,4 +1,4 @@
-import * as lunr from 'lunr';
+import * as lunr from "lunr";
 
 function basic_test() {
     const index = lunr(function() {
@@ -9,14 +9,16 @@ function basic_test() {
             extractor: (doc: object) => "oof"
         });
         this.ref("id");
-        this.add({
-            id: 1,
-            title: "Foo",
-            body: "Foo foo foo!"
-        },
-        {
-            boost: 2
-        });
+        this.add(
+            {
+                id: 1,
+                title: "Foo",
+                body: "Foo foo foo!"
+            },
+            {
+                boost: 2
+            }
+        );
         this.add({
             id: 2,
             title: "Bar",
@@ -27,13 +29,10 @@ function basic_test() {
     index.search("foo");
 
     index.query(q => {
-        q.term(
-            lunr.tokenizer('search terms'),
-            {
-                wildcard: lunr.Query.wildcard.TRAILING,
-                presence: lunr.Query.presence.REQUIRED
-            }
-        );
+        q.term(lunr.tokenizer("search terms"), {
+            wildcard: lunr.Query.wildcard.TRAILING,
+            presence: lunr.Query.presence.REQUIRED
+        });
     });
 }
 
@@ -44,10 +43,13 @@ function pipeline_test() {
             return token;
         });
 
-        this.pipeline.after(lunr.stopWordFilter, (token, tokenIndex, tokens) => {
-            // text processing in here
-            return token;
-        });
+        this.pipeline.after(
+            lunr.stopWordFilter,
+            (token, tokenIndex, tokens) => {
+                // text processing in here
+                return token;
+            }
+        );
     });
 }
 

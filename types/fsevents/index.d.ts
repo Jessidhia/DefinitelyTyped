@@ -4,17 +4,23 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node" />
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 export = fsevents;
 
 declare function fsevents(path: string): fsevents.Watcher;
 
 declare namespace fsevents {
-    function getInfo(path: string, flags: number): BaseEventInfo<BaseEventType | 'moved'>;
+    function getInfo(
+        path: string,
+        flags: number
+    ): BaseEventInfo<BaseEventType | "moved">;
 
     class FSEvents {
-        constructor(path: string, handler: (path: string, flags: number, id: number) => void);
+        constructor(
+            path: string,
+            handler: (path: string, flags: number, id: number) => void
+        );
         start(): this;
         stop(): this;
     }
@@ -46,39 +52,89 @@ declare namespace fsevents {
         start(): this;
         stop(): this;
 
-        addListener(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        addListener(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        on(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        on(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        once(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        once(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        prependListener(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        prependListener(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        prependOnceListener(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        prependOnceListener(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        removeListener(event: 'fsevent', listener: (path: string, flags: number, id: number) => void): this;
-        removeListener(event: EventType | 'change', listener: (path: string, info: EventInfo) => void): this;
-        removeAllListeners(event?: EventType | 'change' | 'fsevent'): this;
+        addListener(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        addListener(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        on(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        on(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        once(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        once(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        prependListener(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        prependListener(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        prependOnceListener(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        prependOnceListener(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        removeListener(
+            event: "fsevent",
+            listener: (path: string, flags: number, id: number) => void
+        ): this;
+        removeListener(
+            event: EventType | "change",
+            listener: (path: string, info: EventInfo) => void
+        ): this;
+        removeAllListeners(event?: EventType | "change" | "fsevent"): this;
         // tslint:disable-next-line ban-types
-        listeners(event: EventType | 'change' | 'fsevent'): Function[];
-        emit(event: 'fsevent', path: string, flags: number, id: number): boolean;
-        emit(event: EventType | 'change', path: string, info: EventInfo): boolean;
-        eventNames(): Array<EventType | 'change' | 'fsevent'>;
-        listenerCount(type: EventType | 'change' | 'fsevent'): number;
+        listeners(event: EventType | "change" | "fsevent"): Function[];
+        emit(
+            event: "fsevent",
+            path: string,
+            flags: number,
+            id: number
+        ): boolean;
+        emit(
+            event: EventType | "change",
+            path: string,
+            info: EventInfo
+        ): boolean;
+        eventNames(): Array<EventType | "change" | "fsevent">;
+        listenerCount(type: EventType | "change" | "fsevent"): number;
     }
 
-    type EventType = 'moved-out' | 'moved-in' | BaseEventType;
+    type EventType = "moved-out" | "moved-in" | BaseEventType;
 
     interface EventInfo extends BaseEventInfo<EventType> {
         id: number;
     }
 
-    type BaseEventType = 'created' | 'deleted' | 'modified' | 'root-changed' | 'unknown';
+    type BaseEventType =
+        | "created"
+        | "deleted"
+        | "modified"
+        | "root-changed"
+        | "unknown";
 
     interface BaseEventInfo<E extends string> {
         event: E;
         path: string;
-        type: 'file' | 'directory' | 'symlink';
+        type: "file" | "directory" | "symlink";
         changes: {
             inode: boolean;
             finder: boolean;

@@ -1,4 +1,4 @@
-import known = require('known');
+import known = require("known");
 
 const obj = { foo: true };
 

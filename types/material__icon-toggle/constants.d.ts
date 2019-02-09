@@ -15,18 +15,18 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ROOT: 'mdc-icon-toggle';
-    DISABLED: 'mdc-icon-toggle--disabled';
+    ROOT: "mdc-icon-toggle";
+    DISABLED: "mdc-icon-toggle--disabled";
 }
 
 export interface strings extends MDCStrings {
-    DATA_TOGGLE_ON: 'data-toggle-on';
-    DATA_TOGGLE_OFF: 'data-toggle-off';
-    ARIA_PRESSED: 'aria-pressed';
-    ARIA_DISABLED: 'aria-disabled';
-    ARIA_LABEL: 'aria-label';
-    CHANGE_EVENT: 'MDCIconToggle:change';
+    DATA_TOGGLE_ON: "data-toggle-on";
+    DATA_TOGGLE_OFF: "data-toggle-off";
+    ARIA_PRESSED: "aria-pressed";
+    ARIA_DISABLED: "aria-disabled";
+    ARIA_LABEL: "aria-label";
+    CHANGE_EVENT: "MDCIconToggle:change";
 }

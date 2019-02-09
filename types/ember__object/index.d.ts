@@ -4,16 +4,16 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import CoreObject from '@ember/object/core';
-import Observable from '@ember/object/observable';
+import CoreObject from "@ember/object/core";
+import Observable from "@ember/object/observable";
 import {
     ComputedPropertyCallback,
     UnwrapComputedPropertyGetter,
     UnwrapComputedPropertySetter,
     UnwrapComputedPropertyGetters,
     UnwrapComputedPropertySetters
-} from '@ember/object/-private/types';
-import ComputedProperty from '@ember/object/computed';
+} from "@ember/object/-private/types";
+import ComputedProperty from "@ember/object/computed";
 
 /**
  * `Ember.Object` is the main base class for all Ember objects. It is a subclass
@@ -387,7 +387,7 @@ export function defineProperty(
 
 export function notifyPropertyChange(obj: object, keyName: string): void;
 
-declare module '@ember/utils/-private/types' {
+declare module "@ember/utils/-private/types" {
     interface TypeLookup {
         class: typeof EmberObject;
         instance: EmberObject;

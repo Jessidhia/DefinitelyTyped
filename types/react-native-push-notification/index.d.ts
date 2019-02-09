@@ -31,8 +31,8 @@ export interface PushNotificationOptions {
     requestPermissions?: boolean;
 }
 
-export type PriorityType = 'max' | 'high' | 'low' | 'min' | 'default';
-export type RepeatType = 'week' | 'day' | 'hour' | 'minute' | 'time';
+export type PriorityType = "max" | "high" | "low" | "min" | "default";
+export type RepeatType = "week" | "day" | "hour" | "minute" | "time";
 
 export class PushNotificationObject {
     /* Android only properties */
@@ -82,9 +82,13 @@ export interface PushNotification {
     cancelAllLocalNotifications(): void;
     setApplicationIconBadgeNumber(badgeCount: number): void;
     getApplicationIconBadgeNumber(callback: (badgeCount: number) => void): void;
-    popInitialNotification(callback: (notification: PushNotification | null) => void): void;
+    popInitialNotification(
+        callback: (notification: PushNotification | null) => void
+    ): void;
     abandonPermissions(): void;
-    checkPermissions(callback: (permissions: PushNotificationPermissions) => void): void;
+    checkPermissions(
+        callback: (permissions: PushNotificationPermissions) => void
+    ): void;
     registerNotificationActions(actions: string[]): void;
     clearAllNotifications(): void;
 }

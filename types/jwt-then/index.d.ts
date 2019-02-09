@@ -47,7 +47,7 @@ export interface SignOptions {
 export function sign(
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
-    options?: SignOptions,
+    options?: SignOptions
 ): Promise<string>;
 
 /**
@@ -59,5 +59,5 @@ export function sign(
  */
 export function verify(
     token: string,
-    secretOrPublicKey: string | Buffer,
+    secretOrPublicKey: string | Buffer
 ): Promise<object | string>;

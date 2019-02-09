@@ -6,7 +6,7 @@
  * are not intended as functional tests.
  */
 
-import * as d3Queue from 'd3-queue';
+import * as d3Queue from "d3-queue";
 
 // -------------------------------------------------------------------
 // Test Queue
@@ -27,50 +27,57 @@ qWithResults = d3Queue.queue(3);
 
 // No Results Task ---------------------------------------------------
 
-function delayedHello(name: string, delay: number, callback: (error: any | null) => void) {
+function delayedHello(
+    name: string,
+    delay: number,
+    callback: (error: any | null) => void
+) {
     setTimeout(() => {
         console.log(`Hello, ${name}!`);
         callback(null);
     }, delay);
 }
 
-qNoResult = qNoResult.defer(delayedHello, 'Alice', 250);
+qNoResult = qNoResult.defer(delayedHello, "Alice", 250);
 
-qNoResult.defer(delayedHello, 'Bob', 500);
+qNoResult.defer(delayedHello, "Bob", 500);
 
 // Task with Results -------------------------------------------------
 
-function getFileStats(path: string, callback: (error: any | null, stats?: any) => void) {
+function getFileStats(
+    path: string,
+    callback: (error: any | null, stats?: any) => void
+) {
     // magically get file stats and behave like fs.stat when invoking the callback
 }
 
 qWithResults
-    .defer(getFileStats, './workingpath/file1.json')
-    .defer(getFileStats, './yetanotherworkingpath/file2.json');
+    .defer(getFileStats, "./workingpath/file1.json")
+    .defer(getFileStats, "./yetanotherworkingpath/file2.json");
 
 // Await Tasks Completion =============================================
 
 // No Results Task ---------------------------------------------------
 
-qNoResult = qNoResult.await((error) => {
+qNoResult = qNoResult.await(error => {
     if (error) throw error;
-    console.log('Goodbye!');
+    console.log("Goodbye!");
 });
 
 // Task with Results -------------------------------------------------
 
 // await
-qWithResults
-    .await((error, file1Stat, file2Stat) => {
-        if (error) throw error;
-        console.log(file1Stat, file2Stat);
-    });
+qWithResults.await((error, file1Stat, file2Stat) => {
+    if (error) throw error;
+    console.log(file1Stat, file2Stat);
+});
 
 // awaitAll
 
-qWithResults = d3Queue.queue()
-    .defer(getFileStats, './workingpath/file1.json')
-    .defer(getFileStats, './yetanotherworkingpath/file2.json')
+qWithResults = d3Queue
+    .queue()
+    .defer(getFileStats, "./workingpath/file1.json")
+    .defer(getFileStats, "./yetanotherworkingpath/file2.json")
     .awaitAll((error, fileStats) => {
         if (error) throw error;
         console.log(fileStats![0], fileStats![1]);
@@ -78,13 +85,17 @@ qWithResults = d3Queue.queue()
 
 // Abort Deferred Tasks ==============================================
 
-function requestDataFromInterWeb(url: string, callback: (error: any | null, data?: any) => void) {
+function requestDataFromInterWeb(
+    url: string,
+    callback: (error: any | null, data?: any) => void
+) {
     // magically get data from the interweb, e.g. like d3-request would, while supporting an abort() method
 }
 
-qWithResults = d3Queue.queue()
-    .defer(requestDataFromInterWeb, 'http://www.example.org:81')
-    .defer(requestDataFromInterWeb, 'http://www.example.org:81')
+qWithResults = d3Queue
+    .queue()
+    .defer(requestDataFromInterWeb, "http://www.example.org:81")
+    .defer(requestDataFromInterWeb, "http://www.example.org:81")
     .awaitAll((error, results) => {
         if (error) throw error;
         console.log(results![0], results![1]);

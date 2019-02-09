@@ -6,7 +6,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 declare global {
     const context: SketchContext;
@@ -105,25 +105,25 @@ export interface Style {
     borderRightWidth?: number;
     borderBottomWidth?: number;
     borderLeftWidth?: number;
-    position?: 'absolute' | 'relative';
-    flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-    flexWrap?: 'wrap' | 'nowrap';
+    position?: "absolute" | "relative";
+    flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
+    flexWrap?: "wrap" | "nowrap";
     justifyContent?:
-        | 'flex-start'
-        | 'flex-end'
-        | 'center'
-        | 'space-between'
-        | 'space-around';
-    alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
-    alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch';
-    overflow?: 'visible' | 'hidden' | 'scroll';
+        | "flex-start"
+        | "flex-end"
+        | "center"
+        | "space-between"
+        | "space-around";
+    alignItems?: "flex-start" | "flex-end" | "center" | "stretch";
+    alignSelf?: "auto" | "flex-start" | "flex-end" | "center" | "stretch";
+    overflow?: "visible" | "hidden" | "scroll";
     flex?: number;
     flexGrow?: number;
     flexShrink?: number;
     flexBasis?: number;
     aspectRatio?: number;
     zIndex?: number;
-    backfaceVisibility?: 'visible' | 'hidden';
+    backfaceVisibility?: "visible" | "hidden";
     backgroundColor?: Color;
     borderColor?: Color;
     borderTopColor?: Color;
@@ -135,7 +135,7 @@ export interface Style {
     borderTopRightRadius?: number;
     borderBottomLeftRadius?: number;
     borderBottomRightRadius?: number;
-    borderStyle?: 'solid' | 'dotted' | 'dashed';
+    borderStyle?: "solid" | "dotted" | "dashed";
     opacity?: number;
 }
 
@@ -147,16 +147,16 @@ export interface TextStyle extends Style {
     color?: Color;
     fontFamily?: string;
     fontSize?: number;
-    fontStyle?: 'normal' | 'italic';
+    fontStyle?: "normal" | "italic";
     fontWeight?: string;
-    textDecorationLine?: 'none' | 'underline' | 'double' | 'line-through';
+    textDecorationLine?: "none" | "underline" | "double" | "line-through";
     textShadowOffset?: { width: number; height: number };
     textShadowRadius?: number;
     textShadowColor?: Color;
     letterSpacing?: number;
     lineHeight?: number;
-    textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-    writingDirection?: 'auto' | 'ltr' | 'rtl';
+    textAlign?: "auto" | "left" | "right" | "center" | "justify";
+    writingDirection?: "auto" | "ltr" | "rtl";
 }
 
 /**
@@ -206,12 +206,12 @@ export class Artboard extends React.Component<ArtboardProps, any> {}
 // Image
 export type ImageSource = string | { src: string };
 export type ResizeMode =
-    | 'contain'
-    | 'cover'
-    | 'stretch'
-    | 'center'
-    | 'repeat'
-    | 'none';
+    | "contain"
+    | "cover"
+    | "stretch"
+    | "center"
+    | "repeat"
+    | "none";
 export interface ImageProps {
     children?: any;
     source?: ImageSource;
@@ -325,7 +325,7 @@ export function makeSymbol<P>(
 export function injectSymbols(context: SketchContext): void;
 
 export const Platform: {
-    OS: 'sketch';
+    OS: "sketch";
     Version: 1;
     select: (obj: any) => any;
 };

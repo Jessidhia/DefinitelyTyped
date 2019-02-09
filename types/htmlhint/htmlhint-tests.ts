@@ -14,5 +14,5 @@ const htmlHintRules: RuleSet = {
     "space-tab-mixed-disabled": "tab"
 };
 
-const result = HTMLHint.verify('<span></span>', htmlHintRules);
+const result = HTMLHint.verify("<span></span>", htmlHintRules);
 const formatted = HTMLHint.format(result, { indent: 2 });

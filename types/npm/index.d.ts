@@ -26,7 +26,6 @@ declare namespace NPM {
         cache: string;
         tmp: string;
 
-
         load(cli: ConfigOptions): void;
         load(callback: SimpleCallback<Config>): void;
         load(cli: ConfigOptions, callback: SimpleCallback<Config>): void;
@@ -90,36 +89,36 @@ declare namespace NPM {
         completion: CommandFunction;
 
         //Aliases
-        rm: CommandFunction;               // uninstall
-        r: CommandFunction;                // uninstall
-        un: CommandFunction;               // uninstall
-        unlink: CommandFunction;           // uninstall
-        remove: CommandFunction;           // uninstall
-        rb: CommandFunction;               // rebuild
-        list: CommandFunction;             // ls
-        la: CommandFunction;               // ls
-        ll: CommandFunction;               // ls
-        i: CommandFunction;                // install
-        isntall: CommandFunction;          // install
-        up: CommandFunction;               // update
-        c: CommandFunction;                // config
-        info: CommandFunction;             // view
-        show: CommandFunction;             // view
-        find: CommandFunction;             // search
-        s: CommandFunction;                // search
-        se: CommandFunction;               // search
-        author: CommandFunction;           // owner
-        home: CommandFunction;             // docs
-        issues: CommandFunction;           // bugs
-        unstar: CommandFunction;           // star
-        apihelp: CommandFunction;          // help
-        long: CommandFunction;             // adduser
-        "add-user": CommandFunction;       // adduser
-        tst: CommandFunction;              // test
-        t: CommandFunction;                // test
-        "find-dupes": CommandFunction;     // dedupe
-        ddp: CommandFunction;              // dedupe
-        v: CommandFunction;                // view
+        rm: CommandFunction; // uninstall
+        r: CommandFunction; // uninstall
+        un: CommandFunction; // uninstall
+        unlink: CommandFunction; // uninstall
+        remove: CommandFunction; // uninstall
+        rb: CommandFunction; // rebuild
+        list: CommandFunction; // ls
+        la: CommandFunction; // ls
+        ll: CommandFunction; // ls
+        i: CommandFunction; // install
+        isntall: CommandFunction; // install
+        up: CommandFunction; // update
+        c: CommandFunction; // config
+        info: CommandFunction; // view
+        show: CommandFunction; // view
+        find: CommandFunction; // search
+        s: CommandFunction; // search
+        se: CommandFunction; // search
+        author: CommandFunction; // owner
+        home: CommandFunction; // docs
+        issues: CommandFunction; // bugs
+        unstar: CommandFunction; // star
+        apihelp: CommandFunction; // help
+        long: CommandFunction; // adduser
+        "add-user": CommandFunction; // adduser
+        tst: CommandFunction; // test
+        t: CommandFunction; // test
+        "find-dupes": CommandFunction; // dedupe
+        ddp: CommandFunction; // dedupe
+        v: CommandFunction; // view
 
         // plumbing
         build: CommandFunction;
@@ -127,7 +126,6 @@ declare namespace NPM {
         xmas: CommandFunction;
         substack: CommandFunction;
         visnup: CommandFunction;
-
     }
 
     export interface CommandFunction {
@@ -135,7 +133,13 @@ declare namespace NPM {
     }
 
     export interface CommandCallback {
-        (err?: Error, result?: any, result2?: any, result3?: any, result4?: any): void;
+        (
+            err?: Error,
+            result?: any,
+            result2?: any,
+            result3?: any,
+            result4?: any
+        ): void;
     }
 
     //#endregion
@@ -409,7 +413,7 @@ declare namespace NPM {
         gangsta: any[];
         desc: any[];
         "no-desc": any[];
-        "local": any[];
+        local: any[];
         l: any[];
         m: any[];
         p: any[];

@@ -4,8 +4,14 @@ namespace assertionTests {
     namespace assertionInterface {
         namespace exception {
             const a: adone.error.Exception = new assertion.AssertionError();
-            const b: adone.error.Exception = new assertion.AssertionError("hello");
-            const c: adone.error.Exception = new assertion.AssertionError("hello", { actual: 2, expected: 3 }, () => {});
+            const b: adone.error.Exception = new assertion.AssertionError(
+                "hello"
+            );
+            const c: adone.error.Exception = new assertion.AssertionError(
+                "hello",
+                { actual: 2, expected: 3 },
+                () => {}
+            );
         }
 
         namespace config {
@@ -360,7 +366,9 @@ namespace assertionTests {
         assert.doesNotThrow(async () => {}, Error).then(() => 42);
         assert.doesNotThrow(async () => {}, Error, /\d+/).then(() => 42);
         assert.doesNotThrow(async () => {}, Error, "string").then(() => 42);
-        assert.doesNotThrow(async () => {}, Error, "string", "hello").then(() => 42);
+        assert
+            .doesNotThrow(async () => {}, Error, "string", "hello")
+            .then(() => 42);
 
         assert.operator(1, "<", 2);
         assert.operator(1, "<", 2, "hello");
@@ -422,8 +430,8 @@ namespace assertionTests {
         assert.changesBy(() => {}, {}, "a", 2);
         assert.changesBy(() => {}, {}, "a", 2, "hello");
 
-        assert.doesNotChange(() => {},  {}, "a");
-        assert.doesNotChange(() => {},  {}, "a", "hello");
+        assert.doesNotChange(() => {}, {}, "a");
+        assert.doesNotChange(() => {}, {}, "a", "hello");
 
         assert.changesButNotBy(() => {}, {}, "a", 20);
         assert.changesButNotBy(() => {}, {}, "a", 20, "hello");
@@ -487,7 +495,11 @@ namespace assertionTests {
         expect.fail(1, 2);
         expect.fail(1, 2, "hello");
         expect.fail(1, 2, "hello", "+");
-        expect(1).to.be.been.is.and.has.have.with.that.which.at.of.same.but.does.not.deep.nested.own.ordered.any.all.a("number");
+        expect(
+            1
+        ).to.be.been.is.and.has.have.with.that.which.at.of.same.but.does.not.deep.nested.own.ordered.any.all.a(
+            "number"
+        );
         expect(1).to.be.a("number", "hello").and;
         expect(1).to.be.an("array").and;
         expect(1).to.be.an("array", "hello").and;
@@ -499,16 +511,36 @@ namespace assertionTests {
         expect(1).to.contain(2, "hello").and;
         expect(1).but.contains(2).and;
         expect(1).but.contains(2, "hello").and;
-        expect(1).to.ok().and.a("string");
-        expect(1).to.be.true().but.false();
-        expect(1).to.be.false().but.true();
-        expect(1).to.be.null().and.null();
-        expect(1).to.be.undefined().and.true();
-        expect(1).to.be.NaN().and.null();
-        expect(1).to.exist().and.be.null();
-        expect(1).to.be.empty().and.true();
-        expect(1).to.be.arguments().and.a("number");
-        expect(1).to.be.Arguments().and.false();
+        expect(1)
+            .to.ok()
+            .and.a("string");
+        expect(1)
+            .to.be.true()
+            .but.false();
+        expect(1)
+            .to.be.false()
+            .but.true();
+        expect(1)
+            .to.be.null()
+            .and.null();
+        expect(1)
+            .to.be.undefined()
+            .and.true();
+        expect(1)
+            .to.be.NaN()
+            .and.null();
+        expect(1)
+            .to.exist()
+            .and.be.null();
+        expect(1)
+            .to.be.empty()
+            .and.true();
+        expect(1)
+            .to.be.arguments()
+            .and.a("number");
+        expect(1)
+            .to.be.Arguments()
+            .and.false();
         expect(1).to.be.equal(2).and;
         expect(1).to.be.equal(2, "hello").and;
         expect(1).but.equals(2).and;
@@ -622,8 +654,12 @@ namespace assertionTests {
         expect(() => {}).but.decreases({}).and;
         expect(() => {}).but.decreases({}, "a").and;
         expect(() => {}).but.decreases({}, "a", "hello").and;
-        expect(() => {}).to.decreases({}).by(2).and;
-        expect(() => {}).to.decreases({}).by(2, "hello").and;
+        expect(() => {})
+            .to.decreases({})
+            .by(2).and;
+        expect(() => {})
+            .to.decreases({})
+            .by(2, "hello").and;
         expect({}).to.be.extensible().and;
         expect({}).to.be.sealed().and;
         expect({}).to.be.frozen().and;

@@ -4,14 +4,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace pSettle {
-  interface SettledResult<T> {
-      isFulfilled: boolean;
-      isRejected: boolean;
-      /** If the promise was fulfilled, the resolved value */
-      value?: T;
-      /** If the promise was rejected, the reason */
-      reason?: any;
-  }
+    interface SettledResult<T> {
+        isFulfilled: boolean;
+        isRejected: boolean;
+        /** If the promise was fulfilled, the resolved value */
+        value?: T;
+        /** If the promise was rejected, the reason */
+        reason?: any;
+    }
 }
 
 /**
@@ -23,6 +23,8 @@ declare namespace pSettle {
  * * `isRejected`
  * * `value` or `reason` (Depending on whether the promise fulfilled or rejected)
  */
-declare function pSettle<T>(input: Iterable<PromiseLike<T>>): Promise<Array<pSettle.SettledResult<T>>>;
+declare function pSettle<T>(
+    input: Iterable<PromiseLike<T>>
+): Promise<Array<pSettle.SettledResult<T>>>;
 
 export = pSettle;

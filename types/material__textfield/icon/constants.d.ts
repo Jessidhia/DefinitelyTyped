@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    ICON_EVENT: 'MDCTextField:icon';
-    ICON_ROLE: 'button';
+    ICON_EVENT: "MDCTextField:icon";
+    ICON_ROLE: "button";
 }

@@ -8,4 +8,6 @@
 import http = require("http");
 
 export = decompress_response;
-declare function decompress_response(response: http.IncomingMessage): http.IncomingMessage;
+declare function decompress_response(
+    response: http.IncomingMessage
+): http.IncomingMessage;

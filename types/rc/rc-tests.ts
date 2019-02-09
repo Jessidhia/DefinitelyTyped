@@ -1,15 +1,15 @@
-import rc = require('rc');
+import rc = require("rc");
 
-const confA = rc('appname1', {
+const confA = rc("appname1", {
     port: 2468,
     views: {
-        engine: 'jade',
-    },
+        engine: "jade"
+    }
 });
 
 ////////////////////
 
-const appCfg = rc('appname2', {}, null, function parse(s) {
+const appCfg = rc("appname2", {}, null, function parse(s) {
     return JSON.parse(s.toLowerCase());
 });
 
@@ -20,17 +20,17 @@ appCfg.config;
 ////////////////////
 
 const customArgv = rc(
-    'appname3',
+    "appname3",
     {
-        option: true,
+        option: true
     },
     {
         option: false,
         envOption: 24,
         argv: {
             remain: [],
-            cooked: ['--no-option', '--envOption', '24'],
-            original: ['--no-option', '--envOption=24'],
-        },
+            cooked: ["--no-option", "--envOption", "24"],
+            original: ["--no-option", "--envOption=24"]
+        }
     }
 );

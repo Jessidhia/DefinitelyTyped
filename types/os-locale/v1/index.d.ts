@@ -6,7 +6,10 @@
 
 export = osLocale;
 
-declare function osLocale(options: { spawn?: boolean }, cb: (err: any, locale: string) => void): void;
+declare function osLocale(
+    options: { spawn?: boolean },
+    cb: (err: any, locale: string) => void
+): void;
 declare function osLocale(cb: (err: any, locale: string) => void): void;
 
 declare namespace osLocale {

@@ -42,10 +42,10 @@ declare namespace WL {
     }
     class ResponseBase {
         invocationContext: any;
-        headerJSON: {[key: string]: any}; // JSON Object
+        headerJSON: { [key: string]: any }; // JSON Object
         readyState: number;
         request: any;
-        responseJSON: {[key: string]: any}; // JSON Object
+        responseJSON: { [key: string]: any }; // JSON Object
         responseText: string;
         responseXML: string;
         status: number;
@@ -53,8 +53,7 @@ declare namespace WL {
         errorCode: number;
         errorMsg: string;
     }
-    class FailureResponse extends ResponseBase {
-    }
+    class FailureResponse extends ResponseBase {}
     class Response extends ResponseBase {
         getHeaderNames(): string[];
         getAllHeaders(): Headers;
@@ -96,8 +95,7 @@ declare namespace WL.App {
         resizable?: number;
         scrollbars?: number;
     }
-    interface Data {
-    }
+    interface Data {}
     interface KeepAliveInBackgroundOptions {
         tickerText?: string;
         contentTitle?: string;
@@ -106,7 +104,10 @@ declare namespace WL.App {
         notificationId?: number;
         className?: string;
     }
-    function addActionReceiver(id: string, callback: ActionReceiverCallback): void;
+    function addActionReceiver(
+        id: string,
+        callback: ActionReceiverCallback
+    ): void;
     /**
      * @deprecate Deprecated.
      */
@@ -119,7 +120,11 @@ declare namespace WL.App {
      */
     function getErrorMessage(exception: any): string;
     function hideSplashScreen(): void;
-    function openURL(url: string, target?: string, options?: OpenURLOptions): void;
+    function openURL(
+        url: string,
+        target?: string,
+        options?: OpenURLOptions
+    ): void;
     function overrideBackButton(callback: Callback): void;
     function removeActionReceiver(id: string): void;
     /**
@@ -127,7 +132,10 @@ declare namespace WL.App {
      */
     function resetBackButton(): void;
     function sendActionToNative(action: string, data?: Data): void;
-    function setKeepAliveInBackground(enabled: boolean, options?: KeepAliveInBackgroundOptions): void;
+    function setKeepAliveInBackground(
+        enabled: boolean,
+        options?: KeepAliveInBackgroundOptions
+    ): void;
     function showSplashScreen(): void;
 }
 declare namespace WL.App.BackgroundHandler {
@@ -174,8 +182,7 @@ declare namespace WL.Client {
         procedure: string;
         parameters: any[];
     }
-    interface ChallengeHandlerAuthenticationOptions {
-    }
+    interface ChallengeHandlerAuthenticationOptions {}
     interface ChallengeHandlerSubmitLoginFormOptions {
         timeout?: number;
         headers?: Object;
@@ -184,9 +191,16 @@ declare namespace WL.Client {
     class AbstractChallengeHandler {
         handleChallenge(challenge: any): boolean;
         isCustomResponse(transport: any): boolean;
-        submitAdapterAuthentication(invocationData: ChallengehandlerInvocationData, options: ChallengeHandlerAuthenticationOptions): void;
+        submitAdapterAuthentication(
+            invocationData: ChallengehandlerInvocationData,
+            options: ChallengeHandlerAuthenticationOptions
+        ): void;
         submitFailure(error: string): void;
-        submitLoginForm(reqURL: string, options: ChallengeHandlerSubmitLoginFormOptions, submitLoginFormCallback: (transport: any) => void): void;
+        submitLoginForm(
+            reqURL: string,
+            options: ChallengeHandlerSubmitLoginFormOptions,
+            submitLoginFormCallback: (transport: any) => void
+        ): void;
         submitSuccess(): void;
     }
     interface InitOptions extends Options {
@@ -215,7 +229,9 @@ declare namespace WL.Client {
         onErrorAppVersionAccessDenial?: (response: WL.FailureResponse) => void;
         validateArguments?: boolean;
         autoHideSplash?: boolean;
-        onGetCustomDeviceProvisioningProperties: (resumeDeviceProvisioningProcess: (data: any) => void) => void;
+        onGetCustomDeviceProvisioningProperties: (
+            resumeDeviceProvisioningProcess: (data: any) => void
+        ) => void;
     }
     interface ProcedureInvocationData {
         adapter: string;
@@ -240,9 +256,15 @@ declare namespace WL.Client {
     function clearSharedToken(object: SharedTokenObject): JQueryDeferred<any>;
     function close(): void;
     function connect(options?: ConnectOptions): void;
-    function createChallengeHandler(realmName: string): AbstractChallengeHandler;
-    function createProvisioningChallengeHandler(realmName: string): AbstractChallengeHandler;
-    function createWLChallengeHandler(realName: string): AbstractChallengeHandler;
+    function createChallengeHandler(
+        realmName: string
+    ): AbstractChallengeHandler;
+    function createProvisioningChallengeHandler(
+        realmName: string
+    ): AbstractChallengeHandler;
+    function createWLChallengeHandler(
+        realName: string
+    ): AbstractChallengeHandler;
     function deleteUserPref(key: string, options?: Options): void;
     /**
      * See WL.AppProperty for possible results
@@ -258,14 +280,20 @@ declare namespace WL.Client {
     /**
      * @deprecated since version 7.0
      */
-    function getRequiredAccessTokenScope(status: number, header: string): string;
+    function getRequiredAccessTokenScope(
+        status: number,
+        header: string
+    ): string;
     function getSharedToken(object: SharedTokenObject): JQueryDeferred<any>;
     function getUserInfo(realm: string, key: string): any;
     function getUserName(realm: any): string;
     function getUserPref(key: any): any;
     function hasUserPref(key: any): boolean;
     function init(options: InitOptions): void;
-    function invokeProcedure(invocationData: ProcedureInvocationData, options?: ProcedureInvocationOptions): JQueryDeferred<Response>;
+    function invokeProcedure(
+        invocationData: ProcedureInvocationData,
+        options?: ProcedureInvocationOptions
+    ): JQueryDeferred<Response>;
     /**
      * @deprecated since version 4.1.3. Use WL.Device.getNetworkInfo instead.
      */
@@ -281,7 +309,11 @@ declare namespace WL.Client {
     /**
      * @deprecated since version 7.0
      */
-    function obtainAccessToken(scope: string, onSuccess: ResponseHandler<Response>, onFailure: ResponseHandler<FailureResponse>): void;
+    function obtainAccessToken(
+        scope: string,
+        onSuccess: ResponseHandler<Response>,
+        onFailure: ResponseHandler<FailureResponse>
+    ): void;
     function purgeEventTransmissionBuffer(): void;
     function reloadApp(): void;
     function removeGlobalHeader(headerName: string): void;
@@ -296,7 +328,10 @@ declare namespace WL.Client {
     interface UserPreferences {
         [key: string]: string;
     }
-    function setUserPrefs(userPrefsHash: UserPreferences, options?: Options): void;
+    function setUserPrefs(
+        userPrefsHash: UserPreferences,
+        options?: Options
+    ): void;
     function transmitEvent(event: any, immediate?: boolean): void;
     function updateUserInfo(options: Options): void;
 }
@@ -341,12 +376,36 @@ declare namespace WL.EncryptedCache {
     interface StatusHandler {
         (status: number): void;
     }
-    function close(successHandler: StatusHandler, failureHandler: StatusHandler): void;
-    function destroy(successHandler: StatusHandler, failureHandler: StatusHandler): void;
-    function open(credentials: string, createIfNone: boolean, successHandler: StatusHandler, failureHandler: StatusHandler): void;
-    function read(key: string, successHandler: StatusHandler, failureHandler: StatusHandler): void;
-    function remove(key: string, successHandler: StatusHandler, failureHandler: StatusHandler): void;
-    function write(key: string, value: string, successHandler: StatusHandler, failureHandler: StatusHandler): void;
+    function close(
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
+    function destroy(
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
+    function open(
+        credentials: string,
+        createIfNone: boolean,
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
+    function read(
+        key: string,
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
+    function remove(
+        key: string,
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
+    function write(
+        key: string,
+        value: string,
+        successHandler: StatusHandler,
+        failureHandler: StatusHandler
+    ): void;
 }
 declare namespace WL.Geo {
     interface Coordinate {
@@ -365,13 +424,40 @@ declare namespace WL.Geo {
          */
         confidenceLevel: string;
     }
-    function getDistanceBetweenCoordinates(coordinate1: Coordinate, coordinate2: Coordinate): number;
-    function getDistanceToCircle(coordinate: Coordinate, circle: Circle, options: DistanceOptions): number;
-    function getDistanceToPolygon(coordinate: Coordinate, polygon: Coordinate[], options: DistanceOptions): number;
-    function isInsideCircle(coordinate: Coordinate, circle: Circle, options: InsideOutsideOptions): boolean;
-    function isInsidePolygon(coordinate: Coordinate, polygon: Coordinate[], options: InsideOutsideOptions): boolean;
-    function isOutsideCircle(coordinate: Coordinate, circle: Circle, options: InsideOutsideOptions): boolean;
-    function isOutsidePolygon(coordinate: Coordinate, polygon: Coordinate[], options: InsideOutsideOptions): boolean;
+    function getDistanceBetweenCoordinates(
+        coordinate1: Coordinate,
+        coordinate2: Coordinate
+    ): number;
+    function getDistanceToCircle(
+        coordinate: Coordinate,
+        circle: Circle,
+        options: DistanceOptions
+    ): number;
+    function getDistanceToPolygon(
+        coordinate: Coordinate,
+        polygon: Coordinate[],
+        options: DistanceOptions
+    ): number;
+    function isInsideCircle(
+        coordinate: Coordinate,
+        circle: Circle,
+        options: InsideOutsideOptions
+    ): boolean;
+    function isInsidePolygon(
+        coordinate: Coordinate,
+        polygon: Coordinate[],
+        options: InsideOutsideOptions
+    ): boolean;
+    function isOutsideCircle(
+        coordinate: Coordinate,
+        circle: Circle,
+        options: InsideOutsideOptions
+    ): boolean;
+    function isOutsidePolygon(
+        coordinate: Coordinate,
+        polygon: Coordinate[],
+        options: InsideOutsideOptions
+    ): boolean;
 }
 declare namespace WL {
     class Item {
@@ -384,7 +470,12 @@ declare namespace WL.JSONStore {
     /**
      * Changes the password for the internal storage. You must have an initialized collection before calling WL.JSONStore.changePassword.
      */
-    function changePassword(oldPassword: string, newPassword: string, username: string, options: WL.Options): JQueryDeferred<any>;
+    function changePassword(
+        oldPassword: string,
+        newPassword: string,
+        username: string,
+        options: WL.Options
+    ): JQueryDeferred<any>;
     /**
      * @deprecated since version 5.0.6, it is no longer needed if you use WL.JSONStore.init
      */
@@ -401,7 +492,10 @@ declare namespace WL.JSONStore {
      * Completely wipes data for all users, destroys the internal storage, and clears security artifacts.
      * @parameters options is @deprecated
      */
-    function destroy(username: string, options?: WL.Options): JQueryDeferred<number>;
+    function destroy(
+        username: string,
+        options?: WL.Options
+    ): JQueryDeferred<number>;
     /**
      * @deprecated since version 6.2.0.
      */
@@ -432,7 +526,11 @@ declare namespace WL.JSONStore {
     /**
      * @deprecated since version 5.0.6, it is no longer needed if you use WL.JSONStore.init
      */
-    function initCollection(name: string, searchFields: any, options?: InitOptions): WL.JSONStore.JSONStoreInstance;
+    function initCollection(
+        name: string,
+        searchFields: any,
+        options?: InitOptions
+    ): WL.JSONStore.JSONStoreInstance;
     /**
      * Creates a query for advanced find. See WL.JSONStore.QueryPart for more information.
      */
@@ -503,7 +601,10 @@ declare namespace WL.JSONStore {
     }
     class JSONStoreInstance {
         add(data: any, options?: AddOptions): JQueryDeferred<any>;
-        advancedFind(query: any[], options?: AdvancedFindOptions): JQueryDeferred<any>;
+        advancedFind(
+            query: any[],
+            options?: AdvancedFindOptions
+        ): JQueryDeferred<any>;
         change(data: any, options?: ChangeOptions): JQueryDeferred<any>;
         clear(options?: WL.Options): JQueryDeferred<any>;
         count(query?: any, options?: WL.Options): JQueryDeferred<any>;
@@ -513,7 +614,10 @@ declare namespace WL.JSONStore {
          * @deprecated since version 5.0.6, it is no longer needed if you use WL.JSONStore.JSONStoreInstance.remove with {push: false}.
          */
         erase(doc: any, options?: EraseOptions): void;
-        find(query: Object | Object[], options?: FindOptions): JQueryDeferred<any>;
+        find(
+            query: Object | Object[],
+            options?: FindOptions
+        ): JQueryDeferred<any>;
         findAll(options?: BasicFindOptions): JQueryDeferred<any>;
         findById(options?: WL.Options): JQueryDeferred<any>;
         isDirty(doc: any, options?: WL.Options): JQueryDeferred<boolean>;
@@ -539,7 +643,10 @@ declare namespace WL.JSONStore {
          * Deletes all the documents that are stored inside a collection.
          */
         removeCollection(options?: WL.Options): JQueryDeferred<any>;
-        replace(doc: Object | Object[], options?: ReplaceOptions): JQueryDeferred<any>;
+        replace(
+            doc: Object | Object[],
+            options?: ReplaceOptions
+        ): JQueryDeferred<any>;
         /**
          * Writes data to a collection.
          * @deprecated since version 5.0.6, it is no longer needed if you use WL.JSONStore.JSONStoreInstance.add with {push: false}.
@@ -666,8 +773,8 @@ declare namespace WL {
      */
     class LoggerObject {
         /**
-        * Configures the logger globally.
-        */
+         * Configures the logger globally.
+         */
         config(options?: LoggerOptions): LoggerObject;
         /**
          * Creates an instance of a logger with its own context (also called status or state).
@@ -748,7 +855,11 @@ declare namespace WL {
     }
 }
 declare namespace WL.NativePage {
-    function show(className: string, callback: (data: any) => void, data: any): void;
+    function show(
+        className: string,
+        callback: (data: any) => void,
+        data: any
+    ): void;
 }
 declare namespace WL.SecurityUtils {
     interface DecryptOptions {
@@ -784,7 +895,12 @@ declare namespace WL.SimpleDialog {
         title: string;
         text: string;
     }
-    function show(title: string, text: string, buttons: Button[], options?: Options): void;
+    function show(
+        title: string,
+        text: string,
+        buttons: Button[],
+        options?: Options
+    ): void;
 }
 
 declare namespace WL.TabBar {
@@ -793,7 +909,12 @@ declare namespace WL.TabBar {
         badge?: string; // for iOS
         imageSelected?: string; // for Android
     }
-    function addItem(id: string, callback: Function, title: string, options: ItemOptions): WL.TabBarItem;
+    function addItem(
+        id: string,
+        callback: Function,
+        title: string,
+        options: ItemOptions
+    ): WL.TabBarItem;
     function init(): void;
     function isVisible(): boolean;
     function RemoveAllItems(): void;
@@ -825,21 +946,26 @@ declare namespace WL.Trusteer {
     }
     interface AssetmentRisks {
         device_key: string;
-        'malware.any'?: AssesmentRisk;
-        'network.wifi'?: AssesmentRisk;
-        'os.rooted'?: AssesmentRisk;
-        'os.rooted.native'?: AssesmentRisk;
-        'os.rooted.hiders'?: AssesmentRisk;
-        'os.ver_up_to_date'?: AssesmentRisk;
-        'plat.android.dumpsys'?: AssesmentRisk;
-        'plat.android.apprestrict'?: AssesmentRisk;
-        'total.risk.generic'?: AssesmentRisk;
-        'tas.config_update'?: AssesmentRisk;
+        "malware.any"?: AssesmentRisk;
+        "network.wifi"?: AssesmentRisk;
+        "os.rooted"?: AssesmentRisk;
+        "os.rooted.native"?: AssesmentRisk;
+        "os.rooted.hiders"?: AssesmentRisk;
+        "os.ver_up_to_date"?: AssesmentRisk;
+        "plat.android.dumpsys"?: AssesmentRisk;
+        "plat.android.apprestrict"?: AssesmentRisk;
+        "total.risk.generic"?: AssesmentRisk;
+        "tas.config_update"?: AssesmentRisk;
     }
-    function getRiskAssessment(onSuccess: ResponseHandler<Response>, onFailure: ResponseHandler<FailureResponse>): AssetmentRisks;
+    function getRiskAssessment(
+        onSuccess: ResponseHandler<Response>,
+        onFailure: ResponseHandler<FailureResponse>
+    ): AssetmentRisks;
 }
 declare namespace WL.UserAuth {
-    function deleteCertificate(provisioningEntity?: string): JQueryDeferred<void>;
+    function deleteCertificate(
+        provisioningEntity?: string
+    ): JQueryDeferred<void>;
 }
 declare namespace WLAuthorizationManager {
     /**
@@ -850,9 +976,13 @@ declare namespace WLAuthorizationManager {
     interface RequestObject {
         setRequestHeader: (header: string, value: string) => void;
     }
-    function addCachedAuthorizationHeader(request: RequestObject): JQueryDeferred<RequestObject>;
+    function addCachedAuthorizationHeader(
+        request: RequestObject
+    ): JQueryDeferred<RequestObject>;
     function getAppIdentity(): JQueryDeferred<any>;
-    function getAuthorizationScope(responseAuthenticationHeader: string): string;
+    function getAuthorizationScope(
+        responseAuthenticationHeader: string
+    ): string;
     /**
      * TODO: Set Promise types. Should be something like: JQueryDeferred<data, error>()
      */
@@ -865,7 +995,10 @@ declare namespace WLAuthorizationManager {
      * TODO: Set Promise types. Should be something like: JQueryDeferred<data, error>()
      */
     function getUserIdentity(): JQueryDeferred<any>;
-    function isAuthorizationRequired(responseStatus: number, responseAuthenticationHeader: string): boolean;
+    function isAuthorizationRequired(
+        responseStatus: number,
+        responseAuthenticationHeader: string
+    ): boolean;
     /**
      * TODO: Set Promise types. Should be something like: JQueryDeferred<header, error>()
      */
@@ -873,7 +1006,9 @@ declare namespace WLAuthorizationManager {
     /**
      * See WLAuthorizarionManager.NEVER and WLAuthorizarionManager.ALWAYS
      */
-    function setAuthorizationPersistencePolicy(authorizationPersistencePolicy: string): void;
+    function setAuthorizationPersistencePolicy(
+        authorizationPersistencePolicy: string
+    ): void;
 }
 
 declare namespace WL {
@@ -882,7 +1017,7 @@ declare namespace WL {
 
 declare class WLResourceRequest {
     constructor(url: string, method: string, timeout?: number);
-    addHeader(name: string, value: string|number|boolean): void;
+    addHeader(name: string, value: string | number | boolean): void;
     getHeader(name: string): string;
     getHeaderNames(): string[];
     getHeaders(name: string): string[];
@@ -892,10 +1027,15 @@ declare class WLResourceRequest {
     getUrl(): string;
     send(content?: any): JQueryDeferred<any>;
     sendFormParameters(json: Object): JQueryDeferred<any>;
-    setHeader(name: string, value: string|number|boolean): void;
-    setHeaders(requestHeaders?: { [name: string]: string|string[] }): void;
-    setQueryParameter(name: string, value: string|number|boolean|Object): void;
-    setQueryParameters(parameters?: { [name: string]: string|number|boolean|Object }): void;
+    setHeader(name: string, value: string | number | boolean): void;
+    setHeaders(requestHeaders?: { [name: string]: string | string[] }): void;
+    setQueryParameter(
+        name: string,
+        value: string | number | boolean | Object
+    ): void;
+    setQueryParameters(parameters?: {
+        [name: string]: string | number | boolean | Object;
+    }): void;
     setTimeout(requestTimeout: number): void;
 
     static GET: string;

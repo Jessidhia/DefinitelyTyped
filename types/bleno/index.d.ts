@@ -5,9 +5,20 @@
 
 /// <reference types="node" />
 
-type State = 'poweredOn' | 'poweredOff' | 'unauthorized' | 'unsupported' | 'unknown' | 'resetting';
+type State =
+    | "poweredOn"
+    | "poweredOff"
+    | "unauthorized"
+    | "unsupported"
+    | "unknown"
+    | "resetting";
 
-type Property = 'read' | 'write' | 'indicate' | 'notify' | 'writeWithoutResponse';
+type Property =
+    | "read"
+    | "write"
+    | "indicate"
+    | "notify"
+    | "writeWithoutResponse";
 
 interface CharacteristicOptions {
     uuid: string;
@@ -17,18 +28,24 @@ interface CharacteristicOptions {
     descriptors?: ReadonlyArray<Descriptor> | null;
     onIndicate?: (() => void) | null;
     onNotify?: (() => void) | null;
-    onReadRequest?: ((
-        offset: number,
-        callback: (result: number, data?: Buffer) => void
-    ) => void) | null;
-    onSubscribe?: ((maxValueSize: number, updateValueCallback: any) => void) | null;
+    onReadRequest?:
+        | ((
+              offset: number,
+              callback: (result: number, data?: Buffer) => void
+          ) => void)
+        | null;
+    onSubscribe?:
+        | ((maxValueSize: number, updateValueCallback: any) => void)
+        | null;
     onUnsubscribe?: (() => void) | null;
-    onWriteRequest?: ((
-        data: Buffer,
-        offset: number,
-        withoutResponse: boolean,
-        callback: (result: number) => void
-    ) => void) | null;
+    onWriteRequest?:
+        | ((
+              data: Buffer,
+              offset: number,
+              withoutResponse: boolean,
+              callback: (result: number) => void
+          ) => void)
+        | null;
 }
 
 declare class Characteristic {
@@ -44,13 +61,21 @@ declare class Characteristic {
 
     onNotify(): void;
 
-    onReadRequest(offset: number, callback: (result: number, data?: Buffer) => void): void;
+    onReadRequest(
+        offset: number,
+        callback: (result: number, data?: Buffer) => void
+    ): void;
 
     onSubscribe(maxValueSize: number, updateValueCallback: any): void;
 
     onUnsubscribe(): void;
 
-    onWriteRequest(data: Buffer, offset: number, withoutResponse: boolean, callback: (result: number) => void): void;
+    onWriteRequest(
+        data: Buffer,
+        offset: number,
+        withoutResponse: boolean,
+        callback: (result: number) => void
+    ): void;
 
     toString(): string;
 
@@ -120,29 +145,49 @@ interface Bleno extends NodeJS.EventEmitter {
 
     disconnect(): void;
 
-    setServices(services: ReadonlyArray<PrimaryService>, callback?: (arg: Error | undefined | null) => void): void;
+    setServices(
+        services: ReadonlyArray<PrimaryService>,
+        callback?: (arg: Error | undefined | null) => void
+    ): void;
 
-    startAdvertising(name: string, serviceUuids?: ReadonlyArray<string>, callback?: (arg: Error | undefined | null) => void): void;
+    startAdvertising(
+        name: string,
+        serviceUuids?: ReadonlyArray<string>,
+        callback?: (arg: Error | undefined | null) => void
+    ): void;
 
-    startAdvertisingIBeacon(uuid: string, major: number, minor: number, measuredPower: number, callback?: (arg: Error | undefined | null) => void): void;
+    startAdvertisingIBeacon(
+        uuid: string,
+        major: number,
+        minor: number,
+        measuredPower: number,
+        callback?: (arg: Error | undefined | null) => void
+    ): void;
 
-    startAdvertisingWithEIRData(advertisementData: Buffer, callback?: (arg: Error | undefined | null) => void): void;
-    startAdvertisingWithEIRData(advertisementData: Buffer, scanData: Buffer, callback?: (arg: Error | undefined | null) => void): void;
+    startAdvertisingWithEIRData(
+        advertisementData: Buffer,
+        callback?: (arg: Error | undefined | null) => void
+    ): void;
+    startAdvertisingWithEIRData(
+        advertisementData: Buffer,
+        scanData: Buffer,
+        callback?: (arg: Error | undefined | null) => void
+    ): void;
 
     stopAdvertising(callback?: () => void): void;
 
     updateRssi(callback?: (err: null, rssi: number) => void): void;
 
-    on(event: 'stateChange', cb: (state: State) => void): this;
-    on(event: 'accept', cb: (address: string) => void): this;
-    on(event: 'mtuChange', cb: (mtu: number) => void): this;
-    on(event: 'disconnect', cb: (clientAddress: string) => void): this;
-    on(event: 'advertisingStart', cb: (err?: Error | null) => void): this;
-    on(event: 'advertisingStartError', cb: (err: Error) => void): this;
-    on(event: 'advertisingStop', cb: () => void): this;
-    on(event: 'servicesSet', cb: (err?: Error | null) => void): this;
-    on(event: 'servicesSetError', cb: (err: Error) => void): this;
-    on(event: 'rssiUpdate', cb: (rssi: number) => void): this;
+    on(event: "stateChange", cb: (state: State) => void): this;
+    on(event: "accept", cb: (address: string) => void): this;
+    on(event: "mtuChange", cb: (mtu: number) => void): this;
+    on(event: "disconnect", cb: (clientAddress: string) => void): this;
+    on(event: "advertisingStart", cb: (err?: Error | null) => void): this;
+    on(event: "advertisingStartError", cb: (err: Error) => void): this;
+    on(event: "advertisingStop", cb: () => void): this;
+    on(event: "servicesSet", cb: (err?: Error | null) => void): this;
+    on(event: "servicesSetError", cb: (err: Error) => void): this;
+    on(event: "rssiUpdate", cb: (rssi: number) => void): this;
 }
 
 declare const bleno: Bleno;

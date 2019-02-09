@@ -3,7 +3,6 @@
 // Definitions by: Andrey Markeev <http://markeev.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare class CamlBuilder {
     constructor();
     /** Generate CAML Query, starting from <Where> tag */
@@ -43,12 +42,18 @@ declare namespace CamlBuilder {
     interface IJoin extends IJoinable {
         /** Select projected field for using in the main Query body
             @param remoteFieldAlias By this alias, the field can be used in the main Query body. */
-        Select(remoteFieldInternalName: string, remoteFieldAlias: string): IProjectableView;
+        Select(
+            remoteFieldInternalName: string,
+            remoteFieldAlias: string
+        ): IProjectableView;
     }
     interface IProjectableView extends IView {
         /** Select projected field for using in the main Query body
             @param remoteFieldAlias By this alias, the field can be used in the main Query body. */
-        Select(remoteFieldInternalName: string, remoteFieldAlias: string): IProjectableView;
+        Select(
+            remoteFieldInternalName: string,
+            remoteFieldAlias: string
+        ): IProjectableView;
     }
     enum ViewScope {
         /**  */
@@ -56,7 +61,7 @@ declare namespace CamlBuilder {
         /**  */
         RecursiveAll = 1,
         /**  */
-        FilesOnly = 2,
+        FilesOnly = 2
     }
     interface IQuery extends IGroupable {
         Where(): IFieldExpression;
@@ -75,13 +80,21 @@ declare namespace CamlBuilder {
             @param override This is only necessary for large lists. DON'T use it unless you know what it is for!
             @param useIndexForOrderBy This is only necessary for large lists. DON'T use it unless you know what it is for!
         */
-        OrderBy(fieldInternalName: string, override?: boolean, useIndexForOrderBy?: boolean): ISortedQuery;
+        OrderBy(
+            fieldInternalName: string,
+            override?: boolean,
+            useIndexForOrderBy?: boolean
+        ): ISortedQuery;
         /** Adds OrderBy clause to the query (using descending order for the first field).
             @param fieldInternalName Internal field of the first field by that the data will be sorted (descending)
             @param override This is only necessary for large lists. DON'T use it unless you know what it is for!
             @param useIndexForOrderBy This is only necessary for large lists. DON'T use it unless you know what it is for!
         */
-        OrderByDesc(fieldInternalName: string, override?: boolean, useIndexForOrderBy?: boolean): ISortedQuery;
+        OrderByDesc(
+            fieldInternalName: string,
+            override?: boolean,
+            useIndexForOrderBy?: boolean
+        ): ISortedQuery;
     }
     interface IGroupable extends ISortable {
         /** Adds GroupBy clause to the query.
@@ -94,8 +107,7 @@ declare namespace CamlBuilder {
         /** Adds Or clause to the query. */
         Or(): IFieldExpression;
     }
-    interface IGroupedQuery extends ISortable {
-    }
+    interface IGroupedQuery extends ISortable {}
     interface ISortedQuery extends IFinalizable {
         /** Specifies next order field (ascending) */
         ThenBy(fieldInternalName: string): any;
@@ -148,7 +160,13 @@ declare namespace CamlBuilder {
             @param endDateField Internal name of "End Time" field (default: "EndDate" - all OOTB Calendar lists use this name)
             @param recurrenceIDField Internal name of "Recurrence ID" field (default: "RecurrenceID" - all OOTB Calendar lists use this name)
          */
-        DateRangesOverlap(overlapType: DateRangesOverlapType, calendarDate: string, eventDateField?: string, endDateField?: string, recurrenceIDField?: string): IExpression;
+        DateRangesOverlap(
+            overlapType: DateRangesOverlapType,
+            calendarDate: string,
+            eventDateField?: string,
+            endDateField?: string,
+            recurrenceIDField?: string
+        ): IExpression;
     }
     interface IBooleanFieldExpression {
         /** Checks whether the value of the field is True */
@@ -357,7 +375,7 @@ declare namespace CamlBuilder {
             Caution: usually also returns few days from previous and next months */
         Month = 3,
         /** Returns events for one year, specified by CalendarDate in QueryOptions */
-        Year = 4,
+        Year = 4
     }
     class Internal {
         static createView(viewFields?: string[]): IView;

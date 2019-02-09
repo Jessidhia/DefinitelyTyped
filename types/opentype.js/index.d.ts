@@ -264,7 +264,7 @@ export class GlyphNames {
 export class GlyphSet {
     private font;
     private glyphs;
-    constructor(font: Font, glyphs: Glyph[] | Array<(() => Glyph)>);
+    constructor(font: Font, glyphs: Glyph[] | Array<() => Glyph>);
     get(index: number): Glyph;
     length: number;
     push(index: number, loader: () => Glyph): void;
@@ -377,8 +377,24 @@ export class BoundingBox {
     addPoint(x: number, y: number): void;
     addX(x: number): void;
     addY(y: number): void;
-    addBezier(x0: number, y0: number, x1: number, y1: number, x2: number, y2: number, x: number, y: number): void;
-    addQuad(x0: number, y0: number, x1: number, y1: number, x: number, y: number): void;
+    addBezier(
+        x0: number,
+        y0: number,
+        x1: number,
+        y1: number,
+        x2: number,
+        y2: number,
+        x: number,
+        y: number
+    ): void;
+    addQuad(
+        x0: number,
+        y0: number,
+        x1: number,
+        y1: number,
+        x: number,
+        y: number
+    ): void;
 }
 
 export interface Encoding {

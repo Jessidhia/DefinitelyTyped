@@ -1,7 +1,7 @@
 import {
-  SpellCheckHandler,
-  ContextMenuListener,
-  ContextMenuBuilder
+    SpellCheckHandler,
+    ContextMenuListener,
+    ContextMenuBuilder
 } from "electron-spellchecker";
 
 const spellCheckHandler = new SpellCheckHandler();
@@ -11,5 +11,5 @@ spellCheckHandler.switchLanguage("en-US");
 
 const contextMenuBuilder = new ContextMenuBuilder(spellCheckHandler);
 const contextMenuListener = new ContextMenuListener(info => {
-  contextMenuBuilder.showPopupMenu(info);
+    contextMenuBuilder.showPopupMenu(info);
 });

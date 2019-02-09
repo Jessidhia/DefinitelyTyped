@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import { ClientApi } from 'catbox';
+import { ClientApi } from "catbox";
 
 interface CatboxMemory<T> extends ClientApi<T> {}
 

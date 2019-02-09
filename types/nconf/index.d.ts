@@ -1,12 +1,11 @@
 // Type definitions for nconf 0.10
 // Project: https://github.com/flatiron/nconf
-// Definitions by: Jeff Goddard <https://github.com/jedigo>, 
+// Definitions by: Jeff Goddard <https://github.com/jedigo>,
 //                 Jean-Martin Thibault <https://github.com/jmthibault>
 //                 Dave Houston <https://github.com/ew73>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 // Imported from: https://github.com/soywiz/typescript-node-definitions/nconf.d.ts
-
 
 export declare var version: number;
 export declare var stores: any;
@@ -14,8 +13,16 @@ export declare var sources: any[];
 
 export declare function clear(key: string, callback?: ICallbackFunction): any;
 export function get(key?: string, callback?: ICallbackFunction): any;
-export declare function merge(key: string, value: any, callback?: ICallbackFunction): any;
-export declare function set(key: string, value: any, callback?: ICallbackFunction): any;
+export declare function merge(
+    key: string,
+    value: any,
+    callback?: ICallbackFunction
+): any;
+export declare function set(
+    key: string,
+    value: any,
+    callback?: ICallbackFunction
+): any;
 export declare function reset(callback?: ICallbackFunction): any;
 export declare function any(keys: string[], callback?: ICallbackFunction): any;
 
@@ -36,13 +43,19 @@ export declare function defaults(options?: IOptions): Provider;
 export declare function init(options?: IOptions): void;
 export declare function overrides(options?: IOptions): Provider;
 export declare function remove(name: string): void;
-export declare function required(keys: string[]): Provider; 
+export declare function required(keys: string[]): Provider;
 export declare function create(name: string, options: IOptions): IStore;
 
 export declare function key(...values: any[]): string;
 export declare function path(key: any): any[];
-export declare function loadFiles(files: any, callback?: ICallbackFunction): void;
-export declare function loadFilesSync(files: any, callback?: ICallbackFunction): void;
+export declare function loadFiles(
+    files: any,
+    callback?: ICallbackFunction
+): void;
+export declare function loadFilesSync(
+    files: any,
+    callback?: ICallbackFunction
+): void;
 
 export interface IFormats {
     json: IFormat;

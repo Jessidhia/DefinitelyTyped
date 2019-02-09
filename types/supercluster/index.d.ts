@@ -5,7 +5,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as GeoJSON from 'geojson';
+import * as GeoJSON from "geojson";
 
 export as namespace supercluster;
 
@@ -80,7 +80,10 @@ export interface AnyProps {
 /**
  * A very fast geospatial point clustering library for browsers and Node.
  */
-export default class Supercluster<P extends GeoJSON.GeoJsonProperties = AnyProps, C extends GeoJSON.GeoJsonProperties = AnyProps> {
+export default class Supercluster<
+    P extends GeoJSON.GeoJsonProperties = AnyProps,
+    C extends GeoJSON.GeoJsonProperties = AnyProps
+> {
     constructor(options?: Options<P, C>);
 
     /**
@@ -98,7 +101,10 @@ export default class Supercluster<P extends GeoJSON.GeoJsonProperties = AnyProps
      * @param bbox Bounding box (`[westLng, southLat, eastLng, northLat]`).
      * @param zoom Zoom level.
      */
-    getClusters(bbox: GeoJSON.BBox, zoom: number): Array<ClusterFeature<C> | PointFeature<P>>;
+    getClusters(
+        bbox: GeoJSON.BBox,
+        zoom: number
+    ): Array<ClusterFeature<C> | PointFeature<P>>;
 
     /**
      * For a given zoom and x/y coordinates, returns a
@@ -122,7 +128,11 @@ export default class Supercluster<P extends GeoJSON.GeoJsonProperties = AnyProps
      * @param limit The number of points to return (set to `Infinity` for all points).
      * @param offset The amount of points to skip (for pagination).
      */
-    getLeaves(clusterId: number, limit?: number, offset?: number): Array<ClusterFeature<C> | PointFeature<P>>; // Cluster[];
+    getLeaves(
+        clusterId: number,
+        limit?: number,
+        offset?: number
+    ): Array<ClusterFeature<C> | PointFeature<P>>; // Cluster[];
 
     /**
      * Returns the zoom level on which the cluster expands into several

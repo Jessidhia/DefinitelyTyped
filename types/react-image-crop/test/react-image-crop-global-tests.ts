@@ -14,17 +14,14 @@ class SimpleTest extends React.Component<{}, TestState> {
 
     onChange = (crop: ReactCrop.Crop) => {
         this.setState({ crop });
-    }
+    };
 
     render() {
-        return React.createElement(
-            ReactCrop,
-            {
-                src: 'imageSrc',
-                onChange: this.onChange,
-                crop: this.state.crop,
-            },
-        );
+        return React.createElement(ReactCrop, {
+            src: "imageSrc",
+            onChange: this.onChange,
+            crop: this.state.crop
+        });
     }
 }
 
@@ -34,7 +31,7 @@ class AspectRatioTest extends React.Component<{}, TestState> {
 
     onChange = (crop: ReactCrop.Crop) => {
         this.setState({ crop });
-    }
+    };
 
     onImageLoaded = (image: HTMLImageElement) => {
         this.setState({
@@ -43,23 +40,20 @@ class AspectRatioTest extends React.Component<{}, TestState> {
                     x: 0,
                     y: 0,
                     aspect: 16 / 9,
-                    width: 50,
+                    width: 50
                 },
-                image.width / image.height,
-            ),
+                image.width / image.height
+            )
         });
-    }
+    };
 
     render() {
-        return React.createElement(
-            ReactCrop,
-            {
-                src: 'imageSrc',
-                onChange: this.onChange,
-                onImageLoaded: this.onImageLoaded,
-                crop: this.state.crop,
-            },
-        );
+        return React.createElement(ReactCrop, {
+            src: "imageSrc",
+            onChange: this.onChange,
+            onImageLoaded: this.onImageLoaded,
+            crop: this.state.crop
+        });
     }
 }
 
@@ -69,7 +63,7 @@ class CompleteTest extends React.Component<{}, TestState> {
 
     onChange = (crop: ReactCrop.Crop) => {
         this.setState({ crop });
-    }
+    };
 
     onImageLoaded = (image: HTMLImageElement) => {
         this.setState({
@@ -78,40 +72,37 @@ class CompleteTest extends React.Component<{}, TestState> {
                     x: 0,
                     y: 0,
                     aspect: 16 / 9,
-                    width: 20,
+                    width: 20
                 },
-                image.width / image.height,
-            ),
+                image.width / image.height
+            )
         });
-    }
+    };
 
     onImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-        console.warn('Error loading image');
-    }
+        console.warn("Error loading image");
+    };
 
     render() {
-        return React.createElement(
-            ReactCrop,
-            {
-                src: 'imageSrc',
-                onChange: this.onChange,
-                onImageLoaded: this.onImageLoaded,
-                crop: this.state.crop,
-                minWidth: 30,
-                minHeight: 30,
-                maxWidth: 90,
-                maxHeight: 90,
-                keepSelection: true,
-                disabled: false,
-                style: { border: '1px solid black', position: 'relative' },
-                onComplete: () => console.log('Crop complete'),
-                onDragStart: () => console.log('Drag start'),
-                onDragEnd: () => console.log('Drag end'),
-                crossorigin: 'anonymous',
-                onImageError: this.onImageError,
-                className: 'my-cropper',
-                locked: false
-            },
-        );
+        return React.createElement(ReactCrop, {
+            src: "imageSrc",
+            onChange: this.onChange,
+            onImageLoaded: this.onImageLoaded,
+            crop: this.state.crop,
+            minWidth: 30,
+            minHeight: 30,
+            maxWidth: 90,
+            maxHeight: 90,
+            keepSelection: true,
+            disabled: false,
+            style: { border: "1px solid black", position: "relative" },
+            onComplete: () => console.log("Crop complete"),
+            onDragStart: () => console.log("Drag start"),
+            onDragEnd: () => console.log("Drag end"),
+            crossorigin: "anonymous",
+            onImageError: this.onImageError,
+            className: "my-cropper",
+            locked: false
+        });
     }
 }

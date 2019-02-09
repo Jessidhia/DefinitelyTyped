@@ -7,7 +7,13 @@
 
 type Handler = (e?: Event) => void;
 type RequestFullScreenFunction = (element: Element) => void;
-type EventName = 'fullscreenEnabled' | 'fullscreenElement' | 'requestFullscreen' | 'exitFullscreen' | 'fullscreenchange' | 'fullscreenerror';
+type EventName =
+    | "fullscreenEnabled"
+    | "fullscreenElement"
+    | "requestFullscreen"
+    | "exitFullscreen"
+    | "fullscreenchange"
+    | "fullscreenerror";
 
 declare class Fscreen {
     readonly fullscreenElement: Element | undefined;
@@ -16,8 +22,16 @@ declare class Fscreen {
     onfullscreenchange: Handler;
     onfullscreenerror: Handler;
 
-    addEventListener(type: EventName, handler: Handler, options?: boolean | AddEventListenerOptions): void;
-    removeEventListener(type: EventName, handler: Handler, options?: boolean | AddEventListenerOptions): void;
+    addEventListener(
+        type: EventName,
+        handler: Handler,
+        options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener(
+        type: EventName,
+        handler: Handler,
+        options?: boolean | AddEventListenerOptions
+    ): void;
     requestFullscreen(element: Element): void;
     requestFullscreenFunction(element: Element): RequestFullScreenFunction;
 }

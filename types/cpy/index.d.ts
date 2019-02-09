@@ -4,15 +4,22 @@
 //                 BendingBender <https://github.com/BendingBender>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import glob = require('glob');
-import cpFile = require('cp-file');
+import glob = require("glob");
+import cpFile = require("cp-file");
 
 export = cpy;
-declare function cpy(files: string | string[], destination: string, opts?: cpy.Options): Promise<void> & cpy.ProgressEmitter;
+declare function cpy(
+    files: string | string[],
+    destination: string,
+    opts?: cpy.Options
+): Promise<void> & cpy.ProgressEmitter;
 
 declare namespace cpy {
     interface ProgressEmitter {
-        on(event: 'progress', handler: (progress: ProgressData) => void): Promise<void>;
+        on(
+            event: "progress",
+            handler: (progress: ProgressData) => void
+        ): Promise<void>;
     }
 
     type Options = CpyOptions & glob.IOptions & cpFile.Options;

@@ -1,26 +1,27 @@
-import {
-    Agent,
-    start
-} from 'elastic-apm-node';
+import { Agent, start } from "elastic-apm-node";
 
 const agent: Agent = start({
-  serviceName: '',
-  secretToken: '',
-  serverUrl: ''
+    serviceName: "",
+    secretToken: "",
+    serverUrl: ""
 });
 const started: boolean = agent.isStarted();
 
 function testCallbacks() {
     const testError: Error = new Error("Test Error");
-    agent.captureError(testError, {error: "test"}, (err: Error) => err = testError);
-    agent.captureError(testError, {error: "test"});
+    agent.captureError(
+        testError,
+        { error: "test" },
+        (err: Error) => (err = testError)
+    );
+    agent.captureError(testError, { error: "test" });
     agent.captureError(testError);
 
     agent.addFilter((payload: any) => {
         return payload;
     });
 
-    agent.handleUncaughtExceptions((err: Error) => err = testError);
+    agent.handleUncaughtExceptions((err: Error) => (err = testError));
 
     agent.flush((test: any) => test);
 }
@@ -41,7 +42,7 @@ const transactionName: any = agent.setTransactionName("new name");
 
 const tags: any = agent.setTag("name", "value");
 
-const addedTags: any = agent.addTags({name: "value"});
+const addedTags: any = agent.addTags({ name: "value" });
 
 const startSpan: any = agent.startSpan();
 

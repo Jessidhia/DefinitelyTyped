@@ -1,4 +1,4 @@
-import * as ROT from 'rot-js';
+import * as ROT from "rot-js";
 
 // All the documentation uses a function called `SHOW` to do results; stubbing it out here
 // so that I can copy/paste directly.
@@ -12,9 +12,7 @@ let display: ROT.Display;
 
 // Introduction / Browser Support
 
-SHOW(
-    ROT.isSupported()
-);
+SHOW(ROT.isSupported());
 
 // JS Enhancements / Array
 
@@ -34,12 +32,7 @@ SHOW(
 
 // JS Enhancements / Number
 
-SHOW(
-    (15) % 7,
-    (-15) % 7,
-    (15).mod(7),
-    (-15).mod(7)
-);
+SHOW(15 % 7, -15 % 7, (15).mod(7), (-15).mod(7));
 
 // JS Enhancements / (Object | Function) not included, as TS does that for us
 
@@ -51,15 +44,17 @@ SHOW(
 // ----
 
 const myObj = {
-    foo() { return "bar"; }
+    foo() {
+        return "bar";
+    }
 };
-String.format.map['f'] = "foo";
+String.format.map["f"] = "foo";
 
 SHOW("%f".format(myObj));
 // ----
 
 class Item {
-    constructor(private readonly name: string) { }
+    constructor(private readonly name: string) {}
 
     a() {
         const first = self.name.charAt(0);
@@ -71,8 +66,8 @@ class Item {
     }
 }
 
-String.format.map['a'] = "a";
-String.format.map['the'] = "the";
+String.format.map["a"] = "a";
+String.format.map["the"] = "the";
 
 const apple = new Item("apple");
 const banana = new Item("banana");
@@ -83,13 +78,13 @@ SHOW(template.format(banana, banana));
 // ----
 
 class Animal {
-    constructor(private readonly name: string) { }
+    constructor(private readonly name: string) {}
     adjective(x: string) {
         return `${x} ${this.name}`;
     }
 }
 
-String.format.map['adjective'] = "adjective";
+String.format.map["adjective"] = "adjective";
 
 const cat = new Animal("cat");
 template = "You see a %{adjective,black}.";
@@ -100,11 +95,7 @@ SHOW(template.format(cat));
 
 // RNG / Generating random values
 
-SHOW(
-    ROT.RNG.getUniform(),
-    ROT.RNG.getNormal(0, 10),
-    ROT.RNG.getPercentage()
-);
+SHOW(ROT.RNG.getUniform(), ROT.RNG.getNormal(0, 10), ROT.RNG.getPercentage());
 // ----
 
 const canvas = document.createElement("canvas");
@@ -118,12 +109,14 @@ ctx!.fillRect(0, 0, canvas.width, canvas.height);
 ctx!.fillStyle = "#f00";
 
 const data = new Array<any>();
-for (let i = 0; i < 40000; i++) {       /* generate histogram */
+for (let i = 0; i < 40000; i++) {
+    /* generate histogram */
     const num = Math.round(ROT.RNG.getNormal(250, 100));
     data[num] = (data[num] || 0) + 1;
 }
 
-for (let i = 0; i < data.length; i++) { /* plot histogram */
+for (let i = 0; i < data.length; i++) {
+    /* plot histogram */
     ctx!.fillRect(i, canvas.height - data[i], 1, data[i]);
 }
 
@@ -138,16 +131,10 @@ SHOW(ROT.RNG.getUniform());
 const seed = ROT.RNG.getSeed();
 
 ROT.RNG.setSeed(12345);
-SHOW(
-    ROT.RNG.getUniform(),
-    ROT.RNG.getUniform()
-);
+SHOW(ROT.RNG.getUniform(), ROT.RNG.getUniform());
 
 ROT.RNG.setSeed(12345);
-SHOW(
-    ROT.RNG.getUniform(),
-    ROT.RNG.getUniform()
-);
+SHOW(ROT.RNG.getUniform(), ROT.RNG.getUniform());
 
 // RNG / Cloning a RNG
 
@@ -195,8 +182,8 @@ display = new ROT.Display({ width: 40, height: 9 });
 SHOW(display.getContainer());
 
 display.draw(5, 4, "@");
-display.draw(15, 4, "%", "#0f0");          /* foreground color */
-display.draw(25, 4, "#", "#f00", "#009");  /* and background color */
+display.draw(15, 4, "%", "#0f0"); /* foreground color */
+display.draw(25, 4, "#", "#f00", "#009"); /* and background color */
 
 // Console Display / Drawing strings
 
@@ -211,7 +198,9 @@ display.drawText(20, 5, "This line of text is very long.", 16);
 /* lines are broken at word boundaries; lines are trimmed */
 const words = ["lorem", "ipsum", "dolor", "sit", "amet"];
 const long: string[] = [];
-for (let i = 0; i < 30; i++) { long.push(words.random()); }
+for (let i = 0; i < 30; i++) {
+    long.push(words.random());
+}
 const longer = long.join(" ");
 
 display.drawText(1, 10, longer, 38);
@@ -421,7 +410,8 @@ for (let i = 0; i < 4; i++) {
 }
 // ----
 
-w = 100; h = 60;
+w = 100;
+h = 60;
 display = new ROT.Display({ width: w, height: h, fontSize: 6 });
 SHOW(display.getContainer());
 
@@ -515,11 +505,15 @@ const drawDoor = (x: number, y: number) => {
 const rooms = dungeon.getRooms();
 for (let i = 0; i < rooms.length; i++) {
     const room = rooms[i];
-    SHOW("Room #%s: [%s, %s] => [%s, %s]".format(
-        (i + 1),
-        room.getLeft(), room.getTop(),
-        room.getRight(), room.getBottom()
-    ));
+    SHOW(
+        "Room #%s: [%s, %s] => [%s, %s]".format(
+            i + 1,
+            room.getLeft(),
+            room.getTop(),
+            room.getRight(),
+            room.getBottom()
+        )
+    );
 
     room.getDoors(drawDoor);
 }
@@ -570,7 +564,9 @@ new ROT.Map.Uniform().create((x: number, y: number, type: number) => {
 /* input callback */
 let lightPasses = (x: number, y: number) => {
     const key = `${x},${y}`;
-    if (key in data_uniform) { return (data_uniform[key] === 0); }
+    if (key in data_uniform) {
+        return data_uniform[key] === 0;
+    }
     return false;
 };
 
@@ -578,8 +574,8 @@ let fov = new ROT.FOV.PreciseShadowcasting(lightPasses);
 
 /* output callback */
 fov.compute(50, 22, 10, (x, y, r, visibility) => {
-    const ch = (r ? "" : "@");
-    const color = (data_uniform[`${x},${y}`] ? "#aa0" : "#660");
+    const ch = r ? "" : "@";
+    const color = data_uniform[`${x},${y}`] ? "#aa0" : "#660";
     display.draw(x, y, ch, "#fff", color);
 });
 
@@ -602,32 +598,51 @@ new ROT.Map.Uniform().create((x: number, y: number, type: number) => {
 /* input callback */
 lightPasses = (x: number, y: number) => {
     const key = `${x},${y}`;
-    if (key in data_uniform) { return (data_uniform[key] === 0); }
+    if (key in data_uniform) {
+        return data_uniform[key] === 0;
+    }
     return false;
 };
 
 const fov2 = new ROT.FOV.RecursiveShadowcasting(lightPasses);
 
 /* output callback for mob with bad vision */
-fov2.compute90(50, 22, 10, DIR_WEST, (x: number, y: number, r: number, visibility: number) => {
-    const ch = (r ? "1" : "@");
-    const color = (data_uniform[`${x},${y}`] ? "#aa0" : "#660");
-    display.draw(x, y, ch, "#fff", color);
-});
+fov2.compute90(
+    50,
+    22,
+    10,
+    DIR_WEST,
+    (x: number, y: number, r: number, visibility: number) => {
+        const ch = r ? "1" : "@";
+        const color = data_uniform[`${x},${y}`] ? "#aa0" : "#660";
+        display.draw(x, y, ch, "#fff", color);
+    }
+);
 
 /* output callback for second mob with better vision */
-fov2.compute180(57, 14, 10, DIR_NORTH, (x: number, y: number, r: number, visibility: number) => {
-    const ch = (r ? "2" : "@");
-    const color = (data_uniform[`${x},${y}`] ? "#aa0" : "#660");
-    display.draw(x, y, ch, "#fff", color);
-});
+fov2.compute180(
+    57,
+    14,
+    10,
+    DIR_NORTH,
+    (x: number, y: number, r: number, visibility: number) => {
+        const ch = r ? "2" : "@";
+        const color = data_uniform[`${x},${y}`] ? "#aa0" : "#660";
+        display.draw(x, y, ch, "#fff", color);
+    }
+);
 
 /* output callback for third mob with supernatural vision */
-fov2.compute(65, 5, 10, (x: number, y: number, r: number, visibility: number) => {
-    const ch = (r ? "3" : "@");
-    const color = (data_uniform[`${x},${y}`] ? "#aa0" : "#660");
-    display.draw(x, y, ch, "#fff", color);
-});
+fov2.compute(
+    65,
+    5,
+    10,
+    (x: number, y: number, r: number, visibility: number) => {
+        const ch = r ? "3" : "@";
+        const color = data_uniform[`${x},${y}`] ? "#aa0" : "#660";
+        display.draw(x, y, ch, "#fff", color);
+    }
+);
 
 // Color / Converting string → array
 SHOW(
@@ -638,23 +653,19 @@ SHOW(
 );
 
 // Color / Converting array → string
-SHOW(
-    ROT.Color.toRGB([10, 128, 230]),
-    ROT.Color.toHex([10, 128, 230])
-);
+SHOW(ROT.Color.toRGB([10, 128, 230]), ROT.Color.toHex([10, 128, 230]));
 
 // Color / Converting between RGB and HSL
-SHOW(
-    ROT.Color.rgb2hsl([51, 102, 51]),
-    ROT.Color.hsl2rgb([0.333, 0.333, 0.3])
-);
+SHOW(ROT.Color.rgb2hsl([51, 102, 51]), ROT.Color.hsl2rgb([0.333, 0.333, 0.3]));
 
 // Color / Adding and mixing colors
-SHOW(/* addition = lightening */
+SHOW(
+    /* addition = lightening */
     ROT.Color.add([10, 128, 230], [200, 10, 15], [30, 30, 100]),
     ROT.Color.add_([10, 128, 230], [200, 10, 15])
 );
-SHOW(/* multiplication = darkening */
+SHOW(
+    /* multiplication = darkening */
     ROT.Color.multiply([10, 128, 230], [200, 10, 15]),
     ROT.Color.multiply_([10, 128, 230], [200, 10, 15])
 );
@@ -692,13 +703,13 @@ for (let i = 0; i < 4; i++) {
 
 /* prepare a FOV algorithm */
 lightPasses = (x: number, y: number) => {
-    return (mapData[`${x},${y}`] === 1);
+    return mapData[`${x},${y}`] === 1;
 };
 fov = new ROT.FOV.PreciseShadowcasting(lightPasses, { topology: 4 });
 
 /* prepare a lighting algorithm */
 const reflectivity = (x: number, y: number) => {
-    return (mapData[`${x},${y}`] === 1 ? 0.3 : 0);
+    return mapData[`${x},${y}`] === 1 ? 0.3 : 0;
 };
 const lighting = new ROT.Lighting(reflectivity, { range: 12, passes: 2 });
 lighting.setFOV(fov);
@@ -706,7 +717,11 @@ lighting.setLight(12, 12, [240, 240, 30]);
 lighting.setLight(20, 20, [240, 60, 60]);
 lighting.setLight(45, 25, [200, 200, 200]);
 
-const lightingCallback = (x: number, y: number, color: [number, number, number]) => {
+const lightingCallback = (
+    x: number,
+    y: number,
+    color: [number, number, number]
+) => {
     lightData[`${x},${y}`] = color;
 };
 lighting.compute(lightingCallback);
@@ -722,10 +737,13 @@ for (const id in mapData) {
     const x = parseInt(parts[0], 10);
     const y = parseInt(parts[1], 10);
 
-    const baseColor: ROT.ColorArray = (mapData[id] ? [100, 100, 100] : [50, 50, 50]);
+    const baseColor: ROT.ColorArray = mapData[id]
+        ? [100, 100, 100]
+        : [50, 50, 50];
     let light = ambientLight;
 
-    if (id in lightData) { /* add light from our computation */
+    if (id in lightData) {
+        /* add light from our computation */
         light = ROT.Color.add(light, lightData[id]);
     }
 
@@ -749,7 +767,7 @@ uni_map.create((x, y, value) => {
 
 /* input callback informs about map structure */
 let passableCallback = (x: number, y: number) => {
-    return (uni_data[`${x},${y}`] === 0);
+    return uni_data[`${x},${y}`] === 0;
 };
 
 /* prepare path to given coords */
@@ -785,7 +803,7 @@ uni_map.create((x: number, y: number, value: number) => {
 
 /* input callback informs about map structure */
 passableCallback = (x: number, y: number) => {
-    return (uni_data[`${x},${y}`] === 0);
+    return uni_data[`${x},${y}`] === 0;
 };
 
 /* prepare path to given coords */
@@ -842,15 +860,11 @@ for (let j = 0; j < h; j++) {
 const queue = new ROT.EventQueue();
 
 queue.add("event 1", 100); /* queued after 100 time units */
-queue.add("event 2", 10);  /* queued after 10 time units */
-queue.add("event 3", 50);  /* queued after 50 time units */
+queue.add("event 2", 10); /* queued after 10 time units */
+queue.add("event 3", 50); /* queued after 50 time units */
 
 queue.remove("event 2");
-SHOW(
-    queue.get(),
-    queue.get(),
-    queue.getTime()
-);
+SHOW(queue.get(), queue.get(), queue.getTime());
 
 // Timing & scheduling / Simple scheduler
 
@@ -876,9 +890,11 @@ SHOW(turns.join(" ") + " ...");
 scheduler = new ROT.Scheduler.Speed();
 
 class Actor {
-    constructor(public speed: number, public number: number) { }
+    constructor(public speed: number, public number: number) {}
 
-    getSpeed() { return this.speed; }
+    getSpeed() {
+        return this.speed;
+    }
 }
 
 /* generate some actors */
@@ -925,15 +941,15 @@ let engine = new ROT.Engine(scheduler);
 let output: any = [];
 
 class Actor1 {
-    constructor(public lives: number) { }
+    constructor(public lives: number) {}
 
     act() {
         output.push(".");
         this.lives--;
         if (!this.lives) {
             scheduler.remove(actor1);
-            engine.lock();              /* pause execution */
-            setTimeout(unlock, 500);    /* wait for 500ms */
+            engine.lock(); /* pause execution */
+            setTimeout(unlock, 500); /* wait for 500ms */
         }
     }
 }
@@ -948,12 +964,13 @@ class Actor2 {
     }
 }
 
-const unlock = () => {               /* called asynchronously */
+const unlock = () => {
+    /* called asynchronously */
     const actor2 = new Actor2();
 
     output = [];
-    scheduler.add(actor2, false);       /* add second (non-repeating) actor */
-    engine.unlock();                    /* continue execution */
+    scheduler.add(actor2, false); /* add second (non-repeating) actor */
+    engine.unlock(); /* continue execution */
     SHOW(output.join(""));
 };
 
@@ -968,12 +985,14 @@ output = [];
 
 /* sample actor: pauses the execution when dead */
 class Actor3 {
-    constructor(public lives: number) { }
+    constructor(public lives: number) {}
 
     act() {
         let done: any = null;
         const promise = {
-            then(cb: any) { done = cb; }
+            then(cb: any) {
+                done = cb;
+            }
         };
 
         output.push(".");
@@ -982,7 +1001,9 @@ class Actor3 {
 
         /* if alive, wait for 500ms for next turn */
         if (this.lives) {
-            setTimeout(() => { done(); }, 500);
+            setTimeout(() => {
+                done();
+            }, 500);
         }
 
         return promise;
@@ -1003,16 +1024,22 @@ req.open("get", "java.txt", true);
 req.send();
 
 req.onreadystatechange = () => {
-    if (req.readyState !== 4) { return; }
+    if (req.readyState !== 4) {
+        return;
+    }
 
     const lines = req.responseText.split("\n");
     while (lines.length) {
         const line = lines.pop()!.trim();
-        if (!line) { continue; }
+        if (!line) {
+            continue;
+        }
         sg.observe(line);
     }
 
-    for (let i = 0; i < 20; i++) { SHOW(sg.generate()); }
+    for (let i = 0; i < 20; i++) {
+        SHOW(sg.generate());
+    }
 };
 
 // Hex support / Displaying hexes
@@ -1038,8 +1065,11 @@ for (let y = 0; y < 5; y++) {
 // ----
 
 display = new ROT.Display({
-    width: 10, height: 4, spacing: 2.5,
-    layout: "hex", transpose: true
+    width: 10,
+    height: 4,
+    spacing: 2.5,
+    layout: "hex",
+    transpose: true
 });
 SHOW(display.getContainer());
 
@@ -1068,7 +1098,9 @@ for (let i = 0; i < w; i++) {
         const dx = i / w - 0.5;
         const dy = j / h - 0.5;
         const dist = Math.pow(dx * dx + dy * dy, 0.3);
-        if (ROT.RNG.getUniform() < dist) { cell_map.set(i, j, 1); }
+        if (ROT.RNG.getUniform() < dist) {
+            cell_map.set(i, j, 1);
+        }
     }
 }
 
@@ -1099,7 +1131,7 @@ cell_map.create((x: number, y: number, value: number) => {
 
 /* input callback informs about map structure */
 passableCallback = (x: number, y: number) => {
-    return (cell_data[`${x},${y}`] === 0);
+    return cell_data[`${x},${y}`] === 0;
 };
 
 /* prepare path to given coords */
@@ -1137,7 +1169,9 @@ cell_map.create((x: number, y: number, value: number) => {
 /* input callback */
 lightPasses = (x: number, y: number) => {
     const key = `${x},${y}`;
-    if (key in cell_data) { return (cell_data[key] === 0); }
+    if (key in cell_data) {
+        return cell_data[key] === 0;
+    }
     return false;
 };
 
@@ -1145,7 +1179,7 @@ fov = new ROT.FOV.PreciseShadowcasting(lightPasses, { topology: 6 });
 
 /* output callback */
 fov.compute(20, 14, 6, (x, y, r, vis) => {
-    const ch = (r ? "" : "@");
-    const color = (cell_data[`${x},${y}`] ? "#aa0" : "#660");
+    const ch = r ? "" : "@";
+    const color = cell_data[`${x},${y}`] ? "#aa0" : "#660";
     display.draw(x, y, ch, "#fff", color);
 });

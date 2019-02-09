@@ -10,32 +10,67 @@ export interface Position {
 }
 
 export interface DraggabillyOptions {
-    axis?: 'x' | 'y';
+    axis?: "x" | "y";
     containment?: Element | string | boolean;
     grid?: [number, number];
     handle?: string;
 }
 
-export type DraggabillyClickEventName = 'dragStart' | 'dragEnd' | 'pointerDown' | 'pointerUp' | 'staticClick';
+export type DraggabillyClickEventName =
+    | "dragStart"
+    | "dragEnd"
+    | "pointerDown"
+    | "pointerUp"
+    | "staticClick";
 
-export type DraggabillyMoveEventName = 'dragMove' | 'pointerMove';
+export type DraggabillyMoveEventName = "dragMove" | "pointerMove";
 
 export default class Draggabilly {
     position: Position;
 
     constructor(element: Element | string, options?: DraggabillyOptions);
 
-    on(eventName: DraggabillyClickEventName, listener: (event: Event, pointer: MouseEvent | Touch) => void): Draggabilly;
+    on(
+        eventName: DraggabillyClickEventName,
+        listener: (event: Event, pointer: MouseEvent | Touch) => void
+    ): Draggabilly;
 
-    on(eventName: DraggabillyMoveEventName, listener: (event: Event, pointer: MouseEvent | Touch, moveVector: Position) => void): Draggabilly;
+    on(
+        eventName: DraggabillyMoveEventName,
+        listener: (
+            event: Event,
+            pointer: MouseEvent | Touch,
+            moveVector: Position
+        ) => void
+    ): Draggabilly;
 
-    off(eventName: DraggabillyClickEventName, listener: (event: Event, pointer: MouseEvent | Touch) => void): Draggabilly;
+    off(
+        eventName: DraggabillyClickEventName,
+        listener: (event: Event, pointer: MouseEvent | Touch) => void
+    ): Draggabilly;
 
-    off(eventName: DraggabillyMoveEventName, listener: (event: Event, pointer: MouseEvent | Touch, moveVector: Position) => void): Draggabilly;
+    off(
+        eventName: DraggabillyMoveEventName,
+        listener: (
+            event: Event,
+            pointer: MouseEvent | Touch,
+            moveVector: Position
+        ) => void
+    ): Draggabilly;
 
-    once(eventName: DraggabillyClickEventName, listener: (event: Event, pointer: MouseEvent | Touch) => void): Draggabilly;
+    once(
+        eventName: DraggabillyClickEventName,
+        listener: (event: Event, pointer: MouseEvent | Touch) => void
+    ): Draggabilly;
 
-    once(eventName: DraggabillyMoveEventName, listener: (event: Event, pointer: MouseEvent | Touch, moveVector: Position) => void): Draggabilly;
+    once(
+        eventName: DraggabillyMoveEventName,
+        listener: (
+            event: Event,
+            pointer: MouseEvent | Touch,
+            moveVector: Position
+        ) => void
+    ): Draggabilly;
 
     enable(): void;
 

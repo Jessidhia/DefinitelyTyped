@@ -11,7 +11,7 @@ export enum LogLevels {
     info = "info",
     http = "http",
     warn = "warn",
-    error = "error",
+    error = "error"
 }
 
 export interface StyleObject {
@@ -34,7 +34,12 @@ export interface MessageObject {
 
 // TODO: newStream, newGroup, setGaugeTemplate and setGaugeTemplateSet need to be added
 
-export function log(level: LogLevels | string, prefix: string, message: string, ...args: any[]): void;
+export function log(
+    level: LogLevels | string,
+    prefix: string,
+    message: string,
+    ...args: any[]
+): void;
 
 export function silly(prefix: string, message: string, ...args: any[]): void;
 export function verbose(prefix: string, message: string, ...args: any[]): void;
@@ -63,4 +68,9 @@ export function disableUnicode(): void;
 export function pause(): void;
 export function resume(): void;
 
-export function addLevel(level: string, n: number, style?: StyleObject, disp?: string): void;
+export function addLevel(
+    level: string,
+    n: number,
+    style?: StyleObject,
+    disp?: string
+): void;

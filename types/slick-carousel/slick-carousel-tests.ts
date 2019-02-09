@@ -3,15 +3,15 @@
 // ---------- http://kenwheeler.github.io/slick/ ----------
 // --------------------------------------------------------
 
-$('.single-item').slick();
+$(".single-item").slick();
 
-$('.multiple-items').slick({
+$(".multiple-items").slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3
 });
 
-$('.responsive').slick({
+$(".responsive").slick({
     dots: true,
     infinite: false,
     speed: 300,
@@ -47,7 +47,7 @@ $('.responsive').slick({
     ]
 });
 
-$('.variable-width').slick({
+$(".variable-width").slick({
     dots: true,
     infinite: true,
     speed: 300,
@@ -56,7 +56,7 @@ $('.variable-width').slick({
     variableWidth: true
 });
 
-$('.one-time').slick({
+$(".one-time").slick({
     dots: true,
     infinite: true,
     speed: 300,
@@ -64,9 +64,9 @@ $('.one-time').slick({
     adaptiveHeight: true
 });
 
-$('.center').slick({
+$(".center").slick({
     centerMode: true,
-    centerPadding: '60px',
+    centerPadding: "60px",
     slidesToShow: 3,
     responsive: [
         {
@@ -74,7 +74,7 @@ $('.center').slick({
             settings: {
                 arrows: false,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: "40px",
                 slidesToShow: 3
             }
         },
@@ -83,7 +83,7 @@ $('.center').slick({
             settings: {
                 arrows: false,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: "40px",
                 slidesToShow: 1
             }
         }
@@ -94,88 +94,91 @@ $('.center').slick({
 // on your img tags and leave off the src
 // <img data-lazy="img/lazyfonz1.png"/>
 
-$('.lazy').slick({
-    lazyLoad: 'ondemand',
+$(".lazy").slick({
+    lazyLoad: "ondemand",
     slidesToShow: 3,
     slidesToScroll: 1
 });
 
-$('.autoplay').slick({
+$(".autoplay").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2000
 });
 
-$('.fade').slick({
+$(".fade").slick({
     dots: true,
     infinite: true,
     speed: 500,
     fade: true,
-    cssEase: 'linear'
+    cssEase: "linear"
 });
 
 var slideIndex = 1;
-$('.add-remove').slick({
+$(".add-remove").slick({
     slidesToShow: 3,
     slidesToScroll: 3
 });
-$('.js-add-slide').on('click', function() {
+$(".js-add-slide").on("click", function() {
     slideIndex++;
-    $('.add-remove').slick('slickAdd','<div><h3>' + slideIndex + '</h3></div>');
+    $(".add-remove").slick(
+        "slickAdd",
+        "<div><h3>" + slideIndex + "</h3></div>"
+    );
 });
 
-$('.js-remove-slide').on('click', function() {
-    $('.add-remove').slick('slickRemove', slideIndex - 1);
-    if (slideIndex !== 0){
+$(".js-remove-slide").on("click", function() {
+    $(".add-remove").slick("slickRemove", slideIndex - 1);
+    if (slideIndex !== 0) {
         slideIndex--;
     }
 });
 
-$('.filtering').slick({
+$(".filtering").slick({
     slidesToShow: 4,
     slidesToScroll: 4
 });
 
 var filtered = false;
 
-$('.js-filter').on('click', function(){
+$(".js-filter").on("click", function() {
     if (filtered === false) {
-        $('.filtering').slick('slickFilter',':even');
-        $(this).text('Unfilter Slides');
+        $(".filtering").slick("slickFilter", ":even");
+        $(this).text("Unfilter Slides");
         filtered = true;
     } else {
-        $('.filtering').slick('slickUnfilter');
-        $(this).text('Filter Slides');
+        $(".filtering").slick("slickUnfilter");
+        $(this).text("Filter Slides");
         filtered = false;
     }
 });
 
-$('.your-slider').slick('unslick');
+$(".your-slider").slick("unslick");
 
-$('.slider-for').slick({
+$(".slider-for").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: '.slider-nav'
+    asNavFor: ".slider-nav"
 });
-$('.slider-nav').slick({
+$(".slider-nav").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
-    asNavFor: '.slider-for',
+    asNavFor: ".slider-for",
     dots: true,
     centerMode: true,
     focusOnSelect: true
 });
 
-$('.single-item-rtl').slick({
+$(".single-item-rtl").slick({
     rtl: true
 });
 
-$('.no-arrows-slide').slick({
+$(".no-arrows-slide").slick({
     appendArrows: false
-})
+});
 
 // --------------------------------------------------------
 // ---------------- TEST DEFAULT OPTIONS ------------------
@@ -190,8 +193,8 @@ $("#diaporama").slick({
     asNavFor: "#slideshow",
     appendArrows: "",
     appendDots: "",
-    prevArrow: "<button type=\"button\" class=\"slick-prev\">Previous</button>",
-    nextArrow: "<button type=\"button\" class=\"slick-next\">Next</button>",
+    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+    nextArrow: '<button type="button" class="slick-next">Next</button>',
     centerMode: false,
     centerPadding: "50px",
     cssEase: "ease",
@@ -199,7 +202,7 @@ $("#diaporama").slick({
         return "customPaging slider " + slider + " customPaging index " + i;
     },
     dots: false,
-    dotsClass: 'slick-dots',
+    dotsClass: "slick-dots",
     draggable: true,
     fade: false,
     focusOnSelect: false,
@@ -212,7 +215,7 @@ $("#diaporama").slick({
     pauseOnFocus: true,
     pauseOnHover: true,
     pauseOnDotsHover: false,
-    respondTo:  "window",
+    respondTo: "window",
     responsive: null,
     rows: 1,
     slide: "div",

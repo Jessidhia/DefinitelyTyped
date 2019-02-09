@@ -2,18 +2,13 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "paths": {
             "@ember/application": ["ember__application"],
             "@ember/application/*": ["ember__application/*"],
@@ -45,9 +40,5 @@
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "adapter.d.ts",
-        "ember__test-tests.ts"
-    ]
+    "files": ["index.d.ts", "adapter.d.ts", "ember__test-tests.ts"]
 }

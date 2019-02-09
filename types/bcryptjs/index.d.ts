@@ -6,13 +6,14 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-
 /**
  * Sets the pseudo random number generator to use as a fallback if neither node's crypto module nor the Web Crypto API is available.
  * Please note: It is highly important that the PRNG used is cryptographically secure and that it is seeded properly!
  * @param  random Function taking the number of bytes to generate as its sole argument, returning the corresponding array of cryptographically secure random byte values.
  */
-export declare function setRandomFallback(random: (random: number) => number[]): void;
+export declare function setRandomFallback(
+    random: (random: number) => number[]
+): void;
 
 /**
  * Synchronously generates a salt.
@@ -33,14 +34,19 @@ export declare function genSalt(rounds?: number): Promise<string>;
  * Asynchronously generates a salt.
  * @param callback Callback receiving the error, if any, and the resulting salt
  */
-export declare function genSalt(callback: (err: Error, salt: string) => void): void;
+export declare function genSalt(
+    callback: (err: Error, salt: string) => void
+): void;
 
 /**
  * Asynchronously generates a salt.
  * @param  rounds   Number of rounds to use, defaults to 10 if omitted
  * @param  callback Callback receiving the error, if any, and the resulting salt
  */
-export declare function genSalt(rounds: number, callback: (err: Error, salt: string) => void): void;
+export declare function genSalt(
+    rounds: number,
+    callback: (err: Error, salt: string) => void
+): void;
 
 /**
  * Synchronously generates a hash for the given string.
@@ -65,7 +71,12 @@ export declare function hash(s: string, salt: number | string): Promise<string>;
  * @param callback         Callback receiving the error, if any, and the resulting hash
  * @param progressCallback Callback successively called with the percentage of rounds completed (0.0 - 1.0), maximally once per MAX_EXECUTION_TIME = 100 ms.
  */
-export declare function hash(s: string, salt: number | string, callback?: (err: Error, hash: string) => void, progressCallback?: (percent: number) => void): void;
+export declare function hash(
+    s: string,
+    salt: number | string,
+    callback?: (err: Error, hash: string) => void,
+    progressCallback?: (percent: number) => void
+): void;
 
 /**
  * Synchronously tests a string against a hash.
@@ -90,7 +101,12 @@ export declare function compare(s: string, hash: string): Promise<boolean>;
  * @param  callback         Callback receiving the error, if any, otherwise the result
  * @param  progressCallback Callback successively called with the percentage of rounds completed (0.0 - 1.0), maximally once per MAX_EXECUTION_TIME = 100 ms.
  */
-export declare function compare(s: string, hash: string, callback?: (err: Error, success: boolean) => void, progressCallback?: (percent: number) => void): void;
+export declare function compare(
+    s: string,
+    hash: string,
+    callback?: (err: Error, success: boolean) => void,
+    progressCallback?: (percent: number) => void
+): void;
 
 /**
  * Gets the number of rounds used to encrypt the specified hash.
@@ -112,7 +128,10 @@ export declare function getSalt(hash: string): string;
  * @param b Byte array
  * @param len Maximum input length
  */
-export declare function encodeBase64(b: Readonly<ArrayLike<number>>, len: number): string;
+export declare function encodeBase64(
+    b: Readonly<ArrayLike<number>>,
+    len: number
+): string;
 
 /**
  * Decodes a base64 encoded string to up to len bytes of output, using the custom bcrypt alphabet.

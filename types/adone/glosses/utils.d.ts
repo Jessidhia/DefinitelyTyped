@@ -6,7 +6,11 @@ declare namespace adone {
         function arrify<T>(val: T[]): T[];
         function arrify<T>(val: T): [T];
 
-        function slice<T>(args: T[], sliceStart?: number, sliceEnd?: number): T[];
+        function slice<T>(
+            args: T[],
+            sliceStart?: number,
+            sliceEnd?: number
+        ): T[];
 
         function spliceOne(list: any[], index: number): void;
 
@@ -27,18 +31,43 @@ declare namespace adone {
         }
         function parseMs(ms: number): I.ParseMsResult;
 
-        function pluralizeWord(str: string, plural?: string, count?: number): string;
+        function pluralizeWord(
+            str: string,
+            plural?: string,
+            count?: number
+        ): string;
 
-        function randomChoice<T>(arrayLike: ArrayLike<T>, from?: number, to?: number): T;
+        function randomChoice<T>(
+            arrayLike: ArrayLike<T>,
+            from?: number,
+            to?: number
+        ): T;
 
         function shuffleArray<T>(array: T[]): T[];
 
-        function enumerate<T>(iterable: Iterable<T>, start?: number): IterableIterator<[number, T]>;
+        function enumerate<T>(
+            iterable: Iterable<T>,
+            start?: number
+        ): IterableIterator<[number, T]>;
 
-        function zip<T1, T2>(a: Iterable<T1>, b: Iterable<T2>): IterableIterator<[T1, T2]>;
-        function zip<T1, T2, T3>(a: Iterable<T1>, b: Iterable<T2>, c: Iterable<T3>): IterableIterator<[T1, T2, T3]>;
-        function zip<T1, T2, T3, T4>(a: Iterable<T1>, b: Iterable<T2>, c: Iterable<T3>, d: Iterable<T4>): IterableIterator<[T1, T2, T3, T4]>;
-        function zip(...iterables: Array<Iterable<any>>): IterableIterator<any[]>;
+        function zip<T1, T2>(
+            a: Iterable<T1>,
+            b: Iterable<T2>
+        ): IterableIterator<[T1, T2]>;
+        function zip<T1, T2, T3>(
+            a: Iterable<T1>,
+            b: Iterable<T2>,
+            c: Iterable<T3>
+        ): IterableIterator<[T1, T2, T3]>;
+        function zip<T1, T2, T3, T4>(
+            a: Iterable<T1>,
+            b: Iterable<T2>,
+            c: Iterable<T3>,
+            d: Iterable<T4>
+        ): IterableIterator<[T1, T2, T3, T4]>;
+        function zip(
+            ...iterables: Array<Iterable<any>>
+        ): IterableIterator<any[]>;
 
         namespace I {
             interface KeysOptions {
@@ -51,7 +80,10 @@ declare namespace adone {
 
         function values(object: object, options?: I.KeysOptions): any[];
 
-        function entries(object: object, options?: I.KeysOptions): Array<[string, any]>;
+        function entries(
+            object: object,
+            options?: I.KeysOptions
+        ): Array<[string, any]>;
 
         function toDotNotation(object: object): object;
 
@@ -127,23 +159,47 @@ declare namespace adone {
 
         function clone(object: any, options?: I.CloneOptions): any;
 
-        function asyncIter<T>(array: T[], iter: (elem: T, index: number, cb: () => void) => any, cb: () => void): void;
+        function asyncIter<T>(
+            array: T[],
+            iter: (elem: T, index: number, cb: () => void) => any,
+            cb: () => void
+        ): void;
 
-        function asyncFor<T>(obj: { [key: string]: T }, iter: (key: string, value: T, index: number, length: number, next: () => void) => void, cb: () => void): void;
+        function asyncFor<T>(
+            obj: { [key: string]: T },
+            iter: (
+                key: string,
+                value: T,
+                index: number,
+                length: number,
+                next: () => void
+            ) => void,
+            cb: () => void
+        ): void;
 
         namespace I {
             interface OnceOptions {
                 silent: boolean;
             }
         }
-        function once<T>(fn: (...args: any[]) => T, options?: I.OnceOptions): (...args: any[]) => T;
+        function once<T>(
+            fn: (...args: any[]) => T,
+            options?: I.OnceOptions
+        ): (...args: any[]) => T;
 
         namespace I {
             type WaterFallTask = (...args: any[]) => void;
         }
-        function asyncWaterfall<T>(tasks: I.WaterFallTask[], callback?: (err?: Error | null, ...args: any[]) => void): void;
+        function asyncWaterfall<T>(
+            tasks: I.WaterFallTask[],
+            callback?: (err?: Error | null, ...args: any[]) => void
+        ): void;
 
-        function xrange(start?: number, stop?: number, step?: number): IterableIterator<number>;
+        function xrange(
+            start?: number,
+            stop?: number,
+            step?: number
+        ): IterableIterator<number>;
 
         function range(start?: number, stop?: number, step?: number): number[];
 
@@ -159,8 +215,15 @@ declare namespace adone {
                 dot?: boolean;
             }
         }
-        function matchPath(criteria: any, options?: I.MatchPathOptions): (value: any, options?: I.MatchPathOptions) => number | boolean;
-        function matchPath(criteria: any, value: any, options?: I.MatchPathOptions): number | boolean;
+        function matchPath(
+            criteria: any,
+            options?: I.MatchPathOptions
+        ): (value: any, options?: I.MatchPathOptions) => number | boolean;
+        function matchPath(
+            criteria: any,
+            value: any,
+            options?: I.MatchPathOptions
+        ): number | boolean;
 
         namespace I {
             class Sorter {
@@ -175,7 +238,10 @@ declare namespace adone {
 
             interface ToposortFunction {
                 (edges: Array<[string, string]>): string[];
-                array(nodes: string[], edges: Array<[string, string]>): string[];
+                array(
+                    nodes: string[],
+                    edges: Array<[string, string]>
+                ): string[];
                 Sorter: typeof Sorter;
             }
         }
@@ -202,11 +268,41 @@ declare namespace adone {
         function jsesc(argument: any, options?: I.JSEscOptions): string;
 
         namespace memcpy {
-            function utou(target: Buffer, targetOffset: number, source: Buffer, sourceStart: number, sourceEnd: number): number;
-            function atoa(target: ArrayBuffer, targetOffset: number, source: ArrayBuffer, sourceStart: number, sourceEnd: number): number;
-            function atou(target: Buffer, targetOffset: number, source: ArrayBuffer, sourceStart: number, sourceEnd: number): number;
-            function utoa(target: ArrayBuffer, targetOffset: number, source: Buffer, sourceStart: number, sourceEnd: number): number;
-            function copy(target: Buffer | ArrayBuffer, targetOffset: number, source: Buffer | ArrayBuffer, sourceStart: number, sourceEnd: number): number;
+            function utou(
+                target: Buffer,
+                targetOffset: number,
+                source: Buffer,
+                sourceStart: number,
+                sourceEnd: number
+            ): number;
+            function atoa(
+                target: ArrayBuffer,
+                targetOffset: number,
+                source: ArrayBuffer,
+                sourceStart: number,
+                sourceEnd: number
+            ): number;
+            function atou(
+                target: Buffer,
+                targetOffset: number,
+                source: ArrayBuffer,
+                sourceStart: number,
+                sourceEnd: number
+            ): number;
+            function utoa(
+                target: ArrayBuffer,
+                targetOffset: number,
+                source: Buffer,
+                sourceStart: number,
+                sourceEnd: number
+            ): number;
+            function copy(
+                target: Buffer | ArrayBuffer,
+                targetOffset: number,
+                source: Buffer | ArrayBuffer,
+                sourceStart: number,
+                sourceEnd: number
+            ): number;
         }
 
         namespace uuid {
@@ -218,16 +314,36 @@ declare namespace adone {
                 }
             }
             function v1(options?: I.V1Options): string;
-            function v1(options: I.V1Options, buf: any[], offset?: number): number[];
+            function v1(
+                options: I.V1Options,
+                buf: any[],
+                offset?: number
+            ): number[];
 
-            function v3(name: string | number[], namespace: string | number[]): string;
-            function v3(name: string | number[], namespace: string | number[], buf: any[], offset?: number): number[];
+            function v3(
+                name: string | number[],
+                namespace: string | number[]
+            ): string;
+            function v3(
+                name: string | number[],
+                namespace: string | number[],
+                buf: any[],
+                offset?: number
+            ): number[];
 
             function v4(options?: any): string;
             function v4(options: any, buf: any[], offset?: number): number[];
 
-            function v5(name: string | number[], namespace: string | number[]): string;
-            function v5(name: string | number[], namespace: string | number[], buf: any[], offset?: number): number[];
+            function v5(
+                name: string | number[],
+                namespace: string | number[]
+            ): string;
+            function v5(
+                name: string | number[],
+                namespace: string | number[],
+                buf: any[],
+                offset?: number
+            ): number[];
         }
 
         namespace I {
@@ -243,7 +359,8 @@ declare namespace adone {
         namespace iconv {
             namespace I {
                 namespace encoding {
-                    type Native = "UTF-8"
+                    type Native =
+                        | "UTF-8"
                         | "UCS-2"
                         | "UTF-16LE"
                         | "ASCII"
@@ -253,7 +370,8 @@ declare namespace adone {
 
                     type Unicode = "UTF-16BE" | "UTF-16";
 
-                    type Windows = "874"
+                    type Windows =
+                        | "874"
                         | "1250"
                         | "1251"
                         | "1252"
@@ -289,7 +407,8 @@ declare namespace adone {
                         | "Windows-1257"
                         | "Windows-1258";
 
-                    type ISO = "ISO-8829-1"
+                    type ISO =
+                        | "ISO-8829-1"
                         | "ISO-8859-2"
                         | "ISO-8859-3"
                         | "ISO-8859-4"
@@ -306,7 +425,8 @@ declare namespace adone {
                         | "ISO-8859-15"
                         | "ISO-8859-16";
 
-                    type IBM = "437"
+                    type IBM =
+                        | "437"
                         | "737"
                         | "775"
                         | "808"
@@ -385,7 +505,8 @@ declare namespace adone {
                         | "IBM1161"
                         | "IBM1163";
 
-                    type Mac = "MacCroatian"
+                    type Mac =
+                        | "MacCroatian"
                         | "MacCyrillic"
                         | "MacGreek"
                         | "MacIceland"
@@ -396,12 +517,10 @@ declare namespace adone {
                         | "MacCentEuro"
                         | "Macintosh";
 
-                    type KOI8 = "KOI8-R"
-                        | "KOI8-U"
-                        | "KOI8-RU"
-                        | "KOI8-T";
+                    type KOI8 = "KOI8-R" | "KOI8-U" | "KOI8-RU" | "KOI8-T";
 
-                    type Misc = "ArmSCII8"
+                    type Misc =
+                        | "ArmSCII8"
                         | "RK1048"
                         | "TCVN"
                         | "GEORGIAN-ACADEMY"
@@ -413,39 +532,34 @@ declare namespace adone {
                         | "HP Roman-8"
                         | "TIS-620";
 
-                    type Singlebyte = Windows
-                        | ISO
-                        | IBM
-                        | Mac
-                        | KOI8
-                        | Misc;
+                    type Singlebyte = Windows | ISO | IBM | Mac | KOI8 | Misc;
 
-                    type Japanese = "Shift_JIS"
+                    type Japanese =
+                        | "Shift_JIS"
                         | "Windows-31J"
                         | "windows-932"
                         | "EUC-JP";
 
-                    type Chinese = "GB2312"
+                    type Chinese =
+                        | "GB2312"
                         | "GBK"
                         | "GB18030"
                         | "Windows-936"
                         | "EUC-CN";
 
-                    type Korean = "KS_C_5601"
-                        | "Windows-949"
-                        | "EUC-KR";
+                    type Korean = "KS_C_5601" | "Windows-949" | "EUC-KR";
 
-                    type TaiwanHongKong = "Big5"
-                        | "Big5-HKSCS"
-                        | "Windows-950";
+                    type TaiwanHongKong = "Big5" | "Big5-HKSCS" | "Windows-950";
 
-                    type Multibyte = Japanese
+                    type Multibyte =
+                        | Japanese
                         | Chinese
                         | Korean
                         | TaiwanHongKong;
                 }
 
-                type SupportedEncoding = encoding.Native
+                type SupportedEncoding =
+                    | encoding.Native
                     | encoding.Unicode
                     | encoding.Singlebyte
                     | encoding.Multibyte;
@@ -457,16 +571,36 @@ declare namespace adone {
 
             function encodingExists(encoding: string): boolean;
 
-            function encode(buffer: string, encoding: I.SupportedEncoding, options?: object): Buffer;
+            function encode(
+                buffer: string,
+                encoding: I.SupportedEncoding,
+                options?: object
+            ): Buffer;
 
-            function decode(buffer: Buffer, encoding: I.SupportedEncoding, options?: object): string;
+            function decode(
+                buffer: Buffer,
+                encoding: I.SupportedEncoding,
+                options?: object
+            ): string;
         }
 
         namespace sqlstring {
-            function escapeId(val: string | string[], forbidQualified?: boolean): string;
+            function escapeId(
+                val: string | string[],
+                forbidQualified?: boolean
+            ): string;
             function dateToString(date: any, timeZone?: string): string;
-            function escape(value: any, stringifyObjects?: boolean, timeZone?: string): string;
-            function format(sql: string, values?: any, stringifyObjects?: boolean, timeZone?: string): string;
+            function escape(
+                value: any,
+                stringifyObjects?: boolean,
+                timeZone?: string
+            ): string;
+            function format(
+                sql: string,
+                values?: any,
+                stringifyObjects?: boolean,
+                timeZone?: string
+            ): string;
         }
 
         namespace I {
@@ -493,7 +627,14 @@ declare namespace adone {
 
         namespace I {
             interface BinarySearchFunction {
-                <T>(aHaystack: T[], aNeedle: number, aLow?: number, aHigh?: number, aCompare?: (a: T, b: T) => number, aBias?: number): T;
+                <T>(
+                    aHaystack: T[],
+                    aNeedle: number,
+                    aLow?: number,
+                    aHigh?: number,
+                    aCompare?: (a: T, b: T) => number,
+                    aBias?: number
+                ): T;
                 GREATEST_LOWER_BOUND: number;
                 LEAST_UPPER_BOUND: number;
             }
@@ -531,7 +672,11 @@ declare namespace adone {
             }
         }
 
-        function reinterval(callback: (...args: any[]) => void, interval: number, args?: any[]): I.ReInterval;
+        function reinterval(
+            callback: (...args: any[]) => void,
+            interval: number,
+            args?: any[]
+        ): I.ReInterval;
 
         namespace throttle {
             namespace I {
@@ -552,33 +697,103 @@ declare namespace adone {
                     <T1, R>(fn: (a: T1) => Promise<R>, a: T1): Promise<R>;
                     <T1, R>(fn: (a: T1) => R, a: T1): Promise<R>;
 
-                    <T1, T2, R>(fn: (a: T1, b: T2) => Promise<R>, a: T1, b: T2): Promise<R>;
-                    <T1, T2, R>(fn: (a: T1, b: T2) => R, a: T1, b: T2): Promise<R>;
+                    <T1, T2, R>(
+                        fn: (a: T1, b: T2) => Promise<R>,
+                        a: T1,
+                        b: T2
+                    ): Promise<R>;
+                    <T1, T2, R>(fn: (a: T1, b: T2) => R, a: T1, b: T2): Promise<
+                        R
+                    >;
 
-                    <T1, T2, T3, R>(fn: (a: T1, b: T2, c: T3) => Promise<R>, a: T1, b: T2, c: T3): Promise<R>;
-                    <T1, T2, T3, R>(fn: (a: T1, b: T2, c: T3) => R, a: T1, b: T2, c: T3): Promise<R>;
+                    <T1, T2, T3, R>(
+                        fn: (a: T1, b: T2, c: T3) => Promise<R>,
+                        a: T1,
+                        b: T2,
+                        c: T3
+                    ): Promise<R>;
+                    <T1, T2, T3, R>(
+                        fn: (a: T1, b: T2, c: T3) => R,
+                        a: T1,
+                        b: T2,
+                        c: T3
+                    ): Promise<R>;
 
-                    <T1, T2, T3, T4, R>(fn: (a: T1, b: T2, c: T3, d: T4) => Promise<R>, a: T1, b: T2, c: T3, d: T4): Promise<R>;
-                    <T1, T2, T3, T4, R>(fn: (a: T1, b: T2, c: T3, d: T4) => R, a: T1, b: T2, c: T3, d: T4): Promise<R>;
+                    <T1, T2, T3, T4, R>(
+                        fn: (a: T1, b: T2, c: T3, d: T4) => Promise<R>,
+                        a: T1,
+                        b: T2,
+                        c: T3,
+                        d: T4
+                    ): Promise<R>;
+                    <T1, T2, T3, T4, R>(
+                        fn: (a: T1, b: T2, c: T3, d: T4) => R,
+                        a: T1,
+                        b: T2,
+                        c: T3,
+                        d: T4
+                    ): Promise<R>;
 
-                    <T1, T2, T3, T4, T5, R>(fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => Promise<R>, a: T1, b: T2, c: T3, d: T4, e: T5): Promise<R>;
-                    <T1, T2, T3, T4, T5, R>(fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R, a: T1, b: T2, c: T3, d: T4, e: T5): Promise<R>;
+                    <T1, T2, T3, T4, T5, R>(
+                        fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => Promise<R>,
+                        a: T1,
+                        b: T2,
+                        c: T3,
+                        d: T4,
+                        e: T5
+                    ): Promise<R>;
+                    <T1, T2, T3, T4, T5, R>(
+                        fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R,
+                        a: T1,
+                        b: T2,
+                        c: T3,
+                        d: T4,
+                        e: T5
+                    ): Promise<R>;
 
-                    <R>(fn: (...args: any[]) => Promise<R>, ...args: any[]): Promise<R>;
+                    <R>(
+                        fn: (...args: any[]) => Promise<R>,
+                        ...args: any[]
+                    ): Promise<R>;
                     <R>(fn: (...args: any[]) => R, ...args: any[]): Promise<R>;
                 }
             }
             function create(options?: I.Options): I.CreateFunction;
-            function create<R>(fn: () => R, options?: I.Options): () => Promise<R>;
-            function create<T1, R>(fn: (a: T1) => R, options?: I.Options): (a: T1) => Promise<R>;
-            function create<T1, T2, R>(fn: (a: T1, b: T2) => R, options?: I.Options): (a: T1, b: T2) => Promise<R>;
-            function create<T1, T2, T3, R>(fn: (a: T1, b: T2, c: T3) => R, options?: I.Options): (a: T1, b: T2, c: T3) => Promise<R>;
-            function create<T1, T2, T3, T4, R>(fn: (a: T1, b: T2, c: T3, d: T4) => R, options?: I.Options): (a: T1, b: T2, c: T3, d: T4) => Promise<R>;
-            function create<T1, T2, T3, T4, T5, R>(fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R, options?: I.Options): (a: T1, b: T2, c: T3, d: T4, e: T5) => Promise<R>;
-            function create<R>(fn: (...args: any[]) => R, options?: I.Options): (...args: any[]) => Promise<R>;
+            function create<R>(
+                fn: () => R,
+                options?: I.Options
+            ): () => Promise<R>;
+            function create<T1, R>(
+                fn: (a: T1) => R,
+                options?: I.Options
+            ): (a: T1) => Promise<R>;
+            function create<T1, T2, R>(
+                fn: (a: T1, b: T2) => R,
+                options?: I.Options
+            ): (a: T1, b: T2) => Promise<R>;
+            function create<T1, T2, T3, R>(
+                fn: (a: T1, b: T2, c: T3) => R,
+                options?: I.Options
+            ): (a: T1, b: T2, c: T3) => Promise<R>;
+            function create<T1, T2, T3, T4, R>(
+                fn: (a: T1, b: T2, c: T3, d: T4) => R,
+                options?: I.Options
+            ): (a: T1, b: T2, c: T3, d: T4) => Promise<R>;
+            function create<T1, T2, T3, T4, T5, R>(
+                fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R,
+                options?: I.Options
+            ): (a: T1, b: T2, c: T3, d: T4, e: T5) => Promise<R>;
+            function create<R>(
+                fn: (...args: any[]) => R,
+                options?: I.Options
+            ): (...args: any[]) => Promise<R>;
 
             class RateLimiter {
-                constructor(tokensPerInterval?: number, interval?: number, fireImmediately?: boolean);
+                constructor(
+                    tokensPerInterval?: number,
+                    interval?: number,
+                    fireImmediately?: boolean
+                );
 
                 removeTokens(count: number): Promise<number>;
 
@@ -597,12 +812,22 @@ declare namespace adone {
                 unref(): void;
             }
             interface Clock {
-                setTimeout(func: (...args: any[]) => void, timeout: number, ...args: any[]): Timer;
+                setTimeout(
+                    func: (...args: any[]) => void,
+                    timeout: number,
+                    ...args: any[]
+                ): Timer;
                 clearTimeout(timer: Timer): void;
                 nextTick(func: (...args: any[]) => void, ...args: any[]): void;
-                setInterval(func: (...args: any[]) => void, ...args: any[]): Timer;
+                setInterval(
+                    func: (...args: any[]) => void,
+                    ...args: any[]
+                ): Timer;
                 clearInterval(timer: Timer): void;
-                setImmediate(func: (...args: any[]) => void, ...args: any[]): Timer;
+                setImmediate(
+                    func: (...args: any[]) => void,
+                    ...args: any[]
+                ): Timer;
                 clearImmediate(timer: Timer): void;
                 updateHrTime(newNow: number): void;
                 tick(ms: number): number;
@@ -660,9 +885,16 @@ declare namespace adone {
                 }
                 type Comparator<T> = (a: T, b: T) => number;
             }
-            function contains<T>(range: I.Range<T>, key: T, compare?: I.Comparator<T>): boolean;
+            function contains<T>(
+                range: I.Range<T>,
+                key: T,
+                compare?: I.Comparator<T>
+            ): boolean;
 
-            function filter<T>(range: I.Range<T>, compare?: I.Comparator<T>): (key: T) => boolean;
+            function filter<T>(
+                range: I.Range<T>,
+                compare?: I.Comparator<T>
+            ): (key: T) => boolean;
 
             function toLtgt<T, R>(
                 range: I.Range<T>,
@@ -686,7 +918,10 @@ declare namespace adone {
 
             function upperBound<T>(range: I.Range<T>): T | undefined;
 
-            function upperBound<T, R>(range: I.Range<T>, defaultValue: R): T | R;
+            function upperBound<T, R>(
+                range: I.Range<T>,
+                defaultValue: R
+            ): T | R;
 
             function upperBoundKey<T>(range: I.Range<T>): T | undefined;
 
@@ -700,7 +935,10 @@ declare namespace adone {
 
             function lowerBound<T>(range: I.Range<T>): T | undefined;
 
-            function lowerBound<T, R>(range: I.Range<T>, defaultValue: R): T | R;
+            function lowerBound<T, R>(
+                range: I.Range<T>,
+                defaultValue: R
+            ): T | R;
 
             function lowerBoundKey<T>(range: I.Range<T>): T | undefined;
         }
@@ -712,24 +950,27 @@ declare namespace adone {
             /**
              * @param target filepath
              */
-            constructor(target: string, options?: {
-                /**
-                 * rotator reads file's stats with this delay
-                 */
-                checkInterval?: number | string,
-                /**
-                 * maximum size of the file that triggers rotation
-                 */
-                maxSize?: number | string,
-                /**
-                 * number of files at time
-                 */
-                maxFiles?: number,
-                /**
-                 * compress old log files with gz
-                 */
-                compress?: boolean
-            });
+            constructor(
+                target: string,
+                options?: {
+                    /**
+                     * rotator reads file's stats with this delay
+                     */
+                    checkInterval?: number | string;
+                    /**
+                     * maximum size of the file that triggers rotation
+                     */
+                    maxSize?: number | string;
+                    /**
+                     * number of files at time
+                     */
+                    maxFiles?: number;
+                    /**
+                     * compress old log files with gz
+                     */
+                    compress?: boolean;
+                }
+            );
 
             /**
              * Completes a rotate iteration
@@ -765,13 +1006,41 @@ declare namespace adone {
          * Creates a function that delays invoking of the given function until after "timeout" ms
          * have elapsed since the last invoking
          */
-        function debounce<R>(fn: () => R, timeout: number, options?: I.DebounceOptions): () => R;
-        function debounce<T1, R>(fn: (a: T1) => R, timeout: number, options?: I.DebounceOptions): (a: T1) => R;
-        function debounce<T1, T2, R>(fn: (a: T1, b: T2) => R, timeout: number, options?: I.DebounceOptions): (a: T1, b: T2) => R;
-        function debounce<T1, T2, T3, R>(fn: (a: T1, b: T2, c: T3) => R, timeout: number, options?: I.DebounceOptions): (a: T1, b: T2, c: T3) => R;
-        function debounce<T1, T2, T3, T4, R>(fn: (a: T1, b: T2, c: T3, d: T4) => R, timeout: number, options?: I.DebounceOptions): (a: T1, b: T2, c: T3, d: T4) => R;
-        function debounce<T1, T2, T3, T4, T5, R>(fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R, timeout: number, options?: I.DebounceOptions): (a: T1, b: T2, c: T3, d: T4, e: T5) => R;
-        function debounce<R>(fn: (...args: any[]) => R, timeout: number, options?: I.DebounceOptions): (...args: any[]) => R;
+        function debounce<R>(
+            fn: () => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): () => R;
+        function debounce<T1, R>(
+            fn: (a: T1) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (a: T1) => R;
+        function debounce<T1, T2, R>(
+            fn: (a: T1, b: T2) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (a: T1, b: T2) => R;
+        function debounce<T1, T2, T3, R>(
+            fn: (a: T1, b: T2, c: T3) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (a: T1, b: T2, c: T3) => R;
+        function debounce<T1, T2, T3, T4, R>(
+            fn: (a: T1, b: T2, c: T3, d: T4) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (a: T1, b: T2, c: T3, d: T4) => R;
+        function debounce<T1, T2, T3, T4, T5, R>(
+            fn: (a: T1, b: T2, c: T3, d: T4, e: T5) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (a: T1, b: T2, c: T3, d: T4, e: T5) => R;
+        function debounce<R>(
+            fn: (...args: any[]) => R,
+            timeout: number,
+            options?: I.DebounceOptions
+        ): (...args: any[]) => R;
 
         /**
          * Finds difference between the given arrays
@@ -819,15 +1088,43 @@ declare namespace adone {
         /**
          * Expands numbers and letters
          */
-        function fillRange(from: number, to: number, options: I.FillRangeOptions & { toRegex: true }): string;
-        function fillRange(from: number, to: number, options: I.FillRangeOptions & { stringify: true }): string[];
-        function fillRange(from: number, to: number, options?: I.FillRangeOptions): number[];
+        function fillRange(
+            from: number,
+            to: number,
+            options: I.FillRangeOptions & { toRegex: true }
+        ): string;
+        function fillRange(
+            from: number,
+            to: number,
+            options: I.FillRangeOptions & { stringify: true }
+        ): string[];
+        function fillRange(
+            from: number,
+            to: number,
+            options?: I.FillRangeOptions
+        ): number[];
 
-        function fillRange(from: string, to: string, options: I.FillRangeOptions & { toRegex: true }): string;
-        function fillRange(from: string, to: string, options?: I.FillRangeOptions): string[];
+        function fillRange(
+            from: string,
+            to: string,
+            options: I.FillRangeOptions & { toRegex: true }
+        ): string;
+        function fillRange(
+            from: string,
+            to: string,
+            options?: I.FillRangeOptions
+        ): string[];
 
-        function fillRange(from: string | number, to: string | number, options: I.FillRangeOptions & { toRegex: true }): string;
-        function fillRange(from: string | number, to: string | number, options?: I.FillRangeOptions): Array<string | number>;
+        function fillRange(
+            from: string | number,
+            to: string | number,
+            options: I.FillRangeOptions & { toRegex: true }
+        ): string;
+        function fillRange(
+            from: string | number,
+            to: string | number,
+            options?: I.FillRangeOptions
+        ): Array<string | number>;
 
         namespace inflection {
             function singularizeWord(str: string, singular?: string): string;
@@ -846,7 +1143,10 @@ declare namespace adone {
 
         function merge(target: any, source: any, options?: I.MergeOptions): any;
 
-        function omit(obj: any, props: ((v: string) => boolean) | string[] | string): object;
+        function omit(
+            obj: any,
+            props: ((v: string) => boolean) | string[] | string
+        ): object;
 
         function parseTime(val: number): number;
         function parseTime(val: any): number | null;
@@ -859,13 +1159,13 @@ declare namespace adone {
             function escape(str: string): string;
 
             const formats: {
-                RFC1738: "RFC1738"
-                RFC3986: "RFC3986",
-                default: string,
+                RFC1738: "RFC1738";
+                RFC3986: "RFC3986";
+                default: string;
                 formatters: {
-                    RFC1738(val: string): string,
-                    RFC3986(val: string): string
-                }
+                    RFC1738(val: string): string;
+                    RFC3986(val: string): string;
+                };
             };
 
             namespace I {
@@ -875,7 +1175,10 @@ declare namespace adone {
                     depth?: number;
                     arrayLimit?: number;
                     parseArrays?: boolean;
-                    decoder?: (str: string, defaultDecoder: (str: string) => string) => string;
+                    decoder?: (
+                        str: string,
+                        defaultDecoder: (str: string) => string
+                    ) => string;
                     allowDots?: boolean;
                     plainObjects?: boolean;
                     allowPrototypes?: boolean;
@@ -889,7 +1192,9 @@ declare namespace adone {
                     skipNulls?: boolean;
                     encode?: boolean;
                     encoder?: (str: string) => any;
-                    filter?: Array<string | number> | ((prefix: string, value: any) => any);
+                    filter?:
+                        | Array<string | number>
+                        | ((prefix: string, value: any) => any);
                     arrayFormat?: "indices" | "brackets" | "repeat";
                     indices?: boolean;
                     sort?: (a: any, b: any) => number;
@@ -922,7 +1227,11 @@ declare namespace adone {
 
         function signalNameToCode(signame: string): number;
 
-        function splitBuffer(buf: string | Buffer, splitBuf: string | Buffer, includeDelim?: boolean): Buffer[];
+        function splitBuffer(
+            buf: string | Buffer,
+            splitBuf: string | Buffer,
+            includeDelim?: boolean
+        ): Buffer[];
 
         namespace I {
             type SplitStringSplitFunction = (token: {
@@ -944,9 +1253,19 @@ declare namespace adone {
         }
 
         function splitString(str: string): string[];
-        function splitString(str: string, options: I.SplitStringOptions): string[];
-        function splitString(str: string, splitter: I.SplitStringSplitFunction): string[];
-        function splitString(str: string, options: I.SplitStringOptions, splitter: I.SplitStringSplitFunction): string[];
+        function splitString(
+            str: string,
+            options: I.SplitStringOptions
+        ): string[];
+        function splitString(
+            str: string,
+            splitter: I.SplitStringSplitFunction
+        ): string[];
+        function splitString(
+            str: string,
+            options: I.SplitStringOptions,
+            splitter: I.SplitStringSplitFunction
+        ): string[];
 
         // terraformer: TODO
 
@@ -960,7 +1279,10 @@ declare namespace adone {
             }
         }
 
-        function toRegex(patterns: string | string[], options?: I.ToRegexOptions): RegExp;
+        function toRegex(
+            patterns: string | string[],
+            options?: I.ToRegexOptions
+        ): RegExp;
 
         namespace I {
             interface ToRegexRangeOptions {
@@ -970,7 +1292,11 @@ declare namespace adone {
             }
         }
 
-        function toRegexRange(min: string | number, max: string | number, options?: I.ToRegexRangeOptions): RegExp;
+        function toRegexRange(
+            min: string | number,
+            max: string | number,
+            options?: I.ToRegexRangeOptions
+        ): RegExp;
 
         namespace xorDistance {
             function compare(a: Buffer, b: Buffer): boolean;
@@ -1201,7 +1527,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns an array of matches
                  */
-                (list: string[], patterns: string | string[], options?: MatchOptions): string[];
+                (
+                    list: string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): string[];
 
                 /**
                  * Similar to the main function, but `pattern` must be a string.
@@ -1211,7 +1541,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns an array of matches
                  */
-                match(list: string[], pattern: string, options?: MatchOptions): string[];
+                match(
+                    list: string[],
+                    pattern: string,
+                    options?: MatchOptions
+                ): string[];
 
                 /**
                  * Returns true if the specified `string` matches the given glob `pattern`.
@@ -1221,7 +1555,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if the string matches the glob pattern.
                  */
-                isMatch(string: string, pattern: string, options?: MatchOptions): boolean;
+                isMatch(
+                    string: string,
+                    pattern: string,
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Returns true if some of the strings in the given `list` match any of the given glob `patterns`.
@@ -1231,7 +1569,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if any patterns match `str`
                  */
-                some(list: string | string[], patterns: string | string[], options?: MatchOptions): boolean;
+                some(
+                    list: string | string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Returns true if every string in the given `list` matches any of the given glob `patterns`.
@@ -1241,7 +1583,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if any patterns match `str`
                  */
-                every(list: string | string[], patterns: string | string[], options?: MatchOptions): boolean;
+                every(
+                    list: string | string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Returns true if **any** of the given glob `patterns` match the specified `string`.
@@ -1251,7 +1597,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if any patterns match `str`
                  */
-                any(str: string | string[], patterns: string | string[], options?: MatchOptions): boolean;
+                any(
+                    str: string | string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Returns true if **all** of the given `patterns` match the specified string.
@@ -1261,7 +1611,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if any patterns match `str`
                  */
-                all(str: string | string[], patterns: string | string[], options?: MatchOptions): boolean;
+                all(
+                    str: string | string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Returns a list of strings that _**do not match any**_ of the given `patterns`.
@@ -1271,7 +1625,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns an array of strings that **do not match** the given patterns.
                  */
-                not(list: string[], patterns: string | string[], options?: MatchOptions): string[];
+                not(
+                    list: string[],
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): string[];
 
                 /**
                  * Returns true if the given `string` contains the given pattern. Similar to [.isMatch](#isMatch) but the pattern can match any part of the string.
@@ -1281,7 +1639,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns true if the patter matches any part of `str`.
                  */
-                contains(str: string, patterns: string | string[], options?: MatchOptions): boolean;
+                contains(
+                    str: string,
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): boolean;
 
                 /**
                  * Filter the keys of the given object with the given `glob` pattern and `options`. Does not attempt to match nested keys.
@@ -1292,7 +1654,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns an object with only keys that match the given patterns.
                  */
-                matchKeys<T>(object: T, patterns: string | string[], options?: MatchOptions): Partial<T>;
+                matchKeys<T>(
+                    object: T,
+                    patterns: string | string[],
+                    options?: MatchOptions
+                ): Partial<T>;
 
                 /**
                  * Returns a memoized matcher function from the given glob `pattern` and `options`.
@@ -1302,7 +1668,10 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed.
                  * @returns Returns a matcher function.
                  */
-                matcher(pattern: string | string[], options?: MatchOptions): (str: string) => boolean;
+                matcher(
+                    pattern: string | string[],
+                    options?: MatchOptions
+                ): (str: string) => boolean;
 
                 /**
                  * Returns an array of matches captured by `pattern` in `string, or`null` if the pattern did not match.
@@ -1312,7 +1681,11 @@ declare namespace adone {
                  * @param options See available options for changing how matches are performed
                  * @returns Returns an array of captures if the string matches the glob pattern, otherwise `null`.
                  */
-                capture(pattern: string, string: string, options?: MatchOptions): string[] | null;
+                capture(
+                    pattern: string,
+                    string: string,
+                    options?: MatchOptions
+                ): string[] | null;
 
                 /**
                  * Create a regular expression from the given glob `pattern`.

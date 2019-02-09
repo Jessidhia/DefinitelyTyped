@@ -1,6 +1,6 @@
-import arrayMove = require('array-move');
+import arrayMove = require("array-move");
 
-const input = ['a', 'b', 'c'];
+const input = ["a", "b", "c"];
 const input2 = [1, 2, 3];
 
 arrayMove(input, 1, 2); // $ExpectType string[]

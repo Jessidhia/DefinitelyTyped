@@ -1,4 +1,4 @@
-import * as docblock from 'jest-docblock';
+import * as docblock from "jest-docblock";
 
 docblock.extract(`
     /** @pragma */

@@ -14,8 +14,11 @@
 /**
  * Same as jQuery v3 `JQuery.EventHandlerBase`.
  */
-type JQueryEventHandlerBase<TContext, T> =
-    (this: TContext, t: T, ...args: any[]) => void | false;
+type JQueryEventHandlerBase<TContext, T> = (
+    this: TContext,
+    t: T,
+    ...args: any[]
+) => void | false;
 
 // --------------------------------------------------------------------------
 // Some Types and Interfaces
@@ -23,9 +26,15 @@ type JQueryEventHandlerBase<TContext, T> =
 
 type BootstrapPlacement = "auto" | "top" | "bottom" | "left" | "right";
 
-type BootstrapTrigger = "click" | "hover" | "focus" | "manual" |
-    "click hover" | "click focus" | "hover focus" |
-    "click hover focus";
+type BootstrapTrigger =
+    | "click"
+    | "hover"
+    | "focus"
+    | "manual"
+    | "click hover"
+    | "click focus"
+    | "hover focus"
+    | "click hover focus";
 
 type BootstrapDynamicOffset = (elem: JQuery) => number;
 
@@ -146,7 +155,13 @@ interface TooltipOptions {
      *
      * @default tooltip: "top", popover: "right"
      */
-    placement?: BootstrapPlacement | ((this: TooltipInstance<this>, tooltip: HTMLElement, trigger: Element) => BootstrapPlacement);
+    placement?:
+        | BootstrapPlacement
+        | ((
+              this: TooltipInstance<this>,
+              tooltip: HTMLElement,
+              trigger: Element
+          ) => BootstrapPlacement);
 
     /**
      * If a selector is provided, tooltip or popover objects will be delegated to the specified targets.
@@ -310,15 +325,43 @@ interface TapEventHandler extends JQueryEventObject {
     relatedTarget: HTMLElement;
 }
 
-type AffixEvent = "affix.bs.affix" | "affixed.bs.affix" | "affix-top.bs.affix" | "affixed-top.bs.affix" | "affix-bottom.bs.affix" | "affixed-bottom.bs.affix";
+type AffixEvent =
+    | "affix.bs.affix"
+    | "affixed.bs.affix"
+    | "affix-top.bs.affix"
+    | "affixed-top.bs.affix"
+    | "affix-bottom.bs.affix"
+    | "affixed-bottom.bs.affix";
 type AlertEvent = "close.bs.alert" | "closed.bs.alert";
 type CarouselEvent = "slide.bs.carousel" | "slid.bs.carousel";
-type CollapseEvent = "show.bs.collapse" | "shown.bs.collapse" | "hide.bs.collapse" | "hidden.bs.collapse";
-type DropdownEvent = "show.bs.dropdown" | "shown.bs.dropdown" | "hide.bs.dropdown" | "hidden.bs.dropdown";
-type PopoverEvent = "show.bs.popover" | "shown.bs.popover" | "hide.bs.popover" | "hidden.bs.popover" | "inserted.bs.popover";
+type CollapseEvent =
+    | "show.bs.collapse"
+    | "shown.bs.collapse"
+    | "hide.bs.collapse"
+    | "hidden.bs.collapse";
+type DropdownEvent =
+    | "show.bs.dropdown"
+    | "shown.bs.dropdown"
+    | "hide.bs.dropdown"
+    | "hidden.bs.dropdown";
+type PopoverEvent =
+    | "show.bs.popover"
+    | "shown.bs.popover"
+    | "hide.bs.popover"
+    | "hidden.bs.popover"
+    | "inserted.bs.popover";
 type ScrollspyEvent = "activate.bs.scrollspy";
-type TapEvent = "show.bs.tab" | "shown.bs.tab" | "hide.bs.tab" | "hidden.bs.tab";
-type TooltipEvent = "show.bs.tooltip" | "shown.bs.tooltip" | "hide.bs.tooltip" | "hidden.bs.tooltip" | "inserted.bs.tooltip";
+type TapEvent =
+    | "show.bs.tab"
+    | "shown.bs.tab"
+    | "hide.bs.tab"
+    | "hidden.bs.tab";
+type TooltipEvent =
+    | "show.bs.tooltip"
+    | "shown.bs.tooltip"
+    | "hide.bs.tooltip"
+    | "hidden.bs.tooltip"
+    | "inserted.bs.tooltip";
 
 // --------------------------------------------------------------------------------------
 // jQuery
@@ -349,7 +392,7 @@ interface JQuery<TElement = HTMLElement> {
      */
     dropdown(action?: "toggle"): this;
 
-// tslint:disable:jsdoc-format
+    // tslint:disable:jsdoc-format
     /**
      * When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh, see example.
      * @example
@@ -359,7 +402,7 @@ $('[data-spy="scroll"]').each(function () {
 })
 ```
     */
-// tslint:enable:jsdoc-format
+    // tslint:enable:jsdoc-format
     scrollspy(action: "refresh"): this;
     /**
      * Add scrollspy behavior to a topbar navigation.
@@ -468,11 +511,26 @@ $('[data-spy="scroll"]').each(function () {
      */
     affix(options?: AffixOptions): this;
 
-    on(events: CarouselEvent, handler: JQueryEventHandlerBase<HTMLElement, CarouselEventHandler>): this;
-    on(events: DropdownEvent, handler: JQueryEventHandlerBase<HTMLElement, DropdownsEventHandler>): this;
-    on(events: TapEvent, handler: JQueryEventHandlerBase<HTMLElement, TapEventHandler>): this;
     on(
-        events: AffixEvent | AlertEvent | CollapseEvent | PopoverEvent | ScrollspyEvent | TooltipEvent,
+        events: CarouselEvent,
+        handler: JQueryEventHandlerBase<HTMLElement, CarouselEventHandler>
+    ): this;
+    on(
+        events: DropdownEvent,
+        handler: JQueryEventHandlerBase<HTMLElement, DropdownsEventHandler>
+    ): this;
+    on(
+        events: TapEvent,
+        handler: JQueryEventHandlerBase<HTMLElement, TapEventHandler>
+    ): this;
+    on(
+        events:
+            | AffixEvent
+            | AlertEvent
+            | CollapseEvent
+            | PopoverEvent
+            | ScrollspyEvent
+            | TooltipEvent,
         handler: JQueryEventHandlerBase<HTMLElement, JQueryEventObject>
     ): this;
 
@@ -492,5 +550,4 @@ interface JQuerySupport {
     transition: boolean | TransitionEventNames;
 }
 
-declare module "bootstrap" {
-}
+declare module "bootstrap" {}

@@ -1,22 +1,14 @@
 {
-    "files": [
-        "index.d.ts",
-        "activedirectory2-tests.ts"
-    ],
+    "files": ["index.d.ts", "activedirectory2-tests.ts"],
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "es2015.iterable"
-        ],
+        "lib": ["es6", "es2015.iterable"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true

@@ -4,11 +4,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { EventEmitter } from 'events';
-import { Express } from 'express';
-import * as Multer from 'multer';
-import { Db, MongoClient } from 'mongodb';
-import { Connection, Mongoose } from 'mongoose';
+import { EventEmitter } from "events";
+import { Express } from "express";
+import * as Multer from "multer";
+import { Db, MongoClient } from "mongodb";
+import { Connection, Mongoose } from "mongoose";
 
 declare class Cache {
     initialize(opts: object): object;
@@ -30,22 +30,37 @@ interface MulterGfsOptions {
     file?(req: Express.Request, file: Express.Multer.File): any;
 }
 
-declare class MulterGridfsStorage extends EventEmitter implements Multer.StorageEngine {
+declare class MulterGridfsStorage extends EventEmitter
+    implements Multer.StorageEngine {
     db: Db;
     client: MongoClient;
     connected: boolean;
     connecting: boolean;
-    configuration: MulterGridfsStorage.UrlStorageOptions | MulterGridfsStorage.DbStorageOptions;
+    configuration:
+        | MulterGridfsStorage.UrlStorageOptions
+        | MulterGridfsStorage.DbStorageOptions;
     error: Error;
     caching: boolean;
     cacheName: string;
     cacheIndex: object;
 
-    constructor(configuration: MulterGridfsStorage.UrlStorageOptions | MulterGridfsStorage.DbStorageOptions);
+    constructor(
+        configuration:
+            | MulterGridfsStorage.UrlStorageOptions
+            | MulterGridfsStorage.DbStorageOptions
+    );
 
-    _handleFile(req: Express.Request, file: Express.Multer.File, callback: (error?: any, info?: Express.Multer.File) => void): void;
+    _handleFile(
+        req: Express.Request,
+        file: Express.Multer.File,
+        callback: (error?: any, info?: Express.Multer.File) => void
+    ): void;
 
-    _removeFile(req: Express.Request, file: Express.Multer.File, callback: (error: Error) => void): void;
+    _removeFile(
+        req: Express.Request,
+        file: Express.Multer.File,
+        callback: (error: Error) => void
+    ): void;
 
     static cache: Cache;
 }
@@ -58,7 +73,12 @@ declare namespace MulterGridfsStorage {
     }
 
     interface DbStorageOptions extends MulterGfsOptions {
-        db: Mongoose | Connection | Db | MongoClient | Promise<Mongoose | Connection | Db | MongoClient>;
+        db:
+            | Mongoose
+            | Connection
+            | Db
+            | MongoClient
+            | Promise<Mongoose | Connection | Db | MongoClient>;
     }
 
     interface FileConfig {

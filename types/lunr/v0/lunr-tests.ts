@@ -3,24 +3,24 @@
  */
 function basic_test() {
     const index = lunr(function() {
-        this.field('title', {boost: 10});
-        this.field('body');
-        this.ref('id');
+        this.field("title", { boost: 10 });
+        this.field("body");
+        this.ref("id");
     });
 
     index.add({
         id: 1,
-        title: 'Foo',
-        body: 'Foo foo foo!'
+        title: "Foo",
+        body: "Foo foo foo!"
     });
 
     index.add({
         id: 2,
-        title: 'Bar',
-        body: 'Bar bar bar!'
+        title: "Bar",
+        body: "Bar bar bar!"
     });
 
-    index.search('foo');
+    index.search("foo");
 }
 
 /**
@@ -28,12 +28,20 @@ function basic_test() {
  */
 function pipeline_test() {
     const index = lunr(function() {
-        this.pipeline.add(function(token: string, tokenIndex: number, tokens: string[]): string {
+        this.pipeline.add(function(
+            token: string,
+            tokenIndex: number,
+            tokens: string[]
+        ): string {
             // text processing in here
             return token;
         });
 
-        this.pipeline.after(lunr.stopWordFilter, function(token: string, tokenIndex: number, tokens: string[]): string {
+        this.pipeline.after(lunr.stopWordFilter, function(
+            token: string,
+            tokenIndex: number,
+            tokens: string[]
+        ): string {
             // text processing in here
             return token;
         });

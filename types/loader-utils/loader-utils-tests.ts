@@ -9,7 +9,7 @@ import {
     getRemainingRequest,
     getCurrentRequest,
     isUrlRequest,
-    parseString,
+    parseString
 } from "loader-utils";
 
 parseQuery("?{data:{a:1},isJSON5:true}");
@@ -62,7 +62,7 @@ isUrlRequest("/path/to/module.js", "./root");
 isUrlRequest("/path/to/module.js", "~");
 
 function loader2(this: loader.LoaderContext) {
-// loaderContext.resourcePath = "/app/js/javascript.js"
+    // loaderContext.resourcePath = "/app/js/javascript.js"
     interpolateName(this, "js/[hash].script.[ext]", { content: "" });
     // => js/9473fdd0d880a43c21b7778d34872157.script.js
 
@@ -97,7 +97,10 @@ function loader2(this: loader.LoaderContext) {
     // => /app/dir/file.png?9473fdd0d880a43c21b7778d34872157
 
     // loaderContext.resourcePath = "/app/js/page-home.js"
-    interpolateName(this, "script-[1].[ext]", { regExp: "page-(.*)\\.js", content: "" });
+    interpolateName(this, "script-[1].[ext]", {
+        regExp: "page-(.*)\\.js",
+        content: ""
+    });
     // => script-home.js
 }
 

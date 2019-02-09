@@ -1,5 +1,5 @@
-import webpack = require('webpack');
-import WebpackDevServer = require('webpack-dev-server');
+import webpack = require("webpack");
+import WebpackDevServer = require("webpack-dev-server");
 
 export interface Urls {
     lanUrlForConfig?: string;
@@ -14,7 +14,10 @@ export interface Urls {
  * refused to use another port, or if the terminal is not interactive and can’t
  * present user with the choice, resolves to `null`.
  */
-export function choosePort(host: string, defaultPort: number): Promise<number | null>;
+export function choosePort(
+    host: string,
+    defaultPort: number
+): Promise<number | null>;
 
 /**
  * Creates a Webpack compiler instance for WebpackDevServer with built-in
@@ -27,7 +30,7 @@ export function createCompiler(
     config: webpack.Configuration,
     appName: string,
     urls: Urls,
-    useYarn: boolean,
+    useYarn: boolean
 ): webpack.Compiler;
 
 /**
@@ -36,7 +39,7 @@ export function createCompiler(
  */
 export function prepareProxy(
     proxySetting: any,
-    appPublicFolder: string,
+    appPublicFolder: string
 ): WebpackDevServer.Configuration;
 
 /**

@@ -23,8 +23,8 @@ function test() {
 
     const streamR = new RS_Readable({
         objectMode: true,
-        read(size) { },
-        destroy(error, cb) { }
+        read(size) {},
+        destroy(error, cb) {}
     });
 
     streamR.once("end", () => {
@@ -36,14 +36,14 @@ function test() {
     const row = null;
     const i = 0;
     if (streamR.push(row)) streamR.emit("result", row, i);
-    else streamR.emit('error', new Error("a possible exception"));  // Pass on any errors
-    streamR.push(null);  // pushing null, indicating EOF
+    else streamR.emit("error", new Error("a possible exception")); // Pass on any errors
+    streamR.push(null); // pushing null, indicating EOF
 
     const streamW = new RS_Writable({
-        write(chunk, enc, cb) { },
-        writev(chunks, cb) { },
-        destroy(error, cb) { },
-        final(cb) { }
+        write(chunk, enc, cb) {},
+        writev(chunks, cb) {},
+        destroy(error, cb) {},
+        final(cb) {}
     });
     streamW.write(new Buffer("test"));
     streamW.emit("finish");

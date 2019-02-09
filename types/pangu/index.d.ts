@@ -5,12 +5,18 @@
 
 export function spacing(text: string): string;
 
-export function spacingFile(path: string, callback: (error: Error, data: string) => void): void;
+export function spacingFile(
+    path: string,
+    callback: (error: Error, data: string) => void
+): void;
 export function spacingFile(path: string): Promise<string>;
 
 export function spacingFileSync(path: string): string;
 
-export function spacingText(text: string, callback: (error: Error, data: string) => void): void;
+export function spacingText(
+    text: string,
+    callback: (error: Error, data: string) => void
+): void;
 export function spacingText(text: string): Promise<string>;
 
 export function spacingPage(): void;

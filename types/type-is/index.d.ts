@@ -5,12 +5,18 @@
 // TypeScript Version: 2.2
 
 /// <reference types="node" />
-import { IncomingMessage } from 'http';
+import { IncomingMessage } from "http";
 
 export = typeIs;
 
-declare function typeIs(request: IncomingMessage, types: string[]): string | false | null;
-declare function typeIs(request: IncomingMessage, ...types: string[]): string | false | null;
+declare function typeIs(
+    request: IncomingMessage,
+    types: string[]
+): string | false | null;
+declare function typeIs(
+    request: IncomingMessage,
+    ...types: string[]
+): string | false | null;
 
 declare namespace typeIs {
     function normalize(type: string): string | false;

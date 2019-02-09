@@ -10,68 +10,92 @@
 /// <reference types="node" />
 /// <reference types="chai" />
 
-import * as request from 'superagent';
+import * as request from "superagent";
 
 declare global {
-	namespace Chai {
-		interface ChaiStatic {
-			request: ChaiHttpRequest;
-		}
+    namespace Chai {
+        interface ChaiStatic {
+            request: ChaiHttpRequest;
+        }
 
-		interface ChaiHttpRequest {
-			(server: any): ChaiHttp.Agent;
-			agent(server: any): ChaiHttp.Agent;
-			addPromises(promiseConstructor: any): void;
-		}
+        interface ChaiHttpRequest {
+            (server: any): ChaiHttp.Agent;
+            agent(server: any): ChaiHttp.Agent;
+            addPromises(promiseConstructor: any): void;
+        }
 
-		interface Assertion {
-			status(code: number): Assertion;
-			header(key: string, value?: string | RegExp): Assertion;
-			headers: Assertion;
-			json: Assertion;
-			text: Assertion;
-			html: Assertion;
-			redirect: Assertion;
-			redirectTo(location: string): Assertion;
-			param(key: string, value?: string): Assertion;
-			cookie(key: string, value?: string): Assertion;
-		}
+        interface Assertion {
+            status(code: number): Assertion;
+            header(key: string, value?: string | RegExp): Assertion;
+            headers: Assertion;
+            json: Assertion;
+            text: Assertion;
+            html: Assertion;
+            redirect: Assertion;
+            redirectTo(location: string): Assertion;
+            param(key: string, value?: string): Assertion;
+            cookie(key: string, value?: string): Assertion;
+        }
 
-		interface TypeComparison {
-			ip: Assertion;
-		}
-	}
+        interface TypeComparison {
+            ip: Assertion;
+        }
+    }
 
-	namespace ChaiHttp {
-		interface Promise<T> {
-			then<U>(onFulfilled: (value: T) => U, onRejected?: (reason: any) => U): Promise<U>;
-		}
+    namespace ChaiHttp {
+        interface Promise<T> {
+            then<U>(
+                onFulfilled: (value: T) => U,
+                onRejected?: (reason: any) => U
+            ): Promise<U>;
+        }
 
-		interface Response {
-			body: any;
-			type: string;
-			status: number;
-			text: string;
-			setEncoding(encoding: string): void;
-			on(event: string, fn: (...args: any[]) => void): void;
-		}
+        interface Response {
+            body: any;
+            type: string;
+            status: number;
+            text: string;
+            setEncoding(encoding: string): void;
+            on(event: string, fn: (...args: any[]) => void): void;
+        }
 
-		interface Agent  {
-			get(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			post(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			put(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			head(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			del(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			options(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			patch(url: string, callback?: (err: any, res: Response) => void): request.Request;
-			keepOpen(): Agent;
-			close(callback?: (err: any) => void): Agent;
-		}
+        interface Agent {
+            get(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            post(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            put(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            head(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            del(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            options(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            patch(
+                url: string,
+                callback?: (err: any, res: Response) => void
+            ): request.Request;
+            keepOpen(): Agent;
+            close(callback?: (err: any) => void): Agent;
+        }
 
-		interface TypeComparison {
-			ip: any;
-		}
-	}
+        interface TypeComparison {
+            ip: any;
+        }
+    }
 }
 
 declare function chaiHttp(chai: any, utils: any): void;

@@ -63,11 +63,11 @@ export class ArrowKeyStepperExample extends PureComponent<any, any> {
     }
 
     _getColumnWidth({ index }: Index) {
-        return (1 + index % 3) * 60;
+        return (1 + (index % 3)) * 60;
     }
 
     _getRowHeight({ index }: Index) {
-        return (1 + index % 3) * 30;
+        return (1 + (index % 3)) * 30;
     }
 
     _cellRenderer({
@@ -714,7 +714,9 @@ export class ListExample extends PureComponent<any, any> {
                 case 100:
                     additionalContent = (
                         <div>
-                            It is large-sized.<br />It has a 3rd row.
+                            It is large-sized.
+                            <br />
+                            It has a 3rd row.
                         </div>
                     );
                     break;

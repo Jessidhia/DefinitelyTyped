@@ -7,13 +7,13 @@
 /// <reference types="../react"/>
 /// <reference types="../howler"/>
 
-import * as React from 'react';
-import { Howl } from 'howler';
+import * as React from "react";
+import { Howl } from "howler";
 
 declare enum HOWLER_STATE {
-    UNLOADED = 'unloaded',
-    LOADING = 'loading',
-    LOADED = 'loaded'
+    UNLOADED = "unloaded",
+    LOADING = "loading",
+    LOADED = "loaded"
 }
 
 interface Props {

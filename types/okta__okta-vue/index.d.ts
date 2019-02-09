@@ -4,17 +4,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { VueConstructor, PluginFunction } from 'vue';
-import { NavigationGuard } from 'vue-router';
+import { VueConstructor, PluginFunction } from "vue";
+import { NavigationGuard } from "vue-router";
 
 declare namespace OktaVuePlugin {
-	interface OktaVueOptions {
-		issuer: string;
-		client_id: string;
-		redirect_uri: string;
+    interface OktaVueOptions {
+        issuer: string;
+        client_id: string;
+        redirect_uri: string;
         scope?: string;
         response_type?: string;
-	}
+    }
 
     interface OktaOpenIDOptions {
         sessionToken?: string;
@@ -25,16 +25,22 @@ declare namespace OktaVuePlugin {
         nonce?: string;
     }
 
-	function install(vm: VueConstructor, options: OktaVueOptions): PluginFunction<VueConstructor>;
+    function install(
+        vm: VueConstructor,
+        options: OktaVueOptions
+    ): PluginFunction<VueConstructor>;
     function handleCallback(): VueConstructor;
 }
 declare function OktaVuePlugin(): PluginFunction<VueConstructor>;
 export default OktaVuePlugin;
 
-declare module 'vue/types/vue' {
+declare module "vue/types/vue" {
     interface Vue {
         $auth: {
-            loginRedirect(fromUri?: string, additionalParams?: OktaVuePlugin.OktaOpenIDOptions): void;
+            loginRedirect(
+                fromUri?: string,
+                additionalParams?: OktaVuePlugin.OktaOpenIDOptions
+            ): void;
             logout(): Promise<void>;
             isAuthenticated(): Promise<boolean>;
             handleAuthentication(): Promise<void>;

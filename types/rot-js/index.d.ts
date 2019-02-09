@@ -407,7 +407,13 @@ export class Display {
     clear(): void;
     computeSize(availWidth: number, availHeight: number): [number, number];
     computeFontSize(availWidth: number, availHeight: number): number;
-    draw(x: number, y: number, character: string | string[], fg?: string | string[], bg?: string | string[]): void;
+    draw(
+        x: number,
+        y: number,
+        character: string | string[],
+        fg?: string | string[],
+        bg?: string | string[]
+    ): void;
     drawText(x: number, y: number, text: string, maxWidth?: number): number;
     eventToPosition(e: UIEvent): [number, number] | number;
     getContainer(): Node;
@@ -468,19 +474,23 @@ export interface CorridorOptions {
 export type FeatureOptions = RoomOptions | CorridorOptions;
 
 export namespace Map {
-    class Arena extends Map { }
-    class DividedMaze extends Map { }
+    class Arena extends Map {}
+    class DividedMaze extends Map {}
     class IceyMaze extends Map {
         constructor(width?: number, height?: number, regularity?: number);
     }
-    class EllerMaze extends Map { }
+    class EllerMaze extends Map {}
     class Cellular extends Map {
         constructor(width?: number, height?: number, options?: CellularOptions);
         randomize(probability: number): this;
         setOptions(options: CellularOptions): void;
         set(x: number, y: number, value: any): void;
         serviceCallback(callback: DigCallback): void;
-        connect(callback: DigCallback, value?: number, connectionCallback?: DoorCallback): void;
+        connect(
+            callback: DigCallback,
+            value?: number,
+            connectionCallback?: DoorCallback
+        ): void;
     }
     class Dungeon extends Map {
         getRooms(): Feature.Room[];
@@ -503,16 +513,43 @@ export namespace Map {
         isValid(canBeDugCallback: CanBeDugCallback): boolean;
         create(digCallback: DigCallback): void;
         debug(): void;
-        static createRandomAt(x: number, y: number, dx: number, dy: number, options?: FeatureOptions): Feature;
+        static createRandomAt(
+            x: number,
+            y: number,
+            dx: number,
+            dy: number,
+            options?: FeatureOptions
+        ): Feature;
     }
 
     namespace Feature {
         class Room {
-            constructor(x1: number, y1: number, x2: number, y2: number, doorX?: number, doorY?: number);
+            constructor(
+                x1: number,
+                y1: number,
+                x2: number,
+                y2: number,
+                doorX?: number,
+                doorY?: number
+            );
 
-            static createRandom(availWidth: number, availHeight: number, options?: RoomOptions): Room;
-            static createRandomAt(x: number, y: number, dx: number, dy: number, options?: RoomOptions): Room;
-            static createRandomCenter(cx: number, cy: number, options?: RoomOptions): Room;
+            static createRandom(
+                availWidth: number,
+                availHeight: number,
+                options?: RoomOptions
+            ): Room;
+            static createRandomAt(
+                x: number,
+                y: number,
+                dx: number,
+                dy: number,
+                options?: RoomOptions
+            ): Room;
+            static createRandomCenter(
+                cx: number,
+                cy: number,
+                options?: RoomOptions
+            ): Room;
 
             create(digCallback: DigCallback): void;
             debug(): void;
@@ -521,7 +558,10 @@ export namespace Map {
             getDoors(callback: DoorCallback): this;
             clearDoors(): this;
             addDoors(isWallCallback: IsWallCallback): this;
-            isValid(isWallCallback: IsWallCallback, canBeDugCallback: CanBeDugCallback): boolean;
+            isValid(
+                isWallCallback: IsWallCallback,
+                canBeDugCallback: CanBeDugCallback
+            ): boolean;
             getCenter(): [number, number];
 
             getLeft(): number;
@@ -531,14 +571,28 @@ export namespace Map {
         }
 
         class Corridor {
-            constructor(startX: number, startY: number, endX: number, endY: number);
+            constructor(
+                startX: number,
+                startY: number,
+                endX: number,
+                endY: number
+            );
 
-            static createRandomAt(x: number, y: number, dx: number, dy: number, options?: CorridorOptions): Corridor;
+            static createRandomAt(
+                x: number,
+                y: number,
+                dx: number,
+                dy: number,
+                options?: CorridorOptions
+            ): Corridor;
 
             create(digCallback: DigCallback): boolean;
             debug(): void;
 
-            isValid(isWallCallback: IsWallCallback, canBeDugCallback: CanBeDugCallback): boolean;
+            isValid(
+                isWallCallback: IsWallCallback,
+                canBeDugCallback: CanBeDugCallback
+            ): boolean;
             createPriorityWalls(priorityWallCallback: DoorCallback): void;
         }
     }
@@ -546,7 +600,12 @@ export namespace Map {
 
 // FOV callbacks
 export type LightPassesCallback = (x: number, y: number) => boolean;
-export type FOVCallback = (x: number, y: number, R: number, visibility: number) => any;
+export type FOVCallback = (
+    x: number,
+    y: number,
+    R: number,
+    visibility: number
+) => any;
 
 export interface FOVOptions {
     topology?: number;
@@ -557,12 +616,24 @@ export class FOV {
     compute(x: number, y: number, R: number, callback: FOVCallback): void;
 }
 export namespace FOV {
-    class DiscreteShadowcasting extends FOV { }
-    class PreciseShadowcasting extends FOV { }
+    class DiscreteShadowcasting extends FOV {}
+    class PreciseShadowcasting extends FOV {}
 
     class RecursiveShadowcasting extends FOV {
-        compute180(x: number, y: number, R: number, dir: number, callback: FOVCallback): void;
-        compute90(x: number, y: number, R: number, dir: number, callback: FOVCallback): void;
+        compute180(
+            x: number,
+            y: number,
+            R: number,
+            dir: number,
+            callback: FOVCallback
+        ): void;
+        compute90(
+            x: number,
+            y: number,
+            R: number,
+            dir: number,
+            callback: FOVCallback
+        ): void;
     }
     namespace RecursiveShadowcasting {
         const OCTANTS: Array<[number, number, number, number]>;
@@ -573,13 +644,36 @@ export type ColorArray = [number, number, number];
 
 export namespace Color {
     function fromString(str: string): [number, number, number];
-    function add(color1: [number, number, number], ...colors2: Array<[number, number, number]>): [number, number, number];
-    function add_(color1: [number, number, number], ...colors2: Array<[number, number, number]>): [number, number, number];
-    function multiply(color1: [number, number, number], ...colors2: Array<[number, number, number]>): [number, number, number];
-    function multiply_(color1: [number, number, number], ...colors2: Array<[number, number, number]>): [number, number, number];
-    function interpolate(color1: [number, number, number], color2: [number, number, number], factor: number): [number, number, number];
-    function interpolateHSL(color1: [number, number, number], color2: [number, number, number], factor: number): [number, number, number];
-    function randomize(color: [number, number, number], diff: number | [number, number, number]): [number, number, number];
+    function add(
+        color1: [number, number, number],
+        ...colors2: Array<[number, number, number]>
+    ): [number, number, number];
+    function add_(
+        color1: [number, number, number],
+        ...colors2: Array<[number, number, number]>
+    ): [number, number, number];
+    function multiply(
+        color1: [number, number, number],
+        ...colors2: Array<[number, number, number]>
+    ): [number, number, number];
+    function multiply_(
+        color1: [number, number, number],
+        ...colors2: Array<[number, number, number]>
+    ): [number, number, number];
+    function interpolate(
+        color1: [number, number, number],
+        color2: [number, number, number],
+        factor: number
+    ): [number, number, number];
+    function interpolateHSL(
+        color1: [number, number, number],
+        color2: [number, number, number],
+        factor: number
+    ): [number, number, number];
+    function randomize(
+        color: [number, number, number],
+        diff: number | [number, number, number]
+    ): [number, number, number];
     function rgb2hsl(color: [number, number, number]): [number, number, number];
     function hsl2rgb(color: [number, number, number]): [number, number, number];
     function toRGB(color: [number, number, number]): string;
@@ -588,7 +682,11 @@ export namespace Color {
 
 // Lighting callbacks
 export type ReflectivityCallback = (x: number, y: number) => number;
-export type LightingCallback = (x: number, y: number, color: [number, number, number]) => any;
+export type LightingCallback = (
+    x: number,
+    y: number,
+    color: [number, number, number]
+) => any;
 
 export interface LightingOptions {
     passes?: number;
@@ -597,11 +695,18 @@ export interface LightingOptions {
 }
 
 export class Lighting {
-    constructor(reflectivityCallback: ReflectivityCallback, options?: LightingOptions);
+    constructor(
+        reflectivityCallback: ReflectivityCallback,
+        options?: LightingOptions
+    );
 
     setOptions(options: LightingOptions): this;
     setFOV(fov: FOV): this;
-    setLight(x: number, y: number, color: string | [number, number, number]): this;
+    setLight(
+        x: number,
+        y: number,
+        color: string | [number, number, number]
+    ): this;
     clearLights(): void;
     reset(): this;
     compute(lightingCallback: LightingCallback): this;
@@ -616,14 +721,19 @@ export interface PathOptions {
 }
 
 export class Path {
-    constructor(toX: number, toY: number, passableCallback: PassableCallback, options?: PathOptions);
+    constructor(
+        toX: number,
+        toY: number,
+        passableCallback: PassableCallback,
+        options?: PathOptions
+    );
 
     compute(fromX: number, fromY: number, callback: PathCallback): void;
 }
 
 export namespace Path {
-    class Dijkstra extends Path { }
-    class AStar extends Path { }
+    class Dijkstra extends Path {}
+    class AStar extends Path {}
 }
 
 export interface Noise {
@@ -656,8 +766,8 @@ export class Scheduler {
 }
 
 export namespace Scheduler {
-    class Simple extends Scheduler { }
-    class Speed extends Scheduler { }
+    class Simple extends Scheduler {}
+    class Speed extends Scheduler {}
     class Action extends Scheduler {
         setDuration(time: number): Action;
     }

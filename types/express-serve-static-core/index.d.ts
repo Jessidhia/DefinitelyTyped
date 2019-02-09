@@ -15,15 +15,19 @@ declare global {
     namespace Express {
         // These open interfaces may be extended in an application-specific manner via declaration merging.
         // See for example method-override.d.ts (https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/method-override/index.d.ts)
-        interface Request { }
-        interface Response { }
-        interface Application { }
+        interface Request {}
+        interface Response {}
+        interface Application {}
     }
 }
 
 import * as http from "http";
 import { EventEmitter } from "events";
-import { Options as RangeParserOptions, Result as RangeParserResult, Ranges as RangeParserRanges } from "range-parser";
+import {
+    Options as RangeParserOptions,
+    Result as RangeParserResult,
+    Ranges as RangeParserRanges
+} from "range-parser";
 
 export interface NextFunction {
     // tslint:disable-next-line callable-types (In ts2.1 it thinks the type alias has no call signatures)
@@ -35,11 +39,19 @@ export interface RequestHandler {
     (req: Request, res: Response, next: NextFunction): any;
 }
 
-export type ErrorRequestHandler = (err: any, req: Request, res: Response, next: NextFunction) => any;
+export type ErrorRequestHandler = (
+    err: any,
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => any;
 
 export type PathParams = string | RegExp | Array<string | RegExp>;
 
-export type RequestHandlerParams = RequestHandler | ErrorRequestHandler | Array<RequestHandler | ErrorRequestHandler>;
+export type RequestHandlerParams =
+    | RequestHandler
+    | ErrorRequestHandler
+    | Array<RequestHandler | ErrorRequestHandler>;
 
 export interface IRouterMatcher<T> {
     (path: PathParams, ...handlers: RequestHandler[]): T;
@@ -86,7 +98,9 @@ export interface IRouter extends RequestHandler {
      *
      * @deprecated since version 4.11
      */
-    param(callback: (name: string, matcher: RegExp) => RequestParamHandler): this;
+    param(
+        callback: (name: string, matcher: RegExp) => RequestParamHandler
+    ): this;
 
     /**
      * Special-cased "all" method, applying the given route `path`,
@@ -160,7 +174,7 @@ export interface IRoute {
     unsubscribe: IRouterHandler<this>;
 }
 
-export interface Router extends IRouter { }
+export interface Router extends IRouter {}
 
 export interface CookieOptions {
     maxAge?: number;
@@ -169,14 +183,17 @@ export interface CookieOptions {
     httpOnly?: boolean;
     path?: string;
     domain?: string;
-    secure?: boolean | 'auto';
+    secure?: boolean | "auto";
     encode?: (val: string) => void;
     sameSite?: boolean | string;
 }
 
-export interface ByteRange { start: number; end: number; }
+export interface ByteRange {
+    start: number;
+    end: number;
+}
 
-export interface RequestRanges extends RangeParserRanges { }
+export interface RequestRanges extends RangeParserRanges {}
 
 export type Errback = (err: Error) => void;
 
@@ -297,7 +314,10 @@ export interface Request extends http.IncomingMessage, Express.Request {
      * should respond with 4 users when available, not 3.
      *
      */
-    range(size: number, options?: RangeParserOptions): RangeParserRanges | RangeParserResult | undefined;
+    range(
+        size: number,
+        options?: RangeParserOptions
+    ): RangeParserRanges | RangeParserResult | undefined;
 
     /**
      * Return an array of Accepted media types
@@ -807,7 +827,11 @@ export interface Response extends http.ServerResponse, Express.Response {
      *  - `cache`     boolean hinting to the engine it should cache
      *  - `filename`  filename of the view being rendered
      */
-    render(view: string, options?: Object, callback?: (err: Error, html: string) => void): void;
+    render(
+        view: string,
+        options?: Object,
+        callback?: (err: Error, html: string) => void
+    ): void;
     render(view: string, callback?: (err: Error, html: string) => void): void;
 
     locals: any;
@@ -843,18 +867,32 @@ export interface Response extends http.ServerResponse, Express.Response {
     req?: Request;
 }
 
-export interface Handler extends RequestHandler { }
+export interface Handler extends RequestHandler {}
 
-export type RequestParamHandler = (req: Request, res: Response, next: NextFunction, value: any, name: string) => any;
+export type RequestParamHandler = (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+    value: any,
+    name: string
+) => any;
 
-export type ApplicationRequestHandler<T> = IRouterHandler<T> & IRouterMatcher<T> & ((...handlers: RequestHandlerParams[]) => T);
+export type ApplicationRequestHandler<T> = IRouterHandler<T> &
+    IRouterMatcher<T> &
+    ((...handlers: RequestHandlerParams[]) => T);
 
-export interface Application extends EventEmitter, IRouter, Express.Application {
+export interface Application
+    extends EventEmitter,
+        IRouter,
+        Express.Application {
     /**
      * Express instance itself is a request handler, which could be invoked without
      * third argument.
      */
-    (req: Request | http.IncomingMessage, res: Response | http.ServerResponse): any;
+    (
+        req: Request | http.IncomingMessage,
+        res: Response | http.ServerResponse
+    ): any;
 
     /**
      * Initialize the server.
@@ -922,7 +960,9 @@ export interface Application extends EventEmitter, IRouter, Express.Application 
      *
      * @deprecated since version 4.11
      */
-    param(callback: (name: string, matcher: RegExp) => RequestParamHandler): this;
+    param(
+        callback: (name: string, matcher: RegExp) => RequestParamHandler
+    ): this;
 
     /**
      * Return the app's absolute pathname
@@ -1008,9 +1048,27 @@ export interface Application extends EventEmitter, IRouter, Express.Application 
     configure(fn: Function): Application;
     configure(env0: string, fn: Function): Application;
     configure(env0: string, env1: string, fn: Function): Application;
-    configure(env0: string, env1: string, env2: string, fn: Function): Application;
-    configure(env0: string, env1: string, env2: string, env3: string, fn: Function): Application;
-    configure(env0: string, env1: string, env2: string, env3: string, env4: string, fn: Function): Application;
+    configure(
+        env0: string,
+        env1: string,
+        env2: string,
+        fn: Function
+    ): Application;
+    configure(
+        env0: string,
+        env1: string,
+        env2: string,
+        env3: string,
+        fn: Function
+    ): Application;
+    configure(
+        env0: string,
+        env1: string,
+        env2: string,
+        env3: string,
+        env4: string,
+        fn: Function
+    ): Application;
 
     /**
      * Render the given view `name` name with `options`
@@ -1023,7 +1081,11 @@ export interface Application extends EventEmitter, IRouter, Express.Application 
      *      // ...
      *    })
      */
-    render(name: string, options?: Object, callback?: (err: Error, html: string) => void): void;
+    render(
+        name: string,
+        options?: Object,
+        callback?: (err: Error, html: string) => void
+    ): void;
     render(name: string, callback: (err: Error, html: string) => void): void;
 
     /**
@@ -1043,7 +1105,12 @@ export interface Application extends EventEmitter, IRouter, Express.Application 
      *    http.createServer(app).listen(80);
      *    https.createServer({ ... }, app).listen(443);
      */
-    listen(port: number, hostname: string, backlog: number, callback?: Function): http.Server;
+    listen(
+        port: number,
+        hostname: string,
+        backlog: number,
+        callback?: Function
+    ): http.Server;
     listen(port: number, hostname: string, callback?: Function): http.Server;
     listen(port: number, callback?: Function): http.Server;
     listen(path: string, callback?: Function): http.Server;

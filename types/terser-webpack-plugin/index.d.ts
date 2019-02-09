@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import { Plugin } from 'webpack';
-import { MinifyOptions } from 'terser';
-import webpack = require('webpack');
+import { Plugin } from "webpack";
+import { MinifyOptions } from "terser";
+import webpack = require("webpack");
 
 export = TerserPlugin;
 
@@ -29,7 +29,7 @@ declare namespace TerserPlugin {
         banner?: boolean | string | FormatFn;
     }
 
-    type ExtractCommentFn = (node: any, comment: any) => (boolean | object);
+    type ExtractCommentFn = (node: any, comment: any) => boolean | object;
 
     type FormatFn = (input: string) => string;
 
@@ -44,11 +44,12 @@ declare namespace TerserPlugin {
         sourceMap?: boolean;
         minify?: (file: any, sourceMap: any) => MinifyResult;
         terserOptions?: MinifyOptions;
-        extractComments?: boolean
-        | string
-        | RegExp
-        | ExtractCommentFn
-        | ExtractCommentOptions;
+        extractComments?:
+            | boolean
+            | string
+            | RegExp
+            | ExtractCommentFn
+            | ExtractCommentOptions;
         warningsFilter?: (warning: any, source: any) => boolean;
     }
 }

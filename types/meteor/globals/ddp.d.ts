@@ -12,7 +12,7 @@ declare module DDP {
 
     function _allSubscriptionsReady(): boolean;
 
-    type Status = 'connected' | 'connecting' | 'failed' | 'waiting' | 'offline';
+    type Status = "connected" | "connecting" | "failed" | "waiting" | "offline";
 
     interface DDPStatus {
         connected: boolean;

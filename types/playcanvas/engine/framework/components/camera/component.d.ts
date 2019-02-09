@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @component
      * @name pc.CameraComponent
@@ -65,7 +64,7 @@ declare namespace pc {
      * @property {Boolean} flipFaces If true the camera will invert front and back faces. Can be useful for reflection rendering.
      */
     class CameraComponent extends pc.Component {
-        constructor(system: pc.CameraComponentSystem, entity: pc.Entity)
+        constructor(system: pc.CameraComponentSystem, entity: pc.Entity);
 
         projection: number;
         nearClip: number;
@@ -140,7 +139,7 @@ declare namespace pc {
          * @type pc.GraphNode
          * @description Queries the camera's GraphNode. Can be used to get position and rotation.
          */
-        readonly node: pc.GraphNode
+        readonly node: pc.GraphNode;
 
         /**
          * @function
@@ -161,7 +160,12 @@ declare namespace pc {
          * });
          * @returns {pc.Vec3} The world space coordinate.
          */
-        screenToWorld(screenx: number, screeny: number, cameraz: number, worldCoord?: pc.Vec3): pc.Vec3;
+        screenToWorld(
+            screenx: number,
+            screeny: number,
+            cameraz: number,
+            worldCoord?: pc.Vec3
+        ): pc.Vec3;
 
         /**
          * @function
@@ -188,7 +192,6 @@ declare namespace pc {
          * @description End rendering the frame for this camera
          */
         private frameEnd(): void;
-
 
         /**
          * @function

@@ -6,8 +6,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import passport = require('passport');
-import express = require('express');
+import passport = require("passport");
+import express = require("express");
 
 export interface CacheItem {
     createdAt: Date;
@@ -15,25 +15,60 @@ export interface CacheItem {
 }
 
 export interface CacheProvider {
-    save(key: string | null, value: any, callback: (err: Error | null, cacheItem: CacheItem) => void | null): void;
-    get(key: string, callback: (err: Error | null, value: any) => void | null): void;
-    remove(key: string, callback: (err: Error | null, key: string) => void | null): void;
+    save(
+        key: string | null,
+        value: any,
+        callback: (err: Error | null, cacheItem: CacheItem) => void | null
+    ): void;
+    get(
+        key: string,
+        callback: (err: Error | null, value: any) => void | null
+    ): void;
+    remove(
+        key: string,
+        callback: (err: Error | null, key: string) => void | null
+    ): void;
 }
 
-export type VerifiedCallback =	(err: Error | null, user: object, info: object) => void;
+export type VerifiedCallback = (
+    err: Error | null,
+    user: object,
+    info: object
+) => void;
 
-export type VerifyWithRequest = (req: express.Request, profile: object, done: VerifiedCallback) => void;
+export type VerifyWithRequest = (
+    req: express.Request,
+    profile: object,
+    done: VerifiedCallback
+) => void;
 
-export type VerifyWithoutRequest = (profile: object, done: VerifiedCallback) => void;
+export type VerifyWithoutRequest = (
+    profile: object,
+    done: VerifiedCallback
+) => void;
 
 export class Strategy extends passport.Strategy {
-    constructor(config: SamlConfig, verify: VerifyWithRequest | VerifyWithoutRequest);
-    authenticate(req: express.Request, options: AuthenticateOptions | AuthorizeOptions): void;
-    logout(req: express.Request, callback: (err: Error | null, url: string) => void): void;
-    generateServiceProviderMetadata(decryptionCert?: string, signingCert?: string): string;
+    constructor(
+        config: SamlConfig,
+        verify: VerifyWithRequest | VerifyWithoutRequest
+    );
+    authenticate(
+        req: express.Request,
+        options: AuthenticateOptions | AuthorizeOptions
+    ): void;
+    logout(
+        req: express.Request,
+        callback: (err: Error | null, url: string) => void
+    ): void;
+    generateServiceProviderMetadata(
+        decryptionCert?: string,
+        signingCert?: string
+    ): string;
 }
 
-export type CertCallback = (callback: (err: Error | null, cert?: string | string[]) => void) => void;
+export type CertCallback = (
+    callback: (err: Error | null, cert?: string | string[]) => void
+) => void;
 
 export interface SamlConfig {
     // Core
@@ -46,7 +81,7 @@ export interface SamlConfig {
     privateCert?: string;
     cert?: string | string[] | CertCallback;
     decryptionPvk?: string;
-    signatureAlgorithm?: 'sha1' | 'sha256' | 'sha512';
+    signatureAlgorithm?: "sha1" | "sha256" | "sha512";
 
     // Additional SAML behaviors
     additionalParams?: any;

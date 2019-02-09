@@ -1,4 +1,4 @@
-import * as internalIp from 'internal-ip';
+import * as internalIp from "internal-ip";
 
 let str: string;
 internalIp.v6().then(ip => {

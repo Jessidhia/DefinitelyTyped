@@ -7,27 +7,27 @@
 export {};
 
 export type BrowserName =
-    "aol" |
-    "android" |
-    "bb10" |
-    "chrome" |
-    "crios" |
-    "edge" |
-    "facebook" |
-    "firefox" |
-    "fxios" |
-    "ie" |
-    "instagram" |
-    "ios" |
-    "ios-webview" |
-    "kakaotalk" |
-    "node" |
-    "opera" |
-    "phantomjs" |
-    "safari" |
-    "samsung" |
-    "vivaldi" |
-    "yandexbrowser";
+    | "aol"
+    | "android"
+    | "bb10"
+    | "chrome"
+    | "crios"
+    | "edge"
+    | "facebook"
+    | "firefox"
+    | "fxios"
+    | "ie"
+    | "instagram"
+    | "ios"
+    | "ios-webview"
+    | "kakaotalk"
+    | "node"
+    | "opera"
+    | "phantomjs"
+    | "safari"
+    | "samsung"
+    | "vivaldi"
+    | "yandexbrowser";
 
 export interface BrowserInfo {
     name?: string;

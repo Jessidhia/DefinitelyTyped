@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 declare namespace OverlayTrigger {
     export interface OverlayTriggerProps extends React.Props<OverlayTrigger> {
@@ -24,5 +24,7 @@ declare namespace OverlayTrigger {
         trigger?: string | string[];
     }
 }
-declare class OverlayTrigger extends React.Component<OverlayTrigger.OverlayTriggerProps> { }
+declare class OverlayTrigger extends React.Component<
+    OverlayTrigger.OverlayTriggerProps
+> {}
 export = OverlayTrigger;

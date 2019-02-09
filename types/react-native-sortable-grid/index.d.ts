@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { StyleProp, ViewStyle, Animated } from 'react-native';
+import * as React from "react";
+import { StyleProp, ViewStyle, Animated } from "react-native";
 
 interface SortableGridItemProps {
     key: string;
@@ -115,7 +115,9 @@ interface SortableGridProps {
      * containing a key transform, which is an array of transformations.
      */
     dragStartAnimation?: {
-        transform: ReadonlyArray<{ [type: string]: Animated.AnimatedInterpolation }>;
+        transform: ReadonlyArray<{
+            [type: string]: Animated.AnimatedInterpolation;
+        }>;
     };
 
     /**
@@ -124,7 +126,8 @@ interface SortableGridProps {
     children?: ReadonlyArray<SortableGridItem>;
 }
 
-interface SortableGridStatic extends React.ClassicComponentClass<SortableGridProps> {
+interface SortableGridStatic
+    extends React.ClassicComponentClass<SortableGridProps> {
     /**
      * Calling this will toggle item deletion mode on/off.
      */

@@ -14,10 +14,10 @@ function constructorTests() {
     const x = new Big(9); // '9'
     const y = new Big(x); // '9'
     const d = Big(435.345); // 'new' is optional
-    const e = Big('435.345'); // 'new' is optional
-    const a = new Big('5032485723458348569331745.33434346346912144534543');
-    const b = new Big('4.321e+4'); // '43210'
-    const c = new Big('-735.0918e-430'); // '-7.350918e-428'
+    const e = Big("435.345"); // 'new' is optional
+    const a = new Big("5032485723458348569331745.33434346346912144534543");
+    const b = new Big("4.321e+4"); // '43210'
+    const c = new Big("-735.0918e-430"); // '-7.350918e-428'
 }
 
 function staticPropertiesTests() {
@@ -50,7 +50,7 @@ function divTests() {
 function eqTests() {
     0 === 1e-324; // true
     const x = new Big(0);
-    x.eq('1e-324'); // false
+    x.eq("1e-324"); // false
     Big(-0).eq(x); // true  ( -0 === 0 )
 }
 
@@ -99,8 +99,12 @@ function plusTests() {
     0.1 + 0.2; // 0.30000000000000004
     const x = new Big(0.1);
     const y = x.plus(0.2); // '0.3'
-    Big(0.7).plus(x).plus(y); // '1'
-    Big(0.7).add(x).add(y); // '1'
+    Big(0.7)
+        .plus(x)
+        .plus(y); // '1'
+    Big(0.7)
+        .add(x)
+        .add(y); // '1'
 }
 
 function powTests() {
@@ -111,7 +115,7 @@ function powTests() {
     Big(3).pow(-2); // '0.11111111111111111111'
 
     new Big(123.456).pow(1000).toString().length; // 5099
-    new Big(2).pow(1e+6); // Time taken (Node.js): 9 minutes 34 secs.
+    new Big(2).pow(1e6); // Time taken (Node.js): 9 minutes 34 secs.
 }
 
 function roundTests() {
@@ -139,8 +143,8 @@ function timesTests() {
     0.6 * 3; // 1.7999999999999998
     const x = new Big(0.6);
     const y = x.times(3); // '1.8'
-    Big('7e+500').times(y); // '1.26e+501'
-    Big('7e+500').mul(y); // '1.26e+501'
+    Big("7e+500").times(y); // '1.26e+501'
+    Big("7e+500").mul(y); // '1.26e+501'
 }
 
 function toExponentialTests() {
@@ -178,43 +182,43 @@ function toPrecisionTests() {
 }
 
 function toStringTests() {
-    const x = new Big('9.99e+20');
+    const x = new Big("9.99e+20");
     x.toString(); // '999000000000000000000'
-    const y = new Big('1E21');
+    const y = new Big("1E21");
     x.toString(); // '1e+21'
 }
 
 function valueOfTests() {
-    const x = new Big('177.7e+457');
+    const x = new Big("177.7e+457");
     x.valueOf(); // '1.777e+459'
 }
 
 function toJSONTests() {
-    const x = new Big('177.7e+457');
+    const x = new Big("177.7e+457");
     const y = new Big(235.4325);
-    const z = new Big('0.0098074');
+    const z = new Big("0.0098074");
     const str = JSON.stringify([x, y, z]);
 
-    const a = new Big('123').toJSON();
+    const a = new Big("123").toJSON();
 
-    JSON.parse(str, (k, v)  => k === '' ? v : new Big(v)); // Returns an array of three Big numbers.
+    JSON.parse(str, (k, v) => (k === "" ? v : new Big(v))); // Returns an array of three Big numbers.
 }
 
 // test Big.c
 function coefficientTests() {
-    const x = new Big('123');
+    const x = new Big("123");
     x.c; // [1,2,3]
 }
 
 // test Big.e
 function exponentTests() {
-    const x = new Big('123e+20');
+    const x = new Big("123e+20");
     x.e; // 22
 }
 
 // test Big.s
 function signTests() {
-    const x = new Big('-123');
+    const x = new Big("-123");
     x.s; // -1
 }
 

@@ -3,4 +3,7 @@
 // Definitions by: Inaki Arroyo <https://github.com/iarroyo5>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-export function deline(strings: string | TemplateStringsArray, ...values: any[]): string;
+export function deline(
+    strings: string | TemplateStringsArray,
+    ...values: any[]
+): string;

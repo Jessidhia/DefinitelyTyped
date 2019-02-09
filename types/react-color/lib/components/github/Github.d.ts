@@ -4,7 +4,7 @@ import { ColorPickerProps, Color } from "../../..";
 export interface GithubPickerProps extends ColorPickerProps<GithubPicker> {
     colors?: string[];
     width?: string;
-    triangle?: 'hide' | 'top-left' | 'top-right';
+    triangle?: "hide" | "top-left" | "top-right";
     onSwatchHover?(color: Color, event: MouseEvent): void;
 }
 

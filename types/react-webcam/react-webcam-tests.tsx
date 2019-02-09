@@ -6,11 +6,11 @@ export class ReactWebcamTest extends React.Component {
 
     setRef = (webcam: Webcam) => {
         this.webcam = webcam;
-    }
+    };
 
     capture = () => {
         const imageSrc = this.webcam.getScreenshot();
-    }
+    };
 
     render() {
         return (

@@ -7,7 +7,9 @@
 
 import * as VFile from "vfile";
 
-declare function vfileLocation(vfile: string | VFile.VFile): vfileLocation.Location;
+declare function vfileLocation(
+    vfile: string | VFile.VFile
+): vfileLocation.Location;
 
 declare namespace vfileLocation {
     interface Location {
@@ -19,7 +21,9 @@ declare namespace vfileLocation {
         /**
          * Get the line and column-based `position` for `offset` in the bound file.
          */
-        toPosition(offset: number): { line: number; column: number; offset: number };
+        toPosition(
+            offset: number
+        ): { line: number; column: number; offset: number };
     }
 }
 

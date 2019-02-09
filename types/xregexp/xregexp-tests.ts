@@ -1,5 +1,4 @@
-
-import X = require('xregexp');
+import X = require("xregexp");
 import XRegExp = X.XRegExp;
 import TokenOpts = X.TokenOpts;
 
@@ -40,7 +39,7 @@ regex = XRegExp(str);
 regex = XRegExp(str, flags);
 regex = XRegExp(regex);
 
-str =  XRegExp.version;
+str = XRegExp.version;
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --
 
@@ -48,21 +47,25 @@ regex = X(str);
 regex = X(str, flags);
 regex = X(regex);
 
-str =  X.version;
+str = X.version;
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --
 
 XRegExp.addToken(regex, (arr, scope) => {
-	matchArr = arr;
-	str = scope;
-	return str;
+    matchArr = arr;
+    str = scope;
+    return str;
 });
 
-XRegExp.addToken(regex, (arr, scope) => {
-	matchArr = arr;
-	str = scope;
-	return str;
-}, options);
+XRegExp.addToken(
+    regex,
+    (arr, scope) => {
+        matchArr = arr;
+        str = scope;
+        return str;
+    },
+    options
+);
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --
 
@@ -80,10 +83,10 @@ matchArr = XRegExp.exec(str, regex);
 // --  --  --  --  --  --  --  --  --  --  --  --  --
 
 matchArr = XRegExp.forEach(str, regex, (match, index, input, regexp) => {
-	exp = regexp;
-	str = input;
-	num = index;
-	matchArr = match;
+    exp = regexp;
+    str = input;
+    num = index;
+    matchArr = match;
 });
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --

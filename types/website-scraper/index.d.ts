@@ -6,7 +6,7 @@
 
 /// <reference types="request" />
 
-import * as request from 'request';
+import * as request from "request";
 
 declare namespace websiteScraper {
     interface Url {
@@ -22,7 +22,7 @@ declare namespace websiteScraper {
         attr: string;
     }
     interface RequestOptions {
-        headers: request.Headers
+        headers: request.Headers;
     }
     interface Options {
         urls: Array<string | Url>;

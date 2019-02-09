@@ -1,5 +1,5 @@
-import * as Chain from 'stream-chain';
-import * as StreamBase from './StreamBase';
+import * as Chain from "stream-chain";
+import * as StreamBase from "./StreamBase";
 
 export = StreamArray;
 

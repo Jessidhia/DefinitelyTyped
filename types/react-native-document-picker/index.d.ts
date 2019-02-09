@@ -4,7 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export const DocumentPicker: {
-    show(options: Options, callback: (error: Error, result: Result) => void): void;
+    show(
+        options: Options,
+        callback: (error: Error, result: Result) => void
+    ): void;
 };
 
 export const DocumentPickerUtil: {

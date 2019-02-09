@@ -1,5 +1,5 @@
-import Promise = require('bluebird');
-import retry = require('bluebird-retry');
+import Promise = require("bluebird");
+import retry = require("bluebird-retry");
 
 function promiseSuccess(text: string) {
     return Promise.resolve(text);
@@ -9,19 +9,20 @@ let count = 0;
 function myfunc() {
     console.log(`myfunc called ${++count} times`);
     if (count < 3) {
-        throw new Error('i fail the first two times');
+        throw new Error("i fail the first two times");
     } else {
-        return promiseSuccess('i succeed the third time');
+        return promiseSuccess("i succeed the third time");
     }
 }
 
-retry(myfunc)
-    .done(result => { console.log(result); });
+retry(myfunc).done(result => {
+    console.log(result);
+});
 
 // Options example
 function logFail() {
     console.log(new Date().toISOString());
-    throw new Error('bail');
+    throw new Error("bail");
 }
 
 const options: retry.Options = {
@@ -32,8 +33,8 @@ const options: retry.Options = {
 retry(logFail, options);
 
 function stopErrorExample() {
-    console.log('retrying\n');
-    throw new retry.StopError('stop retrying');
+    console.log("retrying\n");
+    throw new retry.StopError("stop retrying");
 }
 
 retry(stopErrorExample);

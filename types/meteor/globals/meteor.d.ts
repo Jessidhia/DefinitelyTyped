@@ -10,8 +10,9 @@ declare module Meteor {
     /** Settings **/
     interface Settings {
         public: {
-            [id: string]: any
-        }, [id: string]: any
+            [id: string]: any;
+        };
+        [id: string]: any;
     }
     var settings: Settings;
     /** Settings **/
@@ -57,24 +58,34 @@ declare module Meteor {
         unblock(): void;
     }
 
-    function methods(methods: {[key: string]: (this: MethodThisType, ...args: any[]) => any}): void;
+    function methods(methods: {
+        [key: string]: (this: MethodThisType, ...args: any[]) => any;
+    }): void;
 
     function call(name: string, ...args: any[]): any;
 
-    function apply(name: string, args: EJSONable[], options?: {
-        wait?: boolean;
-        onResultReceived?: Function;
-        returnStubValue?: boolean;
-        throwStubExceptions?: boolean;
-    }, asyncCallback?: Function): any;
+    function apply(
+        name: string,
+        args: EJSONable[],
+        options?: {
+            wait?: boolean;
+            onResultReceived?: Function;
+            returnStubValue?: boolean;
+            throwStubExceptions?: boolean;
+        },
+        asyncCallback?: Function
+    ): any;
     /** Method **/
 
     /** Url **/
-    function absoluteUrl(path?: string, options?: {
-        secure?: boolean;
-        replaceLocalhost?: boolean;
-        rootUrl?: string;
-    }): string;
+    function absoluteUrl(
+        path?: string,
+        options?: {
+            secure?: boolean;
+            replaceLocalhost?: boolean;
+            rootUrl?: string;
+        }
+    ): string;
     /** Url **/
 
     /** Timeout **/
@@ -120,32 +131,60 @@ declare module Meteor {
         loginStyle?: string;
     }
 
-    function loginWithMeteorDeveloperAccount(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithMeteorDeveloperAccount(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithFacebook(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithFacebook(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithGithub(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithGithub(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithGoogle(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithGoogle(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithMeetup(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithMeetup(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithTwitter(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithTwitter(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
-    function loginWithWeibo(options?: Meteor.LoginWithExternalServiceOptions, callback?: Function): void;
+    function loginWithWeibo(
+        options?: Meteor.LoginWithExternalServiceOptions,
+        callback?: Function
+    ): void;
 
     function loggingIn(): boolean;
 
-    function loginWith<ExternalService>(options?: {
-        requestPermissions?: string[];
-        requestOfflineToken?: boolean;
-        loginUrlParameters?: Object;
-        userEmail?: string;
-        loginStyle?: string;
-        redirectUrl?: string;
-    }, callback?: Function): void;
+    function loginWith<ExternalService>(
+        options?: {
+            requestPermissions?: string[];
+            requestOfflineToken?: boolean;
+            loginUrlParameters?: Object;
+            userEmail?: string;
+            loginStyle?: string;
+            redirectUrl?: string;
+        },
+        callback?: Function
+    ): void;
 
-    function loginWithPassword(user: Object | string, password: string, callback?: Function): void;
+    function loginWithPassword(
+        user: Object | string,
+        password: string,
+        callback?: Function
+    ): void;
 
     function loginWithToken(token: string, callback?: Function): void;
 

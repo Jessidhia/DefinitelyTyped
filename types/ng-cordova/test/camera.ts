@@ -12,13 +12,15 @@ namespace ngCordova {
             correctOrientation: true
         };
 
-        $cordovaCamera.getPicture(options).then((imageData) => {
-            console.log(imageData.trim());
-        }).finally(() => {
-            $cordovaCamera.cleanup()
-                .then(() => {
-                    console.log('cleaned up.');
+        $cordovaCamera
+            .getPicture(options)
+            .then(imageData => {
+                console.log(imageData.trim());
+            })
+            .finally(() => {
+                $cordovaCamera.cleanup().then(() => {
+                    console.log("cleaned up.");
                 });
-        });
-    };
+            });
+    }
 }

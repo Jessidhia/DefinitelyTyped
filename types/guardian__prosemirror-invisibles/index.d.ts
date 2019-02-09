@@ -4,15 +4,20 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Node } from 'prosemirror-model';
+import { Node } from "prosemirror-model";
 import { Decoration, DecorationSet } from "prosemirror-view";
-import { Plugin } from 'prosemirror-state';
+import { Plugin } from "prosemirror-state";
 
-export type Builder = (from: number, to: number, doc: Node, decos: DecorationSet) => DecorationSet;
+export type Builder = (
+    from: number,
+    to: number,
+    doc: Node,
+    decos: DecorationSet
+) => DecorationSet;
 
 export interface TextBetweenPosition {
-  pos: number;
-  text: string;
+    pos: number;
+    text: string;
 }
 
 export default function(builders: Builder[]): Plugin;
@@ -22,4 +27,8 @@ export function paragraph(predicate?: (node: Node) => boolean): Builder;
 export function space(predicate?: (char: string) => boolean): Builder;
 
 export function createDeco(pos: number, type: string): Decoration;
-export function textBetween(from: number, to: number, doc: Node): TextBetweenPosition[];
+export function textBetween(
+    from: number,
+    to: number,
+    doc: Node
+): TextBetweenPosition[];

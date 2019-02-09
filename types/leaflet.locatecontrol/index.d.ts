@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as L from 'leaflet';
+import * as L from "leaflet";
 
-declare module 'leaflet' {
+declare module "leaflet" {
     namespace Control {
         class Locate extends Control {
-          onAdd(map: Map): HTMLElement;
-          start(): void;
-          stop(): void;
-          setView(): void;
+            onAdd(map: Map): HTMLElement;
+            start(): void;
+            stop(): void;
+            setView(): void;
         }
         interface LocateOptions {
             position?: string;

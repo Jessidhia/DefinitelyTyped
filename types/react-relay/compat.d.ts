@@ -2,9 +2,13 @@ export { QueryRenderer, fetchQuery, graphql } from "./index";
 import {
     ConnectionConfig,
     RelayPaginationProp as RelayModernPaginationProp,
-    RelayRefetchProp as RelayModernRefetchProp,
+    RelayRefetchProp as RelayModernRefetchProp
 } from "./index";
-export { ConcreteFragment, ConcreteRequest, ConcreteBatchRequest } from "relay-runtime";
+export {
+    ConcreteFragment,
+    ConcreteRequest,
+    ConcreteBatchRequest
+} from "relay-runtime";
 import * as RelayRuntimeTypes from "relay-runtime";
 import { RelayEnvironmentInterface } from "./classic";
 
@@ -24,13 +28,17 @@ export interface ComponentWithFragment<T> extends React.ComponentClass<T> {
 export interface StatelessWithFragment<T> extends React.StatelessComponent<T> {
     getFragment: typeof getFragment;
 }
-export type ReactFragmentComponent<T> = ComponentWithFragment<T> | StatelessWithFragment<T>;
+export type ReactFragmentComponent<T> =
+    | ComponentWithFragment<T>
+    | StatelessWithFragment<T>;
 export type RelayClassicEnvironment = RelayEnvironmentInterface;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // RelayCompatTypes
 // ~~~~~~~~~~~~~~~~~~~~~
-export type CompatEnvironment = RelayRuntimeTypes.Environment | RelayClassicEnvironment;
+export type CompatEnvironment =
+    | RelayRuntimeTypes.Environment
+    | RelayClassicEnvironment;
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // RelayProps
@@ -82,4 +90,6 @@ export function createPaginationContainer<T>(
 // injectDefaultVariablesProvider
 // ~~~~~~~~~~~~~~~~~~~~~
 export type VariablesProvider = () => RelayRuntimeTypes.Variables;
-export function injectDefaultVariablesProvider(variablesProvider: VariablesProvider): void;
+export function injectDefaultVariablesProvider(
+    variablesProvider: VariablesProvider
+): void;

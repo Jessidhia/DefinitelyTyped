@@ -17,23 +17,26 @@ function rootReducer(state: TestState, action: Action): TestState {
 
 const enhancedReducer = reducer(rootReducer, reduxStorageImmutableMerger);
 
-const storageEngine = filter(createEngine("test"), ['a', 'b'], ['c']);
+const storageEngine = filter(createEngine("test"), ["a", "b"], ["c"]);
 
 const initialStateLoader = createLoader(storageEngine);
 
 const storageMiddleware = createMiddleware(storageEngine, [], []);
 
-const store = applyMiddleware(storageMiddleware)<TestState>(createStore)(enhancedReducer);
+const store = applyMiddleware(storageMiddleware)<TestState>(createStore)(
+    enhancedReducer
+);
 
 initialStateLoader(store).then(() => {
     // render app
-})
-
+});
 
 // Test for React Native Async Storage engine
 const storageEngineReactNative = createReactNativeAsyncStorageEngine("test");
 const storageMiddlewareReactNative = createMiddleware(storageEngine);
-const storeReactNative = applyMiddleware(storageMiddlewareReactNative)<TestState>(createStore)(enhancedReducer);
+const storeReactNative = applyMiddleware(storageMiddlewareReactNative)<
+    TestState
+>(createStore)(enhancedReducer);
 initialStateLoader(storeReactNative).then(() => {
     // render app
-})
+});

@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-import { Hash } from 'crypto';
+import { Hash } from "crypto";
 
 export = RIPEMD160;
 

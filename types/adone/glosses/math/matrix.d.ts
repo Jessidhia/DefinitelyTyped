@@ -84,7 +84,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function add(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function add(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Subtracts vector b from vector a
@@ -94,7 +98,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function subtract(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function subtract(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Subtracts vector b from vector a
@@ -104,7 +112,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function sub(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function sub(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Multiplies two vec2's
@@ -114,7 +126,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function multiply(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function multiply(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Multiplies two vec2's
@@ -124,7 +140,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function mul(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function mul(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Divides two vec2's
@@ -134,7 +154,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function divide(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function divide(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Divides two vec2's
@@ -144,7 +168,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function div(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function div(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Math.ceil the components of a vec2
@@ -172,7 +200,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function min(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function min(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Returns the maximum of two vec2's
@@ -182,7 +214,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function max(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function max(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Math.round the components of a vec2
@@ -201,7 +237,11 @@ declare namespace adone.math {
              * @param b amount to scale the vector by
              * @returns out
              */
-            function scale(out: I.vec2, a: I.vec2 | number[], b: number): I.vec2;
+            function scale(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: number
+            ): I.vec2;
 
             /**
              * Adds two vec2's after scaling the second operand by a scalar value
@@ -212,7 +252,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b by before adding
              * @returns out
              */
-            function scaleAndAdd(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[], scale: number): I.vec2;
+            function scaleAndAdd(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[],
+                scale: number
+            ): I.vec2;
 
             /**
              * Calculates the euclidian distance between two vec2's
@@ -221,7 +266,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns distance between a and b
              */
-            function distance(a: I.vec2 | number[], b: I.vec2 | number[]): number;
+            function distance(
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): number;
 
             /**
              * Calculates the euclidian distance between two vec2's
@@ -239,7 +287,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function squaredDistance(a: I.vec2 | number[], b: I.vec2 | number[]): number;
+            function squaredDistance(
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): number;
 
             /**
              * Calculates the squared euclidian distance between two vec2's
@@ -248,7 +299,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function sqrDist(a: I.vec2 | number[], b: I.vec2 | number[]): number;
+            function sqrDist(
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): number;
 
             /**
              * Calculates the length of a vec2
@@ -327,7 +381,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function cross(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[]): I.vec2;
+            function cross(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): I.vec2;
 
             /**
              * Performs a linear interpolation between two vec2's
@@ -338,7 +396,12 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function lerp(out: I.vec2, a: I.vec2 | number[], b: I.vec2 | number[], t: number): I.vec2;
+            function lerp(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                b: I.vec2 | number[],
+                t: number
+            ): I.vec2;
 
             /**
              * Generates a random unit vector
@@ -365,7 +428,11 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat2(out: I.vec2, a: I.vec2 | number[], m: I.mat2): I.vec2;
+            function transformMat2(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                m: I.mat2
+            ): I.vec2;
 
             /**
              * Transforms the vec2 with a mat2d
@@ -375,7 +442,11 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat2d(out: I.vec2, a: I.vec2 | number[], m: I.mat2d): I.vec2;
+            function transformMat2d(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                m: I.mat2d
+            ): I.vec2;
 
             /**
              * Transforms the vec2 with a mat3
@@ -386,7 +457,11 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat3(out: I.vec2, a: I.vec2 | number[], m: I.mat3): I.vec2;
+            function transformMat3(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                m: I.mat3
+            ): I.vec2;
 
             /**
              * Transforms the vec2 with a mat4
@@ -398,7 +473,11 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat4(out: I.vec2, a: I.vec2 | number[], m: I.mat4): I.vec2;
+            function transformMat4(
+                out: I.vec2,
+                a: I.vec2 | number[],
+                m: I.mat4
+            ): I.vec2;
 
             /**
              * Perform some operation over an array of vec2s.
@@ -411,8 +490,18 @@ declare namespace adone.math {
              * @param arg additional argument to pass to fn
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                    fn: (a: I.vec2 | number[], b: I.vec2 | number[], arg: any) => void, arg: any): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (
+                    a: I.vec2 | number[],
+                    b: I.vec2 | number[],
+                    arg: any
+                ) => void,
+                arg: any
+            ): Float32Array;
 
             /**
              * Perform some operation over an array of vec2s.
@@ -424,8 +513,13 @@ declare namespace adone.math {
              * @param fn Function to call for each vector in the array
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                    fn: (a: I.vec2 | number[], b: I.vec2 | number[]) => void): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (a: I.vec2 | number[], b: I.vec2 | number[]) => void
+            ): Float32Array;
 
             /**
              * Returns a string representation of a vector
@@ -442,7 +536,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function exactEquals(a: I.vec2 | number[], b: I.vec2 | number[]): boolean;
+            function exactEquals(
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): boolean;
 
             /**
              * Returns whether or not the vectors have approximately the same elements in the same position.
@@ -451,7 +548,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function equals(a: I.vec2 | number[], b: I.vec2 | number[]): boolean;
+            function equals(
+                a: I.vec2 | number[],
+                b: I.vec2 | number[]
+            ): boolean;
         }
 
         namespace I {
@@ -515,7 +615,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function add(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function add(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Subtracts vector b from vector a
@@ -525,7 +629,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function subtract(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function subtract(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Subtracts vector b from vector a
@@ -535,7 +643,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function sub(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function sub(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Multiplies two vec3's
@@ -545,7 +657,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function multiply(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function multiply(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Multiplies two vec3's
@@ -555,7 +671,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function mul(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function mul(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Divides two vec3's
@@ -565,7 +685,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function divide(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function divide(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Divides two vec3's
@@ -575,7 +699,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function div(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function div(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Math.ceil the components of a vec3
@@ -603,7 +731,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function min(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function min(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Returns the maximum of two vec3's
@@ -613,7 +745,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function max(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function max(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Math.round the components of a vec3
@@ -632,7 +768,11 @@ declare namespace adone.math {
              * @param b amount to scale the vector by
              * @returns out
              */
-            function scale(out: I.vec3, a: I.vec3 | number[], b: number): I.vec3;
+            function scale(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: number
+            ): I.vec3;
 
             /**
              * Adds two vec3's after scaling the second operand by a scalar value
@@ -643,7 +783,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b by before adding
              * @returns out
              */
-            function scaleAndAdd(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], scale: number): I.vec3;
+            function scaleAndAdd(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                scale: number
+            ): I.vec3;
 
             /**
              * Calculates the euclidian distance between two vec3's
@@ -652,7 +797,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns distance between a and b
              */
-            function distance(a: I.vec3 | number[], b: I.vec3 | number[]): number;
+            function distance(
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): number;
 
             /**
              * Calculates the euclidian distance between two vec3's
@@ -670,7 +818,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function squaredDistance(a: I.vec3 | number[], b: I.vec3 | number[]): number;
+            function squaredDistance(
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): number;
 
             /**
              * Calculates the squared euclidian distance between two vec3's
@@ -679,7 +830,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function sqrDist(a: I.vec3 | number[], b: I.vec3 | number[]): number;
+            function sqrDist(
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): number;
 
             /**
              * Calculates the length of a vec3
@@ -757,7 +911,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function cross(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[]): I.vec3;
+            function cross(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.vec3;
 
             /**
              * Performs a linear interpolation between two vec3's
@@ -768,7 +926,12 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function lerp(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], t: number): I.vec3;
+            function lerp(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                t: number
+            ): I.vec3;
 
             /**
              * Performs a hermite interpolation with two control points
@@ -781,7 +944,14 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function hermite(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], c: I.vec3 | number[], d: I.vec3 | number[], t: number): I.vec3;
+            function hermite(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                c: I.vec3 | number[],
+                d: I.vec3 | number[],
+                t: number
+            ): I.vec3;
 
             /**
              * Performs a bezier interpolation with two control points
@@ -794,7 +964,14 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function bezier(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], c: I.vec3 | number[], d: I.vec3 | number[], t: number): I.vec3;
+            function bezier(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                c: I.vec3 | number[],
+                d: I.vec3 | number[],
+                t: number
+            ): I.vec3;
 
             /**
              * Generates a random unit vector
@@ -821,7 +998,11 @@ declare namespace adone.math {
              * @param m the 3x3 matrix to transform with
              * @returns out
              */
-            function transformMat3(out: I.vec3, a: I.vec3 | number[], m: I.mat3): I.vec3;
+            function transformMat3(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                m: I.mat3
+            ): I.vec3;
 
             /**
              * Transforms the vec3 with a mat4.
@@ -832,17 +1013,25 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat4(out: I.vec3, a: I.vec3 | number[], m: I.mat4): I.vec3;
+            function transformMat4(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                m: I.mat4
+            ): I.vec3;
 
-             /**
-              * Transforms the vec3 with a quat
-              *
-              * @param out the receiving vector
-              * @param a the vector to transform
-              * @param q quaternion to transform with
-              * @returns out
-              */
-            function transformQuat(out: I.vec3, a: I.vec3 | number[], q: I.quat): I.vec3;
+            /**
+             * Transforms the vec3 with a quat
+             *
+             * @param out the receiving vector
+             * @param a the vector to transform
+             * @param q quaternion to transform with
+             * @returns out
+             */
+            function transformQuat(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                q: I.quat
+            ): I.vec3;
 
             /**
              * Rotate a 3D vector around the x-axis
@@ -852,7 +1041,12 @@ declare namespace adone.math {
              * @param c The angle of rotation
              * @returns out
              */
-            function rotateX(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], c: number): I.vec3;
+            function rotateX(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                c: number
+            ): I.vec3;
 
             /**
              * Rotate a 3D vector around the y-axis
@@ -862,7 +1056,12 @@ declare namespace adone.math {
              * @param c The angle of rotation
              * @returns out
              */
-            function rotateY(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], c: number): I.vec3;
+            function rotateY(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                c: number
+            ): I.vec3;
 
             /**
              * Rotate a 3D vector around the z-axis
@@ -872,7 +1071,12 @@ declare namespace adone.math {
              * @param c The angle of rotation
              * @returns out
              */
-            function rotateZ(out: I.vec3, a: I.vec3 | number[], b: I.vec3 | number[], c: number): I.vec3;
+            function rotateZ(
+                out: I.vec3,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[],
+                c: number
+            ): I.vec3;
 
             /**
              * Perform some operation over an array of vec3s.
@@ -885,8 +1089,18 @@ declare namespace adone.math {
              * @param arg additional argument to pass to fn
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                  fn: (a: I.vec3 | number[], b: I.vec3 | number[], arg: any) => void, arg: any): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (
+                    a: I.vec3 | number[],
+                    b: I.vec3 | number[],
+                    arg: any
+                ) => void,
+                arg: any
+            ): Float32Array;
 
             /**
              * Perform some operation over an array of vec3s.
@@ -898,8 +1112,13 @@ declare namespace adone.math {
              * @param fn Function to call for each vector in the array
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                  fn: (a: I.vec3 | number[], b: I.vec3 | number[]) => void): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (a: I.vec3 | number[], b: I.vec3 | number[]) => void
+            ): Float32Array;
 
             /**
              * Get the angle between two 3D vectors
@@ -924,7 +1143,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function exactEquals(a: I.vec3 | number[], b: I.vec3 | number[]): boolean;
+            function exactEquals(
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): boolean;
 
             /**
              * Returns whether or not the vectors have approximately the same elements in the same position.
@@ -933,7 +1155,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function equals(a: I.vec3 | number[], b: I.vec3 | number[]): boolean;
+            function equals(
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): boolean;
         }
 
         namespace I {
@@ -968,7 +1193,12 @@ declare namespace adone.math {
              * @param w W component
              * @returns a new 4D vector
              */
-            function fromValues(x: number, y: number, z: number, w: number): I.vec4;
+            function fromValues(
+                x: number,
+                y: number,
+                z: number,
+                w: number
+            ): I.vec4;
 
             /**
              * Copy the values from one vec4 to another
@@ -989,7 +1219,13 @@ declare namespace adone.math {
              * @param w W component
              * @returns out
              */
-            function set(out: I.vec4, x: number, y: number, z: number, w: number): I.vec4;
+            function set(
+                out: I.vec4,
+                x: number,
+                y: number,
+                z: number,
+                w: number
+            ): I.vec4;
 
             /**
              * Adds two vec4's
@@ -999,7 +1235,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function add(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function add(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Subtracts vector b from vector a
@@ -1009,7 +1249,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function subtract(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function subtract(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Subtracts vector b from vector a
@@ -1019,7 +1263,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function sub(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function sub(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Multiplies two vec4's
@@ -1029,7 +1277,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function multiply(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function multiply(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Multiplies two vec4's
@@ -1039,7 +1291,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function mul(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function mul(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Divides two vec4's
@@ -1049,7 +1305,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function divide(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function divide(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Divides two vec4's
@@ -1059,7 +1319,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function div(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function div(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Math.ceil the components of a vec4
@@ -1087,7 +1351,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function min(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function min(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Returns the maximum of two vec4's
@@ -1097,7 +1365,11 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns out
              */
-            function max(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[]): I.vec4;
+            function max(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): I.vec4;
 
             /**
              * Math.round the components of a vec4
@@ -1116,7 +1388,11 @@ declare namespace adone.math {
              * @param b amount to scale the vector by
              * @returns out
              */
-            function scale(out: I.vec4, a: I.vec4 | number[], b: number): I.vec4;
+            function scale(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: number
+            ): I.vec4;
 
             /**
              * Adds two vec4's after scaling the second operand by a scalar value
@@ -1127,7 +1403,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b by before adding
              * @returns out
              */
-            function scaleAndAdd(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[], scale: number): I.vec4;
+            function scaleAndAdd(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[],
+                scale: number
+            ): I.vec4;
 
             /**
              * Calculates the euclidian distance between two vec4's
@@ -1136,7 +1417,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns distance between a and b
              */
-            function distance(a: I.vec4 | number[], b: I.vec4 | number[]): number;
+            function distance(
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): number;
 
             /**
              * Calculates the euclidian distance between two vec4's
@@ -1154,7 +1438,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function squaredDistance(a: I.vec4 | number[], b: I.vec4 | number[]): number;
+            function squaredDistance(
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): number;
 
             /**
              * Calculates the squared euclidian distance between two vec4's
@@ -1163,7 +1450,10 @@ declare namespace adone.math {
              * @param b the second operand
              * @returns squared distance between a and b
              */
-            function sqrDist(a: I.vec4 | number[], b: I.vec4 | number[]): number;
+            function sqrDist(
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): number;
 
             /**
              * Calculates the length of a vec4
@@ -1242,7 +1532,12 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function lerp(out: I.vec4, a: I.vec4 | number[], b: I.vec4 | number[], t: number): I.vec4;
+            function lerp(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                b: I.vec4 | number[],
+                t: number
+            ): I.vec4;
 
             /**
              * Generates a random unit vector
@@ -1269,7 +1564,11 @@ declare namespace adone.math {
              * @param m matrix to transform with
              * @returns out
              */
-            function transformMat4(out: I.vec4, a: I.vec4 | number[], m: I.mat4): I.vec4;
+            function transformMat4(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                m: I.mat4
+            ): I.vec4;
 
             /**
              * Transforms the vec4 with a quat
@@ -1280,7 +1579,11 @@ declare namespace adone.math {
              * @returns out
              */
 
-            function transformQuat(out: I.vec4, a: I.vec4 | number[], q: I.quat): I.vec4;
+            function transformQuat(
+                out: I.vec4,
+                a: I.vec4 | number[],
+                q: I.quat
+            ): I.vec4;
 
             /**
              * Perform some operation over an array of vec4s.
@@ -1293,8 +1596,18 @@ declare namespace adone.math {
              * @param arg additional argument to pass to fn
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                  fn: (a: I.vec4 | number[], b: I.vec4 | number[], arg: any) => void, arg: any): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (
+                    a: I.vec4 | number[],
+                    b: I.vec4 | number[],
+                    arg: any
+                ) => void,
+                arg: any
+            ): Float32Array;
 
             /**
              * Perform some operation over an array of vec4s.
@@ -1306,8 +1619,13 @@ declare namespace adone.math {
              * @param fn Function to call for each vector in the array
              * @returns a
              */
-            function forEach(a: Float32Array, stride: number, offset: number, count: number,
-                                  fn: (a: I.vec4 | number[], b: I.vec4 | number[]) => void): Float32Array;
+            function forEach(
+                a: Float32Array,
+                stride: number,
+                offset: number,
+                count: number,
+                fn: (a: I.vec4 | number[], b: I.vec4 | number[]) => void
+            ): Float32Array;
 
             /**
              * Returns a string representation of a vector
@@ -1324,7 +1642,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function exactEquals(a: I.vec4 | number[], b: I.vec4 | number[]): boolean;
+            function exactEquals(
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): boolean;
 
             /**
              * Returns whether or not the vectors have approximately the same elements in the same position.
@@ -1333,7 +1654,10 @@ declare namespace adone.math {
              * @param b The second vector.
              * @returns True if the vectors are equal, false otherwise.
              */
-            function equals(a: I.vec4 | number[], b: I.vec4 | number[]): boolean;
+            function equals(
+                a: I.vec4 | number[],
+                b: I.vec4 | number[]
+            ): boolean;
         }
 
         namespace I {
@@ -1385,7 +1709,12 @@ declare namespace adone.math {
              * @param m11 Component in column 1, row 1 position (index 3)
              * @returns out A new 2x2 matrix
              */
-            function fromValues(m00: number, m01: number, m10: number, m11: number): I.mat2;
+            function fromValues(
+                m00: number,
+                m01: number,
+                m10: number,
+                m11: number
+            ): I.mat2;
 
             /**
              * Set the components of a mat2 to the given values
@@ -1397,7 +1726,13 @@ declare namespace adone.math {
              * @param m11 Component in column 1, row 1 position (index 3)
              * @returns out
              */
-            function set(out: I.mat2, m00: number, m01: number, m10: number, m11: number): I.mat2;
+            function set(
+                out: I.mat2,
+                m00: number,
+                m01: number,
+                m10: number,
+                m11: number
+            ): I.mat2;
 
             /**
              * Transpose the values of a mat2
@@ -1472,7 +1807,11 @@ declare namespace adone.math {
              * @param v the vec2 to scale the matrix by
              * @returns out
              */
-            function scale(out: I.mat2, a: I.mat2, v: I.vec2 | number[]): I.mat2;
+            function scale(
+                out: I.mat2,
+                a: I.mat2,
+                v: I.vec2 | number[]
+            ): I.mat2;
 
             /**
              * Creates a matrix from a given angle
@@ -1592,7 +1931,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b's elements by before adding
              * @returns out
              */
-            function multiplyScalarAndAdd(out: I.mat2, a: I.mat2, b: I.mat2, scale: number): I.mat2;
+            function multiplyScalarAndAdd(
+                out: I.mat2,
+                a: I.mat2,
+                b: I.mat2,
+                scale: number
+            ): I.mat2;
         }
 
         namespace I {
@@ -1646,7 +1990,14 @@ declare namespace adone.math {
              * @param ty Component TY (index 5)
              * @returns A new mat2d
              */
-            function fromValues(a: number, b: number, c: number, d: number, tx: number, ty: number): I.mat2d;
+            function fromValues(
+                a: number,
+                b: number,
+                c: number,
+                d: number,
+                tx: number,
+                ty: number
+            ): I.mat2d;
 
             /**
              * Set the components of a mat2d to the given values
@@ -1660,7 +2011,15 @@ declare namespace adone.math {
              * @param ty Component TY (index 5)
              * @returns out
              */
-            function set(out: I.mat2d, a: number, b: number, c: number, d: number, tx: number, ty: number): I.mat2d;
+            function set(
+                out: I.mat2d,
+                a: number,
+                b: number,
+                c: number,
+                d: number,
+                tx: number,
+                ty: number
+            ): I.mat2d;
 
             /**
              * Inverts a mat2d
@@ -1717,7 +2076,11 @@ declare namespace adone.math {
              * @param v the vec2 to scale the matrix by
              * @returns out
              */
-            function scale(out: I.mat2d, a: I.mat2d, v: I.vec2 | number[]): I.mat2d;
+            function scale(
+                out: I.mat2d,
+                a: I.mat2d,
+                v: I.vec2 | number[]
+            ): I.mat2d;
 
             /**
              * Translates the mat2d by the dimensions in the given vec2
@@ -1727,7 +2090,11 @@ declare namespace adone.math {
              * @param v the vec2 to translate the matrix by
              * @returns out
              */
-            function translate(out: I.mat2d, a: I.mat2d, v: I.vec2 | number[]): I.mat2d;
+            function translate(
+                out: I.mat2d,
+                a: I.mat2d,
+                v: I.vec2 | number[]
+            ): I.mat2d;
 
             /**
              * Creates a matrix from a given angle
@@ -1766,7 +2133,10 @@ declare namespace adone.math {
              * @param v Translation vector
              * @returns out
              */
-            function fromTranslation(out: I.mat2d, v: I.vec2 | number[]): I.mat2d;
+            function fromTranslation(
+                out: I.mat2d,
+                v: I.vec2 | number[]
+            ): I.mat2d;
 
             /**
              * Returns a string representation of a mat2d
@@ -1822,7 +2192,11 @@ declare namespace adone.math {
              * @param b amount to scale the matrix's elements by
              * @returns out
              */
-            function multiplyScalar(out: I.mat2d, a: I.mat2d, b: number): I.mat2d;
+            function multiplyScalar(
+                out: I.mat2d,
+                a: I.mat2d,
+                b: number
+            ): I.mat2d;
 
             /**
              * Adds two mat2d's after multiplying each element of the second operand by a scalar value.
@@ -1833,7 +2207,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b's elements by before adding
              * @returns out
              */
-            function multiplyScalarAndAdd(out: I.mat2d, a: I.mat2d, b: I.mat2d, scale: number): I.mat2d;
+            function multiplyScalarAndAdd(
+                out: I.mat2d,
+                a: I.mat2d,
+                b: I.mat2d,
+                scale: number
+            ): I.mat2d;
 
             /**
              * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
@@ -1909,7 +2288,17 @@ declare namespace adone.math {
              * @param m22 Component in column 2, row 2 position (index 8)
              * @returns A new mat3
              */
-            function fromValues(m00: number, m01: number, m02: number, m10: number, m11: number, m12: number, m20: number, m21: number, m22: number): I.mat3;
+            function fromValues(
+                m00: number,
+                m01: number,
+                m02: number,
+                m10: number,
+                m11: number,
+                m12: number,
+                m20: number,
+                m21: number,
+                m22: number
+            ): I.mat3;
 
             /**
              * Set the components of a mat3 to the given values
@@ -1926,7 +2315,18 @@ declare namespace adone.math {
              * @param m22 Component in column 2, row 2 position (index 8)
              * @returns out
              */
-            function set(out: I.mat3, m00: number, m01: number, m02: number, m10: number, m11: number, m12: number, m20: number, m21: number, m22: number): I.mat3;
+            function set(
+                out: I.mat3,
+                m00: number,
+                m01: number,
+                m02: number,
+                m10: number,
+                m11: number,
+                m12: number,
+                m20: number,
+                m21: number,
+                m22: number
+            ): I.mat3;
 
             /**
              * Set a mat3 to the identity matrix
@@ -1999,7 +2399,11 @@ declare namespace adone.math {
              * @param v vector to translate by
              * @returns out
              */
-            function translate(out: I.mat3, a: I.mat3, v: I.vec3 | number[]): I.mat3;
+            function translate(
+                out: I.mat3,
+                a: I.mat3,
+                v: I.vec3 | number[]
+            ): I.mat3;
 
             /**
              * Rotates a mat3 by the given angle
@@ -2019,7 +2423,11 @@ declare namespace adone.math {
              * @param v the vec2 to scale the matrix by
              * @returns out
              */
-            function scale(out: I.mat3, a: I.mat3, v: I.vec2 | number[]): I.mat3;
+            function scale(
+                out: I.mat3,
+                a: I.mat3,
+                v: I.vec2 | number[]
+            ): I.mat3;
 
             /**
              * Creates a matrix from a vector translation
@@ -2154,7 +2562,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b's elements by before adding
              * @returns out
              */
-            function multiplyScalarAndAdd(out: I.mat3, a: I.mat3, b: I.mat3, scale: number): I.mat3;
+            function multiplyScalarAndAdd(
+                out: I.mat3,
+                a: I.mat3,
+                b: I.mat3,
+                scale: number
+            ): I.mat3;
 
             /**
              * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
@@ -2360,7 +2773,11 @@ declare namespace adone.math {
              * @param v vector to translate by
              * @returns out
              */
-            function translate(out: I.mat4, a: I.mat4, v: I.vec3 | number[]): I.mat4;
+            function translate(
+                out: I.mat4,
+                a: I.mat4,
+                v: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Scales the mat4 by the dimensions in the given vec3
@@ -2370,7 +2787,11 @@ declare namespace adone.math {
              * @param v the vec3 to scale the matrix by
              * @returns out
              */
-            function scale(out: I.mat4, a: I.mat4, v: I.vec3 | number[]): I.mat4;
+            function scale(
+                out: I.mat4,
+                a: I.mat4,
+                v: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Rotates a mat4 by the given angle
@@ -2381,7 +2802,12 @@ declare namespace adone.math {
              * @param axis the axis to rotate around
              * @returns out
              */
-            function rotate(out: I.mat4, a: I.mat4, rad: number, axis: I.vec3 | number[]): I.mat4;
+            function rotate(
+                out: I.mat4,
+                a: I.mat4,
+                rad: number,
+                axis: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Rotates a matrix by the given angle around the X axis
@@ -2451,7 +2877,11 @@ declare namespace adone.math {
              * @param axis the axis to rotate around
              * @returns out
              */
-            function fromRotation(out: I.mat4, rad: number, axis: I.vec3 | number[]): I.mat4;
+            function fromRotation(
+                out: I.mat4,
+                rad: number,
+                axis: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Creates a matrix from the given angle around the X axis
@@ -2507,7 +2937,11 @@ declare namespace adone.math {
              * @param v Translation vector
              * @returns out
              */
-            function fromRotationTranslation(out: I.mat4, q: I.quat, v: I.vec3 | number[]): I.mat4;
+            function fromRotationTranslation(
+                out: I.mat4,
+                q: I.quat,
+                v: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Returns the translation vector component of a transformation
@@ -2559,7 +2993,12 @@ declare namespace adone.math {
              * @param s Scaling vector
              * @returns out
              */
-            function fromRotationTranslationScale(out: I.mat4, q: I.quat, v: I.vec3 | number[], s: I.vec3 | number[]): I.mat4;
+            function fromRotationTranslationScale(
+                out: I.mat4,
+                q: I.quat,
+                v: I.vec3 | number[],
+                s: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Creates a matrix from a quaternion rotation, vector translation and vector scale, rotating and scaling around the given origin
@@ -2581,7 +3020,13 @@ declare namespace adone.math {
              * @param o The origin vector around which to scale and rotate
              * @returns out
              */
-            function fromRotationTranslationScaleOrigin(out: I.mat4, q: I.quat, v: I.vec3 | number[], s: I.vec3 | number[], o: I.vec3 | number[]): I.mat4;
+            function fromRotationTranslationScaleOrigin(
+                out: I.mat4,
+                q: I.quat,
+                v: I.vec3 | number[],
+                s: I.vec3 | number[],
+                o: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Calculates a 4x4 matrix from the given quaternion
@@ -2605,8 +3050,15 @@ declare namespace adone.math {
              * @param far Far bound of the frustum
              * @returns out
              */
-            function frustum(out: I.mat4, left: number, right: number,
-                                  bottom: number, top: number, near: number, far: number): I.mat4;
+            function frustum(
+                out: I.mat4,
+                left: number,
+                right: number,
+                bottom: number,
+                top: number,
+                near: number,
+                far: number
+            ): I.mat4;
 
             /**
              * Generates a perspective projection matrix with the given bounds
@@ -2618,8 +3070,13 @@ declare namespace adone.math {
              * @param far Far bound of the frustum
              * @returns out
              */
-            function perspective(out: I.mat4, fovy: number, aspect: number,
-                                      near: number, far: number): I.mat4;
+            function perspective(
+                out: I.mat4,
+                fovy: number,
+                aspect: number,
+                near: number,
+                far: number
+            ): I.mat4;
 
             /**
              * Generates a perspective projection matrix with the given field of view.
@@ -2635,10 +3092,10 @@ declare namespace adone.math {
             function perspectiveFromFieldOfView(
                 out: I.mat4,
                 fov: {
-                    upDegrees: number,
-                    downDegrees: number,
-                    leftDegrees: number,
-                    rightDegrees: number
+                    upDegrees: number;
+                    downDegrees: number;
+                    leftDegrees: number;
+                    rightDegrees: number;
                 },
                 near: number,
                 far: number
@@ -2656,7 +3113,15 @@ declare namespace adone.math {
              * @param far Far bound of the frustum
              * @returns out
              */
-            function ortho(out: I.mat4, left: number, right: number, bottom: number, top: number, near: number, far: number): I.mat4;
+            function ortho(
+                out: I.mat4,
+                left: number,
+                right: number,
+                bottom: number,
+                top: number,
+                near: number,
+                far: number
+            ): I.mat4;
 
             /**
              * Generates a look-at matrix with the given eye position, focal point, and up axis
@@ -2667,7 +3132,12 @@ declare namespace adone.math {
              * @param up vec3 pointing up
              * @returns out
              */
-            function lookAt(out: I.mat4, eye: I.vec3 | number[], center: I.vec3 | number[], up: I.vec3 | number[]): I.mat4;
+            function lookAt(
+                out: I.mat4,
+                eye: I.vec3 | number[],
+                center: I.vec3 | number[],
+                up: I.vec3 | number[]
+            ): I.mat4;
 
             /**
              * Returns a string representation of a mat4
@@ -2734,7 +3204,12 @@ declare namespace adone.math {
              * @param scale the amount to scale b's elements by before adding
              * @returns out
              */
-            function multiplyScalarAndAdd(out: I.mat4, a: I.mat4, b: I.mat4, scale: number): I.mat4;
+            function multiplyScalarAndAdd(
+                out: I.mat4,
+                a: I.mat4,
+                b: I.mat4,
+                scale: number
+            ): I.mat4;
 
             /**
              * Returns whether or not the matrices have exactly the same elements in the same position (when compared with ===)
@@ -2787,7 +3262,12 @@ declare namespace adone.math {
              * @param w W component
              * @returns a new quaternion
              */
-            function fromValues(x: number, y: number, z: number, w: number): I.quat;
+            function fromValues(
+                x: number,
+                y: number,
+                z: number,
+                w: number
+            ): I.quat;
 
             /**
              * Copy the values from one quat to another
@@ -2808,7 +3288,13 @@ declare namespace adone.math {
              * @param w W component
              * @returns out
              */
-            function set(out: I.quat, x: number, y: number, z: number, w: number): I.quat;
+            function set(
+                out: I.quat,
+                x: number,
+                y: number,
+                z: number,
+                w: number
+            ): I.quat;
 
             /**
              * Set a quat to the identity quaternion
@@ -2829,7 +3315,11 @@ declare namespace adone.math {
              * @param b the destination vector
              * @returns out
              */
-            function rotationTo(out: I.quat, a: I.vec3 | number[], b: I.vec3 | number[]): I.quat;
+            function rotationTo(
+                out: I.quat,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.quat;
 
             /**
              * Sets a quaternion to represent the shortest rotation from one
@@ -2842,7 +3332,11 @@ declare namespace adone.math {
              * @param b the destination vector
              * @returns out
              */
-            function rotationTo(out: I.quat, a: I.vec3 | number[], b: I.vec3 | number[]): I.quat;
+            function rotationTo(
+                out: I.quat,
+                a: I.vec3 | number[],
+                b: I.vec3 | number[]
+            ): I.quat;
 
             /**
              * Sets the specified quaternion with values corresponding to the given
@@ -2854,7 +3348,12 @@ declare namespace adone.math {
              * @param up    the vector representing the local "up" direction
              * @returns out
              */
-            function setAxes(out: I.quat, view: I.vec3 | number[], right: I.vec3 | number[], up: I.vec3 | number[]): I.quat;
+            function setAxes(
+                out: I.quat,
+                view: I.vec3 | number[],
+                right: I.vec3 | number[],
+                up: I.vec3 | number[]
+            ): I.quat;
 
             /**
              * Sets the specified quaternion with values corresponding to the given
@@ -2867,7 +3366,12 @@ declare namespace adone.math {
              * @param up    the vector representing the local "up" direction
              * @returns out
              */
-            function setAxes(out: I.quat, view: I.vec3 | number[], right: I.vec3 | number[], up: I.vec3 | number[]): I.quat;
+            function setAxes(
+                out: I.quat,
+                view: I.vec3 | number[],
+                right: I.vec3 | number[],
+                up: I.vec3 | number[]
+            ): I.quat;
 
             /**
              * Sets a quat from the given angle and rotation axis,
@@ -2878,7 +3382,11 @@ declare namespace adone.math {
              * @param rad the angle in radians
              * @returns out
              */
-            function setAxisAngle(out: I.quat, axis: I.vec3 | number[], rad: number): I.quat;
+            function setAxisAngle(
+                out: I.quat,
+                axis: I.vec3 | number[],
+                rad: number
+            ): I.quat;
 
             /**
              * Gets the rotation axis and angle for a given
@@ -2893,7 +3401,10 @@ declare namespace adone.math {
              * @param  q     Quaternion to be decomposed
              * @return     Angle, in radians, of the rotation
              */
-            function getAxisAngle(out_axis: I.vec3 | number[], q: I.quat): number;
+            function getAxisAngle(
+                out_axis: I.vec3 | number[],
+                q: I.quat
+            ): number;
 
             /**
              * Adds two quat's
@@ -3005,7 +3516,12 @@ declare namespace adone.math {
              * @param t interpolation amount between the two inputs
              * @returns out
              */
-            function slerp(out: I.quat, a: I.quat, b: I.quat, t: number): I.quat;
+            function slerp(
+                out: I.quat,
+                a: I.quat,
+                b: I.quat,
+                t: number
+            ): I.quat;
 
             /**
              * Performs a spherical linear interpolation with two control points
@@ -3018,7 +3534,14 @@ declare namespace adone.math {
              * @param t interpolation amount
              * @returns out
              */
-            function sqlerp(out: I.quat, a: I.quat, b: I.quat, c: I.quat, d: I.quat, t: number): I.quat;
+            function sqlerp(
+                out: I.quat,
+                a: I.quat,
+                b: I.quat,
+                c: I.quat,
+                d: I.quat,
+                t: number
+            ): I.quat;
 
             /**
              * Calculates the inverse of a quat

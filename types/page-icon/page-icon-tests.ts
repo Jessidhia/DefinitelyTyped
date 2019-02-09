@@ -11,12 +11,19 @@ pageIcon(siteUrl)
     });
 
 const twUrl = "https://twitter.com";
-pageIcon(twUrl, {ext: ".png"})
+pageIcon(twUrl, { ext: ".png" })
     .then(icon => {
         if (!icon) {
             return;
         }
-        console.log(icon.source, icon.name, icon.data, icon.size, icon.ext, icon.mime);
+        console.log(
+            icon.source,
+            icon.name,
+            icon.data,
+            icon.size,
+            icon.ext,
+            icon.mime
+        );
     })
     .catch(err => {
         console.error(err);

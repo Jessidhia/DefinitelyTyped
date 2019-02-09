@@ -13,6 +13,6 @@ declare function expressToKoa(
     middleware: (
         req: IncomingMessage,
         res: ServerResponse,
-        next: (err?: any) => void,
+        next: (err?: any) => void
     ) => void
 ): Koa.Middleware;

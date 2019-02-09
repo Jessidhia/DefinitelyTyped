@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-import { AsyncStream, Template } from './src/runtime/html';
+import { AsyncStream, Template } from "./src/runtime/html";
 
 export function createOut(globalData: any): AsyncStream;
 
@@ -14,4 +14,8 @@ export interface TemplateOptions {
 }
 
 export function load(templatePath: string, options?: TemplateOptions): Template;
-export function load(templatePath: string, templateSrc: string, options?: TemplateOptions): Template;
+export function load(
+    templatePath: string,
+    templateSrc: string,
+    options?: TemplateOptions
+): Template;

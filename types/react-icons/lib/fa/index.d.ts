@@ -7,7 +7,9 @@ export { default as FaAlignLeft } from "../../fa/align-left";
 export { default as FaAlignRight } from "../../fa/align-right";
 export { default as FaAmazon } from "../../fa/amazon";
 export { default as FaAmbulance } from "../../fa/ambulance";
-export { default as FaAmericanSignLanguageInterpreting } from "../../fa/american-sign-language-interpreting";
+export {
+    default as FaAmericanSignLanguageInterpreting
+} from "../../fa/american-sign-language-interpreting";
 export { default as FaAnchor } from "../../fa/anchor";
 export { default as FaAndroid } from "../../fa/android";
 export { default as FaAngellist } from "../../fa/angellist";
@@ -38,7 +40,9 @@ export { default as FaArrowsAlt } from "../../fa/arrows-alt";
 export { default as FaArrowsH } from "../../fa/arrows-h";
 export { default as FaArrowsV } from "../../fa/arrows-v";
 export { default as FaArrows } from "../../fa/arrows";
-export { default as FaAssistiveListeningSystems } from "../../fa/assistive-listening-systems";
+export {
+    default as FaAssistiveListeningSystems
+} from "../../fa/assistive-listening-systems";
 export { default as FaAsterisk } from "../../fa/asterisk";
 export { default as FaAt } from "../../fa/at";
 export { default as FaAudioDescription } from "../../fa/audio-description";
@@ -207,7 +211,9 @@ export { default as FaEraser } from "../../fa/eraser";
 export { default as FaEur } from "../../fa/eur";
 export { default as FaExchange } from "../../fa/exchange";
 export { default as FaExclamationCircle } from "../../fa/exclamation-circle";
-export { default as FaExclamationTriangle } from "../../fa/exclamation-triangle";
+export {
+    default as FaExclamationTriangle
+} from "../../fa/exclamation-triangle";
 export { default as FaExclamation } from "../../fa/exclamation";
 export { default as FaExpand } from "../../fa/expand";
 export { default as FaExpeditedssl } from "../../fa/expeditedssl";
@@ -401,7 +407,9 @@ export { default as FaNeuter } from "../../fa/neuter";
 export { default as FaNewspaperO } from "../../fa/newspaper-o";
 export { default as FaObjectGroup } from "../../fa/object-group";
 export { default as FaObjectUngroup } from "../../fa/object-ungroup";
-export { default as FaOdnoklassnikiSquare } from "../../fa/odnoklassniki-square";
+export {
+    default as FaOdnoklassnikiSquare
+} from "../../fa/odnoklassniki-square";
 export { default as FaOdnoklassniki } from "../../fa/odnoklassniki";
 export { default as FaOpencart } from "../../fa/opencart";
 export { default as FaOpenid } from "../../fa/openid";

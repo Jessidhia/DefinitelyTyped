@@ -177,7 +177,10 @@ export interface DOMUtil {
      * @param html - html string we want to parse
      * @param fn - callback function to apply on found attributes
      */
-    walkAttrs(html: string, fn: (attrName: string, attrValue: string) => void): void;
+    walkAttrs(
+        html: string,
+        fn: (attrName: string, attrValue: string) => void
+    ): void;
 
     /**
      * Walk down recursively through all child nodes starting with provided dom node
@@ -185,7 +188,11 @@ export interface DOMUtil {
      * @param fn - callback to transform the child node just found
      * @param context - fn can optionally return an object, which is passed to children
      */
-    walkNodes(node: Node, fn: (node: Node, context: any) => any, context: any): void;
+    walkNodes(
+        node: Node,
+        fn: (node: Node, context: any) => any,
+        context: any
+    ): void;
 }
 
 export interface CheckUtil {
@@ -316,7 +323,11 @@ export interface TagsUtil {
      * @param target - tag where we will inherit properties
      * @param propsInSyncWithParent - array of properties to sync with the target
      */
-    inheritFrom(this: TagInstance, target: TagInstance, propsInSyncWithParent: string[]): void;
+    inheritFrom(
+        this: TagInstance,
+        target: TagInstance,
+        propsInSyncWithParent: string[]
+    ): void;
 
     /**
      * Move the position of a custom tag in its parent tag
@@ -333,7 +344,12 @@ export interface TagsUtil {
      * @param parent - instance of the parent tag including the child custom tag
      * @returns Instance of the new child tag just created
      */
-    initChildTag(child: any, opts: any, innerHTML: string, parent: TagInstance): TagInstance;
+    initChildTag(
+        child: any,
+        opts: any,
+        innerHTML: string,
+        parent: TagInstance
+    ): TagInstance;
 
     /**
      * Loop backward all the parents tree to detect the first custom parent tag
@@ -372,7 +388,13 @@ export interface TagsUtil {
      * @param ensureArray - ensure that the property remains an array
      * @param index - add the new item in a certain array position
      */
-    arrayishAdd(obj: any, key: string, value: any, ensureArray?: boolean, index?: number): void;
+    arrayishAdd(
+        obj: any,
+        key: string,
+        value: any,
+        ensureArray?: boolean,
+        index?: number
+    ): void;
 
     /**
      * Removes an item from an object at a given key. If the key points to an array,
@@ -382,7 +404,12 @@ export interface TagsUtil {
      * @param value - the value of the property to be removed
      * @param ensureArray - ensure that the property remains an array
      */
-    arrayishRemove(obj: any, key: string, value: any, ensureArray?: boolean): void;
+    arrayishRemove(
+        obj: any,
+        key: string,
+        value: any,
+        ensureArray?: boolean
+    ): void;
 
     /**
      * Mount a tag creating new Tag instance
@@ -392,7 +419,12 @@ export interface TagsUtil {
      * @param ctx - optional context that will be used to extend an existing class ( used in riot.Tag )
      * @returns Created tag instance
      */
-    mountTo(root: Element, tagName: string, opts?: TagOpts, ctx?: any): TagInstance;
+    mountTo(
+        root: Element,
+        tagName: string,
+        opts?: TagOpts,
+        ctx?: any
+    ): TagInstance;
 
     /**
      * Makes a tag virtual and replaces a reference in the dom
@@ -518,7 +550,11 @@ export function mount(selector: string, opts?: TagOpts): TagInstance[];
  * @param opts Optional object passed for the tag to consume.
  * @returns An array of mounted tag instances.
  */
-export function mount(selector: string | Element, tagName: string, opts?: TagOpts): TagInstance[];
+export function mount(
+    selector: string | Element,
+    tagName: string,
+    opts?: TagOpts
+): TagInstance[];
 
 /**
  * Unregister a tag previously created via compiler or via `riot.tag()`
@@ -577,7 +613,13 @@ export function mixin(mixinName: string, mixinObject: TagMixin): void;
  * @param constructor The initialization function being called before
  * the tag expressions are calculated and before the tag is mounted
  */
-export function tag<T extends TagInterface = any>(tagName: string, html: string, css?: string, attrs?: string, constructor?: (this: T, opts?: TagOpts) => void): string;
+export function tag<T extends TagInterface = any>(
+    tagName: string,
+    html: string,
+    css?: string,
+    attrs?: string,
+    constructor?: (this: T, opts?: TagOpts) => void
+): string;
 
 /**
  * Create wrapper tag without template
@@ -587,7 +629,11 @@ export function tag<T extends TagInterface = any>(tagName: string, html: string,
  * the tag expressions are calculated and before the tag is mounted
  * @returns Tag name
  */
-export function tag<T extends TagInterface = any>(tagName: string, html: boolean, constructor: (this: T, opts?: TagOpts) => void): string;
+export function tag<T extends TagInterface = any>(
+    tagName: string,
+    html: boolean,
+    constructor: (this: T, opts?: TagOpts) => void
+): string;
 
 export interface TagOpts {
     [key: string]: any;

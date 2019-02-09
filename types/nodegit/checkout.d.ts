@@ -1,10 +1,10 @@
-import { Repository } from './repository';
-import { CheckoutOptions } from './checkout-options';
-import { Reference } from './reference';
-import { Oid } from './oid';
-import { Tree } from './tree';
-import { Commit } from './commit';
-import { Index } from './index';
+import { Repository } from "./repository";
+import { CheckoutOptions } from "./checkout-options";
+import { Reference } from "./reference";
+import { Oid } from "./oid";
+import { Tree } from "./tree";
+import { Commit } from "./commit";
+import { Index } from "./index";
 
 export namespace Checkout {
     const enum NOTIFY {
@@ -51,11 +51,19 @@ export class Checkout {
     /**
      * Patch index checkout to automatically coerce objects.
      */
-    static index(repo: Repository, The: Index, options?: CheckoutOptions): Promise<void>;
+    static index(
+        repo: Repository,
+        The: Index,
+        options?: CheckoutOptions
+    ): Promise<void>;
 
     static initOptions(opts: CheckoutOptions, version: number): number;
     /**
      * Patch tree checkout to automatically coerce objects.
      */
-    static tree(repo: Repository, treeish: Oid | Tree | Commit | Reference, options?: CheckoutOptions): Promise<void>;
+    static tree(
+        repo: Repository,
+        treeish: Oid | Tree | Commit | Reference,
+        options?: CheckoutOptions
+    ): Promise<void>;
 }

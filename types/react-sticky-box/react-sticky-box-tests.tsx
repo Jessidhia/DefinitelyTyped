@@ -1,9 +1,7 @@
 import ReactStickyBox, { StickyBoxMode } from "react-sticky-box";
 import * as React from "react";
 
-const ReactStickyBoxRequiredOptions: JSX.Element = (
-    <ReactStickyBox />
-);
+const ReactStickyBoxRequiredOptions: JSX.Element = <ReactStickyBox />;
 
 const changeHandler = (oldMode: StickyBoxMode, newMode: StickyBoxMode) => {
     console.log(`Changing from ${oldMode} to ${newMode}`);

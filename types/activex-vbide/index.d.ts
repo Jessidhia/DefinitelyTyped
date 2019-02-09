@@ -9,7 +9,7 @@
 declare namespace VBIDE {
     const enum vbext_CodePaneview {
         vbext_cv_FullModuleView = 1,
-        vbext_cv_ProcedureView = 0,
+        vbext_cv_ProcedureView = 0
     }
 
     const enum vbext_ComponentType {
@@ -17,41 +17,41 @@ declare namespace VBIDE {
         vbext_ct_ClassModule = 2,
         vbext_ct_Document = 100,
         vbext_ct_MSForm = 3,
-        vbext_ct_StdModule = 1,
+        vbext_ct_StdModule = 1
     }
 
     const enum vbext_ProcKind {
         vbext_pk_Get = 3,
         vbext_pk_Let = 1,
         vbext_pk_Proc = 0,
-        vbext_pk_Set = 2,
+        vbext_pk_Set = 2
     }
 
     const enum vbext_ProjectProtection {
         vbext_pp_locked = 1,
-        vbext_pp_none = 0,
+        vbext_pp_none = 0
     }
 
     const enum vbext_ProjectType {
         vbext_pt_HostProject = 100,
-        vbext_pt_StandAlone = 101,
+        vbext_pt_StandAlone = 101
     }
 
     const enum vbext_RefKind {
         vbext_rk_Project = 1,
-        vbext_rk_TypeLib = 0,
+        vbext_rk_TypeLib = 0
     }
 
     const enum vbext_VBAMode {
         vbext_vm_Break = 1,
         vbext_vm_Design = 2,
-        vbext_vm_Run = 0,
+        vbext_vm_Run = 0
     }
 
     const enum vbext_WindowState {
         vbext_ws_Maximize = 2,
         vbext_ws_Minimize = 1,
-        vbext_ws_Normal = 0,
+        vbext_ws_Normal = 0
     }
 
     const enum vbext_WindowType {
@@ -68,7 +68,7 @@ declare namespace VBIDE {
         vbext_wt_PropertyWindow = 7,
         vbext_wt_Toolbox = 10,
         vbext_wt_ToolWindow = 15,
-        vbext_wt_Watch = 3,
+        vbext_wt_Watch = 3
     }
 
     const enum vbextFileTypes {
@@ -84,11 +84,11 @@ declare namespace VBIDE {
         vbextFileTypeProject = 3,
         vbextFileTypePropertyPage = 8,
         vbextFileTypeRes = 6,
-        vbextFileTypeUserControl = 7,
+        vbextFileTypeUserControl = 7
     }
 
     class AddIn {
-        private 'VBIDE.AddIn_typekey': AddIn;
+        private "VBIDE.AddIn_typekey": AddIn;
         private constructor();
         readonly Collection: Addins;
         Connect: boolean;
@@ -109,13 +109,13 @@ declare namespace VBIDE {
     }
 
     class Application {
-        private 'VBIDE.Application_typekey': Application;
+        private "VBIDE.Application_typekey": Application;
         private constructor();
         readonly Version: string;
     }
 
     class CodeModule {
-        private 'VBIDE.CodeModule_typekey': CodeModule;
+        private "VBIDE.CodeModule_typekey": CodeModule;
         private constructor();
         AddFromFile(FileName: string): void;
         AddFromString(String: string): void;
@@ -132,7 +132,16 @@ declare namespace VBIDE {
          * @param MatchCase [MatchCase=false]
          * @param PatternSearch [PatternSearch=false]
          */
-        Find(Target: string, StartLine: number, StartColumn: number, EndLine: number, EndColumn: number, WholeWord?: boolean, MatchCase?: boolean, PatternSearch?: boolean): boolean;
+        Find(
+            Target: string,
+            StartLine: number,
+            StartColumn: number,
+            EndLine: number,
+            EndColumn: number,
+            WholeWord?: boolean,
+            MatchCase?: boolean,
+            PatternSearch?: boolean
+        ): boolean;
         InsertLines(Line: number, String: string): void;
         Lines(StartLine: number, Count: number): string;
         Name: string;
@@ -146,14 +155,24 @@ declare namespace VBIDE {
     }
 
     class CodePane {
-        private 'VBIDE.CodePane_typekey': CodePane;
+        private "VBIDE.CodePane_typekey": CodePane;
         private constructor();
         readonly CodeModule: CodeModule;
         readonly CodePaneView: vbext_CodePaneview;
         readonly Collection: CodePanes;
         readonly CountOfVisibleLines: number;
-        GetSelection(StartLine: number, StartColumn: number, EndLine: number, EndColumn: number): void;
-        SetSelection(StartLine: number, StartColumn: number, EndLine: number, EndColumn: number): void;
+        GetSelection(
+            StartLine: number,
+            StartColumn: number,
+            EndLine: number,
+            EndColumn: number
+        ): void;
+        SetSelection(
+            StartLine: number,
+            StartColumn: number,
+            EndLine: number,
+            EndColumn: number
+        ): void;
         Show(): void;
         TopLine: number;
         readonly VBE: VBE;
@@ -170,12 +189,12 @@ declare namespace VBIDE {
     }
 
     class CommandBarEvents {
-        private 'VBIDE.CommandBarEvents_typekey': CommandBarEvents;
+        private "VBIDE.CommandBarEvents_typekey": CommandBarEvents;
         private constructor();
     }
 
     class Component {
-        private 'VBIDE.Component_typekey': Component;
+        private "VBIDE.Component_typekey": Component;
         private constructor();
         readonly Application: Application;
         IsDirty: boolean;
@@ -196,7 +215,7 @@ declare namespace VBIDE {
     }
 
     class Events {
-        private 'VBIDE.Events_typekey': Events;
+        private "VBIDE.Events_typekey": Events;
         private constructor();
         CommandBarEvents(CommandBarControl: any): CommandBarEvents;
         ReferencesEvents(VBProject: VBProject): ReferencesEvents;
@@ -213,7 +232,7 @@ declare namespace VBIDE {
     }
 
     class ProjectTemplate {
-        private 'VBIDE.ProjectTemplate_typekey': ProjectTemplate;
+        private "VBIDE.ProjectTemplate_typekey": ProjectTemplate;
         private constructor();
         readonly Application: Application;
         readonly Parent: Application;
@@ -229,11 +248,16 @@ declare namespace VBIDE {
     }
 
     class Property {
-        private 'VBIDE.Property_typekey': Property;
+        private "VBIDE.Property_typekey": Property;
         private constructor();
         readonly Application: Application;
         readonly Collection: Properties;
-        IndexedValue(Index1: any, Index2?: any, Index3?: any, Index4?: any): any;
+        IndexedValue(
+            Index1: any,
+            Index2?: any,
+            Index3?: any,
+            Index4?: any
+        ): any;
         readonly Name: string;
         readonly NumIndices: number;
         Object: any;
@@ -243,7 +267,7 @@ declare namespace VBIDE {
     }
 
     class Reference {
-        private 'VBIDE.Reference_typekey': Reference;
+        private "VBIDE.Reference_typekey": Reference;
         private constructor();
         readonly BuiltIn: boolean;
         readonly Collection: References;
@@ -270,12 +294,12 @@ declare namespace VBIDE {
     }
 
     class ReferencesEvents {
-        private 'VBIDE.ReferencesEvents_typekey': ReferencesEvents;
+        private "VBIDE.ReferencesEvents_typekey": ReferencesEvents;
         private constructor();
     }
 
     class VBComponent {
-        private 'VBIDE.VBComponent_typekey': VBComponent;
+        private "VBIDE.VBComponent_typekey": VBComponent;
         private constructor();
         Activate(): void;
         readonly CodeModule: CodeModule;
@@ -308,7 +332,7 @@ declare namespace VBIDE {
     }
 
     class VBE {
-        private 'VBIDE.VBE_typekey': VBE;
+        private "VBIDE.VBE_typekey": VBE;
         private constructor();
         ActiveCodePane: CodePane;
         ActiveVBProject: VBProject;
@@ -325,7 +349,7 @@ declare namespace VBIDE {
     }
 
     class VBProject {
-        private 'VBIDE.VBProject_typekey': VBProject;
+        private "VBIDE.VBProject_typekey": VBProject;
         private constructor();
         readonly Application: Application;
         BuildFileName: string;
@@ -359,7 +383,7 @@ declare namespace VBIDE {
     }
 
     class Window {
-        private 'VBIDE.Window_typekey': Window;
+        private "VBIDE.Window_typekey": Window;
         private constructor();
         readonly Caption: string;
         Close(): void;
@@ -380,7 +404,13 @@ declare namespace VBIDE {
 
     interface Windows {
         readonly Count: number;
-        CreateToolWindow(AddInInst: AddIn, ProgId: string, Caption: string, GuidPosition: string, DocObj: any): Window;
+        CreateToolWindow(
+            AddInInst: AddIn,
+            ProgId: string,
+            Caption: string,
+            GuidPosition: string,
+            DocObj: any
+        ): Window;
         Item(index: any): Window;
         readonly Parent: Application;
         readonly VBE: VBE;
@@ -389,7 +419,35 @@ declare namespace VBIDE {
 }
 
 interface ActiveXObject {
-    on(obj: VBIDE.CommandBarEvents, event: 'Click', argNames: ['CommandBarControl', 'handled', 'CancelDefault'], handler: (this: VBIDE.CommandBarEvents, parameter: {readonly CommandBarControl: any, readonly handled: boolean, readonly CancelDefault: boolean}) => void): void;
-    on(obj: VBIDE.References, event: 'ItemAdded' | 'ItemRemoved', argNames: ['Reference'], handler: (this: VBIDE.References, parameter: {readonly Reference: VBIDE.Reference}) => void): void;
-    on(obj: VBIDE.ReferencesEvents, event: 'ItemAdded' | 'ItemRemoved', argNames: ['Reference'], handler: (this: VBIDE.ReferencesEvents, parameter: {readonly Reference: VBIDE.Reference}) => void): void;
+    on(
+        obj: VBIDE.CommandBarEvents,
+        event: "Click",
+        argNames: ["CommandBarControl", "handled", "CancelDefault"],
+        handler: (
+            this: VBIDE.CommandBarEvents,
+            parameter: {
+                readonly CommandBarControl: any;
+                readonly handled: boolean;
+                readonly CancelDefault: boolean;
+            }
+        ) => void
+    ): void;
+    on(
+        obj: VBIDE.References,
+        event: "ItemAdded" | "ItemRemoved",
+        argNames: ["Reference"],
+        handler: (
+            this: VBIDE.References,
+            parameter: { readonly Reference: VBIDE.Reference }
+        ) => void
+    ): void;
+    on(
+        obj: VBIDE.ReferencesEvents,
+        event: "ItemAdded" | "ItemRemoved",
+        argNames: ["Reference"],
+        handler: (
+            this: VBIDE.ReferencesEvents,
+            parameter: { readonly Reference: VBIDE.Reference }
+        ) => void
+    ): void;
 }

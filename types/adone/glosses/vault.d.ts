@@ -58,19 +58,28 @@ declare namespace adone {
 
             entries(): Promise<{ [key: string]: any }>;
 
-            toJSON(options: I.VaultToJSONOptions & { valuable: object, includeStats: true }): Promise<{
-                valuables: object[],
-                stats: I.VaultJSONStats
+            toJSON(
+                options: I.VaultToJSONOptions & {
+                    valuable: object;
+                    includeStats: true;
+                }
+            ): Promise<{
+                valuables: object[];
+                stats: I.VaultJSONStats;
             }>;
-            toJSON(options: I.VaultToJSONOptions & { valuable: object }): Promise<{
-                valuables: object[]
+            toJSON(
+                options: I.VaultToJSONOptions & { valuable: object }
+            ): Promise<{
+                valuables: object[];
             }>;
-            toJSON(options: I.VaultToJSONOptions & { includeStats: true }): Promise<{
-                stats: I.VaultJSONStats
+            toJSON(
+                options: I.VaultToJSONOptions & { includeStats: true }
+            ): Promise<{
+                stats: I.VaultJSONStats;
             }>;
             toJSON(): {};
 
-            addTag(tag: string, vid?: number): Promise<number| null>;
+            addTag(tag: string, vid?: number): Promise<number | null>;
 
             deleteTag(tag: string): Promise<boolean>;
 
@@ -108,7 +117,12 @@ declare namespace adone {
         }
 
         class Valuable {
-            constructor(vaule: Vault, id: number, metaData: object, tags: object[]);
+            constructor(
+                vaule: Vault,
+                id: number,
+                metaData: object,
+                tags: object[]
+            );
 
             name(): string;
 
@@ -130,8 +144,15 @@ declare namespace adone {
 
             keys(): string[];
 
-            entries(opts: I.ValueableEntriesOptions & { entriesAsArray: true }): Promise<I.ValuableEntry[]>;
-            entries(opts: I.ValueableEntriesOptions & { entriesAsArray: true, includeEntryId: true }): Promise<Array<I.ValuableEntry & { id: number }>>;
+            entries(
+                opts: I.ValueableEntriesOptions & { entriesAsArray: true }
+            ): Promise<I.ValuableEntry[]>;
+            entries(
+                opts: I.ValueableEntriesOptions & {
+                    entriesAsArray: true;
+                    includeEntryId: true;
+                }
+            ): Promise<Array<I.ValuableEntry & { id: number }>>;
             entries(opts?: I.ValueableEntriesOptions): Promise<object>;
 
             delete(name: string): Promise<number>;
@@ -177,8 +198,15 @@ declare namespace adone {
 
                 keys(): string[];
 
-                entries(opts: I.ValueableEntriesOptions & { entriesAsArray: true }): Promise<I.ValuableEntry[]>;
-                entries(opts: I.ValueableEntriesOptions & { entriesAsArray: true, includeEntryId: true }): Promise<Array<I.ValuableEntry & { id: number }>>;
+                entries(
+                    opts: I.ValueableEntriesOptions & { entriesAsArray: true }
+                ): Promise<I.ValuableEntry[]>;
+                entries(
+                    opts: I.ValueableEntriesOptions & {
+                        entriesAsArray: true;
+                        includeEntryId: true;
+                    }
+                ): Promise<Array<I.ValuableEntry & { id: number }>>;
                 entries(opts?: I.ValueableEntriesOptions): Promise<object>;
 
                 delete(name: string): Promise<number>;
@@ -199,6 +227,10 @@ declare namespace adone {
             }
         }
 
-        function slice(valuable: Valuable, prefix: string | string[], separator?: string): I.SlicedValuable;
+        function slice(
+            valuable: Valuable,
+            prefix: string | string[],
+            separator?: string
+        ): I.SlicedValuable;
     }
 }

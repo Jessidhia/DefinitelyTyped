@@ -1,15 +1,15 @@
-import * as authToken from 'registry-auth-token';
+import * as authToken from "registry-auth-token";
 
 // $ExpectType NpmCredentials
-authToken('url');
+authToken("url");
 // $ExpectType NpmCredentials
 authToken({ recursive: true });
 // $ExpectType NpmCredentials
-authToken({ npmrc: { url: 'value' } });
+authToken({ npmrc: { url: "value" } });
 // $ExpectType NpmCredentials
-authToken({ npmrc: { registry: 'url' } });
+authToken({ npmrc: { registry: "url" } });
 // $ExpectType NpmCredentials
-authToken('url', { npmrc: { url: 'value' } });
+authToken("url", { npmrc: { url: "value" } });
 
 // $ExpectError
 authToken();

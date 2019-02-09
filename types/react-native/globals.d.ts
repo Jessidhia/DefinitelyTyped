@@ -9,17 +9,36 @@
 //
 declare function clearInterval(handle: number): void;
 declare function clearTimeout(handle: number): void;
-declare function setInterval(handler: (...args: any[]) => void, timeout: number): number;
-declare function setInterval(handler: any, timeout?: any, ...args: any[]): number;
-declare function setTimeout(handler: (...args: any[]) => void, timeout: number): number;
-declare function setTimeout(handler: any, timeout?: any, ...args: any[]): number;
+declare function setInterval(
+    handler: (...args: any[]) => void,
+    timeout: number
+): number;
+declare function setInterval(
+    handler: any,
+    timeout?: any,
+    ...args: any[]
+): number;
+declare function setTimeout(
+    handler: (...args: any[]) => void,
+    timeout: number
+): number;
+declare function setTimeout(
+    handler: any,
+    timeout?: any,
+    ...args: any[]
+): number;
 declare function clearImmediate(handle: number): void;
 declare function setImmediate(handler: (...args: any[]) => void): number;
 
 declare function cancelAnimationFrame(handle: number): void;
-declare function requestAnimationFrame(callback: (time: number) => void): number;
+declare function requestAnimationFrame(
+    callback: (time: number) => void
+): number;
 
-declare function fetchBundle(bundleId: number, callback: (error?: Error | null) => void): void;
+declare function fetchBundle(
+    bundleId: number,
+    callback: (error?: Error | null) => void
+): void;
 
 //
 // Fetch API
@@ -29,7 +48,10 @@ declare interface GlobalFetch {
     fetch(input: RequestInfo, init?: RequestInit): Promise<Response>;
 }
 
-declare function fetch(input: RequestInfo, init?: RequestInit): Promise<Response>;
+declare function fetch(
+    input: RequestInfo,
+    init?: RequestInit
+): Promise<Response>;
 
 interface Blob {}
 
@@ -133,7 +155,13 @@ declare var Response: {
 type HeadersInit_ = Headers | string[][] | { [key: string]: string };
 type RequestCredentials_ = "omit" | "same-origin" | "include";
 type RequestMode_ = "navigate" | "same-origin" | "no-cors" | "cors";
-type ResponseType_ = "basic" | "cors" | "default" | "error" | "opaque" | "opaqueredirect";
+type ResponseType_ =
+    | "basic"
+    | "cors"
+    | "default"
+    | "error"
+    | "opaque"
+    | "opaqueredirect";
 
 //
 // XMLHttpRequest
@@ -161,7 +189,13 @@ interface XMLHttpRequest extends EventTarget, XMLHttpRequestEventTarget {
     getAllResponseHeaders(): string;
     getResponseHeader(header: string): string | null;
     //  msCachingEnabled(): boolean;
-    open(method: string, url: string, async?: boolean, user?: string | null, password?: string | null): void;
+    open(
+        method: string,
+        url: string,
+        async?: boolean,
+        user?: string | null,
+        password?: string | null
+    ): void;
     overrideMimeType(mime: string): void;
     send(data?: any): void;
     setRequestHeader(header: string, value: string): void;
@@ -212,12 +246,18 @@ interface XMLHttpRequestEventTarget {
     ontimeout: ((this: XMLHttpRequest, ev: Event) => any) | null;
     addEventListener<K extends keyof XMLHttpRequestEventTargetEventMap>(
         type: K,
-        listener: (this: XMLHttpRequestEventTarget, ev: XMLHttpRequestEventTargetEventMap[K]) => any
+        listener: (
+            this: XMLHttpRequestEventTarget,
+            ev: XMLHttpRequestEventTargetEventMap[K]
+        ) => any
     ): void;
     //  addEventListener(type: string, listener: EventListenerOrEventListenerObject): void;
     removeEventListener<K extends keyof XMLHttpRequestEventTargetEventMap>(
         type: K,
-        listener: (this: XMLHttpRequestEventTarget, ev: XMLHttpRequestEventTargetEventMap[K]) => any
+        listener: (
+            this: XMLHttpRequestEventTarget,
+            ev: XMLHttpRequestEventTargetEventMap[K]
+        ) => any
     ): void;
     //  removeEventListener(type: string, listener: EventListenerOrEventListenerObject): void;
 }
@@ -225,12 +265,18 @@ interface XMLHttpRequestEventTarget {
 interface XMLHttpRequestUpload extends EventTarget, XMLHttpRequestEventTarget {
     addEventListener<K extends keyof XMLHttpRequestEventTargetEventMap>(
         type: K,
-        listener: (this: XMLHttpRequestUpload, ev: XMLHttpRequestEventTargetEventMap[K]) => any
+        listener: (
+            this: XMLHttpRequestUpload,
+            ev: XMLHttpRequestEventTargetEventMap[K]
+        ) => any
     ): void;
     //  addEventListener(type: string, listener: EventListenerOrEventListenerObject): void;
     removeEventListener<K extends keyof XMLHttpRequestEventTargetEventMap>(
         type: K,
-        listener: (this: XMLHttpRequestUpload, ev: XMLHttpRequestEventTargetEventMap[K]) => any
+        listener: (
+            this: XMLHttpRequestUpload,
+            ev: XMLHttpRequestEventTargetEventMap[K]
+        ) => any
     ): void;
     //  removeEventListener(type: string, listener: EventListenerOrEventListenerObject): void;
 }
@@ -240,4 +286,10 @@ declare var XMLHttpRequestUpload: {
     new (): XMLHttpRequestUpload;
 };
 
-type XMLHttpRequestResponseType = "" | "arraybuffer" | "blob" | "document" | "json" | "text";
+type XMLHttpRequestResponseType =
+    | ""
+    | "arraybuffer"
+    | "blob"
+    | "document"
+    | "json"
+    | "text";

@@ -9,7 +9,7 @@
 import { EventEmitter } from "events";
 
 export abstract class AsyncIterator<T> extends NodeJS.EventEmitter {
-    static STATES: ['INIT', 'OPEN', 'CLOSING', 'CLOSED', 'ENDED'];
+    static STATES: ["INIT", "OPEN", "CLOSING", "CLOSED", "ENDED"];
     static INIT: 0;
     static OPEN: 1;
     static CLOSING: 2;
@@ -33,21 +33,32 @@ export abstract class AsyncIterator<T> extends NodeJS.EventEmitter {
     _changeState(newState: number, eventAsync?: boolean): void;
     private _hasListeners(eventName: string | symbol): boolean;
     // tslint:disable-next-line ban-types
-    private _addSingleListener(eventName: string | symbol, listener: Function): void;
+    private _addSingleListener(
+        eventName: string | symbol,
+        listener: Function
+    ): void;
     _end(): void;
 
     getProperty(propertyName: string, callback?: (value: any) => void): any;
     setProperty(propertyName: string, value: any): void;
-    getProperties(): {[id: string]: any};
-    setProperties(properties: {[id: string]: any}): void;
+    getProperties(): { [id: string]: any };
+    setProperties(properties: { [id: string]: any }): void;
     copyProperties(source: AsyncIterator<any>, propertyNames: string[]): void;
 
     toString(): string;
     _toStringDetails(): string;
 
-    transform<T2>(options?: SimpleTransformIteratorOptions<T, T2>): SimpleTransformIterator<T, T2>;
-    map<T2>(mapper: (item: T) => T2, self?: object): SimpleTransformIterator<T, T2>;
-    filter(filter: (item: T) => boolean, self?: object): SimpleTransformIterator<T, T>;
+    transform<T2>(
+        options?: SimpleTransformIteratorOptions<T, T2>
+    ): SimpleTransformIterator<T, T2>;
+    map<T2>(
+        mapper: (item: T) => T2,
+        self?: object
+    ): SimpleTransformIterator<T, T2>;
+    filter(
+        filter: (item: T) => boolean,
+        self?: object
+    ): SimpleTransformIterator<T, T>;
     prepend(items: T[]): SimpleTransformIterator<T, T>;
     append<T>(items: T[]): SimpleTransformIterator<T, T>;
     surround<T>(prepend: T[], append: T[]): SimpleTransformIterator<T, T>;
@@ -119,10 +130,14 @@ export class TransformIterator<S, T> extends BufferedIterator<T> {
     _transform(item: S, done: (result: T) => void): void;
     _closeWhenDone(): void;
 
-    constructor(source?: AsyncIterator<S> | TransformIteratorOptions<S>, options?: TransformIteratorOptions<S>);
+    constructor(
+        source?: AsyncIterator<S> | TransformIteratorOptions<S>,
+        options?: TransformIteratorOptions<S>
+    );
 }
 
-export interface SimpleTransformIteratorOptions<S, T> extends TransformIteratorOptions<S> {
+export interface SimpleTransformIteratorOptions<S, T>
+    extends TransformIteratorOptions<S> {
     offset?: number;
     limit?: number;
     prepend?: T[];
@@ -145,8 +160,10 @@ export class SimpleTransformIterator<S, T> extends TransformIterator<S, T> {
 
     _insert(inserter: AsyncIterator<S>, done: () => void): void;
 
-    constructor(source?: AsyncIterator<S> | SimpleTransformIteratorOptions<S, T>,
-                options?: SimpleTransformIteratorOptions<S, T>);
+    constructor(
+        source?: AsyncIterator<S> | SimpleTransformIteratorOptions<S, T>,
+        options?: SimpleTransformIteratorOptions<S, T>
+    );
 }
 
 export class MultiTransformIterator<S, T> extends TransformIterator<S, T> {
@@ -154,7 +171,10 @@ export class MultiTransformIterator<S, T> extends TransformIterator<S, T> {
 
     _createTransformer(element: S): AsyncIterator<T>;
 
-    constructor(source?: AsyncIterator<S> | TransformIteratorOptions<S>, options?: TransformIteratorOptions<S>);
+    constructor(
+        source?: AsyncIterator<S> | TransformIteratorOptions<S>,
+        options?: TransformIteratorOptions<S>
+    );
 }
 
 export class ClonedIterator<T> extends TransformIterator<T, T> {

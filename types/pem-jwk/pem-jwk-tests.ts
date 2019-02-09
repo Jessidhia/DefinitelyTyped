@@ -8,9 +8,10 @@ XBW58V4VlkypTaQTSQIDAQAB
 -----END PUBLIC KEY-----`;
 
 const rsa_jwk: RSA_JWK = {
-    kty: 'RSA',
-    n: '4ekcxxLExYw_DZQeHnIbq8H1dma5XINJNiaD9Gd0AIFzzMCcp77Ni3gR2Gjhcxs410SrL2i8HOT4z9zXKnD9ypF-ctVQN9VayS3xW17YYtGvHP1AcMSQ_IuEt-Tiq-srot2yWrYGFq0kODE_ZLWktUz_ZVwVufFeFZZMqU2kE0k',
-    e: 'AQAB'
+    kty: "RSA",
+    n:
+        "4ekcxxLExYw_DZQeHnIbq8H1dma5XINJNiaD9Gd0AIFzzMCcp77Ni3gR2Gjhcxs410SrL2i8HOT4z9zXKnD9ypF-ctVQN9VayS3xW17YYtGvHP1AcMSQ_IuEt-Tiq-srot2yWrYGFq0kODE_ZLWktUz_ZVwVufFeFZZMqU2kE0k",
+    e: "AQAB"
 };
 
 jwk2pem(rsa_jwk); // $ExpectType string

@@ -6,8 +6,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace jsSHA {
-    type StringDataFormat = 'HEX' | 'TEXT' | 'B64' | 'BYTES';
-    type ArrayBufferDataFormat = 'ARRAYBUFFER';
+    type StringDataFormat = "HEX" | "TEXT" | "B64" | "BYTES";
+    type ArrayBufferDataFormat = "ARRAYBUFFER";
 
     interface EncodingOptions {
         encoding?: string;
@@ -31,8 +31,16 @@ declare namespace jsSHA {
          *   SHA-384, SHA-512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128, or SHAKE256).
          * @param inputFormat The format of srcString.
          */
-        new(variant: string, inputFormat: StringDataFormat, options?: Options): Hasher<string>;
-        new(variant: string, inputFormat: ArrayBufferDataFormat, options?: Options): Hasher<ArrayBuffer>;
+        new (
+            variant: string,
+            inputFormat: StringDataFormat,
+            options?: Options
+        ): Hasher<string>;
+        new (
+            variant: string,
+            inputFormat: ArrayBufferDataFormat,
+            options?: Options
+        ): Hasher<ArrayBuffer>;
     }
 
     interface Hasher<InputT> {
@@ -43,8 +51,16 @@ declare namespace jsSHA {
          * @param key - The key used to calculate the HMAC.
          * @param inputFormat - The format of key.
          */
-        setHMACKey(key: string, inputFormat: StringDataFormat, encodingOpts?: EncodingOptions): void;
-        setHMACKey(key: ArrayBuffer, inputFormat: ArrayBufferDataFormat, encodingOpts?: EncodingOptions): void;
+        setHMACKey(
+            key: string,
+            inputFormat: StringDataFormat,
+            encodingOpts?: EncodingOptions
+        ): void;
+        setHMACKey(
+            key: ArrayBuffer,
+            inputFormat: ArrayBufferDataFormat,
+            encodingOpts?: EncodingOptions
+        ): void;
 
         /**
          * Takes strString and hashes as many blocks as possible.  Stores the
@@ -63,8 +79,14 @@ declare namespace jsSHA {
          * @returns The string representation of the hash
          *   in the format specified.
          */
-        getHash(format: StringDataFormat, outputFormatOpts?: OutputFormatOptions): string;
-        getHash(format: ArrayBufferDataFormat, outputFormatOpts?: OutputFormatOptions): ArrayBuffer;
+        getHash(
+            format: StringDataFormat,
+            outputFormatOpts?: OutputFormatOptions
+        ): string;
+        getHash(
+            format: ArrayBufferDataFormat,
+            outputFormatOpts?: OutputFormatOptions
+        ): ArrayBuffer;
 
         /**
          * Returns the the HMAC in the specified format using the key given by
@@ -74,8 +96,14 @@ declare namespace jsSHA {
          * @returns The string representation of the hash in the format
          *   specified
          */
-        getHMAC(format: StringDataFormat, outputFormatOpts?: OutputFormatOptions): string;
-        getHMAC(format: ArrayBufferDataFormat, outputFormatOpts?: OutputFormatOptions): ArrayBuffer;
+        getHMAC(
+            format: StringDataFormat,
+            outputFormatOpts?: OutputFormatOptions
+        ): string;
+        getHMAC(
+            format: ArrayBufferDataFormat,
+            outputFormatOpts?: OutputFormatOptions
+        ): ArrayBuffer;
     }
 }
 

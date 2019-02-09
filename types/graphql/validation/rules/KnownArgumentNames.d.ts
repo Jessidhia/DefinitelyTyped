@@ -23,4 +23,6 @@ export function unknownDirectiveArgMessage(
 export function KnownArgumentNames(context: ValidationContext): ASTVisitor;
 
 // @internal
-export function KnownArgumentNamesOnDirectives(context: ValidationContext | SDLValidationContext): ASTVisitor;
+export function KnownArgumentNamesOnDirectives(
+    context: ValidationContext | SDLValidationContext
+): ASTVisitor;

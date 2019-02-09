@@ -10,11 +10,11 @@ declare class Service {
     custom: Service.Custom;
 
     provider: {
-      compiledCloudFormationTemplate: {
-        Resources: any[];
-      };
+        compiledCloudFormationTemplate: {
+            Resources: any[];
+        };
 
-      name: string;
+        name: string;
     };
     constructor(serverless: Serverless, data: {});
 
@@ -25,7 +25,10 @@ declare class Service {
     getAllFunctions(): string[];
     getAllFunctionsNames(): string[];
     getFunction(functionName: string): Serverless.FunctionDefinition;
-    getEventInFunction(eventName: string, functionName: string): Serverless.Event;
+    getEventInFunction(
+        eventName: string,
+        functionName: string
+    ): Serverless.Event;
     getAllEventsInFunction(functionName: string): Serverless.Event[];
 
     mergeResourceArrays(): void;

@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 export = __ReactMDL;
 
 declare namespace __ReactMDL {
     type __MDLClassProps = React.ClassAttributes<any>;
     type __MDLOtherProps = React.HTMLProps<any>;
-    class __MDLComponent<P> extends React.Component<P> { }
-    class __MDLBasicComponent extends __MDLComponent<__MDLOtherProps> { }
+    class __MDLComponent<P> extends React.Component<P> {}
+    class __MDLBasicComponent extends __MDLComponent<__MDLOtherProps> {}
 
     interface ShadowedComponent {
         shadow?: number;
@@ -23,7 +23,6 @@ declare namespace __ReactMDL {
     interface CustomRenderedComponent {
         component?: string | JSX.Element | Function;
     }
-
 
     // HTMLAttributes (minus the 'data', 'icon', 'label', 'name', 'rows', 'size', 'title', 'value' attributes)
     interface MDLHTMLAttributes {
@@ -267,26 +266,27 @@ declare namespace __ReactMDL {
         onWheel?: React.WheelEventHandler<T>;
     }
 
-
-
     interface BadgeProps extends __MDLClassProps {
         text: string | number;
         className?: string;
         noBackground?: boolean;
         overlap?: boolean;
     }
-    class Badge extends __MDLComponent<BadgeProps> { }
+    class Badge extends __MDLComponent<BadgeProps> {}
 
     interface ChipProps extends __MDLOtherProps {
         onClick?: React.MouseEventHandler<Chip>;
         onClose?: React.MouseEventHandler<Chip>;
     }
 
-    class Chip extends __MDLComponent<ChipProps> { }
+    class Chip extends __MDLComponent<ChipProps> {}
 
-    class ChipContact extends __MDLComponent<__MDLOtherProps> { }
+    class ChipContact extends __MDLComponent<__MDLOtherProps> {}
 
-    interface ButtonProps extends __MDLOtherProps, RippleComponent, CustomRenderedComponent {
+    interface ButtonProps
+        extends __MDLOtherProps,
+            RippleComponent,
+            CustomRenderedComponent {
         accent?: boolean;
         colored?: boolean;
         primary?: boolean;
@@ -301,34 +301,36 @@ declare namespace __ReactMDL {
         name?: string;
         raised?: boolean;
     }
-    class Button extends __MDLComponent<StandardButtonProps> { }
-    class FABButton extends __MDLComponent<FABButtonProps> { }
-    class IconButton extends __MDLComponent<IconButtonProps> { }
+    class Button extends __MDLComponent<StandardButtonProps> {}
+    class FABButton extends __MDLComponent<FABButtonProps> {}
+    class IconButton extends __MDLComponent<IconButtonProps> {}
 
-
-    interface CardProps extends __MDLOtherProps, ShadowedComponent { }
+    interface CardProps extends __MDLOtherProps, ShadowedComponent {}
     interface CardActionProps extends __MDLOtherProps {
         border?: boolean;
     }
     interface CardTitleProps extends __MDLOtherProps {
         expand?: boolean;
     }
-    class Card extends __MDLComponent<CardProps> { }
-    class CardActions extends __MDLComponent<CardActionProps> { }
-    class CardTitle extends __MDLComponent<CardTitleProps> { }
-    class CardText extends __MDLBasicComponent { }
-    class CardMenu extends __MDLBasicComponent { }
-    class CardMedia extends __MDLBasicComponent { }
-
+    class Card extends __MDLComponent<CardProps> {}
+    class CardActions extends __MDLComponent<CardActionProps> {}
+    class CardTitle extends __MDLComponent<CardTitleProps> {}
+    class CardText extends __MDLBasicComponent {}
+    class CardMenu extends __MDLBasicComponent {}
+    class CardMedia extends __MDLBasicComponent {}
 
     interface CheckboxProps extends __MDLOtherProps, RippleComponent {
         checked?: boolean;
         disabled?: boolean;
         label?: string;
     }
-    class Checkbox extends __MDLComponent<CheckboxProps> { }
+    class Checkbox extends __MDLComponent<CheckboxProps> {}
 
-    interface UndecoratedTableProps extends __MDLClassProps, MDLHTMLAttributes, React.DOMAttributes<UndecoratedTable>, ShadowedComponent {
+    interface UndecoratedTableProps
+        extends __MDLClassProps,
+            MDLHTMLAttributes,
+            React.DOMAttributes<UndecoratedTable>,
+            ShadowedComponent {
         rows: Array<any>;
         rowKeyColumn?: string;
 
@@ -340,21 +342,27 @@ declare namespace __ReactMDL {
         selectable?: boolean;
         onSelectionChanged?: (row: any) => any;
     }
-    interface TableHeaderProps extends __MDLClassProps, MDLHTMLAttributes, MDLDOMAttributes<TableHeader> {
+    interface TableHeaderProps
+        extends __MDLClassProps,
+            MDLHTMLAttributes,
+            MDLDOMAttributes<TableHeader> {
         name: string;
         title?: string;
-        cellFormatter?: (value: any, row: any, index: number) => React.ReactNode;
+        cellFormatter?: (
+            value: any,
+            row: any,
+            index: number
+        ) => React.ReactNode;
         numeric?: boolean;
         nosort?: boolean;
         onClick?: (e: React.MouseEvent<TableHeader>, name: string) => any;
         sortFn?: (a: any, b: any, isAsc: boolean) => number;
         tooltip?: React.ReactNode;
     }
-    class Table extends __MDLComponent<TableProps> { }
-    class TableHeader extends __MDLComponent<TableHeaderProps> { }
-    class UndecoratedTable extends __MDLComponent<UndecoratedTableProps> { }
-    class DataTable extends Table { }
-
+    class Table extends __MDLComponent<TableProps> {}
+    class TableHeader extends __MDLComponent<TableHeaderProps> {}
+    class UndecoratedTable extends __MDLComponent<UndecoratedTableProps> {}
+    class DataTable extends Table {}
 
     interface DialogProps extends __MDLOtherProps {
         open?: boolean;
@@ -363,17 +371,24 @@ declare namespace __ReactMDL {
     interface DialogActionsProps extends __MDLOtherProps {
         fullWidth?: boolean;
     }
-    interface DialogTitleProps extends __MDLOtherProps, CustomRenderedComponent { }
-    class Dialog extends __MDLComponent<DialogProps> { }
-    class DialogActions extends __MDLComponent<DialogActionsProps> { }
-    class DialogTitle extends __MDLComponent<DialogTitleProps> { }
-    class DialogContent extends __MDLBasicComponent { }
+    interface DialogTitleProps
+        extends __MDLOtherProps,
+            CustomRenderedComponent {}
+    class Dialog extends __MDLComponent<DialogProps> {}
+    class DialogActions extends __MDLComponent<DialogActionsProps> {}
+    class DialogTitle extends __MDLComponent<DialogTitleProps> {}
+    class DialogContent extends __MDLBasicComponent {}
 
-
-    interface GridProps extends __MDLOtherProps, CustomRenderedComponent, ShadowedComponent {
+    interface GridProps
+        extends __MDLOtherProps,
+            CustomRenderedComponent,
+            ShadowedComponent {
         noSpacing?: boolean;
     }
-    interface CellProps extends __MDLOtherProps, CustomRenderedComponent, ShadowedComponent {
+    interface CellProps
+        extends __MDLOtherProps,
+            CustomRenderedComponent,
+            ShadowedComponent {
         col: number;
         offset?: number;
         offsetDesktop?: number;
@@ -386,25 +401,22 @@ declare namespace __ReactMDL {
         hidePhone?: boolean;
         hideTablet?: boolean;
     }
-    class Grid extends __MDLComponent<GridProps> { }
-    class Cell extends __MDLComponent<CellProps> { }
-
+    class Grid extends __MDLComponent<GridProps> {}
+    class Cell extends __MDLComponent<CellProps> {}
 
     interface IconProps extends __MDLOtherProps {
         name: string;
     }
-    class Icon extends __MDLComponent<IconProps> { }
-
+    class Icon extends __MDLComponent<IconProps> {}
 
     interface IconToggleProps extends __MDLOtherProps, RippleComponent {
         name: string;
         checked?: boolean;
         disabled?: boolean;
     }
-    class IconToggle extends __MDLComponent<IconToggleProps> { }
+    class IconToggle extends __MDLComponent<IconToggleProps> {}
 
-
-    interface ContentProps extends __MDLOtherProps, CustomRenderedComponent { }
+    interface ContentProps extends __MDLOtherProps, CustomRenderedComponent {}
     interface DrawerProps extends __MDLOtherProps {
         title?: string;
     }
@@ -430,41 +442,51 @@ declare namespace __ReactMDL {
         fixedHeader?: boolean;
         fixedTabs?: boolean;
     }
-    interface NavigationProps extends __MDLOtherProps { }
-    class Content extends __MDLComponent<ContentProps> { }
-    class Drawer extends __MDLComponent<DrawerProps> { }
-    class Header extends __MDLComponent<HeaderProps> { }
-    class HeaderRow extends __MDLComponent<HeaderRowProps> { }
-    class HeaderTabs extends __MDLComponent<HeaderTabsProps> { }
-    class Layout extends __MDLComponent<LayoutProps> { }
-    class Navigation extends __MDLComponent<NavigationProps> { }
-    class Spacer extends __MDLBasicComponent { }
+    interface NavigationProps extends __MDLOtherProps {}
+    class Content extends __MDLComponent<ContentProps> {}
+    class Drawer extends __MDLComponent<DrawerProps> {}
+    class Header extends __MDLComponent<HeaderProps> {}
+    class HeaderRow extends __MDLComponent<HeaderRowProps> {}
+    class HeaderTabs extends __MDLComponent<HeaderTabsProps> {}
+    class Layout extends __MDLComponent<LayoutProps> {}
+    class Navigation extends __MDLComponent<NavigationProps> {}
+    class Spacer extends __MDLBasicComponent {}
 
-    interface FooterProps extends MDLHTMLAttributes, React.DOMAttributes<Footer> {
+    interface FooterProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<Footer> {
         size?: string;
 
         title?: string;
     }
-    interface FooterDropDownSectionProps extends MDLHTMLAttributes, React.DOMAttributes<FooterDropDownSection> {
+    interface FooterDropDownSectionProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<FooterDropDownSection> {
         size?: string;
         title: React.ReactNode;
     }
-    interface FooterLinkListProps extends MDLHTMLAttributes, React.DOMAttributes<FooterLinkList> {
+    interface FooterLinkListProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<FooterLinkList> {
         size?: string;
 
         title?: string;
     }
-    interface FooterSectionProps extends MDLHTMLAttributes, React.DOMAttributes<FooterSection> {
+    interface FooterSectionProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<FooterSection> {
         size?: string;
         type?: string;
         logo?: React.ReactNode;
 
         title?: string;
     }
-    class Footer extends __MDLComponent<FooterProps> { }
-    class FooterDropDownSection extends __MDLComponent<FooterDropDownSectionProps> { }
-    class FooterLinkList extends __MDLComponent<FooterLinkListProps> { }
-    class FooterSection extends __MDLComponent<FooterSectionProps> { }
+    class Footer extends __MDLComponent<FooterProps> {}
+    class FooterDropDownSection extends __MDLComponent<
+        FooterDropDownSectionProps
+    > {}
+    class FooterLinkList extends __MDLComponent<FooterLinkListProps> {}
+    class FooterSection extends __MDLComponent<FooterSectionProps> {}
 
     interface ListItemProps extends __MDLOtherProps {
         twoLine?: boolean;
@@ -473,36 +495,38 @@ declare namespace __ReactMDL {
     interface ListItemActionProps extends __MDLOtherProps {
         info?: string;
     }
-    interface ListItemContentProps extends MDLHTMLAttributes, React.DOMAttributes<ListItemContent> {
+    interface ListItemContentProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<ListItemContent> {
         avatar?: string | JSX.Element;
         icon?: string | JSX.Element;
         subtitle?: React.ReactNode;
         useBodyClass?: boolean;
     }
-    class List extends __MDLBasicComponent { }
-    class ListItem extends __MDLComponent<ListItemProps> { }
-    class ListItemAction extends __MDLComponent<ListItemActionProps> { }
-    class ListItemContent extends __MDLComponent<ListItemContentProps> { }
-
+    class List extends __MDLBasicComponent {}
+    class ListItem extends __MDLComponent<ListItemProps> {}
+    class ListItemAction extends __MDLComponent<ListItemActionProps> {}
+    class ListItemContent extends __MDLComponent<ListItemContentProps> {}
 
     interface MenuProps extends __MDLOtherProps, RippleComponent {
         target: string;
         align?: string;
         valign?: string;
     }
-    class Menu extends __MDLComponent<MenuProps> { }
-    class MenuItem extends __MDLBasicComponent { }
-
+    class Menu extends __MDLComponent<MenuProps> {}
+    class MenuItem extends __MDLBasicComponent {}
 
     interface ProgressBarProps extends __MDLOtherProps {
         buffer?: number;
         indeterminate?: boolean;
         progress?: number;
     }
-    class ProgressBar extends __MDLComponent<ProgressBarProps> { }
+    class ProgressBar extends __MDLComponent<ProgressBarProps> {}
 
-
-    interface RadioProps extends MDLHTMLAttributes, React.DOMAttributes<Radio>, RippleComponent {
+    interface RadioProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<Radio>,
+            RippleComponent {
         value: string | number;
         checked?: boolean;
         disabled?: boolean;
@@ -510,7 +534,9 @@ declare namespace __ReactMDL {
         onChange?: React.FormEventHandler<Radio>;
         label?: string;
     }
-    interface RadioGroupProps extends MDLHTMLAttributes, React.DOMAttributes<RadioGroup> {
+    interface RadioGroupProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<RadioGroup> {
         name: string;
         value: string | number;
         childContainer?: string;
@@ -518,18 +544,18 @@ declare namespace __ReactMDL {
         onChange?: React.FormEventHandler<RadioGroup>;
         label?: string;
     }
-    class Radio extends __MDLComponent<RadioProps> { }
-    class RadioGroup extends __MDLComponent<RadioGroupProps> { }
+    class Radio extends __MDLComponent<RadioProps> {}
+    class RadioGroup extends __MDLComponent<RadioGroupProps> {}
 
-
-    interface SliderProps extends MDLHTMLAttributes, React.DOMAttributes<Slider> {
+    interface SliderProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<Slider> {
         max: number;
         min: number;
         onChange?: React.FormEventHandler<Slider>;
         value?: number;
     }
-    class Slider extends __MDLComponent<SliderProps> { }
-
+    class Slider extends __MDLComponent<SliderProps> {}
 
     interface SnackbarProps extends __MDLOtherProps {
         active: boolean;
@@ -538,22 +564,19 @@ declare namespace __ReactMDL {
         onActionClick?: React.MouseEventHandler<Snackbar>;
         timeout?: number;
     }
-    class Snackbar extends __MDLComponent<SnackbarProps> { }
-
+    class Snackbar extends __MDLComponent<SnackbarProps> {}
 
     interface SpinnerProps extends __MDLOtherProps {
         singleColor?: boolean;
     }
-    class Spinner extends __MDLComponent<SpinnerProps> { }
-
+    class Spinner extends __MDLComponent<SpinnerProps> {}
 
     interface SwitchProps extends __MDLOtherProps, RippleComponent {
         checked?: boolean;
         disabled?: boolean;
         onChange?: React.FormEventHandler<Switch>;
     }
-    class Switch extends __MDLComponent<SwitchProps> { }
-
+    class Switch extends __MDLComponent<SwitchProps> {}
 
     interface TabProps extends __MDLOtherProps, CustomRenderedComponent {
         active?: boolean;
@@ -579,12 +602,13 @@ declare namespace __ReactMDL {
         title?: string;
         onClick?: React.MouseEventHandler<Tabs>;
     }
-    class Tab extends __MDLComponent<TabProps> { }
-    class TabBar extends __MDLComponent<TabBarProps> { }
-    class Tabs extends __MDLComponent<TabsProps> { }
+    class Tab extends __MDLComponent<TabProps> {}
+    class TabBar extends __MDLComponent<TabBarProps> {}
+    class Tabs extends __MDLComponent<TabsProps> {}
 
-
-    interface TextfieldProps extends MDLHTMLAttributes, React.DOMAttributes<HTMLInputElement> {
+    interface TextfieldProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<HTMLInputElement> {
         label: string;
         disabled?: boolean;
         error?: React.ReactNode;
@@ -607,8 +631,9 @@ declare namespace __ReactMDL {
         inputRef?: HTMLInputElement;
     }
 
-
-    interface TooltipProps extends MDLHTMLAttributes, React.DOMAttributes<Tooltip> {
+    interface TooltipProps
+        extends MDLHTMLAttributes,
+            React.DOMAttributes<Tooltip> {
         label: React.ReactNode;
         large?: boolean;
         position?: string;
@@ -616,7 +641,7 @@ declare namespace __ReactMDL {
         name?: string;
         title?: string;
     }
-    class Tooltip extends __MDLComponent<TooltipProps> { }
+    class Tooltip extends __MDLComponent<TooltipProps> {}
 
-    class MDLComponent extends React.Component<{ recursive?: boolean }> { }
+    class MDLComponent extends React.Component<{ recursive?: boolean }> {}
 }

@@ -29,16 +29,36 @@ declare global {
             notBeforeTime(val: Date, exp: Date, msg?: string): void;
             afterTime(val: Date, exp: Date, msg?: string): void;
             notAfterTime(val: Date, exp: Date, msg?: string): void;
-            withinTime(val: Date, expFrom: Date, expTo: Date, msg?: string): void;
-            notWithinTime(val: Date, expFrom: Date, expTo: Date, msg?: string): void;
+            withinTime(
+                val: Date,
+                expFrom: Date,
+                expTo: Date,
+                msg?: string
+            ): void;
+            notWithinTime(
+                val: Date,
+                expFrom: Date,
+                expTo: Date,
+                msg?: string
+            ): void;
             equalDate(val: Date, exp: Date, msg?: string): void;
             notEqualDate(val: Date, exp: Date, msg?: string): void;
             beforeDate(val: Date, exp: Date, msg?: string): void;
             notBeforeDate(val: Date, exp: Date, msg?: string): void;
             afterDate(val: Date, exp: Date, msg?: string): void;
             notAfterDate(val: Date, exp: Date, msg?: string): void;
-            withinDate(val: Date, expFrom: Date, expTo: Date, msg?: string): void;
-            notWithinDate(val: Date, expFrom: Date, expTo: Date, msg?: string): void;
+            withinDate(
+                val: Date,
+                expFrom: Date,
+                expTo: Date,
+                msg?: string
+            ): void;
+            notWithinDate(
+                val: Date,
+                expFrom: Date,
+                expTo: Date,
+                msg?: string
+            ): void;
         }
     }
 

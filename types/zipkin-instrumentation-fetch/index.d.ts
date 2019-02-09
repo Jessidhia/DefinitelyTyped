@@ -4,14 +4,17 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Tracer } from 'zipkin';
-import fetch from 'node-fetch';
+import { Tracer } from "zipkin";
+import fetch from "node-fetch";
 
 interface Options {
     tracer: Tracer;
     remoteServiceName: string;
 }
 
-declare function wrapFetch(rawFetch: typeof fetch, options: Options): typeof fetch;
+declare function wrapFetch(
+    rawFetch: typeof fetch,
+    options: Options
+): typeof fetch;
 
 export = wrapFetch;

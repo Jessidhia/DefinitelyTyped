@@ -21,7 +21,7 @@ import * as accepts from "accepts";
 import * as Cookies from "cookies";
 import { EventEmitter } from "events";
 import { IncomingMessage, ServerResponse, Server } from "http";
-import { Http2ServerRequest, Http2ServerResponse } from 'http2';
+import { Http2ServerRequest, Http2ServerResponse } from "http2";
 import httpAssert = require("http-assert");
 import * as Keygrip from "keygrip";
 import * as compose from "koa-compose";
@@ -453,30 +453,30 @@ declare class Application<StateT = any, CustomT = {}> extends EventEmitter {
         port?: number,
         hostname?: string,
         backlog?: number,
-        listeningListener?: () => void,
+        listeningListener?: () => void
     ): Server;
     listen(
         port: number,
         hostname?: string,
-        listeningListener?: () => void,
+        listeningListener?: () => void
     ): Server;
     listen(
         port: number,
         backlog?: number,
-        listeningListener?: () => void,
+        listeningListener?: () => void
     ): Server;
     listen(port: number, listeningListener?: () => void): Server;
     listen(
         path: string,
         backlog?: number,
-        listeningListener?: () => void,
+        listeningListener?: () => void
     ): Server;
     listen(path: string, listeningListener?: () => void): Server;
     listen(options: ListenOptions, listeningListener?: () => void): Server;
     listen(
         handle: any,
         backlog?: number,
-        listeningListener?: () => void,
+        listeningListener?: () => void
     ): Server;
     listen(handle: any, listeningListener?: () => void): Server;
 
@@ -498,14 +498,20 @@ declare class Application<StateT = any, CustomT = {}> extends EventEmitter {
      * Old-style middleware will be converted.
      */
     use<NewStateT = {}, NewCustomT = {}>(
-        middleware: Application.Middleware<StateT & NewStateT, CustomT & NewCustomT>,
+        middleware: Application.Middleware<
+            StateT & NewStateT,
+            CustomT & NewCustomT
+        >
     ): Application<StateT & NewStateT, CustomT & NewCustomT>;
 
     /**
      * Return a request handler callback
      * for node's native http/http2 server.
      */
-    callback(): (req: IncomingMessage | Http2ServerRequest, res: ServerResponse | Http2ServerResponse) => void;
+    callback(): (
+        req: IncomingMessage | Http2ServerRequest,
+        res: ServerResponse | Http2ServerResponse
+    ) => void;
 
     /**
      * Initialize a new context.
@@ -514,7 +520,7 @@ declare class Application<StateT = any, CustomT = {}> extends EventEmitter {
      */
     createContext<StateT = any>(
         req: IncomingMessage,
-        res: ServerResponse,
+        res: ServerResponse
     ): Application.ParameterizedContext<StateT>;
 
     /**
@@ -526,7 +532,9 @@ declare class Application<StateT = any, CustomT = {}> extends EventEmitter {
 }
 
 declare namespace Application {
-    type Middleware<StateT = any, CustomT = {}> = compose.Middleware<ParameterizedContext<StateT, CustomT>>;
+    type Middleware<StateT = any, CustomT = {}> = compose.Middleware<
+        ParameterizedContext<StateT, CustomT>
+    >;
 
     interface BaseRequest extends ContextDelegatedRequest {
         /**

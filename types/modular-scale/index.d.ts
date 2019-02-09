@@ -38,4 +38,6 @@ export interface modularScale {
 
 export const ratios: ModularScaleRatio;
 
-export default function ModularScale(options: ModularScaleOptions): modularScale;
+export default function ModularScale(
+    options: ModularScaleOptions
+): modularScale;

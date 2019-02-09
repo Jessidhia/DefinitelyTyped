@@ -126,7 +126,10 @@ declare namespace adone.math {
         /**
          * Returns a new bignum with the instance value raised to the nth power modulo m.
          */
-        powm(n: number | string | BigNumber, m: number | string | BigNumber): BigNumber;
+        powm(
+            n: number | string | BigNumber,
+            m: number | string | BigNumber
+        ): BigNumber;
 
         /**
          * Computes the multiplicative inverse modulo m.
@@ -212,7 +215,10 @@ declare namespace adone.math {
         /**
          * Creates a new bignum from a Buffer.
          */
-        static fromBuffer(buf: Buffer, opts?: I.BigNumber.BufferConvertOptions): BigNumber;
+        static fromBuffer(
+            buf: Buffer,
+            opts?: I.BigNumber.BufferConvertOptions
+        ): BigNumber;
 
         /**
          * One

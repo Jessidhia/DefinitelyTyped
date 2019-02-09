@@ -1,5 +1,5 @@
-import { Component, ReactNode } from 'react';
-import { RenderProps } from './Render';
+import { Component, ReactNode } from "react";
+import { RenderProps } from "./Render";
 
 export interface PluralPropsWithoutI18n extends RenderProps {
     id?: string;
@@ -21,6 +21,6 @@ export interface SelectPropsWithoutI18n extends RenderProps {
     [exact: string]: ReactNode;
 }
 
-export class Select extends Component<SelectPropsWithoutI18n> { }
-export class Plural extends Component<PluralPropsWithoutI18n> { }
-export class SelectOrdinal extends Component<PluralPropsWithoutI18n> { }
+export class Select extends Component<SelectPropsWithoutI18n> {}
+export class Plural extends Component<PluralPropsWithoutI18n> {}
+export class SelectOrdinal extends Component<PluralPropsWithoutI18n> {}

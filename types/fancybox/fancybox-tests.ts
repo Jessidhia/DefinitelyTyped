@@ -1,16 +1,16 @@
-$('.fancybox').fancybox();
-$('.fancybox').fancybox({
+$(".fancybox").fancybox();
+$(".fancybox").fancybox({
     padding: 0,
-    openEffect: 'elastic'
+    openEffect: "elastic"
 });
 $.fancybox([
-    { href: 'img1.jpg', title: 'Title' },
-    { href: 'img2.jpg', title: 'Title' }
+    { href: "img1.jpg", title: "Title" },
+    { href: "img2.jpg", title: "Title" }
 ]);
-$.fancybox({ href: 'image.jpg', title: 'Lorem lipsum' });
-$.fancybox(['image.jpg', 'image.jpg']);
-$.fancybox('image.jpg');
-$.fancybox('<h1>Lorem lipsum</h1>');
+$.fancybox({ href: "image.jpg", title: "Lorem lipsum" });
+$.fancybox(["image.jpg", "image.jpg"]);
+$.fancybox("image.jpg");
+$.fancybox("<h1>Lorem lipsum</h1>");
 
 $.fancybox.cancel();
 $.fancybox.close(true);
@@ -23,53 +23,53 @@ $.fancybox.update();
 $.fancybox.toggle();
 $.fancybox.showLoading();
 $.fancybox.hideLoading();
-$(".selector").fancybox({ type: 'image' });
+$(".selector").fancybox({ type: "image" });
 $("#single_1").fancybox({
     helpers: {
         title: {
-            type: 'float'
+            type: "float"
         }
     }
 });
 $("#single_2").fancybox({
-    openEffect: 'elastic',
-    closeEffect: 'elastic',
+    openEffect: "elastic",
+    closeEffect: "elastic",
     helpers: {
         title: {
-            type: 'inside'
+            type: "inside"
         }
     }
 });
 $(".fancybox").fancybox({
-    openEffect: 'none',
-    closeEffect: 'none'
+    openEffect: "none",
+    closeEffect: "none"
 });
 $(".various").fancybox({
     maxWidth: 800,
     maxHeight: 600,
     fitToView: false,
-    width: '70%',
-    height: '70%',
+    width: "70%",
+    height: "70%",
     autoSize: false,
     closeClick: false,
-    openEffect: 'none',
-    closeEffect: 'none'
+    openEffect: "none",
+    closeEffect: "none"
 });
 $(".fancybox-button").fancybox({
-    prevEffect: 'none',
-    nextEffect: 'none',
+    prevEffect: "none",
+    nextEffect: "none",
     closeBtn: false,
     helpers: {
-        title: { type: 'inside' },
+        title: { type: "inside" },
         buttons: {}
     }
 });
 $(".fancybox-thumb").fancybox({
-    prevEffect: 'none',
-    nextEffect: 'none',
+    prevEffect: "none",
+    nextEffect: "none",
     helpers: {
         title: {
-            type: 'outside'
+            type: "outside"
         },
         thumbs: {
             width: 50,
@@ -77,9 +77,9 @@ $(".fancybox-thumb").fancybox({
         }
     }
 });
-$('.fancybox-media').fancybox({
-    openEffect: 'none',
-    closeEffect: 'none',
+$(".fancybox-media").fancybox({
+    openEffect: "none",
+    closeEffect: "none",
     helpers: {
         media: {}
     }
@@ -97,7 +97,7 @@ $(".fancybox").fancybox({
 $(".fancybox").fancybox({
     helpers: {
         title: {
-            type: 'inside'
+            type: "inside"
         },
         overlay: {
             showEarly: false
@@ -114,31 +114,36 @@ $(".fancybox").fancybox({
 });
 $(".fancybox").fancybox({
     beforeLoad: () => {
-        this.title = this.title ? `Image ${this.index + 1} of ${this.group.length} - ${this.title}` : `Image ${this.index + 1} of ${this.group.length}`;
+        this.title = this.title
+            ? `Image ${this.index + 1} of ${this.group.length} - ${this.title}`
+            : `Image ${this.index + 1} of ${this.group.length}`;
     }
 });
-$.fancybox('<div><h1>Lorem Lipsum</h1><p>Lorem lipsum</p></div>', {
-    title: 'Custom Title'
+$.fancybox("<div><h1>Lorem Lipsum</h1><p>Lorem lipsum</p></div>", {
+    title: "Custom Title"
 });
 $.fancybox($("#inline"), {
-    title: 'Custom Title'
+    title: "Custom Title"
 });
 $.fancybox({
-    href: 'example.jpg',
-    title: 'Custom Title'
+    href: "example.jpg",
+    title: "Custom Title"
 });
-$.fancybox([
+$.fancybox(
+    [
+        {
+            href: "example1.jpg",
+            title: "Custom Title 1"
+        },
+        {
+            href: "example2.jpg",
+            title: "Custom Title 2"
+        }
+    ],
     {
-        href: 'example1.jpg',
-        title: 'Custom Title 1'
-    },
-    {
-        href: 'example2.jpg',
-        title: 'Custom Title 2'
+        padding: 0
     }
-], {
-    padding: 0
-});
+);
 
 $(".fancybox").fancybox({
     margin: [20, 60, 20, 60]

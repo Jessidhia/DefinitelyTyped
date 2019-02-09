@@ -1,8 +1,8 @@
-import * as L from 'leaflet';
-import 'leaflet.markercluster';
+import * as L from "leaflet";
+import "leaflet.markercluster";
 
 const polylineOptions: L.PolylineOptions = {};
-const icon: L.Icon = L.icon({ iconUrl: 'foo' });
+const icon: L.Icon = L.icon({ iconUrl: "foo" });
 
 let markerClusterGroupOptions: L.MarkerClusterGroupOptions = {};
 markerClusterGroupOptions = {
@@ -37,12 +37,10 @@ let markerClusterGroup: L.MarkerClusterGroup;
 markerClusterGroup = L.markerClusterGroup();
 markerClusterGroup = L.markerClusterGroup(markerClusterGroupOptions);
 
-let map = L.map('foo');
+let map = L.map("foo");
 
 markerClusterGroup = markerClusterGroup.addTo(map);
-map = map
-    .addLayer(markerClusterGroup)
-    .removeLayer(markerClusterGroup);
+map = map.addLayer(markerClusterGroup).removeLayer(markerClusterGroup);
 
 const latLng: L.LatLng = L.latLng(10, 10);
 

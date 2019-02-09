@@ -12,7 +12,7 @@ declare namespace JsonFileStore {
     }
 
     interface Options {
-        type?: 'single' | 'memory';
+        type?: "single" | "memory";
         pretty?: boolean;
         saveId?: boolean | string;
     }
@@ -22,13 +22,23 @@ declare namespace JsonFileStore {
     }
 
     interface Instance<T> {
-        save<K extends keyof T, V extends T[K]>(id: K, o: V, cb?: (err?: Error, id?: K) => void): void;
-        save<V extends T[keyof T]>(o: V, cb?: (err?: Error, id?: string) => void): void;
+        save<K extends keyof T, V extends T[K]>(
+            id: K,
+            o: V,
+            cb?: (err?: Error, id?: K) => void
+        ): void;
+        save<V extends T[keyof T]>(
+            o: V,
+            cb?: (err?: Error, id?: string) => void
+        ): void;
 
         saveSync<K extends keyof T, V extends T[K]>(id: K, o: V): void;
         saveSync<V extends T[keyof T]>(o: V): void;
 
-        get<K extends keyof T, V extends T[K]>(id: K, cb?: (err?: Error, o?: V) => void): void;
+        get<K extends keyof T, V extends T[K]>(
+            id: K,
+            cb?: (err?: Error, o?: V) => void
+        ): void;
 
         getSync<K extends keyof T, V extends T[K]>(id: K): V | Error;
 

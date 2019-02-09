@@ -33,7 +33,11 @@ export function wilsonScore(confidence?: number): WilsonScoreFunction;
  * @param date when the post was posted
  * @return ranking
  */
-export type RedditHotFunction = (upvotes: number, downvotes: number, date: Date) => number;
+export type RedditHotFunction = (
+    upvotes: number,
+    downvotes: number,
+    date: Date
+) => number;
 
 /**
  * Computes a ranking using the Hacker News "hot" algorithm.
@@ -49,4 +53,7 @@ export type HackerNewsHotFunction = (votes: number, date: Date) => number;
  * @param downvotes number of upvotes the post has received
  * @return ranking
  */
-export type WilsonScoreFunction = (upvotes: number, downvotes: number) => number;
+export type WilsonScoreFunction = (
+    upvotes: number,
+    downvotes: number
+) => number;

@@ -1,7 +1,5 @@
 namespace adoneTests.pretty.json {
-    const {
-        json
-    } = adone.pretty;
+    const { json } = adone.pretty;
 
     let str: string;
 

@@ -3,11 +3,11 @@ const y = 0;
 const fontSize = 72;
 let ctx: CanvasRenderingContext2D;
 
-opentype.load('fonts/Roboto-Black.ttf', (err, font) => {
+opentype.load("fonts/Roboto-Black.ttf", (err, font) => {
     if (err) {
-        alert('Font could not be loaded: ' + err);
+        alert("Font could not be loaded: " + err);
     } else {
-        const path = font.getPath('Hello, World!', 0, 150, 72);
+        const path = font.getPath("Hello, World!", 0, 150, 72);
         // If you just want to draw the text you can also use font.draw(ctx, text, x, y, fontSize).
         path.draw(ctx);
     }
@@ -15,10 +15,10 @@ opentype.load('fonts/Roboto-Black.ttf', (err, font) => {
 
 let myBuffer: ArrayBuffer;
 let font = opentype.parse(myBuffer);
-font = opentype.loadSync('fonts/Roboto-Black.ttf');
+font = opentype.loadSync("fonts/Roboto-Black.ttf");
 
 const notdefGlyph = new opentype.Glyph({
-    name: '.notdef',
+    name: ".notdef",
     unicode: 0,
     advanceWidth: 650,
     path: new opentype.Path()
@@ -27,7 +27,7 @@ const notdefGlyph = new opentype.Glyph({
 const aPath = new opentype.Path();
 // more drawing instructions...
 const aGlyph = new opentype.Glyph({
-    name: 'A',
+    name: "A",
     unicode: 65,
     advanceWidth: 650,
     path: aPath
@@ -35,8 +35,8 @@ const aGlyph = new opentype.Glyph({
 
 const glyphs = [notdefGlyph, aGlyph];
 const fontGenerated = new opentype.Font({
-    familyName: 'OpenTypeSans',
-    styleName: 'Medium',
+    familyName: "OpenTypeSans",
+    styleName: "Medium",
     unitsPerEm: 1000,
     ascender: 800,
     descender: -200,
@@ -45,17 +45,17 @@ const fontGenerated = new opentype.Font({
 });
 font.download();
 
-const hasChar: boolean = font.hasChar('a');
-const charIndex: number = font.charToGlyphIndex('a');
-const charGlyph: opentype.Glyph = font.charToGlyph('a');
-const charGlyphs: opentype.Glyph[] = font.stringToGlyphs('abc');
-const nameIndex: number = font.nameToGlyphIndex('a');
-const nameGlyph: opentype.Glyph = font.nameToGlyph('a');
+const hasChar: boolean = font.hasChar("a");
+const charIndex: number = font.charToGlyphIndex("a");
+const charGlyph: opentype.Glyph = font.charToGlyph("a");
+const charGlyphs: opentype.Glyph[] = font.stringToGlyphs("abc");
+const nameIndex: number = font.nameToGlyphIndex("a");
+const nameGlyph: opentype.Glyph = font.nameToGlyph("a");
 const indexName: string = font.glyphIndexToName(1);
 const kerning: number = font.getKerningValue(notdefGlyph, aGlyph);
 font.defaultRenderOptions.kerning = false;
 const forEachWidth: number = font.forEachGlyph(
-    'text',
+    "text",
     x,
     y,
     fontSize,
@@ -71,18 +71,20 @@ const forEachWidth: number = font.forEachGlyph(
         });
     }
 );
-const fontPath: opentype.Path = font.getPath('text', x, y, fontSize, {});
-const fontPaths: opentype.Path[] = font.getPaths('text', x, y, fontSize, {});
-const fontWidth: number = font.getAdvanceWidth('text', fontSize, { yScale: 0.5 });
-font.draw(ctx, 'text');
-font.drawPoints(ctx, 'text', x, y, fontSize, { yScale: 0.5 });
-font.drawMetrics(ctx, 'text', x, y, fontSize, { xScale: 1.1, yScale: 0.5 });
-const engName: string = font.getEnglishName('a');
+const fontPath: opentype.Path = font.getPath("text", x, y, fontSize, {});
+const fontPaths: opentype.Path[] = font.getPaths("text", x, y, fontSize, {});
+const fontWidth: number = font.getAdvanceWidth("text", fontSize, {
+    yScale: 0.5
+});
+font.draw(ctx, "text");
+font.drawPoints(ctx, "text", x, y, fontSize, { yScale: 0.5 });
+font.drawMetrics(ctx, "text", x, y, fontSize, { xScale: 1.1, yScale: 0.5 });
+const engName: string = font.getEnglishName("a");
 font.validate();
 const tables: opentype.Table = font.toTables();
 const ab: ArrayBuffer = font.toArrayBuffer();
 font.download();
-font.download('fileName.ttf');
+font.download("fileName.ttf");
 
 aGlyph.bindConstructorValues({ advanceWidth: 1 });
 aGlyph.addUnicode(42);

@@ -17,7 +17,11 @@ declare class NodeRSA {
     /**
      * Load key from string/buffer/components.
      */
-    constructor(key: NodeRSA.Key, format?: NodeRSA.Format, options?: NodeRSA.Options);
+    constructor(
+        key: NodeRSA.Key,
+        format?: NodeRSA.Format,
+        options?: NodeRSA.Options
+    );
 
     /**
      * Set and validate options for key instance.
@@ -40,8 +44,12 @@ declare class NodeRSA {
      */
     exportKey(format?: NodeRSA.FormatPem): string;
     exportKey(format: NodeRSA.FormatDer): Buffer;
-    exportKey(format: NodeRSA.FormatComponentsPrivate): NodeRSA.KeyComponentsPrivate;
-    exportKey(format: NodeRSA.FormatComponentsPublic): NodeRSA.KeyComponentsPublic;
+    exportKey(
+        format: NodeRSA.FormatComponentsPrivate
+    ): NodeRSA.KeyComponentsPrivate;
+    exportKey(
+        format: NodeRSA.FormatComponentsPublic
+    ): NodeRSA.KeyComponentsPublic;
 
     isPrivate(): boolean;
 
@@ -65,33 +73,71 @@ declare class NodeRSA {
      */
     getMaxMessageSize(): number;
 
-    encrypt(data: NodeRSA.Data, encoding?: 'buffer'): Buffer;
+    encrypt(data: NodeRSA.Data, encoding?: "buffer"): Buffer;
     encrypt(data: NodeRSA.Data, encoding: NodeRSA.Encoding): string;
-    encrypt(data: Buffer, encoding: 'buffer', sourceEncoding?: NodeRSA.Encoding): Buffer;
-    encrypt(data: Buffer, encoding: NodeRSA.Encoding, sourceEncoding?: NodeRSA.Encoding): string;
+    encrypt(
+        data: Buffer,
+        encoding: "buffer",
+        sourceEncoding?: NodeRSA.Encoding
+    ): Buffer;
+    encrypt(
+        data: Buffer,
+        encoding: NodeRSA.Encoding,
+        sourceEncoding?: NodeRSA.Encoding
+    ): string;
 
-    encryptPrivate(data: NodeRSA.Data, encoding?: 'buffer'): Buffer;
+    encryptPrivate(data: NodeRSA.Data, encoding?: "buffer"): Buffer;
     encryptPrivate(data: NodeRSA.Data, encoding: NodeRSA.Encoding): string;
-    encryptPrivate(data: Buffer, encoding: 'buffer', sourceEncoding?: NodeRSA.Encoding): Buffer;
-    encryptPrivate(data: Buffer, encoding: NodeRSA.Encoding, sourceEncoding?: NodeRSA.Encoding): string;
+    encryptPrivate(
+        data: Buffer,
+        encoding: "buffer",
+        sourceEncoding?: NodeRSA.Encoding
+    ): Buffer;
+    encryptPrivate(
+        data: Buffer,
+        encoding: NodeRSA.Encoding,
+        sourceEncoding?: NodeRSA.Encoding
+    ): string;
 
-    decrypt(data: Buffer | string, encoding?: 'buffer'): Buffer;
+    decrypt(data: Buffer | string, encoding?: "buffer"): Buffer;
     decrypt(data: Buffer | string, encoding: NodeRSA.Encoding): string;
-    decrypt<T extends object>(data: Buffer | string, encoding: 'json'): T;
+    decrypt<T extends object>(data: Buffer | string, encoding: "json"): T;
 
-    decryptPublic(data: Buffer | string, encoding?: 'buffer'): Buffer;
+    decryptPublic(data: Buffer | string, encoding?: "buffer"): Buffer;
     decryptPublic(data: Buffer | string, encoding: NodeRSA.Encoding): string;
-    decryptPublic<T extends object>(data: Buffer | string, encoding: 'json'): T;
+    decryptPublic<T extends object>(data: Buffer | string, encoding: "json"): T;
 
-    sign(data: NodeRSA.Data, encoding?: 'buffer'): Buffer;
+    sign(data: NodeRSA.Data, encoding?: "buffer"): Buffer;
     sign(data: NodeRSA.Data, encoding: NodeRSA.Encoding): string;
-    sign(data: Buffer, encoding: 'buffer', sourceEncoding?: NodeRSA.Encoding): Buffer;
-    sign(data: Buffer, encoding: NodeRSA.Encoding, sourceEncoding?: NodeRSA.Encoding): string;
+    sign(
+        data: Buffer,
+        encoding: "buffer",
+        sourceEncoding?: NodeRSA.Encoding
+    ): Buffer;
+    sign(
+        data: Buffer,
+        encoding: NodeRSA.Encoding,
+        sourceEncoding?: NodeRSA.Encoding
+    ): string;
 
     verify(data: NodeRSA.Data, signature: Buffer): boolean;
-    verify(data: Buffer, signature: Buffer, sourceEncoding?: NodeRSA.Encoding): boolean;
-    verify(data: Buffer, signature: string, sourceEncoding: NodeRSA.Encoding, signatureEncoding: NodeRSA.Encoding): boolean;
-    verify(data: NodeRSA.Data, signature: string, sourceEncoding: undefined, signatureEncoding: NodeRSA.Encoding): boolean;
+    verify(
+        data: Buffer,
+        signature: Buffer,
+        sourceEncoding?: NodeRSA.Encoding
+    ): boolean;
+    verify(
+        data: Buffer,
+        signature: string,
+        sourceEncoding: NodeRSA.Encoding,
+        signatureEncoding: NodeRSA.Encoding
+    ): boolean;
+    verify(
+        data: NodeRSA.Data,
+        signature: string,
+        sourceEncoding: undefined,
+        signatureEncoding: NodeRSA.Encoding
+    ): boolean;
 }
 
 declare namespace NodeRSA {
@@ -99,45 +145,88 @@ declare namespace NodeRSA {
     type Data = string | object | any[];
 
     type FormatPem =
-        | 'private' | 'public'
-        | 'pkcs1' | 'pkcs1-pem'
-        | 'pkcs1-private' | 'pkcs1-private-pem'
-        | 'pkcs1-public' | 'pkcs1-public-pem'
-        | 'pkcs8' | 'pkcs8-pem'
-        | 'pkcs8-private' | 'pkcs8-private-pem'
-        | 'pkcs8-public' | 'pkcs8-public-pem';
+        | "private"
+        | "public"
+        | "pkcs1"
+        | "pkcs1-pem"
+        | "pkcs1-private"
+        | "pkcs1-private-pem"
+        | "pkcs1-public"
+        | "pkcs1-public-pem"
+        | "pkcs8"
+        | "pkcs8-pem"
+        | "pkcs8-private"
+        | "pkcs8-private-pem"
+        | "pkcs8-public"
+        | "pkcs8-public-pem";
     type FormatDer =
-        | 'pkcs1-der' | 'pkcs1-private-der' | 'pkcs1-public-der'
-        | 'pkcs8-der' | 'pkcs8-private-der' | 'pkcs8-public-der';
+        | "pkcs1-der"
+        | "pkcs1-private-der"
+        | "pkcs1-public-der"
+        | "pkcs8-der"
+        | "pkcs8-private-der"
+        | "pkcs8-public-der";
     type FormatComponentsPrivate =
-        | 'components' | 'components-pem' | 'components-der'
-        | 'components-private' | 'components-private-pem' | 'components-private-der';
+        | "components"
+        | "components-pem"
+        | "components-der"
+        | "components-private"
+        | "components-private-pem"
+        | "components-private-der";
     type FormatComponentsPublic =
-        | 'components-public' | 'components-public-pem' | 'components-public-der';
-    type Format = FormatPem | FormatDer | FormatComponentsPrivate | FormatComponentsPublic;
+        | "components-public"
+        | "components-public-pem"
+        | "components-public-der";
+    type Format =
+        | FormatPem
+        | FormatDer
+        | FormatComponentsPrivate
+        | FormatComponentsPublic;
 
-    type EncryptionScheme = 'pkcs1_oaep' | 'pkcs1';
+    type EncryptionScheme = "pkcs1_oaep" | "pkcs1";
 
     type HashingAlgorithm =
-        | 'ripemd160'
-        | 'md4' | 'md5'
-        | 'sha1' | 'sha224' | 'sha256' | 'sha384' | 'sha512';
+        | "ripemd160"
+        | "md4"
+        | "md5"
+        | "sha1"
+        | "sha224"
+        | "sha256"
+        | "sha384"
+        | "sha512";
 
-    type SigningScheme = 'pkcs1' | 'pss';
+    type SigningScheme = "pkcs1" | "pss";
 
     type SigningSchemeHash =
-        | 'pkcs1-ripemd160'
-        | 'pkcs1-md4' | 'pkcs1-md5'
-        | 'pkcs1-sha' | 'pkcs1-sha1'
-        | 'pkcs1-sha224' | 'pkcs1-sha256' | 'pkcs1-sha384' | 'pkcs1-sha512'
-        | 'pss-ripemd160'
-        | 'pss-md4' | 'pss-md5'
-        | 'pss-sha' | 'pss-sha1'
-        | 'pss-sha224' | 'pss-sha256' | 'pss-sha384' | 'pss-sha512';
+        | "pkcs1-ripemd160"
+        | "pkcs1-md4"
+        | "pkcs1-md5"
+        | "pkcs1-sha"
+        | "pkcs1-sha1"
+        | "pkcs1-sha224"
+        | "pkcs1-sha256"
+        | "pkcs1-sha384"
+        | "pkcs1-sha512"
+        | "pss-ripemd160"
+        | "pss-md4"
+        | "pss-md5"
+        | "pss-sha"
+        | "pss-sha1"
+        | "pss-sha224"
+        | "pss-sha256"
+        | "pss-sha384"
+        | "pss-sha512";
 
     type Encoding =
-        | 'ascii' | 'utf8' | 'utf16le' | 'ucs2' | 'latin1'
-        | 'base64' | 'hex' | 'binary' | 'buffer';
+        | "ascii"
+        | "utf8"
+        | "utf16le"
+        | "ucs2"
+        | "latin1"
+        | "base64"
+        | "hex"
+        | "binary"
+        | "buffer";
 
     interface KeyComponentsPrivate {
         n: Buffer;
@@ -163,12 +252,12 @@ declare namespace NodeRSA {
     }
 
     interface AdvancedEncryptionSchemePKCS1 {
-        scheme: 'pkcs1';
+        scheme: "pkcs1";
         padding: number;
     }
 
     interface AdvancedEncryptionSchemePKCS1OAEP {
-        scheme: 'pkcs1_oaep';
+        scheme: "pkcs1_oaep";
         hash: HashingAlgorithm;
 
         /**
@@ -182,13 +271,13 @@ declare namespace NodeRSA {
         | AdvancedEncryptionSchemePKCS1OAEP;
 
     interface AdvancedSigningSchemePSS {
-        scheme: 'pss';
+        scheme: "pss";
         hash: HashingAlgorithm;
         saltLength: number;
     }
 
     interface AdvancedSigningSchemePKCS1 {
-        scheme: 'pkcs1';
+        scheme: "pkcs1";
         hash: HashingAlgorithm;
     }
 
@@ -200,7 +289,7 @@ declare namespace NodeRSA {
         /**
          * Working environment. (auto detects by default)
          */
-        environment?: 'browser' | 'node';
+        environment?: "browser" | "node";
 
         /**
          * Padding scheme for encrypt/decrypt. Default is 'pkcs1_oaep'.
@@ -210,7 +299,10 @@ declare namespace NodeRSA {
         /**
          * scheme used for signing and verifying.. Default 'pkcs1-sha256', or, if chosen pss: 'pss-sha1'.
          */
-        signingScheme?: SigningScheme | SigningSchemeHash | AdvancedSigningScheme;
+        signingScheme?:
+            | SigningScheme
+            | SigningSchemeHash
+            | AdvancedSigningScheme;
     }
 }
 

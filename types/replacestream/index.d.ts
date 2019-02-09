@@ -42,7 +42,12 @@ declare namespace ReplaceStream {
         regExpOptions?: string;
     }
 
-    type ReplaceFunction = (match: string, p1: string, offset: number, string: string) => string;
+    type ReplaceFunction = (
+        match: string,
+        p1: string,
+        offset: number,
+        string: string
+    ) => string;
 }
 
 declare function ReplaceStream(

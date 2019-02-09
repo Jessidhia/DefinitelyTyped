@@ -1,4 +1,3 @@
-
 import clone = require("clone");
 
 var original = {

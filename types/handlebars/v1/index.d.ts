@@ -3,14 +3,13 @@
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 // Use either HandlebarsStatic or HandlebarsRuntimeStatic
 declare var Handlebars: HandlebarsStatic;
 //declare var Handlebars: HandlebarsRuntimeStatic;
 
 /**
-* Implement this interface on your MVW/MVVM/MVC views such as Backbone.View
-**/
+ * Implement this interface on your MVW/MVVM/MVC views such as Backbone.View
+ **/
 interface HandlebarsTemplatable {
     template: HandlebarsTemplateDelegate;
 }
@@ -101,8 +100,7 @@ declare namespace hbs {
         }
 
         class HashNode extends NodeBase {
-            pairs: {0: string;
-                    1: NodeBase}[];
+            pairs: { 0: string; 1: NodeBase }[];
         }
 
         class SexprNode extends NodeBase {
@@ -117,7 +115,6 @@ declare namespace hbs {
             strip: IStripInfo;
             escaped: boolean;
             sexpr: SexprNode;
-
         }
 
         class BlockNode extends NodeBase {

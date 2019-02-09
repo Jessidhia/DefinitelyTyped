@@ -1,4 +1,4 @@
-import MongodbMemoryServer from 'mongodb-memory-server';
+import MongodbMemoryServer from "mongodb-memory-server";
 
 // Simple server start example from https://www.npmjs.com/package/mongodb-memory-server
 async function simpleServerStart() {

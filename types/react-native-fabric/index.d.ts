@@ -8,31 +8,57 @@ export interface CustomAttributes {
 }
 
 export namespace Answers {
-    function logCustom(eventName: string, customAttributes?: CustomAttributes): void;
-    function logInvite(method: string, customAttributes?: CustomAttributes): void;
-    function logLevelStart(levelName: string, customAttributes?: CustomAttributes): void;
-    function logLevelEnd(levelName: string, customAttributes?: CustomAttributes): void;
-    function logLogin(method: string, success: boolean, customAttributes?: CustomAttributes): void;
-    function logSearch(query: string, customAttributes?: CustomAttributes): void;
-    function logSignUp(method: string, success: boolean, customAttributes?: CustomAttributes): void;
+    function logCustom(
+        eventName: string,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logInvite(
+        method: string,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logLevelStart(
+        levelName: string,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logLevelEnd(
+        levelName: string,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logLogin(
+        method: string,
+        success: boolean,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logSearch(
+        query: string,
+        customAttributes?: CustomAttributes
+    ): void;
+    function logSignUp(
+        method: string,
+        success: boolean,
+        customAttributes?: CustomAttributes
+    ): void;
     function logShare(
         method: string,
         contentName: string,
         contentType: string,
         contentId: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
     function logStartCheckout(
         totalPrice: number,
         count: number,
         currency: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
     function logAddToCart(
         itemPrice: number,
         currency: string,
         itemName: string,
         itemType: string,
         itemId: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
     function logPurchase(
         itemPrice: number,
         currency: string,
@@ -40,18 +66,21 @@ export namespace Answers {
         itemName: string,
         itemType: string,
         itemId: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
     function logContentView(
         contentName: string,
         contentType: string,
         contentId: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
     function logRating(
         rating: number,
         contentId: string,
         contentType: string,
         contentName: string,
-        customAttributes?: CustomAttributes): void;
+        customAttributes?: CustomAttributes
+    ): void;
 }
 
 export namespace Crashlytics {
@@ -66,5 +95,9 @@ export namespace Crashlytics {
     function setBool(key: string, value: boolean): void;
     function setNumber(key: string, value: number): void;
     function setString(key: string, value: string): void;
-    function recordCustomExceptionName(name: string, reason: string, stack?: any[]): void;
+    function recordCustomExceptionName(
+        name: string,
+        reason: string,
+        stack?: any[]
+    ): void;
 }

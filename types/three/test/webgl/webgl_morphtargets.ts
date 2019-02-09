@@ -5,25 +5,32 @@
 
     var container: HTMLDivElement;
 
-    var camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;
+    var camera: THREE.PerspectiveCamera,
+        scene: THREE.Scene,
+        renderer: THREE.WebGLRenderer;
 
-    var mouseX = 0, mouseY = 0;
+    var mouseX = 0,
+        mouseY = 0;
 
     var mesh: THREE.Mesh;
     var windowHalfX = window.innerWidth / 2;
     var windowHalfY = window.innerHeight / 2;
 
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener("mousemove", onDocumentMouseMove, false);
 
     init();
     animate();
 
     function init() {
-
-        container = document.createElement('div');
+        container = document.createElement("div");
         document.body.appendChild(container);
 
-        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 15000);
+        camera = new THREE.PerspectiveCamera(
+            45,
+            window.innerWidth / window.innerHeight,
+            1,
+            15000
+        );
         camera.position.z = 500;
 
         scene = new THREE.Scene();
@@ -36,32 +43,31 @@
         var amblight = new THREE.AmbientLight(0x111111);
         scene.add(amblight);
 
-
         var geometry = new THREE.BoxGeometry(100, 100, 100);
-        var material = new THREE.MeshLambertMaterial({ color: 0xffffff, morphTargets: true });
+        var material = new THREE.MeshLambertMaterial({
+            color: 0xffffff,
+            morphTargets: true
+        });
 
         // construct 8 blend shapes
 
         for (var i = 0; i < geometry.vertices.length; i++) {
-
             var vertices: THREE.Vector3[] = [];
 
             for (var v = 0; v < geometry.vertices.length; v++) {
-
                 vertices.push(geometry.vertices[v].clone());
 
                 if (v === i) {
-
                     vertices[vertices.length - 1].x *= 2;
                     vertices[vertices.length - 1].y *= 2;
                     vertices[vertices.length - 1].z *= 2;
-
                 }
-
             }
 
-            geometry.morphTargets.push({ name: "target" + i, vertices: vertices });
-
+            geometry.morphTargets.push({
+                name: "target" + i,
+                vertices: vertices
+            });
         }
 
         mesh = new THREE.Mesh(geometry, material);
@@ -79,12 +85,10 @@
 
         //
 
-        window.addEventListener('resize', onWindowResize, false);
-
+        window.addEventListener("resize", onWindowResize, false);
     }
 
     function onWindowResize() {
-
         windowHalfX = window.innerWidth / 2;
         windowHalfY = window.innerHeight / 2;
 
@@ -92,35 +96,28 @@
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-
     }
 
     function onDocumentMouseMove(event: MouseEvent) {
-
-        mouseX = (event.clientX - windowHalfX);
+        mouseX = event.clientX - windowHalfX;
         mouseY = (event.clientY - windowHalfY) * 2;
-
     }
 
     function animate() {
-
         requestAnimationFrame(animate);
         render();
-
     }
 
     function render() {
-
         mesh.rotation.y += 0.01;
 
         //mesh.morphTargetInfluences[ 0 ] = Math.sin( mesh.rotation.y ) * 0.5 + 0.5;
 
         //camera.position.x += ( mouseX - camera.position.x ) * .005;
-        camera.position.y += (- mouseY - camera.position.y) * .01;
+        camera.position.y += (-mouseY - camera.position.y) * 0.01;
 
         camera.lookAt(scene.position);
 
         renderer.render(scene, camera);
-
     }
-}
+};

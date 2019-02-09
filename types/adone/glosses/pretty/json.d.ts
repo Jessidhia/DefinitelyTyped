@@ -12,5 +12,9 @@ declare namespace adone.pretty {
         }
     }
 
-    function json(data: any, options?: I.JSONOptions, indentation?: number): string;
+    function json(
+        data: any,
+        options?: I.JSONOptions,
+        indentation?: number
+    ): string;
 }

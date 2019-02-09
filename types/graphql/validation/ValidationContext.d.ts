@@ -6,7 +6,7 @@ import {
     VariableNode,
     SelectionSetNode,
     FragmentSpreadNode,
-    FragmentDefinitionNode,
+    FragmentDefinitionNode
 } from "../language/ast";
 import { GraphQLSchema } from "../type/schema";
 import {
@@ -14,7 +14,7 @@ import {
     GraphQLOutputType,
     GraphQLCompositeType,
     GraphQLField,
-    GraphQLArgument,
+    GraphQLArgument
 } from "../type/definition";
 import { GraphQLDirective } from "../type/directives";
 import { TypeInfo } from "../utilities/TypeInfo";
@@ -57,13 +57,19 @@ export class ValidationContext extends ASTValidationContext {
 
     getFragment(name: string): Maybe<FragmentDefinitionNode>;
 
-    getFragmentSpreads(node: SelectionSetNode): ReadonlyArray<FragmentSpreadNode>;
+    getFragmentSpreads(
+        node: SelectionSetNode
+    ): ReadonlyArray<FragmentSpreadNode>;
 
-    getRecursivelyReferencedFragments(operation: OperationDefinitionNode): ReadonlyArray<FragmentDefinitionNode>;
+    getRecursivelyReferencedFragments(
+        operation: OperationDefinitionNode
+    ): ReadonlyArray<FragmentDefinitionNode>;
 
     getVariableUsages(node: NodeWithSelectionSet): ReadonlyArray<VariableUsage>;
 
-    getRecursiveVariableUsages(operation: OperationDefinitionNode): ReadonlyArray<VariableUsage>;
+    getRecursiveVariableUsages(
+        operation: OperationDefinitionNode
+    ): ReadonlyArray<VariableUsage>;
 
     getType(): Maybe<GraphQLOutputType>;
 

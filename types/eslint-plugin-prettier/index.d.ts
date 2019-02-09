@@ -16,11 +16,11 @@ export function showInvisibles(str: string): string;
  */
 export function generateDifferences(
     source: string,
-    formatted: string,
+    formatted: string
 ): Difference[];
 
 export interface Difference {
-    operation: 'insert' | 'delete' | 'replace';
+    operation: "insert" | "delete" | "replace";
     offset: number;
     insertText?: string;
     deleteText?: string;

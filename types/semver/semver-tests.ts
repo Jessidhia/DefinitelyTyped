@@ -2,10 +2,10 @@ import * as semver from "semver";
 
 let bool: boolean;
 let num: number;
-let str = '';
-let strn: string | null = '';
+let str = "";
+let strn: string | null = "";
 let diff: semver.ReleaseType | null;
-const op: semver.Operator = '';
+const op: semver.Operator = "";
 declare const arr: any[];
 declare const exp: RegExp;
 let strArr: string[] | null;
@@ -13,9 +13,9 @@ declare const numArr: string[];
 let comparatorResult: -1 | 0 | 1;
 let versionsArr: Array<string | semver.SemVer>;
 
-const v1 = '';
-const v2 = '';
-const version = '';
+const v1 = "";
+const v2 = "";
+const version = "";
 const versions: string[] = [];
 const loose = true;
 let sem: semver.SemVer | null;
@@ -51,8 +51,8 @@ comparatorResult = semver.compare(v1, v2, loose);
 comparatorResult = semver.rcompare(v1, v2, loose);
 comparatorResult = semver.compareIdentifiers(str, str);
 comparatorResult = semver.rcompareIdentifiers(str, str);
-versionsArr = semver.sort(['', new semver.SemVer('')]);
-versionsArr = semver.rsort(['', new semver.SemVer('')]);
+versionsArr = semver.sort(["", new semver.SemVer("")]);
+versionsArr = semver.rsort(["", new semver.SemVer("")]);
 diff = semver.diff(v1, v2, loose);
 
 // Ranges
@@ -62,7 +62,7 @@ str = semver.maxSatisfying(versions, str, loose);
 str = semver.minSatisfying(versions, str, loose);
 bool = semver.gtr(version, str, loose);
 bool = semver.ltr(version, str, loose);
-bool = semver.outside(version, str, '<', loose);
+bool = semver.outside(version, str, "<", loose);
 bool = semver.intersects(str, str, loose);
 
 // Coercion
@@ -112,8 +112,8 @@ str = range.format();
 str = range.inspect();
 str = range.toString();
 bool = range.test(ver);
-bool = range.intersects(new semver.Range(''));
-bool = range.intersects(new semver.Range(''), bool);
+bool = range.intersects(new semver.Range(""));
+bool = range.intersects(new semver.Range(""), bool);
 
 let sets: semver.Comparator[][];
 sets = range.set;

@@ -30,30 +30,53 @@ declare module DbJs {
         count(): ExecutableQuery<T>;
     }
 
-    interface KeysQuery<T> extends DescableQuery<T>, ExecutableQuery<T>, FilterableQuery<T>, DistinctableQuery<T>, MappableQuery<T>    {
-    }
+    interface KeysQuery<T>
+        extends DescableQuery<T>,
+            ExecutableQuery<T>,
+            FilterableQuery<T>,
+            DistinctableQuery<T>,
+            MappableQuery<T> {}
 
     interface KeyableQuery<T> {
         keys(): KeysQuery<T>;
     }
 
-    interface FilterQuery<T> extends KeyableQuery<T>, ExecutableQuery<T>, FilterableQuery<T>, DescableQuery<T>, DistinctableQuery<T>, ModifiableQuery<T>, LimitableQuery<T>, MappableQuery<T> {
-    }
+    interface FilterQuery<T>
+        extends KeyableQuery<T>,
+            ExecutableQuery<T>,
+            FilterableQuery<T>,
+            DescableQuery<T>,
+            DistinctableQuery<T>,
+            ModifiableQuery<T>,
+            LimitableQuery<T>,
+            MappableQuery<T> {}
 
     interface FilterableQuery<T> {
         filter<TValue>(index: string, value: TValue): FilterQuery<T>;
         filter(filter: (value: T) => boolean): FilterQuery<T>;
     }
 
-    interface DescQuery<T> extends KeyableQuery<T>, CountableQuery<T>, ExecutableQuery<T>, FilterableQuery<T>, DescableQuery<T>, ModifiableQuery<T>, MappableQuery<T> {
-    }
+    interface DescQuery<T>
+        extends KeyableQuery<T>,
+            CountableQuery<T>,
+            ExecutableQuery<T>,
+            FilterableQuery<T>,
+            DescableQuery<T>,
+            ModifiableQuery<T>,
+            MappableQuery<T> {}
 
     interface DescableQuery<T> {
         desc(): DescQuery<T>;
     }
 
-    interface DistinctQuery<T> extends KeyableQuery<T>, ExecutableQuery<T>, FilterableQuery<T>, DescableQuery<T>, ModifiableQuery<T>, MappableQuery<T>, CountableQuery<T> {
-    }
+    interface DistinctQuery<T>
+        extends KeyableQuery<T>,
+            ExecutableQuery<T>,
+            FilterableQuery<T>,
+            DescableQuery<T>,
+            ModifiableQuery<T>,
+            MappableQuery<T>,
+            CountableQuery<T> {}
 
     interface DistinctableQuery<T> {
         distinct(filter?: (value: T) => boolean): DistinctQuery<T>;
@@ -72,8 +95,17 @@ declare module DbJs {
         map<TMap>(fn: (value: T) => TMap): Query<TMap>;
     }
 
-    interface Query<T> extends Promise<T>, KeyableQuery<T>, ExecutableQuery<T>, FilterableQuery<T>, DescableQuery<T>, DistinctableQuery<T>, ModifiableQuery<T>, LimitableQuery<T>, MappableQuery<T>, CountableQuery<T> {
-    }
+    interface Query<T>
+        extends Promise<T>,
+            KeyableQuery<T>,
+            ExecutableQuery<T>,
+            FilterableQuery<T>,
+            DescableQuery<T>,
+            DistinctableQuery<T>,
+            ModifiableQuery<T>,
+            LimitableQuery<T>,
+            MappableQuery<T>,
+            CountableQuery<T> {}
 
     interface IndexQuery<T> extends Query<T> {
         only(...args: any[]): Query<T>;
@@ -101,12 +133,24 @@ declare module DbJs {
     interface ObjectStoreServer {
         add<T>(table: string, entity: T): Promise<T>;
         add<T>(table: string, ...entities: T[]): Promise<T[]>;
-        add<TKey, TValue>(table: string, entity: KeyValuePair<TKey, TValue>): Promise<KeyValuePair<TKey, TValue>>;
-        add<TKey, TValue>(table: string, ...entities: KeyValuePair<TKey, TValue>[]): Promise<KeyValuePair<TKey, TValue>[]>;
+        add<TKey, TValue>(
+            table: string,
+            entity: KeyValuePair<TKey, TValue>
+        ): Promise<KeyValuePair<TKey, TValue>>;
+        add<TKey, TValue>(
+            table: string,
+            ...entities: KeyValuePair<TKey, TValue>[]
+        ): Promise<KeyValuePair<TKey, TValue>[]>;
         update<T>(table: string, entity: T): Promise<T>;
         update<T>(table: string, ...entities: T[]): Promise<T[]>;
-        update<TKey, TValue>(table: string, entity: KeyValuePair<TKey, TValue>): Promise<KeyValuePair<TKey, TValue>>;
-        update<TKey, TValue>(table: string, ...entities: KeyValuePair<TKey, TValue>[]): Promise<KeyValuePair<TKey, TValue>[]>;
+        update<TKey, TValue>(
+            table: string,
+            entity: KeyValuePair<TKey, TValue>
+        ): Promise<KeyValuePair<TKey, TValue>>;
+        update<TKey, TValue>(
+            table: string,
+            ...entities: KeyValuePair<TKey, TValue>[]
+        ): Promise<KeyValuePair<TKey, TValue>[]>;
         remove<TKey>(table: string, key: TKey): Promise<TKey>;
         remove<TKey>(table: string, ...keys: TKey[]): Promise<TKey[]>;
         clear(table: string): Promise<void>;
@@ -116,10 +160,16 @@ declare module DbJs {
         count(): Promise<number>;
         count(keyOrRange: any): Promise<number>;
         count(table: string, key: any): Promise<number>;
-        addEventListener(type: 'abort', listener: (ev: Event) => any): void;
-        addEventListener(type: 'versionchange', listener: (ev: Event) => any): void;
-        addEventListener(type: 'error', listener: (err: Error) => any): void;
-        addEventListener(type: string, listener: EventListener | ErrorListener): void;
+        addEventListener(type: "abort", listener: (ev: Event) => any): void;
+        addEventListener(
+            type: "versionchange",
+            listener: (ev: Event) => any
+        ): void;
+        addEventListener(type: "error", listener: (err: Error) => any): void;
+        addEventListener(
+            type: string,
+            listener: EventListener | ErrorListener
+        ): void;
         abort(listener: (ev: Event) => any): ObjectStoreServer;
         versionchange(listener: (ev: Event) => any): ObjectStoreServer;
         error(listener: (ev: Error) => any): ObjectStoreServer;
@@ -128,12 +178,20 @@ declare module DbJs {
     interface TypedObjectStoreServer<T> {
         add(entity: T): Promise<T>;
         add(...entities: T[]): Promise<T[]>;
-        add<TKey, TValue>(entity: KeyValuePair<TKey, TValue>): Promise<KeyValuePair<TKey, TValue>>;
-        add<TKey, TValue>(...entities: KeyValuePair<TKey, TValue>[]): Promise<KeyValuePair<TKey, TValue>[]>;
+        add<TKey, TValue>(
+            entity: KeyValuePair<TKey, TValue>
+        ): Promise<KeyValuePair<TKey, TValue>>;
+        add<TKey, TValue>(
+            ...entities: KeyValuePair<TKey, TValue>[]
+        ): Promise<KeyValuePair<TKey, TValue>[]>;
         update(entity: T): Promise<T>;
         update(...entities: T[]): Promise<T[]>;
-        update<TKey, TValue>(entity: KeyValuePair<TKey, TValue>): Promise<KeyValuePair<TKey, TValue>>;
-        update<TKey, TValue>(...entities: KeyValuePair<TKey, TValue>[]): Promise<KeyValuePair<TKey, TValue>[]>;
+        update<TKey, TValue>(
+            entity: KeyValuePair<TKey, TValue>
+        ): Promise<KeyValuePair<TKey, TValue>>;
+        update<TKey, TValue>(
+            ...entities: KeyValuePair<TKey, TValue>[]
+        ): Promise<KeyValuePair<TKey, TValue>[]>;
         remove<TKey>(key: TKey): Promise<TKey>;
         remove<TKey>(...keys: TKey[]): Promise<TKey[]>;
         clear(): Promise<void>;
@@ -143,7 +201,9 @@ declare module DbJs {
         count(key: any): Promise<number>;
     }
 
-    type Server = DbJs.IndexAccessibleServer & DbJs.ObjectStoreServer & DbJs.BaseServer;
+    type Server = DbJs.IndexAccessibleServer &
+        DbJs.ObjectStoreServer &
+        DbJs.BaseServer;
 }
 
 declare module "db.js" {

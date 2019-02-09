@@ -3,6 +3,9 @@
 // Definitions by: Chi Vinh Le <https://github.com/cvle>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare const warning: (condition: any, format?: string, ...extra: any[]) => void;
+declare const warning: (
+    condition: any,
+    format?: string,
+    ...extra: any[]
+) => void;
 export = warning;
-

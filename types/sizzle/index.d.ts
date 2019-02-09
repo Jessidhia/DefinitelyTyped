@@ -11,8 +11,15 @@ export = Sizzle;
 
 interface SizzleStatic {
     selectors: Sizzle.Selectors;
-    <TArrayLike extends ArrayLike<Element>>(selector: string, context: Element | Document | DocumentFragment, results: TArrayLike): TArrayLike;
-    (selector: string, context?: Element | Document | DocumentFragment): Element[];
+    <TArrayLike extends ArrayLike<Element>>(
+        selector: string,
+        context: Element | Document | DocumentFragment,
+        results: TArrayLike
+    ): TArrayLike;
+    (
+        selector: string,
+        context?: Element | Document | DocumentFragment
+    ): Element[];
     // tslint:disable-next-line:ban-types
     compile(selector: string): Function;
     matchSelector(element: Element, selector: string): boolean;
@@ -29,7 +36,9 @@ declare namespace Sizzle {
         attrHandle: Selectors.AttrHandleFunctions;
         pseudos: Selectors.PseudoFunctions;
         setFilters: Selectors.SetFilterFunctions;
-        createPseudo(fn: Selectors.CreatePseudoFunction): Selectors.PseudoFunction;
+        createPseudo(
+            fn: Selectors.CreatePseudoFunction
+        ): Selectors.PseudoFunction;
     }
 
     namespace Selectors {
@@ -38,7 +47,11 @@ declare namespace Sizzle {
         }
 
         interface FindFunction {
-            (match: RegExpMatchArray, context: Element | Document, isXML: boolean): Element[] | void;
+            (
+                match: RegExpMatchArray,
+                context: Element | Document,
+                isXML: boolean
+            ): Element[] | void;
         }
 
         interface FindFunctions {

@@ -5,4 +5,7 @@
 
 export = semverTruncate;
 
-declare function semverTruncate(version: string, type: 'patch' | 'minor' | 'major'): string;
+declare function semverTruncate(
+    version: string,
+    type: "patch" | "minor" | "major"
+): string;

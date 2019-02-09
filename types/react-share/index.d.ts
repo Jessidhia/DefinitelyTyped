@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
+import * as React from "react";
 
 // =============================================================================
 // Share buttons
@@ -162,14 +162,26 @@ export interface ShareCountComponentProps {
     children?: (shareCount: number) => React.ReactNode;
 }
 
-export const FacebookShareCount: React.StatelessComponent<ShareCountComponentProps>;
-export const GooglePlusShareCount: React.StatelessComponent<ShareCountComponentProps>;
-export const LinkedinShareCount: React.StatelessComponent<ShareCountComponentProps>;
-export const PinterestShareCount: React.StatelessComponent<ShareCountComponentProps>;
+export const FacebookShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
+export const GooglePlusShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
+export const LinkedinShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
+export const PinterestShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
 export const VKShareCount: React.StatelessComponent<ShareCountComponentProps>;
 export const OKShareCount: React.StatelessComponent<ShareCountComponentProps>;
-export const RedditShareCount: React.StatelessComponent<ShareCountComponentProps>;
-export const TumblrShareCount: React.StatelessComponent<ShareCountComponentProps>;
+export const RedditShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
+export const TumblrShareCount: React.StatelessComponent<
+    ShareCountComponentProps
+>;
 
 // =============================================================================
 // Icons

@@ -47,9 +47,10 @@ export interface StepsProps {
 
 export const Steps: React.ComponentType<StepsProps>;
 
-export type StepProps = StepObject & (
-    | { render?: (wizard: WizardContext) => React.ReactNode }
-    | { children: (wizard: WizardContext) => React.ReactNode });
+export type StepProps = StepObject &
+    (
+        | { render?: (wizard: WizardContext) => React.ReactNode }
+        | { children: (wizard: WizardContext) => React.ReactNode });
 
 /**
  * In addition to id, any additional props added to <Step> will be available on each step object.

@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": false,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "paths": {
-            "selenium-webdriver": [
-                "selenium-webdriver/v2"
-            ]
+            "selenium-webdriver": ["selenium-webdriver/v2"]
         },
         "noEmit": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": [
-        "index.d.ts",
-        "protractor-http-mock-tests.ts"
-    ]
+    "files": ["index.d.ts", "protractor-http-mock-tests.ts"]
 }

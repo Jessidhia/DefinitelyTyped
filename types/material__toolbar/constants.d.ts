@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-import { MDCStrings, MDCNumbers } from 'material__base';
+import { MDCStrings, MDCNumbers } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    FIXED: 'mdc-toolbar--fixed';
-    FIXED_LASTROW: 'mdc-toolbar--fixed-lastrow-only';
-    FIXED_AT_LAST_ROW: 'mdc-toolbar--fixed-at-last-row';
-    TOOLBAR_ROW_FLEXIBLE: 'mdc-toolbar--flexible';
-    FLEXIBLE_DEFAULT_BEHAVIOR: 'mdc-toolbar--flexible-default-behavior';
-    FLEXIBLE_MAX: 'mdc-toolbar--flexible-space-maximized';
-    FLEXIBLE_MIN: 'mdc-toolbar--flexible-space-minimized';
+    FIXED: "mdc-toolbar--fixed";
+    FIXED_LASTROW: "mdc-toolbar--fixed-lastrow-only";
+    FIXED_AT_LAST_ROW: "mdc-toolbar--fixed-at-last-row";
+    TOOLBAR_ROW_FLEXIBLE: "mdc-toolbar--flexible";
+    FLEXIBLE_DEFAULT_BEHAVIOR: "mdc-toolbar--flexible-default-behavior";
+    FLEXIBLE_MAX: "mdc-toolbar--flexible-space-maximized";
+    FLEXIBLE_MIN: "mdc-toolbar--flexible-space-minimized";
 }
 
 export interface strings extends MDCStrings {
-    TITLE_SELECTOR: '.mdc-toolbar__title';
-    ICON_SELECTOR: '.mdc-toolbar__icon';
-    FIRST_ROW_SELECTOR: '.mdc-toolbar__row:first-child';
-    CHANGE_EVENT: 'MDCToolbar:change';
+    TITLE_SELECTOR: ".mdc-toolbar__title";
+    ICON_SELECTOR: ".mdc-toolbar__icon";
+    FIRST_ROW_SELECTOR: ".mdc-toolbar__row:first-child";
+    CHANGE_EVENT: "MDCToolbar:change";
 }
 
 export interface numbers extends MDCNumbers {

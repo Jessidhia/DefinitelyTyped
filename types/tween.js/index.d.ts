@@ -113,7 +113,13 @@ interface Interpolation {
         Linear(p0: number, p1: number, t: number): number;
         Bernstein(n: number, i: number): number;
         Factorial(n: number): number;
-        CatmullRom(p0: number, p1: number, p2: number, p3: number, t: number): number;
+        CatmullRom(
+            p0: number,
+            p1: number,
+            p2: number,
+            p3: number,
+            t: number
+        ): number;
     };
 }
 

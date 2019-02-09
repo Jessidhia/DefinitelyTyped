@@ -1,8 +1,5 @@
 {
-    "files": [
-        "index.d.ts",
-        "sequencify-tests.ts"
-    ],
+    "files": ["index.d.ts", "sequencify-tests.ts"],
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
@@ -11,12 +8,8 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
-        "lib": [
-            "es6"
-        ],
+        "typeRoots": ["../"],
+        "lib": ["es6"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true

@@ -1,6 +1,6 @@
 import LineByLineReader = require("line-by-line");
 
-const reader: LineByLineReader  = new LineByLineReader("index.d.ts");
+const reader: LineByLineReader = new LineByLineReader("index.d.ts");
 reader.on("line", (line: any) => {
     console.log(line);
 });

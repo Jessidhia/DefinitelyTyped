@@ -1,22 +1,22 @@
-import * as Range from 'strange';
-import * as RangeTree from 'strange/tree';
+import * as Range from "strange";
+import * as RangeTree from "strange/tree";
 
 {
     new Range();
     new Range(1, Infinity);
     new Range(null, 10);
     new Range(undefined, 10);
-    new Range(1, 10, '[]');
-    new Range(-Infinity, null, '[]');
-    new Range(1, undefined, '[]');
+    new Range(1, 10, "[]");
+    new Range(-Infinity, null, "[]");
+    new Range(1, undefined, "[]");
 
     Range();
     Range(1, Infinity);
     Range(null, 10);
     Range(undefined, 10);
-    Range(1, 10, '[]');
-    Range(-Infinity, null, '[]');
-    Range(1, undefined, '[]');
+    Range(1, 10, "[]");
+    Range(-Infinity, null, "[]");
+    Range(1, undefined, "[]");
 
     new Range(new Date(2000, 5, 18), new Date(2000, 5, 22));
 
@@ -108,7 +108,11 @@ import * as RangeTree from 'strange/tree';
 {
     const left = new RangeTree([new Range(-5, 0)]);
     const right = new RangeTree([new Range(5, 10)]);
-    const root = new RangeTree<number>([new Range(0, 5), new Range(0, 10)], left, right);
+    const root = new RangeTree<number>(
+        [new Range(0, 5), new Range(0, 10)],
+        left,
+        right
+    );
     root.search(7); // => [new Range(0, 10), new Range(5, 10)]
     root.search(new Range(8, 9)); // => [new Range(5, 10), new Range(0, 10)]
 

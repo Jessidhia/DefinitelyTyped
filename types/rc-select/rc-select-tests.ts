@@ -1,19 +1,18 @@
-import * as React from 'react';
-import * as RcSelect from 'rc-select';
+import * as React from "react";
+import * as RcSelect from "rc-select";
 
 class Component extends React.Component {
-
     private onChange(value: any) {
-        console.log('selected', value);
+        console.log("selected", value);
     }
 
     private onSelect(value: string, option: RcSelect.Option) {
-        console.log('selected value', value);
-        console.log('selected option', option);
+        console.log("selected value", value);
+        console.log("selected option", option);
     }
 
     private onSearch() {
-        console.log('input changed');
+        console.log("input changed");
     }
 
     private readonly defaultSelectProps = {
@@ -55,7 +54,7 @@ class Component extends React.Component {
     };
 
     private createOptions(count: number) {
-        let options : any = [];
+        let options: any = [];
 
         for (let i = 0; i < count; i++) {
             let props = this.defaultOptionProps;
@@ -69,12 +68,19 @@ class Component extends React.Component {
     }
 
     render() {
-
         let options = this.createOptions(10);
 
-        let optionGroup = React.createElement(RcSelect.OptGroup, this.defaultOptGroupProps, options);
+        let optionGroup = React.createElement(
+            RcSelect.OptGroup,
+            this.defaultOptGroupProps,
+            options
+        );
 
-        let select = React.createElement(RcSelect.default, this.defaultSelectProps, optionGroup);
+        let select = React.createElement(
+            RcSelect.default,
+            this.defaultSelectProps,
+            optionGroup
+        );
 
         return select;
     }

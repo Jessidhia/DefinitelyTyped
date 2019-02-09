@@ -5,7 +5,11 @@
 
 // Typescript doesn't allow redefinition of type aliases even if they match,
 // thus the _dt_alias to signal this being an alias for the use of DefinitelyTyped
-type VRDisplayEventReason_dt_alias = "mounted" | "navigation" | "requested" | "unmounted";
+type VRDisplayEventReason_dt_alias =
+    | "mounted"
+    | "navigation"
+    | "requested"
+    | "unmounted";
 
 // Typescript doesn't allow redefinition of type aliases even if they match,
 // thus the _dt_alias to signal this being an alias for the use of DefinitelyTyped
@@ -129,7 +133,7 @@ interface VRDisplay extends EventTarget {
 
 declare var VRDisplay: {
     prototype: VRDisplay;
-    new(): VRDisplay;
+    new (): VRDisplay;
 };
 
 interface VRLayer {
@@ -148,7 +152,7 @@ interface VRDisplayCapabilities {
 
 declare var VRDisplayCapabilities: {
     prototype: VRDisplayCapabilities;
-    new(): VRDisplayCapabilities;
+    new (): VRDisplayCapabilities;
 };
 
 interface VREyeParameters {
@@ -161,7 +165,7 @@ interface VREyeParameters {
 
 declare var VREyeParameters: {
     prototype: VREyeParameters;
-    new(): VREyeParameters;
+    new (): VREyeParameters;
 };
 
 interface VRFieldOfView {
@@ -173,7 +177,7 @@ interface VRFieldOfView {
 
 declare var VRFieldOfView: {
     prototype: VRFieldOfView;
-    new(): VRFieldOfView;
+    new (): VRFieldOfView;
 };
 
 interface VRFrameData {
@@ -187,7 +191,7 @@ interface VRFrameData {
 
 declare var VRFrameData: {
     prototype: VRFrameData;
-    new(): VRFrameData;
+    new (): VRFrameData;
 };
 
 interface VRPose {
@@ -202,7 +206,7 @@ interface VRPose {
 
 declare var VRPose: {
     prototype: VRPose;
-    new(): VRPose;
+    new (): VRPose;
 };
 
 interface VRStageParameters {
@@ -228,7 +232,7 @@ interface VRDisplayEvent extends Event {
 
 declare var VRDisplayEvent: {
     prototype: VRDisplayEvent;
-    new(type: string, eventInitDict: VRDisplayEventInit): VRDisplayEvent;
+    new (type: string, eventInitDict: VRDisplayEventInit): VRDisplayEvent;
 };
 
 interface Window {
@@ -241,15 +245,51 @@ interface Window {
     onvrdisplaypointerrestricted: ((this: Window, ev: Event) => any) | null;
     onvrdisplaypointerunrestricted: ((this: Window, ev: Event) => any) | null;
     onvrdisplaypresentchange: ((this: Window, ev: Event) => any) | null;
-    addEventListener(type: "vrdisplayactivate", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplayblur", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplayconnect", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplaydeactivate", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplaydisconnect", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplayfocus", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplaypointerrestricted", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplaypointerunrestricted", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
-    addEventListener(type: "vrdisplaypresentchange", listener: (this: Window, ev: Event) => any, useCapture?: boolean): void;
+    addEventListener(
+        type: "vrdisplayactivate",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplayblur",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplayconnect",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplaydeactivate",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplaydisconnect",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplayfocus",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplaypointerrestricted",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplaypointerunrestricted",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
+    addEventListener(
+        type: "vrdisplaypresentchange",
+        listener: (this: Window, ev: Event) => any,
+        useCapture?: boolean
+    ): void;
 }
 
 interface Gamepad {

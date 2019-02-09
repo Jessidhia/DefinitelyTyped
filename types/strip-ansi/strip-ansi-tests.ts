@@ -1,4 +1,4 @@
-import stripAnsi = require('strip-ansi');
+import stripAnsi = require("strip-ansi");
 
-stripAnsi('\u001b[4mcake\u001b[0m');
+stripAnsi("\u001b[4mcake\u001b[0m");
 // => 'cake'

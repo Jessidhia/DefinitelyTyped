@@ -9,14 +9,14 @@ import * as superagent from "superagent";
 import { SuperTest, Response } from "supertest";
 import * as PromiseBluebird from "bluebird";
 
-declare function supertestAsPromised(app: any): SuperTest<supertestAsPromised.Test>;
+declare function supertestAsPromised(
+    app: any
+): SuperTest<supertestAsPromised.Test>;
 
 declare namespace supertestAsPromised {
-    interface Request extends supertest.Request {
-    }
+    interface Request extends supertest.Request {}
 
-    interface Response extends supertest.Response {
-    }
+    interface Response extends supertest.Response {}
 
     interface Test extends supertest.Test, superagent.Request {
         toPromise(): PromiseBluebird<Response>;
@@ -25,7 +25,6 @@ declare namespace supertestAsPromised {
 
     function agent(app?: any): SuperTest<Test>;
 
-    interface SuperTest<T extends Request> extends supertest.SuperTest<T> {
-    }
+    interface SuperTest<T extends Request> extends supertest.SuperTest<T> {}
 }
 export = supertestAsPromised;

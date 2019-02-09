@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { MDCSelectionControlState } from 'material__selection-control';
+import { MDCSelectionControlState } from "material__selection-control";
 
 /**
  * Adapter for MDC Checkbox. Provides an interface for managing

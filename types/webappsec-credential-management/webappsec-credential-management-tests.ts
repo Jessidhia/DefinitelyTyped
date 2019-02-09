@@ -5,17 +5,17 @@ function passwordBasedSignInDeprecated() {
         return;
     }
 
-    navigator.credentials.get({ password: true }).then((credential) => {
+    navigator.credentials.get({ password: true }).then(credential => {
         if (!credential) {
             return;
         }
 
-        if (credential.type === 'password') {
-            fetch('https://example.com/loginEndpoint', {
+        if (credential.type === "password") {
+            fetch("https://example.com/loginEndpoint", {
                 credentials: credential,
-                method: 'POST'
+                method: "POST"
             }).then((response: Response) => {
-                console.log('authenticated');
+                console.log("authenticated");
             });
         }
     });
@@ -28,82 +28,85 @@ function passwordBasedSignIn() {
         return;
     }
 
-    navigator.credentials
-        .get({ password: true })
-        .then((credential) => {
-            if (!credential) {
-                // The user either doesn’t have credentials for this site, or
-                // refused to share them. Insert some code here to fall back to
-                // a basic login form.
-                return;
-            }
-            if (credential.type === 'password') {
-                const form = new FormData();
-                form.append('username_field', credential.id);
-                form.append('password_field', credential.password || '');
-                const opt = {
-                    method: 'POST',
-                    body: form,
-                    credentials: 'include'  // Send cookies.
-                };
-                fetch('https://example.com/loginEndpoint', opt)
-                    .then((response) => {
-                        if (navigator.credentials) {
-                            // Record that the credential was effective. See note below.
-                            navigator.credentials.store(credential);
-                            // Notify the user that sign-in succeeded! Do amazing, signed-in things!
-                            // Maybe navigate to a landing page via location.href =
-                            // '/signed-in-experience'?
-                        } else {
-                            // Insert some code here to fall back to a basic login form.
-                        }
-                    });
-            }
-        });
+    navigator.credentials.get({ password: true }).then(credential => {
+        if (!credential) {
+            // The user either doesn’t have credentials for this site, or
+            // refused to share them. Insert some code here to fall back to
+            // a basic login form.
+            return;
+        }
+        if (credential.type === "password") {
+            const form = new FormData();
+            form.append("username_field", credential.id);
+            form.append("password_field", credential.password || "");
+            const opt = {
+                method: "POST",
+                body: form,
+                credentials: "include" // Send cookies.
+            };
+            fetch("https://example.com/loginEndpoint", opt).then(response => {
+                if (navigator.credentials) {
+                    // Record that the credential was effective. See note below.
+                    navigator.credentials.store(credential);
+                    // Notify the user that sign-in succeeded! Do amazing, signed-in things!
+                    // Maybe navigate to a landing page via location.href =
+                    // '/signed-in-experience'?
+                } else {
+                    // Insert some code here to fall back to a basic login form.
+                }
+            });
+        }
+    });
 }
 
 // https://www.w3.org/TR/2017/WD-credential-management-1-20170804/#mediation-examples
 function signInMediationSilent() {
-    window.addEventListener('load', _ => {
+    window.addEventListener("load", _ => {
         if (!navigator.credentials) {
             return;
         }
-        navigator.credentials.get({
-            password: true,
-            mediation: 'silent'
-        }).then((credential) => {
-            // Hooray! Let’s sign the user in using these credentials!
-        });
+        navigator.credentials
+            .get({
+                password: true,
+                mediation: "silent"
+            })
+            .then(credential => {
+                // Hooray! Let’s sign the user in using these credentials!
+            });
     });
 }
 
 // https://www.w3.org/TR/2017/WD-credential-management-1-20170804/#mediation-examples
 function signInMediationRequired() {
-    window.addEventListener('load', _ => {
+    window.addEventListener("load", _ => {
         if (!navigator.credentials) {
             return;
         }
-        navigator.credentials.get({
-            password: true,
-            mediation: 'required'
-        }).then((credential) => {
-            // Hooray! Let’s sign the user in using these credentials!
-        });
+        navigator.credentials
+            .get({
+                password: true,
+                mediation: "required"
+            })
+            .then(credential => {
+                // Hooray! Let’s sign the user in using these credentials!
+            });
     });
 }
 
 // https://www.w3.org/TR/2017/WD-credential-management-1-20170804/#mediation-examples
 function signInMediationOptional() {
-    window.addEventListener('load', _ => {
+    window.addEventListener("load", _ => {
         if (!navigator.credentials) {
             return;
         }
-        navigator.credentials.get({
-            password: true,
-            mediation: 'optional'
-        }).then((credential) => {
-            // Hooray! Let’s sign the user in using these credentials!
-        });
+        navigator.credentials
+            .get({
+                password: true,
+                mediation: "optional"
+            })
+            .then(credential => {
+                // Hooray! Let’s sign the user in using these credentials!
+            });
     });
 }
 
@@ -117,18 +120,18 @@ function federatedSignIn() {
     navigator.credentials
         .get({
             password: true,
-            federated: { providers: ['https://federation.com'] }
+            federated: { providers: ["https://federation.com"] }
         })
-        .then((credential) => {
+        .then(credential => {
             if (!credential) return;
 
-            if (credential.type === 'federated') {
+            if (credential.type === "federated") {
                 switch (credential.provider) {
-                    case 'https://www.facebook.com/':
+                    case "https://www.facebook.com/":
                         // Use Facebook’s SDK
                         break;
 
-                    case 'https://accounts.google.com/':
+                    case "https://accounts.google.com/":
                         // Use Google's SDK
                         break;
 
@@ -139,9 +142,10 @@ function federatedSignIn() {
                 }
             } else {
                 const pwCred = credential as PasswordCredential;
-                fetch(
-                    'https://example.com/loginEndpoint',
-                    { credentials: pwCred, method: 'POST' });
+                fetch("https://example.com/loginEndpoint", {
+                    credentials: pwCred,
+                    method: "POST"
+                });
             }
         });
 }
@@ -153,17 +157,19 @@ function passwordPostSignInConfirmation() {
         return;
     }
 
-    document.querySelector('#theForm')!.addEventListener('submit', e => {
+    document.querySelector("#theForm")!.addEventListener("submit", e => {
         if (navigator.credentials) {
             e.preventDefault();
 
-            const formElem = (e.target as HTMLFormElement);
+            const formElem = e.target as HTMLFormElement;
             const c = new PasswordCredential(formElem);
-            fetch(formElem.action, { method: 'POST', credentials: c }).then(r => {
-                if (r.status === 200) {
-                    navigator.credentials!.store(c);
+            fetch(formElem.action, { method: "POST", credentials: c }).then(
+                r => {
+                    if (r.status === 200) {
+                        navigator.credentials!.store(c);
+                    }
                 }
-            });
+            );
         }
     });
 }
@@ -171,8 +177,12 @@ function passwordPostSignInConfirmation() {
 // federation example
 function federationPostSignInConfirmation() {
     if (navigator.credentials) {
-        navigator.credentials.store(new FederatedCredential(
-            { id: 'username', provider: 'https://federation.com' }));
+        navigator.credentials.store(
+            new FederatedCredential({
+                id: "username",
+                provider: "https://federation.com"
+            })
+        );
     }
 }
 
@@ -184,26 +194,29 @@ function federationPostSignInConfirmation() {
 // layering on top of a legacy system examples, from Section 1.2.5
 // https://www.w3.org/TR/credential-management-1/#examples-legacy
 function existingFormPost(credential: PasswordCredential) {
-    credential.idName = 'u';
-    credential.passwordName = 'p';
-    fetch(
-        'https://example.com/loginEndpoint',
-        { credentials: credential, method: 'POST' });
+    credential.idName = "u";
+    credential.passwordName = "p";
+    fetch("https://example.com/loginEndpoint", {
+        credentials: credential,
+        method: "POST"
+    });
 }
 
 function additionalDataPost(credential: PasswordCredential, token: string) {
     credential.additionalData = new FormData();
-    credential.additionalData.append('csrf', token);
-    fetch(
-        'https://example.com/loginEndpoint',
-        { credentials: credential, method: 'POST' });
+    credential.additionalData.append("csrf", token);
+    fetch("https://example.com/loginEndpoint", {
+        credentials: credential,
+        method: "POST"
+    });
 }
 
 function formEncodedPost(credential: PasswordCredential, token: string) {
     credential.additionalData = new URLSearchParams();
-    fetch(
-        'https://example.com/loginEndpoint',
-        { credentials: credential, method: 'POST' });
+    fetch("https://example.com/loginEndpoint", {
+        credentials: credential,
+        method: "POST"
+    });
 }
 
 // requireUserMediation example: not included in the spec, but included here
@@ -214,7 +227,7 @@ function signOutDeprecated() {
     }
 
     navigator.credentials.requireUserMediation().then(() => {
-        document.location.assign('/');
+        document.location.assign("/");
     });
 }
 
@@ -224,7 +237,7 @@ function signOut() {
     }
 
     navigator.credentials.preventSilentAccess().then(() => {
-        document.location.assign('/');
+        document.location.assign("/");
     });
 }
 
@@ -235,11 +248,13 @@ function createPasswordCredential() {
         return;
     }
 
-    navigator.credentials.create({
-        password: { id: 'username', password: 'password' }
-    }).then((credential) => {
-        // Credential created!
-    });
+    navigator.credentials
+        .create({
+            password: { id: "username", password: "password" }
+        })
+        .then(credential => {
+            // Credential created!
+        });
 }
 
 // Example not included in spec but added to ensure it typechecks
@@ -249,13 +264,15 @@ function createPasswordCredentialWithForm() {
         return;
     }
 
-    const formElt = document.querySelector('#form') as HTMLFormElement;
+    const formElt = document.querySelector("#form") as HTMLFormElement;
 
-    navigator.credentials.create({
-        password: formElt
-    }).then((credential) => {
-        // Credential created!
-    });
+    navigator.credentials
+        .create({
+            password: formElt
+        })
+        .then(credential => {
+            // Credential created!
+        });
 }
 
 // Example not included in spec but added to ensure it typechecks
@@ -265,11 +282,13 @@ function createFederatedCredential() {
         return;
     }
 
-    navigator.credentials.create({
-        federated: { id: 'username', provider: 'provider' }
-    }).then((credential) => {
-        // Credential created!
-    });
+    navigator.credentials
+        .create({
+            federated: { id: "username", provider: "provider" }
+        })
+        .then(credential => {
+            // Credential created!
+        });
 }
 
 function webauthnRegister() {
@@ -284,22 +303,20 @@ function webauthnRegister() {
         publicKey: {
             rp: {
                 id: document.domain,
-                name: document.domain,
+                name: document.domain
             },
             user: {
-                id: (new Uint8Array(1)).buffer,
-                name: 'test user',
-                displayName: 'test user',
+                id: new Uint8Array(1).buffer,
+                name: "test user",
+                displayName: "test user"
             },
             challenge,
-            pubKeyCredParams: [
-                { type: 'public-key', alg: -7 },
-            ],
+            pubKeyCredParams: [{ type: "public-key", alg: -7 }],
             excludeCredentials: [
                 {
-                    id: (new Uint8Array(1)).buffer,
-                    type: 'public-key',
-                    transports: ['ble', 'internal']
+                    id: new Uint8Array(1).buffer,
+                    type: "public-key",
+                    transports: ["ble", "internal"]
                 }
             ],
             timeout: 5000,
@@ -308,16 +325,19 @@ function webauthnRegister() {
                 requireUserVerification: "preferred",
                 requireResidentKey: false,
                 authenticatorAttachment: "platform"
-            },
+            }
         }
     });
 
-    credPromise.then((cred) => {
-        const pubKeyCred = cred as PublicKeyCredential;
-        console.log(pubKeyCred);
-    }, (e) => {
-        console.log(e.message);
-    });
+    credPromise.then(
+        cred => {
+            const pubKeyCred = cred as PublicKeyCredential;
+            console.log(pubKeyCred);
+        },
+        e => {
+            console.log(e.message);
+        }
+    );
 }
 
 function webauthnAuthenticate() {
@@ -334,25 +354,32 @@ function webauthnAuthenticate() {
             challenge,
             timeout: 5000,
             rpId: document.domain,
-            allowCredentials: [{
-                type: "public-key",
-                id: credentialID,
-                transports: ['internal', 'ble', 'nfc', 'usb']
-            }],
+            allowCredentials: [
+                {
+                    type: "public-key",
+                    id: credentialID,
+                    transports: ["internal", "ble", "nfc", "usb"]
+                }
+            ]
         }
     });
 
-    authPromise.then((cred) => {
-        if (cred === null) {
-            return;
-        }
+    authPromise.then(
+        cred => {
+            if (cred === null) {
+                return;
+            }
 
-        const pubKeyCred = cred as PublicKeyCredential;
-        const response = <AuthenticatorAssertionResponse> pubKeyCred.response;
-        const authData = new Uint8Array(response.authenticatorData);
-    }, (e) => {
-        console.log(e.message);
-    });
+            const pubKeyCred = cred as PublicKeyCredential;
+            const response = <AuthenticatorAssertionResponse>(
+                pubKeyCred.response
+            );
+            const authData = new Uint8Array(response.authenticatorData);
+        },
+        e => {
+            console.log(e.message);
+        }
+    );
 }
 
 function mockAuthenticatorAssertionResponse() {
@@ -364,7 +391,7 @@ function mockAuthenticatorAssertionResponse() {
         clientDataJSON: new ArrayBuffer(0),
         authenticatorData: new ArrayBuffer(0),
         signature: new ArrayBuffer(0),
-        userHandle: null,
+        userHandle: null
     };
     sampleResponse.userHandle === undefined;
 }

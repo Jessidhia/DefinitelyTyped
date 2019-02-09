@@ -16,24 +16,57 @@ export namespace controller {
         readonly processor: dataprocessor.DataProcessor;
         readonly upcastDispatcher: conversion.UpcastDispatcher;
 
-        constructor(model: model.Model, dataProcessor?: dataprocessor.DataProcessor);
+        constructor(
+            model: model.Model,
+            dataProcessor?: dataprocessor.DataProcessor
+        );
         destroy(): void;
         get(rootName?: string): string;
         init(data: string, rootName?: string): Promise<any>;
-        parse(data: string, context?: model.SchemaContextDefinition): model.DocumentFragment;
-        stringify(modelElementOrFragment: Element | model.DocumentFragment): string;
-        toModel(viewElementOrFragment: Element | model.DocumentFragment, context?: model.SchemaContextDefinition): model.DocumentFragment;
-        toView(modelElementOrFragment: Element | model.DocumentFragment): model.DocumentFragment;
+        parse(
+            data: string,
+            context?: model.SchemaContextDefinition
+        ): model.DocumentFragment;
+        stringify(
+            modelElementOrFragment: Element | model.DocumentFragment
+        ): string;
+        toModel(
+            viewElementOrFragment: Element | model.DocumentFragment,
+            context?: model.SchemaContextDefinition
+        ): model.DocumentFragment;
+        toView(
+            modelElementOrFragment: Element | model.DocumentFragment
+        ): model.DocumentFragment;
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
 
         // Observable
         bind(...bindProperties: string[]): ckutils.BindChain;
@@ -45,7 +78,7 @@ export namespace controller {
 
     // engine/controller/editingcontroller
 
-    class EditingController implements  ckutils.Emitter, ckutils.Observable {
+    class EditingController implements ckutils.Emitter, ckutils.Observable {
         readonly downcastDispatcher: conversion.DowncastDispatcher;
         readonly mapper: conversion.Mapper;
         readonly model: model.Model;
@@ -56,13 +89,33 @@ export namespace controller {
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
 
         // Observable
         bind(...bindProperties: string[]): ckutils.BindChain;
@@ -78,11 +131,18 @@ export namespace conversion {
 
     class Conversion {
         constructor();
-        attributeToAttribute(definition?: {model: string | Object, view?: string | Object, upcastAlso?: view.MatcherPattern | view.MatcherPattern[]}): void;
+        attributeToAttribute(definition?: {
+            model: string | Object;
+            view?: string | Object;
+            upcastAlso?: view.MatcherPattern | view.MatcherPattern[];
+        }): void;
         attributeToElement(definition: ConverterDefinition): void;
         elementToElement(definition: ConverterDefinition): void;
-        for(groupName: string): {add: () => void};
-        register(groupName: string, dispatchers: Array<DowncastDispatcher | UpcastDispatcher>): void;
+        for(groupName: string): { add: () => void };
+        register(
+            groupName: string,
+            dispatchers: Array<DowncastDispatcher | UpcastDispatcher>
+        ): void;
     }
 
     interface ConverterDefinition {
@@ -120,16 +180,25 @@ export namespace conversion {
     class Mapper {
         constructor();
         bindElementToMarker(element: view.Element, name: string): void;
-        bindElements(modelElement: model.Element, viewElement: view.Element): void;
+        bindElements(
+            modelElement: model.Element,
+            viewElement: view.Element
+        ): void;
         clearBindings(): void;
         getModelLength(viewNode: view.Element): number;
         markerNameToElements(name: string): Set<view.Element> | null;
-        registerViewToModelLength(viewElementName: string, lengthCallback: Function): void;
+        registerViewToModelLength(
+            viewElementName: string,
+            lengthCallback: Function
+        ): void;
         toModelElement(viewElement: view.Element): model.Element | undefined;
         toModelPosition(viewPosition: view.Position): model.Position;
         toModelRange(viewRange: view.Range): model.Range;
         toViewElement(modelElement: model.Element): view.Element | undefined;
-        toViewPosition(modelPosition: model.Position, options?: {isPhantom: boolean}): view.Position;
+        toViewPosition(
+            modelPosition: model.Position,
+            options?: { isPhantom: boolean }
+        ): view.Position;
         toViewRange(modelRange: model.Range): view.Range;
         unbindElementsFromMarkerName(name: string): void;
         unbindModelElement(modelElement: model.Element): void;
@@ -140,10 +209,22 @@ export namespace conversion {
 
     class ModelConsumable {
         constructor();
-        add(item: model.Item | model.Selection | model.Range, type: string): void;
-        consume(item: model.Item | model.Selection | model.Range, type: string): boolean;
-        revert(item: model.Item | model.Selection | model.Range, type: string): null | boolean;
-        test(item: model.Item | model.Selection | model.Range, type: string): null | boolean;
+        add(
+            item: model.Item | model.Selection | model.Range,
+            type: string
+        ): void;
+        consume(
+            item: model.Item | model.Selection | model.Range,
+            type: string
+        ): boolean;
+        revert(
+            item: model.Item | model.Selection | model.Range,
+            type: string
+        ): null | boolean;
+        test(
+            item: model.Item | model.Selection | model.Range,
+            type: string
+        ): null | boolean;
     }
 
     // engine/conversion/upcast-converters
@@ -152,27 +233,38 @@ export namespace conversion {
 
     function convertToModelFragment(): Function;
 
-    function upcastAttributeToAttribute(
-        config: {view: string | {key: string, name: string, value: string | RegExp | Function},
-        model: string | {key: string, value: string | Function},
-        converterPriority?: ckutils.PriorityString}
-    ): Function;
+    function upcastAttributeToAttribute(config: {
+        view:
+            | string
+            | { key: string; name: string; value: string | RegExp | Function };
+        model: string | { key: string; value: string | Function };
+        converterPriority?: ckutils.PriorityString;
+    }): Function;
 
-    function upcastElementToAttribute(
-        config: {view: view.MatcherPattern, model: string | {key: string, value: string | Function}, converterPriority?: ckutils.PriorityString}
-    ): Function;
+    function upcastElementToAttribute(config: {
+        view: view.MatcherPattern;
+        model: string | { key: string; value: string | Function };
+        converterPriority?: ckutils.PriorityString;
+    }): Function;
 
-    function upcastElementToElement(
-        config: {view: view.MatcherPattern, model: string | Element | Function, converterPriority?: ckutils.PriorityString}
-    ): Function;
+    function upcastElementToElement(config: {
+        view: view.MatcherPattern;
+        model: string | Element | Function;
+        converterPriority?: ckutils.PriorityString;
+    }): Function;
 
-    function upcastElementToMarker(
-        config: {view: view.MatcherPattern, model: string | Function, converterPriority?: ckutils.PriorityString}
-    ): Function;
+    function upcastElementToMarker(config: {
+        view: view.MatcherPattern;
+        model: string | Function;
+        converterPriority?: ckutils.PriorityString;
+    }): Function;
 
     // engine/conversion/upcast-selection-converters
 
-    function convertSelectionChange(model: model.Model, mapper: Mapper): Function;
+    function convertSelectionChange(
+        model: model.Model,
+        mapper: Mapper
+    ): Function;
 
     // engine/conversion/upcastdispatcher
 
@@ -230,7 +322,10 @@ export namespace devUtils {
 
     function disableEngineDebug(): void;
 
-    function enableEngineDebug(_logger: {log: (...arg: any[]) => string, error: (...arg: any[]) => string}): DebugPlugin;
+    function enableEngineDebug(_logger: {
+        log: (...arg: any[]) => string;
+        error: (...arg: any[]) => string;
+    }): DebugPlugin;
 
     // engine/dev-utils/model
 
@@ -238,9 +333,9 @@ export namespace devUtils {
         function getData(
             model: model.Model,
             options?: {
-                withoutSelection?: boolean,
-                rootName?: string,
-                convertMarkers?: boolean
+                withoutSelection?: boolean;
+                rootName?: string;
+                convertMarkers?: boolean;
             }
         ): string;
 
@@ -249,17 +344,33 @@ export namespace devUtils {
             schema: model.Schema,
             batch: model.Batch,
             options?: {
-                selectionAttributes?: Object[],
-                lastRangeBackward?: boolean,
-                context?: model.SchemaContextDefinition
+                selectionAttributes?: Object[];
+                lastRangeBackward?: boolean;
+                context?: model.SchemaContextDefinition;
             }
         ): model.Element | model.Text | model.DocumentFragment | Object;
 
-        function setData(model: string, data: Object, options: {rootName?: string, selectionAttributes?: Object[], lastRangeBackward?: boolean, batchType?: string}): void;
+        function setData(
+            model: string,
+            data: Object,
+            options: {
+                rootName?: string;
+                selectionAttributes?: Object[];
+                lastRangeBackward?: boolean;
+                batchType?: string;
+            }
+        ): void;
 
         function stringify(
-            node: model.RootElement | model.Element | model.Text | model.DocumentFragment,
-            selectionOrPositionOrRange: model.Selection | model.Position | model.Range, // TODO optional
+            node:
+                | model.RootElement
+                | model.Element
+                | model.Text
+                | model.DocumentFragment,
+            selectionOrPositionOrRange:
+                | model.Selection
+                | model.Position
+                | model.Range, // TODO optional
             markers: Iterable<model.Marker> | null
         ): string;
     }
@@ -275,41 +386,44 @@ export namespace devUtils {
     function getData(
         view: view.View,
         options?: {
-            withoutSelection?: boolean,
-            rootName?: boolean,
-            showType?: boolean,
-            showPriority?: boolean,
-            showAttributeElementId?: boolean,
-            renderUIElements?: boolean,
+            withoutSelection?: boolean;
+            rootName?: boolean;
+            showType?: boolean;
+            showPriority?: boolean;
+            showAttributeElementId?: boolean;
+            renderUIElements?: boolean;
         }
     ): string;
 
     function parse(
         data: string,
         options: {
-            order?: number[],
-            lastRangeBackward?: boolean,
-            rootElement?: view.Element | view.DocumentFragment,
-            sameSelectionCharacters?: boolean
+            order?: number[];
+            lastRangeBackward?: boolean;
+            rootElement?: view.Element | view.DocumentFragment;
+            sameSelectionCharacters?: boolean;
         }
     ): view.Text | view.Element | view.DocumentFragment | Object;
 
     function setData(
         view: view.View,
         data: string,
-        options: {rootName?: string}
+        options: { rootName?: string }
     ): void;
 
     function stringify(
         node: view.Text | view.Element | view.DocumentFragment,
-        selectionOrPositionOrRange?: view.DocumentSelection | view.Position | view.Range,
+        selectionOrPositionOrRange?:
+            | view.DocumentSelection
+            | view.Position
+            | view.Range,
         options?: {
-            showType?: boolean,
-            showPriority?: boolean,
-            showAttributeElementId?: boolean,
-            ignoreRoot?: boolean,
-            sameSelectionCharacters?: boolean,
-            renderUIElements?: boolean,
+            showType?: boolean;
+            showPriority?: boolean;
+            showAttributeElementId?: boolean;
+            ignoreRoot?: boolean;
+            sameSelectionCharacters?: boolean;
+            renderUIElements?: boolean;
         }
     ): string;
 }
@@ -394,9 +508,21 @@ export namespace model {
             // TODO
         }
 
-        function transform(a: Operation, b: Operation, context: TransformationContext): Operation[];
+        function transform(
+            a: Operation,
+            b: Operation,
+            context: TransformationContext
+        ): Operation[];
 
-        function transformSets(operationsA: Operation[], operationsB: Operation[], options: {document: Document | null, useRelations: boolean, padWithNoOps: boolean}): object;
+        function transformSets(
+            operationsA: Operation[],
+            operationsB: Operation[],
+            options: {
+                document: Document | null;
+                useRelations: boolean;
+                padWithNoOps: boolean;
+            }
+        ): object;
     }
 
     namespace utils {
@@ -404,7 +530,10 @@ export namespace model {
             model: Model,
             selection: Selection | DocumentSelection,
             batch: Batch,
-            options?: {leaveUnmerged: boolean, doNotResetEntireContent: boolean}
+            options?: {
+                leaveUnmerged: boolean;
+                doNotResetEntireContent: boolean;
+            }
         ): void;
 
         function getSelectedContent(
@@ -415,18 +544,26 @@ export namespace model {
         function insertContent(
             model: Model,
             content: DocumentFragment | Item,
-            selectable?: Selection | DocumentSelection | Position | Element | Iterable<Range> | Range | null
+            selectable?:
+                | Selection
+                | DocumentSelection
+                | Position
+                | Element
+                | Iterable<Range>
+                | Range
+                | null
         ): void;
 
         function modifySelection(
             model: Model,
             selection: Selection | DocumentSelection,
-            options?: {direction?: "forward" | "backward", unit?: "character" | "codePoint" | "word"}
+            options?: {
+                direction?: "forward" | "backward";
+                unit?: "character" | "codePoint" | "word";
+            }
         ): void;
 
-        function injectSelectionPostFixer(
-            model: Model
-        ): void;
+        function injectSelectionPostFixer(model: Model): void;
     }
 
     // engine/model/batch
@@ -469,7 +606,10 @@ export namespace model {
         offsetToIndex(offset: number): number;
         toJSON(): Object;
         protected _appendChild(items: Item | Iterable<Item>): void;
-        protected _insertChild(index: number, items: Item | Iterable<Item>): void;
+        protected _insertChild(
+            index: number,
+            items: Item | Iterable<Item>
+        ): void;
         protected _removeChildren(index: number, howMany?: number): Node[];
 
         static fromJSON(json: object): DocumentFragment;
@@ -504,7 +644,10 @@ export namespace model {
         toJSON(): object;
         protected _appendChild(nodes: Item | Iterable<Item>): void;
         protected _clone(deep?: boolean): Element;
-        protected _insertChild(index: number, items: Item | Iterable<Item>): void;
+        protected _insertChild(
+            index: number,
+            items: Item | Iterable<Item>
+        ): void;
         protected _removeChildren(index: number, howMany?: number): Node[];
 
         static fromJSON(json: object): Element;
@@ -551,23 +694,71 @@ export namespace model {
 
         applyOperation(operation: operation.Operation): void;
         change(callback: Function): any;
-        deleteContent(selection: Selection | DocumentSelection, batch: Batch, options: {leaveUnmerged?: boolean, doNotResetEntireContent?: boolean}): void;
+        deleteContent(
+            selection: Selection | DocumentSelection,
+            batch: Batch,
+            options: {
+                leaveUnmerged?: boolean;
+                doNotResetEntireContent?: boolean;
+            }
+        ): void;
         destroy(): void;
-        enqueueChange(batchOrType: Batch | "transparent" | "default", callback: Function): void;
-        getSelectedContent(selection: Selection | DocumentSelection): DocumentFragment;
+        enqueueChange(
+            batchOrType: Batch | "transparent" | "default",
+            callback: Function
+        ): void;
+        getSelectedContent(
+            selection: Selection | DocumentSelection
+        ): DocumentFragment;
         hasContent(rangeOrElement: Range | Element): boolean;
-        insertContent(content: DocumentFragment | Item, selectable?: Selection | DocumentSelection | Position | Element | Iterable<Range> | Range | null): void;
-        modifySelection(selection: Selection | DocumentSelection, options?: {direction?: "forward" | "backward", unit?: "character" | "codePoint" | "word"}): void;
+        insertContent(
+            content: DocumentFragment | Item,
+            selectable?:
+                | Selection
+                | DocumentSelection
+                | Position
+                | Element
+                | Iterable<Range>
+                | Range
+                | null
+        ): void;
+        modifySelection(
+            selection: Selection | DocumentSelection,
+            options?: {
+                direction?: "forward" | "backward";
+                unit?: "character" | "codePoint" | "word";
+            }
+        ): void;
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
 
         // Observable
         bind(...bindProperties: string[]): ckutils.BindChain;
@@ -591,11 +782,17 @@ export namespace model {
         readonly startOffset: number | null;
 
         constructor(attrs?: Map<string, any> | ReadonlyArray<[string, any]>);
-        getAncestors(options: {includeSelf: boolean, parentFirst: boolean}): Node[];
+        getAncestors(options: {
+            includeSelf: boolean;
+            parentFirst: boolean;
+        }): Node[];
         getAttribute(key: string): any /*| undefined*/;
         getAttributeKeys(): Iterable<string>;
         getAttributes(): Iterable<any>;
-        getCommonAncestor(node: Node, options?: {includeSelf: boolean}): Element | DocumentFragment | null;
+        getCommonAncestor(
+            node: Node,
+            options?: { includeSelf: boolean }
+        ): Element | DocumentFragment | null;
         getPath(): number[];
         hasAttribute(key: string): boolean;
 
@@ -611,7 +808,13 @@ export namespace model {
         toJSON(): object;
     }
 
-    type NodeSet = Node | TextProxy | string | NodeList | DocumentFragment | Iterable<any>;
+    type NodeSet =
+        | Node
+        | TextProxy
+        | string
+        | NodeList
+        | DocumentFragment
+        | Iterable<any>;
 
     // engine/model/nodelist
 
@@ -643,12 +846,21 @@ export namespace model {
         stickiness: PositionStickiness;
         readonly textNode: Text | null;
 
-        constructor(root: Element | DocumentFragment, path: number[], stickiness?: PositionStickiness);
+        constructor(
+            root: Element | DocumentFragment,
+            path: number[],
+            stickiness?: PositionStickiness
+        );
         compareWith(otherPosition: Position): PositionRelation;
         getAncestors(): Item[];
-        getCommonAncestor(position: Position): Element | DocumentFragment | null;
+        getCommonAncestor(
+            position: Position
+        ): Element | DocumentFragment | null;
         getCommonPath(position: Position): number[];
-        getLastMatchingPosition(skip: (t: TreeWalkerValue) => boolean, options: object): Position;
+        getLastMatchingPosition(
+            skip: (t: TreeWalkerValue) => boolean,
+            options: object
+        ): Position;
         getParentPath(): number[];
         getShiftedBy(shift: number): Position;
         getTransformedByOperation(operation: operation.Operation): Position;
@@ -660,9 +872,15 @@ export namespace model {
         toJSON(): object;
 
         static createAfter(item: Item): Position;
-        static createAt(itemOrPosition: Item | Position, offset?: number | "end" | "before" | "after"): void;
+        static createAt(
+            itemOrPosition: Item | Position,
+            offset?: number | "end" | "before" | "after"
+        ): void;
         static createBefore(item: Item): Position;
-        static createFromParentAndOffset(parent: Element | DocumentFragment, offset: number): Position;
+        static createFromParentAndOffset(
+            parent: Element | DocumentFragment,
+            offset: number
+        ): Position;
         static createFromPosition(position: Position): Position;
         static fromJSON(json: object, doc: Document): Position;
     }
@@ -691,12 +909,14 @@ export namespace model {
         getMinimalFlatRanges(): Range[];
         getPositions(options: object): Iterable<Position>;
         getTransformedByOperation(operation: operation.Operation): Range[];
-        getTransformedByOperations(operations: Iterable<operation.Operation>): Range[];
+        getTransformedByOperations(
+            operations: Iterable<operation.Operation>
+        ): Range[];
         getWalker(options: {
-            startPosition: Position,
-            singleCharacters: boolean,
-            shallow: boolean,
-            ignoreElementEnd: boolean,
+            startPosition: Position;
+            singleCharacters: boolean;
+            shallow: boolean;
+            ignoreElementEnd: boolean;
         }): void;
         isEqual(otherRange: Range): boolean;
         isIntersecting(otherRange: Range): boolean;
@@ -734,7 +954,12 @@ export namespace model {
         isObject: boolean;
     }
 
-    type SchemaContextDefinition = Node | Position | SchemaContext | string | Array<string | Node>;
+    type SchemaContextDefinition =
+        | Node
+        | Position
+        | SchemaContext
+        | string
+        | Array<string | Node>;
 
     interface SchemaContextItem {
         name: string;
@@ -762,13 +987,33 @@ export namespace model {
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
     }
 
     // engine/model/text
@@ -777,7 +1022,10 @@ export namespace model {
         readonly data: string;
         protected _data: string;
 
-        protected constructor(data: string, attrs?: Map<string, any> | ReadonlyArray<[string, any]>);
+        protected constructor(
+            data: string,
+            attrs?: Map<string, any> | ReadonlyArray<[string, any]>
+        );
         toJSON(): object;
         protected _clone(): Text;
 
@@ -798,8 +1046,15 @@ export namespace model {
         readonly startOffset: number;
         readonly textNode: Text;
 
-        protected constructor(textNode: Text, offsetInText: number, length: number);
-        getAncestors(options: {includeSelf?: boolean, parentFirst?: boolean}): Array<TextProxy | Element | DocumentFragment>;
+        protected constructor(
+            textNode: Text,
+            offsetInText: number,
+            length: number
+        );
+        getAncestors(options: {
+            includeSelf?: boolean;
+            parentFirst?: boolean;
+        }): Array<TextProxy | Element | DocumentFragment>;
         getAttribute(key: string): any;
         getAttributeKeys(): Iterable<string>;
         getAttributes(): Iterable<any>;
@@ -820,12 +1075,12 @@ export namespace model {
         readonly singleCharacters: boolean;
 
         constructor(options?: {
-            direction?: "forward" | "backward",
-            boundaries?: Range,
-            startPosition: Position,
-            singleCharacters?: boolean,
-            shallow?: boolean,
-            ignoreElementEnd?: boolean
+            direction?: "forward" | "backward";
+            boundaries?: Range;
+            startPosition: Position;
+            singleCharacters?: boolean;
+            shallow?: boolean;
+            ignoreElementEnd?: boolean;
         });
         [Symbol.iterator](): Iterator<TreeWalkerValue>;
         next(): TreeWalkerValue;
@@ -840,7 +1095,11 @@ export namespace model {
         type: TreeWalkerValueType;
     }
 
-    type TreeWalkerValueType = "elementStart" | "elementEnd" | "character" | "text";
+    type TreeWalkerValueType =
+        | "elementStart"
+        | "elementEnd"
+        | "character"
+        | "text";
 
     // engine/model/writer
 
@@ -852,7 +1111,12 @@ export namespace model {
 export namespace utils {
     // engine/utils/bindtwostepcarettoattribute
 
-    function bindTwoStepCaretToAttribute(view: view.View, model: model.Model, emitter: ckutils.Emitter, attribute: string): void;
+    function bindTwoStepCaretToAttribute(
+        view: view.View,
+        model: model.Model,
+        emitter: ckutils.Emitter,
+        attribute: string
+    ): void;
 }
 
 export namespace view {
@@ -881,7 +1145,11 @@ export namespace view {
             readonly domEventType: string | string[];
             useCapture: boolean;
 
-            fire(eventType: string, domEvent: Event, additionalData?: Object): void;
+            fire(
+                eventType: string,
+                domEvent: Event,
+                additionalData?: Object
+            ): void;
             onDomEvent(): void;
         }
 
@@ -901,7 +1169,8 @@ export namespace view {
 
         // engine/view/observer/keyobserver
 
-        class KeyEventData extends DomEventData implements ckutils.KeystrokeInfo {
+        class KeyEventData extends DomEventData
+            implements ckutils.KeystrokeInfo {
             // KeystrokeInfo
             altKey?: boolean;
             ctrlKey?: boolean;
@@ -1008,18 +1277,40 @@ export namespace view {
 
         constructor();
         getRoot(name?: string): RootEditableElement | null;
-        registerPostFixer(postFixer: (downcastWriter: DowncastWriter) => boolean): void;
+        registerPostFixer(
+            postFixer: (downcastWriter: DowncastWriter) => boolean
+        ): void;
         protected _callPostFixers(writer: DowncastWriter): void;
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
 
         // Observable
         bind(...bindProperties: string[]): ckutils.BindChain;
@@ -1094,7 +1385,9 @@ export namespace view {
         );
         _removeChildren(index: number, howMany?: number): Node[];
         _removeClass(className: string[] | string): void;
-        findAncestor(patterns: Object | string | RegExp | Function): Element | null;
+        findAncestor(
+            patterns: Object | string | RegExp | Function
+        ): Element | null;
         getAttribute(key: string): string | undefined;
         getAttributeKeys(): Iterable<string>;
         getAttributes(): Iterable<any>;
@@ -1116,24 +1409,32 @@ export namespace view {
         protected _addClass(className: string[] | string): void;
         protected _appendChild(items: Item | Iterable<Item>): number;
         protected _clone(deep?: boolean): Element;
-        protected _insertChild(index: number, items: Item | Iterable<Item>): number;
+        protected _insertChild(
+            index: number,
+            items: Item | Iterable<Item>
+        ): number;
         protected _removeAttribute(key: string): boolean;
         protected _removeCustomProperty(key: string | symbol): boolean;
         protected _removeStyle(property: string[] | string): void;
         protected _setAttribute(key: string, value: string): void;
         protected _setCustomProperty(key: string | symbol, value: any): void;
-        protected _setStyle(property: string | {[key: string]: string}, value?: string): void;
+        protected _setStyle(
+            property: string | { [key: string]: string },
+            value?: string
+        ): void;
     }
 
     // engine/view/elementdefinition
 
-    type ElementDefinition = string | {
-        attributes?: {[key: string]: string};
-        classes?: string | string[];
-        name: string;
-        priority?: number;
-        styles?: {[key: string]: string};
-    };
+    type ElementDefinition =
+        | string
+        | {
+              attributes?: { [key: string]: string };
+              classes?: string | string[];
+              name: string;
+              priority?: number;
+              styles?: { [key: string]: string };
+          };
 
     // engine/view/emptyelement
 
@@ -1160,11 +1461,14 @@ export namespace view {
 
     function injectQuirksHandling(view: View): void;
 
-    function isBlockFiller(domNode: /*TODO globals.*/Node, blockFiller: Function): boolean;
+    function isBlockFiller(
+        domNode: /*TODO globals.*/ Node,
+        blockFiller: Function
+    ): boolean;
 
-    function isInlineFiller(domText: /*TODO globals.*/Text): boolean;
+    function isInlineFiller(domText: /*TODO globals.*/ Text): boolean;
 
-    function startsWithFiller(domNode: /*TODO globals.*/Text): boolean;
+    function startsWithFiller(domNode: /*TODO globals.*/ Text): boolean;
 
     // engine/view/item
 
@@ -1177,15 +1481,15 @@ export namespace view {
     }
 
     type MatcherPattern =
-        ((element: Element) => null | {name: boolean; attribute?: string[]; }) |
-        string |
-        RegExp |
-        {
-            attributes?: {[key: string]: string | RegExp | boolean};
-            classes?: string | RegExp | Array<string | RegExp>;
-            name?: string | RegExp;
-            styles?: {[key: string]: string | RegExp};
-        };
+        | ((element: Element) => null | { name: boolean; attribute?: string[] })
+        | string
+        | RegExp
+        | {
+              attributes?: { [key: string]: string | RegExp | boolean };
+              classes?: string | RegExp | Array<string | RegExp>;
+              name?: string | RegExp;
+              styles?: { [key: string]: string | RegExp };
+          };
 
     // engine/view/node
 
@@ -1199,8 +1503,14 @@ export namespace view {
 
         constructor();
         _fireChange(type: ChangeType, node: Node): void;
-        getAncestors(options: {includeSelf: boolean, parentFirst?: boolean}): Array<Element | DocumentFragment>;
-        getCommonAncestor(node: Node, options: {includeSelf?: boolean}): Element | DocumentFragment | null;
+        getAncestors(options: {
+            includeSelf: boolean;
+            parentFirst?: boolean;
+        }): Array<Element | DocumentFragment>;
+        getCommonAncestor(
+            node: Node,
+            options: { includeSelf?: boolean }
+        ): Element | DocumentFragment | null;
         getPath(): number[];
 
         is(type: "element"): this is Element;
@@ -1223,7 +1533,12 @@ export namespace view {
 
     // engine/view/placeholder
 
-    function attachPlaceholder(view: View, element: Element, placeholderText: string, checkFunction?: Function): void;
+    function attachPlaceholder(
+        view: View,
+        element: Element,
+        placeholderText: string,
+        checkFunction?: Function
+    ): void;
 
     function detachPlaceholder(view: View, element: Element): void;
 
@@ -1283,8 +1598,15 @@ export namespace view {
         readonly root: Node | DocumentFragment;
         readonly textNode: Text;
 
-        protected constructor(textNode: Text, offsetInText: number, length: number);
-        getAncestors(options: {includeSelf?: boolean, parentFirst?: boolean}): Array<Text | Element | DocumentFragment>;
+        protected constructor(
+            textNode: Text,
+            offsetInText: number,
+            length: number
+        );
+        getAncestors(options: {
+            includeSelf?: boolean;
+            parentFirst?: boolean;
+        }): Array<Text | Element | DocumentFragment>;
         is(type: "textProxy"): this is TextProxy;
         is(type: string): boolean;
     }
@@ -1300,11 +1622,11 @@ export namespace view {
         readonly singleCharacters: boolean;
 
         constructor(options: {
-            boundaries?: Range,
-            startPosition?: Position,
-            direction?: TreeWalkerDirection,
-            singleCharacters?: boolean,
-            shallow?: boolean,
+            boundaries?: Range;
+            startPosition?: Position;
+            direction?: TreeWalkerDirection;
+            singleCharacters?: boolean;
+            shallow?: boolean;
             ignoreElementEnd?: boolean;
         });
         [Symbol.iterator](): Iterator<TreeWalkerValue>;
@@ -1333,8 +1655,8 @@ export namespace view {
             children?: Node | Iterable<Node>
         );
         getFillerOffset(): null;
-        render(domDocument: /*TODO: globals.*/Document): HTMLElement;
-        toDomElement(domDocument: /*TODO: globals.*/Document): HTMLElement;
+        render(domDocument: /*TODO: globals.*/ Document): HTMLElement;
+        toDomElement(domDocument: /*TODO: globals.*/ Document): HTMLElement;
     }
 
     // engine/view/upcastwriter
@@ -1350,13 +1672,33 @@ export namespace view {
 
         // Emitter
         delegate(...events: string[]): ckutils.EmitterMixinDelegateChain;
-        fire(eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>, ...args: any[]): any;
-        listenTo(emitter: ckutils.Emitter, event: string, callback: Function, options?: {priority?: ckutils.PriorityString | number }): void;
+        fire(
+            eventOrInfo: string | ckutils.EventInfo<ckutils.Emitter>,
+            ...args: any[]
+        ): any;
+        listenTo(
+            emitter: ckutils.Emitter,
+            event: string,
+            callback: Function,
+            options?: { priority?: ckutils.PriorityString | number }
+        ): void;
         off(event: string, callback?: Function): void;
-        on(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
-        once(event: string, callback: Function, options?: {priority: ckutils.PriorityString | number}): void;
+        on(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
+        once(
+            event: string,
+            callback: Function,
+            options?: { priority: ckutils.PriorityString | number }
+        ): void;
         stopDelegating(event?: string, emitter?: ckutils.Emitter): void;
-        stopListening(emitter?: ckutils.Emitter, event?: string, callback?: Function): void;
+        stopListening(
+            emitter?: ckutils.Emitter,
+            event?: string,
+            callback?: Function
+        ): void;
 
         // Observable
         bind(...bindProperties: string[]): ckutils.BindChain;

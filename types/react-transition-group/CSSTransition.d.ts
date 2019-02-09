@@ -37,6 +37,8 @@ declare namespace CSSTransition {
     }
 }
 
-declare class CSSTransition extends Component<CSSTransition.CSSTransitionProps> {}
+declare class CSSTransition extends Component<
+    CSSTransition.CSSTransitionProps
+> {}
 
 export = CSSTransition;

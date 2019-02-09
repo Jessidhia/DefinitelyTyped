@@ -264,7 +264,15 @@ declare class KPainter {
     });
 ```
      */
-    addImageAsync(imgData: Blob | HTMLCanvasElement | HTMLImageElement | string | string[], callback?: () => void): void;
+    addImageAsync(
+        imgData:
+            | Blob
+            | HTMLCanvasElement
+            | HTMLImageElement
+            | string
+            | string[],
+        callback?: () => void
+    ): void;
 
     /**
     The image whose width or height larger than`addedImageMaxWH` would be compressed when adding.
@@ -442,7 +450,11 @@ declare class KPainter {
     });
 ```
      */
-    bindThumbnailBox(container: HTMLElement, funWrap?: () => HTMLElement, maxWH?: number): boolean;
+    bindThumbnailBox(
+        container: HTMLElement,
+        funWrap?: () => HTMLElement,
+        maxWH?: number
+    ): boolean;
 
     /**
      * Syntax:* `.unbindThumbnailBox(container)`
@@ -746,7 +758,11 @@ declare class KPainter {
     | newHeight | `Number` | |
     | callback | `function(boolean bSuccess)` | |
      */
-    resizeAsync(newWidth: number, newHeight: number, callback: () => void): void;
+    resizeAsync(
+        newWidth: number,
+        newHeight: number,
+        callback: () => void
+    ): void;
 
     /**
      * Get width of current editing canvas.
@@ -850,7 +866,12 @@ declare class KPainter {
     | right * (optional) * | `Number` | -0.5 ~0.5, default 0.5. |
     | bottom * (optional) * | `Number` | -0.5 ~0.5, default 0.5. |
      */
-    setCropRectArea(left: number, top: number, right: number, bottom: number): boolean;
+    setCropRectArea(
+        left: number,
+        top: number,
+        right: number,
+        bottom: number
+    ): boolean;
 
     /**
      * Syntax:* `.getCropRectArea(isAbsolute)`
@@ -952,7 +973,11 @@ declare class KPainter {
     | cornerPoints * (optional) * | `Array` | A array of[[x0, y0], [x1, y1], [x2, y2], [x3, y3]].x0, y0...is from - 0.5 to 0.5. |
     | importSrc * (optional) * | | TUDO.Not show for user. |
      */
-    freeTransformAsync(callback?: () => void, cornerPoints?: cornerPoints[], importSrc?: any): any;
+    freeTransformAsync(
+        callback?: () => void,
+        cornerPoints?: cornerPoints[],
+        importSrc?: any
+    ): any;
 
     /**
      * 
@@ -994,7 +1019,10 @@ declare class KPainter {
     | callback * (optional) * | `function(boolean bSuccess)` | |
     | videoSettings * (optional) * | `MediaStreamConstraints` | A[MediaStreamConstraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamConstraints). *reference:* [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) |
      */
-    showVideo(callback?: () => void, videoSettings?: MediaStreamConstraints): boolean;
+    showVideo(
+        callback?: () => void,
+        videoSettings?: MediaStreamConstraints
+    ): boolean;
 
     /**
      * Syntax:* `.grabVideo()`
@@ -1012,7 +1040,10 @@ declare class KPainter {
     |  |  |  |
     | callback * (optional) * | `function(boolean bSuccess)` | |
      */
-    grabVideo(isAutoAdd?: boolean, callback?: () => void): HTMLCanvasElement | void;
+    grabVideo(
+        isAutoAdd?: boolean,
+        callback?: () => void
+    ): HTMLCanvasElement | void;
 
     /**
      * Syntax:* `.hideVideo()`

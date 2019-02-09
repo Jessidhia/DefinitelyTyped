@@ -29,7 +29,10 @@ export interface RelayEnvironmentInterface {
         querySet: RelayRuntimeTypes.RelayQuerySet,
         onReadyStateChange: RelayRuntimeTypes.ReadyStateChangeCallback
     ): RelayRuntimeTypes.Abortable;
-    getFragmentResolver(fragment: RelayQuery["Fragment"], onNext: () => void): FragmentResolver;
+    getFragmentResolver(
+        fragment: RelayQuery["Fragment"],
+        onNext: () => void
+    ): FragmentResolver;
     getStoreData(): RelayStoreData;
     primeCache(
         querySet: RelayRuntimeTypes.RelayQuerySet,
@@ -40,7 +43,10 @@ export interface RelayEnvironmentInterface {
         dataID: RelayRuntimeTypes.DataID,
         options?: StoreReaderOptions
     ): StoreReaderData | void;
-    readQuery(root: RelayQuery["Root"], options?: StoreReaderOptions): StoreReaderData[] | void;
+    readQuery(
+        root: RelayQuery["Root"],
+        options?: StoreReaderOptions
+    ): StoreReaderData[] | void;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +56,7 @@ export type ClientMutationID = string;
 
 /** Fragments are a hash of functions */
 export interface Fragments {
-    [query: string]: ((variables?: RelayVariables) => string);
+    [query: string]: (variables?: RelayVariables) => string;
 }
 
 export interface CreateContainerOpts {
@@ -65,7 +71,7 @@ export interface RelayVariables {
 
 /** add static getFragment method to the component constructor */
 export interface RelayContainerClass<T> extends React.ComponentClass<T> {
-    getFragment: ((q: string, v?: RelayVariables) => string);
+    getFragment: (q: string, v?: RelayVariables) => string;
 }
 
 export interface RelayQueryRequestResolve {
@@ -151,7 +157,10 @@ export interface StoreUpdateCallbacks<T> {
 }
 
 export interface Store {
-    commitUpdate(mutation: Mutation<any, any>, callbacks?: StoreUpdateCallbacks<any>): any;
+    commitUpdate(
+        mutation: Mutation<any, any>,
+        callbacks?: StoreUpdateCallbacks<any>
+    ): any;
 }
 
 export const Store: Store;
@@ -198,16 +207,14 @@ export type ReadyStateEvent =
     | "STORE_FOUND_ALL"
     | "STORE_FOUND_REQUIRED";
 
-export type OnReadyStateChange = (
-    readyState: {
-        ready: boolean;
-        done: boolean;
-        stale: boolean;
-        error?: Error;
-        events: ReadyStateEvent[];
-        aborted: boolean;
-    }
-) => void;
+export type OnReadyStateChange = (readyState: {
+    ready: boolean;
+    done: boolean;
+    stale: boolean;
+    error?: Error;
+    events: ReadyStateEvent[];
+    aborted: boolean;
+}) => void;
 
 export interface RelayProp<V = any> {
     readonly route: { name: string }; // incomplete, also has params and queries
@@ -217,7 +224,10 @@ export interface RelayProp<V = any> {
     forceFetch(variables: V, onReadyStateChange?: OnReadyStateChange): void;
     hasOptimisticUpdate(record: any): boolean;
     getPendingTransactions(record: any): RelayMutationTransaction[];
-    commitUpdate(mutation: Mutation<any, any>, callbacks?: StoreUpdateCallbacks<any>): any;
+    commitUpdate(
+        mutation: Mutation<any, any>,
+        callbacks?: StoreUpdateCallbacks<any>
+    ): any;
 }
 
 export interface RelayProps<V> {

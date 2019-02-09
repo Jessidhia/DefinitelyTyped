@@ -6,12 +6,16 @@
 /// <reference types="node" />
 /// <reference types="through" />
 
-import { ThroughStream } from 'through';
+import { ThroughStream } from "through";
 
 interface SplitOptions {
-    maxLength: number
+    maxLength: number;
 }
 
-declare function split(matcher?: any, mapper?: any, options?: SplitOptions): ThroughStream;
+declare function split(
+    matcher?: any,
+    mapper?: any,
+    options?: SplitOptions
+): ThroughStream;
 
 export = split;

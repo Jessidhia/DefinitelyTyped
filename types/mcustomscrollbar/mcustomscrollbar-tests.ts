@@ -35,29 +35,28 @@ class SimpleTestAllParams {
             autoHideScrollbar: false,
             autoExpandScrollbar: false,
             alwaysShowScrollbar: 0,
-            snapAmount: [3,3],
+            snapAmount: [3, 3],
             snapOffset: 3,
             mouseWheel: {
                 enable: true,
                 scrollAmount: 1,
-                axis:"x",
+                axis: "x",
                 preventDefault: false,
-                deltaFactor:12,
-                normalizeDelta:true,
+                deltaFactor: 12,
+                normalizeDelta: true,
                 invert: false,
-                disableOver: ["select","option"]
-
+                disableOver: ["select", "option"]
             },
             scrollButtons: {
                 enable: false,
                 scrollType: "stepped",
                 scrollAmount: 40,
-                tabindex: 33,
+                tabindex: 33
             },
-            keyboard:{
+            keyboard: {
                 enable: true,
-                scrollAmount:5,
-                scrollType:"stepless"
+                scrollAmount: 5,
+                scrollType: "stepless"
             },
             advanced: {
                 updateOnBrowserResize: true,
@@ -66,32 +65,32 @@ class SimpleTestAllParams {
                 updateOnSelectorChange: "ul li",
                 extraDraggableSelectors: ".myClass",
                 releaseDraggableSelectors: ".myClass",
-                autoUpdateTimeout:60,
+                autoUpdateTimeout: 60,
                 autoExpandHorizontalScroll: false,
-                autoScrollOnFocus: "input",
+                autoScrollOnFocus: "input"
             },
             contentTouchScroll: true,
             documentTouchScroll: false,
 
             callbacks: {
-                onCreate: () => { },
-                onInit: () => { },
-                onScrollStart: () => { },
-                onScroll: () => { },
-                onTotalScroll: () => { },
-                onTotalScrollBack: () => { },
+                onCreate: () => {},
+                onInit: () => {},
+                onScrollStart: () => {},
+                onScroll: () => {},
+                onTotalScroll: () => {},
+                onTotalScrollBack: () => {},
                 onTotalScrollOffset: 0,
                 onTotalScrollBackOffset: 0,
-                whileScrolling: () => { },
+                whileScrolling: () => {},
                 alwaysTriggerOffsets: false,
-                onOverflowY: () => { },
-                onOverflowX: () => { },
+                onOverflowY: () => {},
+                onOverflowX: () => {},
                 onOverflowYNone: () => {},
                 onOverflowXNone: () => {},
                 onBeforeUpdate: () => {},
                 onUpdate: () => {},
                 onImageLoad: () => {},
-                onSelectorChange: () => {},
+                onSelectorChange: () => {}
             },
             theme: "light",
             live: true,
@@ -133,23 +132,42 @@ class CallbacksTest {
     }
 
     OnScrollStart() {
-        $(".output .onScrollStart").stop(true, true).css("display", "inline-block").delay(500).fadeOut(500);
+        $(".output .onScrollStart")
+            .stop(true, true)
+            .css("display", "inline-block")
+            .delay(500)
+            .fadeOut(500);
     }
 
     OnScroll() {
-        $(".output .onScroll").stop(true, true).css("display", "inline-block").delay(500).fadeOut(500);
+        $(".output .onScroll")
+            .stop(true, true)
+            .css("display", "inline-block")
+            .delay(500)
+            .fadeOut(500);
     }
 
     OnTotalScroll() {
-        $(".output .onTotalScroll").stop(true, true).css("display", "inline-block").delay(500).fadeOut(500);
+        $(".output .onTotalScroll")
+            .stop(true, true)
+            .css("display", "inline-block")
+            .delay(500)
+            .fadeOut(500);
     }
 
     OnTotalScrollBack() {
-        $(".output .onTotalScrollBack").stop(true, true).css("display", "inline-block").delay(500).fadeOut(500);
+        $(".output .onTotalScrollBack")
+            .stop(true, true)
+            .css("display", "inline-block")
+            .delay(500)
+            .fadeOut(500);
     }
 
     WhileScrolling() {
-        $(".output .whileScrolling").stop(true, true).css("display", "inline-block").fadeOut(500);
+        $(".output .whileScrolling")
+            .stop(true, true)
+            .css("display", "inline-block")
+            .fadeOut(500);
     }
 }
 
@@ -165,23 +183,23 @@ class DisableDestroyTest {
             }
         });
 
-        $("#disable-scrollbar").click((e) => {
+        $("#disable-scrollbar").click(e => {
             e.preventDefault();
             this.element.mCustomScrollbar("disable", true);
         });
-        $("#disable-scrollbar-no-reset").click((e) => {
+        $("#disable-scrollbar-no-reset").click(e => {
             e.preventDefault();
             this.element.mCustomScrollbar("disable");
         });
-        $("#enable-scrollbar").click((e) => {
+        $("#enable-scrollbar").click(e => {
             e.preventDefault();
             this.element.mCustomScrollbar("update");
         });
-        $("#destroy-scrollbar").click((e) => {
+        $("#destroy-scrollbar").click(e => {
             e.preventDefault();
             this.element.mCustomScrollbar("destroy");
         });
-        $("#rebuild-scrollbar").click((e) => {
+        $("#rebuild-scrollbar").click(e => {
             this.element.mCustomScrollbar({
                 scrollButtons: {
                     enable: true

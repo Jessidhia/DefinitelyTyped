@@ -1,4 +1,4 @@
-import { SpanContext } from 'opentracing';
+import { SpanContext } from "opentracing";
 
 declare class DatadogSpanContext extends SpanContext {
     /**
@@ -20,8 +20,8 @@ interface SpanContextLike {
     baggageItems?: { [key: string]: string };
 
     trace?: {
-        started: number[],
-        finished: number[]
+        started: number[];
+        finished: number[];
     };
 }
 

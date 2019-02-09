@@ -4,11 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-
-
-
-import * as express from 'express';
-import * as fs from 'fs';
+import * as express from "express";
+import * as fs from "fs";
 
 declare namespace serveIndex {
     interface File {
@@ -30,15 +27,25 @@ declare namespace serveIndex {
     type templateCallback = (error: Error, htmlString?: string) => void;
 
     interface Options {
-        filter?: (filename: string, index: number, files: Array<File>, dir: string) => boolean;
+        filter?: (
+            filename: string,
+            index: number,
+            files: Array<File>,
+            dir: string
+        ) => boolean;
         hidden?: boolean;
         icons?: boolean;
         stylesheet?: string;
-        template?: string | ((locals: Locals, callback: templateCallback) => void);
+        template?:
+            | string
+            | ((locals: Locals, callback: templateCallback) => void);
         view?: string;
     }
 }
 
-declare function serveIndex(path: string, options?: serveIndex.Options): express.Handler;
+declare function serveIndex(
+    path: string,
+    options?: serveIndex.Options
+): express.Handler;
 
 export = serveIndex;

@@ -16,12 +16,17 @@ shell.cd("lib");
 shell.ls("*.js").forEach(file => {
     shell.sed("-i", "BUILD_VERSION", "v0.1.2", file);
     shell.sed("-i", /.*REMOVE_THIS_LINE.*\n/, "", file);
-    shell.sed("-i", /.*REPLACE_LINE_WITH_MACRO.*\n/, shell.cat("macro.js"), file);
+    shell.sed(
+        "-i",
+        /.*REPLACE_LINE_WITH_MACRO.*\n/,
+        shell.cat("macro.js"),
+        file
+    );
 });
 
 shell.cd("..");
 
-shell.config.execPath = shell.which('node');
+shell.config.execPath = shell.which("node");
 
 // Run external tool synchronously
 if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
@@ -49,8 +54,12 @@ shell.mv(["file1", "file2"], "dir/"); // same as above
 shell.mkdir("-p", "/tmp/a/b/c/d", "/tmp/e/f/g");
 shell.mkdir("-p", ["/tmp/a/b/c/d", "/tmp/e/f/g"]); // same as above
 
-if (shell.test("-d", "/tmp/a/b/c/d")) { /* do something with dir */ }
-if (!shell.test("-f", "/tmp/a/b/c/d")) { /* do something with dir */ }
+if (shell.test("-d", "/tmp/a/b/c/d")) {
+    /* do something with dir */
+}
+if (!shell.test("-f", "/tmp/a/b/c/d")) {
+    /* do something with dir */
+}
 
 let str = shell.cat("file*.txt");
 str = shell.cat("file1", "file2");
@@ -65,12 +74,12 @@ shell.grep("GLOBAL_VARIABLE", "*.js");
 const nodeExec = shell.which("node");
 
 shell.pushd("/etc"); // Returns /etc /usr
-shell.pushd("+1");   // Returns /usr /etc
+shell.pushd("+1"); // Returns /usr /etc
 
 shell.echo(process.cwd()); // '/usr'
-shell.pushd("/etc");       // '/etc /usr'
+shell.pushd("/etc"); // '/etc /usr'
 shell.echo(process.cwd()); // '/etc'
-shell.popd();              // '/usr'
+shell.popd(); // '/usr'
 shell.echo(process.cwd()); // '/usr'
 
 shell.ln("file", "newlink");
@@ -82,18 +91,26 @@ import child = require("child_process");
 
 const version = shell.exec("node --version").stdout;
 
-const version2 = shell.exec("node --version", { async: false }) as shell.ExecOutputReturnValue;
+const version2 = shell.exec("node --version", {
+    async: false
+}) as shell.ExecOutputReturnValue;
 const output = version2.stdout;
 
-const asyncVersion3 = shell.exec("node --version", { async: true }) as child.ChildProcess;
+const asyncVersion3 = shell.exec("node --version", {
+    async: true
+}) as child.ChildProcess;
 let pid = asyncVersion3.pid;
 
 shell.exec("node --version", { silent: true }, (code, stdout, stderr) => {
     const version = stdout;
 });
-shell.exec("node --version", { silent: true, async: true, cwd: '/usr/local/bin' }, (code, stdout, stderr) => {
-    const version = stdout;
-});
+shell.exec(
+    "node --version",
+    { silent: true, async: true, cwd: "/usr/local/bin" },
+    (code, stdout, stderr) => {
+        const version = stdout;
+    }
+);
 shell.exec("node --version", (code, stdout, stderr) => {
     const version = stdout;
 });
@@ -106,12 +123,12 @@ const childProc = shell.exec("node --version", (code: number) => {
 });
 pid = childProc.pid;
 
-shell.set('+e');
-shell.set('-e');
-shell.set('+v');
-shell.set('-v');
-shell.set('+f');
-shell.set('-f');
+shell.set("+e");
+shell.set("-e");
+shell.set("+v");
+shell.set("-v");
+shell.set("+f");
+shell.set("-f");
 
 shell.chmod(755, "/Users/brandon");
 shell.chmod("755", "/Users/brandon"); // same as above
@@ -121,34 +138,41 @@ shell.chmod("-Rv", "u+x", "/Users/brandon");
 
 shell.exit(0);
 
-shell.touch('/Users/brandom/test1');
-shell.touch('/Users/brandom/test1', '/Users/brandom/test2');
+shell.touch("/Users/brandom/test1");
+shell.touch("/Users/brandom/test1", "/Users/brandom/test2");
 
-shell.touch(['/Users/brandom/test1']);
-shell.touch(['/Users/brandom/test1', '/Users/brandom/test2']);
+shell.touch(["/Users/brandom/test1"]);
+shell.touch(["/Users/brandom/test1", "/Users/brandom/test2"]);
 
-shell.touch('-c', '/Users/brandom/test1');
-shell.touch('-c', '/Users/brandom/test1', '/Users/brandom/test2');
-shell.touch('-c', ['/Users/brandom/test1', '/Users/brandom/test2']);
+shell.touch("-c", "/Users/brandom/test1");
+shell.touch("-c", "/Users/brandom/test1", "/Users/brandom/test2");
+shell.touch("-c", ["/Users/brandom/test1", "/Users/brandom/test2"]);
 
-shell.touch({ '-r': '/some/file.txt' }, '/Users/brandom/test1');
-shell.touch({ '-r': '/some/file.txt' }, '/Users/brandom/test1', '/Users/brandom/test2');
-shell.touch({ '-r': '/oome/file.txt' }, ['/Users/brandom/test1', '/Users/brandom/test2']);
+shell.touch({ "-r": "/some/file.txt" }, "/Users/brandom/test1");
+shell.touch(
+    { "-r": "/some/file.txt" },
+    "/Users/brandom/test1",
+    "/Users/brandom/test2"
+);
+shell.touch({ "-r": "/oome/file.txt" }, [
+    "/Users/brandom/test1",
+    "/Users/brandom/test2"
+]);
 
-shell.head({'-n': 1}, 'file*.txt');
-shell.head('file1', 'file2');
-shell.head(['file1', 'file2']); // same as above
+shell.head({ "-n": 1 }, "file*.txt");
+shell.head("file1", "file2");
+shell.head(["file1", "file2"]); // same as above
 
-shell.sort('foo.txt', 'bar.txt');
-shell.sort('-r', 'foo.txt');
+shell.sort("foo.txt", "bar.txt");
+shell.sort("-r", "foo.txt");
 
-shell.tail({'-n': 1}, 'file*.txt');
-shell.tail('file1', 'file2');
-shell.tail(['file1', 'file2']); // same as above
+shell.tail({ "-n": 1 }, "file*.txt");
+shell.tail("file1", "file2");
+shell.tail(["file1", "file2"]); // same as above
 
-shell.uniq('foo.txt');
-shell.uniq('-i', 'foo.txt');
-shell.uniq('-cd', 'foo.txt', 'bar.txt');
+shell.uniq("foo.txt");
+shell.uniq("-i", "foo.txt");
+shell.uniq("-cd", "foo.txt", "bar.txt");
 
 const tmp = shell.tempdir(); // "/tmp" for most *nix platforms
 
@@ -159,8 +183,8 @@ shell.config.silent = true;
 shell.config.fatal = true;
 shell.config.verbose = true;
 shell.config.execPath = null;
-shell.config.execPath = '/bin/node';
+shell.config.execPath = "/bin/node";
 shell.config.globOptions = {
-    cwd: './',
+    cwd: "./",
     dot: true
 };

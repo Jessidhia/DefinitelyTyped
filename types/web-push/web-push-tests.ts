@@ -16,7 +16,7 @@ import {
     generateRequestDetails,
     SendResult,
     sendNotification
-} from 'web-push';
+} from "web-push";
 
 declare const anything: any;
 
@@ -25,7 +25,7 @@ declare const anything: any;
 // ==============
 
 // $ExpectType WebPushError
-const error = new WebPushError('message', 400, {}, 'body', 'endpoint');
+const error = new WebPushError("message", 400, {}, "body", "endpoint");
 
 // WebPushError extends Error
 // $ExpectType string | undefined
@@ -42,7 +42,7 @@ error.name;
 // ContentEncoding should only allow named types
 
 // $ExpectError
-const notAValidEncoding: ContentEncoding = 'hello world';
+const notAValidEncoding: ContentEncoding = "hello world";
 
 // The exported values should match the "enum" type
 
@@ -54,15 +54,20 @@ const aes128Gcm: ContentEncoding = supportedContentEncodings.AES_128_GCM;
 // ===========
 
 // $ExpectType EncryptionResult
-const encryptionResult = encrypt('publicKey', 'userAuth', 'myPayload', supportedContentEncodings.AES_GCM);
+const encryptionResult = encrypt(
+    "publicKey",
+    "userAuth",
+    "myPayload",
+    supportedContentEncodings.AES_GCM
+);
 
 const buffer: Buffer = anything;
 // $ExpectType EncryptionResult
-encrypt('publicKey', 'userAuth', buffer, supportedContentEncodings.AES_128_GCM);
+encrypt("publicKey", "userAuth", buffer, supportedContentEncodings.AES_128_GCM);
 
 // Only valid encoding should be allowed
 // $ExpectError
-encrypt('publicKey', 'userAuth', 'myPayload', 'unknownEncoding');
+encrypt("publicKey", "userAuth", "myPayload", "unknownEncoding");
 
 // $ExpectType string
 encryptionResult.localPublicKey;
@@ -76,23 +81,67 @@ encryptionResult.cipherText;
 // ===================
 
 // $ExpectType { Authorization: string; 'Crypto-Key': string; }
-getVapidHeaders('audience', 'subject', 'publicKey', 'privateKey', supportedContentEncodings.AES_GCM, 150);
+getVapidHeaders(
+    "audience",
+    "subject",
+    "publicKey",
+    "privateKey",
+    supportedContentEncodings.AES_GCM,
+    150
+);
 // $ExpectType { Authorization: string; }
-getVapidHeaders('audience', 'subject', 'publicKey', 'privateKey', supportedContentEncodings.AES_128_GCM, 150);
+getVapidHeaders(
+    "audience",
+    "subject",
+    "publicKey",
+    "privateKey",
+    supportedContentEncodings.AES_128_GCM,
+    150
+);
 
 // expiration is optional
 // $ExpectType { Authorization: string; 'Crypto-Key': string; }
-getVapidHeaders('audience', 'subject', 'publicKey', 'privateKey', supportedContentEncodings.AES_GCM);
+getVapidHeaders(
+    "audience",
+    "subject",
+    "publicKey",
+    "privateKey",
+    supportedContentEncodings.AES_GCM
+);
 // $ExpectType { Authorization: string; }
-getVapidHeaders('audience', 'subject', 'publicKey', 'privateKey', supportedContentEncodings.AES_128_GCM);
+getVapidHeaders(
+    "audience",
+    "subject",
+    "publicKey",
+    "privateKey",
+    supportedContentEncodings.AES_128_GCM
+);
 
 // Buffers are not supported here
 // $ExpectError
-getVapidHeaders('audience', buffer, 'publicKey', 'privateKey', supportedContentEncodings.AES_128_GCM);
+getVapidHeaders(
+    "audience",
+    buffer,
+    "publicKey",
+    "privateKey",
+    supportedContentEncodings.AES_128_GCM
+);
 // $ExpectError
-getVapidHeaders('audience', 'subject', buffer, 'privateKey', supportedContentEncodings.AES_128_GCM);
+getVapidHeaders(
+    "audience",
+    "subject",
+    buffer,
+    "privateKey",
+    supportedContentEncodings.AES_128_GCM
+);
 // $ExpectError
-getVapidHeaders('audience', 'subject', 'publicKey', buffer, supportedContentEncodings.AES_128_GCM);
+getVapidHeaders(
+    "audience",
+    "subject",
+    "publicKey",
+    buffer,
+    supportedContentEncodings.AES_128_GCM
+);
 
 // =====================
 //  generateVAPIDKeys()
@@ -111,7 +160,7 @@ vapidKeys.privateKey;
 // ================
 
 // $ExpectType void
-setGCMAPIKey('apiKey');
+setGCMAPIKey("apiKey");
 // $ExpectType void
 setGCMAPIKey(null);
 
@@ -120,25 +169,25 @@ setGCMAPIKey(null);
 // ===================
 
 // $ExpectType void
-setVapidDetails('subject', 'privateKey', 'publicKey');
+setVapidDetails("subject", "privateKey", "publicKey");
 
 // Buffers are not supported here
 // $ExpectError
-setVapidDetails(buffer, 'publicKey', 'privateKey');
+setVapidDetails(buffer, "publicKey", "privateKey");
 // $ExpectError
-setVapidDetails('subject', buffer, 'privateKey');
+setVapidDetails("subject", buffer, "privateKey");
 // $ExpectError
-setVapidDetails('subject', 'publicKey', buffer);
+setVapidDetails("subject", "publicKey", buffer);
 
 // ==================
 //  PushSubscription
 // ==================
 
 const pushSubscription: PushSubscription = {
-    endpoint: 'endpointString',
+    endpoint: "endpointString",
     keys: {
-        p256dh: 'p256dhString',
-        auth: 'authString',
+        p256dh: "p256dhString",
+        auth: "authString"
     }
 };
 
@@ -152,19 +201,19 @@ requestOptions = {};
 
 requestOptions = {
     headers: {
-        someHeader: 'value'
+        someHeader: "value"
     }
 };
 
 requestOptions = {
-    gcmAPIKey: 'key'
+    gcmAPIKey: "key"
 };
 
 requestOptions = {
     vapidDetails: {
-        privateKey: 'private',
-        publicKey: 'public',
-        subject: 'subject'
+        privateKey: "private",
+        publicKey: "public",
+        subject: "subject"
     }
 };
 
@@ -177,22 +226,22 @@ requestOptions = {
 };
 
 requestOptions = {
-    proxy: 'http://proxy'
+    proxy: "http://proxy"
 };
 
 requestOptions = {
     headers: {
-        someHeader: 'value'
+        someHeader: "value"
     },
-    gcmAPIKey: 'key',
+    gcmAPIKey: "key",
     vapidDetails: {
-        privateKey: 'private',
-        publicKey: 'public',
-        subject: 'subject'
+        privateKey: "private",
+        publicKey: "public",
+        subject: "subject"
     },
     TTL: 100,
     contentEncoding: supportedContentEncodings.AES_GCM,
-    proxy: 'http://proxy'
+    proxy: "http://proxy"
 };
 
 // ==========================
@@ -200,9 +249,9 @@ requestOptions = {
 // ==========================
 
 // $ExpectType RequestDetails & { body: Buffer; }
-generateRequestDetails(pushSubscription, 'payload', requestOptions);
+generateRequestDetails(pushSubscription, "payload", requestOptions);
 // $ExpectType Buffer
-generateRequestDetails(pushSubscription, 'payload', requestOptions).body;
+generateRequestDetails(pushSubscription, "payload", requestOptions).body;
 
 // Payload can be a Buffer
 // $ExpectType Buffer
@@ -224,24 +273,30 @@ generateRequestDetails(pushSubscription, null, requestOptions).body;
 // $ExpectError
 generateRequestDetails({});
 // $ExpectError
-generateRequestDetails({ endpoint: 'endpoint' });
+generateRequestDetails({ endpoint: "endpoint" });
 // $ExpectError
-generateRequestDetails({ keys: { p256dh: 'p256dh', auth: 'auth' } });
+generateRequestDetails({ keys: { p256dh: "p256dh", auth: "auth" } });
 // $ExpectError
-generateRequestDetails({ endpoint: null, keys: { p256dh: 'p256dh', auth: 'auth' } });
+generateRequestDetails({
+    endpoint: null,
+    keys: { p256dh: "p256dh", auth: "auth" }
+});
 // $ExpectError
-generateRequestDetails({ endpoint: 'endpoint', keys: null });
+generateRequestDetails({ endpoint: "endpoint", keys: null });
 
-generateRequestDetails({ endpoint: 'endpoint', keys: { p256dh: 'p256dh', auth: 'auth' } });
+generateRequestDetails({
+    endpoint: "endpoint",
+    keys: { p256dh: "p256dh", auth: "auth" }
+});
 
 // RequestOptions is optional
-generateRequestDetails(pushSubscription, 'payload');
-generateRequestDetails(pushSubscription, 'payload', {});
+generateRequestDetails(pushSubscription, "payload");
+generateRequestDetails(pushSubscription, "payload", {});
 
 // ================
 //  RequestDetails
 // ================
-const requestDetails = generateRequestDetails(pushSubscription, 'payload');
+const requestDetails = generateRequestDetails(pushSubscription, "payload");
 // $ExpectType "POST"
 requestDetails.method;
 // $ExpectType Headers
@@ -257,7 +312,7 @@ requestDetails.proxy;
 //  sendNotification()
 // ====================
 // $ExpectType Promise<SendResult>
-sendNotification(pushSubscription, 'payload', requestOptions);
+sendNotification(pushSubscription, "payload", requestOptions);
 
 // Buffers are also supported
 // $ExpectType Promise<SendResult>
@@ -273,25 +328,31 @@ sendNotification(pushSubscription, null, requestOptions);
 
 // PushSubscription must have all its values
 // $ExpectError
-sendNotification({}, 'payload');
+sendNotification({}, "payload");
 // $ExpectError
-sendNotification({ endpoint: 'endpoint' }, 'payload');
+sendNotification({ endpoint: "endpoint" }, "payload");
 // $ExpectError
-sendNotification({ keys: { p256dh: 'p256dh', auth: 'auth' } }, 'payload');
+sendNotification({ keys: { p256dh: "p256dh", auth: "auth" } }, "payload");
 // $ExpectError
-sendNotification({ endpoint: null, keys: { p256dh: 'p256dh', auth: 'auth' } }, 'payload');
+sendNotification(
+    { endpoint: null, keys: { p256dh: "p256dh", auth: "auth" } },
+    "payload"
+);
 // $ExpectError
-sendNotification({ endpoint: 'endpoint', keys: null }, 'payload');
+sendNotification({ endpoint: "endpoint", keys: null }, "payload");
 
-sendNotification({ endpoint: 'endpoint', keys: { p256dh: 'p256dh', auth: 'auth' } }, 'payload');
+sendNotification(
+    { endpoint: "endpoint", keys: { p256dh: "p256dh", auth: "auth" } },
+    "payload"
+);
 
 // =============
 //  SendResult
 // =============
 
-const sendResult = sendNotification(pushSubscription, 'payload');
+const sendResult = sendNotification(pushSubscription, "payload");
 
-sendResult.then((result) => {
+sendResult.then(result => {
     // ExpectType number
     result.statusCode;
     // $ExpectType string
@@ -299,5 +360,4 @@ sendResult.then((result) => {
     // $ExpectType Headers
     result.headers;
 });
-sendResult.catch((error: WebPushError) => {
-});
+sendResult.catch((error: WebPushError) => {});

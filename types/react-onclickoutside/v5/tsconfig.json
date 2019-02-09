@@ -1,29 +1,20 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../../",
-        "typeRoots": [
-            "../../"
-        ],
+        "typeRoots": ["../../"],
         "paths": {
-            "react-onclickoutside": [
-                "react-onclickoutside/v5"
-            ]
+            "react-onclickoutside": ["react-onclickoutside/v5"]
         },
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react"
     },
-    "files": [
-        "index.d.ts"
-    ]
+    "files": ["index.d.ts"]
 }

@@ -30,93 +30,97 @@
 /// <reference types="ember__service" />
 
 import {
-    Objectify, Fix, UnwrapComputedPropertySetters,
+    Objectify,
+    Fix,
+    UnwrapComputedPropertySetters,
     UnwrapComputedPropertySetter,
     UnwrapComputedPropertyGetters,
     UnwrapComputedPropertyGetter,
-    EmberClassArguments, EmberClassConstructor, EmberInstanceArguments,
+    EmberClassArguments,
+    EmberClassConstructor,
+    EmberInstanceArguments,
     ComputedPropertyCallback,
     ObserverMethod
-} from '@ember/object/-private/types';
-import * as HandlebarsNamespace from 'handlebars';
+} from "@ember/object/-private/types";
+import * as HandlebarsNamespace from "handlebars";
 // Capitalization is intentional: this makes it much easier to re-export RSVP on
 // the Ember namespace.
-import Rsvp from 'rsvp';
-import { TemplateFactory } from 'htmlbars-inline-precompile';
+import Rsvp from "rsvp";
+import { TemplateFactory } from "htmlbars-inline-precompile";
 
-import { Registry as ServiceRegistry } from '@ember/service';
-import { Registry as ControllerRegistry } from '@ember/controller';
-import * as EmberStringNs from '@ember/string';
+import { Registry as ServiceRegistry } from "@ember/service";
+import { Registry as ControllerRegistry } from "@ember/controller";
+import * as EmberStringNs from "@ember/string";
 // tslint:disable-next-line:no-duplicate-imports
-import * as EmberServiceNs from '@ember/service';
-import * as EmberPolyfillsNs from '@ember/polyfills';
-import * as EmberUtilsNs from '@ember/utils';
-import * as EmberRunloopNs from '@ember/runloop';
-import * as EmberObjectNs from '@ember/object';
-import * as EmberObjectObserversNs from '@ember/object/observers';
-import * as EmberObjectMixinNs from '@ember/object/mixin';
-import * as EmberObjectProxyNs from '@ember/object/proxy';
-import * as EmberObjectPromiseProxyNs from '@ember/object/promise-proxy-mixin';
-import * as EmberObjectInternalsNs from '@ember/object/internals';
-import * as EmberObjectComputedNs from '@ember/object/computed';
-import * as EmberObjectEventedNs from '@ember/object/evented';
-import * as EmberObjectEventsNs from '@ember/object/events';
+import * as EmberServiceNs from "@ember/service";
+import * as EmberPolyfillsNs from "@ember/polyfills";
+import * as EmberUtilsNs from "@ember/utils";
+import * as EmberRunloopNs from "@ember/runloop";
+import * as EmberObjectNs from "@ember/object";
+import * as EmberObjectObserversNs from "@ember/object/observers";
+import * as EmberObjectMixinNs from "@ember/object/mixin";
+import * as EmberObjectProxyNs from "@ember/object/proxy";
+import * as EmberObjectPromiseProxyNs from "@ember/object/promise-proxy-mixin";
+import * as EmberObjectInternalsNs from "@ember/object/internals";
+import * as EmberObjectComputedNs from "@ember/object/computed";
+import * as EmberObjectEventedNs from "@ember/object/evented";
+import * as EmberObjectEventsNs from "@ember/object/events";
 // @ember/debug
-import * as EmberDebugNs from '@ember/debug';
-import _ContainerDebugAdapter from '@ember/debug/container-debug-adapter';
-import EmberDataAdapter from '@ember/debug/data-adapter';
+import * as EmberDebugNs from "@ember/debug";
+import _ContainerDebugAdapter from "@ember/debug/container-debug-adapter";
+import EmberDataAdapter from "@ember/debug/data-adapter";
 // @ember/engine
-import * as EmberEngineNs from '@ember/engine';
-import * as EmberEngineInstanceNs from '@ember/engine/instance';
-import _ContainerProxyMixin from '@ember/engine/-private/container-proxy-mixin';
-import _RegistryProxyMixin from '@ember/engine/-private/registry-proxy-mixin';
-import EmberCoreObject from '@ember/object/core';
-import * as EmberApplicationNs from '@ember/application';
-import * as EmberApplicationInstanceNs from '@ember/application/instance';
-import * as EmberApplicationDeprecateNs from '@ember/application/deprecations';
-import * as EmberTestNs from '@ember/test';
+import * as EmberEngineNs from "@ember/engine";
+import * as EmberEngineInstanceNs from "@ember/engine/instance";
+import _ContainerProxyMixin from "@ember/engine/-private/container-proxy-mixin";
+import _RegistryProxyMixin from "@ember/engine/-private/registry-proxy-mixin";
+import EmberCoreObject from "@ember/object/core";
+import * as EmberApplicationNs from "@ember/application";
+import * as EmberApplicationInstanceNs from "@ember/application/instance";
+import * as EmberApplicationDeprecateNs from "@ember/application/deprecations";
+import * as EmberTestNs from "@ember/test";
 // tslint:disable-next-line:no-duplicate-imports
-import * as EmberControllerNs from '@ember/controller';
+import * as EmberControllerNs from "@ember/controller";
 // tslint:disable-next-line:no-duplicate-imports
-import EmberMixin from '@ember/object/mixin';
-import EmberObservable from '@ember/object/observable';
+import EmberMixin from "@ember/object/mixin";
+import EmberObservable from "@ember/object/observable";
 // @ember/array
-import * as EmberArrayNs from '@ember/array';
-import EmberMutableArray from '@ember/array/mutable';
-import EmberNativeArray from '@ember/array/-private/native-array';
-import EmberArrayProxy from '@ember/array/proxy';
-import EmberEnumerable from '@ember/array/-private/enumerable';
-import EmberMutableEnumerable from '@ember/array/-private/mutable-enumerable';
-import EmberArrayProtoExtensions from '@ember/array/types/prototype-extensions';
+import * as EmberArrayNs from "@ember/array";
+import EmberMutableArray from "@ember/array/mutable";
+import EmberNativeArray from "@ember/array/-private/native-array";
+import EmberArrayProxy from "@ember/array/proxy";
+import EmberEnumerable from "@ember/array/-private/enumerable";
+import EmberMutableEnumerable from "@ember/array/-private/mutable-enumerable";
+import EmberArrayProtoExtensions from "@ember/array/types/prototype-extensions";
 // @ember/run
-import { RunMethod } from '@ember/runloop/-private/types';
+import { RunMethod } from "@ember/runloop/-private/types";
 // @ember/error
-import EmberError from '@ember/error';
+import EmberError from "@ember/error";
 
 type EmberArray<T> = EmberArrayNs.default<T>;
-import EmberActionHandler from '@ember/object/-private/action-handler';
-import EmberComponent from '@ember/component';
-import EmberTextArea from '@ember/component/text-area';
-import EmberTextField from '@ember/component/text-field';
-import EmberCheckbox from '@ember/component/checkbox';
-import EmberHelper from '@ember/component/helper';
+import EmberActionHandler from "@ember/object/-private/action-handler";
+import EmberComponent from "@ember/component";
+import EmberTextArea from "@ember/component/text-area";
+import EmberTextField from "@ember/component/text-field";
+import EmberCheckbox from "@ember/component/checkbox";
+import EmberHelper from "@ember/component/helper";
 // @ember/routing
-import EmberRoutingRouter from '@ember/routing/router';
-import EmberRoutingRoute from '@ember/routing/route';
-import EmberRoutingTransition from '@ember/routing/-private/transition';
-import EmberRoutingRouterService from '@ember/routing/router-service';
-import EmberRoutingHashLocation from '@ember/routing/hash-location';
-import EmberRoutingAutoLocation from '@ember/routing/auto-location';
-import EmberRoutingHistoryLocation from '@ember/routing/history-location';
-import EmberRoutingNoneLocation from '@ember/routing/none-location';
-import EmberRoutingLinkComponent from '@ember/routing/link-component';
+import EmberRoutingRouter from "@ember/routing/router";
+import EmberRoutingRoute from "@ember/routing/route";
+import EmberRoutingTransition from "@ember/routing/-private/transition";
+import EmberRoutingRouterService from "@ember/routing/router-service";
+import EmberRoutingHashLocation from "@ember/routing/hash-location";
+import EmberRoutingAutoLocation from "@ember/routing/auto-location";
+import EmberRoutingHistoryLocation from "@ember/routing/history-location";
+import EmberRoutingNoneLocation from "@ember/routing/none-location";
+import EmberRoutingLinkComponent from "@ember/routing/link-component";
 // @ember/application
-import EmberDefaultResolver from '@ember/application/-private/default-resolver';
-import EmberEventDispatcher from '@ember/application/-private/event-dispatcher';
-import EmberRegistry from '@ember/application/-private/registry';
-import EmberResolver from '@ember/application/resolver';
+import EmberDefaultResolver from "@ember/application/-private/default-resolver";
+import EmberEventDispatcher from "@ember/application/-private/event-dispatcher";
+import EmberRegistry from "@ember/application/-private/registry";
+import EmberResolver from "@ember/application/resolver";
 // @ember/test
-import EmberTestAdapter from '@ember/test/adapter';
+import EmberTestAdapter from "@ember/test/adapter";
 
 export namespace Ember {
     const A: typeof EmberArrayNs.A;
@@ -175,7 +179,8 @@ export namespace Ember {
         on(...args: string[]): this;
     }
 
-    interface ArrayPrototypeExtensions<T> extends EmberArrayProtoExtensions<T> {}
+    interface ArrayPrototypeExtensions<T>
+        extends EmberArrayProtoExtensions<T> {}
 
     interface StringPrototypeExtensions {
         camelize(): string;
@@ -196,7 +201,10 @@ export namespace Ember {
         compare(a: any, b: any): number;
     }
     const Comparable: EmberMixin<Comparable>;
-    class ComputedProperty<Get, Set = Get> extends EmberObjectComputedNs.default<Get, Set> {}
+    class ComputedProperty<
+        Get,
+        Set = Get
+    > extends EmberObjectComputedNs.default<Get, Set> {}
     /**
      * A container used to instantiate and cache objects.
      */
@@ -360,7 +368,10 @@ export namespace Ember {
          * The only difference is this uses
          * an instance of `Ember.Test.Promise`
          */
-        function resolve<T>(value?: T | PromiseLike<T>, label?: string): Promise<T>;
+        function resolve<T>(
+            value?: T | PromiseLike<T>,
+            label?: string
+        ): Promise<T>;
 
         /**
          * Iterates through each registered test waiter, and invokes
@@ -416,7 +427,12 @@ export namespace Ember {
     }
     namespace Handlebars {
         function compile(string: string): (...args: any[]) => any;
-        function compile(environment: any, options?: any, context?: any, asObject?: any): any;
+        function compile(
+            environment: any,
+            options?: any,
+            context?: any,
+            asObject?: any
+        ): any;
         function precompile(string: string, options: any): void;
         class Compiler {}
         class JavaScriptCompiler {}
@@ -533,7 +549,7 @@ export namespace Ember {
 
 export default Ember;
 
-declare module 'htmlbars-inline-precompile' {
+declare module "htmlbars-inline-precompile" {
     interface TemplateFactory {
         __htmlbars_inline_precompile_template_factory: any;
     }

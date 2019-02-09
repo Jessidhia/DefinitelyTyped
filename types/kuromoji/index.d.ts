@@ -19,13 +19,22 @@ export interface DynamicDictionaries {
     token_info_dictionary: TokenInfoDictionary;
     connection_costs: ConnectionCosts;
     unknown_dictionary: UnknownDictionary;
-    loadTrie(base_buffer: Int32Array, check_buffer: Int32Array): DynamicDictionaries;
+    loadTrie(
+        base_buffer: Int32Array,
+        check_buffer: Int32Array
+    ): DynamicDictionaries;
 }
 
 // dict/TokenInfoDictionary.js
 export interface TokenInfoDictionary {
     buildDictionary(entries: any[][]): { [word_id: number]: string };
-    put(left_id: number, right_id: number, word_cost: number, surface_form: string, feature: string): number;
+    put(
+        left_id: number,
+        right_id: number,
+        word_cost: number,
+        surface_form: string,
+        feature: string
+    ): number;
     addMapping(source: number, target: number): void;
     targetMapToBuffer(): Uint8Array;
     loadDictionary(array_buffer: Uint8Array): TokenInfoDictionary;
@@ -64,7 +73,10 @@ export interface DictionaryBuilder {
     charDef(char_text: string): DictionaryBuilder;
     unkDef(text: string): DictionaryBuilder;
     build(): DynamicDictionaries;
-    buildTokenInfoDictionary(): { trie: doublearray.DoubleArray; token_info_dictionary: TokenInfoDictionary };
+    buildTokenInfoDictionary(): {
+        trie: doublearray.DoubleArray;
+        token_info_dictionary: TokenInfoDictionary;
+    };
     buildUnknownDictionary(): UnknownDictionary;
     buildConnectionCosts(): ConnectionCosts;
     buildDoubleArray(): doublearray.DoubleArray;
@@ -72,8 +84,18 @@ export interface DictionaryBuilder {
 
 // util/IpadicFormatter.js
 export interface Formatter<T> {
-    formatEntry(word_id: number, position: number, type: string, features: string[]): T;
-    formatUnknownEntry(word_id: number, position: number, type: string, features: string[]): T;
+    formatEntry(
+        word_id: number,
+        position: number,
+        type: string,
+        features: string[]
+    ): T;
+    formatUnknownEntry(
+        word_id: number,
+        position: number,
+        type: string,
+        features: string[]
+    ): T;
 }
 export type IpadicFormatter = Formatter<IpadicFeatures>;
 
@@ -152,5 +174,7 @@ export interface TokenizerBuilderOption {
 }
 
 // kuromoji.js
-export function builder(option: TokenizerBuilderOption): TokenizerBuilder<IpadicFeatures>;
+export function builder(
+    option: TokenizerBuilderOption
+): TokenizerBuilder<IpadicFeatures>;
 export function dictionaryBuilder(): DictionaryBuilder;

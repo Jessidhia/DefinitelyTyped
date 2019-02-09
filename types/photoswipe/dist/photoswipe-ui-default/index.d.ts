@@ -1,10 +1,14 @@
-import * as PhotoSwipe from '../../index';
+import * as PhotoSwipe from "../../index";
 
 /**
  * Default UI class for PhotoSwipe. This class is largely undocumented and doesn't seem to have a public facing API.
  */
-declare class PhotoSwipeUI_Default implements PhotoSwipe.UI<PhotoSwipeUI_Default.Options> {
-    constructor(pswp: PhotoSwipe<PhotoSwipeUI_Default.Options>, framework: PhotoSwipe.UIFramework);
+declare class PhotoSwipeUI_Default
+    implements PhotoSwipe.UI<PhotoSwipeUI_Default.Options> {
+    constructor(
+        pswp: PhotoSwipe<PhotoSwipeUI_Default.Options>,
+        framework: PhotoSwipe.UIFramework
+    );
     init(): void;
 
     /**
@@ -70,7 +74,11 @@ declare namespace PhotoSwipeUI_Default {
          * }
          *
          */
-        addCaptionHTMLFn?: (item: Item, captionEl: HTMLElement, isFake: boolean) => boolean;
+        addCaptionHTMLFn?: (
+            item: Item,
+            captionEl: HTMLElement,
+            isFake: boolean
+        ) => boolean;
 
         /**
          * Whether to show the close button.
@@ -238,7 +246,10 @@ declare namespace PhotoSwipeUI_Default {
          * }
          *
          */
-        parseShareButtonOut?: (shareButtonData: ShareButtonData, shareButtonOut: string) => string;
+        parseShareButtonOut?: (
+            shareButtonData: ShareButtonData,
+            shareButtonOut: string
+        ) => string;
     }
 
     export interface ShareButtonData {

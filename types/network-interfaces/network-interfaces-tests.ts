@@ -4,7 +4,7 @@ import * as os from "os";
 
 const options = {
     internal: false, // boolean: only acknowledge internal or external addresses (undefined: both)
-    ipVersion: 4     // integer (4 or 6): only acknowledge addresses of this IP address family (undefined: both)
+    ipVersion: 4 // integer (4 or 6): only acknowledge addresses of this IP address family (undefined: both)
 };
 
 function test() {
@@ -15,8 +15,7 @@ function test() {
         let ifc = ni.getInterface(options);
         const ifcList = ni.getInterfaces(ifcName);
         ifc = ni.fromIp(ip, options);
-    } catch (e) {
-    }
+    } catch (e) {}
 }
 
 test();

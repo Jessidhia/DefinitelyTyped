@@ -6,8 +6,8 @@
 
 /// <reference types="node" />
 
-import { EventEmitter } from 'events';
-import Watcher = require('./Watcher');
+import { EventEmitter } from "events";
+import Watcher = require("./Watcher");
 
 declare class Watchpack extends EventEmitter {
     aggregatedChanges: string[];

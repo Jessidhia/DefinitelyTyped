@@ -1,6 +1,6 @@
-import ensureError = require('ensure-error');
+import ensureError = require("ensure-error");
 
-const error = new TypeError('🦄');
+const error = new TypeError("🦄");
 
 // $ExpectType TypeError
 ensureError(error);

@@ -13,7 +13,10 @@ export = json2md;
  * @param prefix A snippet to add before each line.
  * @return The generated markdown result.
  */
-declare function json2md(data: json2md.DataObject | json2md.DataObject[] | string | string[], prefix?: string): string;
+declare function json2md(
+    data: json2md.DataObject | json2md.DataObject[] | string | string[],
+    prefix?: string
+): string;
 type json2md = typeof json2md;
 
 declare namespace json2md {
@@ -57,9 +60,14 @@ declare namespace json2md {
         [TConverter in keyof DefaultConverters.Converters]?: DefaultConverters.Converters[TConverter]
     };
 
-    type ConverterCallback<TInput> = (input: TInput, json2md: json2md) => string;
+    type ConverterCallback<TInput> = (
+        input: TInput,
+        json2md: json2md
+    ) => string;
 
     type ConvertersMethods = {
-        [TConverter in keyof DefaultConverters.Converters]: ConverterCallback<DefaultConverters.Converters[TConverter]>
+        [TConverter in keyof DefaultConverters.Converters]: ConverterCallback<
+            DefaultConverters.Converters[TConverter]
+        >
     };
 }

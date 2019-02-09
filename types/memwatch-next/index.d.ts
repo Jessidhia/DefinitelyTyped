@@ -4,7 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare module "memwatch-next" {
-    type EventCallback = (data: LeakInformation | StatsInformation | Object) => void;
+    type EventCallback = (
+        data: LeakInformation | StatsInformation | Object
+    ) => void;
 
     /**
      * Compare the state of your heap between two points in time, telling you what has been allocated, and what has been released.
@@ -41,7 +43,7 @@ declare module "memwatch-next" {
          * End date.
          * @type {Date}
          */
-        end: Date,
+        end: Date;
 
         /**
          * Growth.

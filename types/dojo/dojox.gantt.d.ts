@@ -3,9 +3,7 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare namespace dojox {
-
     namespace gantt {
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gantt/contextMenuTab.html
@@ -19,7 +17,14 @@ declare namespace dojox {
          * @param withDefaultValue
          */
         class contextMenuTab {
-            constructor(id: any, description: any, type: any, showOInfo: any, tabMenu: any, withDefaultValue: any);
+            constructor(
+                id: any,
+                description: any,
+                type: any,
+                showOInfo: any,
+                tabMenu: any,
+                withDefaultValue: any
+            );
             /**
              *
              * @param handler
@@ -205,7 +210,11 @@ declare namespace dojox {
              * @param parentNode
              * @param task
              */
-            createDetailedTaskEntry(owner: any, parentNode: any, task: any): any[];
+            createDetailedTaskEntry(
+                owner: any,
+                parentNode: any,
+                task: any
+            ): any[];
             /**
              *
              * @param owner
@@ -290,7 +299,12 @@ declare namespace dojox {
              * @param displayType
              * @param topOffset
              */
-            styleOwnerItem(tItem: any, owner: any, displayType: any, topOffset: any): void;
+            styleOwnerItem(
+                tItem: any,
+                owner: any,
+                displayType: any,
+                topOffset: any
+            ): void;
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/gantt/GanttProjectControl.html
@@ -367,7 +381,16 @@ declare namespace dojox {
              * @param taskOwner
              * @param parentTaskId
              */
-            insertTask(id: any, name: any, startTime: any, duration: any, percentage: any, previousTaskId: any, taskOwner: any, parentTaskId: any): any;
+            insertTask(
+                id: any,
+                name: any,
+                startTime: any,
+                duration: any,
+                percentage: any,
+                previousTaskId: any,
+                taskOwner: any,
+                parentTaskId: any
+            ): any;
             /**
              *
              */
@@ -483,7 +506,14 @@ declare namespace dojox {
              * @param menu
              * @param withDefaultValue
              */
-            createTab(id: any, desc: any, type: any, showOInfo: any, menu: any, withDefaultValue: any): any;
+            createTab(
+                id: any,
+                desc: any,
+                type: any,
+                showOInfo: any,
+                menu: any,
+                withDefaultValue: any
+            ): any;
             /**
              *
              */
@@ -793,7 +823,12 @@ declare namespace dojox {
              * @param month
              * @param year
              */
-            addMonthInPanelTime(row: any, count: any, month: any, year: any): void;
+            addMonthInPanelTime(
+                row: any,
+                count: any,
+                month: any,
+                year: any
+            ): void;
             /**
              *
              * @param projectItem
@@ -880,7 +915,11 @@ declare namespace dojox {
              * @param ctask
              * @param ctaskObj
              */
-            correctPosPreviousTask(predTask: any, ctask: any, ctaskObj: any): void;
+            correctPosPreviousTask(
+                predTask: any,
+                ctask: any,
+                ctaskObj: any
+            ): void;
             /**
              *
              * @param arrChildTasks
@@ -1079,38 +1118,37 @@ declare namespace dojox {
             switchTeleMicroView(dip: any): void;
         }
     }
-
 }
 
 declare module "dojox/gantt/contextMenuTab" {
-    var exp: dojox.gantt.contextMenuTab
-    export=exp;
+    var exp: dojox.gantt.contextMenuTab;
+    export = exp;
 }
 declare module "dojox/gantt/GanttProjectControl" {
-    var exp: dojox.gantt.GanttProjectControl
-    export=exp;
+    var exp: dojox.gantt.GanttProjectControl;
+    export = exp;
 }
 declare module "dojox/gantt/GanttProjectItem" {
-    var exp: dojox.gantt.GanttProjectItem
-    export=exp;
+    var exp: dojox.gantt.GanttProjectItem;
+    export = exp;
 }
 declare module "dojox/gantt/GanttResourceItem" {
-    var exp: dojox.gantt.GanttResourceItem
-    export=exp;
+    var exp: dojox.gantt.GanttResourceItem;
+    export = exp;
 }
 declare module "dojox/gantt/GanttChart" {
-    var exp: dojox.gantt.GanttChart
-    export=exp;
+    var exp: dojox.gantt.GanttChart;
+    export = exp;
 }
 declare module "dojox/gantt/GanttTaskControl" {
-    var exp: dojox.gantt.GanttTaskControl
-    export=exp;
+    var exp: dojox.gantt.GanttTaskControl;
+    export = exp;
 }
 declare module "dojox/gantt/TabMenu" {
-    var exp: dojox.gantt.TabMenu
-    export=exp;
+    var exp: dojox.gantt.TabMenu;
+    export = exp;
 }
 declare module "dojox/gantt/GanttTaskItem" {
-    var exp: dojox.gantt.GanttTaskItem
-    export=exp;
+    var exp: dojox.gantt.GanttTaskItem;
+    export = exp;
 }

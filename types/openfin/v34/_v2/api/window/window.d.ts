@@ -1,10 +1,10 @@
-import { Base, EmitterBase, RuntimeEvent } from '../base';
-import { Identity } from '../../identity';
-import Bounds from './bounds';
-import BoundsChangedReply from './bounds-changed';
-import { Transition, TransitionOptions } from './transition';
-import { Application } from '../application/application';
-import Transport from '../../transport/transport';
+import { Base, EmitterBase, RuntimeEvent } from "../base";
+import { Identity } from "../../identity";
+import Bounds from "./bounds";
+import BoundsChangedReply from "./bounds-changed";
+import { Transition, TransitionOptions } from "./transition";
+import { Application } from "../application/application";
+import Transport from "../../transport/transport";
 export default class _WindowModule extends Base {
     private instance;
     /**
@@ -52,7 +52,7 @@ export interface FrameInfo {
  * @property {Opacity} opacity - The Opacity transition
  * @property {Position} position - The Position transition
  * @property {Size} size - The Size transition
-*/
+ */
 /**
  * @typedef {object} TransitionOptions
  * @property {boolean} interrupt - This option interrupts the current animation. When false it pushes
@@ -78,7 +78,7 @@ this animation onto the end of the animation queue.
  * @property {number} duration - The total time in milliseconds this transition should take.
  * @property {boolean} relative - Treat 'opacity' as absolute or as a delta. Defaults to false.
  * @property {number} opacity - This value is clamped from 0.0 to 1.0.
-*/
+ */
 /**
  * Bounds is a interface that has the properties of height,
  * width, left, top which are all numbers
@@ -97,7 +97,7 @@ this animation onto the end of the animation queue.
  * must be invoked manually. The new window appears in the same process as the parent window.
  * @class
  * @alias Window
-*/
+ */
 export declare class _Window extends EmitterBase {
     identity: Identity;
     /**
@@ -441,13 +441,13 @@ export declare class _Window extends EmitterBase {
      * Gets the current bounds (top, left, width, height) of the window.
      * @return {Promise.<Bounds>}
      * @tutorial Window.getBounds
-    */
+     */
     getBounds(): Promise<Bounds>;
     /**
-    * Returns the native JavaScript "window" object for the window.
-    * @return {Promise.<any>}
-    * @tutorial Window.getNativeWindow
-    */
+     * Returns the native JavaScript "window" object for the window.
+     * @return {Promise.<any>}
+     * @tutorial Window.getNativeWindow
+     */
     getNativeWindow(): Promise<any>;
     /**
      * Gives focus to the window.
@@ -488,7 +488,7 @@ export declare class _Window extends EmitterBase {
      *  ‘close-requested’ has been subscribed to for application’s main window.
      * @return {Promise.<void>}
      * @tutorial Window.close
-    */
+     */
     close(force?: boolean): Promise<void>;
     /**
      * Returns then running applications uuid
@@ -642,7 +642,11 @@ export declare class _Window extends EmitterBase {
      * @return {Promise.<void>}
      * @tutorial Window.resizeBy
      */
-    resizeBy(deltaWidth: number, deltaHeight: number, anchor: string): Promise<void>;
+    resizeBy(
+        deltaWidth: number,
+        deltaHeight: number,
+        anchor: string
+    ): Promise<void>;
     /**
      * Resizes the window to the specified dimensions.
      * @param { number } width The change in the width of the window
@@ -748,12 +752,24 @@ export declare class _Window extends EmitterBase {
     stopNavigation(): Promise<void>;
 }
 export interface _Window {
-    on(type: 'focused', listener: Function): Promise<void>;
-    on(type: 'initialized', listener: Function): Promise<void>;
-    on(type: 'bounds-changed', listener: (data: BoundsChangedReply) => void): Promise<void>;
-    on(type: 'hidden', listener: Function): Promise<void>;
-    on(type: 'removeListener', listener: (eventType: string | symbol) => void): Promise<void>;
-    on(type: 'newListener', listener: (eventType: string | symbol) => void): Promise<void>;
-    on(type: 'closed', listener: (eventType: CloseEventShape) => void): Promise<void>;
-    on(type: 'fire-constructor-callback', listener: Function): Promise<void>;
+    on(type: "focused", listener: Function): Promise<void>;
+    on(type: "initialized", listener: Function): Promise<void>;
+    on(
+        type: "bounds-changed",
+        listener: (data: BoundsChangedReply) => void
+    ): Promise<void>;
+    on(type: "hidden", listener: Function): Promise<void>;
+    on(
+        type: "removeListener",
+        listener: (eventType: string | symbol) => void
+    ): Promise<void>;
+    on(
+        type: "newListener",
+        listener: (eventType: string | symbol) => void
+    ): Promise<void>;
+    on(
+        type: "closed",
+        listener: (eventType: CloseEventShape) => void
+    ): Promise<void>;
+    on(type: "fire-constructor-callback", listener: Function): Promise<void>;
 }

@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Analytics Reporting API v4 */
     function load(name: "analyticsreporting", version: "v4"): PromiseLike<void>;
-    function load(name: "analyticsreporting", version: "v4", callback: () => any): void;
+    function load(
+        name: "analyticsreporting",
+        version: "v4",
+        callback: () => any
+    ): void;
 
     const reports: analyticsreporting.ReportsResource;
 

@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "lib": [
-            "es6"
-        ],
+        "lib": ["es6"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "baseUrl": "../",
-        "typeRoots": [
-            "../"
-        ],
+        "typeRoots": ["../"],
         "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "@gramps/rest-helpers": [
-                "gramps__rest-helpers"
-            ]
+            "@gramps/rest-helpers": ["gramps__rest-helpers"]
         }
     },
-    "files": [
-        "index.d.ts",
-        "gramps__rest-helpers-tests.ts"
-    ]
+    "files": ["index.d.ts", "gramps__rest-helpers-tests.ts"]
 }

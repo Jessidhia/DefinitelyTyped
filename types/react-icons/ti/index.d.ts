@@ -170,12 +170,16 @@ export { default as TiMail } from "./mail";
 export { default as TiMap } from "./map";
 export { default as TiMediaEjectOutline } from "./media-eject-outline";
 export { default as TiMediaEject } from "./media-eject";
-export { default as TiMediaFastForwardOutline } from "./media-fast-forward-outline";
+export {
+    default as TiMediaFastForwardOutline
+} from "./media-fast-forward-outline";
 export { default as TiMediaFastForward } from "./media-fast-forward";
 export { default as TiMediaPauseOutline } from "./media-pause-outline";
 export { default as TiMediaPause } from "./media-pause";
 export { default as TiMediaPlayOutline } from "./media-play-outline";
-export { default as TiMediaPlayReverseOutline } from "./media-play-reverse-outline";
+export {
+    default as TiMediaPlayReverseOutline
+} from "./media-play-reverse-outline";
 export { default as TiMediaPlayReverse } from "./media-play-reverse";
 export { default as TiMediaPlay } from "./media-play";
 export { default as TiMediaRecordOutline } from "./media-record-outline";
@@ -209,7 +213,9 @@ export { default as TiPlane } from "./plane";
 export { default as TiPlug } from "./plug";
 export { default as TiPlusOutline } from "./plus-outline";
 export { default as TiPlus } from "./plus";
-export { default as TiPointOfInterestOutline } from "./point-of-interest-outline";
+export {
+    default as TiPointOfInterestOutline
+} from "./point-of-interest-outline";
 export { default as TiPointOfInterest } from "./point-of-interest";
 export { default as TiPowerOutline } from "./power-outline";
 export { default as TiPower } from "./power";
@@ -227,23 +233,35 @@ export { default as TiScissors } from "./scissors";
 export { default as TiShoppingBag } from "./shopping-bag";
 export { default as TiShoppingCart } from "./shopping-cart";
 export { default as TiSocialAtCircular } from "./social-at-circular";
-export { default as TiSocialDribbbleCircular } from "./social-dribbble-circular";
+export {
+    default as TiSocialDribbbleCircular
+} from "./social-dribbble-circular";
 export { default as TiSocialDribbble } from "./social-dribbble";
-export { default as TiSocialFacebookCircular } from "./social-facebook-circular";
+export {
+    default as TiSocialFacebookCircular
+} from "./social-facebook-circular";
 export { default as TiSocialFacebook } from "./social-facebook";
 export { default as TiSocialFlickrCircular } from "./social-flickr-circular";
 export { default as TiSocialFlickr } from "./social-flickr";
 export { default as TiSocialGithubCircular } from "./social-github-circular";
 export { default as TiSocialGithub } from "./social-github";
-export { default as TiSocialGooglePlusCircular } from "./social-google-plus-circular";
+export {
+    default as TiSocialGooglePlusCircular
+} from "./social-google-plus-circular";
 export { default as TiSocialGooglePlus } from "./social-google-plus";
-export { default as TiSocialInstagramCircular } from "./social-instagram-circular";
+export {
+    default as TiSocialInstagramCircular
+} from "./social-instagram-circular";
 export { default as TiSocialInstagram } from "./social-instagram";
 export { default as TiSocialLastFmCircular } from "./social-last-fm-circular";
 export { default as TiSocialLastFm } from "./social-last-fm";
-export { default as TiSocialLinkedinCircular } from "./social-linkedin-circular";
+export {
+    default as TiSocialLinkedinCircular
+} from "./social-linkedin-circular";
 export { default as TiSocialLinkedin } from "./social-linkedin";
-export { default as TiSocialPinterestCircular } from "./social-pinterest-circular";
+export {
+    default as TiSocialPinterestCircular
+} from "./social-pinterest-circular";
 export { default as TiSocialPinterest } from "./social-pinterest";
 export { default as TiSocialSkypeOutline } from "./social-skype-outline";
 export { default as TiSocialSkype } from "./social-skype";
@@ -255,9 +273,13 @@ export { default as TiSocialVimeoCircular } from "./social-vimeo-circular";
 export { default as TiSocialVimeo } from "./social-vimeo";
 export { default as TiSocialYoutubeCircular } from "./social-youtube-circular";
 export { default as TiSocialYoutube } from "./social-youtube";
-export { default as TiSortAlphabeticallyOutline } from "./sort-alphabetically-outline";
+export {
+    default as TiSortAlphabeticallyOutline
+} from "./sort-alphabetically-outline";
 export { default as TiSortAlphabetically } from "./sort-alphabetically";
-export { default as TiSortNumericallyOutline } from "./sort-numerically-outline";
+export {
+    default as TiSortNumericallyOutline
+} from "./sort-numerically-outline";
 export { default as TiSortNumerically } from "./sort-numerically";
 export { default as TiSpannerOutline } from "./spanner-outline";
 export { default as TiSpanner } from "./spanner";

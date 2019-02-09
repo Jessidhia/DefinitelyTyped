@@ -1,31 +1,31 @@
-import vfileMessage = require('vfile-message');
+import vfileMessage = require("vfile-message");
 
-const message = vfileMessage('Error!');
+const message = vfileMessage("Error!");
 vfileMessage(new Error());
-vfileMessage('Error!', {
-  type: 'random node'
+vfileMessage("Error!", {
+    type: "random node"
 });
-vfileMessage('Error!', {
-  start: {
+vfileMessage("Error!", {
+    start: {
+        line: 1,
+        column: 1
+    },
+    end: {
+        line: 1,
+        column: 1
+    }
+});
+vfileMessage("Error!", {
     line: 1,
     column: 1
-  },
-  end: {
-    line: 1,
-    column: 1
-  }
 });
-vfileMessage('Error!', {
-  line: 1,
-  column: 1
-});
-vfileMessage('Error!', undefined, 'test');
+vfileMessage("Error!", undefined, "test");
 
-message.file = '';
-message.name = '';
-message.reason = '';
-message.message = '';
-message.stack = '';
+message.file = "";
+message.name = "";
+message.reason = "";
+message.message = "";
+message.stack = "";
 message.fatal = null;
 message.fatal = true;
 message.column = 1;

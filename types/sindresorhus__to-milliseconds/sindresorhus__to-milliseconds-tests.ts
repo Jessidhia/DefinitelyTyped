@@ -1,24 +1,24 @@
-import toMilliseconds = require('@sindresorhus/to-milliseconds');
+import toMilliseconds = require("@sindresorhus/to-milliseconds");
 
 // $ExpectType number
 toMilliseconds({
-    days: 15,
+    days: 15
 });
 toMilliseconds({
-    hours: 11,
+    hours: 11
 });
 toMilliseconds({
-    minutes: 23,
+    minutes: 23
 });
 toMilliseconds({
-    seconds: 20,
+    seconds: 20
 });
 toMilliseconds({
-    milliseconds: 1,
+    milliseconds: 1
 });
 toMilliseconds({
-    microseconds: 1,
+    microseconds: 1
 });
 toMilliseconds({
-    nanoseconds: 1,
+    nanoseconds: 1
 });

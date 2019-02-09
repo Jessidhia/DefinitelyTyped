@@ -4,26 +4,29 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface Options {
-	defaults?: any;
-	configName?: string;
-	projectName?: string;
-	cwd?: string;
+    defaults?: any;
+    configName?: string;
+    projectName?: string;
+    cwd?: string;
 }
 
-declare class Conf implements Iterable<[string, string | number | boolean | symbol | {}]> {
-	path: string;
-	store: any;
+declare class Conf
+    implements Iterable<[string, string | number | boolean | symbol | {}]> {
+    path: string;
+    store: any;
 
-	readonly size: number;
+    readonly size: number;
 
-	constructor(options?: Options);
-	get(key: string): any;
-	set(key: string, val: string | number | boolean | symbol | {}): void;
-	set(object: {}): void;
-	has(key: string): boolean;
-	delete(key: string): void;
-	clear(): void;
-	[Symbol.iterator](): Iterator<[string, string | number | boolean | symbol | {}]>;
+    constructor(options?: Options);
+    get(key: string): any;
+    set(key: string, val: string | number | boolean | symbol | {}): void;
+    set(object: {}): void;
+    has(key: string): boolean;
+    delete(key: string): void;
+    clear(): void;
+    [Symbol.iterator](): Iterator<
+        [string, string | number | boolean | symbol | {}]
+    >;
 }
 
 export = Conf;

@@ -1,5 +1,8 @@
 import * as React from "react";
-import AlertContainer, { AlertContainerProps, AlertShowOptions } from "react-alert";
+import AlertContainer, {
+    AlertContainerProps,
+    AlertShowOptions
+} from "react-alert";
 
 export class ReactAlertTest extends React.Component {
     private _alert: AlertContainer;
@@ -14,7 +17,10 @@ export class ReactAlertTest extends React.Component {
 
         return (
             <div>
-                <AlertContainer ref={a => this._alert = a as AlertContainer} {...props} />
+                <AlertContainer
+                    ref={a => (this._alert = a as AlertContainer)}
+                    {...props}
+                />
             </div>
         );
     }
@@ -44,5 +50,5 @@ export class ReactAlertTest extends React.Component {
         this._alert.removeAll();
     }
 
-    private _onAlertClosed(): void { }
+    private _onAlertClosed(): void {}
 }

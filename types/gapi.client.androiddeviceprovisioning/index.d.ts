@@ -13,8 +13,15 @@
 
 declare namespace gapi.client {
     /** Load Android Device Provisioning Partner API v1 */
-    function load(name: "androiddeviceprovisioning", version: "v1"): PromiseLike<void>;
-    function load(name: "androiddeviceprovisioning", version: "v1", callback: () => any): void;
+    function load(
+        name: "androiddeviceprovisioning",
+        version: "v1"
+    ): PromiseLike<void>;
+    function load(
+        name: "androiddeviceprovisioning",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const operations: androiddeviceprovisioning.OperationsResource;
 

@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface strings extends MDCStrings {
-    ARIA_HIDDEN: 'aria-hidden';
-    ROLE: 'role';
+    ARIA_HIDDEN: "aria-hidden";
+    ROLE: "role";
 }
 
 export interface cssClasses extends MDCStrings {
-    HELPER_TEXT_PERSISTENT: 'mdc-text-field-helper-text--persistent';
-    HELPER_TEXT_VALIDATION_MSG: 'mdc-text-field-helper-text--validation-msg';
+    HELPER_TEXT_PERSISTENT: "mdc-text-field-helper-text--persistent";
+    HELPER_TEXT_VALIDATION_MSG: "mdc-text-field-helper-text--validation-msg";
 }

@@ -8,9 +8,9 @@
 /// <reference types="koa"/>
 /// <reference types="qs"/>
 
-import * as http from 'http';
-import * as Koa from 'koa';
-import * as qs from 'qs';
+import * as http from "http";
+import * as Koa from "koa";
+import * as qs from "qs";
 
 declare namespace CoBody {
     type Context = http.IncomingMessage | Koa.Context;

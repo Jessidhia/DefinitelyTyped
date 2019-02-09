@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { SelectCallback } from 'react-bootstrap';
-import DropdownToggle = require('./DropdownToggle');
-import DropdownMenu = require('./DropdownMenu');
+import * as React from "react";
+import { SelectCallback } from "react-bootstrap";
+import DropdownToggle = require("./DropdownToggle");
+import DropdownMenu = require("./DropdownMenu");
 
 declare namespace Dropdown {
     export interface DropdownBaseProps {
@@ -18,11 +18,12 @@ declare namespace Dropdown {
         role?: string;
     }
 
-    export type DropdownProps = Dropdown.DropdownBaseProps & React.HTMLProps<Dropdown>;
+    export type DropdownProps = Dropdown.DropdownBaseProps &
+        React.HTMLProps<Dropdown>;
 }
 
 declare class Dropdown extends React.Component<Dropdown.DropdownProps> {
-  public static Menu: typeof DropdownMenu;
-  public static Toggle: typeof DropdownToggle;
+    public static Menu: typeof DropdownMenu;
+    public static Toggle: typeof DropdownToggle;
 }
 export = Dropdown;

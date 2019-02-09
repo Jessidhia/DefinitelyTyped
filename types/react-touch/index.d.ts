@@ -17,7 +17,9 @@ export interface HoldConfig {
 
 /** @see defineHold */
 export interface HoldableConfig {
-    holdProgress(callback: () => void): (updateState: (holdLength: number) => void) => () => void;
+    holdProgress(
+        callback: () => void
+    ): (updateState: (holdLength: number) => void) => () => void;
     holdComplete(callback: () => void): () => () => void;
 }
 
@@ -30,8 +32,7 @@ export interface HoldableProps {
     onTouchStart?(): void;
 }
 
-export class Holdable extends React.Component<HoldableProps> {
-}
+export class Holdable extends React.Component<HoldableProps> {}
 
 export interface DraggableStyle {
     translateX?: number;
@@ -47,7 +48,9 @@ export interface DraggableCallbackArgument extends DraggableStyle {
     dy: number;
 }
 
-export type DraggableCallback = (argument: DraggableCallbackArgument) => JSX.Element;
+export type DraggableCallback = (
+    argument: DraggableCallbackArgument
+) => JSX.Element;
 
 export interface DraggableProps {
     /**
@@ -59,8 +62,7 @@ export interface DraggableProps {
     children: DraggableCallback;
 }
 
-export class Draggable extends React.Component<DraggableProps> {
-}
+export class Draggable extends React.Component<DraggableProps> {}
 
 export function defineSwipe(config?: SwipeConfig): SwipeableConfig;
 
@@ -88,15 +90,22 @@ export interface SwipeableProps {
     onTouchStart?(): void;
 }
 
-export class Swipeable extends React.Component<SwipeableProps> {
-}
+export class Swipeable extends React.Component<SwipeableProps> {}
 
-export enum moves {UPLEFT, UP, UPRIGHT, LEFT, RIGHT, DOWNRIGHT, DOWN, DOWNLEFT}
+export enum moves {
+    UPLEFT,
+    UP,
+    UPRIGHT,
+    LEFT,
+    RIGHT,
+    DOWNRIGHT,
+    DOWN,
+    DOWNLEFT
+}
 
 export interface CustomGestureProps {
     config: moves[];
     onGesture(): void;
 }
 
-export class CustomGesture extends React.Component<CustomGestureProps> {
-}
+export class CustomGesture extends React.Component<CustomGestureProps> {}

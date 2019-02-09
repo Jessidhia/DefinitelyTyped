@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as webpack from 'webpack';
+import * as webpack from "webpack";
 
 export namespace BundleAnalyzerPlugin {
     type ExcludeAssetsPatternFn = (assetName: string) => boolean;
@@ -18,7 +18,7 @@ export namespace BundleAnalyzerPlugin {
          * In "static" mode single HTML file with bundle report will be generated.
          * In "disabled" mode you can use this plugin to just generate Webpack Stats JSON file by setting "generateStatsFile" to true.
          */
-        analyzerMode?: 'server' | 'static' | 'disabled';
+        analyzerMode?: "server" | "static" | "disabled";
 
         /**
          * Host that will be used in `server` mode to start HTTP server.
@@ -44,7 +44,7 @@ export namespace BundleAnalyzerPlugin {
          * Should be one of "stat", "parsed" or "gzip".
          * Defaults to "parsed"
          */
-        defaultSizes?: 'parsed' | 'stat' | 'gzip';
+        defaultSizes?: "parsed" | "stat" | "gzip";
 
         /**
          * Automatically open report in default browser.
@@ -85,7 +85,7 @@ export namespace BundleAnalyzerPlugin {
          * Log level. Can be "info", "warn", "error" or "silent".
          * Defaults to "info"
          */
-        logLevel?: 'info' | 'warn' | 'error' | 'silent';
+        logLevel?: "info" | "warn" | "error" | "silent";
     }
 }
 

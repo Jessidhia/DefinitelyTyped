@@ -14,7 +14,11 @@
 declare namespace gapi.client {
     /** Load Google Storage Transfer API v1 */
     function load(name: "storagetransfer", version: "v1"): PromiseLike<void>;
-    function load(name: "storagetransfer", version: "v1", callback: () => any): void;
+    function load(
+        name: "storagetransfer",
+        version: "v1",
+        callback: () => any
+    ): void;
 
     const googleServiceAccounts: storagetransfer.GoogleServiceAccountsResource;
 

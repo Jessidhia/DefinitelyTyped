@@ -7,7 +7,8 @@
 export = promiseMemoize;
 
 declare function promiseMemoize<T extends (...args: any[]) => PromiseLike<any>>(
-    fn: T, options?: promiseMemoize.Options
+    fn: T,
+    options?: promiseMemoize.Options
 ): T & {
     clear(): void;
 };
@@ -18,5 +19,9 @@ declare namespace promiseMemoize {
         maxErrorAge?: number;
         resolve?: KeyResolver;
     }
-    type KeyResolver = 'simple' | 'json' | ((args: any[]) => any) | ReadonlyArray<'json' | ((arg: any) => any)>;
+    type KeyResolver =
+        | "simple"
+        | "json"
+        | ((args: any[]) => any)
+        | ReadonlyArray<"json" | ((arg: any) => any)>;
 }

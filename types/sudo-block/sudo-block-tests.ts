@@ -1,4 +1,4 @@
-import sudoBlock = require('sudo-block');
+import sudoBlock = require("sudo-block");
 
 sudoBlock();
-sudoBlock('hi');
+sudoBlock("hi");

@@ -9,12 +9,20 @@
 declare module "set-cookie-parser" {
     import http = require("http");
 
-    function SetCookieParser(input: string | ReadonlyArray<string> | http.IncomingMessage, options?: SetCookieParser.Options): SetCookieParser.Cookie[];
+    function SetCookieParser(
+        input: string | ReadonlyArray<string> | http.IncomingMessage,
+        options?: SetCookieParser.Options
+    ): SetCookieParser.Cookie[];
 
     namespace SetCookieParser {
-        function parse(input: string | ReadonlyArray<string> | http.IncomingMessage, options?: Options): Cookie[];
+        function parse(
+            input: string | ReadonlyArray<string> | http.IncomingMessage,
+            options?: Options
+        ): Cookie[];
 
-        function splitCookiesString(input: string | ReadonlyArray<string> | void): string[];
+        function splitCookiesString(
+            input: string | ReadonlyArray<string> | void
+        ): string[];
 
         interface Cookie {
             name: string;
@@ -30,7 +38,7 @@ declare module "set-cookie-parser" {
         type Options = {
             decodeValues?: boolean;
             map?: boolean;
-        }
+        };
     }
 
     export = SetCookieParser;

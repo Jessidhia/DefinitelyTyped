@@ -16,7 +16,7 @@ beforeAll(async () => {
 
     const initOptions: Detox.DetoxInitOptions = {
         initGlobals: false,
-        launchApp: false,
+        launchApp: false
     };
     await detox.init(config, initOptions);
 });

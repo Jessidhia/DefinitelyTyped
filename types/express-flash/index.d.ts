@@ -6,6 +6,6 @@
 
 /// <reference types="connect-flash" />
 
-import express = require('express');
+import express = require("express");
 declare function flash(): express.RequestHandler;
 export = flash;

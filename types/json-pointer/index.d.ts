@@ -3,7 +3,6 @@
 // Definitions by: Bart van der Schoor <https://github.com/Bartvds>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 declare function JSON_Pointer(object: Object): JSON_Pointer.JSON_PointerWrap;
 
 declare namespace JSON_Pointer {
@@ -29,7 +28,10 @@ declare namespace JSON_Pointer {
     /**
      *  Just like: each(pointer.dict(obj), iterator);
      */
-    function walk(object: Object, iterator: (value: any, key: string) => void): void;
+    function walk(
+        object: Object,
+        iterator: (value: any, key: string) => void
+    ): void;
     /**
      *  Tests if an object has a value for a JSON pointer.
      */

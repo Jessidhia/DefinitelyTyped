@@ -4,12 +4,12 @@ _vrControls.update();
 
 _vrControls.scale = 25;
 
-window.addEventListener("keydown", (ev) => {
+window.addEventListener("keydown", ev => {
     if (ev.keyCode == "R".charCodeAt(0)) {
         _vrControls.zeroSensor();
     }
 });
 
-window.addEventListener("touchstart", (ev) => {
+window.addEventListener("touchstart", ev => {
     _vrControls.zeroSensor();
 });

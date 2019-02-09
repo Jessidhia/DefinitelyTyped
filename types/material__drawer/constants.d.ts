@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-import { MDCStrings } from 'material__base';
+import { MDCStrings } from "material__base";
 
 export interface cssClasses extends MDCStrings {
-    ROOT: 'mdc-drawer';
-    DISMISSIBLE: 'mdc-drawer--dismissible';
-    MODAL: 'mdc-drawer--modal';
-    OPEN: 'mdc-drawer--open';
-    ANIMATE: 'mdc-drawer--animate';
-    OPENING: 'mdc-drawer--opening';
-    CLOSING: 'mdc-drawer--closing';
+    ROOT: "mdc-drawer";
+    DISMISSIBLE: "mdc-drawer--dismissible";
+    MODAL: "mdc-drawer--modal";
+    OPEN: "mdc-drawer--open";
+    ANIMATE: "mdc-drawer--animate";
+    OPENING: "mdc-drawer--opening";
+    CLOSING: "mdc-drawer--closing";
 }
 
 export interface strings extends MDCStrings {
-    APP_CONTENT_SELECTOR: '.mdc-drawer-app-content';
-    SCRIM_SELECTOR: '.mdc-drawer-scrim';
-    CLOSE_EVENT: 'MDCDrawer:closed';
-    OPEN_EVENT: 'MDCDrawer:opened';
+    APP_CONTENT_SELECTOR: ".mdc-drawer-app-content";
+    SCRIM_SELECTOR: ".mdc-drawer-scrim";
+    CLOSE_EVENT: "MDCDrawer:closed";
+    OPEN_EVENT: "MDCDrawer:opened";
 }

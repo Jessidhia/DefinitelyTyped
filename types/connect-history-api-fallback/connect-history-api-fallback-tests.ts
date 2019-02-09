@@ -1,5 +1,5 @@
-import historyApiFallback = require('connect-history-api-fallback');
-import express = require('express');
+import historyApiFallback = require("connect-history-api-fallback");
+import express = require("express");
 
 const app = express();
 app.use(historyApiFallback());
@@ -13,17 +13,15 @@ historyApiFallback({
 });
 
 historyApiFallback({
-    rewrites: [
-        { from: /\/soccer/, to: '/soccer.html' }
-    ]
+    rewrites: [{ from: /\/soccer/, to: "/soccer.html" }]
 });
 
 historyApiFallback({
-    index: 'default.html'
+    index: "default.html"
 });
 
 historyApiFallback({
-    htmlAcceptHeaders: ['text/html', 'application/xhtml+xml']
+    htmlAcceptHeaders: ["text/html", "application/xhtml+xml"]
 });
 
 historyApiFallback({
@@ -31,7 +29,7 @@ historyApiFallback({
         {
             from: /^\/libs\/(.*)$/,
             to(context) {
-                return './bower_components' + context.parsedUrl.pathname;
+                return "./bower_components" + context.parsedUrl.pathname;
             }
         }
     ]
@@ -42,10 +40,10 @@ historyApiFallback({
         {
             from: /\/app\/login/,
             to: function onMatch(ctx) {
-                if (ctx.parsedUrl.path && ctx.parsedUrl.path.indexOf('.js')) {
-                    return ctx.parsedUrl.href || '';
+                if (ctx.parsedUrl.path && ctx.parsedUrl.path.indexOf(".js")) {
+                    return ctx.parsedUrl.href || "";
                 }
-                return '/app/login/index.html';
+                return "/app/login/index.html";
             }
         }
     ]

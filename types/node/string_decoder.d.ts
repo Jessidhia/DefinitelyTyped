@@ -4,6 +4,6 @@ declare module "string_decoder" {
         end(buffer?: Buffer): string;
     }
     const StringDecoder: {
-        new(encoding?: string): NodeStringDecoder;
+        new (encoding?: string): NodeStringDecoder;
     };
 }

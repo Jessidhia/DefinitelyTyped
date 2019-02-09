@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import { Db } from 'mongodb';
+import { Db } from "mongodb";
 
 export interface DbConfig {
     hosts?: string;
@@ -18,14 +18,23 @@ export interface DbConfig {
 
 export interface MigrationResponse {
     id: string;
-    status: 'not-run' | 'skipped' | 'pending' | 'ok' | 'error' | 'rollback' | 'rollback-error';
+    status:
+        | "not-run"
+        | "skipped"
+        | "pending"
+        | "ok"
+        | "error"
+        | "rollback"
+        | "rollback-error";
 }
 
 export class Migration {
     constructor(dbConfig: DbConfig);
     add: (paths: string | string[]) => void;
     addAllFromPath: (path: string) => void;
-    migrate: (doneCb?: (err: Error | null, response: MigrationResponse[]) => void) => void;
+    migrate: (
+        doneCb?: (err: Error | null, response: MigrationResponse[]) => void
+    ) => void;
 }
 
 export interface MigrationStep {

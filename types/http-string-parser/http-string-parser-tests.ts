@@ -1,7 +1,9 @@
 import parser = require("http-string-parser");
 
 function test_request(): void {
-    var result = parser.parseRequest("HTTP/1.1 GET /\r\nHost: www.example.com\r\n\r\n");
+    var result = parser.parseRequest(
+        "HTTP/1.1 GET /\r\nHost: www.example.com\r\n\r\n"
+    );
 
     var body: string = result.body;
     var headers: { [key: string]: string } = result.headers;
@@ -35,6 +37,8 @@ function test_statusLine(): void {
 }
 
 function test_headers(): void {
-    var result: { [key: string]: string } =
-        parser.parseHeaders(["Content-Type: text/html; charset=utf-8", "Content-Length: 256"]);
+    var result: { [key: string]: string } = parser.parseHeaders([
+        "Content-Type: text/html; charset=utf-8",
+        "Content-Length: 256"
+    ]);
 }

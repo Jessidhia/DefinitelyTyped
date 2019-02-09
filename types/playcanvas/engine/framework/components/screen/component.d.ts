@@ -1,5 +1,4 @@
 declare namespace pc {
-
     /**
      * @enum pc.SCALEMODE
      * @name pc.SCALEMODE_NONE
@@ -28,7 +27,7 @@ declare namespace pc {
      * @property {pc.Vec2} referenceResolution The resolution that the ScreenComponent is designed for. This is only taken into account when screenSpace is true and scaleMode is {@link pc.SCALEMODE_BLEND}. If the actual resolution is different then the ScreenComponent will be scaled according to the scaleBlend value.
      */
     class ScreenComponent extends pc.Component {
-        constructor(system: pc.ScreenComponentSystem, entity: pc.Entity)
+        constructor(system: pc.ScreenComponentSystem, entity: pc.Entity);
 
         screenSpace: boolean;
         scaleMode: string;

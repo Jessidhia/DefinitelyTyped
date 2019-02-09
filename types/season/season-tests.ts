@@ -14,7 +14,7 @@ CSON.readFile("input.cson", (err, obj) => {
 
 const input: any = CSON.readFileSync("input.cson");
 
-CSON.writeFile("output.cson", input, (err) => {
+CSON.writeFile("output.cson", input, err => {
     if (err) throw err;
 });
 

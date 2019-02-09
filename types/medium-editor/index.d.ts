@@ -7,23 +7,42 @@
 declare namespace MediumEditor {
     export interface MediumEditor {
         // Initialization Functions
-        new(elements: elementType, options?: CoreOptions): MediumEditor;
+        new (elements: elementType, options?: CoreOptions): MediumEditor;
         destroy(): void;
         setup(): void;
         addElements(elements: elementType): void;
         removeElements(elements: elementType): void;
 
         // Event Functions
-        on(targets: HTMLElement | NodeList, event: string, listener: EventListenerOrEventListenerObject, useCapture: boolean): MediumEditor;
-        off(targets: HTMLElement | NodeList, event: string, listener: EventListenerOrEventListenerObject, useCapture: boolean): MediumEditor;
-        subscribe(name: string, listener: (data: any, editable: HTMLElement) => void): MediumEditor;
-        unsubscribe(name: string, listener: (data: any, editable: HTMLElement) => void): MediumEditor;
+        on(
+            targets: HTMLElement | NodeList,
+            event: string,
+            listener: EventListenerOrEventListenerObject,
+            useCapture: boolean
+        ): MediumEditor;
+        off(
+            targets: HTMLElement | NodeList,
+            event: string,
+            listener: EventListenerOrEventListenerObject,
+            useCapture: boolean
+        ): MediumEditor;
+        subscribe(
+            name: string,
+            listener: (data: any, editable: HTMLElement) => void
+        ): MediumEditor;
+        unsubscribe(
+            name: string,
+            listener: (data: any, editable: HTMLElement) => void
+        ): MediumEditor;
         trigger(name: string, data: any, editable: HTMLElement): MediumEditor;
 
         // Selection Functions
         checkSelection(): MediumEditor;
         exportSelection(): selectionObject;
-        importSelection(selectionState: selectionObject, favorLaterSelectionAnchor: boolean): void;
+        importSelection(
+            selectionState: selectionObject,
+            favorLaterSelectionAnchor: boolean
+        ): void;
         getFocusedElement(): HTMLElement;
         getSelectedParentElement(range?: Range): HTMLElement;
         restoreSelection(): void;
@@ -163,7 +182,7 @@ declare namespace MediumEditor {
         action?: string;
         aria?: string;
         tagNames?: string[];
-        style?: { prop: string, value: string };
+        style?: { prop: string; value: string };
         useQueryState?: boolean;
         contentDefault?: string;
         contentFA?: string;
@@ -172,7 +191,13 @@ declare namespace MediumEditor {
     }
 
     export type Button = string | ButtonOptions;
-    export type elementType = string | HTMLElement | HTMLElement[] | NodeList | NodeListOf<Element> | HTMLCollection;
+    export type elementType =
+        | string
+        | HTMLElement
+        | HTMLElement[]
+        | NodeList
+        | NodeListOf<Element>
+        | HTMLCollection;
     export interface selectionObject {
         start: number;
         end: number;

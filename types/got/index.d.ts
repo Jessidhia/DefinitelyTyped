@@ -9,52 +9,52 @@
 
 /// <reference types="node"/>
 
-import { Url, URL } from 'url';
-import * as http from 'http';
-import * as https from 'https';
-import * as nodeStream from 'stream';
-import { CookieJar } from 'tough-cookie';
+import { Url, URL } from "url";
+import * as http from "http";
+import * as https from "https";
+import * as nodeStream from "stream";
+import { CookieJar } from "tough-cookie";
 
 export = got;
 
 declare class RequestError extends StdError {
-    name: 'RequestError';
+    name: "RequestError";
 }
 
 declare class ReadError extends StdError {
-    name: 'ReadError';
+    name: "ReadError";
 }
 
 declare class ParseError extends StdError {
-    name: 'ParseError';
+    name: "ParseError";
     statusCode: number;
     statusMessage: string;
 }
 
 declare class HTTPError extends StdError {
-    name: 'HTTPError';
+    name: "HTTPError";
     statusCode: number;
     statusMessage: string;
     headers: http.IncomingHttpHeaders;
 }
 
 declare class MaxRedirectsError extends StdError {
-    name: 'MaxRedirectsError';
+    name: "MaxRedirectsError";
     statusCode: number;
     statusMessage: string;
     redirectUrls: string[];
 }
 
 declare class UnsupportedProtocolError extends StdError {
-    name: 'UnsupportedProtocolError';
+    name: "UnsupportedProtocolError";
 }
 
 declare class CancelError extends StdError {
-    name: 'CancelError';
+    name: "CancelError";
 }
 
 declare class TimeoutError extends StdError {
-    name: 'TimeoutError';
+    name: "TimeoutError";
 }
 
 declare class StdError extends Error {
@@ -69,9 +69,12 @@ declare class StdError extends Error {
 }
 
 declare const got: got.GotFn &
-    Record<'get' | 'post' | 'put' | 'patch' | 'head' | 'delete', got.GotFn> &
-    {
-        stream: got.GotStreamFn & Record<'get' | 'post' | 'put' | 'patch' | 'head' | 'delete', got.GotStreamFn>;
+    Record<"get" | "post" | "put" | "patch" | "head" | "delete", got.GotFn> & {
+        stream: got.GotStreamFn &
+            Record<
+                "get" | "post" | "put" | "patch" | "head" | "delete",
+                got.GotStreamFn
+            >;
         RequestError: typeof RequestError;
         ReadError: typeof ReadError;
         ParseError: typeof ParseError;
@@ -98,7 +101,10 @@ declare namespace got {
         (url: GotUrl, options: GotBodyOptions<null>): GotPromise<Buffer>;
     }
 
-    type GotStreamFn = (url: GotUrl, options?: GotOptions<string | null>) => GotEmitter & nodeStream.Duplex;
+    type GotStreamFn = (
+        url: GotUrl,
+        options?: GotOptions<string | null>
+    ) => GotEmitter & nodeStream.Duplex;
 
     type GotUrl = string | https.RequestOptions | Url | URL;
 
@@ -132,7 +138,11 @@ declare namespace got {
      * @param error Request error.
      * @param retryCount Number of retry.
      */
-    type BeforeRetryHook<Options> = (options: Options, error: GotError, retryCount: number) => any;
+    type BeforeRetryHook<Options> = (
+        options: Options,
+        error: GotError,
+        retryCount: number
+    ) => any;
 
     /**
      * @param response Response object.
@@ -163,7 +173,8 @@ declare namespace got {
         hooks?: Hooks<GotFormOptions<E>, Record<string, any>>;
     }
 
-    interface GotOptions<E extends string | null> extends InternalRequestOptions {
+    interface GotOptions<E extends string | null>
+        extends InternalRequestOptions {
         baseUrl?: string;
         cookieJar?: CookieJar;
         encoding?: E;
@@ -223,7 +234,9 @@ declare namespace got {
 
     interface RetryOptions {
         retries?: number | RetryFunction;
-        methods?: Array<'GET' | 'PUT' | 'HEAD' | 'DELETE' | 'OPTIONS' | 'TRACE'>;
+        methods?: Array<
+            "GET" | "PUT" | "HEAD" | "DELETE" | "OPTIONS" | "TRACE"
+        >;
         statusCodes?: Array<408 | 413 | 429 | 500 | 502 | 503 | 504>;
         maxRetryAfter?: number;
         /**
@@ -243,7 +256,8 @@ declare namespace got {
         delete(key: string): any;
     }
 
-    interface Response<B extends Buffer | string | object> extends http.IncomingMessage {
+    interface Response<B extends Buffer | string | object>
+        extends http.IncomingMessage {
         body: B;
         url: string;
         requestUrl: string;
@@ -251,53 +265,210 @@ declare namespace got {
         redirectUrls?: string[];
     }
 
-    type GotPromise<B extends Buffer | string | object> = Promise<Response<B>> & { cancel(): void };
+    type GotPromise<B extends Buffer | string | object> = Promise<
+        Response<B>
+    > & { cancel(): void };
 
     interface GotEmitter {
-        addListener(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        addListener(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        addListener(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        addListener(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        addListener(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        addListener(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        addListener(
+            event: "request",
+            listener: (req: http.ClientRequest) => void
+        ): this;
+        addListener(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        addListener(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        addListener(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        addListener(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        addListener(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
 
-        on(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        on(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        on(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        on(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        on(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        on(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        on(event: "request", listener: (req: http.ClientRequest) => void): this;
+        on(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        on(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        on(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        on(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        on(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
 
-        once(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        once(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        once(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        once(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        once(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        once(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        once(
+            event: "request",
+            listener: (req: http.ClientRequest) => void
+        ): this;
+        once(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        once(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        once(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        once(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        once(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
 
-        prependListener(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        prependListener(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        prependListener(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        prependListener(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        prependListener(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        prependListener(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        prependListener(
+            event: "request",
+            listener: (req: http.ClientRequest) => void
+        ): this;
+        prependListener(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        prependListener(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        prependListener(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        prependListener(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        prependListener(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
 
-        prependOnceListener(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        prependOnceListener(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        prependOnceListener(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        prependOnceListener(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        prependOnceListener(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        prependOnceListener(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        prependOnceListener(
+            event: "request",
+            listener: (req: http.ClientRequest) => void
+        ): this;
+        prependOnceListener(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        prependOnceListener(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        prependOnceListener(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        prependOnceListener(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        prependOnceListener(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
 
-        removeListener(event: 'request', listener: (req: http.ClientRequest) => void): this;
-        removeListener(event: 'response', listener: (res: http.IncomingMessage) => void): this;
-        removeListener(event: 'redirect', listener: (res: http.IncomingMessage, nextOptions: GotOptions<string | null> & Url) => void): this;
-        removeListener(event: 'error', listener: (error: GotError, body?: any, res?: http.IncomingMessage) => void): this;
-        removeListener(event: 'downloadProgress', listener: (progress: Progress) => void): this;
-        removeListener(event: 'uploadProgress', listener: (progress: Progress) => void): this;
+        removeListener(
+            event: "request",
+            listener: (req: http.ClientRequest) => void
+        ): this;
+        removeListener(
+            event: "response",
+            listener: (res: http.IncomingMessage) => void
+        ): this;
+        removeListener(
+            event: "redirect",
+            listener: (
+                res: http.IncomingMessage,
+                nextOptions: GotOptions<string | null> & Url
+            ) => void
+        ): this;
+        removeListener(
+            event: "error",
+            listener: (
+                error: GotError,
+                body?: any,
+                res?: http.IncomingMessage
+            ) => void
+        ): this;
+        removeListener(
+            event: "downloadProgress",
+            listener: (progress: Progress) => void
+        ): this;
+        removeListener(
+            event: "uploadProgress",
+            listener: (progress: Progress) => void
+        ): this;
     }
 
-    type GotError = RequestError | ReadError | ParseError | HTTPError | MaxRedirectsError | UnsupportedProtocolError | CancelError | TimeoutError;
+    type GotError =
+        | RequestError
+        | ReadError
+        | ParseError
+        | HTTPError
+        | MaxRedirectsError
+        | UnsupportedProtocolError
+        | CancelError
+        | TimeoutError;
 
     interface Progress {
         percent: number;

@@ -9,23 +9,63 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-export function handler<T extends Request>(event: RequestBody<T>, context: Context, callback?: (err: any, response: any) => void): AlexaObject<T>;
+export function handler<T extends Request>(
+    event: RequestBody<T>,
+    context: Context,
+    callback?: (err: any, response: any) => void
+): AlexaObject<T>;
 export function CreateStateHandler(state: string, obj: any): any;
 export let StateString: string;
 export type ConfirmationStatuses = "NONE" | "DENIED" | "CONFIRMED";
 export type DialogStates = "STARTED" | "IN_PROGRESS" | "COMPLETED";
 export type ListItemObjectStatus = "active" | "completed";
 export type ListObjectState = "active" | "archived";
-export type ImageSourceSize = "X_SMALL" | "SMALL" | "MEDIUM" | "LARGE" | "X_LARGE";
+export type ImageSourceSize =
+    | "X_SMALL"
+    | "SMALL"
+    | "MEDIUM"
+    | "LARGE"
+    | "X_LARGE";
 export type TemplateBackButtonVisibility = "HIDDEN" | "VISIBLE";
-export type TemplateType = "BodyTemplate1" | "BodyTemplate2" | "BodyTemplate3" | "BodyTemplate6" | "BodyTemplate6" | "ListTemplate1" | "ListTemplate2";
-export type AudioPlayerActivity = "IDLE" | "PAUSED" | "PLAYING" | "BUFFER_UNDERRUN" | "FINISHED" | "STOPPED";
-export type CardType = "Standard" | "Simple" | "LinkAccount" | "AskForPermissionsConsent";
+export type TemplateType =
+    | "BodyTemplate1"
+    | "BodyTemplate2"
+    | "BodyTemplate3"
+    | "BodyTemplate6"
+    | "BodyTemplate6"
+    | "ListTemplate1"
+    | "ListTemplate2";
+export type AudioPlayerActivity =
+    | "IDLE"
+    | "PAUSED"
+    | "PLAYING"
+    | "BUFFER_UNDERRUN"
+    | "FINISHED"
+    | "STOPPED";
+export type CardType =
+    | "Standard"
+    | "Simple"
+    | "LinkAccount"
+    | "AskForPermissionsConsent";
 export type HintType = "PlainText";
-export type DirectiveTypes = "AudioPlayer.Play" | "AudioPlayer.Stop" | "AudioPlayer.ClearQueue" | "Display.RenderTemplate" | "Hint" | "VideoApp.Launch";
+export type DirectiveTypes =
+    | "AudioPlayer.Play"
+    | "AudioPlayer.Stop"
+    | "AudioPlayer.ClearQueue"
+    | "Display.RenderTemplate"
+    | "Hint"
+    | "VideoApp.Launch";
 export type TextContentType = "PlainText" | "RichText";
-export type MediaErrorType = "MEDIA_ERROR_UNKNOWN" | "MEDIA_ERROR_INVALID_REQUEST" | "MEDIA_ERROR_SERVICE_UNAVAILABLE" | "MEDIA_ERROR_INTERNAL_SERVER_ERROR" | "MEDIA_ERROR_INTERNAL_DEVICE_ERROR";
-export type SystemErrorType = "INVALID_RESPONSE" | "DEVICE_COMMUNICATION_ERROR" | "INTERNAL_ERROR";
+export type MediaErrorType =
+    | "MEDIA_ERROR_UNKNOWN"
+    | "MEDIA_ERROR_INVALID_REQUEST"
+    | "MEDIA_ERROR_SERVICE_UNAVAILABLE"
+    | "MEDIA_ERROR_INTERNAL_SERVER_ERROR"
+    | "MEDIA_ERROR_INTERNAL_DEVICE_ERROR";
+export type SystemErrorType =
+    | "INVALID_RESPONSE"
+    | "DEVICE_COMMUNICATION_ERROR"
+    | "INTERNAL_ERROR";
 
 //#region Types
 export interface CardImage {
@@ -201,7 +241,7 @@ export interface Permissions {
     consentToken: string;
     [key: string]: string;
 }
-export interface LaunchRequest extends Request { }
+export interface LaunchRequest extends Request {}
 
 export interface IntentRequest extends Request {
     dialogState?: DialogStates;
@@ -272,28 +312,24 @@ export interface ListEventBody {
 }
 
 export interface Request {
-    type: "LaunchRequest"
+    type:
+        | "LaunchRequest"
         | "IntentRequest"
         | "SessionEndedRequest"
-
         | "System.ExceptionEncountered"
-
         | "AudioPlayer.PlaybackStarted"
         | "AudioPlayer.PlaybackFinished"
         | "AudioPlayer.PlaybackStopped"
         | "AudioPlayer.PlaybackNearlyFinished"
-
         | "PlaybackController.NextCommandIssued"
         | "PlaybackController.PauseCommandIssued"
         | "PlaybackController.PlayCommandIssued"
         | "PlaybackController.PreviousCommandIssued"
-
         | "AlexaSkillEvent.SkillAccountLinked"
         | "AlexaSkillEvent.SkillEnabled"
         | "AlexaSkillEvent.SkillDisabled"
         | "AlexaSkillEvent.SkillPermissionAccepted"
         | "AlexaSkillEvent.SkillPermissionChanged"
-
         | "AlexaHouseholdListEvent.ListCreated"
         | "AlexaHouseholdListEvent.ListUpdated"
         | "AlexaHouseholdListEvent.ListDeleted"
@@ -454,7 +490,7 @@ export interface ListObject {
      * href is lint to the items having certain status.
      * The status can be "active" or "completed".
      */
-    statusMap: { href: string; status: ListItemObjectStatus; };
+    statusMap: { href: string; status: ListItemObjectStatus };
     /**
      * Items that belong to this list.
      */
@@ -500,7 +536,11 @@ export interface UpdateListItemParams {
  */
 export namespace templateBuilders {
     interface SetTextContent<T extends TemplateBuilder<T>> {
-        setTextContent(primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): T;
+        setTextContent(
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): T;
     }
     interface SetListItems<T extends TemplateBuilder<T>> {
         setListItems(listItems: ListItem[]): T;
@@ -560,14 +600,21 @@ export namespace templateBuilders {
          * @param secondaryText secondaryText
          * @param tertiaryText tertiaryText
          */
-        addItem(image: Image, token: string, primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): ListItemBuilder;
+        addItem(
+            image: Image,
+            token: string,
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): ListItemBuilder;
 
         build(): ListItem[];
     }
     /**
      * Used to create BodyTemplate1 objects
      */
-    class BodyTemplate1Builder extends TemplateBuilder<BodyTemplate1Builder> implements SetTextContent<BodyTemplate1Builder> {
+    class BodyTemplate1Builder extends TemplateBuilder<BodyTemplate1Builder>
+        implements SetTextContent<BodyTemplate1Builder> {
         constructor();
         /**
          * Sets the text content for the template
@@ -576,12 +623,17 @@ export namespace templateBuilders {
          * @param tertiaryText tertiaryText
          * @returns BodyTemplate1Builder
          */
-        setTextContent(primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): BodyTemplate1Builder;
+        setTextContent(
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): BodyTemplate1Builder;
     }
     /**
      * Used to create BodyTemplate2 objects
      */
-    class BodyTemplate2Builder extends TemplateBuilder<BodyTemplate2Builder> implements SetTextContent<BodyTemplate2Builder> {
+    class BodyTemplate2Builder extends TemplateBuilder<BodyTemplate2Builder>
+        implements SetTextContent<BodyTemplate2Builder> {
         constructor();
 
         /**
@@ -598,12 +650,17 @@ export namespace templateBuilders {
          * @param tertiaryText tertiaryText
          * @returns BodyTemplate2Builder
          */
-        setTextContent(primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): BodyTemplate2Builder;
+        setTextContent(
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): BodyTemplate2Builder;
     }
     /**
      * Used to create BodyTemplate3 objects
      */
-    class BodyTemplate3Builder extends TemplateBuilder<BodyTemplate3Builder> implements SetTextContent<BodyTemplate3Builder> {
+    class BodyTemplate3Builder extends TemplateBuilder<BodyTemplate3Builder>
+        implements SetTextContent<BodyTemplate3Builder> {
         constructor();
 
         /**
@@ -620,12 +677,17 @@ export namespace templateBuilders {
          * @param tertiaryText tertiaryText
          * @returns BodyTemplate3Builder
          */
-        setTextContent(primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): BodyTemplate3Builder;
+        setTextContent(
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): BodyTemplate3Builder;
     }
     /**
      * Used to create BodyTemplate6 objects
      */
-    class BodyTemplate6Builder extends TemplateBuilder<BodyTemplate6Builder> implements SetTextContent<BodyTemplate6Builder> {
+    class BodyTemplate6Builder extends TemplateBuilder<BodyTemplate6Builder>
+        implements SetTextContent<BodyTemplate6Builder> {
         constructor();
 
         /**
@@ -642,7 +704,11 @@ export namespace templateBuilders {
          * @param tertiaryText tertiaryText
          * @returns BodyTemplate6Builder
          */
-        setTextContent(primaryText: TextField, secondaryText?: TextField, tertiaryText?: TextField): BodyTemplate6Builder;
+        setTextContent(
+            primaryText: TextField,
+            secondaryText?: TextField,
+            tertiaryText?: TextField
+        ): BodyTemplate6Builder;
     }
     /**
      * Used to create BodyTemplate7 objects
@@ -660,7 +726,8 @@ export namespace templateBuilders {
     /**
      * Used to create ListTemplate1 objects
      */
-    class ListTemplate1Builder extends TemplateBuilder<ListTemplate1Builder> implements SetListItems<ListTemplate1Builder> {
+    class ListTemplate1Builder extends TemplateBuilder<ListTemplate1Builder>
+        implements SetListItems<ListTemplate1Builder> {
         constructor();
 
         /**
@@ -673,7 +740,8 @@ export namespace templateBuilders {
     /**
      * Used to create ListTemplate2 objects
      */
-    class ListTemplate2Builder extends TemplateBuilder<ListTemplate2Builder> implements SetListItems<ListTemplate2Builder> {
+    class ListTemplate2Builder extends TemplateBuilder<ListTemplate2Builder>
+        implements SetListItems<ListTemplate2Builder> {
         constructor();
 
         /**
@@ -696,7 +764,11 @@ export namespace services {
          * @param body post body to send
          * @returns Promise<ApiClientResponse>
          */
-        post(uri: string, headers: object, body?: string): Promise<ApiClientResponse>;
+        post(
+            uri: string,
+            headers: object,
+            body?: string
+        ): Promise<ApiClientResponse>;
         /**
          * Make a PUT API call to the specified uri with headers and optional body
          * @param uri http(s?) endpoint to call
@@ -704,7 +776,11 @@ export namespace services {
          * @param body post body to send
          * @returns Promise<ApiClientResponse>
          */
-        put(uri: string, headers: object, body?: string): Promise<ApiClientResponse>;
+        put(
+            uri: string,
+            headers: object,
+            body?: string
+        ): Promise<ApiClientResponse>;
         /**
          * Make a GET API call to the specified uri with headers
          * @param uri http(s?) endpoint to call
@@ -734,7 +810,11 @@ export namespace services {
          * @param token bearer token for device address permission
          * @returns Promise<object>
          */
-        getFullAddress(deviceId: string, apiEndpoint: string, token: string): Promise<object>;
+        getFullAddress(
+            deviceId: string,
+            apiEndpoint: string,
+            token: string
+        ): Promise<object>;
 
         /**
          * Get country and postal information from Alexa Device Address API
@@ -743,7 +823,11 @@ export namespace services {
          * @param token bearer token for device address permission
          * @returns Promise<object>
          */
-        getCountryAndPostalCode(deviceId: string, apiEndpoint: string, token: string): Promise<object>;
+        getCountryAndPostalCode(
+            deviceId: string,
+            apiEndpoint: string,
+            token: string
+        ): Promise<object>;
     }
     class DirectiveService {
         /**
@@ -760,7 +844,11 @@ export namespace services {
          * @param token bearer token for directive service
          * @returns Promise<void>
          */
-        enqueue(directive: object, apiEndpoint: string, token: string): Promise<void>;
+        enqueue(
+            directive: object,
+            apiEndpoint: string,
+            token: string
+        ): Promise<void>;
     }
     class ListManagementService {
         /**
@@ -795,7 +883,10 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<ListObject>
          */
-        createList(params: CreateListParams, token: string): Promise<ListObject>;
+        createList(
+            params: CreateListParams,
+            token: string
+        ): Promise<ListObject>;
 
         /**
          * Retrieve list metadata including the items in the list with requested status
@@ -804,7 +895,11 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<ListObject>
          */
-        getList(listId: string, itemStatus: ListItemObjectStatus, token: string): Promise<ListObject>;
+        getList(
+            listId: string,
+            itemStatus: ListItemObjectStatus,
+            token: string
+        ): Promise<ListObject>;
 
         /**
          * Update a custom list. Only the list name or state can be updated
@@ -813,7 +908,11 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<object>
          */
-        updateList(listId: string, params: UpdateListParams, token: string): Promise<ListObject>;
+        updateList(
+            listId: string,
+            params: UpdateListParams,
+            token: string
+        ): Promise<ListObject>;
 
         /**
          * Delete a custom list
@@ -830,7 +929,11 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<ListItemObject>
          */
-        createListItem(listId: string, params: CreateListItemParams, token: string): Promise<ListItemObject>;
+        createListItem(
+            listId: string,
+            params: CreateListItemParams,
+            token: string
+        ): Promise<ListItemObject>;
 
         /**
          * Retrieve single item within any list by listId and itemId
@@ -839,7 +942,11 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<ListItemObject>
          */
-        getListItem(listId: string, itemId: string, token: string): Promise<ListItemObject>;
+        getListItem(
+            listId: string,
+            itemId: string,
+            token: string
+        ): Promise<ListItemObject>;
 
         /**
          * Update an item value or item status
@@ -849,7 +956,12 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<ListItemObject>
          */
-        updateListItem(listId: string, itemId: string, params: UpdateListItemParams, token: string): Promise<ListItemObject>;
+        updateListItem(
+            listId: string,
+            itemId: string,
+            params: UpdateListItemParams,
+            token: string
+        ): Promise<ListItemObject>;
 
         /**
          * Delete an item in the specified list
@@ -858,7 +970,11 @@ export namespace services {
          * @param token bearer token for list management permission
          * @returns Promise<void>
          */
-        deleteListItem(listId: string, itemId: string, token: string): Promise<void>;
+        deleteListItem(
+            listId: string,
+            itemId: string,
+            token: string
+        ): Promise<void>;
     }
 }
 //#endregion
@@ -893,7 +1009,11 @@ export class ResponseBuilder {
      * @param cardImage cardImage
      * @returns ResponseBuilder
      */
-    cardRenderer(cardTitle: string, cardContent: string, cardImage: CardImage): ResponseBuilder;
+    cardRenderer(
+        cardTitle: string,
+        cardContent: string,
+        cardImage: CardImage
+    ): ResponseBuilder;
 
     /**
      * Render a link account card
@@ -906,7 +1026,9 @@ export class ResponseBuilder {
      * @param permissions permissions
      * @returns ResponseBuilder
      */
-    askForPermissionsConsentCard(permissions: [{ [key: string]: string }]): ResponseBuilder;
+    askForPermissionsConsentCard(
+        permissions: [{ [key: string]: string }]
+    ): ResponseBuilder;
 
     /**
      * Creates a play, stop or clearQueue audioPlayer directive depending on the directive type passed in.
@@ -919,7 +1041,14 @@ export class ResponseBuilder {
      * @param offsetInMilliseconds offsetInMilliseconds
      * @returns ResponseBuilder
      */
-    audioPlayer(directiveType: string, behavior: string, url: string, token: string, expectedPreviousToken: string, offsetInMilliseconds: number): ResponseBuilder;
+    audioPlayer(
+        directiveType: string,
+        behavior: string,
+        url: string,
+        token: string,
+        expectedPreviousToken: string,
+        offsetInMilliseconds: number
+    ): ResponseBuilder;
 
     /**
      * Creates an AudioPlayer play directive
@@ -939,7 +1068,13 @@ export class ResponseBuilder {
      * Set to 0 to start playing the stream from the beginning. Set to any other value to start playback from that associated point in the stream
      * @returns ResponseBuilder
      */
-    audioPlayerPlay(behavior: string, url: string, token: string, expectedPreviousToken: string, offsetInMilliseconds: number): ResponseBuilder;
+    audioPlayerPlay(
+        behavior: string,
+        url: string,
+        token: string,
+        expectedPreviousToken: string,
+        offsetInMilliseconds: number
+    ): ResponseBuilder;
 
     /**
      * Creates an AudioPlayer Stop directive - Stops the current audio Playback
@@ -981,7 +1116,10 @@ export class ResponseBuilder {
      * information that can be displayed on VideoApp.
      * @returns ResponseBuilder
      */
-    playVideo(source: string, metadata?: { title: string, subtitle: string }): ResponseBuilder;
+    playVideo(
+        source: string,
+        metadata?: { title: string; subtitle: string }
+    ): ResponseBuilder;
 }
 //#endregion
 
@@ -989,7 +1127,7 @@ export class ResponseBuilder {
 export namespace directives {
     class VoicePlayerSpeakDirective {
         header: { requestId: string };
-        directive: { type: string, speech: string };
+        directive: { type: string; speech: string };
         /**
          * Creates an instance of VoicePlayerSpeakDirective.
          * @param requestId - requestId from which the call is originated from
@@ -1020,7 +1158,13 @@ export namespace utils {
          * @param description text used to describe the image in a screen reader
          * @returns Image
          */
-        function makeImage(url: string, widthPixels?: number, heightPixels?: number, size?: ImageSourceSize, description?: string): Image;
+        function makeImage(
+            url: string,
+            widthPixels?: number,
+            heightPixels?: number,
+            size?: ImageSourceSize,
+            description?: string
+        ): Image;
         /**
          * Creates an image object with a multiple sources, source images are provided as an array of image objects
          * These images may be in either JPEG or PNG formats, with the appropriate file extensions.
@@ -1041,7 +1185,15 @@ export namespace utils {
          * @param description text used to describe the image in a screen reader
          * @returns Image
          */
-        function makeImages(imgArr: Array<{ url: string, widthPixels?: number, heightPixels?: number, size: ImageSourceSize }>, description: string): Image;
+        function makeImages(
+            imgArr: Array<{
+                url: string;
+                widthPixels?: number;
+                heightPixels?: number;
+                size: ImageSourceSize;
+            }>,
+            description: string
+        ): Image;
     }
     /**
      * Utility methods for building TextField objects
@@ -1068,8 +1220,11 @@ export namespace utils {
          * @param tertiaryText tertiary Text
          * @returns TextContent
          */
-        function makeTextContent(primaryText: { type: TextContentType, text: string },
-            secondaryText: { type: TextContentType, text: string }, tertiaryText: { type: TextContentType, text: string }): TextContent;
+        function makeTextContent(
+            primaryText: { type: TextContentType; text: string },
+            secondaryText: { type: TextContentType; text: string },
+            tertiaryText: { type: TextContentType; text: string }
+        ): TextContent;
     }
 }
 //#endregion

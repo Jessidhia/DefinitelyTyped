@@ -5,9 +5,11 @@
 
 /// <reference types="node" />
 
-import { Stream } from 'stream';
+import { Stream } from "stream";
 
-declare function multistream(streams: multistream.Streams): NodeJS.ReadableStream;
+declare function multistream(
+    streams: multistream.Streams
+): NodeJS.ReadableStream;
 
 interface FactoryStreamCallback {
     (err: Error | null, stream: null): any;

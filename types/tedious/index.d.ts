@@ -7,8 +7,6 @@
 
 ///<reference types="node" />
 
-
-
 import events = require("events");
 
 export interface ColumnType {
@@ -113,7 +111,7 @@ export interface TediousTypes {
     Numeric: TediousType;
     Real: TediousType;
     SmallDateTime: TediousType;
-    SmallInt		: TediousType;
+    SmallInt: TediousType;
     SmallMoney: TediousType;
     TVP: TediousType;
     Text: TediousType;
@@ -129,7 +127,6 @@ export interface TediousTypes {
 export declare var TYPES: TediousTypes;
 
 export interface ConnectionOptions {
-
     /**
      * Port to connect to (default: 1433). Mutually exclusive with options.instanceName.
      */
@@ -207,7 +204,11 @@ export interface ConnectionOptions {
      * SQL-provided column name on row and meta data objects. This allows you to dynamically convert between
      * naming conventions. (default: null).
      */
-    columnNameReplacer?: (columnName: string, index: number, columnMetaData: ColumnMetaData) => string;
+    columnNameReplacer?: (
+        columnName: string,
+        index: number,
+        columnMetaData: ColumnMetaData
+    ) => string;
 
     /**
      * Debug options
@@ -258,12 +259,12 @@ export interface ConnectionOptions {
     tdsVersion?: number;
 
     /**
-     * Application name used for identifying a specific application in profiling, logging or tracing tools of SQL Server. (default: Tedious) 
+     * Application name used for identifying a specific application in profiling, logging or tracing tools of SQL Server. (default: Tedious)
      */
     appName?: string;
 
     /**
-     * Number of milliseconds before retrying to establish connection, in case of transient failure. (default: 500) 
+     * Number of milliseconds before retrying to establish connection, in case of transient failure. (default: 500)
      */
     connectionRetryInterval?: number;
 
@@ -273,57 +274,57 @@ export interface ConnectionOptions {
     datefirst?: number;
 
     /**
-     * A string representing position of month, day and year in temporal datatypes. (default: mdy) 
+     * A string representing position of month, day and year in temporal datatypes. (default: mdy)
      */
     dateFormat?: string;
 
     /**
-     * A boolean, controls the way null values should be used during comparison operation. (default: true)  
+     * A boolean, controls the way null values should be used during comparison operation. (default: true)
      */
     enableAnsiNull?: boolean;
 
     /**
-     * If true, SET ANSI_NULL_DFLT_ON ON will be set in the initial sql. This means new columns will be nullable by default. See the T-SQL documentation for more details. (Default: true). 
+     * If true, SET ANSI_NULL_DFLT_ON ON will be set in the initial sql. This means new columns will be nullable by default. See the T-SQL documentation for more details. (Default: true).
      */
     enableAnsiNullDefault?: boolean;
 
     /**
-     * A boolean, controls if padding should be applied for values shorter than the size of defined column. (default: true) 
+     * A boolean, controls if padding should be applied for values shorter than the size of defined column. (default: true)
      */
     enableAnsiPadding?: boolean;
 
     /**
-     * If true, SQL Server will follow ISO standard behavior during various error conditions. For details, see documentation. (default: true) 
+     * If true, SQL Server will follow ISO standard behavior during various error conditions. For details, see documentation. (default: true)
      */
     enableAnsiWarnings?: boolean;
 
     /**
-     * A boolean, determines if query execution should be terminated during overflow or divide-by-zero error. (default: false)  
+     * A boolean, determines if query execution should be terminated during overflow or divide-by-zero error. (default: false)
      */
     enableArithAbort?: boolean;
 
     /**
-     * A boolean, determines if concatenation with NULL should result in NULL or empty string value, more details in documentation. (default: true) 
+     * A boolean, determines if concatenation with NULL should result in NULL or empty string value, more details in documentation. (default: true)
      */
     enableConcatNullYieldsNull?: boolean;
 
     /**
-     * A boolean, controls whether cursor should be closed, if the transaction opening it gets committed or rolled back. (default: false) 
+     * A boolean, controls whether cursor should be closed, if the transaction opening it gets committed or rolled back. (default: false)
      */
     enableCursorCloseOnCommit?: boolean;
 
     /**
-     * A boolean, sets the connection to either implicit or autocommit transaction mode. (default: false) 
+     * A boolean, sets the connection to either implicit or autocommit transaction mode. (default: false)
      */
     enableImplicitTransactions?: boolean;
 
     /**
-     * If false, error is not generated during loss of precession. (default: false) 
+     * If false, error is not generated during loss of precession. (default: false)
      */
     enableNumericRoundabort?: boolean;
 
     /**
-     * If true, characters enclosed in single quotes are treated as literals and those enclosed double quotes are treated as identifiers. (default: true) 
+     * If true, characters enclosed in single quotes are treated as literals and those enclosed double quotes are treated as identifiers. (default: true)
      */
     enableQuotedIdentifier?: boolean;
 
@@ -377,7 +378,7 @@ export interface ConnectionConfig {
 
 export interface ParameterOptions {
     //  for VarChar, NVarChar, VarBinary
-    length?: number | 'max';
+    length?: number | "max";
     // precision for Numeric, Decimal
     precision?: number;
     // scale for Numeric, Decimal, Time, DateTime2, DateTimeOffset
@@ -396,55 +397,79 @@ export interface Request {
     /**
      * This event, describing result set columns, will be emitted before row events are emitted. This event may be emited multiple times when more than one recordset is produced by the statement.
      */
-    on(event: 'columnMetadata', listener: (columns: ColumnMetaData[]) => void ):this;
+    on(
+        event: "columnMetadata",
+        listener: (columns: ColumnMetaData[]) => void
+    ): this;
 
     /**
-     * The request has been prepared and can be used in subsequent calls to execute and unprepare. 
+     * The request has been prepared and can be used in subsequent calls to execute and unprepare.
      */
-    on(event: 'prepared', listener: () => void):this;
+    on(event: "prepared", listener: () => void): this;
 
     /**
-     * The request encountered an error and has not been prepared. 
+     * The request encountered an error and has not been prepared.
      */
-    on(event: 'error', listener: (err: Error) => void):this;
-    
+    on(event: "error", listener: (err: Error) => void): this;
+
     /**
-     * This is the final event emitted by a request. This is emitted after the callback passed in a request is called. 
+     * This is the final event emitted by a request. This is emitted after the callback passed in a request is called.
      */
-    on(event: 'requestCompleted', listener: () => void):this;
+    on(event: "requestCompleted", listener: () => void): this;
 
     /**
      * A row resulting from execution of the SQL statement
      */
-    on(event: 'row', listener: (columns: ColumnValue[]) => void):this;
+    on(event: "row", listener: (columns: ColumnValue[]) => void): this;
 
     /**
      * All rows from a result set have been provided (through row events). This token is used to indicate the completion of a SQL statement. As multiple SQL statements can be sent to the server in a single SQL batch, multiple done events can be generated. An done event is emited for each SQL statement in the SQL batch except variable declarations. For execution of SQL statements within stored procedures, doneProc and doneInProc events are used in place of done events.
      */
-    on(event: 'done', listener: (error: Error, more: boolean, rows: any[]) => void):this;
+    on(
+        event: "done",
+        listener: (error: Error, more: boolean, rows: any[]) => void
+    ): this;
 
     /**
      * Indicates the completion status of a SQL statement within a stored procedure. All rows from a statement in a stored procedure have been provided (through row events).
      */
-    on(event: 'doneInProc', listener: (error: Error, more: boolean, returnStatus: any, rows: any[]) => void):this;
+    on(
+        event: "doneInProc",
+        listener: (
+            error: Error,
+            more: boolean,
+            returnStatus: any,
+            rows: any[]
+        ) => void
+    ): this;
 
     /**
      * Indicates the completion status of a stored procedure. This is also generated for stored procedures executed through SQL statements.
      */
-    on(event: 'doneProc', listener: (error: Error, more: boolean, rows: any[]) => void):this;
+    on(
+        event: "doneProc",
+        listener: (error: Error, more: boolean, rows: any[]) => void
+    ): this;
 
     /**
      * A value for an output parameter (that was added to the request with addOutputParameter(...)). See also Using Parameters.
      */
-    on(event: 'returnValue', listener: (parameterName: string, value: any, metadata: ColumnMetaData ) => void):this;
+    on(
+        event: "returnValue",
+        listener: (
+            parameterName: string,
+            value: any,
+            metadata: ColumnMetaData
+        ) => void
+    ): this;
 }
 
 /**
  * A Request instance represents a request that can be executed on a connection
  * @event  'columnMetadata' This event, describing result set columns, will be emitted before row events are emitted. This event may be emited multiple times when more than one recordset is produced by the statement.
- * @event  'prepared' The request has been prepared and can be used in subsequent calls to execute and unprepare. 
- * @event  'error' The request encountered an error and has not been prepared. 
- * @event  'requestCompleted' This is the final event emitted by a request. This is emitted after the callback passed in a request is called. 
+ * @event  'prepared' The request has been prepared and can be used in subsequent calls to execute and unprepare.
+ * @event  'error' The request encountered an error and has not been prepared.
+ * @event  'requestCompleted' This is the final event emitted by a request. This is emitted after the callback passed in a request is called.
  * @event  'row' A row resulting from execution of the SQL statement
  * @event  'done' All rows from a result set have been provided (through row events). This token is used to indicate the completion of a SQL statement. As multiple SQL statements can be sent to the server in a single SQL batch, multiple done events can be generated. An done event is emited for each SQL statement in the SQL batch except variable declarations. For execution of SQL statements within stored procedures, doneProc and doneInProc events are used in place of done events.
  * @event  'doneInProc' Indicates the completion status of a SQL statement within a stored procedure. All rows from a statement in a stored procedure have been provided (through row events).
@@ -452,7 +477,6 @@ export interface Request {
  * @event  'returnValue' A value for an output parameter (that was added to the request with addOutputParameter(...)). See also Using Parameters.
  */
 export class Request extends events.EventEmitter {
-
     /**
      * Constructor
      * @param sql The SQL statement to be executed (or a procedure name, if the request is to be used with connection.callProcedure).
@@ -461,7 +485,10 @@ export class Request extends events.EventEmitter {
      * 					rowCount: The number of rows emitted as result of executing the SQL statement.
      * 					rows: Rows as a result of executing the SQL statement. Will only be avaiable if Connection's config.options.rowCollectionOnRequestCompletion is true.
      */
-    constructor(sql: string, callback: (error: Error, rowCount: number, rows: any[]) => void);
+    constructor(
+        sql: string,
+        callback: (error: Error, rowCount: number, rows: any[]) => void
+    );
 
     /**
      * Add an input parameter to the request.
@@ -470,7 +497,12 @@ export class Request extends events.EventEmitter {
      * @param value The value that the parameter is to be given. The Javascript type of the argument should match that documented for data types.
      * @param options Additional type options. Optional.
      */
-    addParameter(name: string, type: TediousType, value: any, options?: ParameterOptions): void;
+    addParameter(
+        name: string,
+        type: TediousType,
+        value: any,
+        options?: ParameterOptions
+    ): void;
 
     /**
      * Add an output parameter to the request. The parameter's value will be provide by an emitted returnValue event.
@@ -479,17 +511,22 @@ export class Request extends events.EventEmitter {
      * @param value The value that the parameter is to be given. The Javascript type of the argument should match that documented for data types. Optional.
      * @param options Additional type options. Optional.
      */
-    addOutputParameter(name: string, type: TediousType, value?: any, options?: ParameterOptions): void;
+    addOutputParameter(
+        name: string,
+        type: TediousType,
+        value?: any,
+        options?: ParameterOptions
+    ): void;
 
     /**
-     * Temporarily suspends the flow of data from the database. No more 'row' events will be emitted until request.resume() is called. 
+     * Temporarily suspends the flow of data from the database. No more 'row' events will be emitted until request.resume() is called.
      */
-    pause():void;
+    pause(): void;
 
     /**
-     * Resumes the flow of data from the database. 
+     * Resumes the flow of data from the database.
      */
-    resume():void;
+    resume(): void;
 }
 
 export interface BulkLoadColumnOpts extends ParameterOptions {
@@ -500,14 +537,17 @@ export interface BulkLoadColumnOpts extends ParameterOptions {
 }
 
 export interface BulkLoad {
-
     /**
      * Adds a column to the bulk load. The column definitions should match the table you are trying to insert into. Attempting to call addColumn after the first row has been added will throw an exception.
      * @param name	The name of the column.
      * @param type	One of the supported data types.
      * @param options	Additional column type information. At a minimum, nullable must be set to true or false.
      */
-    addColumn(name: string, type: TediousType, options: BulkLoadColumnOpts): void;
+    addColumn(
+        name: string,
+        type: TediousType,
+        options: BulkLoadColumnOpts
+    ): void;
 
     /**
      * Adds a row to the bulk insert. This method accepts arguments in three different formats:
@@ -565,47 +605,47 @@ export interface Connection {
     /**
      * The attempt to connect and validate has completed.
      */
-    on(event: 'connect', listener: (err: Error) => void ):this;
+    on(event: "connect", listener: (err: Error) => void): this;
 
     /**
      * The connection has ended. This may be as a result of the client calling close(), the server closing the connection, or a network error.
      */
-    on(event: 'end', listener: () => void ):this;
+    on(event: "end", listener: () => void): this;
 
     /**
      * Internal error occurs.
      */
-    on(event: 'error', listener: (err: Error) => void ):this;
-    
+    on(event: "error", listener: (err: Error) => void): this;
+
     /**
      * A debug message is available. It may be logged or ignored.
      */
-    on(event: 'debug', listener: (messageText: string) => void ):this;
-    
+    on(event: "debug", listener: (messageText: string) => void): this;
+
     /**
      * The server has issued an information message.
      */
-    on(event: 'infoMessage', listener: (info: InfoObject) => void ):this;
-    
+    on(event: "infoMessage", listener: (info: InfoObject) => void): this;
+
     /**
      * The server has issued an error message.
      */
-    on(event: 'errorMessage', listener: (err: Error) => void ):this;
-    
+    on(event: "errorMessage", listener: (err: Error) => void): this;
+
     /**
      * The server has reported that the active database has changed. This may be as a result of a successful login, or a use statement.
      */
-    on(event: 'databaseChange', listener: (databaseName: string) => void ):this;
-    
+    on(event: "databaseChange", listener: (databaseName: string) => void): this;
+
     /**
      * The server has reported that the language has changed.
      */
-    on(event: 'languageChange', listener: (languageName: string) => void ):this;
-    
+    on(event: "languageChange", listener: (languageName: string) => void): this;
+
     /**
      * The server has reported that the charset has changed.
      */
-    on(event: 'charsetChange', listener: (charset: string) => void ):this;
+    on(event: "charsetChange", listener: (charset: string) => void): this;
 }
 
 /**
@@ -622,7 +662,6 @@ export interface Connection {
  * @event  'secure' A secure connection has been established.
  */
 export class Connection extends events.EventEmitter {
-
     constructor(config: ConnectionConfig);
 
     /**
@@ -632,7 +671,11 @@ export class Connection extends events.EventEmitter {
      * @param name A string representing a name to associate with the transaction. Optional, and defaults to an empty string. Required when isolationLevel is present.
      * @param isolationLevel The isolation level that the transaction is to be run with.
      */
-    beginTransaction(callback: (error?: Error) => void, name?: string, isolationLevel?: ISOLATION_LEVEL): void;
+    beginTransaction(
+        callback: (error?: Error) => void,
+        name?: string,
+        isolationLevel?: ISOLATION_LEVEL
+    ): void;
 
     /**
      * Commit a transaction.
@@ -667,7 +710,18 @@ export class Connection extends events.EventEmitter {
      * @param name A string representing a name to associate with the transaction. Optional, and defaults to an empty string. In case of a nested transaction, naming the transaction name has no effect.
      * @param isolationLevel The isolation level that the transaction is to be run with.
      */
-    transaction(callback: (error: Error, done: (error?: Error, doneCallback?: (error?: Error, ...args: any[]) => void, ...args: any[]) => void) => void, name?: string, isolationLevel?: ISOLATION_LEVEL): void;
+    transaction(
+        callback: (
+            error: Error,
+            done: (
+                error?: Error,
+                doneCallback?: (error?: Error, ...args: any[]) => void,
+                ...args: any[]
+            ) => void
+        ) => void,
+        name?: string,
+        isolationLevel?: ISOLATION_LEVEL
+    ): void;
 
     /**
      * Prepare the SQL represented by the request. The request can then be used in subsequent calls to execute and unprepare
@@ -710,7 +764,10 @@ export class Connection extends events.EventEmitter {
      * @param tableName The name of the table to bulk-insert into.
      * @param callback A function which will be called after the BulkLoad finishes executing. rowCount will equal the number of rows inserted.
      */
-    newBulkLoad(tableName: string, callback: (error: Error, rowCount: number) => void): BulkLoad;
+    newBulkLoad(
+        tableName: string,
+        callback: (error: Error, rowCount: number) => void
+    ): BulkLoad;
 
     /**
      * Executes a BulkLoad.
@@ -733,7 +790,6 @@ export class Connection extends events.EventEmitter {
      * Closes the connection to the database. The end will be emmited once the connection has been closed.
      */
     close(): void;
-
 }
 
 /**

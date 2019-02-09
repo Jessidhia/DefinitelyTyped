@@ -1,5 +1,5 @@
-import * as Chain from 'stream-chain';
-import * as FilterBase from './FilterBase';
+import * as Chain from "stream-chain";
+import * as FilterBase from "./FilterBase";
 
 export = Ignore;
 

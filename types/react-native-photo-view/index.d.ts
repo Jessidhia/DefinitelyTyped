@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-import * as React from 'react';
-import { ImageSourcePropType, ViewProps } from 'react-native';
+import * as React from "react";
+import { ImageSourcePropType, ViewProps } from "react-native";
 
 export interface ReactNativePhotoViewProps {
     source?: ImageSourcePropType;
@@ -17,14 +17,29 @@ export interface ReactNativePhotoViewProps {
     showsVerticalScrollIndicator?: boolean;
     scale?: number;
     androidZoomTransitionDuration?: number;
-    androidScaleType?: 'center' | 'centerCrop' | 'centerInside' | 'fitCenter' | 'fitStart' | 'fitEnd' | 'fitXY';
+    androidScaleType?:
+        | "center"
+        | "centerCrop"
+        | "centerInside"
+        | "fitCenter"
+        | "fitStart"
+        | "fitEnd"
+        | "fitXY";
     onLoadStart?: () => void;
     onLoad?: () => void;
     onLoadEnd?: () => void;
     onProgress?: (loaded: number, total: number) => void;
-    onTap?: (point: {x: number, y: number}, target?: React.ReactElement<any>) => void;
-    onViewTap?: (point: {x: number, y: number}, target?: React.ReactElement<any>) => void;
+    onTap?: (
+        point: { x: number; y: number },
+        target?: React.ReactElement<any>
+    ) => void;
+    onViewTap?: (
+        point: { x: number; y: number },
+        target?: React.ReactElement<any>
+    ) => void;
     onScale?: (scale: number, target?: React.ReactElement<any>) => void;
 }
 
-export default class ReactNativePhotoView extends React.Component<ReactNativePhotoViewProps & ViewProps> {}
+export default class ReactNativePhotoView extends React.Component<
+    ReactNativePhotoViewProps & ViewProps
+> {}

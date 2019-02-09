@@ -28,7 +28,11 @@ declare namespace Spotify {
         message: string;
     }
 
-    type ErrorTypes = 'account_error' | 'authentication_error' | 'initialization_error' | 'playback_error';
+    type ErrorTypes =
+        | "account_error"
+        | "authentication_error"
+        | "initialization_error"
+        | "playback_error";
 
     interface Image {
         url: string;
@@ -92,10 +96,12 @@ declare namespace Spotify {
     type PlaybackInstanceListener = (inst: WebPlaybackInstance) => void;
     type PlaybackStateListener = (s: PlaybackState) => void;
 
-    type AddListenerFn =
-        & ((event: 'ready' | 'not_ready', cb: PlaybackInstanceListener) => void)
-        & ((event: 'player_state_changed', cb: PlaybackStateListener) => void)
-        & ((event: ErrorTypes, cb: ErrorListener) => void);
+    type AddListenerFn = ((
+        event: "ready" | "not_ready",
+        cb: PlaybackInstanceListener
+    ) => void) &
+        ((event: "player_state_changed", cb: PlaybackStateListener) => void) &
+        ((event: ErrorTypes, cb: ErrorListener) => void);
 
     class SpotifyPlayer {
         constructor(options: PlayerInit);
@@ -110,8 +116,11 @@ declare namespace Spotify {
         on: AddListenerFn;
 
         removeListener(
-            event: 'ready' | 'not_ready' | 'player_state_changed' | ErrorTypes,
-            cb?: ErrorListener | PlaybackInstanceListener | PlaybackStateListener,
+            event: "ready" | "not_ready" | "player_state_changed" | ErrorTypes,
+            cb?:
+                | ErrorListener
+                | PlaybackInstanceListener
+                | PlaybackStateListener
         ): void;
 
         pause(): Promise<void>;
@@ -125,8 +134,8 @@ declare namespace Spotify {
     interface Track {
         uri: string;
         id: string | null;
-        type: 'track' | 'episode' | 'ad';
-        media_type: 'audio' | 'video';
+        type: "track" | "episode" | "ad";
+        media_type: "audio" | "video";
         name: string;
         is_playable: boolean;
         album: Album;

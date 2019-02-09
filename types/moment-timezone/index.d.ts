@@ -5,7 +5,7 @@
 //                 Agustin Carrasco <https://github.com/asermax>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import moment = require('moment');
+import moment = require("moment");
 
 // require("moment-timezone") === require("moment")
 export = moment;
@@ -30,10 +30,30 @@ declare module "moment" {
         (date: number, timezone: string): moment.Moment;
         (date: number[], timezone: string): moment.Moment;
         (date: string, timezone: string): moment.Moment;
-        (date: string, format: moment.MomentFormatSpecification, timezone: string): moment.Moment;
-        (date: string, format: moment.MomentFormatSpecification, strict: boolean, timezone: string): moment.Moment;
-        (date: string, format: moment.MomentFormatSpecification, language: string, timezone: string): moment.Moment;
-        (date: string, format: moment.MomentFormatSpecification, language: string, strict: boolean, timezone: string): moment.Moment;
+        (
+            date: string,
+            format: moment.MomentFormatSpecification,
+            timezone: string
+        ): moment.Moment;
+        (
+            date: string,
+            format: moment.MomentFormatSpecification,
+            strict: boolean,
+            timezone: string
+        ): moment.Moment;
+        (
+            date: string,
+            format: moment.MomentFormatSpecification,
+            language: string,
+            timezone: string
+        ): moment.Moment;
+        (
+            date: string,
+            format: moment.MomentFormatSpecification,
+            language: string,
+            strict: boolean,
+            timezone: string
+        ): moment.Moment;
         (date: Date, timezone: string): moment.Moment;
         (date: moment.Moment, timezone: string): moment.Moment;
         (date: any, timezone: string): moment.Moment;
@@ -46,11 +66,7 @@ declare module "moment" {
         link(packedLinkString: string): void;
         link(packedLinkString: string[]): void;
 
-        load(data: {
-            version: string;
-            links: string[];
-            zones: string[];
-        }): void;
+        load(data: { version: string; links: string[]; zones: string[] }): void;
 
         names(): string[];
         guess(ignoreCache?: boolean): string;

@@ -8,7 +8,9 @@
 import express = require("express");
 
 declare function unless(options: unless.Options): express.RequestHandler;
-declare function unless(options: unless.Options["custom"]): express.RequestHandler;
+declare function unless(
+    options: unless.Options["custom"]
+): express.RequestHandler;
 
 declare namespace unless {
     export interface Options {

@@ -1,6 +1,6 @@
 // Type definitions for Knockout.Mapping 2.0
 // Project: https://github.com/SteveSanderson/knockout.mapping
-// Definitions by: Boris Yankov <https://github.com/borisyankov>, 
+// Definitions by: Boris Yankov <https://github.com/borisyankov>,
 //                 Mathias Lorenzen <https://github.com/ffMathy>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
@@ -13,10 +13,10 @@ declare var self: KnockoutMapping;
 export = self;
 
 declare global {
-    type KnockoutObservableType<T> = {	
-        [P in keyof T]: KnockoutObservable<KnockoutObservableType<T[P]>>|T[P];	
+    type KnockoutObservableType<T> = {
+        [P in keyof T]: KnockoutObservable<KnockoutObservableType<T[P]>> | T[P]
     };
-    
+
     interface KnockoutMappingCreateOptions {
         data: any;
         parent: any;
@@ -42,23 +42,59 @@ declare global {
 
     interface KnockoutMapping {
         isMapped(viewModel: any): boolean;
-        fromJS<T>(jsObject: T[]): KnockoutObservableArray<KnockoutObservableType<T>>;
-        fromJS<T>(jsObject: T[], targetOrOptions: any): KnockoutObservableArray<KnockoutObservableType<T>>;
-        fromJS<T>(jsObject: T[], inputOptions: any, target: any): KnockoutObservableArray<KnockoutObservableType<T>>;
+        fromJS<T>(
+            jsObject: T[]
+        ): KnockoutObservableArray<KnockoutObservableType<T>>;
+        fromJS<T>(
+            jsObject: T[],
+            targetOrOptions: any
+        ): KnockoutObservableArray<KnockoutObservableType<T>>;
+        fromJS<T>(
+            jsObject: T[],
+            inputOptions: any,
+            target: any
+        ): KnockoutObservableArray<KnockoutObservableType<T>>;
         fromJS<T>(jsObject: T): KnockoutObservableType<T>;
         fromJS<T>(jsObject: T, targetOrOptions: any): KnockoutObservableType<T>;
-        fromJS<T>(jsObject: T, inputOptions: any, target: any): KnockoutObservableType<T>;
+        fromJS<T>(
+            jsObject: T,
+            inputOptions: any,
+            target: any
+        ): KnockoutObservableType<T>;
         fromJSON(jsonString: string): any;
         fromJSON(jsonString: string, targetOrOptions: any): any;
         fromJSON(jsonString: string, inputOptions: any, target: any): any;
-        toJS<T>(viewModel: KnockoutObservableArray<T>|KnockoutObservableType<T>[]|KnockoutObservableArray<KnockoutObservableType<T>>|T[], options?: KnockoutMappingOptions): T[];
-        toJS<T>(viewModel: KnockoutObservable<T>|KnockoutObservableType<T>|KnockoutObservable<KnockoutObservableType<T>>, options?: KnockoutMappingOptions): T;
+        toJS<T>(
+            viewModel:
+                | KnockoutObservableArray<T>
+                | KnockoutObservableType<T>[]
+                | KnockoutObservableArray<KnockoutObservableType<T>>
+                | T[],
+            options?: KnockoutMappingOptions
+        ): T[];
+        toJS<T>(
+            viewModel:
+                | KnockoutObservable<T>
+                | KnockoutObservableType<T>
+                | KnockoutObservable<KnockoutObservableType<T>>,
+            options?: KnockoutMappingOptions
+        ): T;
         toJS<T>(viewModel: T, options?: KnockoutMappingOptions): T;
         toJSON(rootObject: any, options?: KnockoutMappingOptions): string;
         defaultOptions(): KnockoutMappingOptions;
         resetDefaultOptions(): void;
         getType(x: any): any;
-        visitModel(rootObject: any, callback: Function, options?: { visitedObjects?: any; parentName?: string; ignore?: string[]; copy?: string[]; include?: string[]; }): any;
+        visitModel(
+            rootObject: any,
+            callback: Function,
+            options?: {
+                visitedObjects?: any;
+                parentName?: string;
+                ignore?: string[];
+                copy?: string[];
+                include?: string[];
+            }
+        ): any;
     }
 
     interface KnockoutObservableArrayFunctions<T> {

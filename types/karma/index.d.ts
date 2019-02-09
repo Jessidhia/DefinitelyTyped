@@ -9,9 +9,9 @@
 /// <reference types="node" />
 
 // See Karma public API https://karma-runner.github.io/latest/dev/public-api.html
-import Promise = require('bluebird');
-import https = require('https');
-import { Appender } from 'log4js';
+import Promise = require("bluebird");
+import https = require("https");
+import { Appender } from "log4js";
 
 /**
  * `start` method is deprecated since 0.13. It will be removed in 0.14.
@@ -63,7 +63,13 @@ export namespace launcher {
         constructor(emitter: NodeJS.EventEmitter, injector: any);
 
         // TODO: Can this return value ever be typified?
-        launch(names: string[], protocol: string, hostname: string, port: number, urlRoot: string): any[];
+        launch(
+            names: string[],
+            protocol: string,
+            hostname: string,
+            port: number,
+            urlRoot: string
+        ): any[];
         kill(id: string, callback: () => void): boolean;
         restart(id: string): boolean;
         killAll(callback: () => void): void;
@@ -98,7 +104,10 @@ export interface TestResults {
 }
 
 export class Server extends NodeJS.EventEmitter {
-    constructor(options?: ConfigOptions | ConfigFile, callback?: ServerCallback);
+    constructor(
+        options?: ConfigOptions | ConfigFile,
+        callback?: ServerCallback
+    );
     /**
      * Start the server
      */
@@ -118,7 +127,10 @@ export class Server extends NodeJS.EventEmitter {
     /**
      * Listen to the 'run_complete' event.
      */
-    on(event: 'run_complete', listener: (browsers: any, results: TestResults) => void): this;
+    on(
+        event: "run_complete",
+        listener: (browsers: any, results: TestResults) => void
+    ): this;
 
     /**
      * Backward-compatibility with karma-intellij bundled with WebStorm.
@@ -300,7 +312,7 @@ export interface ConfigOptions {
      * @description Redefine default mapping from file extensions to MIME-type.
      * Set property name to required MIME, provide Array of extensions (without dots) as it's value.
      */
-    mime?: {[type: string]: string[]};
+    mime?: { [type: string]: string[] };
     /**
      * @default ['karma-*']
      * @description List of plugins to load. A plugin can be a string (in which case it will be required
@@ -468,5 +480,8 @@ export interface CustomLauncher {
 }
 
 export namespace config {
-    function parseConfig(configFilePath: string, cliOptions: ConfigOptions): Config;
+    function parseConfig(
+        configFilePath: string,
+        cliOptions: ConfigOptions
+    ): Config;
 }

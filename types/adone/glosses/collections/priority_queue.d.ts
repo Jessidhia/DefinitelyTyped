@@ -73,6 +73,9 @@ declare namespace adone.collection {
         /**
          * Creates a queue object from the given iterable
          */
-        static from<T>(iterable: Iterable<T>, options?: I.PriorityQueue.ConstructorOptions<T>): PriorityQueue<T>;
+        static from<T>(
+            iterable: Iterable<T>,
+            options?: I.PriorityQueue.ConstructorOptions<T>
+        ): PriorityQueue<T>;
     }
 }

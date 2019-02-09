@@ -9,7 +9,10 @@ declare namespace JwtDecode {
     }
 }
 
-declare function JwtDecode<TTokenDto>(token: string, options?: JwtDecode.Options): TTokenDto;
+declare function JwtDecode<TTokenDto>(
+    token: string,
+    options?: JwtDecode.Options
+): TTokenDto;
 
 export = JwtDecode;
 export as namespace jwt_decode;

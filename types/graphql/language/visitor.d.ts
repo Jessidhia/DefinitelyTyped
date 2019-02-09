@@ -12,7 +12,9 @@ type EnterLeaveVisitor<KindToNode, Nodes> = EnterLeave<
 >;
 
 type ShapeMapVisitor<KindToNode, Nodes> = {
-    [K in keyof KindToNode]?: VisitFn<Nodes, KindToNode[K]> | EnterLeave<VisitFn<Nodes, KindToNode[K]>>
+    [K in keyof KindToNode]?:
+        | VisitFn<Nodes, KindToNode[K]>
+        | EnterLeave<VisitFn<Nodes, KindToNode[K]>>
 };
 
 export type ASTVisitor = Visitor<ASTKindToNode>;
@@ -146,16 +148,25 @@ export function visit(
  *
  * If a prior visitor edits a node, no following visitors will see that node.
  */
-export function visitInParallel(visitors: Array<Visitor<ASTKindToNode>>): Visitor<ASTKindToNode>;
+export function visitInParallel(
+    visitors: Array<Visitor<ASTKindToNode>>
+): Visitor<ASTKindToNode>;
 
 /**
  * Creates a new visitor instance which maintains a provided TypeInfo instance
  * along with visiting visitor.
  */
-export function visitWithTypeInfo(typeInfo: TypeInfo, visitor: Visitor<ASTKindToNode>): Visitor<ASTKindToNode>;
+export function visitWithTypeInfo(
+    typeInfo: TypeInfo,
+    visitor: Visitor<ASTKindToNode>
+): Visitor<ASTKindToNode>;
 
 /**
  * Given a visitor instance, if it is leaving or not, and a node kind, return
  * the function the visitor runtime should call.
  */
-export function getVisitFn(visitor: Visitor<any>, kind: string, isLeaving: boolean): Maybe<VisitFn<any>>;
+export function getVisitFn(
+    visitor: Visitor<any>,
+    kind: string,
+    isLeaving: boolean
+): Maybe<VisitFn<any>>;

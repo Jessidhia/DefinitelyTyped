@@ -6,7 +6,11 @@
 
 export = pMap;
 
-declare function pMap<T = any, M = T>(input: Iterable<Input<T>>, mapper: Mapper<T, M>, options?: pMap.Options): Promise<M[]>;
+declare function pMap<T = any, M = T>(
+    input: Iterable<Input<T>>,
+    mapper: Mapper<T, M>,
+    options?: pMap.Options
+): Promise<M[]>;
 
 type Input<T> = Promise<T> | PromiseLike<T> | T;
 type Mapper<T, R> = (el: T, index: number) => Promise<R> | R;

@@ -1,5 +1,5 @@
 import i = require("icepick");
-import * as _ from 'underscore';
+import * as _ from "underscore";
 
 "use strict"; // so attempted modifications of frozen objects will throw errors
 
@@ -20,7 +20,12 @@ import * as _ from 'underscore';
 class Foo {}
 
 {
-    let coll = i.freeze({ a: "foo", b: [1, 2, 3], c: { d: "bar" }, e: new Foo() });
+    let coll = i.freeze({
+        a: "foo",
+        b: [1, 2, 3],
+        c: { d: "bar" },
+        e: new Foo()
+    });
     let thawed = i.thaw(coll);
 }
 
@@ -94,20 +99,14 @@ class Foo {}
 
 // getIn(collection, path)
 {
-    let coll = i.freeze([
-        { a: 1 },
-        { b: 2 }
-    ]);
+    let coll = i.freeze([{ a: 1 }, { b: 2 }]);
 
     let result = i.getIn(coll, [1, "b"]) as number; // 2
 }
 
 // updateIn(collection, path, callback)
 {
-    let coll = i.freeze([
-        { a: 1 },
-        { b: 2 }
-    ]);
+    let coll = i.freeze([{ a: 1 }, { b: 2 }]);
 
     let newColl = i.updateIn(coll, [1, "b"], function(val: number) {
         return val * 2;
@@ -132,7 +131,7 @@ class Foo {}
     let obj2 = { c: { d: 2 } };
     let result2 = i.merge(result1, obj2);
 
-    (result1 === result2); // true
+    result1 === result2; // true
 }
 
 // arrays
@@ -144,9 +143,16 @@ class Foo {}
     a = i.shift(a); // [1];
 }
 {
-    i.map(function(v) { return v * 2 }, [1, 2, 3]); // [2, 4, 6]
+    i.map(
+        function(v) {
+            return v * 2;
+        },
+        [1, 2, 3]
+    ); // [2, 4, 6]
 
-    var removeEvens = _.partial(i.filter, function(v: number) { return v % 2; });
+    var removeEvens = _.partial(i.filter, function(v: number) {
+        return v % 2;
+    });
 
     removeEvens([1, 2, 3]); // [1, 3]
 }
@@ -154,7 +160,7 @@ class Foo {}
     var arr = i.freeze([{ a: 1 }, { b: 2 }]);
 
     //ECMAScript 2015
-    //arr.find(function(item) { return item.b != null; }); // {b: 2} 
+    //arr.find(function(item) { return item.b != null; }); // {b: 2}
 }
 
 // chain(coll) - not defined
@@ -165,14 +171,17 @@ class Foo {}
         d: 4
     };
 
-    let result = i.chain(o)
+    let result = i
+        .chain(o)
         .assocIn<number>(["a", 2], 4)
         .setIn<number>(["a", 1], 5)
-        .updateIn<number>(["d"], function(d) { return d * 2 })
+        .updateIn<number>(["d"], function(d) {
+            return d * 2;
+        })
         .merge({ b: { c: 2, c2: 3 } })
         .assoc<number>("e", 2)
         .set<number>("f", 3)
         .dissoc("d")
-        .getIn(['a', 0])
+        .getIn(["a", 0])
         .value() as number;
 }

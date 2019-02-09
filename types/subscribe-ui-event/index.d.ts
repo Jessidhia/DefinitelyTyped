@@ -5,20 +5,20 @@
 // TypeScript Version: 2.3
 
 export type UIEventType =
-    | 'resize'
-    | 'resizeEnd'
-    | 'resizeStart'
-    | 'scroll'
-    | 'scrollEnd'
-    | 'scrollStart'
-    | 'visibilitychange';
+    | "resize"
+    | "resizeEnd"
+    | "resizeStart"
+    | "scroll"
+    | "scrollEnd"
+    | "scrollStart"
+    | "visibilitychange";
 
 export type TouchEventType =
-    | 'touchend'
-    | 'touchmove'
-    | 'touchmoveEnd'
-    | 'touchmoveStart'
-    | 'touchstart';
+    | "touchend"
+    | "touchmove"
+    | "touchmoveEnd"
+    | "touchmoveStart"
+    | "touchstart";
 
 export type EventType = UIEventType | TouchEventType;
 
@@ -45,7 +45,7 @@ export interface ArgmentedEvent<T extends EventType> {
     subType: string;
     type: T;
     touch: {
-        axisIntention: 'x' | 'y' | '';
+        axisIntention: "x" | "y" | "";
         deltaX: number;
         deltaY: number;
         startX: number;

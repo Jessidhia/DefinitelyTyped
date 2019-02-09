@@ -1,14 +1,14 @@
-import onChange = require('on-change');
+import onChange = require("on-change");
 
 const object = {
     foo: false,
     a: {
         b: [
             {
-                c: false,
-            },
-        ],
-    },
+                c: false
+            }
+        ]
+    }
 };
 
 const watchedObject = onChange(object, () => {});

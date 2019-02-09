@@ -2,22 +2,22 @@ import { Request, Server, RequestAuth } from "hapi";
 import * as Boom from "boom";
 
 const server = new Server({
-    port: 8000,
+    port: 8000
 });
 
-server.auth.scheme('custom', () => ({
+server.auth.scheme("custom", () => ({
     authenticate() {
-        throw Boom.unauthorized(null, 'hurr');
+        throw Boom.unauthorized(null, "hurr");
     },
     async verify(_auth: RequestAuth) {
-        throw Boom.unauthorized(null, 'durr');
+        throw Boom.unauthorized(null, "durr");
     }
 }));
-server.auth.strategy('default', 'custom');
+server.auth.strategy("default", "custom");
 
 server.route({
-    method: 'GET',
-    path: '/',
+    method: "GET",
+    path: "/",
     async handler(request: Request) {
         request.server.auth.verify(request);
     }

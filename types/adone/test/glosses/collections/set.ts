@@ -1,8 +1,6 @@
 namespace adoneTests.collection.Set {
     const {
-        collection: {
-            Set
-        }
+        collection: { Set }
     } = adone;
 
     new Set().add("a");

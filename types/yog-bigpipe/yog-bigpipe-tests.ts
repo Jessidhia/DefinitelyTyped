@@ -8,7 +8,7 @@ yogBigpipe({
 
 yogBigpipe({
     tpl: {
-        _default: '',
-        quickling: '[test]'
+        _default: "",
+        quickling: "[test]"
     }
 });

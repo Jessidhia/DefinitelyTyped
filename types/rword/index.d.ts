@@ -15,7 +15,7 @@ export interface GenerateOptions {
     /**
      * Changes the capitalization of the words returned.
      */
-    capitalize?: 'none' | 'all' | 'first';
+    capitalize?: "none" | "all" | "first";
 }
 
 /**
@@ -59,7 +59,9 @@ export function generateFromPool(count?: 1): string;
  * @param count How many words to return. If 1 or not present, a string is
  *              returned. If greater than 1 an array of strings is returned.
  */
-export function generateFromPool(count: 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10): string[];
+export function generateFromPool(
+    count: 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+): string[];
 
 /**
  * Shuffles both the global words and pool arrays. This method can most

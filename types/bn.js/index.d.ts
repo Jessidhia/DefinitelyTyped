@@ -7,8 +7,8 @@
 
 /// <reference types="node"/>
 
-type Endianness = 'le' | 'be';
-type IPrimeName = 'k256' | 'p224' | 'p192' | 'p25519';
+type Endianness = "le" | "be";
+type IPrimeName = "k256" | "p224" | "p192" | "p25519";
 
 interface MPrime {
     name: string;
@@ -26,13 +26,13 @@ interface ReductionContext {
 declare class BN {
     constructor(
         number: number | string | number[] | Buffer | BN,
-        base?: number | 'hex',
+        base?: number | "hex",
         endian?: Endianness
     );
     constructor(
         number: number | string | number[] | Buffer | BN,
         endian?: Endianness
-    )
+    );
 
     /**
      * @description  create a reduction context
@@ -67,7 +67,7 @@ declare class BN {
     /**
      * @description  convert to base-string and pad with zeroes
      */
-    toString(base?: number | 'hex', length?: number): string;
+    toString(base?: number | "hex", length?: number): string;
 
     /**
      * @description convert to Javascript Number (limited to 53 bits)
@@ -93,11 +93,7 @@ declare class BN {
         length?: number
     ): Buffer;
 
-    toArrayLike(
-        ArrayType: any[],
-        endian?: Endianness,
-        length?: number
-    ): any[];
+    toArrayLike(ArrayType: any[], endian?: Endianness, length?: number): any[];
 
     /**
      * @description  convert to Node.js Buffer (if available). For compatibility with browserify and similar tools, use this instead: a.toArrayLike(Buffer, endian, length)

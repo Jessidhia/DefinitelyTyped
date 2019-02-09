@@ -16,32 +16,39 @@ export interface FastPath<T = any> {
     getParentNode(count?: number): null | T;
     call<U>(callback: (path: this) => U, ...names: PropertyKey[]): U;
     each(callback: (path: this) => void, ...names: PropertyKey[]): void;
-    map<U>(callback: (path: this, index: number) => U, ...names: PropertyKey[]): U[];
+    map<U>(
+        callback: (path: this, index: number) => U,
+        ...names: PropertyKey[]
+    ): U[];
 }
 
 export type BuiltInParser = (text: string, options?: any) => AST;
 export type BuiltInParserName =
-    | 'babylon' // deprecated
-    | 'babel'
-    | 'babel-flow'
-    | 'flow'
-    | 'typescript'
-    | 'postcss' // deprecated
-    | 'css'
-    | 'less'
-    | 'scss'
-    | 'json'
-    | 'json5'
-    | 'json-stringify'
-    | 'graphql'
-    | 'markdown'
-    | 'vue'
-    | 'html'
-    | 'angular'
-    | 'mdx'
-    | 'yaml';
+    | "babylon" // deprecated
+    | "babel"
+    | "babel-flow"
+    | "flow"
+    | "typescript"
+    | "postcss" // deprecated
+    | "css"
+    | "less"
+    | "scss"
+    | "json"
+    | "json5"
+    | "json-stringify"
+    | "graphql"
+    | "markdown"
+    | "vue"
+    | "html"
+    | "angular"
+    | "mdx"
+    | "yaml";
 
-export type CustomParser = (text: string, parsers: Record<BuiltInParserName, BuiltInParser>, options: Options) => AST;
+export type CustomParser = (
+    text: string,
+    parsers: Record<BuiltInParserName, BuiltInParser>,
+    options: Options
+) => AST;
 
 export interface Options extends Partial<RequiredOptions> {}
 export interface RequiredOptions extends doc.printer.Options {
@@ -60,7 +67,7 @@ export interface RequiredOptions extends doc.printer.Options {
     /**
      * Print trailing commas wherever possible.
      */
-    trailingComma: 'none' | 'es5' | 'all';
+    trailingComma: "none" | "es5" | "all";
     /**
      * Print spaces between brackets in object literals.
      */
@@ -103,13 +110,13 @@ export interface RequiredOptions extends doc.printer.Options {
      */
     proseWrap:
         | boolean // deprecated
-        | 'always'
-        | 'never'
-        | 'preserve';
+        | "always"
+        | "never"
+        | "preserve";
     /**
      * Include parentheses around a sole arrow function parameter.
      */
-    arrowParens: 'avoid' | 'always';
+    arrowParens: "avoid" | "always";
     /**
      * The plugin API is in a beta state.
      */
@@ -117,11 +124,11 @@ export interface RequiredOptions extends doc.printer.Options {
     /**
      * How to handle whitespaces in HTML.
      */
-    htmlWhitespaceSensitivity: 'css' | 'strict' | 'ignore';
+    htmlWhitespaceSensitivity: "css" | "strict" | "ignore";
     /**
      * Which end of line characters to apply.
      */
-    endOfLine: 'auto' | 'lf' | 'crlf' | 'cr';
+    endOfLine: "auto" | "lf" | "crlf" | "cr";
 }
 
 export interface ParserOptions extends RequiredOptions {
@@ -139,7 +146,11 @@ export interface Plugin {
 }
 
 export interface Parser {
-    parse: (text: string, parsers: { [parserName: string]: Parser }, options: ParserOptions) => AST;
+    parse: (
+        text: string,
+        parsers: { [parserName: string]: Parser },
+        options: ParserOptions
+    ) => AST;
     astFormat: string;
     hasPragma?: (text: string) => boolean;
     locStart: (node: any) => number;
@@ -151,13 +162,13 @@ export interface Printer {
     print(
         path: FastPath,
         options: ParserOptions,
-        print: (path: FastPath) => Doc,
+        print: (path: FastPath) => Doc
     ): Doc;
     embed?: (
         path: FastPath,
         print: (path: FastPath) => Doc,
         textToDoc: (text: string, options: Options) => Doc,
-        options: ParserOptions,
+        options: ParserOptions
     ) => Doc | null;
     insertPragma?: (text: string) => string;
     /**
@@ -169,11 +180,34 @@ export interface Printer {
     hasPrettierIgnore?: (path: FastPath) => boolean;
     canAttachComment?: (node: any) => boolean;
     willPrintOwnComments?: (path: FastPath) => boolean;
-    printComments?: (path: FastPath, print: (path: FastPath) => Doc, options: ParserOptions, needsSemi: boolean) => Doc;
+    printComments?: (
+        path: FastPath,
+        print: (path: FastPath) => Doc,
+        options: ParserOptions,
+        needsSemi: boolean
+    ) => Doc;
     handleComments?: {
-        ownLine?: (commentNode: any, text: string, options: ParserOptions, ast: any, isLastComment: boolean) => boolean;
-        endOfLine?: (commentNode: any, text: string, options: ParserOptions, ast: any, isLastComment: boolean) => boolean;
-        remaining?: (commentNode: any, text: string, options: ParserOptions, ast: any, isLastComment: boolean) => boolean;
+        ownLine?: (
+            commentNode: any,
+            text: string,
+            options: ParserOptions,
+            ast: any,
+            isLastComment: boolean
+        ) => boolean;
+        endOfLine?: (
+            commentNode: any,
+            text: string,
+            options: ParserOptions,
+            ast: any,
+            isLastComment: boolean
+        ) => boolean;
+        remaining?: (
+            commentNode: any,
+            text: string,
+            options: ParserOptions,
+            ast: any,
+            isLastComment: boolean
+        ) => boolean;
     };
 }
 
@@ -208,7 +242,10 @@ export function check(source: string, options?: Options): boolean;
  *
  * The `cursorOffset` option should be provided, to specify where the cursor is. This option cannot be used with `rangeStart` and `rangeEnd`.
  */
-export function formatWithCursor(source: string, options: CursorOptions): CursorResult;
+export function formatWithCursor(
+    source: string,
+    options: CursorOptions
+): CursorResult;
 
 export interface ResolveConfigOptions {
     /**
@@ -244,9 +281,15 @@ export interface ResolveConfigOptions {
  *
  * The promise will be rejected if there was an error parsing the configuration file.
  */
-export function resolveConfig(filePath: string, options?: ResolveConfigOptions): Promise<null | Options>;
+export function resolveConfig(
+    filePath: string,
+    options?: ResolveConfigOptions
+): Promise<null | Options>;
 export namespace resolveConfig {
-    function sync(filePath: string, options?: ResolveConfigOptions): null | Options;
+    function sync(
+        filePath: string,
+        options?: ResolveConfigOptions
+    ): null | Options;
 }
 
 /**
@@ -273,7 +316,7 @@ export interface SupportLanguage {
 
 export interface SupportOption {
     since?: string;
-    type: 'int' | 'boolean' | 'choice' | 'path';
+    type: "int" | "boolean" | "choice" | "path";
     array?: boolean;
     deprecated?: string;
     redirect?: SupportOptionRedirect;
@@ -321,7 +364,10 @@ export interface FileInfoResult {
     inferredParser: string | null;
 }
 
-export function getFileInfo(filePath: string, options?: FileInfoOptions): Promise<FileInfoResult>;
+export function getFileInfo(
+    filePath: string,
+    options?: FileInfoOptions
+): Promise<FileInfoResult>;
 
 export namespace getFileInfo {
     function sync(filePath: string, options?: FileInfoOptions): FileInfoResult;
@@ -341,10 +387,22 @@ export const version: string;
 
 // https://github.com/prettier/prettier/blob/master/src/common/util-shared.js
 export namespace util {
-    function isNextLineEmpty(text: string, node: any, options: ParserOptions): boolean;
+    function isNextLineEmpty(
+        text: string,
+        node: any,
+        options: ParserOptions
+    ): boolean;
     function isNextLineEmptyAfterIndex(text: string, index: number): boolean;
-    function getNextNonSpaceNonCommentCharacterIndex(text: string, node: any, options: ParserOptions): number;
-    function makeString(rawContent: string, enclosingQuote: "'" | '"', unescapeUnnecessaryEscapes: boolean): string;
+    function getNextNonSpaceNonCommentCharacterIndex(
+        text: string,
+        node: any,
+        options: ParserOptions
+    ): number;
+    function makeString(
+        rawContent: string,
+        enclosingQuote: "'" | '"',
+        unescapeUnnecessaryEscapes: boolean
+    ): string;
     function addLeadingComment(node: any, commentNode: any): void;
     function addDanglingComment(node: any, commentNode: any): void;
     function addTrailingComment(node: any, commentNode: any): void;
@@ -367,64 +425,71 @@ export namespace doc {
             | LineSuffixBoundary;
 
         interface Align {
-            type: 'align';
+            type: "align";
             contents: Doc;
-            n: number | string | { type: 'root' };
+            n: number | string | { type: "root" };
         }
 
         interface BreakParent {
-            type: 'break-parent';
+            type: "break-parent";
         }
 
         interface Concat {
-            type: 'concat';
+            type: "concat";
             parts: Doc[];
         }
 
         interface Fill {
-            type: 'fill';
+            type: "fill";
             parts: Doc[];
         }
 
         interface Group {
-            type: 'group';
+            type: "group";
             contents: Doc;
             break: boolean;
             expandedStates: Doc[];
         }
 
         interface IfBreak {
-            type: 'if-break';
+            type: "if-break";
             breakContents: Doc;
             flatContents: Doc;
         }
 
         interface Indent {
-            type: 'indent';
+            type: "indent";
             contents: Doc;
         }
 
         interface Line {
-            type: 'line';
+            type: "line";
             soft?: boolean;
             hard?: boolean;
             literal?: boolean;
         }
 
         interface LineSuffix {
-            type: 'line-suffix';
+            type: "line-suffix";
             contents: Doc;
         }
 
         interface LineSuffixBoundary {
-            type: 'line-suffix-boundary';
+            type: "line-suffix-boundary";
         }
 
-        function addAlignmentToDoc(doc: Doc, size: number, tabWidth: number): Doc;
-        function align(n: Align['n'], contents: Doc): Align;
+        function addAlignmentToDoc(
+            doc: Doc,
+            size: number,
+            tabWidth: number
+        ): Doc;
+        function align(n: Align["n"], contents: Doc): Align;
         const breakParent: BreakParent;
         function concat(contents: Doc[]): Concat;
-        function conditionalGroup(states: Doc[], opts?: { shouldBreak: boolean }): Group;
+        function conditionalGroup(
+            states: Doc[],
+            opts?: { shouldBreak: boolean }
+        ): Group;
         function dedent(contents: Doc): Align;
         function dedentToRoot(contents: Doc): Align;
         function fill(parts: Doc[]): Fill;
@@ -444,7 +509,10 @@ export namespace doc {
         function printDocToDebug(doc: Doc): string;
     }
     namespace printer {
-        function printDocToString(doc: Doc, options: Options): {
+        function printDocToString(
+            doc: Doc,
+            options: Options
+        ): {
             formatted: string;
             cursorNodeStart?: number;
             cursorNodeText?: string;
@@ -468,7 +536,12 @@ export namespace doc {
         function isEmpty(doc: Doc): boolean;
         function isLineNext(doc: Doc): boolean;
         function willBreak(doc: Doc): boolean;
-        function traverseDoc(doc: Doc, onEnter?: (doc: Doc) => void | boolean, onExit?: (doc: Doc) => void, shouldTraverseConditionalGroups?: boolean): void;
+        function traverseDoc(
+            doc: Doc,
+            onEnter?: (doc: Doc) => void | boolean,
+            onExit?: (doc: Doc) => void,
+            shouldTraverseConditionalGroups?: boolean
+        ): void;
         function mapDoc<T>(doc: Doc, callback: (doc: Doc) => T): T;
         function propagateBreaks(doc: Doc): void;
         function removeLines(doc: Doc): Doc;
